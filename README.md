@@ -40,6 +40,7 @@ node tools/smoke.js
 ```
 web3-101/
 ├── README.md
+├── LICENSE          MIT 许可证
 ├── SPEC.md          子文章写作规范：结构、助手函数、编号规则
 ├── FIGURES.md       主视觉图（art kit）写作指南
 ├── build.sh         把 src/ 拼成 index.html
@@ -53,3 +54,7 @@ web3-101/
 │   └── tail.js      实验室页、术语表页与启动代码
 └── tools/           冒烟测试、插图检查、插图预览
 ```
+
+## 许可证
+
+本项目使用 [MIT 许可证](LICENSE)。
