@@ -1,9 +1,9 @@
-/* ---------- M09 子文章（m08a 第 3 部分）：做市机制 ---------- */
+/* ---------- M11 子文章（m08a 第 3 部分）：做市机制 ---------- */
 (() => {
 CUR = 'm08-3';
-addCh({ id: 'm08-3', nav: '做市机制', title: 'M09.3 做市机制：订单簿、LMSR 与固定乘积做市', desc: '没有对手方怎么交易？推导 LMSR，拆解 FPMM，学会选参数 b', html: `
-<h1>M09.3 做市机制：订单簿、LMSR 与固定乘积做市</h1>
-${meta(['说出订单簿模式的流动性来源和冷启动问题。', '从成本函数推导出 LMSR 的价格函数和最大亏损 b·ln n，并完成二元与多结果的数值计算。', '解释 FPMM 的买入流程，比较三种机制，并按补贴预算选择参数 b。'], '<a href="#m08-2">M09.2 交易与套利</a>；建议先做 <a href="#lab-amm">AMM 实验</a>', ['lmsr'])}
+addCh({ id: 'm08-3', nav: '做市机制', title: 'M11.3 做市机制：订单簿、LMSR 与固定乘积做市', desc: '没有对手方怎么交易？推导 LMSR，拆解 FPMM，学会选参数 b', html: `
+<h1>M11.3 做市机制：订单簿、LMSR 与固定乘积做市</h1>
+${meta(['说出订单簿模式的流动性来源和冷启动问题。', '从成本函数推导出 LMSR 的价格函数和最大亏损 b·ln n，并完成二元与多结果的数值计算。', '解释 FPMM 的买入流程，比较三种机制，并按补贴预算选择参数 b。'], '<a href="#m08-2">M11.2 交易与套利</a>；建议先做 <a href="#lab-amm">AMM 实验</a>', ['lmsr'])}
 ${beginner(`<p><strong>流动性（Liquidity）</strong>：你想买或卖时，能不能马上以接近当前价格成交。流动性好 = 买卖方便、价格不容易被推动。</p>
 <p><strong>做市商（Market Maker）</strong>：随时报出买价和卖价、等别人来成交的一方。可以是人、机构，也可以是一段算法（自动做市商，AMM）。</p>
 <p><strong>自动做市商（Automated Market Maker, AMM）</strong>：用一个数学公式决定价格的合约。你和公式交易，不需要另一个人。</p>
@@ -101,7 +101,7 @@ ${steps(['<strong>按预算定 b</strong>：平台愿意为这个市场最多补
 ${call('deep', `<p><strong>液体敏感 LMSR（Liquidity-Sensitive LMSR, LS-LMSR）</strong>：Othman 等人在 2010 年提出${cite('Othman et al. (2010) A Practical Liquidity-Sensitive Automated Market Maker', 'https://aminer.org/pub/5390aa7620f70186a0eab8df/a-practical-liquidity-sensitive-automated-market-maker')}，让 b 随已售份额总量增长。好处是成交量大时市场自动变深，并且做市商可能盈利；代价是价格之和略大于 1（隐含手续费），实现更复杂。</p>`)}
 
 <h2>4. CPMM / FPMM：固定乘积做市</h2>
-<p><strong>固定乘积做市商（Fixed Product Market Maker, FPMM）</strong>是 Gnosis 团队为条件代币设计的 AMM，曾用于 Omen 等预测市场。它和 Uniswap 的恒定乘积（CPMM，x · y = k，见 <a href="#m02-10">M06.2 AMM 深入</a>）同源，但池子里存的是各结果的份额，而不是两种代币。</p>
+<p><strong>固定乘积做市商（Fixed Product Market Maker, FPMM）</strong>是 Gnosis 团队为条件代币设计的 AMM，曾用于 Omen 等预测市场。它和 Uniswap 的恒定乘积（CPMM，x · y = k，见 <a href="#m02-10">M08.2 AMM 深入</a>）同源，但池子里存的是各结果的份额，而不是两种代币。</p>
 ${steps(['<strong>添加流动性</strong>：LP 存入 F USDC，合约拆分成 F 份 YES + F 份 NO 放入池子，初始价格 0.50 / 0.50。', '<strong>买入 YES</strong>：交易者付 x USDC → 合约先拆分成 x YES + x NO 加入池子 → 再从池子取出若干 YES 给交易者，使“各结果余额的乘积”保持不变。', '<strong>价格</strong>：二元市场 p<sub>YES</sub> = n<sub>NO</sub> / (n<sub>YES</sub> + n<sub>NO</sub>)。池子里 YES 越少，YES 越贵。', '<strong>手续费</strong>：从投入金额里扣一部分留给 LP。', '<strong>结算</strong>：池子剩余的份额按结果兑付，归 LP 所有。'])}
 <p><strong>算一算（示例：池子 100 YES + 100 NO，不计手续费，买入 10 USDC 的 YES）</strong></p>
 ${steps(['不变量 k = 100 × 100 = 10,000。', '10 USDC 拆分成 10 YES + 10 NO 加入池子：池子变为 110 YES + 110 NO。', '保持乘积不变：YES 余额 y 满足 y × 110 = 10,000，y ≈ 90.91。', '交易者得到 110 − 90.91 = 19.09 份 YES，均价 10 / 19.09 ≈ 0.524。', '新价格 YES = 110 / (90.91 + 110) ≈ 0.548。'])}

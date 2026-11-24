@@ -1,9 +1,9 @@
-/* ---------- M09 子文章（m08a 第 1 部分）：预测市场入门 ---------- */
+/* ---------- M11 子文章（m08a 第 1 部分）：预测市场入门 ---------- */
 (() => {
 CUR = 'm08-1';
-addCh({ id: 'm08-1', nav: '预测市场入门', title: 'M09.1 预测市场入门：把观点变成价格', desc: '份额、赔付、价格≈概率、历史演进、用途与局限，一篇讲透', html: `
-<h1>M09.1 预测市场入门：把观点变成价格</h1>
-${meta(['用期望值解释“价格≈概率”，并能算出一笔预测市场交易的期望盈亏。', '区分二元市场、多结果市场、标量市场，并说出各自的赔付规则。', '说出预测市场与博彩的区别、四类主要局限，以及平台的核心数据模型。'], '<a href="#m08">M09 模块总览</a>、<a href="#m02">M02 智能合约开发</a>、<a href="#m13">M06 DeFi 协议</a>（了解代币与稳定币即可）')}
+addCh({ id: 'm08-1', nav: '预测市场入门', title: 'M11.1 预测市场入门：把观点变成价格', desc: '份额、赔付、价格≈概率、历史演进、用途与局限，一篇讲透', html: `
+<h1>M11.1 预测市场入门：把观点变成价格</h1>
+${meta(['用期望值解释“价格≈概率”，并能算出一笔预测市场交易的期望盈亏。', '区分二元市场、多结果市场、标量市场，并说出各自的赔付规则。', '说出预测市场与博彩的区别、四类主要局限，以及平台的核心数据模型。'], '<a href="#m08">M11 模块总览</a>、<a href="#m02">M02 智能合约开发</a>、<a href="#m13">M08 DeFi 协议</a>（了解代币与稳定币即可）')}
 ${beginner(`<p><strong>事件（Event）</strong>：一个未来会有明确答案的问题，例如“某城市 2026 年 12 月 31 日前的日最高气温会超过 40°C 吗？”。</p>
 <p><strong>份额（Share）</strong>：一张“条件兑付券”。规则写明：如果某个结果发生，每份兑付 1 单位抵押品；不发生，兑付 0。</p>
 <p><strong>抵押品（Collateral）</strong>：市场里用来买卖和兑付的资产。链上预测市场通常用 <strong>USDC</strong>（一种与美元 1:1 挂钩的稳定币）。</p>
@@ -40,7 +40,7 @@ flowchart LR
   ['fail', '如果预言机公布错误结果，合约会把钱兑给错误的一方。合约无法自己判断现实世界。'],
   ['risk', '托管合约有漏洞时，全部抵押品都有风险。这是链上预测市场最大的技术风险。']
 ])}
-${call('info', `<p>“1 YES + 1 NO = 1 USDC”叫<strong>完整集合（Complete Set）</strong>。它是整个预测市场的会计基础，也是套利的基础。<a href="#m08-2">M09.2 交易与套利</a>会逐步展开。</p>`)}
+${call('info', `<p>“1 YES + 1 NO = 1 USDC”叫<strong>完整集合（Complete Set）</strong>。它是整个预测市场的会计基础，也是套利的基础。<a href="#m08-2">M11.2 交易与套利</a>会逐步展开。</p>`)}
 
 <h2>3. 为什么价格≈概率</h2>
 <h3>3.1 期望值论证</h3>
@@ -85,7 +85,7 @@ ${tbl(['年份', '平台', '特点', '结局 / 现状'], [
   ['2020 年起', 'Polymarket', '链下订单簿撮合 + Polygon 链上结算，USDC 抵押，UMA 乐观预言机结算', '2022 年 1 月与 CFTC 和解（罚款 140 万美元）并屏蔽美国用户' + cite('CFTC：Polymarket 和解新闻稿', 'https://www.cftc.gov/PressRoom/PressReleases/8478-22') + '；2024 年美国总统大选主市场成交量约 36 亿美元' + cite('Decrypt：Polymarket 结算美国大选市场', 'https://decrypt.co/290374/polymarket-donald-trump-us-presidential-election') + '；2025 年 7 月宣布收购持牌交易所 QCEX，寻求合规进入美国' + cite('The Block：Polymarket 收购 QCEX', 'https://www.theblock.co/post/363623/polymarket-plans-to-re-enter-us-with-acquisition-of-derivatives-exchange-qcex') + '（截至 2026 年公开资料）'],
   ['2021 年上线', 'Kalshi', '美国 CFTC 批准的指定合约市场（DCM，2020 年 11 月获批），法币入金，受监管' + cite('CFTC：Kalshi 获指定合约市场资格', 'https://www.cftc.gov/PressRoom/PressReleases/8302-20'), '2024 年 9 月在与 CFTC 的诉讼中获胜后上线选举合约' + cite('Axios：法院允许 Kalshi 上线选举合约', 'https://www.axios.com/2024/09/12/betting-elections-predictions-market-cftc-kalshi') + '；体育类合约与部分州的博彩监管存在争议（截至 2026 年公开资料）']
 ])}
-<p>详细的链上架构见 <a href="#m08-5">M09.5 Polymarket 架构拆解</a>；Augur 的去中心化裁决见 <a href="#m08-4">M09.4 结算与预言机</a>。</p>
+<p>详细的链上架构见 <a href="#m08-5">M11.5 Polymarket 架构拆解</a>；Augur 的去中心化裁决见 <a href="#m08-4">M11.4 结算与预言机</a>。</p>
 <h3>4.3 参与者类型</h3>
 ${tbl(['参与者', '动机', '对市场的作用'], [
   ['信息交易者（Informed Trader）', '拥有更准的信息或模型，赚取 q − p', '把价格推向真实概率，是价格准确的来源'],
@@ -110,11 +110,11 @@ ${call('warn', `<p>监管机构不一定接受这种区分。很多国家和地�
 ${steps(['<strong>预测与决策参考</strong>：媒体和研究者引用市场概率作为参考指标。', '<strong>对冲</strong>：企业或个人对冲政策、天气、赛事结果等风险。', '<strong>公司内部预测市场</strong>：员工交易“项目能否按期上线”，管理层获得比汇报更真实的信号。', '<strong>机制设计实验</strong>：例如“未来治理”（Futarchy）思路——用市场价格评估一项政策的效果。'])}
 <h3>5.3 局限</h3>
 ${tbl(['局限', '具体表现', '缓解方式'], [
-  ['流动性不足', '冷门市场价差大，几百美元就能推动价格', '自动做市商（<a href="#m08-3">M09.3</a>）、做市激励'],
+  ['流动性不足', '冷门市场价差大，几百美元就能推动价格', '自动做市商（<a href="#m08-3">M11.3</a>）、做市激励'],
   ['操纵', '大户刻意推高价格制造舆论（价格本身成为宣传）', '深度越大操纵越贵；操纵制造的偏离会被套利者吃掉'],
   ['监管', '地域屏蔽、KYC 要求、合约类型受限', '持牌运营或严格地域限制'],
   ['长期市场的资金成本', '资金锁定到结算日，概率被系统性压低', '抵押品生息、缩短市场期限'],
-  ['结算风险', '规则含糊、预言机出错或被操纵', '规则写清数据源和边界情况（<a href="#m08-4">M09.4</a>）'],
+  ['结算风险', '规则含糊、预言机出错或被操纵', '规则写清数据源和边界情况（<a href="#m08-4">M11.4</a>）'],
   ['道德风险', '能影响结果的人下注（内幕交易）', '禁止相关方参与、监控异常交易']
 ])}
 <p><strong>算一算（示例）：长期市场的资金成本</strong>。一个市场 2 年后结算，你认为 YES 概率 80%，可以选择把钱放在年化 5% 的稳健收益产品里。</p>
@@ -136,7 +136,7 @@ CREATE TABLE markets (
   close_time      TIMESTAMPTZ NOT NULL,           -- 停止交易时间
   status          TEXT NOT NULL DEFAULT 'open'
                   CHECK (status IN ('draft','open','closed','proposed','disputed','resolved','voided')),
-  condition_id    BYTEA,                          -- 链上条件 ID（见 M09.5）
+  condition_id    BYTEA,                          -- 链上条件 ID（见 M11.5）
   created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 

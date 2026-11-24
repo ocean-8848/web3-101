@@ -3,7 +3,7 @@
 CUR = 'm07-10';
 addCh({ id: 'm07-10', nav: '实战·设计：DEX 兑换前端', title: 'M03.10 实战·设计：DEX 兑换前端（Next.js + wagmi + viem）', desc: '项目目标、需求拆解、系统架构、技术选型、数据模型与接口设计', html: `
 <h1>M03.10 实战·设计：DEX 兑换前端（Next.js + wagmi + viem）</h1>
-${meta(['独立设计一个多链 DEX 兑换前端的架构、组件树、状态机和接口。', '实现报价 hook、approve/Permit2 授权、兑换、交易追踪和错误处理的关键代码。', '制定测试（anvil 分叉 E2E）、部署（Vercel/IPFS + CSP）、监控和安全清单，并按 6 周交付。'], '本模块 <a href="#m07-1">M03.1</a> 至 <a href="#m07-9">M03.9</a>、<a href="#m02-10">M06.2 AMM 深入</a>', ['units', 'eip712', 'txlife'])}
+${meta(['独立设计一个多链 DEX 兑换前端的架构、组件树、状态机和接口。', '实现报价 hook、approve/Permit2 授权、兑换、交易追踪和错误处理的关键代码。', '制定测试（anvil 分叉 E2E）、部署（Vercel/IPFS + CSP）、监控和安全清单，并按 6 周交付。'], '本模块 <a href="#m07-1">M03.1</a> 至 <a href="#m07-9">M03.9</a>、<a href="#m02-10">M08.2 AMM 深入</a>', ['units', 'eip712', 'txlife'])}
 ${beginner(`<p><strong>DEX（去中心化交易所）</strong>：用智能合约撮合兑换的交易所，例如 Uniswap。用户自己保管资产（原理见 <a href="#lab-amm">AMM 实验</a>）。</p>
 <p><strong>报价（Quote）</strong>：在当前池子状态下，用 X 个 A 代币能换到多少个 B 代币。</p>
 <p><strong>Quoter 合约</strong>：Uniswap 提供的“只算不换”合约，模拟一次兑换并返回结果。</p>
@@ -626,7 +626,7 @@ ${tbl(['周', '目标', '交付物'], [
 
 <h2>12. 扩展方向与面试/作品集要点</h2>
 ${steps(['<strong>扩展</strong>：多跳路由（exactInput + path 编码）；精确输出（exact output）；Uniswap V4 与 Universal Router；跨链兑换（意图/桥聚合）；限价单（链下签名订单）；智能账户批量调用（EIP-5792，approve + swap 一次确认）；Gas 代付。', '<strong>作品集展示</strong>：线上地址 + IPFS CID；架构图与状态机图；E2E 录屏；监控大盘截图；一页“安全设计说明”。', '<strong>面试高频问题</strong>：为什么金额不能用 number？报价过期怎么处理？minOut 怎么算、为什么能防夹子？用户加速交易后前端怎么追踪？无限授权的风险和替代方案？前端如何防供应链攻击？SSR 水合问题怎么解决？', '<strong>讲清取舍</strong>：链上 Quoter vs 聚合器、approve vs Permit2、乐观更新 vs 等回执、自建索引 vs 托管服务。'])}
-<p><strong>下一步：毕业项目</strong>。把合约、前端、后端和上线运维串成一个完整作品，见 <a href="#m12">M12 综合毕业项目</a>。</p>
+<p><strong>下一步：毕业项目</strong>。把合约、前端、后端和上线运维串成一个完整作品，见 <a href="#m12">M14 综合毕业项目</a>。</p>
 
 ${mistakes([
   ['报价显示出来就可以一直用。', '报价随区块变化。超过 15–30 秒或新区块到来要刷新，提交前必须重新报价。'],

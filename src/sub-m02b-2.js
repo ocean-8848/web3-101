@@ -1,9 +1,9 @@
 /* ---------- M02 子文章（m02b-2）：稳定币 / AMM 深入 ---------- */
 (() => {
 CUR = 'm02-9';
-addCh({ id: 'm02-9', nav: '稳定币', title: 'M06.1 稳定币：法币抵押、超额抵押、算法与工程集成', desc: '三类稳定币如何维持 1 美元，为什么会脱锚，集成时要注意什么', html: `
-<h1>M06.1 稳定币：法币抵押、超额抵押、算法与工程集成</h1>
-${meta(['说清三类稳定币各自靠什么维持 1 美元，以及各自的失败方式。', '用 MakerDAO 的 CDP 模型算出清算价格，并解释稳定费和 PSM 的作用。', '在合约和后端集成稳定币时，正确处理精度、黑名单、可升级风险和脱锚。'], '<a href="#m02-5">M02.5 ERC-20 与授权</a>、<a href="#m13">M06 总览</a>')}
+addCh({ id: 'm02-9', nav: '稳定币', title: 'M08.1 稳定币：法币抵押、超额抵押、算法与工程集成', desc: '三类稳定币如何维持 1 美元，为什么会脱锚，集成时要注意什么', html: `
+<h1>M08.1 稳定币：法币抵押、超额抵押、算法与工程集成</h1>
+${meta(['说清三类稳定币各自靠什么维持 1 美元，以及各自的失败方式。', '用 MakerDAO 的 CDP 模型算出清算价格，并解释稳定费和 PSM 的作用。', '在合约和后端集成稳定币时，正确处理精度、黑名单、可升级风险和脱锚。'], '<a href="#m02-5">M02.5 ERC-20 与授权</a>、<a href="#m13">M08 总览</a>')}
 ${beginner(`<p><strong>锚定（Peg）</strong>：稳定币承诺的目标价格，通常是 1 美元。价格明显偏离目标叫<strong>脱锚（Depeg）</strong>。</p>
 <p><strong>储备（Reserve）</strong>：发行方为支撑稳定币持有的资产，例如现金和短期美国国债。</p>
 <p><strong>铸造 / 赎回（Mint / Redeem）</strong>：用 1 美元换 1 枚新币叫铸造；把币交回、拿回 1 美元叫赎回。</p>
@@ -59,9 +59,9 @@ ${steps([
   '<strong>赎回</strong>：客户把代币转给发行方，发行方销毁（burn）代币并电汇美元。普通用户通常不能直接赎回，而是在交易所卖出。',
   '<strong>套利维持锚定</strong>：币价 0.99 时，套利者在市场买入、找发行方 1 美元赎回；币价 1.01 时，套利者 1 美元铸造、在市场卖出。',
   '<strong>储备披露</strong>：Circle 每月发布第三方鉴证报告' + cite('Circle：USDC Transparency', 'https://www.circle.com/transparency') + '；Tether 按季度发布鉴证报告' + cite('Tether：2026 年第一季度鉴证报告公告', 'https://tether.io/news/tether-posts-1-04b-q1-2026-profit-despite-highly-volatile-global-markets-reaches-all-time-highs-8-23b-reserve-buffer-and-maintains-u-s-treasury-heavy-backing/') + '。储备主要是现金和短期美国国债（以发行方最新报告为准）。',
-  '<strong>冻结与黑名单</strong>：合约内置黑名单。被列入的地址无法转出（USDC 也无法转入）。发行方按执法要求冻结被盗资金或受制裁地址（制裁筛查见 <a href="#m11-2">M05.2 KYC、AML 与制裁筛查</a>）。'
+  '<strong>冻结与黑名单</strong>：合约内置黑名单。被列入的地址无法转出（USDC 也无法转入）。发行方按执法要求冻结被盗资金或受制裁地址（制裁筛查见 <a href="#m11-2">M07.2 KYC、AML 与制裁筛查</a>）。'
 ])}
-${call('info', `<p>监管：欧盟 MiCA 对稳定币（ART / EMT）发行方的规定自 2024 年 6 月 30 日起适用；${cite('EBA：Asset-referenced and e-money tokens (MiCA)', 'https://www.eba.europa.eu/regulation-and-policy/asset-referenced-and-e-money-tokens-mica')}美国《GENIUS 法案》于 2025 年 7 月 18 日签署，为支付型稳定币建立联邦框架。${cite('白宫：GENIUS 法案签署说明', 'https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/')}合规要求影响哪些稳定币能在哪些地区的交易所上架，具体以最新法规为准；各法域的稳定币规则对比见 <a href="#m11-4">M05.4 主要法域</a>。</p>`)}
+${call('info', `<p>监管：欧盟 MiCA 对稳定币（ART / EMT）发行方的规定自 2024 年 6 月 30 日起适用；${cite('EBA：Asset-referenced and e-money tokens (MiCA)', 'https://www.eba.europa.eu/regulation-and-policy/asset-referenced-and-e-money-tokens-mica')}美国《GENIUS 法案》于 2025 年 7 月 18 日签署，为支付型稳定币建立联邦框架。${cite('白宫：GENIUS 法案签署说明', 'https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/')}合规要求影响哪些稳定币能在哪些地区的交易所上架，具体以最新法规为准；各法域的稳定币规则对比见 <a href="#m11-4">M07.4 主要法域</a>。</p>`)}
 <h3>3.1 脱锚案例：2023 年 3 月 USDC 与硅谷银行</h3>
 ${mm('USDC 脱锚因果链（2023 年 3 月 10–13 日）', `
 flowchart LR
@@ -121,14 +121,14 @@ flowchart TB
 `, [
   ['flow', '正反馈回路：UST 跌 → 增发 LUNA → LUNA 跌 → 信心更差 → UST 再跌。'],
   ['risk', '“用自己发行的代币做抵押”在恐慌时没有外部价值支撑。收益率越高、增长越快，崩溃规模越大。' + cite('NBER：Anatomy of a Run: The Terra Luna Crash', 'https://www.nber.org/papers/w31160') + cite('The Block：Terra、Luna 与 UST 崩溃经过', 'https://www.theblock.co/post/146444/terra-luna-and-ust-how-we-got-here') + cite('GSR：Dissecting the Terra/UST Bank Run', 'https://www.gsr.io/wp-content/uploads/2022/05/2022.05.25_Dissecting-the-Terra_UST-Bank-Run.pdf')],
-  ['key', '看稳定币收益率时问：收益来自哪里？UST 的 20% 收益靠补贴，不可持续；代币设计层面的失败方式见 <a href="#m02-60">M06.6 代币经济设计</a> 第 7 节。'],
+  ['key', '看稳定币收益率时问：收益来自哪里？UST 的 20% 收益靠补贴，不可持续；代币设计层面的失败方式见 <a href="#m02-60">M08.6 代币经济设计</a> 第 7 节。'],
   ['limit', '赎回机制也有容量上限，大规模挤兑时套利来不及。']
 ])}
 <h3>5.2 Ethena 类 delta 中性设计</h3>
-<p>USDe 的思路：用户存入 ETH（或质押 ETH），协议在中心化交易所开等值的永续合约空头。ETH 涨 10%：现货赚 10%，空头亏 10%，总价值不变。这叫 <strong>delta 中性</strong>。收益来自质押收益和永续合约的<strong>资金费率</strong>（多头付给空头的费用，见 <a href="#m08">M09</a>）。风险：① 资金费率长期为负时，空头要付钱，侵蚀储备；② 头寸放在交易所，存在交易所对手方和托管风险；③ 极端行情下对冲腿和现货腿可能无法同时平仓。</p>
+<p>USDe 的思路：用户存入 ETH（或质押 ETH），协议在中心化交易所开等值的永续合约空头。ETH 涨 10%：现货赚 10%，空头亏 10%，总价值不变。这叫 <strong>delta 中性</strong>。收益来自质押收益和永续合约的<strong>资金费率</strong>（多头付给空头的费用，见 <a href="#m08">M11</a>）。风险：① 资金费率长期为负时，空头要付钱，侵蚀储备；② 头寸放在交易所，存在交易所对手方和托管风险；③ 极端行情下对冲腿和现货腿可能无法同时平仓。</p>
 
 <h2>6. 稳定币在 DeFi、支付中的角色与工程集成</h2>
-<p>在 DeFi 中，稳定币是 AMM 的主要计价资产、借贷池里借款需求最大的资产、衍生品的保证金和清算单位。在支付中，稳定币用于跨境汇款、交易所之间的结算、商户收款（商户收款链路与跨境结算见 <a href="#m09-4">M11.4 RWA 与链上支付</a>）。对后端来说，稳定币就是一个 ERC-20 合约，但有几个与“普通代币”不同的坑：</p>
+<p>在 DeFi 中，稳定币是 AMM 的主要计价资产、借贷池里借款需求最大的资产、衍生品的保证金和清算单位。在支付中，稳定币用于跨境汇款、交易所之间的结算、商户收款（商户收款链路与跨境结算见 <a href="#m09-4">M13.4 RWA 与链上支付</a>）。对后端来说，稳定币就是一个 ERC-20 合约，但有几个与“普通代币”不同的坑：</p>
 ${tbl(['坑', '事实', '工程处理'], [
   ['精度', '以太坊上 USDC、USDT 为 6 位小数；DAI 为 18 位；BSC 上的 USDT 为 18 位', '永远读取 decimals()，按“链 + 合约地址”配置，不按币名硬编码'],
   ['非标准返回值', '以太坊 USDT 的 transfer / approve 不返回 bool', '合约用 SafeERC20；后端用回执的 Transfer 事件确认到账'],
@@ -214,9 +214,9 @@ ${terms([
 ` });
 
 CUR = 'm02-10';
-addCh({ id: 'm02-10', nav: 'AMM 深入', title: 'M06.2 AMM 深入：恒定乘积、Uniswap V2/V3、Curve 与 LP 风险', desc: '从公式推导到合约调用链，再到集中流动性与 LP 真实收益', html: `
-<h1>M06.2 AMM 深入：恒定乘积、Uniswap V2/V3、Curve 与 LP 风险</h1>
-${meta(['推导恒定乘积的成交公式、价格影响和 LP 份额公式，并能手算。', '画出 Uniswap V2 的 Factory / Pair / Router 结构和一次 swap 的调用链；解释 V3 的 tick 和虚拟储备。', '比较 AMM、Curve、聚合器和订单簿，评估 LP 的收益与风险（无常损失、LVR）。'], '<a href="#m13">M06 总览</a>、<a href="#m02-5">M02.5 ERC-20 与授权</a>', ['amm', 'il'])}
+addCh({ id: 'm02-10', nav: 'AMM 深入', title: 'M08.2 AMM 深入：恒定乘积、Uniswap V2/V3、Curve 与 LP 风险', desc: '从公式推导到合约调用链，再到集中流动性与 LP 真实收益', html: `
+<h1>M08.2 AMM 深入：恒定乘积、Uniswap V2/V3、Curve 与 LP 风险</h1>
+${meta(['推导恒定乘积的成交公式、价格影响和 LP 份额公式，并能手算。', '画出 Uniswap V2 的 Factory / Pair / Router 结构和一次 swap 的调用链；解释 V3 的 tick 和虚拟储备。', '比较 AMM、Curve、聚合器和订单簿，评估 LP 的收益与风险（无常损失、LVR）。'], '<a href="#m13">M08 总览</a>、<a href="#m02-5">M02.5 ERC-20 与授权</a>', ['amm', 'il'])}
 ${beginner(`<p><strong>流动性池（Liquidity Pool）</strong>：一个合约里存着两种代币，任何人都能和它兑换。</p>
 <p><strong>LP（Liquidity Provider，流动性提供者）</strong>：往池子存代币、赚手续费的人。存入后拿到 <strong>LP 代币</strong>，代表在池子里的份额。</p>
 <p><strong>滑点（Slippage）</strong>：下单时预期价格和实际成交价格的差。</p>
@@ -231,7 +231,7 @@ ${call('analogy', `<p>想象一台天平式兑换机：左盘放 ETH，右盘放
 
 <h2>2. 恒定乘积：从公式到手算</h2>
 <h3>2.1 成交公式推导</h3>
-<p>同一条恒定乘积曲线也被用来做发币，见 <a href="#m09-7">M11.6 NFT 市场、版税与 Memecoin 发行</a> 中的联合曲线。</p>
+<p>同一条恒定乘积曲线也被用来做发币，见 <a href="#m09-7">M13.6 NFT 市场、版税与 Memecoin 发行</a> 中的联合曲线。</p>
 <p>设池子有 x 个 ETH、y 个 USDC，k = x·y。交易者卖出 Δx 个 ETH，手续费率 f（V2 为 0.3%），记 γ = 1 − f。只有 γΔx 参与定价，手续费留在池子里。</p>
 ${steps([
   '交易后必须满足 (x + γΔx)(y − Δy) = x·y。',

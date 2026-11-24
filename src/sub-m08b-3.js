@@ -1,9 +1,9 @@
-/* ---------- M09 子文章（b-3）：Perp DEX 架构对比 ---------- */
+/* ---------- M11 子文章（b-3）：Perp DEX 架构对比 ---------- */
 (() => {
 CUR = 'm08-10';
-addCh({ id: 'm08-10', nav: 'Perp DEX 架构对比', title: 'M09.10 Perp DEX 架构对比：订单簿链、预言机池、vAMM 与混合模式', desc: 'Hyperliquid、dYdX v4、GMX、Jupiter、vAMM 怎么撮合、谁做对手方、风险在哪', html: `
-<h1>M09.10 Perp DEX 架构对比：订单簿链、预言机池、vAMM 与混合模式</h1>
-${meta(['说清链上订单簿专用链、预言机定价资金池、vAMM、混合模式四种架构的工作方式。', '用一张表比较它们的撮合、价格来源、对手方、延迟、去中心化程度和主要风险。', '复盘 2025 年 Hyperliquid JELLY 事件的因果链，并为一个产品做架构选型。'], '<a href="#m08-7">M09.7 永续合约入门</a>、<a href="#m08-9">M09.9 强平与 ADL</a>、<a href="#m02-10">M06.2 AMM 深入</a>')}
+addCh({ id: 'm08-10', nav: 'Perp DEX 架构对比', title: 'M11.10 Perp DEX 架构对比：订单簿链、预言机池、vAMM 与混合模式', desc: 'Hyperliquid、dYdX v4、GMX、Jupiter、vAMM 怎么撮合、谁做对手方、风险在哪', html: `
+<h1>M11.10 Perp DEX 架构对比：订单簿链、预言机池、vAMM 与混合模式</h1>
+${meta(['说清链上订单簿专用链、预言机定价资金池、vAMM、混合模式四种架构的工作方式。', '用一张表比较它们的撮合、价格来源、对手方、延迟、去中心化程度和主要风险。', '复盘 2025 年 Hyperliquid JELLY 事件的因果链，并为一个产品做架构选型。'], '<a href="#m08-7">M11.7 永续合约入门</a>、<a href="#m08-9">M11.9 强平与 ADL</a>、<a href="#m02-10">M08.2 AMM 深入</a>')}
 ${beginner(`<p><strong>Perp DEX</strong>：去中心化的永续合约交易所。用户用自己的钱包交易，资产由智能合约或链的规则托管，而不是交给公司。</p>
 <p><strong>应用链（Appchain）</strong>：专门为一个应用建的区块链。它可以为这个应用定制共识和数据结构，例如把订单簿直接写进链里。</p>
 <p><strong>预言机（Oracle）</strong>：把链外数据（例如 BTC 价格）送上链的服务，例如 Chainlink、Pyth。</p>
@@ -73,7 +73,7 @@ sequenceDiagram
   ['flow', '订单先在验证者内存中传播，只有成交写进区块。这让挂单和撤单不用付 Gas，也不用等出块。'],
   ['key', 'Hyperliquid 则把订单本身也作为链上交易处理，由 HyperCore 在共识中直接撮合；两者都把撮合放进了链的规则里。'],
   ['risk', '出块者看得到订单，有能力调整撮合顺序（类似 MEV）。验证者数量有限，去中心化程度低于以太坊这类通用链。'],
-  ['limit', '跨链入金需要桥：资产从以太坊或 Arbitrum 桥入，桥本身是风险点，见 <a href="#m05-8">M04.26 跨链桥</a>。']
+  ['limit', '跨链入金需要桥：资产从以太坊或 Arbitrum 桥入，桥本身是风险点，见 <a href="#m05-8">M05.11 跨链桥</a>。']
 ])}
 
 <h2>3. 预言机定价资金池：GMX 与 Jupiter Perps</h2>

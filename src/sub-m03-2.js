@@ -1,9 +1,9 @@
-/* ---------- M07 子文章（二）：多签、MPC、Nonce 管理 ---------- */
+/* ---------- M09 子文章（二）：多签、MPC、Nonce 管理 ---------- */
 (() => {
 CUR = 'm03-4';
-addCh({ id: 'm03-4', nav: '多签钱包', title: 'M07.4 多签钱包：Safe 架构、签名流程与运营安全', desc: '拆解 Safe 合约与 EIP-712 签名，复盘 Bybit 事件，给出多签运营清单。', html: `
-<h1>M07.4 多签钱包：Safe 架构、签名流程与运营安全</h1>
-${meta(['画出 Safe 的代理 + 单例架构，说清 owners、threshold、nonce、模块、守卫各自的作用。', '走完一笔多签交易的生命周期，并能计算 EIP-712 SafeTx 哈希。', '根据 2025 年 Bybit 等事件，制定多签运营流程与最佳实践清单。'], '<a href="#m03-3">M07.3 交易签名与广播</a>、<a href="#m02-1">M02.1 智能合约与 EVM</a>', ['threshold'])}
+addCh({ id: 'm03-4', nav: '多签钱包', title: 'M09.4 多签钱包：Safe 架构、签名流程与运营安全', desc: '拆解 Safe 合约与 EIP-712 签名，复盘 Bybit 事件，给出多签运营清单。', html: `
+<h1>M09.4 多签钱包：Safe 架构、签名流程与运营安全</h1>
+${meta(['画出 Safe 的代理 + 单例架构，说清 owners、threshold、nonce、模块、守卫各自的作用。', '走完一笔多签交易的生命周期，并能计算 EIP-712 SafeTx 哈希。', '根据 2025 年 Bybit 等事件，制定多签运营流程与最佳实践清单。'], '<a href="#m03-3">M09.3 交易签名与广播</a>、<a href="#m02-1">M02.1 智能合约与 EVM</a>', ['threshold'])}
 ${beginner(`<p><strong>多签（Multisig）</strong>：一个账户需要 n 个持有人里至少 m 个签名才能转账，写作 m-of-n，例如 2-of-3。</p>
 <p><strong>代理合约（Proxy）</strong>：一个很小的合约，自己不写业务逻辑，把所有调用转交给另一个“实现合约”执行，但数据存在代理自己身上。</p>
 <p><strong>delegatecall</strong>：EVM 的一种调用方式：执行别人的代码，但读写的是“我自己”的存储。代理合约靠它工作，它也是最危险的操作之一。</p>
@@ -37,7 +37,7 @@ ${art('一图看懂：Safe 是链上合约账户，凑够 m 个所有者签名�
 ], '三个所有者里两人签名后，Safe 代理合约检查门限并动用金库资产，代码逻辑放在共用的单例合约里', 'm03-4')}
 
 <h2>2. Safe 合约架构</h2>
-<p>Safe（原名 Gnosis Safe）是以太坊生态使用最广的多签合约，据 Safe 基金会 2026 年第一季度报告，Safe 智能账户持有的资产约 352 亿美元，账户数约 6,100 万。${cite('Safe 基金会：2026 年第一季度报告', 'https://safefoundation.org/blog/safe-q1-2026-quarterly-report')}它的结构如下（Safe 与 ERC-4337、EIP-7702 的关系见 <a href="#m06-5">M07.8 账户抽象深入</a>）：</p>
+<p>Safe（原名 Gnosis Safe）是以太坊生态使用最广的多签合约，据 Safe 基金会 2026 年第一季度报告，Safe 智能账户持有的资产约 352 亿美元，账户数约 6,100 万。${cite('Safe 基金会：2026 年第一季度报告', 'https://safefoundation.org/blog/safe-q1-2026-quarterly-report')}它的结构如下（Safe 与 ERC-4337、EIP-7702 的关系见 <a href="#m06-5">M09.8 账户抽象深入</a>）：</p>
 ${mm('Safe 代理 + 单例架构', `
 flowchart TB
   F["SafeProxyFactory<br/>CREATE2 部署代理"] -->|"createProxyWithNonce"| P1["Safe 代理 A<br/>存储：owners threshold nonce"]
@@ -55,7 +55,7 @@ flowchart TB
   ['key', '单例只部署一次，每个新 Safe 只需部署一个代理，部署成本低。CREATE2 让同一参数在不同链上得到相同地址。'],
   ['risk', '谁能改写存储槽 0，谁就能把整个 Safe 的逻辑换成自己的代码。Bybit 事件中攻击者正是通过一笔 delegatecall 交易改写了它。'],
   ['risk', '模块可以调用 execTransactionFromModule，完全绕过签名检查。启用一个恶意或有漏洞的模块 = 交出金库。'],
-  ['limit', 'Safe 只能部署在支持 EVM 合约的链上，比特币、Solana 需要各自的多签方案（比特币的 P2WSH / Taproot 多签与 PSBT 协作签名见 <a href="#m05-61">M04.20 SegWit·Taproot·PSBT</a>）。']
+  ['limit', 'Safe 只能部署在支持 EVM 合约的链上，比特币、Solana 需要各自的多签方案（比特币的 P2WSH / Taproot 多签与 PSBT 协作签名见 <a href="#m05-61">M05.5 SegWit·Taproot·PSBT</a>）。']
 ])}
 ${tbl(['组件', '作用', '如何修改', '风险提示'], [
   ['owners', '所有者列表，合约内用链表存储（哨兵地址 0x1）', 'addOwnerWithThreshold / removeOwner / swapOwner，必须通过 Safe 自身交易', '换人操作本身也要 m 个签名'],
@@ -251,9 +251,9 @@ ${terms([
 ` });
 
 CUR = 'm03-5';
-addCh({ id: 'm03-5', nav: 'MPC 与门限签名', title: 'M07.5 MPC 与门限签名：私钥从不完整出现', desc: '从秘密分享到 DKG、门限 ECDSA、密钥刷新，再到节点部署与已知漏洞。', html: `
-<h1>M07.5 MPC 与门限签名：私钥从不完整出现</h1>
-${meta(['用 Shamir 秘密分享和加法分享的数字例子，解释“分片”是什么。', '描述 DKG、门限 ECDSA 签名、密钥刷新的流程，说出 GG20、CMP、DKLs、FROST 的定位。', '对比 MPC、多签、HSM，设计 MPC 节点部署架构并识别已知漏洞类型。'], '<a href="#m03-4">M07.4 多签钱包</a>、<a href="#m03-3">M07.3 交易签名与广播</a>', ['threshold'])}
+addCh({ id: 'm03-5', nav: 'MPC 与门限签名', title: 'M09.5 MPC 与门限签名：私钥从不完整出现', desc: '从秘密分享到 DKG、门限 ECDSA、密钥刷新，再到节点部署与已知漏洞。', html: `
+<h1>M09.5 MPC 与门限签名：私钥从不完整出现</h1>
+${meta(['用 Shamir 秘密分享和加法分享的数字例子，解释“分片”是什么。', '描述 DKG、门限 ECDSA 签名、密钥刷新的流程，说出 GG20、CMP、DKLs、FROST 的定位。', '对比 MPC、多签、HSM，设计 MPC 节点部署架构并识别已知漏洞类型。'], '<a href="#m03-4">M09.4 多签钱包</a>、<a href="#m03-3">M09.3 交易签名与广播</a>', ['threshold'])}
 ${beginner(`<p><strong>MPC（Multi-Party Computation，多方安全计算）</strong>：多个参与方一起算出一个结果，但每一方都看不到别人的输入。</p>
 <p><strong>分片（Share）</strong>：私钥被“拆”成的一部分。单个分片看起来就是随机数，不泄露私钥的任何信息。</p>
 <p><strong>门限（Threshold）</strong>：t-of-n 表示 n 个分片里任意 t 个合作就能签名。</p>
@@ -365,7 +365,7 @@ ${tbl(['对比项', 'MPC 门限签名', '链上多签（Safe）', 'HSM'], [
   ['实现复杂度', '高，协议与实现都可能有漏洞', '低，合约成熟', '中，依赖厂商'],
   ['合规认证', '较新，部分机构接受', '开源审计', 'FIPS 140-2/140-3 等认证成熟']
 ])}
-<p>MPC 与 TEE 在钱包之外的用途（隐私计算、区块构建），以及全同态加密（FHE），见 <a href="#m10-6">M04.15 MPC、FHE 与 TEE</a>。</p>
+<p>MPC 与 TEE 在钱包之外的用途（隐私计算、区块构建），以及全同态加密（FHE），见 <a href="#m10-6">M06.6 MPC、FHE 与 TEE</a>。</p>
 
 <h2>5. 已知漏洞与事故</h2>
 ${tbl(['类型', '事件 / 年份', '原理', '防护'], [
@@ -424,9 +424,9 @@ ${terms([
 ` });
 
 CUR = 'm03-6';
-addCh({ id: 'm03-6', nav: 'Nonce 管理', title: 'M07.6 Nonce 管理：为什么企业钱包会卡单', desc: '理解 pending/latest、空洞与替换交易，设计数据库 + Redis 的 nonce 分配器。', html: `
-<h1>M07.6 Nonce 管理：为什么企业钱包会卡单</h1>
-${meta(['说清 nonce 规则、pending 与 latest 的区别，以及卡单的 4 种原因。', '用同 nonce 替换交易完成加速和取消，检测并填补 nonce 空洞。', '实现基于 PostgreSQL + Redis 锁的 nonce 分配器，并处理服务重启恢复。'], '<a href="#m03-3">M07.3 交易签名与广播</a>', ['nonce'])}
+addCh({ id: 'm03-6', nav: 'Nonce 管理', title: 'M09.6 Nonce 管理：为什么企业钱包会卡单', desc: '理解 pending/latest、空洞与替换交易，设计数据库 + Redis 的 nonce 分配器。', html: `
+<h1>M09.6 Nonce 管理：为什么企业钱包会卡单</h1>
+${meta(['说清 nonce 规则、pending 与 latest 的区别，以及卡单的 4 种原因。', '用同 nonce 替换交易完成加速和取消，检测并填补 nonce 空洞。', '实现基于 PostgreSQL + Redis 锁的 nonce 分配器，并处理服务重启恢复。'], '<a href="#m03-3">M09.3 交易签名与广播</a>', ['nonce'])}
 ${beginner(`<p><strong>Nonce</strong>：账户发出的交易序号，从 0 开始，每笔 +1。以太坊用它保证交易按顺序执行、不被重放。</p>
 <p><strong>内存池（Mempool / Txpool）</strong>：节点暂存“已收到、未打包”交易的地方。</p>
 <p><strong>卡单（Stuck Transaction）</strong>：交易长时间停在内存池里不被打包。</p>
@@ -635,7 +635,7 @@ ${steps([
   '全部对齐后再开始接收新请求。'
 ])}
 
-${tryit(`<p>① 用 curl 查询任意活跃地址的两种 nonce：<code>curl -s -X POST https://ethereum-rpc.publicnode.com -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1,"method":"eth_getTransactionCount","params":["0x地址","latest"]}'</code>，再把 latest 换成 pending。② 预期：普通地址两者相等；交易所热钱包在繁忙时 pending 往往大于 latest。③ 在 Sepolia 上用 M07.3 的代码发一笔 maxFee = 1 gwei 的交易（可能卡住），再用相同 nonce、maxFee 提高 10% 以上发一笔给自己 0 ETH 的交易，在浏览器中观察原交易显示 “Dropped &amp; Replaced”。</p>`)}
+${tryit(`<p>① 用 curl 查询任意活跃地址的两种 nonce：<code>curl -s -X POST https://ethereum-rpc.publicnode.com -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1,"method":"eth_getTransactionCount","params":["0x地址","latest"]}'</code>，再把 latest 换成 pending。② 预期：普通地址两者相等；交易所热钱包在繁忙时 pending 往往大于 latest。③ 在 Sepolia 上用 M09.3 的代码发一笔 maxFee = 1 gwei 的交易（可能卡住），再用相同 nonce、maxFee 提高 10% 以上发一笔给自己 0 ETH 的交易，在浏览器中观察原交易显示 “Dropped &amp; Replaced”。</p>`)}
 
 <h2>生产环境清单</h2>
 ${tbl(['检查项', '为什么', '怎么验证'], [

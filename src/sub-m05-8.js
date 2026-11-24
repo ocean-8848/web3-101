@@ -1,9 +1,9 @@
 /* ---------- M04 公链（8）：m05-68 Tron 与 TON ---------- */
 (() => {
 CUR = 'm05-68';
-addCh({ id: 'm05-68', nav: 'Tron 与 TON', title: 'M04.25 Tron 与 TON：USDT 的主战场与 Telegram 生态', desc: 'Tron 的 Bandwidth/Energy 资源模型，TON 的异步消息与 Jetton，以及充值监听的坑', html: `
-<h1>M04.25 Tron 与 TON：USDT 的主战场与 Telegram 生态</h1>
-${meta(['说出 Tron 为什么是 USDT 的主战场，并用 Bandwidth + Energy 算出一笔 TRC-20 转账的费用。', '列出 TVM 与 EVM 的差别，判断 Solidity 移植到 Tron 要改什么。', '解释 TON 的 Actor 异步消息、bounce 与 Jetton，并能验证一笔 Jetton 转账。', '为交易所设计 Tron 与 TON 的充值监听规则。'], '前置：<a href="#m05-1">M04.1 公链全景</a>、<a href="#m05-11">M04.17 Solana 概念</a>、<a href="#m01-8">M01.8 索引器工程</a>')}
+addCh({ id: 'm05-68', nav: 'Tron 与 TON', title: 'M05.10 Tron 与 TON：USDT 的主战场与 Telegram 生态', desc: 'Tron 的 Bandwidth/Energy 资源模型，TON 的异步消息与 Jetton，以及充值监听的坑', html: `
+<h1>M05.10 Tron 与 TON：USDT 的主战场与 Telegram 生态</h1>
+${meta(['说出 Tron 为什么是 USDT 的主战场，并用 Bandwidth + Energy 算出一笔 TRC-20 转账的费用。', '列出 TVM 与 EVM 的差别，判断 Solidity 移植到 Tron 要改什么。', '解释 TON 的 Actor 异步消息、bounce 与 Jetton，并能验证一笔 Jetton 转账。', '为交易所设计 Tron 与 TON 的充值监听规则。'], '前置：<a href="#m05-1">M04.1 公链全景</a>、<a href="#m05-11">M05.1 Solana 概念</a>、<a href="#m01-8">M01.8 索引器工程</a>')}
 ${beginner(`<p><strong>TRC-20</strong>：Tron 上的同质化代币标准，接口和以太坊 ERC-20 几乎一样。USDT 在 Tron 上就是一个 TRC-20 合约。</p>
 <p><strong>超级代表（Super Representative，SR）</strong>：Tron 的出块节点。TRX 持有者投票选出 27 个 SR 轮流出块。</p>
 <p><strong>Jetton</strong>：TON 上的同质化代币标准（TEP-74），对应以太坊的 ERC-20，但结构不同：每个持有人有自己的一个钱包合约。</p>
@@ -25,7 +25,7 @@ ${art('一图看懂：同样是转 USDT，三条链各有各的“过路费”�
   ['flow', '用户的 USDT 在哪条链上，就按哪条链的规则付费、等确认；三条链上的 USDT 是三份独立账本。'],
   ['key', 'Tron 的费用靠“质押换额度”，TON 的费用来自“消息在多个合约间跳转”，都不是 EVM 的单一 gas 价格。'],
   ['risk', '选错链转账、验错合约地址，是交易所和钱包最常见的入账事故。'],
-  ['limit', '图中不含 Solana，见 <a href="#m05-11">M04.17 Solana 概念</a>；EVM 的费用机制见 <a href="#m05-2">M04.2</a>。']
+  ['limit', '图中不含 Solana，见 <a href="#m05-11">M05.1 Solana 概念</a>；EVM 的费用机制见 <a href="#m05-2">M04.2</a>。']
 ], 'Tron、TON、EVM 三条链各自的费用模型，都指向 Tether 发行的 USDT 合约，发行方可在每条链上冻结地址', 'm05-68')}
 
 <h2>2. Tron：为什么它是 USDT 的主战场</h2>
@@ -68,7 +68,7 @@ ${tbl(['方面', 'EVM（以太坊）', 'TVM（Tron）', '对开发者的影响']
 ${call('warn', '<p>地址格式是后端最常见的 bug 来源。EVM 工具链给你的是 <code>0x…</code>，Tron 的 API 有时返回 <code>41…</code>（42 位十六进制），有时返回 <code>T…</code>。TronGrid 的事件接口返回的是 <code>0x</code> 加 20 字节。转换规则：在 20 字节前面加 <code>41</code>，再做 Base58Check（对 21 字节做两次 SHA-256 取前 4 字节作校验码）。用 TronWeb 的 <code>TronWeb.address.fromHex()</code> 即可，不要自己拼。</p>')}
 <h3>4.1 地址激活</h3>
 <p>新密钥算出的 Tron 地址在“激活”前，节点和浏览器查不到这个账户。激活办法：已激活账户向它转 TRX 或 TRC-10，转账方付创建费，主网当前 1 TRX${cite('Tron 开发者文档：Account', 'https://developers.tron.network/docs/account')}。USDT 余额记在合约存储里，我推断它不依赖账户是否激活${tag('推断')}，但归集时地址里没有 TRX 或 Energy 就发不出 USDT（见第 7 节）。</p>
-<p><strong>USDT 黑名单</strong>：Tether 可冻结地址。据 BlockSec 统计，2025 年在以太坊和 Tron 上共冻结约 12.6 亿美元 USDT${cite('BlockSec：2025 年 USDT 黑名单统计', 'https://blocksec.com/blog/1-26-billion-frozen-usdt-blacklisting-on-ethereum-and-tron-in-2025')}。机制见 <a href="#m02-9">M06.1 稳定币</a>，追踪见 <a href="#m05-67">M04.29 链上取证</a>。对充值系统：入账后到归集前，资金可能被冻结，要查黑名单并保留对账流程。</p>
+<p><strong>USDT 黑名单</strong>：Tether 可冻结地址。据 BlockSec 统计，2025 年在以太坊和 Tron 上共冻结约 12.6 亿美元 USDT${cite('BlockSec：2025 年 USDT 黑名单统计', 'https://blocksec.com/blog/1-26-billion-frozen-usdt-blacklisting-on-ethereum-and-tron-in-2025')}。机制见 <a href="#m02-9">M08.1 稳定币</a>，追踪见 <a href="#m05-67">M04.13 链上取证</a>。对充值系统：入账后到归集前，资金可能被冻结，要查黑名单并保留对账流程。</p>
 
 <h2>5. TON：为 Telegram 设计的 Actor 链</h2>
 <p>TON（The Open Network）最初由 Telegram 团队设计，后来由社区接手。它和 EVM 链的结构差异很大，要重新建立三个概念：分片结构、Actor 异步消息、cell 数据结构。</p>
@@ -113,22 +113,22 @@ sequenceDiagram
 <ul>
 <li><strong>语言</strong>：官方文档把 <strong>Tolk</strong> 称为“推荐的智能合约语言”，FunC 列为遗留语言${cite('TON 文档：Tolk 概述', 'https://docs.ton.org/tolk/overview')}；Tact 官方站标注“已弃用，请学习 Tolk”${cite('Tact 官方文档', 'https://docs.tact-lang.org/')}。</li>
 <li><strong>费用</strong>：gas + 消息转发费 + 动作费 + <strong>存储费</strong>。存储费按账户占用的位数和 cell 数乘以时间，从合约余额扣${cite('TON 文档：交易费用', 'https://docs.ton.org/foundations/fees')}。当前单价在配置参数里由验证者投票修改，我没有找到可引用的数值，本书不写价格。长期不用的合约也要有人付存储费。</li>
-<li><strong>Mini Apps 与 TON Connect</strong>：Mini Apps 是 Telegram 内的网页应用，链上操作走 TON Connect（会话端到端加密，dApp 拿不到私钥）。官方提醒：Mini Apps 内销售数字商品要用 Telegram Stars，TON Connect 只用于平台政策允许的交互${cite('TON 文档：TON Connect', 'https://docs.ton.org/applications/ton-connect/overview')}。钱包知识见 <a href="#m03-1">M07.1 钱包分类全景</a>。</li>
+<li><strong>Mini Apps 与 TON Connect</strong>：Mini Apps 是 Telegram 内的网页应用，链上操作走 TON Connect（会话端到端加密，dApp 拿不到私钥）。官方提醒：Mini Apps 内销售数字商品要用 Telegram Stars，TON Connect 只用于平台政策允许的交互${cite('TON 文档：TON Connect', 'https://docs.ton.org/applications/ton-connect/overview')}。钱包知识见 <a href="#m03-1">M09.1 钱包分类全景</a>。</li>
 </ul>
 
 <h2>6. 四条链对照：EVM / Tron / TON / Solana</h2>
 ${tbl(['维度', 'EVM（以太坊）', 'Tron', 'TON', 'Solana'], [
-  ['账户模型', '账户 + 合约存储', '账户 + 合约存储（类 EVM）', '每个账户就是一个 Actor，状态在 cell 里', '程序无状态，数据放在独立账户，见 <a href="#m05-11">M04.17</a>'],
+  ['账户模型', '账户 + 合约存储', '账户 + 合约存储（类 EVM）', '每个账户就是一个 Actor，状态在 cell 里', '程序无状态，数据放在独立账户，见 <a href="#m05-11">M05.1</a>'],
   ['执行方式', '同步调用，整笔原子', '同步调用，整笔原子，另有 80 ms 时限', '异步消息，交易树，跨合约不原子', '并行执行，账户读写集提前声明'],
-  ['费用', 'gas × 价格，EIP-1559', 'Bandwidth + Energy，质押换额度，不够烧 TRX', 'gas + 转发费 + 存储费', '基础费 + 优先费，见 M04.17'],
-  ['确认', '约 2 个 epoch 最终确定，见 <a href="#m05-3">M04.3</a>', '约 19 块（实测约 57 秒）固化', '主链块引用后最终确定，约 1 秒（官方）', '见 M04.17'],
+  ['费用', 'gas × 价格，EIP-1559', 'Bandwidth + Energy，质押换额度，不够烧 TRX', 'gas + 转发费 + 存储费', '基础费 + 优先费，见 M05.1'],
+  ['确认', '约 2 个 epoch 最终确定，见 <a href="#m05-3">M04.3</a>', '约 19 块（实测约 57 秒）固化', '主链块引用后最终确定，约 1 秒（官方）', '见 M05.1'],
   ['代币标准', 'ERC-20，余额在合约 mapping 里', 'TRC-20（接口同 ERC-20），另有 TRC-10', 'Jetton：每人一个钱包合约', 'SPL Token：每人一个 token 账户'],
   ['典型用途', 'DeFi、NFT、L2 生态', 'USDT 支付、交易所充提', 'Telegram 小程序、游戏、支付', '高频交易、消费应用']
 ])}
 <p>这张表里 Solana 一列只做对照，细节不再重复。要点：EVM 与 Tron 的差别在费用与地址；Tron 到 TON 是执行模型的根本不同。</p>
 
 <h2>7. 工程：在 Tron 上监听充值</h2>
-<p>充值系统的通用架构（地址池、入账状态机、归集）在 <a href="#m04-6">M08.7 充值提币与冷热钱包</a>，扫块与幂等在 <a href="#m01-8">M01.8 索引器工程</a>，这里只讲 Tron 特有的部分。</p>
+<p>充值系统的通用架构（地址池、入账状态机、归集）在 <a href="#m04-6">M10.7 充值提币与冷热钱包</a>，扫块与幂等在 <a href="#m01-8">M01.8 索引器工程</a>，这里只讲 Tron 特有的部分。</p>
 ${mm('Tron 充值监听：从事件到入账', `
 flowchart LR
   A["TronGrid 事件接口<br/>USDT 合约 Transfer"] --> B{"合约地址等于<br/>官方 USDT?"}
@@ -211,7 +211,7 @@ ${tryit(`<p><strong>目标：</strong>用公开接口取到一笔真实的 TRC-2
 <p>预期：Tron 一笔交易 = 一条 Transfer 事件；TON 一次转账 = 一棵多笔交易的树。</p>`)}
 
 <h2>9. 合规视角：Tron 上的 USDT 资金流</h2>
-<p>Tron 上 USDT 体量大，既是支付通道，也是执法关注对象。交易所和托管方要在入账前做地址制裁筛查与风险评分（<a href="#m11-2">M05.2 KYC、AML 与制裁筛查</a>），并在转账时按旅行规则交换发送方、接收方信息（<a href="#m11-3">M05.3 旅行规则</a>）。技术细节：名单地址要把 Base58 与十六进制归一化后再比对。本节不构成法律意见。</p>
+<p>Tron 上 USDT 体量大，既是支付通道，也是执法关注对象。交易所和托管方要在入账前做地址制裁筛查与风险评分（<a href="#m11-2">M07.2 KYC、AML 与制裁筛查</a>），并在转账时按旅行规则交换发送方、接收方信息（<a href="#m11-3">M07.3 旅行规则</a>）。技术细节：名单地址要把 Base58 与十六进制归一化后再比对。本节不构成法律意见。</p>
 ${exercises([
   ['（算一算）某充值地址有 0 点 Energy 额度，向热钱包转一笔 USDT 实际消耗 65,000 Energy 和 345 Bandwidth（带宽也要烧）。用 100 sun/Energy 和 1,000 sun/Bandwidth 算要烧多少 TRX。若租到 65,000 Energy，要烧多少？', '<p>Energy：65,000 × 100 = 6,500,000 sun = 6.5 TRX；Bandwidth：345 × 1,000 = 345,000 sun = 0.345 TRX；合计 6.845 TRX。租到 Energy 后只烧带宽 0.345 TRX，再加上租赁费用，是否划算取决于租金价格。</p>'],
   ['一份以太坊 Solidity 合约用 <code>address(this)</code> 做 CREATE2 工厂并预测子合约地址，移植到 Tron 要改什么？', '<p>Tron 的 CREATE2 前缀是 0x41 而不是 0xff，预测地址的公式要改；虚拟机内地址仍是 20 字节，但 Base58 展示地址需转换；还要检查 80 ms 时限、没有 nonce 对重放逻辑的影响，以及 Energy 与 fee_limit。</p>'],

@@ -3,7 +3,7 @@
 CUR = 'm05-7';
 addCh({ id: 'm05-7', nav: 'MEV', title: 'M04.7 MEV：交易排序里的隐形税', desc: 'MEV 从哪来、三明治怎么夹你、PBS 与私有交易池怎么防。', html: `
 <h1>M04.7 MEV：交易排序里的隐形税</h1>
-${meta(['列出 MEV 的四种主要来源，并用恒定乘积公式逐步算出一次三明治攻击。', '画出 PBS / MEV-Boost 的完整流程：搜索者 → 构建者 → 中继 → 提议者。', '为钱包、DApp 或交易后端设计 MEV 防护：滑点、私有交易池、订单流拍卖、批量拍卖。'], '<a href="#m05-2">M04.2 以太坊架构</a>、<a href="#m02">M02 智能合约开发</a>、<a href="#m13">M06 DeFi 协议</a>（AMM 部分）', ['sandwich'])}
+${meta(['列出 MEV 的四种主要来源，并用恒定乘积公式逐步算出一次三明治攻击。', '画出 PBS / MEV-Boost 的完整流程：搜索者 → 构建者 → 中继 → 提议者。', '为钱包、DApp 或交易后端设计 MEV 防护：滑点、私有交易池、订单流拍卖、批量拍卖。'], '<a href="#m05-2">M04.2 以太坊架构</a>、<a href="#m02">M02 智能合约开发</a>、<a href="#m13">M08 DeFi 协议</a>（AMM 部分）', ['sandwich'])}
 ${beginner(`<p><strong>内存池（Mempool）</strong>：节点里“已广播、还没上链”的交易等候区。公开内存池里的交易，任何人都能看到。</p>
 <p><strong>滑点容忍度（Slippage Tolerance）</strong>：你在 DEX 下单时允许的“最差成交价”和报价的偏离比例。超过它，交易自动失败（revert）。</p>
 <p><strong>抢跑（Front-running）</strong>：看到别人的交易后，抢先把自己的交易排在它前面。</p>
@@ -142,7 +142,7 @@ console.log('amountOutMin =', minOut(quote, 50n));
 //   args: [amountIn, minOut(quote, 50n), path, account.address, deadline] });
 `)}
 ${call('warn', `<p>私有通道不是万能的：① 交易如果长时间没被打包，一些服务会在超时后<strong>回退到公开内存池</strong>，要看清服务条款；② 你必须信任运营方；③ 设置了 99% 滑点的交易，进了私有池也可能被其他方式利用。滑点上限永远是最后一道防线。</p>`)}
-<p>用可信执行环境（TEE）降低对构建者信任的尝试（SUAVE、BuilderNet）见 <a href="#m10-6">M04.15 MPC、FHE 与 TEE</a>。</p>
+<p>用可信执行环境（TEE）降低对构建者信任的尝试（SUAVE、BuilderNet）见 <a href="#m10-6">M06.6 MPC、FHE 与 TEE</a>。</p>
 <h3>5.2 应用层防护</h3>
 ${tbl(['手段', '原理', '代表'], [
   ['合理的 amountOutMin + deadline', '限制最差成交价和有效期，过期交易作废', 'Uniswap Router 参数'],
@@ -204,13 +204,13 @@ ${terms([
 ` });
 
 CUR = 'm05-8';
-addCh({ id: 'm05-8', nav: '跨链桥', title: 'M04.26 跨链桥：验证模型、资产模型与重大事故', desc: '四种验证模型、三种资产模型、三大桥事故因果链与集成清单。', html: `
-<h1>M04.26 跨链桥：验证模型、资产模型与重大事故</h1>
+addCh({ id: 'm05-8', nav: '跨链桥', title: 'M05.11 跨链桥：验证模型、资产模型与重大事故', desc: '四种验证模型、三种资产模型、三大桥事故因果链与集成清单。', html: `
+<h1>M05.11 跨链桥：验证模型、资产模型与重大事故</h1>
 ${meta(['说清“链 B 怎么知道链 A 上发生了什么”，并比较多签/MPC、乐观、轻客户端、ZK 四种验证模型。', '区分锁定-铸造、销毁-释放、流动性网络三种资产模型及各自风险。', '复盘 Ronin、Wormhole、Nomad 三起事故，并写出一份桥接集成的工程与风险清单。'], '<a href="#m05-4">M04.4 扩容路线</a>、<a href="#m05-5">M04.5 Rollup 深入</a>')}
 ${beginner(`<p><strong>跨链（Cross-chain）</strong>：把资产或消息从一条区块链转到另一条。两条链互相看不见对方的状态。</p>
 <p><strong>包装资产（Wrapped Asset）</strong>：链 B 上发行的“欠条”代币，承诺 1:1 兑换链 A 上锁定的原生资产，例如以太坊上的 WBTC。</p>
 <p><strong>轻客户端（Light Client）</strong>：只下载区块头、用密码学证明验证数据的节点，比全节点轻得多。</p>
-<p><strong>多签（Multisig）/ MPC</strong>：需要 N 个签名者中至少 M 个同意才能执行操作。详见 <a href="#m03">M07 钱包</a>。</p>
+<p><strong>多签（Multisig）/ MPC</strong>：需要 N 个签名者中至少 M 个同意才能执行操作。详见 <a href="#m03">M09 钱包</a>。</p>
 <p><strong>中继者（Relayer）</strong>：在两条链之间搬运消息和证明的链下程序。</p>`)}
 
 <h2>1. 一句话理解</h2>
@@ -258,7 +258,7 @@ flowchart TB
   ['flow', '四种模型的区别只在中间这一层：链 B 依据什么相信链 A 的事件。'],
   ['risk', '外部验证：拿到 M 把私钥就能伪造任意事件。Ronin 正是这样被攻破。'],
   ['key', '乐观验证只要求“至少一个诚实观察者”在挑战期内报警；轻客户端和 ZK 的信任降到“源链共识本身”。'],
-  ['limit', '轻客户端在异构链上很贵（要在链 B 上验证链 A 的签名算法）；ZK 证明生成成本高、电路本身也可能有漏洞（SNARK 与 STARK 的原理与取舍见 <a href="#m10-2">M04.11 SNARK 与 STARK</a>）。']
+  ['limit', '轻客户端在异构链上很贵（要在链 B 上验证链 A 的签名算法）；ZK 证明生成成本高、电路本身也可能有漏洞（SNARK 与 STARK 的原理与取舍见 <a href="#m10-2">M06.2 SNARK 与 STARK</a>）。']
 ])}
 ${tbl(['模型', '信任假设', '延迟', '成本', '代表'], [
   ['外部验证（多签/MPC/守护者）', 'M of N 签名者中多数诚实且私钥安全', '分钟级', '低', 'Wormhole（19 个守护者，13 个签名生效）、早期 Ronin、Multichain'],
@@ -266,7 +266,7 @@ ${tbl(['模型', '信任假设', '延迟', '成本', '代表'], [
   ['轻客户端', '源链共识诚实 + 实现无漏洞', '源链最终性时间', '同构链低，异构链高', 'IBC（Cosmos）'],
   ['ZK 证明', '源链共识诚实 + 电路与验证合约无漏洞', '证明生成时间（分钟级）', '证明生成高', 'ZK 轻客户端类桥、ZK Rollup 官方桥']
 ])}
-${call('info', `<p>Rollup 的官方桥（L2 → L1 提款）和普通跨链桥不同：它由 L1 合约直接验证 L2 的状态根（欺诈证明或有效性证明），信任来源就是 L1 本身。所以官方桥最安全但最慢，见 <a href="#m05-5">M04.5 Rollup 深入</a>。比特币 L2 与各类 BTC 跨链资产“谁控制被锁的 BTC”的对比见 <a href="#m05-63">M04.22 铭文 Runes 与 L2</a> 第 5 节。</p>`)}
+${call('info', `<p>Rollup 的官方桥（L2 → L1 提款）和普通跨链桥不同：它由 L1 合约直接验证 L2 的状态根（欺诈证明或有效性证明），信任来源就是 L1 本身。所以官方桥最安全但最慢，见 <a href="#m05-5">M04.5 Rollup 深入</a>。比特币 L2 与各类 BTC 跨链资产“谁控制被锁的 BTC”的对比见 <a href="#m05-63">M05.7 铭文 Runes 与 L2</a> 第 5 节。</p>`)}
 
 <h2>4. 三种资产模型与跨链消息</h2>
 ${tbl(['模型', '流程', '风险'], [
@@ -280,7 +280,7 @@ ${tbl(['协议', '验证方式（概述）', '特点'], [
   ['LayerZero', 'v2 中应用自选一组 DVN（去中心化验证网络）验证消息，执行器（Executor）在目标链投递', '安全配置由应用决定：选得弱，就弱'],
   ['Wormhole', '19 个守护者（Guardian）观察源链，签发 VAA（已验证动作批准），13/19 签名生效', '覆盖链多，含 Solana 等非 EVM 链'],
   ['Chainlink CCIP', 'Chainlink 预言机网络提交消息，另有独立的风险管理网络监控并可暂停', '内置速率限制，面向机构'],
-  ['IBC', '两条链互相运行对方的轻客户端，中继者只搬运数据不被信任', 'Cosmos 生态标准，需要即时最终性的链（详见 <a href="#m05-65">M04.24 Cosmos 与 IBC</a>）']
+  ['IBC', '两条链互相运行对方的轻客户端，中继者只搬运数据不被信任', 'Cosmos 生态标准，需要即时最终性的链（详见 <a href="#m05-65">M05.9 Cosmos 与 IBC</a>）']
 ])}
 ${mm('一次锁定-铸造跨链的生命周期', `
 stateDiagram-v2
@@ -370,7 +370,7 @@ flowchart LR
     N1["升级时把可信根初始化为 0x00"] --> N2["任何未证明的消息<br/>都被视为已证明"] --> N3["复制攻击交易改地址<br/>数百人跟风提取"]
   end
 `, [
-  ['risk', 'Ronin：信任集中 + 权限未回收。门限签名的安全只等于 M 个签名者的独立性（Ronin 作为游戏应用链的背景见 <a href="#m09-5">M11.5 GameFi 与链上游戏</a>）。' + cite('The Block：Axie Infinity’s Ethereum sidechain Ronin hit by $600 million exploit（2022-03-29）', 'https://www.theblock.co/post/139761/axie-infinitys-ethereum-sidechain-ronin-hit-by-600-million-exploit')],
+  ['risk', 'Ronin：信任集中 + 权限未回收。门限签名的安全只等于 M 个签名者的独立性（Ronin 作为游戏应用链的背景见 <a href="#m09-5">M13.5 GameFi 与链上游戏</a>）。' + cite('The Block：Axie Infinity’s Ethereum sidechain Ronin hit by $600 million exploit（2022-03-29）', 'https://www.theblock.co/post/139761/axie-infinitys-ethereum-sidechain-ronin-hit-by-600-million-exploit')],
   ['fail', 'Wormhole：签名验证逻辑有一个输入未校验，整个守护者网络被绕过。密码学没被破，代码被破。' + cite('CertiK：Wormhole 跨链桥攻击分析', 'https://www.certik.com/blog/wormhole-bridge-exploit-incident-analysis')],
   ['fail', 'Nomad：一次例行升级的初始化参数错误，让“证明”失效。攻击交易公开后，任何人复制就能提款。' + cite('Nomad 官方：桥攻击根因分析', 'https://medium.com/nomad-xyz-blog/nomad-bridge-hack-root-cause-analysis-875ad2e5aacd')],
   ['key', '三起事故没有一起是“破解了加密算法”。全是密钥管理、输入校验、升级流程问题。'],
@@ -479,8 +479,8 @@ ${terms([
 ` });
 
 CUR = 'm05-9';
-addCh({ id: 'm05-9', nav: '数据基础设施', title: 'M04.27 数据基础设施：索引、分析、预言机与去中心化存储', desc: '链上数据三层、The Graph、Dune、Chainlink/Pyth、IPFS/Arweave。', html: `
-<h1>M04.27 数据基础设施：索引、分析、预言机与去中心化存储</h1>
+addCh({ id: 'm05-9', nav: '数据基础设施', title: 'M04.10 数据基础设施：索引、分析、预言机与去中心化存储', desc: '链上数据三层、The Graph、Dune、Chainlink/Pyth、IPFS/Arweave。', html: `
+<h1>M04.10 数据基础设施：索引、分析、预言机与去中心化存储</h1>
 ${meta(['画出链上数据的三层结构（原始节点数据 → 索引 → 分析），并为业务选择 The Graph、自建索引或数据仓库。', '解释推送式（Chainlink）与拉取式（Pyth）预言机的架构，写出带过期检查的价格读取代码。', '说清 IPFS、Arweave、Filecoin 的差别，避开 NFT 元数据存储的常见坑。'], '<a href="#m05-6">M04.6 节点运维与 RPC</a>、<a href="#m01">M01 区块链基础 & Go 后端</a>（索引器部分）')}
 ${beginner(`<p><strong>索引（Index）</strong>：把杂乱的原始数据整理成能快速查询的结构，就像书后的索引页。</p>
 <p><strong>事件日志（Event Log）</strong>：合约执行时用 <code>emit</code> 写出的记录，例如 ERC-20 的 Transfer 事件。它是链下系统读取合约行为的主要入口。</p>
@@ -637,11 +637,11 @@ GROUP BY 1
 ORDER BY 1;
 `)}
 <p>写 Dune 查询的三条经验：① 优先用“已解码”的表（如 <code>erc20_ethereum.evt_Transfer</code>），不要一上来扫原始表；② 一定带上时间或区块范围的过滤条件，否则查询又慢又耗额度；③ 金额要按代币的 decimals 换算（USDC 是 10<sup>6</sup>，WETH 是 10<sup>18</sup>）。</p>
-<p>从表结构、常用查询模式到做一个完整仪表盘，见 <a href="#m05-66">M04.28 Dune 与链上 SQL</a>。</p>
+<p>从表结构、常用查询模式到做一个完整仪表盘，见 <a href="#m05-66">M04.12 Dune 与链上 SQL</a>。</p>
 ${call('info', `<p>企业自建数据仓库的常见做法：自建索引器把解码后的事件写入 Kafka，再落到 ClickHouse / BigQuery。在线业务读 PostgreSQL（强一致、可回滚），分析读列式仓库（大批量聚合快）。两者职责不要混用。</p>`)}
 
 <h2>5. 预言机：把链外价格送上链</h2>
-<p>预言机在应用里的两个典型用法：RWA 的 NAV 与储备金数据源见 <a href="#m09-4">M11.4 RWA 与链上支付</a>，链游用 VRF 开箱抽卡见 <a href="#m09-5">M11.5 GameFi 与链上游戏</a>。</p>
+<p>预言机在应用里的两个典型用法：RWA 的 NAV 与储备金数据源见 <a href="#m09-4">M13.4 RWA 与链上支付</a>，链游用 VRF 开箱抽卡见 <a href="#m09-5">M13.5 GameFi 与链上游戏</a>。</p>
 <p>借贷、永续合约、稳定币都需要价格。合约无法访问 API，只能读取预言机写在链上的数据。两种主流架构：</p>
 ${mm('推送式（Chainlink）与拉取式（Pyth）对比', `
 flowchart LR
@@ -821,7 +821,7 @@ ${exq([
 <p class="muted small">资料来源：<a href="https://docs.chain.link/vrf/v2-5/getting-started" target="_blank" rel="noopener noreferrer">Chainlink VRF v2.5 入门</a>、<a href="https://docs.chain.link/chainlink-functions/api-reference/functions-client" target="_blank" rel="noopener noreferrer">Chainlink Functions：FunctionsClient 参考</a>。合约库的路径和函数签名随版本变化，以官方文档和你所用的 <code>@chainlink/contracts</code> 版本为准。</p>
 
 <h2>6. 去中心化存储与 NFT 元数据</h2>
-<p>本节只讲 NFT 元数据怎么存；Filecoin、Arweave、DePIN 的激励机制和 CID 版本细节见 <a href="#m09-3">M11.3 去中心化存储与 DePIN</a>。</p>
+<p>本节只讲 NFT 元数据怎么存；Filecoin、Arweave、DePIN 的激励机制和 CID 版本细节见 <a href="#m09-3">M13.3 去中心化存储与 DePIN</a>。</p>
 <p>链上存储非常贵（写 1 个 32 字节存储槽约 2 万 gas）。图片、视频、JSON 元数据都放链下，链上只存一个指针。</p>
 ${tbl(['方案', '原理', '持久性', '典型用途'], [
   ['IPFS', '内容寻址：文件哈希生成 CID，任何节点都能提供。节点只保存自己“固定（pin）”的内容', '没人固定就会消失。需要固定服务或自己运行节点', 'NFT 元数据、前端静态文件'],

@@ -1,8 +1,8 @@
 /* ---------- M04 子文章（5）：m05-11 Solana 概念 · m05-12 Solana 动手 ---------- */
 (() => {
 CUR = 'm05-11';
-addCh({ id: 'm05-11', nav: 'Solana 概念', title: 'M04.17 Solana 概念：账户模型、交易与 PDA（对照 EVM）', desc: '程序无状态、状态放账户、交易先声明账户：看懂 Solana 与以太坊的根本差异', html: `
-<h1>M04.17 Solana 概念：账户模型、交易与 PDA（对照 EVM）</h1>
+addCh({ id: 'm05-11', nav: 'Solana 概念', title: 'M05.1 Solana 概念：账户模型、交易与 PDA（对照 EVM）', desc: '程序无状态、状态放账户、交易先声明账户：看懂 Solana 与以太坊的根本差异', html: `
+<h1>M05.1 Solana 概念：账户模型、交易与 PDA（对照 EVM）</h1>
 ${meta(['说清“程序无状态、数据存在独立账户里”的含义，并算出一个账户需要的租金押金。', '画出一笔 Solana 交易的结构，解释为什么必须提前声明所有账户，以及这为什么带来并行。', '解释 PDA 是什么、怎么派生、为什么程序能“代签”，并对照 EVM 列出 8 条关键差异。'], '前置：<a href="#m05-1">M04.1 公链全景</a>、<a href="#m02-1">M02.1 智能合约与 EVM</a>')}
 ${beginner(`<p><strong>Solana</strong>：一条高吞吐的公链，约每 400 毫秒一个区块（slot）。开发语言以 Rust 为主。</p>
 <p><strong>lamport</strong>：SOL 的最小单位，1 SOL = 10<sup>9</sup> lamports，相当于以太坊的 wei。</p>
@@ -123,7 +123,7 @@ flowchart LR
 ${tbl(['用途', '种子例子', '说明'], [
   ['每个用户一个数据账户', '<code>["profile", 用户公钥]</code>', '用户地址即可找到他的数据账户，不需要额外索引'],
   ['程序托管的金库', '<code>["vault", 池 ID]</code>', '金库的“所有者”是 PDA，资金只能按程序规则转出'],
-  ['关联代币账户（ATA）', '<code>[钱包, 代币程序, 代币 mint]</code>', '每个钱包对每种代币有一个固定地址的代币账户，见 <a href="#m05-12">M04.18</a>']
+  ['关联代币账户（ATA）', '<code>[钱包, 代币程序, 代币 mint]</code>', '每个钱包对每种代币有一个固定地址的代币账户，见 <a href="#m05-12">M05.2</a>']
 ])}
 ${call('info', '<p>类比以太坊：PDA 有点像 CREATE2 算出的地址——“地址可预测”。区别是 PDA 没有私钥，只能由派生它的程序操作；而 CREATE2 的合约有代码，自己就是主体。</p>')}
 
@@ -139,7 +139,7 @@ ${tbl(['维度', '以太坊 EVM', 'Solana'], [
   ['升级', '需要代理模式', '程序默认可升级，由“升级权限”控制，可以放弃它让程序不可变'],
   ['语言与工具', 'Solidity、Foundry', 'Rust、Anchor 框架、Solana CLI']
 ])}
-<p>另一类非 EVM 设计是 Move 链（Aptos、Sui）的资源与对象模型，见 <a href="#m05-64">M04.23 Move 链</a>。</p>
+<p>另一类非 EVM 设计是 Move 链（Aptos、Sui）的资源与对象模型，见 <a href="#m05-64">M05.8 Move 链</a>。</p>
 
 <h2>6. 账户校验：Solana 程序安全的第一课</h2>
 <p>因为调用方决定传哪些账户，<strong>程序必须逐个检查传进来的账户</strong>。EVM 里不存在这类问题，因为合约读写的是自己的存储。</p>
@@ -151,7 +151,7 @@ ${tbl(['检查项', '不检查会怎样', 'Anchor 里的写法'], [
   ['字段间的关系', '把 A 用户的凭证配上 B 用户的金库', '<code>has_one = authority</code>、<code>constraint = …</code>'],
   ['是否被重复初始化', '已有数据被覆盖', '<code>init</code> 只能用于不存在的账户；谨慎使用 <code>init_if_needed</code>']
 ])}
-${call('risk', '<p>2022 年 2 月的 Wormhole 事件，根因就是 Solana 端的程序在验证签名时，没有检查传入的“系统指令账户”是不是真正的系统账户，攻击者用伪造的账户绕过了签名校验。事件复盘见 <a href="#m05-8">M04.26 跨链桥</a>，技术分析见 <a href="https://www.certik.com/blog/wormhole-bridge-exploit-incident-analysis" target="_blank" rel="noopener noreferrer">CertiK 的事件分析</a>。启示：<strong>只要是调用方传进来的账户，就不能默认它是真的。</strong></p>')}
+${call('risk', '<p>2022 年 2 月的 Wormhole 事件，根因就是 Solana 端的程序在验证签名时，没有检查传入的“系统指令账户”是不是真正的系统账户，攻击者用伪造的账户绕过了签名校验。事件复盘见 <a href="#m05-8">M05.11 跨链桥</a>，技术分析见 <a href="https://www.certik.com/blog/wormhole-bridge-exploit-incident-analysis" target="_blank" rel="noopener noreferrer">CertiK 的事件分析</a>。启示：<strong>只要是调用方传进来的账户，就不能默认它是真的。</strong></p>')}
 
 ${tryit(`<p><strong>动手练习：</strong>在浏览器里读一读链上的账户。</p>
 ${steps([
@@ -208,9 +208,9 @@ ${terms([
 ` });
 
 CUR = 'm05-12';
-addCh({ id: 'm05-12', nav: 'Solana 动手', title: 'M04.18 Solana 动手：用 Anchor 写程序、测试、部署并发行 SPL Token', desc: '写一个 PDA 计数器、本地测试、部署到 devnet，再用命令行和脚本发行一个代币', html: `
-<h1>M04.18 Solana 动手：用 Anchor 写程序、测试、部署并发行 SPL Token</h1>
-${meta(['用 Anchor 写出一个带 PDA 和权限检查的计数器程序，并读懂每个账户约束的含义。', '在本地验证节点上测试，部署到 devnet，并用 TypeScript 调用它、读取账户数据。', '解释 mint、代币账户和关联代币账户（ATA）的关系，并用命令行与脚本发行一个 SPL Token。'], '前置：<a href="#m05-11">M04.17 Solana 概念</a>')}
+addCh({ id: 'm05-12', nav: 'Solana 动手', title: 'M05.2 Solana 动手：用 Anchor 写程序、测试、部署并发行 SPL Token', desc: '写一个 PDA 计数器、本地测试、部署到 devnet，再用命令行和脚本发行一个代币', html: `
+<h1>M05.2 Solana 动手：用 Anchor 写程序、测试、部署并发行 SPL Token</h1>
+${meta(['用 Anchor 写出一个带 PDA 和权限检查的计数器程序，并读懂每个账户约束的含义。', '在本地验证节点上测试，部署到 devnet，并用 TypeScript 调用它、读取账户数据。', '解释 mint、代币账户和关联代币账户（ATA）的关系，并用命令行与脚本发行一个 SPL Token。'], '前置：<a href="#m05-11">M05.1 Solana 概念</a>')}
 ${beginner(`<p><strong>Anchor</strong>：Solana 最常用的 Rust 开发框架。它帮你自动完成账户校验、数据序列化，并生成 TypeScript 调用库。</p>
 <p><strong>Solana CLI</strong>：命令行工具，用来管理钱包、领测试币、部署程序。</p>
 <p><strong>devnet</strong>：Solana 的开发测试网，测试币免费领取，没有价值。</p>
@@ -339,7 +339,7 @@ flowchart TB
 `, [
   ['flow', '约束检查发生在函数体之前。函数体里拿到的 <code>ctx.accounts.counter</code> 已经通过了全部声明的校验。'],
   ['fail', '少写 <code>has_one</code>：别的用户可以传入自己的签名，去增加别人的计数器。少写 <code>seeds</code>：可以传入任何同类型账户。'],
-  ['key', '每一条约束对应 <a href="#m05-11">M04.17</a> 第 6 节账户校验清单里的一项。'],
+  ['key', '每一条约束对应 <a href="#m05-11">M05.1</a> 第 6 节账户校验清单里的一项。'],
   ['limit', '约束只能表达“账户之间的静态关系”。余额够不够、时间窗口对不对这类业务规则，还要自己在函数体里检查。']
 ])}
 ${tbl(['约束 / 类型', '含义', '防什么'], [

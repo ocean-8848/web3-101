@@ -108,6 +108,42 @@ stageQuiz('m02', [
     "a": 0,
     "why": "带参数的测试函数就是模糊测试：Foundry 会为参数生成大量随机值并检查断言。固定金额的单元测试只覆盖一个点；主网调用既花钱又有风险。",
     "ref": "m02-4"
+  },
+  {
+    "q": "某 UUPS 可升级金库 V1 把 <code>address owner</code> 和 <code>bool paused</code> 打包在 Slot 0，<code>uint256 totalAssets</code> 放在 Slot 1。V2 在两者之间插入了新变量 <code>address guardian</code>。升级后会发生什么，现代标准怎么避免？",
+    "o": [
+      "Solidity 编译器会自动迁移旧槽位数据，不会出错",
+      "Slot 1 的 totalAssets 会被 V2 错读成 guardian 地址，后续变量全盘错位；应仅在末尾追加变量或采用 ERC-7201 命名空间存储，并在 CI 比对 storage-layout",
+      "只有新用户的余额会出错，老用户不受影响",
+      "把 UUPS 换成 Transparent Proxy 就能随便插变量"
+    ],
+    "a": 1,
+    "why": "EVM 只按槽位编号寻址，不存变量名。无论 UUPS 还是 Transparent Proxy，打乱旧变量顺序都会引发存储槽冲突；ERC-7201 通过命名空间哈希隔离结构体槽位，再配合 CI 存储布局检查才能防住。",
+    "ref": "m02-66"
+  },
+  {
+    "q": "多签团队准备执行一次大额资金归集，网页前端显示为普通 USDC 转账，但硬件钱包屏幕上提示这是一笔 <code>operation = 1 (DELEGATECALL)</code> 交易且哈希与独立工具算出的不一致。最正确的操作是？",
+    "o": [
+      "网页界面显示正确就可以放心按确认，硬件屏只是格式差异",
+      "立刻拒绝签名并冻结流程：网页前端或插件可能已被篡改诱骗盲签恶意合约替换，必须停机排查并用独立工具核对明文 calldata 与哈希",
+      "先签完再通过 Timelock 慢慢取消",
+      "让其他签名人先签，自己最后一个签"
+    ],
+    "a": 1,
+    "why": "Bybit 等巨额多签被盗案正是利用篡改前端诱骗签名人盲签 delegatecall。普通资金划转绝不该出现 DELEGATECALL，硬件屏哈希与独立仿真不一致时必须立即中止。",
+    "ref": "m02-67"
+  },
+  {
+    "q": "在 Solidity 的 Yul 内联汇编里手写低开销 ERC-20 转账时，为什么必须检查 <code>extcodesize(token) &gt; 0</code> 且不可无上限执行 <code>returndatacopy(0, 0, returndatasize())</code>？",
+    "o": [
+      "Solidity 编译器要求所有函数都必须写这两行",
+      "向无代码 EOA 发起 call 也会返回 1（静默成功），且恶意合约可返回超大字节触发 Return Bomb 内存扩展耗尽 Gas",
+      "为了把转账改成跨链交易",
+      "因为 EVM 内存 0x40 指针不允许读取"
+    ],
+    "a": 1,
+    "why": "EVM 中对无代码地址 call 会返回成功，必须验证目标有字节码；限制拷贝返回长度（如最多 32 字节）则可防 Return Bomb 攻击。",
+    "ref": "m02-69"
   }
 ]);
 })();

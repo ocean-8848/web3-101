@@ -435,7 +435,7 @@ contract MerkleAirdrop {
 `)}
 ${call('info', `<p><strong>OpenZeppelin 的 MerkleProof 对兄弟对做排序哈希</strong>：每一步计算 Hash(min(a,b) ‖ max(a,b))。所以证明里不需要记录“左还是右”。链下必须用同样规则建树，推荐直接用 <code>@openzeppelin/merkle-tree</code> 的 <code>StandardMerkleTree.of(values, ["address", "uint256"])</code>。</p>
 <p><strong>为什么叶子要双重哈希</strong>：叶子和内部节点都是 32 字节。如果叶子只哈希一次，攻击者可能把一个内部节点（64 字节拼接的结果）伪装成叶子提交。双重哈希让叶子和内部节点的“形状”不同。</p>`)}
-<p>白名单证明会暴露你是哪片叶子；想证明“我在名单里”又不暴露是谁，见 <a href="#m10-7">M04.16 实战：成员证明</a> 和 <a href="#lab-zkmember">匿名成员证明实验</a>。</p>
+<p>白名单证明会暴露你是哪片叶子；想证明“我在名单里”又不暴露是谁，见 <a href="#m10-7">M06.7 实战：成员证明</a> 和 <a href="#lab-zkmember">匿名成员证明实验</a>。</p>
 <h3>6.2 储备金证明（Proof of Reserves）</h3>
 <p>2022 年 11 月 FTX 倒闭后，Binance、OKX 等多家交易所宣布公布基于默克尔树的储备金证明。${cite('The Block：中心化交易所争相证明储备（2022-11）', 'https://www.theblock.co/post/185873/centralized-exchanges-are-scrambling-in-attempts-to-prove-their-reserves')}基本做法：</p>
 ${steps([
@@ -445,7 +445,7 @@ ${steps([
   '交易所另外证明链上地址的控制权和总资产（例如用这些地址签名一条消息）。',
   '对比：链上资产 ≥ 默克尔树总负债 → 足额储备。'
 ])}
-${call('warn', `<p>储备金证明有明确局限：它只证明某一时刻的快照；不证明交易所没有链下负债；余额为负的账户会被藏起来（求和树需要零知识证明约束“每个叶子 ≥ 0”）。所以它是必要条件，不是充分条件。<a href="#m04-8">M08.9 风控对账与储备金证明</a>会做完整设计。</p>`)}
+${call('warn', `<p>储备金证明有明确局限：它只证明某一时刻的快照；不证明交易所没有链下负债；余额为负的账户会被藏起来（求和树需要零知识证明约束“每个叶子 ≥ 0”）。所以它是必要条件，不是充分条件。<a href="#m04-8">M10.9 风控对账与储备金证明</a>会做完整设计。</p>`)}
 ${tryit(`<ol>
 <li>在本地新建目录，运行 <code>npm i @openzeppelin/merkle-tree</code>。</li>
 <li>写一个脚本：<code>const t = StandardMerkleTree.of([["0x1111111111111111111111111111111111111111","100"],["0x2222222222222222222222222222222222222222","200"]], ["address","uint256"]); console.log(t.root); console.log(t.getProof(0));</code></li>
@@ -633,7 +633,7 @@ stateDiagram-v2
   ['fail', '超过 1/3 验证者离线或网络分区时，链会停止出块（宁可停，不可错）。2022 年 6 月，Cosmos 生态的 Osmosis 在发现流动性池漏洞后由验证者协调停链，恢复出块同样要等超过 2/3 权重重新上线。' + cite('CoinDesk：Osmosis 因潜在漏洞停链（2022-06-08）', 'https://www.coindesk.com/business/2022/06/08/osmosis-chain-halted-amid-possible-5m-exploit')],
   ['limit', '每轮所有验证者要互相广播投票，消息量随验证者数量平方增长，所以验证者通常控制在 100–200 个左右。' + tag('惯例')]
 ])}
-<p>即时最终性也是 Cosmos 链之间能用 IBC 互相运行轻客户端的前提，见 <a href="#m05-65">M04.24 Cosmos 与 IBC</a>。</p>
+<p>即时最终性也是 Cosmos 链之间能用 IBC 互相运行轻客户端的前提，见 <a href="#m05-65">M05.9 Cosmos 与 IBC</a>。</p>
 
 <h2>6. 概率最终性 vs 确定最终性</h2>
 ${tbl(['维度', 'PoW（比特币）', 'PoS（以太坊）', 'BFT（Tendermint/CometBFT）'], [

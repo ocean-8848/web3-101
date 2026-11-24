@@ -24,7 +24,7 @@ ${tbl(['类型', '引入', '核心变化', '典型用途'], [
   ['1 EIP-2930', '2021 柏林升级', '增加 accessList（预声明要访问的地址和存储槽）', '少量需要降低冷访问成本的调用'],
   ['2 EIP-1559', '2021 伦敦升级', 'gasPrice 拆成 maxFeePerGas 与 maxPriorityFeePerGas', '当前主流，钱包默认'],
   ['3 EIP-4844', '2024 Dencun 升级', '携带 blob 数据（每个 128 KB），增加 maxFeePerBlobGas、blobVersionedHashes', 'Rollup 向 L1 发布数据'],
-  ['4 EIP-7702', '2025 Pectra 升级', '增加 authorizationList，让普通账户设置代码委托（持续有效，直到被替换或清除）', '账户抽象，见 <a href="#m06-5">M07.8</a>']
+  ['4 EIP-7702', '2025 Pectra 升级', '增加 authorizationList，让普通账户设置代码委托（持续有效，直到被替换或清除）', '账户抽象，见 <a href="#m06-5">M09.8</a>']
 ])}
 <h3>2.1 字段逐一讲解（以 type 2 为主）</h3>
 ${tbl(['字段', '类型', '含义', '常见坑'], [
@@ -385,7 +385,7 @@ ${tbl(['标签', '含义', '可能被重组吗', '适合'], [
   ['<code>earliest</code>', '创世块', '否', '很少使用']
 ])}
 <p><strong>算一算（示例）</strong>：一个 epoch = 32 × 12 秒 = 384 秒。finalized 一般落后 latest 约 2–3 个 epoch，即 64–96 个区块、约 12.8–19.2 分钟。</p>
-${call('warn', `<p><strong>查 nonce 要用 pending</strong>：<code>eth_getTransactionCount(addr, "pending")</code> 包含交易池里还没打包的交易；用 "latest" 会拿到已打包的数量，连续发交易时会产生重复 nonce。<a href="#m03-6">M07.6 Nonce 管理</a>详细讲。</p>`)}
+${call('warn', `<p><strong>查 nonce 要用 pending</strong>：<code>eth_getTransactionCount(addr, "pending")</code> 包含交易池里还没打包的交易；用 "latest" 会拿到已打包的数量，连续发交易时会产生重复 nonce。<a href="#m03-6">M09.6 Nonce 管理</a>详细讲。</p>`)}
 
 <h2>6. WebSocket 订阅</h2>
 ${code('BASH', `

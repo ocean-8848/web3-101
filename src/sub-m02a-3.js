@@ -129,7 +129,7 @@ function nonces(address owner) external view returns (uint256);   // 防重放�
 function DOMAIN_SEPARATOR() external view returns (bytes32);      // 绑定链 ID 和合约地址，防跨链重放
 `)}
 ${call('warn', '<p>permit 签名不花 Gas、不弹出交易确认，只弹出“签名请求”，所以钓鱼网站特别喜欢它。签名内容里有 spender、value、deadline：看到陌生 spender 或巨大 value 立刻拒绝。签名细节见 <a href="#m07">M03 Web3 大前端</a>的签名部分。</p>')}
-<p>并非所有代币都支持 permit（主网 USDT 不支持；USDC 支持）。Uniswap 推出的 <strong>Permit2</strong> 合约为任意 ERC-20 提供统一的签名授权：用户对 Permit2 做一次授权，之后各协议通过 Permit2 的签名授权扣款，并可设置过期时间。USDC 还支持另一种签名转账 EIP-3009（<code>transferWithAuthorization</code>），常用于商户收款，见 <a href="#m09-4">M11.4 RWA 与链上支付</a>。</p>
+<p>并非所有代币都支持 permit（主网 USDT 不支持；USDC 支持）。Uniswap 推出的 <strong>Permit2</strong> 合约为任意 ERC-20 提供统一的签名授权：用户对 Permit2 做一次授权，之后各协议通过 Permit2 的签名授权扣款，并可设置过期时间。USDC 还支持另一种签名转账 EIP-3009（<code>transferWithAuthorization</code>），常用于商户收款，见 <a href="#m09-4">M13.4 RWA 与链上支付</a>。</p>
 
 <h2>4. 用 OpenZeppelin 写一个 ERC-20 并测试</h2>
 ${code('SOLIDITY', `
@@ -371,7 +371,7 @@ ${code('JSON', `
   ]
 }
 `)}
-${call('info', '<p>NFT 合约通常只在链上记录“谁拥有哪个 tokenId”，图片和描述放在链外。如果 tokenURI 指向中心化服务器，服务器关闭后 NFT 图片会消失。IPFS + 固定（pin）服务或完全链上 SVG 更持久（各存储方案对比见 <a href="#m09-3">M11.3 去中心化存储与 DePIN</a>）。不可转让的 NFT（灵魂绑定代币，ERC-5192）见 <a href="#m09-1">M11.1 链上身份</a> 第 6 节，用它发凭证的实战见 <a href="#m09-6">M11.7 实战：凭证与声誉</a>。</p>')}
+${call('info', '<p>NFT 合约通常只在链上记录“谁拥有哪个 tokenId”，图片和描述放在链外。如果 tokenURI 指向中心化服务器，服务器关闭后 NFT 图片会消失。IPFS + 固定（pin）服务或完全链上 SVG 更持久（各存储方案对比见 <a href="#m09-3">M13.3 去中心化存储与 DePIN</a>）。不可转让的 NFT（灵魂绑定代币，ERC-5192）见 <a href="#m09-1">M13.1 链上身份</a> 第 6 节，用它发凭证的实战见 <a href="#m09-6">M13.7 实战：凭证与声誉</a>。</p>')}
 ${call('warn', '<p><code>setApprovalForAll(operator, true)</code> 一次授权某个地址动用你在该合约中的<strong>全部</strong> NFT。NFT 钓鱼最常见的手法就是诱导签这一笔。safeTransferFrom 会回调接收合约，也是重入入口（见 <a href="#m02-7">M02.8 合约安全 I</a>）。</p>')}
 
 <h2>3. 铸造一个 NFT：OpenZeppelin v5 最小实现</h2>
@@ -521,7 +521,7 @@ contract NFTMarket is ReentrancyGuard {
 ${tbl(['设计选择', '做法 A', '做法 B', '取舍'], [
   ['NFT 是否托管', '不托管：卖家保留 NFT，只授权', '托管：上架时转入市场合约', 'A 对卖家友好但会出现“过期上架”；B 不会过期，但卖家要多一笔转账，且市场合约持有大量资产，更危险'],
   ['挂单方式', '链上存挂单（上面的写法）', '链下签名订单（如 Seaport 的做法），成交时才上链', '链下挂单免 Gas、可批量，但需要签名校验和取消机制'],
-  ['版税', '合约内不处理', '读取 EIP-2981 的 <code>royaltyInfo</code> 并分账', 'EIP-2981 只是“查询接口”，不强制执行，是否支付由市场决定（版税强制的演变见 <a href="#m09-7">M11.6 NFT 市场、版税与 Memecoin 发行</a>）']
+  ['版税', '合约内不处理', '读取 EIP-2981 的 <code>royaltyInfo</code> 并分账', 'EIP-2981 只是“查询接口”，不强制执行，是否支付由市场决定（版税强制的演变见 <a href="#m09-7">M13.6 NFT 市场、版税与 Memecoin 发行</a>）']
 ])}
 ${exq([
   ['为什么 <code>buy</code> 里要先 <code>delete listings[…]</code>，再转 NFT？', '<p><code>safeTransferFrom</code> 会回调接收方合约。如果记录还在，接收方可以在回调里再次调用 <code>buy</code> 重复成交同一挂单。先删除记录，再外部调用，重入时挂单已不存在。</p>'],
@@ -529,7 +529,7 @@ ${exq([
 ])}
 
 <h2>6. 代币发行：分配、IDO 与线性释放</h2>
-<p>写完 ERC-20 合约只是第一步。真正的难点是<strong>怎么把代币发给谁、什么时候能卖</strong>。这一节只讲机制，不涉及任何具体项目的评价；FDV、解锁抛压与价值捕获等经济设计见 <a href="#m02-60">M06.6 代币经济设计</a>。</p>
+<p>写完 ERC-20 合约只是第一步。真正的难点是<strong>怎么把代币发给谁、什么时候能卖</strong>。这一节只讲机制，不涉及任何具体项目的评价；FDV、解锁抛压与价值捕获等经济设计见 <a href="#m02-60">M08.6 代币经济设计</a>。</p>
 ${tbl(['分配对象', '占比（示例）', '常见释放方式', '设计目的'], [
   ['团队', '15%', '1 年悬崖期，之后 3 年线性释放', '让团队与长期价值绑定'],
   ['投资人', '20%', '6 个月悬崖期，之后 2 年线性释放', '避免上线即抛售'],

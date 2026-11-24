@@ -1,8 +1,8 @@
 /* ---------- M02 子文章（m02b-4）：实战 质押挖矿协议 ---------- */
 (() => {
 CUR = 'm02-12';
-addCh({ id: 'm02-12', nav: '实战：质押挖矿协议', title: 'M06.9 实战：质押挖矿协议（合约 + Foundry 测试 + 审计清单）', desc: '从需求到部署的企业级质押奖励合约：rewardPerToken 算法、完整实现、测试、监控与里程碑', html: `
-<h1>M06.9 实战：质押挖矿协议（合约 + Foundry 测试 + 审计清单）</h1>
+addCh({ id: 'm02-12', nav: '实战：质押挖矿协议', title: 'M08.9 实战：质押挖矿协议（合约 + Foundry 测试 + 审计清单）', desc: '从需求到部署的企业级质押奖励合约：rewardPerToken 算法、完整实现、测试、监控与里程碑', html: `
+<h1>M08.9 实战：质押挖矿协议（合约 + Foundry 测试 + 审计清单）</h1>
 ${meta(['推导 rewardPerToken 累加器算法，并用数值例子说清为什么它 Gas 是常数级。', '写出基于 OpenZeppelin 的完整质押合约，用 SafeERC20、ReentrancyGuard、AccessControl、Pausable。', '设计 Foundry 单元、模糊、不变量测试，部署脚本，集成接口，威胁模型和监控告警。'], '<a href="#m02-7">M02.8 合约安全 I</a>、<a href="#m02-5">M02.5 ERC-20 与授权</a>、<a href="#m02-4">M02.4 开发工具链</a>')}
 ${beginner(`<p><strong>质押（Staking）</strong>：把代币锁进合约，按时间获得奖励代币。这里的质押是“协议发奖励”，不是 <a href="#m05">M04</a> 的 PoS 共识质押。</p>
 <p><strong>奖励速率（Reward Rate）</strong>：每秒发多少奖励代币，由全体质押者按份额瓜分。</p>
@@ -503,7 +503,7 @@ ${tbl(['周', '交付物', '完成标准'], [
 ])}
 
 <h2>11. 扩展方向与作品集要点</h2>
-<p><strong>扩展</strong>：① 锁仓期与提前退出罚金（veToken 模型）；② 多奖励代币（并行多个累加器）；③ 奖励加速（质押治理代币提升倍率，Curve gauge）；④ 可升级版本（UUPS + 存储命名空间，见 <a href="#m02-8">M02.9</a>）；⑤ 跨链奖励分发（把合约扩展成带前后端和监控的完整收益金库，见 <a href="#m12-3">M12.3 实现：合约与前后端</a>）。<strong>作品集要点</strong>：在 README 讲清 rewardPerToken 推导、贴 gas-report 和不变量测试输出、画本篇的架构图、写一页威胁模型。面试常问：为什么 updateReward 要在余额变更前调用？totalSupply 为 0 时累加器为何冻结？周期中途续期如何处理剩余奖励？暂停为何不冻结本金？</p>
+<p><strong>扩展</strong>：① 锁仓期与提前退出罚金（veToken 模型）；② 多奖励代币（并行多个累加器）；③ 奖励加速（质押治理代币提升倍率，Curve gauge）；④ 可升级版本（UUPS + 存储命名空间，见 <a href="#m02-8">M02.9</a>）；⑤ 跨链奖励分发（把合约扩展成带前后端和监控的完整收益金库，见 <a href="#m12-3">M14.3 实现：合约与前后端</a>）。<strong>作品集要点</strong>：在 README 讲清 rewardPerToken 推导、贴 gas-report 和不变量测试输出、画本篇的架构图、写一页威胁模型。面试常问：为什么 updateReward 要在余额变更前调用？totalSupply 为 0 时累加器为何冻结？周期中途续期如何处理剩余奖励？暂停为何不冻结本金？</p>
 ${tryit(`<p>把本项目跑起来：</p>
 <ol><li><code>forge init staking && cd staking</code>，<code>forge install OpenZeppelin/openzeppelin-contracts</code>。</li>
 <li>把本篇 <code>StakingRewards</code> 放进 <code>src/</code>，测试放进 <code>test/</code>，补一个最简 <code>MockERC20</code>。</li>

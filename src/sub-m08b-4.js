@@ -1,9 +1,9 @@
-/* ---------- M09 子文章（b-4）：★ 实战：二元预测市场 ---------- */
+/* ---------- M11 子文章（b-4）：★ 实战：二元预测市场 ---------- */
 (() => {
 CUR = 'm08-11';
-addCh({ id: 'm08-11', nav: '实战·设计：二元预测市场', title: 'M09.11 实战·设计：二元预测市场（合约 + 撮合 + 结算 + 前端）', desc: '项目目标、需求拆解、系统架构、技术选型、数据模型与接口设计', html: `
-<h1>M09.11 实战·设计：二元预测市场（合约 + 撮合 + 结算 + 前端）</h1>
-${meta(['设计一个非托管的二元预测市场：ERC-1155 条件代币、EIP-712 签名订单、链下撮合链上结算、乐观预言机式结算。', '写出四个核心合约、撮合服务、前端下单流程的关键代码，并用 Foundry 不变量测试守住“抵押品 = 未赎回完整集合”。', '给出数据表、接口、部署、监控、安全与合规清单，按 6 周里程碑交付。'], '<a href="#m08-1">M09.1 预测市场入门</a>、<a href="#m08-4">M09.4 结算与预言机</a>、<a href="#m08-5">M09.5 Polymarket 架构</a>、<a href="#m02-50">M02.6 NFT 与代币发行</a>（ERC-1155）、<a href="#m07-6">M03.6 签名与登录</a>')}
+addCh({ id: 'm08-11', nav: '实战·设计：二元预测市场', title: 'M11.11 实战·设计：二元预测市场（合约 + 撮合 + 结算 + 前端）', desc: '项目目标、需求拆解、系统架构、技术选型、数据模型与接口设计', html: `
+<h1>M11.11 实战·设计：二元预测市场（合约 + 撮合 + 结算 + 前端）</h1>
+${meta(['设计一个非托管的二元预测市场：ERC-1155 条件代币、EIP-712 签名订单、链下撮合链上结算、乐观预言机式结算。', '写出四个核心合约、撮合服务、前端下单流程的关键代码，并用 Foundry 不变量测试守住“抵押品 = 未赎回完整集合”。', '给出数据表、接口、部署、监控、安全与合规清单，按 6 周里程碑交付。'], '<a href="#m08-1">M11.1 预测市场入门</a>、<a href="#m08-4">M11.4 结算与预言机</a>、<a href="#m08-5">M11.5 Polymarket 架构</a>、<a href="#m02-50">M02.6 NFT 与代币发行</a>（ERC-1155）、<a href="#m07-6">M03.6 签名与登录</a>')}
 ${beginner(`<p><strong>条件代币（Conditional Token）</strong>：只有在某个条件成立时才值钱的代币。“YES 份额”在事件发生时兑 1 USDC，否则兑 0。</p>
 <p><strong>ERC-1155</strong>：一种代币标准，一个合约里可以有很多种代币，每种用一个 tokenId 区分。适合“每个市场两种份额”的场景。</p>
 <p><strong>完整集合（Complete Set）</strong>：1 YES + 1 NO。无论结果如何，它都值 1 USDC。</p>
@@ -247,13 +247,13 @@ ${quiz([
 ])}
 ${exercises([["思考题（示例）：前端把 0.62 的价格编码成 <code>price = 620000</code>。为什么订单表要求价格严格大于 0 且小于 1,000,000？", "<p>价格单位是 1e-6 USDC，1,000,000 代表 1 USDC。一份份额最多兑付 1 USDC，以 1 或更高的价格买入没有意义。价格为 0 也没有意义。合约的检查要求 <code>price</code> 大于 0 且小于 <code>ONE</code>，数据库的 CHECK 约束与它一致，非法订单在入库时就被拒绝。</p>"], ["设计题：一个市场处于 Disputed 状态。用户想做 split、merge、redeem，哪些能成功？如果截止后一直没人提议，系统会怎样？怎样兜底？", "<p>split 只在 Resolved 之前允许，所以能成功。merge 任何时候都允许，因为完整集合永远值 1 USDC。redeem 必须等到 Resolved，现在会失败。截止后无人提议时，市场会卡在 Closed。运营方要运行兜底提议者机器人，并对截止超过 1 小时仍未提议的市场告警。</p>"], ["思考题：撮合引擎已经把成交推给用户，但链上 matchOrders 回滚了。系统应该怎样处理？为什么成交表要区分 matched 和 confirmed？", "<p>撮合结果只是软确认，链上确认后才是硬确认。回滚通常因为一方余额或授权不足。结算器要找出责任方，把该订单标记为 invalid 并移出订单簿，再恢复对手方订单的剩余数量。前端把成交状态改回并提示用户。区分 matched 和 confirmed，才能准确表示“已撮合但未上链”这段状态。</p>"]])}
 ${checklist(["能画出“链下撮合 + 链上结算”的架构图，并说出运营方能做和不能做的事。", "能写出市场生命周期状态机，并标出每个状态下 split、merge、redeem 是否允许。", "能为订单表和成交表设计 status 字段，并说明 matched 与 confirmed 的区别。", "能列出 ConditionalTokens、MarketFactory、Exchange、OptimisticResolver 的主要函数和事件。", "能把一条用户故事改写成可验证的验收标准。"])}
-${call('info', '<p>设计到此完成。下一篇 <a href="#m08-50">M09.12 实战·实现</a> 讲核心代码、测试策略、部署运维、安全清单与里程碑。</p>', '下一篇')}
+${call('info', '<p>设计到此完成。下一篇 <a href="#m08-50">M11.12 实战·实现</a> 讲核心代码、测试策略、部署运维、安全清单与里程碑。</p>', '下一篇')}
 ` });
 
 CUR = 'm08-50';
-addCh({ id: 'm08-50', nav: '实战·实现：二元预测市场', title: 'M09.12 实战·实现：二元预测市场（合约 + 撮合 + 结算 + 前端）', desc: '核心代码、测试策略、部署运维、安全清单、里程碑与扩展方向', html: `
-<h1>M09.12 实战·实现：二元预测市场（合约 + 撮合 + 结算 + 前端）</h1>
-${meta(['按上篇的设计，读懂并能复现本项目的核心代码。', '为项目制定测试策略：单元、集成、模糊与故障注入。', '完成部署、监控与安全清单，并按里程碑交付。'], '前置：<a href="#m08-11">M09.11 实战·设计</a>')}
+addCh({ id: 'm08-50', nav: '实战·实现：二元预测市场', title: 'M11.12 实战·实现：二元预测市场（合约 + 撮合 + 结算 + 前端）', desc: '核心代码、测试策略、部署运维、安全清单、里程碑与扩展方向', html: `
+<h1>M11.12 实战·实现：二元预测市场（合约 + 撮合 + 结算 + 前端）</h1>
+${meta(['按上篇的设计，读懂并能复现本项目的核心代码。', '为项目制定测试策略：单元、集成、模糊与故障注入。', '完成部署、监控与安全清单，并按里程碑交付。'], '前置：<a href="#m08-11">M11.11 实战·设计</a>')}
 ${call('info', '<p>本篇是项目的下篇。架构图、数据模型和接口定义都在<a href="#m08-11">上篇</a>，读代码时可以对照着看。</p>')}
 ${art('一图看懂：四个合约、一个撮合服务、一个前端怎样分工', 660, 362, [
   S.zone(10, 24, 220, 300, { t: '链下与本地' }),
@@ -379,7 +379,7 @@ contract ConditionalTokens is ERC1155Supply, ReentrancyGuard, Ownable {
     }
 }
 `)}
-${call('info', `<p>为什么 YES/NO 份额能“凭空”有价格？因为它们只能通过 split 成对产生，每对背后锁着 1 USDC。如果 YES 0.65 + NO 0.40 = 1.05，套利者就 split 1 USDC 再把两边卖掉，赚 0.05，于是两者价格之和被拉回 1 附近。见 <a href="#m08-2">M09.2 交易与套利</a>。生产版本还要为 merge、redeem 发出事件。</p>`)}
+${call('info', `<p>为什么 YES/NO 份额能“凭空”有价格？因为它们只能通过 split 成对产生，每对背后锁着 1 USDC。如果 YES 0.65 + NO 0.40 = 1.05，套利者就 split 1 USDC 再把两边卖掉，赚 0.05，于是两者价格之和被拉回 1 附近。见 <a href="#m08-2">M11.2 交易与套利</a>。生产版本还要为 merge、redeem 发出事件。</p>`)}
 <h3>8.2 市场工厂与乐观结算</h3>
 <p><strong>MarketFactory</strong> 很简单：持有 CREATOR 角色的账户调用 <code>createMarket(question, rules, closeTime)</code>，工厂用 <code>keccak256(abi.encode(block.chainid, address(this), nonce++, question))</code> 生成 marketId，依次调用 <code>ct.prepareMarket(marketId, resolver, closeTime)</code> 和 <code>resolver.register(marketId, closeTime)</code>，再发出 MarketCreated 事件（事件里带上规则全文，供索引器入库）。下面是结算器的核心：</p>
 ${code('SOLIDITY', `
@@ -502,7 +502,7 @@ contract Exchange is EIP712, ReentrancyGuard {
     function setMinNonce(uint64 n) external { require(n > minNonce[msg.sender]); minNonce[msg.sender] = n; } // 批量作废旧单
 }
 `)}
-${call('deep', `<p>本合约只实现“买单 vs 卖单”。Polymarket 的 CTF Exchange 还支持：① “买 YES + 买 NO”价格之和 ≥ 1 时，收两方 USDC 调用 split 铸出一对份额分给双方（铸造撮合）；② “卖 YES + 卖 NO”价格之和 ≤ 1 时调用 merge（合并撮合）。这让 YES 和 NO 两本订单簿共享流动性，交易所需继承 ERC1155Holder。见 <a href="#m08-5">M09.5 Polymarket 架构</a>。</p>`)}
+${call('deep', `<p>本合约只实现“买单 vs 卖单”。Polymarket 的 CTF Exchange 还支持：① “买 YES + 买 NO”价格之和 ≥ 1 时，收两方 USDC 调用 split 铸出一对份额分给双方（铸造撮合）；② “卖 YES + 卖 NO”价格之和 ≤ 1 时调用 merge（合并撮合）。这让 YES 和 NO 两本订单簿共享流动性，交易所需继承 ERC1155Holder。见 <a href="#m08-5">M11.5 Polymarket 架构</a>。</p>`)}
 
 <h3>8.4 撮合服务（TypeScript）</h3>
 <p>EIP-712 的 domain 和 types 放在一个共享文件 <code>eip712.ts</code> 里，撮合服务和前端共用，字段顺序与合约中的 ORDER_TYPEHASH 完全一致。验签用 viem 的 <code>publicClient.verifyTypedData</code>，它同时支持 EOA 与 ERC-1271 合约钱包。</p>

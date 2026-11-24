@@ -573,7 +573,7 @@ sequenceDiagram
   ['flow', 'nonce 由后端生成并保存，前端只是转交。后端验签成功后立刻作废 nonce。'],
   ['fail', '前端自己生成 nonce，后端无法判断是否重放；后端不校验域名，钓鱼站拿到的签名可以登录本站。'],
   ['key', '会话 Cookie 用 httpOnly（JS 读不到）+ Secure + SameSite=Lax，防止 XSS 偷会话和 CSRF。'],
-  ['limit', 'SIWE 只证明“控制这个地址”，不代表任何权限。权限判断（是否管理员、是否持有 NFT）要另外查；登录之后的 ENS、SBT、可验证凭证等链上身份见 <a href="#m09-1">M11.1 链上身份</a>。'],
+  ['limit', 'SIWE 只证明“控制这个地址”，不代表任何权限。权限判断（是否管理员、是否持有 NFT）要另外查；登录之后的 ENS、SBT、可验证凭证等链上身份见 <a href="#m09-1">M13.1 链上身份</a>。'],
   ['risk', '用户切换钱包账户后，前端要检测 accountsChanged 并登出，否则界面地址和会话地址不一致。']
 ])}
 ${code('TYPESCRIPT', `
@@ -716,7 +716,7 @@ ${tbl(['签名类型', '关键字段', '签名后对方能做什么'], [
   ['Permit2 SignatureTransfer', 'permitted{token, amount}、spender、nonce、deadline', '一次性转账，用完即失效'],
   ['Seaport 类 NFT 挂单', 'offer（你给出的 NFT）、consideration（你要收到的对价）', '任何人支付 consideration 即可拿走 NFT；对价为 0 等于白送']
 ])}
-<p>Seaport 订单的签名与成交流程见 <a href="#m09-7">M11.6 NFT 市场、版税与 Memecoin 发行</a>。</p>
+<p>Seaport 订单的签名与成交流程见 <a href="#m09-7">M13.6 NFT 市场、版税与 Memecoin 发行</a>。</p>
 <p>体验下面的实验：依次切换 4 个预置请求，对照左侧原始 JSON 和右侧“人话翻译”，找出每个请求的红旗。再把“当前网络”切到 Base，看 chainId 不匹配的提示。</p>
 ${lab('eip712')}
 <h3>算一算：无限额度到底有多大（示例）</h3>

@@ -110,7 +110,7 @@ export function useTxToast(hash?: \`0x\${string}\`, label = '交易') {
 <p>区块浏览器链接的地址来自 viem 链定义的 <code>blockExplorers.default.url</code>，不要手写域名拼接，避免切链后链接指向错误的浏览器。</p>
 
 <h2>4. 交易替换与取消</h2>
-<p>同一地址的交易按 <strong>nonce</strong> 顺序执行。用户在钱包点“加速”，钱包会用<strong>相同 nonce、更高费用</strong>重新签一笔交易；点“取消”，钱包发一笔相同 nonce、给自己转 0 ETH 的交易。哪一笔先被打包，另一笔就作废（nonce 原理见 <a href="#m03-6">M07.6 Nonce 管理</a>）。</p>
+<p>同一地址的交易按 <strong>nonce</strong> 顺序执行。用户在钱包点“加速”，钱包会用<strong>相同 nonce、更高费用</strong>重新签一笔交易；点“取消”，钱包发一笔相同 nonce、给自己转 0 ETH 的交易。哪一笔先被打包，另一笔就作废（nonce 原理见 <a href="#m03-6">M09.6 Nonce 管理</a>）。</p>
 ${mm('加速与取消如何替换原交易', `
 flowchart LR
   T0["原交易 A<br/>nonce 7 · 小费 1 gwei"] --> MP["内存池"]
@@ -311,7 +311,7 @@ export default {
 ${call('info', `<p>CSP 的 <code>connect-src</code> 是 DApp 的关键：即使恶意脚本混进来，它也无法把数据发往白名单之外的服务器。WalletConnect 等服务需要的域名以其官方文档为准，上线前在浏览器控制台检查有没有被 CSP 拦截的请求。</p>`)}
 
 <h2>4. 防护二：IPFS 部署、签名前解释、地址校验</h2>
-<p><strong>IPFS 部署</strong>：把构建产物上传 IPFS，得到<strong>内容标识符 CID</strong>（内容哈希）。内容变，CID 就变。把 CID 写入 ENS 域名的 contenthash，用户通过 eth.limo 等网关或支持 IPFS 的浏览器访问。任何人都能重新构建并比对 CID，确认前端没被篡改（CIDv0 与 CIDv1 的区别、为什么同一文件可能得到不同 CID，见 <a href="#m09-3">M11.3 去中心化存储与 DePIN</a>）。</p>
+<p><strong>IPFS 部署</strong>：把构建产物上传 IPFS，得到<strong>内容标识符 CID</strong>（内容哈希）。内容变，CID 就变。把 CID 写入 ENS 域名的 contenthash，用户通过 eth.limo 等网关或支持 IPFS 的浏览器访问。任何人都能重新构建并比对 CID，确认前端没被篡改（CIDv0 与 CIDv1 的区别、为什么同一文件可能得到不同 CID，见 <a href="#m09-3">M13.3 去中心化存储与 DePIN</a>）。</p>
 ${mm('签名前的交易解释流程', `
 flowchart LR
   REQ["前端构造交易<br/>to · data · value"] --> DEC["用 ABI 解码 calldata<br/>函数名 + 参数"]

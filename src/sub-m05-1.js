@@ -77,7 +77,7 @@ flowchart LR
   ['key', 'UTXO 互相独立，天然适合并行验证；但表达复杂合约状态很不方便。'],
   ['limit', '比特币 L1 没有通用智能合约。DeFi 类应用需要侧链或二层方案。']
 ])}
-<p>比特币各部分的深入讲解：UTXO 与脚本见 <a href="#m05-60">M04.19</a>，SegWit、Taproot 与 PSBT 见 <a href="#m05-61">M04.20</a>，闪电网络见 <a href="#m05-62">M04.21 闪电网络</a>。</p>
+<p>比特币各部分的深入讲解：UTXO 与脚本见 <a href="#m05-60">M05.4</a>，SegWit、Taproot 与 PSBT 见 <a href="#m05-61">M05.5</a>，闪电网络见 <a href="#m05-62">M05.6 闪电网络</a>。</p>
 <h3>3.2 以太坊：账户、EVM 与 Rollup 中心路线</h3>
 <p>以太坊（Ethereum，2015）使用 <strong>账户模型（Account Model）</strong>：全局状态是一张“地址 → 账户”的表，每个账户有余额、nonce，合约账户还有代码和存储。交易在 <strong>EVM（Ethereum Virtual Machine，以太坊虚拟机）</strong> 中执行，主流合约语言是 Solidity。</p>
 <p>2022 年 The Merge 之后，以太坊改用权益证明（PoS），每 12 秒一个 slot，约 13 分钟（2 个 epoch）达到最终确定。以太坊的扩容策略叫 <strong>Rollup 中心路线图（Rollup-centric Roadmap）</strong>：L1 专注安全和数据可用性，日常交易在 Arbitrum、Optimism、Base 等 L2 上执行。细节见 <a href="#m05-2">M04.2 以太坊架构</a>。</p>
@@ -98,7 +98,7 @@ ${tbl(['项目', 'Aptos', 'Sui'], [
   ['共识', 'AptosBFT（BFT 家族）', 'Mysticeti（基于 DAG 的 BFT）'],
   ['最终性', '亚秒到秒级', '亚秒到秒级']
 ])}
-<p>Move 资源模型、Aptos 与 Sui 的开发细节见 <a href="#m05-64">M04.23 Move 链</a>。</p>
+<p>Move 资源模型、Aptos 与 Sui 的开发细节见 <a href="#m05-64">M05.8 Move 链</a>。</p>
 <h3>3.7 TON：分片与异步消息</h3>
 <p>TON（The Open Network）最初由 Telegram 团队设计。它有一条主链（Masterchain）和多条工作链（Workchain），工作链按负载动态拆分成分片链（Shardchain）。合约之间不能同步调用，只能互发 <strong>异步消息</strong>，类似“演员模型（Actor Model）”。开发语言有 FunC、Tact、Tolk。优势是和 Telegram 的用户入口深度集成；难点是异步编程容易写出“消息发出去但对方失败、自己没回滚”的 bug。</p>
 <h3>3.8 BNB Chain：EVM 兼容与少量验证者</h3>
@@ -626,7 +626,7 @@ function wstValueInStEth(IWstETH wst, address user) external view returns (uint2
     return wst.balanceOf(user) * wst.stEthPerToken() / 1e18;           // 先乘后除，保留精度
 }
 `)}
-<p>取回队列、折价、LST 作抵押品以及再质押的风险层，见 <a href="#m02-63">M06.4 流动性质押与再质押</a>。</p>
+<p>取回队列、折价、LST 作抵押品以及再质押的风险层，见 <a href="#m02-63">M08.4 流动性质押与再质押</a>。</p>
 <h3>6.2 再质押：角色、委托与提款延迟</h3>
 <p>再质押（Restaking）让同一份质押资产为多个服务提供安全。以 EigenLayer 为例，涉及三个角色：</p>
 ${tbl(['角色', '做什么', '承担什么风险'], [

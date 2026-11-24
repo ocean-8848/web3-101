@@ -1,4 +1,4 @@
-/* ---------- Labs M08: ledger, por ---------- */
+/* ---------- Labs M10: ledger, por ---------- */
 (() => {
 
 addLab('ledger', {

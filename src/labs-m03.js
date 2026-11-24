@@ -1,4 +1,4 @@
-/* ---------- Labs M07: hdpath, nonce ---------- */
+/* ---------- Labs M09: hdpath, nonce ---------- */
 (() => {
 
 addLab('hdpath', {

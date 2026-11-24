@@ -71,7 +71,7 @@ flowchart TB
   ['risk', '侧链和 Validium 的数据或安全不完全依赖 L1。它们出事时，L1 无法帮用户找回资金。']
 ])}
 <p>下面逐个说明。</p>
-<p><strong>状态通道（State Channel）</strong>：两方先在 L1 锁定资金，然后在链下来回交换签名过的余额更新，最后只把最终余额提交到 L1。比特币闪电网络（Lightning Network）就是支付通道网络。优点是即时、几乎免费；缺点是需要双方在线、资金要提前锁定、只适合固定参与者（通道、HTLC 与多跳路由见 <a href="#m05-62">M04.21 闪电网络</a>）。</p>
+<p><strong>状态通道（State Channel）</strong>：两方先在 L1 锁定资金，然后在链下来回交换签名过的余额更新，最后只把最终余额提交到 L1。比特币闪电网络（Lightning Network）就是支付通道网络。优点是即时、几乎免费；缺点是需要双方在线、资金要提前锁定、只适合固定参与者（通道、HTLC 与多跳路由见 <a href="#m05-62">M05.6 闪电网络</a>）。</p>
 <p><strong>侧链（Sidechain）</strong>：一条独立运行的区块链，有自己的验证者和共识，通过桥和 L1 互通。例如 Polygon PoS 最初就定位为以太坊侧链。侧链的安全完全取决于它自己的验证者，与 L1 无关。</p>
 <p><strong>Plasma</strong>：2017 年提出。运营者只把每个区块的状态承诺（默克尔根）发布到 L1，交易数据留在链下。用户发现作恶时，用“退出游戏”把资金撤回 L1。问题在于：如果运营者扣留数据，用户就无法证明自己的余额，只能大规模抢先退出。Plasma 难以支持通用智能合约，后来被 Rollup 取代。</p>
 <p><strong>Rollup</strong>：把交易数据完整发布到 L1，并用欺诈证明或有效性证明保证结果正确。任何人都能用 L1 上的数据重建 L2 状态。细节见 <a href="#m05-5">M04.5 Rollup 深入</a>。</p>
@@ -293,7 +293,7 @@ ${tbl(['部件', '它做什么', '类比'], [
   ['证明者 Prover', '对一个批次运行电路，生成一个很小的证明（几百字节到几百 KB）', '考生交卷时附上的“自证正确”的证书'],
   ['验证合约 Verifier', '部署在 L1，用几十万 Gas 验证证明', '阅卷老师只看证书，几秒就判对错']
 ])}
-<p>关键性质：<strong>验证成本几乎不随交易数量增长</strong>。1 笔和 10,000 笔交易，验证证明的 Gas 差不多。代价是生成证明需要大量计算（GPU 集群，分钟到小时级）。代表项目：zkSync Era、Starknet、Scroll、Linea；Polygon zkEVM 曾是其中之一，但已于 2025-06 宣布在 2026 年停运 Mainnet Beta（排序器计划 2026-07-01 停止）${cite('Polygon 论坛：Sunsetting Polygon zkEVM Mainnet Beta in 2026', 'https://forum.polygon.technology/t/sunsetting-polygon-zkevm-mainnet-beta-in-2026/21020')}，详见 <a href="#m10-4">M04.13 zkEVM 与 ZK Rollup</a>。</p>
+<p>关键性质：<strong>验证成本几乎不随交易数量增长</strong>。1 笔和 10,000 笔交易，验证证明的 Gas 差不多。代价是生成证明需要大量计算（GPU 集群，分钟到小时级）。代表项目：zkSync Era、Starknet、Scroll、Linea；Polygon zkEVM 曾是其中之一，但已于 2025-06 宣布在 2026 年停运 Mainnet Beta（排序器计划 2026-07-01 停止）${cite('Polygon 论坛：Sunsetting Polygon zkEVM Mainnet Beta in 2026', 'https://forum.polygon.technology/t/sunsetting-polygon-zkevm-mainnet-beta-in-2026/21020')}，详见 <a href="#m10-4">M06.4 zkEVM 与 ZK Rollup</a>。</p>
 ${tbl(['维度', '乐观 Rollup', 'ZK Rollup'], [
   ['默认假设', '结果正确，除非被挑战', '没有证明就不接受'],
   ['安全前提', '至少一个诚实且在线的挑战者', '密码学假设 + 电路实现无漏洞'],
@@ -326,7 +326,7 @@ stateDiagram-v2
 `, [
   ['flow', 'OP Stack 提款需要用户在 L1 上发两笔交易：先“证明”，挑战期结束后再“完成”。'],
   ['fail', '用户只做了第一步就忘记第二步，资金会一直停在桥合约里。前端和后端都要提醒并跟踪状态。'],
-  ['limit', '官方桥提款慢。第三方快速桥（流动性网络）可以几分钟到账，但引入新的信任方，见 <a href="#m05-8">M04.26 跨链桥</a>。'],
+  ['limit', '官方桥提款慢。第三方快速桥（流动性网络）可以几分钟到账，但引入新的信任方，见 <a href="#m05-8">M05.11 跨链桥</a>。'],
   ['key', 'L1 → L2 的充值通常只需几分钟；L2 → L1 的提款才需要等挑战期。']
 ])}
 
@@ -691,7 +691,7 @@ ${steps([
   '<strong>鉴权</strong>：在节点前放网关（Nginx、Envoy 或自研），校验 API Key 或 JWT，按 Key 记录用量。',
   '<strong>限流</strong>：按 Key 和 IP 限制 QPS；对 eth_getLogs 限制区块范围（例如每次 ≤ 2,000 块）；对 debug_traceTransaction 等重方法单独限流。',
   '<strong>请求体限制</strong>：限制批量请求条数（例如一个 batch ≤ 50 条）和请求体大小，防止单个请求拖垮节点。',
-  '<strong>不在节点里放私钥</strong>：签名放在独立的签名服务或 HSM / MPC 中（见 <a href="#m03">M07 钱包</a>），节点只负责广播。'
+  '<strong>不在节点里放私钥</strong>：签名放在独立的签名服务或 HSM / MPC 中（见 <a href="#m03">M09 钱包</a>），节点只负责广播。'
 ])}
 ${call('warn', `<p>历史上有大量暴露在公网、并解锁了账户的 Geth 节点被机器人扫描并盗走资金：2018 年 360 Netlab 报告，攻击者扫描 8545 端口，从这类节点盗走了价值超过 2,000 万美元的 ETH。${cite('BleepingComputer：配置不当的以太坊客户端被盗超 2,000 万美元', 'https://www.bleepingcomputer.com/news/security/hackers-stole-over-20-million-from-misconfigured-ethereum-clients/')}今天 Geth 已移除 personal 命名空间，但原则不变：<strong>节点不保存可用私钥，RPC 端口不对公网开放</strong>。</p>`)}
 

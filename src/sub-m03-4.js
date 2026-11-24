@@ -1,9 +1,9 @@
-/* ---------- M07 子文章（四）：★ 实战 企业级多链托管钱包服务 ---------- */
+/* ---------- M09 子文章（四）：★ 实战 企业级多链托管钱包服务 ---------- */
 (() => {
 CUR = 'm03-9';
-addCh({ id: 'm03-9', nav: '★ 实战·设计：托管钱包服务', title: 'M07.10 实战·设计：企业级多链托管钱包服务', desc: '项目目标、需求拆解、系统架构、技术选型、数据模型与接口设计', html: `
-<h1>M07.10 实战·设计：企业级多链托管钱包服务</h1>
-${meta(['按企业标准拆解一个多链托管钱包：地址、充值、归集、提币、签名、对账、运营后台。', '写出 PostgreSQL 表结构、gRPC/REST 接口、Go 核心实现（链适配器、扫描器、提币状态机、签名策略）。', '制定测试（含故障注入）、K8s 部署、监控告警、威胁模型与 6 周里程碑。'], '<a href="#m03-8">M07.9 企业钱包系统设计</a>、<a href="#m03-6">M07.6 Nonce 管理</a>、<a href="#m03-7">M07.7 Gas 策略</a>', ['nonce', 'hdpath'])}
+addCh({ id: 'm03-9', nav: '★ 实战·设计：托管钱包服务', title: 'M09.10 实战·设计：企业级多链托管钱包服务', desc: '项目目标、需求拆解、系统架构、技术选型、数据模型与接口设计', html: `
+<h1>M09.10 实战·设计：企业级多链托管钱包服务</h1>
+${meta(['按企业标准拆解一个多链托管钱包：地址、充值、归集、提币、签名、对账、运营后台。', '写出 PostgreSQL 表结构、gRPC/REST 接口、Go 核心实现（链适配器、扫描器、提币状态机、签名策略）。', '制定测试（含故障注入）、K8s 部署、监控告警、威胁模型与 6 周里程碑。'], '<a href="#m03-8">M09.9 企业钱包系统设计</a>、<a href="#m03-6">M09.6 Nonce 管理</a>、<a href="#m03-7">M09.7 Gas 策略</a>', ['nonce', 'hdpath'])}
 ${beginner(`<p><strong>托管钱包服务（Custodial Wallet Service）</strong>：替业务方保管链上资产、负责收款和付款的后台系统。业务方只调用接口，不接触私钥。</p>
 <p><strong>链适配器（Chain Adapter）</strong>：把每条链的差异（地址格式、交易结构、费用模型）封装在统一接口后面的模块。</p>
 <p><strong>重组（Reorg）</strong>：区块链短暂分叉后，节点切换到另一条更长或更重的链，原来看到的最新几个区块被替换。</p>
@@ -96,7 +96,7 @@ flowchart TB
   ['key', '签名域是独立集群和独立网络，只开放一个 gRPC 端口给核心域，没有公网出口，运维账号与核心域分离。'],
   ['fail', 'RPC 网关聚合多家节点供应商。单一供应商故障时自动切换；数据不一致时以多数结果为准。'],
   ['risk', 'wallet-api 被攻破时，攻击者只能提交提币请求，仍要经过风控和签名域独立策略校验。'],
-  ['limit', '本项目只覆盖托管与资金流转，不包含业务方的用户账户体系与撮合（见 M08）。']
+  ['limit', '本项目只覆盖托管与资金流转，不包含业务方的用户账户体系与撮合（见 M10）。']
 ])}
 ${mm('关键调用链：一笔 ERC-20 提币', `
 sequenceDiagram
@@ -449,13 +449,13 @@ ${quiz([
 ])}
 ${exercises([["提币状态机规定 SIGNED 之后不允许回到 APPROVED 重新分配 nonce。如果允许，会出现什么问题？", "<p>SIGNED 意味着已有一笔用某个 nonce 签好的 raw 交易，它随时可能被广播并上链。回到 APPROVED 重新分配 nonce，就会再签一笔内容相同、nonce 不同的交易，两笔都可能上链，造成重复打款。正确做法只有重播、加速，或在 MANUAL 中由两人审批后取消。</p>"], ["数据模型里有三个关键唯一约束。分别写出它们，并说出各自防止什么问题。", "<p><code>deposit (chain, tx_hash, log_index)</code>：一笔交易可含多个 Transfer 事件，扫描器重跑同一区块时不会重复入账。<code>withdrawal (tenant_id, request_id)</code>：业务方超时重试同一 request_id 时，只产生一笔提币。<code>chain_tx</code> 记录同一 nonce 的所有尝试，<code>tx_hash</code> 唯一，任何一笔上链都能匹配回原提币。</p>"], ["设计一个新链（例如 Tron）的接入方案：哪些部分要新写，哪些部分不应改动？", "<p>新写 Tron 链适配器：地址派生与校验、扫描区块、构造交易（ref_block 与 expiration）、组装签名、广播、回执和余额查询。签名域要补充对 Tron 交易的解码和校验。提币状态机、wallet-api 接口、审批流不应改动。这是“链差异封装在适配器中”的设计目标。</p>"]])}
 ${checklist(["能用数字写出托管钱包服务的验收标准：吞吐、延迟、可用性、零重复打款、零资金差异。", "能画出核心域与签名域的架构，说明哪些服务能向签名域发请求、要带什么凭证。", "能复述一笔 ERC-20 提币的完整调用链，并指出签名超时和广播失败时的恢复方式。", "能写出 deposit、withdrawal、chain_tx、approval、audit_log 五张表的关键字段和约束。", "能设计 CreateWithdrawal 接口，用最小单位十进制字符串表示金额，用 request_id 实现幂等。"])}
-${call('info', '<p>设计到此完成。下一篇 <a href="#m03-50">M07.11 实战·实现</a> 讲核心代码、测试策略、部署运维、安全清单与里程碑。</p>', '下一篇')}
+${call('info', '<p>设计到此完成。下一篇 <a href="#m03-50">M09.11 实战·实现</a> 讲核心代码、测试策略、部署运维、安全清单与里程碑。</p>', '下一篇')}
 ` });
 
 CUR = 'm03-50';
-addCh({ id: 'm03-50', nav: '★ 实战·实现：托管钱包服务', title: 'M07.11 实战·实现：企业级多链托管钱包服务', desc: '核心代码、测试策略、部署运维、安全清单、里程碑与扩展方向', html: `
-<h1>M07.11 实战·实现：企业级多链托管钱包服务</h1>
-${meta(['按上篇的设计，读懂并能复现本项目的核心代码。', '为项目制定测试策略：单元、集成、模糊与故障注入。', '完成部署、监控与安全清单，并按里程碑交付。'], '前置：<a href="#m03-9">M07.10 实战·设计</a>')}
+addCh({ id: 'm03-50', nav: '★ 实战·实现：托管钱包服务', title: 'M09.11 实战·实现：企业级多链托管钱包服务', desc: '核心代码、测试策略、部署运维、安全清单、里程碑与扩展方向', html: `
+<h1>M09.11 实战·实现：企业级多链托管钱包服务</h1>
+${meta(['按上篇的设计，读懂并能复现本项目的核心代码。', '为项目制定测试策略：单元、集成、模糊与故障注入。', '完成部署、监控与安全清单，并按里程碑交付。'], '前置：<a href="#m03-9">M09.10 实战·设计</a>')}
 ${call('info', '<p>本篇是项目的下篇。架构图、数据模型和接口定义都在<a href="#m03-9">上篇</a>，读代码时可以对照着看。</p>')}
 ${art('一图看懂：代码以 chain.Adapter 接口为中心，新增链只写适配器', 660, 372, [
   S.box(10, 52, 190, 56, { k: 'info', mono: 1, t: 'Scanner.step', s: '8.2 充值扫描 · 重组回滚' }),
@@ -474,7 +474,7 @@ ${art('一图看懂：代码以 chain.Adapter 接口为中心，新增链只写�
   ['flow', '扫描器和提币 Worker 都只调用 chain.Adapter，不关心具体是哪条链；Worker 把待签名交易交给签名域。'],
   ['key', '链差异（地址、交易结构、费用）全部藏在 Adapter 后面，EVM 先做，BTC 与 Tron 只留接口。'],
   ['risk', 'Gateway.Sign 在独立进程里，自己解码交易再校验，不信任 Worker 给的描述。'],
-  ['limit', '图中只列了本节的核心函数；数据库表和接口定义在上篇 M07.10。']
+  ['limit', '图中只列了本节的核心函数；数据库表和接口定义在上篇 M09.10。']
 ], '代码结构图：扫描器和提币 Worker 依赖 chain.Adapter 接口，evm 适配器已实现，btc 和 tron 预留，签名网关在独立的签名域', 'm03-50')}
 
 <h2>8. 核心代码</h2>
@@ -546,7 +546,7 @@ func (a *Adapter) BuildTransfer(ctx context.Context, t chain.Transfer) (*chain.U
             return nil, err
         }
     }
-    fee := a.fees.Get(t.FeeTier) // 来自 M07.7 的费用估算器缓存
+    fee := a.fees.Get(t.FeeTier) // 来自 M09.7 的费用估算器缓存
     gas := uint64(21000)
     if len(data) > 0 {
         est, err := a.rpc.EstimateGas(ctx, ethereum.CallMsg{
@@ -661,7 +661,7 @@ func (r *Repo) transit(ctx context.Context, id int64, from, to string, set map[s
 }
 
 func (w *Worker) signAndSend(ctx context.Context, wd *Withdrawal) error {
-    // 1. APPROVED → SIGNING：分配 nonce（M07.6 的分配器），写回提币记录
+    // 1. APPROVED → SIGNING：分配 nonce（M09.6 的分配器），写回提币记录
     if wd.Status == "APPROVED" {
         from := w.pickHotAddress(wd)             // 按 lane 与余额选地址
         nonce, err := w.nonces.Allocate(ctx, "eth", from, wd.ID)
@@ -761,7 +761,7 @@ func (g *Gateway) Sign(ctx context.Context, req *signerpb.SignReq) (*signerpb.Si
 
 <h3>8.5 加速、归集、对账（要点）</h3>
 <ul>
-<li><strong>加速任务</strong>：每个区块扫描 <code>chain_tx</code> 中 status = broadcast 的最早 nonce，按 M07.7 状态机判定卡单，费用 ×1.2 且 ≥ 1.5 × 当前 base，生成新 chain_tx（attempt + 1）后签名广播；最多 5 次，超过转 MANUAL。</li>
+<li><strong>加速任务</strong>：每个区块扫描 <code>chain_tx</code> 中 status = broadcast 的最早 nonce，按 M09.7 状态机判定卡单，费用 ×1.2 且 ≥ 1.5 × 当前 base，生成新 chain_tx（attempt + 1）后签名广播；最多 5 次，超过转 MANUAL。</li>
 <li><strong>回执匹配</strong>：对同一 (from, nonce) 的所有 tx_hash 查询回执；任意一个 mined 即把其余标记 replaced，并按实际上链的那笔更新提币（金额为 0 的取消交易上链时，提币状态回到人工处理）。</li>
 <li><strong>归集任务</strong>：每 10 分钟汇总已入账的充值地址余额，计算 价值 ÷ 成本 ≥ 20 的地址；ERC-20 先建 gas_topup 交易，确认后再建 sweep 交易；Gas 价格高于配置上限时跳过本轮。</li>
 <li><strong>对账任务</strong>：每小时取 <code>safe</code> 高度（最新 − 确认数），查询全部托管地址余额（用 Multicall3 合约批量查 ERC-20 余额），与钱包库、业务账本比对，写入 <code>recon_report</code>；差异 &gt; 阈值时告警并打开“提币熔断”开关。</li>
@@ -874,13 +874,13 @@ ${tbl(['周', '目标', '交付物', '验收'], [
 
 <h2>13. 扩展方向与面试 / 作品集要点</h2>
 <ul>
-<li><strong>扩展 BTC</strong>：实现 UTXO 选币（分支定界算法）、PSBT、RBF 加速；地址用 BIP-84 xpub 派生（基础见 <a href="#m05-60">M04.19 比特币 UTXO 与脚本</a>、<a href="#m05-61">M04.20 SegWit·Taproot·PSBT</a>，可先在 <a href="#lab-utxo">UTXO 选币实验</a> 里试）。</li>
+<li><strong>扩展 BTC</strong>：实现 UTXO 选币（分支定界算法）、PSBT、RBF 加速；地址用 BIP-84 xpub 派生（基础见 <a href="#m05-60">M05.4 比特币 UTXO 与脚本</a>、<a href="#m05-61">M05.5 SegWit·Taproot·PSBT</a>，可先在 <a href="#lab-utxo">UTXO 选币实验</a> 里试）。</li>
 <li><strong>扩展 Tron</strong>：TRC-20 转账、能量与带宽管理（质押 TRX 或租赁能量），ref_block 与 expiration 处理。</li>
 <li><strong>L2 支持</strong>：OP Stack 与 Arbitrum 的费用估算器（含 L1 数据费），提款跨链桥状态跟踪。</li>
-<li><strong>账户抽象</strong>：用 ERC-4337 或 EIP-7702 实现批量提币与 Gas 代付（见 <a href="#m06-5">M07.8</a>）。</li>
-<li><strong>储备金证明</strong>：基于对账数据生成默克尔树负债证明（见 <a href="#m04-8">M08.9</a>）。</li>
+<li><strong>账户抽象</strong>：用 ERC-4337 或 EIP-7702 实现批量提币与 Gas 代付（见 <a href="#m06-5">M09.8</a>）。</li>
+<li><strong>储备金证明</strong>：基于对账数据生成默克尔树负债证明（见 <a href="#m04-8">M10.9</a>）。</li>
 </ul>
-<p><strong>下一步：毕业项目</strong>。把钱包、合约、前后端和运维串成一个完整作品，见 <a href="#m12">M12 综合毕业项目</a>。</p>
+<p><strong>下一步：毕业项目</strong>。把钱包、合约、前后端和运维串成一个完整作品，见 <a href="#m12">M14 综合毕业项目</a>。</p>
 ${tbl(['面试常问', '回答要点'], [
   ['如何保证不重复打款？', '幂等键唯一约束；状态机条件更新；先落库 raw 再广播；同 nonce 签名记录；替换后监听所有 tx_hash'],
   ['nonce 卡住怎么办？', '区分低费用、空洞、被丢弃；加速 / 取消 / 填洞 / 重播；多地址并行降低影响'],
@@ -890,7 +890,7 @@ ${tbl(['面试常问', '回答要点'], [
 ])}
 <p>作品集建议：公开仓库包含架构图、DDL、核心代码、故障注入测试录屏和 Sepolia 上的真实交易哈希；README 写清“威胁模型”和“我做了哪些取舍”。</p>
 
-${tryit(`<p>最小可运行练习（1 天）：① 启动 <code>anvil</code>（Foundry 自带本地链），它会打印 10 个测试账户。② 用 M07.2 的代码从 Anvil 默认助记词（<code>test test test test test test test test test test test junk</code>）派生 m/44′/60′/0′/0/0，确认地址等于 Anvil 打印的第一个账户 <code>0xf39F…2266</code>。③ 用本文 DDL 建表，写一个只含 RECEIVED → APPROVED → SIGNED → BROADCAST → CONFIRMED 的简化 worker，用本地私钥签名，完成一笔提币并在 <code>chain_tx</code> 中看到 raw_tx 与 tx_hash。④ 执行 <code>cast rpc evm_snapshot</code>、发一笔充值、<code>cast rpc evm_revert</code>，验证你的扫描器能发现重组。</p>`)}
+${tryit(`<p>最小可运行练习（1 天）：① 启动 <code>anvil</code>（Foundry 自带本地链），它会打印 10 个测试账户。② 用 M09.2 的代码从 Anvil 默认助记词（<code>test test test test test test test test test test test junk</code>）派生 m/44′/60′/0′/0/0，确认地址等于 Anvil 打印的第一个账户 <code>0xf39F…2266</code>。③ 用本文 DDL 建表，写一个只含 RECEIVED → APPROVED → SIGNED → BROADCAST → CONFIRMED 的简化 worker，用本地私钥签名，完成一笔提币并在 <code>chain_tx</code> 中看到 raw_tx 与 tx_hash。④ 执行 <code>cast rpc evm_snapshot</code>、发一笔充值、<code>cast rpc evm_revert</code>，验证你的扫描器能发现重组。</p>`)}
 
 ${mistakes([
   ['先把多链都接上，再补安全', '先把一条链做到生产级（幂等、签名域、对账、故障注入），再按适配器接口扩展。安全设计无法事后补齐。'],

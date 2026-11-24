@@ -1,9 +1,9 @@
-/* ---------- M09 子文章（m08a 第 5 部分）：Polymarket 架构拆解 ---------- */
+/* ---------- M11 子文章（m08a 第 5 部分）：Polymarket 架构拆解 ---------- */
 (() => {
 CUR = 'm08-5';
-addCh({ id: 'm08-5', nav: 'Polymarket 架构', title: 'M09.5 Polymarket 架构拆解：链下撮合、链上结算', desc: 'CTF 条件代币、EIP-712 订单、matchOrders、UMA 适配器，一条链路走通', html: `
-<h1>M09.5 Polymarket 架构拆解：链下撮合、链上结算</h1>
-${meta(['画出 Polymarket 的混合式架构，说清哪些步骤在链下、哪些在链上，以及“非托管”靠什么保证。', '计算 CTF 的 conditionId 与 positionId，并说出 split、merge、redeem 和 reportPayouts 的调用时机。', '构造一张 EIP-712 订单，解释交易所合约的三种撮合类型，并与纯链上 AMM 方案对比。'], '<a href="#m08-2">M09.2 交易与套利</a>、<a href="#m08-4">M09.4 结算与预言机</a>；了解 <a href="#m07">M03 Web3 大前端</a>中的签名部分更佳')}
+addCh({ id: 'm08-5', nav: 'Polymarket 架构', title: 'M11.5 Polymarket 架构拆解：链下撮合、链上结算', desc: 'CTF 条件代币、EIP-712 订单、matchOrders、UMA 适配器，一条链路走通', html: `
+<h1>M11.5 Polymarket 架构拆解：链下撮合、链上结算</h1>
+${meta(['画出 Polymarket 的混合式架构，说清哪些步骤在链下、哪些在链上，以及“非托管”靠什么保证。', '计算 CTF 的 conditionId 与 positionId，并说出 split、merge、redeem 和 reportPayouts 的调用时机。', '构造一张 EIP-712 订单，解释交易所合约的三种撮合类型，并与纯链上 AMM 方案对比。'], '<a href="#m08-2">M11.2 交易与套利</a>、<a href="#m08-4">M11.4 结算与预言机</a>；了解 <a href="#m07">M03 Web3 大前端</a>中的签名部分更佳')}
 ${beginner(`<p><strong>Polygon</strong>：一条与以太坊兼容的区块链，手续费远低于以太坊主网。Polymarket 的合约部署在 Polygon PoS 上（链 ID 137）。</p>
 <p><strong>ERC-1155</strong>：一种“多代币”标准。一个合约里可以有很多种代币，每种用一个 uint256 编号（tokenId）区分。Polymarket 的每个 YES / NO 份额都是同一个 ERC-1155 合约里的一个 tokenId。</p>
 <p><strong>EIP-712</strong>：一种“结构化数据签名”标准。钱包会把签名内容按字段显示给用户，而不是一串看不懂的十六进制。</p>
@@ -212,13 +212,13 @@ sequenceDiagram
 ])}
 ${call('info', `<p><strong>非托管怎样保证</strong>：① 资产在用户地址（或用户控制的代理钱包）里，不在平台账户里；② 交易所合约只按用户签名的价格和数量成交；③ 用户可以在链上调用撤单或提高 nonce，让旧订单失效，不需要平台配合。</p>`)}
 <h3>4.3 多结果市场与 NegRisk</h3>
-<p>Polymarket 的多结果事件（例如“谁会赢得某奖项”）由多个二元市场组成，每个候选一个 YES / NO 市场。<strong>NegRisk 适配器</strong>允许把“某个候选的 NO”转换成“其他所有候选的 YES”。这个转换通道让各候选的 YES 价格之和被约束在 1 附近，原理见 <a href="#m08-2">M09.2 多结果市场</a>。</p>
+<p>Polymarket 的多结果事件（例如“谁会赢得某奖项”）由多个二元市场组成，每个候选一个 YES / NO 市场。<strong>NegRisk 适配器</strong>允许把“某个候选的 NO”转换成“其他所有候选的 YES”。这个转换通道让各候选的 YES 价格之和被约束在 1 附近，原理见 <a href="#m08-2">M11.2 多结果市场</a>。</p>
 
 <h2>5. 抵押品、结算与方案对比</h2>
 <h3>5.1 USDC 抵押品</h3>
-<p>Polymarket 长期用 Polygon 上的桥接版 USDC（USDC.e）作为抵押品；2026 年 4 月宣布以自有抵押代币 Polymarket USD（pUSD，按 1:1 由 USDC 支持）取代 USDC.e。${cite('Cointelegraph：Polymarket 以 USDC 支持的新代币取代 USDC.e', 'https://cointelegraph.com/news/polymarket-replace-usdce-usdc-backed-token-exchange-upgrade')}这意味着系统依赖 Circle 的 USDC 发行与冻结能力，在使用桥接资产期间还依赖跨链桥的安全性。稳定币风险见 <a href="#m02-9">M06.1 稳定币</a>。</p>
+<p>Polymarket 长期用 Polygon 上的桥接版 USDC（USDC.e）作为抵押品；2026 年 4 月宣布以自有抵押代币 Polymarket USD（pUSD，按 1:1 由 USDC 支持）取代 USDC.e。${cite('Cointelegraph：Polymarket 以 USDC 支持的新代币取代 USDC.e', 'https://cointelegraph.com/news/polymarket-replace-usdce-usdc-backed-token-exchange-upgrade')}这意味着系统依赖 Circle 的 USDC 发行与冻结能力，在使用桥接资产期间还依赖跨链桥的安全性。稳定币风险见 <a href="#m02-9">M08.1 稳定币</a>。</p>
 <h3>5.2 UMA 适配器结算</h3>
-${steps(['<strong>初始化</strong>：适配器的 initialize 接收问题描述（ancillaryData）、奖励、提议保证金、挑战期，计算 questionId，并调用 CTF 的 prepareCondition（oracle = 适配器自己）。', '<strong>请求</strong>：适配器向 UMA 乐观预言机发起 YES_OR_NO_QUERY 类型的请求。', '<strong>提议与挑战</strong>：流程见 <a href="#m08-4">M09.4</a>。第一次争议会重置请求；第二次争议升级到 DVM 投票。', '<strong>结算</strong>：任何人调用适配器的 resolve，适配器读取结果并转换：YES → [1, 0]，NO → [0, 1]，50-50 → [1, 1]，再调用 reportPayouts。', '<strong>赎回</strong>：用户调用 CTF 的 redeemPositions 领取 USDC。'])}
+${steps(['<strong>初始化</strong>：适配器的 initialize 接收问题描述（ancillaryData）、奖励、提议保证金、挑战期，计算 questionId，并调用 CTF 的 prepareCondition（oracle = 适配器自己）。', '<strong>请求</strong>：适配器向 UMA 乐观预言机发起 YES_OR_NO_QUERY 类型的请求。', '<strong>提议与挑战</strong>：流程见 <a href="#m08-4">M11.4</a>。第一次争议会重置请求；第二次争议升级到 DVM 投票。', '<strong>结算</strong>：任何人调用适配器的 resolve，适配器读取结果并转换：YES → [1, 0]，NO → [0, 1]，50-50 → [1, 1]，再调用 reportPayouts。', '<strong>赎回</strong>：用户调用 CTF 的 redeemPositions 领取 USDC。'])}
 <h3>5.3 与纯链上 AMM 预测市场对比</h3>
 ${tbl(['维度', 'Polymarket（链下 CLOB + 链上结算）', '纯链上 AMM（例如 FPMM 方案）'], [
   ['撮合位置', '链下，毫秒级', '链上，每笔一个区块'],

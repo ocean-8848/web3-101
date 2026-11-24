@@ -1070,7 +1070,7 @@ ${tbl(['周', '目标', '交付物'], [
 ${steps([
   '<strong>多链</strong>：同一网关支持以太坊、Arbitrum、Base 等；注意 L2 的 safe/finalized 语义和重组深度不同（见 <a href="#m05-5">M04.5</a>）。',
   '<strong>WebSocket 订阅高可用</strong>：上游断线后自动重订阅，并用 newHeads 的父哈希检测漏块与重组。',
-  '<strong>智能 getLogs</strong>：把大范围查询切成小段并发拉取，结果按区块号合并；或接入索引服务（见 <a href="#m05-9">M04.27</a>）。',
+  '<strong>智能 getLogs</strong>：把大范围查询切成小段并发拉取，结果按区块号合并；或接入索引服务（见 <a href="#m05-9">M04.10</a>）。',
   '<strong>分布式追踪</strong>：接入 OpenTelemetry，一条请求从网关到上游的全链路耗时可视化。',
   '<strong>成本优化</strong>：按服务商价格和剩余额度动态调整权重。'
 ])}

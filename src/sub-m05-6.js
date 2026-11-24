@@ -1,9 +1,9 @@
 /* ---------- M04 公链 · 非 EVM 链与跨链（比特币）：m05-60 UTXO 与脚本 · m05-61 SegWit/Taproot/PSBT · m05-62 闪电网络 · m05-63 铭文、Runes 与比特币 L2 ---------- */
 (() => {
 CUR = 'm05-60';
-addCh({ id: 'm05-60', nav: '比特币 UTXO 与脚本', title: 'M04.19 比特币：UTXO、交易结构与脚本', desc: '逐字段拆开比特币交易，看懂输出类型、手续费、RBF 和选币找零', html: `
-<h1>M04.19 比特币：UTXO、交易结构与脚本</h1>
-${meta(['逐字段说出一笔比特币交易的结构（version、输入、输出、witness、nLockTime、nSequence），并解释 txid 和 wtxid 的区别。', '认出 P2PKH、P2SH、P2WPKH、P2WSH、P2TR 五种标准输出，说出它们的锁定脚本、地址前缀和输入体积。', '按 sat/vB 手算手续费，用 RBF 或 CPFP 加速卡住的交易，并比较三种选币策略对手续费、找零和隐私的影响。'], '前置：<a href="#m05-1">M04.1 公链全景</a>、<a href="#m03-3">M07.3 交易签名与广播</a>', ['utxo'])}
+addCh({ id: 'm05-60', nav: '比特币 UTXO 与脚本', title: 'M05.4 比特币：UTXO、交易结构与脚本', desc: '逐字段拆开比特币交易，看懂输出类型、手续费、RBF 和选币找零', html: `
+<h1>M05.4 比特币：UTXO、交易结构与脚本</h1>
+${meta(['逐字段说出一笔比特币交易的结构（version、输入、输出、witness、nLockTime、nSequence），并解释 txid 和 wtxid 的区别。', '认出 P2PKH、P2SH、P2WPKH、P2WSH、P2TR 五种标准输出，说出它们的锁定脚本、地址前缀和输入体积。', '按 sat/vB 手算手续费，用 RBF 或 CPFP 加速卡住的交易，并比较三种选币策略对手续费、找零和隐私的影响。'], '前置：<a href="#m05-1">M04.1 公链全景</a>、<a href="#m03-3">M09.3 交易签名与广播</a>', ['utxo'])}
 ${beginner(`<p><strong>聪（satoshi，sat）</strong>：比特币的最小单位。1 BTC = 100,000,000 sat。链上所有金额都用整数 sat 表示。</p>
 <p><strong>输出点（outpoint）</strong>：一个 UTXO 的“门牌号”，写作 <code>txid:vout</code>，即“哪笔交易的第几个输出”。</p>
 <p><strong>脚本（Script）</strong>：比特币自带的一种小型栈式语言。每个输出都写一段“锁”，花它的人要提供能打开这把锁的“钥匙”。</p>
@@ -37,14 +37,14 @@ ${art('一图看懂：UTXO 像纸币，整张花掉，再找零', 660, 320, [
 ], '两个旧的 UTXO 作为输入被整张花掉，交易生成给收款人的新 UTXO 和找零，差额是手续费', 'm05-60')}
 
 <h2>2. UTXO 模型：和账户模型差在哪里</h2>
-${recall('<p>UTXO 的基本概念（输入整枚消耗、找零输出、余额 = 你所有 UTXO 之和）在 <a href="#m05-1">M04.1 公链全景</a> 第 3.1 节讲过；一笔“两个输入、两个输出”的手续费算法在 <a href="#m03-3">M07.3 交易签名与广播</a> 第 6.1 节讲过。以太坊交易的 nonce、gas 和回执见 <a href="#m01-4">M01.4 交易全解</a>。本篇只讲这些文章没有展开的部分：交易字节结构、脚本、内存池规则和选币算法。</p>')}
+${recall('<p>UTXO 的基本概念（输入整枚消耗、找零输出、余额 = 你所有 UTXO 之和）在 <a href="#m05-1">M04.1 公链全景</a> 第 3.1 节讲过；一笔“两个输入、两个输出”的手续费算法在 <a href="#m03-3">M09.3 交易签名与广播</a> 第 6.1 节讲过。以太坊交易的 nonce、gas 和回执见 <a href="#m01-4">M01.4 交易全解</a>。本篇只讲这些文章没有展开的部分：交易字节结构、脚本、内存池规则和选币算法。</p>')}
 ${compare('UTXO 模型与账户模型：工程上的差异', [
   { name: '比特币 UTXO', tag: '状态 = 未花费输出集合', kind: 'key', points: ['防双花：同一个 outpoint 只能被花一次', '没有 nonce；交易之间靠“花的是哪个输出”排序', '余额要自己汇总：扫描属于你的全部 UTXO', '交易无效就不会上链，不存在“失败但扣费”', '一个钱包有很多地址，找零地址默认每次换新'] },
   { name: '以太坊账户', tag: '状态 = 地址 → 余额/存储', kind: 'info', points: ['防双花：账户 nonce 严格递增', 'nonce 卡住会阻塞后面所有交易', '余额直接读一个字段', '交易可以上链但执行失败（revert），仍扣 Gas', '通常一个地址长期使用'] }
 ], [
   ['flow', 'UTXO 交易的输入互不依赖，节点可以并行验证；账户交易要按 nonce 顺序执行。'],
   ['key', '比特币“替换交易”的方法是：用另一笔交易花掉同一个 outpoint。以太坊是用同一个 nonce 重发。'],
-  ['risk', '充值系统用“地址余额变化”判断入账，在 UTXO 链上会漏账或重复入账。要以“txid:vout”为幂等键（见 <a href="#m04-6">M08.7 充值提币与冷热钱包</a>）。'],
+  ['risk', '充值系统用“地址余额变化”判断入账，在 UTXO 链上会漏账或重复入账。要以“txid:vout”为幂等键（见 <a href="#m04-6">M10.7 充值提币与冷热钱包</a>）。'],
   ['limit', 'UTXO 模型适合表达“谁能花这笔钱”，很难表达复杂的共享状态（例如 AMM 池子）。这是比特币没有原生 DeFi 的根本原因之一。']
 ])}
 
@@ -78,11 +78,11 @@ flowchart LR
   T -.->|"110,000 − 108,580"| FEE["手续费 1,420 sat"]:::warn
 `, [
   ['flow', '输入只写“引用哪个旧输出”，不写金额。验证节点要去 UTXO 集合里查出这个输出的金额和锁定脚本。'],
-  ['key', '手续费没有专门字段，等于输入金额合计减输出金额合计。硬件钱包要知道每个输入的金额才能显示手续费，这正是 PSBT 要携带 UTXO 信息的原因（见 <a href="#m05-61">M04.20</a>）。'],
+  ['key', '手续费没有专门字段，等于输入金额合计减输出金额合计。硬件钱包要知道每个输入的金额才能显示手续费，这正是 PSBT 要携带 UTXO 信息的原因（见 <a href="#m05-61">M05.5</a>）。'],
   ['fail', '引用一个已经被花掉或不存在的输出，节点直接拒绝这笔交易（missing inputs）。'],
   ['risk', '找零金额写错或漏写找零输出，差额就变成手续费，链上没有撤回机制。']
 ])}
-<p><strong>txid 与 wtxid。</strong>txid 是“不含 witness 的序列化”做两次 SHA-256；wtxid 包含 witness。因为签名不进入 txid，第三方改动签名编码不会改变 txid。这就是 SegWit 修复的<strong>交易延展性（malleability）</strong>${cite('BIP141：Segregated Witness', 'https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki')}。细节见 <a href="#m05-61">M04.20 SegWit、Taproot 与 PSBT</a>。</p>
+<p><strong>txid 与 wtxid。</strong>txid 是“不含 witness 的序列化”做两次 SHA-256；wtxid 包含 witness。因为签名不进入 txid，第三方改动签名编码不会改变 txid。这就是 SegWit 修复的<strong>交易延展性（malleability）</strong>${cite('BIP141：Segregated Witness', 'https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki')}。细节见 <a href="#m05-61">M05.5 SegWit、Taproot 与 PSBT</a>。</p>
 <p><strong>nSequence 的三种用途：</strong></p>
 ${steps([
   '<code>0xffffffff</code>：最终值。所有输入都是这个值时，nLockTime 不生效。',
@@ -111,12 +111,12 @@ ${tbl(['类型', '地址前缀', '锁定脚本（scriptPubKey）', '花费时提
   ['P2WSH', '<code>bc1q…</code>（62 字符）', '<code>OP_0 &lt;脚本 SHA256 32B&gt;</code>', 'witness：解锁数据 + 见证脚本', '取决于脚本', 'BIP141'],
   ['P2TR', '<code>bc1p…</code>', '<code>OP_1 &lt;调整后公钥 32B&gt;</code>', 'witness：一个 Schnorr 签名（密钥路径）', '57.5 vB', 'BIP341 / 350']
 ])}
-<p>表中的输入体积来自 Bitcoin Optech 的交易体积计算器${cite('Bitcoin Optech：交易体积计算器', 'https://bitcoinops.org/en/tools/calc-size/')}；输出体积：P2PKH 34 vB、P2WPKH 31 vB、P2TR 43 vB。P2TR 的密钥路径和脚本路径在 <a href="#m05-61">M04.20</a> 详细讲${cite('BIP341：Taproot', 'https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki')}。</p>
+<p>表中的输入体积来自 Bitcoin Optech 的交易体积计算器${cite('Bitcoin Optech：交易体积计算器', 'https://bitcoinops.org/en/tools/calc-size/')}；输出体积：P2PKH 34 vB、P2WPKH 31 vB、P2TR 43 vB。P2TR 的密钥路径和脚本路径在 <a href="#m05-61">M05.5</a> 详细讲${cite('BIP341：Taproot', 'https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki')}。</p>
 <p><strong>算一算（示例）</strong>：一个输入、两个输出（付给对方的 P2WPKH 输出 + 自己的找零输出），费率 12 sat/vB。</p>
 ${steps([
   '钱包用 P2TR：体积 ≈ 10.5（交易开销）+ 57.5（输入）+ 31（收款输出）+ 43（找零输出）= <strong>142 vB</strong>，手续费 = 142 × 12 = <strong>1,704 sat</strong>。',
   '钱包用 P2PKH：体积 ≈ 10 + 148 + 31 + 34 = <strong>223 vB</strong>，手续费 = 223 × 12 = <strong>2,676 sat</strong>。',
-  '结论：同一笔转账，旧地址类型多付约 57% 手续费。输入越多，差距越大。企业钱包新建地址应默认用 P2WPKH 或 P2TR（派生路径见 <a href="#m03-2">M07.2 助记词与 HD 钱包</a>）。'
+  '结论：同一笔转账，旧地址类型多付约 57% 手续费。输入越多，差距越大。企业钱包新建地址应默认用 P2WPKH 或 P2TR（派生路径见 <a href="#m03-2">M09.2 助记词与 HD 钱包</a>）。'
 ])}
 
 <h2>5. 手续费、内存池与确认</h2>
@@ -170,7 +170,7 @@ ${tbl(['策略', '做法', '优点', '缺点'], [
 <p>先做实验：保持默认值，在三种策略之间切换，看输入个数、手续费和找零怎样变化。然后把费率拉到 150 sat/vB，观察哪个 UTXO 变成“不经济”。</p>
 ${lab('utxo')}
 <p>你应该看到：精确匹配找到“850,000 + 152,000 + 4,000”这一组，不需要找零；最大优先只用一个 1,200,000 的输入，但要找零约 19.7 万 sat；费率很高时，4,000 sat 的 UTXO 的“有效价值”（金额减去花它的手续费）变成负数，钱包应该跳过它。</p>
-${call('deep', '<p><strong>找零与隐私</strong>：区块链分析常用“找零启发式”识别哪个输出是找零，例如“金额不是整数的那个”“地址类型和输入相同的那个”。所以：找零地址每次用新的（HD 钱包内部链 change = 1）；找零输出的地址类型尽量和收款输出一致；不要把来源不同的 UTXO 随意合并（共同输入启发式会认为它们属于同一个人）。链上取证怎样利用这些规律，见 <a href="#m05-67">M04.29 链上取证与资金追踪</a>。</p>')}
+${call('deep', '<p><strong>找零与隐私</strong>：区块链分析常用“找零启发式”识别哪个输出是找零，例如“金额不是整数的那个”“地址类型和输入相同的那个”。所以：找零地址每次用新的（HD 钱包内部链 change = 1）；找零输出的地址类型尽量和收款输出一致；不要把来源不同的 UTXO 随意合并（共同输入启发式会认为它们属于同一个人）。链上取证怎样利用这些规律，见 <a href="#m05-67">M04.13 链上取证与资金追踪</a>。</p>')}
 
 <h2>7. 工程层：用 bitcoin-cli 看清每个字段</h2>
 ${code('BASH', `
@@ -260,9 +260,9 @@ ${terms([
 ` });
 
 CUR = 'm05-61';
-addCh({ id: 'm05-61', nav: 'SegWit·Taproot·PSBT', title: 'M04.20 SegWit、Taproot 与 PSBT', desc: '看懂权重单位、Schnorr 与 MAST，用 PSBT 在 regtest 走完多方签名流程', html: `
-<h1>M04.20 SegWit、Taproot 与 PSBT</h1>
-${meta(['用权重单位（WU）算出一笔 SegWit 交易的 vsize，并说清 SegWit 怎样修复交易延展性。', '画出 Taproot 输出的结构，区分密钥路径和脚本路径，说出 Schnorr 签名带来的密钥聚合与隐私好处。', '按 BIP174 的角色走完一次 PSBT 流程（创建 → 更新 → 签名 → 合并 → 最终化 → 提取），并在 bitcoin-cli regtest 上实际跑通。'], '前置：<a href="#m05-60">M04.19 比特币：UTXO、交易结构与脚本</a>、<a href="#m03-4">M07.4 多签钱包</a>')}
+addCh({ id: 'm05-61', nav: 'SegWit·Taproot·PSBT', title: 'M05.5 SegWit、Taproot 与 PSBT', desc: '看懂权重单位、Schnorr 与 MAST，用 PSBT 在 regtest 走完多方签名流程', html: `
+<h1>M05.5 SegWit、Taproot 与 PSBT</h1>
+${meta(['用权重单位（WU）算出一笔 SegWit 交易的 vsize，并说清 SegWit 怎样修复交易延展性。', '画出 Taproot 输出的结构，区分密钥路径和脚本路径，说出 Schnorr 签名带来的密钥聚合与隐私好处。', '按 BIP174 的角色走完一次 PSBT 流程（创建 → 更新 → 签名 → 合并 → 最终化 → 提取），并在 bitcoin-cli regtest 上实际跑通。'], '前置：<a href="#m05-60">M05.4 比特币：UTXO、交易结构与脚本</a>、<a href="#m03-4">M09.4 多签钱包</a>')}
 ${beginner(`<p><strong>软分叉（Soft fork）</strong>：只收紧规则的协议升级。旧节点不升级也能继续跟随新链，只是看不懂新功能。SegWit 和 Taproot 都是软分叉。</p>
 <p><strong>权重单位（Weight Unit，WU）</strong>：SegWit 之后衡量交易大小的单位。普通字节每字节算 4 WU，见证字节每字节算 1 WU。</p>
 <p><strong>Schnorr 签名</strong>：一种比 ECDSA 更简单的签名算法。多个签名或公钥可以“加”在一起，变成一个。</p>
@@ -302,7 +302,7 @@ ${art('一图看懂：SegWit 管计费，Taproot 管隐私，PSBT 管协同签�
 ], '三列示意图：SegWit 把非见证数据和见证数据按 4 比 1 计算权重；Taproot 把内部公钥和脚本树合成一个输出公钥；PSBT 在多方之间传阅，最后提取成普通交易', 'm05-61')}
 
 <h2>2. SegWit：见证隔离与权重</h2>
-${recall('<p>txid、wtxid、witness 字段的位置和 P2WPKH / P2WSH 输出格式在 <a href="#m05-60">M04.19</a> 第 3–4 节讲过。<a href="#m04-9">M08.10 高可用与事故复盘</a> 里提到的“用 txHash 跟踪提币不可靠”，根源就是 SegWit 之前的延展性。</p>')}
+${recall('<p>txid、wtxid、witness 字段的位置和 P2WPKH / P2WSH 输出格式在 <a href="#m05-60">M05.4</a> 第 3–4 节讲过。<a href="#m04-9">M10.10 高可用与事故复盘</a> 里提到的“用 txHash 跟踪提币不可靠”，根源就是 SegWit 之前的延展性。</p>')}
 <p>SegWit（BIP141）2017 年 8 月锁定并激活${cite('Bitcoin Magazine：The Long Road to SegWit（2017-08-23）', 'https://bitcoinmagazine.com/technical/the-long-road-to-segwit-how-bitcoins-biggest-protocol-upgrade-became-reality')}。它解决了三个问题：</p>
 ${steps([
   '<strong>延展性</strong>：签名不再参与 txid 计算。第三方改动签名编码，txid 不变。闪电网络这类“先签好子交易、再广播父交易”的协议因此才可靠。',
@@ -350,7 +350,7 @@ ${compare('密钥路径与脚本路径', [
 ], [
   ['key', '好的 Taproot 设计让 99% 的花费走密钥路径；脚本路径是“出事时的预案”。'],
   ['flow', '企业场景：内部公钥 = 多个签名方的聚合公钥；脚本树里放“部分签名人 + 时间锁”的恢复条件。'],
-  ['limit', 'MuSig2 是 n-of-n 聚合；要做 t-of-n 门限且只出一个签名，需要 FROST 这类门限 Schnorr 协议（见 <a href="#m03-5">M07.5 MPC 与门限签名</a>）。']
+  ['limit', 'MuSig2 是 n-of-n 聚合；要做 t-of-n 门限且只出一个签名，需要 FROST 这类门限 Schnorr 协议（见 <a href="#m03-5">M09.5 MPC 与门限签名</a>）。']
 ])}
 <p><strong>算一算（示例）</strong>：一个 2-of-3 多签输入的计费体积。</p>
 ${steps([
@@ -393,10 +393,10 @@ sequenceDiagram
 `, [
   ['flow', '在线服务只持有 xpub 和描述符，能创建 PSBT 但不能签名。私钥只在两台不联网的硬件钱包里。'],
   ['key', '风控在分发前独立解码 PSBT（decodepsbt），而不是相信提币服务给的“摘要文字”。'],
-  ['risk', '两台硬件钱包都要自己显示并核对输出。如果只有一台核对，攻击者攻破另一端的显示即可替换地址（与 <a href="#m03-4">M07.4</a> 里 Bybit 事件的“签名界面被篡改”同类）。'],
-  ['limit', 'PSBT 只解决“格式”问题，不解决审批流、权限和密钥备份。这些是企业钱包系统的工作（见 <a href="#m03-8">M07.9 企业钱包系统设计</a>）。']
+  ['risk', '两台硬件钱包都要自己显示并核对输出。如果只有一台核对，攻击者攻破另一端的显示即可替换地址（与 <a href="#m03-4">M09.4</a> 里 Bybit 事件的“签名界面被篡改”同类）。'],
+  ['limit', 'PSBT 只解决“格式”问题，不解决审批流、权限和密钥备份。这些是企业钱包系统的工作（见 <a href="#m03-8">M09.9 企业钱包系统设计</a>）。']
 ])}
-${call('info', '<p><strong>和以太坊多签对比</strong>：Safe 多签是一个合约，签名门限写在合约存储里，链上能看到它是多签（见 <a href="#m03-4">M07.4</a>）。比特币多签写在输出脚本里：P2WSH 花费时公开全部公钥和脚本；P2TR 密钥路径下，链上只看到一个签名。MPC 钱包则在链下合成一个普通签名（见 <a href="#m03-5">M07.5</a>）。</p>')}
+${call('info', '<p><strong>和以太坊多签对比</strong>：Safe 多签是一个合约，签名门限写在合约存储里，链上能看到它是多签（见 <a href="#m03-4">M09.4</a>）。比特币多签写在输出脚本里：P2WSH 花费时公开全部公钥和脚本；P2TR 密钥路径下，链上只看到一个签名。MPC 钱包则在链下合成一个普通签名（见 <a href="#m03-5">M09.5</a>）。</p>')}
 
 <h2>5. 描述符：把“钱包是什么”写成一行文本</h2>
 <p>只备份助记词，不足以恢复多签钱包：你还需要其他签名人的 xpub、门限、脚本类型和派生路径。<strong>输出脚本描述符</strong>把这些写成一行文本，末尾带 8 个字符的校验和${cite('BIP380：Output Script Descriptors General Operation', 'https://github.com/bitcoin/bips/blob/master/bip-0380.mediawiki')}。</p>
@@ -497,9 +497,9 @@ ${terms([
 ` });
 
 CUR = 'm05-62';
-addCh({ id: 'm05-62', nav: '闪电网络', title: 'M04.21 闪电网络：支付通道与路由', desc: '注资、承诺交易、撤销惩罚、HTLC 多跳路由与流动性，一次讲透', html: `
-<h1>M04.21 闪电网络：支付通道与路由</h1>
-${meta(['画出一条闪电通道的生命周期：注资交易、承诺交易、余额更新、撤销旧状态、合作关闭与强制关闭。', '解释 HTLC 怎样让一笔付款安全地经过多个互不信任的节点，并按每跳手续费和过期高度反推每段金额。', '说出入站 / 出站流动性、LSP、瞭望塔的作用，列出闪电网络常见的失败模式和应对办法。'], '前置：<a href="#m05-61">M04.20 SegWit、Taproot 与 PSBT</a>、<a href="#m05-4">M04.4 扩容路线</a>', ['lnchan'])}
+addCh({ id: 'm05-62', nav: '闪电网络', title: 'M05.6 闪电网络：支付通道与路由', desc: '注资、承诺交易、撤销惩罚、HTLC 多跳路由与流动性，一次讲透', html: `
+<h1>M05.6 闪电网络：支付通道与路由</h1>
+${meta(['画出一条闪电通道的生命周期：注资交易、承诺交易、余额更新、撤销旧状态、合作关闭与强制关闭。', '解释 HTLC 怎样让一笔付款安全地经过多个互不信任的节点，并按每跳手续费和过期高度反推每段金额。', '说出入站 / 出站流动性、LSP、瞭望塔的作用，列出闪电网络常见的失败模式和应对办法。'], '前置：<a href="#m05-61">M05.5 SegWit、Taproot 与 PSBT</a>、<a href="#m05-4">M04.4 扩容路线</a>', ['lnchan'])}
 ${beginner(`<p><strong>支付通道（Payment channel）</strong>：两个人在链上锁一笔钱，之后在链下反复改写“这笔钱怎么分”，最后才把结果上链。</p>
 <p><strong>承诺交易（Commitment transaction）</strong>：一笔双方都签好、但暂时不广播的交易，写着当前余额分配。谁想退出，就广播它。</p>
 <p><strong>HTLC（哈希时间锁合约）</strong>：一种条件付款：“谁能出示某个秘密值 r，就能领钱；过了某个区块高度还没人领，钱退回”。</p>
@@ -647,7 +647,7 @@ ${layers('一个手机闪电钱包背后的角色', [
 ], ['依赖', '委托', '寻路', '结算'])}
 ${tbl(['失败模式', '现象', '应对'], [
   ['路由失败', '付款报 no route 或 temporary_channel_failure', '多路径付款、换 LSP、降低单笔金额'],
-  ['强制关闭遇上高费率', '承诺交易预先签好的手续费不够，迟迟不确认', 'anchor 输出：关闭时用 CPFP 临时加费（见 <a href="#m05-60">M04.19</a> 的 CPFP）'],
+  ['强制关闭遇上高费率', '承诺交易预先签好的手续费不够，迟迟不确认', 'anchor 输出：关闭时用 CPFP 临时加费（见 <a href="#m05-60">M05.4</a> 的 CPFP）'],
   ['HTLC 卡住', '付款显示“进行中”，资金被锁到到期高度', '等待超时退款；节点运维要监控在途 HTLC 数量'],
   ['通道阻塞（jamming）', '攻击者发出永不完成的 HTLC，占满通道的 HTLC 槽位或流动性', '限制单通道在途 HTLC 数、对可疑对手方降级'],
   ['丢失通道状态', '手机丢失或数据库回滚，用旧状态重启会被惩罚', '用静态通道备份（SCB）请对方强制关闭；绝不能从旧数据库直接恢复'],
@@ -735,9 +735,9 @@ ${terms([
 ` });
 
 CUR = 'm05-63';
-addCh({ id: 'm05-63', nav: '铭文 Runes 与 L2', title: 'M04.22 铭文、Runes 与比特币 L2', desc: 'Ordinals、BRC-20、Runes 怎样占用区块空间；比特币 L2 各自谁能动你的钱', html: `
-<h1>M04.22 铭文、Runes 与比特币 L2</h1>
-${meta(['说清 Ordinals 铭文、BRC-20、Runes 各自把数据放在交易的哪里、状态由谁维护，以及它们怎样影响手续费和区块空间。', '为交易所或钱包列出处理铭文 / Runes UTXO 的工程规则，避免把资产当手续费烧掉。', '用“谁能偷走、谁能冻结、怎样退出”三个问题评估闪电网络、Liquid、Rootstock、Stacks、BitVM 类桥和 Babylon 质押的信任模型。'], '前置：<a href="#m05-61">M04.20 SegWit、Taproot 与 PSBT</a>、<a href="#m05-62">M04.21 闪电网络</a>、<a href="#m05-8">M04.26 跨链桥</a>')}
+addCh({ id: 'm05-63', nav: '铭文 Runes 与 L2', title: 'M05.7 铭文、Runes 与比特币 L2', desc: 'Ordinals、BRC-20、Runes 怎样占用区块空间；比特币 L2 各自谁能动你的钱', html: `
+<h1>M05.7 铭文、Runes 与比特币 L2</h1>
+${meta(['说清 Ordinals 铭文、BRC-20、Runes 各自把数据放在交易的哪里、状态由谁维护，以及它们怎样影响手续费和区块空间。', '为交易所或钱包列出处理铭文 / Runes UTXO 的工程规则，避免把资产当手续费烧掉。', '用“谁能偷走、谁能冻结、怎样退出”三个问题评估闪电网络、Liquid、Rootstock、Stacks、BitVM 类桥和 Babylon 质押的信任模型。'], '前置：<a href="#m05-61">M05.5 SegWit、Taproot 与 PSBT</a>、<a href="#m05-62">M05.6 闪电网络</a>、<a href="#m05-8">M05.11 跨链桥</a>')}
 ${beginner(`<p><strong>序数（Ordinal）</strong>：给每一个聪编一个序号的约定。它不是协议规则，只是一种“怎么数”的方法，靠索引器软件计算。</p>
 <p><strong>铭文（Inscription）</strong>：把任意数据（图片、文本、JSON）写进交易见证里，并约定它“属于”某一个聪。</p>
 <p><strong>索引器（Indexer）</strong>：读取全部区块、按某个协议规则算出“谁拥有什么”的链下程序。BRC-20 和 Runes 的余额都由索引器计算，比特币节点并不理解它们。</p>
@@ -766,7 +766,7 @@ ${art('一图看懂：铭文和 Runes 的资产由链下索引器解释，比特
 ], '铭文、BRC-20 和 Runes 的数据分别放在 witness、铭文里的 JSON 和 OP_RETURN 输出里；比特币节点不理解它们，由链下索引器读区块算出谁拥有什么，交易所和钱包要双索引器对账', 'm05-63')}
 
 <h2>2. Ordinals 与铭文：数据放在哪里</h2>
-${recall('<p>Taproot 的脚本路径、见证数据按 1 WU / 字节打折计费，在 <a href="#m05-61">M04.20</a> 讲过；UTXO 和选币在 <a href="#m05-60">M04.19</a> 讲过。铭文正是利用了这两点。</p>')}
+${recall('<p>Taproot 的脚本路径、见证数据按 1 WU / 字节打折计费，在 <a href="#m05-61">M05.5</a> 讲过；UTXO 和选币在 <a href="#m05-60">M05.4</a> 讲过。铭文正是利用了这两点。</p>')}
 <p>2023 年 1 月，Casey Rodarmor 在比特币主网发布了 Ordinals 协议${cite('Cointelegraph：Ordinals protocol sparks debate（2023-01-30）', 'https://cointelegraph.com/news/ordinals-protocol-sparks-debate-over-nft-s-place-in-the-bitcoin-ecosystem')}。到 2023 年 2 月 16 日，已有约 12.25 万个铭文（Dune 数据）${cite('TechCrunch：Ordinals creator views his creation as digital artifacts（2023-02-16）', 'https://techcrunch.com/2023/02/16/ordinals-creator-views-his-bitcoin-centric-creation-as-digital-artifacts-not-just-nfts')}。铭文内容放在 Taproot 脚本路径的脚本里，用 <code>OP_FALSE OP_IF … OP_ENDIF</code> 包起来（这段代码永远不执行），所以要分两步：先“提交”一个含内容的 Taproot 输出，再“揭示”花掉它${cite('Ordinals 官方文档：Inscriptions', 'https://docs.ordinals.com/inscriptions.html')}。</p>
 ${mm('铭文的提交与揭示', `
 flowchart LR
@@ -808,7 +808,7 @@ ${steps([
   'Runes 上线第一周带来超过 1.35 亿美元的比特币交易手续费；三周后铸造和新钱包数量明显回落，日手续费在 12 天里只有两天超过 100 万美元' + cite('The Block：Three weeks after its blockbuster launch, Runes faces declining activity（2024-05-11）', 'https://www.theblock.co/amp/post/293921/three-weeks-after-its-blockbuster-launch-runes-faces-declining-activity') + '。',
   '争议持续：一方认为铭文是付费使用区块空间、帮助矿工在补贴减少后维持收入；另一方认为它挤占支付交易、增加全节点存储。Bitcoin Core 30.0（2025-10）把默认 <code>-datacarriersize</code> 提高到 100,000 字节，并允许一笔交易有多个 OP_RETURN 输出，节点运营者可以改回 83 字节' + cite('Bitcoin Core 30.0 发布说明', 'https://bitcoincore.org/en/releases/30.0/') + '。这是中继策略，不是共识规则。'
 ])}
-${call('warn', '<p><strong>对普通支付业务的含义</strong>：铸造热潮期间，费率可以在几个区块内上涨一个数量级。提币服务的费率估计要设上限和告警；用户侧要提供 RBF 加速；不要在热潮期间做 UTXO 整理。参见 <a href="#m05-60">M04.19</a> 第 5 节。</p>')}
+${call('warn', '<p><strong>对普通支付业务的含义</strong>：铸造热潮期间，费率可以在几个区块内上涨一个数量级。提币服务的费率估计要设上限和告警；用户侧要提供 RBF 加速；不要在热潮期间做 UTXO 整理。参见 <a href="#m05-60">M05.4</a> 第 5 节。</p>')}
 ${tbl(['钱包 / 交易所工程规则', '为什么', '怎么做'], [
   ['选币前排除带铭文或 Rune 的 UTXO', '否则会把资产当零钱花掉或付给矿工', '充值地址收到的 UTXO 先过索引器打标签；被标记的 UTXO 只能被专门的转账流程使用'],
   ['铭文 UTXO 的金额不要动', '铭文绑定在具体的聪上，拆分可能把它转进找零或手续费', '发送铭文时把它所在的 UTXO 作为第一个输入、不拆分它的金额，并确认铭文所在的聪按先进先出规则落在收款输出上'],
@@ -817,9 +817,9 @@ ${tbl(['钱包 / 交易所工程规则', '为什么', '怎么做'], [
 ])}
 
 <h2>5. 比特币 L2：先问“谁控制被锁的 BTC”</h2>
-${recall('<p>桥的四种验证模型（外部验证者、乐观、轻客户端、ZK）和资产模型在 <a href="#m05-8">M04.26 跨链桥</a> 里讲过；以太坊 Rollup 的数据可用性和退出机制在 <a href="#m05-5">M04.5 Rollup 深入</a> 里讲过。比特币脚本不能验证另一条链的状态，所以大多数比特币 L2 的“桥”比以太坊 Rollup 更依赖人或硬件。</p>')}
+${recall('<p>桥的四种验证模型（外部验证者、乐观、轻客户端、ZK）和资产模型在 <a href="#m05-8">M05.11 跨链桥</a> 里讲过；以太坊 Rollup 的数据可用性和退出机制在 <a href="#m05-5">M04.5 Rollup 深入</a> 里讲过。比特币脚本不能验证另一条链的状态，所以大多数比特币 L2 的“桥”比以太坊 Rollup 更依赖人或硬件。</p>')}
 ${tbl(['方案', '被锁 BTC 由谁控制', '谁能偷走 / 冻结', '怎样退出'], [
-  ['闪电网络（<a href="#m05-62">M04.21</a>）', '通道双方的 2-of-2 多签，加时间锁', '没人能单方面偷；你离线且无瞭望塔时，对方可能广播旧状态。对方不配合时资金被锁到时间锁到期', '合作关闭或强制关闭，随时可单方面退出'],
+  ['闪电网络（<a href="#m05-62">M05.6</a>）', '通道双方的 2-of-2 多签，加时间锁', '没人能单方面偷；你离线且无瞭望塔时，对方可能广播旧状态。对方不配合时资金被锁到时间锁到期', '合作关闭或强制关闭，随时可单方面退出'],
   ['Liquid（侧链）', '15 个功能节点（functionary）的 11-of-15 多签，密钥在 HSM 里；资金停摆 4,032 个区块（约 28 天）后，Blockstream 持有的应急密钥可以动用' + cite('Blockstream 帮助中心：How does the Liquid Federation’s multisig work?', 'https://help.blockstream.com/liquid-network/faqs/how-does-the-liquid-federations-multisig-work'), '11 个功能节点合谋可偷走或冻结；联盟长期停摆时应急密钥持有人可动用', '由联盟签名 peg-out；联盟不签就出不去'],
   ['Rootstock（侧链，EVM）', 'PowPeg：多签私钥在 PowHSM 硬件里，HSM 只在看到足够累积工作量时签名；比特币矿工合并挖矿' + cite('Rootstock 官方文档：PowPeg', 'https://dev.rootstock.io/concepts/powpeg/'), '需要同时攻破足够多的 PowHSM，或同时控制大量合并挖矿算力', 'peg-out 由桥合约发起、HSM 签名；peg-in 要等 100 个比特币区块'],
   ['Stacks + sBTC', 'sBTC 的 BTC 存在一个 Taproot 多签地址，由社区选出的签名者集合控制，初始 15 个' + cite('Stacks 官方文档：sBTC', 'https://docs.stacks.co/concepts/sbtc'), '签名者达到门限即可动用；签名者集合可以轮换', '向签名者请求提款；签名者不签就出不去'],
@@ -847,7 +847,7 @@ flowchart TB
   ['risk', '联盟或签名者模型下，门限签名者合谋、被监管要求冻结或私钥被盗，都可能让你的 BTC 出不来。'],
   ['limit', '分类只看锚定。L2 自己的出块、数据可用性、合约升级权限也要分别评估。']
 ])}
-${call('info', '<p><strong>评估一个比特币 L2 的五个问题</strong>：① 被锁的 BTC 在什么脚本里，谁有钥匙？② 签名者都不配合时，我能不能单方面取回？要等多久？③ 有没有可以升级合约或更换签名者的管理员密钥？④ L2 的交易数据存在哪里，节点停止服务后我能否证明自己的余额？⑤ 是否有公开审计和事故记录？这和 <a href="#m05-8">M04.26</a> 的桥集成清单是同一套思路。</p>')}
+${call('info', '<p><strong>评估一个比特币 L2 的五个问题</strong>：① 被锁的 BTC 在什么脚本里，谁有钥匙？② 签名者都不配合时，我能不能单方面取回？要等多久？③ 有没有可以升级合约或更换签名者的管理员密钥？④ L2 的交易数据存在哪里，节点停止服务后我能否证明自己的余额？⑤ 是否有公开审计和事故记录？这和 <a href="#m05-8">M05.11</a> 的桥集成清单是同一套思路。</p>')}
 
 ${tryit(`<p><strong>动手练习：</strong>在区块浏览器上亲眼看到铭文、Runes 和减半区块。</p>
 ${steps([

@@ -1,9 +1,9 @@
-/* ---------- M07 子文章（一）：钱包分类、HD 钱包、交易签名 ---------- */
+/* ---------- M09 子文章（一）：钱包分类、HD 钱包、交易签名 ---------- */
 (() => {
 CUR = 'm03-1';
-addCh({ id: 'm03-1', nav: '钱包分类全景', title: 'M07.1 钱包分类全景：热、冷、托管与智能合约钱包', desc: '按联网方式、控制权、载体、账户类型给钱包分类，并学会企业选型。', html: `
-<h1>M07.1 钱包分类全景：热、冷、托管与智能合约钱包</h1>
-${meta(['用 4 个维度（联网、控制权、载体、账户类型）给任何一个钱包分类。', '说清 EOA 与智能合约钱包（Safe、ERC-4337）的区别和各自适用场景。', '为交易所、托管机构、支付公司、项目方金库分别选出合理的钱包组合。'], '<a href="#m03">M07 模块总览</a>、<a href="#m00-3">M00.3 公钥私钥与数字签名</a>')}
+addCh({ id: 'm03-1', nav: '钱包分类全景', title: 'M09.1 钱包分类全景：热、冷、托管与智能合约钱包', desc: '按联网方式、控制权、载体、账户类型给钱包分类，并学会企业选型。', html: `
+<h1>M09.1 钱包分类全景：热、冷、托管与智能合约钱包</h1>
+${meta(['用 4 个维度（联网、控制权、载体、账户类型）给任何一个钱包分类。', '说清 EOA 与智能合约钱包（Safe、ERC-4337）的区别和各自适用场景。', '为交易所、托管机构、支付公司、项目方金库分别选出合理的钱包组合。'], '<a href="#m03">M09 模块总览</a>、<a href="#m00-3">M00.3 公钥私钥与数字签名</a>')}
 ${beginner(`<p><strong>私钥（Private Key）</strong>：一个 256 位的随机数。谁拿到它，谁就能动用对应地址里的资产。</p>
 <p><strong>地址（Address）</strong>：由公钥计算出来的一串字符，像银行账号，可以公开给别人收款。</p>
 <p><strong>签名（Signature）</strong>：用私钥对一笔交易生成的“电子印章”。链上节点用公钥验证印章真伪，但看不到私钥。</p>
@@ -74,7 +74,7 @@ ${tbl(['类型', '私钥在谁手里', '用户丢了密码', '机构跑路或被
   ['非托管（Non-custodial）', '用户', '没有助记词就永久丢失', '不影响用户', 'MetaMask、Ledger、Trust Wallet'],
   ['半托管（Semi-custodial）', '用户和机构各持一部分（分片或多签的一把钥匙）', '可以凭机构那一份 + 备份恢复', '机构单方面无法动钱', 'MPC 钱包 App（2-of-3 分片）、带恢复钥匙的多签']
 ])}
-<p>托管还是非托管，也决定了你是否会被视为需要牌照和 KYC 的服务商，见 <a href="#m11-1">M05.1 合规全景</a>。</p>
+<p>托管还是非托管，也决定了你是否会被视为需要牌照和 KYC 的服务商，见 <a href="#m11-1">M07.1 合规全景</a>。</p>
 ${call('info', `<p>交易所账户里的“余额”只是交易所数据库里的一行记录，不是你链上地址里的币。行话叫 <em>Not your keys, not your coins</em>（私钥不在你手里，币就不是你的）。2022 年 11 月 FTX 先暂停加密资产提币、随后申请破产，用户的账户余额无法提取，就是这个原因。${cite('CoinDesk：FTX 暂停所有加密资产提币', 'https://www.coindesk.com/business/2022/11/08/ftx-exchange-halts-all-crypto-withdrawals')}</p>`)}
 
 <h3>2.3 软件钱包、硬件钱包、纸钱包</h3>
@@ -118,7 +118,7 @@ ${tbl(['对比项', 'EOA', 'Safe 多签', 'ERC-4337 智能账户'], [
   ['多链', '同一私钥在所有 EVM 链地址相同', '每条链单独部署', '每条链单独部署'],
   ['非 EVM 链', '各链有对应的单签账户', '不支持', '不支持']
 ])}
-<p><strong>ERC-4337（账户抽象）</strong>：2023 年 3 月上线以太坊主网的标准，不修改共识层。用户签的不是交易，而是一个 <code>UserOperation</code>；打包者（Bundler）把多个 UserOperation 打包，提交给全链统一的 <code>EntryPoint</code> 合约，由它调用每个智能账户的验证函数。详细内容见 <a href="#m06-5">M07.8 账户抽象深入</a>。</p>
+<p><strong>ERC-4337（账户抽象）</strong>：2023 年 3 月上线以太坊主网的标准，不修改共识层。用户签的不是交易，而是一个 <code>UserOperation</code>；打包者（Bundler）把多个 UserOperation 打包，提交给全链统一的 <code>EntryPoint</code> 合约，由它调用每个智能账户的验证函数。详细内容见 <a href="#m06-5">M09.8 账户抽象深入</a>。</p>
 ${call('deep', `<p><strong>EIP-7702</strong>：2025 年 5 月以太坊 Pectra 升级引入。${cite('Ethereum Foundation：Pectra 主网公告', 'https://blog.ethereum.org/2025/04/23/pectra-mainnet')}它允许 EOA 通过签名把自己的代码“委托”给一个合约实现，使 EOA 获得智能账户的能力（批量调用、代付 Gas）；委托会一直有效，直到被替换或清除。企业钱包要注意：签署一个恶意的 7702 授权，等于把账户控制权交出去。</p>`)}
 
 <h2>4. 企业场景：谁用什么</h2>
@@ -192,9 +192,9 @@ ${terms([
 ` });
 
 CUR = 'm03-2';
-addCh({ id: 'm03-2', nav: '助记词与 HD 钱包', title: 'M07.2 助记词与 HD 钱包：从 12 个单词到无数个地址', desc: '一步步拆解 BIP-39/32/44：熵、校验位、种子、硬化派生、xpub。', html: `
-<h1>M07.2 助记词与 HD 钱包：从 12 个单词到无数个地址</h1>
-${meta(['手算 BIP-39 校验位，说清 12 个单词如何编码 128 位熵。', '解释 BIP-32 主私钥、链码、普通派生与硬化派生的区别，以及 xpub 泄露风险。', '读懂 BIP-44 路径每一层，设计“服务器只持 xpub”的充值地址生成架构。'], '<a href="#m03-1">M07.1 钱包分类全景</a>、<a href="#m00-2">M00.2 哈希函数</a>', ['hdpath'])}
+addCh({ id: 'm03-2', nav: '助记词与 HD 钱包', title: 'M09.2 助记词与 HD 钱包：从 12 个单词到无数个地址', desc: '一步步拆解 BIP-39/32/44：熵、校验位、种子、硬化派生、xpub。', html: `
+<h1>M09.2 助记词与 HD 钱包：从 12 个单词到无数个地址</h1>
+${meta(['手算 BIP-39 校验位，说清 12 个单词如何编码 128 位熵。', '解释 BIP-32 主私钥、链码、普通派生与硬化派生的区别，以及 xpub 泄露风险。', '读懂 BIP-44 路径每一层，设计“服务器只持 xpub”的充值地址生成架构。'], '<a href="#m03-1">M09.1 钱包分类全景</a>、<a href="#m00-2">M00.2 哈希函数</a>', ['hdpath'])}
 ${beginner(`<p><strong>熵（Entropy）</strong>：一串真随机的二进制位。熵越多，越难被猜中。</p>
 <p><strong>哈希（Hash）</strong>：把任意数据变成固定长度“指纹”的函数，例如 SHA-256 输出 256 位。</p>
 <p><strong>HMAC</strong>：带密钥的哈希。同样的数据，用不同密钥算出不同结果。</p>
@@ -461,9 +461,9 @@ ${terms([
 ` });
 
 CUR = 'm03-3';
-addCh({ id: 'm03-3', nav: '交易签名与广播', title: 'M07.3 交易签名与广播：从参数到 raw transaction', desc: '逐个参数构造 EIP-1559 交易，签名、序列化、离线签名并广播。', html: `
-<h1>M07.3 交易签名与广播：从参数到 raw transaction</h1>
-${meta(['说出一笔 EIP-1559 交易每个字段从哪里来（nonce、gas、费用、chainId）。', '解释签名哈希、secp256k1 签名、v/r/s、EIP-155 防重放，并用 go-ethereum 完成签名与广播。', '设计“冷机器签名、热机器广播”的离线签名流程，了解比特币、Solana、Tron 的差异。'], '<a href="#m03-2">M07.2 助记词与 HD 钱包</a>、<a href="#m01-4">M01.4 交易全解</a>')}
+addCh({ id: 'm03-3', nav: '交易签名与广播', title: 'M09.3 交易签名与广播：从参数到 raw transaction', desc: '逐个参数构造 EIP-1559 交易，签名、序列化、离线签名并广播。', html: `
+<h1>M09.3 交易签名与广播：从参数到 raw transaction</h1>
+${meta(['说出一笔 EIP-1559 交易每个字段从哪里来（nonce、gas、费用、chainId）。', '解释签名哈希、secp256k1 签名、v/r/s、EIP-155 防重放，并用 go-ethereum 完成签名与广播。', '设计“冷机器签名、热机器广播”的离线签名流程，了解比特币、Solana、Tron 的差异。'], '<a href="#m03-2">M09.2 助记词与 HD 钱包</a>、<a href="#m01-4">M01.4 交易全解</a>')}
 ${beginner(`<p><strong>交易（Transaction）</strong>：一条“由某地址发起、要求链改变状态”的指令，例如转账或调用合约。</p>
 <p><strong>Gas</strong>：以太坊衡量计算量的单位。一笔普通 ETH 转账固定消耗 21,000 gas。</p>
 <p><strong>gwei</strong>：ETH 的小单位，1 gwei = 10⁻⁹ ETH。Gas 价格通常用 gwei 表示。</p>
@@ -497,7 +497,7 @@ ${art('一图看懂：发一笔交易，只有签名这一步需要私钥', 660,
 <p>EIP-1559 交易也叫“类型 2 交易”（type 0x02）。它有以下字段：</p>
 ${tbl(['字段', '含义', '怎么得到', 'JSON-RPC / go-ethereum'], [
   ['chainId', '链编号，防止跨链重放', '配置文件写死，启动时用 RPC 校验一致', '<code>eth_chainId</code> / <code>client.ChainID</code>'],
-  ['nonce', '该地址发出的第几笔交易，从 0 开始', '企业系统由 Nonce 管理器分配（见 M07.6）；个人钱包查 pending 计数', '<code>eth_getTransactionCount(addr, "pending")</code> / <code>PendingNonceAt</code>'],
+  ['nonce', '该地址发出的第几笔交易，从 0 开始', '企业系统由 Nonce 管理器分配（见 M09.6）；个人钱包查 pending 计数', '<code>eth_getTransactionCount(addr, "pending")</code> / <code>PendingNonceAt</code>'],
   ['maxPriorityFeePerGas', '给出块者的小费上限', '取近期区块小费分位数，或节点建议值', '<code>eth_maxPriorityFeePerGas</code> / <code>SuggestGasTipCap</code>'],
   ['maxFeePerGas', '愿意支付的每 gas 总价上限', '常用：2 × 下一块基础费 + 小费', '<code>eth_getBlockByNumber("latest")</code> 的 baseFeePerGas'],
   ['gas（gasLimit）', '最多消耗多少 gas', 'ETH 转账固定 21,000；合约调用用估算值 × 缓冲系数', '<code>eth_estimateGas</code> / <code>EstimateGas</code>'],
@@ -519,7 +519,7 @@ ${steps([
 
 <h2>3. 签名：哈希、secp256k1、v/r/s</h2>
 ${recall('<p><a href="#m01-4">M01.4 交易全解</a> 第 3 节已经画过完整流程：签名的对象是 <code>Keccak-256(0x02 ‖ RLP(未签名字段))</code>；签名得到 yParity、r、s；再把字段和签名一起 RLP 编码，前面加 0x02，就是可广播的 raw transaction。节点从签名恢复公钥、算出地址，所以交易里没有 from 字段。本节只补企业签名服务需要额外注意的三件事：随机数 k、v 值、low-s。</p>')}
-${call('risk', '<p>同一个 nonce 签两笔不同的交易，两笔都是有效交易，谁先被打包谁生效。签名服务必须在签名前锁定 nonce，拒绝对同一 nonce 签出第二笔内容不同的交易（替换交易除外，且要走审批）。nonce 管理见 <a href="#m03-6">M07.6</a>。</p>')}
+${call('risk', '<p>同一个 nonce 签两笔不同的交易，两笔都是有效交易，谁先被打包谁生效。签名服务必须在签名前锁定 nonce，拒绝对同一 nonce 签出第二笔内容不同的交易（替换交易除外，且要走审批）。nonce 管理见 <a href="#m03-6">M09.6</a>。</p>')}
 <h3>3.1 ECDSA 签名在做什么</h3>
 <p>椭圆曲线数字签名算法（ECDSA）的输入是 32 字节哈希 z 和私钥 d，输出两个 32 字节整数 r 和 s：</p>
 ${steps([
@@ -676,7 +676,7 @@ flowchart LR
   ['flow', '输入合计 0.55 BTC，收款 0.50，手续费 = 输入 − 输出。找零必须显式写成一个输出，发回自己的找零地址。'],
   ['risk', '忘记写找零输出，剩下的 0.04986 BTC 全部变成手续费送给矿工。'],
   ['key', '手续费按交易体积（vbyte）计价，与金额无关。输入越多，体积越大，费用越高。'],
-  ['limit', '比特币没有 nonce。同一 UTXO 只能被花一次，替换交易靠 RBF（BIP-125）或 CPFP（子交易付费）。UTXO 与脚本见 <a href="#m05-60">M04.19 比特币 UTXO 与脚本</a>，PSBT 与 Taproot 见 <a href="#m05-61">M04.20 SegWit·Taproot·PSBT</a>。']
+  ['limit', '比特币没有 nonce。同一 UTXO 只能被花一次，替换交易靠 RBF（BIP-125）或 CPFP（子交易付费）。UTXO 与脚本见 <a href="#m05-60">M05.4 比特币 UTXO 与脚本</a>，PSBT 与 Taproot 见 <a href="#m05-61">M05.5 SegWit·Taproot·PSBT</a>。']
 ])}
 <p><strong>算一算（示例）</strong>：2 个 P2WPKH 输入、2 个 P2WPKH 输出，交易体积约 10.5 + 2 × 68 + 2 × 31 ≈ 209 vB。费率 67 sat/vB 时，手续费 = 209 × 67 ≈ 14,000 sat = 0.00014 BTC。选币算法的目标：凑够金额、少用输入、尽量不产生小于“粉尘阈值”的找零（P2WPKH 约 294 sat）。</p>
 
@@ -689,7 +689,7 @@ ${tbl(['对比项', '以太坊', 'Solana', 'Tron'], [
   ['代币转账', 'ERC-20 合约调用', 'SPL Token，收款方需要关联代币账户 ATA', 'TRC-20 合约调用，需要足够能量'],
   ['地址格式', '0x + 40 位十六进制', 'Base58 公钥，32 字节', 'Base58Check，以 T 开头']
 ])}
-${call('info', `<p>多链钱包的设计原则：把“构造交易”和“签名”拆开。签名层只关心曲线（secp256k1 / Ed25519）和哈希；每条链实现自己的“交易构造器”和“广播器”。M07.10 实战会按这个接口设计。</p>`)}
+${call('info', `<p>多链钱包的设计原则：把“构造交易”和“签名”拆开。签名层只关心曲线（secp256k1 / Ed25519）和哈希；每条链实现自己的“交易构造器”和“广播器”。M09.10 实战会按这个接口设计。</p>`)}
 
 ${tryit(`<p>① 在 Sepolia 测试网领取测试 ETH（搜索 “Sepolia faucet”）。② 用上面的 <code>SendETH</code> 代码，把 RPC 换成任意 Sepolia 公共节点，给自己另一个地址转 0.001 ETH。③ 复制返回的交易哈希，到 sepolia.etherscan.io 查询，点击 “Click to show more”，确认 Txn Type 显示 <code>2 (EIP-1559)</code>，并核对 Max Fee、Max Priority Fee、Nonce 与代码中的值一致。④ 用 curl 调用 <code>eth_getTransactionByHash</code>，在返回中找到 <code>v</code>（yParity）、<code>r</code>、<code>s</code> 三个字段。</p>`)}
 
