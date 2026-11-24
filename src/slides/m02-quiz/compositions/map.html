@@ -1,0 +1,584 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 map，id 前缀 ma- -->
+  <div id="root" data-composition-id="map" data-duration="167.08" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ma-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ma-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+        <marker id="ma-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="ma-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+      </defs>
+      <g id="ma-all">
+        <!-- 行标签 -->
+        <text id="ma-r1" class="h" x="70" y="260" font-size="28" fill="#8a8f99">写它</text>
+        <text id="ma-r2" class="h" x="70" y="530" font-size="28" fill="#8a8f99">发资产</text>
+        <text id="ma-r3" class="h" x="70" y="800" font-size="28" fill="#8a8f99">守住它</text>
+        <text id="ma-r4" class="h" x="70" y="940" font-size="28" fill="#8a8f99">再深入</text>
+
+        <!-- 节点：x 230 / 790 / 1350，宽 500 高 100；y 200 / 470 / 740 -->
+        <g id="ma-n1" class="h">
+          <rect id="ma-n1-r" x="230" y="200" width="500" height="100" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="254" y="242" font-size="28" font-weight="700" fill="#58C4DD">EVM 与合约</text>
+          <text id="ma-n1-c" class="h" x="254" y="284" font-size="28" fill="#e8e6df">只被交易触发，出错全撤销</text>
+        </g>
+        <g id="ma-n2" class="h">
+          <rect x="790" y="200" width="500" height="100" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="814" y="242" font-size="28" font-weight="700" fill="#58C4DD">Solidity I · II</text>
+          <text id="ma-n2-c" class="h" x="814" y="284" font-size="28" fill="#e8e6df">先记账后转账</text>
+        </g>
+        <g id="ma-n3" class="h">
+          <rect x="1350" y="200" width="500" height="100" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="1374" y="242" font-size="28" font-weight="700" fill="#58C4DD">Foundry 工具链</text>
+          <text id="ma-n3-c" class="h" x="1374" y="284" font-size="28" fill="#e8e6df">带参数的测试 = 模糊测试</text>
+        </g>
+        <g id="ma-n4" class="h">
+          <rect x="230" y="470" width="500" height="100" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="254" y="512" font-size="28" font-weight="700" fill="#F0B90B">ERC-20 与授权</text>
+          <text id="ma-n4-c" class="h" x="254" y="554" font-size="28" fill="#e8e6df">授权额度就是风险上限</text>
+        </g>
+        <g id="ma-n5" class="h">
+          <rect x="790" y="470" width="500" height="100" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="814" y="512" font-size="28" font-weight="700" fill="#F0B90B">NFT 与代币发行</text>
+          <text id="ma-n5-c" class="h" x="814" y="554" font-size="28" fill="#e8e6df">元数据在链外 · 悬崖后解锁</text>
+        </g>
+        <g id="ma-n6" class="h">
+          <rect x="1350" y="470" width="500" height="100" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+          <text x="1374" y="512" font-size="28" font-weight="700" fill="#FF9F43">Gas 与存储优化</text>
+          <text x="1826" y="512" font-size="28" fill="#FF9F43" text-anchor="end">选修</text>
+          <text id="ma-n6-c" class="h" x="1374" y="554" font-size="28" fill="#e8e6df">先测量，再优化</text>
+        </g>
+        <g id="ma-n7" class="h">
+          <rect id="ma-n7-r" x="230" y="740" width="500" height="100" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <text id="ma-n7-t" x="254" y="782" font-size="28" font-weight="700" fill="#FC6255">合约安全 I</text>
+          <text id="ma-n7-c" class="h" x="254" y="824" font-size="28" fill="#e8e6df">漏洞：没想到的调用顺序或调用者</text>
+        </g>
+        <g id="ma-n8" class="h">
+          <rect x="790" y="740" width="500" height="100" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+          <text x="814" y="782" font-size="28" font-weight="700" fill="#FF9F43">合约安全 II</text>
+          <text x="1266" y="782" font-size="28" fill="#FF9F43" text-anchor="end">选修</text>
+          <text id="ma-n8-c" class="h" x="814" y="824" font-size="28" fill="#e8e6df">价格防操纵，签名绑定链</text>
+        </g>
+        <g id="ma-n9" class="h">
+          <rect x="1350" y="740" width="500" height="100" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+          <text x="1374" y="782" font-size="28" font-weight="700" fill="#FF9F43">审计与工具链</text>
+          <text x="1826" y="782" font-size="28" fill="#FF9F43" text-anchor="end">选修</text>
+          <text id="ma-n9-c" class="h" x="1374" y="824" font-size="28" fill="#e8e6df">审计只覆盖固定版本</text>
+        </g>
+
+        <!-- 第四行：再深入（选修），y 880–980（L9 起占用第三行动画区） -->
+        <g id="ma-n10" class="h">
+          <rect x="230" y="880" width="500" height="100" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+          <text x="254" y="922" font-size="28" font-weight="700" fill="#FF9F43">可升级合约</text>
+          <text x="706" y="922" font-size="28" fill="#FF9F43" text-anchor="end">选修</text>
+          <text id="ma-n10-c" class="h" x="254" y="964" font-size="28" fill="#e8e6df">末尾追加 · <tspan id="ma-n10-e" fill="#83C167">ERC-7201</tspan></text>
+          <g id="ma-n10-lk" class="h">
+            <rect x="672" y="944" width="28" height="24" rx="5" fill="none" stroke="#83C167" stroke-width="3.5" />
+            <path d="M678 944 v-7 a8 8 0 0 1 16 0 v7" fill="none" stroke="#83C167" stroke-width="3.5" />
+          </g>
+        </g>
+        <g id="ma-n11" class="h">
+          <rect x="790" y="880" width="500" height="100" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+          <text x="814" y="922" font-size="28" font-weight="700" fill="#FF9F43">团队 OpSec 与战时室</text>
+          <text x="1266" y="922" font-size="28" fill="#FF9F43" text-anchor="end">选修</text>
+          <text id="ma-n11-c" class="h" x="814" y="964" font-size="28" fill="#e8e6df">独立验哈希 · <tspan id="ma-n11-f" fill="#FC6255">熔断</tspan> · 战时室</text>
+        </g>
+        <g id="ma-n12" class="h">
+          <rect x="1350" y="880" width="500" height="100" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+          <text x="1374" y="922" font-size="28" font-weight="700" fill="#FF9F43">Yul 与字节码逆向</text>
+          <text x="1826" y="922" font-size="28" fill="#FF9F43" text-anchor="end">选修</text>
+          <text id="ma-n12-c" class="h" x="1374" y="964" font-size="28" fill="#e8e6df">内存布局 · 反编译 + 追踪</text>
+        </g>
+
+        <!-- 节点间箭头 + 标签（标签放在箭头上方，句末淡出） -->
+        <path id="ma-a12" class="dr h" pathLength="1" d="M736 250 H784" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+        <text id="ma-a12t" class="h" x="760" y="178" font-size="28" fill="#8a8f99" text-anchor="middle">用代码写出来</text>
+        <path id="ma-a23" class="dr h" pathLength="1" d="M1296 250 H1344" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+        <text id="ma-a23t" class="h" x="1320" y="178" font-size="28" fill="#8a8f99" text-anchor="middle">测它、发它</text>
+        <path id="ma-a45" class="dr h" pathLength="1" d="M736 520 H784" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+        <text id="ma-a45t" class="h" x="760" y="448" font-size="28" fill="#8a8f99" text-anchor="middle">非同质化</text>
+        <path id="ma-a56" class="dr h" pathLength="1" d="M1296 520 H1344" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+        <text id="ma-a56t" class="h" x="1320" y="448" font-size="28" fill="#8a8f99" text-anchor="middle">上线前再看</text>
+        <path id="ma-a78" class="dr h" pathLength="1" d="M736 790 H784" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+        <path id="ma-a89" class="dr h" pathLength="1" d="M1296 790 H1344" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+        <path id="ma-a1011" class="dr h" pathLength="1" d="M736 930 H784" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+        <path id="ma-a1112" class="dr h" pathLength="1" d="M1296 930 H1344" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+
+        <!-- ===== 动画区 1：节点 1，x 230–730 y 310–450 ===== -->
+        <g id="ma-b1">
+          <text id="ma-b1-tx" class="h" x="240" y="338" font-size="28" fill="#e8e6df">交易</text>
+          <path id="ma-b1-ar" class="dr h" pathLength="1" d="M240 368 H328" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <rect id="ma-b1-ct" class="h" x="336" y="322" width="70" height="62" rx="8" fill="#58C4DD" fill-opacity="0" stroke="#58C4DD" stroke-width="3" />
+          <g id="ma-b1-cells" class="h">
+            <rect id="ma-b1-s" x="430" y="322" width="80" height="54" rx="8" fill="#58C4DD" fill-opacity="0" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="470" y="359" font-size="28" fill="#58C4DD" text-anchor="middle">栈</text>
+            <rect id="ma-b1-m" x="522" y="322" width="94" height="54" rx="8" fill="#8a8f99" fill-opacity="0" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="569" y="359" font-size="28" fill="#8a8f99" text-anchor="middle">内存</text>
+            <rect id="ma-b1-st" x="628" y="322" width="100" height="54" rx="8" fill="#F0B90B" fill-opacity="0" stroke="#F0B90B" stroke-width="3" />
+            <text x="678" y="359" font-size="28" fill="#F0B90B" text-anchor="middle">存储</text>
+          </g>
+          <text id="ma-b1-exp" class="h" x="678" y="416" font-size="28" fill="#F0B90B" text-anchor="middle">最贵</text>
+          <g id="ma-b1-x" class="h">
+            <path d="M270 358 L298 386 M298 358 L270 386" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+          </g>
+          <rect id="ma-b1-gbg" class="h" x="240" y="414" width="220" height="20" rx="4" fill="#2a2f3a" />
+          <rect id="ma-b1-gas" x="240" y="414" width="0" height="20" rx="4" fill="#F0B90B" />
+          <text id="ma-b1-gt" class="h" x="474" y="436" font-size="28" fill="#F0B90B">Gas 照付</text>
+        </g>
+
+        <!-- ===== 动画区 2：节点 2，x 790–1290 y 310–450 ===== -->
+        <g id="ma-b2">
+          <g id="ma-b2-loc" class="h">
+            <rect x="790" y="320" width="130" height="44" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="855" y="352" font-size="28" fill="#58C4DD" text-anchor="middle">storage</text>
+            <rect x="932" y="320" width="116" height="44" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="990" y="352" font-size="28" fill="#58C4DD" text-anchor="middle">memory</text>
+            <rect x="1060" y="320" width="150" height="44" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1135" y="352" font-size="28" fill="#58C4DD" text-anchor="middle">calldata</text>
+          </g>
+          <g id="ma-b2-key" class="h">
+            <circle cx="808" cy="404" r="12" fill="none" stroke="#83C167" stroke-width="4" />
+            <path d="M802 414 L798 436 H818 L814 414" fill="#83C167" />
+            <text class="mono" x="836" y="426" font-size="28" fill="#83C167">msg.sender</text>
+          </g>
+          <text id="ma-b2-ord" class="h" x="1040" y="426" font-size="28" fill="#83C167">检查→记账→转账</text>
+          <g id="ma-b2-lock" class="h">
+            <rect x="792" y="332" width="30" height="26" rx="5" fill="none" stroke="#83C167" stroke-width="3.5" />
+            <path d="M798 332 v-8 a9 9 0 0 1 18 0 v8" fill="none" stroke="#83C167" stroke-width="3.5" />
+            <text x="836" y="356" font-size="28" fill="#83C167">重入锁</text>
+          </g>
+        </g>
+
+        <!-- ===== 动画区 3：节点 3，x 1350–1850 y 310–450 ===== -->
+        <g id="ma-b3">
+          <g id="ma-b3-fn" class="h">
+            <rect x="1350" y="320" width="312" height="52" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1362" y="356" font-size="28" fill="#58C4DD">testFuzz_(amount)</text>
+          </g>
+          <g id="ma-b3-ct" class="h">
+            <rect x="1756" y="320" width="94" height="52" rx="10" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1803" y="356" font-size="28" fill="#58C4DD" text-anchor="middle">合约</text>
+          </g>
+          <g id="ma-b3-dots"></g>
+          <g id="ma-b3-lights">
+            <circle id="ma-b3-l0" class="h" cx="1772" cy="420" r="8" fill="#8a8f99" />
+            <circle id="ma-b3-l1" class="h" cx="1796" cy="420" r="8" fill="#8a8f99" />
+            <circle id="ma-b3-l2" class="h" cx="1820" cy="420" r="8" fill="#8a8f99" />
+            <circle id="ma-b3-l3" class="h" cx="1842" cy="420" r="7" fill="#8a8f99" />
+          </g>
+          <g id="ma-b3-ks" class="h">
+            <circle cx="1362" cy="420" r="10" fill="none" stroke="#83C167" stroke-width="4" />
+            <path d="M1372 420 H1392 M1386 420 V430" stroke="#83C167" stroke-width="4" />
+            <rect x="1404" y="398" width="164" height="46" rx="10" fill="none" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1486" y="431" font-size="28" fill="#83C167" text-anchor="middle">keystore</text>
+          </g>
+          <g id="ma-b3-ci" class="h">
+            <circle cx="1612" cy="421" r="18" fill="none" stroke="#FC6255" stroke-width="4" />
+            <line x1="1600" y1="433" x2="1624" y2="409" stroke="#FC6255" stroke-width="4" />
+            <rect x="1642" y="398" width="76" height="46" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1680" y="431" font-size="28" fill="#8a8f99" text-anchor="middle">CI</text>
+          </g>
+        </g>
+
+        <!-- ===== 动画区 4：节点 4，x 230–730 y 580–720 ===== -->
+        <g id="ma-b4">
+          <g id="ma-b4-al" class="h">
+            <rect x="230" y="590" width="176" height="50" rx="8" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <line x1="338" y1="590" x2="338" y2="640" stroke="#58C4DD" stroke-width="2" />
+            <text class="mono" x="242" y="625" font-size="28" fill="#58C4DD">Alice</text>
+            <text class="mono" x="348" y="625" font-size="28" fill="#F0B90B">100</text>
+          </g>
+          <g id="ma-b4-dex" class="h">
+            <rect x="600" y="590" width="130" height="50" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="665" y="625" font-size="28" fill="#e8e6df" text-anchor="middle">DEX</text>
+          </g>
+          <g id="ma-b4-c1" class="h">
+            <rect x="420" y="590" width="160" height="50" rx="8" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="500" y="625" font-size="28" fill="#FF9F43" text-anchor="middle">额度 500</text>
+          </g>
+          <g id="ma-b4-c2" class="h">
+            <rect x="420" y="590" width="160" height="50" rx="8" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="500" y="625" font-size="28" fill="#FF9F43" text-anchor="middle">额度 300</text>
+          </g>
+          <text id="ma-b4-ov" class="h" x="420" y="696" font-size="28" fill="#FF9F43">覆盖，不累加</text>
+          <text id="ma-b4-amt" class="h" x="230" y="696" font-size="28" fill="#FC6255">参数 <tspan class="mono">100</tspan> / 到账 <tspan class="mono">98</tspan></text>
+          <text id="ma-b4-diff" class="h" x="530" y="696" font-size="28" fill="#83C167">→ 看余额差</text>
+        </g>
+
+        <!-- ===== 动画区 5：节点 5，x 790–1290 y 580–720 ===== -->
+        <g id="ma-b5">
+          <g id="ma-b5-nft" class="h">
+            <rect x="790" y="590" width="160" height="50" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="870" y="625" font-size="28" fill="#58C4DD" text-anchor="middle">tokenURI</text>
+            <text x="870" y="700" font-size="28" fill="#58C4DD" text-anchor="middle">链上</text>
+          </g>
+          <line id="ma-b5-ln" class="h" x1="956" y1="615" x2="990" y2="615" stroke="#8a8f99" stroke-width="3" stroke-dasharray="6 5" />
+          <g id="ma-b5-cl" class="h">
+            <path d="M1004 636 a16 16 0 0 1 4 -31 a22 22 0 0 1 40 -4 a16 16 0 0 1 12 35 z" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <text x="1030" y="700" font-size="28" fill="#8a8f99" text-anchor="middle">链外</text>
+          </g>
+          <g id="ma-b5-ax" class="h">
+            <path d="M1100 590 V712 H1288" fill="none" stroke="#3a3f4a" stroke-width="2.5" />
+            <text x="1108" y="636" font-size="28" fill="#FF9F43">悬崖</text>
+          </g>
+          <path id="ma-b5-cv" class="dr" pathLength="1" d="M1100 710 H1180 V664 L1284 596" fill="none" stroke="#F0B90B" stroke-width="4" />
+        </g>
+
+        <!-- ===== 动画区 6：计算板 x 1350–1850 y 578–732 ===== -->
+        <g id="ma-b6">
+          <rect id="ma-b6-bd" class="h" x="1350" y="580" width="500" height="152" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <text id="ma-b6-1" class="h" x="1366" y="612" font-size="28" fill="#e8e6df"><tspan class="mono">7 → 8</tspan> 非零改非零</text>
+          <text id="ma-b6-1n" class="h mono" x="1834" y="612" font-size="28" fill="#F0B90B" text-anchor="end">2,900</text>
+          <text id="ma-b6-2" class="h" x="1366" y="648" font-size="28" fill="#e8e6df">第一次访问（冷）</text>
+          <text id="ma-b6-2n" class="h mono" x="1834" y="648" font-size="28" fill="#F0B90B" text-anchor="end">+ 2,100</text>
+          <text id="ma-b6-3" class="h" x="1366" y="684" font-size="28" font-weight="700" fill="#F0B90B">合计</text>
+          <text id="ma-b6-3n" class="h mono" x="1834" y="684" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="end">5,000</text>
+          <text id="ma-b6-4" class="h" x="1366" y="720" font-size="28" fill="#8a8f99"><tspan class="mono">0 →</tspan> 非零</text>
+          <text id="ma-b6-4n" class="h mono" x="1834" y="720" font-size="28" fill="#8a8f99" text-anchor="end">20,000</text>
+        </g>
+
+        <!-- ===== 动画区 7：节点 7，x 230–730 y 850–1010 ===== -->
+        <g id="ma-b7">
+          <g id="ma-b7-v" class="h">
+            <rect x="230" y="860" width="120" height="56" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="290" y="898" font-size="28" fill="#F0B90B" text-anchor="middle">金库</text>
+          </g>
+          <g id="ma-b7-at" class="h">
+            <rect x="580" y="860" width="150" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text x="655" y="898" font-size="28" fill="#FC6255" text-anchor="middle">攻击合约</text>
+          </g>
+          <path id="ma-b7-go" class="dr h" pathLength="1" d="M356 878 H572" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#ma-arrR)" />
+          <path id="ma-b7-bk" class="dr h" pathLength="1" d="M655 922 C655 960 290 960 290 924" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#ma-arrR)" />
+          <rect id="ma-b7-gate" class="h" x="450" y="852" width="14" height="76" rx="4" fill="#83C167" />
+          <text id="ma-b7-cei" class="h" x="230" y="1000" font-size="28" fill="#83C167">检查 · 生效 · 交互 + 锁</text>
+          <text id="ma-b7-f1" class="h mono" x="230" y="1000" font-size="28" fill="#83C167">a × 30 / 10000</text>
+          <text id="ma-b7-f2" class="h mono" x="490" y="1000" font-size="28" fill="#FC6255">a / 10000 × 30</text>
+          <g id="ma-b7-pull" class="h">
+            <circle cx="470" cy="874" r="11" fill="none" stroke="#83C167" stroke-width="3" />
+            <path d="M454 910 a16 16 0 0 1 32 0" fill="none" stroke="#83C167" stroke-width="3" />
+            <circle cx="560" cy="874" r="11" fill="none" stroke="#83C167" stroke-width="3" />
+            <path d="M544 910 a16 16 0 0 1 32 0" fill="none" stroke="#83C167" stroke-width="3" />
+            <circle cx="650" cy="874" r="11" fill="none" stroke="#83C167" stroke-width="3" />
+            <path d="M634 910 a16 16 0 0 1 32 0" fill="none" stroke="#83C167" stroke-width="3" />
+          </g>
+          <path id="ma-b7-pa" class="dr h" pathLength="1" d="M356 888 H436" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#ma-arrG)" />
+          <text id="ma-b7-pt" class="h" x="730" y="1000" font-size="28" fill="#83C167" text-anchor="end">拉取模式</text>
+        </g>
+
+        <!-- ===== 动画区 8：节点 8，x 790–1290 y 850–1010 ===== -->
+        <g id="ma-b8">
+          <!-- L7 预言机操纵：一笔交易里 闪电贷 → 砸盘 → 超额借款 → 还款 -->
+          <text id="ma-b8-k1" class="h" x="800" y="884" font-size="28" fill="#FC6255">闪电贷</text>
+          <text id="ma-b8-a1" class="h" x="896" y="884" font-size="28" fill="#8a8f99">→</text>
+          <text id="ma-b8-k2" class="h" x="936" y="884" font-size="28" fill="#FC6255">砸盘</text>
+          <text id="ma-b8-a2" class="h" x="1004" y="884" font-size="28" fill="#8a8f99">→</text>
+          <text id="ma-b8-k3" class="h" x="1044" y="884" font-size="28" fill="#FC6255">超额借款</text>
+          <text id="ma-b8-a3" class="h" x="1168" y="884" font-size="28" fill="#8a8f99">→</text>
+          <text id="ma-b8-k4" class="h" x="1208" y="884" font-size="28" fill="#FC6255">还款</text>
+          <g id="ma-b8-bars" class="h">
+            <rect x="800" y="974" width="22" height="26" fill="#8a8f99" />
+            <rect x="830" y="970" width="22" height="30" fill="#8a8f99" />
+            <rect x="860" y="976" width="22" height="24" fill="#8a8f99" />
+            <rect id="ma-b8-spk" x="890" y="972" width="22" height="28" fill="#8a8f99" />
+            <rect x="920" y="972" width="22" height="28" fill="#8a8f99" />
+            <rect x="950" y="968" width="22" height="32" fill="#8a8f99" />
+          </g>
+          <text id="ma-b8-bad" class="h" x="1004" y="972" font-size="28" fill="#FC6255">价格被推歪</text>
+          <line id="ma-b8-x" class="dr" pathLength="1" x1="874" y1="920" x2="928" y2="994" stroke="#FC6255" stroke-width="5" />
+          <path id="ma-b8-sm" class="dr" pathLength="1" d="M800 986 C840 980 880 984 920 980 S960 976 990 978" fill="none" stroke="#83C167" stroke-width="4" />
+          <text id="ma-b8-agg" class="h" x="1004" y="956" font-size="28" fill="#83C167">聚合预言机</text>
+          <text id="ma-b8-tw" class="h mono" x="1004" y="996" font-size="28" fill="#83C167">TWAP</text>
+          <g id="ma-b8-sig" class="h">
+            <rect x="1030" y="852" width="260" height="104" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1046" y="886" font-size="28" fill="#e8e6df">签名</text>
+          </g>
+          <g id="ma-b8-s1" class="h"><rect x="1042" y="900" width="48" height="44" rx="8" fill="none" stroke="#83C167" stroke-width="2.5" /><text x="1066" y="932" font-size="28" fill="#83C167" text-anchor="middle">链</text></g>
+          <g id="ma-b8-s2" class="h"><rect x="1098" y="900" width="76" height="44" rx="8" fill="none" stroke="#83C167" stroke-width="2.5" /><text x="1136" y="932" font-size="28" fill="#83C167" text-anchor="middle">合约</text></g>
+          <g id="ma-b8-s3" class="h"><rect x="1182" y="900" width="100" height="44" rx="8" fill="none" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="1232" y="932" font-size="28" fill="#83C167" text-anchor="middle">nonce</text></g>
+        </g>
+
+        <!-- ===== 动画区 9：节点 9，x 1350–1850 y 850–1010 ===== -->
+        <g id="ma-b9">
+          <g id="ma-b9-a" class="h">
+            <rect x="1366" y="868" width="60" height="50" rx="8" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1396" y="903" font-size="28" fill="#83C167" text-anchor="middle">A</text>
+          </g>
+          <g id="ma-b9-mg" class="h">
+            <circle cx="1396" cy="893" r="44" fill="none" stroke="#83C167" stroke-width="3.5" stroke-dasharray="8 6" />
+            <line x1="1428" y1="925" x2="1456" y2="953" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+          </g>
+          <g id="ma-b9-b" class="h">
+            <rect x="1520" y="868" width="60" height="50" rx="8" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text class="mono" x="1550" y="903" font-size="28" fill="#FF9F43" text-anchor="middle">B</text>
+            <text x="1550" y="970" font-size="28" fill="#FF9F43" text-anchor="middle">未审</text>
+          </g>
+          <g id="ma-b9-p" class="h">
+            <circle cx="1760" cy="893" r="32" fill="#FC6255" />
+            <rect x="1747" y="878" width="9" height="30" rx="2" fill="#0f1117" />
+            <rect x="1764" y="878" width="9" height="30" rx="2" fill="#0f1117" />
+          </g>
+        </g>
+
+        <!-- L11：适用标签，替换六个选修节点里的结论行 -->
+        <text id="ma-u6" class="h" x="1374" y="554" font-size="28" fill="#FF9F43">适用：合约开发</text>
+        <text id="ma-u10" class="h" x="254" y="964" font-size="28" fill="#FF9F43">适用：合约开发</text>
+        <text id="ma-u12" class="h" x="1374" y="964" font-size="28" fill="#FF9F43">适用：合约开发</text>
+        <text id="ma-u8" class="h" x="814" y="824" font-size="28" fill="#FF9F43">适用：开发 / 审计 / 多签</text>
+        <text id="ma-u9" class="h" x="1374" y="824" font-size="28" fill="#FF9F43">适用：开发 / 审计 / 多签</text>
+        <text id="ma-u11" class="h" x="814" y="964" font-size="28" fill="#FF9F43">适用：开发 / 审计 / 多签</text>
+
+        <!-- 结尾：问题卡缩略图 -->
+        <g id="ma-qc" class="h">
+          <rect x="800" y="64" width="320" height="72" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text x="960" y="111" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#58C4DD">写对</tspan> · <tspan fill="#83C167">测透</tspan> · <tspan fill="#B48EF0">守住</tspan></text>
+        </g>
+        <circle id="ma-dot" class="h" cx="230" cy="250" r="10" fill="#FFE27A" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const NODE = { 1: [230, 200], 2: [790, 200], 3: [1350, 200], 4: [230, 470], 5: [790, 470], 6: [1350, 470], 7: [230, 740], 8: [790, 740], 9: [1350, 740], 10: [230, 880], 11: [790, 880], 12: [1350, 880] };
+      const cen = k => `${NODE[k][0] + 250} ${NODE[k][1] + 50}`;
+      const NODEIN = (k, t) => IN(`#ma-n${k}`, t, 0.6, { scale: 0.85, svgOrigin: cen(k) }, { scale: 1, svgOrigin: cen(k), ease: "back.out(1.6)" });
+      // 动画区收进节点：整体缩小并淡出，节点里出现结论
+      const COLLAPSE = (k, t) => {
+        tl.to(`#ma-b${k}`, { scale: 0.2, svgOrigin: cen(k), opacity: 0, duration: 0.6, ease: "power2.in" }, t);
+        IN(`#ma-n${k}-c`, t + 0.45, 0.5);
+      };
+
+      // ===== L0 节点 1 =====
+      IN("#ma-r1", at(0, 0.0), 0.5);
+      NODEIN(1, at(0, 0.02));
+      IN("#ma-b1-tx", at(0, 0.08), 0.4);
+      ARROW("#ma-b1-ar", at(0, 0.1), 0.5);
+      IN("#ma-b1-ct", at(0, 0.12), 0.4);
+      tl.to("#ma-b1-ct", { fillOpacity: 0.35, duration: 0.3 }, at(0, 0.15));
+      IN("#ma-b1-cells", at(0, 0.32), 0.5, { x: -20 }, { x: 0 });
+      IN("#ma-b1-exp", at(0, 0.44), 0.4);
+      tl.to("#ma-b1-st", { strokeWidth: 5, duration: 0.25, yoyo: true, repeat: 1 }, at(0, 0.44));
+      // 执行中：格子被写入，Gas 表走字
+      IN("#ma-b1-gbg", at(0, 0.56), 0.3);
+      tl.to("#ma-b1-gas", { attr: { width: 150 }, duration: 1.6, ease: "none" }, at(0, 0.58));
+      tl.to("#ma-b1-s, #ma-b1-m, #ma-b1-st", { fillOpacity: 0.35, duration: 0.5, stagger: 0.3 }, at(0, 0.58));
+      // 出错：红叉，存储改动撤销；已用 Gas 留着
+      IN("#ma-b1-x", at(0, 0.73), 0.25, { scale: 1.6, svgOrigin: "284 372" }, { scale: 1, svgOrigin: "284 372" });
+      tl.to("#ma-b1-s, #ma-b1-m, #ma-b1-st", { fillOpacity: 0, duration: 0.5 }, at(0, 0.76));
+      tl.to("#ma-b1-ct", { fillOpacity: 0, duration: 0.5 }, at(0, 0.76));
+      IN("#ma-b1-gt", at(0, 0.85), 0.4);
+      tl.to("#ma-b1-gas", { opacity: 0.4, duration: 0.2, yoyo: true, repeat: 3 }, at(0, 0.86));
+
+      // ===== L1 节点 2 =====
+      COLLAPSE(1, at(1, 0.0));
+      ARROW("#ma-a12", at(1, 0.03), 0.4);
+      IN("#ma-a12t", at(1, 0.03), 0.4);
+      NODEIN(2, at(1, 0.08));
+      IN("#ma-b2-loc", at(1, 0.14), 0.5, { y: 10 }, { y: 0 });
+      IN("#ma-b2-key", at(1, 0.38), 0.5);
+      tl.to("#ma-b2-key", { scale: 1.12, svgOrigin: "900 415", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.5));
+      IN("#ma-b2-ord", at(1, 0.6), 0.5, { x: -15 }, { x: 0 });
+      OUT("#ma-b2-loc", at(1, 0.8), 0.3);
+      IN("#ma-b2-lock", at(1, 0.84), 0.4, { scale: 1.4, svgOrigin: "807 340" }, { scale: 1, svgOrigin: "807 340" });
+      OUT("#ma-a12t", at(1, 0.95), 0.4);
+
+      // ===== L2 节点 3 =====
+      COLLAPSE(2, at(2, 0.0));
+      ARROW("#ma-a23", at(2, 0.03), 0.4);
+      IN("#ma-a23t", at(2, 0.03), 0.4);
+      NODEIN(3, at(2, 0.06));
+      IN("#ma-b3-fn", at(2, 0.3), 0.5, { x: -15 }, { x: 0 });
+      IN("#ma-b3-ct", at(2, 0.33), 0.5);
+      // 随机输入：固定种子 LCG
+      {
+        const NS = "http://www.w3.org/2000/svg", g = document.getElementById("ma-b3-dots");
+        let seed = 7; const rnd = () => (seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648;
+        for (let i = 0; i < 28; i++) {
+          const c = document.createElementNS(NS, "circle");
+          const y = 326 + rnd() * 40;
+          c.setAttribute("id", "ma-b3-d" + i); c.setAttribute("cx", 1668); c.setAttribute("cy", y); c.setAttribute("r", 4);
+          c.setAttribute("fill", "#8a8f99"); c.setAttribute("opacity", 0);
+          g.appendChild(c);
+          const t0 = at(2, 0.42) + i * 0.09;
+          tl.fromTo("#ma-b3-d" + i, { opacity: 0, attr: { cx: 1668 } }, { opacity: 1, attr: { cx: 1748 }, duration: 0.45, ease: "none", immediateRender: false }, t0);
+          tl.to("#ma-b3-d" + i, { opacity: 0, duration: 0.1 }, t0 + 0.45);
+        }
+      }
+      [0, 1, 2, 3].forEach(j => {
+        IN(`#ma-b3-l${j}`, at(2, 0.46) + j * 0.12, 0.2);
+        tl.to(`#ma-b3-l${j}`, { fill: "#83C167", duration: 0.2 }, at(2, 0.58) + j * 0.25);
+      });
+      IN("#ma-b3-ks", at(2, 0.74), 0.5, { x: -15 }, { x: 0 });
+      IN("#ma-b3-ci", at(2, 0.86), 0.4, { scale: 1.4, svgOrigin: "1612 421" }, { scale: 1, svgOrigin: "1612 421" });
+      OUT("#ma-a23t", at(2, 0.95), 0.4);
+
+      // ===== L3 第二行，节点 4 =====
+      COLLAPSE(3, at(3, 0.0));
+      IN("#ma-r2", at(3, 0.02), 0.5);
+      NODEIN(4, at(3, 0.04));
+      IN("#ma-b4-al", at(3, 0.1), 0.5);
+      IN("#ma-b4-dex", at(3, 0.13), 0.5);
+      IN("#ma-b4-c1", at(3, 0.18), 0.5, { x: -60 }, { x: 0 });
+      // 新额度直接替换旧额度
+      tl.to("#ma-b4-c1", { y: -24, opacity: 0, duration: 0.4 }, at(3, 0.3));
+      IN("#ma-b4-c2", at(3, 0.3), 0.5, { x: -60 }, { x: 0 });
+      IN("#ma-b4-ov", at(3, 0.34), 0.5);
+      OUT("#ma-b4-ov", at(3, 0.58), 0.3);
+      IN("#ma-b4-amt", at(3, 0.62), 0.5);
+      IN("#ma-b4-diff", at(3, 0.76), 0.5, { x: -15 }, { x: 0 });
+
+      // ===== L4 节点 5 =====
+      COLLAPSE(4, at(4, 0.0));
+      ARROW("#ma-a45", at(4, 0.03), 0.4);
+      IN("#ma-a45t", at(4, 0.03), 0.4);
+      NODEIN(5, at(4, 0.06));
+      IN("#ma-b5-nft", at(4, 0.2), 0.5);
+      IN("#ma-b5-ln", at(4, 0.32), 0.4, { x: -10 }, { x: 0 });
+      IN("#ma-b5-cl", at(4, 0.36), 0.5);
+      IN("#ma-b5-ax", at(4, 0.55), 0.4);
+      DRAW("#ma-b5-cv", at(4, 0.6), 2.2);
+      OUT("#ma-a45t", at(4, 0.92), 0.4);
+
+      // ===== L5 节点 6（选修）：算一算 =====
+      COLLAPSE(5, at(5, 0.0));
+      ARROW("#ma-a56", at(5, 0.03), 0.4);
+      IN("#ma-a56t", at(5, 0.03), 0.4);
+      NODEIN(6, at(5, 0.05));
+      IN("#ma-b6-bd", at(5, 0.15), 0.4);
+      IN("#ma-b6-1", at(5, 0.26), 0.4);
+      IN("#ma-b6-1n", at(5, 0.4), 0.4);
+      IN("#ma-b6-2", at(5, 0.47), 0.4);
+      IN("#ma-b6-2n", at(5, 0.52), 0.4);
+      IN("#ma-b6-3", at(5, 0.6), 0.4);
+      IN("#ma-b6-3n", at(5, 0.6), 0.4);
+      COUNT("#ma-b6-3n", 0, 5000, at(5, 0.6), 0.8, v => Math.round(v).toLocaleString("en-US"));
+      tl.to("#ma-b6-3n", { scale: 1.25, svgOrigin: "1784 674", duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.6) + 0.85);
+      IN("#ma-b6-4", at(5, 0.7), 0.4);
+      IN("#ma-b6-4n", at(5, 0.74), 0.4);
+      OUT("#ma-a56t", at(5, 0.95), 0.4);
+
+      // ===== L6 第三行，节点 7 =====
+      COLLAPSE(6, at(6, 0.0));
+      IN("#ma-r3", at(6, 0.02), 0.5);
+      NODEIN(7, at(6, 0.04));
+      IN("#ma-b7-v", at(6, 0.1), 0.4);
+      IN("#ma-b7-at", at(6, 0.12), 0.4);
+      // 回头再进来：红色往返两次
+      ARROW("#ma-b7-go", at(6, 0.16), 0.4);
+      ARROW("#ma-b7-bk", at(6, 0.19), 0.5);
+      tl.to("#ma-b7-go, #ma-b7-bk", { opacity: 0.3, duration: 0.25, yoyo: true, repeat: 3 }, at(6, 0.24));
+      // 闸门挡住：CEI + 锁
+      IN("#ma-b7-gate", at(6, 0.35), 0.4, { scale: 0.3, svgOrigin: "457 890" }, { scale: 1, svgOrigin: "457 890" });
+      OUT("#ma-b7-bk", at(6, 0.38), 0.3);
+      tl.to("#ma-b7-go", { attr: { d: "M356 878 H444" }, duration: 0.3 }, at(6, 0.38));
+      tl.to("#ma-n7-r", { stroke: "#83C167", duration: 0.4 }, at(6, 0.4));
+      tl.to("#ma-n7-t", { fill: "#83C167", duration: 0.4 }, at(6, 0.4));
+      IN("#ma-b7-cei", at(6, 0.42), 0.5);
+      // 精度：先乘后除
+      OUT("#ma-b7-cei", at(6, 0.6), 0.3);
+      IN("#ma-b7-f1", at(6, 0.63), 0.4);
+      IN("#ma-b7-f2", at(6, 0.68), 0.4);
+      // 拉取模式：攻击合约与闸门退场，用户自己来领
+      OUT("#ma-b7-at, #ma-b7-gate, #ma-b7-go, #ma-b7-f1, #ma-b7-f2", at(6, 0.82), 0.3);
+      IN("#ma-b7-pull", at(6, 0.85), 0.5);
+      ARROW("#ma-b7-pa", at(6, 0.87), 0.4);
+      IN("#ma-b7-pt", at(6, 0.89), 0.4);
+
+      // ===== L7 节点 8（选修）：预言机操纵 =====
+      COLLAPSE(7, at(7, 0.0));
+      ARROW("#ma-a78", at(7, 0.02), 0.4);
+      NODEIN(8, at(7, 0.04));
+      tl.to("#ma-n8", { opacity: 0.6, duration: 0.2, yoyo: true, repeat: 1 }, at(7, 0.18));
+      IN("#ma-b8-bars", at(7, 0.25), 0.5, { y: 10 }, { y: 0 });
+      IN("#ma-b8-k1", at(7, 0.42), 0.4, { x: -12 }, { x: 0 });
+      IN("#ma-b8-a1, #ma-b8-k2", at(7, 0.5), 0.4, { x: -12 }, { x: 0 });
+      tl.to("#ma-b8-spk", { attr: { y: 912, height: 88 }, fill: "#FC6255", duration: 0.5, ease: "power3.out" }, at(7, 0.51));
+      IN("#ma-b8-bad", at(7, 0.57), 0.4);
+      IN("#ma-b8-a2, #ma-b8-k3", at(7, 0.6), 0.4, { x: -12 }, { x: 0 });
+      IN("#ma-b8-a3, #ma-b8-k4", at(7, 0.67), 0.4, { x: -12 }, { x: 0 });
+      // 防护：划掉单笔价格，换成平滑价格线
+      OUT("#ma-b8-bad", at(7, 0.71), 0.3);
+      DRAW("#ma-b8-x", at(7, 0.73), 0.3);
+      tl.to("#ma-b8-bars", { opacity: 0.25, duration: 0.3 }, at(7, 0.77));
+      DRAW("#ma-b8-sm", at(7, 0.77), 0.7);
+      IN("#ma-b8-agg", at(7, 0.8), 0.4);
+      IN("#ma-b8-tw", at(7, 0.9), 0.4);
+
+      // ===== L8 签名、节点 9（选修）=====
+      OUT("#ma-b8-k1, #ma-b8-a1, #ma-b8-k2, #ma-b8-a2, #ma-b8-k3, #ma-b8-a3, #ma-b8-k4, #ma-b8-agg, #ma-b8-tw", at(8, 0.0), 0.3);
+      IN("#ma-b8-sig", at(8, 0.04), 0.4);
+      ["#ma-b8-s1", "#ma-b8-s2", "#ma-b8-s3"].forEach((s, j) => IN(s, at(8, 0.1) + j * 0.3, 0.3, { scale: 1.6, svgOrigin: `${[1066, 1136, 1232][j]} 922` }, { scale: 1, svgOrigin: `${[1066, 1136, 1232][j]} 922` }));
+      ARROW("#ma-a89", at(8, 0.45), 0.4);
+      NODEIN(9, at(8, 0.45));
+      IN("#ma-b9-a", at(8, 0.55), 0.3);
+      IN("#ma-b9-mg", at(8, 0.62), 0.3, { scale: 1.4, svgOrigin: "1396 893" }, { scale: 1, svgOrigin: "1396 893" });
+      IN("#ma-b9-b", at(8, 0.72), 0.3);
+      IN("#ma-b9-p", at(8, 0.82), 0.3, { scale: 0.5, svgOrigin: "1760 893" }, { scale: 1, svgOrigin: "1760 893" });
+
+      // ===== L9 第四行，节点 10（选修）：可升级合约 =====
+      COLLAPSE(8, at(9, 0.0));
+      COLLAPSE(9, at(9, 0.0));
+      IN("#ma-r4", at(9, 0.12), 0.5);
+      NODEIN(10, at(9, 0.16));
+      IN("#ma-n10-c", at(9, 0.36), 0.5, { x: -15 }, { x: 0 });
+      tl.to("#ma-n10-e", { attr: { fill: "#FFE27A" }, duration: 0.3, yoyo: true, repeat: 1 }, at(9, 0.55));
+      IN("#ma-n10-lk", at(9, 0.8), 0.4, { scale: 1.5, svgOrigin: "686 950" }, { scale: 1, svgOrigin: "686 950" });
+
+      // ===== L10 节点 11（选修）OpSec、节点 12（选修）Yul =====
+      ARROW("#ma-a1011", at(10, 0.02), 0.4);
+      NODEIN(11, at(10, 0.03));
+      IN("#ma-n11-c", at(10, 0.14), 0.5, { x: -15 }, { x: 0 });
+      tl.to("#ma-n11-f", { attr: { fill: "#FFE27A" }, duration: 0.3, yoyo: true, repeat: 1 }, at(10, 0.32));
+      ARROW("#ma-a1112", at(10, 0.5), 0.4);
+      NODEIN(12, at(10, 0.5));
+      IN("#ma-n12-c", at(10, 0.62), 0.5, { x: -15 }, { x: 0 });
+
+      // ===== L11 什么时候看选修：结论行换成适用标签；亮点流过 12 个节点 =====
+      [6, 8, 9, 10, 11, 12].forEach((k, j) => tl.to(`#ma-n${k}`, { opacity: 0.6, duration: 0.12, yoyo: true, repeat: 1 }, at(11, 0.04) + j * 0.12));
+      OUT("#ma-n6-c, #ma-n10-c, #ma-n10-lk, #ma-n12-c", at(11, 0.2), 0.3);
+      IN("#ma-u6, #ma-u10, #ma-u12", at(11, 0.23), 0.4);
+      OUT("#ma-n8-c, #ma-n9-c, #ma-n11-c", at(11, 0.42), 0.3);
+      IN("#ma-u8, #ma-u9, #ma-u11", at(11, 0.45), 0.4);
+      IN("#ma-qc", at(11, 0.62), 0.5, { y: -10 }, { y: 0 });
+      IN("#ma-dot", at(11, 0.62), 0.2);
+      const t0 = at(11, 0.64);
+      for (let k = 1; k <= 12; k++) {
+        tl.to("#ma-dot", { attr: { cx: NODE[k][0] + 250, cy: NODE[k][1] }, duration: 0.13, ease: "power1.inOut" }, t0 + (k - 1) * 0.15);
+        tl.to(`#ma-n${k}`, { opacity: 0.6, duration: 0.07, yoyo: true, repeat: 1 }, t0 + (k - 1) * 0.15 + 0.08);
+      }
+      tl.to("#ma-dot", { attr: { cx: 960, cy: 136 }, duration: 0.5, ease: "power2.inOut" }, t0 + 1.8);
+      tl.to("#ma-dot", { attr: { r: 18 }, opacity: 0, duration: 0.4 }, t0 + 2.3);
+      tl.to("#ma-qc", { scale: 1.08, svgOrigin: "960 100", duration: 0.25, yoyo: true, repeat: 1 }, t0 + 2.3);
+
+      tl.to("#ma-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["map"] = tl;
+    })();
+  </script>
+</template>

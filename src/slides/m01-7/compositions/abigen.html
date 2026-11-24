@@ -1,0 +1,307 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 abigen，id 前缀 an- -->
+  <div id="root" data-composition-id="abigen" data-duration="62.05" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="an-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="an-all">
+        <!-- L0：手写 vs abigen -->
+        <g id="an-l0">
+          <text id="an-lt" class="h" x="480" y="260" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">手写 Pack</text>
+          <text id="an-lc" class="h mono" x="140" y="360" font-size="30" fill="#e8e6df">abi.Pack("<tspan fill="#FC6255">balanceof</tspan>", h)</text>
+          <path id="an-lw" class="dr" pathLength="1" d="M320 384 q4.5 -7 9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0" stroke="#FC6255" stroke-width="3" fill="none" />
+          <g id="an-lax" class="h">
+            <line x1="140" y1="520" x2="820" y2="520" stroke="#8a8f99" stroke-width="3" />
+            <line x1="300" y1="508" x2="300" y2="532" stroke="#8a8f99" stroke-width="3" />
+            <line x1="660" y1="508" x2="660" y2="532" stroke="#8a8f99" stroke-width="3" />
+            <text x="300" y="596" font-size="28" fill="#8a8f99" text-anchor="middle">编译期</text>
+            <text x="660" y="596" font-size="28" fill="#8a8f99" text-anchor="middle">运行时</text>
+          </g>
+          <circle id="an-ld" class="h" cx="140" cy="520" r="11" fill="#e8e6df" />
+          <path id="an-lb" class="h" d="M660 482 L670 506 L696 500 L680 520 L696 540 L670 534 L660 558 L650 534 L624 540 L640 520 L624 500 L650 506 Z" fill="#FC6255" />
+          <text id="an-le" class="h" x="660" y="466" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 报错</text>
+
+          <line id="an-div" class="dr" pathLength="1" x1="960" y1="220" x2="960" y2="640" stroke="#2a2f3a" stroke-width="3" />
+
+          <text id="an-rt" class="h" x="1440" y="260" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">abigen</text>
+          <text id="an-rc" class="h mono" x="1080" y="360" font-size="30" fill="#e8e6df">usdt.<tspan fill="#FC6255">BalanceOff</tspan>(opts, h)</text>
+          <path id="an-rw" class="dr" pathLength="1" d="M1170 384 q4.5 -7 9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0 t9 0" stroke="#FC6255" stroke-width="3" fill="none" />
+          <g id="an-rax" class="h">
+            <line x1="1080" y1="520" x2="1760" y2="520" stroke="#8a8f99" stroke-width="3" />
+            <line x1="1600" y1="508" x2="1600" y2="532" stroke="#8a8f99" stroke-width="3" />
+            <text x="1240" y="596" font-size="28" fill="#8a8f99" text-anchor="middle">编译期</text>
+            <text x="1600" y="596" font-size="28" fill="#8a8f99" text-anchor="middle">运行时</text>
+          </g>
+          <circle id="an-rd" class="h" cx="1080" cy="520" r="11" fill="#e8e6df" />
+          <path id="an-sh" class="h" d="M1240 484 L1272 496 L1272 522 Q1272 548 1240 560 Q1208 548 1208 522 L1208 496 Z" fill="#83C16733" stroke="#83C167" stroke-width="3.5" />
+          <text id="an-se" class="h" x="1240" y="462" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">✓ 编译期拦下</text>
+        </g>
+
+        <!-- L1：三步流水线 -->
+        <g id="an-l1">
+          <g id="an-b1" class="h">
+            <rect x="70" y="360" width="400" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="100" y="414" font-size="30" font-weight="700" fill="#58C4DD">① 安装 abigen</text>
+            <text class="mono" x="100" y="490" font-size="28" fill="#e8e6df">go install …/abigen</text>
+          </g>
+          <text id="an-b1t" class="h" x="100" y="616" font-size="28" fill="#FF9F43">版本与 go.mod 一致</text>
+          <path id="an-a1" class="dr h" pathLength="1" d="M476 460 L522 460" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#an-arr)" />
+          <g id="an-b2" class="h">
+            <rect x="530" y="360" width="480" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="560" y="414" font-size="30" font-weight="700" fill="#58C4DD">② 拿到 ABI</text>
+          </g>
+          <g id="an-p0" class="h"><rect x="556" y="434" width="140" height="44" rx="22" fill="none" stroke="#8a8f99" stroke-width="2" /><text x="626" y="466" font-size="28" fill="#e8e6df" text-anchor="middle">浏览器</text></g>
+          <g id="an-p1" class="h"><rect x="712" y="434" width="130" height="44" rx="22" fill="none" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="777" y="465" font-size="28" fill="#e8e6df" text-anchor="middle">forge</text></g>
+          <g id="an-p2" class="h"><rect x="858" y="434" width="130" height="44" rx="22" fill="none" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="923" y="465" font-size="28" fill="#e8e6df" text-anchor="middle">solc</text></g>
+          <text id="an-abi" class="h mono" x="770" y="540" font-size="28" fill="#58C4DD" text-anchor="middle">erc20.abi</text>
+          <path id="an-a2" class="dr h" pathLength="1" d="M1016 460 L1062 460" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#an-arr)" />
+          <g id="an-b3" class="h">
+            <rect x="1070" y="360" width="780" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1100" y="414" font-size="30" font-weight="700" fill="#58C4DD">③ 运行 abigen</text>
+            <text class="mono" x="1100" y="476" font-size="28" fill="#e8e6df">abigen --abi erc20.abi --pkg erc20</text>
+            <text class="mono" x="1100" y="520" font-size="28" fill="#e8e6df">  --type ERC20 --out erc20/erc20.go</text>
+          </g>
+          <path id="an-a3" class="dr h" pathLength="1" d="M1460 566 L1460 604" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#an-arr)" />
+          <g id="an-f" class="h">
+            <rect x="1340" y="614" width="240" height="64" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1460" y="656" font-size="28" fill="#e8e6df" text-anchor="middle">erc20.go</text>
+          </g>
+        </g>
+
+        <!-- L2：生成的文件 -->
+        <g id="an-l2">
+          <g id="an-card" class="h">
+            <rect x="260" y="220" width="1200" height="500" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <path d="M260 290 L1460 290" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="300" y="266" font-size="28" fill="#58C4DD">erc20/erc20.go</text>
+          </g>
+          <g id="an-r1" class="h"><text class="mono" x="300" y="390" font-size="30" fill="#e8e6df">NewERC20(addr, backend)</text><text x="1000" y="390" font-size="28" fill="#8a8f99">构造函数</text></g>
+          <g id="an-r2" class="h"><text class="mono" x="300" y="500" font-size="30" fill="#e8e6df">Decimals() · BalanceOf()</text><text x="1000" y="500" font-size="28" fill="#8a8f99">每个只读函数一个方法</text></g>
+          <g id="an-r3" class="h"><text class="mono" x="300" y="610" font-size="30" fill="#e8e6df">FilterTransfer · WatchTransfer</text><text x="1000" y="610" font-size="28" fill="#8a8f99">每个事件两个方法</text></g>
+          <g id="an-lock" class="h">
+            <path d="M1512 262 L1512 248 Q1512 228 1530 228 Q1548 228 1548 248 L1548 262" fill="none" stroke="#FC6255" stroke-width="4" />
+            <rect x="1502" y="260" width="56" height="44" rx="6" fill="#FC625522" stroke="#FC6255" stroke-width="3" />
+            <text x="1580" y="294" font-size="32" font-weight="700" fill="#FC6255">不要手改</text>
+          </g>
+          <g id="an-cyo" class="h">
+            <g id="an-cy">
+              <path d="M548 812 A28 28 0 1 1 520 784" fill="none" stroke="#58C4DD" stroke-width="4" />
+              <path d="M512 774 L526 784 L512 794 Z" fill="#58C4DD" />
+            </g>
+            <text x="580" y="824" font-size="32" fill="#e8e6df">ABI 变了 → 重新生成</text>
+          </g>
+        </g>
+
+        <!-- L3–L5：代码 C -->
+        <g id="an-code" class="h">
+          <rect x="920" y="200" width="940" height="528" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <rect id="an-code-hb" class="h" x="922" y="217" width="936" height="41" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="an-code-hs" class="h" x="922" y="217" width="4" height="41" fill="#58C4DD" />
+          <text class="mono" x="972" y="246" font-size="28" fill="#6b6f7a" text-anchor="end">1</text>
+          <text id="an-code-c0" class="mono" x="988" y="246" font-size="28" fill="#e8e6df" xml:space="preserve">usdt, err := erc20.NewERC20(usdtAddr, c)</text>
+          <text class="mono" x="972" y="287" font-size="28" fill="#6b6f7a" text-anchor="end">2</text>
+          <text id="an-code-c1" class="mono" x="988" y="287" font-size="28" fill="#e8e6df" xml:space="preserve">opts := &amp;bind.CallOpts{Context: ctx}</text>
+          <text class="mono" x="972" y="328" font-size="28" fill="#6b6f7a" text-anchor="end">3</text>
+          <text id="an-code-c2" class="mono" x="988" y="328" font-size="28" fill="#e8e6df" xml:space="preserve">dec, err := usdt.Decimals(opts)</text>
+          <text class="mono" x="972" y="369" font-size="28" fill="#6b6f7a" text-anchor="end">4</text>
+          <text id="an-code-c3" class="mono" x="988" y="369" font-size="28" fill="#e8e6df" xml:space="preserve">bal, err := usdt.BalanceOf(opts, holder)</text>
+          <text class="mono" x="972" y="410" font-size="28" fill="#6b6f7a" text-anchor="end">5</text>
+          <text id="an-code-c4" class="mono" x="988" y="410" font-size="28" fill="#e8e6df" xml:space="preserve">fo := &amp;bind.FilterOpts{Start: head - 3, End: &amp;end}</text>
+          <text class="mono" x="972" y="451" font-size="28" fill="#6b6f7a" text-anchor="end">6</text>
+          <text id="an-code-c5" class="mono" x="988" y="451" font-size="28" fill="#e8e6df" xml:space="preserve">it, err := usdt.FilterTransfer(fo, nil, nil)</text>
+          <text class="mono" x="972" y="492" font-size="28" fill="#6b6f7a" text-anchor="end">7</text>
+          <text id="an-code-c6" class="mono" x="988" y="492" font-size="28" fill="#e8e6df" xml:space="preserve">defer it.Close()</text>
+          <text class="mono" x="972" y="533" font-size="28" fill="#6b6f7a" text-anchor="end">8</text>
+          <text id="an-code-c7" class="mono" x="988" y="533" font-size="28" fill="#e8e6df" xml:space="preserve">for it.Next() {</text>
+          <text class="mono" x="972" y="574" font-size="28" fill="#6b6f7a" text-anchor="end">9</text>
+          <text id="an-code-c8" class="mono" x="988" y="574" font-size="28" fill="#e8e6df" xml:space="preserve">    e := it.Event</text>
+          <text class="mono" x="972" y="615" font-size="28" fill="#6b6f7a" text-anchor="end">10</text>
+          <text id="an-code-c9" class="mono" x="988" y="615" font-size="28" fill="#e8e6df" xml:space="preserve">    fmt.Println(e.From, "-&gt;", e.To, e.Value)</text>
+          <text class="mono" x="972" y="656" font-size="28" fill="#6b6f7a" text-anchor="end">11</text>
+          <text id="an-code-c10" class="mono" x="988" y="656" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+          <text class="mono" x="972" y="697" font-size="28" fill="#6b6f7a" text-anchor="end">12</text>
+          <text id="an-code-c11" class="mono" x="988" y="697" font-size="28" fill="#e8e6df" xml:space="preserve">if err := it.Error(); err != nil { log.Fatal(err) }</text>
+        </g>
+        <g id="an-l3">
+          <g id="an-ct" class="h">
+            <rect x="100" y="260" width="360" height="140" rx="14" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+            <text x="280" y="320" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">USDT 合约</text>
+            <text class="mono" x="280" y="372" font-size="28" fill="#e8e6df" text-anchor="middle">0xdAC1…1ec7</text>
+          </g>
+          <path id="an-ca" class="dr h" pathLength="1" d="M466 330 L590 330" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#an-arr)" />
+          <g id="an-ob" class="h">
+            <rect x="600" y="270" width="280" height="130" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="740" y="324" font-size="32" fill="#e8e6df" text-anchor="middle">usdt</text>
+            <text x="740" y="372" font-size="28" fill="#8a8f99" text-anchor="middle">Go 对象</text>
+          </g>
+          <path id="an-oa" class="dr h" pathLength="1" d="M740 406 L740 472" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#an-arr)" />
+          <g id="an-res" class="h">
+            <rect x="540" y="482" width="340" height="160" rx="14" fill="#F0B90B14" stroke="#F0B90B" stroke-width="2.5" />
+          </g>
+          <g id="an-dec" class="h"><text class="mono" x="570" y="540" font-size="32" font-weight="700" fill="#F0B90B">dec = 6</text><text class="mono" x="740" y="540" font-size="28" fill="#8a8f99">uint8</text></g>
+          <g id="an-bal" class="h"><text class="mono" x="570" y="610" font-size="32" font-weight="700" fill="#F0B90B">bal</text><text class="mono" x="700" y="610" font-size="28" fill="#8a8f99">*big.Int</text></g>
+          <!-- L4 -->
+          <g id="an-kn" class="h">
+            <g id="an-kr">
+              <circle cx="180" cy="800" r="36" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+              <line x1="180" y1="800" x2="180" y2="772" stroke="#58C4DD" stroke-width="4" stroke-linecap="round" />
+            </g>
+            <text class="mono" x="234" y="810" font-size="28" fill="#e8e6df">BlockNumber</text>
+          </g>
+          <path id="an-ka" class="dr h" pathLength="1" d="M440 800 L558 800" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#an-arr)" />
+          <g id="an-cab" class="h">
+            <rect x="570" y="720" width="110" height="160" rx="8" fill="#B48EF022" stroke="#B48EF0" stroke-width="3" />
+            <path d="M580 760 L670 760 M580 800 L670 800 M580 840 L670 840" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="700" y="812" font-size="30" font-weight="700" fill="#B48EF0">归档节点</text>
+          </g>
+        </g>
+        <!-- L5：迭代器 -->
+        <g id="an-l5">
+          <g id="an-pipe" class="h">
+            <text class="mono" x="260" y="336" font-size="28" fill="#58C4DD" text-anchor="middle">FilterTransfer</text>
+            <rect x="100" y="360" width="320" height="80" rx="40" fill="none" stroke="#58C4DD" stroke-width="3" />
+          </g>
+          <rect id="an-g0" class="h" x="300" y="382" width="56" height="36" rx="6" fill="#58C4DD" fill-opacity="0.55" />
+          <rect id="an-g1" class="h" x="220" y="382" width="56" height="36" rx="6" fill="#58C4DD" fill-opacity="0.55" />
+          <rect id="an-g2" class="h" x="140" y="382" width="56" height="36" rx="6" fill="#58C4DD" fill-opacity="0.55" />
+          <g id="an-nx" class="h">
+            <rect x="440" y="366" width="210" height="68" rx="12" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+            <text class="mono" x="545" y="410" font-size="28" fill="#e8e6df" text-anchor="middle">it.Next()</text>
+          </g>
+          <path id="an-na" class="dr h" pathLength="1" d="M545 440 L545 492" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#an-arr)" />
+          <g id="an-ev" class="h">
+            <rect id="an-evr" x="280" y="502" width="600" height="240" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="310" y="552" font-size="30" font-weight="700" fill="#58C4DD">it.Event</text>
+            <text class="mono" x="310" y="610" font-size="28" fill="#8a8f99">From  <tspan fill="#e8e6df">0x3f5C…a9E1</tspan></text>
+            <text class="mono" x="310" y="660" font-size="28" fill="#8a8f99">To    <tspan fill="#e8e6df">0x88e6…5640</tspan></text>
+            <text class="mono" x="310" y="710" font-size="28" fill="#8a8f99">Value <tspan fill="#F0B90B">2500000000</tspan></text>
+          </g>
+          <text id="an-er" class="h mono" x="120" y="850" font-size="30" fill="#83C167">it.Error() ✓</text>
+          <text id="an-cl" class="h mono" x="480" y="850" font-size="30" fill="#8a8f99">it.Close()</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const HL = (p, n, B0, a, b, t) => {
+        tl.to(`#${p}-hb, #${p}-hs`, { opacity: 1, attr: { y: B0 - 29 + 41 * a, height: 41 * (b - a + 1) }, duration: 0.35, ease: "power2.inOut" }, t);
+        for (let i = 0; i < n; i++) tl.to(`#${p}-c${i}`, { opacity: i >= a && i <= b ? 1 : 0.6, duration: 0.3 }, t);
+      };
+      const H = (a, b, t) => HL("an-code", 12, 246, a, b, t);
+
+      // L0 手写：运行时才报错；abigen：编译期拦下
+      IN("#an-lt", at(0, 0.0), 0.5);
+      IN("#an-lc", at(0, 0.04), 0.5, { x: -12 }, { x: 0 });
+      DRAW("#an-lw", at(0, 0.12), 0.6);
+      IN("#an-lax", at(0, 0.2), 0.5);
+      IN("#an-ld", at(0, 0.24), 0.2);
+      tl.to("#an-ld", { attr: { cx: 660 }, duration: 1.4, ease: "power1.inOut" }, at(0, 0.26));
+      OUT("#an-ld", at(0, 0.26) + 1.4, 0.15);
+      IN("#an-lb", at(0, 0.26) + 1.4, 0.3, { scale: 0.3, svgOrigin: "660 520" }, { scale: 1, svgOrigin: "660 520", ease: "back.out(2)" });
+      IN("#an-le", at(0, 0.26) + 1.5, 0.4, { y: 8 }, { y: 0 });
+      DRAW("#an-div", at(0, 0.5), 0.6);
+      IN("#an-rt", at(0, 0.56), 0.5);
+      IN("#an-rc", at(0, 0.6), 0.5, { x: -12 }, { x: 0 });
+      DRAW("#an-rw", at(0, 0.66), 0.6);
+      IN("#an-rax", at(0, 0.7), 0.5);
+      IN("#an-rd", at(0, 0.72), 0.2);
+      tl.to("#an-rd", { attr: { cx: 1240 }, duration: 0.7, ease: "power2.out" }, at(0, 0.74));
+      IN("#an-sh", at(0, 0.74) + 0.6, 0.35, { scale: 0.5, svgOrigin: "1240 522" }, { scale: 1, svgOrigin: "1240 522", ease: "back.out(2)" });
+      OUT("#an-rd", at(0, 0.74) + 0.7, 0.2);
+      IN("#an-se", at(0, 0.74) + 0.8, 0.4, { y: 8 }, { y: 0 });
+
+      // L1 三步：安装 → 拿 ABI → 运行 abigen
+      OUT("#an-l0", at(1, 0), 0.4);
+      IN("#an-b1", at(1, 0.1), 0.5, { y: 16 }, { y: 0 });
+      IN("#an-b1t", at(1, 0.24), 0.4, { y: 8 }, { y: 0 });
+      ARROW("#an-a1", at(1, 0.38), 0.4);
+      IN("#an-b2", at(1, 0.4), 0.5, { y: 16 }, { y: 0 });
+      IN("#an-p0", at(1, 0.48), 0.35, { y: 8 }, { y: 0 });
+      IN("#an-p1", at(1, 0.56), 0.35, { y: 8 }, { y: 0 });
+      IN("#an-p2", at(1, 0.62), 0.35, { y: 8 }, { y: 0 });
+      IN("#an-abi", at(1, 0.68), 0.4, { y: -8 }, { y: 0 });
+      ARROW("#an-a2", at(1, 0.76), 0.4);
+      IN("#an-b3", at(1, 0.78), 0.5, { y: 16 }, { y: 0 });
+      ARROW("#an-a3", at(1, 0.9), 0.35);
+      IN("#an-f", at(1, 0.93), 0.4, { y: -8 }, { y: 0 });
+
+      // L2 生成文件的内容；不要手改；ABI 变了重新生成
+      OUT("#an-l1", at(2, 0), 0.4);
+      IN("#an-card", at(2, 0.03), 0.6, { scale: 0.3, svgOrigin: "1460 646" }, { scale: 1, svgOrigin: "1460 646" });
+      IN("#an-r1", at(2, 0.1), 0.4, { x: -12 }, { x: 0 });
+      IN("#an-r2", at(2, 0.2), 0.4, { x: -12 }, { x: 0 });
+      IN("#an-r3", at(2, 0.34), 0.4, { x: -12 }, { x: 0 });
+      IN("#an-lock", at(2, 0.6), 0.4, { y: -12 }, { y: 0 });
+      IN("#an-cyo", at(2, 0.78), 0.4);
+      tl.fromTo("#an-cy", { rotation: 0, svgOrigin: "520 812" }, { rotation: 360, svgOrigin: "520 812", duration: 1.6, ease: "power1.inOut", immediateRender: false }, at(2, 0.8));
+
+      // L3 代码 C：NewERC20 → Decimals / BalanceOf
+      OUT("#an-l2", at(3, 0), 0.4);
+      IN("#an-code", at(3, 0.04), 0.5);
+      H(0, 0, at(3, 0.08));
+      IN("#an-ct", at(3, 0.12), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#an-ca", at(3, 0.28), 0.4);
+      IN("#an-ob", at(3, 0.3), 0.5, { y: 12 }, { y: 0 });
+      H(2, 3, at(3, 0.45));
+      ARROW("#an-oa", at(3, 0.52), 0.4);
+      IN("#an-res", at(3, 0.56), 0.4);
+      IN("#an-dec", at(3, 0.6), 0.4, { y: 8 }, { y: 0 });
+      IN("#an-bal", at(3, 0.68), 0.4, { y: 8 }, { y: 0 });
+      tl.to("#an-res rect", { strokeWidth: 5, duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.86));
+
+      // L4 CallOpts 指定区块号 → 归档节点
+      H(1, 1, at(4, 0.02));
+      IN("#an-kn", at(4, 0.08), 0.4);
+      tl.fromTo("#an-kr", { rotation: 0, svgOrigin: "180 800" }, { rotation: 135, svgOrigin: "180 800", duration: 0.9, ease: "power2.inOut", immediateRender: false }, at(4, 0.16));
+      ARROW("#an-ka", at(4, 0.42), 0.4);
+      IN("#an-cab", at(4, 0.5), 0.5, { x: 16 }, { x: 0 });
+
+      // L5 FilterTransfer → 迭代器 → Error → Close
+      OUT("#an-l3", at(5, 0), 0.4);
+      H(4, 5, at(5, 0.04));
+      IN("#an-pipe", at(5, 0.08), 0.5);
+      IN("#an-g0, #an-g1, #an-g2", at(5, 0.12), 0.4);
+      H(6, 10, at(5, 0.32));
+      IN("#an-nx", at(5, 0.32), 0.4);
+      ARROW("#an-na", at(5, 0.36), 0.35);
+      IN("#an-ev", at(5, 0.38), 0.5, { y: 12 }, { y: 0 });
+      ["#an-g0", "#an-g1", "#an-g2"].forEach((s, i) => {
+        const t = at(5, 0.44 + i * 0.1);
+        tl.to(s, { x: 300 - [300, 220, 140][i] + 200, duration: 0.5, ease: "power1.in" }, t);
+        tl.to(s, { opacity: 0, duration: 0.1 }, t + 0.45);
+        tl.fromTo("#an-evr", { strokeWidth: 2.5 }, { strokeWidth: 5, duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, t + 0.5);
+      });
+      H(11, 11, at(5, 0.76));
+      IN("#an-er", at(5, 0.78), 0.4, { y: 8 }, { y: 0 });
+      H(6, 6, at(5, 0.9));
+      IN("#an-cl", at(5, 0.91), 0.4, { y: 8 }, { y: 0 });
+
+      tl.to("#an-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["abigen"] = tl;
+    })();
+  </script>
+</template>

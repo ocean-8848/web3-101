@@ -1,0 +1,201 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 re- -->
+  <div id="root" data-composition-id="recap" data-duration="65.11" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="re-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <!-- L0–L1 钩子问题与答案 -->
+        <g id="re-p0">
+          <text id="re-q" class="h" x="960" y="540" font-size="56" font-weight="700" fill="#FF9F43" text-anchor="middle">节点怎么知道是主人同意的？</text>
+          <g id="re-tx" class="h">
+            <rect x="220" y="420" width="280" height="160" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text class="mono" x="250" y="486" font-size="32" fill="#e8e6df">tx</text>
+            <text class="mono" x="250" y="546" font-size="32" fill="#F0B90B">sig</text>
+          </g>
+          <path id="re-a0" class="dr h" pathLength="1" d="M510 500 L720 500" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+          <g id="re-gear" class="h">
+            <circle cx="820" cy="500" r="74" fill="none" stroke="#58C4DD" stroke-width="16" stroke-dasharray="16 13" />
+            <circle cx="820" cy="500" r="56" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <circle cx="820" cy="500" r="16" fill="#58C4DD" />
+          </g>
+          <text id="re-gl" class="h mono" x="820" y="630" font-size="30" fill="#58C4DD" text-anchor="middle">ecrecover</text>
+          <path id="re-a1" class="dr h" pathLength="1" d="M908 500 L1080 500" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+          <g id="re-addr" class="h">
+            <rect x="1090" y="450" width="310" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="1245" y="512" font-size="34" fill="#83C167" text-anchor="middle">0x7e5f…5bdf</text>
+          </g>
+          <text id="re-eq" class="h" x="1430" y="514" font-size="38" font-weight="700" fill="#83C167"><tspan class="mono">= from</tspan> ✓</text>
+          <text id="re-own" class="h" x="960" y="780" font-size="40" fill="#e8e6df" text-anchor="middle">能签出有效签名 = <tspan fill="#83C167">地址的主人</tspan></text>
+        </g>
+
+        <!-- L2–L3 推导链 -->
+        <g id="re-chain">
+          <g id="re-k1" class="h">
+            <rect x="120" y="430" width="260" height="140" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text x="250" y="494" font-size="38" font-weight="700" fill="#FC6255" text-anchor="middle">私钥</text>
+            <text x="250" y="544" font-size="28" fill="#e8e6df" text-anchor="middle">32 字节</text>
+          </g>
+          <path id="re-c1" class="dr h" pathLength="1" d="M390 500 L606 500" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+          <text id="re-c1l" class="h mono" x="500" y="480" font-size="28" fill="#58C4DD" text-anchor="middle">secp256k1</text>
+          <g id="re-k2" class="h">
+            <rect x="620" y="430" width="260" height="140" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="750" y="494" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">公钥</text>
+            <text x="750" y="544" font-size="28" fill="#e8e6df" text-anchor="middle">64 字节</text>
+          </g>
+          <path id="re-c2" class="dr h" pathLength="1" d="M890 500 L1106 500" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+          <text id="re-c2l" class="h mono" x="1000" y="438" font-size="28" fill="#58C4DD" text-anchor="middle">Keccak-256</text>
+          <text id="re-c2m" class="h" x="1000" y="480" font-size="28" fill="#e8e6df" text-anchor="middle">后 20 字节</text>
+          <g id="re-k3" class="h">
+            <rect x="1120" y="430" width="260" height="140" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="1250" y="516" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">地址</text>
+          </g>
+          <text id="re-plus" class="h" x="1420" y="514" font-size="40" fill="#8a8f99" text-anchor="middle">+</text>
+          <g id="re-k4" class="h">
+            <rect x="1460" y="460" width="240" height="80" rx="40" fill="none" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1580" y="512" font-size="32" fill="#83C167" text-anchor="middle">EIP-55</text>
+          </g>
+          <path id="re-r1" class="dr h" pathLength="1" d="M600 548 L400 548" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#re-arrr)" />
+          <path id="re-r2" class="dr h" pathLength="1" d="M1100 548 L900 548" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#re-arrr)" />
+          <text id="re-x1" class="h" x="500" y="608" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">✕</text>
+          <text id="re-x2" class="h" x="1000" y="608" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">✕</text>
+        </g>
+        <text id="re-one" class="h" x="960" y="740" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">每一步都单向</text>
+        <g id="re-pre1" class="h">
+          <rect x="220" y="540" width="680" height="220" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="260" y="600" font-size="28" fill="#FF9F43">前提 1</text>
+          <text x="260" y="672" font-size="36" fill="#e8e6df">安全随机数 + 从不泄露</text>
+        </g>
+        <g id="re-pre2" class="h">
+          <rect x="1020" y="540" width="680" height="220" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="1060" y="600" font-size="28" fill="#FF9F43">前提 2</text>
+          <text x="1060" y="664" font-size="36" fill="#e8e6df"><tspan class="mono" fill="#FF9F43">k</tspan> 不复用</text>
+          <text id="re-p2b" x="1060" y="720" font-size="36" fill="#e8e6df"><tspan class="mono">RFC 6979</tspan> · 审计过的库</text>
+        </g>
+
+        <!-- L4–L5 误区 -->
+        <g id="re-myth">
+          <g id="re-m0" class="h">
+            <text x="260" y="300" font-size="40" fill="#FC6255">地址 = 公钥</text>
+            <text x="960" y="300" font-size="40" fill="#6b6f7a" text-anchor="middle">→</text>
+            <text x="1040" y="300" font-size="40" fill="#83C167">公钥的指纹</text>
+          </g>
+          <line id="re-s0" class="dr" pathLength="1" x1="252" y1="286" x2="484" y2="286" stroke="#FC6255" stroke-width="4" />
+          <g id="re-m1" class="h">
+            <text x="260" y="420" font-size="40" fill="#FC6255">交易加密传输</text>
+            <text x="960" y="420" font-size="40" fill="#6b6f7a" text-anchor="middle">→</text>
+            <text x="1040" y="420" font-size="40" fill="#83C167">内容公开可见</text>
+          </g>
+          <line id="re-s1" class="dr" pathLength="1" x1="252" y1="406" x2="508" y2="406" stroke="#FC6255" stroke-width="4" />
+          <g id="re-m2" class="h">
+            <text x="260" y="540" font-size="40" fill="#FC6255">大小写写错会转错</text>
+            <text x="960" y="540" font-size="40" fill="#6b6f7a" text-anchor="middle">→</text>
+            <text x="1040" y="540" font-size="40" fill="#83C167">只是校验和</text>
+          </g>
+          <line id="re-s2" class="dr" pathLength="1" x1="252" y1="526" x2="588" y2="526" stroke="#FC6255" stroke-width="4" />
+          <g id="re-m3" class="h">
+            <text x="260" y="660" font-size="40" fill="#FC6255">随机数无所谓</text>
+            <text x="960" y="660" font-size="40" fill="#6b6f7a" text-anchor="middle">→</text>
+            <text x="1040" y="660" font-size="40" fill="#83C167"><tspan class="mono">k</tspan> 重复或被猜到就泄露私钥</text>
+          </g>
+          <line id="re-s3" class="dr" pathLength="1" x1="252" y1="646" x2="508" y2="646" stroke="#FC6255" stroke-width="4" />
+          <g id="re-m4" class="h">
+            <text x="260" y="780" font-size="40" fill="#FC6255">一句话当私钥</text>
+            <text x="960" y="780" font-size="40" fill="#6b6f7a" text-anchor="middle">→</text>
+            <text x="1040" y="780" font-size="40" fill="#83C167">会被穷举盗空</text>
+          </g>
+          <line id="re-s4" class="dr" pathLength="1" x1="252" y1="766" x2="508" y2="766" stroke="#FC6255" stroke-width="4" />
+        </g>
+
+        <!-- L6 下一集 -->
+        <g id="re-next">
+          <g id="re-wal" class="h">
+            <rect x="860" y="360" width="200" height="140" rx="20" fill="#161a22" stroke="#F0B90B" stroke-width="4" />
+            <path d="M860 400 L1060 400" stroke="#F0B90B" stroke-width="3" />
+            <rect x="990" y="420" width="70" height="50" rx="10" fill="none" stroke="#F0B90B" stroke-width="3" />
+            <circle cx="1012" cy="445" r="7" fill="#F0B90B" />
+          </g>
+          <text id="re-nt" class="h" x="960" y="620" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#8a8f99">下一集 ·</tspan> 第一次使用钱包</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 钩子问题回到中央
+      IN("#re-q", at(0, 0.05), 0.7, { scale: 0.85, svgOrigin: "960 520" }, { scale: 1, svgOrigin: "960 520" });
+      tl.to("#re-q", { fill: "#ffc078", duration: 0.4, yoyo: true, repeat: 1 }, at(0, 0.6));
+      // L1 答案：签名 → ecrecover → 地址 = from
+      tl.to("#re-q", { y: -300, scale: 0.7, svgOrigin: "960 540", duration: 0.7, ease: "power2.inOut" }, at(1, 0));
+      IN("#re-tx", at(1, 0.08), 0.5, { x: -30 }, { x: 0 });
+      ARROW("#re-a0", at(1, 0.2), 0.5);
+      IN("#re-gear", at(1, 0.26), 0.5);
+      tl.to("#re-gear", { rotation: 180, svgOrigin: "820 500", duration: 1.6, ease: "power1.inOut" }, at(1, 0.28));
+      IN("#re-gl", at(1, 0.3), 0.4);
+      ARROW("#re-a1", at(1, 0.45), 0.5);
+      IN("#re-addr", at(1, 0.5), 0.5, { x: -20 }, { x: 0 });
+      IN("#re-eq", at(1, 0.6), 0.4, { x: -12 }, { x: 0 });
+      IN("#re-own", at(1, 0.75), 0.6, { y: 14 }, { y: 0 });
+      // L2 推导链
+      OUT("#re-p0", at(2, 0), 0.5);
+      IN("#re-k1", at(2, 0.06), 0.5);
+      ARROW("#re-c1", at(2, 0.14), 0.5); IN("#re-c1l", at(2, 0.16), 0.4);
+      IN("#re-k2", at(2, 0.2), 0.5);
+      ARROW("#re-c2", at(2, 0.3), 0.5); IN("#re-c2l", at(2, 0.32), 0.4); IN("#re-c2m", at(2, 0.42), 0.4);
+      IN("#re-k3", at(2, 0.48), 0.5);
+      IN("#re-plus", at(2, 0.6), 0.3); IN("#re-k4", at(2, 0.62), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#re-r1", at(2, 0.78), 0.5); IN("#re-x1", at(2, 0.82), 0.3);
+      ARROW("#re-r2", at(2, 0.84), 0.5); IN("#re-x2", at(2, 0.88), 0.3);
+      IN("#re-one", at(2, 0.86), 0.5, { y: 12 }, { y: 0 });
+      // L3 链条上移 + 两个前提
+      OUT("#re-one", at(3, 0), 0.3);
+      tl.to("#re-chain", { y: -200, duration: 0.7, ease: "power2.inOut" }, at(3, 0.03));
+      IN("#re-pre1", at(3, 0.12), 0.6, { y: 20 }, { y: 0 });
+      IN("#re-pre2", at(3, 0.5), 0.6, { y: 20 }, { y: 0 });
+      IN("#re-p2b", at(3, 0.75), 0.5, { x: -10 }, { x: 0 });
+      // L4 误区
+      OUT("#re-chain, #re-pre1, #re-pre2", at(4, 0), 0.5);
+      IN("#re-m0", at(4, 0.18), 0.5); DRAW("#re-s0", at(4, 0.24), 0.4);
+      IN("#re-m1", at(4, 0.44), 0.5); DRAW("#re-s1", at(4, 0.5), 0.4);
+      IN("#re-m2", at(4, 0.72), 0.5); DRAW("#re-s2", at(4, 0.78), 0.4);
+      // L5 误区续
+      IN("#re-m3", at(5, 0.05), 0.5); DRAW("#re-s3", at(5, 0.12), 0.4);
+      IN("#re-m4", at(5, 0.55), 0.5); DRAW("#re-s4", at(5, 0.62), 0.4);
+      // L6 下一集
+      OUT("#re-myth", at(6, 0), 0.4);
+      IN("#re-wal", at(6, 0.12), 0.5, { y: 20 }, { y: 0 });
+      IN("#re-nt", at(6, 0.2), 0.5);
+
+      // 结尾淡到黑，留黑 0.5 s
+      tl.to("#re-all", { opacity: 0, filter: "blur(6px)", duration: 0.5, ease: "power2.in" }, C.d - 1.0);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

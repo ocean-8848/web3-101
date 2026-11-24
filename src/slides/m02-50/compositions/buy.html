@@ -1,0 +1,219 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 buy，id 前缀 bu- -->
+  <div id="root" data-composition-id="buy" data-duration="60.41" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="bu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="bu-all">
+        <defs>
+          <marker id="bu-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker>
+          <marker id="bu-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker>
+        </defs>
+        <g id="bu-codeall">
+          <rect id="bu-pr" x="560" y="220" width="320" height="160" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text id="bu-mk" class="mono" x="720" y="312" font-size="30" fill="#58C4DD" text-anchor="middle">NFTMarket</text>
+          <g id="bu-chrome" class="h">
+            <rect x="80" y="220" width="4" height="580" fill="#58C4DD"/>
+            <text class="mono" data-layout-ignore x="110" y="262" font-size="22" fill="#8a8f99">NFTMarket.sol</text>
+          </g>
+          <rect id="bu-hl" class="h" x="86" y="292" width="1058" height="80" fill="#58C4DD22"/>
+          <rect id="bu-sg" class="h" x="86" y="412" width="8" height="80" fill="#8a8f99"/>
+          <rect id="bu-sn" class="h" x="86" y="492" width="8" height="40" fill="#83C167"/>
+          <rect id="bu-si" class="h" x="86" y="532" width="8" height="160" fill="#58C4DD"/>
+          <g id="bu-lines">
+            <text id="bu-l1" class="h mono" x="110.0" y="320" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> buy(IERC721 nft, <tspan fill="#58C4DD">uint256</tspan> id)</text>
+            <text id="bu-l2" class="h mono" x="244.4" y="360" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">external payable</tspan> nonReentrant {</text>
+            <text id="bu-l3" class="h mono" x="177.2" y="400" font-size="28" fill="#e8e6df">Listing <tspan fill="#58C4DD">memory</tspan> l = listings[address(nft)][id];</text>
+            <text id="bu-l4" class="h mono" x="177.2" y="440" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">if</tspan> (l.seller == address(<tspan fill="#F0B90B">0</tspan>)) <tspan fill="#58C4DD">revert</tspan> NotListed();</text>
+            <text id="bu-l5" class="h mono" x="177.2" y="480" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">if</tspan> (msg.value != l.price) <tspan fill="#58C4DD">revert</tspan> WrongPayment();</text>
+            <text id="bu-l6" class="h mono" x="177.2" y="520" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">delete</tspan> listings[address(nft)][id];</text>
+            <text id="bu-l7" class="h mono" x="177.2" y="560" font-size="28" fill="#e8e6df">nft.safeTransferFrom(l.seller, msg.sender, id);</text>
+            <text id="bu-l8" class="h mono" x="177.2" y="600" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">uint256</tspan> fee = msg.value * FEE_BPS / <tspan fill="#F0B90B">10_000</tspan>;</text>
+            <text id="bu-l9" class="h mono" x="177.2" y="640" font-size="28" fill="#e8e6df">_send(feeTo, fee);</text>
+            <text id="bu-l10" class="h mono" x="177.2" y="680" font-size="28" fill="#e8e6df">_send(l.seller, msg.value - fee);</text>
+            <text id="bu-l11" class="h mono" x="177.2" y="720" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">emit</tspan> Sold(address(nft), id, msg.sender, msg.value);</text>
+            <text id="bu-l12" class="h mono" x="110.0" y="760" font-size="28" fill="#e8e6df">}</text>
+          </g>
+          <text id="bu-n1" class="h" x="780" y="520" font-size="28" fill="#83C167">① 先改状态</text>
+          <text id="bu-n2" class="h" x="990" y="560" font-size="28" fill="#58C4DD">② 转 <tspan class="mono">NFT</tspan></text>
+          <text id="bu-n3" class="h" x="780" y="640" font-size="28" fill="#F0B90B">③ 最后转钱</text>
+          <g id="bu-lock" class="h">
+            <path d="M796 342 v-8 a12 12 0 0 1 24 0 v8" fill="none" stroke="#83C167" stroke-width="4"/>
+            <rect x="790" y="342" width="36" height="28" rx="5" fill="#83C167"/>
+            <text x="840" y="368" font-size="28" fill="#83C167">重入锁</text>
+          </g>
+        </g>
+        <g id="bu-right">
+          <g id="bu-ck">
+            <g id="bu-ck1" class="h">
+              <rect x="1240" y="300" width="300" height="66" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5"/>
+              <text class="mono" x="1390" y="343" font-size="28" fill="#e8e6df" text-anchor="middle">seller | 2 ETH</text>
+            </g>
+            <text id="bu-ck1v" class="h" x="1570" y="346" font-size="36" font-weight="700" fill="#83C167">✓</text>
+            <text id="bu-ck2" class="h mono" x="1240" y="450" font-size="28" fill="#e8e6df"><tspan fill="#F0B90B">msg.value</tspan> == price</text>
+            <text id="bu-ck2v" class="h" x="1570" y="452" font-size="36" font-weight="700" fill="#83C167">✓</text>
+          </g>
+          <g id="bu-bad">
+            <text id="bu-hd1" class="h" x="1220" y="270" font-size="30" font-weight="700" fill="#FC6255">反例：先转 <tspan class="mono">NFT</tspan>，后删记录</text>
+            <text id="bu-hd2" class="h" x="1220" y="270" font-size="30" font-weight="700" fill="#83C167">正确：先删记录</text>
+            <g id="bu-bx" class="h">
+              <rect x="1240" y="320" width="280" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+              <text class="mono" x="1380" y="370" font-size="30" fill="#58C4DD" text-anchor="middle">buy()</text>
+            </g>
+            <g id="bu-rx" class="h">
+              <rect x="1240" y="560" width="280" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+              <text x="1380" y="610" font-size="30" fill="#e8e6df" text-anchor="middle">接收方合约</text>
+            </g>
+            <path id="bu-cb" class="dr h" pathLength="1" d="M1320 404 V550" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#bu-mg)"/>
+            <text id="bu-cbl" class="h" x="1300" y="490" font-size="28" fill="#8a8f99" text-anchor="end">回调</text>
+            <path id="bu-re" class="dr h" pathLength="1" d="M1440 556 V410" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#bu-mr)"/>
+            <text id="bu-rel" class="h" x="1462" y="490" font-size="28" fill="#FC6255">再买一次</text>
+            <g id="bu-t1" class="h">
+              <rect id="bu-t1r" x="1240" y="690" width="190" height="70" rx="10" fill="#FC625522" stroke="#FC6255" stroke-width="2.5"/>
+              <text id="bu-t1t" x="1335" y="736" font-size="28" fill="#FC6255" text-anchor="middle">成交 <tspan class="mono">#42</tspan></text>
+            </g>
+            <g id="bu-t2" class="h">
+              <rect x="1460" y="690" width="190" height="70" rx="10" fill="#FC625522" stroke="#FC6255" stroke-width="2.5"/>
+              <text x="1555" y="736" font-size="28" fill="#FC6255" text-anchor="middle">成交 <tspan class="mono">#42</tspan></text>
+            </g>
+            <text id="bu-nl" class="h mono" x="1555" y="736" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">NotListed</text>
+          </g>
+          <g id="bu-bands">
+            <g id="bu-bd1" class="h"><rect x="1260" y="300" width="500" height="80" rx="12" fill="#8a8f9922" stroke="#8a8f99" stroke-width="2.5"/><text x="1510" y="352" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">检查</text></g>
+            <path id="bu-ba1" class="dr h" pathLength="1" d="M1510 386 V432" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#bu-arr)"/>
+            <g id="bu-bd2" class="h"><rect x="1260" y="440" width="500" height="80" rx="12" fill="#83C16722" stroke="#83C167" stroke-width="2.5"/><text x="1510" y="492" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">生效</text></g>
+            <path id="bu-ba2" class="dr h" pathLength="1" d="M1510 526 V572" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#bu-arr)"/>
+            <g id="bu-bd3" class="h"><rect x="1260" y="580" width="500" height="80" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5"/><text x="1510" y="632" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">交互</text></g>
+          </g>
+          <g id="bu-fee">
+            <text id="bu-f1" class="h" x="1220" y="330" font-size="34" fill="#e8e6df">标价 <tspan class="mono" fill="#F0B90B">2 ETH</tspan></text>
+            <text id="bu-f2" class="h" x="1220" y="400" font-size="28" fill="#8a8f99">示例 · 250 基点 = 2.5%</text>
+            <text id="bu-f3" class="h mono" x="1220" y="520" font-size="34" fill="#e8e6df"><tspan fill="#F0B90B">2 ETH</tspan> × 250 / 10,000</text>
+            <text id="bu-f4" class="h mono" x="1220" y="590" font-size="34" fill="#F0B90B">= 0.05 ETH</text>
+            <text id="bu-f4l" class="h" x="1440" y="590" font-size="30" fill="#B48EF0">手续费 → 协议</text>
+            <line id="bu-fd" class="dr" pathLength="1" x1="1220" y1="640" x2="1800" y2="640" stroke="#6b6f7a" stroke-width="2"/>
+            <text id="bu-f5" class="h" x="1220" y="720" font-size="34" fill="#e8e6df">卖家实收 <tspan class="mono" font-size="42" font-weight="700" fill="#F0B90B">1.95 ETH</tspan></text>
+          </g>
+        </g>
+        <g id="bu-slot">
+          <text id="bu-st" class="h" x="960" y="420" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">1 个存储槽 = 32 字节</text>
+          <rect id="bu-so" class="h" x="160" y="460" width="1600" height="120" rx="8" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          <path id="bu-tk" class="h" d="M210 584 v12 M260 584 v12 M310 584 v12 M360 584 v12 M410 584 v12 M460 584 v12 M510 584 v12 M560 584 v12 M610 584 v12 M660 584 v12 M710 584 v12 M760 584 v12 M810 584 v12 M860 584 v12 M910 584 v12 M960 584 v12 M1010 584 v12 M1060 584 v12 M1110 584 v12 M1160 584 v12 M1210 584 v12 M1260 584 v12 M1310 584 v12 M1360 584 v12 M1410 584 v12 M1460 584 v12 M1510 584 v12 M1560 584 v12 M1610 584 v12 M1660 584 v12 M1710 584 v12" stroke="#3a3f4a" stroke-width="2"/>
+          <g id="bu-sp" class="h">
+            <rect x="1164" y="464" width="592" height="112" rx="4" fill="#F0B90B33"/>
+            <text class="mono" x="1460" y="533" font-size="34" fill="#F0B90B" text-anchor="middle">uint96 price</text>
+            <text x="1460" y="650" font-size="30" fill="#F0B90B" text-anchor="middle">12 字节</text>
+          </g>
+          <g id="bu-ss" class="h">
+            <rect x="164" y="464" width="992" height="112" rx="4" fill="#8a8f9933"/>
+            <text class="mono" x="660" y="533" font-size="34" fill="#e8e6df" text-anchor="middle">address seller</text>
+            <text x="660" y="650" font-size="30" fill="#8a8f99" text-anchor="middle">20 字节</text>
+          </g>
+          <line id="bu-sd" class="h" x1="1160" y1="464" x2="1160" y2="576" stroke="#58C4DD" stroke-width="2"/>
+          <text id="bu-mx" class="h" x="1460" y="770" font-size="34" fill="#e8e6df" text-anchor="middle"><tspan class="mono">uint96</tspan> 最大 ≈ <tspan class="mono" fill="#F0B90B">7.9 × 10</tspan><tspan class="mono" fill="#F0B90B" font-size="28" dy="-16">28</tspan><tspan class="mono" dy="16"> wei</tspan></text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const LY = i => 320 + 40 * (i - 1) - 28;
+      const HL = (a, b, t) => {
+        tl.to("#bu-hl", { attr: { y: LY(a), height: 40 * (b - a + 1) }, duration: 0.4, ease: "power2.inOut" }, t);
+        for (let i = 1; i <= 12; i++) tl.to(`#bu-l${i}`, { opacity: i >= a && i <= b ? 1 : 0.6, duration: 0.3 }, t);
+      };
+      // L0 market box expands into the code panel
+      IN("#bu-pr, #bu-mk", 0, 0.25);
+      tl.to("#bu-mk", { opacity: 0, duration: 0.25 }, at(0, 0.0));
+      tl.to("#bu-pr", { attr: { x: 80, y: 220, width: 1070, height: 580 }, stroke: "#3a3f4a", strokeWidth: 2, duration: 0.8, ease: "power3.inOut" }, at(0, 0.0));
+      IN("#bu-chrome", at(0, 0.45), 0.4);
+      for (let i = 1; i <= 12; i++) IN(`#bu-l${i}`, at(0, 0.5) + 0.04 * i, 0.3);
+      IN("#bu-hl", at(0, 0.9), 0.4);
+      // L1 checks
+      HL(4, 5, at(1, 0.02));
+      IN("#bu-ck1", at(1, 0.15), 0.4, { x: 16 }, { x: 0 });
+      IN("#bu-ck1v", at(1, 0.32), 0.3, { scale: 1.6, svgOrigin: "1584 334" }, { scale: 1, svgOrigin: "1584 334" });
+      IN("#bu-ck2", at(1, 0.55), 0.4, { x: 16 }, { x: 0 });
+      IN("#bu-ck2v", at(1, 0.75), 0.3, { scale: 1.6, svgOrigin: "1584 440" }, { scale: 1, svgOrigin: "1584 440" });
+      // L2 effects before interaction; counter-example
+      OUT("#bu-ck", at(2, 0.0), 0.3);
+      HL(6, 7, at(2, 0.02));
+      IN("#bu-n1", at(2, 0.05), 0.4);
+      IN("#bu-n2", at(2, 0.12), 0.4);
+      IN("#bu-hd1", at(2, 0.2), 0.4);
+      IN("#bu-bx", at(2, 0.25), 0.4);
+      ARROW("#bu-cb", at(2, 0.35), 0.5);
+      IN("#bu-rx", at(2, 0.38), 0.4);
+      IN("#bu-cbl", at(2, 0.4), 0.3);
+      ARROW("#bu-re", at(2, 0.58), 0.5);
+      IN("#bu-rel", at(2, 0.6), 0.3);
+      IN("#bu-t1", at(2, 0.8), 0.3, { scale: 1.3, svgOrigin: "1335 725" }, { scale: 1, svgOrigin: "1335 725" });
+      IN("#bu-t2", at(2, 0.88), 0.3, { scale: 1.3, svgOrigin: "1555 725" }, { scale: 1, svgOrigin: "1555 725" });
+      // L3 correct order, then C-E-I bands, then the lock
+      OUT("#bu-hd1, #bu-t2", at(3, 0.0), 0.3);
+      IN("#bu-hd2", at(3, 0.0) + 0.3, 0.3);
+      tl.to("#bu-t1r", { stroke: "#83C167", fill: "#83C16722", duration: 0.3 }, at(3, 0.02));
+      tl.to("#bu-t1t", { fill: "#83C167", duration: 0.3 }, at(3, 0.02));
+      HL(6, 6, at(3, 0.02));
+      IN("#bu-nl", at(3, 0.08), 0.3, { scale: 1.3, svgOrigin: "1555 725" }, { scale: 1, svgOrigin: "1555 725" });
+      HL(7, 7, at(3, 0.14));
+      IN("#bu-n3", at(3, 0.24), 0.4);
+      HL(9, 10, at(3, 0.24));
+      OUT("#bu-bad", at(3, 0.34), 0.35);
+      IN("#bu-bd1, #bu-sg", at(3, 0.38), 0.4);
+      ARROW("#bu-ba1", at(3, 0.44), 0.3);
+      IN("#bu-bd2, #bu-sn", at(3, 0.47), 0.4);
+      ARROW("#bu-ba2", at(3, 0.53), 0.3);
+      IN("#bu-bd3, #bu-si", at(3, 0.56), 0.4);
+      HL(1, 2, at(3, 0.7));
+      IN("#bu-lock", at(3, 0.74), 0.4, { y: -12 }, { y: 0 });
+      // L4 fee math
+      OUT("#bu-bands", at(4, 0.0), 0.35);
+      HL(8, 8, at(4, 0.02));
+      IN("#bu-f1", at(4, 0.15), 0.4, { x: 16 }, { x: 0 });
+      IN("#bu-f2", at(4, 0.3), 0.4);
+      IN("#bu-f3", at(4, 0.48), 0.4, { x: 16 }, { x: 0 });
+      IN("#bu-f4", at(4, 0.62), 0.4);
+      IN("#bu-f4l", at(4, 0.66), 0.4);
+      DRAW("#bu-fd", at(4, 0.76), 0.4);
+      HL(10, 10, at(4, 0.8));
+      IN("#bu-f5", at(4, 0.8), 0.5, { y: 10 }, { y: 0 });
+      // L5 storage slot packing
+      OUT("#bu-codeall, #bu-right", at(5, 0.0), 0.4);
+      IN("#bu-so, #bu-tk", at(5, 0.08), 0.5);
+      IN("#bu-sp", at(5, 0.14), 0.5, { x: 80 }, { x: 0 });
+      IN("#bu-mx", at(5, 0.3), 0.5);
+      IN("#bu-ss", at(5, 0.6), 0.5, { x: -80 }, { x: 0 });
+      IN("#bu-sd", at(5, 0.66), 0.3);
+      IN("#bu-st", at(5, 0.72), 0.5);
+      tl.to("#bu-so", { stroke: "#83C167", strokeWidth: 5, duration: 0.4 }, at(5, 0.86));
+
+      tl.to("#bu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["buy"] = tl;
+    })();
+  </script>
+</template>

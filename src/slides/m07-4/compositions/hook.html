@@ -1,0 +1,121 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="28.4" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      
+      </defs>
+      <g id="ho-all">
+        
+        <g id="ho-wout"><g id="ho-win">
+          <g id="ho-wallet" class="h">
+            <rect x="660" y="240" width="600" height="600" rx="24" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="700" y="292" font-size="24" fill="#6b6f7a" data-layout-ignore>钱包 · 发送</text>
+            <rect x="700" y="320" width="230" height="90" rx="45" fill="none" stroke="#F0B90B" stroke-width="3" />
+            <text class="mono" x="815" y="382" font-size="48" fill="#F0B90B" text-anchor="middle">USDC</text>
+            <rect x="700" y="450" width="520" height="150" rx="14" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" />
+            <text id="ho-amt" class="mono" x="740" y="552" font-size="80" fill="#e8e6df"></text>
+            <rect id="ho-cur" x="742" y="482" width="5" height="84" fill="#e8e6df" opacity="0" />
+            <g id="ho-btn">
+              <rect x="700" y="660" width="520" height="120" rx="18" fill="#F0B90B" />
+              <text x="960" y="738" font-size="52" font-weight="700" fill="#0f1117" text-anchor="middle">发送</text>
+            </g>
+          </g>
+        </g></g>
+        <g id="ho-cards">
+          <g id="ho-k1" class="h">
+            <rect x="620" y="230" width="1180" height="200" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="660" y="348" font-size="48" fill="#e8e6df">0.1 + 0.2 = 0.3000000000000000<tspan id="ho-k1e" fill="#FC6255">4</tspan></text>
+          </g>
+          <g id="ho-k2" class="h">
+            <rect x="620" y="470" width="1180" height="200" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text x="660" y="552" font-size="44" fill="#e8e6df"><tspan class="mono" fill="#F0B90B">1 USDC</tspan> → 当成 10¹² 倍</text>
+            <rect id="ho-bar" x="660" y="596" width="80" height="28" rx="6" fill="#F0B90B" />
+          </g>
+          <g id="ho-k3" class="h">
+            <rect x="620" y="710" width="1180" height="200" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text x="660" y="832" font-size="44" fill="#8a8f99">余额 <tspan class="mono" fill="#F0B90B">1.24</tspan></text>
+            <g id="ho-max">
+              <rect x="930" y="783" width="140" height="70" rx="12" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+              <text x="1000" y="830" font-size="32" fill="#F0B90B" text-anchor="middle">最大</text>
+            </g>
+            <path id="ho-a3" class="dr h" pathLength="1" d="M 1090 818 H 1230" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ho-arr)" />
+            <g id="ho-rc" class="h">
+              <rect x="1250" y="768" width="510" height="100" rx="12" fill="#1d1416" stroke="#FC6255" stroke-width="2.5" />
+              <path d="M 1280 800 L 1316 836 M 1316 800 L 1280 836" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+              <text x="1336" y="831" font-size="36" fill="#FC6255">交易失败：余额不足</text>
+            </g>
+          </g>
+        </g>
+        <text id="ho-msg" class="h" x="960" y="560" font-size="56" font-weight="700" fill="#8a8f99" text-anchor="middle">不是链的错 · <tspan fill="#FF9F43">是前端算错了钱</tspan></text>
+        <text id="ho-q" class="h" x="960" y="300" font-size="40" fill="#e8e6df" text-anchor="middle">链上金额是什么样子？怎样算对<tspan fill="#FF9F43">每一分钱</tspan>？</text>
+        <path id="ho-pipe" class="dr" pathLength="1" d="M 220 560 H 1700 A 60 60 0 0 1 1700 680 H 220 A 60 60 0 0 1 220 560" stroke="#8a8f99" stroke-width="4" fill="none" />
+
+      </g>
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+      // L0 钱包卡 + 打字 + 点击发送
+      IN("#ho-wallet", at(0, 0), 0.6, { y: 20 }, { y: 0 });
+      tl.fromTo("#ho-cur", { opacity: 0 }, { opacity: 1, duration: 0.2, repeat: 3, yoyo: true }, at(0, 0.1));
+      (function () {
+        const o = { v: 0 }, el = document.querySelector("#ho-amt"), cur = document.querySelector("#ho-cur"), s = "1.5";
+        tl.fromTo(o, { v: 0 }, { v: 3, duration: 1.0, ease: "none", immediateRender: false, onUpdate: () => {
+          const n = Math.min(3, Math.floor(o.v + 0.001)); el.textContent = s.slice(0, n); cur.setAttribute("x", 742 + n * 48);
+        } }, at(0, 0.3));
+      })();
+      tl.to("#ho-cur", { opacity: 0, duration: 0.2 }, at(0, 0.75));
+      tl.fromTo("#ho-btn", { scale: 1, svgOrigin: "960 720" }, { scale: 0.95, svgOrigin: "960 720", duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, at(0, 0.8));
+      // L1 钱包缩到左侧，三张事故卡落下
+      tl.to("#ho-wout", { x: -660, duration: 0.8, ease: "power2.inOut" }, at(1, 0));
+      tl.to("#ho-win", { scale: 0.6, svgOrigin: "960 540", duration: 0.8, ease: "power2.inOut" }, at(1, 0));
+      IN("#ho-k1", at(1, 0.06), 0.6, { y: -30 }, { y: 0 });
+      tl.fromTo("#ho-k1e", { attr: { "fill-opacity": 1 } }, { attr: { "fill-opacity": 0.15 }, duration: 0.25, repeat: 5, yoyo: true, immediateRender: false }, at(1, 0.15));
+      IN("#ho-k2", at(1, 0.32), 0.6, { y: -30 }, { y: 0 });
+      tl.to("#ho-bar", { attr: { width: 1260 }, fill: "#FC6255", duration: 0.35, ease: "power4.in" }, at(1, 0.46));
+      IN("#ho-k3", at(1, 0.6), 0.6, { y: -30 }, { y: 0 });
+      tl.fromTo("#ho-max", { scale: 1, svgOrigin: "1000 818" }, { scale: 0.92, svgOrigin: "1000 818", duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, at(1, 0.76));
+      ARROW("#ho-a3", at(1, 0.8), 0.4);
+      IN("#ho-rc", at(1, 0.86), 0.4, { x: 20 }, { x: 0 });
+      // L2 变暗 → 清场 → 结论
+      tl.to(["#ho-cards", "#ho-wout"], { opacity: 0.25, duration: 0.5 }, at(2, 0));
+      tl.to(["#ho-cards", "#ho-wout"], { opacity: 0, duration: 0.4 }, at(2, 0.2));
+      IN("#ho-msg", at(2, 0.32), 0.6, { scale: 0.9, svgOrigin: "960 540" }, { scale: 1, svgOrigin: "960 540" });
+      // L3 问题 + 管道
+      OUT("#ho-msg", at(3, 0), 0.4);
+      IN("#ho-q", at(3, 0.12), 0.6, { y: 20 }, { y: 0 });
+      DRAW("#ho-pipe", at(3, 0.4), 1.6);
+
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,107 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .mono { white-space: pre; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 traps，id 前缀 ts- -->
+  <div id="root" data-composition-id="traps" data-duration="50.4" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ts-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      <marker id="ts-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+<marker id="ts-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+      </defs>
+      <g id="ts-all">
+        <line id="ts-div" class="dr" pathLength="1" x1="960" y1="230" x2="960" y2="1000" stroke="#3a3f4a" stroke-width="2"/>
+<text id="ts-lt" class="h mono" x="500" y="280" font-size="40" fill="#58C4DD" text-anchor="middle" font-weight="700">RETURNDATACOPY</text>
+<text id="ts-rt" class="h mono" x="1420" y="280" font-size="40" fill="#58C4DD" text-anchor="middle" font-weight="700">EXTCODESIZE</text>
+<g id="ts-boxes" class="h"><rect x="120" y="360" width="280" height="100" rx="12" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="260" y="420" font-size="30" fill="#e8e6df" text-anchor="middle">调用方</text></g>
+<rect id="ts-ext" class="h" x="600" y="360" width="280" height="100" rx="12" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<text id="ts-extt" class="h" x="740" y="420" font-size="30" fill="#e8e6df" text-anchor="middle">外部合约</text>
+<path id="ts-call" class="dr h" pathLength="1" d="M400 385 L594 385" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ts-arr)"/>
+<path id="ts-ret" class="dr h" pathLength="1" d="M600 435 L406 435" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ts-arr)"/>
+<text id="ts-jl" class="h" x="740" y="510" font-size="28" fill="#FC6255" text-anchor="middle">几 MB 垃圾数据</text>
+<g id="ts-mem" class="h"><text x="120" y="545" font-size="28" fill="#8a8f99" text-anchor="start">调用方内存</text><rect x="120" y="560" width="760" height="60" rx="6" fill="none" stroke="#58C4DD" stroke-width="2.5"/></g>
+<rect id="ts-junk" x="122" y="562" width="0" height="56" fill="#FC6255" fill-opacity="0.8"/>
+<rect id="ts-ok" class="h" x="122" y="562" width="110" height="56" fill="#83C167" fill-opacity="0.7"/>
+<g id="ts-gasg" class="h"><text x="120" y="700" font-size="28" fill="#8a8f99" text-anchor="start">剩余 Gas</text><rect x="120" y="720" width="760" height="44" rx="6" fill="none" stroke="#3a3f4a" stroke-width="2"/></g>
+<rect id="ts-gas" class="h" x="120" y="720" width="760" height="44" rx="6" fill="#F0B90B"/>
+<text id="ts-rb" class="h" x="500" y="860" font-size="40" fill="#FC6255" text-anchor="middle" font-weight="700">整笔交易回滚</text>
+<rect id="ts-gate" class="h" x="440" y="345" width="16" height="130" rx="4" fill="#83C167"/>
+<text id="ts-def" class="h" x="500" y="860" font-size="36" fill="#83C167" text-anchor="middle" font-weight="700">只拷 32 / 64 字节</text>
+<rect id="ts-jb" class="h" x="1040" y="330" width="760" height="130" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+<text id="ts-j1" class="h mono" x="1070" y="385" font-size="28" fill="#FF9F43" text-anchor="start">extcodesize(msg.sender) == 0</text>
+<text id="ts-j2" class="h" x="1070" y="430" font-size="28" fill="#e8e6df" text-anchor="start">→ “不是合约”</text>
+<text id="ts-x" class="h" x="1720" y="418" font-size="60" fill="#FC6255" text-anchor="middle" font-weight="700">✕</text>
+<g id="ts-atk" class="h"><rect x="1040" y="600" width="380" height="150" rx="12" fill="none" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="12 8"/><text x="1230" y="655" font-size="30" fill="#FC6255" text-anchor="middle" font-weight="700">攻击合约</text><text x="1230" y="705" font-size="28" fill="#e8e6df" text-anchor="middle">constructor 执行中</text></g>
+<g id="ts-cnt" class="h"><text x="1480" y="640" font-size="28" fill="#8a8f99" text-anchor="start">字节码长度</text><text class="mono" x="1480" y="722" font-size="64" fill="#FC6255" text-anchor="start" font-weight="700">0</text></g>
+<path id="ts-up" class="dr h" pathLength="1" d="M1230 600 L1230 468" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ts-arr)"/>
+<g id="ts-myth" class="h"><rect x="1040" y="830" width="760" height="100" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1420" y="892" font-size="32" fill="#e8e6df" text-anchor="middle" font-weight="700">extcodesize = 0 ≠ 非合约</text></g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ts-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">返回值炸弹 <tspan font-size="28" font-weight="400" fill="#8a8f99">Return Bomb</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">返回超大数据耗尽调用方 Gas</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+
+DRAW("#ts-div", at(0, 0), 0.8);
+IN("#ts-lt", at(0, 0.15)); IN("#ts-rt", at(0, 0.45));
+IN("#ts-term", at(1, 0.03), 0.5);
+IN("#ts-boxes", at(1, 0.12)); IN("#ts-ext", at(1, 0.15)); IN("#ts-extt", at(1, 0.15));
+ARROW("#ts-call", at(1, 0.28)); ARROW("#ts-ret", at(1, 0.42));
+IN("#ts-mem", at(1, 0.52));
+IN("#ts-gasg", at(1, 0.75)); IN("#ts-gas", at(1, 0.75));
+OUT("#ts-term", at(1, 0.95), 0.4);
+TO("#ts-ext", at(2, 0.02), { stroke: "#FC6255" }, 0.4); TO("#ts-extt", at(2, 0.02), { fill: "#FC6255" }, 0.4);
+IN("#ts-jl", at(2, 0.1));
+TO("#ts-ret", at(2, 0.12), { stroke: "#FC6255", strokeWidth: 5 }, 0.4);
+TO("#ts-junk", at(2, 0.2), { attr: { width: 756 } }, 1.6);
+TO("#ts-gas", at(2, 0.5), { attr: { width: 4 } }, 1.6);
+IN("#ts-rb", at(2, 0.8), 0.5, { scale: 1.2, svgOrigin: "500 845" }, { scale: 1, svgOrigin: "500 845" });
+OUT("#ts-rb", at(3, 0), 0.3); OUT("#ts-jl", at(3, 0), 0.3);
+TO("#ts-junk", at(3, 0.04), { attr: { width: 0 } }, 0.6);
+IN("#ts-gate", at(3, 0.15), 0.5);
+TO("#ts-ret", at(3, 0.2), { stroke: "#e8e6df", strokeWidth: 3 }, 0.4);
+TO("#ts-gas", at(3, 0.25), { attr: { width: 700 } }, 0.8);
+IN("#ts-ok", at(3, 0.35), 0.5);
+IN("#ts-def", at(3, 0.45));
+IN("#ts-jb", at(4, 0.04)); IN("#ts-j1", at(4, 0.1)); IN("#ts-j2", at(4, 0.6));
+IN("#ts-atk", at(5, 0.04));
+IN("#ts-cnt", at(5, 0.22));
+ARROW("#ts-up", at(5, 0.5), 0.7);
+TO("#ts-jb", at(5, 0.58), { stroke: "#FC6255" }, 0.4); IN("#ts-x", at(5, 0.6), 0.4, { scale: 1.6, svgOrigin: "1720 398" }, { scale: 1, svgOrigin: "1720 398" });
+IN("#ts-myth", at(5, 0.8));
+
+
+      tl.to("#ts-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ts-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["traps"] = tl;
+    })();
+  </script>
+</template>

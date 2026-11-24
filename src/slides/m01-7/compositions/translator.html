@@ -1,0 +1,226 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 translator，id 前缀 tr- -->
+  <div id="root" data-composition-id="translator" data-duration="64.52" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="tr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="tr-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="tr-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="tr-all">
+        <!-- L0：地鼠 + 以太坊菱形 → go-ethereum 包裹 -->
+        <g id="tr-goph" class="h">
+          <circle cx="800" cy="560" r="72" fill="none" stroke="#8a8f99" stroke-width="3.5" />
+          <circle cx="748" cy="496" r="16" fill="none" stroke="#8a8f99" stroke-width="3.5" />
+          <circle cx="852" cy="496" r="16" fill="none" stroke="#8a8f99" stroke-width="3.5" />
+          <circle cx="776" cy="545" r="14" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="780" cy="545" r="4" fill="#e8e6df" />
+          <circle cx="824" cy="545" r="14" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="828" cy="545" r="4" fill="#e8e6df" />
+          <rect x="792" y="578" width="16" height="16" rx="3" fill="none" stroke="#e8e6df" stroke-width="2.5" />
+        </g>
+        <g id="tr-dia" class="h">
+          <path d="M1120 470 L1180 565 L1120 600 L1060 565 Z" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+          <path d="M1060 565 L1120 535 L1180 565 M1120 470 L1120 600" stroke="#58C4DD" stroke-width="2" fill="none" />
+          <path d="M1062 582 L1120 616 L1178 582 L1120 668 Z" fill="none" stroke="#58C4DD" stroke-width="3" />
+        </g>
+        <g id="tr-pkg" class="h">
+          <rect x="860" y="480" width="200" height="160" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="960" y="700" font-size="32" fill="#58C4DD" text-anchor="middle">go-ethereum</text>
+        </g>
+        <rect id="tr-lid" class="h" x="848" y="448" width="224" height="36" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <g id="tr-rack" class="h">
+          <rect x="640" y="380" width="120" height="150" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <path d="M656 425 L744 425 M656 470 L744 470" stroke="#B48EF0" stroke-width="2" />
+          <text x="700" y="580" font-size="30" fill="#B48EF0" text-anchor="middle">节点程序</text>
+        </g>
+        <g id="tr-lib" class="h">
+          <rect x="1170" y="460" width="110" height="60" rx="8" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+          <rect x="1170" y="420" width="110" height="60" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect x="1170" y="380" width="110" height="60" rx="8" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+          <text x="1225" y="580" font-size="30" fill="#58C4DD" text-anchor="middle">Go 库</text>
+        </g>
+        <!-- 上排三方块 -->
+        <g id="tr-go" class="h">
+          <rect x="160" y="300" width="300" height="140" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text x="310" y="383" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">Go 程序</text>
+        </g>
+        <g id="tr-ec" class="h">
+          <rect id="tr-ecr" x="810" y="300" width="300" height="140" rx="16" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="960" y="383" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">ethclient</text>
+        </g>
+        <g id="tr-node" class="h">
+          <rect x="1460" y="300" width="300" height="140" rx="16" fill="#B48EF022" stroke="#B48EF0" stroke-width="3" />
+          <text x="1610" y="383" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">RPC 节点</text>
+        </g>
+        <!-- L2：请求 / 响应 -->
+        <path id="tr-a1" class="dr h" pathLength="1" d="M472 350 L798 350" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#tr-arr)" />
+        <text id="tr-a1l" class="h mono" x="635" y="328" font-size="28" fill="#e8e6df" text-anchor="middle">BalanceAt</text>
+        <path id="tr-a2" class="dr h" pathLength="1" d="M1122 350 L1448 350" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#tr-arrB)" />
+        <text id="tr-a2l" class="h mono" x="1285" y="328" font-size="28" fill="#58C4DD" text-anchor="middle">eth_getBalance</text>
+        <path id="tr-r2" class="dr h" pathLength="1" d="M1448 405 L1122 405" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#tr-arr)" />
+        <path id="tr-r1" class="dr h" pathLength="1" d="M798 405 L472 405" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#tr-arr)" />
+        <g id="tr-env" class="h">
+          <rect x="478" y="334" width="44" height="32" rx="4" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <path d="M478 334 L500 352 L522 334" stroke="#F0B90B" stroke-width="2.5" fill="none" />
+        </g>
+        <g id="tr-env2" class="h">
+          <rect x="1138" y="334" width="44" height="32" rx="4" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <path d="M1138 334 L1160 352 L1182 334" stroke="#58C4DD" stroke-width="2.5" fill="none" />
+        </g>
+        <text id="tr-hex" class="h mono" x="1285" y="485" font-size="30" fill="#58C4DD" text-anchor="middle">0x501f…</text>
+        <text id="tr-big" class="h mono" x="960" y="485" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">*big.Int</text>
+        <g id="tr-tag" class="h">
+          <rect x="895" y="234" width="130" height="46" rx="23" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <text x="960" y="267" font-size="28" fill="#58C4DD" text-anchor="middle">翻译官</text>
+        </g>
+        <text id="tr-nojudge" class="h" x="1042" y="267" font-size="28" fill="#8a8f99">✕ 不判断真假</text>
+        <!-- L3：abi 包宽框 -->
+        <path id="tr-v1" class="dr h" pathLength="1" d="M310 450 L310 580" stroke="#58C4DD" stroke-width="3" fill="none" marker-start="url(#tr-arrB)" marker-end="url(#tr-arrB)" />
+        <path id="tr-v2" class="dr h" pathLength="1" d="M960 450 L960 580" stroke="#58C4DD" stroke-width="3" fill="none" marker-start="url(#tr-arrB)" marker-end="url(#tr-arrB)" />
+        <g id="tr-abi" class="h">
+          <rect x="160" y="590" width="950" height="200" rx="16" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+          <text x="190" y="642" font-size="34" font-weight="700" fill="#58C4DD">abi 包</text>
+        </g>
+        <text id="tr-ab1" class="h" x="190" y="702" font-size="28" fill="#e8e6df">函数参数 → 调用数据</text>
+        <text id="tr-ab2" class="h" x="190" y="752" font-size="28" fill="#e8e6df">返回值 / 事件日志 → Go 结构体</text>
+        <!-- L4：abigen 子框、手册、erc20.go -->
+        <g id="tr-gen" class="h">
+          <rect x="660" y="612" width="430" height="156" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="690" y="672" font-size="36" font-weight="700" fill="#58C4DD">abigen</text>
+          <text x="690" y="734" font-size="28" fill="#e8e6df">ABI → Go 代码</text>
+          <rect x="980" y="636" width="70" height="90" rx="6" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+          <path d="M994 636 L994 726 M1004 660 L1040 660 M1004 680 L1040 680 M1004 700 L1030 700" stroke="#58C4DD" stroke-width="2" />
+        </g>
+        <path id="tr-ga" class="dr h" pathLength="1" d="M1092 690 L1168 690" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#tr-arrB)" />
+        <g id="tr-file" class="h">
+          <path d="M1180 630 L1250 630 L1276 656 L1276 750 L1180 750 Z" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <path d="M1250 630 L1250 656 L1276 656" fill="none" stroke="#58C4DD" stroke-width="2" />
+          <text class="mono" x="1228" y="800" font-size="28" fill="#58C4DD" text-anchor="middle">erc20.go</text>
+          <text x="1228" y="846" font-size="28" fill="#e8e6df" text-anchor="middle">绑定 Binding</text>
+        </g>
+        <path id="tr-brace" class="dr h" pathLength="1" d="M160 812 Q160 836 190 836 L600 836 Q635 836 635 862 Q635 836 670 836 L1080 836 Q1110 836 1110 812" stroke="#58C4DD" stroke-width="3" fill="none" />
+        <text id="tr-bracel" class="h" x="635" y="912" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">读链后端 = 三样工具的组合</text>
+        <!-- L5：节点可能说错 -->
+        <path id="tr-bad" class="h" d="M1610 448 L1610 606" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 8" fill="none" marker-end="url(#tr-arrR)" />
+        <g id="tr-red" class="h">
+          <rect x="1440" y="620" width="380" height="150" rx="16" fill="#FC625518" stroke="#FC6255" stroke-width="3" />
+          <text x="1630" y="680" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">节点可能说错</text>
+          <text x="1630" y="734" font-size="28" fill="#e8e6df" text-anchor="middle">落后或错误 · 照单全收</text>
+        </g>
+        <text id="tr-trip" class="h" x="960" y="990" font-size="30" fill="#8a8f99" text-anchor="middle">每个 ethclient 调用 = 一次 JSON-RPC 往返</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="tr-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">go-ethereum <tspan font-size="28" font-weight="400" fill="#8a8f99">Geth</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">以太坊官方 Go 实现，也是 Go 库</text>
+      </g>
+      <g id="tr-term2" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">ethclient <tspan font-size="28" font-weight="400" fill="#8a8f99">RPC 客户端</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">把 JSON-RPC 方法包装成 Go 函数</text>
+      </g>
+      <g id="tr-term3" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">ABI <tspan font-size="28" font-weight="400" fill="#8a8f99">Application Binary Interface</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">合约函数和事件的说明书（JSON）</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 go-ethereum：地鼠 + 以太坊合成包裹，打开露出节点程序与 Go 库
+      IN("#tr-term", at(0, 0.05), 0.5);
+      IN("#tr-goph", at(0, 0.08), 0.6, { x: -40 }, { x: 0 });
+      IN("#tr-dia", at(0, 0.16), 0.6, { x: 40 }, { x: 0 });
+      tl.to("#tr-goph", { x: 160, opacity: 0, duration: 0.7, ease: "power2.in" }, at(0, 0.36));
+      tl.to("#tr-dia", { x: -160, opacity: 0, duration: 0.7, ease: "power2.in" }, at(0, 0.36));
+      IN("#tr-pkg, #tr-lid", at(0, 0.42), 0.5, { scale: 0.7, svgOrigin: "960 560" }, { scale: 1, svgOrigin: "960 560" });
+      tl.to("#tr-lid", { y: -50, opacity: 0, duration: 0.6, ease: "power2.out" }, at(0, 0.58));
+      IN("#tr-rack", at(0, 0.64), 0.7, { x: 220 }, { x: 0 });
+      IN("#tr-lib", at(0, 0.76), 0.7, { x: -220 }, { x: 0 });
+      OUT("#tr-term", at(0, 0.9), 0.4);
+
+      // L1 只留 ethclient：从 Go 库长到上排中间
+      OUT("#tr-pkg, #tr-rack", at(1, 0), 0.4);
+      tl.to("#tr-lib", { x: -265, y: -90, opacity: 0, duration: 0.6, ease: "power2.inOut" }, at(1, 0.02));
+      IN("#tr-ec", at(1, 0.08), 0.6, { scale: 0.5, svgOrigin: "960 370" }, { scale: 1, svgOrigin: "960 370" });
+      IN("#tr-term2", at(1, 0.12), 0.5);
+      IN("#tr-go", at(1, 0.55), 0.6, { x: -30 }, { x: 0 });
+      IN("#tr-node", at(1, 0.72), 0.6, { x: 30 }, { x: 0 });
+
+      // L2 翻译官：BalanceAt → eth_getBalance，十六进制 → *big.Int
+      ARROW("#tr-a1", at(2, 0.02), 0.5); IN("#tr-a1l", at(2, 0.06), 0.4);
+      IN("#tr-tag", at(2, 0.08), 0.5, { y: 10 }, { y: 0 });
+      OUT("#tr-term2", at(2, 0.1), 0.4);
+      IN("#tr-env", at(2, 0.12), 0.2);
+      tl.to("#tr-env", { x: 270, duration: 0.7, ease: "power1.in" }, at(2, 0.14));
+      OUT("#tr-env", at(2, 0.14) + 0.55, 0.15);
+      ARROW("#tr-a2", at(2, 0.25), 0.5); IN("#tr-a2l", at(2, 0.29), 0.4);
+      IN("#tr-env2", at(2, 0.3), 0.15);
+      tl.to("#tr-env2", { x: 270, duration: 0.7, ease: "power1.in" }, at(2, 0.31));
+      OUT("#tr-env2", at(2, 0.31) + 0.6, 0.15);
+      ARROW("#tr-r2", at(2, 0.55), 0.5);
+      IN("#tr-hex", at(2, 0.58), 0.3);
+      tl.to("#tr-hex", { x: -325, duration: 0.9, ease: "power2.inOut" }, at(2, 0.62));
+      OUT("#tr-hex", at(2, 0.74), 0.3);
+      IN("#tr-big", at(2, 0.75), 0.35, { scale: 0.6, svgOrigin: "960 475" }, { scale: 1, svgOrigin: "960 475" });
+      ARROW("#tr-r1", at(2, 0.8), 0.5);
+      tl.to("#tr-big", { x: -650, duration: 0.9, ease: "power2.inOut" }, at(2, 0.84));
+
+      // L3 ABI 与 abi 包
+      OUT("#tr-big", at(3, 0), 0.4);
+      IN("#tr-abi", at(3, 0.05), 0.6, { y: 30 }, { y: 0 });
+      ARROW("#tr-v1", at(3, 0.12), 0.5); ARROW("#tr-v2", at(3, 0.16), 0.5);
+      IN("#tr-term3", at(3, 0.2), 0.5);
+      IN("#tr-ab1", at(3, 0.5), 0.5, { x: -16 }, { x: 0 });
+      IN("#tr-ab2", at(3, 0.72), 0.5, { x: -16 }, { x: 0 });
+      OUT("#tr-term3", at(3, 0.92), 0.4);
+
+      // L4 abigen 生成绑定；三样工具的组合
+      IN("#tr-gen", at(4, 0.03), 0.6, { scale: 0.9, svgOrigin: "875 690" }, { scale: 1, svgOrigin: "875 690" });
+      ARROW("#tr-ga", at(4, 0.22), 0.4);
+      IN("#tr-file", at(4, 0.27), 0.5, { x: -20 }, { x: 0 });
+      tl.to("#tr-ecr", { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.62));
+      DRAW("#tr-brace", at(4, 0.62), 0.8); IN("#tr-brace", at(4, 0.62), 0.01);
+      IN("#tr-bracel", at(4, 0.7), 0.5, { y: 12 }, { y: 0 });
+
+      // L5 翻译官不判断真假：节点可能说错
+      IN("#tr-nojudge", at(5, 0.12), 0.5, { x: -12 }, { x: 0 });
+      IN("#tr-bad", at(5, 0.42), 0.4, { y: -20 }, { y: 0 });
+      IN("#tr-red", at(5, 0.5), 0.5, { scale: 0.92, svgOrigin: "1630 695" }, { scale: 1, svgOrigin: "1630 695" });
+      tl.to("#tr-a2l, #tr-hex", { fill: "#FF9F43", duration: 0.3 }, at(5, 0.62));
+      IN("#tr-trip", at(5, 0.8), 0.6);
+
+      tl.to("#tr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#tr-term, #tr-term2, #tr-term3", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["translator"] = tl;
+    })();
+  </script>
+</template>

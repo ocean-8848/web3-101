@@ -1,0 +1,247 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 gas，id 前缀 ga- -->
+  <div id="root" data-composition-id="gas" data-duration="91.58" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ga-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+      </defs>
+      <g id="ga-all">
+        <!-- 左：比特币 · 权重秤 -->
+        <g id="ga-L">
+          <text id="ga-btc" class="h" x="510" y="270" text-anchor="middle" font-size="40" font-weight="700" fill="#e8e6df">比特币</text>
+          <g id="ga-sc" class="h">
+            <rect x="330" y="430" width="360" height="14" rx="4" fill="#8a8f99" />
+            <rect x="500" y="444" width="20" height="46" fill="#8a8f99" />
+            <rect x="300" y="490" width="420" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          </g>
+          <text id="ga-sclab" class="h" x="510" y="542" text-anchor="middle" font-size="30" fill="#58C4DD">≤ 400 万 weight</text>
+          <g id="ga-blk" class="h">
+            <rect x="420" y="330" width="180" height="98" rx="8" fill="#1b2a33" stroke="#58C4DD" stroke-width="3" />
+            <text x="510" y="390" text-anchor="middle" font-size="30" fill="#e8e6df">区块</text>
+          </g>
+          <text id="ga-sw" class="h" x="510" y="625" text-anchor="middle" font-size="28" fill="#8a8f99">2017 隔离见证后</text>
+          <text id="ga-mb" class="h" x="510" y="675" text-anchor="middle" font-size="30" fill="#e8e6df">实际 ≈ 1–4 MB，看交易类型</text>
+          <text id="ga-rule" class="h" x="510" y="728" text-anchor="middle" font-size="28" fill="#FF9F43">改上限 = 改共识规则</text>
+        </g>
+        <!-- 右：以太坊 · Gas 油箱 -->
+        <g id="ga-R">
+          <text id="ga-eth" class="h" x="1380" y="270" text-anchor="middle" font-size="40" font-weight="700" fill="#e8e6df">以太坊</text>
+          <rect id="ga-tank" class="h" x="1300" y="320" width="160" height="300" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="ga-fill" x="1302" y="618" width="156" height="0" fill="#F0B90B" fill-opacity="0.8" />
+          <g id="ga-c1" class="h"><rect x="1040" y="330" width="200" height="50" rx="8" fill="#2a2410" stroke="#F0B90B" stroke-width="2" /><text class="mono" x="1140" y="365" text-anchor="middle" font-size="28" fill="#F0B90B">21000</text></g>
+          <g id="ga-c2" class="h"><rect x="1040" y="400" width="200" height="50" rx="8" fill="#2a2410" stroke="#F0B90B" stroke-width="2" /><text class="mono" x="1140" y="435" text-anchor="middle" font-size="28" fill="#F0B90B">65000</text></g>
+          <g id="ga-c3" class="h"><rect x="1040" y="470" width="200" height="50" rx="8" fill="#2a2410" stroke="#F0B90B" stroke-width="2" /><text class="mono" x="1140" y="505" text-anchor="middle" font-size="28" fill="#F0B90B">120000</text></g>
+          <text id="ga-rule2" class="h mono" x="1380" y="675" text-anchor="middle" font-size="30" fill="#e8e6df">gasUsed ≤ gasLimit</text>
+          <line id="ga-lim" class="h" x1="1290" y1="320" x2="1470" y2="320" stroke="#F0B90B" stroke-width="3.5" stroke-dasharray="10 7" />
+          <text id="ga-liml" class="h mono" x="1490" y="331" font-size="28" fill="#F0B90B">gasLimit</text>
+          <path id="ga-adj" class="dr h" pathLength="1" d="M1272 282 L1272 358" stroke="#FF9F43" stroke-width="3" fill="none" marker-start="url(#ga-arr)" marker-end="url(#ga-arr)" />
+          <text id="ga-adjl" class="h" x="1490" y="380" font-size="28" fill="#FF9F43">每块最多 ±1/1024</text>
+          <text id="ga-yr" class="h" x="1060" y="790" font-size="30" fill="#e8e6df">2025 年</text>
+          <line id="ga-base" class="h" x1="1040" y1="960" x2="1740" y2="960" stroke="#8a8f99" stroke-width="2" />
+          <rect id="ga-b1" x="1060" y="960" width="120" height="0" fill="#F0B90B" fill-opacity="0.8" />
+          <rect id="ga-b2" x="1240" y="960" width="120" height="0" fill="#F0B90B" fill-opacity="0.8" />
+          <rect id="ga-b3" x="1420" y="960" width="120" height="0" fill="#F0B90B" fill-opacity="0.8" />
+          <rect id="ga-b4" x="1600" y="960" width="120" height="0" fill="#F0B90B" fill-opacity="0.8" />
+          <g id="ga-bl1" class="h"><text x="1120" y="856" text-anchor="middle" font-size="28" fill="#F0B90B">3000万</text><text x="1120" y="1000" text-anchor="middle" font-size="28" fill="#8a8f99">起点</text></g>
+          <g id="ga-bl2" class="h"><text x="1300" y="838" text-anchor="middle" font-size="28" fill="#F0B90B">3600万</text><text x="1300" y="1000" text-anchor="middle" font-size="28" fill="#8a8f99">2 月</text></g>
+          <g id="ga-bl3" class="h"><text x="1480" y="811" text-anchor="middle" font-size="28" fill="#F0B90B">4500万</text><text x="1480" y="1000" text-anchor="middle" font-size="28" fill="#8a8f99">7 月</text></g>
+          <g id="ga-bl4" class="h"><text x="1660" y="766" text-anchor="middle" font-size="28" fill="#F0B90B">6000万</text><text x="1660" y="1000" text-anchor="middle" font-size="28" fill="#8a8f99">11 月</text></g>
+        </g>
+        <!-- L3+：大计量表 + 基础费柱 -->
+        <g id="ga-M">
+          <rect id="ga-t2" class="h" x="260" y="300" width="200" height="600" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="ga-f2" x="262" y="898" width="196" height="0" fill="#F0B90B" fill-opacity="0.8" />
+          <g id="ga-t2l" class="h">
+            <text x="480" y="312" font-size="28" fill="#8a8f99">上限 6000 万</text>
+            <text x="480" y="908" font-size="28" fill="#8a8f99">0</text>
+            <text class="mono" x="360" y="950" text-anchor="middle" font-size="28" fill="#F0B90B">gasUsed</text>
+          </g>
+          <line id="ga-tg" class="dr" pathLength="1" x1="250" y1="600" x2="470" y2="600" stroke="#83C167" stroke-width="3" />
+          <text id="ga-tgl" class="h" x="480" y="610" font-size="28" fill="#83C167">目标 3000 万</text>
+          <rect id="ga-bt" class="h" x="245" y="286" width="230" height="10" rx="3" fill="#FC6255" />
+          <rect id="ga-bb" class="h" x="245" y="902" width="230" height="10" rx="3" fill="#FC6255" />
+          <text id="ga-gu" class="h" x="360" y="256" text-anchor="middle" font-size="30" fill="#F0B90B">gasUsed = <tspan id="ga-guv">1500</tspan> 万</text>
+          <rect id="ga-bf" x="760" y="900" width="100" height="0" fill="#F0B90B" fill-opacity="0.85" />
+          <text id="ga-bfv" class="h mono" x="810" y="634" text-anchor="middle" font-size="30" fill="#F0B90B">10 gwei</text>
+          <text id="ga-bfn" class="h" x="810" y="950" text-anchor="middle" font-size="28" fill="#F0B90B">基础费</text>
+          <polygon id="ga-up" class="h" points="920,560 940,600 900,600" fill="#83C167" />
+          <polygon id="ga-dn" class="h" points="920,720 940,680 900,680" fill="#FC6255" />
+          <text id="ga-eip" class="h" x="560" y="200" font-size="32" fill="#e8e6df">EIP-1559 · 2021 伦敦升级</text>
+          <path id="ga-fl" class="h" d="M980 900 C 932 900 932 852 956 826 C 962 846 972 848 974 836 C 974 812 986 796 1000 784 C 998 812 1028 828 1022 866 C 1020 888 1004 900 980 900 Z" fill="#FC6255" fill-opacity="0.9" stroke="#FF9F43" stroke-width="2" />
+          <text id="ga-fll" class="h" x="980" y="950" text-anchor="middle" font-size="28" fill="#FC6255">销毁</text>
+          <circle id="ga-co1" class="h" cx="785" cy="668" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2" />
+          <circle id="ga-co2" class="h" cx="812" cy="668" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2" />
+          <circle id="ga-co3" class="h" cx="839" cy="668" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2" />
+          <path id="ga-tip" class="dr" pathLength="1" d="M470 450 Q740 390 964 522" stroke="#F0B90B" stroke-width="4" fill="none" />
+          <text id="ga-tipl" class="h" x="727" y="372" text-anchor="middle" font-size="28" fill="#F0B90B">小费</text>
+          <g id="ga-pr" class="h">
+            <circle cx="1000" cy="525" r="34" fill="#2a2140" stroke="#B48EF0" stroke-width="3" />
+            <circle cx="1000" cy="514" r="10" fill="#B48EF0" />
+            <path d="M982 542 Q1000 522 1018 542" stroke="#B48EF0" stroke-width="4" fill="none" />
+            <text x="1000" y="604" text-anchor="middle" font-size="28" fill="#B48EF0">出块者</text>
+          </g>
+          <!-- 算一算步骤卡 -->
+          <rect id="ga-card" class="h" x="1120" y="260" width="720" height="500" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text id="ga-st" class="h" x="1160" y="322" font-size="32" font-weight="700" fill="#FF9F43">算一算（示例）</text>
+          <text id="ga-r1" class="h" x="1160" y="420" font-size="30" fill="#e8e6df">(4500万 − 3000万) ÷ 3000万 = 0.5</text>
+          <text id="ga-r2" class="h" x="1160" y="510" font-size="30" fill="#e8e6df">0.5 × 1/8 = +6.25%</text>
+          <text id="ga-r3" class="h" x="1160" y="600" font-size="30" font-weight="700" fill="#F0B90B">10 × 1.0625 = 10.625 gwei</text>
+          <text id="ga-r4" class="h" x="1160" y="420" font-size="30" fill="#e8e6df">全满：+12.5%</text>
+          <text id="ga-r5" class="h" x="1160" y="510" font-size="30" fill="#e8e6df">全空：−12.5%　<tspan fill="#FC6255">单块最大幅度</tspan></text>
+          <text id="ga-r6" class="h" x="1160" y="600" font-size="30" font-weight="700" fill="#F0B90B">20 × 1.125 = 22.5 gwei</text>
+          <text id="ga-r7" class="h" x="1160" y="420" font-size="30" fill="#e8e6df">(1500万 − 3000万) ÷ 3000万 = −0.5</text>
+          <text id="ga-r8" class="h" x="1160" y="510" font-size="30" fill="#e8e6df">−0.5 × 1/8 = −6.25%</text>
+          <text id="ga-r9" class="h" x="1160" y="600" font-size="30" font-weight="700" fill="#58C4DD">20 × 0.9375 = 18.75 gwei</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ga-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Gas</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">衡量计算工作量的单位</text>
+      </g>
+      <g id="ga-term2" class="h">
+        <rect x="70" y="56" width="630" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">区块 Gas 上限 <tspan font-size="28" font-weight="400" fill="#8a8f99">Block Gas Limit</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">一个区块所有交易可消耗的 Gas 总和上限</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      // 小油箱 / 2025 柱 / 大计量表 / 基础费柱
+      const TANK = (h, t, d = 0.6) => tl.to("#ga-fill", { attr: { y: 618 - h, height: h }, duration: d, ease: "power2.out" }, t);
+      const YBAR = (k, h, t) => tl.fromTo(`#ga-b${k}`, { attr: { y: 960, height: 0 } }, { attr: { y: 960 - h, height: h }, duration: 0.7, ease: "power2.out", immediateRender: false }, t);
+      const FILL = (m, t, d = 1.0) => tl.to("#ga-f2", { attr: { y: 898 - m * 10, height: m * 10 }, duration: d, ease: "power2.inOut" }, t);
+      const BAR = (g, t, d = 1.0) => {
+        tl.to("#ga-bf", { attr: { y: 900 - g * 25, height: g * 25 }, duration: d, ease: "power2.inOut" }, t);
+        tl.to("#ga-bfv", { attr: { y: 884 - g * 25 }, duration: d, ease: "power2.inOut" }, t);
+      };
+      const GU = (a, b, t, d = 1.0) => COUNT("#ga-guv", a, b, t, d);
+      const BF = (a, b, t, d = 1.0) => COUNT("#ga-bfv", a, b, t, d, v => (Math.round(v * 1000) / 1000) + " gwei");
+
+      // L0 比特币：按权重称
+      IN("#ga-btc", at(0, 0.0), 0.5);
+      IN("#ga-sc", at(0, 0.05), 0.6);
+      tl.fromTo("#ga-blk", { opacity: 0, y: -220 }, { opacity: 1, y: 0, duration: 0.9, ease: "bounce.out" }, at(0, 0.1));
+      IN("#ga-sw", at(0, 0.2), 0.5);
+      IN("#ga-sclab", at(0, 0.36), 0.5);
+      IN("#ga-mb", at(0, 0.58), 0.5);
+      IN("#ga-rule", at(0, 0.84), 0.5);
+
+      // L1 以太坊：Gas 倒进油箱
+      IN("#ga-eth", at(1, 0.0), 0.5);
+      IN("#ga-tank", at(1, 0.04), 0.5);
+      IN("#ga-term", at(1, 0.3), 0.5);
+      IN("#ga-c1", at(1, 0.38), 0.4, { x: -30 }, { x: 0 });
+      IN("#ga-c2", at(1, 0.43), 0.4, { x: -30 }, { x: 0 });
+      IN("#ga-c3", at(1, 0.48), 0.4, { x: -30 }, { x: 0 });
+      [["#ga-c1", 50, 0.56], ["#ga-c2", 120, 0.64], ["#ga-c3", 230, 0.72]].forEach(([s, h, f]) => {
+        tl.to(s, { x: 240, opacity: 0, duration: 0.6, ease: "power2.in" }, at(1, f));
+        TANK(h, at(1, f) + 0.45);
+      });
+      IN("#ga-rule2", at(1, 0.84), 0.5);
+      OUT("#ga-term", at(1, 0.98), 0.4);
+
+      // L2 gasLimit：每块 ±1/1024，2025 年上调
+      IN("#ga-lim", at(2, 0.02), 0.4);
+      IN("#ga-liml", at(2, 0.05), 0.4);
+      ARROW("#ga-adj", at(2, 0.12), 0.5);
+      IN("#ga-adjl", at(2, 0.14), 0.5);
+      IN("#ga-term2", at(2, 0.2), 0.5);
+      tl.to("#ga-fill", { attr: { y: 618 - 270, height: 270 }, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, at(2, 0.3));
+      IN("#ga-yr, #ga-base", at(2, 0.48), 0.5);
+      YBAR(1, 90, at(2, 0.56)); IN("#ga-bl1", at(2, 0.58), 0.4);
+      YBAR(2, 108, at(2, 0.68)); IN("#ga-bl2", at(2, 0.7), 0.4);
+      OUT("#ga-term2", at(2, 0.7), 0.4);
+      YBAR(3, 135, at(2, 0.78)); IN("#ga-bl3", at(2, 0.8), 0.4);
+      YBAR(4, 180, at(2, 0.9)); IN("#ga-bl4", at(2, 0.92), 0.4);
+
+      // L3 目标 = 一半；超了涨、低了跌
+      OUT("#ga-L, #ga-R", at(3, 0.0), 0.4);
+      IN("#ga-t2, #ga-t2l", at(3, 0.06), 0.5);
+      DRAW("#ga-tg", at(3, 0.14), 0.6); IN("#ga-tgl", at(3, 0.18), 0.4);
+      IN("#ga-bfn", at(3, 0.3), 0.4);
+      tl.fromTo("#ga-bf", { attr: { y: 900, height: 0 } }, { attr: { y: 650, height: 250 }, duration: 0.6, ease: "power2.out", immediateRender: false }, at(3, 0.3));
+      FILL(50, at(3, 0.4), 0.8); BAR(11.7, at(3, 0.5), 0.7); IN("#ga-up", at(3, 0.5), 0.3);
+      OUT("#ga-up", at(3, 0.7), 0.3);
+      FILL(15, at(3, 0.72), 0.8); BAR(9, at(3, 0.8), 0.7); IN("#ga-dn", at(3, 0.8), 0.3);
+      OUT("#ga-dn", at(4, 0.0), 0.3);
+
+      // L4 EIP-1559：基础费销毁，小费给出块者
+      IN("#ga-eip", at(4, 0.02), 0.5);
+      IN("#ga-fl", at(4, 0.28), 0.5, { scale: 0.6, svgOrigin: "980 900" }, { scale: 1, svgOrigin: "980 900" });
+      ["#ga-co1", "#ga-co2", "#ga-co3"].forEach((s, k) => {
+        const t = at(4, 0.34) + k * 0.25;
+        tl.fromTo(s, { opacity: 0, x: 0, y: 0 }, { opacity: 1, duration: 0.15 }, t);
+        tl.to(s, { x: 980 - (785 + 27 * k), y: 190, duration: 0.7, ease: "power2.in" }, t + 0.15);
+        tl.to(s, { opacity: 0, duration: 0.15 }, t + 0.8);
+      });
+      IN("#ga-fll", at(4, 0.42), 0.4);
+      IN("#ga-pr", at(4, 0.66), 0.5);
+      DRAW("#ga-tip", at(4, 0.7), 0.8);
+      IN("#ga-tipl", at(4, 0.76), 0.4);
+
+      // L5 算一算：4500 万 → 10.625 gwei
+      OUT("#ga-pr, #ga-tip, #ga-tipl", at(5, 0.0), 0.4);
+      IN("#ga-card", at(5, 0.03), 0.5);
+      IN("#ga-st", at(5, 0.06), 0.4);
+      FILL(45, at(5, 0.15)); IN("#ga-gu", at(5, 0.15), 0.4); GU(1500, 4500, at(5, 0.15));
+      BAR(10, at(5, 0.2), 0.6); IN("#ga-bfv", at(5, 0.24), 0.4);
+      IN("#ga-r1", at(5, 0.45), 0.5, { x: -16 }, { x: 0 });
+      IN("#ga-r2", at(5, 0.63), 0.5, { x: -16 }, { x: 0 });
+      IN("#ga-r3", at(5, 0.8), 0.5, { x: -16 }, { x: 0 });
+      BAR(10.625, at(5, 0.88), 0.7); BF(10, 10.625, at(5, 0.88), 0.7);
+
+      // L6 全满 / 全空：±12.5%；20 gwei 满块 → 22.5
+      OUT("#ga-r1, #ga-r2, #ga-r3", at(6, 0.0), 0.35);
+      FILL(60, at(6, 0.04), 0.7); GU(4500, 6000, at(6, 0.04), 0.7);
+      IN("#ga-bt", at(6, 0.1), 0.3);
+      IN("#ga-r4", at(6, 0.12), 0.4, { x: -16 }, { x: 0 });
+      FILL(0, at(6, 0.28), 0.8); GU(6000, 0, at(6, 0.28), 0.8);
+      IN("#ga-bb", at(6, 0.34), 0.3);
+      IN("#ga-r5", at(6, 0.36), 0.4, { x: -16 }, { x: 0 });
+      FILL(60, at(6, 0.6), 0.8); GU(0, 6000, at(6, 0.6), 0.8);
+      BAR(20, at(6, 0.6), 0.8); BF(10.625, 20, at(6, 0.6), 0.8);
+      IN("#ga-r6", at(6, 0.72), 0.4, { x: -16 }, { x: 0 });
+      BAR(22.5, at(6, 0.86), 0.6); BF(20, 22.5, at(6, 0.86), 0.6);
+
+      // L7 只用 1500 万：−6.25% → 18.75
+      OUT("#ga-r4, #ga-r5, #ga-r6, #ga-bt, #ga-bb", at(7, 0.0), 0.35);
+      FILL(15, at(7, 0.05), 0.8); GU(6000, 1500, at(7, 0.05), 0.8);
+      BAR(20, at(7, 0.08), 0.6); BF(22.5, 20, at(7, 0.08), 0.6);
+      IN("#ga-r7", at(7, 0.22), 0.4, { x: -16 }, { x: 0 });
+      IN("#ga-r8", at(7, 0.45), 0.4, { x: -16 }, { x: 0 });
+      IN("#ga-r9", at(7, 0.68), 0.4, { x: -16 }, { x: 0 });
+      BAR(18.75, at(7, 0.8), 0.6); BF(20, 18.75, at(7, 0.8), 0.6);
+      tl.to("#ga-bf", { attr: { fill: "#58C4DD" }, duration: 0.4 }, at(7, 0.8));
+      tl.to("#ga-bfv", { fill: "#58C4DD", duration: 0.4 }, at(7, 0.8));
+
+      tl.to("#ga-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ga-term, #ga-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["gas"] = tl;
+    })();
+  </script>
+</template>

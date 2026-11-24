@@ -1,0 +1,206 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 mining，id 前缀 mi- -->
+  <div id="root" data-composition-id="mining" data-duration="68.61" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="mi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs>
+        <marker id="mi-aB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+      </defs>
+      <g id="mi-all">
+        <!-- 左：挖矿机 -->
+        <g id="mi-mach">
+          <text id="mi-t1" class="h" x="140" y="262" font-size="40" font-weight="700" fill="#e8e6df">挖矿机</text>
+          <text id="mi-t2" class="h" x="140" y="262" font-size="40" font-weight="700" fill="#F0B90B">工作量证明 PoW</text>
+          <text id="mi-nsc" class="h" x="860" y="262" font-size="32" fill="#FF9F43" text-anchor="end">没有捷径</text>
+          <g id="mi-box" class="h">
+            <rect x="120" y="290" width="740" height="470" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <rect x="160" y="330" width="660" height="100" rx="12" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="190" y="392" font-size="32" fill="#e8e6df">区块数据</text>
+            <text x="342" y="392" font-size="32" fill="#e8e6df">+</text>
+            <text class="mono" x="372" y="392" font-size="30" fill="#F0B90B">nonce =</text>
+            <text x="282" y="494" font-size="28" fill="#8a8f99" class="mono">SHA-256</text>
+          </g>
+          <text id="mi-nc" class="h mono" x="522" y="394" font-size="40" font-weight="700" fill="#F0B90B">0</text>
+          <path id="mi-ar" class="dr h" pathLength="1" d="M260 440 L260 528" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#mi-aB)" />
+          <rect id="mi-ob" class="h" x="160" y="540" width="660" height="100" rx="12" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+          <text id="mi-h" class="h mono" x="490" y="604" font-size="40" fill="#58C4DD" text-anchor="middle">7a3f9c01…e9b2d</text>
+          <text id="mi-tg" class="h" x="820" y="498" font-size="32" fill="#FF9F43" text-anchor="end">目标：开头 N 个 0</text>
+          <text id="mi-cap" class="h" x="490" y="714" font-size="28" fill="#8a8f99" text-anchor="middle">nonce 每加 1，哈希全变</text>
+        </g>
+        <!-- 左下：每多一个 0 ×16（对数示意） -->
+        <g id="mi-chart">
+          <text id="mi-cl" class="h" x="180" y="806" font-size="30" fill="#F0B90B">每多一个 0，×16</text>
+            <rect id="mi-b1" class="h" x="180" y="982" width="36" height="18" rx="3" fill="#F0B90B" fill-opacity="0.41" />
+            <rect id="mi-b2" class="h" x="240" y="964" width="36" height="36" rx="3" fill="#F0B90B" fill-opacity="0.48" />
+            <rect id="mi-b3" class="h" x="300" y="946" width="36" height="54" rx="3" fill="#F0B90B" fill-opacity="0.54" />
+            <rect id="mi-b4" class="h" x="360" y="928" width="36" height="72" rx="3" fill="#F0B90B" fill-opacity="0.61" />
+            <rect id="mi-b5" class="h" x="420" y="910" width="36" height="90" rx="3" fill="#F0B90B" fill-opacity="0.68" />
+            <rect id="mi-b6" class="h" x="480" y="892" width="36" height="108" rx="3" fill="#F0B90B" fill-opacity="0.74" />
+            <rect id="mi-b7" class="h" x="540" y="874" width="36" height="126" rx="3" fill="#F0B90B" fill-opacity="0.80" />
+            <rect id="mi-b8" class="h" x="600" y="856" width="36" height="144" rx="3" fill="#F0B90B" fill-opacity="0.87" />
+            <rect id="mi-b9" class="h" x="660" y="838" width="36" height="162" rx="3" fill="#F0B90B" fill-opacity="0.93" />
+            <rect id="mi-b10" class="h" x="720" y="820" width="36" height="180" rx="3" fill="#F0B90B" fill-opacity="1.00" />
+          <line id="mi-base" class="h" x1="170" y1="1000" x2="780" y2="1000" stroke="#8a8f99" stroke-width="2" />
+          <text id="mi-cx" class="h" x="180" y="1038" font-size="28" fill="#6b6f7a">N = 1 … 10（对数示意）</text>
+        </g>
+        <!-- 右：计算区 -->
+        <g id="mi-calc">
+          <g id="mi-ring" class="h">
+            <text class="mono" x="1160.0" y="360.0" font-size="30" fill="#83C167" font-weight="700" text-anchor="middle">0</text>
+            <text class="mono" x="1205.9" y="369.1" font-size="30" fill="#6b6f7a" text-anchor="middle">1</text>
+            <text class="mono" x="1244.9" y="395.1" font-size="30" fill="#6b6f7a" text-anchor="middle">2</text>
+            <text class="mono" x="1270.9" y="434.1" font-size="30" fill="#6b6f7a" text-anchor="middle">3</text>
+            <text class="mono" x="1280.0" y="480.0" font-size="30" fill="#6b6f7a" text-anchor="middle">4</text>
+            <text class="mono" x="1270.9" y="525.9" font-size="30" fill="#6b6f7a" text-anchor="middle">5</text>
+            <text class="mono" x="1244.9" y="564.9" font-size="30" fill="#6b6f7a" text-anchor="middle">6</text>
+            <text class="mono" x="1205.9" y="590.9" font-size="30" fill="#6b6f7a" text-anchor="middle">7</text>
+            <text class="mono" x="1160.0" y="600.0" font-size="30" fill="#6b6f7a" text-anchor="middle">8</text>
+            <text class="mono" x="1114.1" y="590.9" font-size="30" fill="#6b6f7a" text-anchor="middle">9</text>
+            <text class="mono" x="1075.1" y="564.9" font-size="30" fill="#6b6f7a" text-anchor="middle">a</text>
+            <text class="mono" x="1049.1" y="525.9" font-size="30" fill="#6b6f7a" text-anchor="middle">b</text>
+            <text class="mono" x="1040.0" y="480.0" font-size="30" fill="#6b6f7a" text-anchor="middle">c</text>
+            <text class="mono" x="1049.1" y="434.1" font-size="30" fill="#6b6f7a" text-anchor="middle">d</text>
+            <text class="mono" x="1075.1" y="395.1" font-size="30" fill="#6b6f7a" text-anchor="middle">e</text>
+            <text class="mono" x="1114.1" y="369.1" font-size="30" fill="#6b6f7a" text-anchor="middle">f</text>
+          </g>
+          <circle id="mi-rhl" class="h" cx="1160" cy="350" r="26" fill="none" stroke="#83C167" stroke-width="3" />
+          <text id="mi-p1" class="h" x="1340" y="444" font-size="40" font-weight="700" fill="#e8e6df">概率 1/16</text>
+          <text id="mi-p2" class="h" x="1340" y="514" font-size="36" fill="#e8e6df">N = 1 → 平均 <tspan fill="#F0B90B">16</tspan> 次</text>
+          <g id="mi-rows">
+            <text id="mi-a1" class="h" x="1000" y="340" font-size="36" fill="#FF9F43">N = 1</text>
+            <text id="mi-b1t" class="h" x="1170" y="340" font-size="36" fill="#e8e6df">→ 16 次</text>
+            <text id="mi-a3" class="h" x="1000" y="428" font-size="36" fill="#FF9F43">N = 3</text>
+            <text id="mi-b3t" class="h" x="1170" y="428" font-size="36" fill="#e8e6df">→ 16³ = <tspan fill="#F0B90B">4,096</tspan> 次</text>
+            <text id="mi-a4" class="h" x="1000" y="516" font-size="36" fill="#FF9F43">N = 4</text>
+            <text id="mi-b4t" class="h" x="1170" y="516" font-size="36" fill="#e8e6df">→ 16⁴ = <tspan fill="#F0B90B">65,536</tspan> 次</text>
+            <text id="mi-ex" class="h" x="1000" y="624" font-size="32" fill="#8a8f99">示例：每秒算 100 万次</text>
+            <text id="mi-a6" class="h" x="1000" y="704" font-size="36" fill="#FF9F43">N = 6</text>
+            <text id="mi-b6t" class="h" x="1170" y="704" font-size="36" fill="#e8e6df">→ 16⁶ ≈ 1,677 万次 ≈ <tspan fill="#F0B90B">16.8 秒</tspan></text>
+            <text id="mi-a10" class="h" x="1000" y="792" font-size="36" fill="#FF9F43">N = 10</text>
+            <text id="mi-b10t" class="h" x="1170" y="792" font-size="36" fill="#e8e6df">→ 16¹⁰ ≈ 1.1×10¹² 次</text>
+            <text id="mi-c10t" class="h" x="1170" y="860" font-size="36" fill="#e8e6df">≈ 1.1×10⁶ 秒 ≈ <tspan fill="#F0B90B">12.7 天</tspan></text>
+          </g>
+          <!-- L7 全网 -->
+          <text id="mi-n1" class="h" x="1000" y="360" font-size="32" fill="#e8e6df">全网算力：<tspan fill="#F0B90B">EH/s</tspan> = 10¹⁸ 次/秒</text>
+          <text id="mi-n2" class="h" x="1000" y="436" font-size="32" fill="#e8e6df">2025-09：7 日均值首次约 <tspan fill="#F0B90B">1 ZH/s = 1,000 EH/s</tspan></text>
+          <text id="mi-ll" class="h" x="1000" y="566" font-size="30" fill="#8a8f99">你的电脑 ≈ 10⁶ 次/秒</text>
+          <rect id="mi-lb" class="h" x="1000" y="588" width="228" height="44" rx="6" fill="#58C4DD" />
+          <text id="mi-gl" class="h" x="1000" y="706" font-size="30" fill="#F0B90B">全网 ≈ 10²¹ 次/秒</text>
+          <rect id="mi-gb" class="h" x="1000" y="728" width="798" height="80" rx="8" fill="#F0B90B" />
+          <text id="mi-lg" class="h" x="1798" y="866" font-size="28" fill="#6b6f7a" text-anchor="end">（对数刻度示意）</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+const HX = "0123456789abcdef";
+const hx = (n, k) => { let x = (Math.imul(n + 7919 * k, 2654435761) ^ 0x9e3779b9) >>> 0, s = ""; for (let j = 0; j < 13; j++) { x = (Math.imul(x, 1664525) + 1013904223) >>> 0; s += HX[(x >>> 24) & 15]; } return s; };
+const hEl = document.querySelector("#mi-h"), nEl = document.querySelector("#mi-nc");
+const setH = (n, z) => {
+  let s = hx(n, 1);
+  if (z === 0 && s[0] === "0") s = "a" + s.slice(1);
+  const head = s.slice(0, 8), tail = s.slice(8);
+  if (z > 0) hEl.innerHTML = '<tspan fill="#83C167" font-weight="700">' + "0".repeat(z) + "</tspan>" + head.slice(z) + "…" + tail;
+  else hEl.textContent = head + "…" + tail;
+};
+setH(0, 0);
+const RUN = (a, b, t, d, z, ease = "power1.in") => {
+  const o = { v: a };
+  tl.fromTo(o, { v: a }, { v: b, duration: d, ease, immediateRender: false, onUpdate: function () {
+    const n = Math.round(o.v); nEl.textContent = n.toLocaleString("en-US");
+    setH(n, this.progress() >= 1 ? z : 0);
+  } }, t);
+  if (z > 0) {
+    tl.to("#mi-ob", { stroke: "#83C167", duration: 0.2 }, t + d);
+    tl.to("#mi-ob", { stroke: "#58C4DD", duration: 0.3 }, t + d + 1.2);
+  }
+};
+// L0 挖矿机
+IN("#mi-t1", at(0, 0.02), 0.5);
+IN("#mi-box", at(0, 0.08), 0.6, { y: 16 }, { y: 0 });
+IN("#mi-nc", at(0, 0.3), 0.4);
+ARROW("#mi-ar", at(0, 0.4), 0.4);
+IN("#mi-ob, #mi-h", at(0, 0.5), 0.5);
+// L1 nonce 跳动 + 目标
+IN("#mi-tg", at(1, 0.1), 0.5, { x: 16 }, { x: 0 });
+IN("#mi-cap", at(1, 0.2), 0.5);
+RUN(0, 37, at(1, 0.22), 4.0, 1, "none");
+// L2 一个字符位：1/16
+IN("#mi-ring", at(2, 0.02), 0.6, { scale: 0.85, svgOrigin: "1160 470" }, { scale: 1, svgOrigin: "1160 470" });
+IN("#mi-rhl", at(2, 0.12), 0.3);
+tl.fromTo("#mi-rhl", { rotation: 0, svgOrigin: "1160 470" }, { rotation: 720, svgOrigin: "1160 470", duration: 3.0, ease: "power2.inOut", immediateRender: false }, at(2, 0.14));
+tl.to("#mi-rhl", { attr: { r: 30 }, duration: 0.2, yoyo: true, repeat: 1 }, at(2, 0.14) + 3.0);
+IN("#mi-p1", at(2, 0.5), 0.5);
+IN("#mi-p2", at(2, 0.74), 0.5);
+// L3 3 个 0、4 个 0
+OUT("#mi-ring, #mi-rhl, #mi-p1, #mi-p2", at(3, 0), 0.4);
+IN("#mi-a1, #mi-b1t", at(3, 0.06), 0.4);
+IN("#mi-a3", at(3, 0.14), 0.4);
+IN("#mi-b3t", at(3, 0.24), 0.5, { x: -16 }, { x: 0 });
+RUN(0, 3871, at(3, 0.06), 3.0, 3);
+IN("#mi-a4", at(3, 0.6), 0.4);
+IN("#mi-b4t", at(3, 0.7), 0.5, { x: -16 }, { x: 0 });
+RUN(0, 70214, at(3, 0.6), 2.6, 4);
+// L4 每秒 100 万次，6 个 0
+IN("#mi-ex", at(4, 0.08), 0.5);
+IN("#mi-a6", at(4, 0.4), 0.4);
+RUN(0, 16203511, at(4, 0.42), 3.6, 6);
+IN("#mi-b6t", at(4, 0.62), 0.6, { x: -16 }, { x: 0 });
+// L5 10 个 0 + 指数柱
+IN("#mi-a10", at(5, 0.04), 0.4);
+IN("#mi-b10t", at(5, 0.12), 0.5, { x: -16 }, { x: 0 });
+IN("#mi-c10t", at(5, 0.36), 0.5, { x: -16 }, { x: 0 });
+RUN(0, 9999999, at(5, 0.04), 9.0, 0, "none");
+IN("#mi-base, #mi-cx", at(5, 0.6), 0.4);
+for (let i = 1; i <= 10; i++) IN("#mi-b" + i, at(5, 0.62) + (i - 1) * 0.12, 0.35, { scaleY: 0, svgOrigin: `${198 + (i - 1) * 60} 1000` }, { scaleY: 1, svgOrigin: `${198 + (i - 1) * 60} 1000` });
+IN("#mi-cl", at(5, 0.7), 0.5);
+// L6 工作量证明
+OUT("#mi-t1", at(6, 0), 0.3);
+IN("#mi-t2", at(6, 0.08), 0.5);
+IN("#mi-nsc", at(6, 0.4), 0.5);
+RUN(9999999, 30000000, at(6, 0.05), 4.6, 0, "none");
+// L7 全网算力
+OUT("#mi-rows", at(7, 0), 0.4);
+IN("#mi-n1", at(7, 0.06), 0.5);
+IN("#mi-n2", at(7, 0.42), 0.5);
+IN("#mi-ll", at(7, 0.12), 0.4);
+IN("#mi-lb", at(7, 0.14), 0.5, { scaleX: 0, svgOrigin: "1000 610" }, { scaleX: 1, svgOrigin: "1000 610" });
+IN("#mi-gl", at(7, 0.62), 0.4);
+IN("#mi-gb", at(7, 0.64), 1.4, { scaleX: 0, svgOrigin: "1000 768" }, { scaleX: 1, svgOrigin: "1000 768", ease: "power2.inOut" });
+IN("#mi-lg", at(7, 0.74), 0.4);
+tl.to("#mi-lb", { opacity: 0.45, duration: 0.5 }, at(7, 0.8));
+
+      /*ENDANIM*/
+
+      tl.to("#mi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["mining"] = tl;
+    })();
+  </script>
+</template>

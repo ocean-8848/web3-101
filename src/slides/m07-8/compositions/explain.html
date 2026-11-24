@@ -1,0 +1,177 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 explain，id 前缀 ex- -->
+  <div id="root" data-composition-id="explain" data-duration="55.41" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ex-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ex-all">
+        <path id="ex-gap" class="h" d="M414 440 L1566 440" stroke="#6b6f7a" stroke-width="3" stroke-dasharray="10 10" fill="none"/>
+        <text id="ex-gapl" class="h" x="990" y="410" font-size="32" fill="#FF9F43" text-anchor="middle">交给钱包之前</text>
+        <g id="ex-b1" class="h"><rect x="80" y="360" width="330" height="160" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="245" y="430" font-size="32" fill="#e8e6df" text-anchor="middle">前端构造交易</text><text class="mono" x="245" y="482" font-size="28" fill="#58C4DD" text-anchor="middle">to · data · value</text></g>
+        <g id="ex-b2" class="h"><rect x="470" y="360" width="220" height="160" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="580" y="452" font-size="32" fill="#e8e6df" text-anchor="middle">ABI 解码</text></g>
+        <g id="ex-dw"><g id="ex-d" class="h"><path id="ex-dp" d="M840 350 L950 440 L840 530 L730 440 Z" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="840" y="452" font-size="32" fill="#e8e6df" text-anchor="middle">白名单</text></g></g>
+        <g id="ex-b4" class="h"><rect x="1010" y="360" width="220" height="160" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1120" y="452" font-size="32" fill="#e8e6df" text-anchor="middle">模拟执行</text></g>
+        <g id="ex-b5" class="h"><rect x="1290" y="360" width="220" height="160" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1400" y="452" font-size="32" fill="#e8e6df" text-anchor="middle">人话展示</text></g>
+        <g id="ex-b6" class="h"><rect id="ex-b6r" x="1570" y="360" width="240" height="160" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1690" y="452" font-size="32" fill="#e8e6df" text-anchor="middle">钱包签名</text></g>
+        <path id="ex-a1" class="dr h" pathLength="1" d="M412 440 L464 440" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ex-arr)"/>
+        <path id="ex-a2" class="dr h" pathLength="1" d="M692 440 L724 440" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ex-arr)"/>
+        <path id="ex-a3" class="dr h" pathLength="1" d="M952 440 L1004 440" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ex-arr)"/>
+        <path id="ex-a4" class="dr h" pathLength="1" d="M1232 440 L1284 440" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ex-arr)"/>
+        <path id="ex-a5" class="dr h" pathLength="1" d="M1512 440 L1564 440" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ex-arr)"/>
+        <!-- L1 decode -->
+        <g id="ex-dec">
+          <path id="ex-da" class="dr h" pathLength="1" d="M580 524 L580 602" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ex-arr)"/>
+          <g id="ex-cd" class="h"><rect x="300" y="610" width="560" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="580" y="656" font-size="28" fill="#58C4DD" text-anchor="middle">0x095ea7b3000000…</text></g>
+          <path id="ex-da2" class="dr h" pathLength="1" d="M868 645 L956 645" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ex-arr)"/>
+          <text id="ex-fn" class="h mono" x="970" y="656" font-size="30" fill="#e8e6df">approve(spender, amount)</text>
+          <text id="ex-fne" class="h" x="1430" y="656" font-size="28" fill="#6b6f7a">示例</text>
+        </g>
+        <!-- L2 whitelist check -->
+        <g id="ex-chk">
+          <g id="ex-sp" class="h"><rect x="430" y="600" width="300" height="60" rx="30" fill="#FF9F4322" stroke="#FF9F43" stroke-width="2.5"/><text class="mono" x="580" y="640" font-size="28" fill="#FF9F43" text-anchor="middle">spender 0x9f…3c</text></g>
+          <path id="ex-no" class="dr h" pathLength="1" d="M840 534 L840 712" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ex-arr)"/>
+          <text id="ex-nol" class="h" x="858" y="634" font-size="28" fill="#FC6255">不在</text>
+          <g id="ex-blk" class="h"><rect x="690" y="720" width="300" height="80" rx="12" fill="#FC625522" stroke="#FC6255" stroke-width="3"/><text x="840" y="771" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">阻止并告警</text></g>
+        </g>
+        <!-- L3 display card -->
+        <g id="ex-show">
+          <path id="ex-cl" class="dr h" pathLength="1" d="M1400 524 L1400 586" stroke="#83C167" stroke-width="3" fill="none"/>
+          <g id="ex-card" class="h">
+            <rect x="1180" y="590" width="620" height="270" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+            <text x="1770" y="640" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+            <text x="1214" y="660" font-size="30" fill="#8a8f99">你将付出 <tspan fill="#F0B90B">100 USDC</tspan></text>
+            <text x="1214" y="740" font-size="30" fill="#8a8f99">你将收到 <tspan fill="#F0B90B">0.03 ETH</tspan></text>
+            <text x="1214" y="820" font-size="30" fill="#8a8f99">授权给谁 <tspan fill="#FF9F43">0x9f…3c</tspan></text>
+          </g>
+          <circle id="ex-dot" class="h" cx="1400" cy="440" r="14" fill="#F0B90B"/>
+        </g>
+        <!-- L4 compare -->
+        <g id="ex-cmp">
+          <g id="ex-ca" class="h">
+            <rect x="160" y="600" width="700" height="260" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5"/>
+            <text class="mono" x="510" y="710" font-size="36" fill="#8a8f99" text-anchor="middle">approve(…)</text>
+            <path d="M440 776 l28 28 M468 776 l-28 28" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/>
+            <text x="490" y="802" font-size="32" font-weight="700" fill="#FC6255">不够</text>
+          </g>
+          <g id="ex-cb" class="h">
+            <rect x="1060" y="600" width="700" height="260" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+            <text class="mono" x="1410" y="676" font-size="30" fill="#FF9F43" text-anchor="middle">spender 0x9f…3c</text>
+            <text x="1410" y="736" font-size="30" fill="#e8e6df" text-anchor="middle">金额 <tspan fill="#F0B90B">100 USDC</tspan></text>
+            <path d="M1338 790 l14 16 l26 -32" stroke="#83C167" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <text x="1394" y="808" font-size="32" font-weight="700" fill="#83C167">看得清</text>
+          </g>
+        </g>
+        <!-- L5 hardcode -->
+        <g id="ex-hc">
+          <g id="ex-art" class="h">
+            <rect x="500" y="610" width="460" height="260" rx="16" fill="#58C4DD10" stroke="#58C4DD" stroke-width="3"/>
+            <text x="530" y="656" font-size="30" fill="#58C4DD">构建产物</text>
+          </g>
+          <g id="ex-wl" class="h">
+            <rect x="540" y="690" width="380" height="140" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+            <text x="730" y="772" font-size="30" fill="#83C167" text-anchor="middle">白名单 · 硬编码</text>
+            <circle cx="920" cy="690" r="13" fill="#83C167"/>
+          </g>
+          <g id="ex-rc" class="h"><rect x="1260" y="700" width="340" height="90" rx="45" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8"/><text x="1430" y="756" font-size="30" fill="#8a8f99" text-anchor="middle">远程配置</text></g>
+          <path id="ex-rl" class="dr h" pathLength="1" d="M1256 745 L966 745" stroke="#8a8f99" stroke-width="3" fill="none"/>
+          <g id="ex-cut" class="h"><path d="M1090 720 l40 50 M1130 720 l-40 50" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/></g>
+        </g>
+        <!-- L6 limits -->
+        <text id="ex-del" class="h" x="840" y="620" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">检查被删掉</text>
+        <g id="ex-s1" class="h"><rect x="1400" y="600" width="410" height="76" rx="38" fill="#83C16722" stroke="#83C167" stroke-width="3"/><path d="M1440 616 l20 8 v18 c0 14 -10 22 -20 26 c-10 -4 -20 -12 -20 -26 v-18 z" fill="#83C167"/><text x="1484" y="650" font-size="32" font-weight="700" fill="#83C167">钱包侧模拟</text></g>
+        <g id="ex-s2" class="h"><rect x="1400" y="720" width="410" height="76" rx="38" fill="#83C16722" stroke="#83C167" stroke-width="3"/><path d="M1440 736 l20 8 v18 c0 14 -10 22 -20 26 c-10 -4 -20 -12 -20 -26 v-18 z" fill="#83C167"/><text x="1484" y="770" font-size="32" font-weight="700" fill="#83C167">硬件钱包核对</text></g>
+        <path id="ex-sl" class="dr h" pathLength="1" d="M1690 524 L1690 596" stroke="#83C167" stroke-width="3" fill="none"/>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 front end ... wallet
+      IN("#ex-b1", at(0, 0.02), 0.5, { x: -20 }, { x: 0 });
+      IN("#ex-b6", at(0, 0.15), 0.5, { x: 20 }, { x: 0 });
+      IN("#ex-gap", at(0, 0.35), 0.6);
+      IN("#ex-gapl", at(0, 0.55), 0.5);
+      // L1 ABI decode
+      OUT("#ex-gap, #ex-gapl", at(1, 0), 0.3);
+      ARROW("#ex-a1", at(1, 0.05), 0.3);
+      IN("#ex-b2", at(1, 0.1), 0.5, { scale: 0.8, svgOrigin: "580 440" }, { scale: 1, svgOrigin: "580 440" });
+      ARROW("#ex-da", at(1, 0.25), 0.3);
+      IN("#ex-cd", at(1, 0.3), 0.4);
+      ARROW("#ex-da2", at(1, 0.5), 0.4);
+      IN("#ex-fn", at(1, 0.58), 0.5, { x: -20 }, { x: 0 });
+      IN("#ex-fne", at(1, 0.7), 0.4);
+      // L2 whitelist
+      OUT("#ex-dec", at(2, 0), 0.3);
+      ARROW("#ex-a2", at(2, 0.05), 0.3);
+      IN("#ex-d", at(2, 0.1), 0.5, { scale: 0.7, svgOrigin: "840 440" }, { scale: 1, svgOrigin: "840 440" });
+      IN("#ex-sp", at(2, 0.25), 0.4);
+      tl.to("#ex-sp", { x: 190, y: -40, opacity: 0, duration: 0.9, ease: "power2.in" }, at(2, 0.4));
+      tl.to("#ex-dp", { stroke: "#FC6255", duration: 0.2 }, at(2, 0.55));
+      ARROW("#ex-no", at(2, 0.6), 0.5); IN("#ex-nol", at(2, 0.62), 0.3);
+      IN("#ex-blk", at(2, 0.72), 0.4, { scale: 0.8, svgOrigin: "840 760" }, { scale: 1, svgOrigin: "840 760" });
+      tl.to("#ex-dp", { stroke: "#FF9F43", duration: 0.3 }, at(2, 0.95));
+      // L3 simulate + display -> wallet
+      ARROW("#ex-a3", at(3, 0.02), 0.3);
+      IN("#ex-b4", at(3, 0.05), 0.5);
+      ARROW("#ex-a4", at(3, 0.3), 0.3);
+      IN("#ex-b5", at(3, 0.33), 0.5);
+      DRAW("#ex-cl", at(3, 0.42), 0.3); tl.set("#ex-cl", { opacity: 1 }, at(3, 0.42));
+      IN("#ex-card", at(3, 0.45), 0.5, { y: -20 }, { y: 0 });
+      IN("#ex-card text", at(3, 0.5), 0.4, {}, { stagger: 1.1 });
+      ARROW("#ex-a5", at(3, 0.84), 0.3);
+      IN("#ex-dot", at(3, 0.86), 0.2);
+      tl.to("#ex-dot", { attr: { cx: 1690 }, duration: 0.7, ease: "power2.in" }, at(3, 0.87));
+      tl.to("#ex-dot", { opacity: 0, duration: 0.2 }, at(3, 0.87) + 0.7);
+      tl.to("#ex-b6r", { fill: "#83C16733", duration: 0.3 }, at(3, 0.87) + 0.7);
+      // L4 function name is not enough
+      OUT("#ex-chk, #ex-show", at(4, 0), 0.4);
+      tl.to("#ex-b6r", { fill: "#161a22", duration: 0.3 }, at(4, 0));
+      IN("#ex-ca", at(4, 0.1), 0.5);
+      IN("#ex-cb", at(4, 0.45), 0.5);
+      // L5 hardcode whitelist
+      OUT("#ex-cmp", at(5, 0), 0.4);
+      IN("#ex-art", at(5, 0.08), 0.5);
+      IN("#ex-wl", at(5, 0.2), 0.5, { y: -60 }, { y: 0, ease: "back.out(1.6)" });
+      IN("#ex-rc", at(5, 0.45), 0.4);
+      DRAW("#ex-rl", at(5, 0.52), 0.4); tl.set("#ex-rl", { opacity: 1 }, at(5, 0.52));
+      IN("#ex-cut", at(5, 0.72), 0.2, { scale: 1.5, svgOrigin: "1110 745" }, { scale: 1, svgOrigin: "1110 745" });
+      tl.to("#ex-rl", { opacity: 0.3, duration: 0.3 }, at(5, 0.78));
+      // L6 checks can be removed -> wallet-side layers
+      OUT("#ex-hc", at(6, 0), 0.4);
+      tl.to("#ex-dp", { stroke: "#FC6255", duration: 0.2 }, at(6, 0.08));
+      IN("#ex-del", at(6, 0.12), 0.4);
+      tl.to("#ex-dw", { y: -80, opacity: 0, duration: 0.8, ease: "power2.in" }, at(6, 0.3));
+      DRAW("#ex-sl", at(6, 0.55), 0.3); tl.set("#ex-sl", { opacity: 1 }, at(6, 0.55));
+      IN("#ex-s1", at(6, 0.58), 0.5, { x: 20 }, { x: 0 });
+      IN("#ex-s2", at(6, 0.75), 0.5, { x: 20 }, { x: 0 });
+
+
+      tl.to("#ex-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["explain"] = tl;
+    })();
+  </script>
+</template>

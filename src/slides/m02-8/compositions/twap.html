@@ -1,0 +1,296 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 twap，id 前缀 tw- -->
+  <div id="root" data-composition-id="twap" data-duration="72.8" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="tw-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <clipPath id="tw-clip"><rect id="tw-clipr" x="500" y="500" width="0" height="330" /></clipPath>
+      </defs>
+      <g id="tw-all">
+        <!-- 五条线缩略图 -->
+        <g id="tw-th">
+          <g stroke="#FF9F43" stroke-width="3">
+            <line id="tw-th0" x1="1683.6" y1="103" x2="1781.6" y2="61" stroke-width="4.5" />
+            <line x1="1683.6" y1="103" x2="1781.6" y2="82" />
+            <line x1="1683.6" y1="103" x2="1781.6" y2="103" />
+            <line x1="1683.6" y1="103" x2="1781.6" y2="124" />
+            <line x1="1683.6" y1="103" x2="1781.6" y2="145" />
+          </g>
+          <g fill="#FF9F43">
+            <circle id="tw-tc0" cx="1790" cy="61" r="8" />
+            <circle cx="1790" cy="82" r="6" />
+            <circle cx="1790" cy="103" r="6" />
+            <circle cx="1790" cy="124" r="6" />
+            <circle cx="1790" cy="145" r="6" />
+          </g>
+          <rect x="1650" y="89" width="33.6" height="28" rx="3" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+        </g>
+        <!-- L0 换一个价格源 -->
+        <g id="tw-p0">
+          <text id="tw-prev" x="960" y="124" font-size="32" fill="#8a8f99" text-anchor="middle">份额用了<tspan fill="#FC6255">一笔交易就能推动</tspan>的价格</text>
+          <g id="tw-slot" class="h">
+            <text x="960" y="398" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">价格源</text>
+            <rect x="760" y="420" width="400" height="220" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          </g>
+          <g id="tw-spot" class="h">
+            <rect x="800" y="470" width="320" height="120" rx="12" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="3" />
+            <text x="960" y="544" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">即时价</text>
+          </g>
+          <text id="tw-swap" class="h" x="960" y="720" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">换一个推不动的价格</text>
+        </g>
+        <!-- L1–L3 TWAP 折线 -->
+        <g id="tw-chart">
+          <g id="tw-ax" class="h">
+            <line x1="200" y1="820" x2="1720" y2="820" stroke="#6b6f7a" stroke-width="2" />
+            <text x="1720" y="864" font-size="28" fill="#8a8f99" text-anchor="end">时间</text>
+          </g>
+          <path id="tw-area" class="h" clip-path="url(#tw-clip)" d="M500 820 L500 682 L520 675 L560 684 L600 686 L640 668 L680 684 L720 688 L760 668 L800 673 L840 668 L880 668 L920 540 L960 673 L1000 677 L1040 673 L1080 676 L1120 681 L1160 686 L1200 688 L1240 691 L1280 669 L1320 691 L1360 691 L1400 678 L1400 820 Z" fill="#58C4DD" fill-opacity="0.22" />
+          <polyline id="tw-line" class="dr" pathLength="1" points="200,687 240,683 280,681 320,686 360,673 400,690 440,690 480,690 520,675 560,684 600,686 640,668 680,684 720,688 760,668 800,673 840,668 880,668 920,540 960,673 1000,677 1040,673 1080,676 1120,681 1160,686 1200,688 1240,691 1280,669 1320,691 1360,691 1400,678 1440,691 1480,676 1520,675 1560,691 1600,681 1640,671 1680,670 1720,678" fill="none" stroke="#e8e6df" stroke-width="3" stroke-linejoin="round" />
+          <circle id="tw-spk" class="h" cx="920" cy="540" r="9" fill="#FC6255" />
+          <text id="tw-spkl" class="h" x="920" y="518" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">单笔推价</text>
+          <line id="tw-avg" class="dr" pathLength="1" x1="200" y1="680" x2="1720" y2="680" stroke="#83C167" stroke-width="5" />
+          <text id="tw-avgl" class="h mono" x="1734" y="690" font-size="30" font-weight="700" fill="#83C167">TWAP</text>
+          <g id="tw-tt" class="h">
+            <line x1="500" y1="520" x2="500" y2="820" stroke="#e8e6df" stroke-width="2" stroke-dasharray="6 6" />
+            <line x1="1400" y1="520" x2="1400" y2="820" stroke="#e8e6df" stroke-width="2" stroke-dasharray="6 6" />
+            <text class="mono" x="500" y="862" font-size="28" fill="#e8e6df" text-anchor="middle">t1</text>
+            <text class="mono" x="1400" y="862" font-size="28" fill="#e8e6df" text-anchor="middle">t2</text>
+          </g>
+          <text id="tw-f" class="h" x="960" y="300" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">均价 = (累加₂ − 累加₁) ÷ (<tspan class="mono">t2 − t1</tspan>)</text>
+          <text id="tw-v2" class="h mono" x="1720" y="398" font-size="28" fill="#8a8f99" text-anchor="end">V2 · price0CumulativeLast</text>
+          <text id="tw-v3" class="h mono" x="1720" y="444" font-size="28" fill="#8a8f99" text-anchor="end">V3 · observe()</text>
+          <path id="tw-rul" class="dr h" pathLength="1" d="M500 502 L500 486 L1400 486 L1400 502" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <text id="tw-rull" class="h" x="950" y="470" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">30 分钟</text>
+          <path id="tw-plat" class="dr" pathLength="1" d="M500 682 L500 560 L1400 560 L1400 678" fill="none" stroke="#FC6255" stroke-width="5" stroke-linejoin="round" />
+          <text id="tw-platl" class="h" x="1428" y="552" font-size="32" font-weight="700" fill="#FC6255">持续压住 = 成本高</text>
+        </g>
+        <!-- L3 局限：浅池子 / 跟得慢 -->
+        <g id="tw-lim">
+          <g id="tw-shal" class="h">
+            <rect x="200" y="470" width="700" height="430" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="550" y="534" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">浅池子仍可能</text>
+            <line x1="250" y1="820" x2="460" y2="820" stroke="#6b6f7a" stroke-width="2" />
+            <rect x="280" y="770" width="60" height="50" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+            <rect x="370" y="770" width="60" height="50" rx="4" fill="#58C4DD" fill-opacity="0.85" />
+            <g fill="none" stroke="#6b6f7a" stroke-width="2.5">
+              <rect x="500" y="640" width="48" height="48" rx="6" /><rect x="562" y="640" width="48" height="48" rx="6" /><rect x="624" y="640" width="48" height="48" rx="6" />
+              <rect x="686" y="640" width="48" height="48" rx="6" /><rect x="748" y="640" width="48" height="48" rx="6" /><rect x="810" y="640" width="48" height="48" rx="6" />
+            </g>
+          </g>
+          <g fill="#FC6255" fill-opacity="0.75">
+            <rect id="tw-k0" class="h" x="500" y="640" width="48" height="48" rx="6" /><rect id="tw-k1" class="h" x="562" y="640" width="48" height="48" rx="6" />
+            <rect id="tw-k2" class="h" x="624" y="640" width="48" height="48" rx="6" /><rect id="tw-k3" class="h" x="686" y="640" width="48" height="48" rx="6" />
+            <rect id="tw-k4" class="h" x="748" y="640" width="48" height="48" rx="6" /><rect id="tw-k5" class="h" x="810" y="640" width="48" height="48" rx="6" />
+          </g>
+          <g id="tw-lag" class="h">
+            <rect x="1020" y="470" width="700" height="430" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="1370" y="534" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">跟得慢</text>
+            <line x1="1060" y1="870" x2="1690" y2="870" stroke="#6b6f7a" stroke-width="2" />
+            <text class="mono" x="1080" y="586" font-size="28" fill="#83C167">TWAP</text>
+            <text x="1600" y="848" font-size="28" fill="#8a8f99" text-anchor="middle">实价</text>
+          </g>
+          <path id="tw-real" class="dr" pathLength="1" d="M1060 612 L1300 612 L1360 800 L1680 800" fill="none" stroke="#e8e6df" stroke-width="4" stroke-linejoin="round" />
+          <path id="tw-tw" class="dr" pathLength="1" d="M1060 618 L1300 618 C1420 626 1540 700 1680 760" fill="none" stroke="#83C167" stroke-width="4" />
+        </g>
+        <!-- L4–L5 Chainlink 安全读取 -->
+        <g id="tw-vul" class="h">
+          <rect x="360" y="130" width="1050" height="66" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+          <text x="384" y="174" font-size="28" font-weight="700" fill="#FC6255">有漏洞</text>
+          <text class="mono" x="500" y="174" font-size="28" fill="#e8e6df">price = reserveUSDC / reserveETH;</text>
+          <text x="1074" y="174" font-size="28" fill="#FC6255">即时价，一笔交易可推动</text>
+        </g>
+        <g id="tw-code">
+          <g id="tw-cp" class="h">
+            <rect x="360" y="230" width="1200" height="490" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="1536" y="270" font-size="28" font-weight="700" fill="#83C167" text-anchor="end">修复后</text>
+          </g>
+          <rect id="tw-hl" class="h" x="374" y="478" width="1172" height="40" rx="4" fill="#58C4DD" fill-opacity="0.15" />
+          <g id="tw-gb" class="h" fill="#83C167">
+            <rect x="366" y="483" width="6" height="34" /><rect x="366" y="521" width="6" height="72" /><rect x="366" y="597" width="6" height="34" />
+          </g>
+          <g id="tw-src" class="h" font-size="28" fill="#e8e6df">
+            <text class="mono" x="396" y="316" xml:space="preserve">function getPrice(AggregatorV3Interface feed, uint256 maxDelay)</text>
+            <text class="mono" x="396" y="354" xml:space="preserve">    internal view returns (uint256)</text>
+            <text class="mono" x="396" y="392" xml:space="preserve">{</text>
+            <text class="mono" x="396" y="430" xml:space="preserve">    (uint80 roundId, int256 answer, , uint256 updatedAt,</text>
+            <text class="mono" x="396" y="468" xml:space="preserve">     uint80 answeredInRound) = feed.latestRoundData();</text>
+            <text class="mono" x="396" y="506" xml:space="preserve">    require(answer &gt; 0, "bad price");</text>
+            <text class="mono" x="396" y="544" xml:space="preserve">    require(updatedAt != 0 &amp;&amp;</text>
+            <text class="mono" x="396" y="582" xml:space="preserve">        block.timestamp - updatedAt &lt;= maxDelay, "stale price");</text>
+            <text class="mono" x="396" y="620" xml:space="preserve">    require(answeredInRound &gt;= roundId, "stale round");</text>
+            <text class="mono" x="396" y="658" xml:space="preserve">    return uint256(answer);</text>
+            <text class="mono" x="396" y="696" xml:space="preserve">}</text>
+          </g>
+          <g font-size="30" font-weight="700" fill="#83C167">
+            <text id="tw-c0" class="h" x="1590" y="516">✓ 正数</text>
+            <text id="tw-c1" class="h" x="1590" y="572">✓ 够新</text>
+            <text id="tw-c2" class="h" x="1590" y="630">✓ 轮次</text>
+          </g>
+          <text id="tw-dec" class="h" x="380" y="772" font-size="28" fill="#8a8f99">USD 价格源通常为 8 位小数，用 <tspan class="mono">decimals()</tspan> 读取</text>
+        </g>
+        <g id="tw-seq" class="h">
+          <rect x="1480" y="280" width="96" height="56" rx="8" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+          <text class="mono" x="1528" y="320" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">L2</text>
+          <text x="1596" y="320" font-size="32" font-weight="700" fill="#B48EF0">排序器</text>
+        </g>
+        <circle id="tw-led" class="h" cx="1514" cy="430" r="30" fill="#FC6255" />
+        <text id="tw-down" class="h" x="1566" y="441" font-size="30" fill="#FC6255">宕机</text>
+        <text id="tw-up" class="h" x="1566" y="441" font-size="30" fill="#83C167">恢复</text>
+        <rect id="tw-gpo" class="h" x="1480" y="510" width="360" height="36" rx="8" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+        <rect id="tw-gpf" class="h" x="1480" y="510" width="0" height="36" rx="8" fill="#FF9F43" fill-opacity="0.6" />
+        <text id="tw-gpl" class="h" x="1480" y="600" font-size="30" font-weight="700" fill="#FF9F43">宽限期：暂停清算</text>
+        <!-- L6 价格来源对比表 -->
+        <g id="tw-tb">
+          <g id="tw-tbh" class="h">
+            <rect x="160" y="250" width="1600" height="500" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <g font-size="28" font-weight="700" fill="#8a8f99">
+              <text x="196" y="306">来源</text><text x="640" y="306">单笔可操纵</text><text x="1000" y="306">延迟</text><text x="1340" y="306">适用</text>
+            </g>
+            <line x1="180" y1="336" x2="1740" y2="336" stroke="#3a3f4a" stroke-width="2" />
+            <g stroke="#2a2e38" stroke-width="1.5">
+              <line x1="180" y1="450" x2="1740" y2="450" /><line x1="180" y1="550" x2="1740" y2="550" /><line x1="180" y1="650" x2="1740" y2="650" />
+            </g>
+          </g>
+          <g font-size="28" fill="#e8e6df">
+            <g id="tw-r0" class="h">
+              <rect x="170" y="370" width="8" height="60" rx="3" fill="#FC6255" />
+              <text x="196" y="410">DEX 即时价</text><text x="640" y="410" fill="#FC6255" font-weight="700">是</text><text x="1000" y="410">无</text><text x="1340" y="410">只能展示，不能估值</text>
+            </g>
+            <g id="tw-r1" class="h">
+              <rect x="170" y="470" width="8" height="60" rx="3" fill="#83C167" />
+              <text x="196" y="510">DEX TWAP（30 分钟）</text><text x="640" y="510" fill="#FF9F43" font-weight="700">否；多区块仍可能</text><text x="1000" y="510">高（跟随慢）</text><text x="1340" y="510">流动性深的池子</text>
+            </g>
+            <g id="tw-r2" class="h">
+              <rect x="170" y="570" width="8" height="60" rx="3" fill="#83C167" />
+              <text x="196" y="610">Chainlink 聚合价</text><text x="640" y="610" fill="#83C167" font-weight="700">否</text><text x="1000" y="610">心跳与偏离阈值</text><text x="1340" y="610">主流资产借贷、清算</text>
+            </g>
+            <g id="tw-r3" class="h">
+              <rect x="170" y="670" width="8" height="60" rx="3" fill="#83C167" />
+              <text x="196" y="710">多源中位数 + 偏离熔断</text><text x="640" y="710" fill="#83C167" font-weight="700">否</text><text x="1000" y="710">中</text><text x="1340" y="710">大型协议生产方案</text>
+            </g>
+          </g>
+          <text id="tw-tbn" class="h" x="196" y="812" font-size="28" fill="#8a8f99">另：同块存取限制 / 偏离熔断</text>
+        </g>
+        <!-- L7 闪电贷 = 放大器 -->
+        <circle id="tw-bc" class="h" cx="960" cy="460" r="104" fill="#F0B90B" fill-opacity="0.07" />
+        <path id="tw-boom" class="dr h" pathLength="1" d="M1056 404 A112 112 0 1 0 1062 506" fill="none" stroke="#F0B90B" stroke-width="8" stroke-linecap="round" marker-end="url(#tw-arrG)" />
+        <text id="tw-bt" class="h" x="960" y="476" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">闪电贷</text>
+        <text id="tw-amp" class="h" x="960" y="700" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">闪电贷 = 放大器，不是漏洞</text>
+        <text id="tw-inf" class="h" x="960" y="790" font-size="34" fill="#e8e6df" text-anchor="middle">设计时默认：攻击者一笔交易内资金<tspan fill="#FF9F43" font-weight="700">无限</tspan></text>
+      </g>
+      <!-- 术语卡 -->
+      <g id="tw-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">TWAP <tspan font-size="28" font-weight="400" fill="#8a8f99">时间加权平均价格</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">一段时间内按秒加权的平均价格</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 拔掉即时价，换一个推不动的价格源
+      IN("#tw-slot", at(0, 0.0), 0.4);
+      IN("#tw-spot", at(0, 0.05), 0.4, { y: 10 }, { y: 0 });
+      tl.to("#tw-spot", { y: -260, x: 340, opacity: 0, duration: 0.8, ease: "power2.in" }, at(0, 0.36));
+      IN("#tw-swap", at(0, 0.6), 0.5);
+      // L1 TWAP：尖刺很窄，均线几乎不动
+      OUT("#tw-p0", at(1, 0), 0.4);
+      IN("#tw-term", at(1, 0.04), 0.5);
+      IN("#tw-ax", at(1, 0.12), 0.5);
+      DRAW("#tw-line", at(1, 0.18), 1.6);
+      IN("#tw-spk", at(1, 0.44), 0.3);
+      IN("#tw-spkl", at(1, 0.48), 0.4);
+      DRAW("#tw-avg", at(1, 0.66), 1.0);
+      IN("#tw-avgl", at(1, 0.78), 0.4);
+      // L2 累加器：两点相减再除以时间差
+      OUT("#tw-term", at(2, 0), 0.3);
+      IN("#tw-tt", at(2, 0.08), 0.5);
+      tl.set("#tw-area", { opacity: 1 }, at(2, 0.12));
+      tl.fromTo("#tw-clipr", { attr: { width: 0 } }, { attr: { width: 900 }, duration: 2.2, ease: "power1.inOut", immediateRender: false }, at(2, 0.12));
+      IN("#tw-f", at(2, 0.4), 0.6, { y: 12 }, { y: 0 });
+      IN("#tw-v2", at(2, 0.3), 0.4);
+      IN("#tw-v3", at(2, 0.86), 0.4);
+      tl.to("#tw-area", { opacity: 0.55, duration: 0.4, yoyo: true, repeat: 1 }, at(2, 0.62));
+      tl.to("#tw-tt", { opacity: 0.5, duration: 0.4, yoyo: true, repeat: 1 }, at(2, 0.62));
+      // L3 30 分钟要持续压住；局限：浅池子、跟得慢
+      OUT("#tw-spkl", at(3, 0), 0.3);
+      ARROW("#tw-rul", at(3, 0.04), 0.6);
+      IN("#tw-rull", at(3, 0.08), 0.4);
+      tl.set("#tw-plat", { opacity: 1 }, at(3, 0.16));
+      DRAW("#tw-plat", at(3, 0.16), 1.2);
+      IN("#tw-platl", at(3, 0.26), 0.4);
+      tl.to("#tw-avg", { attr: { y1: 650, y2: 650 }, duration: 0.8, ease: "power2.inOut" }, at(3, 0.3));
+      tl.to("#tw-avgl", { attr: { y: 660 }, duration: 0.8, ease: "power2.inOut" }, at(3, 0.3));
+      OUT("#tw-chart", at(3, 0.5), 0.4);
+      IN("#tw-shal", at(3, 0.56), 0.5);
+      for (let i = 0; i < 6; i++) IN(`#tw-k${i}`, at(3, 0.6 + i * 0.03), 0.25);
+      IN("#tw-lag", at(3, 0.8), 0.5);
+      DRAW("#tw-real", at(3, 0.82), 0.6);
+      DRAW("#tw-tw", at(3, 0.86), 1.0);
+      // L4 Chainlink 三项检查
+      OUT("#tw-lim", at(4, 0), 0.4);
+      IN("#tw-vul", at(4, 0.04), 0.5, { y: -10 }, { y: 0 });
+      IN("#tw-cp, #tw-src", at(4, 0.12), 0.6);
+      IN("#tw-dec", at(4, 0.3), 0.5);
+      IN("#tw-hl", at(4, 0.52), 0.3);
+      IN("#tw-gb", at(4, 0.52), 0.3);
+      IN("#tw-c0", at(4, 0.56), 0.3, { x: -10 }, { x: 0 });
+      tl.to("#tw-hl", { attr: { y: 516, height: 78 }, duration: 0.4, ease: "power2.inOut" }, at(4, 0.7));
+      IN("#tw-c1", at(4, 0.72), 0.3, { x: -10 }, { x: 0 });
+      tl.to("#tw-hl", { attr: { y: 594, height: 40 }, duration: 0.4, ease: "power2.inOut" }, at(4, 0.86));
+      IN("#tw-c2", at(4, 0.88), 0.3, { x: -10 }, { x: 0 });
+      // L5 L2 排序器宽限期
+      OUT("#tw-vul, #tw-hl", at(5, 0), 0.3);
+      tl.to("#tw-code", { x: -300, duration: 0.7, ease: "power2.inOut" }, at(5, 0.02));
+      IN("#tw-seq", at(5, 0.12), 0.5);
+      IN("#tw-led, #tw-down", at(5, 0.25), 0.4);
+      OUT("#tw-down", at(5, 0.5), 0.2);
+      tl.to("#tw-led", { fill: "#83C167", duration: 0.3 }, at(5, 0.5));
+      IN("#tw-up", at(5, 0.54), 0.3);
+      IN("#tw-gpo, #tw-gpf, #tw-gpl", at(5, 0.6), 0.4);
+      tl.to("#tw-gpf", { attr: { width: 360 }, duration: 1.8, ease: "none" }, at(5, 0.62));
+      // L6 四种价格来源
+      OUT("#tw-code, #tw-seq, #tw-led, #tw-up, #tw-gpo, #tw-gpf, #tw-gpl", at(6, 0), 0.4);
+      IN("#tw-tbh", at(6, 0.04), 0.5);
+      IN("#tw-r0", at(6, 0.14), 0.5, { x: -12 }, { x: 0 });
+      IN("#tw-r1", at(6, 0.32), 0.5, { x: -12 }, { x: 0 });
+      IN("#tw-r2", at(6, 0.52), 0.5, { x: -12 }, { x: 0 });
+      IN("#tw-r3", at(6, 0.74), 0.5, { x: -12 }, { x: 0 });
+      IN("#tw-tbn", at(6, 0.82), 0.4);
+      // L7 闪电贷是放大器
+      OUT("#tw-tb", at(7, 0), 0.4);
+      IN("#tw-bc, #tw-bt", at(7, 0.04), 0.5, { scale: 0.6, svgOrigin: "960 460" }, { scale: 1, svgOrigin: "960 460" });
+      ARROW("#tw-boom", at(7, 0.06), 0.9);
+      IN("#tw-amp", at(7, 0.2), 0.6, { y: 12 }, { y: 0 });
+      IN("#tw-inf", at(7, 0.56), 0.6, { y: 12 }, { y: 0 });
+      tl.to("#tw-th0, #tw-tc0", { stroke: "#83C167", fill: "#83C167", duration: 0.5 }, at(7, 0.88));
+
+      tl.to("#tw-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#tw-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["twap"] = tl;
+    })();
+  </script>
+</template>

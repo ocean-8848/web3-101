@@ -1,0 +1,231 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 fix，id 前缀 fi- -->
+  <div id="root" data-composition-id="fix" data-duration="62.13" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="fi-all">
+        <defs><marker id="fi-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker><marker id="fi-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker><marker id="fi-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker><marker id="fi-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker><marker id="fi-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker><marker id="fi-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker><marker id="fi-my" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker></defs>
+        <g id="fi-pv" class="h"><rect x="60" y="220" width="895" height="350" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><rect x="60" y="232" width="4" height="326" fill="#FC6255" /><text class="mono" x="90" y="256" font-size="22" fill="#8a8f99" data-layout-ignore="true">VulnerableVault.sol</text></g>
+        <g id="fi-pvt" class="h"><path d="M856 240 L872 256 M872 240 L856 256" stroke="#FC6255" stroke-width="4" /><text x="930" y="258" font-size="28" fill="#FC6255" text-anchor="end" font-weight="700">漏洞</text></g>
+        <rect id="fi-hlL" class="h" x="66" y="478" width="883" height="40" fill="#FC6255" fill-opacity="0.15" />
+        <g id="fi-cv" class="h"><text id="fi-cvl0" class="mono" x="80.0" y="306" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">function</tspan> withdraw() <tspan fill="#58C4DD">external</tspan> {</text>
+<text id="fi-cvl1" class="mono" x="113.6" y="346" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">uint256</tspan> amount = balances[msg.sender];</text>
+<text id="fi-cvl2" class="mono" x="113.6" y="386" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">require</tspan>(amount &gt; <tspan fill="#F0B90B">0</tspan>, <tspan fill="#c9b98a">"no balance"</tspan>);</text>
+<text id="fi-cvl3" class="mono" x="113.6" y="426" font-size="28" fill="#e8e6df" xml:space="preserve">(<tspan fill="#58C4DD">bool</tspan> ok, ) = msg.sender.call{value: amount}(<tspan fill="#c9b98a">""</tspan>);</text>
+<text id="fi-cvl4" class="mono" x="113.6" y="466" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">require</tspan>(ok, <tspan fill="#c9b98a">"send failed"</tspan>);</text>
+<text id="fi-cvl5" class="mono" x="113.6" y="506" font-size="28" fill="#e8e6df" xml:space="preserve">balances[msg.sender] = <tspan fill="#F0B90B">0</tspan>;</text>
+<text id="fi-cvl6" class="mono" x="80.0" y="546" font-size="28" fill="#e8e6df" xml:space="preserve">}</text></g>
+        <g id="fi-pf" class="h"><rect x="965" y="220" width="895" height="350" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><rect x="965" y="232" width="4" height="326" fill="#83C167" /><text class="mono" x="995" y="256" font-size="22" fill="#8a8f99" data-layout-ignore="true">SafeVault.sol</text></g>
+        <g id="fi-pft" class="h"><path d="M1764 249.9 L1770.8 258 L1782 240" stroke="#83C167" stroke-width="4" fill="none" /><text x="1840" y="258" font-size="28" fill="#83C167" text-anchor="end" font-weight="700">修复</text></g>
+        <rect id="fi-hlR" class="h" x="971" y="398" width="883" height="40" fill="#83C167" fill-opacity="0.15" />
+        <g id="fi-cf" class="h"><text id="fi-cfl0" class="mono" x="990.0" y="306" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">function</tspan> withdraw() <tspan fill="#58C4DD">external</tspan> {</text>
+<text id="fi-cfl1" class="mono" x="1023.6" y="346" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">uint256</tspan> amount = balances[msg.sender];</text>
+<text id="fi-cfl2" class="mono" x="1023.6" y="386" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">require</tspan>(amount &gt; <tspan fill="#F0B90B">0</tspan>, <tspan fill="#c9b98a">"no balance"</tspan>);</text>
+<text id="fi-cfl3" class="mono" x="1023.6" y="426" font-size="28" fill="#e8e6df" xml:space="preserve">balances[msg.sender] = <tspan fill="#F0B90B">0</tspan>;</text>
+<text id="fi-cfl4" class="mono" x="1023.6" y="466" font-size="28" fill="#e8e6df" xml:space="preserve">(<tspan fill="#58C4DD">bool</tspan> ok, ) = msg.sender.call{value: amount}(<tspan fill="#c9b98a">""</tspan>);</text>
+<text id="fi-cfl5" class="mono" x="1023.6" y="506" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">require</tspan>(ok, <tspan fill="#c9b98a">"send failed"</tspan>);</text>
+<text id="fi-cfl6" class="mono" x="990.0" y="546" font-size="28" fill="#e8e6df" xml:space="preserve">}</text></g>
+        <g id="fi-tag0" class="h"><circle cx="1730" cy="356" r="18" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1730" y="366" font-size="28" fill="#58C4DD" text-anchor="middle" font-weight="700">C</text></g>
+        <g id="fi-tag1" class="h"><circle cx="1730" cy="416" r="18" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="1730" y="426" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">E</text></g>
+        <g id="fi-tag2" class="h"><circle cx="1730" cy="496" r="18" fill="#FF9F43" fill-opacity="0.2" stroke="#FF9F43" stroke-width="2.5" /><text class="mono" x="1730" y="506" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="700">I</text></g>
+        <path id="fi-arc" class="dr h" pathLength="1" d="M552 500 C720 650, 960 650, 960 446" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#fi-mg)" />
+        <g id="fi-f0" class="h"><rect id="fi-fr0" x="700" y="920" width="520" height="52" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><g id="fi-ft0"><text class="mono" x="724" y="956" font-size="28" fill="#58C4DD">withdraw()</text></g></g><g id="fi-rd0" class="h"><rect x="1070" y="928" width="140" height="36" rx="6" fill="none" stroke="#F0B90B" stroke-width="2" /><text x="1140" y="956" font-size="28" fill="#F0B90B" text-anchor="middle" font-weight="700">读到 1</text></g>
+        <g id="fi-f1" class="h"><rect id="fi-fr1" x="700" y="860" width="520" height="52" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3" /><g id="fi-ft1"><text class="mono" x="724" y="896" font-size="28" fill="#FC6255">receive()</text></g></g>
+        <g id="fi-f2" class="h"><rect id="fi-fr2" x="700" y="800" width="520" height="52" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><g id="fi-ft2"><text class="mono" x="724" y="836" font-size="28" fill="#58C4DD">withdraw()</text></g></g><g id="fi-rd2" class="h"><rect x="1070" y="808" width="140" height="36" rx="6" fill="none" stroke="#F0B90B" stroke-width="2" /><text x="1140" y="836" font-size="28" fill="#F0B90B" text-anchor="middle" font-weight="700">读到 0</text></g>
+        <path id="fi-base" class="dr" pathLength="1" d="M690 984 L1230 984" stroke="#8a8f99" stroke-width="3" fill="none" />
+        <text id="fi-z" class="h mono" x="680" y="956" font-size="28" fill="#83C167" text-anchor="end" font-weight="700">balances = 0</text>
+        <text id="fi-rv" class="h mono" x="680" y="836" font-size="30" fill="#83C167" text-anchor="end" font-weight="700">revert</text>
+        <g id="fi-tk" class="h"><circle cx="1260" cy="946" r="24" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3.5" /><circle cx="1254" cy="946" r="6" fill="none" stroke="#FF9F43" stroke-width="3" /><path d="M1260 946 L1272 946 M1268 946 L1268 952" stroke="#FF9F43" stroke-width="3" fill="none" /></g>
+        <g id="fi-resv" class="h"><text x="1420" y="700" font-size="30" fill="#58C4DD" font-weight="700">金库</text><text class="mono" x="1420" y="748" font-size="30" fill="#F0B90B" font-weight="700"><tspan id="fi-rvv">11</tspan> ETH</text></g>
+        <rect id="fi-c0" class="h" x="1340" y="958" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-c1" class="h" x="1340" y="928" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-c2" class="h" x="1340" y="898" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-c3" class="h" x="1340" y="868" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-c4" class="h" x="1340" y="838" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-c5" class="h" x="1340" y="808" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-c6" class="h" x="1340" y="778" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-c7" class="h" x="1340" y="748" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-c8" class="h" x="1340" y="718" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-c9" class="h" x="1340" y="688" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-c10" class="h" x="1340" y="658" width="50" height="26" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <g id="fi-pl" class="h"><rect x="760" y="220" width="1100" height="510" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><rect x="760" y="232" width="4" height="486" fill="#83C167" /><text class="mono" x="790" y="256" font-size="22" fill="#8a8f99" data-layout-ignore="true">SafeVault.sol</text></g>
+        <g id="fi-plt" class="h"><path d="M1764 249.9 L1770.8 258 L1782 240" stroke="#83C167" stroke-width="4" fill="none" /><text x="1840" y="258" font-size="28" fill="#83C167" text-anchor="end" font-weight="700">修复 B</text></g>
+        <rect id="fi-hlB" class="h" x="766" y="398" width="1088" height="40" fill="#83C167" fill-opacity="0.15" />
+        <g id="fi-cl" class="h"><text id="fi-ckl0" class="mono" x="790.0" y="306" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">import</tspan> {ReentrancyGuard} <tspan fill="#58C4DD">from</tspan></text>
+<text id="fi-ckl1" class="mono" x="823.6" y="346" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#c9b98a">"@openzeppelin/contracts/utils/ReentrancyGuard.sol"</tspan>;</text>
+<text id="fi-ckl2" class="mono" x="790.0" y="386" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">contract</tspan> SafeVault <tspan fill="#58C4DD">is</tspan> ReentrancyGuard {</text>
+<text id="fi-ckl3" class="mono" x="823.6" y="426" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">function</tspan> withdraw() <tspan fill="#58C4DD">external</tspan> <tspan fill="#58C4DD">nonReentrant</tspan> {</text>
+<text id="fi-ckl4" class="mono" x="857.2" y="466" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">uint256</tspan> amount = balances[msg.sender];</text>
+<text id="fi-ckl5" class="mono" x="857.2" y="506" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">require</tspan>(amount &gt; <tspan fill="#F0B90B">0</tspan>, <tspan fill="#c9b98a">"no balance"</tspan>);</text>
+<text id="fi-ckl6" class="mono" x="857.2" y="546" font-size="28" fill="#e8e6df" xml:space="preserve">balances[msg.sender] = <tspan fill="#F0B90B">0</tspan>;</text>
+<text id="fi-ckl7" class="mono" x="857.2" y="586" font-size="28" fill="#e8e6df" xml:space="preserve">(<tspan fill="#58C4DD">bool</tspan> ok, ) = msg.sender.call{value: amount}(<tspan fill="#c9b98a">""</tspan>);</text>
+<text id="fi-ckl8" class="mono" x="857.2" y="626" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">require</tspan>(ok, <tspan fill="#c9b98a">"send failed"</tspan>);</text>
+<text id="fi-ckl9" class="mono" x="823.6" y="666" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+<text id="fi-ckl10" class="mono" x="790.0" y="706" font-size="28" fill="#e8e6df" xml:space="preserve">}</text></g>
+        <text id="fi-cmt" class="h" x="790" y="780" font-size="28" fill="#83C167">nonReentrant：第二次进入直接 revert</text>
+        <g id="fi2-f0" class="h"><rect id="fi2-fr0" x="80" y="920" width="520" height="52" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><g id="fi2-ft0"><text class="mono" x="104" y="956" font-size="28" fill="#58C4DD">withdraw()</text></g></g>
+        <g id="fi2-f1" class="h"><rect id="fi2-fr1" x="80" y="860" width="520" height="52" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3" /><g id="fi2-ft1"><text class="mono" x="104" y="896" font-size="28" fill="#FC6255">receive()</text></g></g>
+        <g id="fi2-f2" class="h"><rect id="fi2-fr2" x="80" y="800" width="520" height="52" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><g id="fi2-ft2"><text class="mono" x="104" y="836" font-size="28" fill="#58C4DD">withdraw()</text></g></g>
+        <path id="fi2-base" class="dr" pathLength="1" d="M70 984 L610 984" stroke="#8a8f99" stroke-width="3" fill="none" />
+        <g id="fi2-lock" class="h"><path d="M623.0 934.0 L623.0 924.0 Q634.0 908.0 645.0 924.0 L645.0 934.0" fill="none" stroke="#83C167" stroke-width="3.5" /><rect x="614" y="934" width="40.0" height="34.0" rx="5.0" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="3.0" /></g>
+        <text id="fi2-rv" class="h mono" x="340" y="772" font-size="30" fill="#83C167" text-anchor="middle" font-weight="700">revert</text>
+        <g id="fi-w1" class="h"><rect x="880" y="340" width="40" height="220" rx="6" fill="#83C167" fill-opacity="0.35" stroke="#83C167" stroke-width="3" /><rect x="880" y="640" width="40" height="220" rx="6" fill="#83C167" fill-opacity="0.35" stroke="#83C167" stroke-width="3" /><text class="mono" x="900" y="312" font-size="36" fill="#83C167" text-anchor="middle" font-weight="700">CEI</text></g>
+        <g id="fi-w2" class="h"><rect x="1280" y="340" width="40" height="520" rx="6" fill="#83C167" fill-opacity="0.35" stroke="#83C167" stroke-width="3" /><g id="fi-w2l" class=""><path d="M1289.0 276.0 L1289.0 266.0 Q1300.0 250.0 1311.0 266.0 L1311.0 276.0" fill="none" stroke="#83C167" stroke-width="3.5" /><rect x="1280" y="276" width="40.0" height="34.0" rx="5.0" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="3.0" /></g></g>
+        <text id="fi-w2t" class="h" x="1340" y="312" font-size="36" fill="#83C167" font-weight="700">锁</text>
+        <path id="fi-ra" class="dr h" pathLength="1" d="M300 600 L1268 600" stroke="#FC6255" stroke-width="5" fill="none" marker-end="url(#fi-mr)" />
+        <text id="fi-gap" class="h" x="936" y="654" font-size="28" fill="#FF9F43" font-weight="700">写漏</text>
+        <g id="fi-rax" class="h"><path d="M1226 648 L1258 680 M1258 648 L1226 680" stroke="#FC6255" stroke-width="6" /></g>
+        <g id="fi-strip" class="h"><rect x="660" y="230" width="580" height="84" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text class="mono" x="688" y="283" font-size="28" fill="#e8e6df" xml:space="preserve">balances[msg.sender] -= amount;</text></g>
+        <g id="fi-stamp" class="h"><rect x="1270" y="236" width="200" height="72" rx="10" fill="#FF9F43" fill-opacity="0.12" stroke="#FF9F43" stroke-width="3.5" /><text x="1370" y="284" font-size="30" fill="#FF9F43" text-anchor="middle" font-weight="700">碰巧安全</text></g>
+        <g id="fi3-f0" class="h"><rect id="fi3-fr0" x="700" y="920" width="520" height="52" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><g id="fi3-ft0"><text class="mono" x="724" y="956" font-size="28" fill="#58C4DD">withdraw()</text></g></g>
+        <g id="fi3-f1" class="h"><rect id="fi3-fr1" x="700" y="860" width="520" height="52" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3" /><g id="fi3-ft1"><text class="mono" x="724" y="896" font-size="28" fill="#FC6255">receive()</text></g></g>
+        <g id="fi3-f2" class="h"><rect id="fi3-fr2" x="700" y="800" width="520" height="52" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><g id="fi3-ft2"><text class="mono" x="724" y="836" font-size="28" fill="#58C4DD">withdraw()</text></g></g>
+        <path id="fi3-base" class="dr" pathLength="1" d="M690 984 L1230 984" stroke="#8a8f99" stroke-width="3" fill="none" />
+        <text id="fi3-uf" class="h" x="1244" y="956" font-size="28" fill="#FC6255" font-weight="700">下溢 → revert</text>
+        <g id="fi-gb0" class="h"><rect x="1480" y="560" width="220" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="1590" y="611" font-size="30" fill="#8a8f99" text-anchor="middle" font-weight="700">跨函数</text><text x="1716" y="611" font-size="28" fill="#FC6255" font-weight="700">仍成立</text></g>
+        <g id="fi-gb1" class="h"><rect x="1480" y="680" width="220" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="1590" y="731" font-size="30" fill="#8a8f99" text-anchor="middle" font-weight="700">只读</text><text x="1716" y="731" font-size="28" fill="#FC6255" font-weight="700">仍成立</text></g>
+        <g id="fi-lap" class="h"><rect x="520" y="260" width="880" height="540" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><path d="M470 840 L520 800 L1400 800 L1450 840 Z" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="552" y="310" font-size="28" fill="#8a8f99">Remix VM · 本地</text><text x="560" y="462" font-size="30" fill="#58C4DD" font-weight="700">金库</text><text x="560" y="622" font-size="30" fill="#FC6255" font-weight="700">攻击合约</text><text class="mono" x="1236" y="310" font-size="28" fill="#8a8f99" text-anchor="end">CEI</text></g>
+        <rect id="fi-sw" class="h" x="1250" y="284" width="72" height="34" rx="17" fill="#3a3f4a" stroke="#8a8f99" stroke-width="2" />
+        <circle id="fi-swk" class="h" cx="1268" cy="301" r="13" fill="#e8e6df" />
+        <rect id="fi-v0" class="h" x="700" y="420" width="36" height="56" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-v1" class="h" x="740" y="420" width="36" height="56" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-v2" class="h" x="780" y="420" width="36" height="56" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-v3" class="h" x="820" y="420" width="36" height="56" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-v4" class="h" x="860" y="420" width="36" height="56" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="fi-v5" class="h" x="900" y="420" width="36" height="56" rx="4" fill="#F0B90B" fill-opacity="0.6" />
+        <rect id="fi-v6" class="h" x="940" y="420" width="36" height="56" rx="4" fill="#F0B90B" fill-opacity="0.6" />
+        <rect id="fi-v7" class="h" x="980" y="420" width="36" height="56" rx="4" fill="#F0B90B" fill-opacity="0.6" />
+        <rect id="fi-v8" class="h" x="1020" y="420" width="36" height="56" rx="4" fill="#F0B90B" fill-opacity="0.6" />
+        <rect id="fi-v9" class="h" x="1060" y="420" width="36" height="56" rx="4" fill="#F0B90B" fill-opacity="0.6" />
+        <rect id="fi-v10" class="h" x="1100" y="420" width="36" height="56" rx="4" fill="#FC6255" fill-opacity="0.9" />
+        <text id="fi-o1" class="h mono" x="1150" y="462" font-size="28" fill="#F0B90B" font-weight="700">10 + 1 → 0</text>
+        <text id="fi-o2" class="h mono" x="1150" y="462" font-size="28" fill="#F0B90B" font-weight="700">10</text>
+        <text id="fi-a1" class="h mono" x="760" y="624" font-size="40" fill="#FC6255" font-weight="700">11</text>
+        <g id="fi-a2" class="h"><text class="mono" x="760" y="624" font-size="40" fill="#83C167" font-weight="700">1</text><path d="M800 610.3 L809.9 622 L826 596" stroke="#83C167" stroke-width="5" fill="none" /></g>
+      </g>
+      <g id="fi-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">CEI <tspan font-size="28" font-weight="400" fill="#8a8f99">Checks-Effects-Interactions</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">检查 → 生效 → 交互</text>
+      </g>
+<g id="fi-term2" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">回滚 <tspan font-size="28" font-weight="400" fill="#8a8f99">Revert</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">本次交易所有状态修改全部撤销</text>
+      </g>
+<g id="fi-term3" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">修饰器 <tspan font-size="28" font-weight="400" fill="#8a8f99">Modifier</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">写在函数声明上、先于函数体运行的检查</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      // L0 CEI 对照
+      IN("#fi-term", at(0, 0.0), 0.5);
+      IN("#fi-pv", at(0, 0.04), 0.5); IN("#fi-pvt", at(0, 0.04), 0.5); IN("#fi-cv", at(0, 0.06), 0.5);
+      IN("#fi-hlL", at(0, 0.16), 0.3);
+      IN("#fi-pf", at(0, 0.22), 0.5); IN("#fi-pft", at(0, 0.22), 0.5); IN("#fi-cf", at(0, 0.24), 0.5);
+      ARROW("#fi-arc", at(0, 0.32), 0.8); IN("#fi-hlR", at(0, 0.38), 0.3);
+      IN("#fi-tag0", at(0, 0.62), 0.3, { scale: 0.5, svgOrigin: "1730 356" }, { scale: 1, svgOrigin: "1730 356" });
+      IN("#fi-tag1", at(0, 0.74), 0.3, { scale: 0.5, svgOrigin: "1730 416" }, { scale: 1, svgOrigin: "1730 416" });
+      IN("#fi-tag2", at(0, 0.86), 0.3, { scale: 0.5, svgOrigin: "1730 496" }, { scale: 1, svgOrigin: "1730 496" });
+      // L1 小塔重演 → revert
+      OUT("#fi-arc", at(1, 0.0), 0.3);
+      DRAW("#fi-base", at(1, 0.0), 0.4);
+      IN("#fi-resv", at(1, 0.02), 0.3); for (let i = 0; i < 11; i++) IN("#fi-c" + i, at(1, 0.02 + i * 0.006), 0.2);
+      IN("#fi-f0", at(1, 0.04), 0.4, { y: -50 }, { y: 0 }); IN("#fi-rd0", at(1, 0.08), 0.3);
+      IN("#fi-z", at(1, 0.12), 0.3);
+      IN("#fi-tk", at(1, 0.18), 0.3);
+      tl.set("#fi-c10", { opacity: 0 }, at(1, 0.2)); COUNT("#fi-rvv", 11, 10, at(1, 0.2), 0.2);
+      TO("#fi-tk", at(1, 0.2), { y: -60 }, 0.3);
+      IN("#fi-f1", at(1, 0.22), 0.4, { y: -50 }, { y: 0 });
+      TO("#fi-tk", at(1, 0.28), { y: -120 }, 0.3);
+      IN("#fi-f2", at(1, 0.3), 0.4, { y: -50 }, { y: 0 }); IN("#fi-rd2", at(1, 0.34), 0.3);
+      tl.to("#fi-fr2", { stroke: "#83C167", duration: 0.3 }, at(1, 0.4));
+      IN("#fi-rv", at(1, 0.4), 0.3, { scale: 1.4, svgOrigin: "620 826" }, { scale: 1, svgOrigin: "620 826" });
+      ["#fi-f2", "#fi-rd2", "#fi-tk"].forEach(s => OUT(s, at(1, 0.48), 0.3));
+      ["#fi-f1"].forEach(s => OUT(s, at(1, 0.51), 0.3));
+      ["#fi-f0", "#fi-rd0", "#fi-z", "#fi-rv"].forEach(s => OUT(s, at(1, 0.54), 0.3));
+      tl.set("#fi-c10", { opacity: 1 }, at(1, 0.56)); COUNT("#fi-rvv", 10, 11, at(1, 0.56), 0.2);
+      OUT("#fi-term", at(1, 0.55), 0.3); IN("#fi-term2", at(1, 0.58), 0.4);
+      // L2 重入锁
+      ["#fi-pv", "#fi-pvt", "#fi-cv", "#fi-hlL", "#fi-pf", "#fi-pft", "#fi-cf", "#fi-hlR", "#fi-tag0", "#fi-tag1", "#fi-tag2", "#fi-base", "#fi-resv"].forEach(s => OUT(s, at(2, 0.0), 0.35));
+      for (let i = 0; i < 11; i++) OUT("#fi-c" + i, at(2, 0.0), 0.35);
+      IN("#fi-pl", at(2, 0.06), 0.5); IN("#fi-plt", at(2, 0.06), 0.5); IN("#fi-cl", at(2, 0.08), 0.5);
+      IN("#fi-hlB", at(2, 0.22), 0.3); IN("#fi-cmt", at(2, 0.26), 0.4);
+      DRAW("#fi2-base", at(2, 0.3), 0.4);
+      IN("#fi2-f0", at(2, 0.32), 0.4, { y: -50 }, { y: 0 });
+      IN("#fi2-lock", at(2, 0.36), 0.4, { scale: 1.6, svgOrigin: "634 950" }, { scale: 1, svgOrigin: "634 950" });
+      IN("#fi2-f1", at(2, 0.42), 0.4, { y: -50 }, { y: 0 });
+      IN("#fi2-f2", at(2, 0.5), 0.3, { y: -80 }, { y: 0 });
+      tl.to("#fi2-fr2", { stroke: "#83C167", duration: 0.2 }, at(2, 0.53));
+      tl.to("#fi2-f2", { y: -60, opacity: 0, duration: 0.5, ease: "power2.out" }, at(2, 0.56));
+      IN("#fi2-rv", at(2, 0.56), 0.3);
+      OUT("#fi-term2", at(2, 0.66), 0.3); IN("#fi-term3", at(2, 0.69), 0.4);
+      // L3 两道防线
+      ["#fi-pl", "#fi-plt", "#fi-cl", "#fi-hlB", "#fi-cmt", "#fi2-base", "#fi2-f0", "#fi2-f1", "#fi2-lock", "#fi2-rv", "#fi-term3"].forEach(s => OUT(s, at(3, 0.0), 0.35));
+      IN("#fi-w1", at(3, 0.08), 0.5); IN("#fi-w2", at(3, 0.3), 0.5); IN("#fi-w2t", at(3, 0.3), 0.5);
+      ARROW("#fi-ra", at(3, 0.5), 0.8); IN("#fi-gap", at(3, 0.62), 0.3);
+      IN("#fi-rax", at(3, 0.75), 0.3, { scale: 1.6, svgOrigin: "1242 664" }, { scale: 1, svgOrigin: "1242 664" });
+      // L4 碰巧安全
+      ["#fi-w1", "#fi-w2", "#fi-w2t", "#fi-ra", "#fi-gap", "#fi-rax"].forEach(s => OUT(s, at(4, 0.0), 0.35));
+      IN("#fi-strip", at(4, 0.06), 0.5);
+      DRAW("#fi3-base", at(4, 0.12), 0.4);
+      IN("#fi3-f0", at(4, 0.14), 0.3, { y: -50 }, { y: 0 }); IN("#fi3-f1", at(4, 0.18), 0.3, { y: -50 }, { y: 0 }); IN("#fi3-f2", at(4, 0.22), 0.3, { y: -50 }, { y: 0 });
+      OUT("#fi3-f2", at(4, 0.32), 0.25); OUT("#fi3-f1", at(4, 0.36), 0.25);
+      tl.to("#fi3-fr0", { stroke: "#FC6255", duration: 0.2 }, at(4, 0.4));
+      IN("#fi3-uf", at(4, 0.4), 0.3);
+      tl.to("#fi-strip", { opacity: 0.5, duration: 0.3 }, at(4, 0.55));
+      IN("#fi-stamp", at(4, 0.55), 0.3, { scale: 1.8, svgOrigin: "1370 272" }, { scale: 1, svgOrigin: "1370 272" });
+      IN("#fi-gb0", at(4, 0.8), 0.4); IN("#fi-gb1", at(4, 0.86), 0.4);
+      // L5 Remix 本地复现
+      ["#fi-strip", "#fi-stamp", "#fi3-base", "#fi3-f0", "#fi3-uf", "#fi-gb0", "#fi-gb1"].forEach(s => OUT(s, at(5, 0.0), 0.35));
+      IN("#fi-lap", at(5, 0.05), 0.5); IN("#fi-sw", at(5, 0.05), 0.5); IN("#fi-swk", at(5, 0.05), 0.5);
+      for (let i = 0; i < 10; i++) IN("#fi-v" + i, at(5, 0.12 + i * 0.008), 0.2);
+      IN("#fi-v10", at(5, 0.26), 0.3, { y: 160 }, { y: 0 });
+      for (let i = 10; i >= 0; i--) OUT("#fi-v" + i, at(5, 0.32 + (10 - i) * 0.008), 0.12);
+      IN("#fi-o1", at(5, 0.42), 0.3); IN("#fi-a1", at(5, 0.44), 0.3);
+      OUT("#fi-o1", at(5, 0.58), 0.25); OUT("#fi-a1", at(5, 0.58), 0.25);
+      TO("#fi-swk", at(5, 0.6), { attr: { cx: 1304 } }, 0.3); tl.to("#fi-sw", { fill: "#83C167", stroke: "#83C167", duration: 0.3 }, at(5, 0.6));
+      for (let i = 0; i < 10; i++) IN("#fi-v" + i, at(5, 0.66 + i * 0.006), 0.2);
+      IN("#fi-v10", at(5, 0.7), 0.3, { y: 160 }, { y: 0 });
+      OUT("#fi-v10", at(5, 0.78), 0.3);
+      IN("#fi-o2", at(5, 0.8), 0.3); IN("#fi-a2", at(5, 0.82), 0.3);
+      tl.to("#fi-term2", { opacity: 0, duration: 0.01 }, C.d - 0.5); tl.to("#fi-term3", { opacity: 0, duration: 0.01 }, C.d - 0.5);
+
+
+      tl.to("#fi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#fi-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["fix"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,222 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 header，id 前缀 he- -->
+  <div id="root" data-composition-id="header" data-duration="53.0" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="he-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="he-all">
+        <!-- 代码面板 A（承接上一场景） -->
+        <g id="he-code" class="h">
+          <rect x="900" y="200" width="960" height="492" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <rect id="he-hb" class="h" x="902" y="223" width="956" height="41" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="he-hs" class="h" x="902" y="223" width="4" height="41" fill="#58C4DD" />
+          <text class="mono" x="952" y="252" font-size="28" fill="#6b6f7a" text-anchor="end">1</text>
+          <text id="he-c0" class="mono" x="972" y="252" font-size="28" fill="#e8e6df" xml:space="preserve">ctx, cancel := context.WithTimeout(</text>
+          <text class="mono" x="952" y="293" font-size="28" fill="#6b6f7a" text-anchor="end">2</text>
+          <text id="he-c1" class="mono" x="972" y="293" font-size="28" fill="#e8e6df" xml:space="preserve">    context.Background(), 60*time.Second)</text>
+          <text class="mono" x="952" y="334" font-size="28" fill="#6b6f7a" text-anchor="end">3</text>
+          <text id="he-c2" class="mono" x="972" y="334" font-size="28" fill="#e8e6df" xml:space="preserve">defer cancel()</text>
+          <text class="mono" x="952" y="375" font-size="28" fill="#6b6f7a" text-anchor="end">4</text>
+          <text id="he-c3" class="mono" x="972" y="375" font-size="28" fill="#e8e6df" xml:space="preserve">client, err := ethclient.DialContext(ctx, rpcURL)</text>
+          <text class="mono" x="952" y="416" font-size="28" fill="#6b6f7a" text-anchor="end">5</text>
+          <text id="he-c4" class="mono" x="972" y="416" font-size="28" fill="#e8e6df" xml:space="preserve">if err != nil { log.Fatalf("dial: %v", err) }</text>
+          <text class="mono" x="952" y="457" font-size="28" fill="#6b6f7a" text-anchor="end">6</text>
+          <text id="he-c5" class="mono" x="972" y="457" font-size="28" fill="#e8e6df" xml:space="preserve">defer client.Close()</text>
+          <text class="mono" x="952" y="498" font-size="28" fill="#6b6f7a" text-anchor="end">7</text>
+          <text id="he-c6" class="mono" x="972" y="498" font-size="28" fill="#e8e6df" xml:space="preserve">chainID, err := client.ChainID(ctx)</text>
+          <text class="mono" x="952" y="539" font-size="28" fill="#6b6f7a" text-anchor="end">8</text>
+          <text id="he-c7" class="mono" x="972" y="539" font-size="28" fill="#e8e6df" xml:space="preserve">head, err := client.BlockNumber(ctx)</text>
+          <text class="mono" x="952" y="580" font-size="28" fill="#6b6f7a" text-anchor="end">9</text>
+          <text id="he-c8" class="mono" x="972" y="580" font-size="28" fill="#e8e6df" xml:space="preserve">bal, err := client.BalanceAt(ctx, holder, nil)</text>
+          <text class="mono" x="952" y="621" font-size="28" fill="#6b6f7a" text-anchor="end">10</text>
+          <text id="he-c9" class="mono" x="972" y="621" font-size="28" fill="#e8e6df" xml:space="preserve">hdr, err := client.HeaderByNumber(ctx,</text>
+          <text class="mono" x="952" y="662" font-size="28" fill="#6b6f7a" text-anchor="end">11</text>
+          <text id="he-c10" class="mono" x="972" y="662" font-size="28" fill="#e8e6df" xml:space="preserve">    new(big.Int).SetUint64(head))</text>
+        </g>
+        <!-- L0–L2：区块 -->
+        <g id="he-blk">
+          <g id="he-head" class="h">
+            <rect x="660" y="220" width="600" height="120" rx="14" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+            <text x="636" y="296" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="end">区块头</text>
+          </g>
+          <text id="he-h0" class="h" x="696" y="294" font-size="28" fill="#e8e6df">区块号</text>
+          <text id="he-h1" class="h" x="822" y="294" font-size="28" fill="#e8e6df">哈希</text>
+          <text id="he-h2" class="h" x="922" y="294" font-size="28" fill="#e8e6df">基础费</text>
+          <text id="he-h3" class="h" x="1056" y="294" font-size="28" fill="#e8e6df">已用 Gas</text>
+          <g id="he-body" class="h">
+            <rect x="660" y="352" width="600" height="200" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" stroke-opacity="0.6" />
+            <text x="636" y="462" font-size="32" font-weight="700" fill="#8a8f99" text-anchor="end">交易</text>
+            <path d="M700 400 L1220 400 M700 440 L1220 440 M700 480 L1220 480 M700 520 L1100 520" stroke="#8a8f99" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+          </g>
+          <g id="he-tx0" class="h"><rect x="660" y="610" width="130" height="150" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="725" y="676" font-size="30" fill="#e8e6df" text-anchor="middle">tx</text></g>
+          <g id="he-tx1" class="h"><rect x="816" y="610" width="130" height="150" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="881" y="676" font-size="30" fill="#e8e6df" text-anchor="middle">tx</text></g>
+          <g id="he-tx2" class="h"><rect id="he-tx2r" x="972" y="610" width="130" height="150" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="1037" y="676" font-size="30" fill="#e8e6df" text-anchor="middle">tx</text></g>
+          <g id="he-tx3" class="h"><rect x="1128" y="610" width="130" height="150" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="1193" y="676" font-size="30" fill="#e8e6df" text-anchor="middle">tx</text></g>
+          <text id="he-new" class="h" x="1037" y="732" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">新类型</text>
+          <g id="he-gearo" class="h">
+            <g id="he-gear">
+              <circle cx="1360" cy="685" r="38" fill="none" stroke="#8a8f99" stroke-width="14" stroke-dasharray="11 9" />
+              <circle cx="1360" cy="685" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            </g>
+          </g>
+          <text id="he-errt" class="h" x="1420" y="698" font-size="32" font-weight="700" fill="#FC6255">✕ 报错</text>
+          <g id="he-rec" class="h">
+            <rect x="1330" y="220" width="530" height="170" rx="14" fill="#83C16718" stroke="#83C167" stroke-width="3" />
+            <text x="1360" y="270" font-size="30" font-weight="700" fill="#83C167">扫块优先</text>
+            <text class="mono" x="1360" y="318" font-size="28" fill="#e8e6df">HeaderByNumber</text>
+            <text class="mono" x="1360" y="362" font-size="28" fill="#e8e6df">+ FilterLogs</text>
+          </g>
+          <rect id="he-bf" class="h" x="1266" y="870" width="90" height="40" rx="6" fill="#FF9F43" fill-opacity="0.28" />
+          <rect id="he-bt" class="h" x="1266" y="934" width="73" height="40" rx="6" fill="#FF9F43" fill-opacity="0.28" />
+          <text id="he-r0" class="h mono" x="565" y="900" font-size="28" fill="#e8e6df" xml:space="preserve">HeaderByNumber -&gt; <tspan fill="#58C4DD">eth_getBlockByNumber(n, <tspan fill="#FF9F43" font-weight="700">false</tspan>)</tspan></text>
+          <text id="he-r1" class="h mono" x="565" y="964" font-size="28" fill="#e8e6df" xml:space="preserve">BlockByNumber  -&gt; <tspan fill="#58C4DD">eth_getBlockByNumber(n, <tspan fill="#FF9F43" font-weight="700">true</tspan>)</tspan></text>
+        </g>
+        <!-- L3：回执卡 -->
+        <g id="he-rc">
+          <g id="he-in" class="h">
+            <text x="330" y="500" font-size="30" fill="#e8e6df" text-anchor="middle">交易哈希</text>
+            <text class="mono" x="330" y="552" font-size="28" fill="#58C4DD" text-anchor="middle">0x7b1c…</text>
+          </g>
+          <path id="he-ina" class="dr h" pathLength="1" d="M420 520 L588 520" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#he-arr)" />
+          <g id="he-card" class="h">
+            <rect x="600" y="260" width="720" height="500" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="640" y="326" font-size="36" font-weight="700" fill="#58C4DD">回执 <tspan font-size="28" font-weight="400" fill="#8a8f99">Receipt</tspan></text>
+            <line x1="600" y1="356" x2="1320" y2="356" stroke="#2a2f3a" stroke-width="2" />
+          </g>
+          <g id="he-f0" class="h"><text class="mono" x="640" y="440" font-size="30" fill="#8a8f99">status</text><text class="mono" x="960" y="440" font-size="30" font-weight="700" fill="#83C167">1</text></g>
+          <g id="he-f1" class="h"><text class="mono" x="640" y="540" font-size="30" fill="#8a8f99">gasUsed</text><text class="mono" x="960" y="540" font-size="30" fill="#e8e6df">51,234</text></g>
+          <g id="he-f2" class="h"><text class="mono" x="640" y="640" font-size="30" fill="#8a8f99">logs</text>
+            <rect x="960" y="612" width="60" height="36" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2" />
+            <rect x="1036" y="612" width="60" height="36" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2" />
+            <rect x="1112" y="612" width="60" height="36" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2" /></g>
+          <text id="he-r2" class="h mono" x="960" y="860" font-size="28" fill="#e8e6df" text-anchor="middle">TransactionReceipt -&gt; <tspan fill="#58C4DD">eth_getTransactionReceipt</tspan></text>
+        </g>
+        <!-- L4–L5：三张卡 -->
+        <text id="he-title" class="h" x="960" y="236" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">失败的交易也有回执</text>
+        <g id="he-ok" class="h">
+          <rect x="150" y="300" width="500" height="420" rx="18" fill="#83C16712" stroke="#83C167" stroke-width="3" />
+          <text class="mono" x="190" y="390" font-size="40" font-weight="700" fill="#83C167">status: 1</text>
+          <text x="190" y="460" font-size="34" font-weight="700" fill="#83C167">✓ 成功</text>
+          <text class="mono" x="190" y="580" font-size="28" fill="#8a8f99">gasUsed  <tspan fill="#e8e6df">51,234</tspan></text>
+          <text class="mono" x="190" y="640" font-size="28" fill="#8a8f99">logs     <tspan fill="#e8e6df">2</tspan></text>
+        </g>
+        <g id="he-bad" class="h">
+          <rect x="710" y="300" width="500" height="420" rx="18" fill="#FC625512" stroke="#FC6255" stroke-width="3" />
+          <text class="mono" x="750" y="390" font-size="40" font-weight="700" fill="#FC6255">status: 0</text>
+          <text x="750" y="460" font-size="34" font-weight="700" fill="#FC6255">✕ 失败</text>
+          <text class="mono" x="750" y="580" font-size="28" fill="#8a8f99">gasUsed  <tspan fill="#e8e6df">48,112</tspan></text>
+          <text class="mono" x="750" y="640" font-size="28" fill="#8a8f99">logs     <tspan fill="#e8e6df">0</tspan></text>
+        </g>
+        <g id="he-nf" class="h">
+          <rect x="1270" y="300" width="500" height="420" rx="18" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="14 10" />
+          <text class="mono" x="1520" y="390" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">NotFound</text>
+        </g>
+        <g id="he-cz0" class="h">
+          <ellipse cx="1350" cy="496" rx="44" ry="24" fill="#FF9F4318" stroke="#FF9F43" stroke-width="2.5" />
+          <circle cx="1334" cy="492" r="5" fill="#FF9F43" /><circle cx="1352" cy="502" r="5" fill="#FF9F43" /><circle cx="1368" cy="490" r="5" fill="#FF9F43" />
+          <text x="1420" y="507" font-size="30" fill="#e8e6df">还没打包</text>
+        </g>
+        <g id="he-cz1" class="h">
+          <rect x="1306" y="606" width="90" height="22" rx="11" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+          <rect x="1306" y="606" width="50" height="22" rx="11" fill="#FF9F43" />
+          <text x="1420" y="628" font-size="30" fill="#e8e6df">节点没同步到</text>
+        </g>
+        <g id="he-wait" class="h">
+          <circle cx="640" cy="860" r="28" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <path d="M640 842 L640 860 L654 870" fill="none" stroke="#e8e6df" stroke-width="3" stroke-linecap="round" />
+          <text x="690" y="872" font-size="32" fill="#e8e6df">稍后再查 · 设总等待上限</text>
+          <line x1="1080" y1="860" x2="1320" y2="860" stroke="#8a8f99" stroke-width="3" />
+          <line x1="1300" y1="838" x2="1300" y2="882" stroke="#FC6255" stroke-width="4" />
+        </g>
+        <rect id="he-wbar" class="h" x="1080" y="852" width="0" height="16" rx="4" fill="#FF9F43" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const N = 11, B0 = 252, ST = 41;
+      const HL = (a, b, t) => {
+        tl.to("#he-hb, #he-hs", { opacity: 1, attr: { y: B0 - 29 + ST * a, height: ST * (b - a + 1) }, duration: 0.35, ease: "power2.inOut" }, t);
+        for (let i = 0; i < N; i++) tl.to(`#he-c${i}`, { opacity: i >= a && i <= b ? 1 : 0.6, duration: 0.3 }, t);
+      };
+
+      // L0 代码 A 最后一行 → 区块头
+      IN("#he-code", 0.05, 0.4);
+      HL(9, 10, 0.3);
+      OUT("#he-code", at(0, 0.26), 0.4);
+      IN("#he-head", at(0, 0.34), 0.6, { y: -20 }, { y: 0 });
+      IN("#he-body", at(0, 0.4), 0.6, { opacity: 0 }, { opacity: 0.35 });
+      ["#he-h0", "#he-h1", "#he-h2", "#he-h3"].forEach((s, i) => IN(s, at(0, 0.46 + i * 0.08), 0.4, { y: 8 }, { y: 0 }));
+      IN("#he-r0", at(0, 0.85), 0.5, { x: -16 }, { x: 0 });
+
+      // L1 完整区块：交易一起掉出来；false / true
+      tl.to("#he-body", { opacity: 1, duration: 0.5 }, at(1, 0.02));
+      ["#he-tx0", "#he-tx1", "#he-tx2", "#he-tx3"].forEach((s, i) => IN(s, at(1, 0.1 + i * 0.05), 0.5, { y: -180 }, { y: 0, ease: "back.out(1.4)" }));
+      IN("#he-r1", at(1, 0.4), 0.5, { x: -16 }, { x: 0 });
+      IN("#he-bf", at(1, 0.72), 0.4, { scale: 1.2, svgOrigin: "1311 890" }, { scale: 1, svgOrigin: "1311 890" });
+      IN("#he-bt", at(1, 0.8), 0.4, { scale: 1.2, svgOrigin: "1302 954" }, { scale: 1, svgOrigin: "1302 954" });
+
+      // L2 扫块优先用区块头；新交易类型解析报错
+      IN("#he-rec", at(2, 0.08), 0.6, { x: 30 }, { x: 0 });
+      IN("#he-gearo", at(2, 0.32), 0.4);
+      tl.fromTo("#he-gear", { rotation: 0, svgOrigin: "1360 685" }, { rotation: 200, svgOrigin: "1360 685", duration: 1.4, ease: "power1.out", immediateRender: false }, at(2, 0.34));
+      IN("#he-new", at(2, 0.5), 0.4, { y: 8 }, { y: 0 });
+      tl.to("#he-tx2r", { stroke: "#FF9F43", duration: 0.3 }, at(2, 0.5));
+      tl.to("#he-gear", { rotation: 190, svgOrigin: "1360 685", duration: 0.06, repeat: 5, yoyo: true }, at(2, 0.68));
+      tl.to("#he-gear circle", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.68));
+      IN("#he-errt", at(2, 0.72), 0.4, { x: -10 }, { x: 0 });
+      tl.to("#he-head", { strokeWidth: 5, duration: 0.3 }, at(2, 0.85));
+
+      // L3 回执：交易哈希 → status / gasUsed / logs
+      OUT("#he-blk", at(3, 0), 0.5);
+      IN("#he-in", at(3, 0.1), 0.5);
+      ARROW("#he-ina", at(3, 0.16), 0.5);
+      IN("#he-card", at(3, 0.2), 0.6, { scale: 0.94, svgOrigin: "960 510" }, { scale: 1, svgOrigin: "960 510" });
+      IN("#he-r2", at(3, 0.32), 0.5);
+      IN("#he-f0", at(3, 0.55), 0.4, { x: -12 }, { x: 0 });
+      IN("#he-f1", at(3, 0.68), 0.4, { x: -12 }, { x: 0 });
+      IN("#he-f2", at(3, 0.82), 0.4, { x: -12 }, { x: 0 });
+
+      // L4 status 1 / 0，失败也有回执
+      OUT("#he-rc", at(4, 0), 0.4);
+      IN("#he-ok", at(4, 0.1), 0.5, { x: 30 }, { x: 0 });
+      IN("#he-bad", at(4, 0.4), 0.5, { x: 30 }, { x: 0 });
+      IN("#he-title", at(4, 0.7), 0.5, { y: 10 }, { y: 0 });
+
+      // L5 NotFound：两种原因，稍后再查并设上限
+      IN("#he-nf", at(5, 0.04), 0.5, { x: 30 }, { x: 0 });
+      IN("#he-cz0", at(5, 0.24), 0.5, { x: -12 }, { x: 0 });
+      IN("#he-cz1", at(5, 0.4), 0.5, { x: -12 }, { x: 0 });
+      tl.fromTo("#he-cz1 rect:last-of-type", { attr: { width: 20 } }, { attr: { width: 60 }, duration: 1.2, ease: "power1.out", immediateRender: false }, at(5, 0.45));
+      IN("#he-wait", at(5, 0.62), 0.5, { y: 10 }, { y: 0 });
+      IN("#he-wbar", at(5, 0.66), 0.01);
+      tl.fromTo("#he-wbar", { attr: { width: 0 } }, { attr: { width: 220 }, duration: 2.2, ease: "power1.inOut", immediateRender: false }, at(5, 0.68));
+
+      tl.to("#he-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["header"] = tl;
+    })();
+  </script>
+</template>

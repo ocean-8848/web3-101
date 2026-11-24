@@ -1,0 +1,298 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 batch，id 前缀 ba- -->
+  <div id="root" data-composition-id="batch" data-duration="97.53" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ba-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="ba-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="ba-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="ba-all">
+        <!-- L0：回填历史的长区块带 + 往返计数器 -->
+        <g id="ba-g0">
+          <text id="ba-bl" class="h" x="120" y="320" font-size="36" fill="#8a8f99">← 回填历史</text> <g id="ba-band"></g>
+          <text id="ba-cnt" class="h mono" x="960" y="640" font-size="88" font-weight="700" fill="#58C4DD" text-anchor="middle">0</text> <text id="ba-cntl" class="h" x="960" y="720" font-size="32" fill="#8a8f99" text-anchor="middle">往返次数</text>
+        </g>
+        <g id="ba-panel" class="h">
+          <rect x="860" y="220" width="1000" height="504" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+        </g>
+        <rect id="ba-hb" class="h" x="862" y="235" width="996" height="40" fill="#58C4DD" fill-opacity="0.15" /> <rect id="ba-hs" class="h" x="862" y="235" width="4" height="40" fill="#58C4DD" />
+        <g id="ba-codeH" class="h">
+          <text class="mono" x="900" y="262" font-size="28" fill="#6b6f7a" text-anchor="end">1</text> <text id="ba-h0" class="mono" x="922" y="262" font-size="28" fill="#e8e6df" xml:space="preserve">elems[i] = rpc.BatchElem{</text> <text class="mono" x="900" y="302" font-size="28" fill="#6b6f7a" text-anchor="end">2</text> <text id="ba-h1" class="mono" x="922" y="302" font-size="28" fill="#e8e6df" xml:space="preserve">    Method: "eth_getBlockByNumber",</text> <text class="mono" x="900" y="342" font-size="28" fill="#6b6f7a" text-anchor="end">3</text> <text id="ba-h2" class="mono" x="922" y="342" font-size="28" fill="#e8e6df" xml:space="preserve">    Args: []interface{}{</text>
+          <text class="mono" x="900" y="382" font-size="28" fill="#6b6f7a" text-anchor="end">4</text> <text id="ba-h3" class="mono" x="922" y="382" font-size="28" fill="#e8e6df" xml:space="preserve">        hexutil.EncodeUint64(from+uint64(i)), false},</text> <text class="mono" x="900" y="422" font-size="28" fill="#6b6f7a" text-anchor="end">5</text> <text id="ba-h4" class="mono" x="922" y="422" font-size="28" fill="#e8e6df" xml:space="preserve">    Result: heads[i],</text> <text class="mono" x="900" y="462" font-size="28" fill="#6b6f7a" text-anchor="end">6</text> <text id="ba-h5" class="mono" x="922" y="462" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+          <text class="mono" x="900" y="502" font-size="28" fill="#6b6f7a" text-anchor="end">7</text> <text id="ba-h6" class="mono" x="922" y="502" font-size="28" fill="#e8e6df" xml:space="preserve">if err := rc.BatchCallContext(ctx, elems); err != nil {</text> <text class="mono" x="900" y="542" font-size="28" fill="#6b6f7a" text-anchor="end">8</text> <text id="ba-h7" class="mono" x="922" y="542" font-size="28" fill="#e8e6df" xml:space="preserve">    return nil, err }</text> <text class="mono" x="900" y="582" font-size="28" fill="#6b6f7a" text-anchor="end">9</text> <text id="ba-h8" class="mono" x="922" y="582" font-size="28" fill="#e8e6df" xml:space="preserve">for i, e := range elems {</text>
+          <text class="mono" x="900" y="622" font-size="28" fill="#6b6f7a" text-anchor="end">10</text> <text id="ba-h9" class="mono" x="922" y="622" font-size="28" fill="#e8e6df" xml:space="preserve">    if e.Error != nil { return nil, fmt.Errorf(</text> <text class="mono" x="900" y="662" font-size="28" fill="#6b6f7a" text-anchor="end">11</text> <text id="ba-h10" class="mono" x="922" y="662" font-size="28" fill="#e8e6df" xml:space="preserve">        "block %d: %w", from+uint64(i), e.Error) }</text> <text class="mono" x="900" y="702" font-size="28" fill="#6b6f7a" text-anchor="end">12</text> <text id="ba-h11" class="mono" x="922" y="702" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+        </g>
+        <g id="ba-codeI" class="h">
+          <text class="mono" x="900" y="262" font-size="28" fill="#6b6f7a" text-anchor="end">1</text> <text id="ba-i0" class="mono" x="922" y="262" font-size="28" fill="#e8e6df" xml:space="preserve">g, ctx := errgroup.WithContext(ctx); g.SetLimit(limit)</text> <text class="mono" x="900" y="302" font-size="28" fill="#6b6f7a" text-anchor="end">2</text> <text id="ba-i1" class="mono" x="922" y="302" font-size="28" fill="#e8e6df" xml:space="preserve">for h := from; h &lt;= to; h++ {</text>
+          <text class="mono" x="900" y="342" font-size="28" fill="#6b6f7a" text-anchor="end">3</text> <text id="ba-i2" class="mono" x="922" y="342" font-size="28" fill="#e8e6df" xml:space="preserve">    g.Go(func() error {</text> <text class="mono" x="900" y="382" font-size="28" fill="#6b6f7a" text-anchor="end">4</text> <text id="ba-i3" class="mono" x="922" y="382" font-size="28" fill="#e8e6df" xml:space="preserve">        hdr, err := c.HeaderByNumber(ctx,</text>
+          <text class="mono" x="900" y="422" font-size="28" fill="#6b6f7a" text-anchor="end">5</text> <text id="ba-i4" class="mono" x="922" y="422" font-size="28" fill="#e8e6df" xml:space="preserve">            new(big.Int).SetUint64(h))</text> <text class="mono" x="900" y="462" font-size="28" fill="#6b6f7a" text-anchor="end">6</text> <text id="ba-i5" class="mono" x="922" y="462" font-size="28" fill="#e8e6df" xml:space="preserve">        if err != nil { return err }</text>
+          <text class="mono" x="900" y="502" font-size="28" fill="#6b6f7a" text-anchor="end">7</text> <text id="ba-i6" class="mono" x="922" y="502" font-size="28" fill="#e8e6df" xml:space="preserve">        out[h-from] = hdr.Hash()</text> <text class="mono" x="900" y="542" font-size="28" fill="#6b6f7a" text-anchor="end">8</text> <text id="ba-i7" class="mono" x="922" y="542" font-size="28" fill="#e8e6df" xml:space="preserve">        return nil</text>
+          <text class="mono" x="900" y="582" font-size="28" fill="#6b6f7a" text-anchor="end">9</text> <text id="ba-i8" class="mono" x="922" y="582" font-size="28" fill="#e8e6df" xml:space="preserve">    })</text> <text class="mono" x="900" y="622" font-size="28" fill="#6b6f7a" text-anchor="end">10</text> <text id="ba-i9" class="mono" x="922" y="622" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+          <text class="mono" x="900" y="662" font-size="28" fill="#6b6f7a" text-anchor="end">11</text> <text id="ba-i10" class="mono" x="922" y="662" font-size="28" fill="#e8e6df" xml:space="preserve">return out, g.Wait()</text>
+        </g>
+        <text id="ba-n0" class="h" x="860" y="784" font-size="28" fill="#8a8f99">每个高度一个批量元素：方法、参数、结果放哪</text> <text id="ba-n1" class="h" x="860" y="784" font-size="28" fill="#FC6255">返回 err：整批失败（比如网络断了）</text> <text id="ba-n2" class="h" x="860" y="784" font-size="28" fill="#FF9F43">返回 nil 之后，逐个元素检查 Error</text>
+        <text id="ba-n3" class="h" x="860" y="784" font-size="28" fill="#8a8f99">最多同时跑 limit 个请求</text> <text id="ba-n4" class="h" x="860" y="784" font-size="28" fill="#83C167">按下标写，保持顺序</text>
+        <!-- L1–L2：小信封装进大信封，一次往返 -->
+        <g id="ba-g1">
+          <g id="ba-go" class="h">
+            <rect x="80" y="250" width="180" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" /> <text x="170" y="311" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">Go 程序</text>
+          </g>
+          <g id="ba-node" class="h">
+            <rect x="660" y="250" width="180" height="100" rx="14" fill="#B48EF022" stroke="#B48EF0" stroke-width="3" /> <text x="750" y="311" font-size="30" font-weight="700" fill="#B48EF0" text-anchor="middle">RPC 节点</text>
+          </g>
+          <g id="ba-se0" class="h"><rect x="110" y="600" width="100" height="64" rx="6" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><path d="M110 600 L160 636 L210 600" fill="none" stroke="#58C4DD" stroke-width="2.5" /></g> <g id="ba-se1" class="h"><rect x="290" y="600" width="100" height="64" rx="6" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><path d="M290 600 L340 636 L390 600" fill="none" stroke="#58C4DD" stroke-width="2.5" /></g> <g id="ba-se2" class="h"><rect x="470" y="600" width="100" height="64" rx="6" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><path d="M470 600 L520 636 L570 600" fill="none" stroke="#58C4DD" stroke-width="2.5" /></g>
+          <g id="ba-se3" class="h"><rect x="650" y="600" width="100" height="64" rx="6" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><path d="M650 600 L700 636 L750 600" fill="none" stroke="#58C4DD" stroke-width="2.5" /></g>
+          <g id="ba-sel" class="h">
+            <text class="mono" x="160" y="712" font-size="28" fill="#8a8f99" text-anchor="middle">h+0</text> <text class="mono" x="340" y="712" font-size="28" fill="#8a8f99" text-anchor="middle">h+1</text> <text class="mono" x="520" y="712" font-size="28" fill="#8a8f99" text-anchor="middle">h+2</text>
+            <text class="mono" x="700" y="712" font-size="28" fill="#8a8f99" text-anchor="middle">h+3</text>
+          </g>
+          <g id="ba-env" class="h">
+            <rect id="ba-envr" x="300" y="420" width="320" height="120" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3.5" /> <path id="ba-envv" d="M300 420 L460 490 L620 420" fill="none" stroke="#58C4DD" stroke-width="3.5" />
+          </g>
+          <path id="ba-q" class="dr h" pathLength="1" d="M268 282 L650 282" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ba-arrB)" /> <path id="ba-p" class="dr h" pathLength="1" d="M652 322 L270 322" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#ba-arrG)" /> <text id="ba-rt" class="h" x="460" y="236" font-size="28" fill="#58C4DD" text-anchor="middle">1 次往返</text>
+          <text id="ba-fail" class="h" x="460" y="600" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">整批失败</text>
+          <g id="ba-rows">
+            <g id="ba-r0" class="h"><rect x="200" y="400" width="520" height="50" rx="8" fill="#83C16722" stroke="#83C167" stroke-width="2" /><text class="mono" x="224" y="435" font-size="28" fill="#83C167">[0] ok</text></g> <g id="ba-r1" class="h"><rect x="200" y="462" width="520" height="50" rx="8" fill="#83C16722" stroke="#83C167" stroke-width="2" /><text class="mono" x="224" y="497" font-size="28" fill="#83C167">[1] ok</text></g> <g id="ba-r2" class="h"><rect id="ba-r2b" x="200" y="524" width="520" height="50" rx="8" fill="#83C16722" stroke="#83C167" stroke-width="2" /><text id="ba-r2t" class="mono" x="224" y="559" font-size="28" fill="#83C167">[2] ok</text><text id="ba-r2e" class="mono" x="224" y="559" font-size="28" fill="#FC6255" opacity="0">[2] block N: error</text></g>
+            <g id="ba-r3" class="h"><rect x="200" y="586" width="520" height="50" rx="8" fill="#83C16722" stroke="#83C167" stroke-width="2" /><text class="mono" x="224" y="621" font-size="28" fill="#83C167">[3] ok</text></g>
+          </g>
+          <text id="ba-nil" class="h" x="460" y="700" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">返回 nil ≠ 每个都成功</text>
+        </g>
+        <!-- L3：并发闸口 + 有序数组 -->
+        <g id="ba-g3">
+          <text id="ba-lim" class="h mono" x="320" y="262" font-size="28" fill="#FF9F43">SetLimit(4)</text> <rect id="ba-gate" class="h" x="290" y="282" width="14" height="250" rx="4" fill="#FF9F43" />
+          <g id="ba-queue" class="h">
+            <rect x="96" y="393" width="30" height="30" rx="5" fill="#8a8f99" /> <rect x="140" y="393" width="30" height="30" rx="5" fill="#8a8f99" /> <rect x="184" y="393" width="30" height="30" rx="5" fill="#8a8f99" /> <rect x="228" y="393" width="30" height="30" rx="5" fill="#8a8f99" />
+          </g>
+          <g id="ba-lanes" class="h">
+            <line x1="310" y1="310" x2="820" y2="310" stroke="#58C4DD" stroke-width="4" stroke-opacity="0.45" /> <line x1="310" y1="375" x2="820" y2="375" stroke="#58C4DD" stroke-width="4" stroke-opacity="0.45" /> <line x1="310" y1="440" x2="820" y2="440" stroke="#58C4DD" stroke-width="4" stroke-opacity="0.45" /> <line x1="310" y1="505" x2="820" y2="505" stroke="#58C4DD" stroke-width="4" stroke-opacity="0.45" />
+          </g>
+          <circle id="ba-d0" class="h" cx="330" cy="310" r="13" fill="#58C4DD" /> <circle id="ba-d1" class="h" cx="330" cy="375" r="13" fill="#58C4DD" /> <circle id="ba-d2" class="h" cx="330" cy="440" r="13" fill="#58C4DD" />
+          <circle id="ba-d3" class="h" cx="330" cy="505" r="13" fill="#58C4DD" />
+          <g id="ba-cells">
+            <g class="h ba-cellb"><rect x="90" y="600" width="68" height="60" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g> <rect id="ba-cf0" class="h" x="92" y="602" width="64" height="56" rx="5" fill="#83C16755" /> <text class="h ba-cellb mono" x="124" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">[0]</text>
+            <g class="h ba-cellb"><rect x="164" y="600" width="68" height="60" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g> <rect id="ba-cf1" class="h" x="166" y="602" width="64" height="56" rx="5" fill="#83C16755" /> <text class="h ba-cellb mono" x="198" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">[1]</text>
+            <g class="h ba-cellb"><rect x="238" y="600" width="68" height="60" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g> <rect id="ba-cf2" class="h" x="240" y="602" width="64" height="56" rx="5" fill="#83C16755" /> <text class="h ba-cellb mono" x="272" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">[2]</text>
+            <g class="h ba-cellb"><rect x="312" y="600" width="68" height="60" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g> <rect id="ba-cf3" class="h" x="314" y="602" width="64" height="56" rx="5" fill="#83C16755" /> <text class="h ba-cellb mono" x="346" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">[3]</text>
+            <g class="h ba-cellb"><rect x="386" y="600" width="68" height="60" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g> <rect id="ba-cf4" class="h" x="388" y="602" width="64" height="56" rx="5" fill="#83C16755" /> <text class="h ba-cellb mono" x="420" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">[4]</text>
+            <g class="h ba-cellb"><rect x="460" y="600" width="68" height="60" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g> <rect id="ba-cf5" class="h" x="462" y="602" width="64" height="56" rx="5" fill="#83C16755" /> <text class="h ba-cellb mono" x="494" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">[5]</text>
+            <g class="h ba-cellb"><rect x="534" y="600" width="68" height="60" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g> <rect id="ba-cf6" class="h" x="536" y="602" width="64" height="56" rx="5" fill="#83C16755" /> <text class="h ba-cellb mono" x="568" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">[6]</text>
+            <g class="h ba-cellb"><rect x="608" y="600" width="68" height="60" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g> <rect id="ba-cf7" class="h" x="610" y="602" width="64" height="56" rx="5" fill="#83C16755" /> <text class="h ba-cellb mono" x="642" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">[7]</text>
+            <g class="h ba-cellb"><rect x="682" y="600" width="68" height="60" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g> <rect id="ba-cf8" class="h" x="684" y="602" width="64" height="56" rx="5" fill="#83C16755" /> <text class="h ba-cellb mono" x="716" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">[8]</text>
+            <g class="h ba-cellb"><rect x="756" y="600" width="68" height="60" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g> <rect id="ba-cf9" class="h" x="758" y="602" width="64" height="56" rx="5" fill="#83C16755" /> <text class="h ba-cellb mono" x="790" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">[9]</text>
+          </g>
+          <text id="ba-cn" class="h" x="90" y="760" font-size="28" fill="#8a8f99">并发数按配额定（示例 4–16）</text>
+        </g>
+        <!-- L4：令牌桶 + 右侧两张小卡 -->
+        <g id="ba-g4">
+          <path id="ba-bucket" class="h" d="M190 380 L430 380 L400 570 L220 570 Z" fill="#161a22" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round" /> <text id="ba-rate" class="h" x="350" y="300" font-size="28" fill="#F0B90B">固定速率滴入令牌</text> <circle id="ba-k0" class="h" cx="265" cy="540" r="16" fill="#F0B90B" />
+          <circle id="ba-k1" class="h" cx="310" cy="540" r="16" fill="#F0B90B" /> <circle id="ba-k2" class="h" cx="355" cy="540" r="16" fill="#F0B90B" /> <circle id="ba-k3" class="h" cx="288" cy="505" r="16" fill="#F0B90B" />
+          <circle id="ba-k4" class="h" cx="333" cy="505" r="16" fill="#F0B90B" /> <path id="ba-ka" class="dr h" pathLength="1" d="M440 470 L560 470" stroke="#e8e6df" stroke-width="2.5" fill="none" marker-end="url(#ba-arr)" />
+          <g id="ba-req" class="h">
+            <rect x="580" y="438" width="110" height="66" rx="6" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /> <path d="M580 438 L635 476 L690 438" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+          </g>
+          <text id="ba-reql" class="h" x="635" y="550" font-size="28" fill="#58C4DD" text-anchor="middle">请求</text> <text id="ba-wait" class="h mono" x="190" y="650" font-size="30" fill="#58C4DD">limiter.Wait(ctx)</text> <text id="ba-qps" class="h" x="190" y="710" font-size="28" fill="#8a8f99">先等令牌，再发请求：控制每秒请求数</text>
+          <g id="ba-cardA" class="h">
+            <rect x="980" y="230" width="880" height="320" rx="14" fill="#161a22" stroke="#2a2f3a" stroke-width="2" /> <text class="mono" x="1010" y="292" font-size="32" font-weight="700" fill="#58C4DD">eth_getLogs</text> <text x="1240" y="292" font-size="32" font-weight="700" fill="#e8e6df">分段回填</text>
+            <text x="1010" y="346" font-size="28" fill="#e8e6df">范围过大 → 二分，记录每段进度</text>
+          </g>
+          <rect id="ba-bar" class="h" x="1010" y="380" width="820" height="34" rx="6" fill="#58C4DD55" stroke="#58C4DD" stroke-width="2" /> <rect id="ba-barL" class="h" x="1010" y="380" width="402" height="34" rx="6" fill="#58C4DD55" stroke="#58C4DD" stroke-width="2" /> <rect id="ba-barR" class="h" x="1428" y="380" width="402" height="34" rx="6" fill="#58C4DD55" stroke="#58C4DD" stroke-width="2" />
+          <g id="ba-prog" class="h">
+            <rect x="1010" y="450" width="120" height="60" rx="8" fill="none" stroke="#2a2f3a" stroke-width="2" /> <rect x="1146" y="450" width="120" height="60" rx="8" fill="none" stroke="#2a2f3a" stroke-width="2" /> <rect x="1282" y="450" width="120" height="60" rx="8" fill="none" stroke="#2a2f3a" stroke-width="2" /> <rect x="1418" y="450" width="120" height="60" rx="8" fill="none" stroke="#2a2f3a" stroke-width="2" /> <rect x="1554" y="450" width="120" height="60" rx="8" fill="none" stroke="#2a2f3a" stroke-width="2" /> <rect x="1690" y="450" width="120" height="60" rx="8" fill="none" stroke="#2a2f3a" stroke-width="2" />
+          </g>
+          <text id="ba-ck0" class="h" x="1070" y="491" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">✓</text> <text id="ba-ck1" class="h" x="1206" y="491" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">✓</text> <text id="ba-ck2" class="h" x="1342" y="491" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">✓</text>
+          <g id="ba-cardB" class="h">
+            <rect x="980" y="600" width="880" height="210" rx="14" fill="#161a22" stroke="#2a2f3a" stroke-width="2" /> <text class="mono" x="1010" y="662" font-size="32" font-weight="700" fill="#58C4DD">eth_getBlockReceipts</text> <text x="1010" y="718" font-size="28" fill="#e8e6df">一次取整个区块的回执</text>
+          </g>
+          <text id="ba-cbn" class="h" x="1010" y="772" font-size="28" fill="#FF9F43">不一定开放</text>
+        </g>
+        <!-- L5–L7：算一算 -->
+        <g id="ba-g5">
+          <text id="ba-ttl" class="h" x="960" y="170" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">算一算：回填 10 万个区块</text>
+          <g id="ba-lc">
+            <text id="ba-l0" class="h" x="120" y="290" font-size="36" font-weight="700" fill="#FC6255">逐个请求</text> <text id="ba-l1" class="h mono" x="120" y="380" font-size="32" fill="#e8e6df">100,000 × 0.1 s</text> <text id="ba-l2" class="h mono" x="120" y="440" font-size="32" fill="#e8e6df">= 10,000 s</text>
+            <text id="ba-l3" class="h" x="120" y="512" font-size="40" font-weight="700" fill="#FC6255">≈ 2.8 小时</text>
+          </g>
+          <text id="ba-r0h" class="h" x="1020" y="290" font-size="36" font-weight="700" fill="#83C167">每批 50 · 并发 8</text> <text id="ba-rr1" class="h mono" x="1020" y="380" font-size="32" fill="#e8e6df">100,000 ÷ 50 = 2,000</text> <text id="ba-rr1u" class="h" x="1414" y="380" font-size="32" fill="#e8e6df">批</text>
+          <text id="ba-rr2" class="h mono" x="1020" y="440" font-size="32" fill="#e8e6df">2,000 × 0.15 s ÷ 8</text> <text id="ba-rr3" class="h" x="1020" y="512" font-size="40" font-weight="700" fill="#83C167">≈ 38 秒</text> <text id="ba-ex" class="h" x="1020" y="584" font-size="28" fill="#6b6f7a">示例：假设单批 150 ms、不限流</text>
+          <text id="ba-rbl" class="h" x="120" y="680" font-size="28" fill="#FC6255">逐个 · 10,000 s</text> <rect id="ba-rbar" class="h" x="120" y="700" width="1680" height="36" rx="6" fill="#FC6255" /> <rect id="ba-gbar" class="h" x="120" y="800" width="26" height="36" rx="6" fill="#83C167" />
+          <text id="ba-gbl" class="h" x="166" y="828" font-size="28" fill="#83C167">批量 + 并发 · 38 s</text> <text id="ba-429" class="h mono" x="560" y="828" font-size="28" font-weight="700" fill="#FC6255">429 Too Many Requests</text>
+          <g id="ba-dial" class="h">
+            <path d="M190 480 A110 110 0 0 1 410 480" fill="none" stroke="#58C4DD" stroke-width="10" stroke-linecap="round" /> <path d="M370 404 A110 110 0 0 1 410 480" fill="none" stroke="#FC6255" stroke-width="10" stroke-linecap="round" /> <circle cx="300" cy="480" r="10" fill="#e8e6df" />
+            <text x="300" y="540" font-size="30" fill="#e8e6df" text-anchor="middle">并发</text>
+          </g>
+          <line id="ba-ndl" class="h" x1="300" y1="480" x2="300" y2="390" stroke="#e8e6df" stroke-width="5" stroke-linecap="round" /> <text id="ba-concl" class="h" x="480" y="492" font-size="40" font-weight="700" fill="#e8e6df">并发与 QPS 按配额配置</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ba-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /> <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">批量请求 <tspan font-size="28" font-weight="400" fill="#8a8f99">Batch Request</tspan></text> <text x="100" y="160" font-size="28" fill="#e8e6df">多个请求装进一个数组，一次发出</text>
+      </g>
+      <g id="ba-term2" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /> <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">令牌桶 <tspan font-size="28" font-weight="400" fill="#8a8f99">Token Bucket</tspan></text> <text x="100" y="160" font-size="28" fill="#e8e6df">按固定速率发令牌来限流</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const N = 12, B0 = 262, ST = 40;
+      const HL = (pre, a, b, t) => {
+        tl.to("#ba-hb, #ba-hs", { opacity: 1, attr: { y: B0 - 27 + ST * a, height: ST * (b - a + 1) }, duration: 0.35, ease: "power2.inOut" }, t);
+        for (let i = 0; i < (pre === "h" ? N : N - 1); i++) tl.to(`#ba-${pre}${i}`, { opacity: i >= a && i <= b ? 1 : 0.6, duration: 0.3 }, t);
+      };
+      const NOTE = (prev, next, t) => { if (prev) OUT(prev, t, 0.3); IN(next, t + 0.35, 0.4); };
+      // 区块带：108 列 × 3 行小方块（确定性生成）
+      (function () {
+        const g = document.querySelector("#ba-band"), NS = "http://www.w3.org/2000/svg";
+        for (let c = 0; c < 108; c++) for (let r = 0; r < 3; r++) {
+          const e = document.createElementNS(NS, "rect");
+          e.setAttribute("x", 120 + c * 16); e.setAttribute("y", 360 + r * 16);
+          e.setAttribute("width", 12); e.setAttribute("height", 12); e.setAttribute("rx", 2);
+          e.setAttribute("fill", "#58C4DD"); e.setAttribute("fill-opacity", (0.35 + 0.5 * ((c * 7 + r * 3) % 5) / 4).toFixed(2));
+          e.setAttribute("opacity", 0); g.appendChild(e);
+        }
+      })();
+      // L0 回填历史：很长的区块带向左延伸，往返计数器狂跳
+      IN("#ba-band rect", at(0, 0.02), 0.25, {}, { stagger: { each: 0.008, from: "end" } });
+      IN("#ba-bl", at(0, 0.3), 0.5, { x: 20 }, { x: 0 });
+      IN("#ba-cnt, #ba-cntl", at(0, 0.25), 0.4);
+      COUNT("#ba-cnt", 0, 100000, at(0, 0.3), 3.2, v => Math.round(v).toLocaleString("en-US"));
+      // L1 批量请求：小信封装进大信封，一次往返；代码 H 第 1–6 行
+      OUT("#ba-g0", at(1, 0), 0.4);
+      IN("#ba-term", at(1, 0.02), 0.5);
+      OUT("#ba-term", at(1, 0.02) + 7.5, 0.4);
+      IN("#ba-go", at(1, 0.06), 0.5);
+      IN("#ba-node", at(1, 0.09), 0.5);
+      for (let i = 0; i < 4; i++) IN(`#ba-se${i}`, at(1, 0.12 + i * 0.03), 0.4, { y: 16 }, { y: 0 });
+      IN("#ba-sel", at(1, 0.2), 0.4);
+      IN("#ba-env", at(1, 0.3), 0.5);
+      OUT("#ba-sel", at(1, 0.33), 0.3);
+      for (let i = 0; i < 4; i++) {
+        const cx = 160 + i * 180;
+        tl.to(`#ba-se${i}`, { x: 460 - cx, y: 480 - 632, opacity: 0, duration: 0.6, ease: "power2.in" }, at(1, 0.36 + i * 0.03));
+      }
+      ARROW("#ba-q", at(1, 0.5), 0.6);
+      ARROW("#ba-p", at(1, 0.56), 0.6);
+      IN("#ba-rt", at(1, 0.58), 0.4);
+      IN("#ba-panel, #ba-codeH", at(1, 0.6), 0.6, { x: 30 }, { x: 0 });
+      HL("h", 0, 5, at(1, 0.66));
+      IN("#ba-n0", at(1, 0.7), 0.4);
+      tl.to("#ba-env", { y: -10, duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut" }, at(1, 0.8));
+      tl.to("#ba-rt", { fill: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.9));
+      // L2 整批失败 vs 每个元素各自失败
+      HL("h", 6, 7, at(2, 0.02));
+      NOTE("#ba-n0", "#ba-n1", at(2, 0.04));
+      tl.to("#ba-envr", { stroke: "#FC6255", fill: "#FC625533", duration: 0.3 }, at(2, 0.1));
+      tl.to("#ba-envv", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.1));
+      IN("#ba-fail", at(2, 0.12), 0.4, { y: 10 }, { y: 0 });
+      tl.to("#ba-p", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.12));
+      OUT("#ba-fail", at(2, 0.36), 0.3);
+      tl.to("#ba-envr", { stroke: "#58C4DD", fill: "#58C4DD22", duration: 0.3 }, at(2, 0.36));
+      tl.to("#ba-envv", { stroke: "#58C4DD", duration: 0.3 }, at(2, 0.36));
+      tl.to("#ba-p", { stroke: "#8a8f99", duration: 0.3 }, at(2, 0.36));
+      HL("h", 8, 11, at(2, 0.42));
+      NOTE("#ba-n1", "#ba-n2", at(2, 0.44));
+      OUT("#ba-env", at(2, 0.46), 0.35);
+      for (let i = 0; i < 4; i++) IN(`#ba-r${i}`, at(2, 0.5 + i * 0.03), 0.35, { x: -12 }, { x: 0 });
+      tl.to("#ba-r2b", { stroke: "#FC6255", fill: "#FC625522", duration: 0.3 }, at(2, 0.68));
+      tl.to("#ba-r2t", { opacity: 0, duration: 0.2 }, at(2, 0.68));
+      tl.to("#ba-r2e", { opacity: 1, duration: 0.3 }, at(2, 0.7));
+      IN("#ba-nil", at(2, 0.78), 0.5, { y: 10 }, { y: 0 });
+      // L3 errgroup 限并发：4 条车道，结果按下标落进有序数组
+      OUT("#ba-g1", at(3, 0), 0.4);
+      OUT("#ba-codeH", at(3, 0), 0.35);
+      IN("#ba-codeI", at(3, 0.04), 0.5);
+      HL("i", 0, 0, at(3, 0.05));
+      NOTE("#ba-n2", "#ba-n3", at(3, 0.05));
+      IN("#ba-gate", at(3, 0.08), 0.4, { scaleY: 0, svgOrigin: "297 407" }, { scaleY: 1, svgOrigin: "297 407" });
+      IN("#ba-lim", at(3, 0.1), 0.4);
+      IN("#ba-lanes", at(3, 0.14), 0.5);
+      IN("#ba-queue", at(3, 0.16), 0.4, { x: -20 }, { x: 0 });
+      HL("i", 1, 4, at(3, 0.3));
+      for (let i = 0; i < 4; i++) {
+        IN(`#ba-d${i}`, at(3, 0.3 + i * 0.03), 0.2);
+        tl.fromTo(`#ba-d${i}`, { attr: { cx: 330 } }, { attr: { cx: 800 }, duration: 1.1 + i * 0.15, ease: "none", repeat: 2, immediateRender: false }, at(3, 0.3 + i * 0.03));
+      }
+      tl.to("#ba-queue rect", { opacity: 0.35, duration: 0.3, stagger: 0.4 }, at(3, 0.4));
+      IN("#ba-cells .ba-cellb", at(3, 0.36), 0.3, {}, { stagger: 0.04 });
+      IN("#ba-cn", at(3, 0.45), 0.5);
+      HL("i", 6, 6, at(3, 0.6));
+      NOTE("#ba-n3", "#ba-n4", at(3, 0.6));
+      [2, 0, 3, 1, 5, 4, 7, 6, 9, 8].forEach((k, j) => {
+        tl.to(`#ba-cf${k}`, { opacity: 1, duration: 0.25 }, at(3, 0.62) + j * 0.22);
+      });
+      HL("i", 10, 10, at(3, 0.88));
+      // L4 令牌桶限流 + getLogs 分段 + getBlockReceipts
+      OUT("#ba-g3", at(4, 0), 0.4);
+      OUT("#ba-panel, #ba-codeI, #ba-hb, #ba-hs, #ba-n4", at(4, 0), 0.4);
+      IN("#ba-term2", at(4, 0.02), 0.5);
+      OUT("#ba-term2", at(4, 0.02) + 7.5, 0.4);
+      IN("#ba-bucket", at(4, 0.03), 0.5);
+      IN("#ba-rate", at(4, 0.05), 0.5);
+      const KY = [540, 540, 540, 505, 505];
+      for (let i = 0; i < 5; i++) IN(`#ba-k${i}`, at(4, 0.06 + i * 0.045), 0.6, { y: 250 - KY[i] }, { y: 0, ease: "power2.in" });
+      IN("#ba-req", at(4, 0.2), 0.4, { x: 20 }, { x: 0 });
+      IN("#ba-reql", at(4, 0.2), 0.4);
+      ARROW("#ba-ka", at(4, 0.24), 0.5);
+      tl.to("#ba-k4", { x: 635 - 333, y: 476 - 505, duration: 0.7, ease: "power2.inOut" }, at(4, 0.27));
+      tl.to("#ba-k4", { opacity: 0, duration: 0.3 }, at(4, 0.27) + 0.7);
+      tl.to("#ba-req rect", { stroke: "#83C167", duration: 0.3 }, at(4, 0.27) + 0.7);
+      IN("#ba-wait", at(4, 0.3), 0.5);
+      IN("#ba-qps", at(4, 0.34), 0.5);
+      IN("#ba-cardA", at(4, 0.38), 0.5, { x: 30 }, { x: 0 });
+      IN("#ba-bar", at(4, 0.44), 0.4);
+      tl.to("#ba-bar", { opacity: 0, duration: 0.2 }, at(4, 0.5));
+      IN("#ba-barL, #ba-barR", at(4, 0.5), 0.3);
+      IN("#ba-prog", at(4, 0.55), 0.4);
+      for (let i = 0; i < 3; i++) IN(`#ba-ck${i}`, at(4, 0.58 + i * 0.03), 0.3, { scale: 0.5, svgOrigin: `${1070 + i * 136} 480` }, { scale: 1, svgOrigin: `${1070 + i * 136} 480` });
+      IN("#ba-cardB", at(4, 0.74), 0.5, { x: 30 }, { x: 0 });
+      IN("#ba-cbn", at(4, 0.9), 0.5);
+      // L5 算一算：逐个请求 ≈ 2.8 小时
+      OUT("#ba-g4", at(5, 0), 0.4);
+      IN("#ba-ttl", at(5, 0.05), 0.5);
+      IN("#ba-l0", at(5, 0.2), 0.4);
+      IN("#ba-l1", at(5, 0.32), 0.4, { x: -12 }, { x: 0 });
+      IN("#ba-l2", at(5, 0.55), 0.4, { x: -12 }, { x: 0 });
+      IN("#ba-l3", at(5, 0.72), 0.5, { scale: 0.8, svgOrigin: "120 500" }, { scale: 1, svgOrigin: "120 500" });
+      IN("#ba-rbl", at(5, 0.6), 0.4);
+      IN("#ba-rbar", at(5, 0.6), 2.0, { scaleX: 0, svgOrigin: "120 718" }, { scaleX: 1, svgOrigin: "120 718", ease: "power1.inOut" });
+      // L6 每批 50 · 并发 8 ≈ 38 秒
+      IN("#ba-r0h", at(6, 0.02), 0.4);
+      IN("#ba-rr1, #ba-rr1u", at(6, 0.14), 0.4, { x: -12 }, { x: 0 });
+      IN("#ba-ex", at(6, 0.36), 0.4);
+      IN("#ba-rr2", at(6, 0.5), 0.4, { x: -12 }, { x: 0 });
+      IN("#ba-rr3", at(6, 0.8), 0.5, { scale: 0.8, svgOrigin: "1020 500" }, { scale: 1, svgOrigin: "1020 500" });
+      IN("#ba-gbar", at(6, 0.84), 0.4, { scaleX: 0, svgOrigin: "120 818" }, { scaleX: 1, svgOrigin: "120 818" });
+      IN("#ba-gbl", at(6, 0.86), 0.4);
+      // L7 并发太高 → 429；并发拨盘拨回中间
+      OUT("#ba-lc", at(7, 0), 0.4);
+      IN("#ba-429", at(7, 0.12), 0.4, { x: -12 }, { x: 0 });
+      tl.to("#ba-gbar", { fill: "#FC6255", duration: 0.3, yoyo: true, repeat: 3 }, at(7, 0.14));
+      IN("#ba-dial, #ba-ndl", at(7, 0.3), 0.5);
+      tl.set("#ba-ndl", { rotation: 72, svgOrigin: "300 480" }, 0);
+      tl.to("#ba-ndl", { rotation: 0, svgOrigin: "300 480", duration: 1.4, ease: "power2.inOut" }, at(7, 0.45));
+      IN("#ba-concl", at(7, 0.68), 0.5, { x: -12 }, { x: 0 });
+      tl.to("#ba-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["batch"] = tl;
+    })();
+  </script>
+</template>

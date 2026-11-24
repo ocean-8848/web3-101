@@ -1,0 +1,244 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 faults，id 前缀 fa- -->
+  <div id="root" data-composition-id="faults" data-duration="55.86" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="fa-all">
+        <g id="fa-l1" class="h">
+          <rect id="fa-L1" x="100" y="220" width="660" height="130" rx="14" fill="#1e3540" stroke="#8a8f99" stroke-width="2.5" />
+          <circle cx="150" cy="285" r="24" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="150" y="295" font-size="28" fill="#e8e6df" text-anchor="middle">1</text>
+          <text x="196" y="297" font-size="32" font-weight="700" fill="#58C4DD">界面层</text>
+        </g>
+        <g id="fa-l2" class="h">
+          <rect id="fa-L2" x="100" y="357" width="660" height="130" rx="14" fill="#2a2118" stroke="#FF9F43" stroke-width="2.5" />
+          <circle cx="150" cy="422" r="24" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="150" y="432" font-size="28" fill="#e8e6df" text-anchor="middle">2</text>
+          <text x="196" y="434" font-size="32" font-weight="700" fill="#FF9F43">钱包连接层</text>
+        </g>
+        <g id="fa-l3" class="h">
+          <rect id="fa-L3" x="100" y="494" width="660" height="130" rx="14" fill="#162a33" stroke="#58C4DD" stroke-width="2.5" />
+          <circle cx="150" cy="559" r="24" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="150" y="569" font-size="28" fill="#e8e6df" text-anchor="middle">3</text>
+          <text x="196" y="571" font-size="32" font-weight="700" fill="#58C4DD">链交互层</text>
+        </g>
+        <g id="fa-l4" class="h">
+          <rect id="fa-L4" x="100" y="631" width="660" height="130" rx="14" fill="#17242b" stroke="#4a9db0" stroke-width="2.5" />
+          <circle cx="150" cy="696" r="24" fill="none" stroke="#4a9db0" stroke-width="2.5" />
+          <text x="150" y="706" font-size="28" fill="#e8e6df" text-anchor="middle">4</text>
+          <text x="196" y="708" font-size="32" font-weight="700" fill="#58C4DD">数据与索引层</text>
+        </g>
+        <g id="fa-l5" class="h">
+          <rect id="fa-L5" x="100" y="768" width="660" height="130" rx="14" fill="#1d1a28" stroke="#B48EF0" stroke-width="2.5" stroke-dasharray="14 10" />
+          <circle cx="150" cy="833" r="24" fill="none" stroke="#B48EF0" stroke-width="2.5" />
+          <text x="150" y="843" font-size="28" fill="#e8e6df" text-anchor="middle">5</text>
+          <text x="196" y="845" font-size="32" font-weight="700" fill="#B48EF0">后端（可选）</text>
+        </g>
+        <text id="fa-hd" class="h" x="820" y="175" font-size="44" font-weight="700" fill="#FC6255">典型故障</text>
+        <g id="fa-r1">
+          <text id="fa-prec" class="mono h" x="830" y="296" font-size="32" fill="#FC6255">1.500000000000000001</text>
+          <g id="fa-btn" class="h"><g id="fa-btni">
+            <rect x="1290" y="255" width="150" height="60" rx="12" fill="#F0B90B" />
+            <text x="1365" y="296" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">兑换</text>
+          </g></g>
+          <g id="fa-t1" class="h"><rect x="1490" y="260" width="80" height="50" rx="8" fill="#FC6255" fill-opacity="0.13" stroke="#FC6255" stroke-width="2" />
+            <text class="mono" x="1530" y="294" font-size="28" fill="#FC6255" text-anchor="middle">Tx</text></g>
+          <g id="fa-t2" class="h"><rect x="1590" y="260" width="80" height="50" rx="8" fill="#FC6255" fill-opacity="0.13" stroke="#FC6255" stroke-width="2" />
+            <text class="mono" x="1630" y="294" font-size="28" fill="#FC6255" text-anchor="middle">Tx</text></g>
+          <g id="fa-t3" class="h"><rect x="1690" y="260" width="80" height="50" rx="8" fill="#FC6255" fill-opacity="0.13" stroke="#FC6255" stroke-width="2" />
+            <text class="mono" x="1730" y="294" font-size="28" fill="#FC6255" text-anchor="middle">Tx</text></g>
+        </g>
+        <g id="fa-r2">
+          <g id="fa-pa" class="h"><rect x="830" y="392" width="120" height="60" rx="10" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="890" y="432" font-size="28" fill="#FF9F43" text-anchor="middle">插件 A</text></g>
+          <g id="fa-pb" class="h"><rect x="1010" y="392" width="120" height="60" rx="10" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="1070" y="432" font-size="28" fill="#FF9F43" text-anchor="middle">插件 B</text></g>
+          <path id="fa-sp" class="h" d="M980 404 L986 416 L998 418 L988 426 L992 440 L980 432 L968 440 L972 426 L962 418 L974 416 Z" fill="#FC6255" />
+          <g id="fa-ref" class="h">
+            <path d="M1228 412 A20 20 0 1 0 1230 432" fill="none" stroke="#8a8f99" stroke-width="4" stroke-linecap="round" />
+            <path d="M1220 404 L1232 412 L1222 422" fill="none" stroke="#8a8f99" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <text id="fa-on" class="h" x="1250" y="433" font-size="30" fill="#83C167">已连接</text>
+          <text id="fa-off" class="h" x="1250" y="433" font-size="30" fill="#FC6255">未连接</text>
+          <g id="fa-ph" class="h"><rect x="1420" y="380" width="50" height="84" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <path d="M1433 410 L1457 434 M1457 410 L1433 434" stroke="#FC6255" stroke-width="4" stroke-linecap="round" /></g>
+          <text id="fa-phx" class="h" x="1490" y="433" font-size="30" fill="#FC6255">唤不起</text>
+        </g>
+        <g id="fa-r3">
+          <g id="fa-rpc" class="h"><rect id="fa-rpcr" x="830" y="514" width="120" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="890" y="570" font-size="30" fill="#58C4DD" text-anchor="middle">RPC</text></g>
+          <g id="fa-sm" class="h"><circle cx="944" cy="500" r="7" fill="#FC6255" fill-opacity="0.6" /><circle cx="958" cy="486" r="9" fill="#FC6255" fill-opacity="0.45" /><circle cx="974" cy="472" r="10" fill="#FC6255" fill-opacity="0.3" /></g>
+          <g id="fa-card" class="h"><rect x="1000" y="509" width="260" height="100" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /></g>
+          <text id="fa-v1" class="mono h" x="1025" y="549" font-size="28" fill="#F0B90B">ETH 1.5</text>
+          <text id="fa-v2" class="mono h" x="1025" y="591" font-size="28" fill="#F0B90B">USDC 250</text>
+          <text id="fa-z1" class="mono h" x="1025" y="549" font-size="28" fill="#FC6255">ETH 0</text>
+          <text id="fa-z2" class="mono h" x="1025" y="591" font-size="28" fill="#FC6255">USDC 0</text>
+          <text id="fa-gas" class="h" x="1310" y="570" font-size="28" fill="#FC6255">Gas 估算失败 · revert</text>
+          <g id="fa-bk" class="h">
+            <rect x="1330" y="504" width="130" height="48" rx="8" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1395" y="538" font-size="28" fill="#83C167" text-anchor="middle">RPC 2</text>
+            <rect x="1330" y="566" width="130" height="48" rx="8" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1395" y="600" font-size="28" fill="#83C167" text-anchor="middle">RPC 3</text>
+          </g>
+          <path id="fa-fb" class="dr h" pathLength="1" d="M1322 559 H1272" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#fa-arr)" />
+          <text id="fa-fbl" class="mono h" x="1480" y="570" font-size="28" fill="#83C167">fallback</text>
+        </g>
+        <g id="fa-r4">
+          <g id="fa-ch" class="h">
+            <text x="820" y="677" font-size="28" fill="#8a8f99">区块</text>
+            <rect id="fa-k1" x="900" y="648" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2" />
+<rect id="fa-k2" x="950" y="648" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2" />
+<rect id="fa-k3" x="1000" y="648" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2" />
+<rect id="fa-k4" x="1050" y="648" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2" />
+<rect id="fa-k5" x="1100" y="648" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2" />
+<rect id="fa-k6" x="1150" y="648" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2" />
+<rect id="fa-k7" x="1200" y="648" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2" />
+<rect id="fa-k8" x="1250" y="648" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2" />
+          </g>
+          <g id="fa-ix" class="h">
+            <text x="820" y="737" font-size="28" fill="#8a8f99">索引</text>
+            <rect id="fa-i1" x="900" y="708" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.12" stroke="#4a9db0" stroke-width="2" />
+<rect id="fa-i2" x="950" y="708" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.12" stroke="#4a9db0" stroke-width="2" />
+<rect id="fa-i3" x="1000" y="708" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.12" stroke="#4a9db0" stroke-width="2" />
+<rect id="fa-i4" x="1050" y="708" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.12" stroke="#4a9db0" stroke-width="2" />
+<rect id="fa-i5" x="1100" y="708" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.12" stroke="#4a9db0" stroke-width="2" />
+<rect id="fa-i6" x="1150" y="708" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.12" stroke="#4a9db0" stroke-width="2" />
+          </g>
+          <rect id="fa-k7n" class="h" x="1200" y="648" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2" />
+          <rect id="fa-k8n" class="h" x="1250" y="648" width="40" height="40" rx="6" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2" />
+          <text id="fa-lag" class="h" x="1210" y="737" font-size="28" fill="#FC6255">延迟</text>
+          <path id="fa-back" class="dr h" pathLength="1" d="M1250 728 H1204" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#fa-arr)" />
+        </g>
+        <g id="fa-r5">
+          <g id="fa-key" class="h">
+            <circle cx="848" cy="833" r="14" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <path d="M862 833 H900 M888 833 V846 M898 833 V844" stroke="#FC6255" stroke-width="3.5" fill="none" />
+            <text x="916" y="844" font-size="30" fill="#FC6255">会话劫持</text>
+          </g>
+          <g id="fa-leak" class="h">
+            <path d="M1110 810 H1136 L1146 820 V856 H1110 Z" fill="none" stroke="#FC6255" stroke-width="3" stroke-linejoin="round" />
+            <text x="1164" y="844" font-size="30" fill="#FC6255">密钥外泄</text>
+          </g>
+        </g>
+        <g id="fa-r5b">
+          <text id="fa-f1" class="h" x="830" y="844" font-size="30" fill="#6b6f7a">登录会话</text>
+          <path id="fa-x1" class="h" d="M964 821 L988 845 M988 821 L964 845" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+          <text id="fa-f2" class="h" x="1050" y="844" font-size="30" fill="#6b6f7a">推送通知</text>
+          <path id="fa-x2" class="h" d="M1184 821 L1208 845 M1208 821 L1184 845" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+          <text id="fa-f3" class="h" x="1270" y="844" font-size="30" fill="#6b6f7a">跨设备历史</text>
+          <path id="fa-x3" class="h" d="M1434 821 L1458 845 M1458 821 L1434 845" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+        </g>
+        <g id="fa-n1" class="h"><rect id="fa-n1r" x="100" y="800" width="110" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text id="fa-n1t" class="mono" x="155" y="838" font-size="28" fill="#8a8f99" text-anchor="middle">npm</text></g>
+        <g id="fa-n2" class="h"><rect id="fa-n2r" x="230" y="800" width="110" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text id="fa-n2t" class="mono" x="285" y="838" font-size="28" fill="#8a8f99" text-anchor="middle">npm</text></g>
+        <g id="fa-n3" class="h"><rect id="fa-n3r" x="360" y="800" width="110" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text id="fa-n3t" class="mono" x="415" y="838" font-size="28" fill="#8a8f99" text-anchor="middle">npm</text></g>
+        <g id="fa-n4" class="h"><rect id="fa-n4r" x="490" y="800" width="110" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text id="fa-n4t" class="mono" x="545" y="838" font-size="28" fill="#8a8f99" text-anchor="middle">npm</text></g>
+        <g id="fa-n5" class="h"><rect id="fa-n5r" x="620" y="800" width="110" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text id="fa-n5t" class="mono" x="675" y="838" font-size="28" fill="#8a8f99" text-anchor="middle">npm</text></g>
+        <g id="fa-cl" class="h"><circle cx="575" cy="786" r="10" fill="#FC6255" fill-opacity="0.5" /><circle cx="596" cy="772" r="13" fill="#FC6255" fill-opacity="0.35" /><circle cx="622" cy="764" r="9" fill="#FC6255" fill-opacity="0.25" /></g>
+        <path id="fa-pl" class="dr h" pathLength="1" d="M545 798 V285 H1028" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#fa-arr)" />
+        <g id="fa-env" class="h">
+          <rect x="1040" y="200" width="560" height="300" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <path d="M1040 204 L1320 320 L1600 204" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-linejoin="round" />
+          <text x="1320" y="385" font-size="28" fill="#8a8f99" text-anchor="middle">收款地址</text>
+        </g>
+        <text id="fa-to" class="mono h" x="1320" y="452" font-size="40" fill="#e8e6df" text-anchor="middle">to: Bob</text>
+        <text id="fa-to2" class="mono h" x="1320" y="452" font-size="40" fill="#FC6255" text-anchor="middle">to: 0x????</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="fa-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">npm 包 <tspan font-size="28" font-weight="400" fill="#8a8f99">Package</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">别人写好发布的代码库</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const POP = (s, t, o, d = 0.4) => IN(s, t, d, { scale: 0.4, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(2)" });
+      // L0 五层缩到左侧 + 表头
+      [1, 2, 3, 4, 5].forEach((i, k) => IN(`#fa-l${i}`, at(0, 0.0 + k * 0.1), 0.45, { x: 30 }, { x: 0 }));
+      IN("#fa-hd", at(0, 0.5), 0.5);
+      // L1 界面层：精度错误；按钮连点三次
+      IN("#fa-prec", at(1, 0.12), 0.5);
+      IN("#fa-btn", at(1, 0.48), 0.4);
+      [0, 1, 2].forEach(k => {
+        const t = at(1, 0.6 + k * 0.08);
+        tl.to("#fa-btni", { scale: 0.92, svgOrigin: "1365 285", duration: 0.12, yoyo: true, repeat: 1 }, t);
+        POP(`#fa-t${k + 1}`, t + 0.15, `${1530 + 100 * k} 285`, 0.3);
+      });
+      // L2 钱包连接层：插件冲突、刷新断开、手机唤不起
+      IN("#fa-pa", at(2, 0.1), 0.4, { x: -20 }, { x: 0 }); IN("#fa-pb", at(2, 0.1), 0.4, { x: 20 }, { x: 0 });
+      POP("#fa-sp", at(2, 0.24), "980 422"); tl.to("#fa-sp", { opacity: 0.3, duration: 0.15, yoyo: true, repeat: 3 }, at(2, 0.3));
+      IN("#fa-ref", at(2, 0.44), 0.3); IN("#fa-on", at(2, 0.44), 0.3);
+      tl.to("#fa-ref", { rotation: 360, svgOrigin: "1210 422", duration: 0.6, ease: "power2.inOut" }, at(2, 0.5));
+      OUT("#fa-on", at(2, 0.56), 0.25); IN("#fa-off", at(2, 0.56) + 0.3, 0.3);
+      IN("#fa-ph", at(2, 0.74), 0.4); IN("#fa-phx", at(2, 0.8), 0.4);
+      // L3 链交互层：RPC 宕机 → 余额 0 → 多 RPC fallback
+      IN("#fa-rpc", at(3, 0.02), 0.4);
+      IN("#fa-card", at(3, 0.06), 0.4); IN("#fa-v1", at(3, 0.06), 0.4); IN("#fa-v2", at(3, 0.06), 0.4);
+      IN("#fa-gas", at(3, 0.1), 0.5);
+      tl.to("#fa-rpcr", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.3)); IN("#fa-sm", at(3, 0.3), 0.5, { y: 10 }, { y: 0 });
+      OUT("#fa-v1", at(3, 0.38), 0.3); OUT("#fa-v2", at(3, 0.38), 0.3);
+      IN("#fa-z1", at(3, 0.38) + 0.35, 0.3); IN("#fa-z2", at(3, 0.38) + 0.35, 0.3);
+      OUT("#fa-gas", at(3, 0.58), 0.3);
+      IN("#fa-bk", at(3, 0.62), 0.5, { x: 20 }, { x: 0 });
+      ARROW("#fa-fb", at(3, 0.76), 0.4); IN("#fa-fbl", at(3, 0.78), 0.4);
+      OUT("#fa-z1", at(3, 0.84), 0.3); OUT("#fa-z2", at(3, 0.84), 0.3);
+      IN("#fa-v1", at(3, 0.84) + 0.35, 0.3); IN("#fa-v2", at(3, 0.84) + 0.35, 0.3);
+      // L4 索引延迟、重组回退；后端：会话劫持、密钥外泄
+      IN("#fa-ch", at(4, 0.0), 0.5); IN("#fa-ix", at(4, 0.06), 0.5); IN("#fa-lag", at(4, 0.14), 0.4);
+      OUT("#fa-lag", at(4, 0.3), 0.3);
+      tl.to(["#fa-k7", "#fa-k8"], { fill: "#FC6255", stroke: "#FC6255", duration: 0.3 }, at(4, 0.3));
+      OUT("#fa-k7", at(4, 0.38), 0.3); OUT("#fa-k8", at(4, 0.38), 0.3);
+      IN("#fa-k7n", at(4, 0.42), 0.3, { y: -12 }, { y: 0 }); IN("#fa-k8n", at(4, 0.44), 0.3, { y: -12 }, { y: 0 });
+      tl.to("#fa-i6", { fill: "#FC6255", stroke: "#FC6255", duration: 0.3 }, at(4, 0.42));
+      ARROW("#fa-back", at(4, 0.46), 0.4); OUT("#fa-i6", at(4, 0.52), 0.4);
+      IN("#fa-key", at(4, 0.66), 0.5); IN("#fa-leak", at(4, 0.8), 0.5);
+      // L5 没有后端：三个功能灰掉打叉
+      OUT("#fa-r5", at(5, 0)); OUT("#fa-l5", at(5, 0.08), 0.6);
+      [1, 2, 3].forEach((k, j) => { IN(`#fa-f${k}`, at(5, 0.3 + j * 0.14), 0.4); POP(`#fa-x${k}`, at(5, 0.36 + j * 0.14), `${[976, 1196, 1446][j]} 833`); });
+      // L6 npm 包投毒：红线穿透各层，改写收款地址
+      ["#fa-hd", "#fa-r1", "#fa-r2", "#fa-r3", "#fa-r4", "#fa-r5b"].forEach(s => OUT(s, at(6, 0)));
+      IN("#fa-term", at(6, 0.04), 0.5);
+      [1, 2, 3, 4, 5].forEach((k, j) => IN(`#fa-n${k}`, at(6, 0.12 + j * 0.04), 0.4, { y: 20 }, { y: 0 }));
+      IN("#fa-env", at(6, 0.3), 0.5); IN("#fa-to", at(6, 0.3), 0.5);
+      tl.to("#fa-n4r", { stroke: "#FC6255", fill: "#3a1c1c", duration: 0.4 }, at(6, 0.55)); tl.to("#fa-n4t", { fill: "#FC6255", duration: 0.4 }, at(6, 0.55));
+      IN("#fa-cl", at(6, 0.58), 0.6, { y: 10 }, { y: 0 });
+      ARROW("#fa-pl", at(6, 0.62), 1.2);
+      OUT("#fa-to", at(6, 0.62) + 1.1, 0.25); IN("#fa-to2", at(6, 0.62) + 1.4, 0.3);
+
+      tl.to("#fa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#fa-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["faults"] = tl;
+    })();
+  </script>
+</template>

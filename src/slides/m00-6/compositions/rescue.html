@@ -1,0 +1,184 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 rescue，id 前缀 res- -->
+  <div id="root" data-composition-id="rescue" data-duration="69.35" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="res-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="res-all">
+        <g id="res-top" class="h">
+          <rect x="790" y="200" width="340" height="66" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <text x="960" y="245" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">发现异常转出</text>
+        </g>
+        <path id="res-a0" class="dr h" pathLength="1" d="M960 268 L960 298" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#res-arr)"/>
+        <g id="res-dia" class="h">
+          <path d="M960 302 L1280 370 L960 438 L640 370 Z" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+          <text x="960" y="381" font-size="30" fill="#FF9F43" text-anchor="middle">助记词或私钥可能泄露了吗？</text>
+        </g>
+        <!-- left branch -->
+        <path id="res-la" class="dr h" pathLength="1" d="M640 370 L430 370 L430 486" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#res-arr)"/>
+        <text id="res-ll" class="h" x="535" y="352" font-size="28" fill="#e8e6df" text-anchor="middle">是或不确定</text>
+        <g id="res-l1" class="h">
+          <rect x="130" y="490" width="600" height="70" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+          <text x="430" y="535" font-size="28" fill="#e8e6df" text-anchor="middle">新助记词新建钱包，最好换新设备</text>
+        </g>
+        <path id="res-la2" class="dr h" pathLength="1" d="M430 562 L430 596" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#res-arr)"/>
+        <g id="res-l2" class="h">
+          <rect x="130" y="600" width="600" height="70" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+          <text x="430" y="645" font-size="28" fill="#e8e6df" text-anchor="middle">剩余资产转过去，先转价值最高的</text>
+        </g>
+        <!-- right branch -->
+        <path id="res-ra" class="dr h" pathLength="1" d="M1280 370 L1490 370 L1490 486" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#res-arr)"/>
+        <text id="res-rl" class="h" x="1395" y="352" font-size="28" fill="#e8e6df" text-anchor="middle">只签了恶意授权</text>
+        <g id="res-r1" class="h">
+          <rect x="1190" y="490" width="600" height="70" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+          <text x="1490" y="535" font-size="28" fill="#e8e6df" text-anchor="middle">立即撤销相关授权</text>
+        </g>
+        <path id="res-ra2" class="dr h" pathLength="1" d="M1490 562 L1490 596" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#res-arr)"/>
+        <g id="res-r2" class="h">
+          <rect x="1190" y="600" width="600" height="70" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+          <text x="1490" y="645" font-size="28" fill="#e8e6df" text-anchor="middle">转走仍被授权的资产</text>
+        </g>
+        <!-- merge -->
+        <path id="res-ml" class="dr h" pathLength="1" d="M430 672 L430 702 L960 702" fill="none" stroke="#83C167" stroke-width="3"/>
+        <path id="res-mr" class="dr h" pathLength="1" d="M1490 672 L1490 702 L960 702" fill="none" stroke="#83C167" stroke-width="3"/>
+        <text id="res-stop" class="h" x="960" y="684" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">先止损</text>
+        <!-- chain -->
+        <path id="res-c0" class="dr h" pathLength="1" d="M960 704 L960 730" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#res-arr)"/>
+        <g id="res-ev" class="h">
+          <rect x="660" y="734" width="600" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+        </g>
+        <text id="res-ev1" class="h" x="960" y="774" font-size="28" fill="#58C4DD" text-anchor="middle">取证：交易哈希 · 攻击者地址</text>
+        <text id="res-ev2" class="h" x="960" y="814" font-size="28" fill="#58C4DD" text-anchor="middle">钓鱼网址 · 聊天截图</text>
+        <path id="res-c1" class="dr h" pathLength="1" d="M960 836 L960 862" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#res-arr)"/>
+        <g id="res-cex" class="h">
+          <rect id="res-cexr" x="660" y="866" width="600" height="60" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+          <text x="960" y="906" font-size="28" fill="#B48EF0" text-anchor="middle">进了交易所？立即申请冻结</text>
+        </g>
+        <path id="res-c2" class="dr h" pathLength="1" d="M960 928 L960 954" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#res-arr)"/>
+        <g id="res-pol" class="h">
+          <rect x="660" y="958" width="600" height="60" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+          <text x="960" y="998" font-size="28" fill="#B48EF0" text-anchor="middle">报警 · 告知安全团队或社区</text>
+        </g>
+        <!-- sweeper bot (left) -->
+        <g id="res-addr" class="h">
+          <rect x="90" y="770" width="230" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <text x="205" y="815" font-size="28" fill="#FC6255" text-anchor="middle">已泄露地址</text>
+        </g>
+        <g id="res-bot" class="h">
+          <rect x="470" y="772" width="76" height="62" rx="12" fill="none" stroke="#FC6255" stroke-width="3"/>
+          <circle cx="492" cy="800" r="7" fill="#FC6255"/>
+          <circle cx="524" cy="800" r="7" fill="#FC6255"/>
+          <line x1="508" y1="772" x2="508" y2="756" stroke="#FC6255" stroke-width="3"/>
+          <circle cx="508" cy="752" r="5" fill="#FC6255"/>
+          <line x1="490" y1="820" x2="526" y2="820" stroke="#FC6255" stroke-width="3"/>
+        </g>
+        <text id="res-botl" class="h" x="508" y="876" font-size="28" fill="#FC6255" text-anchor="middle">清扫机器人</text>
+        <circle id="res-gas" class="h" cx="120" cy="740" r="11" fill="#F0B90B"/>
+        <g id="res-bx" class="h"><path d="M98 900 L126 928 M126 900 L98 928" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/></g>
+        <text id="res-bxl" class="h" x="140" y="926" font-size="28" fill="#FC6255">别反复转入 Gas</text>
+        <text id="res-help" class="h" x="90" y="990" font-size="28" fill="#83C167">找专业救援 · 私有交易通道</text>
+        <!-- second scam (right) -->
+        <g id="res-warn" class="h">
+          <rect x="1320" y="740" width="520" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <text x="1580" y="792" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">“帮你追回”？二次诈骗</text>
+        </g>
+        <g id="res-man" class="h">
+          <circle cx="1440" cy="876" r="18" fill="#8a8f99"/>
+          <path d="M1410 940 Q1440 896 1470 940 Z" fill="#8a8f99"/>
+          <rect x="1500" y="874" width="130" height="50" rx="10" fill="none" stroke="#FF9F43" stroke-width="2.5"/>
+          <text x="1565" y="910" font-size="28" fill="#FF9F43" text-anchor="middle">先付费</text>
+        </g>
+        <text id="res-f1" class="h" x="1320" y="882" font-size="28" fill="#B48EF0">只有流入中心化交易所</text>
+        <text id="res-f2" class="h" x="1320" y="926" font-size="28" fill="#B48EF0">且交易所及时配合，才有冻结机会</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0
+IN("#res-top", at(0, 0.03), 0.5, { y: -16 }, { y: 0 });
+ARROW("#res-a0", at(0, 0.35), 0.4);
+IN("#res-dia", at(0, 0.45), 0.6, { scale: 0.9, svgOrigin: "960 370" }, { scale: 1, svgOrigin: "960 370" });
+// L1 left branch
+ARROW("#res-la", at(1, 0.03), 0.6);
+IN("#res-ll", at(1, 0.08), 0.4);
+IN("#res-l1", at(1, 0.25), 0.5, { y: -12 }, { y: 0 });
+ARROW("#res-la2", at(1, 0.6), 0.4);
+IN("#res-l2", at(1, 0.66), 0.5, { y: -12 }, { y: 0 });
+// L2 right branch + merge
+ARROW("#res-ra", at(2, 0.03), 0.6);
+IN("#res-rl", at(2, 0.08), 0.4);
+IN("#res-r1", at(2, 0.22), 0.5, { y: -12 }, { y: 0 });
+ARROW("#res-ra2", at(2, 0.4), 0.4);
+IN("#res-r2", at(2, 0.45), 0.5, { y: -12 }, { y: 0 });
+DRAW("#res-ml", at(2, 0.66), 0.7); DRAW("#res-mr", at(2, 0.66), 0.7);
+IN("#res-ml, #res-mr", at(2, 0.66), 0.01);
+IN("#res-stop", at(2, 0.78), 0.5, { scale: 0.8, svgOrigin: "960 672" }, { scale: 1, svgOrigin: "960 672" });
+tl.to("#res-l1 rect, #res-r1 rect", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.82));
+// L3 chain
+ARROW("#res-c0", at(3, 0.02), 0.3);
+IN("#res-ev", at(3, 0.04), 0.4);
+IN("#res-ev1", at(3, 0.08), 0.4);
+IN("#res-ev2", at(3, 0.2), 0.4);
+ARROW("#res-c1", at(3, 0.42), 0.3);
+IN("#res-cex", at(3, 0.45), 0.5, { y: -10 }, { y: 0 });
+ARROW("#res-c2", at(3, 0.68), 0.3);
+IN("#res-pol", at(3, 0.71), 0.5, { y: -10 }, { y: 0 });
+tl.to("#res-c0, #res-c1, #res-c2", { stroke: "#83C167", duration: 0.3, stagger: 0.25 }, at(3, 0.9));
+// L4 sweeper bot
+IN("#res-addr", at(4, 0.03), 0.5);
+IN("#res-bot", at(4, 0.1), 0.5, { x: 20 }, { x: 0 });
+IN("#res-botl", at(4, 0.14), 0.4);
+const SWEEP = (t) => {
+  tl.fromTo("#res-gas", { attr: { cx: 120, cy: 740 }, opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, t);
+  tl.to("#res-gas", { attr: { cx: 205, cy: 752 }, duration: 0.6, ease: "power2.inOut" }, t + 0.2);
+  tl.to("#res-gas", { attr: { cx: 508, cy: 803 }, duration: 0.25, ease: "power3.in" }, t + 0.85);
+  tl.to("#res-gas", { opacity: 0, duration: 0.1 }, t + 1.1);
+  tl.to("#res-bot rect", { stroke: "#ffffff", duration: 0.1, yoyo: true, repeat: 1 }, t + 1.1);
+};
+SWEEP(at(4, 0.24)); SWEEP(at(4, 0.42));
+IN("#res-bx", at(4, 0.6), 0.3, { scale: 0.5, svgOrigin: "112 914" }, { scale: 1, svgOrigin: "112 914" });
+IN("#res-bxl", at(4, 0.62), 0.4);
+IN("#res-help", at(4, 0.82), 0.5, { x: -16 }, { x: 0 });
+// L5 second scam
+IN("#res-warn", at(5, 0.04), 0.5, { scale: 0.92, svgOrigin: "1580 780" }, { scale: 1, svgOrigin: "1580 780" });
+IN("#res-man", at(5, 0.3), 0.5);
+tl.to("#res-man", { opacity: 0, x: 60, duration: 0.7, ease: "power2.in" }, at(5, 0.75));
+// L6 freeze window
+IN("#res-f1", at(6, 0.08), 0.5);
+IN("#res-f2", at(6, 0.22), 0.5);
+tl.to("#res-cexr", { strokeWidth: 6, duration: 0.35, yoyo: true, repeat: 3 }, at(6, 0.4));
+tl.to("#res-warn", { opacity: 0.35, duration: 0.6 }, at(6, 0.7));
+
+      /*ENDANIM*/
+
+      tl.to("#res-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["rescue"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,181 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 model，id 前缀 mo- -->
+  <div id="root" data-composition-id="model" data-duration="56.6" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="mo-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="mo-all">
+        <g id="mo-zone" class="h">
+          <rect x="560" y="240" width="800" height="640" rx="20" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="12 8"/>
+          <text x="590" y="285" font-size="28" fill="#58C4DD">链上 · MessageBoard 合约</text>
+        </g>
+        <g id="mo-fc" class="h">
+          <rect id="mo-fcr" x="600" y="310" width="720" height="270" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="630" y="352" font-size="28" font-weight="700" fill="#F0B90B">函数</text>
+        </g>
+        <g id="mo-fx" class="h">
+          <text class="mono" x="640" y="405" font-size="30" fill="#e8e6df">post()</text>
+          <text class="mono" x="640" y="453" font-size="30" fill="#e8e6df">like()</text>
+          <text class="mono" x="640" y="501" font-size="30" fill="#e8e6df">hide()</text>
+          <text class="mono" x="640" y="553" font-size="30" fill="#e8e6df">getMessage()</text>
+          <text x="880" y="553" font-size="28" fill="#8a8f99">只读</text>
+        </g>
+        <g id="mo-tg0" class="h"><rect x="880" y="378" width="170" height="40" rx="20" fill="#161a22" stroke="#F0B90B" stroke-width="2"/><text x="965.0" y="407" font-size="28" fill="#F0B90B" text-anchor="middle">长度 1–280</text></g><g id="mo-tg1" class="h"><rect x="880" y="426" width="196" height="40" rx="20" fill="#161a22" stroke="#F0B90B" stroke-width="2"/><text x="978.0" y="455" font-size="28" fill="#F0B90B" text-anchor="middle">每人每条一次</text></g><g id="mo-tg2" class="h"><rect x="880" y="474" width="186" height="40" rx="20" fill="#161a22" stroke="#B48EF0" stroke-width="2"/><text x="973.0" y="503" font-size="28" fill="#B48EF0" text-anchor="middle">只有 owner</text></g>
+        <path id="mo-strike" class="dr" pathLength="1" d="M872 494 L1074 494" stroke="#FC6255" stroke-width="5"/>
+        <g id="mo-sc" class="h">
+          <rect id="mo-scr" x="600" y="625" width="720" height="240" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text id="mo-scl" x="630" y="665" font-size="28" font-weight="700" fill="#58C4DD">状态变量</text>
+        </g>
+        <g id="mo-grid" class="h">
+          <line x1="612" y1="743" x2="1308" y2="743" stroke="#58C4DD" stroke-width="1.5" opacity="0.45"/>
+          <line x1="612" y1="803" x2="1308" y2="803" stroke="#58C4DD" stroke-width="1.5" opacity="0.45"/>
+        </g>
+        <text id="mo-v0" class="h mono" x="640" y="720" font-size="30" fill="#e8e6df">Message[] messages</text>
+        <text id="mo-v1" class="h mono" x="640" y="780" font-size="30" fill="#e8e6df">mapping postCount · liked</text>
+        <text id="mo-v2" class="h mono" x="640" y="840" font-size="30" fill="#e8e6df">owner · MAX_LEN = 280</text>
+        <line id="mo-stub" class="h" x1="1324" y1="478" x2="1490" y2="478" stroke="#6b6f7a" stroke-width="3" stroke-dasharray="8 8"/>
+        <g id="mo-caller" class="h">
+          <circle cx="330" cy="400" r="28" fill="none" stroke="#e8e6df" stroke-width="3.5"/><path d="M282 500 C282 450 305 438 330 438 C355 438 378 450 378 500 Z" fill="none" stroke="#e8e6df" stroke-width="3.5"/>
+          <text x="330" y="560" font-size="30" fill="#e8e6df" text-anchor="middle">调用者</text>
+          <text x="330" y="602" font-size="28" fill="#8a8f99" text-anchor="middle">任何地址</text>
+        </g>
+        <path id="mo-a1" class="dr h" pathLength="1" d="M400 450 L592 450" stroke="#F0B90B" stroke-width="4" marker-end="url(#mo-arrG)"/>
+        <path id="mo-a2" class="dr h" pathLength="1" d="M1240 582 L1240 618" stroke="#58C4DD" stroke-width="4" marker-end="url(#mo-arrB)"/>
+        <g id="mo-fe" class="h">
+          <rect x="1500" y="360" width="220" height="200" rx="14" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 7"/>
+          <text x="1610" y="410" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">前端</text>
+          <text x="1610" y="455" font-size="28" fill="#8a8f99" text-anchor="middle">监听事件</text>
+        </g>
+        <text id="mo-fep" class="h" x="1610" y="525" font-size="28" fill="#F0B90B" text-anchor="middle">刚刚：Posted</text>
+        <path id="mo-a3" class="dr h" pathLength="1" d="M1324 478 L1492 478" stroke="#F0B90B" stroke-width="4" marker-end="url(#mo-arrG)"/>
+        <g id="mo-emit" class="h"><path d="M1372 432 L1380 432 L1396 422 L1396 452 L1380 442 L1372 442 Z" fill="#F0B90B"/><path d="M1400 430 Q1406 437 1400 444" fill="none" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="1410" y="452" font-size="28" fill="#F0B90B">emit</text></g>
+        <g id="mo-ic0" class="h">
+          <rect x="1264" y="640" width="40" height="32" rx="3" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <line x1="1264" y1="651" x2="1304" y2="651" stroke="#8a8f99" stroke-width="2"/><line x1="1264" y1="662" x2="1304" y2="662" stroke="#8a8f99" stroke-width="2"/><line x1="1284" y1="640" x2="1284" y2="672" stroke="#8a8f99" stroke-width="2"/>
+          <text x="1250" y="667" font-size="28" fill="#8a8f99" text-anchor="end">表格</text>
+        </g>
+        <g id="mo-ic1" class="h">
+          <path d="M1284 330 C1274 324 1264 324 1262 326 L1262 358 C1264 356 1274 356 1284 362 C1294 356 1304 356 1306 358 L1306 326 C1304 324 1294 324 1284 330 Z M1284 330 L1284 362" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <text x="1250" y="353" font-size="28" fill="#8a8f99" text-anchor="end">手册</text>
+        </g>
+        <g id="mo-ic2" class="h">
+          <rect x="1528" y="310" width="40" height="32" rx="3" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <circle cx="1538" cy="318" r="3" fill="#8a8f99"/><circle cx="1558" cy="318" r="3" fill="#8a8f99"/>
+          <line x1="1534" y1="330" x2="1562" y2="330" stroke="#8a8f99" stroke-width="2"/>
+          <text x="1580" y="338" font-size="28" fill="#8a8f99">公告栏</text>
+        </g>
+        <g id="mo-admg">
+          <g id="mo-adm" class="h">
+            <circle cx="1600" cy="690" r="28" fill="none" stroke="#B48EF0" stroke-width="3.5"/><path d="M1552 790 C1552 740 1575 728 1600 728 C1625 728 1648 740 1648 790 Z" fill="none" stroke="#B48EF0" stroke-width="3.5"/>
+            <text x="1600" y="835" font-size="28" fill="#B48EF0" text-anchor="middle">管理员</text>
+          </g>
+          <rect id="mo-bar" class="h" x="1381" y="640" width="8" height="220" rx="4" fill="#FC6255"/>
+          <text id="mo-barl" class="h" x="1385" y="620" font-size="28" font-weight="700" fill="#FC6255">只能走函数</text>
+        </g>
+        <text id="mo-fix" class="h" x="1850" y="965" font-size="28" fill="#8a8f99" text-anchor="end">部署后规则固定</text>
+        <path id="mo-atk" class="dr h" pathLength="1" d="M400 560 C500 600 520 760 592 760" stroke="#FC6255" stroke-width="5" marker-end="url(#mo-arrR)"/>
+        <path id="mo-back" class="h" d="M1492 535 L1330 535" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#mo-arr)"/>
+        <path id="mo-bx" class="h" d="M1414 519 L1446 551 M1446 519 L1414 551" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+        <text id="mo-backl" class="h" x="1500" y="610" font-size="28" fill="#8a8f99">合约读不到事件</text>
+        <text id="mo-eq" class="h" x="960" y="965" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">合约 = <tspan fill="#58C4DD">状态变量</tspan> + <tspan fill="#F0B90B">函数</tspan> + <tspan fill="#F0B90B">事件</tspan></text>
+        <defs>
+          <marker id="mo-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker>
+          <marker id="mo-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker>
+          <marker id="mo-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker>
+        </defs>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="mo-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">状态变量 <tspan font-size="28" font-weight="400" fill="#8a8f99">State Variable</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">写在函数外，值永久存在链上</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 frame + empty cells + title
+IN("#mo-zone", at(0, 0.0), 0.7, { scale: 0.96, svgOrigin: "960 560" }, { scale: 1, svgOrigin: "960 560" });
+IN("#mo-sc", at(0, 0.15), 0.5);
+IN("#mo-fc", at(0, 0.3), 0.5);
+IN("#mo-stub", at(0, 0.45), 0.5);
+IN("#mo-eq", at(0, 0.55), 0.7, { y: 15 }, { y: 0 });
+// L1 state variables
+IN("#mo-term", at(1, 0.02), 0.5);
+IN("#mo-grid", at(1, 0.3), 0.6);
+IN("#mo-v0", at(1, 0.55), 0.5, { x: -15 }, { x: 0 });
+IN("#mo-v1", at(1, 0.68), 0.5, { x: -15 }, { x: 0 });
+IN("#mo-v2", at(1, 0.82), 0.5, { x: -15 }, { x: 0 });
+OUT("#mo-term", at(1, 0.9), 0.4);
+// L2 functions + rules
+IN("#mo-fx", at(2, 0.02), 0.5);
+IN("#mo-caller", at(2, 0.08), 0.5);
+ARROW("#mo-a1", at(2, 0.18), 0.6);
+ARROW("#mo-a2", at(2, 0.28), 0.4);
+IN("#mo-tg0", at(2, 0.4), 0.4, { x: 15 }, { x: 0 });
+IN("#mo-tg1", at(2, 0.6), 0.4, { x: 15 }, { x: 0 });
+IN("#mo-tg2", at(2, 0.8), 0.4, { x: 15 }, { x: 0 });
+// L3 events
+OUT("#mo-stub", at(3, 0.05), 0.2);
+ARROW("#mo-a3", at(3, 0.08), 0.6);
+IN("#mo-emit", at(3, 0.2), 0.4);
+IN("#mo-fe", at(3, 0.35), 0.5);
+IN("#mo-fep", at(3, 0.65), 0.4, { scale: 0.8, svgOrigin: "1610 515" }, { scale: 1, svgOrigin: "1610 515" });
+tl.to("#mo-fep", { fill: "#fff3c4", duration: 0.2, yoyo: true, repeat: 1 }, at(3, 0.75));
+// L4 metaphors + admin blocked
+IN("#mo-ic0", at(4, 0.04), 0.5);
+IN("#mo-ic1", at(4, 0.12), 0.5);
+IN("#mo-ic2", at(4, 0.2), 0.5);
+IN("#mo-adm", at(4, 0.42), 0.5);
+tl.to("#mo-adm", { x: -150, duration: 0.6, ease: "power2.in" }, at(4, 0.5));
+IN("#mo-bar", at(4, 0.5) + 0.5, 0.15);
+tl.to("#mo-adm", { x: 0, duration: 0.7, ease: "back.out(2)" }, at(4, 0.5) + 0.62);
+IN("#mo-barl", at(4, 0.5) + 0.65, 0.4);
+IN("#mo-fix", at(4, 0.86), 0.5);
+// L5 missing check = open door; events not readable by contract
+OUT("#mo-admg", at(5, 0.0), 0.4);
+DRAW("#mo-strike", at(5, 0.06), 0.3);
+tl.to("#mo-tg2, #mo-strike", { opacity: 0, duration: 0.3 }, at(5, 0.12));
+ARROW("#mo-atk", at(5, 0.17), 0.6);
+tl.to("#mo-scr", { stroke: "#FC6255", fill: "#2a1618", duration: 0.3 }, at(5, 0.22));
+tl.to("#mo-scl", { fill: "#FC6255", duration: 0.3 }, at(5, 0.22));
+OUT("#mo-atk", at(5, 0.44), 0.3);
+tl.to("#mo-scr", { stroke: "#58C4DD", fill: "#161a22", duration: 0.4 }, at(5, 0.46));
+tl.to("#mo-scl", { fill: "#58C4DD", duration: 0.4 }, at(5, 0.46));
+tl.to("#mo-tg2", { opacity: 1, duration: 0.4 }, at(5, 0.48));
+IN("#mo-back", at(5, 0.6), 0.5, { x: 30 }, { x: 0 });
+IN("#mo-bx", at(5, 0.7), 0.3, { scale: 0.5, svgOrigin: "1430 535" }, { scale: 1, svgOrigin: "1430 535" });
+IN("#mo-backl", at(5, 0.74), 0.5);
+      /*ENDANIM*/
+
+      tl.to("#mo-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#mo-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["model"] = tl;
+    })();
+  </script>
+</template>

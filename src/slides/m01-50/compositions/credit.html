@@ -1,0 +1,230 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 credit，id 前缀 cr- -->
+  <div id="root" data-composition-id="credit" data-duration="57.07" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="cr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="cr-all">
+        <!-- 代码面板 x 820–1840 y 220–756；第 k 行基线 310 + 38(k-1) -->
+        <g id="cr-panel" class="h">
+          <rect x="800" y="220" width="1060" height="560" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <line x1="800" y1="270" x2="1860" y2="270" stroke="#2a2f3a" stroke-width="2" />
+          <text x="830" y="256" font-size="28" fill="#58C4DD"><tspan class="mono">ConfirmUpTo</tspan>（一条 SQL）</text>
+        </g>
+        <text id="cr-x2" class="h mono" x="1830" y="257" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="end">×2</text>
+        <rect id="cr-hl" class="h" x="802" y="283" width="1056" height="40" fill="#58C4DD" fill-opacity="0.15" />
+        <rect id="cr-hlb" class="h" x="802" y="283" width="6" height="40" fill="#58C4DD" />
+        <g id="cr-code" class="h" font-size="28" fill="#e8e6df">
+          <text class="mono" x="830" y="312">WITH c AS (</text>
+          <text class="mono" x="830" y="352">  UPDATE deposits SET status='credited'</text>
+          <text class="mono" x="830" y="392">  WHERE status='pending'</text>
+          <text class="mono" x="830" y="432">    AND $head - block_number + 1 &gt;= required_conf</text>
+          <text class="mono" x="830" y="472">  RETURNING id, user_id, token, amount, tx_hash</text>
+          <text class="mono" x="830" y="512">), l AS (</text>
+          <text class="mono" x="830" y="552">  INSERT INTO ledger_entries(deposit_id, …, kind)</text>
+          <text class="mono" x="830" y="592">  SELECT id, user_id, token, amount, 'credit' FROM c</text>
+          <text class="mono" x="830" y="632">  ON CONFLICT (deposit_id, kind) DO NOTHING</text>
+          <text class="mono" x="830" y="672">)</text>
+          <text class="mono" x="830" y="712">INSERT INTO outbox(topic, msg_key, payload)</text>
+          <text class="mono" x="830" y="752">SELECT 'deposit.events', tx_hash, … FROM c</text>
+        </g>
+
+        <!-- 左侧：事务框 + 三张表 -->
+        <rect id="cr-frame" class="dr" pathLength="1" x="80" y="218" width="680" height="646" rx="16" fill="none" stroke="#58C4DD" stroke-width="3" />
+        <text id="cr-framel" class="h" x="90" y="912" font-size="30" fill="#58C4DD">一个事务</text>
+
+        <g id="cr-dep" class="h">
+          <rect id="cr-depr" x="100" y="238" width="640" height="190" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <text class="mono" x="128" y="284" font-size="30" fill="#58C4DD">deposits</text>
+          <text class="mono" x="128" y="344" font-size="30" fill="#F0B90B">100 USDT</text>
+          <text id="cr-dhash" class="mono" x="128" y="402" font-size="28" fill="#8a8f99">block_hash 0x9f3a…</text>
+        </g>
+        <text id="cr-pend" class="h mono" x="520" y="344" font-size="30" fill="#FF9F43">pending</text>
+        <text id="cr-cred" class="h mono" x="520" y="344" font-size="30" fill="#83C167">credited</text>
+
+        <g id="cr-led" class="h">
+          <rect id="cr-ledr" x="100" y="448" width="640" height="190" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <text class="mono" x="128" y="494" font-size="30" fill="#58C4DD">ledger_entries</text>
+        </g>
+        <text id="cr-lrow" class="h mono" x="128" y="554" font-size="30" fill="#83C167">+100 credit</text>
+        <path id="cr-shield" class="h" d="M420 518 L446 528 L446 548 Q446 566 420 576 Q394 566 394 548 L394 528 Z" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="3" />
+        <text id="cr-uniq" class="h mono" x="128" y="610" font-size="28" fill="#8a8f99">UNIQUE (deposit_id, kind)</text>
+        <text id="cr-ghost" class="h mono" x="470" y="554" font-size="30" fill="#83C167" fill-opacity="0.6">+100 credit</text>
+        <text id="cr-noop" class="h mono" x="470" y="554" font-size="28" fill="#8a8f99">DO NOTHING</text>
+
+        <g id="cr-out" class="h">
+          <rect id="cr-outr" x="100" y="658" width="640" height="186" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <text class="mono" x="128" y="704" font-size="30" fill="#58C4DD">outbox</text>
+        </g>
+        <g id="cr-env" class="h">
+          <rect x="128" y="738" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="2.5" />
+          <path d="M128 740 L158 762 L188 740" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+        </g>
+        <text id="cr-ekey" class="h mono" x="210" y="768" font-size="28" fill="#F0B90B">key = tx_hash</text>
+        <text id="cr-etype" class="h mono" x="210" y="818" font-size="28" fill="#e8e6df">deposit.credited</text>
+
+        <!-- L1 算式卡 -->
+        <g id="cr-calc" class="h">
+          <rect x="800" y="810" width="1060" height="150" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <text x="830" y="870" font-size="32" fill="#e8e6df">确认数 = <tspan class="mono" fill="#58C4DD">head − block_number + 1</tspan></text>
+        </g>
+        <text id="cr-calc2" class="h" x="830" y="930" font-size="28" fill="#8a8f99">示例：<tspan class="mono">head = h + 11  →  </tspan><tspan class="mono" fill="#83C167" font-weight="700">12</tspan></text>
+
+        <!-- L4 崩溃 -->
+        <path id="cr-bolt" class="h" d="M668 594 L620 652 L650 652 L610 712 L692 640 L658 640 L688 594 Z" fill="#FC6255" />
+        <text id="cr-all1" class="h" x="800" y="870" font-size="32" fill="#e8e6df">要么全成，要么全不发生</text>
+        <!-- L5 -->
+        <g id="cr-once" class="h">
+          <path d="M802 856 L816 870 L842 842" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="860" y="870" font-size="32" fill="#83C167">只入账一次</text>
+        </g>
+        <!-- L6 双节点比对 -->
+        <g id="cr-rpc1" class="h">
+          <circle cx="842" cy="842" r="14" fill="#8a8f99" />
+          <text x="870" y="852" font-size="28" fill="#e8e6df">主 RPC</text>
+          <text class="mono" x="1000" y="852" font-size="28" fill="#e8e6df">0x9f3a…</text>
+        </g>
+        <g id="cr-rpc2" class="h">
+          <circle cx="842" cy="942" r="14" fill="#8a8f99" />
+          <text x="870" y="952" font-size="28" fill="#e8e6df">备 RPC</text>
+        </g>
+        <text id="cr-h2a" class="h mono" x="1000" y="952" font-size="28" fill="#e8e6df">0x9f3a…</text>
+        <text id="cr-h2b" class="h mono" x="1000" y="952" font-size="28" fill="#FC6255">0x51c0…</text>
+        <g id="cr-ok" class="h">
+          <path d="M1162 942 L1174 954 L1196 930" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="1214" y="952" font-size="28" fill="#83C167">一致 · 放行</text>
+        </g>
+        <g id="cr-bad" class="h">
+          <path d="M1164 932 L1192 960 M1192 932 L1164 960" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+          <text x="1214" y="952" font-size="28" fill="#FF9F43">不一致 → 跳过本轮 + 告警</text>
+        </g>
+        <g id="cr-bell" class="h" fill="#FF9F43">
+          <path d="M1606 920 Q1606 932 1600 946 L1580 962 L1632 962 L1612 946 Q1606 932 1606 920 Z" />
+          <path d="M1584 960 Q1584 932 1606 926 Q1628 932 1628 960 Z" />
+          <circle cx="1606" cy="968" r="6" />
+        </g>
+      </g>
+      <!-- 术语卡 -->
+      <g id="cr-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">事务性发件箱 <tspan font-size="28" font-weight="400" fill="#8a8f99">Transactional Outbox</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">消息与业务数据同一事务写入，再异步投递</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      // 代码高亮：第 a–b 行
+      const HL = (a, b, t, d = 0.45) => tl.to("#cr-hl, #cr-hlb", { attr: { y: 283 + 40 * (a - 1), height: 40 * (b - a + 1) }, opacity: 1, duration: d, ease: "power2.inOut" }, t);
+
+      // L0 面板 + 三张表 + 事务框
+      IN("#cr-panel", at(0, 0.02), 0.6);
+      IN("#cr-code", at(0, 0.1), 0.8);
+      IN("#cr-dep", at(0, 0.3), 0.5, { x: -16 }, { x: 0 });
+      IN("#cr-pend", at(0, 0.34), 0.5);
+      IN("#cr-led", at(0, 0.42), 0.5, { x: -16 }, { x: 0 });
+      IN("#cr-out", at(0, 0.54), 0.5, { x: -16 }, { x: 0 });
+      DRAW("#cr-frame", at(0, 0.68), 1.0);
+      IN("#cr-framel", at(0, 0.8), 0.5);
+
+      // L1 第 1–5 行：pending → credited；算式卡
+      HL(1, 5, at(1, 0.02));
+      OUT("#cr-pend", at(1, 0.3), 0.3);
+      IN("#cr-cred", at(1, 0.36), 0.5);
+      IN("#cr-calc", at(1, 0.5), 0.6);
+      IN("#cr-calc2", at(1, 0.7), 0.5);
+
+      // L2 第 6–10 行：写流水；重复插入被唯一约束弹回
+      OUT("#cr-calc, #cr-calc2", at(2, 0), 0.4);
+      HL(6, 10, at(2, 0.02));
+      IN("#cr-lrow", at(2, 0.18), 0.6, { x: -20 }, { x: 0 });
+      IN("#cr-shield", at(2, 0.48), 0.4);
+      IN("#cr-uniq", at(2, 0.5), 0.5);
+      IN("#cr-ghost", at(2, 0.62), 0.5, { x: 140 }, { x: 0, ease: "power2.in" });
+      tl.to("#cr-ghost", { x: 70, opacity: 0, duration: 0.45, ease: "power2.out" }, at(2, 0.62) + 0.5);
+      tl.to("#cr-shield", { attr: { "fill-opacity": 0.5 }, duration: 0.15, yoyo: true, repeat: 1 }, at(2, 0.62) + 0.45);
+      IN("#cr-noop", at(2, 0.82), 0.4);
+
+      // L3 最后两行：发件箱信封
+      OUT("#cr-noop", at(3, 0), 0.3);
+      HL(11, 12, at(3, 0.02));
+      IN("#cr-term", at(3, 0.06), 0.6);
+      IN("#cr-env", at(3, 0.3), 0.5, { y: -20 }, { y: 0 });
+      IN("#cr-ekey", at(3, 0.45), 0.5);
+      IN("#cr-etype", at(3, 0.62), 0.5);
+
+      // L4 崩溃 → 一起回到原状；再正常提交，一起亮绿
+      OUT("#cr-hl, #cr-hlb", at(4, 0), 0.3);
+      OUT("#cr-term", at(4, 0), 0.4);
+      IN("#cr-bolt", at(4, 0.06), 0.15);
+      tl.to("#cr-frame", { stroke: "#FC6255", duration: 0.2 }, at(4, 0.06));
+      OUT("#cr-cred", at(4, 0.14), 0.3);
+      IN("#cr-pend", at(4, 0.18), 0.3);
+      OUT("#cr-lrow, #cr-uniq, #cr-shield", at(4, 0.14), 0.35);
+      OUT("#cr-env, #cr-ekey, #cr-etype", at(4, 0.14), 0.35);
+      OUT("#cr-bolt", at(4, 0.34), 0.3);
+      tl.to("#cr-frame", { stroke: "#58C4DD", duration: 0.3 }, at(4, 0.36));
+      OUT("#cr-pend", at(4, 0.48), 0.25);
+      IN("#cr-cred", at(4, 0.52), 0.4);
+      IN("#cr-lrow, #cr-uniq, #cr-shield", at(4, 0.52), 0.4);
+      IN("#cr-env, #cr-ekey, #cr-etype", at(4, 0.52), 0.4);
+      tl.to("#cr-depr, #cr-ledr, #cr-outr", { stroke: "#83C167", duration: 0.3 }, at(4, 0.55));
+      tl.to("#cr-frame", { stroke: "#83C167", duration: 0.3 }, at(4, 0.55));
+      IN("#cr-all1", at(4, 0.64), 0.6);
+
+      // L5 整条 SQL 执行两遍，账本仍只有一行
+      OUT("#cr-all1", at(5, 0), 0.3);
+      tl.to("#cr-depr, #cr-ledr, #cr-outr", { stroke: "#2a2f3a", duration: 0.3 }, at(5, 0));
+      tl.to("#cr-frame", { stroke: "#58C4DD", duration: 0.3 }, at(5, 0));
+      IN("#cr-x2", at(5, 0.04), 0.4);
+      HL(1, 1, at(5, 0.04), 0.2);
+      HL(12, 12, at(5, 0.08), 0.9);
+      HL(1, 1, at(5, 0.28), 0.2);
+      HL(12, 12, at(5, 0.32), 0.9);
+      tl.fromTo("#cr-ghost", { opacity: 0, x: 140 }, { opacity: 1, x: 0, duration: 0.45, ease: "power2.in", immediateRender: false }, at(5, 0.4));
+      tl.to("#cr-ghost", { x: 70, opacity: 0, duration: 0.45, ease: "power2.out" }, at(5, 0.4) + 0.45);
+      tl.to("#cr-shield", { attr: { "fill-opacity": 0.5 }, duration: 0.15, yoyo: true, repeat: 1 }, at(5, 0.4) + 0.4);
+      IN("#cr-once", at(5, 0.68), 0.5);
+
+      // L6 备用 RPC 比对区块哈希
+      OUT("#cr-once, #cr-x2, #cr-hl, #cr-hlb", at(6, 0), 0.3);
+      IN("#cr-rpc1", at(6, 0.06), 0.5);
+      IN("#cr-rpc2", at(6, 0.18), 0.5);
+      IN("#cr-h2a", at(6, 0.2), 0.5);
+      tl.to("#cr-dhash", { fill: "#58C4DD", duration: 0.3 }, at(6, 0.28));
+      IN("#cr-ok", at(6, 0.34), 0.5);
+      OUT("#cr-ok, #cr-h2a", at(6, 0.56), 0.3);
+      IN("#cr-h2b", at(6, 0.6), 0.4);
+      IN("#cr-bad", at(6, 0.66), 0.5);
+      IN("#cr-bell", at(6, 0.76), 0.4);
+      tl.to("#cr-bell", { rotation: 12, svgOrigin: "1606 920", duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(6, 0.82));
+
+      tl.to("#cr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#cr-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["credit"] = tl;
+    })();
+  </script>
+</template>

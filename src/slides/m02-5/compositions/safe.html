@@ -1,0 +1,238 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 safe，id 前缀 sa- -->
+  <div id="root" data-composition-id="safe" data-duration="55.48" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sa-all">
+        <g id="sa-code" class="h">
+          <rect x="70" y="220" width="1220" height="370" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect x="70" y="232" width="4" height="346" fill="#58C4DD" />
+          <text class="mono" x="100" y="256" font-size="22" fill="#8a8f99" data-layout-ignore>deposit</text>
+          <rect id="sa-hl" class="h" x="76" y="339" width="1208" height="38" fill="#58C4DD" fill-opacity="0.15" />
+          <text id="sa-c0" class="mono" x="100.0" y="290" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">using</tspan> SafeERC20 <tspan fill="#58C4DD">for</tspan> IERC20;</text>
+          <text id="sa-c1" class="mono" x="100.0" y="328" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> deposit(IERC20 token, uint256 amount) <tspan fill="#58C4DD">external</tspan> nonReentrant {</text>
+          <text id="sa-c2" class="mono" x="167.2" y="366" font-size="28" fill="#e8e6df">uint256 before = token.balanceOf(address(this));</text>
+          <text id="sa-c3" class="mono" x="167.2" y="404" font-size="28" fill="#e8e6df">token.safeTransferFrom(msg.sender, address(this), amount);</text>
+          <text id="sa-c4" class="mono" x="167.2" y="442" font-size="28" fill="#e8e6df">uint256 received = token.balanceOf(address(this)) - before;</text>
+          <text id="sa-c5" class="mono" x="167.2" y="480" font-size="28" fill="#e8e6df">shares[msg.sender][address(token)] += received;</text>
+          <text id="sa-c6" class="mono" x="167.2" y="518" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">emit</tspan> Deposited(msg.sender, address(token), amount, received);</text>
+          <text id="sa-c7" class="mono" x="100.0" y="556" font-size="28" fill="#e8e6df">}</text>
+        </g>
+        <g id="sa-vault" class="h">
+          <rect x="1330" y="280" width="220" height="180" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="1440" y="326" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">合约金库</text>
+        </g>
+        <text id="sa-bef" class="h mono" x="1590" y="330" font-size="30" font-weight="700" fill="#58C4DD">before</text>
+        <text id="sa-aft" class="h mono" x="1590" y="430" font-size="30" font-weight="700" fill="#58C4DD">after</text>
+        <circle id="sa-co0" class="h" cx="1840" cy="378" r="12" fill="#F0B90B" />
+        <circle id="sa-co1" class="h" cx="1840" cy="378" r="12" fill="#F0B90B" />
+        <circle id="sa-co2" class="h" cx="1840" cy="378" r="12" fill="#F0B90B" />
+        <text id="sa-rcv" class="h mono" x="1320" y="530" font-size="28" font-weight="700" fill="#83C167">received = after - before</text>
+        <text id="sa-shr" class="h mono" x="1320" y="580" font-size="28" font-weight="700" fill="#83C167">shares += received</text>
+
+        <!-- L2 收费闸门 -->
+        <g id="sa-fee" class="h">
+          <text x="170" y="320" font-size="30" fill="#e8e6df">用户存入</text>
+          <text x="1040" y="320" font-size="30" fill="#e8e6df">合约实际收到</text>
+          <text x="910" y="282" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">手续费 2%</text>
+          <rect x="900" y="300" width="20" height="140" rx="4" fill="#FF9F43" />
+          <text x="1850" y="480" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+        </g>
+        <rect id="sa-in" class="h" x="170" y="342" width="0" height="56" rx="6" fill="#F0B90B" fill-opacity="0.75" />
+        <text id="sa-inl" class="h mono" x="200" y="380" font-size="30" font-weight="700" fill="#0f1117">1,000</text>
+        <path id="sa-far" class="dr" pathLength="1" d="M780 370 L1030 370" stroke="#F0B90B" stroke-width="4" fill="none" />
+        <rect id="sa-out" class="h" x="1040" y="342" width="0" height="56" rx="6" fill="#F0B90B" fill-opacity="0.75" />
+        <text id="sa-outl" class="h mono" x="1070" y="380" font-size="30" font-weight="700" fill="#0f1117">980</text>
+        <circle id="sa-dr0" class="h" cx="904" cy="450" r="9" fill="#F0B90B" />
+        <circle id="sa-dr1" class="h" cx="916" cy="450" r="9" fill="#F0B90B" />
+
+        <!-- L3 错误记账 -->
+        <g id="sa-bad" class="h">
+          <text x="90" y="590" font-size="32" font-weight="700" fill="#FC6255">错误：<tspan class="mono">shares += 1,000</tspan></text>
+          <text x="90" y="680" font-size="28" fill="#e8e6df">账面</text>
+          <text x="90" y="770" font-size="28" fill="#e8e6df">实际</text>
+          <rect x="170" y="646" width="600" height="48" rx="6" fill="#FF9F43" fill-opacity="0.35" stroke="#FF9F43" stroke-width="2" />
+          <rect x="170" y="736" width="588" height="48" rx="6" fill="#F0B90B" fill-opacity="0.6" />
+          <rect x="758" y="736" width="12" height="48" fill="#FC6255" />
+        </g>
+        <text id="sa-bv1" class="h mono" x="790" y="680" font-size="28" font-weight="700" fill="#FF9F43">1,000</text>
+        <text id="sa-bv2" class="h mono" x="790" y="770" font-size="28" font-weight="700" fill="#F0B90B">980</text>
+        <text id="sa-gapl" class="h" x="770" y="832" font-size="28" font-weight="700" fill="#FC6255" text-anchor="end">缺口 <tspan id="sa-gap" class="mono">20</tspan></text>
+        <text id="sa-users" class="h" x="90" y="832" font-size="28" fill="#8a8f99">× 100 个用户</text>
+        <g id="sa-u0" class="h"><circle cx="110" cy="898" r="13" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M90 950 Q90 918 110 918 Q130 918 130 950 Z" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sa-u1" class="h"><circle cx="166" cy="898" r="13" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M146 950 Q146 918 166 918 Q186 918 186 950 Z" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sa-u2" class="h"><circle cx="222" cy="898" r="13" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M202 950 Q202 918 222 918 Q242 918 242 950 Z" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sa-u3" class="h"><circle cx="278" cy="898" r="13" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M258 950 Q258 918 278 918 Q298 918 298 950 Z" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sa-u4" class="h"><circle cx="334" cy="898" r="13" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M314 950 Q314 918 334 918 Q354 918 354 950 Z" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sa-u5" class="h"><circle cx="390" cy="898" r="13" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M370 950 Q370 918 390 918 Q410 918 410 950 Z" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sa-u6" class="h"><circle cx="446" cy="898" r="13" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M426 950 Q426 918 446 918 Q466 918 466 950 Z" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sa-u7" class="h"><circle cx="502" cy="898" r="13" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M482 950 Q482 918 502 918 Q522 918 522 950 Z" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sa-u8" class="h"><circle cx="558" cy="898" r="13" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M538 950 Q538 918 558 918 Q578 918 578 950 Z" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sa-u9" class="h"><circle cx="614" cy="898" r="13" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M594 950 Q594 918 614 918 Q634 918 634 950 Z" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <text id="sa-cant" class="h" x="680" y="940" font-size="30" font-weight="700" fill="#FC6255">取不出</text>
+        <g id="sa-note" class="h">
+          <text x="1020" y="640" font-size="28" fill="#8a8f99">换成 1%、20 人 × 5,000：</text>
+          <text x="1020" y="690" font-size="28" fill="#8a8f99">账面 100,000 · 实际 99,000 · 缺口 1,000</text>
+        </g>
+
+        <!-- L4 正确记账 -->
+        <g id="sa-good" class="h">
+          <text x="1020" y="590" font-size="32" font-weight="700" fill="#83C167">正确：<tspan class="mono">shares += received</tspan></text>
+          <text x="1020" y="680" font-size="28" fill="#e8e6df">账面</text>
+          <text x="1020" y="770" font-size="28" fill="#e8e6df">实际</text>
+          <text class="mono" x="1708" y="680" font-size="28" font-weight="700" fill="#83C167">980</text>
+          <text class="mono" x="1708" y="770" font-size="28" font-weight="700" fill="#F0B90B">980</text>
+        </g>
+        <rect id="sa-gb1" class="h" x="1100" y="646" width="0" height="48" rx="6" fill="#83C167" fill-opacity="0.4" stroke="#83C167" stroke-width="2" />
+        <rect id="sa-gb2" class="h" x="1100" y="736" width="0" height="48" rx="6" fill="#F0B90B" fill-opacity="0.6" />
+        <text id="sa-geq" class="h" x="1815" y="742" font-size="56" font-weight="700" fill="#83C167" text-anchor="middle">=</text>
+        <text id="sa-ok" class="h" x="1100" y="850" font-size="32" font-weight="700" fill="#83C167">账实相符</text>
+
+        <!-- L5 forceApprove -->
+        <g id="sa-code2" class="h">
+          <rect x="70" y="230" width="1400" height="190" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect x="70" y="242" width="4" height="166" fill="#83C167" />
+          <text class="mono" x="100" y="266" font-size="22" fill="#8a8f99" data-layout-ignore>approveRouter</text>
+          <text class="mono" x="100" y="320" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> approveRouter(IERC20 token, address router, uint256 amount) <tspan fill="#58C4DD">internal</tspan> {</text>
+          <rect x="76" y="331" width="1388" height="38" fill="#58C4DD" fill-opacity="0.15" />
+          <text class="mono" x="167.2" y="358" font-size="28" fill="#e8e6df">token.forceApprove(router, amount);</text>
+          <text x="810" y="358" font-size="28" fill="#83C167">失败时先归零，再设置</text>
+          <text class="mono" x="100" y="396" font-size="28" fill="#e8e6df">}</text>
+        </g>
+        <g id="sa-r1" class="h">
+          <text class="mono" x="90" y="610" font-size="30" font-weight="700" fill="#FF9F43">approve</text>
+          <rect x="340" y="565" width="120" height="70" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text class="mono" x="400" y="611" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">100</text>
+        </g>
+        <path id="sa-r1a" class="dr" pathLength="1" d="M470 600 L690 600" stroke="#8a8f99" stroke-width="3.5" fill="none" />
+        <g id="sa-r1b" class="h">
+          <rect x="700" y="565" width="120" height="70" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="8 6" />
+          <text class="mono" x="760" y="611" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">50</text>
+        </g>
+        <path id="sa-r1x" class="h" d="M565 580 L595 620 M595 580 L565 620" stroke="#FC6255" stroke-width="5" />
+        <text id="sa-r1t" class="h" x="860" y="612" font-size="30" font-weight="700" fill="#FC6255">USDT：非 0 改非 0 → revert</text>
+        <g id="sa-r2" class="h">
+          <text class="mono" x="90" y="812" font-size="30" font-weight="700" fill="#83C167">forceApprove</text>
+          <rect x="340" y="765" width="120" height="70" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text class="mono" x="400" y="811" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">100</text>
+        </g>
+        <path id="sa-r2a" class="dr" pathLength="1" d="M470 800 L590 800" stroke="#83C167" stroke-width="3.5" fill="none" />
+        <g id="sa-r2b" class="h">
+          <rect x="600" y="765" width="120" height="70" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="660" y="811" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">0</text>
+        </g>
+        <path id="sa-r2c" class="dr" pathLength="1" d="M730 800 L850 800" stroke="#83C167" stroke-width="3.5" fill="none" />
+        <g id="sa-r2d" class="h">
+          <rect x="860" y="765" width="120" height="70" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="920" y="811" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">50</text>
+        </g>
+        <text id="sa-r2t" class="h" x="1020" y="812" font-size="30" font-weight="700" fill="#83C167">先归零，再设置</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const N = v => Math.round(v).toLocaleString("en-US");
+      const LINES = [0, 1, 2, 3, 4, 5, 6, 7].map(i => "#sa-c" + i);
+      const HL = (i, t) => {
+        tl.to("#sa-hl", { attr: { y: 263 + 38 * i }, duration: 0.35, ease: "power2.inOut" }, t);
+        tl.to(LINES.filter((_, k) => k !== i), { opacity: 0.6, duration: 0.3 }, t);
+        tl.to(LINES[i], { opacity: 1, duration: 0.3 }, t);
+      };
+
+      // L0 deposit 代码
+      IN("#sa-code", at(0, 0.05), 0.6, { y: 20 }, { y: 0 });
+      IN("#sa-vault", at(0, 0.5), 0.5, { x: 20 }, { x: 0 });
+
+      // L1 逐行：before → safeTransferFrom → after - before → shares
+      IN("#sa-hl", at(1, 0.02), 0.3); HL(2, at(1, 0.02));
+      IN("#sa-bef", at(1, 0.06), 0.4);
+      HL(3, at(1, 0.26));
+      ["#sa-co0", "#sa-co1", "#sa-co2"].forEach((s, k) => {
+        const t = at(1, 0.28) + 0.25 * k;
+        IN(s, t, 0.2);
+        tl.to(s, { attr: { cx: 1400 + 40 * k, cy: 410 }, duration: 0.7, ease: "power2.inOut" }, t);
+      });
+      HL(4, at(1, 0.55));
+      IN("#sa-aft", at(1, 0.56), 0.4);
+      IN("#sa-rcv", at(1, 0.64), 0.5);
+      HL(5, at(1, 0.84));
+      IN("#sa-shr", at(1, 0.86), 0.5);
+
+      // L2 算一算：2% 手续费
+      OUT("#sa-code, #sa-vault, #sa-bef, #sa-aft, #sa-co0, #sa-co1, #sa-co2, #sa-rcv, #sa-shr", at(2, 0), 0.4);
+      IN("#sa-fee", at(2, 0) + 0.45, 0.5);
+      IN("#sa-in", at(2, 0.08), 0.2);
+      tl.to("#sa-in", { attr: { width: 600 }, duration: 0.8, ease: "power2.out" }, at(2, 0.08));
+      IN("#sa-inl", at(2, 0.16), 0.4);
+      DRAW("#sa-far", at(2, 0.4), 0.6);
+      ["#sa-dr0", "#sa-dr1"].forEach((s, k) => {
+        IN(s, at(2, 0.5) + 0.2 * k, 0.15);
+        tl.to(s, { attr: { cy: 510 }, duration: 0.6, ease: "power2.in" }, at(2, 0.5) + 0.2 * k);
+        OUT(s, at(2, 0.5) + 0.2 * k + 0.5, 0.2);
+      });
+      IN("#sa-out", at(2, 0.6), 0.2);
+      tl.to("#sa-out", { attr: { width: 588 }, duration: 0.8, ease: "power2.out" }, at(2, 0.6));
+      IN("#sa-outl", at(2, 0.7), 0.4);
+
+      // L3 错误：+1000，放大到 100 人
+      IN("#sa-bad", at(3, 0.02), 0.5, { y: 16 }, { y: 0 });
+      IN("#sa-bv1", at(3, 0.1), 0.4); IN("#sa-bv2", at(3, 0.2), 0.4);
+      IN("#sa-gapl", at(3, 0.28), 0.4);
+      tl.to("#sa-bad rect:last-child", { opacity: 0.3, duration: 0.25, yoyo: true, repeat: 3 }, at(3, 0.28));
+      IN("#sa-users", at(3, 0.42), 0.4);
+      COUNT("#sa-bv1", 1000, 100000, at(3, 0.42), 1.2, N);
+      COUNT("#sa-bv2", 980, 98000, at(3, 0.5), 1.2, N);
+      COUNT("#sa-gap", 20, 2000, at(3, 0.58), 1.0, N);
+      for (let k = 0; k < 10; k++) IN("#sa-u" + k, at(3, 0.7) + 0.06 * k, 0.3, { y: 10 }, { y: 0 });
+      tl.to("#sa-u8 circle, #sa-u8 path, #sa-u9 circle, #sa-u9 path", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.86));
+      IN("#sa-cant", at(3, 0.88), 0.4);
+      IN("#sa-note", at(3, 0.6), 0.5);
+
+      // L4 正确：+received
+      OUT("#sa-note", at(4, 0), 0.3);
+      IN("#sa-good", at(4, 0) + 0.35, 0.5, { y: 16 }, { y: 0 });
+      IN("#sa-gb1", at(4, 0.1), 0.2); IN("#sa-gb2", at(4, 0.1), 0.2);
+      tl.to("#sa-gb1, #sa-gb2", { attr: { width: 588 }, duration: 0.8, ease: "power2.out" }, at(4, 0.1));
+      IN("#sa-geq", at(4, 0.5), 0.4);
+      IN("#sa-ok", at(4, 0.62), 0.4);
+
+      // L5 forceApprove
+      OUT("#sa-fee, #sa-in, #sa-inl, #sa-far, #sa-out, #sa-outl, #sa-bad, #sa-bv1, #sa-bv2, #sa-gapl, #sa-users, #sa-cant, #sa-good, #sa-gb1, #sa-gb2, #sa-geq, #sa-ok", at(5, 0), 0.4);
+      for (let k = 0; k < 10; k++) OUT("#sa-u" + k, at(5, 0), 0.4);
+      IN("#sa-code2", at(5, 0) + 0.45, 0.5, { y: 16 }, { y: 0 });
+      IN("#sa-r1", at(5, 0.18), 0.4);
+      DRAW("#sa-r1a", at(5, 0.24), 0.5); IN("#sa-r1b", at(5, 0.28), 0.3);
+      IN("#sa-r1x", at(5, 0.34), 0.3); IN("#sa-r1t", at(5, 0.36), 0.4);
+      IN("#sa-r2", at(5, 0.55), 0.4);
+      DRAW("#sa-r2a", at(5, 0.62), 0.4); IN("#sa-r2b", at(5, 0.66), 0.3);
+      DRAW("#sa-r2c", at(5, 0.68), 0.4); IN("#sa-r2d", at(5, 0.72), 0.3);
+      IN("#sa-r2t", at(5, 0.76), 0.4);
+
+      tl.to("#sa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["safe"] = tl;
+    })();
+  </script>
+</template>

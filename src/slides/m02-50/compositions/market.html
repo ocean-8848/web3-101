@@ -1,0 +1,238 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 market，id 前缀 ma- -->
+  <div id="root" data-composition-id="market" data-duration="64.33" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ma-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ma-all">
+        <defs>
+          <marker id="ma-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker>
+          <marker id="ma-my" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker>
+          <marker id="ma-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker>
+          <marker id="ma-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker>
+        </defs>
+        <!-- actors -->
+        <g id="ma-s" class="h">
+          <rect id="ma-sr" x="80" y="220" width="320" height="160" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+          <text x="240" y="264" font-size="30" fill="#e8e6df" text-anchor="middle">卖家钱包</text>
+        </g>
+        <g id="ma-m" class="h">
+          <rect id="ma-mrc" x="560" y="220" width="320" height="160" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text class="mono" x="720" y="264" font-size="30" fill="#58C4DD" text-anchor="middle">NFTMarket</text>
+        </g>
+        <g id="ma-n" class="h">
+          <rect x="1040" y="220" width="320" height="160" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="1200" y="264" font-size="30" fill="#e8e6df" text-anchor="middle"><tspan class="mono">NFT</tspan> 合约</text>
+        </g>
+        <text id="ma-o1" class="h" x="1200" y="338" font-size="28" fill="#8a8f99" text-anchor="middle"><tspan class="mono" fill="#58C4DD">#42 →</tspan> 卖家</text>
+        <text id="ma-o2" class="h" x="1200" y="338" font-size="28" fill="#8a8f99" text-anchor="middle"><tspan class="mono" fill="#58C4DD">#42 →</tspan> 买家</text>
+        <text id="ma-o3" class="h" x="1200" y="338" font-size="28" fill="#8a8f99" text-anchor="middle"><tspan class="mono" fill="#58C4DD">#42 →</tspan> 第三人</text>
+        <g id="ma-b" class="h">
+          <rect x="1520" y="220" width="320" height="160" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+          <text x="1680" y="264" font-size="30" fill="#e8e6df" text-anchor="middle">买家钱包</text>
+        </g>
+        <text id="ma-q" class="h" x="720" y="196" font-size="60" font-weight="700" fill="#FF9F43" text-anchor="middle">?</text>
+        <!-- rope -->
+        <path id="ma-rope" class="dr" pathLength="1" d="M880 300 C930 336 990 264 1040 300" fill="none" stroke="#FF9F43" stroke-width="5" stroke-linecap="round"/>
+        <text id="ma-ropel" class="h" x="960" y="246" font-size="28" fill="#FF9F43" text-anchor="middle">授权</text>
+        <!-- listing record -->
+        <g id="ma-rec" class="h">
+          <rect id="ma-recr" x="590" y="292" width="260" height="66" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text id="ma-rect" class="mono" x="720" y="335" font-size="28" fill="#e8e6df" text-anchor="middle">seller | price</text>
+        </g>
+        <!-- L1-L3 rows -->
+        <g id="ma-rows1">
+          <path id="ma-a1" class="dr h" pathLength="1" d="M240 470 H1190" fill="none" stroke="#FF9F43" stroke-width="3.5" marker-end="url(#ma-mo)"/>
+          <text id="ma-a1l" class="h" x="720" y="450" font-size="28" fill="#FF9F43" text-anchor="middle"><tspan class="mono">setApprovalForAll(</tspan>市场<tspan class="mono">, true)</tspan></text>
+          <text id="ma-a1n" class="h" x="720" y="516" font-size="28" fill="#8a8f99" text-anchor="middle">或只 <tspan class="mono">approve</tspan> 单个 <tspan class="mono">tokenId</tspan></text>
+          <path id="ma-a2" class="dr h" pathLength="1" d="M240 610 H710" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#ma-arr)"/>
+          <text id="ma-a2l" class="h mono" x="476" y="590" font-size="28" fill="#e8e6df" text-anchor="middle">list(NFT, 42, 2 ETH)</text>
+          <path id="ma-k1" class="dr h" pathLength="1" d="M720 690 H1190" fill="none" stroke="#8a8f99" stroke-width="2.5" marker-end="url(#ma-arr)"/>
+          <text id="ma-k1l" class="h" x="940" y="670" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan class="mono">ownerOf</tspan> = 卖家？</text>
+          <text id="ma-k1v" class="h" x="1100" y="670" font-size="32" font-weight="700" fill="#83C167">✓</text>
+          <path id="ma-k2" class="dr h" pathLength="1" d="M720 780 H1190" fill="none" stroke="#8a8f99" stroke-width="2.5" marker-end="url(#ma-arr)"/>
+          <text id="ma-k2l" class="h" x="940" y="760" font-size="28" fill="#e8e6df" text-anchor="middle">已授权？</text>
+          <text id="ma-k2v" class="h" x="1020" y="760" font-size="32" font-weight="700" fill="#83C167">✓</text>
+          <path id="ma-a3" class="dr h" pathLength="1" d="M240 890 H710" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#ma-arr)"/>
+          <text id="ma-a3l" class="h mono" x="476" y="870" font-size="28" fill="#8a8f99" text-anchor="middle">cancel(NFT, 42)</text>
+        </g>
+        <!-- L4 rows -->
+        <g id="ma-rows2">
+          <path id="ma-b1" class="dr h" pathLength="1" d="M1680 470 H730" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#ma-arr)"/>
+          <text id="ma-b1l" class="h mono" x="1200" y="450" font-size="28" fill="#e8e6df" text-anchor="middle">buy(NFT, 42)</text>
+          <text id="ma-s1" class="h" x="480" y="312" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">①</text>
+          <text id="ma-s2" class="h" x="696" y="602" font-size="32" font-weight="700" fill="#83C167" text-anchor="end">②</text>
+          <path id="ma-b2" class="dr h" pathLength="1" d="M720 590 H1190" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#ma-mg)"/>
+          <text id="ma-b2l" class="h mono" x="960" y="570" font-size="28" fill="#83C167" text-anchor="middle">safeTransferFrom</text>
+          <text id="ma-gl" class="h" x="960" y="776" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">过户：卖家 → 买家</text>
+          <text id="ma-s3" class="h" x="752" y="838" font-size="32" font-weight="700" fill="#F0B90B">③</text>
+          <path id="ma-b3" class="dr h" pathLength="1" d="M720 850 H250" fill="none" stroke="#F0B90B" stroke-width="3.5" marker-end="url(#ma-my)"/>
+          <text id="ma-b3l" class="h" x="480" y="830" font-size="28" fill="#F0B90B" text-anchor="middle">价款 − 手续费</text>
+          <path id="ma-b4" class="dr h" pathLength="1" d="M720 850 V920" fill="none" stroke="#F0B90B" stroke-width="3.5" marker-end="url(#ma-my)"/>
+          <text id="ma-b4l" class="h" x="790" y="900" font-size="28" fill="#F0B90B">手续费</text>
+          <g id="ma-pr" class="h">
+            <rect x="560" y="930" width="320" height="80" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/>
+            <text x="690" y="981" font-size="30" fill="#B48EF0" text-anchor="middle">协议</text>
+            <circle cx="800" cy="970" r="14" fill="#F0B90B"/>
+          </g>
+          <g id="ma-sc" class="h">
+            <rect x="180" y="300" width="120" height="52" rx="26" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.5"/>
+            <text class="mono" x="240" y="336" font-size="28" fill="#F0B90B" text-anchor="middle">ETH</text>
+          </g>
+        </g>
+        <!-- L5 replay -->
+        <g id="ma-rows3">
+          <text id="ma-rp" class="h" x="1840" y="180" font-size="28" fill="#8a8f99" text-anchor="end">重放 · 另一种情况</text>
+          <g id="ma-tp" class="h">
+            <rect x="80" y="820" width="320" height="180" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text x="240" y="862" font-size="30" fill="#e8e6df" text-anchor="middle">第三人</text>
+          </g>
+          <path id="ma-r1" class="dr h" pathLength="1" d="M1680 470 H730" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#ma-arr)"/>
+          <text id="ma-r1l" class="h mono" x="1200" y="450" font-size="28" fill="#e8e6df" text-anchor="middle">buy(NFT, 42)</text>
+          <path id="ma-r2a" class="dr h" pathLength="1" d="M720 590 H930" fill="none" stroke="#FC6255" stroke-width="3.5"/>
+          <path id="ma-r2b" class="dr h" pathLength="1" d="M990 590 H1190" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#ma-mr)"/>
+          <path id="ma-r2x" class="h" d="M946 574 L974 606 M974 574 L946 606" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/>
+          <text id="ma-r2l" class="h mono" x="960" y="552" font-size="28" fill="#FC6255" text-anchor="middle">safeTransferFrom</text>
+          <text id="ma-rb" class="h" x="960" y="660" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">整笔回滚</text>
+          <g id="ma-gas" class="h">
+            <rect x="670" y="388" width="100" height="46" rx="23" fill="#2a2e38" stroke="#8a8f99" stroke-width="2"/>
+            <text class="mono" x="720" y="421" font-size="28" fill="#8a8f99" text-anchor="middle">Gas</text>
+          </g>
+          <text id="ma-fe" class="h" x="960" y="790" font-size="30" fill="#83C167" text-anchor="middle">展示挂单前先查 <tspan class="mono">ownerOf</tspan></text>
+        </g>
+        <!-- moving objects -->
+        <g id="ma-cardm"><g id="ma-card" class="h">
+          <rect id="ma-cardr" x="200" y="286" width="80" height="78" rx="8" fill="#2a2e38" stroke="#58C4DD" stroke-width="2.5"/>
+          <text class="mono" x="240" y="336" font-size="28" fill="#58C4DD" text-anchor="middle">#42</text>
+        </g></g>
+        <g id="ma-ethm"><g id="ma-eth" class="h">
+          <rect x="1615" y="300" width="130" height="52" rx="26" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.5"/>
+          <text class="mono" x="1680" y="336" font-size="28" fill="#F0B90B" text-anchor="middle">2 ETH</text>
+        </g></g>
+      </g>
+      <g id="ma-term" class="h">
+        <rect x="70" y="56" width="630" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">不托管上架 <tspan font-size="28" font-weight="400" fill="#8a8f99">Non-custodial listing</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">卖家保留 NFT，只授权市场</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 actors, the card stays with the seller
+      IN("#ma-s", at(0, 0.02), 0.5, { y: 12 }, { y: 0 });
+      IN("#ma-m", at(0, 0.08), 0.5, { y: 12 }, { y: 0 });
+      IN("#ma-n, #ma-o1", at(0, 0.14), 0.5, { y: 12 }, { y: 0 });
+      IN("#ma-b", at(0, 0.2), 0.5, { y: 12 }, { y: 0 });
+      IN("#ma-card", at(0, 0.3), 0.5);
+      tl.to("#ma-cardr", { strokeWidth: 6, duration: 0.4, yoyo: true, repeat: 3 }, at(0, 0.35));
+      IN("#ma-q", at(0, 0.6), 0.5, { scale: 0.6, svgOrigin: "720 176" }, { scale: 1, svgOrigin: "720 176" });
+      // L1 approval rope
+      OUT("#ma-q", at(1, 0.0), 0.3);
+      ARROW("#ma-a1", at(1, 0.08), 0.8);
+      IN("#ma-a1l", at(1, 0.12), 0.5);
+      DRAW("#ma-rope", at(1, 0.42), 0.7);
+      IN("#ma-ropel", at(1, 0.5), 0.4);
+      IN("#ma-a1n", at(1, 0.66), 0.5);
+      // L2 list + two checks + record
+      ARROW("#ma-a2", at(2, 0.04), 0.6);
+      IN("#ma-a2l", at(2, 0.06), 0.5);
+      ARROW("#ma-k1", at(2, 0.28), 0.5);
+      IN("#ma-k1l", at(2, 0.3), 0.4);
+      IN("#ma-k1v", at(2, 0.4), 0.3, { scale: 1.6, svgOrigin: "1112 660" }, { scale: 1, svgOrigin: "1112 660" });
+      ARROW("#ma-k2", at(2, 0.46), 0.5);
+      IN("#ma-k2l", at(2, 0.48), 0.4);
+      IN("#ma-k2v", at(2, 0.58), 0.3, { scale: 1.6, svgOrigin: "1032 750" }, { scale: 1, svgOrigin: "1032 750" });
+      IN("#ma-rec", at(2, 0.7), 0.5, { scale: 0.6, svgOrigin: "720 325" }, { scale: 1, svgOrigin: "720 325" });
+      // L3 non-custodial: card still in wallet; cancel then restore
+      IN("#ma-term", at(3, 0.0), 0.5);
+      tl.to("#ma-cardr", { strokeWidth: 6, duration: 0.35, yoyo: true, repeat: 3 }, at(3, 0.15));
+      ARROW("#ma-a3", at(3, 0.45), 0.5);
+      IN("#ma-a3l", at(3, 0.47), 0.4);
+      OUT("#ma-rec", at(3, 0.58), 0.35);
+      IN("#ma-rec", at(3, 0.82), 0.4);
+      // L4 buy: delete record -> transfer -> pay
+      OUT("#ma-term, #ma-rows1", at(4, 0.0), 0.4);
+      IN("#ma-eth", at(4, 0.04), 0.4);
+      ARROW("#ma-b1", at(4, 0.1), 0.7);
+      IN("#ma-b1l", at(4, 0.12), 0.4);
+      tl.to("#ma-ethm", { y: 94, duration: 0.35, ease: "power2.in" }, at(4, 0.14));
+      tl.to("#ma-ethm", { x: -960, duration: 0.9, ease: "power2.inOut" }, at(4, 0.14) + 0.35);
+      IN("#ma-s1", at(4, 0.26), 0.3);
+      tl.to("#ma-recr", { stroke: "#8a8f99", fill: "#8a8f9922", duration: 0.3 }, at(4, 0.26));
+      tl.to("#ma-rect", { fill: "#6b6f7a", duration: 0.3 }, at(4, 0.26));
+      OUT("#ma-rec", at(4, 0.32), 0.4);
+      IN("#ma-s2", at(4, 0.38), 0.3);
+      ARROW("#ma-b2", at(4, 0.4), 0.5);
+      IN("#ma-b2l", at(4, 0.4), 0.4);
+      const tf = at(4, 0.46);
+      tl.to("#ma-cardm", { y: 355, duration: 0.45, ease: "power2.in" }, tf);
+      tl.to("#ma-cardm", { x: 1440, duration: 1.1, ease: "power2.inOut" }, tf + 0.45);
+      tl.to("#ma-cardm", { y: 0, duration: 0.45, ease: "power2.out" }, tf + 1.55);
+      IN("#ma-gl", tf + 0.9, 0.4);
+      OUT("#ma-o1", tf + 1.5, 0.25); IN("#ma-o2", tf + 1.75, 0.3);
+      IN("#ma-s3", at(4, 0.68), 0.3);
+      OUT("#ma-eth", at(4, 0.68), 0.3);
+      ARROW("#ma-b3", at(4, 0.68), 0.6);
+      IN("#ma-b3l", at(4, 0.7), 0.4);
+      IN("#ma-sc", at(4, 0.76), 0.4, { scale: 0.5, svgOrigin: "240 326" }, { scale: 1, svgOrigin: "240 326" });
+      ARROW("#ma-b4", at(4, 0.86), 0.4);
+      IN("#ma-b4l", at(4, 0.87), 0.4);
+      IN("#ma-pr", at(4, 0.9), 0.4);
+      // L5 replay: seller moved the NFT away
+      OUT("#ma-rows2", at(5, 0.0), 0.35);
+      OUT("#ma-card, #ma-o2", at(5, 0.0), 0.3);
+      tl.set("#ma-cardm", { x: 0, y: 0 }, at(5, 0.0) + 0.35);
+      tl.set("#ma-ethm", { x: 0, y: 0 }, at(5, 0.0) + 0.35);
+      tl.set("#ma-recr", { stroke: "#58C4DD", fill: "#58C4DD22" }, at(5, 0.0) + 0.35);
+      tl.set("#ma-rect", { fill: "#e8e6df" }, at(5, 0.0) + 0.35);
+      IN("#ma-card, #ma-rec, #ma-o1, #ma-rp", at(5, 0.0) + 0.4, 0.4);
+      IN("#ma-tp", at(5, 0.12), 0.4);
+      tl.to("#ma-cardm", { y: 623, duration: 0.8, ease: "power2.inOut" }, at(5, 0.15));
+      OUT("#ma-o1", at(5, 0.2), 0.25); IN("#ma-o3", at(5, 0.2) + 0.3, 0.3);
+      IN("#ma-eth", at(5, 0.3), 0.3);
+      ARROW("#ma-r1", at(5, 0.31), 0.6);
+      IN("#ma-r1l", at(5, 0.32), 0.4);
+      tl.to("#ma-ethm", { y: 94, duration: 0.3, ease: "power2.in" }, at(5, 0.32));
+      tl.to("#ma-ethm", { x: -960, duration: 0.8, ease: "power2.inOut" }, at(5, 0.32) + 0.3);
+      DRAW("#ma-r2a", at(5, 0.42), 0.3); tl.set("#ma-r2a", { opacity: 1 }, at(5, 0.42));
+      IN("#ma-r2l", at(5, 0.42), 0.3);
+      IN("#ma-r2x", at(5, 0.46), 0.25, { scale: 1.5, svgOrigin: "960 590" }, { scale: 1, svgOrigin: "960 590" });
+      ARROW("#ma-r2b", at(5, 0.46), 0.3);
+      tl.to("#ma-r2b", { opacity: 0.35, duration: 0.3 }, at(5, 0.5));
+      IN("#ma-rb", at(5, 0.5), 0.4);
+      IN("#ma-gas", at(5, 0.54), 0.3);
+      tl.to("#ma-ethm", { x: 0, duration: 0.8, ease: "power2.inOut" }, at(5, 0.54));
+      tl.to("#ma-ethm", { y: 0, duration: 0.3, ease: "power2.out" }, at(5, 0.54) + 0.8);
+      IN("#ma-fe", at(5, 0.76), 0.5);
+
+      tl.to("#ma-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ma-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["market"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,209 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz1，id 前缀 qu- -->
+  <div id="root" data-composition-id="quiz1" data-duration="51.11" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="qu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="qu-all">
+        <!-- 题号徽章 x70–260 y70–130 -->
+        <g id="qu-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 1 题</text>
+        </g>
+        <!-- 题干：y 200–330 内一行 40px，打字机用 clipPath 揭开 -->
+        <clipPath id="qu-qclip"><rect id="qu-qcr" x="60" y="190" width="0" height="80" /></clipPath>
+        <text id="qu-q" class="h" x="70" y="250" font-size="40" fill="#e8e6df" clip-path="url(#qu-qclip)">一家供应商把一份<tspan fill="#FF9F43">伪造</tspan>的质检报告写上了公链。区块链能<tspan fill="#FF9F43">保证什么</tspan>？</text>
+        <!-- 暂停图标 + 倒数圆环：x 1500–1850 y 150–300 -->
+        <g id="qu-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="qu-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <!-- 选项卡：x 70–1100，y0 = 380 / 515 / 650 / 785，高 115，间距 20；圆标 cx130 r32；文字 x190 32px；短评 x190 28px -->
+        <g id="qu-oA" class="h">
+          <rect id="qu-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oA-dim">
+            <circle id="qu-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="qu-oA-t" x="190" y="449" font-size="32" fill="#e8e6df">报告的内容是真实的</text>
+          </g>
+          <text id="qu-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255">把不可篡改和真实混为一谈</text>
+        </g>
+        <g id="qu-oB" class="h">
+          <rect id="qu-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oB-dim">
+            <circle id="qu-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="qu-oB-t" x="190" y="584" font-size="32" fill="#e8e6df">报告写入后不能被悄悄篡改，但链不知道它写入时是否真实</text>
+          </g>
+        </g>
+        <g id="qu-oC" class="h">
+          <rect id="qu-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oC-dim">
+            <circle id="qu-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="qu-oC-t" x="190" y="719" font-size="32" fill="#e8e6df">节点会自动核查报告，发现造假就删除</text>
+          </g>
+          <text id="qu-oC-n" class="h" x="190" y="747" font-size="28" fill="#FC6255">节点只按规则检查交易，核查不了链外事实（解读）</text>
+        </g>
+        <g id="qu-oD" class="h">
+          <rect id="qu-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oD-dim">
+            <circle id="qu-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="qu-oD-t" x="190" y="854" font-size="32" fill="#e8e6df">报告被加密，只有供应商能读</text>
+          </g>
+          <text id="qu-oD-n" class="h" x="190" y="882" font-size="28" fill="#FC6255">链上数据默认公开，没有加密</text>
+        </g>
+        <!-- 右侧示意区 x 1160–1850 y 380–900 -->
+        <g id="qu-panel">
+          <g id="qu-lockl" class="h">
+            <rect x="1404" y="356" width="26" height="22" rx="4" fill="none" stroke="#58C4DD" stroke-width="3" />
+            <path d="M1409 356 v-7 a8 8 0 0 1 16 0 v7" fill="none" stroke="#58C4DD" stroke-width="3" />
+            <text x="1444" y="378" font-size="28" fill="#58C4DD">不可篡改</text>
+          </g>
+          <g id="qu-paper" class="h">
+            <rect id="qu-pbg" x="1330" y="420" width="340" height="400" rx="10" fill="#1b1f28" />
+            <rect id="qu-pfr" x="1330" y="420" width="340" height="400" rx="10" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <text x="1360" y="474" font-size="28" fill="#8a8f99">质检报告</text>
+            <line x1="1360" y1="500" x2="1640" y2="500" stroke="#3a3f4a" stroke-width="3" />
+            <line x1="1360" y1="530" x2="1600" y2="530" stroke="#3a3f4a" stroke-width="3" />
+            <text id="qu-fake" x="1500" y="700" font-size="150" font-weight="800" fill="#FC6255" text-anchor="middle">假</text>
+          </g>
+          <g id="qu-glass" class="h">
+            <path d="M1350 800 L1410 720 M1374 806 L1422 742 M1600 650 L1650 570" stroke="#e8e6df" stroke-width="3" opacity="0.25" />
+          </g>
+          <rect id="qu-lock" class="h" x="1310" y="400" width="380" height="440" rx="16" fill="none" stroke="#58C4DD" stroke-width="4" stroke-dasharray="14 8" />
+          <g id="qu-stamp" class="h">
+            <circle cx="1592" cy="762" r="50" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="4" />
+            <text x="1592" y="771" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">已上链</text>
+          </g>
+          <text id="qu-neq" class="h" x="1500" y="896" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#58C4DD">上链</tspan> ≠ <tspan fill="#FC6255">真实</tspan></text>
+          <g id="qu-eye0" class="h"><ellipse cx="1230" cy="520" rx="30" ry="16" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1230" cy="520" r="8" fill="#8a8f99" /></g>
+          <g id="qu-eye1" class="h"><ellipse cx="1230" cy="720" rx="30" ry="16" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1230" cy="720" r="8" fill="#8a8f99" /></g>
+          <g id="qu-eye2" class="h"><ellipse cx="1770" cy="520" rx="30" ry="16" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1770" cy="520" r="8" fill="#8a8f99" /></g>
+          <g id="qu-eye3" class="h"><ellipse cx="1770" cy="720" rx="30" ry="16" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1770" cy="720" r="8" fill="#8a8f99" /></g>
+        </g>
+        <!-- L6 预言机（错误项淡出后放在左下 y 680–900） -->
+        <g id="qu-orc">
+          <g id="qu-earth" class="h">
+            <circle cx="190" cy="760" r="48" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <ellipse cx="190" cy="760" rx="20" ry="48" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <line x1="142" y1="760" x2="238" y2="760" stroke="#8a8f99" stroke-width="2" />
+            <text x="190" y="848" font-size="28" fill="#8a8f99" text-anchor="middle">链外</text>
+          </g>
+          <line id="qu-d1" class="h" x1="252" y1="760" x2="440" y2="760" stroke="#FF9F43" stroke-width="4" stroke-dasharray="12 8" />
+          <g id="qu-obox" class="h">
+            <rect x="450" y="715" width="240" height="90" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="570" y="772" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">预言机</text>
+          </g>
+          <line id="qu-d2" class="h" x1="700" y1="760" x2="880" y2="760" stroke="#FF9F43" stroke-width="4" stroke-dasharray="12 8" />
+          <g id="qu-chain" class="h">
+            <rect x="890" y="735" width="50" height="50" rx="8" fill="none" stroke="#58C4DD" stroke-width="3" />
+            <rect x="960" y="735" width="50" height="50" rx="8" fill="none" stroke="#58C4DD" stroke-width="3" />
+            <rect x="1030" y="735" width="50" height="50" rx="8" fill="none" stroke="#58C4DD" stroke-width="3" />
+            <line x1="940" y1="760" x2="960" y2="760" stroke="#58C4DD" stroke-width="3" />
+            <line x1="1010" y1="760" x2="1030" y2="760" stroke="#58C4DD" stroke-width="3" />
+            <text x="985" y="848" font-size="28" fill="#58C4DD" text-anchor="middle">链上</text>
+          </g>
+          <circle id="qu-dot" class="h" cx="252" cy="760" r="9" fill="#FF9F43" />
+          <text id="qu-trust" class="h" x="570" y="878" font-size="30" fill="#FF9F43" text-anchor="middle">额外的信任来源</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // ===== 测验版式（quiz2–6 照此）=====
+      // 题号徽章 L0 起；题干用 clipPath 宽度 0→1300 打出
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      IN("#qu-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#qu-q", at(0, 0.05), 0.01);
+      tl.fromTo("#qu-qcr", { attr: { width: 0 } }, { attr: { width: 1300 }, duration: 2.6, ease: "none" }, at(0, 0.08));
+      IN("#qu-paper", at(0, 0.72), 0.6, { scale: 0.9, svgOrigin: "1500 620" }, { scale: 1, svgOrigin: "1500 620" });
+      // L1 选项：按旁白念到的位置滑入；正在念的那张描边提亮
+      const SHOW = (k, t) => {
+        IN(`#qu-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#qu-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#qu-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.16)); SHOW("C", at(1, 0.55)); SHOW("D", at(1, 0.77));
+      // L2 暂停：选项不动；暂停图标 + 圆环倒数到 L3 开头
+      IN("#qu-pause", at(2, 0.0), 0.3);
+      tl.fromTo("#qu-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+      OUT("#qu-pause", at(3, 0.0), 0.3);
+      // 揭晓：正确项 = 描边 + 圆标变绿、绿底 15%
+      const RIGHT = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      // 干扰项 = 红描边、内容降到 60%，选项文字上移到 y0+52，卡内第二行 y0+97 出红色短评（28px）
+      const WRONG = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#qu-o${k}-t`, { attr: { y: Y0[k] + 50 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#qu-o${k}-n`, t + 0.3, 0.5);
+      };
+      RIGHT("B", at(3, 0.02));
+      IN("#qu-stamp", at(3, 0.3), 0.4, { scale: 1.8, svgOrigin: "1592 762" }, { scale: 1, svgOrigin: "1592 762", ease: "back.out(2)" });
+      tl.to("#qu-pfr", { stroke: "#58C4DD", duration: 0.4 }, at(3, 0.45));
+      IN("#qu-lock", at(3, 0.45), 0.5, { scale: 1.05, svgOrigin: "1500 620" }, { scale: 1, svgOrigin: "1500 620" });
+      IN("#qu-lockl", at(3, 0.5), 0.5);
+      tl.to("#qu-fake", { scale: 1.12, svgOrigin: "1500 650", duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.68));
+      IN("#qu-neq", at(3, 0.72), 0.5);
+      WRONG("A", at(4, 0.02));
+      WRONG("C", at(4, 0.42));
+      WRONG("D", at(5, 0.02));
+      // L5 纸片变玻璃（公开），四只眼睛看向它
+      tl.to("#qu-pbg", { opacity: 0.25, duration: 0.6 }, at(5, 0.4));
+      IN("#qu-glass", at(5, 0.4), 0.6);
+      [0, 1, 2, 3].forEach(j => IN(`#qu-eye${j}`, at(5, 0.5) + j * 0.15, 0.4, { scale: 0.5, svgOrigin: `${j < 2 ? 1230 : 1770} ${j % 2 ? 720 : 520}` }, { scale: 1, svgOrigin: `${j < 2 ? 1230 : 1770} ${j % 2 ? 720 : 520}` }));
+      // L6 干扰项完全淡出，让出左下；链外 → 预言机 → 链上
+      OUT("#qu-oA, #qu-oC, #qu-oD", at(6, 0.0), 0.4);
+      IN("#qu-earth", at(6, 0.1), 0.5);
+      IN("#qu-d1", at(6, 0.22), 0.4, { x: -20 }, { x: 0 });
+      IN("#qu-obox", at(6, 0.3), 0.5, { scale: 0.85, svgOrigin: "570 760" }, { scale: 1, svgOrigin: "570 760" });
+      IN("#qu-d2", at(6, 0.42), 0.4, { x: -20 }, { x: 0 });
+      IN("#qu-chain", at(6, 0.5), 0.5);
+      IN("#qu-trust", at(6, 0.6), 0.5);
+      IN("#qu-dot", at(6, 0.55), 0.2);
+      tl.to("#qu-dot", { attr: { cx: 885 }, duration: 1.4, ease: "power1.inOut" }, at(6, 0.6));
+      tl.to("#qu-dot", { opacity: 0, duration: 0.2 }, at(6, 0.6) + 1.4);
+
+      tl.to("#qu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz1"] = tl;
+    })();
+  </script>
+</template>

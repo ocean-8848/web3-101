@@ -1,0 +1,196 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 encode，id 前缀 en- -->
+  <div id="root" data-composition-id="encode" data-duration="60.17" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="en-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="en-all">
+        <g id="en-card" class="h">
+          <rect x="80" y="350" width="300" height="320" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="110" y="397" font-size="30" font-weight="700" fill="#58C4DD">交易字段</text>
+          <text id="en-r0" class="mono" x="110" y="445" font-size="28" fill="#e8e6df">chainId 1</text>
+          <text id="en-r1" class="mono" x="110" y="485" font-size="28" fill="#e8e6df">nonce 7</text>
+          <text class="mono" x="110" y="525" font-size="28" fill="#e8e6df">to 0xAb…</text>
+          <text class="mono" x="110" y="565" font-size="28" fill="#e8e6df">value <tspan fill="#F0B90B">1 ETH</tspan></text>
+          <text class="mono" x="110" y="605" font-size="28" fill="#e8e6df">data 0x</text>
+          <text class="mono" x="110" y="645" font-size="28" fill="#e8e6df">gas 21000</text>
+        </g>
+        <text id="en-q" class="h" x="520" y="560" font-size="120" font-weight="700" fill="#FF9F43" text-anchor="middle">?</text>
+        <path id="en-a1" class="dr h" pathLength="1" d="M388 470 L462 430" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#en-arr)"/>
+        <g id="en-fun" class="h">
+          <polygon points="440,370 760,370 630,600 630,650 570,650 570,600" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+        </g>
+        <text id="en-rlpl" class="h mono" x="600" y="430" font-size="30" fill="#e8e6df" text-anchor="middle">RLP</text>
+        <text id="en-kkl" class="h mono" x="600" y="502" font-size="28" fill="#8a8f99" text-anchor="middle">Keccak</text>
+        <g id="en-strip" class="h">
+          <rect x="440" y="290" width="56" height="46" rx="6" fill="#58C4DD" fill-opacity="0.25" stroke="#58C4DD" stroke-width="3"/>
+          <text class="mono" x="468" y="323" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">02</text>
+          <rect x="504" y="290" width="256" height="46" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <text x="632" y="323" font-size="28" fill="#e8e6df" text-anchor="middle">RLP(字段列表)</text>
+        </g>
+        <rect id="en-hash" class="h" x="540" y="668" width="120" height="28" rx="4" fill="#58C4DD"/>
+        <text id="en-hashl" class="h" x="600" y="745" font-size="28" fill="#58C4DD" text-anchor="middle">签名哈希 · 32 字节</text>
+        <path id="en-a2" class="dr h" pathLength="1" d="M666 682 C740 682 780 640 815 600" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#en-arr)"/>
+        <g id="en-sig" class="h">
+          <rect x="820" y="400" width="300" height="240" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <text x="970" y="452" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">私钥签名</text>
+        </g>
+        <g id="en-key" class="h"><g id="en-keyr">
+          <circle cx="938" cy="530" r="20" fill="none" stroke="#FC6255" stroke-width="5"/>
+          <path d="M958 530 H1010 M994 530 V548 M1008 530 V544" stroke="#FC6255" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </g></g>
+        <text id="en-sigo" class="h mono" x="970" y="612" font-size="28" fill="#e8e6df" text-anchor="middle">yParity · r · s</text>
+        <text id="en-ex2" class="h" x="970" y="880" font-size="32" fill="#FC6255" text-anchor="middle">私钥只在这一步出现</text>
+        <path id="en-arc" class="dr h" pathLength="1" d="M230 345 C230 220 1150 220 1195 425" stroke="#83C167" stroke-width="2.5" stroke-opacity="0.7" fill="none" marker-end="url(#en-arr)"/>
+        <text id="en-arcl" class="h" x="700" y="238" font-size="28" fill="#83C167" text-anchor="middle">字段 + 签名，再做一次 RLP</text>
+        <path id="en-a3" class="dr h" pathLength="1" d="M1125 520 L1185 520" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#en-arr)"/>
+        <g id="en-env" class="h">
+          <rect x="1190" y="430" width="260" height="180" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+          <path d="M1192 434 L1320 505 L1448 434" stroke="#83C167" stroke-width="3" fill="none"/>
+          <text class="mono" x="1320" y="580" font-size="32" fill="#83C167" text-anchor="middle">02 f8 …</text>
+        </g>
+        <text id="en-envl" class="h" x="1320" y="410" font-size="30" fill="#83C167" text-anchor="middle">原始交易</text>
+        <path id="en-bc" class="h" d="M1460 520 L1836 520" stroke="#e8e6df" stroke-width="3" stroke-dasharray="12 10" fill="none" marker-end="url(#en-arr)"/>
+        <text id="en-bcl" class="h" x="1650" y="500" font-size="30" fill="#e8e6df" text-anchor="middle">广播</text>
+        <text id="en-rpc" class="h mono" x="1478" y="572" font-size="28" fill="#e8e6df">eth_sendRawTransaction</text>
+        <path id="en-a5" class="dr h" pathLength="1" d="M1320 616 L1320 698" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#en-arr)"/>
+        <text id="en-kl" class="h mono" x="1338" y="668" font-size="28" fill="#8a8f99">Keccak-256</text>
+        <g id="en-txh" class="h">
+          <rect id="en-txhr" x="1180" y="706" width="280" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="1320" y="749" font-size="30" fill="#58C4DD" text-anchor="middle">交易哈希 0x…</text>
+        </g>
+        <g id="en-pin" class="h">
+          <path d="M1462 738 L1488 724" stroke="#83C167" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="1494" cy="720" r="12" fill="#83C167"/>
+        </g>
+        <text id="en-pinl" class="h" x="1320" y="822" font-size="30" fill="#83C167" text-anchor="middle">签名时即确定</text>
+        <g id="en-cmp">
+          <text id="en-c1l" class="h" x="700" y="868" font-size="28" fill="#8a8f99" text-anchor="middle">签名时</text>
+          <text id="en-c1" class="h mono" x="700" y="925" font-size="30" fill="#e8e6df" text-anchor="middle">chainId 1 / nonce 7</text>
+          <text id="en-ne" class="h" x="960" y="938" font-size="64" font-weight="700" fill="#FC6255" text-anchor="middle">≠</text>
+          <text id="en-c2l" class="h" x="1230" y="868" font-size="28" fill="#8a8f99" text-anchor="middle">广播时</text>
+          <text id="en-c2" class="h mono" x="1230" y="925" font-size="30" fill="#e8e6df" text-anchor="middle">chainId 5 / nonce 8</text>
+          <text id="en-cr" class="h" x="960" y="1000" font-size="30" fill="#FC6255" text-anchor="middle">节点拒绝，或在别的链上被重放</text>
+        </g>
+        <g id="en-copyo"><g id="en-copy" class="h">
+          <rect x="1190" y="430" width="260" height="180" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" stroke-dasharray="10 8"/>
+          <path d="M1192 434 L1320 505 L1448 434" stroke="#83C167" stroke-width="3" fill="none"/>
+          <text class="mono" x="1320" y="580" font-size="32" fill="#83C167" text-anchor="middle">02 f8 …</text>
+        </g></g>
+        <g id="en-hand" class="h">
+          <rect x="110" y="880" width="120" height="72" rx="24" fill="#8a8f99"/>
+          <rect x="212" y="872" width="60" height="22" rx="11" fill="#8a8f99"/>
+          <rect x="212" y="902" width="64" height="22" rx="11" fill="#8a8f99"/>
+          <rect x="208" y="932" width="56" height="20" rx="10" fill="#8a8f99"/>
+        </g>
+        <text id="en-who" class="h" x="390" y="790" font-size="28" fill="#8a8f99" text-anchor="middle">谁拿到都能广播</text>
+        <g id="en-lock" class="h">
+          <path d="M1438 452 v-10 a12 12 0 0 1 24 0 v10" stroke="#FC6255" stroke-width="4" fill="none"/>
+          <rect x="1430" y="450" width="40" height="30" rx="5" fill="#FC6255"/>
+        </g>
+        <text id="en-lockl" class="h" x="1486" y="450" font-size="28" fill="#FC6255">金额、收款人改不了</text>
+        <g id="en-tl" class="h">
+          <path d="M720 960 H1560" stroke="#8a8f99" stroke-width="3"/>
+          <circle cx="760" cy="960" r="7" fill="#8a8f99"/>
+          <circle cx="1100" cy="960" r="7" fill="#83C167"/>
+          <text x="760" y="935" font-size="28" fill="#8a8f99" text-anchor="middle">签名</text>
+          <text x="1100" y="935" font-size="28" fill="#83C167" text-anchor="middle">已上链</text>
+        </g>
+        <circle id="en-dot" class="h" cx="760" cy="960" r="12" fill="#83C167"/>
+        <g id="en-mind" class="h">
+          <circle cx="1440" cy="960" r="7" fill="#FF9F43"/>
+          <text x="1440" y="935" font-size="28" fill="#FF9F43" text-anchor="middle">你改主意</text>
+        </g>
+        <text id="en-pub" class="h" x="1110" y="868" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">签了没发 = 已公开</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+// L0 字段卡 + 问号
+IN("#en-card", at(0, 0.05), 0.7, { x: -30 }, { x: 0 });
+IN("#en-q", at(0, 0.5), 0.5, { y: 20 }, { y: 0 });
+// L1 RLP + 类型字节
+OUT("#en-q", at(1, 0), 0.3);
+IN("#en-fun", at(1, 0.08), 0.6);
+ARROW("#en-a1", at(1, 0.18));
+IN("#en-rlpl", at(1, 0.3), 0.5);
+IN("#en-strip", at(1, 0.6), 0.6, { x: -30 }, { x: 0 });
+// L2 Keccak → 签名哈希 → 私钥签名
+IN("#en-kkl", at(2, 0.02), 0.5);
+IN("#en-hash", at(2, 0.1), 0.5, { y: -30 }, { y: 0 });
+IN("#en-hashl", at(2, 0.16), 0.5);
+ARROW("#en-a2", at(2, 0.3));
+IN("#en-sig", at(2, 0.36), 0.5);
+IN("#en-key", at(2, 0.42), 0.4);
+tl.fromTo("#en-keyr", { rotation: 0, svgOrigin: "970 530" }, { rotation: 90, svgOrigin: "970 530", duration: 0.8, ease: "power2.inOut", immediateRender: false }, at(2, 0.5));
+IN("#en-ex2", at(2, 0.55), 0.5);
+IN("#en-sigo", at(2, 0.78), 0.5, { y: 12 }, { y: 0 });
+// L3 原始交易
+ARROW("#en-arc", at(3, 0.02), 1.0);
+IN("#en-arcl", at(3, 0.12), 0.5);
+ARROW("#en-a3", at(3, 0.3));
+IN("#en-env", at(3, 0.36), 0.6, { scale: 0.8, svgOrigin: "1320 520" }, { scale: 1, svgOrigin: "1320 520" });
+IN("#en-envl", at(3, 0.45), 0.5);
+IN("#en-bc", at(3, 0.66), 0.5, { x: -30 }, { x: 0 });
+IN("#en-bcl", at(3, 0.7), 0.4);
+IN("#en-rpc", at(3, 0.78), 0.5);
+// L4 交易哈希
+ARROW("#en-a5", at(4, 0.03));
+IN("#en-kl", at(4, 0.08), 0.4);
+IN("#en-txh", at(4, 0.18), 0.6, { y: -16 }, { y: 0 });
+IN("#en-pin", at(4, 0.52), 0.3, { y: -30 }, { y: 0 });
+IN("#en-pinl", at(4, 0.56), 0.5);
+tl.to("#en-txhr", { stroke: "#83C167", duration: 0.4 }, at(4, 0.62));
+// L5 chainId / nonce 对不上
+OUT("#en-ex2, #en-pinl", at(5, 0), 0.3);
+tl.to("#en-r0, #en-r1", { fill: "#FC6255", duration: 0.3 }, at(5, 0.08));
+IN("#en-c1l, #en-c1", at(5, 0.12), 0.5);
+IN("#en-c2l, #en-c2", at(5, 0.3), 0.5);
+IN("#en-ne", at(5, 0.45), 0.4, { scale: 1.6, svgOrigin: "960 915" }, { scale: 1, svgOrigin: "960 915" });
+IN("#en-cr", at(5, 0.62), 0.5);
+// L6 谁拿到都能广播
+OUT("#en-cmp", at(6, 0), 0.35);
+tl.to("#en-r0, #en-r1", { fill: "#e8e6df", duration: 0.3 }, at(6, 0));
+IN("#en-copy", at(6, 0.05), 0.4);
+IN("#en-hand", at(6, 0.08), 0.5, { x: -160 }, { x: 0 });
+tl.to("#en-copyo", { x: -930, y: 380, duration: 1.0, ease: "power2.inOut" }, at(6, 0.12));
+IN("#en-who", at(6, 0.24), 0.5);
+IN("#en-lock", at(6, 0.36), 0.4, { y: -20 }, { y: 0 });
+IN("#en-lockl", at(6, 0.4), 0.5);
+IN("#en-tl", at(6, 0.55), 0.5);
+IN("#en-dot", at(6, 0.6), 0.2);
+tl.to("#en-dot", { attr: { cx: 1100 }, duration: 0.9, ease: "power2.inOut" }, at(6, 0.62));
+IN("#en-mind", at(6, 0.74), 0.5);
+IN("#en-pub", at(6, 0.86), 0.5);
+
+
+      tl.to("#en-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["encode"] = tl;
+    })();
+  </script>
+</template>

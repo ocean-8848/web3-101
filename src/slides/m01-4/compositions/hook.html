@@ -1,0 +1,142 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="30.12" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <defs>
+          <clipPath id="ho-clip"><rect id="ho-cliprect" x="826" y="470" width="0" height="100"/></clipPath>
+        </defs>
+        <g id="ho-main">
+          <g id="ho-phone" class="h">
+            <rect x="520" y="260" width="300" height="560" rx="38" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <line x1="635" y1="290" x2="705" y2="290" stroke="#8a8f99" stroke-width="5" stroke-linecap="round"/>
+            <text x="670" y="390" font-size="30" fill="#e8e6df" text-anchor="middle">转账</text>
+            <text class="mono" x="670" y="470" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">100 USDT</text>
+            <text x="606" y="550" font-size="36" fill="#F0B90B">→</text>
+          </g>
+          <text id="ho-friend" class="h" x="660" y="550" font-size="36" fill="#F0B90B">朋友</text>
+          <text id="ho-qm" class="h" x="668" y="552" font-size="44" font-weight="700" fill="#FF9F43">？</text>
+          <g id="ho-btnw" class="h"><g id="ho-btn">
+            <rect x="580" y="690" width="180" height="70" rx="35" fill="#58C4DD"/>
+            <text x="670" y="736" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">确认</text>
+          </g></g>
+          <g id="ho-strip" clip-path="url(#ho-clip)">
+            <rect x="830" y="486" width="1030" height="66" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+            <text id="ho-bytes" class="mono" x="850" y="529" font-size="30" fill="#58C4DD">0x02f8b1 0107 8459 682f 0085 0ba4 3b74 0082 b4c8 …</text>
+          </g>
+          <g id="ho-net">
+            <line id="ho-m1" class="dr" pathLength="1" x1="1580" y1="320" x2="1400" y2="230" stroke="#8a8f99" stroke-width="2"/>
+            <line id="ho-m2" class="dr" pathLength="1" x1="1580" y1="320" x2="1760" y2="230" stroke="#8a8f99" stroke-width="2"/>
+            <line id="ho-m3" class="dr" pathLength="1" x1="1580" y1="320" x2="1440" y2="430" stroke="#8a8f99" stroke-width="2"/>
+            <line id="ho-m4" class="dr" pathLength="1" x1="1580" y1="320" x2="1740" y2="430" stroke="#8a8f99" stroke-width="2"/>
+            <circle id="ho-n0" class="h" cx="1580" cy="320" r="30" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <circle id="ho-n1" class="h" cx="1400" cy="230" r="26" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <circle id="ho-n2" class="h" cx="1760" cy="230" r="26" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <circle id="ho-n3" class="h" cx="1440" cy="430" r="26" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <circle id="ho-n4" class="h" cx="1740" cy="430" r="26" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <line id="ho-bc" class="h" x1="1200" y1="478" x2="1550" y2="332" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="10 8"/>
+            <text id="ho-bcl" class="h" x="1250" y="352" font-size="30" fill="#58C4DD">广播</text>
+            <circle id="ho-pk" class="h" cx="1200" cy="478" r="10" fill="#58C4DD"/>
+          </g>
+          <g id="ho-card" class="h">
+            <rect x="1000" y="620" width="700" height="260" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="1030" y="672" font-size="28" fill="#8a8f99">交易里写的</text>
+          </g>
+          <g id="ho-to" class="h">
+            <text class="mono" x="1030" y="748" font-size="34" fill="#58C4DD">to    = 0xdAC1…</text>
+            <text x="1362" y="748" font-size="28" fill="#8a8f99">USDT 合约</text>
+          </g>
+          <text id="ho-val" class="h mono" x="1030" y="830" font-size="34" fill="#F0B90B">value = 0</text>
+          <text id="ho-q1" class="h" x="300" y="962" font-size="34" font-weight="700" fill="#FF9F43">收款人在哪？</text>
+          <text id="ho-q2" class="h" x="860" y="962" font-size="34" font-weight="700" fill="#FF9F43">扣了多少？</text>
+          <text id="ho-q3" class="h" x="1400" y="962" font-size="34" font-weight="700" fill="#FF9F43">发出后去哪？</text>
+        </g>
+        <g id="ho-route">
+          <line id="ho-rl" class="dr" pathLength="1" x1="300" y1="540" x2="1620" y2="540" stroke="#8a8f99" stroke-width="3"/>
+          <g id="ho-s0" class="h"><circle id="ho-c0" cx="300" cy="540" r="22" fill="#0f1117" stroke="#8a8f99" stroke-width="4"/><text id="ho-t0" x="300" y="612" font-size="34" fill="#8a8f99" text-anchor="middle">字段</text></g>
+          <g id="ho-s1" class="h"><circle id="ho-c1" cx="630" cy="540" r="22" fill="#0f1117" stroke="#8a8f99" stroke-width="4"/><text id="ho-t1" x="630" y="612" font-size="34" fill="#8a8f99" text-anchor="middle">编码</text></g>
+          <g id="ho-s2" class="h"><circle id="ho-c2" cx="960" cy="540" r="22" fill="#0f1117" stroke="#8a8f99" stroke-width="4"/><text id="ho-t2" x="960" y="612" font-size="34" fill="#8a8f99" text-anchor="middle">签名</text></g>
+          <g id="ho-s3" class="h"><circle id="ho-c3" cx="1290" cy="540" r="22" fill="#0f1117" stroke="#8a8f99" stroke-width="4"/><text id="ho-t3" x="1290" y="612" font-size="34" fill="#8a8f99" text-anchor="middle">交易池</text></g>
+          <g id="ho-s4" class="h"><circle id="ho-c4" cx="1620" cy="540" r="22" fill="#0f1117" stroke="#8a8f99" stroke-width="4"/><text id="ho-t4" x="1620" y="612" font-size="34" fill="#8a8f99" text-anchor="middle">回执</text></g>
+        </g>
+
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 phone + confirm press
+IN("#ho-phone", at(0, 0.0), 0.7, { y: 20 }, { y: 0 });
+IN("#ho-friend", at(0, 0.15), 0.5);
+IN("#ho-btnw", at(0, 0.3), 0.5);
+const tp = at(0, 0.78);
+tl.to("#ho-btn", { scale: 0.95, svgOrigin: "670 725", duration: 0.12, ease: "power2.in" }, tp);
+tl.to("#ho-btn", { scale: 1, svgOrigin: "670 725", duration: 0.35, ease: "back.out(3)" }, tp + 0.12);
+tl.to("#ho-btn rect", { fill: "#83C167", duration: 0.2 }, tp + 0.1);
+// L1 byte strip + broadcast
+tl.fromTo("#ho-cliprect", { attr: { width: 0 } }, { attr: { width: 1040 }, duration: 2.2, ease: "power1.inOut" }, at(1, 0.15));
+tl.fromTo("#ho-bytes", { attr: { x: 790 } }, { attr: { x: 850 }, duration: 2.2, ease: "power1.out", immediateRender: false }, at(1, 0.15));
+["#ho-n0", "#ho-n1", "#ho-n2", "#ho-n3", "#ho-n4"].forEach((s, i) => IN(s, at(1, 0.55) + i * 0.08, 0.4));
+IN("#ho-bc", at(1, 0.66), 0.4);
+IN("#ho-pk", at(1, 0.66), 0.15);
+tl.to("#ho-pk", { attr: { cx: 1550, cy: 332 }, duration: 0.7, ease: "power1.in" }, at(1, 0.68));
+tl.to("#ho-pk", { opacity: 0, duration: 0.15 }, at(1, 0.68) + 0.7);
+IN("#ho-bcl", at(1, 0.72), 0.4);
+["#ho-m1", "#ho-m2", "#ho-m3", "#ho-m4"].forEach((s, i) => DRAW(s, at(1, 0.82) + i * 0.06, 0.45));
+["#ho-n1", "#ho-n2", "#ho-n3", "#ho-n4"].forEach((s, i) => tl.to(s, { stroke: "#58C4DD", duration: 0.25 }, at(1, 0.88) + i * 0.06));
+tl.to("#ho-n0", { stroke: "#58C4DD", duration: 0.25 }, at(1, 0.8));
+// L2 card: to is a contract, value 0; friend -> ?
+IN("#ho-card", at(2, 0.05), 0.6, { y: 20 }, { y: 0 });
+IN("#ho-to", at(2, 0.25), 0.5, { x: -20 }, { x: 0 });
+OUT("#ho-friend", at(2, 0.45), 0.3);
+IN("#ho-qm", at(2, 0.45) + 0.35, 0.4, { scale: 0.4, svgOrigin: "690 535" }, { scale: 1, svgOrigin: "690 535", ease: "back.out(2.5)" });
+IN("#ho-val", at(2, 0.8), 0.5, { x: -20 }, { x: 0 });
+// L3 three questions
+IN("#ho-q1", at(3, 0.02), 0.45, { y: 20 }, { y: 0, ease: "back.out(2)" });
+IN("#ho-q2", at(3, 0.32), 0.45, { y: 20 }, { y: 0, ease: "back.out(2)" });
+IN("#ho-q3", at(3, 0.62), 0.45, { y: 20 }, { y: 0, ease: "back.out(2)" });
+// L4 route
+tl.to("#ho-main", { opacity: 0, duration: 0.5, ease: "power2.in" }, at(4, 0));
+DRAW("#ho-rl", at(4, 0.1), 1.0);
+[0, 1, 2, 3, 4].forEach(i => IN(`#ho-s${i}`, at(4, 0.12) + i * 0.15, 0.4));
+[0.3, 0.38, 0.46, 0.7, 0.86].forEach((f, i) => {
+  tl.to(`#ho-c${i}`, { stroke: "#58C4DD", fill: "#1d3a44", duration: 0.3 }, at(4, f));
+  tl.to(`#ho-t${i}`, { fill: "#58C4DD", duration: 0.3 }, at(4, f));
+});
+
+      /*ENDANIM*/
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,187 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz1，id 前缀 qu- -->
+  <div id="root" data-composition-id="quiz1" data-duration="46.89" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="qu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+            <g id="qu-all">
+        <!-- 题号徽章 x70–260 y70–130 -->
+        <g id="qu-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 1 题</text>
+        </g>
+        <clipPath id="qu-qclip"><rect id="qu-qcr" x="60" y="190" width="0" height="80" /></clipPath>
+        <text id="qu-q" class="h" x="70" y="250" font-size="40" fill="#e8e6df" clip-path="url(#qu-qclip)">有人<tspan fill="#FF9F43">篡改</tspan>了<tspan fill="#FF9F43">第 100 号</tspan>区块里的一笔交易。下面哪个说法正确？</text>
+        <g id="qu-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="qu-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <g id="qu-oA" class="h">
+          <rect id="qu-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oA-dim">
+            <circle id="qu-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oA-l" x="130" y="449.0" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="qu-oA-t" x="190" y="449.0" font-size="32" fill="#e8e6df">只有这笔交易的哈希变了，区块哈希不变</text>
+          </g>
+          <text id="qu-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255">交易经默克尔根锁在区块头里，区块哈希会变</text>
+        </g>
+        <g id="qu-oB" class="h">
+          <rect id="qu-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oB-dim">
+            <circle id="qu-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oB-l" x="130" y="584.0" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="qu-oB-t" x="190" y="584.0" font-size="32" fill="#e8e6df">区块哈希不变，因为区块哈希只对区块头求值</text>
+          </g>
+          <text id="qu-oB-n" class="h" x="190" y="612" font-size="28" fill="#FC6255">前半句对，但默克尔根就在区块头里</text>
+        </g>
+        <g id="qu-oC" class="h">
+          <rect id="qu-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oC-dim">
+            <circle id="qu-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oC-l" x="130" y="719.0" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="qu-oC-t" x="190" y="697" font-size="32" fill="#e8e6df"><tspan x="190">默克尔根变了，区块头哈希跟着变；</tspan><tspan x="190" dy="42">第 101 号块的父哈希对不上，链就断开</tspan></text>
+          </g>
+        </g>
+        <g id="qu-oD" class="h">
+          <rect id="qu-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oD-dim">
+            <circle id="qu-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oD-l" x="130" y="854.0" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="qu-oD-t" x="190" y="854.0" font-size="32" fill="#e8e6df">只要 nonce 不变，篡改就不会被发现</text>
+          </g>
+          <text id="qu-oD-n" class="h" x="190" y="882" font-size="28" fill="#FC6255">nonce 只是计数器，父哈希照样对不上（解读）</text>
+        </g>
+        <!-- 右侧示意区 x 1160–1850 y 380–900：#100（区块头 + 4 叶默克尔树）、#101（parentHash） -->
+        <g id="qu-panel" class="h">
+          <rect id="qu-b100" x="1180" y="390" width="560" height="340" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect id="qu-hdr" x="1200" y="408" width="520" height="147" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="1222" y="458" font-size="28" fill="#8a8f99">区块头</text>
+          <text id="qu-n100" class="mono" x="1700" y="458" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="end">#100</text>
+          <rect id="qu-nonce" x="1222" y="482" width="150" height="54" rx="8" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="1297" y="518" font-size="28" fill="#8a8f99" text-anchor="middle">nonce</text>
+          <rect id="qu-mr" x="1390" y="482" width="220" height="54" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" />
+          <text id="qu-mrt" class="mono" x="1500" y="518" font-size="28" fill="#58C4DD" text-anchor="middle">merkleRoot</text>
+          <!-- 4 叶默克尔树 -->
+          <line id="qu-e0" x1="1500" y1="536" x2="1500" y2="584" stroke="#58C4DD" stroke-width="3" />
+          <line id="qu-e1" x1="1500" y1="600" x2="1400" y2="650" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1500" y1="600" x2="1600" y2="650" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1400" y1="650" x2="1350" y2="700" stroke="#58C4DD" stroke-width="3" />
+          <line id="qu-e2" x1="1400" y1="650" x2="1450" y2="700" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1600" y1="650" x2="1550" y2="700" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1600" y1="650" x2="1650" y2="700" stroke="#58C4DD" stroke-width="3" />
+          <circle id="qu-root" cx="1500" cy="600" r="16" fill="#0f1117" stroke="#58C4DD" stroke-width="3" />
+          <circle id="qu-m0" cx="1400" cy="650" r="14" fill="#0f1117" stroke="#58C4DD" stroke-width="3" />
+          <circle cx="1600" cy="650" r="14" fill="#0f1117" stroke="#58C4DD" stroke-width="3" />
+          <circle cx="1350" cy="700" r="13" fill="#F0B90B" />
+          <circle id="qu-leaf" cx="1450" cy="700" r="13" fill="#F0B90B" />
+          <circle cx="1550" cy="700" r="13" fill="#F0B90B" />
+          <circle cx="1650" cy="700" r="13" fill="#F0B90B" />
+          <!-- 链接 #100 → #101 parentHash -->
+          <line id="qu-lk" x1="1440" y1="730" x2="1440" y2="818" stroke="#58C4DD" stroke-width="3" />
+          <rect id="qu-b101" x="1180" y="800" width="560" height="96" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="1206" y="858" font-size="30" font-weight="700" fill="#58C4DD">#101</text>
+          <rect id="qu-ph" x="1330" y="818" width="220" height="56" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" />
+          <text id="qu-pht" class="mono" x="1440" y="856" font-size="28" fill="#58C4DD" text-anchor="middle">parentHash</text>
+        </g>
+        <rect id="qu-cut" class="h" x="1428" y="745" width="24" height="44" fill="#161a22" />
+        <path id="qu-x" class="h" d="M1430 757 L1450 777 M1450 757 L1430 777" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+        <text id="qu-bad" class="h" x="1472" y="776" font-size="28" font-weight="700" fill="#FC6255">对不上</text>
+        <text id="qu-inh" class="h" x="1500" y="458" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">在头里</text>
+        <text id="qu-cnt" class="h" x="1222" y="604" font-size="28" fill="#8a8f99">计数器</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+
+      // ===== 测验版式（照 EP009 quiz1）=====
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      IN("#qu-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#qu-q", at(0, 0.05), 0.01);
+      tl.fromTo("#qu-qcr", { attr: { width: 0 } }, { attr: { width: 1300 }, duration: 2.6, ease: "none" }, at(0, 0.08));
+      IN("#qu-panel", at(0, 0.62), 0.6, { scale: 0.92, svgOrigin: "1460 640" }, { scale: 1, svgOrigin: "1460 640" });
+      const SHOW = (k, t) => {
+        IN(`#qu-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#qu-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#qu-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.204)); SHOW("C", at(1, 0.398)); SHOW("D", at(1, 0.777));
+      IN("#qu-pause", at(2, 0.0), 0.3);
+      tl.fromTo("#qu-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+      OUT("#qu-pause", at(3, 0.0), 0.3);
+      const RIGHT = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#qu-o${k}-t`, { attr: { y: Y0[k] + 50 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#qu-o${k}-n`, t + 0.3, 0.5);
+      };
+      // L3 C 正确；篡改从叶子一路传到根、区块头、#100 哈希，#101 的 parentHash 对不上
+      RIGHT("C", at(3, 0.02));
+      const R = "#FC6255";
+      tl.to("#qu-leaf", { fill: R, duration: 0.3 }, at(3, 0.25));
+      tl.to("#qu-leaf", { attr: { r: 18 }, duration: 0.2, yoyo: true, repeat: 1 }, at(3, 0.25));
+      tl.to("#qu-e2", { stroke: R, duration: 0.3 }, at(3, 0.36));
+      tl.to("#qu-m0", { stroke: R, duration: 0.3 }, at(3, 0.42));
+      tl.to("#qu-e1", { stroke: R, duration: 0.3 }, at(3, 0.48));
+      tl.to("#qu-root", { stroke: R, duration: 0.3 }, at(3, 0.54));
+      tl.to("#qu-e0", { stroke: R, duration: 0.3 }, at(3, 0.6));
+      tl.to("#qu-mr", { stroke: R, duration: 0.3 }, at(3, 0.64));
+      tl.to("#qu-mrt", { fill: R, duration: 0.3 }, at(3, 0.64));
+      tl.to("#qu-b100", { stroke: R, duration: 0.4 }, at(3, 0.72));
+      tl.to("#qu-n100", { fill: R, duration: 0.4 }, at(3, 0.72));
+      tl.to("#qu-lk", { stroke: R, duration: 0.3 }, at(3, 0.8));
+      IN("#qu-cut", at(3, 0.86), 0.2);
+      IN("#qu-x", at(3, 0.86), 0.3, { scale: 1.6, svgOrigin: "1440 767" }, { scale: 1, svgOrigin: "1440 767" });
+      tl.to("#qu-ph", { stroke: R, duration: 0.3 }, at(3, 0.88));
+      IN("#qu-bad", at(3, 0.9), 0.4);
+      // L4 B（最容易选），A 同理；区块头外框高亮 + “在头里”
+      WRONG("B", at(4, 0.02));
+      tl.to("#qu-hdr", { stroke: "#FF9F43", strokeWidth: 4, duration: 0.4 }, at(4, 0.3));
+      IN("#qu-inh", at(4, 0.36), 0.4);
+      tl.to("#qu-hdr", { strokeOpacity: 0.3, duration: 0.25, yoyo: true, repeat: 1 }, at(4, 0.55));
+      tl.to("#qu-inh", { opacity: 0.3, duration: 0.25, yoyo: true, repeat: 1 }, at(4, 0.55));
+      WRONG("A", at(4, 0.72));
+      // L5 D：nonce 只是计数器，保持不变；断口仍红
+      WRONG("D", at(5, 0.02));
+      OUT("#qu-inh", at(5, 0.02), 0.3);
+      tl.to("#qu-hdr", { stroke: "#8a8f99", strokeWidth: 2.5, duration: 0.4 }, at(5, 0.02));
+      tl.to("#qu-nonce", { stroke: "#e8e6df", duration: 0.3 }, at(5, 0.25));
+      IN("#qu-cnt", at(5, 0.28), 0.4);
+      tl.to("#qu-nonce", { stroke: "#8a8f99", duration: 0.4 }, at(5, 0.6));
+      tl.to("#qu-x", { scale: 1.35, svgOrigin: "1440 767", duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.7));
+      tl.to("#qu-bad", { opacity: 0.4, duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.7));
+
+      tl.to("#qu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz1"] = tl;
+    })();
+  </script>
+</template>

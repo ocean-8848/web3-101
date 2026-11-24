@@ -1,0 +1,200 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 safety，id 前缀 sa- -->
+  <div id="root" data-composition-id="safety" data-duration="59.34" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sa-all">
+        <!-- 决策树 -->
+        <g id="sa-root" class="h">
+          <rect x="200" y="100" width="400" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="400" y="146" font-size="30" fill="#e8e6df" text-anchor="middle">想做一项 Gas 优化</text>
+        </g>
+        <path id="sa-a0" class="dr h" pathLength="1" d="M400 172 L400 214" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#sa-arr)" />
+
+        <g id="sa-q1" class="h">
+          <path d="M160 220 L640 220 L680 260 L640 300 L160 300 L120 260 Z" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="400" y="271" font-size="30" fill="#e8e6df" text-anchor="middle"><tspan class="mono">gas-report</tspan> 显示是热点？</text>
+        </g>
+        <path id="sa-n1" class="dr h" pathLength="1" d="M682 260 L802 260" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#sa-arr)" />
+        <text id="sa-n1l" class="h" x="742" y="238" font-size="28" fill="#8a8f99" text-anchor="middle">否</text>
+        <g id="sa-r1" class="h">
+          <rect id="sa-r1b" x="810" y="225" width="300" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="960" y="270" font-size="28" fill="#8a8f99" text-anchor="middle">不做：收益太小</text>
+        </g>
+        <path id="sa-y1" class="dr h" pathLength="1" d="M400 302 L400 344" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#sa-arr)" />
+        <text id="sa-y1l" class="h" x="418" y="334" font-size="28" fill="#8a8f99">是</text>
+
+        <g id="sa-q2" class="h">
+          <path d="M160 350 L640 350 L680 410 L640 470 L160 470 L120 410 Z" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="400" y="402" font-size="30" fill="#e8e6df" text-anchor="middle">会去掉检查 / 增加复杂度？</text>
+        </g>
+        <text id="sa-q2b" class="h" x="400" y="447" font-size="28" fill="#8a8f99" text-anchor="middle"><tspan class="mono" fill="#FC6255">unchecked</tspan> · 汇编 · 跳过校验</text>
+        <path id="sa-n2" class="dr h" pathLength="1" d="M682 410 L802 410" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#sa-arr)" />
+        <text id="sa-n2l" class="h" x="742" y="388" font-size="28" fill="#8a8f99" text-anchor="middle">否</text>
+        <g id="sa-r2" class="h">
+          <rect x="810" y="375" width="330" height="70" rx="12" fill="#83C16718" stroke="#83C167" stroke-width="2.5" />
+          <text x="975" y="420" font-size="28" fill="#83C167" text-anchor="middle">做：写测试证明行为不变</text>
+        </g>
+        <path id="sa-y2" class="dr h" pathLength="1" d="M400 472 L400 514" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#sa-arr)" />
+        <text id="sa-y2l" class="h" x="418" y="504" font-size="28" fill="#8a8f99">是</text>
+
+        <g id="sa-q3" class="h">
+          <path d="M160 520 L640 520 L680 570 L640 620 L160 620 L120 570 Z" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="400" y="581" font-size="30" fill="#e8e6df" text-anchor="middle">测试 + 不变量 + 审计能证明安全？</text>
+        </g>
+        <path id="sa-n3" class="dr h" pathLength="1" d="M682 570 L1180 570 L1180 260 L1116 260" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#sa-arr)" />
+        <text id="sa-n3l" class="h" x="742" y="548" font-size="28" fill="#8a8f99" text-anchor="middle">否</text>
+        <path id="sa-y3" class="dr h" pathLength="1" d="M400 622 L400 664" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#sa-arr)" />
+        <text id="sa-y3l" class="h" x="418" y="654" font-size="28" fill="#8a8f99">是</text>
+        <g id="sa-r3" class="h">
+          <rect x="130" y="670" width="540" height="70" rx="12" fill="#FF9F4318" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="400" y="715" font-size="28" fill="#FF9F43" text-anchor="middle">谨慎做：注释写清假设，纳入审计</text>
+        </g>
+        <g id="sa-asm" class="h">
+          <rect id="sa-asmb" x="740" y="670" width="300" height="70" rx="10" fill="#FC625518" stroke="#FC6255" stroke-width="2.5" />
+          <text x="890" y="715" class="mono" font-size="28" fill="#FC6255" text-anchor="middle">assembly { … }</text>
+          </g>
+        <text id="sa-asml" class="h" x="740" y="790" font-size="28" fill="#FC6255">绕过类型 / 溢出检查 · 高危高发区</text>
+
+        <!-- L4 天平 -->
+        <g id="sa-bal" class="h">
+          <path d="M1540 380 L1540 640" stroke="#8a8f99" stroke-width="6" stroke-linecap="round" />
+          <path d="M1460 660 L1620 660" stroke="#8a8f99" stroke-width="8" stroke-linecap="round" />
+          <path d="M1520 380 L1540 350 L1560 380 Z" fill="#8a8f99" />
+          <text x="1540" y="720" font-size="28" fill="#6b6f7a" text-anchor="middle">示例</text>
+        </g>
+        <g id="sa-beam" class="h">
+          <line x1="1340" y1="350" x2="1740" y2="350" stroke="#e8e6df" stroke-width="6" stroke-linecap="round" />
+          <circle cx="1540" cy="350" r="9" fill="#e8e6df" />
+        </g>
+        <g id="sa-panL" class="h">
+          <line x1="1340" y1="350" x2="1280" y2="440" stroke="#8a8f99" stroke-width="2" />
+          <line x1="1340" y1="350" x2="1400" y2="440" stroke="#8a8f99" stroke-width="2" />
+          <path d="M1270 440 L1410 440 Q1340 476 1270 440 Z" fill="#F0B90B33" stroke="#F0B90B" stroke-width="2.5" />
+          <circle cx="1340" cy="428" r="12" fill="#F0B90B" />
+          <text x="1340" y="520" font-size="28" fill="#F0B90B" text-anchor="middle">多付 2,000 Gas</text>
+          <text x="1340" y="560" font-size="28" fill="#F0B90B" text-anchor="middle">≈ 几美分</text>
+        </g>
+        <g id="sa-panR" class="h">
+          <line x1="1740" y1="350" x2="1680" y2="440" stroke="#8a8f99" stroke-width="2" />
+          <line x1="1740" y1="350" x2="1800" y2="440" stroke="#8a8f99" stroke-width="2" />
+          <path d="M1670 440 L1810 440 Q1740 476 1670 440 Z" fill="#FC625533" stroke="#FC6255" stroke-width="2.5" />
+          <g id="sa-coins"></g>
+          <text x="1740" y="520" font-size="28" fill="#FC6255" text-anchor="middle">漏洞：全部资金</text>
+        </g>
+
+        <!-- L5 L2 成本 -->
+        <g id="sa-l2" class="h">
+          <text x="1240" y="150" font-size="28" fill="#8a8f99">L2 上一笔交易的成本（示意）</text>
+          <text x="1240" y="214" font-size="28" fill="#e8e6df">执行 Gas</text>
+          <text x="1240" y="314" font-size="28" fill="#F0B90B">L1 数据费 · <tspan class="mono">calldata / blob</tspan></text>
+        </g>
+        <rect id="sa-l2a" x="1240" y="232" width="0" height="40" rx="6" fill="#8a8f99" />
+        <rect id="sa-l2b" x="1240" y="332" width="0" height="40" rx="6" fill="#F0B90B" />
+        <path id="sa-l2arr" class="dr h" pathLength="1" d="M1520 384 L1520 428" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#sa-arr)" />
+        <text id="sa-l2t" class="h" x="1520" y="476" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">优化重点：压缩输入数据</text>
+
+        <!-- L5 汇入 snapshot → CI -->
+        <path id="sa-m1" class="dr h" pathLength="1" d="M400 742 L400 844" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#sa-arr)" />
+        <path id="sa-m2" class="dr h" pathLength="1" d="M975 447 L975 800 L520 800 L520 844" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#sa-arr)" />
+        <g id="sa-snap" class="h">
+          <rect x="200" y="850" width="400" height="72" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="400" y="897" class="mono" font-size="30" fill="#58C4DD" text-anchor="middle">forge snapshot</text>
+        </g>
+        <path id="sa-m3" class="dr h" pathLength="1" d="M602 886 L692 886" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#sa-arr)" />
+        <g id="sa-ci" class="h">
+          <rect x="700" y="850" width="560" height="72" rx="12" fill="#83C16718" stroke="#83C167" stroke-width="2.5" />
+          <text x="730" y="897" font-size="28" fill="#83C167">CI</text>
+          <text x="780" y="897" class="mono" font-size="28" fill="#83C167">forge snapshot --check</text>
+        </g>
+        <path id="sa-ok" class="dr h" pathLength="1" d="M1286 884 L1302 902 L1336 864" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, p) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); document.querySelector(p).appendChild(e); return e; };
+      // 一堆金币（固定排布）
+      [[-44, 0], [-14, 0], [16, 0], [46, 0], [-29, -18], [1, -18], [31, -18], [-14, -36], [16, -36], [1, -54]].forEach(([dx, dy], i) =>
+        mk("ellipse", { id: `sa-co${i}`, cx: 1740 + dx, cy: 430 + dy, rx: 16, ry: 9, fill: "#F0B90B", stroke: "#a87f05", "stroke-width": 2 }, "#sa-coins"));
+
+      // L0 根节点
+      IN("#sa-root", at(0, 0.1), 0.6, { y: -16 }, { y: 0 });
+      // L1 Q1 → 不做
+      ARROW("#sa-a0", at(1, 0.0), 0.4);
+      IN("#sa-q1", at(1, 0.08), 0.5);
+      ARROW("#sa-n1", at(1, 0.5), 0.4);
+      IN("#sa-n1l", at(1, 0.52), 0.3);
+      IN("#sa-r1", at(1, 0.6), 0.5, { x: -20 }, { x: 0 });
+      // L2 Q2 → 做
+      ARROW("#sa-y1", at(2, 0.0), 0.4);
+      IN("#sa-y1l", at(2, 0.02), 0.3);
+      IN("#sa-q2", at(2, 0.05), 0.5);
+      IN("#sa-q2b", at(2, 0.3), 0.5);
+      ARROW("#sa-n2", at(2, 0.66), 0.4);
+      IN("#sa-n2l", at(2, 0.68), 0.3);
+      IN("#sa-r2", at(2, 0.72), 0.5, { x: -20 }, { x: 0 });
+      // L3 Q3 → 否回到不做；是 → 谨慎做；汇编高危
+      ARROW("#sa-y2", at(3, 0.0), 0.4);
+      IN("#sa-y2l", at(3, 0.02), 0.3);
+      IN("#sa-q3", at(3, 0.04), 0.5);
+      ARROW("#sa-n3", at(3, 0.14), 0.9);
+      IN("#sa-n3l", at(3, 0.15), 0.3);
+      tl.to("#sa-r1b", { attr: { "stroke-width": 4 }, stroke: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.2));
+      ARROW("#sa-y3", at(3, 0.26), 0.4);
+      IN("#sa-y3l", at(3, 0.27), 0.3);
+      IN("#sa-r3", at(3, 0.3), 0.5);
+      IN("#sa-asm", at(3, 0.6), 0.6, { x: 20 }, { x: 0 });
+      IN("#sa-asml", at(3, 0.74), 0.5);
+      tl.to("#sa-asmb", { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 3 }, at(3, 0.9));
+      // L4 天平
+      IN("#sa-bal, #sa-beam", at(4, 0.05), 0.5);
+      IN("#sa-panL", at(4, 0.12), 0.5);
+      IN("#sa-panR", at(4, 0.5), 0.5);
+      tl.fromTo("#sa-coins ellipse", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.05, ease: "bounce.out" }, at(4, 0.55));
+      tl.to("#sa-beam", { rotation: 12, svgOrigin: "1540 350", duration: 0.8, ease: "back.out(1.6)" }, at(4, 0.78));
+      tl.to("#sa-panL", { y: -42, duration: 0.8, ease: "back.out(1.6)" }, at(4, 0.78));
+      tl.to("#sa-panR", { y: 42, duration: 0.8, ease: "back.out(1.6)" }, at(4, 0.78));
+      // L5 L2 数据费 + 汇入 CI
+      OUT("#sa-bal, #sa-beam, #sa-panL, #sa-panR", at(5, 0.0), 0.4);
+      IN("#sa-l2", at(5, 0.04), 0.4);
+      tl.fromTo("#sa-l2a", { attr: { width: 0 } }, { attr: { width: 110 }, duration: 0.6, ease: "power2.out", immediateRender: false }, at(5, 0.07));
+      tl.fromTo("#sa-l2b", { attr: { width: 0 } }, { attr: { width: 560 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(5, 0.12));
+      ARROW("#sa-l2arr", at(5, 0.24), 0.4);
+      IN("#sa-l2t", at(5, 0.27), 0.5);
+      OUT("#sa-asm, #sa-asml", at(5, 0.5), 0.4);
+      ARROW("#sa-m1", at(5, 0.55), 0.5);
+      ARROW("#sa-m2", at(5, 0.55), 0.8);
+      IN("#sa-snap", at(5, 0.62), 0.5);
+      ARROW("#sa-m3", at(5, 0.74), 0.4);
+      IN("#sa-ci", at(5, 0.77), 0.5);
+      DRAW("#sa-ok", at(5, 0.86), 0.5);
+      tl.fromTo("#sa-ok", { opacity: 0 }, { opacity: 1, duration: 0.01, immediateRender: false }, at(5, 0.86));
+
+      tl.to("#sa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["safety"] = tl;
+    })();
+  </script>
+</template>

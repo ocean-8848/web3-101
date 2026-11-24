@@ -1,0 +1,143 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 prob，id 前缀 pr- -->
+  <div id="root" data-composition-id="prob" data-duration="46.25" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pr-all">
+        <g id="pr-plot">
+          <line id="pr-ay" class="dr" pathLength="1" x1="300" y1="950" x2="300" y2="290" stroke="#8a8f99" stroke-width="3"/>
+          <line id="pr-ax" class="dr" pathLength="1" x1="300" y1="950" x2="1700" y2="950" stroke="#8a8f99" stroke-width="3"/>
+          <g id="pr-ticks" class="h"></g>
+          <text id="pr-yt" class="h" x="300" y="270" font-size="30" fill="#e8e6df">攻击成功概率</text>
+          <text id="pr-xt" class="h" x="1722" y="960" font-size="30" fill="#e8e6df">确认数 z</text>
+          <g id="pr-thr" class="h">
+            <line x1="300" y1="543.75" x2="1700" y2="543.75" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8"/>
+            <text class="mono" x="1712" y="553" font-size="28" fill="#8a8f99">0.1%</text>
+          </g>
+          <text id="pr-src" class="h" x="1700" y="270" font-size="28" fill="#6b6f7a" text-anchor="end">白皮书第 11 节公式</text>
+          <clipPath id="pr-clip"><rect x="296" y="286" width="1408" height="667"/></clipPath>
+          <g clip-path="url(#pr-clip)">
+            <path id="pr-cv" class="dr" pathLength="1" d="" fill="none" stroke="#58C4DD" stroke-width="5" stroke-linejoin="round"/>
+          </g>
+          <g id="pr-sl" class="h">
+            <text x="1200" y="229" font-size="30" fill="#e8e6df" text-anchor="end">攻击者算力</text>
+            <line x1="1230" y1="218" x2="1630" y2="218" stroke="#3a3f4a" stroke-width="6" stroke-linecap="round"/>
+            <line id="pr-slf" x1="1230" y1="218" x2="1310" y2="218" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/>
+            <circle id="pr-kn" cx="1310" cy="218" r="13" fill="#FC6255"/>
+            <text id="pr-qv" class="mono" x="1660" y="229" font-size="30" font-weight="700" fill="#FC6255">10%</text>
+          </g>
+          <g id="pr-m6" class="h">
+            <circle cx="580" cy="594" r="10" fill="#83C167"/>
+            <text x="610" y="589" font-size="30" font-weight="700" fill="#83C167">≈ 0.02%</text>
+          </g>
+          <g id="pr-m15" class="h">
+            <circle cx="1000" cy="543.75" r="10" fill="#FF9F43"/>
+            <text class="mono" x="985" y="590" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="end">z = 15</text>
+          </g>
+          <g id="pr-m24" class="h">
+            <circle cx="1420" cy="543.75" r="10" fill="#FF9F43"/>
+            <text class="mono" x="1405" y="590" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="end">z = 24</text>
+          </g>
+          <g id="pr-mag" class="h">
+            <circle cx="1653" cy="602" r="28" fill="none" stroke="#FF9F43" stroke-width="3"/>
+            <line x1="1645" y1="574" x2="1610" y2="482" stroke="#FF9F43" stroke-width="2" stroke-dasharray="6 5"/>
+          </g>
+          <g id="pr-ins" class="h">
+            <rect x="1250" y="320" width="440" height="160" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+            <line x1="1275" y1="450" x2="1670" y2="450" stroke="#8a8f99" stroke-width="2"/>
+            <text class="mono" x="1263" y="440" font-size="28" fill="#8a8f99" text-anchor="start" data-layout-ignore="">0</text>
+          </g>
+          <path id="pr-icv" class="dr" pathLength="1" d="M1295 345 C1360 420 1450 438 1670 444" fill="none" stroke="#58C4DD" stroke-width="4"/>
+          <text id="pr-ilb" class="h" x="1655" y="380" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="end">永远 &gt; 0</text>
+          <text id="pr-flat" class="h" x="960" y="356" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">等多少都没用</text>
+        </g>
+        <text id="pr-end" class="h" x="960" y="580" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#58C4DD">PoW</tspan> 安全 = 诚实算力 <tspan fill="#83C167">&gt; 50%</tspan></text>
+      </g>
+      <g id="pr-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">概率最终性 <tspan font-size="28" font-weight="400" fill="#8a8f99">Probabilistic Finality</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">撤销概率随确认数下降，但永不为零</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+      const TK = document.querySelector("#pr-ticks");
+      ["100%", "1%", "0.01%", "1e-6", "1e-8"].forEach((s, k) => { const y = 300 + k * 162.5; mk("line", { x1: 292, y1: y, x2: 300, y2: y, stroke: "#8a8f99", "stroke-width": 3 }, TK); const t = mk("text", { class: "mono", x: 284, y: y + 10, "font-size": 28, fill: "#8a8f99", "text-anchor": "end" }, TK); t.textContent = s; });
+      for (let z = 0; z <= 30; z += 5) { const x = 300 + z * 1400 / 30; mk("line", { x1: x, y1: 950, x2: x, y2: 958, stroke: "#8a8f99", "stroke-width": 3 }, TK); const t = mk("text", { class: "mono", x, y: 992, "font-size": 28, fill: "#8a8f99", "text-anchor": "middle" }, TK); t.textContent = String(z); }
+      // Nakamoto whitepaper §11
+      const P = (q, z) => { const p = 1 - q, l = z * q / p; let s = 1, po = Math.exp(-l); for (let k = 0; k <= z; k++) { if (k > 0) po *= l / k; s -= po * (1 - Math.pow(q / p, z - k)); } return Math.min(1, Math.max(1e-12, s)); };
+      const Y = v => 300 - Math.max(-9, Math.log10(v)) * 81.25;
+      const CV = document.querySelector("#pr-cv"), SLF = document.querySelector("#pr-slf"), KN = document.querySelector("#pr-kn"), QV = document.querySelector("#pr-qv");
+      const setQ = q => {
+        let d = ""; for (let z = 0; z <= 30; z++) d += (z ? " L" : "M") + (300 + z * 1400 / 30).toFixed(1) + " " + Y(P(q, z)).toFixed(1);
+        CV.setAttribute("d", d); const kx = 1230 + q / 0.5 * 400; KN.setAttribute("cx", kx.toFixed(1)); SLF.setAttribute("x2", kx.toFixed(1)); QV.textContent = Math.round(q * 100) + "%";
+      };
+      setQ(0.1);
+      const qo = { q: 0.1 };
+      const QTO = (a, b, t, d) => tl.fromTo(qo, { q: a }, { q: b, duration: d, ease: "power2.inOut", immediateRender: false, onUpdate: () => setQ(qo.q) }, t);
+
+      // L0 axes + formula
+      DRAW("#pr-ay", at(0, 0.02), 0.7); DRAW("#pr-ax", at(0, 0.08), 0.8);
+      IN("#pr-ticks", at(0, 0.18), 0.6); IN("#pr-yt", at(0, 0.24), 0.5); IN("#pr-xt", at(0, 0.3), 0.5);
+      IN("#pr-src", at(0, 0.45), 0.5);
+      IN("#pr-thr", at(0, 0.72), 0.5);
+      // L1 q = 10%
+      IN("#pr-sl", at(1, 0.02), 0.5);
+      DRAW("#pr-cv", at(1, 0.15), 1.2);
+      IN("#pr-m6", at(1, 0.6), 0.5, { scale: 0.5, svgOrigin: "580 594" }, { scale: 1, svgOrigin: "580 594" });
+      // L2 q = 25% -> 15, 30% -> 24
+      OUT("#pr-m6", at(2, 0), 0.3);
+      QTO(0.1, 0.25, at(2, 0.04), 1.1);
+      IN("#pr-m15", at(2, 0.3), 0.5);
+      QTO(0.25, 0.3, at(2, 0.62), 0.9);
+      IN("#pr-m24", at(2, 0.8), 0.5);
+      // L3 never zero
+      IN("#pr-mag", at(3, 0.2), 0.5);
+      IN("#pr-ins", at(3, 0.3), 0.5);
+      DRAW("#pr-icv", at(3, 0.36), 1.0);
+      IN("#pr-ilb", at(3, 0.5), 0.5);
+      IN("#pr-term", at(3, 0.7), 0.5);
+      // L4 q = 50%
+      OUT("#pr-mag, #pr-ins, #pr-icv, #pr-ilb, #pr-m15, #pr-m24", at(4, 0), 0.4);
+      QTO(0.3, 0.5, at(4, 0.12), 1.4);
+      tl.to("#pr-cv", { stroke: "#FC6255", duration: 0.5 }, at(4, 0.3));
+      IN("#pr-flat", at(4, 0.5), 0.5);
+      OUT("#pr-term", at(4, 0.6), 0.4);
+      // L5 conclusion
+      OUT("#pr-plot", at(5, 0), 0.5);
+      IN("#pr-end", at(5, 0.1), 0.7, { scale: 0.85, svgOrigin: "960 560" }, { scale: 1, svgOrigin: "960 560" });
+
+      tl.to("#pr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#pr-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["prob"] = tl;
+    })();
+  </script>
+</template>

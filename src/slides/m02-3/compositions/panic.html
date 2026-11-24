@@ -1,0 +1,160 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 panic，id 前缀 pa- -->
+  <div id="root" data-composition-id="panic" data-duration="62.63" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pa-all">
+        <text id="pa-head" class="h mono" x="480" y="160" font-size="40" fill="#FC6255" text-anchor="middle">Panic(uint256 code)</text>
+        <g id="pa-cd0" class="h"><rect x="200" y="220" width="560" height="96" rx="12" fill="#2a1618" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="232" y="280" font-size="36" fill="#FC6255">0x01</text><text x="370" y="280" font-size="32" fill="#e8e6df">assert 失败</text></g>
+        <g id="pa-cd1" class="h"><rect x="200" y="338" width="560" height="96" rx="12" fill="#2a1618" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="232" y="398" font-size="36" fill="#FC6255">0x11</text><text x="370" y="398" font-size="32" fill="#e8e6df">算术溢出</text></g>
+        <g id="pa-cd2" class="h"><rect x="200" y="456" width="560" height="96" rx="12" fill="#2a1618" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="232" y="516" font-size="36" fill="#FC6255">0x12</text><text x="370" y="516" font-size="32" fill="#e8e6df">除以 0</text></g>
+        <g id="pa-cd3" class="h"><rect x="200" y="574" width="560" height="96" rx="12" fill="#2a1618" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="232" y="634" font-size="36" fill="#FC6255">0x32</text><text x="370" y="634" font-size="32" fill="#e8e6df">数组越界</text></g>
+        <g id="pa-cd4" class="h"><rect x="200" y="692" width="560" height="96" rx="12" fill="#2a1618" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="232" y="752" font-size="36" fill="#FC6255">0x41</text><text x="370" y="752" font-size="32" fill="#e8e6df">内存分配过大</text></g>
+        <rect id="pa-frame" class="h" x="176" y="196" width="608" height="616" rx="18" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="14 10" />
+        <text id="pa-bug" class="h" x="480" y="880" font-size="34" fill="#FF9F43" text-anchor="middle">= 代码有 bug，不是用户输错</text>
+        <g id="pa-t">
+          <text id="pa-tu" class="h mono" x="900" y="250" font-size="28" fill="#8a8f99">uint8</text>
+          <rect class="pa-tc h" x="900" y="280" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-tc h" x="970" y="280" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-tc h" x="1040" y="280" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-tc h" x="1110" y="280" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-tc h" x="1180" y="280" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-tc h" x="1250" y="280" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-tc h" x="1320" y="280" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-tc h" x="1390" y="280" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <g id="pa-t1" class="h"><text class="mono" x="931" y="327" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1001" y="327" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1071" y="327" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1141" y="327" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1211" y="327" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1281" y="327" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1351" y="327" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1421" y="327" font-size="34" fill="#e8e6df" text-anchor="middle">1</text></g>
+          <text id="pa-td" class="h mono" x="1500" y="337" font-size="60" fill="#e8e6df">255</text>
+          <text id="pa-tp" class="h mono" x="1700" y="335" font-size="48" fill="#F0B90B">+1</text>
+        </g>
+        <g id="pa-t0" class="h"><text class="mono" x="931" y="327" font-size="34" fill="#FC6255" text-anchor="middle">0</text><text class="mono" x="1001" y="327" font-size="34" fill="#FC6255" text-anchor="middle">0</text><text class="mono" x="1071" y="327" font-size="34" fill="#FC6255" text-anchor="middle">0</text><text class="mono" x="1141" y="327" font-size="34" fill="#FC6255" text-anchor="middle">0</text><text class="mono" x="1211" y="327" font-size="34" fill="#FC6255" text-anchor="middle">0</text><text class="mono" x="1281" y="327" font-size="34" fill="#FC6255" text-anchor="middle">0</text><text class="mono" x="1351" y="327" font-size="34" fill="#FC6255" text-anchor="middle">0</text><text class="mono" x="1421" y="327" font-size="34" fill="#FC6255" text-anchor="middle">0</text></g>
+        <text id="pa-td0" class="h mono" x="1500" y="337" font-size="60" fill="#FC6255">0</text>
+        <text id="pa-pre" class="h" x="1040" y="250" font-size="30" fill="#FF9F43">0.8.0 之前</text>
+        <text id="pa-wrap" class="h" x="1660" y="337" font-size="36" fill="#FC6255">回绕</text>
+        <g id="pa-coins"><g class="pa-coin h"><ellipse cx="1300" cy="530" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1358" cy="530" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1416" cy="530" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1474" cy="530" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1532" cy="530" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1590" cy="530" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1648" cy="530" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1706" cy="530" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1328" cy="496" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1386" cy="496" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1444" cy="496" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1502" cy="496" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1560" cy="496" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1618" cy="496" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1676" cy="496" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1356" cy="462" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1414" cy="462" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1472" cy="462" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1530" cy="462" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1588" cy="462" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1646" cy="462" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1384" cy="428" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1442" cy="428" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1500" cy="428" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1558" cy="428" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g><g class="pa-coin h"><ellipse cx="1616" cy="428" rx="26" ry="13" fill="#F0B90B" stroke="#b78a06" stroke-width="2" /></g></g>
+        <text id="pa-mint" class="h" x="900" y="500" font-size="40" font-weight="700" fill="#FC6255">凭空增发</text>
+        <line id="pa-div" class="dr" pathLength="1" x1="900" y1="590" x2="1830" y2="590" stroke="#2a3040" stroke-width="3" />
+        <text id="pa-post" class="h" x="1040" y="660" font-size="30" fill="#83C167">0.8.0 起</text>
+        <g id="pa-b">
+          <text id="pa-bu" class="h mono" x="900" y="660" font-size="28" fill="#8a8f99">uint8</text>
+          <rect class="pa-bc h" x="900" y="690" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-bc h" x="970" y="690" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-bc h" x="1040" y="690" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-bc h" x="1110" y="690" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-bc h" x="1180" y="690" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-bc h" x="1250" y="690" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-bc h" x="1320" y="690" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect class="pa-bc h" x="1390" y="690" width="62" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <g id="pa-b1" class="h"><text class="mono" x="931" y="737" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1001" y="737" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1071" y="737" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1141" y="737" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1211" y="737" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1281" y="737" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1351" y="737" font-size="34" fill="#e8e6df" text-anchor="middle">1</text><text class="mono" x="1421" y="737" font-size="34" fill="#e8e6df" text-anchor="middle">1</text></g>
+          <text id="pa-bd" class="h mono" x="1500" y="747" font-size="60" fill="#e8e6df">255</text>
+          <text id="pa-bp" class="h mono" x="1700" y="745" font-size="48" fill="#F0B90B">+1</text>
+        </g>
+        <rect id="pa-wall" class="h" x="1640" y="676" width="12" height="98" rx="4" fill="#FC6255" />
+        <g id="pa-pbox" class="h"><rect x="900" y="800" width="280" height="68" rx="12" fill="#2a1618" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="1040" y="847" font-size="36" fill="#FC6255" text-anchor="middle">Panic(0x11)</text></g>
+        <text id="pa-rb" class="h" x="1220" y="847" font-size="36" fill="#FC6255">↺ 回滚</text>
+        <g id="pa-panel" class="h"><rect x="90" y="260" width="1060" height="210" rx="14" fill="#161a22" stroke="#2a3040" stroke-width="2" /></g>
+        <g id="pa-hl" class="h"><rect x="92" y="364" width="1056" height="38" fill="#83C167" fill-opacity="0.18" /><rect x="92" y="364" width="6" height="38" fill="#83C167" /></g>
+        <g class="pa-ln h"><text class="mono" x="140" y="312" font-size="28" fill="#6b6f7a" text-anchor="end">1</text><text class="mono" x="160" y="312" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">for</tspan> (<tspan fill="#58C4DD">uint256</tspan> i = 0; i &lt; n; ) {</text></g>
+        <g class="pa-ln h"><text class="mono" x="140" y="352" font-size="28" fill="#6b6f7a" text-anchor="end">2</text><text class="mono" x="227" y="352" font-size="28" fill="#e8e6df"><tspan fill="#6b6f7a">// ...</tspan></text><text x="345" y="352" font-size="28" fill="#6b6f7a">循环体</text></g>
+        <g class="pa-ln h"><text class="mono" x="140" y="392" font-size="28" fill="#6b6f7a" text-anchor="end">3</text><text class="mono" x="227" y="392" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">unchecked</tspan> { ++i; }</text></g>
+        <g class="pa-ln h"><text class="mono" x="140" y="432" font-size="28" fill="#6b6f7a" text-anchor="end">4</text><text class="mono" x="160" y="432" font-size="28" fill="#e8e6df">}</text></g>
+        <line id="pa-ul" class="dr" pathLength="1" x1="496" y1="322" x2="580" y2="322" stroke="#83C167" stroke-width="3" />
+        <text id="pa-n1" class="h" x="1200" y="322" font-size="30" fill="#83C167"><tspan class="mono">i &lt; n</tspan>，不会溢出</text>
+        <g id="pa-n2" class="h"><text x="1200" y="404" font-size="28" fill="#e8e6df">0.8.22 起：</text><text x="1200" y="448" font-size="28" fill="#8a8f99">简单循环计数器自动省略检查</text></g>
+        <g id="pa-bal" class="h">
+          <line x1="760" y1="640" x2="760" y2="860" stroke="#8a8f99" stroke-width="6" stroke-linecap="round" />
+          <rect x="690" y="860" width="140" height="16" rx="6" fill="#8a8f99" />
+          <g id="pa-beam"><line x1="450" y1="640" x2="1070" y2="640" stroke="#e8e6df" stroke-width="8" stroke-linecap="round" /><circle cx="760" cy="640" r="10" fill="#e8e6df" /></g>
+        </g>
+        <g id="pa-lo"><g id="pa-l" class="h"><circle cx="460" cy="618" r="14" fill="#F0B90B" /><text x="460" y="572" font-size="30" fill="#F0B90B" text-anchor="middle">约 30–40 Gas</text></g></g>
+        <g id="pa-ro"><g id="pa-r" class="h"><rect x="1020" y="560" width="80" height="72" rx="6" fill="#FC6255" /><text x="1060" y="530" font-size="30" fill="#FC6255" text-anchor="middle">一次漏洞</text></g></g>
+        <g id="pa-no" class="h"><circle cx="1330" cy="694" r="40" fill="none" stroke="#FC6255" stroke-width="6" /><line x1="1302" y1="722" x2="1358" y2="666" stroke="#FC6255" stroke-width="6" /><text class="mono" x="1400" y="684" font-size="32" fill="#FC6255">unchecked</text><text x="1400" y="734" font-size="32" fill="#FC6255">× 余额 / 价格</text></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 五张错误码卡片逐张翻出
+      IN("#pa-head", at(0, 0), 0.6, { y: -20 }, { y: 0 });
+      [0.31, 0.46, 0.6, 0.72, 0.85].forEach((f, i) => {
+        const cy = 220 + i * 118 + 48;
+        IN(`#pa-cd${i}`, at(0, f), 0.5, { scaleY: 0, svgOrigin: `480 ${cy}` }, { scaleY: 1, svgOrigin: `480 ${cy}`, ease: "back.out(1.6)" });
+      });
+      // L1 整体外框 + 标签
+      tl.fromTo("#pa-frame", { opacity: 0 }, { opacity: 1, duration: 0.5 }, at(1, 0));
+      IN("#pa-bug", at(1, 0.2));
+      // L2 uint8 = 255，再加 1
+      IN("#pa-tu", at(2, 0), 0.4);
+      tl.fromTo(".pa-tc", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.06 }, at(2, 0.05));
+      IN("#pa-t1", at(2, 0.25), 0.4);
+      IN("#pa-td", at(2, 0.35), 0.5);
+      IN("#pa-tp", at(2, 0.72), 0.5, { x: 120 }, { x: 0 });
+      // L3 0.8.0 之前：回绕 + 凭空增发
+      IN("#pa-pre", at(3, 0), 0.5);
+      tl.to("#pa-tp", { x: -80, opacity: 0, duration: 0.4, ease: "power2.in" }, at(3, 0.08));
+      OUT(["#pa-t1", "#pa-td"], at(3, 0.14), 0.2);
+      tl.to(".pa-tc", { stroke: "#FC6255", duration: 0.2 }, at(3, 0.16));
+      IN(["#pa-t0", "#pa-td0"], at(3, 0.18), 0.3);
+      IN("#pa-wrap", at(3, 0.3), 0.4);
+      tl.to(".pa-tc", { stroke: "#8a8f99", duration: 0.5 }, at(3, 0.45));
+      tl.fromTo(".pa-coin", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.07, ease: "back.out(2)" }, at(3, 0.55));
+      IN("#pa-mint", at(3, 0.7), 0.5, { scale: 0.7, svgOrigin: "980 486" }, { scale: 1, svgOrigin: "980 486" });
+      // L4 0.8.0 起：被挡住，Panic(0x11)
+      DRAW("#pa-div", at(4, 0), 0.6);
+      IN("#pa-post", at(4, 0.02), 0.5);
+      IN("#pa-bu", at(4, 0.06), 0.4);
+      tl.fromTo(".pa-bc", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.04 }, at(4, 0.06));
+      IN(["#pa-b1", "#pa-bd"], at(4, 0.14), 0.4);
+      IN("#pa-wall", at(4, 0.28), 0.3, { scaleY: 0, svgOrigin: "1646 725" }, { scaleY: 1, svgOrigin: "1646 725" });
+      IN("#pa-bp", at(4, 0.3), 0.3, { x: 100 }, { x: 100 });
+      tl.to("#pa-bp", { x: 0, duration: 0.35, ease: "power2.in" }, at(4, 0.34));
+      tl.to("#pa-bp", { x: 90, duration: 0.5, ease: "bounce.out" }, at(4, 0.34) + 0.35);
+      tl.to("#pa-wall", { fill: "#ff8a80", duration: 0.1, yoyo: true, repeat: 1 }, at(4, 0.34) + 0.35);
+      IN("#pa-pbox", at(4, 0.5), 0.5, { y: -16 }, { y: 0 });
+      IN("#pa-rb", at(4, 0.66), 0.5);
+      // L5 unchecked 代码面板
+      OUT(["#pa-head", "[id^='pa-cd']", "#pa-frame", "#pa-bug", "#pa-t", "#pa-t0", "#pa-td0", "#pa-pre", "#pa-wrap", "#pa-coins", "#pa-mint", "#pa-div", "#pa-post", "#pa-b", "#pa-wall", "#pa-pbox", "#pa-rb"], at(5, 0), 0.4);
+      IN("#pa-panel", at(5, 0.04), 0.5);
+      tl.fromTo(".pa-ln", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.08 }, at(5, 0.07));
+      DRAW("#pa-ul", at(5, 0.27), 0.5);
+      IN("#pa-n1", at(5, 0.3), 0.5);
+      IN("#pa-hl", at(5, 0.45), 0.4);
+      IN("#pa-n2", at(5, 0.65), 0.6);
+      // L6 天平：省一点 Gas vs 一次漏洞
+      IN("#pa-bal", at(6, 0), 0.5);
+      IN("#pa-l", at(6, 0.08), 0.5, { y: -30 }, { y: 0 });
+      IN("#pa-r", at(6, 0.32), 0.5, { y: -30 }, { y: 0 });
+      tl.to("#pa-beam", { rotation: 12, svgOrigin: "760 640", duration: 0.9, ease: "back.out(2.2)" }, at(6, 0.48));
+      tl.to("#pa-lo", { x: 7, y: -62, duration: 0.9, ease: "back.out(2.2)" }, at(6, 0.48));
+      tl.to("#pa-ro", { x: -7, y: 62, duration: 0.9, ease: "back.out(2.2)" }, at(6, 0.48));
+      IN("#pa-no", at(6, 0.72), 0.5, { scale: 0.7, svgOrigin: "1330 694" }, { scale: 1, svgOrigin: "1330 694" });
+
+      tl.to("#pa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["panic"] = tl;
+    })();
+  </script>
+</template>

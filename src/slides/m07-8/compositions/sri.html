@@ -1,0 +1,171 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 sri，id 前缀 sr- -->
+  <div id="root" data-composition-id="sri" data-duration="39.96" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sr-all">
+        <g id="sr-main">
+          <g id="sr-cdn" class="h">
+            <rect x="120" y="320" width="360" height="250" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <circle cx="440" cy="350" r="7" fill="#83C167"/>
+            <text x="300" y="630" font-size="32" fill="#e8e6df" text-anchor="middle">CDN 服务器</text>
+          </g>
+          <g id="sr-br" class="h">
+            <rect x="1100" y="260" width="700" height="530" rx="16" fill="#12151c" stroke="#8a8f99" stroke-width="3"/>
+            <line x1="1100" y1="312" x2="1800" y2="312" stroke="#8a8f99" stroke-width="2"/>
+            <circle cx="1130" cy="286" r="7" fill="#6b6f7a"/><circle cx="1154" cy="286" r="7" fill="#6b6f7a"/><circle cx="1178" cy="286" r="7" fill="#6b6f7a"/>
+            <text x="1450" y="296" font-size="24" fill="#8a8f99" text-anchor="middle" data-layout-ignore>浏览器</text>
+          </g>
+          <g id="sr-file" class="h">
+            <path d="M245 370 h70 l30 30 v100 h-100 z" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3"/>
+            <rect x="262" y="420" width="66" height="6" fill="#58C4DD"/><rect x="262" y="440" width="66" height="6" fill="#58C4DD"/><rect x="262" y="460" width="46" height="6" fill="#58C4DD"/>
+            <text class="mono" x="295" y="545" font-size="28" fill="#58C4DD" text-anchor="middle">vendor.js</text>
+          </g>
+          <g id="sr-file2" class="h">
+            <path d="M245 370 h70 l30 30 v100 h-100 z" fill="#FC625522" stroke="#FC6255" stroke-width="3"/>
+            <rect x="262" y="420" width="66" height="6" fill="#FC6255"/><rect x="262" y="440" width="66" height="6" fill="#FC6255"/><rect x="262" y="460" width="46" height="6" fill="#FC6255"/>
+            <text class="mono" x="295" y="545" font-size="28" fill="#FC6255" text-anchor="middle">vendor.js</text>
+          </g>
+          <!-- L1 hash demo -->
+          <g id="sr-hd">
+            <g id="sr-hdoc" class="h">
+              <path d="M130 660 h56 l24 24 v84 h-80 z" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3"/>
+              <rect x="146" y="700" width="48" height="6" fill="#58C4DD"/><rect x="146" y="720" width="48" height="6" fill="#58C4DD"/>
+            </g>
+            <rect id="sr-byte" class="h" x="146" y="736" width="20" height="14" fill="#FC6255"/>
+            <path id="sr-harr" class="dr h" pathLength="1" d="M240 714 L340 714" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#sr-arr)"/>
+            <rect id="sr-hbar" class="h" x="370" y="670" width="560" height="88" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text id="sr-h1" class="h mono" x="650" y="726" font-size="34" fill="#58C4DD" text-anchor="middle">a1b2c3d4e5f6…</text>
+            <text id="sr-h2" class="h mono" x="650" y="726" font-size="34" fill="#FC6255" text-anchor="middle">9f071e8a44c2…</text>
+          </g>
+          <!-- L2 script tag -->
+          <g id="sr-code" class="h">
+            <rect x="110" y="660" width="900" height="160" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <rect id="sr-hl" x="124" y="742" width="872" height="44" rx="6" fill="#83C167" fill-opacity="0.15"/>
+            <text class="mono" x="140" y="720" font-size="28" fill="#e8e6df">&lt;script src=".../vendor.js"</text>
+            <text class="mono" x="140" y="774" font-size="28" fill="#e8e6df">  integrity=<tspan fill="#83C167">"sha384-oqVu…"</tspan>&gt;</text>
+          </g>
+          <!-- L3 comparator inside browser -->
+          <text id="sr-la" class="h" x="1140" y="660" font-size="28" fill="#8a8f99">算出</text>
+          <text id="sr-ca1" class="h mono" x="1230" y="660" font-size="30" fill="#58C4DD">sha384-oqVu…</text>
+          <text id="sr-ca2" class="h mono" x="1230" y="660" font-size="30" fill="#FC6255">sha384-Xk9P…</text>
+          <text id="sr-lb" class="h" x="1140" y="730" font-size="28" fill="#8a8f99">期望</text>
+          <text id="sr-cb" class="h mono" x="1230" y="730" font-size="30" fill="#83C167">sha384-oqVu…</text>
+          <g id="sr-ok" class="h">
+            <path d="M1480 440 l22 24 l40 -50" stroke="#83C167" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="1566" y="456" font-size="36" font-weight="700" fill="#83C167">运行</text>
+          </g>
+          <g id="sr-no" class="h">
+            <g id="sr-noi">
+              <path d="M1510 392 l34 12 v34 c0 26 -16 40 -34 48 c-18 -8 -34 -22 -34 -48 v-34 z" fill="#FC625533" stroke="#FC6255" stroke-width="3.5"/>
+              <path d="M1498 426 l24 24 M1522 426 l-24 24" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <text x="1566" y="456" font-size="36" font-weight="700" fill="#FC6255">拒绝运行</text>
+          </g>
+          <!-- L4 terminal -->
+          <g id="sr-term2" class="h">
+            <rect x="100" y="878" width="1010" height="92" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <text class="mono" x="118" y="935" font-size="28" fill="#e8e6df">openssl dgst -sha384 -binary vendor.js | openssl base64 -A</text>
+          </g>
+          <path id="sr-tarr" class="dr h" pathLength="1" d="M560 874 L560 830" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#sr-arr)"/>
+        </g>
+        <!-- L5 checklist -->
+        <g id="sr-list">
+          <text id="sr-lt" class="h" x="960" y="380" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">上线前：每个外部脚本</text>
+          <g id="sr-l1" class="h">
+            <rect x="660" y="476" width="48" height="48" rx="8" fill="none" stroke="#83C167" stroke-width="3"/>
+            <path d="M670 500 l12 12 l20 -24" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="740" y="514" font-size="40" fill="#e8e6df">带 <tspan fill="#83C167">SRI</tspan> 完整性哈希</text>
+          </g>
+          <g id="sr-l2" class="h">
+            <rect x="660" y="596" width="48" height="48" rx="8" fill="none" stroke="#83C167" stroke-width="3"/>
+            <path d="M670 620 l12 12 l20 -24" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="740" y="634" font-size="40" fill="#e8e6df">或者 <tspan fill="#83C167">自托管</tspan></text>
+          </g>
+        </g>
+      </g>
+<g id="sr-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">哈希 <tspan font-size="28" font-weight="400" fill="#8a8f99">Hash</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">文件的指纹，改一个字节就完全不同</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 CDN -> browser
+      IN("#sr-cdn", at(0, 0), 0.6);
+      IN("#sr-file", at(0, 0.12), 0.5);
+      IN("#sr-br", at(0, 0.25), 0.6);
+      tl.to("#sr-file", { x: 905, duration: 1.6, ease: "power2.inOut" }, at(0, 0.45));
+      // L1 hash = fingerprint
+      IN("#sr-term", at(1, 0), 0.5);
+      IN("#sr-hdoc", at(1, 0.05), 0.5);
+      ARROW("#sr-harr", at(1, 0.15), 0.5);
+      IN("#sr-hbar", at(1, 0.25), 0.5);
+      IN("#sr-h1", at(1, 0.3), 0.5);
+      IN("#sr-byte", at(1, 0.6), 0.3);
+      OUT("#sr-h1", at(1, 0.68), 0.2);
+      IN("#sr-h2", at(1, 0.74), 0.3);
+      tl.to("#sr-hbar", { stroke: "#FC6255", duration: 0.2 }, at(1, 0.74));
+      tl.to("#sr-hbar", { strokeWidth: 6, duration: 0.15, yoyo: true, repeat: 3 }, at(1, 0.76));
+      // L2 script tag with integrity
+      OUT("#sr-hd", at(2, 0), 0.4);
+      IN("#sr-code", at(2, 0.15), 0.6, { y: 20 }, { y: 0 });
+      tl.fromTo("#sr-hl", { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: false }, at(2, 0.55));
+      OUT("#sr-term", at(2, 0.85), 0.4);
+      // L3 compare in browser
+      IN("#sr-la, #sr-ca1", at(3, 0.02), 0.5);
+      IN("#sr-lb, #sr-cb", at(3, 0.12), 0.5, { x: -30 }, { x: 0 });
+      IN("#sr-ok", at(3, 0.26), 0.4, { scale: 0.6, svgOrigin: "1520 440" }, { scale: 1, svgOrigin: "1520 440" });
+      OUT("#sr-ok", at(3, 0.48), 0.3);
+      OUT("#sr-file", at(3, 0.48), 0.3);
+      OUT("#sr-ca1", at(3, 0.48), 0.3);
+      IN("#sr-file2", at(3, 0.52), 0.4);
+      tl.to("#sr-file2", { x: 905, duration: 1.3, ease: "power2.inOut" }, at(3, 0.58));
+      IN("#sr-ca2", at(3, 0.82), 0.3);
+      IN("#sr-no", at(3, 0.88), 0.4);
+      // L4 openssl
+      IN("#sr-term2", at(4, 0.05), 0.6, { y: 20 }, { y: 0 });
+      ARROW("#sr-tarr", at(4, 0.5), 0.5);
+      tl.to("#sr-hl", { fillOpacity: 0.35, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.6));
+      tl.to("#sr-term2 rect", { stroke: "#83C167", duration: 0.4 }, at(4, 0.82));
+      // L5 even if replaced -> not run; checklist
+      tl.fromTo("#sr-noi", { scale: 1 }, { scale: 1.25, svgOrigin: "1510 440", duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(5, 0.05));
+      tl.to("#sr-main", { opacity: 0, duration: 0.6 }, at(5, 0.38));
+      IN("#sr-lt", at(5, 0.45), 0.6);
+      IN("#sr-l1", at(5, 0.6), 0.5, { x: -20 }, { x: 0 });
+      IN("#sr-l2", at(5, 0.8), 0.5, { x: -20 }, { x: 0 });
+
+
+      tl.to("#sr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#sr-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["sri"] = tl;
+    })();
+  </script>
+</template>

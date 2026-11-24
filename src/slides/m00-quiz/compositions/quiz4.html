@@ -1,0 +1,218 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz4，id 前缀 q4- -->
+  <div id="root" data-composition-id="quiz4" data-duration="74.69" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="q4-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="q4-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+      </defs>
+      <g id="q4-all">
+        <!-- 题号徽章 x70–260 y70–130 -->
+        <g id="q4-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 4 题</text>
+        </g>
+        <!-- 题干：y 200–330，40px，打字机用 clipPath 揭开（宽度 ≤ 1400，避开右上倒数环） -->
+        <clipPath id="q4-qclip"><rect id="q4-qcr" x="60" y="200" width="0" height="64" /></clipPath>
+        <clipPath id="q4-qclip2"><rect id="q4-qcr2" x="60" y="264" width="0" height="64" /></clipPath>
+        <text id="q4-q" class="h" x="70" y="250" font-size="40" fill="#e8e6df" clip-path="url(#q4-qclip)">一笔转账 <tspan class="mono">Gas Used = </tspan><tspan class="mono" fill="#F0B90B">21,000</tspan>，<tspan class="mono">Base Fee = </tspan><tspan class="mono" fill="#F0B90B">20 Gwei</tspan>，</text>
+        <text id="q4-q2" class="h" x="70" y="310" font-size="40" fill="#e8e6df" clip-path="url(#q4-qclip2)">实际小费 = <tspan class="mono" fill="#F0B90B">2 Gwei</tspan>。其中<tspan fill="#FF9F43">被销毁</tspan>的部分是多少 <tspan class="mono">ETH</tspan>？</text>
+        <!-- 暂停图标 + 倒数圆环：x 1500–1850 y 150–300（与 quiz1 一致） -->
+        <g id="q4-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="q4-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <!-- 选项卡：x 70–1100，y0 = 380 / 515 / 650 / 785，高 115，间距 20 -->
+        <g id="q4-oA" class="h">
+          <rect id="q4-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q4-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q4-oA-dim">
+            <circle id="q4-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q4-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="q4-oA-t" x="190" y="449" font-size="32" fill="#e8e6df" class="mono">0.000462 ETH</text>
+          </g>
+          <text id="q4-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255">这是总手续费，含小费</text>
+        </g>
+        <g id="q4-oB" class="h">
+          <rect id="q4-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q4-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q4-oB-dim">
+            <circle id="q4-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q4-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="q4-oB-t" x="190" y="584" font-size="32" fill="#e8e6df" class="mono">0.00042 ETH</text>
+          </g>
+        </g>
+        <g id="q4-oC" class="h">
+          <rect id="q4-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q4-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q4-oC-dim">
+            <circle id="q4-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q4-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="q4-oC-t" x="190" y="719" font-size="32" fill="#e8e6df" class="mono">0.000042 ETH</text>
+          </g>
+          <text id="q4-oC-n" class="h" x="190" y="747" font-size="28" fill="#FC6255">这是小费，不被销毁</text>
+        </g>
+        <g id="q4-oD" class="h">
+          <rect id="q4-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q4-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q4-oD-dim">
+            <circle id="q4-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q4-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="q4-oD-t" x="190" y="854" font-size="32" fill="#e8e6df" class="mono">0.0000462 ETH</text>
+          </g>
+          <text id="q4-oD-n" class="h" x="190" y="882" font-size="28" fill="#FC6255">总手续费又挪错一位小数点（解读）</text>
+        </g>
+        <!-- 右侧示意区 x 1160–1850 y 380–900 -->
+        <rect id="q4-board" class="h" x="1160" y="380" width="690" height="520" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
+        <g id="q4-f" class="h">
+          <text x="1186" y="436" font-size="28" fill="#e8e6df">手续费</text>
+          <text x="1274" y="436" font-size="28" class="mono" fill="#e8e6df">= Gas Used × (</text>
+          <text x="1530" y="436" font-size="28" class="mono" fill="#FC6255">Base Fee</text>
+          <text x="1670" y="436" font-size="28" class="mono" fill="#e8e6df">+</text>
+          <text x="1700" y="436" font-size="28" fill="#F0B90B">小费</text>
+          <text x="1758" y="436" font-size="28" class="mono" fill="#e8e6df">)</text>
+        </g>
+        <g id="q4-fire" class="h">
+          <path d="M1560 512 c-16 0 -24 -12 -20 -26 c3 -10 10 -14 10 -24 c8 6 10 12 9 18 c4 -4 6 -9 5 -14 c10 8 16 18 14 28 c-2 10 -8 18 -18 18 z" fill="#FC6255" fill-opacity="0.85" />
+          <text x="1590" y="508" font-size="28" fill="#FC6255">销毁</text>
+        </g>
+        <circle id="q4-coin" class="h" cx="1728" cy="484" r="13" fill="#F0B90B" />
+        <path id="q4-crown" class="h" d="M1772 504 L1767 468 L1783 481 L1796 460 L1809 481 L1825 468 L1820 504 Z" fill="#F0B90B" fill-opacity="0.2" stroke="#F0B90B" stroke-width="3" stroke-linejoin="round" />
+        <text id="q4-r1" class="h mono" x="1186" y="596" font-size="30" fill="#e8e6df">21,000 × <tspan fill="#FC6255">20</tspan> Gwei</text>
+        <text id="q4-r2" class="h mono" x="1186" y="646" font-size="30" fill="#e8e6df">= 420,000 Gwei</text>
+        <text id="q4-r3" class="h mono" x="1186" y="696" font-size="30" font-weight="700" fill="#83C167">= 0.00042 ETH</text>
+        <line x1="1186" y1="724" x2="1824" y2="724" id="q4-sep" class="h" stroke="#3a3f4a" stroke-width="2" />
+        <text id="q4-ra" class="h mono" x="1186" y="768" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">A</tspan>  21,000 × 22 Gwei = 0.000462</text>
+        <text id="q4-rc" class="h mono" x="1186" y="814" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">C</tspan>  21,000 × 2 Gwei  = 0.000042</text>
+        <text id="q4-rd" class="h mono" x="1186" y="870" font-size="30" fill="#58C4DD">1 ETH = 10⁹ Gwei</text>
+        <!-- L7 失败的交易照扣 Gas（计算板清空后复用） -->
+        <g id="q4-fail" class="h">
+          <rect id="q4-fb" x="1180" y="404" width="250" height="54" rx="10" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2.5" />
+          <text x="1196" y="442" font-size="30" class="mono" fill="#FC6255">Status: Fail</text>
+        </g>
+        <text id="q4-fq" class="h" x="1470" y="442" font-size="30" fill="#FF9F43">全退回？</text>
+        <path id="q4-fqx" class="h" d="M1610 414 L1642 446 M1642 414 L1610 446" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+        <g id="q4-fblk" class="h">
+          <rect x="1186" y="500" width="70" height="70" rx="8" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="3" />
+          <rect x="1204" y="524" width="34" height="22" rx="4" fill="#F0B90B" />
+          <text x="1280" y="546" font-size="28" fill="#e8e6df">也已被打包执行</text>
+        </g>
+        <text id="q4-fs" class="h" x="1186" y="650" font-size="28" fill="#8a8f99">状态改动撤销 → <tspan fill="#83C167">金额没转出</tspan></text>
+        <text id="q4-fg" class="h" x="1186" y="750" font-size="30" font-weight="700" fill="#FC6255">执行消耗的 <tspan class="mono">Gas</tspan> → 照样要付</text>
+        <path id="q4-ffire" class="h" d="M1700 772 c-16 0 -24 -12 -20 -26 c3 -10 10 -14 10 -24 c8 6 10 12 9 18 c4 -4 6 -9 5 -14 c10 8 16 18 14 28 c-2 10 -8 18 -18 18 z" fill="#FC6255" fill-opacity="0.85" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // ===== 测验版式（与 quiz1 一致）=====
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      IN("#q4-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#q4-q", at(0, 0.05), 0.01);
+      tl.fromTo("#q4-qcr", { attr: { width: 0 } }, { attr: { width: 1200 }, duration: 2.4, ease: "none" }, at(0, 0.08));
+      IN("#q4-q2", at(0, 0.05), 0.01);
+      tl.fromTo("#q4-qcr2", { attr: { width: 0 } }, { attr: { width: 1050 }, duration: 2.0, ease: "none" }, at(0, 0.08) + 2.4);
+      const SHOW = (k, t) => {
+        IN(`#q4-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#q4-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#q4-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      const PAUSE = () => {
+        IN("#q4-pause", at(2, 0.0), 0.3);
+        tl.fromTo("#q4-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+        OUT("#q4-pause", at(3, 0.0), 0.3);
+      };
+      const RIGHT = (k, t) => {
+        tl.to(`#q4-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#q4-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#q4-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#q4-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#q4-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q4-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q4-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#q4-o${k}-t`, { attr: { y: Y0[k] + 52 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#q4-o${k}-n`, t + 0.3, 0.5);
+      };
+      const POP = (s, t, ox, oy, d = 0.45) => IN(s, t, d, { scale: 0.6, svgOrigin: `${ox} ${oy}` }, { scale: 1, svgOrigin: `${ox} ${oy}`, ease: "back.out(2)" });
+      const PULSE = (s, t, color, back) => {
+        tl.to(s, { stroke: color, strokeWidth: 5, duration: 0.25 }, t);
+        tl.to(s, { stroke: back, strokeWidth: 3, duration: 0.5 }, t + 1.2);
+      };
+
+      // L0 计算板备好
+      IN("#q4-board", at(0, 0.5), 0.6);
+      // L1 选项
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.25)); SHOW("C", at(1, 0.477)); SHOW("D", at(1, 0.727));
+      // L2 暂停
+      PAUSE();
+      // L3 公式：基础费那部分销毁，小费给出块者
+      IN("#q4-f", at(3, 0.128), 0.8, { x: -14 }, { x: 0 });
+      POP("#q4-fire", at(3, 0.745), 1560, 490);
+      tl.to("#q4-fire path", { scale: 1.15, svgOrigin: "1560 512", duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(3, 0.936));
+      IN("#q4-crown", at(3, 0.936) + 0.3, 0.4);
+      IN("#q4-coin", at(3, 0.936) + 0.5, 0.2);
+      tl.to("#q4-coin", { attr: { cx: 1796 }, duration: 0.8, ease: "power2.inOut" }, at(3, 0.936) + 0.7);
+      tl.to("#q4-coin", { opacity: 0, duration: 0.2 }, at(3, 0.936) + 1.5);
+      // L4 代入
+      IN("#q4-r1", at(4, 0.133), 0.5, { x: -12 }, { x: 0 });
+      IN("#q4-r2", at(4, 0.417), 0.5, { x: -12 }, { x: 0 });
+      IN("#q4-r3", at(4, 0.633), 0.5, { x: -12 }, { x: 0 });
+      RIGHT("B", at(4, 0.9));
+      // L5 A、C 的来源
+      IN("#q4-sep", at(5, 0.0), 0.3);
+      WRONG("A", at(5, 0.02));
+      IN("#q4-ra", at(5, 0.08), 0.5, { x: -12 }, { x: 0 });
+      PULSE("#q4-oA-box", at(5, 0.12), "#ffffff", "#FC6255");
+      WRONG("C", at(5, 0.519));
+      IN("#q4-rc", at(5, 0.519) + 0.06, 0.5, { x: -12 }, { x: 0 });
+      PULSE("#q4-oC-box", at(5, 0.519) + 0.1, "#ffffff", "#FC6255");
+      // L6 D 错 + 单位换算
+      WRONG("D", at(6, 0.02));
+      IN("#q4-rd", at(6, 0.429), 0.6, { y: 10 }, { y: 0 });
+
+      tl.to("#q4-ra", { fill: "#FF9F43", duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.12));
+      // L7 补充：失败的交易照扣 Gas（计算板清空后复用）
+      OUT("#q4-f, #q4-fire, #q4-crown, #q4-r1, #q4-r2, #q4-r3, #q4-sep, #q4-ra, #q4-rc, #q4-rd", at(7, 0.0), 0.4);
+      IN("#q4-fail", at(7, 0.04), 0.5, { x: -12 }, { x: 0 });
+      IN("#q4-fq", at(7, 0.12), 0.4);
+      POP("#q4-fqx", at(7, 0.27), 1626, 430);
+      IN("#q4-fblk", at(7, 0.33), 0.5, { y: 10 }, { y: 0 });
+      IN("#q4-fs", at(7, 0.52), 0.5, { x: -12 }, { x: 0 });
+      IN("#q4-fg", at(7, 0.78), 0.5, { x: -12 }, { x: 0 });
+      POP("#q4-ffire", at(7, 0.86), 1700, 750);
+      tl.to("#q4-ffire", { scale: 1.15, svgOrigin: "1700 772", duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(7, 0.86) + 0.5);
+
+      tl.to("#q4-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz4"] = tl;
+    })();
+  </script>
+</template>

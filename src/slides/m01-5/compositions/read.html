@@ -1,0 +1,187 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 read，id 前缀 re- -->
+  <div id="root" data-composition-id="read" data-duration="55.21" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="re-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="re-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="re-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="re-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <!-- 终端窗口：L0 大，L1 起收成 curl 小条 -->
+        <g id="re-term" class="h">
+          <rect id="re-tw" x="160" y="220" width="1600" height="300" rx="14" fill="#161a22" stroke="#3a3f4b" stroke-width="2" />
+          <circle cx="192" cy="244" r="7" fill="#FC6255" opacity="0.7" /><circle cx="216" cy="244" r="7" fill="#F0B90B" opacity="0.7" /><circle cx="240" cy="244" r="7" fill="#83C167" opacity="0.7" />
+        </g>
+        <g id="re-exp" class="h">
+          <rect id="re-rpchl" x="420" y="306" width="72" height="44" rx="6" fill="#58C4DD" opacity="0" />
+          <text class="mono" x="210" y="340" font-size="36" fill="#e8e6df"><tspan fill="#6b6f7a">$ </tspan>export <tspan fill="#58C4DD" font-weight="700">RPC</tspan>=https://…publicnode.com</text>
+        </g>
+        <g id="re-curlm"><g id="re-curl" class="h">
+          <text class="mono" x="210" y="440" font-size="36" fill="#e8e6df"><tspan fill="#6b6f7a">$ </tspan>curl <tspan fill="#58C4DD" font-weight="700">$RPC</tspan></text>
+        </g></g>
+        <!-- 请求卡 1 -->
+        <g id="re-q1" class="h">
+          <rect x="680" y="220" width="620" height="180" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="710" y="290" font-size="32" fill="#8a8f99">method: <tspan fill="#58C4DD">eth_blockNumber</tspan></text>
+          <text class="mono" x="710" y="350" font-size="32" fill="#8a8f99">params: <tspan fill="#58C4DD">[]</tspan></text>
+        </g>
+        <text id="re-emp" class="h" x="940" y="349" font-size="28" fill="#8a8f99">参数为空</text>
+        <g id="re-a1" class="h">
+          <rect x="1360" y="220" width="400" height="180" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="1390" y="290" font-size="32" fill="#8a8f99">result:</text>
+          <text class="mono" x="1390" y="350" font-size="36" font-weight="700" fill="#83C167">0x1312d00</text>
+        </g>
+        <!-- L2 换算板 -->
+        <text id="re-hx" class="h mono" x="260" y="590" font-size="44" fill="#e8e6df">0x10 = <tspan fill="#8a8f99">1×16 + 0</tspan> = <tspan fill="#F0B90B" font-weight="700">16</tspan></text>
+        <g id="re-cv" class="h">
+          <text class="mono" x="260" y="730" font-size="48" fill="#83C167">0x1312d00</text>
+          <line x1="560" y1="714" x2="660" y2="714" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+          <rect x="680" y="680" width="190" height="64" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="775" y="724" font-size="34" fill="#e8e6df" text-anchor="middle">printf</text>
+          <line x1="890" y1="714" x2="990" y2="714" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+        </g>
+        <text id="re-num" class="h mono" x="1010" y="732" font-size="52" font-weight="700" fill="#e8e6df">0</text>
+        <text id="re-ex" class="h" x="1400" y="728" font-size="28" fill="#6b6f7a">示例</text>
+        <text id="re-try" class="h" x="260" y="850" font-size="30" fill="#8a8f99">自己试：和区块浏览器对一对，只差几个块</text>
+        <!-- L3 请求卡 2 -->
+        <g id="re-q2" class="h">
+          <rect x="680" y="220" width="680" height="180" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="710" y="290" font-size="32" fill="#8a8f99">method: <tspan fill="#58C4DD">eth_getBlockByNumber</tspan></text>
+          <text class="mono" x="710" y="350" font-size="32" fill="#8a8f99">params: [<tspan fill="#58C4DD">"0x1312d00"</tspan>, </text>
+          <text class="mono" x="1232" y="350" font-size="32" fill="#8a8f99">]</text>
+        </g>
+        <text id="re-pf" class="h mono" x="1134" y="350" font-size="32" fill="#FF9F43">false</text>
+        <text id="re-pt" class="h mono" x="1134" y="350" font-size="32" fill="#F0B90B">true</text>
+        <line id="re-hb" class="h" x1="881" y1="368" x2="1090" y2="368" stroke="#58C4DD" stroke-width="4" />
+        <text id="re-hbl" class="h" x="989" y="456" font-size="30" fill="#58C4DD" text-anchor="middle">高度（数量格式）</text>
+        <!-- L4 开关与区块盒 -->
+        <g id="re-sw" class="h">
+          <rect id="re-swbg" x="1130" y="432" width="104" height="50" rx="25" fill="#3a3f4b" />
+          <circle id="re-swk" cx="1156" cy="457" r="19" fill="#e8e6df" />
+        </g>
+        <g id="re-blk" class="h">
+          <rect x="560" y="530" width="800" height="440" rx="18" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <text x="590" y="575" font-size="30" fill="#58C4DD">区块 #20,000,000</text>
+        </g>
+        <g id="re-hs">
+          <g class="re-h h"><rect x="600" y="605" width="230" height="52" rx="8" fill="#58C4DD" opacity="0.25" /><text class="mono" x="620" y="641" font-size="28" fill="#58C4DD">0x3fa1…</text></g>
+          <g class="re-h h"><rect x="600" y="685" width="230" height="52" rx="8" fill="#58C4DD" opacity="0.25" /><text class="mono" x="620" y="721" font-size="28" fill="#58C4DD">0x9c07…</text></g>
+          <g class="re-h h"><rect x="600" y="765" width="230" height="52" rx="8" fill="#58C4DD" opacity="0.25" /><text class="mono" x="620" y="801" font-size="28" fill="#58C4DD">0x51e8…</text></g>
+          <g class="re-h h"><rect x="600" y="845" width="230" height="52" rx="8" fill="#58C4DD" opacity="0.25" /><text class="mono" x="620" y="881" font-size="28" fill="#58C4DD">0xb2d4…</text></g>
+        </g>
+        <g id="re-txs">
+          <g class="re-t h"><rect x="600" y="605" width="720" height="52" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="620" y="641" font-size="28" fill="#F0B90B">{ from, to, value, gas, input… }</text></g>
+          <g class="re-t h"><rect x="600" y="685" width="720" height="52" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="620" y="721" font-size="28" fill="#F0B90B">{ from, to, value, gas, input… }</text></g>
+          <g class="re-t h"><rect x="600" y="765" width="720" height="52" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="620" y="801" font-size="28" fill="#F0B90B">{ from, to, value, gas, input… }</text></g>
+          <g class="re-t h"><rect x="600" y="845" width="720" height="52" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="620" y="881" font-size="28" fill="#F0B90B">{ from, to, value, gas, input… }</text></g>
+        </g>
+        <!-- L5 字段 -->
+        <g id="re-f">
+          <text class="re-fi h mono" x="600" y="640" font-size="30" fill="#e8e6df">number</text>
+          <text class="re-fi h mono" x="600" y="720" font-size="30" fill="#e8e6df">hash</text>
+          <text id="re-ph" class="re-fi h mono" x="600" y="800" font-size="30" fill="#e8e6df">parentHash</text>
+          <text class="re-fi h mono" x="600" y="880" font-size="30" fill="#e8e6df">baseFeePerGas</text>
+          <text class="re-fi h mono" x="1000" y="640" font-size="30" fill="#e8e6df">gasUsed</text>
+          <text class="re-fi h mono" x="1000" y="720" font-size="30" fill="#e8e6df">timestamp</text>
+          <text class="re-fi h mono" x="1000" y="800" font-size="30" fill="#F0B90B">transactions</text>
+        </g>
+        <g id="re-prev" class="h">
+          <rect x="160" y="690" width="260" height="200" rx="16" fill="none" stroke="#58C4DD" stroke-width="3" opacity="0.8" />
+          <text x="290" y="800" font-size="30" fill="#58C4DD" text-anchor="middle">前一个区块</text>
+        </g>
+        <path id="re-pl" class="dr h" pathLength="1" d="M 584 790 H 432" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#re-arrB)" />
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 环境变量
+IN("#re-term", at(0, 0.05), 0.6, { y: 15 }, { y: 0 });
+IN("#re-exp", at(0, 0.2), 0.5);
+tl.to("#re-rpchl", { opacity: 0.2, duration: 0.3 }, at(0, 0.42));
+tl.to("#re-rpchl", { opacity: 0, duration: 0.4 }, at(0, 0.62));
+IN("#re-curl", at(0, 0.72), 0.5);
+// L1 收成小条 + 请求卡
+OUT("#re-exp", at(1, 0), 0.3);
+tl.to("#re-tw", { attr: { width: 460, height: 180 }, duration: 0.6, ease: "power2.inOut" }, at(1, 0.03));
+tl.to("#re-curlm", { y: -120, duration: 0.6, ease: "power2.inOut" }, at(1, 0.03));
+IN("#re-q1", at(1, 0.25), 0.6, { x: 30 }, { x: 0 });
+tl.to("#re-q1 tspan", { fill: "#e8e6df", duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.6));
+IN("#re-emp", at(1, 0.78), 0.4, { x: -10 }, { x: 0 });
+// L2 result 与换算
+IN("#re-a1", at(2, 0.04), 0.6, { x: 30 }, { x: 0 });
+IN("#re-hx", at(2, 0.3), 0.6, { y: 12 }, { y: 0 });
+IN("#re-cv", at(2, 0.52), 0.6);
+IN("#re-num", at(2, 0.6), 0.2);
+COUNT("#re-num", 0, 20000000, at(2, 0.6), 1.6, v => Math.round(v).toLocaleString("en-US"));
+IN("#re-ex", at(2, 0.74), 0.4);
+IN("#re-try", at(2, 0.8), 0.5);
+// L3 getBlockByNumber
+OUT("#re-hx, #re-cv, #re-num, #re-ex, #re-a1, #re-q1, #re-emp", at(3, 0), 0.4);
+OUT("#re-try", at(3, 0.06), 0.4);
+IN("#re-q2", at(3, 0.08), 0.6, { x: 30 }, { x: 0 });
+IN("#re-pf", at(3, 0.08), 0.6, { x: 30 }, { x: 0 });
+IN("#re-hb", at(3, 0.55), 0.4);
+IN("#re-hbl", at(3, 0.6), 0.4);
+// L4 开关 false / true
+OUT("#re-hb, #re-hbl", at(4, 0), 0.3);
+tl.to("#re-pf", { fill: "#e8e6df", duration: 0.2 }, at(4, 0.05));
+IN("#re-sw", at(4, 0.08), 0.4);
+IN("#re-blk", at(4, 0.12), 0.5);
+IN(".re-h", at(4, 0.2), 0.4, {}, { stagger: 0.1 });
+const tT = at(4, 0.58);
+tl.to("#re-swk", { attr: { cx: 1208 }, duration: 0.35, ease: "power2.inOut" }, tT);
+tl.to("#re-swbg", { fill: "#F0B90B", duration: 0.35 }, tT);
+OUT("#re-pf", tT, 0.2); IN("#re-pt", tT + 0.22, 0.3);
+OUT(".re-h", tT + 0.1, 0.3);
+IN(".re-t", tT + 0.4, 0.4, { scaleX: 0.3, svgOrigin: "600 750" }, { scaleX: 1, svgOrigin: "600 750", stagger: 0.12 });
+// L5 字段列表
+OUT(".re-t", at(5, 0), 0.4);
+IN(".re-fi", at(5, 0.08), 0.4, { x: 15 }, { x: 0, stagger: 0.12 });
+tl.to("#re-ph", { fill: "#58C4DD", duration: 0.3 }, at(5, 0.3));
+IN("#re-prev", at(5, 0.38), 0.5, { x: -20 }, { x: 0 });
+ARROW("#re-pl", at(5, 0.42), 0.6);
+
+      /*ENDANIM*/
+
+      tl.to("#re-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["read"] = tl;
+    })();
+  </script>
+</template>

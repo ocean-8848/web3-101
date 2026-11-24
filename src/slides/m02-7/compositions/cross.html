@@ -1,0 +1,168 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 cross，id 前缀 cr- -->
+  <div id="root" data-composition-id="cross" data-duration="78.75" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="cr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="cr-all">
+        <defs><marker id="cr-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker><marker id="cr-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker><marker id="cr-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker><marker id="cr-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker><marker id="cr-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker><marker id="cr-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker><marker id="cr-my" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker></defs>
+        <text id="cr-title" class="h" x="960" y="214" font-size="44" fill="#e8e6df" text-anchor="middle" font-weight="700">三种重入</text>
+        <g id="cr-bx0" class="h"><rect id="cr-bxr0" x="200" y="240" width="400" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="400" y="292" font-size="32" fill="#e8e6df" text-anchor="middle" font-weight="700">单函数</text></g>
+        <g id="cr-ck0" class="h"><path d="M228 280.3 L237.9 292 L254 266" stroke="#83C167" stroke-width="5" fill="none" /></g>
+        <g id="cr-bx1" class="h"><rect id="cr-bxr1" x="760" y="240" width="400" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="960" y="292" font-size="32" fill="#e8e6df" text-anchor="middle" font-weight="700">跨函数</text></g>
+        <g id="cr-ck1" class="h"><path d="M788 280.3 L797.9 292 L814 266" stroke="#83C167" stroke-width="5" fill="none" /></g>
+        <g id="cr-bx2" class="h"><rect id="cr-bxr2" x="1320" y="240" width="400" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="1520" y="292" font-size="32" fill="#e8e6df" text-anchor="middle" font-weight="700">只读</text></g>
+        <g id="cr-ck2" class="h"><path d="M1348 280.3 L1357.9 292 L1374 266" stroke="#83C167" stroke-width="5" fill="none" /></g>
+        <g id="cr-pc" class="h"><rect x="60" y="370" width="940" height="280" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><rect x="60" y="382" width="4" height="256" fill="#FC6255" /></g>
+        <text id="cr-cm0" class="h" x="90" y="414" font-size="28" fill="#8a8f99">withdraw 有锁 · transfer 没锁</text>
+        <text id="cr-cm1" class="h" x="90" y="414" font-size="28" fill="#83C167">所有读写 balances 的外部函数：nonReentrant + CEI</text>
+        <g id="cr-code" class="h"><text id="cr-l0" class="mono" x="86.0" y="466" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">function</tspan> transfer(<tspan fill="#58C4DD">address</tspan> to, <tspan fill="#58C4DD">uint256</tspan> amt) <tspan fill="#58C4DD">external</tspan> {</text>
+<text id="cr-l1" class="mono" x="119.6" y="506" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">require</tspan>(balances[msg.sender] &gt;= amt);</text>
+<text id="cr-l2" class="mono" x="119.6" y="546" font-size="28" fill="#e8e6df" xml:space="preserve">balances[msg.sender] -= amt;</text>
+<text id="cr-l3" class="mono" x="119.6" y="586" font-size="28" fill="#e8e6df" xml:space="preserve">balances[to] += amt;</text>
+<text id="cr-l4" class="mono" x="86.0" y="626" font-size="28" fill="#e8e6df" xml:space="preserve">}</text></g>
+        <path id="cr-base" class="dr" pathLength="1" d="M1030 984 L1470 984" stroke="#8a8f99" stroke-width="3" fill="none" />
+        <g id="cr-f0" class="h"><rect id="cr-fr0" x="1040" y="920" width="420" height="52" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><g id="cr-ft0"><text class="mono" x="1064" y="956" font-size="28" fill="#58C4DD">withdraw()</text></g></g>
+        <g id="cr-f1" class="h"><rect id="cr-fr1" x="1040" y="860" width="420" height="52" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3" /><g id="cr-ft1"><text class="mono" x="1064" y="896" font-size="28" fill="#FC6255">receive()</text></g></g>
+        <g id="cr-f2" class="h"><rect id="cr-fr2" x="1040" y="800" width="420" height="52" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3" /><g id="cr-ft2"><text class="mono" x="1064" y="836" font-size="28" fill="#FC6255">transfer()</text></g></g>
+        <g id="cr-lk0" class="h"><path d="M1484.1 934.0 L1484.1 925.0 Q1494.0 910.6 1503.9 925.0 L1503.9 934.0" fill="none" stroke="#83C167" stroke-width="3.1" /><rect x="1476" y="934" width="36.0" height="30.6" rx="4.5" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="2.7" /></g>
+        <g id="cr-lk2" class="h"><path d="M1484.1 814.0 L1484.1 805.0 Q1494.0 790.6 1503.9 805.0 L1503.9 814.0" fill="none" stroke="#83C167" stroke-width="3.1" /><rect x="1476" y="814" width="36.0" height="30.6" rx="4.5" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="2.7" /></g>
+        <text id="cr-rv" class="h mono" x="1255" y="772" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">revert</text>
+        <g id="cr-st" class="h"><rect x="1530" y="376" width="330" height="190" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1554" y="420" font-size="28" fill="#58C4DD">balances</text><text x="1554" y="478" font-size="28" fill="#e8e6df">攻击者</text><text x="1554" y="536" font-size="28" fill="#e8e6df">同伙</text></g>
+        <text id="cr-a1" class="h mono" x="1820" y="478" font-size="32" fill="#F0B90B" text-anchor="end" font-weight="700">1</text>
+        <text id="cr-a0" class="h mono" x="1820" y="478" font-size="32" fill="#F0B90B" text-anchor="end" font-weight="700">0</text>
+        <text id="cr-b0" class="h mono" x="1820" y="536" font-size="32" fill="#F0B90B" text-anchor="end" font-weight="700">0</text>
+        <text id="cr-b1" class="h mono" x="1820" y="536" font-size="36" fill="#FC6255" text-anchor="end" font-weight="700">1</text>
+        <text id="cr-got" class="h" x="1695" y="612" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">已经到手</text>
+        <g id="cr-big" class="h"><path d="M1668.0 760.0 L1668.0 740.0 Q1690.0 708.0 1712.0 740.0 L1712.0 760.0" fill="none" stroke="#83C167" stroke-width="7.0" /><rect x="1650" y="760" width="80.0" height="68.0" rx="10.0" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="6.0" /></g>
+        <path id="cr-ln0" class="dr" pathLength="1" d="M1516 950 C1590 950, 1610 820, 1648 806" stroke="#83C167" stroke-width="3" fill="none" />
+        <path id="cr-ln1" class="dr" pathLength="1" d="M1516 830 C1580 830, 1610 800, 1648 796" stroke="#83C167" stroke-width="3" fill="none" />
+        <text id="cr-bigl" class="h" x="1690" y="690" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">合约级 · 共用一把</text>
+        <g id="cr-A" class="h"><rect x="240" y="392" width="520" height="308" rx="16" fill="#161a22" /><path d="M500 392 L256 392 Q240 392 240 408 L240 684 Q240 700 256 700 L500 700" fill="none" stroke="#58C4DD" stroke-width="3.5" /><path d="M500 392 L744 392 Q760 392 760 408 L760 684 Q760 700 744 700 L500 700" fill="none" stroke="#FF9F43" stroke-width="3.5" /><text x="500" y="446" font-size="34" fill="#e8e6df" text-anchor="middle" font-weight="700">池子 A</text><rect x="280" y="476" width="210" height="104" rx="10" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" /><text x="385" y="516" font-size="30" fill="#58C4DD" text-anchor="middle" font-weight="700">储备</text><text x="385" y="560" font-size="28" fill="#e8e6df" text-anchor="middle">已更新</text><text class="mono" x="500" y="654" font-size="28" fill="#e8e6df" text-anchor="middle">get_virtual_price()</text></g>
+        <g id="cr-sh" class="h"><rect x="510" y="476" width="210" height="104" rx="10" fill="#FF9F43" fill-opacity="0.12" stroke="#FF9F43" stroke-width="2.5" /><text x="615" y="516" font-size="30" fill="#FF9F43" text-anchor="middle" font-weight="700">份额</text><text x="615" y="560" font-size="28" fill="#e8e6df" text-anchor="middle">未更新</text></g>
+        <g id="cr-tk" class="h"><circle cx="800" cy="470" r="24" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3.5" /><circle cx="794" cy="470" r="6" fill="none" stroke="#FF9F43" stroke-width="3" /><path d="M800 470 L812 470 M808 470 L808 476" stroke="#FF9F43" stroke-width="3" fill="none" /></g>
+        <g id="cr-B" class="h"><rect x="1160" y="392" width="520" height="308" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" stroke-dasharray="14 8" /><text x="1420" y="446" font-size="34" fill="#B48EF0" text-anchor="middle" font-weight="700">协议 B</text></g>
+        <g id="cr-btn" class="h"><rect id="cr-btn0" x="1200" y="484" width="200" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="1300" y="530" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="700">放贷</text><rect id="cr-btn1" x="1440" y="484" width="200" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="1540" y="530" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="700">清算</text></g>
+        <path id="cr-rq" class="h" d="M1154 640 L774 640" stroke="#B48EF0" stroke-width="3" stroke-dasharray="12 8" fill="none" marker-end="url(#cr-mp)" />
+        <g id="cr-pt"><g id="cr-ptg" class="h"><rect x="900" y="664" width="120" height="48" rx="10" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2.5" /><text x="960" y="698" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">价格</text></g></g>
+        <rect id="cr-loss" class="h" x="1200" y="596" width="440" height="24" rx="6" fill="#FC6255" fill-opacity="0.85" />
+        <text id="cr-lossl" class="h" x="1200" y="672" font-size="28" fill="#FC6255" font-weight="700">损失</text>
+        <g id="cr-safe" class="h"><path d="M420 357.2 L429.1 368 L444 344" stroke="#83C167" stroke-width="4" fill="none" /><text x="456" y="370" font-size="28" fill="#83C167" font-weight="700">无损失</text></g>
+        <g id="cr-card" class="h"><rect x="360" y="752" width="1200" height="248" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" /><text x="400" y="812" font-size="30" fill="#e8e6df">2022–2023 · 多起读取 Curve 池虚拟价格的事件</text></g>
+        <text id="cr-c2" class="h" x="400" y="880" font-size="30" fill="#F0B90B" font-weight="700">数十万到数百万美元</text>
+        <text id="cr-c3" class="h" x="400" y="954" font-size="30" fill="#FC6255" font-weight="700">2023 年 2 月 · dForce · 约 360 万美元</text>
+        <g id="cr-alk" class="h"><path d="M712.1 416.0 L712.1 407.0 Q722.0 392.6 731.9 407.0 L731.9 416.0" fill="none" stroke="#83C167" stroke-width="3.1" /><rect x="704" y="416" width="36.0" height="30.6" rx="4.5" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="2.7" /></g>
+        <path id="cr-chk" class="dr h" pathLength="1" d="M1154 432 L752 432" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#cr-mg)" />
+        <text id="cr-chkl" class="h" x="954" y="410" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">读价格前先查锁</text>
+        <g id="cr-plk" class="h"><path d="M687.2 624.0 L687.2 616.0 Q696.0 603.2 704.8 616.0 L704.8 624.0" fill="none" stroke="#83C167" stroke-width="2.8" /><rect x="680" y="624" width="32.0" height="27.2" rx="4.0" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="2.4" /></g>
+        <text id="cr-plkl" class="h" x="500" y="766" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">查询函数：锁定时 revert</text>
+        <text id="cr-big2" class="h" x="960" y="560" font-size="52" font-weight="700" text-anchor="middle"><tspan fill="#e8e6df">外部调用时：状态</tspan><tspan fill="#58C4DD">一半新</tspan><tspan fill="#e8e6df">、</tspan><tspan fill="#FF9F43">一半旧</tspan></text>
+        <g id="cr-tt0" class="h"><g id="cr-t0" class=""><circle cx="330" cy="720" r="30" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3.5" /><circle cx="324" cy="720" r="6" fill="none" stroke="#FF9F43" stroke-width="3" /><path d="M330 720 L342 720 M338 720 L338 726" stroke="#FF9F43" stroke-width="3" fill="none" /></g><text class="mono" x="330" y="806" font-size="28" fill="#e8e6df" text-anchor="middle" font-weight="700">call{value:}</text></g>
+        <g id="cr-tt1" class="h"><g id="cr-t1" class=""><circle cx="750" cy="720" r="30" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3.5" /><circle cx="744" cy="720" r="6" fill="none" stroke="#FF9F43" stroke-width="3" /><path d="M750 720 L762 720 M758 720 L758 726" stroke="#FF9F43" stroke-width="3" fill="none" /></g><text x="750" y="806" font-size="28" fill="#e8e6df" text-anchor="middle" font-weight="700">任意外部合约</text></g>
+        <g id="cr-tt2" class="h"><g id="cr-t2" class=""><circle cx="1170" cy="720" r="30" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3.5" /><circle cx="1164" cy="720" r="6" fill="none" stroke="#FF9F43" stroke-width="3" /><path d="M1170 720 L1182 720 M1178 720 L1178 726" stroke="#FF9F43" stroke-width="3" fill="none" /></g><text class="mono" x="1170" y="806" font-size="28" fill="#e8e6df" text-anchor="middle" font-weight="700">ERC-777</text><text class="mono" x="1170" y="846" font-size="28" fill="#FF9F43" text-anchor="middle">tokensReceived</text></g>
+        <g id="cr-tt3" class="h"><g id="cr-t3" class=""><circle cx="1590" cy="720" r="30" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3.5" /><circle cx="1584" cy="720" r="6" fill="none" stroke="#FF9F43" stroke-width="3" /><path d="M1590 720 L1602 720 M1598 720 L1598 726" stroke="#FF9F43" stroke-width="3" fill="none" /></g><text class="mono" x="1590" y="806" font-size="28" fill="#e8e6df" text-anchor="middle" font-weight="700">NFT</text><text class="mono" x="1590" y="846" font-size="28" fill="#FF9F43" text-anchor="middle">onERC721Received</text></g>
+      </g>
+      <g id="cr-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">只读重入 <tspan font-size="28" font-weight="400" fill="#8a8f99">Read-only Reentrancy</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">外部协议在中间态读到错误数据</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      // L0
+      IN("#cr-title", at(0, 0.02), 0.5);
+      for (let i = 0; i < 3; i++) IN("#cr-bx" + i, at(0, 0.1 + i * 0.08), 0.4, { y: 20 }, { y: 0 });
+      IN("#cr-ck0", at(0, 0.45), 0.3);
+      tl.to("#cr-bxr1", { stroke: "#58C4DD", strokeWidth: 3.5, duration: 0.3 }, at(0, 0.6));
+      // L1 跨函数
+      IN("#cr-pc", at(1, 0.02), 0.4); IN("#cr-cm0", at(1, 0.04), 0.4); IN("#cr-code", at(1, 0.06), 0.4);
+      IN("#cr-st", at(1, 0.1), 0.4); IN("#cr-a1", at(1, 0.1), 0.4); IN("#cr-b0", at(1, 0.1), 0.4);
+      DRAW("#cr-base", at(1, 0.12), 0.4);
+      IN("#cr-f0", at(1, 0.16), 0.4, { y: -50 }, { y: 0 }); IN("#cr-lk0", at(1, 0.2), 0.3);
+      IN("#cr-f1", at(1, 0.26), 0.4, { y: -50 }, { y: 0 });
+      IN("#cr-f2", at(1, 0.36), 0.4, { y: -50 }, { y: 0 });
+      OUT("#cr-a1", at(1, 0.46), 0.25); IN("#cr-a0", at(1, 0.48), 0.25);
+      OUT("#cr-b0", at(1, 0.5), 0.25); IN("#cr-b1", at(1, 0.52), 0.25, {}, {});
+      OUT("#cr-f2", at(1, 0.62), 0.25); OUT("#cr-f1", at(1, 0.66), 0.25);
+      tl.fromTo("#cr-a0", { opacity: 1 }, { opacity: 0.3, duration: 0.2, yoyo: true, repeat: 3, immediateRender: false }, at(1, 0.7));
+      tl.fromTo("#cr-b1", { scale: 1 }, { scale: 1.5, svgOrigin: "1810 524", duration: 0.4, immediateRender: false }, at(1, 0.82));
+      IN("#cr-got", at(1, 0.84), 0.3);
+      // L2 修复：共用一把锁
+      ["#cr-st", "#cr-a0", "#cr-b1", "#cr-got"].forEach(s => OUT(s, at(2, 0.0), 0.3));
+      IN("#cr-f1", at(2, 0.04), 0.3); IN("#cr-f2", at(2, 0.08), 0.3);
+      IN("#cr-lk2", at(2, 0.14), 0.3, { scale: 1.6, svgOrigin: "1494 830" }, { scale: 1, svgOrigin: "1494 830" });
+      OUT("#cr-cm0", at(2, 0.2), 0.25); IN("#cr-cm1", at(2, 0.24), 0.4);
+      IN("#cr-big", at(2, 0.55), 0.4); DRAW("#cr-ln0", at(2, 0.58), 0.5); DRAW("#cr-ln1", at(2, 0.58), 0.5);
+      IN("#cr-bigl", at(2, 0.66), 0.4);
+      IN("#cr-ck1", at(2, 0.85), 0.3);
+      tl.to("#cr-bxr1", { stroke: "#8a8f99", strokeWidth: 2.5, duration: 0.3 }, at(2, 0.85));
+      // L3 只读重入
+      ["#cr-pc", "#cr-cm1", "#cr-code", "#cr-base", "#cr-f0", "#cr-f1", "#cr-f2", "#cr-lk0", "#cr-lk2", "#cr-big", "#cr-ln0", "#cr-ln1", "#cr-bigl"].forEach(s => OUT(s, at(3, 0.0), 0.35));
+      IN("#cr-term", at(3, 0.04), 0.5);
+      tl.to("#cr-bxr2", { stroke: "#58C4DD", strokeWidth: 3.5, duration: 0.3 }, at(3, 0.06));
+      IN("#cr-A", at(3, 0.14), 0.5);
+      IN("#cr-sh", at(3, 0.5), 0.4);
+      tl.fromTo("#cr-sh", { opacity: 1 }, { opacity: 0.4, duration: 0.25, yoyo: true, repeat: 5, immediateRender: false }, at(3, 0.58));
+      IN("#cr-tk", at(3, 0.8), 0.3); TO("#cr-tk", at(3, 0.84), { x: 160 }, 0.6);
+      // L4 协议 B 读到错误价格
+      OUT("#cr-tk", at(4, 0.0), 0.3);
+      IN("#cr-B", at(4, 0.04), 0.5);
+      IN("#cr-rq", at(4, 0.16), 0.4);
+      IN("#cr-ptg", at(4, 0.28), 0.3);
+      tl.fromTo("#cr-pt", { x: 0 }, { x: 6, duration: 0.07, yoyo: true, repeat: 11, ease: "none", immediateRender: false }, at(4, 0.3));
+      IN("#cr-btn", at(4, 0.4), 0.4);
+      tl.to("#cr-btn0", { stroke: "#FC6255", fill: "#2a1618", duration: 0.2 }, at(4, 0.52));
+      tl.to("#cr-btn1", { stroke: "#FC6255", fill: "#2a1618", duration: 0.2 }, at(4, 0.58));
+      IN("#cr-loss", at(4, 0.62), 0.5, { attr: { width: 0 } }, { attr: { width: 440 } }); IN("#cr-lossl", at(4, 0.64), 0.4);
+      IN("#cr-safe", at(4, 0.82), 0.4);
+      // L5 时间卡
+      OUT("#cr-term", at(5, 0.0), 0.3);
+      IN("#cr-card", at(5, 0.04), 0.5); IN("#cr-c2", at(5, 0.4), 0.4); IN("#cr-c3", at(5, 0.66), 0.4);
+      // L6 修复
+      ["#cr-card", "#cr-c2", "#cr-c3", "#cr-safe"].forEach(s => OUT(s, at(6, 0.0), 0.3));
+      IN("#cr-alk", at(6, 0.06), 0.3);
+      ARROW("#cr-chk", at(6, 0.1), 0.6); IN("#cr-chkl", at(6, 0.16), 0.4);
+      IN("#cr-plk", at(6, 0.55), 0.3, { scale: 1.6, svgOrigin: "696 638" }, { scale: 1, svgOrigin: "696 638" });
+      IN("#cr-plkl", at(6, 0.6), 0.4);
+      // L7 共同点
+      ["#cr-A", "#cr-sh", "#cr-B", "#cr-btn", "#cr-rq", "#cr-ptg", "#cr-loss", "#cr-lossl", "#cr-alk", "#cr-chk", "#cr-chkl", "#cr-plk", "#cr-plkl"].forEach(s => OUT(s, at(7, 0.0), 0.35));
+      tl.to("#cr-bxr2", { stroke: "#8a8f99", strokeWidth: 2.5, duration: 0.3 }, at(7, 0.02));
+      IN("#cr-ck2", at(7, 0.04), 0.3);
+      IN("#cr-big2", at(7, 0.1), 0.6, { y: 20 }, { y: 0 });
+      IN("#cr-tt0", at(7, 0.42), 0.4); IN("#cr-tt1", at(7, 0.56), 0.4); IN("#cr-tt2", at(7, 0.7), 0.4); IN("#cr-tt3", at(7, 0.84), 0.4);
+
+
+      tl.to("#cr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#cr-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["cross"] = tl;
+    })();
+  </script>
+</template>

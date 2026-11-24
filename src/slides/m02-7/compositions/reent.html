@@ -1,0 +1,222 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 reent，id 前缀 re- -->
+  <div id="root" data-composition-id="reent" data-duration="69.7" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <defs><marker id="re-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker><marker id="re-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker><marker id="re-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker><marker id="re-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker><marker id="re-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker><marker id="re-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker><marker id="re-my" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker></defs>
+        <g id="re-A" class="h"><rect x="300" y="420" width="320" height="240" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="460" y="524" font-size="36" fill="#58C4DD" text-anchor="middle" font-weight="700">合约 A</text></g>
+        <g id="re-B" class="h"><rect x="1300" y="420" width="320" height="240" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1460" y="524" font-size="36" fill="#58C4DD" text-anchor="middle" font-weight="700">合约 B</text></g>
+        <g id="re-Br" class="h"><rect x="1300" y="420" width="320" height="240" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3.5" /><text x="1460" y="524" font-size="36" fill="#FC6255" text-anchor="middle" font-weight="700">攻击合约</text></g>
+        <path id="re-ab" class="dr h" pathLength="1" d="M628 540 L1290 540" stroke="#e8e6df" stroke-width="3.5" fill="none" marker-end="url(#re-mw)" />
+        <text id="re-abl" class="h" x="960" y="516" font-size="30" fill="#e8e6df" text-anchor="middle">调用 / 转 ETH</text>
+        <g id="re-tk0" class="h"><circle cx="460" cy="606" r="24" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3.5" /><circle cx="454" cy="606" r="6" fill="none" stroke="#FF9F43" stroke-width="3" /><path d="M460 606 L472 606 M468 606 L468 612" stroke="#FF9F43" stroke-width="3" fill="none" /></g>
+        <path id="re-bl" class="dr" pathLength="1" d="M1460 662 L1460 700" stroke="#FC6255" stroke-width="3" fill="none" />
+        <g id="re-rp" class="h"><rect x="1220" y="702" width="480" height="196" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text class="mono" x="1250" y="752" font-size="30" fill="#FC6255" font-weight="700">receive()</text><text x="1250" y="808" font-size="28" fill="#e8e6df">收到 ETH 时自动执行</text></g>
+        <text id="re-fb" class="h mono" x="1460" y="752" font-size="28" fill="#6b6f7a">fallback</text>
+        <g id="re-zap" class="h"><path d="M1262 832 L1248 860 L1262 860 L1252 884 L1276 852 L1262 852 L1272 832 Z" fill="#FC6255" /><text x="1292" y="866" font-size="28" fill="#FC6255" font-weight="700">恶意逻辑</text></g>
+        <g id="re-pv" class="h"><rect x="60" y="220" width="940" height="360" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><rect x="60" y="232" width="4" height="336" fill="#FC6255" /><text class="mono" x="90" y="256" font-size="22" fill="#8a8f99" data-layout-ignore="true">VulnerableVault.sol</text></g>
+        <g id="re-pvt" class="h"><path d="M906 240 L922 256 M922 240 L906 256" stroke="#FC6255" stroke-width="4" /><text x="980" y="258" font-size="28" fill="#FC6255" text-anchor="end" font-weight="700">漏洞</text></g>
+        <rect id="re-hl" class="h" x="66" y="278" width="928" height="40" fill="#58C4DD" fill-opacity="0.15" />
+        <g id="re-code" class="h"><text id="re-l0" class="mono" x="86.0" y="306" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">function</tspan> withdraw() <tspan fill="#58C4DD">external</tspan> {</text>
+<text id="re-l1" class="mono" x="119.6" y="346" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">uint256</tspan> amount = balances[msg.sender];</text>
+<text id="re-l2" class="mono" x="119.6" y="386" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">require</tspan>(amount &gt; <tspan fill="#F0B90B">0</tspan>, <tspan fill="#c9b98a">"no balance"</tspan>);</text>
+<text id="re-l3" class="mono" x="119.6" y="426" font-size="28" fill="#e8e6df" xml:space="preserve">(<tspan fill="#58C4DD">bool</tspan> ok, ) = msg.sender.call{value: amount}(<tspan fill="#c9b98a">""</tspan>);</text>
+<text id="re-l4" class="mono" x="119.6" y="466" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">require</tspan>(ok, <tspan fill="#c9b98a">"send failed"</tspan>);</text>
+<text id="re-l5" class="mono" x="119.6" y="506" font-size="28" fill="#e8e6df" xml:space="preserve">balances[msg.sender] = <tspan fill="#F0B90B">0</tspan>;</text>
+<text id="re-l6" class="mono" x="86.0" y="546" font-size="28" fill="#e8e6df" xml:space="preserve">}</text></g>
+        <g id="re-hg" class="h"><path d="M560 482 L586 482 L560 514 L586 514 Z" fill="#FC6255" fill-opacity="0.3" stroke="#FC6255" stroke-width="3" /></g>
+        <g id="re-pa" class="h"><rect x="60" y="600" width="940" height="224" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><rect x="60" y="612" width="4" height="200" fill="#FC6255" /><text class="mono" x="90" y="636" font-size="22" fill="#8a8f99" data-layout-ignore="true">Attacker.sol</text></g>
+        <rect id="re-hl2" class="h" x="66" y="694" width="928" height="80" fill="#FC6255" fill-opacity="0.15" />
+        <g id="re-acode" class="h"><text id="re-a0" class="mono" x="86.0" y="682" font-size="28" fill="#e8e6df" xml:space="preserve">receive() <tspan fill="#58C4DD">external</tspan> <tspan fill="#58C4DD">payable</tspan> {</text>
+<text id="re-a1" class="mono" x="119.6" y="722" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">if</tspan> (<tspan fill="#58C4DD">address</tspan>(vault).balance &gt;= <tspan fill="#F0B90B">1</tspan> <tspan fill="#58C4DD">ether</tspan>)</text>
+<text id="re-a2" class="mono" x="153.2" y="762" font-size="28" fill="#e8e6df" xml:space="preserve">vault.withdraw();</text>
+<text id="re-a3" class="mono" x="86.0" y="802" font-size="28" fill="#e8e6df" xml:space="preserve">}</text></g>
+        <path id="re-base" class="dr" pathLength="1" d="M1050 984 L1590 984" stroke="#8a8f99" stroke-width="3" fill="none" />
+        <text id="re-basel" class="h" x="1320" y="1024" font-size="28" fill="#8a8f99" text-anchor="middle">调用栈</text>
+        <g id="re-resv" class="h"><text x="1730" y="420" font-size="30" fill="#58C4DD" text-anchor="middle" font-weight="700">金库</text><text class="mono" x="1730" y="466" font-size="30" fill="#F0B90B" text-anchor="middle" font-weight="700"><tspan id="re-rv">11</tspan> ETH</text></g>
+        <rect id="re-c0" class="h" x="1700" y="936" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="re-c1" class="h" x="1700" y="892" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="re-c2" class="h" x="1700" y="848" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="re-c3" class="h" x="1700" y="804" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="re-c4" class="h" x="1700" y="760" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="re-c5" class="h" x="1700" y="716" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="re-c6" class="h" x="1700" y="672" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="re-c7" class="h" x="1700" y="628" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="re-c8" class="h" x="1700" y="584" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="re-c9" class="h" x="1700" y="540" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="re-c10" class="h" x="1700" y="496" width="60" height="40" rx="4" fill="#F0B90B" fill-opacity="0.85" />
+        <circle id="re-coin" class="h" cx="1730" cy="516" r="14" fill="#F0B90B" />
+        <circle id="re-coin2" class="h" cx="1730" cy="560" r="14" fill="#F0B90B" />
+        <g id="re-f0" class="h"><rect id="re-fr0" x="1060" y="920" width="520" height="52" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><g id="re-ft0"><text class="mono" x="1084" y="956" font-size="28" fill="#58C4DD">withdraw()</text></g></g><g id="re-rd0" class="h"><rect x="1430" y="928" width="140" height="36" rx="6" fill="none" stroke="#F0B90B" stroke-width="2" /><text x="1500" y="956" font-size="28" fill="#F0B90B" text-anchor="middle" font-weight="700">读到 1</text></g>
+        <g id="re-f1" class="h"><rect id="re-fr1" x="1060" y="860" width="520" height="52" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3" /><g id="re-ft1"><text class="mono" x="1084" y="896" font-size="28" fill="#FC6255">receive()</text></g></g>
+        <g id="re-f2" class="h"><rect id="re-fr2" x="1060" y="800" width="520" height="52" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><g id="re-ft2"><text class="mono" x="1084" y="836" font-size="28" fill="#58C4DD">withdraw()</text></g></g><g id="re-rd2" class="h"><rect x="1430" y="808" width="140" height="36" rx="6" fill="none" stroke="#F0B90B" stroke-width="2" /><text x="1500" y="836" font-size="28" fill="#F0B90B" text-anchor="middle" font-weight="700">读到 1</text></g>
+        <rect id="re-fr3" class="h" x="1060" y="880" width="520" height="22" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+        <rect id="re-fr4" class="h" x="1060" y="854" width="520" height="22" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <rect id="re-fr5" class="h" x="1060" y="828" width="520" height="22" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+        <rect id="re-fr6" class="h" x="1060" y="802" width="520" height="22" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <rect id="re-fr7" class="h" x="1060" y="776" width="520" height="22" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+        <rect id="re-fr8" class="h" x="1060" y="750" width="520" height="22" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <rect id="re-fr9" class="h" x="1060" y="724" width="520" height="22" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+        <rect id="re-fr10" class="h" x="1060" y="698" width="520" height="22" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <rect id="re-fr11" class="h" x="1060" y="672" width="520" height="22" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+        <rect id="re-fr12" class="h" x="1060" y="646" width="520" height="22" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <rect id="re-fr13" class="h" x="1060" y="620" width="520" height="22" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+        <rect id="re-fr14" class="h" x="1060" y="594" width="520" height="22" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <rect id="re-fr15" class="h" x="1060" y="568" width="520" height="22" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+        <rect id="re-fr16" class="h" x="1060" y="542" width="520" height="22" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <rect id="re-fr17" class="h" x="1060" y="516" width="520" height="22" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+        <rect id="re-fr18" class="h" x="1060" y="490" width="520" height="22" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <rect id="re-fr19" class="h" x="1060" y="464" width="520" height="22" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+        <rect id="re-fr20" class="h" x="1060" y="438" width="520" height="22" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <g id="re-tk" class="h"><circle cx="1620" cy="946" r="24" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3.5" /><circle cx="1614" cy="946" r="6" fill="none" stroke="#FF9F43" stroke-width="3" /><path d="M1620 946 L1632 946 M1628 946 L1628 952" stroke="#FF9F43" stroke-width="3" fill="none" /></g>
+        <text id="re-tag" class="h" x="1320" y="784" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="700">清零还没执行</text>
+        <text id="re-lay" class="h" x="1320" y="404" font-size="36" fill="#e8e6df" text-anchor="middle" font-weight="700">层 <tspan class="mono" id="re-layv" fill="#58C4DD">2</tspan></text>
+        <text id="re-zero" class="h mono" x="1320" y="404" font-size="30" fill="#58C4DD" text-anchor="middle" font-weight="700">balances = 0</text>
+        <text id="re-succ" class="h" x="1320" y="700" font-size="44" fill="#9bb08a" text-anchor="middle" font-weight="700">交易成功</text>
+        <text id="re-fm1" class="h mono" x="86" y="880" font-size="36" fill="#F0B90B" font-weight="700">10 + 1 = 11 ETH</text>
+        <text id="re-fm2" class="h" x="86" y="944" font-size="32" fill="#e8e6df">每层取 <tspan class="mono" fill="#F0B90B">1</tspan> → <tspan class="mono" fill="#58C4DD">11</tspan> 层</text>
+        <g id="re-k1" class="h"><rect x="520" y="300" width="880" height="160" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="960" y="396" font-size="44" font-weight="700" text-anchor="middle"><tspan fill="#F0B90B">投入 1</tspan><tspan fill="#8a8f99"> · </tspan><tspan fill="#F0B90B">拿走 11</tspan><tspan fill="#8a8f99"> · </tspan><tspan fill="#FC6255">其他用户 −10</tspan></text></g>
+        <g id="re-k2" class="h"><rect x="460" y="520" width="1000" height="360" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="960" y="586" font-size="32" fill="#e8e6df" text-anchor="middle" font-weight="700">别人 6 + 攻击者 2 = 8</text><text x="1440" y="860" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text></g>
+        <g id="re-s0" class="h"><rect x="560" y="640" width="110" height="70" rx="10" fill="#F0B90B" fill-opacity="0.22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="615" y="688" font-size="34" fill="#F0B90B" text-anchor="middle" font-weight="700">8</text></g>
+        <path id="re-sa0" class="dr h" pathLength="1" d="M678 675 L732 675" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-my)" />
+        <g id="re-s1" class="h"><rect x="740" y="640" width="110" height="70" rx="10" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="795" y="688" font-size="34" fill="#F0B90B" text-anchor="middle" font-weight="700">6</text></g>
+        <path id="re-sa1" class="dr h" pathLength="1" d="M858 675 L912 675" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-my)" />
+        <g id="re-s2" class="h"><rect x="920" y="640" width="110" height="70" rx="10" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="975" y="688" font-size="34" fill="#F0B90B" text-anchor="middle" font-weight="700">4</text></g>
+        <path id="re-sa2" class="dr h" pathLength="1" d="M1038 675 L1092 675" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-my)" />
+        <g id="re-s3" class="h"><rect x="1100" y="640" width="110" height="70" rx="10" fill="#F0B90B" fill-opacity="0.10" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1155" y="688" font-size="34" fill="#F0B90B" text-anchor="middle" font-weight="700">2</text></g>
+        <path id="re-sa3" class="dr h" pathLength="1" d="M1218 675 L1272 675" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-my)" />
+        <g id="re-s4" class="h"><rect x="1280" y="640" width="110" height="70" rx="10" fill="#F0B90B" fill-opacity="0.06" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1335" y="688" font-size="34" fill="#F0B90B" text-anchor="middle" font-weight="700">0</text></g>
+        <text id="re-k2c" class="h" x="960" y="806" font-size="32" font-weight="700" text-anchor="middle"><tspan fill="#e8e6df">取 4 次</tspan><tspan fill="#8a8f99"> · </tspan><tspan fill="#FC6255">净赚 6</tspan></text>
+        <g id="re-tlc" class="h"><rect x="400" y="320" width="1120" height="440" rx="18" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" /><text x="460" y="410" font-size="36" fill="#e8e6df" font-weight="700">2016 年 6 月 · The DAO</text></g>
+        <text id="re-dao" class="h" x="460" y="490" font-size="44" fill="#FC6255" font-weight="700">约 360 万 ETH</text>
+        <path id="re-tl0" class="dr" pathLength="1" d="M470 600 L900 600" stroke="#58C4DD" stroke-width="5" fill="none" />
+        <path id="re-tl1" class="dr" pathLength="1" d="M900 600 L1180 520" stroke="#58C4DD" stroke-width="5" fill="none" />
+        <path id="re-tl2" class="dr" pathLength="1" d="M900 600 L1180 680" stroke="#58C4DD" stroke-width="5" fill="none" />
+        <circle id="re-tln" class="h" cx="900" cy="600" r="10" fill="#58C4DD" />
+        <text id="re-tll" class="h" x="680" y="656" font-size="30" fill="#e8e6df" text-anchor="middle">2016 年 7 月 硬分叉</text>
+        <text id="re-eth" class="h mono" x="1204" y="532" font-size="36" fill="#58C4DD" font-weight="700">ETH</text>
+        <text id="re-etc" class="h mono" x="1204" y="692" font-size="36" fill="#58C4DD" font-weight="700">ETC</text>
+      </g>
+      <g id="re-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">重入 <tspan font-size="28" font-weight="400" fill="#8a8f99">Reentrancy</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">外部调用期间被再次进入，读到旧状态</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      const HL = (s, i, t, col = "#58C4DD", y0 = 278) => tl.to(s, { attr: { y: y0 + 40 * i }, fill: col, duration: 0.3, ease: "power2.inOut" }, t);
+      // L0 外部调用 + 控制权令牌
+      IN("#re-term", at(0, 0.0), 0.5);
+      IN("#re-A", at(0, 0.08), 0.5); IN("#re-B", at(0, 0.2), 0.5);
+      ARROW("#re-ab", at(0, 0.3), 0.6); IN("#re-abl", at(0, 0.34), 0.4);
+      IN("#re-tk0", at(0, 0.5), 0.3);
+      TO("#re-tk0", at(0, 0.72), { x: 1000 }, 1.0);
+      TO("#re-A", at(0, 0.8), { opacity: 0.35 }, 0.5);
+      // L1 receive
+      OUT("#re-B", at(1, 0.05), 0.3); IN("#re-Br", at(1, 0.05), 0.4);
+      DRAW("#re-bl", at(1, 0.2), 0.3); IN("#re-rp", at(1, 0.25), 0.5, { y: -20 }, { y: 0 });
+      IN("#re-fb", at(1, 0.4), 0.4, {}, { opacity: 0.8 });
+      IN("#re-zap", at(1, 0.7), 0.4);
+      // L2 漏洞代码
+      ["#re-term", "#re-A", "#re-Br", "#re-ab", "#re-abl", "#re-tk0", "#re-bl", "#re-rp", "#re-fb", "#re-zap"].forEach(s => OUT(s, at(2, 0.0), 0.35));
+      IN("#re-pv", at(2, 0.08), 0.5); IN("#re-pvt", at(2, 0.08), 0.5); IN("#re-code", at(2, 0.1), 0.5);
+      IN("#re-hl", at(2, 0.2), 0.3); HL("#re-hl", 1, at(2, 0.2));
+      HL("#re-hl", 2, at(2, 0.42));
+      HL("#re-hl", 3, at(2, 0.6), "#FF9F43");
+      HL("#re-hl", 5, at(2, 0.82), "#FC6255");
+      DRAW("#re-base", at(2, 0.3), 0.5); IN("#re-basel", at(2, 0.35), 0.4);
+      IN("#re-resv", at(2, 0.4), 0.4);
+      for (let i = 0; i < 11; i++) IN("#re-c" + i, at(2, 0.42 + i * 0.012), 0.25);
+      // L3 第 1 帧 → 交出控制权 → receive
+      IN("#re-f0", at(3, 0.02), 0.4, { y: -60 }, { y: 0 }); IN("#re-rd0", at(3, 0.14), 0.3);
+      HL("#re-hl", 3, at(3, 0.22), "#FF9F43");
+      IN("#re-tk", at(3, 0.28), 0.3);
+      tl.fromTo("#re-coin", { opacity: 1, x: 0, y: 0 }, { x: -150, y: 350, opacity: 0, duration: 0.7, ease: "power2.in", immediateRender: false }, at(3, 0.3));
+      tl.set("#re-c10", { opacity: 0 }, at(3, 0.3)); COUNT("#re-rv", 11, 10, at(3, 0.3), 0.2);
+      TO("#re-tk", at(3, 0.36), { y: -60 }, 0.35);
+      IN("#re-f1", at(3, 0.4), 0.4, { y: -60 }, { y: 0 });
+      IN("#re-pa", at(3, 0.5), 0.4); IN("#re-acode", at(3, 0.52), 0.4);
+      IN("#re-hl2", at(3, 0.72), 0.3);
+      // L4 第 3 帧仍读到 1
+      TO("#re-tk", at(4, 0.0), { y: -120 }, 0.35);
+      IN("#re-f2", at(4, 0.04), 0.4, { y: -60 }, { y: 0 });
+      IN("#re-rd2", at(4, 0.16), 0.3);
+      tl.fromTo("#re-rd2", { opacity: 1 }, { opacity: 0.3, duration: 0.2, yoyo: true, repeat: 3, immediateRender: false }, at(4, 0.24));
+      IN("#re-tag", at(4, 0.3), 0.4);
+      HL("#re-hl", 5, at(4, 0.36), "#FC6255"); IN("#re-hg", at(4, 0.4), 0.4);
+      HL("#re-hl", 3, at(4, 0.7), "#FF9F43");
+      tl.fromTo("#re-coin2", { opacity: 1, x: 0, y: 0 }, { x: -150, y: 250, opacity: 0, duration: 0.7, ease: "power2.in", immediateRender: false }, at(4, 0.72));
+      tl.set("#re-c9", { opacity: 0 }, at(4, 0.72)); COUNT("#re-rv", 10, 9, at(4, 0.72), 0.2);
+      // L5 塔长到 11 层，再逐层返回
+      ["#re-tag", "#re-tk", "#re-hl2"].forEach(s => OUT(s, at(5, 0.0), 0.3));
+      IN("#re-fm1", at(5, 0.02), 0.5, { y: 20 }, { y: 0 });
+      for (let k = 0; k < 3; k++) { OUT("#re-ft" + k, at(5, 0.06), 0.25); TO("#re-fr" + k, at(5, 0.08), { attr: { y: 958 - 26 * k, height: 22, rx: 6 } }, 0.5); }
+      ["#re-rd0", "#re-rd2"].forEach(s => OUT(s, at(5, 0.06), 0.25));
+      IN("#re-lay", at(5, 0.12), 0.3);
+      for (let k = 3; k < 21; k++) {
+        const t = at(5, 0.15 + (k - 3) * 0.02);
+        IN("#re-fr" + k, t, 0.15, { y: -30 }, { y: 0 });
+        if (k % 2 === 0) { const w = k / 2 + 1; tl.set("#re-c" + (11 - w), { opacity: 0 }, t); COUNT("#re-rv", 12 - w, 11 - w, t, 0.1); COUNT("#re-layv", w - 1, w, t, 0.1); }
+      }
+      IN("#re-fm2", at(5, 0.3), 0.5);
+      OUT("#re-lay", at(5, 0.6), 0.25);
+      IN("#re-zero", at(5, 0.62), 0.2);
+      for (let k = 20; k >= 0; k--) {
+        const t = at(5, 0.63 + (20 - k) * 0.012);
+        OUT(k < 3 ? "#re-f" + k : "#re-fr" + k, t, 0.12);
+        if (k < 3) tl.set("#re-fr" + k, { opacity: 0 }, t + 0.12);
+      }
+      tl.fromTo("#re-zero", { opacity: 1 }, { opacity: 0.35, duration: 0.12, yoyo: true, repeat: 15, ease: "none", immediateRender: false }, at(5, 0.63));
+      OUT("#re-zero", at(5, 0.9), 0.2);
+      IN("#re-succ", at(5, 0.91), 0.4);
+      // L6 结算
+      ["#re-pv", "#re-pvt", "#re-hl", "#re-code", "#re-hg", "#re-pa", "#re-acode", "#re-base", "#re-basel", "#re-resv", "#re-succ", "#re-fm1", "#re-fm2"].forEach(s => OUT(s, at(6, 0.0), 0.35));
+      IN("#re-k1", at(6, 0.05), 0.5, { y: 20 }, { y: 0 });
+      IN("#re-k2", at(6, 0.45), 0.5);
+      for (let i = 0; i < 5; i++) { IN("#re-s" + i, at(6, 0.6 + i * 0.05), 0.3); if (i < 4) ARROW("#re-sa" + i, at(6, 0.62 + i * 0.05), 0.2); }
+      IN("#re-k2c", at(6, 0.86), 0.4);
+      // L7 The DAO
+      const l6 = ["#re-k1", "#re-k2", "#re-k2c"]; for (let i = 0; i < 5; i++) { l6.push("#re-s" + i); if (i < 4) l6.push("#re-sa" + i); }
+      l6.forEach(s => OUT(s, at(7, 0.0), 0.35));
+      IN("#re-tlc", at(7, 0.05), 0.5); IN("#re-dao", at(7, 0.25), 0.5, { scale: 1.2, svgOrigin: "460 475" }, { scale: 1, svgOrigin: "460 475" });
+      DRAW("#re-tl0", at(7, 0.5), 0.6); IN("#re-tln", at(7, 0.58), 0.2); IN("#re-tll", at(7, 0.6), 0.4);
+      DRAW("#re-tl1", at(7, 0.7), 0.5); DRAW("#re-tl2", at(7, 0.7), 0.5);
+      IN("#re-eth", at(7, 0.78), 0.4); IN("#re-etc", at(7, 0.8), 0.4);
+
+
+      tl.to("#re-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#re-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["reent"] = tl;
+    })();
+  </script>
+</template>

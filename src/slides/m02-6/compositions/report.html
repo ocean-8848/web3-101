@@ -1,0 +1,349 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 report，id 前缀 rt- -->
+  <div id="root" data-composition-id="report" data-duration="97.25" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rt-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <clipPath id="rt-c1"><rect id="rt-c1r" x="270" y="360" width="0" height="60" /></clipPath>
+        <clipPath id="rt-c2"><rect id="rt-c2r" x="270" y="446" width="0" height="120" /></clipPath>
+        <clipPath id="rt-c3"><rect id="rt-c3r" x="150" y="576" width="0" height="56" /></clipPath>
+        <clipPath id="rt-c4"><rect id="rt-c4r" x="150" y="696" width="0" height="56" /></clipPath>
+      </defs>
+      <g id="rt-all">
+        <!-- L0–L5 手算表 -->
+        <g id="rt-p1">
+          <g id="rt-head" class="h">
+            <text x="1840" y="196" font-size="28" fill="#6b6f7a" text-anchor="end">示例 · 10 个元素 · 只算存储相关指令</text>
+            <rect x="500" y="220" width="1340" height="70" rx="8" fill="#161a22" />
+            <text x="520" y="266" font-size="30" fill="#8a8f99">项目</text>
+            <text x="830" y="266" font-size="30" fill="#FC6255"><tspan class="mono">Naive</tspan> 朴素版</text>
+            <text x="1420" y="266" font-size="30" fill="#83C167"><tspan class="mono">Opt</tspan> 优化版</text>
+          </g>
+          <g id="rt-grid"></g>
+          <!-- 左侧存储小图 -->
+          <g id="rt-fig" class="h">
+            <text x="100" y="316" class="mono" font-size="28" fill="#58C4DD">stakes</text>
+            <g id="rt-cells"></g>
+            <rect id="rt-tot" x="100" y="620" width="358" height="60" rx="6" fill="#2a2410" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="120" y="660" class="mono" font-size="28" fill="#F0B90B">total</text>
+            <text x="440" y="660" font-size="28" fill="#8a8f99" text-anchor="end">非 0</text>
+          </g>
+          <g id="rt-lenice"></g>
+          <g id="rt-lenfire"></g>
+          <g id="rt-ices"></g>
+          <g id="rt-rate" class="h">
+            <rect x="100" y="520" width="358" height="60" rx="6" fill="#12151c" stroke="#8a8f99" stroke-width="2" />
+            <text x="120" y="560" class="mono" font-size="28" fill="#e8e6df">rate</text>
+          </g>
+          <g id="rt-rateice"></g>
+          <text id="rt-const" class="h mono" x="440" y="560" font-size="28" fill="#83C167" text-anchor="end">constant</text>
+          <rect id="rt-dirty" class="h" x="100" y="620" width="358" height="60" rx="6" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="10 7" />
+          <text id="rt-dirtyl" class="h" x="100" y="730" font-size="28" fill="#FF9F43">脏槽：本笔交易已写过</text>
+
+          <!-- 行 1 读长度 -->
+          <text id="rt-r1i" class="h" x="520" y="340" font-size="28" fill="#e8e6df">读 <tspan class="mono">stakes.length</tspan></text>
+          <text id="rt-r1n" class="h" x="830" y="340" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">冷 2,100</tspan> + 10 × <tspan fill="#FF9F43">热 100</tspan> = <tspan fill="#F0B90B" font-weight="700">3,100</tspan></text>
+          <text id="rt-r1o" class="h" x="1420" y="340" font-size="28" fill="#e8e6df">1 次冷读：<tspan fill="#F0B90B" font-weight="700">2,100</tspan></text>
+          <g id="rt-m1n"></g><g id="rt-m1o"></g>
+          <!-- 行 2 读元素（两版相同） -->
+          <rect id="rt-r2box" class="h" x="504" y="383" width="1332" height="84" rx="8" fill="#FC625514" stroke="#FC6255" stroke-width="2.5" />
+          <text id="rt-r2i" class="h" x="520" y="430" font-size="28" fill="#e8e6df">读 <tspan class="mono">stakes[i]</tspan></text>
+          <g id="rt-r2g">
+            <text id="rt-r2n" class="h" x="1105" y="430" font-size="28" fill="#e8e6df" text-anchor="middle">两版相同：10 × <tspan fill="#FC6255">冷 2,100</tspan> = <tspan fill="#F0B90B" font-weight="700">21,000</tspan></text>
+          </g>
+          <g id="rt-m2"></g>
+          <g id="rt-big" class="h">
+            <rect x="1640" y="400" width="120" height="50" rx="10" fill="#FC625522" stroke="#FC6255" stroke-width="2" />
+            <text x="1700" y="436" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">大头</text>
+          </g>
+          <!-- 行 3 读 rate -->
+          <text id="rt-r3i" class="h" x="520" y="520" font-size="28" fill="#e8e6df">读 <tspan class="mono">rate</tspan></text>
+          <text id="rt-r3n" class="h" x="830" y="520" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">2,100</tspan> + 9 × <tspan fill="#FF9F43">100</tspan> = <tspan fill="#F0B90B" font-weight="700">3,000</tspan></text>
+          <text id="rt-r3o" class="h" x="1420" y="520" font-size="28" fill="#83C167"><tspan font-weight="700">0</tspan>（<tspan class="mono">constant</tspan>）</text>
+          <g id="rt-m3n"></g>
+          <!-- 行 4 读 total -->
+          <text id="rt-r4i" class="h" x="520" y="610" font-size="28" fill="#e8e6df">读 <tspan class="mono">total</tspan></text>
+          <text id="rt-r4n" class="h" x="830" y="610" font-size="28" fill="#F0B90B" font-weight="700">3,000</text>
+          <text id="rt-r4o" class="h" x="1420" y="610" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">冷</tspan> <tspan fill="#F0B90B" font-weight="700">2,100</tspan></text>
+          <g id="rt-m4n"></g><g id="rt-m4o"></g>
+          <!-- 行 5 写 total -->
+          <text id="rt-r5i" class="h" x="520" y="700" font-size="28" fill="#e8e6df">写 <tspan class="mono">total</tspan></text>
+          <text id="rt-r5n" class="h" x="830" y="700" font-size="28" fill="#e8e6df">首次 2,900 + 9 × <tspan fill="#FF9F43">脏槽 100</tspan> = <tspan fill="#F0B90B" font-weight="700">3,800</tspan></text>
+          <text id="rt-r5o" class="h" x="1420" y="700" font-size="28" fill="#e8e6df">1 次：<tspan fill="#F0B90B" font-weight="700">2,900</tspan></text>
+          <g id="rt-m5n"></g><g id="rt-m5o"></g>
+
+          <!-- L5 合计 -->
+          <g id="rt-sum" class="h">
+            <text x="100" y="842" font-size="34" fill="#8a8f99">合计</text>
+            <text x="540" y="802" class="mono" font-size="28" fill="#FC6255">Naive</text>
+            <text x="540" y="872" class="mono" font-size="28" fill="#83C167">Opt</text>
+          </g>
+          <rect id="rt-bn" x="660" y="770" width="0" height="44" rx="6" fill="#FC6255" />
+          <rect id="rt-bo" x="660" y="840" width="0" height="44" rx="6" fill="#83C167" />
+          <rect id="rt-bd" class="h" x="1489" y="770" width="171" height="44" fill="#F0B90B" />
+          <text id="rt-vn" class="h mono" x="1648" y="803" font-size="30" font-weight="700" fill="#0f1117" text-anchor="end">33,900</text>
+          <text id="rt-vo" class="h mono" x="1477" y="873" font-size="30" font-weight="700" fill="#0f1117" text-anchor="end">28,100</text>
+          <text id="rt-vd" class="h" x="1504" y="874" font-size="32" font-weight="700" fill="#F0B90B">省 5,800 ≈ 17%</text>
+          <text id="rt-note" class="h" x="540" y="944" font-size="28" fill="#8a8f99">循环与溢出检查指令另有节省</text>
+        </g>
+
+        <!-- L6 直觉 vs 实际 -->
+        <g id="rt-p2">
+          <g id="rt-int" class="h">
+            <text x="300" y="300" font-size="34" fill="#e8e6df">循环里写 <tspan class="mono">total</tspan> 10 次</text>
+            <text x="300" y="380" font-size="30" fill="#8a8f99">直觉：每次都按 2,900 算</text>
+            <rect x="300" y="404" width="1000" height="40" rx="6" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="10 7" />
+            <text x="300" y="514" font-size="30" fill="#FF9F43">实际：首写 2,900 + 脏槽 100 × 9 = 3,800</text>
+          </g>
+          <rect id="rt-ib" x="300" y="538" width="0" height="40" rx="6" fill="#FF9F43" />
+          <text id="rt-meas" class="h" x="300" y="680" font-size="44" font-weight="700" fill="#83C167">直觉常估错 → 所以要实测</text>
+        </g>
+
+        <!-- L6 终端 gas-report -->
+        <g id="rt-tw" class="h">
+          <rect x="240" y="290" width="1440" height="360" rx="12" fill="#0b0d12" stroke="#3a404c" stroke-width="2" />
+          <line x1="240" y1="334" x2="1680" y2="334" stroke="#2a2f3a" stroke-width="2" />
+          <circle cx="270" cy="312" r="7" fill="#FC6255" /><circle cx="294" cy="312" r="7" fill="#F0B90B" /><circle cx="318" cy="312" r="7" fill="#83C167" />
+          <text data-layout-ignore x="960" y="320" class="mono" font-size="20" fill="#6b6f7a" text-anchor="middle">terminal</text>
+        </g>
+        <g id="rt-hls"></g>
+        <text id="rt-t1" class="mono" clip-path="url(#rt-c1)" x="280" y="400" font-size="28" fill="#e8e6df"><tspan fill="#83C167">$</tspan> forge test --match-contract RewardsGasTest --gas-report</text>
+        <g clip-path="url(#rt-c2)">
+          <text id="rt-t2" class="mono" x="280" y="490" font-size="28" fill="#8a8f99" xml:space="preserve">| Function | min | avg | median | max | # calls |</text>
+          <text id="rt-t3" class="mono" x="280" y="544" font-size="28" fill="#e8e6df" xml:space="preserve"></text>
+        </g>
+        <text id="rt-tn" class="h" x="280" y="612" font-size="28" fill="#6b6f7a">数字以本机实测为准</text>
+
+        <!-- L7 动手练习 -->
+        <g id="rt-p3">
+          <g id="rt-s1" class="h">
+            <rect x="120" y="200" width="500" height="240" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="150" y="262" font-size="32" fill="#e8e6df">两个合约各加 10 个元素</text>
+            <text x="150" y="312" font-size="28" fill="#8a8f99">对比累计函数的 <tspan class="mono">avg</tspan></text>
+          </g>
+          <rect id="rt-s1n" x="150" y="350" width="0" height="26" rx="5" fill="#FC6255" />
+          <rect id="rt-s1o" x="150" y="390" width="0" height="26" rx="5" fill="#83C167" />
+          <path id="rt-sa1" class="dr h" pathLength="1" d="M624 320 L704 320" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#rt-arr)" />
+          <g id="rt-s2" class="h">
+            <rect x="710" y="200" width="500" height="240" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="740" y="262" font-size="32" fill="#e8e6df">长度改成 100</text>
+            <text x="1180" y="262" font-size="28" fill="#6b6f7a" text-anchor="end">预期</text>
+            <text x="740" y="312" font-size="28" fill="#8a8f99">差距随长度变大</text>
+          </g>
+          <rect id="rt-s2n" x="740" y="350" width="0" height="26" rx="5" fill="#FC6255" />
+          <rect id="rt-s2o" x="740" y="390" width="0" height="26" rx="5" fill="#83C167" />
+          <path id="rt-sa2" class="dr h" pathLength="1" d="M1214 320 L1294 320" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#rt-arr)" />
+          <g id="rt-s3" class="h">
+            <rect x="1300" y="200" width="500" height="240" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1330" y="262" font-size="32" fill="#e8e6df">实测 vs 手算</text>
+            <text x="1330" y="312" font-size="28" fill="#8a8f99">差异来自这两处开销</text>
+          </g>
+          <g id="rt-s3a" class="h">
+            <rect x="1330" y="350" width="200" height="58" rx="6" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="9 6" />
+            <text x="1430" y="390" font-size="28" fill="#FF9F43" text-anchor="middle">脏槽写入</text>
+          </g>
+          <g id="rt-s3b" class="h">
+            <rect x="1560" y="350" width="210" height="58" rx="6" fill="#12151c" stroke="#8a8f99" stroke-width="2" />
+            <text x="1665" y="390" font-size="28" fill="#e8e6df" text-anchor="middle">循环指令</text>
+          </g>
+          <g id="rt-tw2" class="h">
+            <rect x="120" y="520" width="1680" height="340" rx="12" fill="#0b0d12" stroke="#3a404c" stroke-width="2" />
+            <line x1="120" y1="564" x2="1800" y2="564" stroke="#2a2f3a" stroke-width="2" />
+            <circle cx="150" cy="542" r="7" fill="#FC6255" /><circle cx="174" cy="542" r="7" fill="#F0B90B" /><circle cx="198" cy="542" r="7" fill="#83C167" />
+            <text data-layout-ignore x="960" y="550" class="mono" font-size="20" fill="#6b6f7a" text-anchor="middle">terminal</text>
+          </g>
+          <text id="rt-u1" class="mono" clip-path="url(#rt-c3)" x="160" y="620" font-size="30" fill="#e8e6df"><tspan fill="#83C167">$</tspan> forge snapshot</text>
+          <path id="rt-ua" class="dr h" pathLength="1" d="M480 610 L620 610" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#rt-arr)" />
+          <g id="rt-file" class="h">
+            <path d="M650 580 L700 580 L722 602 L722 660 L650 660 Z" fill="#83C16722" stroke="#83C167" stroke-width="2.5" stroke-linejoin="round" />
+            <path d="M700 580 L700 602 L722 602" fill="none" stroke="#83C167" stroke-width="2.5" />
+            <text x="748" y="622" class="mono" font-size="30" fill="#83C167">.gas-snapshot</text>
+            <text x="1010" y="622" font-size="28" fill="#8a8f99">存一份基线</text>
+          </g>
+          <text id="rt-u2" class="mono" clip-path="url(#rt-c4)" x="160" y="740" font-size="30" fill="#8a8f99"><tspan fill="#83C167">$</tspan> forge snapshot --diff</text>
+          <text id="rt-u2l" class="h" x="620" y="740" font-size="28" fill="#8a8f99">改代码后和基线对比</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="rt-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Gas 报告 <tspan font-size="28" font-weight="400" fill="#8a8f99">Gas Report</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">forge test --gas-report 输出的 Gas 统计表</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, p) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); document.querySelector(p).appendChild(e); return e; };
+      const ICE = (p, cx, cy, r, c = "#FC6255") => { for (let k = 0; k < 3; k++) { const a = k * Math.PI / 3, dx = r * Math.cos(a), dy = r * Math.sin(a); mk("line", { x1: cx - dx, y1: cy - dy, x2: cx + dx, y2: cy + dy, stroke: c, "stroke-width": Math.max(2, r / 7), "stroke-linecap": "round" }, p); } mk("circle", { cx, cy, r: r / 5, fill: c }, p); };
+      const FIRE = (p, cx, cy, r, c = "#FF9F43") => { const s = r / 16, P = (x, y) => `${cx + x * s} ${cy + y * s}`; mk("path", { d: `M${P(0, 16)} C${P(-12, 16)} ${P(-14, 2)} ${P(-6, -6)} C${P(-5, -1)} ${P(-2, 0)} ${P(-1, 1)} C${P(-3, -7)} ${P(0, -13)} ${P(5, -17)} C${P(4, -8)} ${P(13, -4)} ${P(11, 6)} C${P(10, 12)} ${P(6, 16)} ${P(0, 16)} Z`, fill: c }, p); };
+      const R = "#FC6255", O = "#FF9F43", G = "#F0B90B";
+      // 访问条：每次访问一个小方块
+      const MARKS = (p, x, y, cols) => cols.forEach((c, i) => mk("rect", { x: x + i * 26, y, width: 20, height: 10, rx: 2, fill: c }, p));
+      const SHOWM = (p, t, st = 0.05) => tl.fromTo(`${p} rect`, { opacity: 0 }, { opacity: 1, duration: 0.15, stagger: st }, t);
+
+      // 表格线
+      for (let r = 0; r < 5; r++) mk("line", { x1: 500, y1: 380 + r * 90, x2: 1840, y2: 380 + r * 90, stroke: "#2a2f3a", "stroke-width": 2 }, "#rt-grid");
+      mk("line", { x1: 810, y1: 220, x2: 810, y2: 740, stroke: "#2a2f3a", "stroke-width": 2 }, "#rt-grid");
+      mk("line", { x1: 1400, y1: 220, x2: 1400, y2: 380, stroke: "#2a2f3a", "stroke-width": 2 }, "#rt-grid");
+      mk("line", { x1: 1400, y1: 470, x2: 1400, y2: 740, stroke: "#2a2f3a", "stroke-width": 2 }, "#rt-grid");
+      // 左侧数组 10 格
+      for (let i = 0; i < 10; i++) {
+        const x = 100 + (i % 5) * 74, y = 336 + Math.floor(i / 5) * 68;
+        mk("rect", { x, y, width: 62, height: 56, rx: 5, fill: "#1b3a44", stroke: "#58C4DD", "stroke-width": 2 }, "#rt-cells");
+        const g = mk("g", { id: `rt-ic${i}`, opacity: 0 }, "#rt-ices");
+        g.id = `rt-ic${i}`; ICE(`#rt-ic${i}`, x + 31, y + 28, 16);
+      }
+      ICE("#rt-lenice", 232, 306, 13);
+      FIRE("#rt-lenfire", 266, 306, 15);
+      ICE("#rt-rateice", 232, 550, 13);
+      MARKS("#rt-m1n", 830, 356, [R, ...Array(10).fill(O)]);
+      MARKS("#rt-m1o", 1420, 356, [R]);
+      MARKS("#rt-m2", 974, 446, Array(10).fill(R));
+      MARKS("#rt-m3n", 830, 536, [R, ...Array(9).fill(O)]);
+      MARKS("#rt-m4n", 830, 626, [R, ...Array(9).fill(O)]);
+      MARKS("#rt-m4o", 1420, 626, [R]);
+      MARKS("#rt-m5n", 830, 716, [G, ...Array(9).fill(O)]);
+      MARKS("#rt-m5o", 1420, 716, [G]);
+      // 终端列高亮（等宽字宽 ≈ 0.6em）
+      const hdr = "| Function | min | avg | median | max | # calls |";
+      const hdrEl = document.querySelector("#rt-t2");
+      let cw = 28 * 0.6;
+      try { const w = hdrEl.getComputedTextLength() / hdr.length; if (w > 10 && w < 25) cw = w; } catch (e) {}
+      // 数据行：每个字符段按表头同列位置摆放（"…" 用其他字体时宽度不同，逐段定位保证对齐）
+      const row = "| accrue   |  …  |  …  |   …    |  …  |    1    |";
+      row.split(/(…)/).reduce((idx, seg) => {
+        if (seg) { const t = mk("tspan", { x: 280 + idx * cw }, "#rt-t3"); t.textContent = seg; if (seg === "…") t.setAttribute("fill", "#F0B90B"); }
+        return idx + seg.length;
+      }, 0);
+      ["min", "avg", "median", "max", "# calls"].forEach((w, k) => {
+        const i = hdr.indexOf(w);
+        mk("rect", { id: `rt-hl${k}`, x: 280 + i * cw - 10, y: 456, width: w.length * cw + 20, height: 104, rx: 6, fill: "#58C4DD", opacity: 0 }, "#rt-hls");
+      });
+
+      // L0 表头 + 左侧小图
+      IN("#rt-head", at(0, 0.05), 0.6);
+      tl.fromTo("#rt-grid line", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.06 }, at(0, 0.12));
+      IN("#rt-fig", at(0, 0.4), 0.7, { x: -30 }, { x: 0 });
+      tl.fromTo("#rt-cells rect", { attr: { fill: "#1b3a44" } }, { attr: { fill: "#2f6577" }, duration: 0.2, stagger: 0.08, yoyo: true, repeat: 1, immediateRender: false }, at(0, 0.6));
+      tl.to("#rt-tot", { attr: { "stroke-width": 5 }, duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.85));
+      // L1 读长度
+      IN("#rt-r1i", at(1, 0.02), 0.5);
+      IN("#rt-lenice", at(1, 0.12), 0.3);
+      IN("#rt-r1n", at(1, 0.15), 0.5);
+      SHOWM("#rt-m1n", at(1, 0.25));
+      IN("#rt-lenfire", at(1, 0.3), 0.3);
+      IN("#rt-r1o", at(1, 0.68), 0.5);
+      SHOWM("#rt-m1o", at(1, 0.75));
+      // L2 读 10 个元素：大头
+      IN("#rt-r2i", at(2, 0.02), 0.5);
+      for (let i = 0; i < 10; i++) {
+        tl.fromTo(`#rt-ic${i}`, { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, at(2, 0.3 + i * 0.03));
+      }
+      IN("#rt-r2n", at(2, 0.3), 0.5);
+      SHOWM("#rt-m2", at(2, 0.3), 0.08);
+      IN("#rt-r2box", at(2, 0.7), 0.4);
+      tl.to("#rt-r2g", { scale: 1.06, svgOrigin: "1105 420", duration: 0.5, ease: "back.out(2)" }, at(2, 0.7));
+      IN("#rt-big", at(2, 0.76), 0.4, { scale: 0.6, svgOrigin: "1700 425" }, { scale: 1, svgOrigin: "1700 425" });
+      // L3 读 rate / 读 total
+      OUT("#rt-ices, #rt-lenice, #rt-lenfire", at(3, 0), 0.3);
+      tl.to("#rt-r2g", { scale: 1, svgOrigin: "1105 420", duration: 0.4 }, at(3, 0));
+      OUT("#rt-r2box", at(3, 0), 0.4);
+      IN("#rt-rate", at(3, 0.03), 0.4);
+      IN("#rt-r3i", at(3, 0.05), 0.4);
+      IN("#rt-rateice", at(3, 0.12), 0.3);
+      IN("#rt-r3n", at(3, 0.12), 0.5);
+      SHOWM("#rt-m3n", at(3, 0.18));
+      IN("#rt-r3o", at(3, 0.3), 0.5);
+      OUT("#rt-rateice", at(3, 0.32), 0.3);
+      IN("#rt-const", at(3, 0.34), 0.5, { x: 30 }, { x: 0 });
+      IN("#rt-r4i", at(3, 0.5), 0.4);
+      IN("#rt-r4n", at(3, 0.62), 0.5);
+      SHOWM("#rt-m4n", at(3, 0.66));
+      IN("#rt-r4o", at(3, 0.82), 0.5);
+      SHOWM("#rt-m4o", at(3, 0.86));
+      // L4 写 total：脏槽
+      IN("#rt-r5i", at(4, 0.02), 0.4);
+      IN("#rt-r5n", at(4, 0.12), 0.5);
+      SHOWM("#rt-m5n", at(4, 0.2), 0.08);
+      IN("#rt-dirty", at(4, 0.35), 0.4);
+      IN("#rt-dirtyl", at(4, 0.4), 0.4);
+      IN("#rt-r5o", at(4, 0.75), 0.5);
+      SHOWM("#rt-m5o", at(4, 0.8));
+      // L5 合计
+      IN("#rt-sum", at(5, 0.02), 0.4);
+      tl.fromTo("#rt-bn", { attr: { width: 0 } }, { attr: { width: 1000 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(5, 0.05));
+      IN("#rt-vn", at(5, 0.12), 0.4);
+      tl.fromTo("#rt-bo", { attr: { width: 0 } }, { attr: { width: 829 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(5, 0.2));
+      IN("#rt-vo", at(5, 0.27), 0.4);
+      IN("#rt-bd", at(5, 0.4), 0.4);
+      IN("#rt-vd", at(5, 0.45), 0.5);
+      IN("#rt-note", at(5, 0.72), 0.5);
+
+      // L6 直觉估错 → 实测 → gas-report
+      OUT("#rt-p1", at(6, 0), 0.5);
+      IN("#rt-int", at(6, 0.04), 0.5);
+      tl.fromTo("#rt-ib", { attr: { width: 0 } }, { attr: { width: 131 }, duration: 0.6, ease: "power2.out", immediateRender: false }, at(6, 0.1));
+      IN("#rt-meas", at(6, 0.14), 0.5);
+      OUT("#rt-p2", at(6, 0.31), 0.4);
+      IN("#rt-term", at(6, 0.32), 0.6, { x: -20 }, { x: 0 });
+      IN("#rt-tw", at(6, 0.32), 0.5);
+      tl.fromTo("#rt-c1r", { attr: { width: 0 } }, { attr: { width: 1000 }, duration: 1.2, ease: "none", immediateRender: false }, at(6, 0.35));
+      tl.fromTo("#rt-c2r", { attr: { width: 0 } }, { attr: { width: 880 }, duration: 0.8, ease: "none", immediateRender: false }, at(6, 0.47));
+      IN("#rt-tn", at(6, 0.52), 0.4);
+      [0.58, 0.66, 0.74, 0.82, 0.9].forEach((f, k) => {
+        tl.fromTo(`#rt-hl${k}`, { opacity: 0 }, { opacity: 0.3, duration: 0.25, immediateRender: false }, at(6, f));
+        if (k < 4) tl.to(`#rt-hl${k}`, { opacity: 0, duration: 0.25 }, at(6, f + 0.08));
+      });
+
+      // L7 动手练习 + snapshot 基线
+      OUT("#rt-term, #rt-tw, #rt-t1, #rt-t2, #rt-t3, #rt-tn, #rt-hls", at(7, 0), 0.4);
+      IN("#rt-s1", at(7, 0.03), 0.5);
+      tl.fromTo("#rt-s1n", { attr: { width: 0 } }, { attr: { width: 300 }, duration: 0.6, ease: "power2.out", immediateRender: false }, at(7, 0.08));
+      tl.fromTo("#rt-s1o", { attr: { width: 0 } }, { attr: { width: 250 }, duration: 0.6, ease: "power2.out", immediateRender: false }, at(7, 0.1));
+      ARROW("#rt-sa1", at(7, 0.16), 0.4);
+      IN("#rt-s2", at(7, 0.19), 0.5);
+      tl.fromTo("#rt-s2n", { attr: { width: 0 } }, { attr: { width: 300 }, duration: 0.4, ease: "power2.out", immediateRender: false }, at(7, 0.22));
+      tl.fromTo("#rt-s2o", { attr: { width: 0 } }, { attr: { width: 250 }, duration: 0.4, ease: "power2.out", immediateRender: false }, at(7, 0.22));
+      tl.to("#rt-s2n", { attr: { width: 440 }, duration: 1.2, ease: "power2.inOut" }, at(7, 0.28));
+      tl.to("#rt-s2o", { attr: { width: 290 }, duration: 1.2, ease: "power2.inOut" }, at(7, 0.28));
+      ARROW("#rt-sa2", at(7, 0.4), 0.4);
+      IN("#rt-s3", at(7, 0.43), 0.5);
+      IN("#rt-s3a", at(7, 0.5), 0.4);
+      IN("#rt-s3b", at(7, 0.56), 0.4);
+      IN("#rt-tw2", at(7, 0.66), 0.5);
+      tl.fromTo("#rt-c3r", { attr: { width: 0 } }, { attr: { width: 320 }, duration: 0.6, ease: "none", immediateRender: false }, at(7, 0.68));
+      ARROW("#rt-ua", at(7, 0.73), 0.4);
+      IN("#rt-file", at(7, 0.75), 0.5, { y: 10 }, { y: 0 });
+      tl.fromTo("#rt-c4r", { attr: { width: 0 } }, { attr: { width: 440 }, duration: 0.7, ease: "none", immediateRender: false }, at(7, 0.84));
+      IN("#rt-u2l", at(7, 0.9), 0.5);
+
+      tl.to("#rt-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["report"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,257 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 idea，id 前缀 ia- -->
+  <div id="root" data-composition-id="idea" data-duration="61.36" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ia-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ia-arry" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="ia-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+      </defs>
+      <g id="ia-all">
+        <!-- L0 链上：用户钱包 → 充值地址（整组下移 110） -->
+        <g id="ia-top">
+        <g id="ia-chain" class="h">
+          <rect x="100" y="260" width="820" height="320" rx="18" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="12 8" />
+          <text x="130" y="310" font-size="30" fill="#8a8f99">链上</text>
+          <rect x="150" y="380" width="260" height="120" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+          <text x="280" y="452" font-size="34" fill="#e8e6df" text-anchor="middle">用户钱包</text>
+        </g>
+        <g id="ia-addr" class="h">
+          <rect x="620" y="380" width="260" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="750" y="430" font-size="32" fill="#e8e6df" text-anchor="middle">充值地址</text>
+          <text class="mono" x="750" y="476" font-size="28" fill="#58C4DD" text-anchor="middle">0x7e5f…</text>
+        </g>
+        <path id="ia-a0" class="dr h" pathLength="1" d="M414 440 L612 440" fill="none" stroke="#F0B90B" stroke-width="5" marker-end="url(#ia-arry)" />
+        <text id="ia-a0l" class="h mono" x="514" y="420" font-size="28" fill="#F0B90B" text-anchor="middle">100 USDT</text>
+        <path id="ia-a1" class="dr h" pathLength="1" d="M884 440 L1032 440" fill="none" stroke="#58C4DD" stroke-width="3" stroke-dasharray="1" marker-end="url(#ia-arrb)" />
+
+        <!-- L1 平台账本（L5 移到左侧再用） -->
+        <g id="ia-led" class="h">
+          <rect x="1040" y="260" width="780" height="300" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1070" y="312" font-size="34" font-weight="700" fill="#58C4DD">平台账本</text>
+          <text x="1080" y="370" font-size="28" fill="#8a8f99">用户</text>
+          <text x="1280" y="370" font-size="28" fill="#8a8f99">金额</text>
+          <text x="1500" y="370" font-size="28" fill="#8a8f99">类型</text>
+          <line x1="1060" y1="390" x2="1800" y2="390" stroke="#2a2f3a" stroke-width="2" />
+          <g id="ia-r1" class="h">
+            <text class="mono" x="1080" y="450" font-size="30" fill="#e8e6df">A</text>
+            <text class="mono" x="1280" y="450" font-size="32" font-weight="700" fill="#83C167">+100</text>
+            <text class="mono" x="1500" y="450" font-size="30" fill="#58C4DD">credit</text>
+          </g>
+          <g id="ia-r2" class="h">
+            <text class="mono" x="1080" y="512" font-size="30" fill="#e8e6df">A</text>
+            <text class="mono" x="1280" y="512" font-size="32" font-weight="700" fill="#FC6255">−100</text>
+            <text class="mono" x="1500" y="512" font-size="30" fill="#FC6255">reverse</text>
+          </g>
+          <rect id="ia-r2h" class="h" x="1060" y="476" width="740" height="50" rx="8" fill="#FC6255" fill-opacity="0.12" />
+        </g>
+        <g id="ia-tg1" class="h">
+          <rect x="1040" y="600" width="200" height="60" rx="30" fill="none" stroke="#83C167" stroke-width="2.5" />
+          <text x="1140" y="641" font-size="30" fill="#83C167" text-anchor="middle">只能一次</text>
+        </g>
+        <g id="ia-tg2" class="h">
+          <rect x="1270" y="600" width="230" height="60" rx="30" fill="none" stroke="#83C167" stroke-width="2.5" />
+          <text x="1385" y="641" font-size="30" fill="#83C167" text-anchor="middle">必须真到账</text>
+        </g>
+
+        </g>
+        <!-- L2 类比：前台代收快递 -->
+        <polygon id="ia-beam" class="h" points="910,590 1248,330 1248,840" fill="#58C4DD" fill-opacity="0.16" />
+        <g id="ia-desk" class="h">
+          <circle cx="880" cy="604" r="30" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <path d="M830 680 Q880 620 930 680" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <rect x="760" y="680" width="240" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text x="880" y="732" font-size="30" fill="#e8e6df" text-anchor="middle">前台</text>
+        </g>
+        <g id="ia-lock" class="h">
+          <rect x="1248" y="288" width="576" height="552" rx="12" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <g fill="none" stroke="#2a2f3a" stroke-width="2.5">
+            <rect x="1260" y="300" width="180" height="170" rx="6" /><rect x="1446" y="300" width="180" height="170" rx="6" /><rect x="1632" y="300" width="180" height="170" rx="6" />
+            <rect x="1260" y="476" width="180" height="170" rx="6" /><rect x="1446" y="476" width="180" height="170" rx="6" /><rect x="1632" y="476" width="180" height="170" rx="6" />
+            <rect x="1260" y="652" width="180" height="176" rx="6" /><rect x="1446" y="652" width="180" height="176" rx="6" /><rect x="1632" y="652" width="180" height="176" rx="6" />
+          </g>
+          <g class="mono" font-size="28" fill="#6b6f7a">
+            <text x="1274" y="340">A01</text><text x="1460" y="340">A02</text><text x="1646" y="340">A03</text>
+            <text x="1274" y="516">A04</text><text x="1460" y="516">A05</text><text x="1646" y="516">A06</text>
+            <text x="1460" y="692">A08</text><text x="1646" y="692">A09</text>
+          </g>
+          <text class="mono" x="1274" y="692" font-size="28" font-weight="700" fill="#58C4DD">A07</text>
+        </g>
+        <g id="ia-emp" class="h">
+          <circle cx="300" cy="604" r="32" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <path d="M246 690 Q300 626 354 690" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <text x="300" y="750" font-size="28" fill="#8a8f99" text-anchor="middle">员工</text>
+        </g>
+        <g id="ia-tag" class="h">
+          <rect x="240" y="480" width="120" height="54" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="300" y="518" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">A07</text>
+        </g>
+        <text id="ia-tagn" class="h" x="378" y="518" font-size="28" fill="#8a8f99">= 充值地址</text>
+        <g id="ia-clock" class="h">
+          <circle cx="880" cy="360" r="44" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <line x1="880" y1="360" x2="904" y2="360" stroke="#e8e6df" stroke-width="4" stroke-linecap="round" />
+        </g>
+        <line id="ia-hand" class="h" x1="880" y1="360" x2="880" y2="326" stroke="#F0B90B" stroke-width="4" stroke-linecap="round" />
+        <text id="ia-clkn" class="h" x="945" y="372" font-size="30" fill="#e8e6df">每 12 秒 <tspan fill="#8a8f99">= 扫块</tspan></text>
+
+        <!-- L3 包裹进 A07 -->
+        <g id="ia-pkgo">
+          <g id="ia-pkg" class="h">
+            <rect x="1290" y="726" width="110" height="80" rx="6" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <line x1="1345" y1="726" x2="1345" y2="806" stroke="#F0B90B" stroke-width="2" />
+            <rect id="ia-stk" x="1356" y="738" width="34" height="26" rx="4" fill="#FF9F43" />
+          </g>
+        </g>
+        <rect id="ia-ghost" class="h" x="1290" y="726" width="110" height="80" rx="6" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="8 6" />
+        <text id="ia-st1" class="h" x="1225" y="778" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="end">待签收</text>
+        <text id="ia-st2" class="h" x="1225" y="778" font-size="30" font-weight="700" fill="#83C167" text-anchor="end">已签收</text>
+        <text id="ia-st3" class="h" x="1225" y="778" font-size="30" font-weight="700" fill="#FC6255" text-anchor="end">区块链会</text>
+        <g id="ia-msgo">
+          <g id="ia-msg" class="h">
+            <rect x="800" y="500" width="110" height="52" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="855" y="536" font-size="28" fill="#83C167" text-anchor="middle">通知</text>
+          </g>
+        </g>
+        <!-- L4 现实对照 -->
+        <g id="ia-real" class="h">
+          <path d="M150 852 L164 866 L190 838" fill="none" stroke="#8a8f99" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="206" y="864" font-size="30" fill="#8a8f99">现实快递：不会凭空消失</text>
+        </g>
+
+        <!-- L5 两步 + 冲正 -->
+        <g id="ia-s1" class="h">
+          <rect x="400" y="730" width="250" height="66" rx="33" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="525" y="774" font-size="30" fill="#FF9F43" text-anchor="middle">登记 · 待签收</text>
+        </g>
+        <path id="ia-s12" class="dr h" pathLength="1" d="M660 763 L730 763" fill="none" stroke="#e8e6df" stroke-width="4" marker-end="url(#ia-arr)" />
+        <g id="ia-s2" class="h">
+          <rect x="740" y="730" width="250" height="66" rx="33" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text x="865" y="774" font-size="30" fill="#83C167" text-anchor="middle">签收 · 已入账</text>
+        </g>
+        <path id="ia-br" class="dr" pathLength="1" d="M1200 530 Q1222 530 1222 554 L1222 576 Q1222 588 1236 592 Q1222 596 1222 608 L1222 630 Q1222 654 1200 654" fill="none" stroke="#e8e6df" stroke-width="3" />
+        <text id="ia-brt1" class="h" x="1256" y="580" font-size="30" fill="#e8e6df">相互抵消</text>
+        <text id="ia-brt2" class="h" x="1256" y="626" font-size="30" fill="#83C167">原记录保留</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ia-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">充值 <tspan font-size="28" font-weight="400" fill="#8a8f99">Deposit</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">用户把链上资产转进平台分配的地址</text>
+      </g>
+      <g id="ia-t2" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">入账 <tspan font-size="28" font-weight="400" fill="#8a8f99">Credit</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">在平台内部账本给用户记一笔增加</text>
+      </g>
+      <g id="ia-t3" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">重组 <tspan font-size="28" font-weight="400" fill="#8a8f99">Reorg</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">链尾区块被另一条更长的链替换</text>
+      </g>
+      <g id="ia-t4" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">冲正 <tspan font-size="28" font-weight="400" fill="#8a8f99">Reversal</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">用反向流水抵消错误入账</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      tl.set("#ia-top", { y: 110 }, 0);
+      // L0 充值
+      IN("#ia-term", at(0, 0.12), 0.5);
+      IN("#ia-chain", at(0, 0.2));
+      IN("#ia-addr", at(0, 0.5), 0.6, { y: 16 }, { y: 0 });
+      ARROW("#ia-a0", at(0, 0.7), 0.7);
+      IN("#ia-a0l", at(0, 0.78), 0.4);
+
+      // L1 入账
+      OUT("#ia-term", at(1, 0), 0.3);
+      IN("#ia-t2", at(1, 0) + 0.35, 0.5);
+      ARROW("#ia-a1", at(1, 0.08), 0.5);
+      IN("#ia-led", at(1, 0.12));
+      IN("#ia-r1", at(1, 0.3), 0.5, { x: -16 }, { x: 0 });
+      IN("#ia-tg1", at(1, 0.62), 0.5, { y: 12 }, { y: 0 });
+      IN("#ia-tg2", at(1, 0.84), 0.5, { y: 12 }, { y: 0 });
+
+      // L2 类比：前台
+      OUT("#ia-chain, #ia-addr, #ia-a0, #ia-a0l, #ia-a1, #ia-led, #ia-tg1, #ia-tg2, #ia-t2", at(2, 0), 0.45);
+      IN("#ia-desk", at(2, 0.08));
+      IN("#ia-lock", at(2, 0.16));
+      IN("#ia-emp", at(2, 0.32));
+      IN("#ia-tag", at(2, 0.42), 0.5, { y: -12 }, { y: 0 });
+      IN("#ia-tagn", at(2, 0.52), 0.5);
+      IN("#ia-clock, #ia-hand", at(2, 0.66), 0.5);
+      IN("#ia-clkn", at(2, 0.72), 0.5);
+      tl.fromTo("#ia-beam", { opacity: 0 }, { opacity: 1, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(2, 0.8));
+      tl.to("#ia-hand", { rotation: 360, svgOrigin: "880 360", duration: 1.6, ease: "none" }, at(2, 0.8));
+
+      // L3 待签收 → 已签收 → 通知
+      IN("#ia-pkg", at(3, 0.02), 0.5);
+      tl.fromTo("#ia-pkgo", { y: -40 }, { y: 0, duration: 0.6, ease: "bounce.out" }, at(3, 0.02));
+      IN("#ia-st1", at(3, 0.14), 0.5);
+      tl.fromTo("#ia-beam", { opacity: 0 }, { opacity: 0.8, duration: 0.4, ease: "sine.inOut", immediateRender: false }, at(3, 0.3));
+      tl.to("#ia-hand", { rotation: 720, svgOrigin: "880 360", duration: 2.2, ease: "none" }, at(3, 0.32));
+      OUT("#ia-beam", at(3, 0.56), 0.4);
+      tl.to("#ia-stk", { attr: { fill: "#83C167" }, duration: 0.4 }, at(3, 0.58));
+      OUT("#ia-st1", at(3, 0.56), 0.3);
+      IN("#ia-st2", at(3, 0.6), 0.4);
+      IN("#ia-msg", at(3, 0.78), 0.3);
+      tl.fromTo("#ia-msgo", { x: 0, y: 0 }, { x: -440, y: 40, duration: 1.0, ease: "power2.inOut" }, at(3, 0.8));
+
+      // L4 重组：包裹会消失
+      IN("#ia-t3", at(4, 0.05), 0.5);
+      IN("#ia-real", at(4, 0.2), 0.5);
+      tl.to("#ia-pkg", { scale: 1.25, svgOrigin: "1345 766", opacity: 0, duration: 0.45, ease: "power2.out" }, at(4, 0.55));
+      IN("#ia-ghost", at(4, 0.6), 0.4);
+      OUT("#ia-st2", at(4, 0.5), 0.3);
+      IN("#ia-st3", at(4, 0.62), 0.4);
+
+      // L5 两步 + 冲正
+      OUT("#ia-desk, #ia-lock, #ia-emp, #ia-tag, #ia-tagn, #ia-clock, #ia-hand, #ia-clkn, #ia-ghost, #ia-st3, #ia-msg, #ia-real, #ia-t3", at(5, 0), 0.45);
+      tl.set("#ia-led", { x: -640 }, at(5, 0) + 0.5);
+      tl.set("#ia-r1", { opacity: 1 }, at(5, 0) + 0.5);
+      IN("#ia-led", at(5, 0.05), 0.6);
+      IN("#ia-s1", at(5, 0.08), 0.5);
+      ARROW("#ia-s12", at(5, 0.15), 0.4);
+      IN("#ia-s2", at(5, 0.2), 0.5);
+      IN("#ia-t4", at(5, 0.36), 0.5);
+      IN("#ia-r2", at(5, 0.4), 0.5, { y: 12 }, { y: 0 });
+      tl.fromTo("#ia-r2h", { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 1 }, at(5, 0.42));
+      DRAW("#ia-br", at(5, 0.6), 0.5);
+      IN("#ia-brt1", at(5, 0.64), 0.4);
+      IN("#ia-brt2", at(5, 0.8), 0.4);
+
+      tl.to("#ia-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ia-term, #ia-t2, #ia-t3, #ia-t4", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["idea"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,322 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 vote，id 前缀 vo- -->
+  <div id="root" data-composition-id="vote" data-duration="68.09" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="vo-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="vo-all">
+        <!-- 五条线缩略图（右上角） -->
+        <g id="vo-thumb">
+          <rect x="1650" y="89" width="34" height="28" rx="3" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <g stroke-width="3">
+            <line x1="1684" y1="103" x2="1784" y2="61" stroke="#83C167" />
+            <line x1="1684" y1="103" x2="1784" y2="82" stroke="#83C167" />
+            <line x1="1684" y1="103" x2="1784" y2="103" stroke="#83C167" />
+            <line x1="1684" y1="103" x2="1784" y2="124" stroke="#83C167" />
+            <line id="vo-tl4" x1="1684" y1="103" x2="1784" y2="145" stroke="#FF9F43" />
+          </g>
+          <g stroke-width="2">
+            <circle cx="1790" cy="61" r="6" fill="#83C167" stroke="#83C167" />
+            <circle cx="1790" cy="82" r="6" fill="#83C167" stroke="#83C167" />
+            <circle cx="1790" cy="103" r="6" fill="#83C167" stroke="#83C167" />
+            <circle cx="1790" cy="124" r="6" fill="#83C167" stroke="#83C167" />
+            <circle id="vo-tc4" cx="1790" cy="145" r="6" fill="#FF9F43" stroke="#FF9F43" />
+          </g>
+        </g>
+
+        <!-- L0–L3 法定人数算一算 -->
+        <g id="vo-p1">
+          <g id="vo-ex" class="h">
+            <rect x="70" y="60" width="96" height="46" rx="8" fill="none" stroke="#6b6f7a" stroke-width="2" />
+            <text x="118" y="93" font-size="28" fill="#8a8f99" text-anchor="middle">示例</text>
+          </g>
+          <rect id="vo-tot" class="h" x="160" y="170" width="1600" height="36" rx="6" fill="#8a8f99" fill-opacity="0.25" stroke="#8a8f99" stroke-width="1.5" />
+          <rect id="vo-q4" x="160" y="170" width="0" height="36" rx="4" fill="#FF9F43" fill-opacity="0.9" />
+          <text id="vo-totl" class="h" x="1760" y="252" font-size="30" fill="#8a8f99" text-anchor="end">代币总量 1,000 万</text>
+          <text id="vo-ql" class="h" x="240" y="252" font-size="30" fill="#FF9F43">4% → 法定人数 = 40 万票</text>
+          <path id="vo-drop" class="dr" pathLength="1" d="M224 206 V660" fill="none" stroke="#FF9F43" stroke-width="3" />
+          <!-- 柱状图 -->
+          <line id="vo-base" class="h" x1="200" y1="900" x2="1080" y2="900" stroke="#6b6f7a" stroke-width="2" />
+          <rect id="vo-b0" x="300" y="900" width="140" height="0" fill="#83C167" fill-opacity="0.75" />
+          <rect id="vo-b1" x="520" y="900" width="140" height="0" fill="#FC6255" fill-opacity="0.75" />
+          <rect id="vo-b2" x="740" y="900" width="140" height="0" fill="#8a8f99" fill-opacity="0.75" />
+          <path id="vo-qline" class="dr" pathLength="1" d="M224 660 H1080" fill="none" stroke="#FF9F43" stroke-width="3" />
+          <text id="vo-q40" class="h" x="210" y="670" font-size="28" fill="#FF9F43" text-anchor="end">40 万</text>
+          <g font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">
+            <text id="vo-v0" class="h" x="370" y="524">60 万</text>
+            <text id="vo-v1" class="h" x="590" y="764">20 万</text>
+            <text id="vo-v2" class="h" x="810" y="824">10 万</text>
+            <text id="vo-v70" class="h" x="370" y="464">70 万</text>
+          </g>
+          <g font-size="30" text-anchor="middle">
+            <text id="vo-n0" class="h" x="370" y="950" fill="#83C167">赞成</text>
+            <text id="vo-n1" class="h" x="590" y="950" fill="#FC6255">反对</text>
+            <text id="vo-n2" class="h" x="810" y="950" fill="#8a8f99">弃权</text>
+          </g>
+          <text id="vo-ck" class="h" x="458" y="500" font-size="48" font-weight="700" fill="#83C167">✓</text>
+          <!-- L2 右侧算式 -->
+          <g id="vo-f">
+            <text id="vo-f1" class="h" x="1160" y="340" font-size="30" fill="#e8e6df">赞成 + 弃权计入法定人数</text>
+            <text id="vo-f2" class="h" x="1160" y="420" font-size="40" font-weight="700"><tspan fill="#83C167">60 万</tspan><tspan fill="#e8e6df"> + </tspan><tspan fill="#8a8f99">10 万</tspan><tspan fill="#e8e6df"> = </tspan><tspan fill="#F0B90B">70 万</tspan><tspan fill="#e8e6df"> ≥ </tspan><tspan fill="#FF9F43">40 万</tspan></text>
+            <text id="vo-f3" class="h" x="1160" y="500" font-size="36" font-weight="700" fill="#83C167">达到法定人数 ✓</text>
+          </g>
+          <!-- L3 比较与状态 -->
+          <line id="vo-cmpl" class="dr" pathLength="1" x1="440" y1="540" x2="700" y2="540" stroke="#8a8f99" stroke-width="2" stroke-dasharray="1" />
+          <text id="vo-cmp" class="h" x="1160" y="420" font-size="44" font-weight="700"><tspan fill="#83C167">60 万</tspan><tspan fill="#e8e6df"> &gt; </tspan><tspan fill="#FC6255">20 万</tspan><tspan fill="#83C167">  ✓ 通过</tspan></text>
+          <g id="vo-st0" class="h">
+            <rect x="1150" y="520" width="210" height="80" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1255" y="570" font-size="28" fill="#e8e6df" text-anchor="middle">Succeeded</text>
+          </g>
+          <path id="vo-sa0" class="dr h" pathLength="1" d="M1362 560 H1396" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#vo-arr)" />
+          <g id="vo-st1" class="h">
+            <rect x="1400" y="520" width="180" height="80" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+            <text class="mono" x="1490" y="570" font-size="28" fill="#B48EF0" text-anchor="middle">Queued</text>
+          </g>
+          <path id="vo-sa1" class="dr h" pathLength="1" d="M1582 560 H1616" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#vo-arr)" />
+          <g id="vo-st2" class="h">
+            <rect id="vo-st2r" x="1620" y="520" width="200" height="80" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1720" y="570" font-size="28" fill="#83C167" text-anchor="middle">Executed</text>
+          </g>
+          <g id="vo-hg" class="h">
+            <path d="M1466 640 H1514 L1490 680 L1514 720 H1466 L1490 680 Z" fill="none" stroke="#B48EF0" stroke-width="3" stroke-linejoin="round" />
+            <path id="vo-sandT" d="M1472 646 H1508 L1490 676 Z" fill="#B48EF0" fill-opacity="0.7" />
+            <path id="vo-sandB" d="M1474 716 H1506 L1490 690 Z" fill="#B48EF0" fill-opacity="0.7" />
+            <text x="1530" y="694" font-size="30" font-weight="700" fill="#B48EF0">2 天</text>
+          </g>
+          <text id="vo-any" class="h" x="1720" y="652" font-size="28" fill="#83C167" text-anchor="middle">任何人可执行</text>
+          <circle id="vo-dot" class="h" cx="1255" cy="500" r="9" fill="#F0B90B" />
+        </g>
+
+        <!-- L4 委托 -->
+        <g id="vo-p2">
+          <g id="vo-wal" class="h">
+            <rect x="160" y="330" width="240" height="170" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <rect x="330" y="385" width="70" height="60" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text x="280" y="550" font-size="28" fill="#8a8f99" text-anchor="middle">钱包</text>
+          </g>
+          <g fill="#F0B90B" stroke="#0f1117" stroke-width="2">
+            <circle id="vo-coin0" class="h" cx="210" cy="430" r="20" />
+            <circle id="vo-coin1" class="h" cx="252" cy="430" r="20" />
+            <circle id="vo-coin2" class="h" cx="294" cy="430" r="20" />
+          </g>
+          <g id="vo-vp" class="h">
+            <rect x="460" y="330" width="320" height="170" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="620" y="380" font-size="28" fill="#8a8f99" text-anchor="middle">投票权</text>
+          </g>
+          <text id="vo-vp0" class="h mono" x="620" y="472" font-size="64" font-weight="700" fill="#FC6255" text-anchor="middle">0</text>
+          <text id="vo-vp1" class="h" x="620" y="468" font-size="48" font-weight="700" fill="#83C167" text-anchor="middle">= 余额</text>
+          <g id="vo-btn" class="h">
+            <g id="vo-btns">
+              <rect id="vo-btnr" x="160" y="580" width="360" height="76" rx="38" fill="#83C167" fill-opacity="0" stroke="#83C167" stroke-width="3" />
+              <text x="340" y="630" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">委托给自己</text>
+            </g>
+          </g>
+          <text id="vo-nov" class="h" x="160" y="760" font-size="30" font-weight="700" fill="#FF9F43">空投用户：有币无票</text>
+          <g id="vo-code" class="h">
+            <rect x="840" y="300" width="1020" height="330" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2" />
+            <rect id="vo-hl" class="h" x="852" y="574" width="996" height="38" rx="4" fill="#58C4DD" fill-opacity="0.15" />
+            <g class="mono" font-size="28" fill="#e8e6df">
+              <text x="862" y="360" xml:space="preserve">contract GovToken is ERC20, ERC20Permit, ERC20Votes {</text>
+              <text x="862" y="400" xml:space="preserve">    constructor() ERC20("Gov", "GOV") ERC20Permit("Gov") {</text>
+              <text x="862" y="440" xml:space="preserve">        _mint(msg.sender, 10_000_000e18);</text>
+              <text x="862" y="480" xml:space="preserve">    }</text>
+              <text x="862" y="520" xml:space="preserve">}</text>
+              <text x="862" y="600" fill="#83C167" xml:space="preserve">token.delegate(msg.sender);</text>
+            </g>
+          </g>
+          <text id="vo-cn" class="h" x="880" y="690" font-size="30" fill="#8a8f99">持币人先委托，投票权才会被记录</text>
+        </g>
+
+        <!-- L5 参数卡 -->
+        <g id="vo-p3">
+          <rect id="vo-pc" class="h" x="300" y="290" width="1320" height="420" rx="14" fill="#161a22" stroke="#3a3f4b" stroke-width="2" />
+          <text id="vo-pl0" class="h mono" x="360" y="390" font-size="30" fill="#e8e6df" xml:space="preserve">GovernorSettings(7200, 50400, 100_000e18)</text>
+          <rect id="vo-u0" class="h" x="666" y="402" width="72" height="4" fill="#e8e6df" />
+          <text id="vo-a0" class="h" x="738" y="460" font-size="28" fill="#e8e6df" text-anchor="end">× 12 秒 ≈ 1 天</text>
+          <rect id="vo-u1" class="h" x="774" y="402" width="90" height="4" fill="#58C4DD" />
+          <text id="vo-a1" class="h" x="774" y="460" font-size="28" fill="#58C4DD">≈ 7 天</text>
+          <text id="vo-pl1" class="h mono" x="360" y="600" font-size="30" fill="#e8e6df" xml:space="preserve">GovernorVotesQuorumFraction(4)</text>
+          <rect id="vo-u2" class="h" x="864" y="612" width="18" height="4" fill="#FF9F43" />
+          <text id="vo-a2" class="h" x="873" y="668" font-size="28" fill="#FF9F43" text-anchor="middle">法定人数 4%</text>
+          <rect id="vo-tb0" x="360" y="770" width="0" height="36" fill="#e8e6df" fill-opacity="0.45" />
+          <rect id="vo-tb1" x="512" y="770" width="0" height="36" fill="#58C4DD" fill-opacity="0.5" />
+          <text id="vo-tbl0" class="h" x="360" y="850" font-size="28" fill="#e8e6df">延迟 ≈ 1 天</text>
+          <text id="vo-tbl1" class="h" x="1036" y="850" font-size="28" fill="#58C4DD" text-anchor="middle">投票期 ≈ 7 天</text>
+        </g>
+
+        <!-- L6–L7 链上 vs 链下 -->
+        <g id="vo-p4">
+          <g stroke="#3a3f4b" stroke-width="2">
+            <line id="vo-gv0" class="dr" pathLength="1" x1="450" y1="250" x2="450" y2="800" />
+            <line id="vo-gv1" class="dr" pathLength="1" x1="1110" y1="250" x2="1110" y2="800" />
+            <line id="vo-gh0" class="dr" pathLength="1" x1="160" y1="320" x2="1760" y2="320" />
+            <line id="vo-gh1" class="dr" pathLength="1" x1="160" y1="420" x2="1760" y2="420" />
+            <line id="vo-gh2" class="dr" pathLength="1" x1="160" y1="590" x2="1760" y2="590" />
+            <line id="vo-gh3" class="dr" pathLength="1" x1="160" y1="680" x2="1760" y2="680" />
+          </g>
+          <text id="vo-hd0" class="h" x="780" y="292" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">链上治理 Governor</text>
+          <text id="vo-hd1" class="h" x="1440" y="292" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">链下投票 Snapshot</text>
+          <g font-size="30" fill="#8a8f99">
+            <text id="vo-rl0" class="h" x="180" y="382">投票方式</text>
+            <text id="vo-rl1" class="h" x="180" y="515">自动执行</text>
+            <text id="vo-rl2" class="h" x="180" y="646">防闪电贷</text>
+            <text id="vo-rl3" class="h" x="180" y="752">适合</text>
+          </g>
+          <g font-size="30" fill="#e8e6df" text-anchor="middle">
+            <text id="vo-c00" class="h" x="780" y="382">每票一笔交易 · 花 Gas</text>
+            <text id="vo-c01" class="h" x="1440" y="382">EIP-712 签名 · 免 Gas</text>
+            <text id="vo-c10" class="h" x="780" y="515">能，经时间锁</text>
+            <text id="vo-c11a" class="h" x="1440" y="470">默认不能：多签执行</text>
+            <text id="vo-c11b" class="h" x="1440" y="515">或 SafeSnap · oSnap 插件</text>
+            <text id="vo-osn" class="h" x="1440" y="562" font-size="28" font-weight="700" fill="#FF9F43">UMA：2025-12-15 起停止支持</text>
+            <text id="vo-c20" class="h" x="780" y="646" fill="#83C167" font-weight="700">快照</text>
+            <text id="vo-c21" class="h" x="1440" y="646" fill="#83C167" font-weight="700">快照</text>
+            <text id="vo-c30" class="h" x="780" y="752" fill="#83C167">合约参数、资金划拨（要强制执行）</text>
+            <text id="vo-c31" class="h" x="1440" y="752" fill="#58C4DD">信号投票、低成本征集意见</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const BAR = (s, y, h, t, d = 0.8) => tl.fromTo(s, { attr: { y: 900, height: 0 } }, { attr: { y, height: h }, duration: d, ease: "power2.out", immediateRender: false }, t);
+
+      // L0 总量条与 4% 法定人数
+      IN("#vo-ex", at(0, 0.02), 0.5);
+      IN("#vo-tot", at(0, 0.06), 0.6, { scaleX: 0, svgOrigin: "160 188" }, { scaleX: 1, svgOrigin: "160 188" });
+      IN("#vo-totl", at(0, 0.18), 0.5);
+      tl.to("#vo-q4", { attr: { width: 64 }, duration: 0.6, ease: "power2.out" }, at(0, 0.45));
+      IN("#vo-ql", at(0, 0.52), 0.5, { x: -12 }, { x: 0 });
+      DRAW("#vo-drop", at(0, 0.66), 0.6);
+      IN("#vo-base", at(0, 0.74), 0.4);
+      DRAW("#vo-qline", at(0, 0.8), 0.7);
+      IN("#vo-q40", at(0, 0.86), 0.4);
+      // L1 三根柱
+      OUT("#vo-drop", at(1, 0), 0.4);
+      BAR("#vo-b0", 540, 360, at(1, 0.08));
+      IN("#vo-n0", at(1, 0.08), 0.4);
+      IN("#vo-v0", at(1, 0.22), 0.4);
+      BAR("#vo-b1", 780, 120, at(1, 0.4));
+      IN("#vo-n1", at(1, 0.4), 0.4);
+      IN("#vo-v1", at(1, 0.52), 0.4);
+      BAR("#vo-b2", 840, 60, at(1, 0.68));
+      IN("#vo-n2", at(1, 0.68), 0.4);
+      IN("#vo-v2", at(1, 0.78), 0.4);
+      // L2 赞成 + 弃权 叠成 70 万
+      IN("#vo-f1", at(2, 0.05), 0.5);
+      OUT("#vo-v2, #vo-v0", at(2, 0.3), 0.3);
+      tl.to("#vo-b2", { attr: { x: 300, y: 480 }, duration: 1.0, ease: "power2.inOut" }, at(2, 0.34));
+      tl.to("#vo-n2", { opacity: 0.35, duration: 0.4 }, at(2, 0.34));
+      IN("#vo-v70", at(2, 0.5), 0.4);
+      IN("#vo-f2", at(2, 0.5), 0.6, { x: -16 }, { x: 0 });
+      tl.to("#vo-qline", { stroke: "#83C167", duration: 0.4 }, at(2, 0.78));
+      IN("#vo-ck", at(2, 0.8), 0.4, { scale: 1.6, svgOrigin: "476 484" }, { scale: 1, svgOrigin: "476 484" });
+      IN("#vo-f3", at(2, 0.84), 0.5);
+      // L3 赞成 > 反对 → Queued → Executed
+      OUT("#vo-f1, #vo-f2, #vo-f3, #vo-v70, #vo-ck", at(3, 0), 0.35);
+      tl.to("#vo-b2", { attr: { x: 740, y: 840 }, duration: 0.8, ease: "power2.inOut" }, at(3, 0.02));
+      tl.to("#vo-n2", { opacity: 1, duration: 0.4 }, at(3, 0.02));
+      IN("#vo-v0, #vo-v2", at(3, 0.12), 0.4);
+      DRAW("#vo-cmpl", at(3, 0.14), 0.5);
+      IN("#vo-cmp", at(3, 0.18), 0.5, { x: -16 }, { x: 0 });
+      IN("#vo-st0", at(3, 0.3), 0.5, { y: 12 }, { y: 0 });
+      IN("#vo-dot", at(3, 0.32), 0.3);
+      ARROW("#vo-sa0", at(3, 0.4), 0.3);
+      IN("#vo-st1", at(3, 0.44), 0.5, { y: 12 }, { y: 0 });
+      tl.to("#vo-dot", { attr: { cx: 1490 }, duration: 0.5, ease: "power2.inOut" }, at(3, 0.44));
+      IN("#vo-hg", at(3, 0.5), 0.4);
+      tl.fromTo("#vo-sandT", { scaleY: 1, svgOrigin: "1490 676" }, { scaleY: 0, svgOrigin: "1490 676", duration: 1.6, ease: "none", immediateRender: false }, at(3, 0.56));
+      tl.fromTo("#vo-sandB", { scaleY: 0.1, svgOrigin: "1490 716" }, { scaleY: 1, svgOrigin: "1490 716", duration: 1.6, ease: "none" }, at(3, 0.56));
+      ARROW("#vo-sa1", at(3, 0.76), 0.3);
+      IN("#vo-st2", at(3, 0.8), 0.5, { y: 12 }, { y: 0 });
+      tl.to("#vo-dot", { attr: { cx: 1720 }, duration: 0.5, ease: "power2.inOut" }, at(3, 0.8));
+      tl.to("#vo-st2r", { fill: "#1f2d1c", duration: 0.4 }, at(3, 0.86));
+      IN("#vo-any", at(3, 0.88), 0.5);
+      // L4 委托
+      OUT("#vo-p1", at(4, 0), 0.5);
+      IN("#vo-wal", at(4, 0.06), 0.5);
+      ["#vo-coin0", "#vo-coin1", "#vo-coin2"].forEach((s, i) => IN(s, at(4, 0.1 + i * 0.04), 0.5, { y: -160 }, { y: 0, ease: "bounce.out" }));
+      IN("#vo-vp", at(4, 0.22), 0.5);
+      IN("#vo-vp0", at(4, 0.28), 0.4, { scale: 1.6, svgOrigin: "620 450" }, { scale: 1, svgOrigin: "620 450" });
+      tl.to("#vo-vp0", { opacity: 0.35, duration: 0.2, yoyo: true, repeat: 3 }, at(4, 0.34));
+      IN("#vo-code", at(4, 0.4), 0.6);
+      IN("#vo-btn", at(4, 0.48), 0.5, { y: 14 }, { y: 0 });
+      IN("#vo-hl", at(4, 0.55), 0.4);
+      tl.to("#vo-btns", { scale: 0.94, svgOrigin: "340 618", duration: 0.12, yoyo: true, repeat: 1 }, at(4, 0.6));
+      tl.to("#vo-btnr", { fillOpacity: 0.28, duration: 0.25 }, at(4, 0.6));
+      OUT("#vo-vp0", at(4, 0.64), 0.3);
+      IN("#vo-vp1", at(4, 0.68), 0.5, { scale: 0.6, svgOrigin: "620 452" }, { scale: 1, svgOrigin: "620 452" });
+      tl.to("#vo-vp rect", { stroke: "#83C167", duration: 0.4 }, at(4, 0.68));
+      IN("#vo-cn", at(4, 0.6), 0.5);
+      IN("#vo-nov", at(4, 0.7), 0.5, { x: -12 }, { x: 0 });
+      // L5 参数卡
+      OUT("#vo-p2", at(5, 0), 0.4);
+      IN("#vo-pc", at(5, 0.03), 0.5);
+      IN("#vo-pl0", at(5, 0.06), 0.5);
+      IN("#vo-u0", at(5, 0.16), 0.3, { scaleX: 0, svgOrigin: "666 404" }, { scaleX: 1, svgOrigin: "666 404" });
+      IN("#vo-a0", at(5, 0.22), 0.5, { y: -10 }, { y: 0 });
+      tl.to("#vo-tb0", { attr: { width: 150 }, duration: 0.6, ease: "power2.out" }, at(5, 0.26));
+      IN("#vo-tbl0", at(5, 0.3), 0.4);
+      IN("#vo-u1", at(5, 0.5), 0.3, { scaleX: 0, svgOrigin: "774 404" }, { scaleX: 1, svgOrigin: "774 404" });
+      IN("#vo-a1", at(5, 0.56), 0.5, { y: -10 }, { y: 0 });
+      tl.to("#vo-tb1", { attr: { width: 1050 }, duration: 1.4, ease: "power1.inOut" }, at(5, 0.58));
+      IN("#vo-tbl1", at(5, 0.72), 0.4);
+      IN("#vo-pl1", at(5, 0.84), 0.5);
+      IN("#vo-u2", at(5, 0.88), 0.3);
+      IN("#vo-a2", at(5, 0.9), 0.4, { y: -10 }, { y: 0 });
+      // L6 链上 vs 链下
+      OUT("#vo-p3", at(6, 0), 0.4);
+      DRAW("#vo-gv0, #vo-gv1", at(6, 0.02), 0.6);
+      DRAW("#vo-gh0", at(6, 0.03), 0.6);
+      IN("#vo-hd0", at(6, 0.04), 0.5);
+      IN("#vo-hd1", at(6, 0.06), 0.5);
+      DRAW("#vo-gh1", at(6, 0.1), 0.5);
+      IN("#vo-rl0", at(6, 0.12), 0.4);
+      IN("#vo-c01", at(6, 0.14), 0.5);
+      IN("#vo-c00", at(6, 0.2), 0.5);
+      DRAW("#vo-gh2", at(6, 0.26), 0.5);
+      DRAW("#vo-gh3", at(6, 0.3), 0.5);
+      IN("#vo-rl2", at(6, 0.3), 0.4);
+      IN("#vo-c20, #vo-c21", at(6, 0.32), 0.5, { scale: 1.3, svgOrigin: "1110 636" }, { scale: 1, svgOrigin: "1110 636" });
+      IN("#vo-rl1", at(6, 0.42), 0.4);
+      IN("#vo-c10", at(6, 0.44), 0.5);
+      IN("#vo-c11a", at(6, 0.5), 0.5);
+      IN("#vo-c11b", at(6, 0.6), 0.5);
+      IN("#vo-osn", at(6, 0.82), 0.5, { y: 8 }, { y: 0 });
+      // L7 适合
+      IN("#vo-rl3", at(7, 0.05), 0.4);
+      IN("#vo-c30", at(7, 0.12), 0.6, { x: -16 }, { x: 0 });
+      IN("#vo-c31", at(7, 0.55), 0.6, { x: -16 }, { x: 0 });
+      tl.to("#vo-tl4", { stroke: "#83C167", duration: 0.5 }, at(7, 0.8));
+      tl.to("#vo-tc4", { fill: "#83C167", stroke: "#83C167", duration: 0.5 }, at(7, 0.8));
+
+      tl.to("#vo-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["vote"] = tl;
+    })();
+  </script>
+</template>

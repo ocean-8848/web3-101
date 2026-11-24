@@ -1,0 +1,163 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 storage，id 前缀 st- -->
+  <div id="root" data-composition-id="storage" data-duration="70.45" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="st-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="st-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="st-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+      </defs>
+      <g id="st-all">
+        <!-- 安全等级箭头 -->
+        <path id="st-up" class="dr h" pathLength="1" d="M310 915 L310 235" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#st-arr)"/>
+        <g id="st-upl" class="h"><text x="282" y="566" font-size="28" fill="#e8e6df" text-anchor="end">安全</text><text x="282" y="604" font-size="28" fill="#e8e6df" text-anchor="end">等级</text></g>
+        <!-- 三层框 -->
+        <rect id="st-l0" class="h" x="360" y="700" width="1200" height="220" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+        <rect id="st-l1" class="h" x="360" y="460" width="1200" height="220" rx="18" fill="#83C167" fill-opacity="0.06" stroke="#83C167" stroke-opacity="0.6" stroke-width="3"/>
+        <rect id="st-l2" class="h" x="360" y="220" width="1200" height="220" rx="18" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="4"/>
+        <!-- 底层 -->
+        <text id="st-t0" class="h" x="392" y="750" font-size="32" font-weight="700" fill="#8a8f99">普通存储</text>
+        <g id="st-f0" class="h">
+          <path d="M392 790 h28 l12 12 v38 h-40 z" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-linejoin="round"/>
+          <g id="st-fl0" stroke="#8a8f99" stroke-width="2.5"><line x1="399" y1="810" x2="425" y2="810"/><line x1="399" y1="820" x2="425" y2="820"/><line x1="399" y1="830" x2="417" y2="830"/></g>
+          <text class="mono" x="460" y="826" font-size="28" fill="#e8e6df">AsyncStorage</text>
+        </g>
+        <g id="st-f1" class="h">
+          <path d="M700 790 h28 l12 12 v38 h-40 z" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-linejoin="round"/>
+          <g id="st-fl1" stroke="#8a8f99" stroke-width="2.5"><line x1="707" y1="810" x2="733" y2="810"/><line x1="707" y1="820" x2="733" y2="820"/><line x1="707" y1="830" x2="725" y2="830"/></g>
+          <text class="mono" x="768" y="826" font-size="28" fill="#e8e6df">SharedPreferences</text>
+        </g>
+        <g id="st-f2" class="h">
+          <path d="M1090 790 h28 l12 12 v38 h-40 z" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-linejoin="round"/>
+          <g id="st-fl2" stroke="#8a8f99" stroke-width="2.5"><line x1="1097" y1="810" x2="1123" y2="810"/><line x1="1097" y1="820" x2="1123" y2="820"/><line x1="1097" y1="830" x2="1115" y2="830"/></g>
+          <text class="mono" x="1158" y="826" font-size="28" fill="#e8e6df">UserDefaults</text>
+        </g>
+        <g id="st-lens" class="h"><circle cx="412" cy="815" r="30" fill="#FC6255" fill-opacity="0.12" stroke="#e8e6df" stroke-width="3"/><line x1="433" y1="836" x2="452" y2="855" stroke="#e8e6df" stroke-width="6" stroke-linecap="round"/></g>
+        <text id="st-plain" class="h" x="1420" y="826" font-size="32" font-weight="700" fill="#FC6255">明文</text>
+        <g id="st-ban" class="h"><circle cx="1238" cy="740" r="18" fill="none" stroke="#FC6255" stroke-width="4"/><line x1="1225" y1="753" x2="1251" y2="727" stroke="#FC6255" stroke-width="4"/><text x="1270" y="751" font-size="30" font-weight="700" fill="#FC6255">严禁存密钥</text></g>
+        <g id="st-c0" class="h"><rect x="392" y="862" width="88" height="44" rx="10" fill="none" stroke="#6b6f7a" stroke-width="2"/><text x="436" y="894" font-size="28" fill="#8a8f99" text-anchor="middle">主题</text></g>
+        <g id="st-c1" class="h"><rect x="500" y="862" width="88" height="44" rx="10" fill="none" stroke="#6b6f7a" stroke-width="2"/><text x="544" y="894" font-size="28" fill="#8a8f99" text-anchor="middle">语言</text></g>
+        <g id="st-c2" class="h"><rect x="608" y="862" width="88" height="44" rx="10" fill="none" stroke="#6b6f7a" stroke-width="2"/><text x="652" y="894" font-size="28" fill="#8a8f99" text-anchor="middle">缓存</text></g>
+        <!-- 中层 -->
+        <text id="st-t1a" class="h mono" x="392" y="512" font-size="30" font-weight="700" fill="#83C167">iOS Keychain</text>
+        <text id="st-t1b" class="h mono" x="650" y="512" font-size="30" font-weight="700" fill="#83C167">EncryptedSharedPreferences</text>
+        <g id="st-lock" class="h" stroke="#83C167" stroke-width="3" fill="none"><path d="M1408 498 v-10 a14 14 0 0 1 28 0 v10"/><rect x="1400" y="498" width="44" height="32" rx="5" fill="#83C167" fill-opacity="0.25"/></g>
+        <g id="st-fp" class="h" stroke="#83C167" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M1478 520 a22 22 0 0 1 44 0"/><path d="M1486 524 a14 14 0 0 1 28 0"/><path d="M1494 528 a6 6 0 0 1 12 0"/><path d="M1478 520 v8 M1522 520 v8"/></g>
+        <g id="st-k0" class="h"><rect x="392" y="566" width="230" height="76" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="507" y="615" font-size="30" fill="#e8e6df" text-anchor="middle">加密分片</text></g>
+        <g id="st-k1" class="h"><rect x="660" y="566" width="230" height="76" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="775" y="615" font-size="30" fill="#e8e6df" text-anchor="middle">会话密钥</text></g>
+        <!-- 顶层 -->
+        <text id="st-t2" class="h mono" x="392" y="268" font-size="30" font-weight="700" fill="#83C167">Secure Enclave / StrongBox</text>
+        <g id="st-chipo"><g id="st-chip" class="h">
+          <g stroke="#83C167" stroke-width="3"><line x1="945" y1="290" x2="945" y2="300"/><line x1="980" y1="290" x2="980" y2="300"/><line x1="1015" y1="290" x2="1015" y2="300"/><line x1="945" y1="420" x2="945" y2="430"/><line x1="980" y1="420" x2="980" y2="430"/><line x1="1015" y1="420" x2="1015" y2="430"/><line x1="1040" y1="330" x2="1050" y2="330"/><line x1="1040" y1="390" x2="1050" y2="390"/><line x1="910" y1="330" x2="920" y2="330"/><line x1="910" y1="390" x2="920" y2="390"/></g>
+          <rect x="920" y="300" width="120" height="120" rx="12" fill="#1d2a1a" stroke="#83C167" stroke-width="3.5"/>
+          <rect id="st-core" x="952" y="332" width="56" height="56" rx="6" fill="#83C167"/>
+        </g></g>
+        <g id="st-atk">
+          <text id="st-atl0" class="h" x="420" y="345" font-size="28" fill="#FC6255">内核</text>
+          <text id="st-atl1" class="h" x="420" y="405" font-size="28" fill="#FC6255">越狱脚本</text>
+          <path id="st-at0" class="dr h" pathLength="1" d="M560 335 L890 335" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#st-arr-r)"/>
+          <path id="st-at1" class="dr h" pathLength="1" d="M560 395 L890 395" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#st-arr-r)"/>
+        </g>
+        <path id="st-shield" class="dr h" pathLength="1" d="M902 300 Q884 360 902 420" stroke="#83C167" stroke-width="5" fill="none"/>
+        <!-- L5 -->
+        <g id="st-pkey" class="h"><circle cx="958" cy="340" r="11" fill="none" stroke="#83C167" stroke-width="4"/><path d="M969 340 H1004 M994 340 v10 M1002 340 v8" stroke="#83C167" stroke-width="4" fill="none"/><text class="mono" x="980" y="398" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">P-256</text></g>
+        <g id="st-wk" class="h"><circle cx="1098" cy="278" r="10" fill="none" stroke="#83C167" stroke-width="4"/><path d="M1108 278 H1138 M1130 278 v9" stroke="#83C167" stroke-width="4" fill="none"/><text x="1152" y="289" font-size="28" fill="#83C167">包装密钥</text></g>
+        <g id="st-mk" class="h"><circle cx="1322" cy="278" r="10" fill="none" stroke="#F0B90B" stroke-width="4"/><path d="M1332 278 H1362 M1354 278 v9" stroke="#F0B90B" stroke-width="4" fill="none"/><text x="1400" y="289" font-size="28" fill="#F0B90B">主密钥</text></g>
+        <path id="st-env" class="dr h" pathLength="1" d="M1300 252 H1380 V304 H1300 Z M1300 252 L1340 280 L1380 252" stroke="#F0B90B" stroke-width="3" fill="none"/>
+        <g id="st-bio" class="h" stroke="#83C167" stroke-width="3" fill="none" stroke-linecap="round"><path d="M730 372 a30 30 0 0 1 60 0"/><path d="M740 378 a20 20 0 0 1 40 0"/><path d="M750 384 a10 10 0 0 1 20 0"/><path d="M730 372 v14 M790 372 v14"/></g>
+        <path id="st-bl" class="dr h" pathLength="1" d="M806 362 L900 362" stroke="#83C167" stroke-width="3" stroke-dasharray="1" fill="none"/>
+        <path id="st-sa" class="dr h" pathLength="1" d="M1052 385 L1150 385" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#st-arr-g)"/>
+        <text id="st-sig" class="h" x="1166" y="396" font-size="30" font-weight="700" fill="#F0B90B">签名</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="st-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">硬件安全芯片 <tspan font-size="28" font-weight="400" fill="#8a8f99">Secure Enclave / StrongBox</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">独立于主处理器的加密芯片</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+// L0 三层空框，自下而上
+DRAW("#st-up", at(0, 0.05), 1.6); tl.set("#st-up", { opacity: 1 }, at(0, 0.05));
+["#st-l0", "#st-l1", "#st-l2"].forEach((s, i) => IN(s, at(0, 0.12 + i * 0.18), 0.6, { y: 30 }, { y: 0 }));
+IN("#st-upl", at(0, 0.7), 0.5);
+// L1 底层
+IN("#st-t0", at(1, 0.02), 0.5);
+IN("#st-f0", at(1, 0.12), 0.5, { y: 12 }, { y: 0 });
+IN("#st-f1", at(1, 0.26), 0.5, { y: 12 }, { y: 0 });
+IN("#st-f2", at(1, 0.42), 0.5, { y: 12 }, { y: 0 });
+IN("#st-lens", at(1, 0.58), 0.4);
+tl.to("#st-fl0", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.62));
+tl.set("#st-lens", { x: 308 }, at(1, 0.68)); tl.to("#st-fl1", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.69));
+tl.set("#st-lens", { x: 698 }, at(1, 0.76)); tl.to("#st-fl2", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.77));
+IN("#st-plain", at(1, 0.8), 0.5, { scale: 1.3, svgOrigin: "1452 815" }, { scale: 1, svgOrigin: "1452 815" });
+// L2 禁止标 + 只放缓存
+OUT("#st-lens", at(2, 0.0), 0.3);
+IN("#st-ban", at(2, 0.08), 0.5, { scale: 1.4, svgOrigin: "1330 740" }, { scale: 1, svgOrigin: "1330 740" });
+IN("#st-c0", at(2, 0.5), 0.4); IN("#st-c1", at(2, 0.6), 0.4); IN("#st-c2", at(2, 0.7), 0.4);
+// L3 中层
+IN("#st-t1a", at(3, 0.04), 0.5);
+IN("#st-t1b", at(3, 0.16), 0.5);
+IN("#st-lock", at(3, 0.42), 0.4); IN("#st-fp", at(3, 0.52), 0.4);
+IN("#st-k0", at(3, 0.74), 0.5, { y: 14 }, { y: 0 });
+IN("#st-k1", at(3, 0.86), 0.5, { y: 14 }, { y: 0 });
+// L4 顶层：芯片
+IN("#st-term", at(4, 0.0), 0.5);
+IN("#st-t2", at(4, 0.06), 0.5);
+IN("#st-chip", at(4, 0.18), 0.6, { scale: 0.6, svgOrigin: "980 360" }, { scale: 1, svgOrigin: "980 360" });
+IN("#st-atl0", at(4, 0.5), 0.3); ARROW("#st-at0", at(4, 0.52), 0.5);
+IN("#st-atl1", at(4, 0.58), 0.3); ARROW("#st-at1", at(4, 0.6), 0.5);
+tl.set("#st-shield", { opacity: 1 }, at(4, 0.7)); DRAW("#st-shield", at(4, 0.7), 0.3);
+tl.to("#st-atk", { x: -40, duration: 0.4, ease: "back.out(2)" }, at(4, 0.72));
+tl.to("#st-atk", { opacity: 0.35, duration: 0.4 }, at(4, 0.76));
+OUT("#st-term", at(4, 0.5), 0.4);
+// L5 芯片内生成 P-256、包装密钥、指纹触发签名
+OUT("#st-atk, #st-shield", at(5, 0.0), 0.4);
+OUT("#st-core", at(5, 0.06), 0.3);
+IN("#st-pkey", at(5, 0.1), 0.5, { scale: 0.5, svgOrigin: "980 365" }, { scale: 1, svgOrigin: "980 365" });
+IN("#st-wk", at(5, 0.28), 0.5, { x: -20 }, { x: 0 });
+IN("#st-mk", at(5, 0.38), 0.5);
+tl.set("#st-env", { opacity: 1 }, at(5, 0.46)); DRAW("#st-env", at(5, 0.46), 0.7);
+IN("#st-bio", at(5, 0.6), 0.4);
+tl.set("#st-bl", { opacity: 1 }, at(5, 0.64)); DRAW("#st-bl", at(5, 0.64), 0.4);
+[0.7, 0.8, 0.9].forEach((f, i) => {
+  const t = at(5, f);
+  tl.to("#st-bio", { stroke: "#e8e6df", duration: 0.15 }, t); tl.to("#st-bio", { stroke: "#83C167", duration: 0.3 }, t + 0.15);
+  tl.to("#st-chip rect", { strokeWidth: 6, duration: 0.15 }, t + 0.15); tl.to("#st-chip rect", { strokeWidth: 3.5, duration: 0.3 }, t + 0.3);
+  if (i === 0) { ARROW("#st-sa", t + 0.25, 0.4); IN("#st-sig", t + 0.5, 0.3); }
+  else { tl.fromTo("#st-sig", { opacity: 0.3 }, { opacity: 1, duration: 0.4, immediateRender: false }, t + 0.35); }
+});
+
+
+      tl.to("#st-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#st-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["storage"] = tl;
+    })();
+  </script>
+</template>

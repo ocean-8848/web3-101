@@ -1,0 +1,191 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 re- -->
+  <div id="root" data-composition-id="recap" data-duration="31.82" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <!-- 三个图标（L3 上移并缩小：外层位移，内层缩放） -->
+        <g id="re-icons">
+          <g id="re-iconss">
+            <g id="re-i1" class="h">
+              <circle cx="480" cy="290" r="76" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+              <path d="M446 330 L454 300 L498 256 L520 278 L476 322 Z M454 300 L476 322" fill="none" stroke="#58C4DD" stroke-width="4" stroke-linejoin="round" />
+            </g>
+            <g id="re-i2" class="h">
+              <circle cx="960" cy="290" r="76" fill="#161a22" stroke="#83C167" stroke-width="3" />
+              <path d="M946 248 L946 318 A14 14 0 0 0 974 318 L974 248 M936 248 L984 248" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" />
+              <path d="M946 294 L974 294 L974 318 A14 14 0 0 1 946 318 Z" fill="#83C167" fill-opacity="0.6" />
+            </g>
+            <g id="re-i3" class="h">
+              <circle cx="1440" cy="290" r="76" fill="#161a22" stroke="#83C167" stroke-width="3" />
+              <path d="M1440 244 L1478 258 L1478 292 Q1478 322 1440 338 Q1402 322 1402 292 L1402 258 Z" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="4" stroke-linejoin="round" />
+            </g>
+          </g>
+        </g>
+        <g id="re-lbs">
+          <text id="re-lb1" class="h" x="480" y="420" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">写出来</text>
+          <text id="re-lb2" class="h" x="960" y="420" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">测明白</text>
+          <text id="re-lb3" class="h" x="1440" y="420" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">守得住</text>
+        </g>
+
+        <!-- L0 写出来 -->
+        <g id="re-x1">
+          <text id="re-e1" class="h" x="480" y="512" font-size="30" fill="#58C4DD" text-anchor="middle">EVM 怎样执行</text>
+          <text id="re-e2" class="h" x="480" y="572" font-size="30" fill="#58C4DD" text-anchor="middle">Gas 怎样计费</text>
+          <text id="re-e3" class="h" x="480" y="632" font-size="30" fill="#58C4DD" text-anchor="middle">存储为什么贵</text>
+        </g>
+
+        <!-- L1 守得住：三个盾牌 + 防护图标 -->
+        <g id="re-x3">
+          <g id="re-sh1" class="h">
+            <path id="re-shp1" d="M1300 474 L1342 490 L1342 528 Q1342 562 1300 580 Q1258 562 1258 528 L1258 490 Z" fill="none" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round" />
+            <text x="1300" y="630" font-size="28" fill="#e8e6df" text-anchor="middle">重入</text>
+          </g>
+          <g id="re-sh2" class="h">
+            <path id="re-shp2" d="M1440 474 L1482 490 L1482 528 Q1482 562 1440 580 Q1398 562 1398 528 L1398 490 Z" fill="none" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round" />
+            <text x="1440" y="630" font-size="28" fill="#e8e6df" text-anchor="middle">预言机操纵</text>
+          </g>
+          <g id="re-sh3" class="h">
+            <path id="re-shp3" d="M1580 474 L1622 490 L1622 528 Q1622 562 1580 580 Q1538 562 1538 528 L1538 490 Z" fill="none" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round" />
+            <text x="1580" y="630" font-size="28" fill="#e8e6df" text-anchor="middle">权限失控</text>
+          </g>
+          <!-- 挂锁 -->
+          <g id="re-p1" class="h" fill="none" stroke="#83C167" stroke-width="3.5">
+            <path d="M1290 516 L1290 508 A10 10 0 0 1 1310 508 L1310 516" />
+            <rect x="1284" y="516" width="32" height="26" rx="4" fill="#83C167" fill-opacity="0.3" />
+          </g>
+          <!-- 天线塔 -->
+          <g id="re-p2" class="h" fill="none" stroke="#83C167" stroke-width="3.5" stroke-linecap="round">
+            <path d="M1440 512 L1428 552 M1440 512 L1452 552 M1432 538 L1448 538" />
+            <circle cx="1440" cy="508" r="4" fill="#83C167" />
+            <path d="M1428 498 A16 16 0 0 1 1452 498 M1422 490 A24 24 0 0 1 1458 490" />
+          </g>
+          <!-- 沙漏 -->
+          <g id="re-p3" class="h" fill="none" stroke="#83C167" stroke-width="3.5" stroke-linejoin="round">
+            <path d="M1566 500 L1594 500 L1566 550 L1594 550 Z" />
+            <path d="M1572 544 L1588 544 L1580 532 Z" fill="#83C167" />
+          </g>
+        </g>
+
+        <!-- L2 测明白：流水线 -->
+        <g id="re-x2">
+          <g id="re-b1" class="h"><rect id="re-br1" x="717" y="480" width="96" height="60" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="765" y="520" font-size="28" fill="#e8e6df" text-anchor="middle">编写</text></g>
+          <path id="re-a1" class="dr h" pathLength="1" d="M817 510 L843 510" stroke="#8a8f99" stroke-width="2.5" marker-end="url(#re-arr)" />
+          <g id="re-b2" class="h"><rect id="re-br2" x="847" y="480" width="96" height="60" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="895" y="520" font-size="28" fill="#e8e6df" text-anchor="middle">测试</text></g>
+          <path id="re-a2" class="dr h" pathLength="1" d="M947 510 L973 510" stroke="#8a8f99" stroke-width="2.5" marker-end="url(#re-arr)" />
+          <g id="re-b3" class="h"><rect id="re-br3" x="977" y="480" width="96" height="60" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="1025" y="520" font-size="28" fill="#e8e6df" text-anchor="middle">部署</text></g>
+          <path id="re-a3" class="dr h" pathLength="1" d="M1077 510 L1103 510" stroke="#8a8f99" stroke-width="2.5" marker-end="url(#re-arr)" />
+          <g id="re-b4" class="h"><rect id="re-br4" x="1107" y="480" width="96" height="60" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="1155" y="520" font-size="28" fill="#e8e6df" text-anchor="middle">审计</text></g>
+        </g>
+
+        <!-- L3 DeFi 积木 -->
+        <text id="re-defi" class="h" x="960" y="380" font-size="60" font-weight="700" fill="#e8e6df" text-anchor="middle">DeFi</text>
+        <g id="re-st">
+          <rect class="h re-bk re-bk-st" x="492" y="736" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-st" x="564" y="736" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-st" x="492" y="664" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-st" x="564" y="664" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-st" x="492" y="592" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-st" x="564" y="592" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+        </g>
+        <text id="re-bn-st" class="h" x="560" y="866" font-size="34" fill="#F0B90B" text-anchor="middle">稳定币</text>
+        <g id="re-amm">
+          <rect class="h re-bk re-bk-amm" x="856" y="736" width="64" height="64" rx="8" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="3" />
+          <rect class="h re-bk re-bk-amm" x="928" y="736" width="64" height="64" rx="8" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="3" />
+          <rect class="h re-bk re-bk-amm" x="1000" y="736" width="64" height="64" rx="8" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="3" />
+          <rect class="h re-bk re-bk-amm" x="856" y="664" width="64" height="64" rx="8" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="3" />
+          <rect class="h re-bk re-bk-amm" x="928" y="664" width="64" height="64" rx="8" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="3" />
+          <rect class="h re-bk re-bk-amm" x="1000" y="664" width="64" height="64" rx="8" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="3" />
+          <rect class="h re-bk re-bk-amm" x="928" y="592" width="64" height="64" rx="8" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="3" />
+        </g>
+        <text id="re-bn-amm" class="h" x="960" y="866" font-size="34" fill="#58C4DD" text-anchor="middle">自动做市商</text>
+        <g id="re-ln">
+          <rect class="h re-bk re-bk-ln" x="1292" y="736" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-ln" x="1364" y="736" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-ln" x="1292" y="664" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-ln" x="1364" y="664" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-ln" x="1292" y="592" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-ln" x="1364" y="592" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-ln" x="1292" y="520" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+          <rect class="h re-bk re-bk-ln" x="1364" y="520" width="64" height="64" rx="8" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+        </g>
+        <text id="re-bn-ln" class="h" x="1360" y="866" font-size="34" fill="#F0B90B" text-anchor="middle">借贷</text>
+
+        <!-- L4 下一集 -->
+        <g id="re-next" class="h">
+          <text x="960" y="500" font-size="36" fill="#8a8f99" text-anchor="middle">下一集</text>
+          <text x="960" y="590" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle">智能合约与 EVM</text>
+        </g>
+      </g>
+      <rect id="re-black" class="h" x="0" y="0" width="1920" height="1080" fill="#000" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0 三个图标回来；写出来下方三行
+      [1, 2, 3].forEach((k, i) => {
+        IN("#re-i" + k, at(0, 0.0) + i * 0.25, 0.5, { scale: 0.6, svgOrigin: (0 + 480 * k) + " 290" }, { scale: 1, svgOrigin: (0 + 480 * k) + " 290" });
+        IN("#re-lb" + k, at(0, 0.05) + i * 0.25, 0.5, { y: 10 }, { y: 0 });
+      });
+      tl.fromTo("#re-i1", { scale: 1 }, { scale: 1.1, svgOrigin: "480 290", duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(0, 0.3));
+      IN("#re-e1", at(0, 0.34), 0.5, { y: -10 }, { y: 0 });
+      IN("#re-e2", at(0, 0.56), 0.5, { y: -10 }, { y: 0 });
+      IN("#re-e3", at(0, 0.78), 0.5, { y: -10 }, { y: 0 });
+
+      // L1 守得住：盾牌 + 防护
+      tl.fromTo("#re-i3", { scale: 1 }, { scale: 1.1, svgOrigin: "1440 290", duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(1, 0.02));
+      [1, 2, 3].forEach((k, i) => {
+        IN("#re-sh" + k, at(1, 0.08 + i * 0.12), 0.5, { y: -12 }, { y: 0 });
+        IN("#re-p" + k, at(1, 0.55 + i * 0.12), 0.4, { scale: 0.5, svgOrigin: (1160 + 140 * k) + " 525" }, { scale: 1, svgOrigin: (1160 + 140 * k) + " 525" });
+        tl.to("#re-shp" + k, { attr: { stroke: "#83C167" }, duration: 0.3 }, at(1, 0.55 + i * 0.12));
+      });
+
+      // L2 测明白：编写 → 测试 → 部署 → 审计
+      tl.fromTo("#re-i2", { scale: 1 }, { scale: 1.1, svgOrigin: "960 290", duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(2, 0.02));
+      [1, 2, 3, 4].forEach((k, i) => {
+        const t = at(2, 0.08 + i * 0.2);
+        IN("#re-b" + k, t, 0.4, { x: -10 }, { x: 0 });
+        tl.to("#re-br" + k, { attr: { stroke: "#83C167" }, duration: 0.3 }, t + 0.35);
+        if (k < 4) ARROW("#re-a" + k, t + 0.3, 0.3);
+      });
+
+      // L3 图标缩到上方；积木拼成 DeFi
+      OUT(["#re-lbs", "#re-x1", "#re-x2", "#re-x3"], at(3, 0), 0.4);
+      tl.to("#re-icons", { y: -150, duration: 0.7, ease: "power2.inOut" }, at(3, 0.04));
+      tl.to("#re-iconss", { scale: 0.55, svgOrigin: "960 290", duration: 0.7, ease: "power2.inOut" }, at(3, 0.04));
+      IN("#re-defi", at(3, 0.16), 0.6, { y: 12 }, { y: 0 });
+      ["st", "amm", "ln"].forEach((b, i) => {
+        const t = at(3, 0.22 + i * 0.22);
+        tl.fromTo(".re-bk-" + b, { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.4, ease: "bounce.out", stagger: 0.08 }, t);
+        IN("#re-bn-" + b, t + 0.55, 0.4, { y: 8 }, { y: 0 });
+      });
+
+      // L4 下一集 → 淡到黑
+      OUT(["#re-icons", "#re-defi", "#re-st", "#re-amm", "#re-ln", "#re-bn-st", "#re-bn-amm", "#re-bn-ln"], at(4, 0), 0.4);
+      IN("#re-next", at(4, 0.1), 0.6, { y: 14 }, { y: 0 });
+      tl.to("#re-all", { opacity: 0, duration: 0.8, ease: "power2.in" }, C.d - 1.3);
+      tl.to("#re-black", { opacity: 1, duration: 0.8, ease: "power2.in" }, C.d - 1.3);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

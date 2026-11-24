@@ -1,0 +1,228 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 re- -->
+  <div id="root" data-composition-id="recap" data-duration="65.26" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="re-all">
+
+        <!-- L0 金库 + 三问 -->
+        <g id="re-vault" class="h">
+          <polygon points="760,400 830,340 1190,340 1120,400" fill="#1b2a33" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round" />
+          <polygon points="1120,400 1190,340 1190,680 1120,740" fill="#14202a" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round" />
+          <rect x="760" y="400" width="360" height="340" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="900" y="446" font-size="28" fill="#58C4DD" text-anchor="middle">Vault</text>
+          <circle cx="900" cy="575" r="100" fill="#10161e" stroke="#58C4DD" stroke-width="4" />
+          <circle cx="900" cy="575" r="84" fill="none" stroke="#2a3040" stroke-width="2" stroke-dasharray="6 6" />
+          <rect x="1030" y="595" width="70" height="60" rx="6" fill="#10161e" stroke="#58C4DD" stroke-width="3" />
+        </g>
+        <g id="re-q1" class="h">
+          <rect x="390" y="200" width="340" height="84" rx="22" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <path d="M600 284 L630 316 L640 284" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round" />
+          <rect x="598" y="279" width="44" height="8" fill="#161a22" />
+          <text x="560" y="256" font-size="40" fill="#FF9F43" text-anchor="middle">谁能按暂停键？</text>
+        </g>
+        <g id="re-q2" class="h">
+          <rect x="1170" y="200" width="380" height="84" rx="22" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <path d="M1200 284 L1180 316 L1240 284" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round" />
+          <rect x="1198" y="279" width="44" height="8" fill="#161a22" />
+          <text x="1360" y="256" font-size="40" fill="#FF9F43" text-anchor="middle">每人每天取多少？</text>
+        </g>
+        <g id="re-q3" class="h">
+          <rect x="740" y="800" width="380" height="84" rx="22" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <path d="M880 800 L900 768 L920 800" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round" />
+          <rect x="878" y="797" width="44" height="8" fill="#161a22" />
+          <text x="930" y="856" font-size="40" fill="#FF9F43" text-anchor="middle">先扣账？先转账？</text>
+        </g>
+        <g id="re-a1" class="h">
+          <rect x="200" y="170" width="560" height="130" rx="20" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <rect x="230" y="205" width="130" height="60" rx="30" fill="#231c33" stroke="#B48EF0" stroke-width="3" />
+          <text class="mono" x="295" y="245" font-size="28" fill="#B48EF0" text-anchor="middle">ROLE</text>
+          <rect id="re-a1g" x="384" y="195" width="16" height="80" rx="4" fill="#FF9F43" />
+          <text x="430" y="248" font-size="34" fill="#e8e6df">修饰器 + 角色分离</text>
+        </g>
+        <g id="re-a2" class="h">
+          <rect x="1160" y="170" width="600" height="130" rx="20" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <rect x="1190" y="194" width="180" height="26" rx="4" fill="#F0B90B" />
+          <rect id="re-a2r" x="1370" y="194" width="180" height="26" rx="4" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="8 6" />
+          <line x1="1490" y1="184" x2="1490" y2="230" stroke="#e8e6df" stroke-width="3" />
+          <text x="1190" y="278" font-size="30" fill="#FC6255"><tspan class="mono">OverDailyLimit(</tspan>剩余, 申请<tspan class="mono">)</tspan></text>
+        </g>
+        <rect id="re-a3" class="h" x="560" y="790" width="740" height="130" rx="20" fill="#161a22" stroke="#83C167" stroke-width="3" />
+        <g id="re-s1" class="h"><rect x="590" y="815" width="140" height="80" rx="12" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="3" />
+          <text x="660" y="868" font-size="34" fill="#FF9F43" text-anchor="middle">检查</text></g>
+        <path id="re-r1" class="dr h" pathLength="1" d="M740 855 H788" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+        <g id="re-s2" class="h"><rect x="800" y="815" width="140" height="80" rx="12" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="3" />
+          <text x="870" y="868" font-size="34" fill="#58C4DD" text-anchor="middle">改账</text></g>
+        <path id="re-r2" class="dr h" pathLength="1" d="M950 855 H998" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+        <g id="re-s3" class="h"><rect x="1010" y="815" width="140" height="80" rx="12" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="3" />
+          <text x="1080" y="868" font-size="34" fill="#F0B90B" text-anchor="middle">转账</text></g>
+        <g id="re-lk" class="h"><path d="M1210 840 V826 A22 22 0 0 1 1254 826 V840" fill="none" stroke="#83C167" stroke-width="6" />
+          <rect x="1198" y="840" width="68" height="50" rx="8" fill="#83C167" /></g>
+        <!-- L3-L5 误区卡 -->
+        <g id="re-m1" class="h">
+          <rect x="90" y="230" width="840" height="470" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="2" />
+          <text x="130" y="298" font-size="34" font-weight="700" fill="#FC6255">✕ 误区</text>
+          <text id="re-m1w" x="130" y="370" font-size="34" fill="#e8e6df"><tspan class="mono">transfer</tspan> 只转 2300 Gas 最安全</text>
+          <path d="M150 410 V472" stroke="#6b6f7a" stroke-width="4" marker-end="url(#re-arr)" />
+        </g>
+        <g id="re-m1r" class="h">
+          <text x="130" y="540" font-size="34" font-weight="700" fill="#83C167">✓ 正解</text>
+          <text x="130" y="612" font-size="34" fill="#e8e6df">合约钱包会收不到钱</text>
+        </g>
+        <g id="re-m2" class="h">
+          <rect x="990" y="230" width="840" height="470" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="2" />
+          <text x="1030" y="298" font-size="34" font-weight="700" fill="#FC6255">✕ 误区</text>
+          <text id="re-m2w" x="1030" y="370" font-size="34" fill="#e8e6df"><tspan class="mono">require</tspan> 字符串没成本</text>
+          <path d="M1050 410 V472" stroke="#6b6f7a" stroke-width="4" marker-end="url(#re-arr)" />
+        </g>
+        <g id="re-m2r" class="h">
+          <text x="1030" y="540" font-size="34" font-weight="700" fill="#83C167">✓ 正解</text>
+          <text x="1030" y="612" font-size="34" fill="#e8e6df">生产代码用自定义错误</text>
+        </g>
+        <g id="re-m3" class="h">
+          <rect x="90" y="230" width="840" height="470" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="2" />
+          <text x="130" y="298" font-size="34" font-weight="700" fill="#FC6255">✕ 误区</text>
+          <text id="re-m3w" x="130" y="370" font-size="34" fill="#e8e6df"><tspan class="mono">unchecked</tspan> 到处用</text>
+          <path d="M150 410 V472" stroke="#6b6f7a" stroke-width="4" marker-end="url(#re-arr)" />
+        </g>
+        <g id="re-m3r" class="h">
+          <text x="130" y="540" font-size="34" font-weight="700" fill="#83C167">✓ 正解</text>
+          <text x="130" y="612" font-size="34" fill="#e8e6df">只用在能证明安全的计数器</text>
+        </g>
+        <g id="re-m4" class="h">
+          <rect x="990" y="230" width="840" height="470" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="2" />
+          <text x="1030" y="298" font-size="34" font-weight="700" fill="#FC6255">✕ 误区</text>
+          <text id="re-m4w" x="1030" y="370" font-size="34" fill="#e8e6df"><tspan class="mono">onlyOwner</tspan> 就够了</text>
+          <path d="M1050 410 V472" stroke="#6b6f7a" stroke-width="4" marker-end="url(#re-arr)" />
+        </g>
+        <g id="re-m4r" class="h">
+          <text x="1030" y="540" font-size="34" font-weight="700" fill="#83C167">✓ 正解</text>
+          <text x="1030" y="612" font-size="34" fill="#e8e6df">角色分离 + 多签 + 时间锁</text>
+        </g>
+        <g id="re-m5" class="h">
+          <rect x="90" y="230" width="960" height="530" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="2" />
+          <text x="130" y="298" font-size="34" font-weight="700" fill="#FC6255">✕ 误区</text>
+          <text id="re-m5w" x="130" y="370" font-size="34" fill="#e8e6df"><tspan class="mono">assert</tspan> 与 <tspan class="mono">require</tspan> 互换</text>
+          <path d="M150 410 V472" stroke="#6b6f7a" stroke-width="4" marker-end="url(#re-arr)" />
+        </g>
+        <g id="re-m5r" class="h">
+          <text x="130" y="540" font-size="34" font-weight="700" fill="#83C167">✓ 正解</text>
+          <text x="130" y="612" font-size="34" fill="#e8e6df"><tspan class="mono">require</tspan> 查外部输入</text><text x="130" y="676" font-size="34" fill="#e8e6df"><tspan class="mono">assert</tspan> 查内部不变量</text>
+        </g>
+        <g id="re-fz" class="h"><rect id="re-ch0" x="1180" y="455" width="50" height="50" rx="8" fill="#2a3040" stroke="#6b6f7a" stroke-width="2" /><rect id="re-ch1" x="1260" y="455" width="50" height="50" rx="8" fill="#2a3040" stroke="#6b6f7a" stroke-width="2" /><rect id="re-ch2" x="1340" y="455" width="50" height="50" rx="8" fill="#2a3040" stroke="#6b6f7a" stroke-width="2" /><rect id="re-ch3" x="1420" y="455" width="50" height="50" rx="8" fill="#2a3040" stroke="#6b6f7a" stroke-width="2" /><rect id="re-ch4" x="1500" y="455" width="50" height="50" rx="8" fill="#2a3040" stroke="#6b6f7a" stroke-width="2" /><rect id="re-ch5" x="1580" y="455" width="50" height="50" rx="8" fill="#2a3040" stroke="#6b6f7a" stroke-width="2" /><rect id="re-ch6" x="1660" y="455" width="50" height="50" rx="8" fill="#2a3040" stroke="#6b6f7a" stroke-width="2" /><rect id="re-ch7" x="1740" y="455" width="50" height="50" rx="8" fill="#2a3040" stroke="#6b6f7a" stroke-width="2" /></g>
+        <g id="re-mgw" class="h"><g id="re-mg">
+          <circle cx="1205" cy="480" r="52" fill="none" stroke="#e8e6df" stroke-width="6" />
+          <line x1="1242" y1="517" x2="1280" y2="555" stroke="#e8e6df" stroke-width="10" stroke-linecap="round" />
+        </g></g>
+        <text id="re-hit" class="h" x="1605" y="640" font-size="30" fill="#FC6255" text-anchor="middle">触发 <tspan class="mono">assert</tspan></text>
+        <text id="re-fzl" class="h" x="1480" y="740" font-size="32" fill="#8a8f99" text-anchor="middle">模糊测试</text>
+        <!-- L6 金库 + 测试勾选 -->
+        <g id="re-sv" class="h">
+          <rect x="560" y="420" width="240" height="240" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="4" />
+          <circle cx="680" cy="540" r="70" fill="#10161e" stroke="#58C4DD" stroke-width="4" />
+          <circle cx="680" cy="540" r="12" fill="#58C4DD" />
+        </g>
+        <g id="re-tbs" class="h"><rect id="re-tb0" x="980" y="505" width="72" height="72" rx="10" fill="none" stroke="#6b6f7a" stroke-width="4" /><path id="re-tk0" class="dr h" pathLength="1" d="M996 541 L1012 558 L1040 522" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><rect id="re-tb1" x="1100" y="505" width="72" height="72" rx="10" fill="none" stroke="#6b6f7a" stroke-width="4" /><path id="re-tk1" class="dr h" pathLength="1" d="M1116 541 L1132 558 L1160 522" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><rect id="re-tb2" x="1220" y="505" width="72" height="72" rx="10" fill="none" stroke="#6b6f7a" stroke-width="4" /><path id="re-tk2" class="dr h" pathLength="1" d="M1236 541 L1252 558 L1280 522" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><rect id="re-tb3" x="1340" y="505" width="72" height="72" rx="10" fill="none" stroke="#6b6f7a" stroke-width="4" /><path id="re-tk3" class="dr h" pathLength="1" d="M1356 541 L1372 558 L1400 522" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></g>
+        <!-- L7 下一集 -->
+        <text id="re-nx" class="h" x="960" y="490" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle">下一集 · 开发工具链</text>
+        <text id="re-nx2" class="h" x="960" y="580" font-size="40" fill="#8a8f99" text-anchor="middle"><tspan class="mono">Foundry</tspan> 测试、部署、验证与 <tspan class="mono">CI</tspan></text>
+      </g>
+      <rect id="re-black" x="0" y="0" width="1920" height="1080" fill="#000000" opacity="0" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 回到三问；问题 1 的答案
+      IN("#re-vault", at(0, 0.0), 0.6);
+      IN("#re-q1", at(0, 0.04), 0.4, { y: 10 }, { y: 0 });
+      IN("#re-q2", at(0, 0.08), 0.4, { y: 10 }, { y: 0 });
+      IN("#re-q3", at(0, 0.12), 0.4, { y: 10 }, { y: 0 });
+      OUT("#re-q1", at(0, 0.4), 0.3);
+      IN("#re-a1", at(0, 0.46), 0.5, { scale: 0.9, svgOrigin: "480 235" }, { scale: 1, svgOrigin: "480 235" });
+      tl.to("#re-a1g", { fill: "#83C167", duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.8));
+      // L1 问题 2：日限额
+      OUT("#re-q2", at(1, 0.05), 0.3);
+      IN("#re-a2", at(1, 0.12), 0.5, { scale: 0.9, svgOrigin: "1460 235" }, { scale: 1, svgOrigin: "1460 235" });
+      IN("#re-a2r", at(1, 0.45), 0.6, { attr: { width: 0 } }, { attr: { width: 180 } });
+      tl.to("#re-a2 > rect:first-child", { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.75));
+      // L2 问题 3：检查 → 改账 → 转账
+      OUT("#re-q3", at(2, 0.05), 0.3);
+      IN("#re-a3", at(2, 0.1), 0.4);
+      IN("#re-s1", at(2, 0.2), 0.4, { y: 10 }, { y: 0 });
+      ARROW("#re-r1", at(2, 0.32), 0.3);
+      IN("#re-s2", at(2, 0.4), 0.4, { y: 10 }, { y: 0 });
+      ARROW("#re-r2", at(2, 0.54), 0.3);
+      IN("#re-s3", at(2, 0.62), 0.4, { y: 10 }, { y: 0 });
+      IN("#re-lk", at(2, 0.8), 0.4, { y: -40 }, { y: 0, ease: "bounce.out" });
+      // L3 误区 1–2
+      OUT("#re-vault, #re-a1, #re-a2, #re-a3, #re-s1, #re-s2, #re-s3, #re-r1, #re-r2, #re-lk", at(3, 0.0), 0.4);
+      IN("#re-m1", at(3, 0.04), 0.5, { y: 16 }, { y: 0 });
+      IN("#re-m1r", at(3, 0.3), 0.5);
+      tl.to("#re-m1w", { fill: "#6b6f7a", duration: 0.4 }, at(3, 0.3));
+      IN("#re-m2", at(3, 0.55), 0.5, { y: 16 }, { y: 0 });
+      IN("#re-m2r", at(3, 0.8), 0.5);
+      tl.to("#re-m2w", { fill: "#6b6f7a", duration: 0.4 }, at(3, 0.8));
+      // L4 误区 3–4
+      OUT("#re-m1, #re-m1r", at(4, 0.0), 0.35);
+      IN("#re-m3", at(4, 0.05), 0.5, { y: 16 }, { y: 0 });
+      IN("#re-m3r", at(4, 0.28), 0.5);
+      tl.to("#re-m3w", { fill: "#6b6f7a", duration: 0.4 }, at(4, 0.28));
+      OUT("#re-m2, #re-m2r", at(4, 0.48), 0.35);
+      IN("#re-m4", at(4, 0.53), 0.5, { y: 16 }, { y: 0 });
+      IN("#re-m4r", at(4, 0.76), 0.5);
+      tl.to("#re-m4w", { fill: "#6b6f7a", duration: 0.4 }, at(4, 0.76));
+      // L5 误区 5 + 模糊测试找 assert
+      OUT("#re-m3, #re-m3r, #re-m4, #re-m4r", at(5, 0.0), 0.35);
+      IN("#re-m5", at(5, 0.04), 0.5, { y: 16 }, { y: 0 });
+      IN("#re-m5r", at(5, 0.26), 0.5);
+      tl.to("#re-m5w", { fill: "#6b6f7a", duration: 0.4 }, at(5, 0.26));
+      IN("#re-fz", at(5, 0.5), 0.4);
+      IN("#re-mgw", at(5, 0.54), 0.4);
+      IN("#re-fzl", at(5, 0.56), 0.4);
+      tl.to("#re-mg", { x: 400, duration: 2.2, ease: "power1.inOut" }, at(5, 0.6));
+      tl.to("#re-ch5", { fill: "#FC6255", stroke: "#FC6255", duration: 0.3 }, at(5, 0.6) + 2.2);
+      IN("#re-hit", at(5, 0.6) + 2.3, 0.4);
+      // L6 收拢成金库 + 测试勾选
+      OUT("#re-m5, #re-m5r, #re-fz, #re-mgw, #re-fzl, #re-hit", at(6, 0.0), 0.35);
+      IN("#re-sv", at(6, 0.06), 0.5, { scale: 1.3, svgOrigin: "680 540" }, { scale: 1, svgOrigin: "680 540" });
+      IN("#re-tbs", at(6, 0.14), 0.4);
+      for (let i = 0; i < 4; i++) {
+        tl.to(`#re-tb${i}`, { stroke: "#83C167", duration: 0.25 }, at(6, 0.3) + i * 0.4);
+        tl.set(`#re-tk${i}`, { opacity: 1 }, at(6, 0.3) + i * 0.4);
+        DRAW(`#re-tk${i}`, at(6, 0.3) + i * 0.4, 0.3);
+      }
+      // L7 下一集，淡到黑
+      OUT("#re-sv, #re-tbs", at(7, 0.0), 0.35);
+      IN("#re-nx", at(7, 0.06), 0.6, { y: 16 }, { y: 0 });
+      IN("#re-nx2", at(7, 0.16), 0.6);
+
+      tl.to("#re-black", { opacity: 1, duration: 0.8, ease: "power2.in" }, C.d - 1.3);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

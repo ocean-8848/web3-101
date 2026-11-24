@@ -1,0 +1,229 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 rollback，id 前缀 rb- -->
+  <div id="root" data-composition-id="rollback" data-duration="47.21" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rb-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="rb-all">
+        <g id="rb-main">
+          <!-- 代码面板 x 820–1840 y 220–718；第 k 行基线 310 + 38(k-1) -->
+          <g id="rb-panel" class="h">
+            <rect x="800" y="220" width="1060" height="520" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <line x1="800" y1="270" x2="1860" y2="270" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="830" y="256" font-size="28" fill="#58C4DD">Rollback(anc)</text>
+          </g>
+          <rect id="rb-hl" class="h" x="802" y="283" width="1056" height="40" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="rb-hlb" class="h" x="802" y="283" width="6" height="40" fill="#58C4DD" />
+          <g id="rb-code" class="h" font-size="28" fill="#e8e6df">
+            <text class="mono" x="830" y="312">UPDATE deposits SET status = CASE</text>
+            <text class="mono" x="830" y="352">    WHEN status='credited' THEN 'reverted'</text>
+            <text class="mono" x="830" y="392">    ELSE 'orphaned' END</text>
+            <text class="mono" x="830" y="432">WHERE block_number &gt; $anc</text>
+            <text class="mono" x="830" y="472">  AND status IN ('pending','credited');</text>
+            <text class="mono" x="830" y="512" fill="#8a8f99">-- for each reverted:</text>
+            <text class="mono" x="830" y="552">INSERT INTO ledger_entries … (-amount, 'reverse');</text>
+            <text class="mono" x="830" y="592">INSERT INTO outbox … ('deposit.reverted');</text>
+            <text class="mono" x="830" y="632">DELETE FROM blocks WHERE number &gt; $anc;</text>
+            <text class="mono" x="830" y="672">UPDATE cursors SET height = $anc,</text>
+            <text class="mono" x="830" y="712">    block_hash = $anc_hash;</text>
+          </g>
+
+          <!-- 链条 y 270–350 -->
+          <g id="rb-chain" font-size="28">
+            <g id="rb-b0" class="h"><rect x="100" y="270" width="90" height="80" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="145" y="320" fill="#e8e6df" text-anchor="middle">98</text></g>
+            <g id="rb-b1" class="h"><rect x="212" y="270" width="90" height="80" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="257" y="320" fill="#e8e6df" text-anchor="middle">99</text></g>
+            <g id="rb-b2" class="h"><rect id="rb-ancr" x="324" y="270" width="90" height="80" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="369" y="320" fill="#e8e6df" text-anchor="middle">100</text></g>
+            <g id="rb-b3" class="h"><rect x="436" y="270" width="90" height="80" rx="8" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="481" y="320" fill="#e8e6df" text-anchor="middle">101</text></g>
+            <g id="rb-b4" class="h"><rect x="548" y="270" width="90" height="80" rx="8" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="593" y="320" fill="#e8e6df" text-anchor="middle">102</text></g>
+            <g id="rb-b5" class="h"><rect x="660" y="270" width="90" height="80" rx="8" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="705" y="320" fill="#e8e6df" text-anchor="middle">103</text></g>
+            <g id="rb-n3" class="h"><rect id="rb-n3r" x="436" y="270" width="90" height="80" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6" /><text class="mono" x="481" y="320" fill="#e8e6df" text-anchor="middle">101</text></g>
+            <g id="rb-n4" class="h"><rect id="rb-n4r" x="548" y="270" width="90" height="80" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6" /><text class="mono" x="593" y="320" fill="#e8e6df" text-anchor="middle">102</text></g>
+          </g>
+          <text id="rb-anc" class="h mono" x="369" y="392" font-size="28" fill="#83C167" text-anchor="middle">anc</text>
+          <g id="rb-cur" class="h">
+            <path d="M693 248 L717 248 L705 264 Z" fill="#F0B90B" />
+            <text x="684" y="262" font-size="28" fill="#F0B90B" text-anchor="end">游标</text>
+          </g>
+
+          <!-- 两张充值卡 -->
+          <g id="rb-d1" class="h">
+            <rect x="100" y="420" width="460" height="80" rx="10" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="128" y="471" font-size="30" fill="#F0B90B">50 USDT</text>
+          </g>
+          <text id="rb-s1a" class="h mono" x="340" y="471" font-size="30" fill="#FF9F43">pending</text>
+          <text id="rb-s1b" class="h mono" x="340" y="471" font-size="30" fill="#8a8f99">orphaned</text>
+          <g id="rb-d2" class="h">
+            <rect x="100" y="520" width="460" height="80" rx="10" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="128" y="571" font-size="30" fill="#F0B90B">100 USDT</text>
+          </g>
+          <text id="rb-s2a" class="h mono" x="340" y="571" font-size="30" fill="#83C167">credited</text>
+          <text id="rb-s2b" class="h mono" x="340" y="571" font-size="30" fill="#FC6255">reverted</text>
+          <text id="rb-keep" class="h" x="592" y="522" font-size="28" fill="#8a8f99">不删除</text>
+
+          <!-- 账本 -->
+          <g id="rb-led" class="h">
+            <rect x="100" y="640" width="640" height="200" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="128" y="686" font-size="30" fill="#58C4DD">ledger_entries</text>
+            <text class="mono" x="128" y="746" font-size="30" fill="#83C167">+100 credit</text>
+          </g>
+          <text id="rb-rev" class="h mono" x="128" y="798" font-size="30" fill="#FC6255">−100 reverse</text>
+          <text id="rb-sum" class="h" x="540" y="774" font-size="30" fill="#e8e6df">合计 <tspan class="mono" font-weight="700">0</tspan></text>
+
+          <!-- 发件箱 → 风控 -->
+          <g id="rb-ob" class="h">
+            <rect x="820" y="770" width="420" height="130" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="848" y="814" font-size="30" fill="#58C4DD">outbox</text>
+          </g>
+          <g id="rb-env" class="h">
+            <rect x="848" y="836" width="56" height="38" rx="4" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="2.5" />
+            <path d="M848 838 L876 858 L904 838" fill="none" stroke="#FC6255" stroke-width="2.5" />
+          </g>
+          <text id="rb-envt" class="h mono" x="924" y="866" font-size="28" fill="#FC6255">deposit.reverted</text>
+          <path id="rb-ar" class="dr h" pathLength="1" d="M1252 835 L1484 835" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#rb-arr)" />
+          <g id="rb-fly" class="h">
+            <rect x="1270" y="790" width="56" height="38" rx="4" fill="#FC6255" fill-opacity="0.3" stroke="#FC6255" stroke-width="2.5" />
+            <path d="M1270 792 L1298 812 L1326 792" fill="none" stroke="#FC6255" stroke-width="2.5" />
+          </g>
+          <g id="rb-risk" class="h">
+            <rect x="1500" y="780" width="300" height="110" rx="12" fill="#B48EF0" fill-opacity="0.12" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="1540" y="848" font-size="36" font-weight="700" fill="#B48EF0">风控</text>
+          </g>
+          <g id="rb-lock" class="h">
+            <path d="M1708 820 L1708 808 Q1708 792 1724 792 Q1740 792 1740 808 L1740 820" fill="none" stroke="#B48EF0" stroke-width="4" />
+            <rect x="1698" y="818" width="52" height="42" rx="6" fill="#B48EF0" />
+          </g>
+          <text id="rb-frz" class="h" x="1628" y="848" font-size="28" fill="#e8e6df">冻结</text>
+
+          <!-- L4 事务框 + 崩溃 -->
+          <rect id="rb-frame" class="dr" pathLength="1" x="60" y="200" width="1810" height="720" rx="18" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <path id="rb-bolt" class="h" d="M806 470 L770 530 L796 530 L762 600 L828 520 L800 520 L824 470 Z" fill="#FC6255" />
+          <text id="rb-nada" class="h" x="960" y="976" font-size="32" fill="#e8e6df" text-anchor="middle">半途崩溃 = 什么都没发生</text>
+        </g>
+
+        <!-- L5 对比两栏 -->
+        <g id="rb-cmp">
+          <line id="rb-div" class="h" x1="960" y1="280" x2="960" y2="760" stroke="#2a2f3a" stroke-width="2" />
+          <text id="rb-at" class="h" x="540" y="330" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">直接删除</text>
+          <g id="rb-arec" class="h">
+            <rect x="260" y="390" width="560" height="84" rx="10" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="290" y="443" font-size="30" fill="#e8e6df">100 USDT · <tspan fill="#83C167">credited</tspan></text>
+          </g>
+          <rect id="rb-agh" class="h" x="260" y="390" width="560" height="84" rx="10" fill="none" stroke="#6b6f7a" stroke-width="2" stroke-dasharray="10 8" />
+          <g id="rb-ax" class="h">
+            <path d="M290 560 L318 588 M318 560 L290 588" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+            <text x="340" y="584" font-size="32" fill="#FC6255">记录消失，审计线索断了</text>
+          </g>
+          <text id="rb-bt" class="h" x="1380" y="330" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">状态 + 冲正流水</text>
+          <g id="rb-brec" class="h">
+            <rect x="1100" y="390" width="560" height="84" rx="10" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="1130" y="443" font-size="30" fill="#e8e6df">100 USDT · <tspan fill="#FC6255">reverted</tspan></text>
+          </g>
+          <text id="rb-bl1" class="h mono" x="1130" y="550" font-size="30" fill="#83C167">+100 credit</text>
+          <text id="rb-bl2" class="h mono" x="1130" y="600" font-size="30" fill="#FC6255">−100 reverse</text>
+          <g id="rb-bok" class="h">
+            <path d="M1132 680 L1146 694 L1172 666" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="1190" y="694" font-size="32" fill="#83C167">记录都在，可追溯</text>
+          </g>
+          <text id="rb-rule" class="h" x="960" y="880" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">账本只追加，不删除</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const HL = (a, b, t, d = 0.45) => tl.to("#rb-hl, #rb-hlb", { attr: { y: 283 + 40 * (a - 1), height: 40 * (b - a + 1) }, opacity: 1, duration: d, ease: "power2.inOut" }, t);
+      const SWAP = (a, b, t) => { OUT(a, t, 0.25); IN(b, t + 0.3, 0.4); };
+
+      // L0 链条 + 祖先
+      IN("#rb-panel", at(0, 0.02), 0.5);
+      IN("#rb-code", at(0, 0.08), 0.7);
+      for (let i = 0; i < 6; i++) IN(`#rb-b${i}`, at(0, 0.1 + i * 0.06), 0.4, { y: 10 }, { y: 0 });
+      IN("#rb-cur", at(0, 0.5), 0.4);
+      tl.to("#rb-ancr", { stroke: "#83C167", fill: "#1d2a1a", duration: 0.4 }, at(0, 0.62));
+      IN("#rb-anc", at(0, 0.66), 0.4);
+
+      // L1 前 5 行：改状态，记录不删
+      HL(1, 5, at(1, 0.02));
+      IN("#rb-d1", at(1, 0.06), 0.5, { x: -16 }, { x: 0 });
+      IN("#rb-s1a", at(1, 0.08), 0.5);
+      IN("#rb-d2", at(1, 0.14), 0.5, { x: -16 }, { x: 0 });
+      IN("#rb-s2a", at(1, 0.16), 0.5);
+      SWAP("#rb-s1a", "#rb-s1b", at(1, 0.4));
+      SWAP("#rb-s2a", "#rb-s2b", at(1, 0.62));
+      IN("#rb-keep", at(1, 0.84), 0.5);
+
+      // L2 第 6–8 行：冲正流水 + 已撤销事件 → 风控冻结
+      HL(6, 8, at(2, 0.02));
+      IN("#rb-led", at(2, 0.06), 0.5);
+      IN("#rb-rev", at(2, 0.22), 0.5, { y: -14 }, { y: 0 });
+      IN("#rb-sum", at(2, 0.34), 0.5);
+      IN("#rb-ob", at(2, 0.44), 0.4);
+      IN("#rb-env, #rb-envt", at(2, 0.48), 0.4);
+      ARROW("#rb-ar", at(2, 0.58), 0.5);
+      tl.fromTo("#rb-fly", { opacity: 0, x: 0 }, { opacity: 1, x: 150, duration: 0.7, ease: "power2.inOut" }, at(2, 0.6));
+      OUT("#rb-fly", at(2, 0.6) + 0.7, 0.2);
+      IN("#rb-risk", at(2, 0.56), 0.4);
+      IN("#rb-lock", at(2, 0.76), 0.4, { y: -12 }, { y: 0 });
+      IN("#rb-frz", at(2, 0.84), 0.4);
+
+      // L3 最后 3 行：删祖先后的块，游标拨回，新分叉
+      HL(9, 11, at(3, 0.02));
+      OUT("#rb-b3, #rb-b4, #rb-b5", at(3, 0.08), 0.5);
+      tl.to("#rb-cur", { x: -336, duration: 0.8, ease: "power2.inOut" }, at(3, 0.3));
+      IN("#rb-n3", at(3, 0.6), 0.4);
+      IN("#rb-n4", at(3, 0.7), 0.4);
+      tl.to("#rb-n3r, #rb-n4r", { stroke: "#58C4DD", duration: 0.5 }, at(3, 0.84));
+
+      // L4 同一事务；半途崩溃 → 全部回退
+      OUT("#rb-hl, #rb-hlb", at(4, 0), 0.3);
+      DRAW("#rb-frame", at(4, 0.02), 0.8);
+      IN("#rb-bolt", at(4, 0.24), 0.15);
+      tl.to("#rb-frame", { stroke: "#FC6255", duration: 0.2 }, at(4, 0.24));
+      OUT("#rb-n3, #rb-n4, #rb-rev, #rb-sum, #rb-env, #rb-envt, #rb-ar, #rb-lock, #rb-frz, #rb-keep", at(4, 0.34), 0.4);
+      SWAP("#rb-s1b", "#rb-s1a", at(4, 0.34));
+      SWAP("#rb-s2b", "#rb-s2a", at(4, 0.34));
+      IN("#rb-b3, #rb-b4, #rb-b5", at(4, 0.42), 0.4);
+      tl.to("#rb-cur", { x: 0, duration: 0.6, ease: "power2.inOut" }, at(4, 0.4));
+      OUT("#rb-bolt", at(4, 0.52), 0.3);
+      tl.to("#rb-frame", { stroke: "#58C4DD", duration: 0.3 }, at(4, 0.56));
+      IN("#rb-nada", at(4, 0.62), 0.5);
+
+      // L5 直接删除 vs 状态 + 冲正
+      OUT("#rb-main", at(5, 0), 0.5);
+      IN("#rb-div", at(5, 0.06), 0.4);
+      IN("#rb-at", at(5, 0.08), 0.5);
+      IN("#rb-arec", at(5, 0.12), 0.5);
+      IN("#rb-agh", at(5, 0.3), 0.2);
+      OUT("#rb-arec", at(5, 0.3), 0.5);
+      IN("#rb-ax", at(5, 0.4), 0.5);
+      IN("#rb-bt", at(5, 0.5), 0.5);
+      IN("#rb-brec", at(5, 0.56), 0.5);
+      IN("#rb-bl1", at(5, 0.64), 0.4);
+      IN("#rb-bl2", at(5, 0.7), 0.4);
+      IN("#rb-bok", at(5, 0.76), 0.5);
+      IN("#rb-rule", at(5, 0.84), 0.6);
+
+      tl.to("#rb-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["rollback"] = tl;
+    })();
+  </script>
+</template>

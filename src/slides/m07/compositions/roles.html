@@ -1,0 +1,252 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 roles，id 前缀 ro- -->
+  <div id="root" data-composition-id="roles" data-duration="59.9" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ro-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ro-all">
+        <g id="ro-flow">
+          <g id="ro-fe" class="h">
+            <rect x="160" y="480" width="360" height="200" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <line x1="160" y1="515" x2="520" y2="515" stroke="#8a8f99" stroke-width="2"/>
+            <circle cx="182" cy="497" r="5" fill="#8a8f99"/><circle cx="200" cy="497" r="5" fill="#8a8f99"/><circle cx="218" cy="497" r="5" fill="#8a8f99"/>
+            <text x="340" y="610" font-size="32" fill="#e8e6df" text-anchor="middle">前端</text>
+          </g>
+          <g id="ro-wl" class="h">
+            <rect x="760" y="290" width="300" height="130" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+            <path d="M770 290 L800 262 L1020 262 L1050 290" fill="none" stroke="#FF9F43" stroke-width="3"/>
+            <text x="800" y="368" font-size="32" fill="#e8e6df">钱包</text>
+            <g id="ro-key">
+              <circle cx="950" cy="355" r="14" fill="none" stroke="#F0B90B" stroke-width="3.5"/>
+              <path d="M964 355 H1022 M1006 355 V370 M1019 355 V367" fill="none" stroke="#F0B90B" stroke-width="3.5" stroke-linecap="round"/>
+            </g>
+          </g>
+          <g id="ro-rpc" class="h">
+            <rect x="1300" y="480" width="260" height="200" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <rect x="1325" y="505" width="210" height="40" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+            <rect x="1325" y="560" width="210" height="40" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+            <rect x="1325" y="615" width="210" height="40" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+            <circle cx="1510" cy="525" r="6" fill="#83C167"/><circle cx="1510" cy="580" r="6" fill="#83C167"/><circle cx="1510" cy="635" r="6" fill="#83C167"/>
+            <text x="1430" y="725" font-size="30" fill="#58C4DD" text-anchor="middle">RPC 节点</text>
+          </g>
+          <g id="ro-ct" class="h">
+            <path d="M1700 515 V645 A80 15 0 0 0 1860 645 V515" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <ellipse cx="1780" cy="515" rx="80" ry="15" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text x="1780" y="705" font-size="30" fill="#58C4DD" text-anchor="middle">合约</text>
+          </g>
+          <g id="ro-ix" class="h">
+            <rect x="760" y="800" width="300" height="160" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <line x1="770" y1="945" x2="1050" y2="945" stroke="#58C4DD" stroke-width="3"/>
+            <rect x="778" y="820" width="86" height="120" rx="5" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+            <rect x="876" y="820" width="86" height="120" rx="5" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+            <rect x="974" y="820" width="86" height="120" rx="5" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+            <text x="1090" y="890" font-size="30" fill="#58C4DD">索引服务</text>
+          </g>
+          <text id="ro-b1" class="h" x="821" y="890" font-size="28" fill="#e8e6df" text-anchor="middle">历史</text>
+          <text id="ro-b2" class="h" x="919" y="890" font-size="28" fill="#e8e6df" text-anchor="middle">列表</text>
+          <text id="ro-b3" class="h" x="1017" y="890" font-size="28" fill="#e8e6df" text-anchor="middle">统计</text>
+          <!-- L1 读 -->
+          <line id="ro-l1" class="dr" pathLength="1" x1="520" y1="580" x2="1300" y2="580" stroke="#58C4DD" stroke-width="3"/>
+          <line id="ro-l2" class="dr" pathLength="1" x1="1560" y1="580" x2="1700" y2="580" stroke="#58C4DD" stroke-width="3"/>
+          <text id="ro-ec" class="h" x="790" y="548" font-size="28" fill="#58C4DD"><tspan class="mono">eth_call</tspan><tspan> · 只读</tspan></text>
+          <rect id="ro-pk" class="h" x="1690" y="570" width="20" height="20" rx="3" fill="#58C4DD"/>
+          <text id="ro-ns" class="h" x="560" y="632" font-size="28" fill="#83C167">不签名</text>
+          <!-- L2 写 -->
+          <line id="ro-sk" class="dr" pathLength="1" x1="520" y1="520" x2="760" y2="380" stroke="#58C4DD" stroke-width="4"/>
+          <g id="ro-skg" class="h">
+            <rect x="628" y="438" width="24" height="24" rx="4" fill="#58C4DD"/>
+            <path d="M634 438 V428 M646 438 V428" stroke="#58C4DD" stroke-width="3"/>
+          </g>
+          <text id="ro-req" class="h mono" x="160" y="400" font-size="28" fill="#58C4DD">window.ethereum.request</text>
+          <text id="ro-vw" class="h" x="160" y="447" font-size="28" fill="#8a8f99">viem / wagmi 封装</text>
+          <g id="ro-env" class="h">
+            <rect x="506" y="508" width="30" height="22" rx="3" fill="#e8e6df"/>
+            <path d="M506 508 L521 520 L536 508" fill="none" stroke="#0f1117" stroke-width="2"/>
+          </g>
+          <text id="ro-pk2" class="h" x="760" y="240" font-size="28" fill="#83C167">私钥不出钱包</text>
+          <path id="ro-bc" class="dr h" pathLength="1" d="M1062 400 Q1250 410 1326 470" fill="none" stroke="#F0B90B" stroke-width="3" marker-end="url(#ro-arr)"/>
+          <text id="ro-bcl" class="h" x="1150" y="474" font-size="28" fill="#F0B90B">广播</text>
+          <rect id="ro-tx" class="h" x="1054" y="394" width="18" height="14" rx="3" fill="#F0B90B"/>
+          <g id="ro-ph" class="h">
+            <rect x="600" y="240" width="76" height="130" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <rect x="613" y="270" width="50" height="50" fill="none" stroke="#58C4DD" stroke-width="2"/>
+            <rect x="617" y="274" width="14" height="14" fill="#58C4DD"/><rect x="645" y="274" width="14" height="14" fill="#58C4DD"/><rect x="617" y="302" width="14" height="14" fill="#58C4DD"/>
+            <rect x="645" y="302" width="6" height="6" fill="#58C4DD"/><rect x="653" y="310" width="6" height="6" fill="#58C4DD"/>
+            <line x1="628" y1="352" x2="648" y2="352" stroke="#8a8f99" stroke-width="3"/>
+          </g>
+          <line id="ro-wc" class="h" x1="626" y1="376" x2="478" y2="476" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6"/>
+          <!-- L3 索引 -->
+          <path id="ro-ixl" class="h" d="M300 682 Q300 880 755 880" fill="none" stroke="#58C4DD" stroke-width="3" stroke-dasharray="10 8"/>
+          <!-- L4 切链 -->
+          <g id="ro-mn" class="h">
+            <rect x="850" y="196" width="120" height="46" rx="23" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text x="910" y="229" font-size="28" fill="#e8e6df" text-anchor="middle">主网</text>
+          </g>
+          <g id="ro-mn2" class="h">
+            <rect x="836" y="196" width="148" height="46" rx="23" fill="#161a22" stroke="#83C167" stroke-width="2.5"/>
+            <text x="910" y="229" font-size="28" fill="#83C167" text-anchor="middle">Base ✓</text>
+          </g>
+          <g id="ro-bs" class="h">
+            <rect x="160" y="408" width="180" height="48" rx="24" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="250" y="442" font-size="28" fill="#58C4DD" text-anchor="middle">需要 Base</text>
+          </g>
+          <g id="ro-cm" class="h">
+            <circle cx="180" cy="320" r="18" fill="#FF9F43"/>
+            <text x="180" y="330" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">!</text>
+            <text x="212" y="330" font-size="28" fill="#FF9F43"><tspan class="mono">chainId</tspan><tspan> 不匹配</tspan></text>
+          </g>
+          <path id="ro-sw" class="dr h" pathLength="1" d="M532 486 L744 362" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#ro-arr)"/>
+          <text id="ro-swl" class="h mono" x="160" y="262" font-size="28" fill="#FF9F43">wallet_switchEthereumChain</text>
+        </g>
+        <!-- L5 前端是攻击面 -->
+        <g id="ro-big" class="h">
+          <rect x="560" y="300" width="800" height="460" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <line x1="560" y1="345" x2="1360" y2="345" stroke="#8a8f99" stroke-width="2"/>
+          <circle cx="588" cy="322" r="7" fill="#8a8f99"/><circle cx="610" cy="322" r="7" fill="#8a8f99"/><circle cx="632" cy="322" r="7" fill="#8a8f99"/>
+          <text x="610" y="412" font-size="34" font-weight="700" fill="#e8e6df">授权交易</text>
+          <text x="610" y="480" font-size="30" fill="#8a8f99">被授权方</text>
+          <rect id="ro-vb" x="610" y="505" width="700" height="90" rx="12" fill="none" stroke="#83C167" stroke-width="2.5"/>
+        </g>
+        <text id="ro-v1" class="h" x="640" y="562" font-size="34" fill="#83C167">0x… 正常地址</text>
+        <text id="ro-v2" class="h" x="640" y="562" font-size="34" fill="#FC6255">0x… 攻击者地址</text>
+        <text id="ro-dnl" class="h" x="110" y="620" font-size="30" fill="#FC6255">DNS 劫持</text>
+        <path id="ro-dns" class="dr h" pathLength="1" d="M110 662 L696 614" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#ro-arr)"/>
+        <path id="ro-dns2" class="dr h" pathLength="1" d="M110 662 L456 634" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#ro-arr)"/>
+        <g id="ro-npm" class="h">
+          <rect x="860" y="900" width="240" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <text x="980" y="938" font-size="28" fill="#FC6255" text-anchor="middle">npm 依赖包</text>
+        </g>
+        <path id="ro-npa" class="dr h" pathLength="1" d="M980 898 L980 606" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#ro-arr)"/>
+        <path id="ro-npa2" class="dr h" pathLength="1" d="M980 898 L980 862" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#ro-arr)"/>
+        <text id="ro-dt" class="h" x="1860" y="1008" font-size="28" fill="#8a8f99" text-anchor="end">2023-12 · Ledger Connect Kit npm 包投毒</text>
+        <!-- L6 护盾 -->
+        <rect id="ro-sh1" class="h" x="532" y="272" width="856" height="516" rx="26" fill="none" stroke="#83C167" stroke-width="3"/>
+        <rect id="ro-sh2" class="h" x="504" y="244" width="912" height="572" rx="34" fill="none" stroke="#83C167" stroke-width="3"/>
+        <rect id="ro-sh3" class="h" x="476" y="216" width="968" height="628" rx="42" fill="none" stroke="#83C167" stroke-width="3"/>
+        <text id="ro-s1l" class="h" x="1476" y="420" font-size="30" fill="#83C167">锁定依赖版本 + 审查锁文件</text>
+        <text id="ro-s2l" class="h" x="1476" y="500" font-size="30" fill="#83C167">CSP</text>
+        <text id="ro-s3l" class="h" x="1476" y="580" font-size="30" fill="#83C167">SRI</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ro-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">EIP-1193 <tspan font-size="28" font-weight="400" fill="#8a8f99">Ethereum Provider API</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">钱包向网页暴露的标准接口</text>
+      </g>
+      <g id="ro-term2" class="h">
+        <rect x="70" y="56" width="540" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">WalletConnect</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">让移动端钱包扫码连接网页的协议</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 五方依次登场
+      IN("#ro-fe", at(0, 0.03), 0.6, { scale: 0.9, svgOrigin: "340 580" }, { scale: 1, svgOrigin: "340 580" });
+      IN("#ro-wl", at(0, 0.22), 0.6, { y: -16 }, { y: 0 });
+      IN("#ro-rpc", at(0, 0.4), 0.6, { x: 16 }, { x: 0 });
+      IN("#ro-ct", at(0, 0.58), 0.6, { x: 16 }, { x: 0 });
+      IN("#ro-ix", at(0, 0.76), 0.6, { y: 16 }, { y: 0 });
+      // L1 读：前端直接问 RPC
+      DRAW("#ro-l1", at(1, 0.05), 0.7);
+      DRAW("#ro-l2", at(1, 0.22), 0.4);
+      IN("#ro-ec", at(1, 0.3), 0.5);
+      IN("#ro-pk", at(1, 0.45), 0.2);
+      tl.fromTo("#ro-pk", { x: 0 }, { x: -1170, duration: 1.5, ease: "power1.inOut", immediateRender: false }, at(1, 0.45));
+      OUT("#ro-pk", at(1, 0.45) + 1.45, 0.2);
+      IN("#ro-ns", at(1, 0.78), 0.5);
+      // L2 写：EIP-1193 → 钱包签名 → 广播；WalletConnect
+      IN("#ro-term", at(2, 0.1), 0.5);
+      DRAW("#ro-sk", at(2, 0.14), 0.6);
+      IN("#ro-skg", at(2, 0.18), 0.4);
+      IN("#ro-req", at(2, 0.22), 0.5, { x: -16 }, { x: 0 });
+      IN("#ro-vw", at(2, 0.28), 0.5);
+      IN("#ro-env", at(2, 0.36), 0.2);
+      tl.fromTo("#ro-env", { x: 0, y: 0 }, { x: 240, y: -140, duration: 0.9, ease: "power1.inOut", immediateRender: false }, at(2, 0.36));
+      OUT("#ro-env", at(2, 0.36) + 0.9, 0.2);
+      tl.to("#ro-key", { scale: 1.35, svgOrigin: "985 357", duration: 0.3, ease: "power2.out" }, at(2, 0.44));
+      tl.to("#ro-key", { scale: 1, svgOrigin: "985 357", duration: 0.4, ease: "power2.in" }, at(2, 0.44) + 0.35);
+      IN("#ro-pk2", at(2, 0.46), 0.5);
+      ARROW("#ro-bc", at(2, 0.52), 0.6);
+      IN("#ro-tx", at(2, 0.52), 0.15);
+      tl.fromTo("#ro-tx", { x: 0, y: 0 }, { keyframes: [{ x: 150, y: 14, duration: 0.45 }, { x: 262, y: 70, duration: 0.45 }], ease: "none", immediateRender: false }, at(2, 0.52));
+      OUT("#ro-tx", at(2, 0.52) + 0.85, 0.2);
+      IN("#ro-bcl", at(2, 0.56), 0.5);
+      OUT("#ro-term", at(2, 0.64), 0.3);
+      IN("#ro-term2", at(2, 0.64) + 0.35, 0.5);
+      IN("#ro-ph", at(2, 0.72), 0.5, { x: 16 }, { x: 0 });
+      IN("#ro-wc", at(2, 0.82), 0.5);
+      OUT("#ro-term2", at(2, 0.98), 0.4);
+      // L3 索引服务
+      OUT("#ro-req, #ro-vw", at(3, 0), 0.4);
+      IN("#ro-ixl", at(3, 0.08), 0.6);
+      IN("#ro-b1", at(3, 0.3), 0.4, { y: 10 }, { y: 0 });
+      IN("#ro-b2", at(3, 0.42), 0.4, { y: 10 }, { y: 0 });
+      IN("#ro-b3", at(3, 0.54), 0.4, { y: 10 }, { y: 0 });
+      // L4 切链
+      OUT("#ro-ph, #ro-wc, #ro-pk2", at(4, 0), 0.4);
+      IN("#ro-mn", at(4, 0.1), 0.5, { y: -10 }, { y: 0 });
+      IN("#ro-bs", at(4, 0.22), 0.5, { y: -10 }, { y: 0 });
+      IN("#ro-cm", at(4, 0.38), 0.5, { scale: 0.7, svgOrigin: "180 320" }, { scale: 1, svgOrigin: "180 320" });
+      ARROW("#ro-sw", at(4, 0.6), 0.5);
+      IN("#ro-swl", at(4, 0.62), 0.5, { x: -16 }, { x: 0 });
+      OUT("#ro-mn", at(4, 0.84), 0.2);
+      IN("#ro-mn2", at(4, 0.84) + 0.25, 0.4, { scaleY: 0, svgOrigin: "910 219" }, { scaleY: 1, svgOrigin: "910 219" });
+      OUT("#ro-cm", at(4, 0.9), 0.3);
+      // L5 前端是攻击面
+      OUT("#ro-flow", at(5, 0), 0.5);
+      IN("#ro-big", at(5, 0.04), 0.8, { scale: 0.45, svgOrigin: "-167 621" }, { scale: 1, svgOrigin: "-167 621" });
+      IN("#ro-v1", at(5, 0.1), 0.5);
+      IN("#ro-dnl", at(5, 0.2), 0.4);
+      ARROW("#ro-dns", at(5, 0.22), 0.6);
+      IN("#ro-npm", at(5, 0.33), 0.4, { y: 12 }, { y: 0 });
+      ARROW("#ro-npa", at(5, 0.36), 0.6);
+      OUT("#ro-v1", at(5, 0.47), 0.2);
+      tl.to("#ro-vb", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.47));
+      IN("#ro-v2", at(5, 0.47) + 0.25, 0.4, { scaleY: 0, svgOrigin: "800 550" }, { scaleY: 1, svgOrigin: "800 550" });
+      IN("#ro-dt", at(5, 0.72), 0.6);
+      // L6 三层护盾
+      IN("#ro-sh1", at(6, 0.04), 0.5, { scale: 1.05, svgOrigin: "960 530" }, { scale: 1, svgOrigin: "960 530" });
+      IN("#ro-s1l", at(6, 0.06), 0.5, { x: 12 }, { x: 0 });
+      IN("#ro-sh2", at(6, 0.48), 0.5, { scale: 1.05, svgOrigin: "960 530" }, { scale: 1, svgOrigin: "960 530" });
+      IN("#ro-s2l", at(6, 0.5), 0.5, { x: 12 }, { x: 0 });
+      IN("#ro-sh3", at(6, 0.6), 0.5, { scale: 1.05, svgOrigin: "960 530" }, { scale: 1, svgOrigin: "960 530" });
+      IN("#ro-s3l", at(6, 0.62), 0.5, { x: 12 }, { x: 0 });
+      OUT("#ro-dns, #ro-npa", at(6, 0.72), 0.3);
+      ARROW("#ro-dns2", at(6, 0.72) + 0.1, 0.4);
+      ARROW("#ro-npa2", at(6, 0.72) + 0.1, 0.3);
+      OUT("#ro-v2", at(6, 0.8), 0.2);
+      tl.to("#ro-vb", { stroke: "#83C167", duration: 0.3 }, at(6, 0.8));
+      IN("#ro-v1", at(6, 0.8) + 0.25, 0.4);
+
+      tl.to("#ro-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ro-term, #ro-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["roles"] = tl;
+    })();
+  </script>
+</template>

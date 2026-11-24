@@ -1,0 +1,236 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 mint，id 前缀 mi- -->
+  <div id="root" data-composition-id="mint" data-duration="66.27" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="mi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs>
+        <pattern id="mi-pu" x="140" y="260" width="22" height="24" patternUnits="userSpaceOnUse">
+          <rect x="2" y="2" width="18" height="20" rx="3" fill="#2a2e38" stroke="#4a4f5a" stroke-width="1"/>
+          <path d="M8 9 Q8 6 11 6 Q14 6 14 9 Q14 11 11 12 V14 M11 16.5 V17.5" fill="none" stroke="#8a8f99" stroke-width="1.4" stroke-linecap="round"/>
+        </pattern>
+        <pattern id="mi-prv" x="140" y="260" width="44" height="48" patternUnits="userSpaceOnUse">
+          <rect x="2" y="2" width="18" height="20" rx="3" fill="#58C4DD88"/><circle cx="11" cy="10" r="4" fill="#e8e6df99"/>
+          <rect x="24" y="2" width="18" height="20" rx="3" fill="#B48EF088"/><circle cx="33" cy="10" r="4" fill="#e8e6df99"/>
+          <rect x="2" y="26" width="18" height="20" rx="3" fill="#F0B90B88"/><circle cx="11" cy="34" r="4" fill="#e8e6df99"/>
+          <rect x="24" y="26" width="18" height="20" rx="3" fill="#83C16788"/><circle cx="33" cy="34" r="4" fill="#e8e6df99"/>
+        </pattern>
+      </defs>
+      <g id="mi-all">
+        <g id="mi-code" class="h">
+          <rect x="120" y="220" width="980" height="550" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+          <rect x="120" y="220" width="4" height="550" fill="#58C4DD"/>
+          <text class="mono" data-layout-ignore x="150" y="262" font-size="22" fill="#8a8f99">Badge.sol</text>
+          <text id="mi-oz" class="h" x="1076" y="266" font-size="28" fill="#8a8f99" text-anchor="end">OpenZeppelin v5</text>
+          <rect id="mi-hl" class="h" x="126" y="369" width="970" height="76" fill="#58C4DD22"/>
+          <g id="mi-lines">
+            <text id="mi-l1" class="h mono" x="150.0" y="320" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">contract</tspan> Badge <tspan fill="#58C4DD">is</tspan> ERC721, Ownable {</text>
+            <text id="mi-l2" class="h mono" x="217.2" y="358" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">uint256 public</tspan> nextId;</text>
+            <text id="mi-l3" class="h mono" x="217.2" y="396" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">uint256 public constant</tspan> MAX_SUPPLY = <tspan fill="#F0B90B">1000</tspan>;</text>
+            <text id="mi-l4" class="h mono" x="217.2" y="434" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">uint256 public constant</tspan> PRICE = <tspan fill="#F0B90B">0.01</tspan> <tspan fill="#58C4DD">ether</tspan>;</text>
+            <text id="mi-l5" class="h mono" x="217.2" y="472" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> mint() <tspan fill="#58C4DD">external payable</tspan> {</text>
+            <text id="mi-l6" class="h mono" x="284.4" y="510" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">if</tspan> (nextId &gt;= MAX_SUPPLY) <tspan fill="#58C4DD">revert</tspan> SoldOut();</text>
+            <text id="mi-l7" class="h mono" x="284.4" y="548" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">if</tspan> (msg.value != PRICE) <tspan fill="#58C4DD">revert</tspan> WrongPayment();</text>
+            <text id="mi-l8" class="h mono" x="284.4" y="586" font-size="28" fill="#e8e6df">_safeMint(msg.sender, nextId++);</text>
+            <text id="mi-l9" class="h mono" x="217.2" y="624" font-size="28" fill="#e8e6df">}</text>
+            <text id="mi-l10" class="h mono" x="217.2" y="662" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> _baseURI() <tspan fill="#58C4DD">internal view override</tspan></text>
+            <text id="mi-l11" class="h mono" x="284.4" y="700" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">returns</tspan> (<tspan fill="#58C4DD">string memory</tspan>) { <tspan fill="#58C4DD">return</tspan> _base; }</text>
+            <text id="mi-l12" class="h mono" x="150.0" y="738" font-size="28" fill="#e8e6df">}</text>
+          </g>
+        </g>
+        <g id="mi-right">
+          <g id="mi-mc" class="h">
+            <rect id="mi-mcr" x="1200" y="240" width="580" height="320" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text x="1230" y="292" font-size="30" fill="#e8e6df">铸币机</text>
+            <text class="mono" x="1490" y="348" font-size="28" fill="#8a8f99" text-anchor="middle">nextId</text>
+            <text class="mono" x="1490" y="422" font-size="52" font-weight="700" fill="#58C4DD" text-anchor="middle"><tspan id="mi-cnt">0</tspan> / 1000</text>
+          </g>
+          <g id="mi-pr" class="h">
+            <rect x="1390" y="455" width="200" height="68" rx="10" fill="#F0B90B18" stroke="#F0B90B" stroke-width="2.5"/>
+            <text class="mono" x="1490" y="501" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">0.01 ETH</text>
+          </g>
+          <text id="mi-so" class="h mono" x="1490" y="625" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">SoldOut</text>
+          <g id="mi-pay" class="h">
+            <rect x="1610" y="664" width="170" height="56" rx="28" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.5"/>
+            <text class="mono" x="1695" y="701" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">0.02 ETH</text>
+          </g>
+          <text id="mi-wp" class="h mono" x="1200" y="703" font-size="34" font-weight="700" fill="#FC6255">WrongPayment</text>
+          <path id="mi-cb" class="dr h" pathLength="1" d="M1490 566 V640" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#mi-arr)"/>
+          <text id="mi-cbl" class="h" x="1512" y="614" font-size="28" fill="#8a8f99">回调</text>
+          <g id="mi-rc" class="h">
+            <rect x="1290" y="648" width="400" height="92" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text x="1490" y="705" font-size="30" fill="#e8e6df" text-anchor="middle">接收方合约</text>
+          </g>
+          <path id="mi-rb" class="dr h" pathLength="1" d="M1284 694 C1150 694 1150 420 1192 420" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#mi-arr)"/>
+          <g id="mi-r6" class="h">
+            <text x="1475" y="800" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">读到 nextId = 6</text>
+            <path d="M1660 784 L1674 800 L1700 770" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <text id="mi-u1" class="h mono" x="1200" y="650" font-size="34" fill="#58C4DD">ipfs://CID/</text>
+          <text id="mi-u2" class="h mono" x="1446" y="650" font-size="34" fill="#e8e6df">+</text>
+          <text id="mi-u3" class="h mono" x="1486" y="650" font-size="34" font-weight="700" fill="#F0B90B">42</text>
+          <text id="mi-u4" class="h mono" x="1200" y="722" font-size="34" fill="#58C4DD">ipfs://CID/<tspan fill="#F0B90B" font-weight="700">42</tspan></text>
+          <g id="mi-wd" class="h">
+            <rect x="1200" y="790" width="400" height="72" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/>
+            <text class="mono" x="1400" y="837" font-size="30" fill="#e8e6df" text-anchor="middle">withdraw() <tspan fill="#B48EF0">onlyOwner</tspan></text>
+          </g>
+          <g id="mi-ow" class="h">
+            <circle cx="1735" cy="808" r="16" fill="none" stroke="#B48EF0" stroke-width="3"/>
+            <path d="M1707 852 Q1707 828 1735 828 Q1763 828 1763 852" fill="none" stroke="#B48EF0" stroke-width="3"/>
+            <text class="mono" x="1735" y="895" font-size="28" fill="#B48EF0" text-anchor="middle">owner</text>
+          </g>
+          <path id="mi-eth" class="dr h" pathLength="1" d="M1606 826 H1696" fill="none" stroke="#F0B90B" stroke-width="4" marker-end="url(#mi-arr)"/>
+        </g>
+        <g id="mi-rv">
+          <rect id="mi-gu" class="h" x="140" y="260" width="880" height="600" fill="url(#mi-pu)"/>
+          <rect id="mi-gr" class="h" x="140" y="260" width="880" height="600" fill="url(#mi-prv)"/>
+          <text id="mi-g1" class="h" x="580" y="920" font-size="32" fill="#8a8f99" text-anchor="middle">1000 枚 · 未揭示</text>
+          <text id="mi-g2" class="h" x="580" y="920" font-size="32" fill="#e8e6df" text-anchor="middle">1000 枚 · 全部换图</text>
+          <g id="mi-pj" class="h">
+            <circle cx="1400" cy="515" r="26" fill="none" stroke="#B48EF0" stroke-width="3.5"/>
+            <path d="M1360 588 Q1360 552 1400 552 Q1440 552 1440 588" fill="none" stroke="#B48EF0" stroke-width="3.5"/>
+            <text x="1400" y="650" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">项目方</text>
+          </g>
+          <path id="mi-pa" class="dr h" pathLength="1" d="M1350 545 H1040" fill="none" stroke="#B48EF0" stroke-width="3.5" marker-end="url(#mi-arr)"/>
+          <text id="mi-pal" class="h" x="1195" y="518" font-size="30" fill="#B48EF0" text-anchor="middle">换 baseURI</text>
+          <text id="mi-warn" class="h" x="1400" y="790" font-size="44" font-weight="700" fill="#FC6255" text-anchor="middle">可随时换图</text>
+          <g id="mi-lock" class="h">
+            <path d="M1378 765 V748 A22 22 0 0 1 1422 748 V765" fill="none" stroke="#83C167" stroke-width="5"/>
+            <rect x="1366" y="765" width="68" height="52" rx="8" fill="#83C16733" stroke="#83C167" stroke-width="3"/>
+          </g>
+          <text id="mi-lt" class="h" x="1400" y="880" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">一次性 · 可审计 · 公开承诺</text>
+        </g>
+        <g id="mi-pt">
+          <text id="mi-pt0" class="h" x="960" y="235" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">动手试试</text>
+          <g id="mi-q1" class="h">
+            <rect x="160" y="300" width="780" height="280" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+            <circle cx="225" cy="365" r="28" fill="none" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="225" y="376" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">1</text>
+            <text x="280" y="378" font-size="34" fill="#e8e6df">部署到 Sepolia</text>
+            <text x="280" y="440" font-size="30" fill="#8a8f99">测试网</text>
+          </g>
+          <g id="mi-q2" class="h">
+            <rect x="980" y="300" width="780" height="280" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+            <circle cx="1045" cy="365" r="28" fill="none" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1045" y="376" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">2</text>
+            <text x="1100" y="378" font-size="34" fill="#e8e6df">mint <tspan fill="#F0B90B" font-weight="700">0.01</tspan> 测试 ETH</text>
+            <text class="mono" x="1100" y="442" font-size="32" font-weight="700" fill="#58C4DD">→ #0</text>
+          </g>
+          <g id="mi-q3" class="h">
+            <rect x="160" y="620" width="780" height="280" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+            <circle cx="225" cy="685" r="28" fill="none" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="225" y="696" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">3</text>
+            <text x="280" y="698" font-size="34" fill="#e8e6df">区块浏览器 Read</text>
+            <text class="mono" x="280" y="764" font-size="30" fill="#58C4DD">ownerOf(0)</text>
+            <text class="mono" x="280" y="816" font-size="30" fill="#58C4DD">tokenURI(0)</text>
+          </g>
+          <g id="mi-q4" class="h">
+            <rect x="980" y="620" width="780" height="280" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+            <circle cx="1045" cy="685" r="28" fill="none" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1045" y="696" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">4</text>
+            <text x="1100" y="698" font-size="34" fill="#e8e6df">不带 ETH 再铸一次</text>
+            <text x="1100" y="764" font-size="32" font-weight="700" fill="#FC6255">WrongPayment 回滚</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const LY = i => 320 + 38 * (i - 1) - 27;
+      const ALLL = [...Array(12)].map((_, i) => `#mi-l${i + 1}`);
+      const HL = (a, b, t) => {
+        tl.to("#mi-hl", { attr: { y: LY(a), height: 38 * (b - a + 1) }, opacity: 1, duration: 0.4, ease: "power2.inOut" }, t);
+        const on = ALLL.slice(a - 1, b), off = ALLL.filter(s => !on.includes(s));
+        tl.to(off.join(","), { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(on.join(","), { opacity: 1, duration: 0.4 }, t);
+      };
+      // L0 panel types in
+      IN("#mi-code", at(0, 0.02), 0.5);
+      ALLL.forEach((s, i) => IN(s, at(0, 0.08) + 0.3 * i, 0.25, { x: -10 }, { x: 0 }));
+      IN("#mi-oz", at(0, 0.35), 0.5);
+      // L1 constants + machine
+      HL(3, 4, at(1, 0.02));
+      IN("#mi-mc", at(1, 0.15), 0.6, { x: 30 }, { x: 0 });
+      IN("#mi-pr", at(1, 0.55), 0.5, { y: 10 }, { y: 0 });
+      // L2 two checks
+      HL(6, 7, at(2, 0.0));
+      COUNT("#mi-cnt", 0, 1000, at(2, 0.06), 0.8);
+      tl.to("#mi-mcr", { stroke: "#FC6255", duration: 0.2 }, at(2, 0.06) + 0.8);
+      IN("#mi-so", at(2, 0.06) + 0.85, 0.3, { scale: 1.3, svgOrigin: "1490 612" }, { scale: 1, svgOrigin: "1490 612" });
+      OUT("#mi-so", at(2, 0.5), 0.3);
+      tl.to("#mi-mcr", { stroke: "#58C4DD", duration: 0.3 }, at(2, 0.5));
+      COUNT("#mi-cnt", 1000, 5, at(2, 0.5), 0.3);
+      IN("#mi-pay", at(2, 0.55), 0.3);
+      tl.to("#mi-pay", { x: -100, duration: 0.4, ease: "power2.in" }, at(2, 0.6));
+      tl.to("#mi-pay", { x: 0, duration: 0.6, ease: "back.out(2)" }, at(2, 0.6) + 0.4);
+      IN("#mi-wp", at(2, 0.6) + 0.4, 0.3, { x: -12 }, { x: 0 });
+      // L3 nextId++ before callback
+      OUT("#mi-pay, #mi-wp", at(3, 0), 0.3);
+      HL(8, 8, at(3, 0.02));
+      COUNT("#mi-cnt", 5, 6, at(3, 0.28), 0.3);
+      tl.to("#mi-mcr", { strokeWidth: 6, duration: 0.2, yoyo: true, repeat: 1 }, at(3, 0.28));
+      ARROW("#mi-cb", at(3, 0.42), 0.4);
+      IN("#mi-cbl", at(3, 0.44), 0.3);
+      IN("#mi-rc", at(3, 0.46), 0.4, { y: 10 }, { y: 0 });
+      ARROW("#mi-rb", at(3, 0.66), 0.7);
+      IN("#mi-r6", at(3, 0.76), 0.5, { y: 8 }, { y: 0 });
+      // L4 baseURI + withdraw
+      OUT("#mi-cb, #mi-cbl, #mi-rc, #mi-rb, #mi-r6", at(4, 0), 0.3);
+      HL(10, 11, at(4, 0.02));
+      IN("#mi-u1", at(4, 0.08), 0.4);
+      IN("#mi-u2", at(4, 0.13), 0.3);
+      IN("#mi-u3", at(4, 0.18), 0.4, { y: -14 }, { y: 0 });
+      IN("#mi-u4", at(4, 0.3), 0.5, { y: -10 }, { y: 0 });
+      IN("#mi-wd", at(4, 0.58), 0.5, { x: -16 }, { x: 0 });
+      IN("#mi-ow", at(4, 0.68), 0.4);
+      ARROW("#mi-eth", at(4, 0.8), 0.5);
+      // L5 reveal risk
+      OUT("#mi-code, #mi-right", at(5, 0), 0.5);
+      IN("#mi-gu", at(5, 0.05), 0.7, { scale: 0.96, svgOrigin: "580 560" }, { scale: 1, svgOrigin: "580 560" });
+      IN("#mi-g1", at(5, 0.12), 0.4);
+      IN("#mi-pj", at(5, 0.28), 0.5);
+      ARROW("#mi-pa", at(5, 0.36), 0.5);
+      IN("#mi-pal", at(5, 0.38), 0.4);
+      IN("#mi-gr", at(5, 0.45), 0.5);
+      OUT("#mi-gu", at(5, 0.45) + 0.3, 0.3);
+      OUT("#mi-g1", at(5, 0.45), 0.3);
+      IN("#mi-g2", at(5, 0.45) + 0.35, 0.4);
+      IN("#mi-warn", at(5, 0.5), 0.4, { scale: 1.2, svgOrigin: "1400 775" }, { scale: 1, svgOrigin: "1400 775" });
+      OUT("#mi-warn", at(5, 0.68), 0.3);
+      IN("#mi-lock", at(5, 0.68) + 0.35, 0.4, { y: -10 }, { y: 0 });
+      IN("#mi-lt", at(5, 0.75), 0.5);
+      // L6 practice
+      OUT("#mi-rv", at(6, 0), 0.5);
+      IN("#mi-pt0", at(6, 0.02), 0.4);
+      IN("#mi-q1", at(6, 0.06), 0.5, { y: 14 }, { y: 0 });
+      IN("#mi-q2", at(6, 0.28), 0.5, { y: 14 }, { y: 0 });
+      IN("#mi-q3", at(6, 0.52), 0.5, { y: 14 }, { y: 0 });
+      IN("#mi-q4", at(6, 0.78), 0.5, { y: 14 }, { y: 0 });
+
+
+      tl.to("#mi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["mint"] = tl;
+    })();
+  </script>
+</template>

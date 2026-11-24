@@ -1,0 +1,287 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 nonstd，id 前缀 no- -->
+  <div id="root" data-composition-id="nonstd" data-duration="100.89" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="no-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="no-all">
+        <g id="no-proto" class="h">
+          <rect x="120" y="480" width="340" height="140" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" stroke-dasharray="12 7" />
+          <text x="290" y="540" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">你的协议</text>
+          <text x="290" y="592" font-size="28" fill="#e8e6df" text-anchor="middle">收取用户代币</text>
+        </g>
+        <g id="no-rows">
+          <path id="no-l0" class="dr" pathLength="1" d="M462 550 L618 290" stroke="#FF9F43" stroke-width="2.5" fill="none" opacity="0.7" />
+          <path id="no-d0" class="h" d="M620 290 L670 235 L1070 235 L1120 290 L1070 345 L670 345 Z" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text id="no-n0" class="h" x="870" y="302" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">①</text>
+          <text id="no-q0" class="h" x="870" y="300" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#FF9F43">①</tspan> transfer 返回 bool？</text>
+          <g id="no-k0" class="h">
+            <rect x="1160" y="228" width="700" height="124" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="1190" y="280" font-size="28"><tspan fill="#e8e6df">USDT 不返回 → 解码失败</tspan> <tspan fill="#FC6255">revert</tspan></text>
+            <text x="1190" y="328" font-size="28" font-weight="700" fill="#83C167">→ 用 SafeERC20</text>
+          </g>
+          <path id="no-l1" class="dr" pathLength="1" d="M462 550 L618 455" stroke="#FF9F43" stroke-width="2.5" fill="none" opacity="0.7" />
+          <path id="no-d1" class="h" d="M620 455 L670 400 L1070 400 L1120 455 L1070 510 L670 510 Z" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text id="no-n1" class="h" x="870" y="467" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">②</text>
+          <text id="no-q1" class="h" x="870" y="465" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#FF9F43">②</tspan> 转账扣手续费？</text>
+          <g id="no-k1" class="h">
+            <rect x="1160" y="393" width="700" height="124" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="1190" y="445" font-size="28"><tspan fill="#e8e6df">实际到账</tspan> <tspan fill="#FC6255">&lt; amount</tspan></text>
+            <text x="1190" y="493" font-size="28" font-weight="700" fill="#83C167">→ 用余额相减记账</text>
+          </g>
+          <path id="no-l2" class="dr" pathLength="1" d="M462 550 L618 620" stroke="#FF9F43" stroke-width="2.5" fill="none" opacity="0.7" />
+          <path id="no-d2" class="h" d="M620 620 L670 565 L1070 565 L1120 620 L1070 675 L670 675 Z" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text id="no-n2" class="h" x="870" y="632" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">③</text>
+          <text id="no-q2" class="h" x="870" y="630" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#FF9F43">③</tspan> 余额会自动变？</text>
+          <g id="no-k2" class="h">
+            <rect x="1160" y="558" width="700" height="124" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="1190" y="610" font-size="28"><tspan fill="#e8e6df">rebase（如 stETH）</tspan><tspan fill="#FC6255">余额自动变</tspan></text>
+            <text x="1190" y="658" font-size="28" font-weight="700" fill="#83C167">→ 包装版 wstETH 或份额记账</text>
+          </g>
+          <path id="no-l3" class="dr" pathLength="1" d="M462 550 L618 785" stroke="#FF9F43" stroke-width="2.5" fill="none" opacity="0.7" />
+          <path id="no-d3" class="h" d="M620 785 L670 730 L1070 730 L1120 785 L1070 840 L670 840 Z" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text id="no-n3" class="h" x="870" y="797" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">④</text>
+          <text id="no-q3" class="h" x="870" y="795" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#FF9F43">④</tspan> 有回调钩子？</text>
+          <g id="no-k3" class="h">
+            <rect x="1160" y="723" width="700" height="124" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="1190" y="775" font-size="28"><tspan fill="#e8e6df">ERC-777 等</tspan> <tspan fill="#FC6255">转账中途回调</tspan></text>
+            <text x="1190" y="823" font-size="28" font-weight="700" fill="#83C167">→ nonReentrant + 先检查、再改状态、最后交互</text>
+          </g>
+          <path id="no-l4" class="dr" pathLength="1" d="M462 550 L618 950" stroke="#FF9F43" stroke-width="2.5" fill="none" opacity="0.7" />
+          <path id="no-d4" class="h" d="M620 950 L670 895 L1070 895 L1120 950 L1070 1005 L670 1005 Z" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text id="no-n4" class="h" x="870" y="962" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">⑤</text>
+          <text id="no-q4" class="h" x="870" y="960" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#FF9F43">⑤</tspan> 可冻结 / 暂停 / 升级？</text>
+          <g id="no-k4" class="h">
+            <rect x="1160" y="888" width="700" height="124" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="1190" y="940" font-size="28"><tspan fill="#e8e6df">USDC、USDT：拉黑地址转账</tspan> <tspan fill="#FC6255">revert</tspan></text>
+            <text x="1190" y="988" font-size="28" font-weight="700" fill="#83C167">→ 别让单笔失败卡死流程</text>
+          </g>
+        </g>
+        <!-- ① 返回值槽位 + 齿轮 -->
+        <g id="no-a1" class="h">
+          <text class="mono" x="180" y="712" font-size="28" fill="#8a8f99" text-anchor="middle">bool</text>
+          <rect x="110" y="730" width="140" height="64" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6" />
+          <path d="M256 762 L300 762" stroke="#8a8f99" stroke-width="3" />
+          <text x="180" y="870" font-size="28" fill="#8a8f99" text-anchor="middle">返回值</text>
+        </g>
+        <g id="no-gear" class="h">
+          <circle id="no-gglow" cx="360" cy="762" r="58" fill="#FC6255" fill-opacity="0" />
+          <g id="no-grot">
+            <circle cx="360" cy="762" r="38" fill="none" stroke="#8a8f99" stroke-width="14" stroke-dasharray="10 9.9" />
+            <circle id="no-gin" cx="360" cy="762" r="27" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          </g>
+        </g>
+        <text id="no-grev" class="h mono" x="360" y="870" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">revert</text>
+        <!-- ② 收费闸门 -->
+        <g id="no-a2" class="h">
+          <text x="270" y="700" font-size="28" fill="#FF9F43" text-anchor="middle">收费</text>
+          <rect x="262" y="716" width="16" height="96" rx="4" fill="#FF9F43" />
+          <rect x="90" y="732" width="130" height="62" rx="10" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="2.5" />
+          <text class="mono" x="155" y="774" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">1,000</text>
+          <text x="90" y="980" font-size="28" fill="#6b6f7a">示例</text>
+        </g>
+        <path id="no-a2ar" class="dr" pathLength="1" d="M224 763 L316 763" stroke="#F0B90B" stroke-width="3" fill="none" />
+        <circle id="no-cn0" class="h" cx="262" cy="830" r="9" fill="#F0B90B" />
+        <circle id="no-cn1" class="h" cx="278" cy="830" r="9" fill="#F0B90B" />
+        <circle id="no-cn2" class="h" cx="270" cy="830" r="9" fill="#F0B90B" />
+        <g id="no-a2o" class="h">
+          <rect x="320" y="732" width="124" height="62" rx="10" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="2.5" />
+          <text x="382" y="774" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">&lt; 1,000</text>
+        </g>
+        <!-- ③ 伸缩余额条 -->
+        <g id="no-a3" class="h">
+          <text x="90" y="712" font-size="28" fill="#e8e6df">余额</text>
+          <text x="90" y="860" font-size="28" fill="#e8e6df">协议记账 <tspan class="mono" fill="#F0B90B">1,000</tspan></text>
+        </g>
+        <rect id="no-sbar" class="h" x="96" y="736" width="240" height="40" rx="6" fill="#F0B90B" fill-opacity="0.6" />
+        <text id="no-neq" class="h" x="400" y="830" font-size="44" font-weight="700" fill="#FC6255" text-anchor="middle">≠</text>
+        <rect id="no-wrap" class="h" x="82" y="724" width="270" height="64" rx="10" fill="none" stroke="#83C167" stroke-width="3" />
+        <text id="no-wrapl" class="h" x="90" y="940" font-size="28" font-weight="700" fill="#83C167">包装后：份额固定</text>
+        <!-- ④ 回调 -->
+        <g id="no-a4" class="h">
+          <rect x="100" y="880" width="160" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="180" y="931" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">代币</text>
+          <text x="166" y="770" font-size="28" fill="#58C4DD" text-anchor="end">转账</text>
+        </g>
+        <path id="no-a4t" class="dr" pathLength="1" d="M180 624 L180 872" stroke="#58C4DD" stroke-width="3.5" fill="none" />
+        <path id="no-a4c" class="dr" pathLength="1" d="M264 900 C 380 900, 390 720, 330 628" stroke="#FC6255" stroke-width="3.5" fill="none" />
+        <text id="no-a4l" class="h" x="390" y="810" font-size="28" font-weight="700" fill="#FC6255">回调</text>
+        <line id="no-a4g" class="h" x1="300" y1="644" x2="364" y2="644" stroke="#83C167" stroke-width="7" stroke-linecap="round" />
+        <g id="no-case" class="h">
+          <rect x="80" y="230" width="420" height="186" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+          <text x="104" y="280" font-size="30" font-weight="700" fill="#FC6255">2020 年 4 月</text>
+        </g>
+        <text id="no-cs2" class="h" x="104" y="330" font-size="28" fill="#e8e6df">Uniswap V1 imBTC 池</text>
+        <text id="no-cs3" class="h" x="104" y="384" font-size="28" fill="#e8e6df">Lendf.Me <tspan fill="#FC6255" font-weight="700">≈ 2,500 万美元</tspan></text>
+        <!-- ⑤ 冻结 / 代理 -->
+        <g id="no-a5" class="h">
+          <text x="90" y="712" font-size="28" fill="#e8e6df">待处理转账</text>
+        </g>
+        <rect id="no-q50" class="h" x="100" y="736" width="66" height="54" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+        <rect id="no-q51" class="h" x="186" y="736" width="66" height="54" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+        <rect id="no-q52" class="h" x="272" y="736" width="66" height="54" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+        <rect id="no-q53" class="h" x="358" y="736" width="66" height="54" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+        <g id="no-q5x" class="h">
+          <path d="M290 750 L318 776 M318 750 L290 776" stroke="#FC6255" stroke-width="4" />
+        </g>
+        <text id="no-q5l" class="h" x="90" y="850" font-size="28" fill="#83C167">失败的跳过，其余继续</text>
+        <g id="no-prox" class="h">
+          <circle cx="140" cy="300" r="50" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="140" y="310" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">USDC</text>
+          <rect x="220" y="255" width="280" height="90" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" stroke-dasharray="10 6" />
+          <text x="360" y="312" font-size="28" fill="#e8e6df" text-anchor="middle">代理 · 实现可替换</text>
+        </g>
+        <g id="no-eye" class="h">
+          <path d="M92 400 Q122 372 152 400 Q122 428 92 400 Z" fill="none" stroke="#FF9F43" stroke-width="3" />
+          <circle cx="122" cy="400" r="8" fill="#FF9F43" />
+          <text x="170" y="410" font-size="28" fill="#FF9F43">持续监控升级事件</text>
+        </g>
+        <!-- L6 白名单 -->
+        <g id="no-doc" class="h">
+          <path d="M860 380 L1050 380 L1100 430 L1100 680 L860 680 Z" fill="#161a22" stroke="#83C167" stroke-width="3" />
+          <path d="M1050 380 L1050 430 L1100 430" fill="none" stroke="#83C167" stroke-width="3" />
+          <text x="890" y="462" font-size="28" fill="#e8e6df">① <tspan fill="#83C167">已评估</tspan></text>
+          <text x="890" y="510" font-size="28" fill="#e8e6df">② <tspan fill="#83C167">已评估</tspan></text>
+          <text x="890" y="558" font-size="28" fill="#e8e6df">③ <tspan fill="#83C167">已评估</tspan></text>
+          <text x="890" y="606" font-size="28" fill="#e8e6df">④ <tspan fill="#83C167">已评估</tspan></text>
+          <text x="890" y="654" font-size="28" fill="#e8e6df">⑤ <tspan fill="#83C167">已评估</tspan></text>
+        </g>
+        <text id="no-docl" class="h" x="980" y="750" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">代币白名单</text>
+        <path id="no-only" class="dr" pathLength="1" d="M850 550 L470 550" stroke="#83C167" stroke-width="3.5" fill="none" />
+        <text id="no-onlyl" class="h" x="660" y="520" font-size="30" fill="#83C167" text-anchor="middle">只接入</text>
+        <text id="no-any" class="h" x="1500" y="545" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle" text-decoration="line-through">支持任意 ERC-20</text>
+      </g>
+      <g id="no-term1" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">安全转账库 <tspan font-size="28" font-weight="400" fill="#8a8f99">SafeERC20</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">兼容不返回 bool 等非标准行为</text>
+      </g>
+      <g id="no-term2" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">手续费代币 <tspan font-size="28" font-weight="400" fill="#8a8f99">Fee-on-Transfer</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">实际到账少于参数</text>
+      </g>
+      <g id="no-term3" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">弹性供应代币 <tspan font-size="28" font-weight="400" fill="#8a8f99">Rebase Token</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">余额按规则自动增减</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+
+      // 第 i 个问题：编号换成问题，结论卡长出，之前的行变暗
+      const ASK = (i, tq, tk) => {
+        OUT("#no-n" + i, tq, 0.25);
+        IN("#no-q" + i, tq + 0.3, 0.4);
+        tl.to("#no-d" + i, { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, tq);
+        IN("#no-k" + i, tk, 0.5, { x: -20 }, { x: 0 });
+        for (let k = 0; k < i; k++) tl.to(["#no-q" + k, "#no-k" + k, "#no-d" + k], { opacity: 0.45, duration: 0.3 }, tq);
+      };
+
+      // L0 协议 + 五条分叉 + 编号
+      IN("#no-proto", at(0, 0.05), 0.6, { x: -20 }, { x: 0 });
+      for (let i = 0; i < 5; i++) {
+        DRAW("#no-l" + i, at(0, 0.28 + 0.1 * i), 0.5);
+        IN("#no-d" + i, at(0, 0.32 + 0.1 * i), 0.4);
+        IN("#no-n" + i, at(0, 0.34 + 0.1 * i), 0.4);
+      }
+
+      // L1 ① bool
+      ASK(0, at(1, 0.02), at(1, 0.3));
+      IN("#no-a1", at(1, 0.12), 0.5);
+      IN("#no-gear", at(1, 0.2), 0.5);
+      tl.to("#no-grot", { rotation: 200, svgOrigin: "360 762", duration: 2.2, ease: "power1.out" }, at(1, 0.22));
+      tl.to("#no-grot", { rotation: 192, svgOrigin: "360 762", duration: 0.12, yoyo: true, repeat: 5 }, at(1, 0.22) + 2.2);
+      tl.to("#no-gglow", { fillOpacity: 0.35, duration: 0.3, yoyo: true, repeat: 3 }, at(1, 0.45));
+      tl.to("#no-gin", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.45));
+      IN("#no-grev", at(1, 0.5), 0.4);
+      IN("#no-term1", at(1, 0.78), 0.5);
+
+      // L2 ② 手续费
+      OUT("#no-term1, #no-a1, #no-gear, #no-grev", at(2, 0), 0.35);
+      IN("#no-term2", at(2, 0) + 0.45, 0.5);
+      ASK(1, at(2, 0.05), at(2, 0.42));
+      IN("#no-a2", at(2, 0.12), 0.5);
+      DRAW("#no-a2ar", at(2, 0.22), 0.5);
+      ["#no-cn0", "#no-cn1", "#no-cn2"].forEach((s, k) => {
+        IN(s, at(2, 0.28) + 0.15 * k, 0.15);
+        tl.to(s, { attr: { cy: 920 }, duration: 0.6, ease: "power2.in" }, at(2, 0.28) + 0.15 * k);
+        OUT(s, at(2, 0.28) + 0.15 * k + 0.5, 0.2);
+      });
+      IN("#no-a2o", at(2, 0.36), 0.4);
+
+      // L3 ③ rebase
+      OUT("#no-term2, #no-a2, #no-a2ar, #no-a2o", at(3, 0), 0.35);
+      IN("#no-term3", at(3, 0) + 0.45, 0.5);
+      ASK(2, at(3, 0.04), at(3, 0.62));
+      IN("#no-a3", at(3, 0.12), 0.5); IN("#no-sbar", at(3, 0.12), 0.5);
+      tl.to("#no-sbar", { attr: { width: 300 }, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(3, 0.18));
+      tl.to("#no-sbar", { attr: { width: 200 }, duration: 0.8, yoyo: true, repeat: 1, ease: "sine.inOut" }, at(3, 0.18) + 3.3);
+      IN("#no-neq", at(3, 0.4), 0.4);
+      OUT("#no-neq", at(3, 0.7), 0.3);
+      IN("#no-wrap", at(3, 0.72), 0.4);
+      tl.to("#no-sbar", { attr: { width: 240 }, duration: 0.3 }, at(3, 0.72));
+      tl.to("#no-sbar", { fill: "#83C167", duration: 0.4 }, at(3, 0.74));
+      IN("#no-wrapl", at(3, 0.78), 0.4);
+      OUT("#no-term3", at(3, 0.98), 0.3);
+
+      // L4 ④ 回调钩子
+      OUT("#no-a3, #no-sbar, #no-wrap, #no-wrapl", at(4, 0), 0.35);
+      ASK(3, at(4, 0.03), at(4, 0.72));
+      IN("#no-a4", at(4, 0.08), 0.5);
+      DRAW("#no-a4t", at(4, 0.1), 0.8);
+      DRAW("#no-a4c", at(4, 0.16), 1.0);
+      IN("#no-a4l", at(4, 0.2), 0.4);
+      tl.to("#no-a4c", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 3 }, at(4, 0.3));
+      IN("#no-case", at(4, 0.4), 0.5, { y: 12 }, { y: 0 });
+      IN("#no-cs2", at(4, 0.47), 0.4); IN("#no-cs3", at(4, 0.56), 0.4);
+      tl.to("#no-case rect", { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 3 }, at(4, 0.64));
+      IN("#no-a4g", at(4, 0.8), 0.4);
+      tl.to("#no-a4c", { opacity: 0.3, duration: 0.4 }, at(4, 0.84));
+
+      // L5 ⑤ 冻结 / 暂停 / 升级
+      OUT("#no-a4, #no-a4t, #no-a4c, #no-a4l, #no-a4g, #no-case, #no-cs2, #no-cs3", at(5, 0), 0.35);
+      ASK(4, at(5, 0.03), at(5, 0.32));
+      IN("#no-a5", at(5, 0.1), 0.4);
+      for (let k = 0; k < 4; k++) IN("#no-q5" + k, at(5, 0.12) + 0.1 * k, 0.3);
+      tl.to("#no-q52", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.26)); IN("#no-q5x", at(5, 0.26), 0.3);
+      ["#no-q50", "#no-q51", "#no-q53"].forEach((s, k) => tl.to(s, { stroke: "#83C167", duration: 0.3 }, at(5, 0.36) + 0.4 * k));
+      IN("#no-q5l", at(5, 0.44), 0.4);
+      IN("#no-prox", at(5, 0.6), 0.5, { y: 12 }, { y: 0 });
+      IN("#no-eye", at(5, 0.82), 0.5);
+
+      // L6 白名单
+      OUT("#no-a5, #no-q50, #no-q51, #no-q52, #no-q53, #no-q5x, #no-q5l, #no-prox, #no-eye", at(6, 0), 0.35);
+      for (let i = 0; i < 5; i++) {
+        tl.to("#no-k" + i, { x: -260, y: 530 - (290 + 165 * i), opacity: 0, duration: 0.6, ease: "power2.in" }, at(6, 0.02) + 0.06 * i);
+        OUT(["#no-q" + i, "#no-d" + i, "#no-l" + i], at(6, 0.02), 0.4);
+      }
+      IN("#no-doc", at(6, 0.02) + 0.75, 0.5, { scale: 0.8, svgOrigin: "980 530" }, { scale: 1, svgOrigin: "980 530" });
+      IN("#no-docl", at(6, 0.2), 0.4);
+      DRAW("#no-only", at(6, 0.3), 0.6); IN("#no-onlyl", at(6, 0.34), 0.4);
+      IN("#no-any", at(6, 0.7), 0.5);
+
+      tl.to("#no-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["nonstd"] = tl;
+    })();
+  </script>
+</template>

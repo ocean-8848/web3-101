@@ -1,0 +1,275 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 functions，id 前缀 fu- -->
+  <div id="root" data-composition-id="functions" data-duration="78.1" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="fu-all">
+        <!-- L0–L1：可见性同心圆 -->
+        <g id="fu-vis">
+          <path id="fu-hO" opacity="0" fill="#58C4DD" fill-rule="evenodd" d="M250 640 a310 310 0 1 0 620 0 a310 310 0 1 0 -620 0 Z M350 640 a210 210 0 1 0 420 0 a210 210 0 1 0 -420 0 Z"/>
+          <path id="fu-hM" opacity="0" fill="#58C4DD" fill-rule="evenodd" d="M350 640 a210 210 0 1 0 420 0 a210 210 0 1 0 -420 0 Z M450 640 a110 110 0 1 0 220 0 a110 110 0 1 0 -220 0 Z"/>
+          <circle id="fu-hI" opacity="0" cx="560" cy="640" r="110" fill="#58C4DD"/>
+          <circle id="fu-r2" class="dr" pathLength="1" cx="560" cy="640" r="310" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+          <circle id="fu-r1" class="dr" pathLength="1" cx="560" cy="640" r="210" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+          <circle id="fu-r0" class="dr" pathLength="1" cx="560" cy="640" r="110" fill="none" stroke="#58C4DD" stroke-width="2.5"/>
+          <text id="fu-l0" class="h" x="560" y="651" font-size="30" fill="#e8e6df" text-anchor="middle">本合约</text>
+          <text id="fu-l1" class="h" x="560" y="491" font-size="30" fill="#e8e6df" text-anchor="middle">子合约</text>
+          <text id="fu-l2" class="h" x="560" y="392" font-size="30" fill="#e8e6df" text-anchor="middle">外部</text>
+          <g id="fu-b0" class="h"><rect x="960" y="330" width="230" height="70" rx="35" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1075" y="376" font-size="32" fill="#58C4DD" text-anchor="middle">public</text></g>
+          <text id="fu-n0" class="h" x="1220" y="376" font-size="28" fill="#e8e6df"><tspan class="mono">public</tspan> 变量 → 自动 <tspan class="mono">getter</tspan></text>
+          <g id="fu-b1" class="h"><rect x="960" y="470" width="230" height="70" rx="35" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1075" y="516" font-size="32" fill="#58C4DD" text-anchor="middle">external</text></g>
+          <text id="fu-n1" class="h" x="1220" y="516" font-size="28" fill="#e8e6df">内部要 <tspan class="mono">this.f()</tspan></text>
+          <g id="fu-b2" class="h"><rect x="960" y="610" width="230" height="70" rx="35" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1075" y="656" font-size="32" fill="#58C4DD" text-anchor="middle">internal</text></g>
+          <text id="fu-n2" class="h" x="1220" y="656" font-size="28" fill="#e8e6df">状态变量默认</text>
+          <g id="fu-b3" class="h"><rect x="960" y="750" width="230" height="70" rx="35" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1075" y="796" font-size="32" fill="#58C4DD" text-anchor="middle">private</text></g>
+        </g>
+        <!-- L2：状态可变性四张卡 -->
+        <g id="fu-mut">
+          <rect id="fu-cAr" class="h" x="160" y="250" width="780" height="300" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <g id="fu-cA" class="h">
+            <text class="mono" x="200" y="330" font-size="44" font-weight="700" fill="#58C4DD">view</text>
+            <text x="200" y="400" font-size="30" fill="#e8e6df">只读不改</text>
+            <path d="M740 400 Q820 340 900 400 Q820 460 740 400 Z" fill="none" stroke="#58C4DD" stroke-width="4"/>
+            <circle cx="820" cy="400" r="20" fill="#58C4DD"/>
+          </g>
+          <g id="fu-cB" class="h">
+            <rect x="980" y="250" width="780" height="300" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text class="mono" x="1020" y="330" font-size="44" font-weight="700" fill="#8a8f99">pure</text>
+            <text x="1020" y="400" font-size="30" fill="#e8e6df">只用参数，不读状态</text>
+            <rect x="1600" y="320" width="100" height="140" rx="10" fill="none" stroke="#8a8f99" stroke-width="3"/>
+            <rect x="1614" y="334" width="72" height="30" rx="4" fill="#8a8f99"/>
+            <path d="M1620 390 h12 M1644 390 h12 M1668 390 h12 M1620 414 h12 M1644 414 h12 M1668 414 h12 M1620 438 h12 M1644 438 h12 M1668 438 h12" stroke="#8a8f99" stroke-width="10"/>
+          </g>
+          <g id="fu-cC" class="h">
+            <rect x="160" y="590" width="780" height="300" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+            <text class="mono" x="200" y="670" font-size="44" font-weight="700" fill="#F0B90B">payable</text>
+            <text x="200" y="740" font-size="30" fill="#e8e6df">才能收 ETH</text>
+            <rect x="760" y="700" width="120" height="16" rx="8" fill="#0f1117" stroke="#F0B90B" stroke-width="3"/>
+            <rect x="200" y="785" width="130" height="70" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="2"/>
+            <text class="mono" x="265" y="830" font-size="30" fill="#8a8f99" text-anchor="middle">f()</text>
+          </g>
+          <g id="fu-coin1" class="h"><circle cx="820" cy="640" r="22" fill="#F0B90B"/><text class="mono" x="820" y="650" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle" data-layout-ignore="">Ξ</text></g>
+          <g id="fu-coin2" class="h"><circle cx="600" cy="820" r="22" fill="#F0B90B"/><text class="mono" x="600" y="830" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle" data-layout-ignore="">Ξ</text></g>
+          <text id="fu-rev" class="h mono" x="660" y="832" font-size="30" font-weight="700" fill="#FC6255">revert</text>
+          <g id="fu-cD" class="h">
+            <rect x="980" y="590" width="780" height="300" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+            <text x="1020" y="670" font-size="40" font-weight="700" fill="#e8e6df">（不写）</text>
+            <text x="1020" y="740" font-size="30" fill="#e8e6df">可改状态 · 发交易</text>
+            <rect x="1590" y="660" width="110" height="140" rx="14" fill="none" stroke="#F0B90B" stroke-width="3.5"/>
+            <line x1="1590" y1="680" x2="1700" y2="680" stroke="#F0B90B" stroke-width="3"/>
+            <line x1="1590" y1="780" x2="1700" y2="780" stroke="#F0B90B" stroke-width="3"/>
+            <text class="mono" x="1645" y="740" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">Gas</text>
+          </g>
+        </g>
+        <!-- L3：view 放大 -->
+        <g id="fu-vw">
+          <g id="fu-vh" class="h">
+            <text class="mono" x="200" y="330" font-size="44" font-weight="700" fill="#58C4DD">view</text>
+            <path d="M330 316 Q370 286 410 316 Q370 346 330 316 Z" fill="none" stroke="#58C4DD" stroke-width="3"/>
+            <circle cx="370" cy="316" r="10" fill="#58C4DD"/>
+          </g>
+          <line id="fu-vd" class="dr" pathLength="1" x1="960" y1="390" x2="960" y2="850" stroke="#2a2f3a" stroke-width="3"/>
+          <text id="fu-vl1" class="h" x="220" y="470" font-size="36" fill="#e8e6df">链外 <tspan class="mono">eth_call</tspan></text>
+          <text id="fu-vl2" class="h" x="220" y="570" font-size="44" font-weight="700" fill="#83C167">免费</text>
+          <text id="fu-vl3" class="h mono" x="220" y="680" font-size="56" font-weight="700" fill="#83C167">0 Gas</text>
+          <text id="fu-vr1" class="h" x="1010" y="470" font-size="36" fill="#e8e6df">交易内部调用</text>
+          <text id="fu-vr2" class="h" x="1010" y="570" font-size="44" font-weight="700" fill="#F0B90B">照常计 Gas</text>
+          <rect id="fu-vbar" class="h" x="1010" y="640" width="0" height="44" rx="8" fill="#F0B90B"/>
+        </g>
+        <!-- L4–L5：全局变量 -->
+        <g id="fu-glob">
+          <g id="fu-list" class="h">
+            <text id="fu-g0" class="mono" x="160" y="330" font-size="34" fill="#6b6f7a">msg.sender</text>
+            <text id="fu-g1" class="mono" x="160" y="420" font-size="34" fill="#6b6f7a">msg.value</text>
+            <text id="fu-g2" class="mono" x="160" y="510" font-size="34" fill="#6b6f7a">block.timestamp</text>
+            <text id="fu-g3" class="mono" x="160" y="600" font-size="34" fill="#6b6f7a">block.number</text>
+            <text id="fu-g4" class="mono" x="160" y="690" font-size="34" fill="#6b6f7a">tx.origin</text>
+          </g>
+          <g id="fu-ps">
+            <path id="fu-psa" class="dr h" pathLength="1" d="M390 318 L870 318" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fu-arr)"/>
+            <text id="fu-pst" class="h" x="900" y="330" font-size="36" font-weight="700" fill="#e8e6df">直接调用者</text>
+            <g id="fu-psp" class="h">
+              <circle cx="1000" cy="450" r="30" fill="none" stroke="#8a8f99" stroke-width="4"/>
+              <path d="M950 540 Q950 490 1000 490 Q1050 490 1050 540 Z" fill="none" stroke="#8a8f99" stroke-width="4"/>
+              <text x="1000" y="610" font-size="28" fill="#e8e6df" text-anchor="middle">普通账户</text>
+            </g>
+            <text id="fu-pso" class="h" x="1200" y="510" font-size="30" fill="#6b6f7a" text-anchor="middle">或</text>
+            <g id="fu-psc" class="h">
+              <rect x="1355" y="420" width="90" height="120" rx="8" fill="none" stroke="#58C4DD" stroke-width="4"/>
+              <path d="M1372 450 h56 M1372 475 h56 M1372 500 h40" stroke="#58C4DD" stroke-width="4"/>
+              <text x="1400" y="610" font-size="28" fill="#e8e6df" text-anchor="middle">合约</text>
+            </g>
+          </g>
+          <g id="fu-pv">
+            <path id="fu-pva" class="dr h" pathLength="1" d="M370 408 L880 408" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fu-arr)"/>
+            <g id="fu-pvc" class="h"><circle cx="960" cy="408" r="48" fill="#F0B90B"/><text class="mono" x="960" y="420" font-size="34" font-weight="700" fill="#0f1117" text-anchor="middle">ETH</text></g>
+            <text id="fu-pvw" class="h mono" x="1040" y="420" font-size="34" fill="#F0B90B">wei</text>
+            <text id="fu-pvn" class="h" x="900" y="560" font-size="30" fill="#e8e6df">只在 <tspan class="mono" fill="#F0B90B">payable</tspan> 函数里可能非 0</text>
+          </g>
+          <g id="fu-pt">
+            <line id="fu-ptl" class="dr" pathLength="1" x1="760" y1="400" x2="1780" y2="400" stroke="#8a8f99" stroke-width="2.5"/>
+            <g id="fu-k0" class="h"><rect x="790" y="360" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="855" y="411" font-size="30" fill="#58C4DD" text-anchor="middle">N</text></g>
+            <g id="fu-k1" class="h"><rect x="1040" y="360" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1105" y="411" font-size="30" fill="#58C4DD" text-anchor="middle">N+1</text></g>
+            <g id="fu-k2" class="h"><rect x="1290" y="360" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1355" y="411" font-size="30" fill="#58C4DD" text-anchor="middle">N+2</text></g>
+            <g id="fu-k3" class="h"><rect x="1540" y="360" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1605" y="411" font-size="30" fill="#58C4DD" text-anchor="middle">N+3</text></g>
+            <text id="fu-gp0" class="h mono" x="980" y="382" font-size="28" fill="#8a8f99" text-anchor="middle">≈12 s</text>
+            <text id="fu-gp1" class="h mono" x="1230" y="382" font-size="28" fill="#8a8f99" text-anchor="middle">≈12 s</text>
+            <text id="fu-gp2" class="h mono" x="1480" y="382" font-size="28" fill="#8a8f99" text-anchor="middle">≈12 s</text>
+            <g id="fu-txs" class="h">
+              <circle cx="1075" cy="480" r="10" fill="#F0B90B"/><circle cx="1105" cy="480" r="10" fill="#F0B90B"/><circle cx="1135" cy="480" r="10" fill="#F0B90B"/>
+              <text x="1105" y="540" font-size="28" fill="#e8e6df" text-anchor="middle">同一时间戳</text>
+            </g>
+            <text id="fu-ptn" class="h" x="790" y="640" font-size="32" fill="#FF9F43">区块级精度 · 不是随机数</text>
+            <text id="fu-pbn" class="h" x="790" y="740" font-size="28" fill="#8a8f99">L2 上含义可能不同</text>
+          </g>
+        </g>
+        <!-- L6：tx.origin 钓鱼 -->
+        <g id="fu-org">
+          <g id="fu-ou" class="h"><rect x="160" y="360" width="360" height="120" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="340" y="432" font-size="34" fill="#e8e6df" text-anchor="middle">用户</text></g>
+          <path id="fu-oa1" class="dr h" pathLength="1" d="M524 420 L692 420" stroke="#F0B90B" stroke-width="3.5" fill="none" marker-end="url(#fu-arr)"/>
+          <g id="fu-om" class="h"><rect x="700" y="360" width="420" height="120" rx="16" fill="#2a1416" stroke="#FC6255" stroke-width="2.5"/><text x="910" y="432" font-size="34" fill="#FC6255" text-anchor="middle">恶意合约</text></g>
+          <path id="fu-oa2" class="dr h" pathLength="1" d="M1124 420 L1292 420" stroke="#F0B90B" stroke-width="3.5" fill="none" marker-end="url(#fu-arr)"/>
+          <g id="fu-oy" class="h"><rect x="1300" y="360" width="460" height="120" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="1530" y="432" font-size="34" fill="#58C4DD" text-anchor="middle">你的合约</text></g>
+          <text id="fu-otx" class="h" x="340" y="560" font-size="32" fill="#FF9F43" text-anchor="middle"><tspan class="mono">tx.origin = </tspan>用户</text>
+          <text id="fu-oms" class="h" x="910" y="560" font-size="32" fill="#83C167" text-anchor="middle"><tspan class="mono">msg.sender = </tspan>恶意合约</text>
+          <g id="fu-ob1" class="h"><rect x="660" y="680" width="620" height="60" fill="rgba(252,98,85,.12)"/><rect x="660" y="680" width="6" height="60" fill="#FC6255"/></g>
+          <text id="fu-oc1" class="h mono" x="690" y="722" font-size="32" fill="#e8e6df">require(tx.origin == owner);</text>
+          <text id="fu-ox1" class="h" x="1310" y="722" font-size="32" font-weight="700" fill="#FC6255">被绕过 ✕</text>
+          <g id="fu-ob2" class="h"><rect x="660" y="790" width="620" height="60" fill="rgba(131,193,103,.12)"/><rect x="660" y="790" width="6" height="60" fill="#83C167"/></g>
+          <text id="fu-oc2" class="h mono" x="690" y="832" font-size="32" fill="#e8e6df">require(msg.sender == owner);</text>
+          <g id="fu-ox2" class="h">
+            <path d="M1328 796 L1356 806 V826 Q1356 842 1328 852 Q1300 842 1300 826 V806 Z" fill="rgba(131,193,103,.3)" stroke="#83C167" stroke-width="3"/>
+            <text x="1372" y="834" font-size="32" font-weight="700" fill="#83C167">挡下 ✓</text>
+          </g>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="fu-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">可见性 <tspan font-size="28" font-weight="400" fill="#8a8f99">Visibility</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">函数或变量能被谁访问</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+const HL = (sel, t, v = 0.28) => tl.to(sel, { opacity: v, duration: 0.4 }, t);
+// L0 同心圆 + public
+DRAW("#fu-r2", at(0, 0.0), 0.8); DRAW("#fu-r1", at(0, 0.04), 0.8); DRAW("#fu-r0", at(0, 0.08), 0.8);
+IN("#fu-term", at(0, 0.03), 0.5);
+IN("#fu-l0", at(0, 0.12), 0.4); IN("#fu-l1", at(0, 0.16), 0.4); IN("#fu-l2", at(0, 0.2), 0.4);
+IN("#fu-b0", at(0, 0.32), 0.5, { x: 20 }, { x: 0 });
+HL("#fu-hO, #fu-hM, #fu-hI", at(0, 0.36));
+IN("#fu-n0", at(0, 0.72), 0.5);
+OUT("#fu-term", at(0, 0.03) + 7.6, 0.4);
+// L1 external / internal / private
+HL("#fu-hO, #fu-hM, #fu-hI", at(1, 0), 0);
+IN("#fu-b1", at(1, 0.02), 0.5, { x: 20 }, { x: 0 });
+HL("#fu-hO", at(1, 0.04));
+IN("#fu-n1", at(1, 0.16), 0.4);
+HL("#fu-hO", at(1, 0.36), 0);
+IN("#fu-b2", at(1, 0.36), 0.5, { x: 20 }, { x: 0 });
+HL("#fu-hM, #fu-hI", at(1, 0.38));
+IN("#fu-n2", at(1, 0.52), 0.4);
+HL("#fu-hM", at(1, 0.76), 0);
+IN("#fu-b3", at(1, 0.76), 0.5, { x: 20 }, { x: 0 });
+// L2 状态可变性四张卡
+OUT("#fu-vis", at(2, 0), 0.5);
+IN("#fu-cAr, #fu-cA", at(2, 0.04), 0.5, { y: 20 }, { y: 0 });
+IN("#fu-cB", at(2, 0.17), 0.5, { y: 20 }, { y: 0 });
+IN("#fu-cC", at(2, 0.33), 0.5, { y: 20 }, { y: 0 });
+tl.fromTo("#fu-coin1", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, at(2, 0.38));
+tl.to("#fu-coin1", { y: 66, duration: 0.5, ease: "power2.in" }, at(2, 0.38) + 0.35);
+tl.to("#fu-coin1", { opacity: 0, duration: 0.15 }, at(2, 0.38) + 0.8);
+tl.fromTo("#fu-coin2", { opacity: 0, x: 0 }, { opacity: 1, x: -220, duration: 0.6, ease: "power2.in", immediateRender: false }, at(2, 0.5));
+tl.to("#fu-coin2", { x: -40, duration: 0.5, ease: "power2.out" }, at(2, 0.5) + 0.6);
+tl.to("#fu-coin2 circle", { fill: "#FC6255", duration: 0.2 }, at(2, 0.5) + 0.6);
+tl.to("#fu-coin2", { opacity: 0, duration: 0.3 }, at(2, 0.5) + 1.2);
+IN("#fu-rev", at(2, 0.5) + 0.7, 0.3);
+IN("#fu-cD", at(2, 0.72), 0.5, { y: 20 }, { y: 0 });
+// L3 view 卡放大
+OUT("#fu-cB, #fu-cC, #fu-cD, #fu-rev, #fu-cA", at(3, 0), 0.4);
+tl.to("#fu-cAr", { attr: { width: 1600, height: 640 }, duration: 0.8, ease: "power2.inOut" }, at(3, 0.04));
+IN("#fu-vh", at(3, 0.12), 0.4);
+DRAW("#fu-vd", at(3, 0.16), 0.5);
+IN("#fu-vl1", at(3, 0.18), 0.4);
+IN("#fu-vl2", at(3, 0.3), 0.4);
+IN("#fu-vl3", at(3, 0.36), 0.4);
+IN("#fu-vr1", at(3, 0.56), 0.4);
+IN("#fu-vr2", at(3, 0.66), 0.4);
+tl.set("#fu-vbar", { opacity: 1 }, at(3, 0.7));
+tl.fromTo("#fu-vbar", { attr: { width: 0 } }, { attr: { width: 560 }, duration: 1.6, ease: "power1.inOut", immediateRender: false }, at(3, 0.7));
+// L4 全局变量：msg.sender / msg.value
+OUT("#fu-vw, #fu-cAr", at(4, 0), 0.4);
+IN("#fu-list", at(4, 0.03), 0.5);
+tl.to("#fu-g0", { fill: "#58C4DD", duration: 0.3 }, at(4, 0.06));
+ARROW("#fu-psa", at(4, 0.08), 0.5);
+IN("#fu-pst", at(4, 0.12), 0.4);
+IN("#fu-psp", at(4, 0.22), 0.4);
+IN("#fu-pso", at(4, 0.28), 0.3);
+IN("#fu-psc", at(4, 0.32), 0.4);
+OUT("#fu-ps", at(4, 0.5), 0.4);
+tl.to("#fu-g0", { fill: "#6b6f7a", duration: 0.3 }, at(4, 0.5));
+tl.to("#fu-g1", { fill: "#F0B90B", duration: 0.3 }, at(4, 0.52));
+ARROW("#fu-pva", at(4, 0.54), 0.5);
+IN("#fu-pvc", at(4, 0.6), 0.4, { scale: 0.6, svgOrigin: "960 408" }, { scale: 1, svgOrigin: "960 408" });
+IN("#fu-pvw", at(4, 0.66), 0.4);
+IN("#fu-pvn", at(4, 0.8), 0.5);
+// L5 block.timestamp / block.number
+OUT("#fu-pv", at(5, 0), 0.4);
+tl.to("#fu-g1", { fill: "#6b6f7a", duration: 0.3 }, at(5, 0));
+tl.to("#fu-g2", { fill: "#FF9F43", duration: 0.3 }, at(5, 0.02));
+DRAW("#fu-ptl", at(5, 0.04), 0.6);
+["#fu-k0", "#fu-k1", "#fu-k2", "#fu-k3"].forEach((s, i) => IN(s, at(5, 0.06) + i * 0.2, 0.35));
+IN("#fu-gp0, #fu-gp1, #fu-gp2", at(5, 0.24), 0.4);
+IN("#fu-txs", at(5, 0.32), 0.4);
+IN("#fu-ptn", at(5, 0.42), 0.4);
+tl.to("#fu-g2", { fill: "#6b6f7a", duration: 0.3 }, at(5, 0.62));
+tl.to("#fu-g3", { fill: "#58C4DD", duration: 0.3 }, at(5, 0.62));
+tl.to("#fu-k0 rect, #fu-k1 rect, #fu-k2 rect, #fu-k3 rect", { fill: "rgba(88,196,221,.25)", duration: 0.25, stagger: 0.15, yoyo: true, repeat: 1 }, at(5, 0.64));
+IN("#fu-pbn", at(5, 0.8), 0.4);
+// L6 tx.origin vs msg.sender
+OUT("#fu-glob", at(6, 0), 0.4);
+IN("#fu-ou", at(6, 0.04), 0.4);
+ARROW("#fu-oa1", at(6, 0.12), 0.4); IN("#fu-om", at(6, 0.14), 0.4);
+ARROW("#fu-oa2", at(6, 0.2), 0.4); IN("#fu-oy", at(6, 0.22), 0.4);
+IN("#fu-otx", at(6, 0.3), 0.4, { y: 12 }, { y: 0 });
+IN("#fu-oms", at(6, 0.36), 0.4, { y: 12 }, { y: 0 });
+IN("#fu-oc1", at(6, 0.46), 0.4);
+IN("#fu-ob1", at(6, 0.52), 0.3); IN("#fu-ox1", at(6, 0.54), 0.3);
+IN("#fu-oc2", at(6, 0.76), 0.4);
+IN("#fu-ob2", at(6, 0.82), 0.3); IN("#fu-ox2", at(6, 0.84), 0.4, { scale: 0.7, svgOrigin: "1328 824" }, { scale: 1, svgOrigin: "1328 824" });
+      /*ENDANIM*/
+
+      tl.to("#fu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#fu-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["functions"] = tl;
+    })();
+  </script>
+</template>

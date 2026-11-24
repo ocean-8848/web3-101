@@ -1,0 +1,304 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 faucet，id 前缀 fa- -->
+  <div id="root" data-composition-id="faucet" data-duration="71.75" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="fa-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="fa-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+      </defs>
+      <g id="fa-all">
+        <!-- 钱包窗口（示意） -->
+        <g id="fa-wal" class="h">
+          <rect x="100" y="220" width="520" height="640" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="1.5"/>
+          <line x1="100" y1="260" x2="620" y2="260" stroke="#8a8f99" stroke-width="1"/>
+          <circle cx="128" cy="240" r="6" fill="#8a8f99"/><circle cx="150" cy="240" r="6" fill="#8a8f99"/><circle cx="172" cy="240" r="6" fill="#8a8f99"/>
+          <text x="196" y="250" font-size="26" fill="#8a8f99" data-layout-ignore>浏览器钱包（示意）</text>
+          <rect x="130" y="282" width="300" height="50" rx="25" fill="none" stroke="#8a8f99" stroke-width="1.5"/>
+          <rect x="140" y="752" width="200" height="60" rx="10" fill="#58C4DD"/>
+          <text x="240" y="792" font-size="28" fill="#0f1117" text-anchor="middle">发送</text>
+          <rect x="380" y="752" width="200" height="60" rx="10" fill="none" stroke="#8a8f99" stroke-width="1.5"/>
+          <text x="480" y="792" font-size="28" fill="#e8e6df" text-anchor="middle">接收</text>
+          <text x="360" y="702" font-size="28" class="mono" fill="#8a8f99" text-anchor="middle">SepoliaETH</text>
+        </g>
+        <text id="fa-net0" class="h" x="152" y="317" font-size="28" fill="#e8e6df">以太坊主网 ▾</text>
+        <text id="fa-net1" class="h" x="152" y="317" font-size="28" fill="#58C4DD">Sepolia ▾</text>
+        <g id="fa-acct" class="h">
+          <text x="360" y="410" font-size="30" fill="#e8e6df" text-anchor="middle">账户 1</text>
+          <text class="mono" x="345" y="452" font-size="28" fill="#8a8f99" text-anchor="middle">0x7e5f…a3c1</text>
+          <rect x="448" y="434" width="14" height="18" rx="2" fill="none" stroke="#8a8f99" stroke-width="1.5"/>
+          <rect x="446" y="428" width="14" height="18" rx="2" fill="none" stroke="#8a8f99" stroke-width="1.5"/>
+          <text x="360" y="590" font-size="28" fill="#8a8f99" text-anchor="middle">余额</text>
+        </g>
+        <text id="fa-bal" class="h mono" x="360" y="660" font-size="56" font-weight="700" fill="#F0B90B" text-anchor="middle">0</text>
+        <circle id="fa-rip" class="h" cx="345" cy="444" r="10" fill="none" stroke="#e8e6df" stroke-width="3"/>
+        <g id="fa-cop" class="h">
+          <rect x="300" y="470" width="120" height="46" rx="12" fill="#83C16722" stroke="#83C167" stroke-width="1.5"/>
+          <text x="360" y="503" font-size="28" fill="#83C167" text-anchor="middle">已复制</text>
+        </g>
+        <!-- L0 完整地址 -->
+        <line id="fa-lead" class="dr" pathLength="1" x1="470" y1="445" x2="890" y2="560" stroke="#8a8f99" stroke-width="1.5"/>
+        <text id="fa-full" class="h mono" x="900" y="580" font-size="30" fill="#8a8f99"><tspan fill="#e8e6df">0x</tspan>7e5f3b9c21d8a0f46e7bc5d290af18e34d07a3c1</text>
+        <path id="fa-brace" class="dr" pathLength="1" d="M900 525 Q900 500 925 500 L1253 500 Q1278 500 1278 478 Q1278 500 1303 500 L1631 500 Q1656 500 1656 525" fill="none" stroke="#e8e6df" stroke-width="2.5"/>
+        <text id="fa-cnt" class="h" x="1278" y="458" font-size="30" fill="#e8e6df" text-anchor="middle">42 个字符</text>
+        <!-- L1 主网 vs 测试网 -->
+        <g id="fa-cmp">
+          <line id="fa-div" class="dr" pathLength="1" x1="1280" y1="250" x2="1280" y2="580" stroke="#6b6f7a" stroke-width="2"/>
+          <g id="fa-main" class="h">
+            <text x="990" y="310" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">主网</text>
+            <circle cx="990" cy="420" r="56" fill="#F0B90B"/>
+            <text class="mono" x="990" y="430" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">ETH</text>
+          </g>
+          <g id="fa-test" class="h">
+            <circle cx="1570" cy="420" r="56" fill="#2a2e37" stroke="#8a8f99" stroke-width="2"/>
+            <text class="mono" x="1570" y="430" font-size="28" font-weight="700" fill="#8a8f99" text-anchor="middle">ETH</text>
+          </g>
+          <text id="fa-tn0" class="h" x="1570" y="310" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">测试网</text>
+          <text id="fa-tn1" class="h" x="1570" y="310" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">Sepolia</text>
+          <g id="fa-nov" class="h">
+            <rect x="1650" y="396" width="170" height="48" rx="10" fill="none" stroke="#8a8f99" stroke-width="1.5"/>
+            <text x="1735" y="430" font-size="28" fill="#8a8f99" text-anchor="middle">没有价值</text>
+          </g>
+          <g id="fa-book" class="h">
+            <rect x="1210" y="610" width="140" height="90" rx="6" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3"/>
+            <line x1="1280" y1="610" x2="1280" y2="700" stroke="#58C4DD" stroke-width="2"/>
+            <line x1="1225" y1="635" x2="1265" y2="635" stroke="#58C4DD" stroke-width="2"/><line x1="1225" y1="655" x2="1265" y2="655" stroke="#58C4DD" stroke-width="2"/><line x1="1225" y1="675" x2="1265" y2="675" stroke="#58C4DD" stroke-width="2"/>
+            <line x1="1295" y1="635" x2="1335" y2="635" stroke="#58C4DD" stroke-width="2"/><line x1="1295" y1="655" x2="1335" y2="655" stroke="#58C4DD" stroke-width="2"/><line x1="1295" y1="675" x2="1335" y2="675" stroke="#58C4DD" stroke-width="2"/>
+          </g>
+          <line id="fa-bl0" class="dr" pathLength="1" x1="1205" y1="640" x2="1015" y2="482" stroke="#58C4DD" stroke-width="2.5"/>
+          <line id="fa-bl1" class="dr" pathLength="1" x1="1355" y1="640" x2="1545" y2="482" stroke="#58C4DD" stroke-width="2.5"/>
+          <text id="fa-same" class="h" x="1280" y="752" font-size="30" fill="#58C4DD" text-anchor="middle">规则一样</text>
+        </g>
+        <!-- L2 网络下拉 -->
+        <g id="fa-dd" class="h">
+          <rect x="130" y="342" width="460" height="256" rx="12" fill="#1c212b" stroke="#8a8f99" stroke-width="1.5"/>
+          <text x="156" y="390" font-size="28" fill="#e8e6df">以太坊主网</text>
+          <line x1="146" y1="414" x2="574" y2="414" stroke="#6b6f7a" stroke-width="1"/>
+          <text x="156" y="462" font-size="28" fill="#e8e6df">显示测试网络</text>
+          <rect id="fa-tog" x="496" y="438" width="64" height="32" rx="16" fill="#3a3e47"/>
+          <circle id="fa-knob" cx="512" cy="454" r="12" fill="#e8e6df"/>
+        </g>
+        <rect id="fa-sel" class="h" x="142" y="496" width="436" height="52" rx="8" fill="#58C4DD" fill-opacity="0.18"/>
+        <text id="fa-sep" class="h" x="156" y="532" font-size="28" fill="#58C4DD">Sepolia</text>
+        <!-- L3 水龙头网页（示意） -->
+        <g id="fa-fw">
+          <g id="fa-fwin" class="h">
+            <rect x="760" y="220" width="1060" height="420" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="1.5"/>
+            <line x1="760" y1="260" x2="1820" y2="260" stroke="#8a8f99" stroke-width="1"/>
+            <circle cx="788" cy="240" r="6" fill="#8a8f99"/><circle cx="810" cy="240" r="6" fill="#8a8f99"/><circle cx="832" cy="240" r="6" fill="#8a8f99"/>
+            <text x="856" y="250" font-size="26" fill="#8a8f99" data-layout-ignore>水龙头（示意）</text>
+            <rect x="860" y="298" width="20" height="24" rx="3" fill="#8a8f99"/>
+            <rect x="820" y="322" width="110" height="38" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/>
+            <path d="M930 332 L962 332 L962 372 L944 372 L944 360" fill="none" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round"/>
+            <text x="1000" y="332" font-size="32" fill="#e8e6df">领取测试币</text>
+            <rect x="1000" y="368" width="760" height="62" rx="10" fill="none" stroke="#8a8f99" stroke-width="1.5"/>
+            <rect id="fa-sub" x="1600" y="456" width="160" height="60" rx="10" fill="#58C4DD"/>
+            <text x="1680" y="496" font-size="28" fill="#0f1117" text-anchor="middle">提交</text>
+          </g>
+          <circle id="fa-d0" class="h" cx="953" cy="392" r="10" fill="#8a8f99"/>
+          <circle id="fa-d1" class="h" cx="953" cy="392" r="10" fill="#8a8f99"/>
+          <circle id="fa-d2" class="h" cx="953" cy="392" r="10" fill="#8a8f99"/>
+          <text id="fa-ph" class="h" x="1024" y="410" font-size="28" fill="#6b6f7a">粘贴你的地址</text>
+          <text id="fa-paste" class="h mono" x="1024" y="410" font-size="28" fill="#e8e6df">0x7e5f…a3c1</text>
+          <circle id="fa-rip2" class="h" cx="1680" cy="486" r="10" fill="none" stroke="#e8e6df" stroke-width="3"/>
+          <g id="fa-e0" class="h">
+            <rect x="1000" y="456" width="220" height="50" rx="10" fill="#FC625522" stroke="#FC6255" stroke-width="1.5"/>
+            <text x="1020" y="491" font-size="28" fill="#FC6255">⚠ 请先登录</text>
+          </g>
+          <g id="fa-e1" class="h">
+            <rect x="1000" y="532" width="320" height="50" rx="10" fill="#FC625522" stroke="#FC6255" stroke-width="1.5"/>
+            <text x="1020" y="567" font-size="28" fill="#FC6255">⚠ 主网需有少量余额</text>
+          </g>
+        </g>
+        <g id="fa-tag0" class="h">
+          <rect x="780" y="680" width="220" height="50" rx="10" fill="none" stroke="#8a8f99" stroke-width="1.5"/>
+          <text x="890" y="715" font-size="28" fill="#8a8f99" text-anchor="middle">基础设施公司</text>
+        </g>
+        <g id="fa-tag1" class="h">
+          <rect x="1030" y="680" width="230" height="50" rx="10" fill="none" stroke="#8a8f99" stroke-width="1.5"/>
+          <text x="1145" y="715" font-size="28" fill="#8a8f99" text-anchor="middle">PoW 挖矿领币</text>
+        </g>
+        <!-- L4 机制 -->
+        <g id="fa-mech">
+          <g id="fa-src" class="h">
+            <rect x="780" y="700" width="230" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="1.5"/>
+            <text x="895" y="755" font-size="28" fill="#e8e6df" text-anchor="middle">水龙头地址</text>
+          </g>
+          <path id="fa-a0" class="dr h" pathLength="1" d="M1018 745 L1090 745" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#fa-arr)"/>
+          <g id="fa-txc" class="h">
+            <rect x="1100" y="700" width="200" height="90" rx="12" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.5"/>
+            <text x="1200" y="755" font-size="28" fill="#F0B90B" text-anchor="middle">转账</text>
+          </g>
+          <path id="fa-a1" class="dr h" pathLength="1" d="M1308 745 L1380 745" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#fa-arr)"/>
+          <g id="fa-blk" class="h">
+            <rect x="1390" y="700" width="170" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="1475" y="755" font-size="28" fill="#58C4DD" text-anchor="middle">区块</text>
+          </g>
+          <path id="fa-a2" class="dr h" pathLength="1" d="M1475 798 L1475 842" stroke="#58C4DD" stroke-width="2.5" marker-end="url(#fa-arrb)"/>
+          <g id="fa-led" class="h">
+            <rect x="780" y="852" width="1040" height="140" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+            <text x="810" y="895" font-size="28" fill="#58C4DD">链上账本</text>
+            <text class="mono" x="810" y="960" font-size="28" fill="#e8e6df">0x7e5f…a3c1</text>
+            <text x="1190" y="960" font-size="28" fill="#F0B90B">SepoliaETH（示例）</text>
+          </g>
+          <text id="fa-lbal" class="h mono" x="1170" y="961" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="end">0.00</text>
+          <path id="fa-back" class="h" d="M774 930 C 700 930 700 660 630 660" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="8 7" marker-end="url(#fa-arrb)"/>
+          <text id="fa-read" class="h" x="110" y="918" font-size="28" fill="#58C4DD">钱包读的是链上</text>
+        </g>
+        <!-- L5 换一个 -->
+        <path id="fa-ga" class="dr h" pathLength="1" d="M1000 650 L1000 800 L1286 800" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#fa-arrg)"/>
+        <text id="fa-gl" class="h" x="1030" y="768" font-size="30" fill="#83C167">换一个</text>
+        <g id="fa-fb" class="h">
+          <rect x="1300" y="720" width="520" height="180" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="1.5"/>
+          <line x1="1300" y1="760" x2="1820" y2="760" stroke="#8a8f99" stroke-width="1"/>
+          <circle cx="1328" cy="740" r="6" fill="#8a8f99"/><circle cx="1350" cy="740" r="6" fill="#8a8f99"/><circle cx="1372" cy="740" r="6" fill="#8a8f99"/>
+          <text x="1396" y="750" font-size="26" fill="#8a8f99" data-layout-ignore>另一个水龙头（示意）</text>
+          <text x="1330" y="845" font-size="30" fill="#e8e6df">领取测试币</text>
+          <rect x="1640" y="806" width="150" height="56" rx="10" fill="#58C4DD"/>
+          <text x="1715" y="844" font-size="28" fill="#0f1117" text-anchor="middle">提交</text>
+        </g>
+        <!-- L6 骗局 + 测试网停用 -->
+        <g id="fa-sell" class="h">
+          <path d="M820 300 L1180 300 L1230 350 L1180 400 L820 400 Z" fill="#FC625518" stroke="#FC6255" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="1185" cy="350" r="9" fill="none" stroke="#FC6255" stroke-width="2.5"/>
+          <text x="860" y="365" font-size="40" font-weight="700" fill="#FC6255">出售测试币</text>
+        </g>
+        <path id="fa-x" class="dr" pathLength="1" d="M800 280 L1250 420 M1250 280 L800 420" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/>
+        <text id="fa-scam" class="h" x="1290" y="368" font-size="52" font-weight="700" fill="#FC6255">骗局</text>
+        <circle id="fa-g0" class="h" cx="900" cy="640" r="14" fill="#8a8f99"/>
+        <text id="fa-gt" class="h" x="900" y="600" font-size="36" fill="#8a8f99" text-anchor="middle">Goerli</text>
+        <text id="fa-gd" class="h" x="900" y="700" font-size="28" fill="#8a8f99" text-anchor="middle">2024 年 4 月停止维护</text>
+        <path id="fa-ta" class="dr h" pathLength="1" d="M924 640 L1472 640" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#fa-arr)"/>
+        <circle id="fa-s0" class="h" cx="1500" cy="640" r="14" fill="#58C4DD"/>
+        <text id="fa-st" class="h" x="1500" y="600" font-size="36" fill="#58C4DD" text-anchor="middle">Sepolia</text>
+        <text id="fa-sd" class="h" x="1500" y="700" font-size="28" fill="#58C4DD" text-anchor="middle">以官方文档为准</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="fa-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">测试网 <tspan font-size="28" font-weight="400" fill="#8a8f99">Testnet</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">规则与主网相同、币没有价值的练习网络</text>
+      </g>
+      <g id="fa-term2" class="h">
+        <rect x="70" y="56" width="520" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">水龙头 <tspan font-size="28" font-weight="400" fill="#8a8f99">Faucet</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">免费发放测试币的网站</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+const RIP = (s, t) => { tl.fromTo(s, { opacity: 1, attr: { r: 8 } }, { opacity: 0, attr: { r: 40 }, duration: 0.6, ease: "power2.out", immediateRender: false }, t); };
+// L0 地址
+IN("#fa-wal", at(0, 0.02), 0.7, { scale: 0.96, svgOrigin: "360 540" }, { scale: 1, svgOrigin: "360 540" });
+IN("#fa-net0", at(0, 0.06), 0.5);
+IN("#fa-acct", at(0, 0.12), 0.5);
+IN("#fa-bal", at(0, 0.14), 0.5);
+DRAW("#fa-lead", at(0, 0.3), 0.6);
+IN("#fa-full", at(0, 0.36), 0.7, { x: -20 }, { x: 0 });
+DRAW("#fa-brace", at(0, 0.55), 0.7);
+IN("#fa-cnt", at(0, 0.6), 0.5);
+RIP("#fa-rip", at(0, 0.82));
+IN("#fa-cop", at(0, 0.86), 0.3, { scale: 0.7, svgOrigin: "360 493" }, { scale: 1, svgOrigin: "360 493" });
+// L1 测试网
+OUT("#fa-lead, #fa-full, #fa-brace, #fa-cnt, #fa-cop", at(1, 0), 0.4);
+DRAW("#fa-div", at(1, 0.06), 0.6);
+IN("#fa-main", at(1, 0.1), 0.6);
+IN("#fa-test, #fa-tn0", at(1, 0.18), 0.6);
+IN("#fa-term", at(1, 0.2), 0.5);
+IN("#fa-book", at(1, 0.3), 0.5, { y: 20 }, { y: 0 });
+DRAW("#fa-bl0", at(1, 0.34), 0.6); DRAW("#fa-bl1", at(1, 0.34), 0.6);
+IN("#fa-same", at(1, 0.4), 0.5);
+IN("#fa-nov", at(1, 0.5), 0.4, { scale: 0.7, svgOrigin: "1735 420" }, { scale: 1, svgOrigin: "1735 420" });
+OUT("#fa-tn0", at(1, 0.76), 0.3);
+IN("#fa-tn1", at(1, 0.8), 0.4);
+OUT("#fa-term", at(1, 0.97), 0.4);
+// L2 网络开关
+OUT("#fa-cmp", at(2, 0), 0.4);
+OUT("#fa-acct", at(2, 0.04), 0.25);
+IN("#fa-dd", at(2, 0.1), 0.4, { y: -10 }, { y: 0 });
+tl.to("#fa-knob", { attr: { cx: 544 }, duration: 0.3, ease: "power2.inOut" }, at(2, 0.38));
+tl.to("#fa-tog", { fill: "#58C4DD", duration: 0.3 }, at(2, 0.38));
+IN("#fa-sep", at(2, 0.5), 0.4, { y: 10 }, { y: 0 });
+IN("#fa-sel", at(2, 0.68), 0.3);
+OUT("#fa-net0", at(2, 0.72), 0.25);
+IN("#fa-net1", at(2, 0.72) + 0.3, 0.3);
+OUT("#fa-dd, #fa-sel, #fa-sep", at(2, 0.86), 0.35);
+IN("#fa-acct", at(2, 0.94), 0.4);
+// L3 水龙头
+IN("#fa-fwin", at(3, 0.02), 0.6, { x: 30 }, { x: 0 });
+IN("#fa-term2", at(3, 0.1), 0.5);
+IN("#fa-ph", at(3, 0.1), 0.4);
+["#fa-d0", "#fa-d1", "#fa-d2"].forEach((d, i) => {
+  tl.fromTo(d, { opacity: 1, attr: { cy: 392 } }, { opacity: 0, attr: { cy: 600 }, duration: 0.9, ease: "power2.in", immediateRender: false }, at(3, 0.12) + i * 0.45);
+});
+IN("#fa-tag0", at(3, 0.38), 0.4, { y: 10 }, { y: 0 });
+IN("#fa-tag1", at(3, 0.55), 0.4, { y: 10 }, { y: 0 });
+OUT("#fa-ph", at(3, 0.8), 0.2);
+IN("#fa-paste", at(3, 0.82), 0.3);
+RIP("#fa-rip2", at(3, 0.93));
+tl.to("#fa-sub", { fill: "#83C167", duration: 0.2 }, at(3, 0.93));
+// L4 机制：一笔转账 → 区块 → 账本 → 钱包读取
+OUT("#fa-tag0, #fa-tag1, #fa-term2", at(4, 0), 0.4);
+IN("#fa-src", at(4, 0.06), 0.5);
+ARROW("#fa-a0", at(4, 0.16), 0.4);
+IN("#fa-txc", at(4, 0.2), 0.5, { x: -30 }, { x: 0 });
+ARROW("#fa-a1", at(4, 0.32), 0.4);
+IN("#fa-blk", at(4, 0.36), 0.5, { y: -30 }, { y: 0 });
+ARROW("#fa-a2", at(4, 0.46), 0.3);
+IN("#fa-led, #fa-lbal", at(4, 0.5), 0.5);
+COUNT("#fa-lbal", 0, 0.05, at(4, 0.6), 1.0, v => v.toFixed(2));
+IN("#fa-back", at(4, 0.76), 0.5);
+IN("#fa-read", at(4, 0.8), 0.4);
+COUNT("#fa-bal", 0, 0.05, at(4, 0.8), 1.0, v => (v < 0.001 ? "0" : v.toFixed(2)));
+// L5 领取失败 → 换一个
+OUT("#fa-mech", at(5, 0), 0.4);
+IN("#fa-e0", at(5, 0.08), 0.3, { scale: 0.7, svgOrigin: "1110 481" }, { scale: 1, svgOrigin: "1110 481" });
+IN("#fa-e1", at(5, 0.3), 0.3, { scale: 0.7, svgOrigin: "1160 557" }, { scale: 1, svgOrigin: "1160 557" });
+ARROW("#fa-ga", at(5, 0.6), 0.6);
+IN("#fa-gl", at(5, 0.66), 0.4);
+IN("#fa-fb", at(5, 0.7), 0.5, { x: 30 }, { x: 0 });
+// L6 骗局 + 测试网停用
+OUT("#fa-fw, #fa-ga, #fa-gl, #fa-fb", at(6, 0), 0.4);
+IN("#fa-sell", at(6, 0.06), 0.5, { x: 20 }, { x: 0 });
+DRAW("#fa-x", at(6, 0.17), 0.5);
+IN("#fa-scam", at(6, 0.22), 0.3, { scale: 0.7, svgOrigin: "1342 350" }, { scale: 1, svgOrigin: "1342 350" });
+IN("#fa-g0, #fa-gt", at(6, 0.4), 0.5);
+IN("#fa-gd", at(6, 0.5), 0.5);
+tl.to("#fa-g0, #fa-gt", { opacity: 0.55, duration: 0.4 }, at(6, 0.64));
+ARROW("#fa-ta", at(6, 0.7), 0.6);
+IN("#fa-s0, #fa-st", at(6, 0.74), 0.5);
+IN("#fa-sd", at(6, 0.84), 0.5);
+
+      /*ENDANIM*/
+
+      tl.to("#fa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#fa-term, #fa-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["faucet"] = tl;
+    })();
+  </script>
+</template>

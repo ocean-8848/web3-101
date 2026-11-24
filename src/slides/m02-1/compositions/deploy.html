@@ -1,0 +1,204 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 deploy，id 前缀 de- -->
+  <div id="root" data-composition-id="deploy" data-duration="50.03" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="de-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="de-all">
+        <g id="de-lanes" class="h">
+          <text x="200" y="252" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">部署者 EOA</text>
+          <text x="960" y="252" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">节点 EVM</text>
+          <text x="1640" y="252" font-size="32" font-weight="700" fill="#8a8f99" text-anchor="middle">新合约地址</text>
+          <path d="M200 278 V690 M960 278 V690 M1640 278 V300" stroke="#6b6f7a" stroke-width="2" stroke-dasharray="6 8"/>
+        </g>
+        <g id="de-tx" class="h">
+          <rect x="90" y="300" width="540" height="130" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/>
+          <text class="mono" x="115" y="352" font-size="28" fill="#e8e6df">to =</text>
+          <rect x="195" y="322" width="80" height="42" rx="6" fill="none" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="6 5"/>
+          <text x="235" y="353" font-size="28" fill="#FC6255" text-anchor="middle">空</text>
+          <text class="mono" x="115" y="405" font-size="28" fill="#e8e6df">data = creation code +</text>
+          <text x="498" y="405" font-size="28" fill="#e8e6df">构造参数</text>
+        </g>
+        <path id="de-a0" class="dr h" pathLength="1" d="M636 370 C700 370 700 440 750 440" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <g id="de-nonce" class="h">
+          <rect x="90" y="462" width="240" height="64" rx="10" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+          <text class="mono" x="112" y="504" font-size="30" fill="#8a8f99">nonce</text>
+          <text id="de-nv" class="mono" x="222" y="506" font-size="34" font-weight="700" fill="#e8e6df">5</text>
+          <text id="de-p1" class="h mono" x="262" y="504" font-size="28" font-weight="700" fill="#FF9F43">+1</text>
+        </g>
+        <g id="de-sa" class="h">
+          <rect x="700" y="290" width="520" height="60" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+          <text x="960" y="331" font-size="28" fill="#e8e6df" text-anchor="middle">计算新地址 = f(部署者, nonce)</text>
+        </g>
+        <g id="de-cc">
+          <g id="de-ccb" class="h">
+            <rect x="760" y="390" width="400" height="130" rx="12" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2.5"/>
+            <text class="mono" x="790" y="440" font-size="30" fill="#e8e6df">creation code</text>
+            <text x="790" y="495" font-size="28" fill="#8a8f99">构造函数</text>
+          </g>
+          <path id="de-gear" class="h" d="M1121.0 470.0 L1127.5 475.5 L1125.9 480.7 L1117.5 481.7 L1114.8 484.8 L1115.6 493.3 L1110.7 495.9 L1104.1 490.6 L1100.0 491.0 L1094.5 497.5 L1089.3 495.9 L1088.3 487.5 L1085.2 484.8 L1076.7 485.6 L1074.1 480.7 L1079.4 474.1 L1079.0 470.0 L1072.5 464.5 L1074.1 459.3 L1082.5 458.3 L1085.2 455.2 L1084.4 446.7 L1089.3 444.1 L1095.9 449.4 L1100.0 449.0 L1105.5 442.5 L1110.7 444.1 L1111.7 452.5 L1114.8 455.2 L1123.3 454.4 L1125.9 459.3 L1120.6 465.9 Z" fill="#8a8f99" stroke="none"/>
+        </g>
+          <circle id="de-dt0" class="h" cx="780" cy="410" r="6" fill="#8a8f99"/>
+          <circle id="de-dt1" class="h" cx="820" cy="447" r="6" fill="#8a8f99"/>
+          <circle id="de-dt2" class="h" cx="860" cy="484" r="6" fill="#8a8f99"/>
+          <circle id="de-dt3" class="h" cx="900" cy="421" r="6" fill="#8a8f99"/>
+          <circle id="de-dt4" class="h" cx="940" cy="458" r="6" fill="#8a8f99"/>
+          <circle id="de-dt5" class="h" cx="980" cy="495" r="6" fill="#8a8f99"/>
+          <circle id="de-dt6" class="h" cx="1020" cy="432" r="6" fill="#8a8f99"/>
+          <circle id="de-dt7" class="h" cx="1060" cy="469" r="6" fill="#8a8f99"/>
+          <circle id="de-dt8" class="h" cx="1100" cy="506" r="6" fill="#8a8f99"/>
+          <circle id="de-dt9" class="h" cx="1140" cy="443" r="6" fill="#8a8f99"/>
+        <text id="de-once" class="h" x="990" y="470" font-size="30" fill="#8a8f99">只运行一次，不上链</text>
+        <g id="de-rv" class="h">
+          <rect id="de-rvr" x="800" y="400" width="320" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <text x="960" y="452" font-size="30" fill="#FC6255" text-anchor="middle">构造函数 revert</text>
+        </g>
+        <rect id="de-boxd" class="h" x="1440" y="300" width="400" height="300" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8"/>
+        <rect id="de-boxs" class="h" x="1440" y="300" width="400" height="300" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+        <text id="de-nocode" class="h" x="1640" y="462" font-size="32" fill="#8a8f99" text-anchor="middle">无代码</text>
+        <g id="de-box">
+          <g id="de-coin" class="h">
+            <circle cx="1510" cy="350" r="32" fill="#F0B90B"/>
+            <text class="mono" x="1510" y="360" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">ETH</text>
+          </g>
+          <g id="de-s0" class="h"><rect x="1470" y="390" width="170" height="52" rx="8" fill="#FF9F4333" stroke="#FF9F43" stroke-width="2.5"/><text class="mono" x="1555" y="426" font-size="28" fill="#FF9F43" text-anchor="middle">slot 0</text></g>
+          <g id="de-s1" class="h"><rect x="1660" y="390" width="150" height="52" rx="8" fill="#FF9F4333" stroke="#FF9F43" stroke-width="2.5"/><text class="mono" x="1735" y="426" font-size="28" fill="#FF9F43" text-anchor="middle">slot 1</text></g>
+          <g id="de-rtm" class="h">
+            <g id="de-rtmi">
+              <rect x="1470" y="462" width="340" height="118" rx="10" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2.5"/>
+              <text class="mono" x="1490" y="507" font-size="30" fill="#e8e6df">runtime code</text>
+            </g>
+          </g>
+          <g id="de-imm" class="h">
+            <rect x="1490" y="526" width="190" height="42" rx="6" fill="#58C4DD55" stroke="#58C4DD" stroke-width="2"/>
+            <text class="mono" x="1505" y="557" font-size="28" fill="#e8e6df">immutable</text>
+          </g>
+        </g>
+        <g id="de-fee" class="h">
+          <circle cx="960" cy="640" r="24" fill="#F0B90B"/>
+          <text x="1000" y="650" font-size="28" fill="#F0B90B">按字节收费</text>
+        </g>
+        <path id="de-k0" class="dr h" pathLength="1" d="M1540 700 L1540 610" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <path id="de-k1" class="dr h" pathLength="1" d="M1640 700 L1640 610" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <path id="de-k2" class="dr h" pathLength="1" d="M1740 700 L1740 610" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <text id="de-kl" class="h" x="1640" y="744" font-size="28" fill="#e8e6df" text-anchor="middle">以后每次调用</text>
+        <text id="de-sl" class="h" x="1640" y="650" font-size="28" fill="#58C4DD" text-anchor="middle">读取不需要 SLOAD</text>
+        <g id="de-bars">
+          <g id="de-bl1" class="h">
+            <text x="300" y="755" font-size="30" fill="#e8e6df"><tspan class="mono">runtime</tspan> ≤ 24,576 字节 · EIP-170</text>
+            <rect x="300" y="772" width="550" height="36" rx="6" fill="none" stroke="#6b6f7a" stroke-width="2"/>
+            <line x1="850" y1="764" x2="850" y2="816" stroke="#e8e6df" stroke-width="3"/>
+          </g>
+          <rect id="de-bf1" class="h" x="300" y="772" width="0" height="36" rx="6" fill="#58C4DD"/>
+          <text id="de-fail" class="h" x="1120" y="801" font-size="30" font-weight="700" fill="#FC6255">部署失败</text>
+          <g id="de-bl2" class="h">
+            <text x="300" y="870" font-size="30" fill="#e8e6df"><tspan class="mono">creation</tspan> ≤ 49,152 字节 · EIP-3860</text>
+            <rect x="300" y="887" width="1100" height="36" rx="6" fill="none" stroke="#6b6f7a" stroke-width="2"/>
+            <line x1="1400" y1="879" x2="1400" y2="931" stroke="#e8e6df" stroke-width="3"/>
+          </g>
+          <rect id="de-bf2" class="h" x="300" y="887" width="0" height="36" rx="6" fill="#58C4DD"/>
+        </g>
+      </g>
+      <g id="de-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">创建代码 <tspan font-size="28" font-weight="400" fill="#8a8f99">Initcode</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">部署时执行一次，返回运行时代码</text>
+      </g>
+      <g id="de-term2" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">运行时代码 <tspan font-size="28" font-weight="400" fill="#8a8f99">Runtime Code</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">保存在地址上、每次调用都执行</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 部署交易：to 为空
+      IN("#de-lanes", at(0, 0.02), 0.6);
+      IN("#de-term", at(0, 0.12), 0.5);
+      IN("#de-tx", at(0, 0.3), 0.6, { x: -30 }, { x: 0 });
+      ARROW("#de-a0", at(0, 0.75), 0.5);
+      // L1 算地址 → 空账户 → ETH → 执行创建代码 → 写初始状态
+      IN("#de-nonce", at(1, 0.0), 0.4);
+      IN("#de-sa", at(1, 0.04), 0.5, { y: -10 }, { y: 0 });
+      IN("#de-boxd", at(1, 0.22), 0.5);
+      IN("#de-coin", at(1, 0.32), 0.2);
+      tl.fromTo("#de-coin", { x: -880, y: 15 }, { x: 0, y: 0, duration: 0.9, ease: "power2.inOut", immediateRender: false }, at(1, 0.32));
+      IN("#de-ccb", at(1, 0.5), 0.5, { scale: 0.9, svgOrigin: "960 455" }, { scale: 1, svgOrigin: "960 455" });
+      IN("#de-gear", at(1, 0.55), 0.4);
+      tl.fromTo("#de-gear", { rotation: 0 }, { rotation: 360, svgOrigin: "1100 470", duration: 3.2, ease: "none", immediateRender: false }, at(1, 0.58));
+      OUT("#de-term", at(1, 0.68), 0.4);
+      IN("#de-s0", at(1, 0.78), 0.4, { scale: 0.6, svgOrigin: "1555 416" }, { scale: 1, svgOrigin: "1555 416" });
+      IN("#de-s1", at(1, 0.86), 0.4, { scale: 0.6, svgOrigin: "1735 416" }, { scale: 1, svgOrigin: "1735 416" });
+      // L2 返回运行时代码，存到新地址，按字节收费
+      IN("#de-term2", at(2, 0.02), 0.5);
+      IN("#de-rtm", at(2, 0.1), 0.2);
+      tl.fromTo("#de-rtm", { x: -680, y: 70 }, { x: 0, y: 0, duration: 1.2, ease: "power2.inOut", immediateRender: false }, at(2, 0.1));
+      tl.fromTo("#de-rtmi", { scale: 0.6, svgOrigin: "1640 521" }, { scale: 1, svgOrigin: "1640 521", duration: 1.2, ease: "power2.inOut", immediateRender: false }, at(2, 0.1));
+      IN("#de-boxs", at(2, 0.33), 0.4); OUT("#de-boxd", at(2, 0.33), 0.4);
+      IN("#de-fee", at(2, 0.4), 0.5, { y: -10 }, { y: 0 });
+      ARROW("#de-k0", at(2, 0.66), 0.4); ARROW("#de-k1", at(2, 0.71), 0.4); ARROW("#de-k2", at(2, 0.76), 0.4);
+      IN("#de-kl", at(2, 0.72), 0.4);
+      tl.to("#de-rtmi rect", { attr: { "stroke-width": 5 }, duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.8));
+      OUT("#de-term2", at(2, 0.97), 0.4);
+      // L3 构造函数只跑一次；immutable 嵌进运行时代码
+      OUT("#de-k0, #de-k1, #de-k2, #de-kl, #de-fee", at(3, 0), 0.4);
+      OUT("#de-ccb, #de-gear", at(3, 0.06), 0.5);
+      for (let i = 0; i < 10; i++) {
+        IN(`#de-dt${i}`, at(3, 0.06), 0.1);
+        tl.to(`#de-dt${i}`, { x: (i - 4.5) * 14, y: 60 + (i % 3) * 30, opacity: 0, duration: 1.4, ease: "power2.out" }, at(3, 0.08));
+      }
+      IN("#de-once", at(3, 0.18), 0.5);
+      IN("#de-imm", at(3, 0.52), 0.5, { y: -40 }, { y: 0 });
+      IN("#de-sl", at(3, 0.66), 0.5);
+      // L4 大小上限
+      OUT("#de-once", at(4, 0), 0.4);
+      IN("#de-bl1", at(4, 0.05), 0.4);
+      tl.to("#de-bf1", { opacity: 1, attr: { width: 550 }, duration: 0.9, ease: "power2.out" }, at(4, 0.1));
+      IN("#de-bl2", at(4, 0.35), 0.4);
+      tl.to("#de-bf2", { opacity: 1, attr: { width: 1100 }, duration: 0.9, ease: "power2.out" }, at(4, 0.4));
+      tl.to("#de-bf1", { attr: { width: 800 }, fill: "#FC6255", duration: 0.8, ease: "power2.in" }, at(4, 0.7));
+      IN("#de-fail", at(4, 0.8), 0.4, { x: -10 }, { x: 0 });
+      // L5 构造函数 revert：无代码，但 nonce +1
+      OUT("#de-bars, #de-sl", at(5, 0), 0.4);
+      IN("#de-rv", at(5, 0.04), 0.3);
+      tl.to("#de-rvr", { fill: "#FC625555", duration: 0.2, yoyo: true, repeat: 3 }, at(5, 0.08));
+      OUT("#de-box", at(5, 0.3), 0.5);
+      OUT("#de-boxs", at(5, 0.3), 0.5); tl.to("#de-boxd", { opacity: 1, duration: 0.5 }, at(5, 0.3));
+      IN("#de-nocode", at(5, 0.4), 0.5);
+      tl.to("#de-nv", { fill: "#FF9F43", duration: 0.2 }, at(5, 0.6));
+      COUNT("#de-nv", 5, 6, at(5, 0.62), 0.3);
+      IN("#de-p1", at(5, 0.62), 0.3, { y: 8 }, { y: 0 });
+      tl.to("#de-nonce rect", { stroke: "#FF9F43", duration: 0.2 }, at(5, 0.6));
+      tl.to("#de-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+
+      tl.to("#de-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#de-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["deploy"] = tl;
+    })();
+  </script>
+</template>

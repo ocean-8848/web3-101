@@ -1,0 +1,270 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz6，id 前缀 q6- -->
+  <div id="root" data-composition-id="quiz6" data-duration="65.16" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="q6-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="q6-arrp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" />
+        </marker>
+      </defs>
+      <g id="q6-all">
+        <g id="q6-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 6 题</text>
+        </g>
+        <clipPath id="q6-qclip"><rect id="q6-qcr" x="60" y="200" width="0" height="64" /></clipPath>
+        <clipPath id="q6-qclip2"><rect id="q6-qcr2" x="60" y="264" width="0" height="64" /></clipPath>
+        <text id="q6-q" class="h" x="70" y="250" font-size="40" fill="#e8e6df" clip-path="url(#q6-qclip)">服务先在事务里把充值改成 <tspan class="mono" fill="#F0B90B">credited</tspan> 并提交，再调用 Kafka 发通知。</text>
+        <text id="q6-q2" class="h" x="70" y="310" font-size="40" fill="#e8e6df" clip-path="url(#q6-qclip2)"><tspan fill="#FF9F43">两步之间进程崩溃</tspan>。结果和正确做法是？</text>
+        <g id="q6-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="q6-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <g id="q6-oA" class="h">
+          <rect id="q6-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q6-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q6-oA-dim">
+            <circle id="q6-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q6-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="q6-oA-t" x="190" y="449" font-size="32" fill="#e8e6df">Kafka 会自动补发，不需要处理</text>
+          </g>
+          <text id="q6-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255">没发出的消息无从补发（解读）</text>
+        </g>
+        <g id="q6-oB" class="h">
+          <rect id="q6-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q6-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q6-oB-dim">
+            <circle id="q6-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q6-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="q6-oB-t" x="190" y="584" font-size="32" fill="#e8e6df">入账会被自动回滚</text>
+          </g>
+          <text id="q6-oB-n" class="h" x="190" y="612" font-size="28" fill="#FC6255">已提交的事务不会自己回滚（解读）</text>
+        </g>
+        <g id="q6-oC" class="h">
+          <rect id="q6-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q6-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q6-oC-dim">
+            <circle id="q6-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q6-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="q6-oC-t" x="190" y="697" font-size="32" fill="#e8e6df"><tspan x="190">余额已入账但通知丢失；应把消息写进同一事务的</tspan><tspan x="190" dy="42">outbox 表，再由 Relay 异步投递</tspan></text>
+          </g>
+        </g>
+        <g id="q6-oD" class="h">
+          <rect id="q6-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q6-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q6-oD-dim">
+            <circle id="q6-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q6-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="q6-oD-t" x="190" y="854" font-size="32" fill="#e8e6df">余额和通知都丢失；应先发 Kafka 再入账</text>
+          </g>
+          <text id="q6-oD-n" class="h" x="190" y="882" font-size="28" fill="#FC6255">入账失败时会发出错误通知</text>
+        </g>
+        <!-- 示意 1：时间线 ① 提交 → 崩溃 → ② 发 Kafka -->
+        <g id="q6-tl" class="h">
+          <rect id="q6-s1" x="1180" y="400" width="640" height="110" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="1210" y="444" font-size="30" fill="#e8e6df">① 事务提交</text>
+          <text class="mono" x="1210" y="488" font-size="28" fill="#F0B90B">deposits → credited</text>
+          <path id="q6-ok1" class="h" d="M1742 455 L1762 475 L1796 437" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          <line x1="1400" y1="510" x2="1400" y2="560" stroke="#8a8f99" stroke-width="3" />
+          <path id="q6-bolt" d="M1412 560 L1384 606 L1408 606 L1388 650 L1430 596 L1404 596 L1424 560 Z" fill="#FC6255" />
+          <text id="q6-crash" x="1456" y="616" font-size="30" font-weight="700" fill="#FC6255">崩溃</text>
+          <line x1="1400" y1="650" x2="1400" y2="690" stroke="#8a8f99" stroke-width="3" stroke-dasharray="6 6" />
+          <rect id="q6-s2" x="1180" y="690" width="640" height="90" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text id="q6-s2t" x="1210" y="746" font-size="30" fill="#B48EF0">② 发 Kafka</text>
+          <path id="q6-no2" class="h" d="M1748 716 L1788 756 M1788 716 L1748 756" stroke="#8a8f99" stroke-width="6" stroke-linecap="round" />
+          <text id="q6-lost" class="h" x="1180" y="836" font-size="28" fill="#8a8f99">消息丢失</text>
+        </g>
+        <!-- 示意 2：发件箱 -->
+        <g id="q6-ob" class="h">
+          <rect id="q6-txf" x="1180" y="400" width="640" height="240" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="1206" y="444" font-size="28" fill="#58C4DD">同一个事务</text>
+          <rect x="1206" y="468" width="270" height="70" rx="10" fill="#0f1117" stroke="#F0B90B" stroke-width="2.5" />
+          <text class="mono" x="1341" y="513" font-size="28" fill="#F0B90B" text-anchor="middle">deposits</text>
+          <rect x="1524" y="468" width="270" height="70" rx="10" fill="#0f1117" stroke="#B48EF0" stroke-width="2.5" />
+          <text class="mono" x="1640" y="513" font-size="28" fill="#B48EF0" text-anchor="middle">outbox</text>
+          <g id="q6-env0" class=""><rect x="1710" y="483" width="60" height="40" rx="5" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><path d="M1713 487 L1740 507 L1767 487" fill="none" stroke="#B48EF0" stroke-width="3" /></g>
+        </g>
+        <g id="q6-stamp" class="h">
+          <rect x="1380" y="566" width="240" height="52" rx="10" fill="none" stroke="#83C167" stroke-width="3" />
+          <text x="1500" y="603" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">同一事务提交</text>
+        </g>
+        <g id="q6-relay" class="h">
+          <rect x="1200" y="720" width="90" height="76" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <circle cx="1228" cy="752" r="7" fill="#B48EF0" /><circle cx="1262" cy="752" r="7" fill="#B48EF0" />
+          <line x1="1245" y1="720" x2="1245" y2="704" stroke="#B48EF0" stroke-width="3" /><circle cx="1245" cy="700" r="5" fill="#B48EF0" />
+          <text class="mono" x="1245" y="842" font-size="28" fill="#B48EF0" text-anchor="middle">Relay</text>
+          <rect x="1620" y="718" width="200" height="80" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="1720" y="768" font-size="30" fill="#B48EF0" text-anchor="middle">Kafka</text>
+        </g>
+        <path id="q6-async" class="dr h" pathLength="1" d="M1304 758 L1606 758" fill="none" stroke="#B48EF0" stroke-width="3" marker-end="url(#q6-arrp)" />
+        <text id="q6-asyncT" class="h" x="1455" y="736" font-size="28" fill="#8a8f99" text-anchor="middle">异步投递</text>
+        <g id="q6-env1" class="h"><rect x="1710" y="483" width="60" height="40" rx="5" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><path d="M1713 487 L1740 507 L1767 487" fill="none" stroke="#B48EF0" stroke-width="3" /></g>
+        <!-- 示意 3：先发 Kafka 再入账 -->
+        <g id="q6-dd" class="h">
+          <rect x="1180" y="400" width="400" height="80" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="1210" y="452" font-size="30" fill="#B48EF0">① 先发 Kafka</text>
+          <line x1="1380" y1="480" x2="1380" y2="540" stroke="#8a8f99" stroke-width="3" />
+          <rect id="q6-d2" x="1180" y="540" width="400" height="80" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text x="1210" y="592" font-size="30" fill="#e8e6df">② 入账</text>
+          <line x1="1380" y1="620" x2="1380" y2="680" stroke="#8a8f99" stroke-width="3" />
+          <rect x="1180" y="680" width="400" height="80" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="1210" y="732" font-size="30" fill="#B48EF0">业务服务</text>
+        </g>
+        <text id="q6-sent" class="h" x="1612" y="452" font-size="28" fill="#8a8f99">通知已出</text>
+        <path id="q6-dx" class="h" d="M1520 562 L1556 598 M1556 562 L1520 598" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+        <text id="q6-fail" class="h" x="1612" y="592" font-size="28" fill="#FC6255">失败</text>
+        <g id="q6-env2" class="h"><rect x="1500" y="700" width="60" height="40" rx="5" fill="#161a22" stroke="#FC6255" stroke-width="3" /><path d="M1503 704 L1530 724 L1557 704" fill="none" stroke="#FC6255" stroke-width="3" /></g>
+        <text id="q6-badn" class="h" x="1612" y="732" font-size="28" font-weight="700" fill="#FC6255">错误通知</text>
+        <!-- 示意 4：至少一次投递 + 去重 + ledger 唯一约束 -->
+        <g id="q6-dp" class="h">
+          <rect x="1180" y="400" width="200" height="80" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="1280" y="450" font-size="30" fill="#B48EF0" text-anchor="middle">Kafka</text>
+          <rect x="1620" y="400" width="200" height="80" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="1720" y="450" font-size="30" fill="#B48EF0" text-anchor="middle">消费方</text>
+          <line x1="1380" y1="440" x2="1620" y2="440" stroke="#2a2f3a" stroke-width="3" />
+          <text class="mono" x="1180" y="606" font-size="28" fill="#58C4DD">ledger (deposit_id, kind)</text>
+          <rect x="1180" y="626" width="640" height="120" rx="6" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+          <line x1="1180" y1="686" x2="1820" y2="686" stroke="#58C4DD" stroke-width="2" />
+          <line x1="1500" y1="626" x2="1500" y2="746" stroke="#2a3a48" stroke-width="2" />
+          <text class="mono" x="1340" y="666" font-size="28" fill="#58C4DD" text-anchor="middle">deposit_id</text>
+          <text class="mono" x="1660" y="666" font-size="28" fill="#58C4DD" text-anchor="middle">kind</text>
+          <text x="1180" y="848" font-size="32" fill="#e8e6df">余额</text>
+          <text id="q6-bal" class="mono" x="1260" y="848" font-size="32" font-weight="700" fill="#F0B90B">100</text>
+        </g>
+        <g id="q6-lock" class="h">
+          <rect x="1478" y="428" width="44" height="36" rx="6" fill="#83C167" />
+          <path d="M1488 428 L1488 416 A12 12 0 0 1 1512 416 L1512 428" fill="none" stroke="#83C167" stroke-width="5" />
+        </g>
+        <text id="q6-dedup" class="h" x="1180" y="532" font-size="28" fill="#83C167">按充值编号 + 类型去重</text>
+        <text id="q6-uq" class="h" x="1640" y="606" font-size="28" font-weight="700" fill="#83C167">唯一约束</text>
+        <g id="q6-env3" class="h"><rect x="1390" y="420" width="60" height="40" rx="5" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><path d="M1393 424 L1420 444 L1447 424" fill="none" stroke="#B48EF0" stroke-width="3" /></g>
+        <g id="q6-env4" class="h"><rect x="1390" y="420" width="60" height="40" rx="5" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><path d="M1393 424 L1420 444 L1447 424" fill="none" stroke="#B48EF0" stroke-width="3" /></g>
+        <g id="q6-row" class="h"><rect x="1182" y="688" width="636" height="56" fill="#83C167" opacity="0.15" />
+          <text class="mono" x="1340" y="728" font-size="28" fill="#e8e6df" text-anchor="middle">D-1</text>
+          <text class="mono" x="1660" y="728" font-size="28" fill="#e8e6df" text-anchor="middle">credit</text></g>
+        <g id="q6-ghost" class="h"><rect id="q6-ghr" x="1182" y="760" width="636" height="50" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="8 6" />
+          <text class="mono" x="1340" y="796" font-size="28" fill="#FC6255" text-anchor="middle">D-1</text>
+          <text class="mono" x="1660" y="796" font-size="28" fill="#FC6255" text-anchor="middle">credit</text></g>
+        <text id="q6-nodbl" class="h" x="1380" y="848" font-size="28" fill="#83C167">不翻倍</text>
+      </g>
+      <rect id="q6-black" x="0" y="0" width="1920" height="1080" fill="#000" opacity="0" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      const P = "q6";
+      IN("#q6-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#q6-q", at(0, 0.05), 0.01);
+      tl.fromTo("#q6-qcr", { attr: { width: 0 } }, { attr: { width: 1400 }, duration: 2.6, ease: "none" }, at(0, 0.08));
+      IN("#q6-q2", at(0, 0.08) + 2.6, 0.01);
+      tl.fromTo("#q6-qcr2", { attr: { width: 0 } }, { attr: { width: 1100 }, duration: 2.0, ease: "none" }, at(0, 0.08) + 2.6);
+      const SHOW = (k, t) => {
+        IN(`#q6-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#q6-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#q6-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      const RIGHT = (k, t) => {
+        tl.to(`#q6-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#q6-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#q6-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#q6-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#q6-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q6-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q6-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#q6-o${k}-t`, { attr: { y: Y0[k] + 50 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#q6-o${k}-n`, t + 0.3, 0.5);
+      };
+      const PAUSE = () => {
+        IN("#q6-pause", at(2, 0.0), 0.3);
+        tl.fromTo("#q6-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+        OUT("#q6-pause", at(3, 0.0), 0.3);
+      };
+
+      IN("#q6-tl", at(0, 0.62), 0.6, { scale: 0.92, svgOrigin: "1500 620" }, { scale: 1, svgOrigin: "1500 620" });
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.189)); SHOW("C", at(1, 0.292)); SHOW("D", at(1, 0.755));
+      tl.to("#q6-bolt", { scale: 1.25, svgOrigin: "1407 605", duration: 0.25, yoyo: true, repeat: 3 }, at(1, 0.86));
+      tl.to("#q6-s1", { strokeWidth: 6, stroke: "#e8e6df", duration: 0.3 }, at(1, 0.52));
+      tl.to("#q6-s1", { strokeWidth: 3, stroke: "#F0B90B", duration: 0.4 }, at(1, 0.52) + 1.6);
+      tl.to("#q6-s2", { strokeWidth: 6, stroke: "#e8e6df", duration: 0.3 }, at(1, 0.64));
+      tl.to("#q6-s2", { strokeWidth: 3, stroke: "#B48EF0", duration: 0.4 }, at(1, 0.64) + 1.6);
+      PAUSE();
+      // L3 C 正确：① 已提交（绿勾），② 没发出（灰叉）；随后换成发件箱
+      RIGHT("C", at(3, 0.02));
+      IN("#q6-ok1", at(3, 0.1), 0.4);
+      tl.to("#q6-s2", { stroke: "#8a8f99", duration: 0.4 }, at(3, 0.18));
+      tl.to("#q6-s2t", { fill: "#8a8f99", duration: 0.4 }, at(3, 0.18));
+      IN("#q6-no2", at(3, 0.2), 0.3, { scale: 1.5, svgOrigin: "1768 736" }, { scale: 1, svgOrigin: "1768 736" });
+      IN("#q6-lost", at(3, 0.24), 0.4);
+      OUT("#q6-tl", at(3, 0.45), 0.4);
+      IN("#q6-ob", at(3, 0.5), 0.5);
+      IN("#q6-stamp", at(3, 0.6), 0.35, { scale: 1.5, svgOrigin: "1500 592" }, { scale: 1, svgOrigin: "1500 592" });
+      IN("#q6-relay", at(3, 0.7), 0.5);
+      tl.set("#q6-env1", { opacity: 1 }, at(3, 0.72));
+      tl.to("#q6-env1", { x: -460, y: 197, duration: 0.7, ease: "power2.inOut" }, at(3, 0.72));
+      ARROW("#q6-async", at(3, 0.86), 0.6);
+      IN("#q6-asyncT", at(3, 0.88), 0.4);
+      tl.to("#q6-env1", { x: -80, y: 255, duration: 0.6, ease: "power2.inOut" }, at(3, 0.84));
+      OUT("#q6-env1", at(3, 0.84) + 0.45, 0.25);
+      // L4 A、B 错
+      WRONG("A", at(4, 0.02));
+      tl.to("#q6-async", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.3));
+      WRONG("B", at(4, 0.55));
+      tl.to("#q6-stamp", { scale: 1.12, svgOrigin: "1500 592", duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.6));
+      // L5 D 错：先发 Kafka → 入账失败 → 错误通知
+      WRONG("D", at(5, 0.02));
+      OUT("#q6-ob, #q6-stamp, #q6-relay, #q6-async, #q6-asyncT", at(5, 0.02), 0.35);
+      IN("#q6-dd", at(5, 0.1), 0.5);
+      IN("#q6-sent", at(5, 0.22), 0.4);
+      tl.to("#q6-d2", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.45));
+      IN("#q6-dx", at(5, 0.45), 0.3, { scale: 1.5, svgOrigin: "1538 580" }, { scale: 1, svgOrigin: "1538 580" });
+      IN("#q6-fail", at(5, 0.5), 0.3);
+      IN("#q6-env2", at(5, 0.72), 0.4, { y: -40 }, { y: 0 });
+      IN("#q6-badn", at(5, 0.78), 0.4);
+      // L6 至少一次投递：第二个信封被去重锁挡住；ledger 唯一约束挡住第二次入账
+      OUT("#q6-dd, #q6-sent, #q6-dx, #q6-fail, #q6-env2, #q6-badn", at(6, 0.0), 0.35);
+      IN("#q6-dp", at(6, 0.06), 0.5);
+      tl.set("#q6-env3", { opacity: 1 }, at(6, 0.1));
+      tl.to("#q6-env3", { x: 168, duration: 0.8, ease: "power2.inOut" }, at(6, 0.1));
+      OUT("#q6-env3", at(6, 0.1) + 0.8, 0.2);
+      IN("#q6-row", at(6, 0.1) + 0.9, 0.4);
+      IN("#q6-lock", at(6, 0.2), 0.3, { scale: 1.4, svgOrigin: "1500 440" }, { scale: 1, svgOrigin: "1500 440" });
+      IN("#q6-dedup", at(6, 0.23), 0.4);
+      tl.set("#q6-env4", { opacity: 1 }, at(6, 0.3));
+      tl.to("#q6-env4", { x: 72, duration: 0.5, ease: "power2.in" }, at(6, 0.3));
+      tl.to("#q6-env4", { x: 30, y: 50, opacity: 0, duration: 0.5, ease: "power2.out" }, at(6, 0.3) + 0.55);
+      tl.to("#q6-lock rect", { fill: "#b6f08a", duration: 0.15, yoyo: true, repeat: 1 }, at(6, 0.3) + 0.5);
+      IN("#q6-uq", at(6, 0.44), 0.4);
+      IN("#q6-ghost", at(6, 0.5), 0.4, { y: 30 }, { y: 0 });
+      tl.to("#q6-ghost", { y: 40, opacity: 0, duration: 0.5, ease: "power2.in" }, at(6, 0.5) + 0.9);
+      tl.to("#q6-uq", { scale: 1.15, svgOrigin: "1696 596", duration: 0.2, yoyo: true, repeat: 1 }, at(6, 0.5) + 0.7);
+      tl.to("#q6-bal", { scale: 1.25, svgOrigin: "1290 838", duration: 0.25, yoyo: true, repeat: 1 }, at(6, 0.85));
+      IN("#q6-nodbl", at(6, 0.86), 0.4);
+
+      tl.to("#q6-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz6"] = tl;
+    })();
+  </script>
+</template>

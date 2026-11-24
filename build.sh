@@ -1,7 +1,9 @@
 #!/bin/sh
 # Concatenate src/ into one self-contained index.html
 cd "$(dirname "$0")"
-JS="src/core.js src/labs-a.js src/labs-b.js src/labs-c.js $(ls src/labs-m*.js 2>/dev/null) src/ch-intro.js src/ch-a.js src/ch-b.js src/ch-c.js src/ch-d.js $(ls src/sub-m*.js 2>/dev/null) $(ls src/stage-*.js 2>/dev/null) src/tail.js"
+# Slides player (slides.html, slides/<id>.js) and the per-chapter index the handbook reads
+python3 tools/make_slides.py || exit 1
+JS="src/core.js src/labs-a.js src/labs-b.js src/labs-c.js $(ls src/labs-m*.js 2>/dev/null) src/ch-intro.js src/ch-a.js src/ch-b.js src/ch-c.js src/ch-d.js $(ls src/sub-m*.js 2>/dev/null) $(ls src/stage-*.js 2>/dev/null) slides-index.js src/tail.js"
 {
   cat src/head.html
   echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.6.0/mermaid.min.js"></script>'

@@ -1,0 +1,233 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 send，id 前缀 se- -->
+  <div id="root" data-composition-id="send" data-duration="64.05" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="se-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="se-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="se-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="se-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="se-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="se-all">
+        <!-- 右侧：节点 / 交易池 / 区块 -->
+        <g id="se-node" class="h">
+          <rect x="1520" y="220" width="300" height="200" rx="18" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <text x="1670" y="332" font-size="32" fill="#58C4DD" text-anchor="middle">节点</text>
+        </g>
+        <g id="se-pool" class="h">
+          <rect x="1520" y="470" width="300" height="190" rx="40" fill="#8a8f99" fill-opacity="0.12" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="1670" y="515" font-size="28" fill="#8a8f99" text-anchor="middle">交易池</text>
+        </g>
+        <g id="se-blk" class="h">
+          <rect x="1520" y="720" width="300" height="160" rx="14" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <text x="1670" y="765" font-size="30" fill="#58C4DD" text-anchor="middle">区块</text>
+        </g>
+        <!-- 交易包裹 -->
+        <g id="se-pkm"><g id="se-pks"><g id="se-pk" class="h">
+          <rect x="200" y="340" width="320" height="240" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="4" />
+          <line x1="360" y1="340" x2="360" y2="580" stroke="#F0B90B" stroke-width="4" />
+          <line x1="200" y1="460" x2="520" y2="460" stroke="#F0B90B" stroke-width="4" />
+          <circle cx="360" cy="460" r="36" fill="#FC6255" />
+          <circle cx="360" cy="460" r="24" fill="none" stroke="#0f1117" stroke-width="3" />
+        </g></g></g>
+        <g id="se-pkl" class="h">
+          <text class="mono" x="360" y="650" font-size="32" fill="#F0B90B" text-anchor="middle">0x02f8…</text>
+          <text x="360" y="700" font-size="28" fill="#8a8f99" text-anchor="middle">钱包或 cast 生成</text>
+        </g>
+        <g id="se-q" class="h">
+          <rect x="680" y="340" width="740" height="150" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="710" y="405" font-size="32" fill="#8a8f99">method: <tspan fill="#58C4DD">eth_sendRawTransaction</tspan></text>
+          <text class="mono" x="710" y="460" font-size="32" fill="#8a8f99">params: [<tspan fill="#F0B90B">"0x02f8…"</tspan>]</text>
+        </g>
+        <g id="se-r" class="h">
+          <rect x="680" y="540" width="740" height="96" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="710" y="600" font-size="32" fill="#8a8f99">result: <tspan fill="#83C167">0x</tspan></text>
+          <text x="910" y="599" font-size="32" fill="#83C167">交易哈希</text>
+        </g>
+        <text id="se-big" class="h" x="680" y="790" font-size="60" font-weight="700" fill="#FF9F43">已接收 ≠ 已上链</text>
+        <!-- L2 报错 -->
+        <g id="se-errs">
+          <g id="se-e0" class="h"><rect x="200" y="290" width="1160" height="84" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="240" y="344" font-size="30" fill="#FC6255">nonce too low</text></g>
+          <g id="se-e1" class="h"><rect x="200" y="400" width="1160" height="84" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="240" y="454" font-size="30" fill="#FC6255">replacement transaction underpriced</text></g>
+          <g id="se-e2" class="h"><rect x="200" y="510" width="1160" height="84" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="240" y="564" font-size="30" fill="#FC6255">insufficient funds for gas * price + value</text></g>
+          <g id="se-e3" class="h"><rect x="200" y="620" width="1160" height="84" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="240" y="674" font-size="30" fill="#8a8f99">already known</text><text x="520" y="674" font-size="28" fill="#8a8f99">节点已有</text></g>
+        </g>
+        <!-- L3 查回执 -->
+        <g id="se-q2" class="h">
+          <rect x="160" y="250" width="820" height="150" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="190" y="315" font-size="32" fill="#8a8f99">method: <tspan fill="#58C4DD">eth_getTransactionReceipt</tspan></text>
+          <text class="mono" x="190" y="370" font-size="32" fill="#8a8f99">params: [<tspan fill="#58C4DD">txHash</tspan>]</text>
+        </g>
+        <path id="se-qa" class="dr h" pathLength="1" d="M 992 325 H 1508" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#se-arrB)" />
+        <g id="se-nul" class="h">
+          <rect x="160" y="450" width="820" height="96" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="190" y="510" font-size="32" fill="#8a8f99">result: null</text>
+          <text x="640" y="509" font-size="28" fill="#6b6f7a">还在交易池</text>
+        </g>
+        <g id="se-rc" class="h">
+          <rect x="160" y="450" width="960" height="420" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="200" y="520" font-size="30" fill="#8a8f99">status: <tspan fill="#83C167" font-weight="700">"0x1"</tspan></text>
+          <text class="mono" x="200" y="590" font-size="30" fill="#e8e6df">blockNumber</text>
+          <text class="mono" x="200" y="660" font-size="30" fill="#e8e6df">gasUsed</text>
+          <text class="mono" x="200" y="730" font-size="30" fill="#e8e6df">effectiveGasPrice</text>
+          <text class="mono" x="200" y="800" font-size="30" fill="#e8e6df">logs: [<tspan fill="#F0B90B">Transfer …</tspan>]</text>
+          <text x="720" y="519" font-size="28" fill="#83C167">成功</text>
+          <text x="720" y="589" font-size="28" fill="#8a8f99">所在区块</text>
+          <text x="720" y="659" font-size="28" fill="#8a8f99">实际用掉的 Gas</text>
+          <text x="720" y="729" font-size="28" fill="#8a8f99">实际 Gas 价格</text>
+          <text x="720" y="799" font-size="28" fill="#8a8f99">产生的日志</text>
+        </g>
+        <!-- L5 入账判断 -->
+        <g id="se-f1" class="h">
+          <rect x="160" y="330" width="360" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="340" y="392" font-size="30" fill="#e8e6df" text-anchor="middle">status = 0x1 ?</text>
+        </g>
+        <path id="se-f1a" class="dr h" pathLength="1" d="M 526 380 H 620" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#se-arr)" />
+        <g id="se-f2" class="h">
+          <rect x="630" y="330" width="300" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="670" y="393" font-size="30" fill="#8a8f99">确认数</text>
+          <text id="se-cnt" class="mono" x="800" y="398" font-size="48" font-weight="700" fill="#e8e6df">1</text>
+          <text x="780" y="475" font-size="28" fill="#6b6f7a" text-anchor="middle">（示意）</text>
+        </g>
+        <path id="se-f2a" class="dr h" pathLength="1" d="M 936 380 H 1030" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#se-arr)" />
+        <g id="se-f3" class="h">
+          <rect x="1040" y="330" width="260" height="100" rx="14" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="3" />
+          <text x="1170" y="395" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">入账</text>
+        </g>
+        <g id="se-bad" class="h">
+          <text x="160" y="611" font-size="32" fill="#8a8f99">只看哈希</text>
+          <path d="M 312 600 H 1150 V 446" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 8" />
+        </g>
+        <g id="se-badx" class="h"><path d="M 700 576 l 48 48 M 748 576 l -48 48" fill="none" stroke="#FC6255" stroke-width="7" stroke-linecap="round" /></g>
+        <!-- L6 七个方法 -->
+        <text id="se-core" class="h mono" x="960" y="610" font-size="56" font-weight="700" fill="#58C4DD" text-anchor="middle">JSON-RPC</text>
+          <g id="se-m0" class="h">
+            <circle cx="960" cy="270" r="82" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <rect x="938" y="242" width="44" height="9" rx="2" fill="#58C4DD" /><rect x="938" y="228" width="44" height="9" rx="2" fill="#58C4DD" /><rect x="938" y="214" width="44" height="9" rx="2" fill="#58C4DD" />
+            <text x="960" y="310" font-size="28" fill="#e8e6df" text-anchor="middle">查高度</text>
+          </g>
+          <g id="se-m1" class="h">
+            <circle cx="1210" cy="390" r="82" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <rect x="1190" y="336" width="40" height="40" rx="6" fill="none" stroke="#58C4DD" stroke-width="4" />
+            <text x="1210" y="430" font-size="28" fill="#e8e6df" text-anchor="middle">读区块</text>
+          </g>
+          <g id="se-m2" class="h">
+            <circle cx="1272" cy="661" r="82" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <circle cx="1272" cy="627" r="20" fill="none" stroke="#F0B90B" stroke-width="4" /><circle cx="1272" cy="627" r="9" fill="#F0B90B" />
+            <text x="1272" y="701" font-size="28" fill="#e8e6df" text-anchor="middle">查余额</text>
+          </g>
+          <g id="se-m3" class="h">
+            <circle cx="1099" cy="878" r="82" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <circle cx="1094" cy="839" r="14" fill="none" stroke="#83C167" stroke-width="4" /><line x1="1104" y1="849" x2="1117" y2="862" stroke="#83C167" stroke-width="5" stroke-linecap="round" />
+            <text x="1099" y="918" font-size="28" fill="#e8e6df" text-anchor="middle">只读调用</text>
+          </g>
+          <g id="se-m4" class="h">
+            <circle cx="821" cy="878" r="82" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <rect x="797" y="830" width="48" height="10" rx="2" fill="#F0B90B" /><rect x="797" y="848" width="48" height="10" rx="2" fill="#F0B90B" />
+            <text x="821" y="918" font-size="28" fill="#e8e6df" text-anchor="middle">拉日志</text>
+          </g>
+          <g id="se-m5" class="h">
+            <circle cx="648" cy="661" r="82" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <path d="M 624 627 H 662 M 652 615 L 668 627 L 652 639" fill="none" stroke="#F0B90B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="648" y="701" font-size="28" fill="#e8e6df" text-anchor="middle">发交易</text>
+          </g>
+          <g id="se-m6" class="h">
+            <circle cx="710" cy="390" r="82" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <path d="M 692 356 l 12 13 l 26 -28" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="710" y="430" font-size="28" fill="#e8e6df" text-anchor="middle">查回执</text>
+          </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 签好名的包裹 + 请求卡
+IN("#se-pk", at(0, 0.04), 0.6, { scale: 0.85, svgOrigin: "360 460" }, { scale: 1, svgOrigin: "360 460" });
+IN("#se-pkl", at(0, 0.6), 0.5);
+IN("#se-q", at(0, 0.25), 0.6, { x: 30 }, { x: 0 });
+IN("#se-node", at(0, 0.4), 0.5);
+// L1 返回哈希，包裹只进交易池
+IN("#se-pool, #se-blk", at(1, 0.02), 0.5);
+OUT("#se-pkl", at(1, 0.05), 0.3);
+tl.to("#se-pkm", { x: 1310, y: 130, duration: 1.0, ease: "power2.inOut" }, at(1, 0.08));
+tl.to("#se-pks", { scale: 0.3, svgOrigin: "360 460", duration: 1.0, ease: "power2.inOut" }, at(1, 0.08));
+IN("#se-r", at(1, 0.22), 0.5, { y: 15 }, { y: 0 });
+IN("#se-big", at(1, 0.58), 0.6, { y: 20 }, { y: 0 });
+tl.to("#se-blk", { opacity: 0.4, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.8));
+// L2 四种报错
+OUT("#se-q, #se-r, #se-big", at(2, 0), 0.4);
+IN("#se-e0", at(2, 0.06), 0.35, { scale: 0.9, svgOrigin: "780 332" }, { scale: 1, svgOrigin: "780 332" });
+IN("#se-e1", at(2, 0.2), 0.35, { scale: 0.9, svgOrigin: "780 442" }, { scale: 1, svgOrigin: "780 442" });
+IN("#se-e2", at(2, 0.38), 0.35, { scale: 0.9, svgOrigin: "780 552" }, { scale: 1, svgOrigin: "780 552" });
+IN("#se-e3", at(2, 0.7), 0.35, { scale: 0.9, svgOrigin: "780 662" }, { scale: 1, svgOrigin: "780 662" });
+// L3 查回执
+tl.to("#se-errs", { opacity: 0, y: -40, duration: 0.5, ease: "power2.in" }, at(3, 0));
+IN("#se-q2", at(3, 0.25), 0.6, { x: -30 }, { x: 0 });
+ARROW("#se-qa", at(3, 0.5), 0.6);
+tl.to("#se-node rect", { stroke: "#ffffff", duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.62));
+tl.to("#se-q2 tspan", { fill: "#ffffff", duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.8));
+// L4 null → 打包 → 回执
+IN("#se-nul", at(4, 0.03), 0.5, { y: 15 }, { y: 0 });
+tl.to("#se-pkm", { y: 365, duration: 0.9, ease: "power2.inOut" }, at(4, 0.22));
+OUT("#se-nul", at(4, 0.32), 0.3);
+IN("#se-rc", at(4, 0.36), 0.6, { y: 15 }, { y: 0 });
+tl.to("#se-rc text", { opacity: 0.5, duration: 0.01 }, at(4, 0.36));
+tl.to("#se-rc text", { opacity: 1, duration: 0.3, stagger: 0.6 }, at(4, 0.4));
+// L5 入账判断
+OUT("#se-q2, #se-rc, #se-qa", at(5, 0), 0.4);
+IN("#se-f1", at(5, 0.06), 0.5);
+ARROW("#se-f1a", at(5, 0.2), 0.4);
+IN("#se-f2", at(5, 0.26), 0.5);
+COUNT("#se-cnt", 1, 3, at(5, 0.32), 1.6, v => String(Math.floor(v + 0.001)));
+ARROW("#se-f2a", at(5, 0.55), 0.4);
+IN("#se-f3", at(5, 0.6), 0.5, { scale: 0.8, svgOrigin: "1170 380" }, { scale: 1, svgOrigin: "1170 380" });
+IN("#se-bad", at(5, 0.72), 0.5);
+IN("#se-badx", at(5, 0.82), 0.3, { scale: 1.6, svgOrigin: "724 600" }, { scale: 1, svgOrigin: "724 600" });
+// L6 七个方法
+OUT("#se-f1, #se-f1a, #se-f2, #se-f2a, #se-f3, #se-bad, #se-badx, #se-node, #se-pool, #se-blk, #se-pk", at(6, 0), 0.4);
+IN("#se-core", at(6, 0.05), 0.6, { scale: 0.8, svgOrigin: "960 590" }, { scale: 1, svgOrigin: "960 590" });
+for (let k = 0; k < 7; k++) {
+  tl.fromTo("#se-m" + k, { opacity: 0 }, { opacity: 0.3, duration: 0.3 }, at(6, 0.1));
+  tl.to("#se-m" + k, { opacity: 1, duration: 0.3 }, at(6, 0.3 + k * 0.085));
+}
+
+      /*ENDANIM*/
+
+      tl.to("#se-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["send"] = tl;
+    })();
+  </script>
+</template>

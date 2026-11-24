@@ -1,0 +1,210 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 states，id 前缀 ss- -->
+  <div id="root" data-composition-id="states" data-duration="77.8" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ss-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+              <marker id="ss-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+        <marker id="ss-arrY" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+      </defs>
+      <g id="ss-all">
+                <text id="ss-title" class="h" x="120" y="140" font-size="44" font-weight="700" fill="#e8e6df">兑换卡片状态机</text>
+        <g id="ss-dg">
+          <circle id="ss-start" class="h" cx="225" cy="196" r="12" fill="#e8e6df" />
+          <path id="ss-e0" class="dr h" pathLength="1" d="M225 208 V234" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ss-arrG)" />
+          <!-- edges -->
+          <g fill="none" stroke="#8a8f99" stroke-width="3">
+            <path id="ss-eAB" class="dr h" pathLength="1" d="M332 270 H466" marker-end="url(#ss-arrG)" />
+            <path id="ss-eBC" class="dr h" pathLength="1" d="M682 270 H821" marker-end="url(#ss-arrG)" />
+            <path id="ss-eBE" class="dr h" pathLength="1" d="M575 304 V390" marker-end="url(#ss-arrG)" />
+            <path id="ss-eCB" class="dr h" pathLength="1" d="M935 236 C935 168, 575 168, 590 232" stroke-dasharray="1" marker-end="url(#ss-arrG)" />
+            <path id="ss-eCD" class="dr h" pathLength="1" d="M1042 270 H1196" marker-end="url(#ss-arrG)" />
+            <path id="ss-eCF" class="dr h" pathLength="1" d="M935 304 V390" marker-end="url(#ss-arrG)" />
+            <path id="ss-eCH" class="dr h" pathLength="1" d="M870 304 C790 360, 790 520, 872 552" marker-end="url(#ss-arrG)" />
+            <path id="ss-eFG" class="dr h" pathLength="1" d="M1042 430 H1196" marker-end="url(#ss-arrG)" />
+            <path id="ss-eGF" class="dr h" pathLength="1" d="M1260 464 C1230 530, 990 530, 962 470" marker-end="url(#ss-arrG)" />
+            <path id="ss-eGH" class="dr h" pathLength="1" d="M1310 464 V590 H1050" marker-end="url(#ss-arrG)" />
+            <path id="ss-eHI" class="dr h" pathLength="1" d="M935 624 V710" marker-end="url(#ss-arrG)" />
+            <path id="ss-eIH" class="dr h" pathLength="1" d="M830 740 C770 720, 770 620, 822 604" marker-end="url(#ss-arrG)" />
+            <path id="ss-eIJ" class="dr h" pathLength="1" d="M1042 750 H1196" marker-end="url(#ss-arrG)" />
+            <path id="ss-eJK" class="dr h" pathLength="1" d="M1310 784 V870" marker-end="url(#ss-arrG)" />
+            <path id="ss-eJM" class="dr h" pathLength="1" d="M1230 784 L1050 880" marker-end="url(#ss-arrG)" />
+            <path id="ss-eMB" class="dr h" pathLength="1" d="M828 910 H420 V340 H520 V312" marker-end="url(#ss-arrG)" />
+            <path id="ss-eKA" class="dr h" pathLength="1" d="M1310 944 V990 H225 V312" marker-end="url(#ss-arrG)" />
+          </g>
+          <!-- edge labels -->
+          <g font-size="28" fill="#8a8f99">
+            <text id="ss-lAB" class="h" x="399" y="252" text-anchor="middle">输入有效</text>
+            <text id="ss-lBC" class="h" x="755" y="252" text-anchor="middle">报价返回</text>
+            <text id="ss-lBE" class="h" x="589" y="360">费率档全失败</text>
+            <text id="ss-lCD" class="h" x="1120" y="252" text-anchor="middle">金额&gt;余额</text>
+            <text id="ss-lCF" class="h" x="949" y="360">额度不足</text>
+            <text id="ss-lCH" class="h" x="790" y="520" text-anchor="end">额度足够</text>
+            <text id="ss-lFG" class="h" x="1120" y="412" text-anchor="middle">点击授权</text>
+            <text id="ss-lGF" class="h" x="1112" y="560" text-anchor="middle">拒签或失败</text>
+            <text id="ss-lGH" class="h" x="1324" y="535">授权确认</text>
+            <text id="ss-lHI" class="h" x="949" y="680">点击兑换</text>
+            <text id="ss-lIH" class="h" x="768" y="682" text-anchor="end">拒签 4001</text>
+            <text id="ss-lIJ" class="h" x="1120" y="732" text-anchor="middle">得到哈希</text>
+            <text id="ss-lMB" class="h" x="434" y="820">重试</text>
+            <text id="ss-lKA" class="h" x="239" y="650">再来一笔</text>
+          </g>
+          <g font-size="28">
+            <text id="ss-i1" class="h" x="650" y="166" text-anchor="middle" fill="#58C4DD">新区块</text>
+            <text id="ss-i2" class="h" x="755" y="166" text-anchor="middle" fill="#58C4DD">30 秒</text>
+            <text id="ss-i3" class="h" x="870" y="166" text-anchor="middle" fill="#58C4DD">输入变化</text>
+          </g>
+          <!-- nodes -->
+          <g font-size="30" text-anchor="middle" fill="#e8e6df">
+            <g id="ss-nA" class="h"><rect x="120" y="238" width="210" height="64" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="225" y="280">等待输入</text></g>
+            <g id="ss-nB" class="h"><rect x="470" y="238" width="210" height="64" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="575" y="280">报价中</text></g>
+            <g id="ss-nC" class="h"><rect x="830" y="238" width="210" height="64" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="935" y="280">报价就绪</text></g>
+            <g id="ss-nD" class="h"><rect x="1205" y="238" width="210" height="64" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="1310" y="280">余额不足</text></g>
+            <g id="ss-nE" class="h"><rect x="470" y="398" width="210" height="64" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="575" y="440">无可用路径</text></g>
+            <g id="ss-nF" class="h"><rect x="830" y="398" width="210" height="64" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="935" y="440">需要授权</text></g>
+            <g id="ss-nG" class="h"><rect x="1205" y="398" width="210" height="64" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1310" y="440">授权中</text></g>
+            <g id="ss-nH" class="h"><rect x="830" y="558" width="210" height="64" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="935" y="600">可兑换</text></g>
+            <g id="ss-nI" class="h"><rect x="830" y="718" width="210" height="64" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="935" y="760">签名中</text></g>
+            <g id="ss-nJ" class="h"><rect x="1205" y="718" width="210" height="64" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1310" y="760">确认中</text></g>
+            <g id="ss-nK" class="h"><rect x="1205" y="878" width="210" height="64" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="1310" y="920">成功</text></g>
+            <g id="ss-nM" class="h"><rect x="830" y="878" width="210" height="64" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="935" y="920">失败</text></g>
+          </g>
+        </g>
+        <!-- L7 data pipes -->
+        <g id="ss-pipes">
+          <g font-size="32">
+            <text id="ss-pl1" class="h" x="200" y="300" fill="#F0B90B">报价</text>
+            <text id="ss-pl2" class="h" x="200" y="440" fill="#F0B90B">余额</text>
+            <text id="ss-pl3" class="h" x="200" y="580" fill="#FF9F43">授权</text>
+          </g>
+          <path id="ss-p1" class="dr h" pathLength="1" d="M200 330 H720" stroke="#F0B90B" stroke-opacity="0.45" stroke-width="14" fill="none" />
+          <path id="ss-p2" class="dr h" pathLength="1" d="M200 470 H720" stroke="#F0B90B" stroke-opacity="0.45" stroke-width="14" fill="none" />
+          <path id="ss-p3" class="dr h" pathLength="1" d="M200 610 H720" stroke="#FF9F43" stroke-opacity="0.45" stroke-width="14" fill="none" />
+          <circle id="ss-d1" class="h" cx="200" cy="330" r="11" fill="#F0B90B" />
+          <circle id="ss-d2" class="h" cx="200" cy="470" r="11" fill="#F0B90B" />
+          <circle id="ss-d3" class="h" cx="200" cy="610" r="11" fill="#FF9F43" />
+          <g id="ss-fun" class="h">
+            <path d="M720 290 L870 420 L870 520 L720 650 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="795" y="482" font-size="32" text-anchor="middle" fill="#58C4DD">派生</text>
+          </g>
+          <path id="ss-po" class="dr h" pathLength="1" d="M872 470 H990" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ss-arrG)" />
+          <g id="ss-cur" class="h"><rect x="1000" y="438" width="240" height="64" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="1120" y="480" font-size="30" text-anchor="middle" fill="#e8e6df">当前状态</text></g>
+          <path id="ss-po2" class="dr h" pathLength="1" d="M1242 470 C1400 470, 1460 640, 1578 640" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ss-arrG)" />
+          <text id="ss-big" class="h" x="760" y="800" font-size="56" font-weight="700" text-anchor="middle" fill="#e8e6df">状态是推出来的，不是设置的</text>
+          <text id="ss-note" class="h" x="1490" y="950" font-size="28" text-anchor="end" fill="#8a8f99">不含跨链 → 需长时任务追踪</text>
+        </g>
+        <!-- swap card thumbnail -->
+        <g id="ss-card" class="h">
+          <rect x="1570" y="300" width="260" height="480" rx="20" fill="#161a22" stroke="#2a2f3a" stroke-width="2.5" />
+          <text x="1590" y="350" font-size="28" fill="#8a8f99">卖出</text>
+          <text x="1590" y="400" font-size="30" fill="#F0B90B">1000 USDC</text>
+          <text x="1590" y="470" font-size="28" fill="#8a8f99">买入</text>
+          <text x="1590" y="520" font-size="30" fill="#F0B90B">0.285 WETH</text>
+          <g id="ss-btnS"><g id="ss-btn">
+            <rect id="ss-br" x="1590" y="600" width="220" height="80" rx="14" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" />
+            <g font-size="30" text-anchor="middle" fill="#e8e6df">
+              <text id="ss-b0" x="1700" y="651">输入金额</text>
+              <text id="ss-b2" x="1700" y="651" opacity="0">兑换</text>
+              <text id="ss-b3" x="1700" y="651" opacity="0">余额不足</text>
+              <text id="ss-b4" x="1700" y="651" opacity="0">授权 USDC</text>
+              <text id="ss-b5" x="1700" y="651" opacity="0">请在钱包确认</text>
+              <text id="ss-b6" x="1700" y="651" opacity="0">确认中</text>
+              <text id="ss-b7" x="1712" y="651" opacity="0">成功</text>
+            </g>
+            <g id="ss-spin" opacity="0"><path d="M1700 622 A18 18 0 1 1 1682 640" stroke="#e8e6df" stroke-width="4" fill="none" stroke-linecap="round" /></g>
+            <path id="ss-chk" d="M1652 640 L1664 652 L1684 628" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" opacity="0" />
+          </g></g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+            const A = (s, t, attr, d = 0.4) => tl.to(s, { attr, duration: d, ease: "power2.out" }, t);
+      const BT = ["#ss-b0", "#ss-b2", "#ss-b3", "#ss-b4", "#ss-b5", "#ss-b6", "#ss-b7", "#ss-spin", "#ss-chk"];
+      const COL = { g: ["#2a2f3a", "#8a8f99"], G: ["#1f3320", "#83C167"], R: ["#3a1f1f", "#FC6255"], O: ["#3a2a17", "#FF9F43"] };
+      const BTN = (t, ids, c) => {
+        tl.to(BT.filter(x => !ids.includes(x)), { opacity: 0, duration: 0.15 }, t);
+        tl.to(ids, { opacity: 1, duration: 0.25 }, t + 0.15);
+        A("#ss-br", t, { fill: COL[c][0], stroke: COL[c][1] }, 0.3);
+      };
+      const FL = (n, t, c) => { A(n + " rect", t, { "stroke-width": 8 }, 0.15); A(n + " rect", t + 0.5, { "stroke-width": 3 }, 0.3); };
+      const E = (id, t, d = 0.5) => ARROW(id, t, d);
+      // L0
+      IN("#ss-title", at(0, 0)); IN("#ss-start", at(0, 0.4)); E("#ss-e0", at(0, 0.5), 0.3); IN("#ss-card", at(0, 0.3));
+      // L1
+      IN("#ss-nA", at(1, 0.0)); E("#ss-eAB", at(1, 0.22)); IN("#ss-lAB", at(1, 0.22)); IN("#ss-nB", at(1, 0.3));
+      BTN(at(1, 0.3), ["#ss-spin"], "g");
+      tl.fromTo("#ss-spin", { rotation: 0 }, { rotation: 720, svgOrigin: "1700 640", duration: 3, ease: "none" }, at(1, 0.3));
+      E("#ss-eBC", at(1, 0.5)); IN("#ss-lBC", at(1, 0.5)); IN("#ss-nC", at(1, 0.58));
+      BTN(at(1, 0.6), ["#ss-b2"], "G");
+      E("#ss-eBE", at(1, 0.72)); IN("#ss-lBE", at(1, 0.72)); IN("#ss-nE", at(1, 0.8));
+      // L2
+      E("#ss-eCB", at(2, 0.05), 0.9);
+      [["#ss-i1", 0.3], ["#ss-i2", 0.48], ["#ss-i3", 0.66]].forEach(([s, f]) => {
+        IN(s, at(2, f), 0.3); tl.to(s, { attr: { fill: "#e8e6df" }, duration: 0.2 }, at(2, f) + 0.3); tl.to(s, { attr: { fill: "#58C4DD" }, duration: 0.4 }, at(2, f) + 0.7);
+      });
+      FL("#ss-nB", at(2, 0.85));
+      // L3
+      E("#ss-eCD", at(3, 0.08)); IN("#ss-lCD", at(3, 0.08)); IN("#ss-nD", at(3, 0.14)); BTN(at(3, 0.16), ["#ss-b3"], "R");
+      E("#ss-eCF", at(3, 0.4)); IN("#ss-lCF", at(3, 0.4)); IN("#ss-nF", at(3, 0.46)); BTN(at(3, 0.48), ["#ss-b4"], "O");
+      E("#ss-eCH", at(3, 0.68), 0.7); IN("#ss-lCH", at(3, 0.7)); IN("#ss-nH", at(3, 0.78)); BTN(at(3, 0.8), ["#ss-b2"], "G");
+      // L4
+      E("#ss-eFG", at(4, 0.05)); IN("#ss-lFG", at(4, 0.05)); IN("#ss-nG", at(4, 0.12)); BTN(at(4, 0.0), ["#ss-b4"], "O");
+      E("#ss-eGF", at(4, 0.38), 0.7); IN("#ss-lGF", at(4, 0.42));
+      E("#ss-eGH", at(4, 0.7), 0.7); IN("#ss-lGH", at(4, 0.72)); FL("#ss-nH", at(4, 0.85)); BTN(at(4, 0.85), ["#ss-b2"], "G");
+      // L5
+      E("#ss-eHI", at(5, 0.03)); IN("#ss-lHI", at(5, 0.03)); IN("#ss-nI", at(5, 0.08)); BTN(at(5, 0.1), ["#ss-b5"], "O");
+      E("#ss-eIH", at(5, 0.2), 0.6); IN("#ss-lIH", at(5, 0.22));
+      E("#ss-eIJ", at(5, 0.38)); IN("#ss-lIJ", at(5, 0.38)); IN("#ss-nJ", at(5, 0.44)); BTN(at(5, 0.46), ["#ss-b6"], "O");
+      E("#ss-eJK", at(5, 0.56)); IN("#ss-nK", at(5, 0.6)); E("#ss-eJM", at(5, 0.56)); IN("#ss-nM", at(5, 0.6));
+      BTN(at(5, 0.62), ["#ss-b7", "#ss-chk"], "G");
+      E("#ss-eMB", at(5, 0.74), 0.9); IN("#ss-lMB", at(5, 0.76));
+      E("#ss-eKA", at(5, 0.86), 0.9); IN("#ss-lKA", at(5, 0.88));
+      // L6: button grows, labels flip, matching node flashes
+      tl.to("#ss-btn", { scale: 1.14, svgOrigin: "1700 640", duration: 0.5, ease: "back.out(2)" }, at(6, 0.02));
+      [["#ss-b0", "g", "#ss-nA"], ["#ss-b3", "R", "#ss-nD"], ["#ss-b4", "O", "#ss-nF"], ["#ss-b2", "G", "#ss-nH"], ["#ss-b5", "O", "#ss-nI"], ["#ss-b6", "O", "#ss-nJ"]].forEach(([b, c, n], i) => {
+        const t = at(6, 0.12 + i * 0.135); BTN(t, [b], c); FL(n, t, c);
+      });
+      tl.to("#ss-btn", { scale: 1, svgOrigin: "1700 640", duration: 0.4 }, at(6, 0.97));
+      // L7
+      OUT("#ss-dg", at(7, 0) - 0.3, 0.3); OUT("#ss-title", at(7, 0) - 0.3, 0.3);
+      [1, 2, 3].forEach((k, i) => { IN("#ss-pl" + k, at(7, 0.02 + i * 0.04)); DRAW("#ss-p" + k, at(7, 0.02 + i * 0.04), 0.6); tl.set("#ss-p" + k, { opacity: 1 }, at(7, 0.02 + i * 0.04)); });
+      IN("#ss-fun", at(7, 0.16));
+      [1, 2, 3].forEach((k, i) => {
+        tl.set("#ss-d" + k, { opacity: 1 }, at(7, 0.2));
+        tl.fromTo("#ss-d" + k, { attr: { cx: 200 } }, { attr: { cx: 720 }, duration: 1.3, ease: "power1.in", repeat: 4, delay: i * 0.3, immediateRender: false }, at(7, 0.2));
+      });
+      E("#ss-po", at(7, 0.26)); IN("#ss-cur", at(7, 0.3)); E("#ss-po2", at(7, 0.36), 0.7); BTN(at(7, 0.42), ["#ss-b2"], "G");
+      IN("#ss-big", at(7, 0.48), 0.9, { y: 20 }, { y: 0 });
+      IN("#ss-note", at(7, 0.78));
+
+
+      tl.to("#ss-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["states"] = tl;
+    })();
+  </script>
+</template>

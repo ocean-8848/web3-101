@@ -1,0 +1,248 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 abicall，id 前缀 ab- -->
+  <div id="root" data-composition-id="abicall" data-duration="74.71" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ab-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ab-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ab-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="ab-all">
+        <!-- 左侧：L0 节点 / ETH / 合约，L2–L4 管道 -->
+        <g id="ab-left">
+          <g id="ab-l0">
+            <g id="ab-node" class="h">
+              <rect x="90" y="460" width="200" height="110" rx="14" fill="#B48EF022" stroke="#B48EF0" stroke-width="3" />
+              <text x="190" y="526" font-size="30" font-weight="700" fill="#B48EF0" text-anchor="middle">RPC 节点</text>
+            </g>
+            <path id="ab-ea" class="dr h" pathLength="1" d="M190 455 L190 336" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#ab-arr)" />
+            <text id="ab-eal" class="h" x="212" y="408" font-size="28" fill="#8a8f99">直接读</text>
+            <g id="ab-eth" class="h">
+              <circle cx="132" cy="290" r="28" fill="#F0B90B" />
+              <text x="176" y="301" font-size="30" font-weight="700" fill="#F0B90B">ETH 余额 ✓</text>
+            </g>
+            <path id="ab-ca" class="dr h" pathLength="1" d="M296 515 L464 515" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ab-arrB)" />
+            <text id="ab-cal" class="h mono" x="380" y="494" font-size="28" fill="#58C4DD" text-anchor="middle">eth_call</text>
+          </g>
+          <g id="ab-ct" class="h">
+            <rect id="ab-ctr" x="470" y="460" width="390" height="110" rx="14" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+            <text x="500" y="502" font-size="30" font-weight="700" fill="#58C4DD">USDC 合约</text>
+            <rect x="502" y="528" width="26" height="22" rx="4" fill="#F0B90B" />
+            <path d="M507 528 L507 520 Q515 508 523 520 L523 528" fill="none" stroke="#F0B90B" stroke-width="3" />
+            <text x="542" y="550" font-size="28" fill="#F0B90B">USDC 余额</text>
+          </g>
+          <!-- 管道 -->
+          <text id="ab-p1" class="h" x="90" y="240" font-size="32" font-weight="700" fill="#e8e6df">① Pack</text>
+          <text id="ab-p1i" class="h mono" x="260" y="240" font-size="28" fill="#8a8f99">balanceOf(holder)</text>
+          <g id="ab-strip" class="h">
+            <rect x="90" y="270" width="200" height="60" rx="6" fill="#FF9F43" />
+            <text class="mono" x="190" y="310" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">70a08231</text>
+            <rect x="296" y="270" width="564" height="60" rx="6" fill="#58C4DD55" />
+            <text class="mono" x="578" y="310" font-size="28" fill="#e8e6df" text-anchor="middle">000…holder</text>
+          </g>
+          <text id="ab-sel" class="h" x="190" y="374" font-size="28" fill="#FF9F43" text-anchor="middle">函数选择器</text>
+          <text id="ab-arg" class="h" x="578" y="374" font-size="28" fill="#58C4DD" text-anchor="middle">参数</text>
+          <path id="ab-down1" class="dr h" pathLength="1" d="M760 338 L760 452" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ab-arr)" />
+          <text id="ab-p2" class="h" x="90" y="526" font-size="32" font-weight="700" fill="#e8e6df">② eth_call</text>
+          <path id="ab-down2" class="dr h" pathLength="1" d="M665 576 L665 632" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ab-arr)" />
+          <g id="ab-ret" class="h">
+            <rect x="90" y="640" width="770" height="56" rx="6" fill="#8a8f9933" stroke="#8a8f99" stroke-width="2" />
+            <text class="mono" x="475" y="678" font-size="28" fill="#e8e6df" text-anchor="middle">0x000…0000f4240</text>
+          </g>
+          <text id="ab-p3" class="h" x="90" y="770" font-size="32" font-weight="700" fill="#e8e6df">③ Unpack</text>
+          <path id="ab-down3" class="dr h" pathLength="1" d="M665 704 L665 800" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ab-arr)" />
+          <text id="ab-o0" class="h mono" x="300" y="850" font-size="28" fill="#F0B90B">balance → *big.Int</text>
+          <text id="ab-o1" class="h mono" x="300" y="905" font-size="28" fill="#e8e6df"><tspan fill="#F0B90B">decimals</tspan> → uint8 → *big.Int</text>
+        </g>
+        <!-- L1：最小 ABI -->
+        <g id="ab-abi" class="h">
+          <rect x="1000" y="300" width="800" height="280" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1040" y="362" font-size="34" font-weight="700" fill="#58C4DD">最小 ABI</text>
+        </g>
+        <text id="ab-e0" class="h mono" x="1040" y="430" font-size="30" fill="#e8e6df">balanceOf(address)</text>
+        <text id="ab-e1" class="h mono" x="1040" y="482" font-size="30" fill="#F0B90B">decimals()</text>
+        <text id="ab-e2" class="h mono" x="1040" y="534" font-size="30" fill="#e8e6df">event Transfer(from, to, value)</text>
+        <!-- 代码面板 B -->
+        <g id="ab-code" class="h">
+          <rect x="900" y="220" width="960" height="369" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <rect id="ab-hb" class="h" x="902" y="243" width="956" height="41" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="ab-hs" class="h" x="902" y="243" width="4" height="41" fill="#58C4DD" />
+          <text class="mono" x="952" y="272" font-size="28" fill="#6b6f7a" text-anchor="end">1</text>
+          <text id="ab-c0" class="mono" x="972" y="272" font-size="28" fill="#e8e6df" xml:space="preserve">data, err := a.Pack(method, args...)</text>
+          <text class="mono" x="952" y="313" font-size="28" fill="#6b6f7a" text-anchor="end">2</text>
+          <text id="ab-c1" class="mono" x="972" y="313" font-size="28" fill="#e8e6df" xml:space="preserve">out, err := c.CallContract(ctx,</text>
+          <text class="mono" x="952" y="354" font-size="28" fill="#6b6f7a" text-anchor="end">3</text>
+          <text id="ab-c2" class="mono" x="972" y="354" font-size="28" fill="#e8e6df" xml:space="preserve">    ethereum.CallMsg{To: &amp;to, Data: data}, nil)</text>
+          <text class="mono" x="952" y="395" font-size="28" fill="#6b6f7a" text-anchor="end">4</text>
+          <text id="ab-c3" class="mono" x="972" y="395" font-size="28" fill="#e8e6df" xml:space="preserve">vals, err := a.Unpack(method, out)</text>
+          <text class="mono" x="952" y="436" font-size="28" fill="#6b6f7a" text-anchor="end">5</text>
+          <text id="ab-c4" class="mono" x="972" y="436" font-size="28" fill="#e8e6df" xml:space="preserve">switch v := vals[0].(type) {</text>
+          <text class="mono" x="952" y="477" font-size="28" fill="#6b6f7a" text-anchor="end">6</text>
+          <text id="ab-c5" class="mono" x="972" y="477" font-size="28" fill="#e8e6df" xml:space="preserve">case *big.Int: return v, nil</text>
+          <text class="mono" x="952" y="518" font-size="28" fill="#6b6f7a" text-anchor="end">7</text>
+          <text id="ab-c6" class="mono" x="972" y="518" font-size="28" fill="#e8e6df" xml:space="preserve">case uint8:    return big.NewInt(int64(v)), nil</text>
+          <text class="mono" x="952" y="559" font-size="28" fill="#6b6f7a" text-anchor="end">8</text>
+          <text id="ab-c7" class="mono" x="972" y="559" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+        </g>
+        <text id="ab-n0" class="h" x="900" y="652" font-size="28" fill="#8a8f99">a = 解析好的最小 ABI；4 字节选择器 + 参数</text>
+        <text id="ab-n1" class="h" x="900" y="652" font-size="28" fill="#8a8f99">CallContract 就是 eth_call</text>
+        <text id="ab-n2" class="h" x="900" y="652" font-size="28" fill="#8a8f99">balanceOf 和 decimals 都返回 *big.Int</text>
+        <!-- L5：两把尺子 -->
+        <g id="ab-rul">
+          <text id="ab-raw" class="h" x="160" y="228" font-size="30" fill="#8a8f99">链上原始值 <tspan class="mono" font-size="36" font-weight="700" fill="#F0B90B">1000000</tspan></text>
+          <g id="ab-u" class="h">
+            <text x="160" y="304" font-size="30" fill="#e8e6df">USDC · 6 位</text>
+            <path d="M160 340 L1260 340 M160 340 L160 358 M270 340 L270 352 M380 340 L380 352 M490 340 L490 352 M600 340 L600 352 M710 340 L710 352 M820 340 L820 352 M930 340 L930 352 M1040 340 L1040 352 M1150 340 L1150 352 M1260 340 L1260 358" stroke="#8a8f99" stroke-width="3" fill="none" />
+          </g>
+          <g id="ab-um" class="h">
+            <path d="M1100 344 L1086 372 L1114 372 Z" fill="#F0B90B" />
+            <text class="mono" x="1100" y="420" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">1 USDC</text>
+          </g>
+          <g id="ab-d" class="h">
+            <text x="160" y="604" font-size="30" fill="#e8e6df">按 18 位处理</text>
+            <path d="M160 640 L1260 640 M160 640 L160 658 M270 640 L270 652 M380 640 L380 652 M490 640 L490 652 M600 640 L600 652 M710 640 L710 652 M820 640 L820 652 M930 640 L930 652 M1040 640 L1040 652 M1150 640 L1150 652 M1260 640 L1260 658" stroke="#8a8f99" stroke-width="3" fill="none" />
+          </g>
+          <g id="ab-dm" class="h">
+            <path d="M164 644 L150 672 L178 672 Z" fill="#F0B90B" />
+            <text class="mono" x="160" y="716" font-size="32" font-weight="700" fill="#F0B90B">0.000000000001</text>
+          </g>
+          <path id="ab-x" class="dr h" pathLength="1" d="M1060 440 L460 690" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ab-arrR)" />
+          <text id="ab-xl" class="h" x="200" y="472" font-size="44" font-weight="700" fill="#FC6255">× 10¹²</text>
+          <text id="ab-xl2" class="h" x="200" y="528" font-size="36" font-weight="700" fill="#FC6255">一万亿倍</text>
+          <text id="ab-ex" class="h" x="1260" y="786" font-size="28" fill="#6b6f7a" text-anchor="end">示例金额</text>
+          <g id="ab-tab" class="h">
+            <rect x="1400" y="250" width="420" height="350" rx="14" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="1430" y="300" font-size="28" fill="#6b6f7a">token  decimals</text>
+            <text class="mono" x="1430" y="370" font-size="30" fill="#e8e6df" xml:space="preserve">USDT   <tspan fill="#F0B90B">6</tspan></text>
+            <text class="mono" x="1430" y="430" font-size="30" fill="#e8e6df" xml:space="preserve">USDC   <tspan fill="#F0B90B">6</tspan></text>
+            <text class="mono" x="1430" y="490" font-size="30" fill="#e8e6df" xml:space="preserve">WETH   <tspan fill="#F0B90B">18</tspan></text>
+            <text class="mono" x="1430" y="550" font-size="30" fill="#e8e6df" xml:space="preserve">DAI    <tspan fill="#F0B90B">18</tspan></text>
+          </g>
+        </g>
+        <!-- L6：缓存抽屉与 USDT 卡 -->
+        <g id="ab-drw" class="h">
+          <rect x="200" y="260" width="700" height="200" rx="14" fill="#83C16712" stroke="#83C167" stroke-width="3" />
+          <rect x="500" y="430" width="100" height="14" rx="7" fill="#83C167" />
+          <text x="230" y="312" font-size="32" font-weight="700" fill="#83C167">缓存</text>
+        </g>
+        <text id="ab-dv" class="h mono" x="230" y="396" font-size="34" font-weight="700" fill="#F0B90B">USDC decimals = 6</text>
+        <text id="ab-once" class="h" x="940" y="372" font-size="30" fill="#83C167">启动时读一次</text>
+        <g id="ab-usdt" class="h">
+          <rect x="200" y="560" width="1100" height="300" rx="16" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <text x="230" y="618" font-size="32" font-weight="700" fill="#e8e6df">USDT</text>
+          <text class="mono" x="230" y="700" font-size="30" fill="#e8e6df">transfer(to, amount) returns (</text>
+          <rect id="ab-slot" x="786" y="668" width="120" height="44" rx="8" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="8 6" />
+          <text class="mono" x="918" y="700" font-size="30" fill="#e8e6df">)</text>
+          <text x="960" y="700" font-size="28" fill="#FF9F43">不返回 bool</text>
+        </g>
+        <text id="ab-safe" class="h" x="230" y="802" font-size="30" fill="#e8e6df"><tspan fill="#83C167">读链不受影响</tspan> · 写合约用 <tspan class="mono" fill="#58C4DD">SafeERC20</tspan></text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const N = 8, B0 = 272, ST = 41;
+      const HL = (a, b, t) => {
+        tl.to("#ab-hb, #ab-hs", { opacity: 1, attr: { y: B0 - 29 + ST * a, height: ST * (b - a + 1) }, duration: 0.35, ease: "power2.inOut" }, t);
+        for (let i = 0; i < N; i++) tl.to(`#ab-c${i}`, { opacity: i >= a && i <= b ? 1 : 0.6, duration: 0.3 }, t);
+      };
+
+      // L0 ETH 直接读；USDC 余额锁在合约里，要 eth_call
+      IN("#ab-node", at(0, 0.02), 0.5);
+      ARROW("#ab-ea", at(0, 0.1), 0.5);
+      IN("#ab-eth", at(0, 0.16), 0.5, { y: 10 }, { y: 0 });
+      IN("#ab-eal", at(0, 0.2), 0.4);
+      IN("#ab-ct", at(0, 0.42), 0.6, { x: 30 }, { x: 0 });
+      ARROW("#ab-ca", at(0, 0.75), 0.5);
+      IN("#ab-cal", at(0, 0.8), 0.4);
+
+      // L1 最小 ABI 三条目
+      IN("#ab-abi", at(1, 0.05), 0.6, { x: 30 }, { x: 0 });
+      IN("#ab-e0", at(1, 0.35), 0.4, { x: -12 }, { x: 0 });
+      IN("#ab-e1", at(1, 0.5), 0.4, { x: -12 }, { x: 0 });
+      IN("#ab-e2", at(1, 0.66), 0.4, { x: -12 }, { x: 0 });
+
+      // L2 Pack：选择器 + 参数
+      OUT("#ab-abi, #ab-e0, #ab-e1, #ab-e2, #ab-l0", at(2, 0), 0.4);
+      IN("#ab-code", at(2, 0.05), 0.6, { x: 30 }, { x: 0 });
+      HL(0, 0, at(2, 0.1));
+      IN("#ab-p1", at(2, 0.14), 0.4);
+      IN("#ab-p1i", at(2, 0.2), 0.4);
+      IN("#ab-strip", at(2, 0.36), 0.5, { x: -24 }, { x: 0 });
+      IN("#ab-n0", at(2, 0.4), 0.4);
+      IN("#ab-sel", at(2, 0.62), 0.4, { y: 8 }, { y: 0 });
+      IN("#ab-arg", at(2, 0.8), 0.4, { y: 8 }, { y: 0 });
+
+      // L3 CallContract = eth_call：字节带进合约，带回一串编码字节
+      HL(1, 2, at(3, 0.02));
+      OUT("#ab-n0", at(3, 0.02), 0.3);
+      IN("#ab-n1", at(3, 0.1), 0.4);
+      IN("#ab-p2", at(3, 0.08), 0.4);
+      ARROW("#ab-down1", at(3, 0.2), 0.5);
+      tl.to("#ab-ctr", { strokeWidth: 6, duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.32));
+      ARROW("#ab-down2", at(3, 0.5), 0.4);
+      IN("#ab-ret", at(3, 0.56), 0.5, { y: -16 }, { y: 0 });
+
+      // L4 Unpack：balance → *big.Int，decimals uint8 → *big.Int
+      HL(3, 6, at(4, 0.02));
+      OUT("#ab-n1", at(4, 0.02), 0.3);
+      IN("#ab-n2", at(4, 0.1), 0.4);
+      IN("#ab-p3", at(4, 0.08), 0.4);
+      ARROW("#ab-down3", at(4, 0.14), 0.4);
+      IN("#ab-o0", at(4, 0.3), 0.5, { x: -12 }, { x: 0 });
+      IN("#ab-o1", at(4, 0.55), 0.5, { x: -12 }, { x: 0 });
+
+      // L5 算一算：6 位 vs 18 位，差 10^12
+      OUT("#ab-code, #ab-n2, #ab-left", at(5, 0), 0.5);
+      IN("#ab-tab", at(5, 0.06), 0.6, { x: 30 }, { x: 0 });
+      IN("#ab-raw", at(5, 0.3), 0.5);
+      IN("#ab-u", at(5, 0.36), 0.5);
+      IN("#ab-um", at(5, 0.42), 0.5, { y: -30 }, { y: 0 });
+      IN("#ab-d", at(5, 0.5), 0.5);
+      IN("#ab-dm", at(5, 0.56), 0.5, { y: -30 }, { y: 0 });
+      ARROW("#ab-x", at(5, 0.66), 0.7);
+      IN("#ab-xl", at(5, 0.72), 0.5, { scale: 0.7, svgOrigin: "270 458" }, { scale: 1, svgOrigin: "270 458" });
+      IN("#ab-xl2", at(5, 0.86), 0.5);
+      IN("#ab-ex", at(5, 0.9), 0.4);
+
+      // L6 启动读一次进缓存；USDT 的 transfer 不返回 bool
+      OUT("#ab-rul", at(6, 0), 0.5);
+      IN("#ab-drw", at(6, 0.05), 0.6);
+      IN("#ab-dv", at(6, 0.12), 0.6, { x: 200 }, { x: 0 });
+      IN("#ab-once", at(6, 0.2), 0.5, { x: -12 }, { x: 0 });
+      IN("#ab-usdt", at(6, 0.38), 0.6, { y: 20 }, { y: 0 });
+      tl.to("#ab-slot", { strokeWidth: 4.5, duration: 0.3, yoyo: true, repeat: 3 }, at(6, 0.5));
+      tl.to("#ab-dv", { fill: "#83C167", duration: 0.4, yoyo: true, repeat: 1 }, at(6, 0.88));
+      IN("#ab-safe", at(6, 0.64), 0.5, { y: 10 }, { y: 0 });
+
+      tl.to("#ab-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["abicall"] = tl;
+    })();
+  </script>
+</template>

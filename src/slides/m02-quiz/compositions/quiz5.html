@@ -1,0 +1,199 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz5，id 前缀 q5- -->
+  <div id="root" data-composition-id="quiz5" data-duration="55.9" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="q5-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="q5-all">
+        <!-- 题号徽章 x70–260 y70–130 -->
+        <g id="q5-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 5 题</text>
+        </g>
+        <!-- 题干 -->
+        <clipPath id="q5-qclip"><rect id="q5-qcr" x="60" y="200" width="0" height="64" /></clipPath>
+        <clipPath id="q5-qclip2"><rect id="q5-qcr2" x="60" y="264" width="0" height="64" /></clipPath>
+        <text id="q5-q" class="h" x="70" y="250" font-size="40" fill="#e8e6df" clip-path="url(#q5-qclip)">手续费 <tspan fill="#F0B90B">0.3%</tspan>，<tspan class="mono" fill="#58C4DD">amount</tspan> = <tspan fill="#F0B90B">9,999</tspan>（最小单位）。</text>
+        <text id="q5-q2" class="h" x="70" y="310" font-size="40" fill="#e8e6df" clip-path="url(#q5-qclip2)"><tspan class="mono" fill="#58C4DD">fee = amount / 10000 * 30</tspan> 的<tspan fill="#FF9F43">结果</tspan>是？</text>
+        <!-- 暂停 + 倒数环 -->
+        <g id="q5-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="q5-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <!-- 选项卡 y0 = 380 / 515 / 650 / 785 -->
+        <g id="q5-oA" class="h">
+          <rect id="q5-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q5-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q5-oA-dim">
+            <circle id="q5-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q5-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="q5-oA-t" x="190" y="449" font-size="32" fill="#e8e6df" class="mono">29</text>
+          </g>
+          <text id="q5-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255">这是先乘后除的结果</text>
+        </g>
+        <g id="q5-oB" class="h">
+          <rect id="q5-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q5-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q5-oB-dim">
+            <circle id="q5-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q5-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="q5-oB-t" x="190" y="584" font-size="32" fill="#e8e6df" class="mono">30</text>
+          </g>
+          <text id="q5-oB-n" class="h" x="190" y="612" font-size="28" fill="#FC6255">凭直觉估算，代码算不出这个数</text>
+        </g>
+        <g id="q5-oC" class="h">
+          <rect id="q5-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q5-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q5-oC-dim">
+            <circle id="q5-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q5-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="q5-oC-t" x="190" y="719" font-size="32" fill="#e8e6df" class="mono">29.997</text>
+          </g>
+          <text id="q5-oC-n" class="h" x="190" y="747" font-size="28" fill="#FC6255">Solidity 没有小数</text>
+        </g>
+        <g id="q5-oD" class="h">
+          <rect id="q5-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q5-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q5-oD-dim">
+            <circle id="q5-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q5-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="q5-oD-t" x="190" y="854" font-size="32" fill="#e8e6df" class="mono">0</text>
+          </g>
+        </g>
+        <!-- 右侧示意区：计算板 x 1160–1850 y 380–726 -->
+        <rect id="q5-pan" class="h" x="1160" y="380" width="690" height="346" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
+        <text id="q5-r0" class="h mono" x="1190" y="424" font-size="28" fill="#58C4DD">amount = 9,999</text>
+        <text id="q5-r1" class="h mono" x="1190" y="470" font-size="28" fill="#8a8f99">9,999 / 10,000 = 0<tspan id="q5-dec">.9999</tspan></text>
+        <path id="q5-cut" class="dr h" pathLength="1" d="M1488 461 H1580" fill="none" stroke="#FC6255" stroke-width="3" />
+        <g id="q5-sc" class="h">
+          <circle cx="1606" cy="452" r="7" fill="none" stroke="#FC6255" stroke-width="3" />
+          <circle cx="1606" cy="474" r="7" fill="none" stroke="#FC6255" stroke-width="3" />
+          <path d="M1612 456 L1640 472 M1612 470 L1640 454" fill="none" stroke="#FC6255" stroke-width="3" stroke-linecap="round" />
+        </g>
+        <text id="q5-r2" class="h mono" x="1190" y="516" font-size="28" fill="#FC6255">= 0</text>
+        <text id="q5-r3" class="h mono" x="1190" y="562" font-size="28" fill="#FC6255">0 × 30 = 0</text>
+        <g id="q5-coin" class="h">
+          <circle id="q5-coinf" cx="1720" cy="500" r="30" fill="#F0B90B" />
+          <circle id="q5-coinh" cx="1720" cy="500" r="30" fill="none" stroke="#F0B90B" stroke-width="3" stroke-dasharray="7 6" opacity="0" />
+          <text x="1720" y="566" font-size="28" fill="#F0B90B" text-anchor="middle">手续费</text>
+        </g>
+        <path id="q5-div" class="dr h" pathLength="1" d="M1190 586 H1820" fill="none" stroke="#3a3f4a" stroke-width="2" />
+        <text id="q5-r4l" class="h" x="1190" y="624" font-size="28" fill="#83C167">先乘后除</text>
+        <text id="q5-r4" class="h mono" x="1190" y="666" font-size="28" fill="#e8e6df">9,999 × 30 = 299,970</text>
+        <text id="q5-r5" class="h mono" x="1190" y="708" font-size="28" fill="#83C167">299,970 / 10,000 = 29</text>
+        <text id="q5-r5n" class="h" x="1574" y="708" font-size="28" fill="#83C167">正确写法的结果</text>
+        <!-- 规则 -->
+        <g id="q5-k1" class="h">
+          <circle cx="1180" cy="770" r="7" fill="#83C167" />
+          <text x="1200" y="780" font-size="28" fill="#83C167">先乘后除 / <tspan class="mono">mulDiv</tspan></text>
+        </g>
+        <g id="q5-k2" class="h">
+          <circle cx="1180" cy="818" r="7" fill="#83C167" />
+          <text x="1200" y="828" font-size="28" fill="#83C167">统一小数位</text>
+        </g>
+        <g id="q5-k3" class="h">
+          <circle cx="1180" cy="866" r="7" fill="#83C167" />
+          <text x="1200" y="876" font-size="28" fill="#83C167">舍入方向对协议有利</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // ===== 测验版式（与 quiz1 一致）=====
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      IN("#q5-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#q5-q", at(0, 0.05), 0.01);
+      tl.fromTo("#q5-qcr", { attr: { width: 0 } }, { attr: { width: 1400 }, duration: 2.2, ease: "none" }, at(0, 0.08));
+      IN("#q5-q2", at(0, 0.05), 0.01);
+      tl.fromTo("#q5-qcr2", { attr: { width: 0 } }, { attr: { width: 1100 }, duration: 2.0, ease: "none" }, at(0, 0.08) + 2.2);
+      const SHOW = (k, t) => {
+        IN(`#q5-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#q5-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#q5-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      const PAUSE = () => {
+        IN("#q5-pause", at(2, 0.0), 0.3);
+        tl.fromTo("#q5-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+        OUT("#q5-pause", at(3, 0.0), 0.3);
+      };
+      const RIGHT = (k, t) => {
+        tl.to(`#q5-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#q5-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#q5-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#q5-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#q5-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q5-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q5-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#q5-o${k}-t`, { attr: { y: Y0[k] + 52 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#q5-o${k}-n`, t + 0.3, 0.5);
+      };
+      const PULSE = (s, t, color, back) => {
+        tl.to(s, { stroke: color, strokeWidth: 4, duration: 0.25 }, t);
+        tl.to(s, { stroke: back, strokeWidth: 2.5, duration: 0.5 }, t + 1.2);
+      };
+
+      // L0 题干 + 计算板与已知数
+      IN("#q5-pan", at(0, 0.36), 0.6);
+      IN("#q5-r0", at(0, 0.42), 0.5, { x: -12 }, { x: 0 });
+      PULSE("#q5-pan", at(0, 0.7), "#58C4DD", "#3a3f4a");
+      // L1 选项
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.25)); SHOW("C", at(1, 0.5)); SHOW("D", at(1, 0.8));
+      // L2 暂停
+      PAUSE();
+      // L3 揭晓 D：整数除法截断
+      RIGHT("D", at(3, 0.03));
+      IN("#q5-r1", at(3, 0.22), 0.5, { x: -12 }, { x: 0 });
+      IN("#q5-sc", at(3, 0.36), 0.3, { x: 16 }, { x: 0 });
+      DRAW("#q5-cut", at(3, 0.38), 0.4);
+      tl.set("#q5-cut", { opacity: 1 }, at(3, 0.38));
+      tl.to("#q5-dec", { fill: "#6b6f7a", duration: 0.4 }, at(3, 0.42));
+      IN("#q5-r2", at(3, 0.45), 0.5, { x: -12 }, { x: 0 });
+      IN("#q5-r3", at(3, 0.6), 0.5, { x: -12 }, { x: 0 });
+      IN("#q5-coin", at(3, 0.72), 0.4);
+      tl.to("#q5-coinf", { opacity: 0, duration: 0.6 }, at(3, 0.84));
+      tl.to("#q5-coinh", { opacity: 1, duration: 0.6 }, at(3, 0.84));
+      // L4 A 是先乘后除；C、B 错
+      WRONG("A", at(4, 0.02));
+      DRAW("#q5-div", at(4, 0.08), 0.5);
+      tl.set("#q5-div", { opacity: 1 }, at(4, 0.08));
+      IN("#q5-r4l", at(4, 0.1), 0.4);
+      IN("#q5-r4", at(4, 0.14), 0.5, { x: -12 }, { x: 0 });
+      IN("#q5-r5", at(4, 0.3), 0.5, { x: -12 }, { x: 0 });
+      IN("#q5-r5n", at(4, 0.36), 0.5);
+      PULSE("#q5-oA-box", at(4, 0.4), "#83C167", "#FC6255");
+      WRONG("C", at(4, 0.6));
+      WRONG("B", at(4, 0.84));
+      // L5 精度三条规矩
+      IN("#q5-k1", at(5, 0.08), 0.5, { x: -16 }, { x: 0 });
+      IN("#q5-k2", at(5, 0.45), 0.5, { x: -16 }, { x: 0 });
+      IN("#q5-k3", at(5, 0.68), 0.5, { x: -16 }, { x: 0 });
+
+      tl.to("#q5-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz5"] = tl;
+    })();
+  </script>
+</template>

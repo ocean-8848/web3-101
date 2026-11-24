@@ -1,0 +1,261 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tables，id 前缀 ta- -->
+  <div id="root" data-composition-id="tables" data-duration="69.59" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ta-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="ta-arr-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="ta-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="ta-all">
+        <!-- L0 代币 = 合约里的一行记录 -->
+        <g id="ta-tok">
+          <g id="ta-coin" class="h">
+            <circle cx="960" cy="440" r="110" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="5" />
+            <text class="mono" x="960" y="456" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">USDC</text>
+          </g>
+          <path id="ta-tokar" class="dr h" pathLength="1" d="M960 560 L960 628" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ta-arr-g)" />
+          <g id="ta-row" class="h">
+            <rect x="660" y="640" width="600" height="72" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="690" y="687" font-size="32" fill="#e8e6df">Alice</text>
+            <text class="mono" x="1230" y="687" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="end">1,000</text>
+          </g>
+          <text id="ta-rowl" class="h" x="960" y="790" font-size="34" fill="#e8e6df" text-anchor="middle">合约里的一行记录</text>
+        </g>
+        <!-- L1 同质化 vs 非同质化 -->
+        <g id="ta-cmp">
+          <g id="ta-bills" class="h">
+            <rect x="140" y="430" width="280" height="150" rx="12" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="3" />
+            <text x="280" y="525" font-size="56" font-weight="700" fill="#F0B90B" text-anchor="middle">100 元</text>
+            <rect x="560" y="430" width="280" height="150" rx="12" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="3" />
+            <text x="700" y="525" font-size="56" font-weight="700" fill="#F0B90B" text-anchor="middle">100 元</text>
+          </g>
+          <text id="ta-eq" class="h" x="490" y="530" font-size="64" font-weight="700" fill="#83C167" text-anchor="middle">=</text>
+          <text id="ta-swp" class="h" x="490" y="410" font-size="48" fill="#83C167" text-anchor="middle">⇄</text>
+          <text id="ta-fung" class="h" x="490" y="680" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">同质化</text>
+          <line id="ta-div" class="h" x1="960" y1="380" x2="960" y2="760" stroke="#2a2f3a" stroke-width="2" />
+          <g id="ta-t1" class="h">
+            <rect x="1040" y="430" width="220" height="150" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3" stroke-dasharray="12 6" />
+            <text class="mono" x="1150" y="520" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">A-01</text>
+          </g>
+          <g id="ta-t2" class="h">
+            <rect x="1300" y="430" width="220" height="150" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3" stroke-dasharray="12 6" />
+            <text class="mono" x="1410" y="520" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">A-02</text>
+          </g>
+          <g id="ta-t3" class="h">
+            <rect x="1560" y="430" width="220" height="150" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3" stroke-dasharray="12 6" />
+            <text class="mono" x="1670" y="520" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">B-17</text>
+          </g>
+          <text id="ta-nft" class="h" x="1410" y="680" font-size="38" font-weight="700" fill="#8a8f99" text-anchor="middle">非同质化 · NFT</text>
+        </g>
+        <!-- 主画面：两张表 -->
+        <g id="ta-main">
+          <g id="ta-zone" class="h">
+            <rect x="660" y="300" width="600" height="460" rx="18" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="12 8" />
+            <text x="690" y="344" font-size="28" fill="#58C4DD">链上 · USDC 代币合约</text>
+          </g>
+          <g id="ta-bal" class="h">
+            <rect x="690" y="362" width="540" height="196" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+            <ellipse cx="724" cy="382" rx="14" ry="5" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <path d="M710 382 V402 A14 5 0 0 0 738 402 V382" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="750" y="402" font-size="28" font-weight="700" fill="#58C4DD">余额表 <tspan class="mono">balanceOf</tspan></text>
+            <text x="1212" y="402" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+            <line x1="690" y1="416" x2="1230" y2="416" stroke="#58C4DD" stroke-width="1.2" opacity="0.4" />
+          </g>
+          <g id="ta-b1" class="h"><text class="mono" x="712" y="454" font-size="28" fill="#e8e6df">Alice</text><text class="mono" x="1210" y="454" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="end">1,000</text></g>
+          <g id="ta-b2" class="h"><text class="mono" x="712" y="498" font-size="28" fill="#e8e6df">DEX</text><text class="mono" x="1210" y="498" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="end">0</text></g>
+          <g id="ta-b3" class="h"><text class="mono" x="712" y="542" font-size="28" fill="#e8e6df">Bob</text><text class="mono" x="1210" y="542" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="end">0</text></g>
+          <!-- 查询闪光 -->
+          <rect id="ta-fsum" class="h" x="1080" y="420" width="142" height="132" rx="8" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="3" />
+          <rect id="ta-fone" class="h" x="698" y="422" width="524" height="44" rx="8" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3" />
+          <rect id="ta-ftwo" class="h" x="698" y="682" width="524" height="48" rx="8" fill="#FF9F43" fill-opacity="0.12" stroke="#FF9F43" stroke-width="3" />
+          <g id="ta-alw" class="h">
+            <rect x="690" y="576" width="540" height="164" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+            <rect x="712" y="592" width="24" height="18" rx="3" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+            <path d="M716 592 V585 A8 8 0 0 1 732 585 V592" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="750" y="614" font-size="28" font-weight="700" fill="#FF9F43">授权表 <tspan class="mono">allowance</tspan></text>
+            <line x1="690" y1="628" x2="1230" y2="628" stroke="#FF9F43" stroke-width="1.2" opacity="0.4" />
+            <text class="mono" x="712" y="666" font-size="28" fill="#8a8f99">owner → spender →</text>
+            <text x="1210" y="666" font-size="28" fill="#8a8f99" text-anchor="end">额度</text>
+            <text class="mono" x="712" y="716" font-size="28" fill="#e8e6df">Alice → DEX</text>
+            <text class="mono" x="1210" y="716" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="end">1,000</text>
+          </g>
+          <!-- Alice -->
+          <g id="ta-alice" class="h">
+            <circle cx="200" cy="468" r="34" fill="none" stroke="#8a8f99" stroke-width="4" />
+            <path d="M140 590 Q140 520 200 520 Q260 520 260 590 Z" fill="none" stroke="#8a8f99" stroke-width="4" />
+            <text x="200" y="640" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">Alice</text>
+          </g>
+          <!-- DEX -->
+          <g id="ta-dex" class="h">
+            <rect x="1500" y="420" width="220" height="320" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" stroke-dasharray="10 7" />
+            <rect x="1560" y="500" width="100" height="30" rx="6" fill="none" stroke="#B48EF0" stroke-width="3" />
+            <rect x="1560" y="545" width="100" height="30" rx="6" fill="none" stroke="#B48EF0" stroke-width="3" />
+            <rect x="1560" y="590" width="100" height="30" rx="6" fill="none" stroke="#B48EF0" stroke-width="3" />
+            <circle cx="1640" cy="515" r="5" fill="#B48EF0" /><circle cx="1640" cy="560" r="5" fill="#B48EF0" /><circle cx="1640" cy="605" r="5" fill="#B48EF0" />
+            <text x="1610" y="690" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">DEX</text>
+          </g>
+          <!-- 四条箭头 -->
+          <path id="ta-a1" class="dr h" pathLength="1" d="M290 470 L682 470" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#ta-arr-b)" />
+          <text id="ta-l1" class="h mono" x="487" y="450" font-size="28" fill="#58C4DD" text-anchor="middle">transfer</text>
+          <path id="ta-a2" class="dr h" pathLength="1" d="M290 700 L682 700" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#ta-arr-o)" />
+          <text id="ta-l2" class="h mono" x="487" y="680" font-size="28" fill="#FF9F43" text-anchor="middle">approve</text>
+          <path id="ta-a3" class="dr h" pathLength="1" d="M1492 470 L1240 470" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#ta-arr-b)" />
+          <text id="ta-l3" class="h mono" x="1380" y="450" font-size="28" fill="#58C4DD" text-anchor="middle">transferFrom</text>
+          <g id="ta-a4" class="h">
+            <line x1="1492" y1="700" x2="1252" y2="700" stroke="#FF9F43" stroke-width="4" stroke-dasharray="12 8" />
+            <path d="M1252 690 L1238 700 L1252 710 z" fill="#FF9F43" />
+          </g>
+          <text id="ta-l4" class="h" x="1380" y="680" font-size="28" fill="#FF9F43" text-anchor="middle">先查额度</text>
+        </g>
+        <!-- 代码面板 -->
+        <g id="ta-code" class="h">
+          <rect x="80" y="556" width="1780" height="468" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect x="80" y="568" width="4" height="444" fill="#58C4DD" />
+          <text class="mono" x="110" y="594" font-size="22" fill="#8a8f99" data-layout-ignore>IERC20.sol</text>
+          <text x="1830" y="598" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="end">6 个函数 + 2 个事件</text>
+          <rect id="ta-hl" class="h" x="86" y="619" width="1768" height="38" fill="#58C4DD" fill-opacity="0.15" />
+          <text id="ta-c0" class="mono" x="110" y="646" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">interface</tspan> IERC20 {</text>
+          <text id="ta-c1" class="mono" x="144" y="684" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">event</tspan> Transfer(address <tspan fill="#58C4DD">indexed</tspan> from, address <tspan fill="#58C4DD">indexed</tspan> to, uint256 value);</text>
+          <text id="ta-c2" class="mono" x="144" y="722" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">event</tspan> Approval(address <tspan fill="#58C4DD">indexed</tspan> owner, address <tspan fill="#58C4DD">indexed</tspan> spender, uint256 value);</text>
+          <text id="ta-c3" class="mono" x="144" y="760" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> totalSupply() <tspan fill="#58C4DD">external view returns</tspan> (uint256);</text>
+          <text id="ta-c4" class="mono" x="144" y="798" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> balanceOf(address account) <tspan fill="#58C4DD">external view returns</tspan> (uint256);</text>
+          <text id="ta-c5" class="mono" x="144" y="836" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> allowance(address owner, address spender) <tspan fill="#58C4DD">external view returns</tspan> (uint256);</text>
+          <text id="ta-c6" class="mono" x="144" y="874" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> transfer(address to, uint256 value) <tspan fill="#58C4DD">external returns</tspan> (bool);</text>
+          <text id="ta-c7" class="mono" x="144" y="912" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> approve(address spender, uint256 value) <tspan fill="#58C4DD">external returns</tspan> (bool);</text>
+          <text id="ta-c8" class="mono" x="144" y="950" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> transferFrom(address from, address to, uint256 value) <tspan fill="#58C4DD">external returns</tspan> (bool);</text>
+          <text id="ta-c9" class="mono" x="110" y="988" font-size="28" fill="#e8e6df">}</text>
+          <text id="ta-kq" class="h" x="1790" y="808" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">查询 3</text>
+          <text id="ta-km" class="h" x="1790" y="922" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">修改 3</text>
+          <text id="ta-ke" class="h" x="1790" y="713" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">事件 2</text>
+        </g>
+        <!-- L6 事件气泡 + 元数据 -->
+        <g id="ta-e1" class="h">
+          <rect x="1320" y="72" width="400" height="58" rx="29" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="1340" y="111" font-size="28" fill="#58C4DD">Transfer(0x0 → Alice)</text>
+          <text x="1740" y="111" font-size="28" font-weight="700" fill="#83C167">铸造</text>
+        </g>
+        <g id="ta-e2" class="h">
+          <rect x="1320" y="150" width="400" height="58" rx="29" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="1340" y="189" font-size="28" fill="#58C4DD">Transfer(Bob → 0x0)</text>
+          <text x="1740" y="189" font-size="28" font-weight="700" fill="#FC6255">销毁</text>
+        </g>
+        <g id="ta-e3" class="h">
+          <rect x="1320" y="228" width="400" height="58" rx="29" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text class="mono" x="1340" y="267" font-size="28" fill="#FF9F43">Approval(Alice → DEX)</text>
+        </g>
+        <g id="ta-meta" class="h">
+          <rect x="1320" y="320" width="540" height="140" rx="12" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="10 7" />
+          <text class="mono" x="1345" y="370" font-size="28" fill="#58C4DD">IERC20Metadata</text>
+          <text x="1592" y="370" font-size="28" fill="#8a8f99">（可选）</text>
+          <text class="mono" x="1345" y="424" font-size="28" fill="#e8e6df">name · symbol · decimals</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ta-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">代币 <tspan font-size="28" font-weight="400" fill="#8a8f99">Token</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">在一个合约里记账的数字资产</text>
+      </g>
+      <g id="ta-term2" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">ERC-20 <tspan font-size="28" font-weight="400" fill="#8a8f99">Token Standard</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">同质化代币接口标准</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const LINES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => "#ta-c" + i);
+      // 高亮条移到第 i 行，其余行降到 60%
+      const HL = (i, t) => {
+        tl.to("#ta-hl", { attr: { y: 619 + 38 * i }, duration: 0.35, ease: "power2.inOut" }, t);
+        tl.to(LINES.filter((_, k) => k !== i), { opacity: 0.6, duration: 0.3 }, t);
+        tl.to(LINES[i], { opacity: 1, duration: 0.3 }, t);
+      };
+      const FLASH = (s, t) => { IN(s, t, 0.25); OUT(s, t + 1.1, 0.4); };
+      const PULSE = (s, t) => tl.to(s, { strokeWidth: 9, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, t);
+
+      // L0 代币
+      IN("#ta-term", at(0, 0.02), 0.5);
+      IN("#ta-coin", at(0, 0.12), 0.6, { scale: 0.7, svgOrigin: "960 440" }, { scale: 1, svgOrigin: "960 440" });
+      ARROW("#ta-tokar", at(0, 0.45), 0.4);
+      IN("#ta-row", at(0, 0.55), 0.5, { y: 14 }, { y: 0 });
+      IN("#ta-rowl", at(0, 0.7), 0.5);
+      // L1 ERC-20：同质化 vs 非同质化
+      OUT("#ta-tok", at(1, 0), 0.4);
+      OUT("#ta-term", at(1, 0), 0.3);
+      IN("#ta-term2", at(1, 0.03), 0.5);
+      IN("#ta-bills", at(1, 0.22), 0.6, { y: 20 }, { y: 0 });
+      IN("#ta-swp", at(1, 0.3), 0.4);
+      tl.to("#ta-swp", { x: 10, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(1, 0.33));
+      IN("#ta-eq", at(1, 0.38), 0.4);
+      IN("#ta-fung", at(1, 0.42), 0.5);
+      IN("#ta-div", at(1, 0.55), 0.4);
+      IN("#ta-t1", at(1, 0.6), 0.45, { y: 20 }, { y: 0 });
+      IN("#ta-t2", at(1, 0.65), 0.45, { y: 20 }, { y: 0 });
+      IN("#ta-t3", at(1, 0.7), 0.45, { y: 20 }, { y: 0 });
+      IN("#ta-nft", at(1, 0.82), 0.5);
+      OUT("#ta-term2", at(1, 0.97), 0.3);
+      // L2 两张表：余额表
+      OUT("#ta-cmp", at(2, 0), 0.4);
+      IN("#ta-zone", at(2, 0.08), 0.6, { scale: 0.95, svgOrigin: "960 530" }, { scale: 1, svgOrigin: "960 530" });
+      IN("#ta-bal", at(2, 0.4), 0.5, { y: 14 }, { y: 0 });
+      IN("#ta-b1", at(2, 0.6), 0.4); IN("#ta-b2", at(2, 0.68), 0.4); IN("#ta-b3", at(2, 0.76), 0.4);
+      // L3 授权表 + Alice / DEX + 四条箭头
+      IN("#ta-alw", at(3, 0.02), 0.5, { y: 14 }, { y: 0 });
+      IN("#ta-alice", at(3, 0.3), 0.5, { x: -20 }, { x: 0 });
+      IN("#ta-dex", at(3, 0.3), 0.5, { x: 20 }, { x: 0 });
+      ARROW("#ta-a1", at(3, 0.45), 0.5); IN("#ta-l1", at(3, 0.5), 0.3);
+      ARROW("#ta-a2", at(3, 0.6), 0.5); IN("#ta-l2", at(3, 0.65), 0.3);
+      ARROW("#ta-a3", at(3, 0.74), 0.5); IN("#ta-l3", at(3, 0.79), 0.3);
+      IN("#ta-a4", at(3, 0.86), 0.4, { x: 30 }, { x: 0 }); IN("#ta-l4", at(3, 0.9), 0.3);
+      // L4 主画面上移，代码面板；三个查询
+      tl.to("#ta-main", { y: -240, duration: 0.9, ease: "power2.inOut" }, at(4, 0));
+      IN("#ta-code", at(4, 0.06), 0.6, { y: 30 }, { y: 0 });
+      IN("#ta-hl", at(4, 0.42), 0.3);
+      HL(3, at(4, 0.42)); FLASH("#ta-fsum", at(4, 0.44));
+      IN("#ta-kq", at(4, 0.44), 0.4);
+      HL(4, at(4, 0.6)); FLASH("#ta-fone", at(4, 0.62));
+      HL(5, at(4, 0.8)); FLASH("#ta-ftwo", at(4, 0.82));
+      // L5 三个修改
+      HL(6, at(5, 0.12)); PULSE("#ta-a1", at(5, 0.12));
+      IN("#ta-km", at(5, 0.12), 0.4);
+      HL(7, at(5, 0.42)); PULSE("#ta-a2", at(5, 0.42));
+      HL(8, at(5, 0.7)); PULSE("#ta-a3", at(5, 0.7));
+      // L6 两个事件 + 可选元数据
+      OUT("#ta-dex, #ta-a3, #ta-l3, #ta-a4, #ta-l4", at(6, 0), 0.4);
+      HL(1, at(6, 0.02)); IN("#ta-ke", at(6, 0.02), 0.4);
+      IN("#ta-e1", at(6, 0.1), 0.5, { x: 20 }, { x: 0 });
+      IN("#ta-e2", at(6, 0.2), 0.5, { x: 20 }, { x: 0 });
+      HL(2, at(6, 0.38));
+      IN("#ta-e3", at(6, 0.4), 0.5, { x: 20 }, { x: 0 });
+      IN("#ta-meta", at(6, 0.58), 0.6, { y: 16 }, { y: 0 });
+      OUT("#ta-hl", at(6, 0.86), 0.3);
+      tl.to(LINES, { opacity: 1, duration: 0.3 }, at(6, 0.86));
+
+      tl.to("#ta-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tables"] = tl;
+    })();
+  </script>
+</template>

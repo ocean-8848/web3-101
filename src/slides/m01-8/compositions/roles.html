@@ -1,0 +1,211 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 roles，id 前缀 ro- -->
+  <div id="root" data-composition-id="roles" data-duration="60.98" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ro-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="ro-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="ro-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="ro-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="ro-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+      </defs>
+      <g id="ro-all">
+        <text id="ro-bar" class="h" x="1850" y="120" font-size="28" fill="#8a8f99" text-anchor="end">Fetcher → Parser → Store → Confirmer</text>
+        <g id="ro-src" class="h">
+          <rect x="110" y="240" width="260" height="400" rx="16" fill="none" stroke="#B48EF0" stroke-width="2" stroke-dasharray="10 7"/>
+          <text x="130" y="280" font-size="28" fill="#B48EF0">数据源</text>
+          <rect x="130" y="300" width="220" height="90" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+          <text x="240" y="357" font-size="32" fill="#B48EF0" text-anchor="middle">RPC 主</text>
+          <rect x="130" y="520" width="220" height="90" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+          <text x="240" y="577" font-size="32" fill="#B48EF0" text-anchor="middle">RPC 备</text>
+        </g>
+        <path id="ro-a0" class="dr h" pathLength="1" d="M352 345 H496" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+        <g id="ro-fe" class="h"><rect x="500" y="300" width="240" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="620" y="357" font-size="34" fill="#58C4DD" text-anchor="middle">Fetcher</text></g>
+        <g id="ro-tags">
+          <text id="ro-t0" class="h" x="520" y="458" font-size="28" fill="#FF9F43">超时 → 重试</text>
+          <text id="ro-t1" class="h" x="520" y="503" font-size="28" fill="#FF9F43">落后 → 换源</text>
+          <text id="ro-t2" class="h" x="520" y="548" font-size="28" fill="#FF9F43">连续失败 → 告警</text>
+        </g>
+        <path id="ro-xl" class="h" d="M352 565 L498 385" stroke="#B48EF0" stroke-width="2.5" stroke-dasharray="8 6" fill="none"/>
+        <text id="ro-xlt" class="h" x="390" y="640" font-size="28" fill="#B48EF0">交叉校验区块哈希</text>
+        <path id="ro-a1" class="dr h" pathLength="1" d="M742 345 H1036" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+        <g id="ro-pa" class="h"><rect x="1040" y="300" width="240" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1160" y="357" font-size="34" fill="#58C4DD" text-anchor="middle">Parser</text></g>
+        <g id="ro-c1" class="h"><rect x="1070" y="190" width="180" height="56" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1160" y="228" font-size="28" fill="#e8e6df" text-anchor="middle">Transfer</text></g>
+        <g id="ro-c2" class="h"><rect class="cr" x="1070" y="190" width="180" height="56" rx="8" fill="#161a22" stroke="#e8e6df" stroke-width="2.5"/><text class="ct" x="1160" y="228" font-size="28" fill="#e8e6df" text-anchor="middle">未知合约</text></g>
+        <text id="ro-c2l" class="h" x="1270" y="228" font-size="28" fill="#8a8f99">不在白名单</text>
+        <g id="ro-c3" class="h"><rect x="1070" y="190" width="180" height="56" rx="8" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1160" y="228" font-size="28" fill="#FC6255" text-anchor="middle">解码失败</text></g>
+        <g id="ro-dr" class="h">
+          <line x1="1160" y1="392" x2="1160" y2="466" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="6 5"/>
+          <rect x="1050" y="470" width="220" height="100" rx="10" fill="#12151c" stroke="#8a8f99" stroke-width="3"/>
+          <text x="1160" y="612" font-size="30" fill="#e8e6df" text-anchor="middle">死信表</text>
+        </g>
+        <g id="ro-c3b" class="h"><rect x="1070" y="492" width="180" height="56" rx="8" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1160" y="530" font-size="28" fill="#FC6255" text-anchor="middle">解码失败</text></g>
+        <path id="ro-a2" class="dr h" pathLength="1" d="M1282 345 H1416" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+        <g id="ro-st" class="h"><rect x="1420" y="300" width="240" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1540" y="357" font-size="34" fill="#58C4DD" text-anchor="middle">Store</text></g>
+        <g id="ro-tx" class="h">
+          <line x1="1540" y1="392" x2="1540" y2="438" stroke="#83C167" stroke-width="3" stroke-dasharray="8 6"/>
+          <rect id="ro-txr" x="1330" y="440" width="520" height="120" rx="14" fill="none" stroke="#83C167" stroke-width="3" stroke-dasharray="12 8"/>
+        </g>
+        <g id="ro-ch0" class="h"><rect x="1350" y="465" width="150" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1425" y="511" font-size="30" fill="#e8e6df" text-anchor="middle">区块</text></g>
+        <g id="ro-ch1" class="h"><rect x="1515" y="465" width="150" height="70" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text x="1590" y="511" font-size="30" fill="#e8e6df" text-anchor="middle">事件</text></g>
+        <g id="ro-ch2" class="h"><path d="M1680 465 H1830 V535 L1755 519 L1680 535 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1755" y="506" font-size="30" fill="#58C4DD" text-anchor="middle">游标</text></g>
+        <text id="ro-txl" class="h" x="1345" y="598" font-size="28" fill="#83C167">一个事务</text>
+        <text id="ro-txf" class="h" x="1345" y="598" font-size="28" fill="#FC6255">下一轮重试同一高度</text>
+        <path id="ro-a3" class="dr h" pathLength="1" d="M1700 562 V630" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+        <g id="ro-db" class="h">
+          <path d="M1540 655 V745 A110 22 0 0 0 1760 745 V655" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <ellipse cx="1650" cy="655" rx="110" ry="22" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text class="mono" x="1650" y="728" font-size="30" fill="#58C4DD" text-anchor="middle">PostgreSQL</text>
+        </g>
+        <path id="ro-a4" class="dr h" pathLength="1" d="M1650 770 V826" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+        <g id="ro-cf" class="h"><rect x="1530" y="830" width="240" height="90" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1650" y="887" font-size="32" fill="#83C167" text-anchor="middle">Confirmer</text></g>
+        <g id="ro-th" class="h">
+          <rect x="1530" y="950" width="240" height="12" rx="6" fill="#2a2f3a"/>
+          <rect id="ro-thf" x="1530" y="950" width="0" height="12" rx="6" fill="#83C167"/>
+          <line x1="1700" y1="938" x2="1700" y2="974" stroke="#FF9F43" stroke-width="4"/>
+        </g>
+        <path id="ro-a5" class="dr h" pathLength="1" d="M1528 875 H1334" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+        <g id="ro-kf" class="h"><rect x="1080" y="830" width="250" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1205" y="886" font-size="30" fill="#e8e6df" text-anchor="middle">Kafka / 回调</text></g>
+        <g id="ro-ob" class="h"><rect id="ro-obr" x="1360" y="950" width="130" height="60" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1425" y="990" font-size="28" fill="#e8e6df" text-anchor="middle">outbox</text></g>
+        <g id="ro-msg" class="h"><rect x="1478" y="862" width="36" height="26" rx="3" fill="#F0B90B"/><path d="M1478 862 L1496 877 L1514 862" fill="none" stroke="#0f1117" stroke-width="2"/></g>
+        <path id="ro-a1a" class="dr h" pathLength="1" d="M742 345 H796" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+        <g id="ro-dm" class="h"><path d="M800 345 L880 290 L960 345 L880 400 Z" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="880" y="355" font-size="28" fill="#FF9F43" text-anchor="middle">父哈希</text></g>
+        <path id="ro-a1b" class="dr h" pathLength="1" d="M962 345 H1036" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+        <text id="ro-yes" class="h" x="1000" y="320" font-size="28" fill="#83C167" text-anchor="middle">是</text>
+        <path id="ro-no" class="dr h" pathLength="1" d="M880 402 V514" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ro-arrR)"/>
+        <text id="ro-nol" class="h" x="898" y="472" font-size="28" fill="#FC6255">否</text>
+        <g id="ro-rh" class="h"><rect x="740" y="520" width="280" height="90" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="880" y="575" font-size="30" fill="#FC6255" text-anchor="middle">Reorg Handler</text></g>
+        <path id="ro-rp" class="dr h" pathLength="1" d="M738 565 H620 V396" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ro-arrR)"/>
+        <g id="ro-rc" class="h"><rect x="1060" y="665" width="240" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1180" y="716" font-size="30" fill="#e8e6df" text-anchor="middle">Reconciler</text></g>
+        <path id="ro-rcl" class="h" d="M1302 705 H1538" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6" fill="none"/>
+        <path id="ro-al" class="h" d="M1058 705 H934" stroke="#FF9F43" stroke-width="3" stroke-dasharray="8 6" fill="none" marker-end="url(#ro-arrO)"/>
+        <text id="ro-alt" class="h" x="910" y="716" font-size="30" fill="#FF9F43" text-anchor="end">差异告警</text>
+        <text id="ro-rcn" class="h" x="1060" y="790" font-size="28" fill="#8a8f99">只报告、只补数据，不改已确认数据</text>
+        <path id="ro-l0" class="dr" pathLength="1" d="M260 898 L560 396" stroke="#FC6255" stroke-width="2" fill="none"/>
+        <path id="ro-l1" class="dr" pathLength="1" d="M580 898 L880 614" stroke="#FC6255" stroke-width="2" fill="none"/>
+        <path id="ro-l2" class="dr" pathLength="1" d="M900 898 V640 H1310 V500 H1328" stroke="#FC6255" stroke-width="2" fill="none"/>
+        <g id="ro-f0" class="h"><rect x="120" y="900" width="280" height="110" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="140" y="945" font-size="30" font-weight="700" fill="#FC6255">漏块（跳号）</text><text x="140" y="990" font-size="28" fill="#83C167">顺序推进</text></g>
+        <g id="ro-f1" class="h"><rect x="440" y="900" width="280" height="110" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="460" y="945" font-size="30" font-weight="700" fill="#FC6255">重组未回滚</text><text x="460" y="990" font-size="28" fill="#83C167">Reorg Handler</text></g>
+        <g id="ro-f2" class="h"><rect x="760" y="900" width="280" height="110" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="780" y="945" font-size="30" font-weight="700" fill="#FC6255">重复处理</text><text x="780" y="990" font-size="28" fill="#83C167">事务 + 唯一键</text></g>
+
+      </g>
+      <g id="ro-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">死信表 <tspan font-size="28" font-weight="400" fill="#8a8f99">Dead Letter Table</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">存放处理失败、需人工排查的数据</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 标题条 + 数据源
+      IN("#ro-bar", at(0, 0.02), 0.6, { y: 120 }, { y: 0 });
+      IN("#ro-src", at(0, 0.4), 0.6, { x: -30 }, { x: 0 });
+      // L1 Fetcher
+      ARROW("#ro-a0", at(1, 0.0), 0.5);
+      IN("#ro-fe", at(1, 0.04), 0.5, { scale: 0.9, svgOrigin: "620 345" }, { scale: 1, svgOrigin: "620 345" });
+      IN("#ro-t0", at(1, 0.35), 0.4, { x: -14 }, { x: 0 });
+      IN("#ro-t1", at(1, 0.52), 0.4, { x: -14 }, { x: 0 });
+      IN("#ro-xl", at(1, 0.56), 0.5);
+      IN("#ro-xlt", at(1, 0.6), 0.5);
+      IN("#ro-t2", at(1, 0.78), 0.4, { x: -14 }, { x: 0 });
+      // L2 Parser + 死信表
+      OUT("#ro-tags", at(2, 0), 0.4);
+      ARROW("#ro-a1", at(2, 0.02), 0.5);
+      IN("#ro-pa", at(2, 0.05), 0.5, { scale: 0.9, svgOrigin: "1160 345" }, { scale: 1, svgOrigin: "1160 345" });
+      IN("#ro-c1", at(2, 0.14), 0.4, { y: -20 }, { y: 0 });
+      tl.to("#ro-c1", { y: 60, opacity: 0, duration: 0.5, ease: "power2.in" }, at(2, 0.22));
+      IN("#ro-c2", at(2, 0.32), 0.4, { y: -20 }, { y: 0 });
+      tl.to("#ro-c2 .cr", { stroke: "#6b6f7a", duration: 0.3 }, at(2, 0.4));
+      tl.to("#ro-c2 .ct", { fill: "#6b6f7a", duration: 0.3 }, at(2, 0.4));
+      tl.to("#ro-c2", { keyframes: [{ x: 8, duration: 0.08 }, { x: -8, duration: 0.08 }, { x: 0, duration: 0.08 }] }, at(2, 0.4));
+      IN("#ro-c2l", at(2, 0.42), 0.4);
+      OUT("#ro-c2, #ro-c2l", at(2, 0.54), 0.3);
+      IN("#ro-c3", at(2, 0.58), 0.4, { y: -20 }, { y: 0 });
+      IN("#ro-dr", at(2, 0.6), 0.5);
+      IN("#ro-term", at(2, 0.6), 0.5);
+      OUT("#ro-c3", at(2, 0.72), 0.3);
+      IN("#ro-c3b", at(2, 0.75), 0.5, { y: -30 }, { y: 0 });
+      // L3 Store：一个事务 → PostgreSQL；演示失败回滚
+      OUT("#ro-term", at(3, 0.3), 0.4);
+      ARROW("#ro-a2", at(3, 0.02), 0.5);
+      IN("#ro-st", at(3, 0.05), 0.5, { scale: 0.9, svgOrigin: "1540 345" }, { scale: 1, svgOrigin: "1540 345" });
+      IN("#ro-tx", at(3, 0.14), 0.5);
+      IN("#ro-ch0", at(3, 0.2), 0.4, { y: -14 }, { y: 0 });
+      IN("#ro-ch1", at(3, 0.24), 0.4, { y: -14 }, { y: 0 });
+      IN("#ro-ch2", at(3, 0.28), 0.4, { y: -14 }, { y: 0 });
+      IN("#ro-txl", at(3, 0.3), 0.4);
+      ARROW("#ro-a3", at(3, 0.4), 0.4);
+      IN("#ro-db", at(3, 0.44), 0.5, { y: 20 }, { y: 0 });
+      tl.to("#ro-txr", { stroke: "#FC6255", duration: 0.25 }, at(3, 0.62));
+      tl.to("#ro-ch0, #ro-ch1, #ro-ch2", { y: -18, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1 }, at(3, 0.64));
+      OUT("#ro-txl", at(3, 0.64), 0.25);
+      IN("#ro-txf", at(3, 0.7), 0.4);
+      tl.to("#ro-txr", { stroke: "#83C167", duration: 0.3 }, at(3, 0.95));
+      // L4 Confirmer + outbox
+      OUT("#ro-txf", at(4, 0), 0.3);
+      IN("#ro-txl", at(4, 0.05), 0.4);
+      ARROW("#ro-a4", at(4, 0.02), 0.4);
+      IN("#ro-cf", at(4, 0.05), 0.5, { y: 20 }, { y: 0 });
+      IN("#ro-th", at(4, 0.16), 0.4);
+      tl.fromTo("#ro-thf", { attr: { width: 0 } }, { attr: { width: 200 }, duration: 1.2, ease: "power1.inOut", immediateRender: false }, at(4, 0.2));
+      ARROW("#ro-a5", at(4, 0.4), 0.5);
+      IN("#ro-kf", at(4, 0.44), 0.5, { x: 20 }, { x: 0 });
+      IN("#ro-ob", at(4, 0.6), 0.4);
+      IN("#ro-msg", at(4, 0.62), 0.2);
+      tl.to("#ro-msg", { keyframes: [{ x: -70, duration: 0.4, ease: "none" }, { y: 50, duration: 0.35, ease: "power2.in" }] }, at(4, 0.64));
+      tl.to("#ro-obr", { stroke: "#FF9F43", duration: 0.2, yoyo: true, repeat: 1 }, at(4, 0.64) + 0.75);
+      tl.to("#ro-msg", { keyframes: [{ y: 0, x: -110, duration: 0.4 }, { x: -180, opacity: 0, duration: 0.4 }] }, at(4, 0.86));
+      // L5 父哈希分支 + Reorg Handler + Reconciler
+      OUT("#ro-a1", at(5, 0), 0.25);
+      ARROW("#ro-a1a", at(5, 0.03), 0.3);
+      IN("#ro-dm", at(5, 0.05), 0.4, { scale: 0.92, svgOrigin: "880 345" }, { scale: 1, svgOrigin: "880 345" });
+      ARROW("#ro-a1b", at(5, 0.08), 0.3);
+      IN("#ro-yes", at(5, 0.1), 0.3);
+      ARROW("#ro-no", at(5, 0.18), 0.4);
+      IN("#ro-nol", at(5, 0.2), 0.3);
+      IN("#ro-rh", at(5, 0.24), 0.5, { y: 16 }, { y: 0 });
+      ARROW("#ro-rp", at(5, 0.36), 0.6);
+      IN("#ro-rc", at(5, 0.56), 0.5, { y: 16 }, { y: 0 });
+      IN("#ro-rcl", at(5, 0.58), 0.4);
+      IN("#ro-al", at(5, 0.68), 0.4);
+      IN("#ro-alt", at(5, 0.7), 0.4);
+      IN("#ro-rcn", at(5, 0.8), 0.5);
+      // L6 三种故障 → 三道防线
+      OUT("#ro-xl, #ro-xlt, #ro-al, #ro-alt, #ro-rcn", at(6, 0), 0.4);
+      IN("#ro-f0", at(6, 0.1), 0.4, { y: 20 }, { y: 0 });
+      DRAW("#ro-l0", at(6, 0.16), 0.6);
+      IN("#ro-f1", at(6, 0.3), 0.4, { y: 20 }, { y: 0 });
+      DRAW("#ro-l1", at(6, 0.36), 0.6);
+      IN("#ro-f2", at(6, 0.5), 0.4, { y: 20 }, { y: 0 });
+      DRAW("#ro-l2", at(6, 0.56), 0.8);
+      tl.to("#ro-f0 rect, #ro-f1 rect, #ro-f2 rect", { strokeWidth: 6, duration: 0.25, yoyo: true, repeat: 1, stagger: 0.15 }, at(6, 0.8));
+
+
+      tl.to("#ro-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ro-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["roles"] = tl;
+    })();
+  </script>
+</template>

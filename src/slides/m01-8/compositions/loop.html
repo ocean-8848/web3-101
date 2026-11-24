@@ -1,0 +1,219 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 loop，id 前缀 lo- -->
+  <div id="root" data-composition-id="loop" data-duration="65.98" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="lo-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="lo-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="lo-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="lo-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="lo-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+      </defs>
+      <g id="lo-all">
+        <g id="lo-code" class="h">
+        <rect x="965" y="236" width="890" height="530" rx="14" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/>
+        <rect x="965" y="252" width="4" height="498" fill="#58C4DD"/>
+        <rect id="lo-hl" x="975" y="301" width="870" height="40" rx="4" fill="#58C4DD" fill-opacity="0.15"/>
+        <text class="mono" x="1000.0" y="290" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">for</tspan> {</text>
+        <text class="mono" x="1033.6" y="330" font-size="28" fill="#e8e6df">cur := store.Cursor(ctx)</text>
+        <text class="mono" x="1470.0" y="330" font-size="28" fill="#6b6f7a">// (height, hash)</text>
+        <text class="mono" x="1033.6" y="370" font-size="28" fill="#e8e6df">head := chain.BlockNumber(ctx)</text>
+        <text class="mono" x="1033.6" y="410" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">if</tspan> cur.Height &gt;= head-lag { sleep(); <tspan fill="#58C4DD">continue</tspan> }</text>
+        <text class="mono" x="1033.6" y="450" font-size="28" fill="#e8e6df">hdr := chain.HeaderByNumber(ctx, cur.Height+1)</text>
+        <text class="mono" x="1033.6" y="490" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">if</tspan> hdr.ParentHash != cur.Hash {</text>
+        <text class="mono" x="1067.2" y="530" font-size="28" fill="#e8e6df">handleReorg(ctx, cur); <tspan fill="#58C4DD">continue</tspan> }</text>
+        <text class="mono" x="1033.6" y="570" font-size="28" fill="#e8e6df">logs := chain.FilterLogs(ctx,</text>
+        <text class="mono" x="1067.2" y="610" font-size="28" fill="#e8e6df">Query{BlockHash: hdr.Hash()})</text>
+        <text class="mono" x="1033.6" y="650" font-size="28" fill="#e8e6df">store.SaveBlock(ctx, hdr, parse(logs))</text>
+        <text class="mono" x="1033.6" y="690" font-size="28" fill="#e8e6df">confirmer.Run(ctx, head)</text>
+        <text class="mono" x="1000.0" y="730" font-size="28" fill="#e8e6df">}</text>
+        </g>
+        <g id="lo-n0" class="h"><rect class="nb" x="100" y="250" width="300" height="70" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="3"/><text class="nt" x="250" y="295" font-size="28" fill="#6b6f7a" text-anchor="middle">读游标</text></g>
+        <g id="lo-n1" class="h"><rect class="nb" x="100" y="370" width="300" height="70" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="3"/><text class="nt" x="250" y="415" font-size="28" fill="#6b6f7a" text-anchor="middle">读链头</text></g>
+        <g id="lo-n2" class="h"><rect class="nb" x="100" y="490" width="300" height="70" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="3"/><text class="nt" x="250" y="535" font-size="28" fill="#6b6f7a" text-anchor="middle">拉 h+1 区块头</text></g>
+        <g id="lo-n3" class="h"><path class="nb" d="M100 645 L250 600 L400 645 L250 690 Z" fill="#161a22" stroke="#3a3f4b" stroke-width="3"/><text class="nt" x="250" y="655" font-size="28" fill="#6b6f7a" text-anchor="middle">父哈希核对</text></g>
+        <g id="lo-n4" class="h"><rect class="nb" x="100" y="730" width="300" height="70" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="3"/><text class="nt" x="250" y="775" font-size="28" fill="#6b6f7a" text-anchor="middle">按哈希拉日志</text></g>
+        <g id="lo-n5" class="h"><rect class="nb" x="100" y="850" width="300" height="70" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="3"/><text class="nt" x="250" y="895" font-size="28" fill="#6b6f7a" text-anchor="middle">一个事务写库</text></g>
+        <path id="lo-e0" class="dr h" pathLength="1" d="M250 322 V366" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+        <path id="lo-e1" class="dr h" pathLength="1" d="M250 442 V486" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+        <path id="lo-e2" class="dr h" pathLength="1" d="M250 562 V596" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+        <path id="lo-e3" class="dr h" pathLength="1" d="M250 692 V726" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+        <path id="lo-e4" class="dr h" pathLength="1" d="M250 802 V846" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+        <path id="lo-ret" class="dr h" pathLength="1" d="M98 885 H72 V285 H96" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+        <path id="lo-exit" class="dr h" pathLength="1" d="M402 645 H466" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#lo-arrR)"/>
+        <text id="lo-exitl" class="h" x="478" y="655" font-size="28" fill="#FC6255">重组处理</text>
+        <g id="lo-bm" class="h">
+          <path id="lo-bmp" d="M500 250 H800 V390 L650 362 L500 390 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+        </g>
+        <g id="lo-bt0" class="h"><text class="mono" x="525" y="300" font-size="28" fill="#58C4DD">height: 1,005</text><text class="mono" x="525" y="345" font-size="28" fill="#e8e6df">hash: 0xe5</text></g>
+        <g id="lo-bt1" class="h"><text class="mono" x="525" y="300" font-size="28" fill="#58C4DD">height: 1,006</text><text class="mono" x="525" y="345" font-size="28" fill="#e8e6df">hash: 0xf1</text></g>
+        <text id="lo-ex" class="h" x="815" y="300" font-size="28" fill="#6b6f7a">示例</text>
+        <text id="lo-first" class="h" x="500" y="446" font-size="28" fill="#8a8f99">首次启动：部署高度 − 1</text>
+        <g id="lo-head" class="h"><text x="500" y="520" font-size="30" fill="#e8e6df">链头</text><text id="lo-hn" class="mono" x="575" y="522" font-size="40" font-weight="700" fill="#58C4DD">1,005</text></g>
+        <g id="lo-zz" class="h"><text x="500" y="612" font-size="40" font-style="italic" font-weight="700" fill="#8a8f99">zZ</text><text x="565" y="610" font-size="28" fill="#8a8f99">休眠 2-4 s</text></g>
+        <g id="lo-lag" class="h">
+          <line x1="500" y1="690" x2="800" y2="690" stroke="#58C4DD" stroke-width="3"/>
+          <line x1="800" y1="690" x2="880" y2="690" stroke="#FF9F43" stroke-width="3" stroke-dasharray="7 5"/>
+          <line x1="800" y1="676" x2="800" y2="704" stroke="#58C4DD" stroke-width="3"/>
+          <line x1="880" y1="676" x2="880" y2="704" stroke="#FF9F43" stroke-width="3"/>
+          <text x="500" y="748" font-size="28" fill="#FF9F43">lag：可选的安全余量</text>
+        </g>
+        <g id="lo-hc" class="h">
+          <rect id="lo-hcr" x="500" y="700" width="360" height="120" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="520" y="745" font-size="28" fill="#e8e6df">区块头 <tspan class="mono">#1,006</tspan></text>
+        </g>
+        <text id="lo-ph0" class="h mono" x="520" y="795" font-size="28" fill="#FF9F43">parentHash: 0xe5</text>
+        <text id="lo-ph1" class="h mono" x="520" y="795" font-size="28" fill="#FC6255">parentHash: 0x9c</text>
+        <path id="lo-br" class="dr" pathLength="1" d="M806 330 H900 V780 H866" stroke="#FF9F43" stroke-width="3" fill="none"/>
+        <path id="lo-ok" class="dr" pathLength="1" d="M918 545 L930 558 L954 528" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path id="lo-ng" class="dr" pathLength="1" d="M920 530 L948 558 M948 530 L920 558" stroke="#FC6255" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <g id="lo-key" class="h">
+          <circle cx="530" cy="760" r="22" fill="none" stroke="#58C4DD" stroke-width="4"/>
+          <path d="M552 760 H640 M620 760 V778 M636 760 V774" fill="none" stroke="#58C4DD" stroke-width="4"/>
+          <text class="mono" x="508" y="822" font-size="28" fill="#58C4DD">0xf1</text>
+        </g>
+        <g id="lo-lb1" class="h"><rect id="lo-lb1r" x="700" y="720" width="190" height="80" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text x="795" y="770" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan class="mono">0xf1</tspan> 的日志</text></g>
+        <g id="lo-lb2" class="h"><rect x="700" y="830" width="190" height="80" rx="10" fill="#161a22" stroke="#6b6f7a" stroke-width="3"/><text x="795" y="880" font-size="28" fill="#6b6f7a" text-anchor="middle"><tspan class="mono">0x7b</tspan> 的日志</text></g>
+        <text id="lo-eip" class="h mono" x="500" y="950" font-size="28" fill="#6b6f7a">EIP-234</text>
+        <g id="lo-lbx" class="h">
+          <rect x="560" y="700" width="240" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text x="680" y="742" font-size="30" fill="#e8e6df" text-anchor="middle">负载均衡</text>
+          <line x1="640" y1="766" x2="570" y2="818" stroke="#8a8f99" stroke-width="3"/>
+          <line x1="720" y1="766" x2="790" y2="818" stroke="#8a8f99" stroke-width="3"/>
+          <rect x="470" y="820" width="180" height="60" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="560" y="860" font-size="28" fill="#58C4DD" text-anchor="middle">分叉 A 节点</text>
+          <rect x="710" y="820" width="180" height="60" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+          <text x="800" y="860" font-size="28" fill="#FF9F43" text-anchor="middle">分叉 B 节点</text>
+        </g>
+        <g id="lo-cA" class="h"><rect x="500" y="910" width="120" height="50" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="560" y="945" font-size="28" fill="#58C4DD" text-anchor="middle">区块头</text></g>
+        <g id="lo-cB" class="h"><rect x="650" y="910" width="100" height="50" rx="8" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="700" y="945" font-size="28" fill="#FF9F43" text-anchor="middle">日志</text></g>
+        <path id="lo-x" class="dr" pathLength="1" d="M778 915 L818 955 M818 915 L778 955" stroke="#FC6255" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <text id="lo-w" class="h" x="1000" y="812" font-size="28" fill="#FF9F43">链头附近：不要按高度范围拉日志</text>
+        <g id="lo-tx" class="h">
+          <rect id="lo-txr" x="480" y="700" width="420" height="140" rx="14" fill="none" stroke="#83C167" stroke-width="3" stroke-dasharray="12 8"/>
+          <text x="490" y="882" font-size="28" fill="#83C167">一个事务</text>
+        </g>
+        <g id="lo-t0" class="h"><rect x="500" y="738" width="120" height="64" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="560" y="780" font-size="28" fill="#e8e6df" text-anchor="middle">区块</text></g>
+        <g id="lo-t1" class="h"><rect x="640" y="738" width="120" height="64" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text x="700" y="780" font-size="28" fill="#e8e6df" text-anchor="middle">事件</text></g>
+        <g id="lo-t2" class="h"><path d="M780 738 H880 V802 L830 788 L780 802 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="830" y="778" font-size="28" fill="#58C4DD" text-anchor="middle">游标</text></g>
+        <g id="lo-cf" class="h"><circle id="lo-cfd" cx="512" cy="935" r="12" fill="#83C167"/><text x="538" y="945" font-size="28" fill="#83C167">Confirmer</text></g>
+        <text id="lo-c1" class="h" x="1000" y="812" font-size="28" fill="#8a8f99">parse：ABI 解码 + 白名单过滤</text>
+        <text id="lo-c2" class="h" x="1000" y="858" font-size="28" fill="#8a8f99">SaveBlock：一个事务写区块、事件、游标</text>
+        <text id="lo-omit" class="h" x="1000" y="960" font-size="28" fill="#6b6f7a">示意代码，省略了每一步的 err 检查</text>
+
+      </g>
+      <g id="lo-term" class="h">
+        <rect x="70" y="56" width="540" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">游标 <tspan font-size="28" font-weight="400" fill="#8a8f99">Cursor</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">已处理到的高度 + 该块哈希</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const HL = (a, b, t, c = "#58C4DD") => tl.to("#lo-hl", { attr: { y: 290 + a * 40 - 29, height: (b - a + 1) * 40 }, fill: c, duration: 0.4, ease: "power2.inOut" }, t);
+      const LIT = (i, t, c = "#58C4DD") => { tl.to(`#lo-n${i} .nb`, { stroke: c, duration: 0.3 }, t); tl.to(`#lo-n${i} .nt`, { fill: "#e8e6df", duration: 0.3 }, t); };
+      const DIM = (i, t) => { tl.to(`#lo-n${i} .nb`, { stroke: "#3a3f4b", duration: 0.3 }, t); tl.to(`#lo-n${i} .nt`, { fill: "#6b6f7a", duration: 0.3 }, t); };
+      // L0 状态机 + 代码；读游标
+      IN("#lo-term", at(0, 0.02), 0.5);
+      for (let i = 0; i < 6; i++) IN(`#lo-n${i}`, at(0, 0.03 + i * 0.025), 0.4, { x: -16 }, { x: 0 });
+      for (let k = 0; k < 5; k++) ARROW(`#lo-e${k}`, at(0, 0.06 + k * 0.025), 0.3);
+      ARROW("#lo-ret", at(0, 0.2), 0.8);
+      IN("#lo-code", at(0, 0.12), 0.6, { x: 30 }, { x: 0 });
+      IN("#lo-omit", at(0, 0.2), 0.5);
+      LIT(0, at(0, 0.3));
+      IN("#lo-bm, #lo-bt0", at(0, 0.4), 0.5, { y: -16 }, { y: 0 });
+      IN("#lo-ex", at(0, 0.45), 0.4);
+      tl.to("#lo-bmp", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.6));
+      IN("#lo-first", at(0, 0.76), 0.5);
+      OUT("#lo-term", at(1, 0.0), 0.4);
+      // L1 读链头；追上就休眠；lag
+      OUT("#lo-first", at(1, 0), 0.3);
+      DIM(0, at(1, 0.02)); LIT(1, at(1, 0.02));
+      HL(2, 3, at(1, 0.02));
+      IN("#lo-head", at(1, 0.06), 0.4);
+      COUNT("#lo-hn", 1005, 1008, at(1, 0.1), 1.0, v => Math.round(v).toLocaleString("en-US"));
+      IN("#lo-zz", at(1, 0.4), 0.4);
+      tl.to("#lo-zz", { y: -8, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, at(1, 0.45));
+      IN("#lo-lag", at(1, 0.68), 0.5, { x: -16 }, { x: 0 });
+      // L2 拉区块头，比父哈希
+      OUT("#lo-head, #lo-zz, #lo-lag", at(2, 0), 0.3);
+      DIM(1, at(2, 0.02)); LIT(2, at(2, 0.02));
+      HL(4, 6, at(2, 0.02));
+      IN("#lo-hc, #lo-ph0", at(2, 0.08), 0.5, { y: 16 }, { y: 0 });
+      LIT(3, at(2, 0.25), "#FF9F43");
+      DRAW("#lo-br", at(2, 0.27), 0.7);
+      DRAW("#lo-ok", at(2, 0.4), 0.3);
+      OUT("#lo-ph0", at(2, 0.58), 0.25);
+      tl.to("#lo-ok", { opacity: 0, duration: 0.2 }, at(2, 0.58));
+      IN("#lo-ph1", at(2, 0.6), 0.3);
+      tl.to("#lo-br", { stroke: "#FC6255", duration: 0.2 }, at(2, 0.62));
+      tl.to("#lo-hcr", { stroke: "#FC6255", duration: 0.2 }, at(2, 0.62));
+      DRAW("#lo-ng", at(2, 0.64), 0.3);
+      tl.to("#lo-n3 .nb", { stroke: "#FC6255", duration: 0.2 }, at(2, 0.7));
+      ARROW("#lo-exit", at(2, 0.72), 0.4);
+      IN("#lo-exitl", at(2, 0.75), 0.4, { x: -10 }, { x: 0 });
+      // L3 对得上 → 按区块哈希拉日志
+      OUT("#lo-hc, #lo-ph1, #lo-br, #lo-ng", at(3, 0), 0.3);
+      tl.to("#lo-n3 .nb", { stroke: "#83C167", duration: 0.3 }, at(3, 0.02));
+      LIT(4, at(3, 0.1)); DIM(2, at(3, 0.1));
+      HL(7, 8, at(3, 0.1));
+      IN("#lo-key", at(3, 0.16), 0.4, { x: -16 }, { x: 0 });
+      IN("#lo-lb1", at(3, 0.22), 0.4);
+      IN("#lo-lb2", at(3, 0.26), 0.4);
+      tl.to("#lo-key", { x: 50, duration: 0.7, ease: "power2.inOut" }, at(3, 0.42));
+      tl.to("#lo-lb1r", { stroke: "#83C167", strokeWidth: 5, duration: 0.3 }, at(3, 0.42) + 0.7);
+      tl.to("#lo-lb2", { opacity: 0.35, duration: 0.4 }, at(3, 0.62));
+      IN("#lo-eip", at(3, 0.7), 0.4);
+      // L4 坑：负载均衡后面两个分叉
+      OUT("#lo-key, #lo-lb1, #lo-lb2, #lo-eip", at(4, 0), 0.3);
+      HL(7, 8, at(4, 0.04), "#FF9F43");
+      IN("#lo-w", at(4, 0.06), 0.4);
+      IN("#lo-lbx", at(4, 0.3), 0.5);
+      IN("#lo-cA", at(4, 0.66), 0.4, { y: -12 }, { y: 0 });
+      IN("#lo-cB", at(4, 0.78), 0.4, { y: -12 }, { y: 0 });
+      DRAW("#lo-x", at(4, 0.88), 0.3);
+      // L5 解析 → 一个事务写库 → 游标前移 → Confirmer
+      OUT("#lo-lbx, #lo-cA, #lo-cB, #lo-x, #lo-w", at(5, 0), 0.3);
+      DIM(3, at(5, 0.02)); DIM(4, at(5, 0.02)); LIT(5, at(5, 0.02), "#83C167");
+      HL(9, 10, at(5, 0.02));
+      IN("#lo-c1", at(5, 0.06), 0.4);
+      IN("#lo-c2", at(5, 0.2), 0.4);
+      IN("#lo-t0", at(5, 0.2), 0.4, { x: -16 }, { x: 0 });
+      IN("#lo-t1", at(5, 0.24), 0.4, { x: -16 }, { x: 0 });
+      IN("#lo-t2", at(5, 0.28), 0.4, { x: -16 }, { x: 0 });
+      IN("#lo-tx", at(5, 0.34), 0.4, { scale: 1.08, svgOrigin: "690 770" }, { scale: 1, svgOrigin: "690 770" });
+      OUT("#lo-bt0", at(5, 0.52), 0.25);
+      IN("#lo-bt1", at(5, 0.55), 0.35, { y: 10 }, { y: 0 });
+      tl.to("#lo-bmp", { stroke: "#83C167", duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.55));
+      IN("#lo-cf", at(5, 0.78), 0.3);
+      tl.to("#lo-cfd", { opacity: 0.2, duration: 0.25, yoyo: true, repeat: 3 }, at(5, 0.82));
+
+
+      tl.to("#lo-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#lo-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["loop"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,234 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 re- -->
+  <div id="root" data-composition-id="recap" data-duration="56.26" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="re-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="re-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <!-- L0 开头大字回到中央 -->
+        <g id="re-big-o">
+          <g id="re-big">
+            <g id="re-bigt" class="h">
+              <text x="510" y="540" font-size="60" font-weight="700" fill="#F0B90B">链上真到账的钱</text>
+              <text x="1030" y="540" font-size="60" font-weight="700" fill="#83C167">恰好一次</text>
+              <text x="1300" y="540" font-size="60" font-weight="700" fill="#e8e6df">入账</text>
+            </g>
+            <path id="re-biga" class="dr h" pathLength="1" d="M946 518 L1008 518" fill="none" stroke="#e8e6df" stroke-width="5" marker-end="url(#re-arr)" />
+            <rect id="re-bigf" class="dr" pathLength="1" x="1016" y="466" width="268" height="98" rx="14" fill="none" stroke="#83C167" stroke-width="4" />
+          </g>
+        </g>
+
+        <!-- 三列标题 -->
+        <g id="re-hds">
+          <text id="re-h1" class="h" x="400" y="300" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">真到账</text>
+          <text id="re-h2" class="h" x="960" y="300" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">恰好一次</text>
+          <text id="re-h3" class="h" x="1520" y="300" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">不丢消息</text>
+        </g>
+
+        <!-- L1 左列：pending → 分档确认 → 多源哈希 -->
+        <g id="re-c1">
+          <g id="re-pd" class="h">
+            <rect x="240" y="350" width="320" height="70" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="400" y="396" font-size="28" fill="#FF9F43" text-anchor="middle">pending · 不加余额</text>
+          </g>
+          <g id="re-rule" class="h">
+            <line x1="220" y1="530" x2="580" y2="530" stroke="#8a8f99" stroke-width="3" />
+            <line x1="300" y1="515" x2="300" y2="545" stroke="#e8e6df" stroke-width="3" />
+            <line x1="520" y1="515" x2="520" y2="545" stroke="#e8e6df" stroke-width="3" />
+            <text class="mono" x="300" y="500" font-size="28" fill="#e8e6df" text-anchor="middle" xml:space="preserve">12</text>
+            <text class="mono" x="520" y="500" font-size="28" fill="#e8e6df" text-anchor="middle" xml:space="preserve">64</text>
+            <text x="300" y="586" font-size="28" fill="#8a8f99" text-anchor="middle">小额</text>
+            <text x="520" y="586" font-size="28" fill="#8a8f99" text-anchor="middle">大额</text>
+          </g>
+          <g id="re-rpc" class="h">
+            <circle cx="300" cy="700" r="40" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <circle cx="500" cy="700" r="40" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="300" y="710" font-size="30" fill="#8a8f99" text-anchor="middle" xml:space="preserve">A</text>
+            <text class="mono" x="500" y="710" font-size="30" fill="#8a8f99" text-anchor="middle" xml:space="preserve">B</text>
+            <text x="400" y="800" font-size="28" fill="#8a8f99" text-anchor="middle">多源核对哈希</text>
+          </g>
+          <text id="re-eq" class="h" x="400" y="716" font-size="48" font-weight="700" fill="#83C167" text-anchor="middle">=</text>
+        </g>
+
+        <!-- L2 中列：三面绿盾 -->
+        <g id="re-c2">
+          <g id="re-sh1" class="h">
+            <path d="M855 360 L880 370 L880 392 Q880 414 855 425 Q830 414 830 392 L830 370 Z" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="3" />
+            <text x="900" y="404" font-size="30" fill="#e8e6df">部分唯一索引</text>
+          </g>
+          <g id="re-sh2" class="h">
+            <path d="M855 490 L880 500 L880 522 Q880 544 855 555 Q830 544 830 522 L830 500 Z" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="3" />
+            <text x="900" y="534" font-size="30" fill="#e8e6df">账本唯一约束</text>
+          </g>
+          <g id="re-sh3" class="h">
+            <path d="M855 620 L880 630 L880 652 Q880 674 855 685 Q830 674 830 652 L830 630 Z" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="3" />
+            <text x="900" y="664" font-size="30" fill="#e8e6df">消费方去重</text>
+          </g>
+          <text id="re-safe" class="h" x="960" y="790" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">可安全重试</text>
+        </g>
+
+        <!-- L3 右列：同一事务 + 管道断了 -->
+        <g id="re-c3">
+          <g id="re-tx" class="h">
+            <rect x="1300" y="350" width="440" height="200" rx="16" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="12 8" />
+            <text x="1324" y="392" font-size="28" fill="#58C4DD">同一事务</text>
+          </g>
+          <g id="re-row" class="h">
+            <rect x="1330" y="430" width="200" height="64" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1430" y="472" font-size="28" fill="#83C167" text-anchor="middle" xml:space="preserve">credited</text>
+          </g>
+          <path id="re-tie" class="dr" pathLength="1" d="M1532 462 Q1566 440 1598 462" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <g id="re-env" class="h">
+            <rect x="1600" y="436" width="80" height="54" rx="6" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <path d="M1600 438 L1640 466 L1680 438" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+          </g>
+          <g id="re-pipe" class="h">
+            <line x1="1300" y1="630" x2="1740" y2="630" stroke="#58C4DD" stroke-width="3" />
+            <line x1="1300" y1="700" x2="1740" y2="700" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1324" y="675" font-size="28" fill="#58C4DD" xml:space="preserve">Kafka</text>
+          </g>
+          <path id="re-brk" class="dr" pathLength="1" d="M1590 612 L1610 640 L1585 660 L1615 680 L1592 718" fill="none" stroke="#FC6255" stroke-width="6" stroke-linejoin="round" />
+          <text id="re-keep" class="h" x="1520" y="790" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">宕机也不丢</text>
+        </g>
+
+        <!-- L4 三个坑 -->
+        <g id="re-p1" class="h">
+          <ellipse cx="490" cy="420" rx="50" ry="18" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="3" />
+          <text x="580" y="432" font-size="34" font-weight="700" fill="#FC6255">看到交易就加余额 → 坏账</text>
+        </g>
+        <path id="re-f1a" class="dr h" pathLength="1" d="M1080 420 L1218 420" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#re-arrg)" />
+        <text id="re-f1" class="h" x="1250" y="432" font-size="34" font-weight="700" fill="#83C167">先记 pending</text>
+        <g id="re-p2" class="h">
+          <ellipse cx="490" cy="580" rx="50" ry="18" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="3" />
+          <text x="580" y="592" font-size="34" font-weight="700" fill="#FC6255">普通唯一键 → 漏入账</text>
+        </g>
+        <path id="re-f2a" class="dr h" pathLength="1" d="M1080 580 L1218 580" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#re-arrg)" />
+        <text id="re-f2" class="h" x="1250" y="592" font-size="34" font-weight="700" fill="#83C167">部分唯一索引</text>
+        <g id="re-p3" class="h">
+          <ellipse cx="490" cy="740" rx="50" ry="18" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="3" />
+          <text x="580" y="752" font-size="34" font-weight="700" fill="#FC6255">以为只到一次 → 重复加钱</text>
+        </g>
+        <path id="re-f3a" class="dr h" pathLength="1" d="M1080 740 L1218 740" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#re-arrg)" />
+        <text id="re-f3" class="h" x="1250" y="752" font-size="34" font-weight="700" fill="#83C167">消费方幂等</text>
+
+        <!-- L5 单活 Scanner -->
+        <g id="re-sa" class="h">
+          <rect x="560" y="460" width="300" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="710" y="532" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle" xml:space="preserve">Scanner</text>
+        </g>
+        <g id="re-sb" class="h">
+          <rect id="re-sbr" x="1060" y="460" width="300" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text id="re-sbt" class="mono" x="1210" y="532" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle" xml:space="preserve">Scanner</text>
+        </g>
+        <path id="re-fight" class="dr h" pathLength="1" d="M872 520 L1048 520" fill="none" stroke="#FC6255" stroke-width="4" marker-start="url(#re-arrr)" marker-end="url(#re-arrr)" />
+        <text id="re-fightl" class="h" x="960" y="490" font-size="28" fill="#FC6255" text-anchor="middle">互相回滚</text>
+        <g id="re-lock" class="h">
+          <rect x="690" y="392" width="40" height="34" rx="5" fill="#FF9F43" />
+          <path d="M698 392 L698 382 Q710 364 722 382 L722 392" fill="none" stroke="#FF9F43" stroke-width="5" />
+        </g>
+        <text id="re-lockl" class="h" x="710" y="640" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">咨询锁 · 单活</text>
+        <text id="re-wait" class="h" x="1210" y="640" font-size="30" fill="#8a8f99" text-anchor="middle">待命</text>
+
+        <!-- L6 下一集 -->
+        <g id="re-next" class="h">
+          <text x="960" y="480" font-size="40" fill="#8a8f99" text-anchor="middle">下一集 · 实战·实现</text>
+          <text x="960" y="580" font-size="60" font-weight="700" fill="#e8e6df" text-anchor="middle">链上充值监听与入账服务（Go）</text>
+        </g>
+      </g>
+      <rect id="re-black" x="0" y="0" width="1920" height="1080" fill="#000000" opacity="0" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0 开头的大字回到中央
+      IN("#re-bigt", at(0, 0.04), 0.7, { y: 14 }, { y: 0 });
+      ARROW("#re-biga", at(0, 0.2), 0.4);
+      DRAW("#re-bigf", at(0, 0.5), 0.6);
+
+      // L1 大字上移缩小；左列：真到账
+      tl.to("#re-big", { scale: 0.75, svgOrigin: "960 520", duration: 0.7, ease: "power2.inOut" }, at(1, 0));
+      tl.to("#re-big-o", { y: -345, duration: 0.7, ease: "power2.inOut" }, at(1, 0));
+      IN("#re-h1", at(1, 0.06), 0.5);
+      IN("#re-pd", at(1, 0.14), 0.5, { y: 12 }, { y: 0 });
+      IN("#re-rule", at(1, 0.4), 0.5);
+      IN("#re-rpc", at(1, 0.7), 0.5);
+      IN("#re-eq", at(1, 0.8), 0.3, { scale: 0.4, svgOrigin: "400 700" }, { scale: 1, svgOrigin: "400 700" });
+
+      // L2 中列：三面盾
+      IN("#re-h2", at(2, 0.02), 0.5);
+      IN("#re-sh1", at(2, 0.14), 0.5, { x: -16 }, { x: 0 });
+      IN("#re-sh2", at(2, 0.36), 0.5, { x: -16 }, { x: 0 });
+      IN("#re-sh3", at(2, 0.56), 0.5, { x: -16 }, { x: 0 });
+      IN("#re-safe", at(2, 0.78), 0.5);
+
+      // L3 右列：同一事务写发件箱；管道断了也不丢
+      IN("#re-h3", at(3, 0.02), 0.5);
+      IN("#re-tx", at(3, 0.08), 0.5);
+      IN("#re-row", at(3, 0.16), 0.4);
+      IN("#re-env", at(3, 0.34), 0.4);
+      DRAW("#re-tie", at(3, 0.4), 0.4);
+      IN("#re-pipe", at(3, 0.5), 0.4);
+      DRAW("#re-brk", at(3, 0.62), 0.4);
+      tl.to("#re-env", { y: -6, duration: 0.2, yoyo: true, repeat: 1 }, at(3, 0.72));
+      IN("#re-keep", at(3, 0.78), 0.4);
+
+      // L4 三列收成标题；三个坑 + 修复
+      OUT("#re-big-o, #re-c1, #re-c2, #re-c3", at(4, 0) - 0.3, 0.4);
+      tl.to("#re-hds", { y: -60, duration: 0.6, ease: "power2.inOut" }, at(4, 0));
+      IN("#re-p1", at(4, 0.06), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#re-f1a", at(4, 0.2), 0.4);
+      IN("#re-f1", at(4, 0.24), 0.4);
+      IN("#re-p2", at(4, 0.36), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#re-f2a", at(4, 0.52), 0.4);
+      IN("#re-f2", at(4, 0.56), 0.4);
+      IN("#re-p3", at(4, 0.66), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#re-f3a", at(4, 0.84), 0.4);
+      IN("#re-f3", at(4, 0.88), 0.4);
+
+      // L5 每条链只一个 Scanner
+      OUT("#re-hds, #re-p1, #re-p2, #re-p3, #re-f1a, #re-f2a, #re-f3a, #re-f1, #re-f2, #re-f3", at(5, 0) - 0.3, 0.4);
+      IN("#re-sa", at(5, 0.03), 0.5);
+      IN("#re-sb", at(5, 0.08), 0.5);
+      ARROW("#re-fight", at(5, 0.22), 0.4);
+      IN("#re-fightl", at(5, 0.26), 0.3);
+      OUT("#re-fight, #re-fightl", at(5, 0.6), 0.3);
+      IN("#re-lock", at(5, 0.66), 0.4, { y: -14 }, { y: 0 });
+      tl.to("#re-sbr", { attr: { stroke: "#8a8f99" }, duration: 0.4 }, at(5, 0.68));
+      tl.to("#re-sbt", { attr: { fill: "#8a8f99" }, duration: 0.4 }, at(5, 0.68));
+      IN("#re-lockl", at(5, 0.72), 0.4);
+      IN("#re-wait", at(5, 0.76), 0.4);
+
+      // L6 下一集 → 淡到黑
+      OUT("#re-sa, #re-sb, #re-lock, #re-lockl, #re-wait", at(6, 0) - 0.3, 0.35);
+      IN("#re-next", at(6, 0.06), 0.6, { y: 12 }, { y: 0 });
+      tl.to("#re-next", { opacity: 0, duration: 0.6, ease: "power2.in" }, C.d - 1.5);
+      tl.to("#re-black", { opacity: 1, duration: 0.7, ease: "power2.in" }, C.d - 1.3);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

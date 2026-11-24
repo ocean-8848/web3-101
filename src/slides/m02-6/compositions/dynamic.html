@@ -1,0 +1,195 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 dynamic，id 前缀 dy- -->
+  <div id="root" data-composition-id="dynamic" data-duration="49.24" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="dy-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+      </defs>
+      <g id="dy-all">
+        <!-- 哈希空间 -->
+        <g id="dy-hs" class="h">
+          <rect x="1000" y="220" width="860" height="780" rx="10" fill="#12151c" stroke="#2a2f3a" stroke-width="2" />
+          <g id="dy-grid"></g>
+          <text x="1030" y="268" font-size="28" fill="#8a8f99"><tspan class="mono">2^256</tspan> 个槽</text>
+        </g>
+
+        <!-- 槽格带 槽 0-3 -->
+        <g id="dy-s0" class="h"><text x="165" y="348" font-size="28" fill="#8a8f99" text-anchor="end">槽 0</text></g>
+        <g id="dy-s1" class="h"><text x="165" y="468" font-size="28" fill="#8a8f99" text-anchor="end">槽 1</text></g>
+        <g id="dy-s2" class="h"><text x="165" y="588" font-size="28" fill="#8a8f99" text-anchor="end">槽 2</text></g>
+        <g id="dy-s3" class="h"><text x="165" y="708" font-size="28" fill="#8a8f99" text-anchor="end">槽 3</text></g>
+        <g id="dy-bc" class="h"><rect id="dy-bcr" x="180" y="300" width="320" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="340" y="348" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">c</text></g>
+        <g id="dy-ba" class="h"><rect id="dy-bar" x="500" y="300" width="320" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="660" y="348" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">a</text></g>
+        <g id="dy-bb" class="h"><rect id="dy-bbr" x="180" y="420" width="640" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="500" y="468" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">b</text></g>
+        <g id="dy-ph" class="h">
+          <rect x="182" y="542" width="636" height="72" rx="4" fill="#12151c" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6" />
+          <text x="500" y="588" font-size="28" fill="#8a8f99" text-anchor="middle"><tspan class="mono" fill="#58C4DD">balances</tspan>（空 · 占位）</text>
+        </g>
+        <g id="dy-ls" class="h">
+          <rect x="180" y="660" width="640" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="500" y="708" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">list · length = <tspan fill="#F0B90B" font-weight="700">3</tspan></text>
+        </g>
+
+        <!-- L0 长度不固定的两个块 -->
+        <g id="dy-mp" class="h">
+          <rect id="dy-mpr" x="200" y="200" width="260" height="60" rx="8" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="290" y="241" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">mapping</text>
+        </g>
+        <g id="dy-ar" class="h">
+          <rect id="dy-arrb" x="520" y="200" width="260" height="60" rx="8" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="620" y="241" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">uint256[]</text>
+        </g>
+
+        <!-- keccak256 搅拌器 -->
+        <g id="dy-fun" class="h">
+          <path d="M470 780 L650 780 L585 900 L535 900 Z" fill="#12202a" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round" />
+          <text x="560" y="944" class="mono" font-size="28" fill="#58C4DD" text-anchor="middle">keccak256</text>
+        </g>
+        <path id="dy-stir" class="h" d="M535 830 A 25 25 0 1 1 585 830" fill="none" stroke="#e8e6df" stroke-width="3" stroke-linecap="round" />
+        <g id="dy-kk">
+          <g id="dy-ck" class="h"><rect x="180" y="800" width="64" height="56" rx="8" fill="#2a2014" stroke="#FF9F43" stroke-width="2.5" /><text x="212" y="839" class="mono" font-size="32" fill="#FF9F43" text-anchor="middle">k</text></g>
+          <text id="dy-pp" class="h mono" x="276" y="839" font-size="32" fill="#e8e6df" text-anchor="middle">++</text>
+          <g id="dy-c2" class="h"><rect x="308" y="800" width="64" height="56" rx="8" fill="#12202a" stroke="#58C4DD" stroke-width="2.5" /><text x="340" y="839" class="mono" font-size="32" fill="#58C4DD" text-anchor="middle">2</text></g>
+        </g>
+        <g id="dy-c3" class="h"><rect x="308" y="800" width="64" height="56" rx="8" fill="#2a2414" stroke="#F0B90B" stroke-width="2.5" /><text x="340" y="839" class="mono" font-size="32" fill="#F0B90B" text-anchor="middle">3</text></g>
+        <text id="dy-h1" class="h mono" x="680" y="866" font-size="28" fill="#58C4DD">0x7d2e…b91a</text>
+        <text id="dy-h2" class="h mono" x="680" y="866" font-size="28" fill="#58C4DD">0xc257…f85b</text>
+        <path id="dy-a1" class="dr h" pathLength="1" d="M880 840 C 1010 840, 1250 410, 1486 410" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#dy-arr)" />
+        <path id="dy-a2" class="dr h" pathLength="1" d="M880 840 C 980 840, 1020 630, 1136 630" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#dy-arr)" />
+
+        <!-- 哈希空间里的格子 -->
+        <g id="dy-bk" class="h">
+          <rect id="dy-bkr" x="1500" y="380" width="240" height="60" rx="6" fill="#2a2414" stroke="#F0B90B" stroke-width="2.5" />
+          <text x="1620" y="420" class="mono" font-size="28" fill="#F0B90B" text-anchor="middle">balances[k]</text>
+        </g>
+        <text id="dy-nest" class="h" x="1030" y="968" font-size="28" fill="#6b6f7a">嵌套：<tspan class="mono">keccak256(k2 ++ keccak256(k1 ++ p))</tspan></text>
+        <g id="dy-l0" class="h"><rect x="1150" y="600" width="240" height="60" rx="6" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="1270" y="640" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">list[0]</text></g>
+        <g id="dy-l1" class="h"><rect x="1150" y="670" width="240" height="60" rx="6" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="1270" y="710" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">list[1]</text></g>
+        <g id="dy-l2" class="h"><rect x="1150" y="740" width="240" height="60" rx="6" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="1270" y="780" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">list[2]</text></g>
+        <text id="dy-fx" class="h mono" x="1420" y="720" font-size="28" fill="#58C4DD">keccak256(3) + i</text>
+
+        <!-- L4 读出原始数据 -->
+        <line id="dy-beam" class="h" x1="1900" y1="120" x2="1680" y2="376" stroke="#58C4DD" stroke-width="8" stroke-linecap="round" opacity="0.7" />
+        <text id="dy-hex" class="h mono" x="1500" y="490" font-size="28" fill="#e8e6df">0x0000…03e8</text>
+        <text id="dy-hexn" class="h" x="1710" y="490" font-size="28" fill="#6b6f7a">示例</text>
+        <text id="dy-cast" class="h" x="1030" y="968" font-size="28" fill="#8a8f99"><tspan class="mono">cast storage</tspan> &lt;合约地址&gt; &lt;槽号&gt;</text>
+
+        <!-- L5 forge inspect -->
+        <g id="dy-term" class="h">
+          <rect x="960" y="620" width="900" height="380" rx="12" fill="#0b0d12" stroke="#3a404c" stroke-width="2" />
+          <circle cx="990" cy="646" r="7" fill="#FC6255" /><circle cx="1012" cy="646" r="7" fill="#F0B90B" /><circle cx="1034" cy="646" r="7" fill="#83C167" />
+          <text x="990" y="706" class="mono" font-size="28" fill="#e8e6df"><tspan fill="#83C167">$</tspan> forge inspect Good storage-layout</text>
+        </g>
+        <text id="dy-th" class="h mono" x="990" y="768" font-size="28" fill="#8a8f99" xml:space="preserve">name | slot | offset</text>
+        <text id="dy-r0" class="h mono" x="990" y="820" font-size="28" fill="#e8e6df" xml:space="preserve">a    | 0    | 0</text>
+        <text id="dy-r1" class="h mono" x="990" y="870" font-size="28" fill="#e8e6df" xml:space="preserve">c    | 0    | 16</text>
+        <text id="dy-r2" class="h mono" x="990" y="920" font-size="28" fill="#e8e6df" xml:space="preserve">b    | 1    | 0</text>
+        <path id="dy-k0" class="dr h" pathLength="1" d="M952 810 L834 330" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+        <path id="dy-k1" class="dr h" pathLength="1" d="M952 860 L834 350" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+        <path id="dy-k2" class="dr h" pathLength="1" d="M952 910 L834 460" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, p) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); const P = document.querySelector(p); P.insertBefore(e, P.firstChild); return e; };
+      const SLOT = (p, x, y, w, h = 76) => { for (let i = 31; i >= 1; i--) { const xx = x + w * i / 32; mk("line", { x1: xx, y1: y + 6, x2: xx, y2: y + h - 6, stroke: "#2a2f3a", "stroke-width": 1.5 }, p); } mk("rect", { x, y, width: w, height: h, rx: 4, fill: "#12151c", stroke: "#3a404c", "stroke-width": 2 }, p); };
+      [0, 1, 2, 3].forEach(i => SLOT(`#dy-s${i}`, 180, 300 + i * 120, 640));
+      const grid = document.querySelector("#dy-grid");
+      for (let x = 1040; x < 1860; x += 40) { const e = document.createElementNS(NS, "line"); e.setAttribute("x1", x); e.setAttribute("y1", 290); e.setAttribute("x2", x); e.setAttribute("y2", 996); e.setAttribute("stroke", "#1a1e27"); e.setAttribute("stroke-width", 1); grid.appendChild(e); }
+      for (let y = 300; y < 1000; y += 40) { const e = document.createElementNS(NS, "line"); e.setAttribute("x1", 1004); e.setAttribute("y1", y); e.setAttribute("x2", 1856); e.setAttribute("y2", y); e.setAttribute("stroke", "#1a1e27"); e.setAttribute("stroke-width", 1); grid.appendChild(e); }
+
+      // L0 长度不固定，排不进格子
+      [0, 1, 2, 3].forEach(i => IN(`#dy-s${i}`, at(0, 0.03 + i * 0.05), 0.5));
+      IN("#dy-mp, #dy-ar", at(0, 0.2), 0.5, { y: -30 }, { y: 0 });
+      tl.fromTo("#dy-mpr", { attr: { width: 260 } }, { attr: { width: 180 }, duration: 0.45, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, at(0, 0.3));
+      tl.fromTo("#dy-arrb", { attr: { width: 260 } }, { attr: { width: 340 }, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, at(0, 0.3));
+      IN("#dy-hs", at(0, 0.55), 0.8);
+
+      // L1 槽 0 a+c、槽 1 b、槽 2 mapping 只占位
+      IN("#dy-bc, #dy-ba", at(1, 0.05), 0.5, { y: -30 }, { y: 0 });
+      IN("#dy-bb", at(1, 0.15), 0.5, { y: -30 }, { y: 0 });
+      OUT("#dy-ar", at(1, 0.25), 0.4);
+      tl.to("#dy-mp", { y: 342, x: -20, duration: 0.8, ease: "power2.in" }, at(1, 0.3));
+      OUT("#dy-mp", at(1, 0.42), 0.3);
+      IN("#dy-ph", at(1, 0.44), 0.6);
+
+      // L2 k ++ 2 → keccak256 → 远处的格子
+      IN("#dy-ck", at(2, 0.05), 0.4, { y: 20 }, { y: 0 });
+      IN("#dy-c2", at(2, 0.12), 0.6, { x: -200, y: -250 }, { x: 0, y: 0, ease: "power2.inOut" });
+      IN("#dy-pp", at(2, 0.22), 0.3);
+      IN("#dy-fun", at(2, 0.25), 0.5);
+      tl.to("#dy-kk", { x: 290, y: -30, scale: 0.5, svgOrigin: "276 828", opacity: 0, duration: 0.8, ease: "power2.in" }, at(2, 0.36));
+      IN("#dy-stir", at(2, 0.42), 0.2);
+      tl.fromTo("#dy-stir", { rotation: 0 }, { rotation: 720, svgOrigin: "560 830", duration: 1.2, ease: "power1.inOut", immediateRender: false }, at(2, 0.42));
+      OUT("#dy-stir", at(2, 0.56), 0.2);
+      IN("#dy-h1", at(2, 0.56), 0.4, { x: -30 }, { x: 0 });
+      ARROW("#dy-a1", at(2, 0.64), 0.9);
+      IN("#dy-bk", at(2, 0.74), 0.5, { scale: 0.6, svgOrigin: "1620 410" }, { scale: 1, svgOrigin: "1620 410" });
+      IN("#dy-nest", at(2, 0.85), 0.5);
+
+      // L3 数组：槽 3 存长度，元素从 keccak256(3) 开始
+      OUT("#dy-h1, #dy-a1", at(3, 0), 0.4);
+      IN("#dy-ls", at(3, 0.06), 0.5, { y: -60 }, { y: 0 });
+      IN("#dy-c3", at(3, 0.3), 0.5, { x: 120, y: -120 }, { x: 0, y: 0 });
+      tl.to("#dy-c3", { x: 220, y: -30, scale: 0.5, svgOrigin: "340 828", opacity: 0, duration: 0.7, ease: "power2.in" }, at(3, 0.4));
+      IN("#dy-stir", at(3, 0.46), 0.2);
+      tl.fromTo("#dy-stir", { rotation: 0 }, { rotation: 720, svgOrigin: "560 830", duration: 1.0, ease: "power1.inOut", immediateRender: false }, at(3, 0.46));
+      OUT("#dy-stir", at(3, 0.57), 0.2);
+      IN("#dy-h2", at(3, 0.58), 0.4, { x: -30 }, { x: 0 });
+      ARROW("#dy-a2", at(3, 0.64), 0.6);
+      IN("#dy-l0", at(3, 0.72), 0.3);
+      IN("#dy-l1", at(3, 0.77), 0.3);
+      IN("#dy-l2", at(3, 0.82), 0.3);
+      IN("#dy-fx", at(3, 0.88), 0.4);
+
+      // L4 拿槽号直接读格子
+      OUT("#dy-nest", at(4, 0), 0.3);
+      IN("#dy-beam", at(4, 0.3), 0.4, {}, { opacity: 0.7 });
+      tl.to("#dy-bkr", { attr: { fill: "#3a3014" }, duration: 0.3 }, at(4, 0.36));
+      IN("#dy-hex, #dy-hexn", at(4, 0.42), 0.5);
+      IN("#dy-cast", at(4, 0.6), 0.5);
+
+      // L5 forge inspect storage-layout
+      OUT("#dy-beam, #dy-cast, #dy-l0, #dy-l1, #dy-l2, #dy-fx, #dy-a2, #dy-h2, #dy-fun", at(5, 0), 0.4);
+      IN("#dy-term", at(5, 0.08), 0.5);
+      IN("#dy-th", at(5, 0.3), 0.3);
+      IN("#dy-r0", at(5, 0.4), 0.3); IN("#dy-r1", at(5, 0.48), 0.3); IN("#dy-r2", at(5, 0.56), 0.3);
+      DRAW("#dy-k0", at(5, 0.66), 0.5); IN("#dy-k0", at(5, 0.66), 0.1);
+      tl.to("#dy-bar", { stroke: "#F0B90B", duration: 0.3 }, at(5, 0.7));
+      DRAW("#dy-k1", at(5, 0.72), 0.5); IN("#dy-k1", at(5, 0.72), 0.1);
+      tl.to("#dy-bcr", { stroke: "#F0B90B", duration: 0.3 }, at(5, 0.76));
+      DRAW("#dy-k2", at(5, 0.78), 0.5); IN("#dy-k2", at(5, 0.78), 0.1);
+      tl.to("#dy-bbr", { stroke: "#F0B90B", duration: 0.3 }, at(5, 0.82));
+      /*ENDANIM*/
+
+      tl.to("#dy-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["dynamic"] = tl;
+    })();
+  </script>
+</template>

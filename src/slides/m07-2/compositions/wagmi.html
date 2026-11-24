@@ -1,0 +1,229 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 wagmi，id 前缀 wa- -->
+  <div id="root" data-composition-id="wagmi" data-duration="74.8" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="wa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="wa-all">
+        <!-- 代码面板 -->
+        <g id="wa-code">
+          <rect id="wa-panel" class="h" x="80" y="230" width="920" height="490" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <rect id="wa-hl" class="h" x="92" y="262" width="896" height="40" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+          <text id="wa-a0" class="mono h" x="110.0" y="290" font-size="28" fill="#e8e6df">const { address, status, chain } = <tspan id="wa-h0">useAccount</tspan>()</text>
+          <text id="wa-a1" class="mono h" x="110.0" y="330" font-size="28" fill="#e8e6df">const chainId = useChainId()</text>
+          <text id="wa-a2" class="mono h" x="110.0" y="370" font-size="28" fill="#e8e6df">const { connectors, connect, error } = <tspan id="wa-h1">useConnect</tspan>()</text>
+          <text id="wa-a3" class="mono h" x="110.0" y="410" font-size="28" fill="#e8e6df">const { disconnect } = <tspan id="wa-h2">useDisconnect</tspan>()</text>
+          <text id="wa-a4" class="mono h" x="110.0" y="450" font-size="28" fill="#e8e6df">const { switchChain } = <tspan id="wa-h3">useSwitchChain</tspan>()</text>
+          <text id="wa-a6" class="mono h" x="110.0" y="530" font-size="28" fill="#e8e6df">connectors.map(c =&gt;</text>
+          <text id="wa-a7" class="mono h" x="143.6" y="570" font-size="28" fill="#e8e6df">&lt;button onClick={() =&gt;</text>
+          <text id="wa-a8" class="mono h" x="177.2" y="610" font-size="28" fill="#e8e6df">connect({ connector: c })}&gt;)</text>
+          <text id="wa-a9" class="mono h" x="110.0" y="650" font-size="28" fill="#e8e6df">disconnect()</text>
+          <text id="wa-a10" class="mono h" x="110.0" y="690" font-size="28" fill="#e8e6df">switchChain({ chainId: base.id })</text>
+        </g>
+        <!-- UI 预览卡 -->
+        <g id="wa-ui">
+          <rect id="wa-card" class="h" x="1050" y="230" width="800" height="700" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <g id="wa-cells" class="h">
+            <rect id="wa-q0" x="1072" y="260" width="177" height="72" rx="12" fill="#0f1117" stroke="#6b6f7a" stroke-width="2.5" /><text id="wa-qt0" x="1160" y="307" font-size="30" fill="#8a8f99" text-anchor="middle">连接中</text>
+            <rect id="wa-q1" x="1265" y="260" width="177" height="72" rx="12" fill="#0f1117" stroke="#6b6f7a" stroke-width="2.5" /><text id="wa-qt1" x="1353" y="307" font-size="30" fill="#8a8f99" text-anchor="middle">恢复中</text>
+            <rect id="wa-q2" x="1458" y="260" width="177" height="72" rx="12" fill="#0f1117" stroke="#6b6f7a" stroke-width="2.5" /><text id="wa-qt2" x="1546" y="307" font-size="30" fill="#8a8f99" text-anchor="middle">已连接</text>
+            <rect id="wa-q3" x="1651" y="260" width="177" height="72" rx="12" fill="#0f1117" stroke="#6b6f7a" stroke-width="2.5" /><text id="wa-qt3" x="1739" y="307" font-size="30" fill="#8a8f99" text-anchor="middle">未连接</text>
+          </g>
+          <text id="wa-addr" class="mono h" x="1080" y="400" font-size="30" fill="#58C4DD">0xAb12…9f3E</text>
+          <g id="wa-btns">
+            <g id="wa-b0" class="h"><rect x="1080" y="440" width="360" height="64" rx="12" fill="none" stroke="#58C4DD" stroke-width="2.5" /><text x="1260" y="483" font-size="30" fill="#e8e6df" text-anchor="middle">MetaMask</text></g>
+            <g id="wa-b1" class="h"><rect id="wa-b1r" x="1080" y="520" width="360" height="64" rx="12" fill="none" stroke="#58C4DD" stroke-width="2.5" /><text x="1260" y="563" font-size="30" fill="#e8e6df" text-anchor="middle">Rabby</text></g>
+            <g id="wa-b2" class="h"><rect x="1080" y="600" width="360" height="64" rx="12" fill="none" stroke="#58C4DD" stroke-width="2.5" /><text x="1260" y="643" font-size="30" fill="#e8e6df" text-anchor="middle">WalletConnect</text></g>
+            <g id="wa-e0" class="h"><text class="mono" x="1080" y="740" font-size="28" fill="#6b6f7a">UserRejectedRequestError</text><text x="1510" y="740" font-size="28" fill="#6b6f7a">→ 不显示</text></g>
+            <g id="wa-e1" class="h"><text x="1080" y="810" font-size="30" fill="#FC6255">其他错误 → 显示提示</text></g>
+            <g id="wa-dis" class="h"><rect x="1500" y="440" width="220" height="64" rx="12" fill="none" stroke="#8a8f99" stroke-width="2.5" /><text x="1610" y="483" font-size="30" fill="#e8e6df" text-anchor="middle">断开</text></g>
+          </g>
+          <g id="wa-uns">
+            <text id="wa-cu" class="mono h" x="1080" y="480" font-size="30" fill="#FF9F43">chain = undefined</text>
+            <text id="wa-ci" class="mono h" x="1080" y="540" font-size="30" fill="#58C4DD">chainId = 137</text>
+            <text id="wa-nw" class="h" x="1080" y="640" font-size="36" font-weight="700" fill="#FF9F43">不支持的网络</text>
+            <g id="wa-sw" class="h"><rect id="wa-swr" x="1080" y="690" width="320" height="70" rx="12" fill="none" stroke="#58C4DD" stroke-width="2.5" /><text x="1240" y="736" font-size="30" fill="#58C4DD" text-anchor="middle">切换到 Base</text></g>
+          </g>
+          <text id="wa-based" class="h" x="1080" y="560" font-size="36" font-weight="700" fill="#83C167">已切换到 Base</text>
+        </g>
+        <!-- L5 切链流程 -->
+        <g id="wa-flow">
+          <g id="wa-f1" class="h"><rect x="120" y="250" width="600" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="146" y="300" font-size="28" fill="#58C4DD">wallet_switchEthereumChain</text></g>
+          <path id="wa-fa1" class="dr h" pathLength="1" d="M300 334 V394" stroke="#e8e6df" stroke-width="3" marker-end="url(#wa-arr)" />
+          <g id="wa-f2" class="h"><rect x="200" y="400" width="200" height="70" rx="12" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="3" /><text class="mono" x="300" y="447" font-size="32" fill="#FF9F43" text-anchor="middle">4902</text><text x="424" y="446" font-size="28" fill="#FF9F43">未知链</text></g>
+          <path id="wa-fa2" class="dr h" pathLength="1" d="M300 474 V534" stroke="#e8e6df" stroke-width="3" marker-end="url(#wa-arr)" />
+          <g id="wa-f3" class="h"><rect x="120" y="540" width="600" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="146" y="590" font-size="28" fill="#58C4DD">wallet_addEthereumChain</text></g>
+          <g id="wa-cfg" class="h"><rect x="780" y="545" width="236" height="70" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2" stroke-dasharray="6 5" /><text class="mono" x="898" y="590" font-size="28" fill="#8a8f99" text-anchor="middle">config.chains</text></g>
+          <path id="wa-fa4" class="dr h" pathLength="1" d="M776 580 H728" stroke="#e8e6df" stroke-width="3" marker-end="url(#wa-arr)" />
+          <path id="wa-fa3" class="dr h" pathLength="1" d="M300 624 V684" stroke="#e8e6df" stroke-width="3" marker-end="url(#wa-arr)" />
+          <g id="wa-f4" class="h"><rect x="120" y="690" width="600" height="80" rx="14" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="3" /><text x="420" y="742" font-size="34" fill="#83C167" text-anchor="middle">切换成功</text></g>
+        </g>
+        <!-- L6 手写版 -->
+        <g id="wa-hand" class="h">
+          <rect id="wa-panel2" class="h" x="80" y="230" width="920" height="490" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <rect id="wa-hl2" class="h" x="92" y="462" width="896" height="40" rx="6" fill="#FF9F43" fill-opacity="0.18" />
+          <text id="wa-w0" class="mono h" x="110.0" y="290" font-size="28" fill="#e8e6df">try {</text>
+          <text id="wa-w1" class="mono h" x="143.6" y="330" font-size="28" fill="#e8e6df">await eth.request({</text>
+          <text id="wa-w2" class="mono h" x="177.2" y="370" font-size="28" fill="#e8e6df">method: &#x27;wallet_switchEthereumChain&#x27;,</text>
+          <text id="wa-w3" class="mono h" x="177.2" y="410" font-size="28" fill="#e8e6df">params: [{ chainId: &#x27;0x2105&#x27; }] })</text>
+          <text id="wa-w4" class="mono h" x="110.0" y="450" font-size="28" fill="#e8e6df">} catch (e) {</text>
+          <text id="wa-w5" class="mono h" x="143.6" y="490" font-size="28" fill="#e8e6df">if (e.code !== 4902) throw e</text>
+          <text id="wa-w6" class="mono h" x="143.6" y="530" font-size="28" fill="#e8e6df">await eth.request({</text>
+          <text id="wa-w7" class="mono h" x="177.2" y="570" font-size="28" fill="#e8e6df">method: &#x27;wallet_addEthereumChain&#x27;,</text>
+          <text id="wa-w8" class="mono h" x="177.2" y="610" font-size="28" fill="#e8e6df">params: [{ chainId: &#x27;0x2105&#x27;,</text>
+          <text id="wa-w9" class="mono h" x="210.8" y="650" font-size="28" fill="#e8e6df">chainName: &#x27;Base&#x27;, … }] })</text>
+          <text id="wa-w10" class="mono h" x="110.0" y="690" font-size="28" fill="#e8e6df">}</text>
+          <text id="wa-hn1" class="h" x="110" y="800" font-size="32" fill="#FF9F43">只有 4902 才走添加</text>
+          <text id="wa-hn2" class="h" x="110" y="856" font-size="30" fill="#8a8f99">其他错误照样抛出</text>
+        </g>
+        <!-- L7 发交易前再查链 -->
+        <g id="wa-L7">
+          <line id="wa-tg" class="dr" pathLength="1" x1="160" y1="480" x2="640" y2="480" stroke="#83C167" stroke-width="6" />
+          <text id="wa-tgl" class="h" x="400" y="440" font-size="30" fill="#83C167" text-anchor="middle">连接时在 Base</text>
+          <line id="wa-to" class="dr" pathLength="1" x1="640" y1="480" x2="1150" y2="480" stroke="#FF9F43" stroke-width="6" />
+          <text id="wa-tol" class="h" x="895" y="440" font-size="30" fill="#FF9F43" text-anchor="middle">用户中途切走</text>
+          <g id="wa-gate" class="h"><rect x="1160" y="380" width="30" height="360" rx="6" fill="#58C4DD" /><text x="1175" y="346" font-size="30" fill="#58C4DD" text-anchor="middle">发交易前再查一次链 ID</text></g>
+          <g id="wa-wrong" class="h"><rect x="1380" y="420" width="320" height="120" rx="16" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 7" /><text x="1540" y="492" font-size="32" fill="#FC6255" text-anchor="middle">错的链</text></g>
+          <g id="wa-x" class="h"><path d="M1730 456 L1786 512 M1786 456 L1730 512" stroke="#FC6255" stroke-width="7" stroke-linecap="round" /></g>
+          <g id="wa-txm"><g id="wa-tx" class="h"><rect x="200" y="620" width="540" height="80" rx="14" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="3" /><text class="mono" x="470" y="670" font-size="28" fill="#F0B90B" text-anchor="middle">writeContract({ …, chainId })</text></g></g>
+          <text id="wa-err" class="h" x="660" y="800" font-size="32" fill="#FC6255"><tspan class="mono">chainId</tspan> 不匹配 → 报错停下</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="wa-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">连接器 <tspan font-size="28" font-weight="400" fill="#8a8f99">Connector</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">wagmi 中适配某类钱包的模块</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const HL = (i, t, sel = "#wa-hl", y0 = 262) => tl.to(sel, { attr: { y: y0 + 40 * i }, duration: 0.4, ease: "power2.inOut" }, t);
+      const CELL = (k, col, t) => {
+        [0, 1, 2, 3].forEach(j => {
+          tl.to(`#wa-q${j}`, { stroke: j === k ? col : "#6b6f7a", fill: j === k ? col : "#0f1117", fillOpacity: j === k ? 0.18 : 1, duration: 0.3 }, t);
+          tl.to(`#wa-qt${j}`, { fill: j === k ? col : "#8a8f99", duration: 0.3 }, t);
+        });
+      };
+
+      // L0 四个 hook
+      IN("#wa-term", at(0, 0.05), 0.5);
+      IN("#wa-panel", at(0, 0.05), 0.6);
+      ["#wa-a0", "#wa-a2", "#wa-a3", "#wa-a4"].forEach((s, k) => IN(s, at(0, 0.15 + 0.06 * k), 0.5, { x: -12 }, { x: 0 }));
+      [0, 1, 2, 3].forEach(k => tl.to(`#wa-h${k}`, { fill: "#58C4DD", duration: 0.3 }, at(0, 0.45 + 0.12 * k)));
+
+      // L1 useAccount：地址、链、四种状态
+      IN("#wa-hl", at(1, 0), 0.4);
+      IN("#wa-a1", at(1, 0.05), 0.5, { x: -12 }, { x: 0 });
+      IN("#wa-card", at(1, 0.1), 0.6);
+      IN("#wa-cells", at(1, 0.35), 0.5);
+      CELL(3, "#8a8f99", at(1, 0.45));
+      CELL(0, "#58C4DD", at(1, 0.62));
+      CELL(1, "#FF9F43", at(1, 0.74));
+      CELL(2, "#83C167", at(1, 0.86));
+      IN("#wa-addr", at(1, 0.88), 0.5);
+      OUT("#wa-term", at(1, 0.2), 0.4);
+
+      // L2 useConnect：每个连接器一个按钮；拒绝不显示
+      HL(2, at(2, 0));
+      IN("#wa-a6", at(2, 0.12), 0.5, { x: -12 }, { x: 0 });
+      IN("#wa-a7", at(2, 0.16), 0.5, { x: -12 }, { x: 0 });
+      IN("#wa-a8", at(2, 0.2), 0.5, { x: -12 }, { x: 0 });
+      HL(8, at(2, 0.24));
+      ["#wa-b0", "#wa-b1", "#wa-b2"].forEach((s, k) => IN(s, at(2, 0.28 + 0.06 * k), 0.5, { y: 12 }, { y: 0 }));
+      HL(2, at(2, 0.5));
+      tl.to("#wa-b1r", { fill: "#58C4DD", fillOpacity: 0.2, duration: 0.2 }, at(2, 0.52));
+      tl.to("#wa-b1r", { fillOpacity: 0, duration: 0.3 }, at(2, 0.52) + 0.3);
+      IN("#wa-e0", at(2, 0.6), 0.5);
+      IN("#wa-e1", at(2, 0.85), 0.5, { x: -12 }, { x: 0 });
+
+      // L3 断开与切链
+      IN("#wa-a9", at(3, 0.02), 0.4); IN("#wa-a10", at(3, 0.4), 0.4);
+      HL(9, at(3, 0.02)); HL(10, at(3, 0.45));
+      IN("#wa-dis", at(3, 0.15), 0.5);
+
+      // L4 链不在配置里：chain 为空、chainId 仍有值
+      const t4 = at(4, 0);
+      OUT(["#wa-btns"], t4, 0.4);
+      HL(0, t4 + 0.1);
+      IN("#wa-cu", at(4, 0.2), 0.5);
+      tl.to("#wa-hl", { attr: { y: 302 }, duration: 0.4 }, at(4, 0.45));
+      IN("#wa-ci", at(4, 0.45), 0.5);
+      IN("#wa-nw", at(4, 0.72), 0.5);
+      IN("#wa-sw", at(4, 0.82), 0.5, { y: 12 }, { y: 0 });
+
+      // L5 切链遇 4902 自动添加
+      const t5 = at(5, 0);
+      OUT("#wa-code", t5 - 0.4, 0.4);
+      tl.to("#wa-swr", { fill: "#58C4DD", fillOpacity: 0.25, duration: 0.2 }, t5);
+      tl.to("#wa-swr", { fillOpacity: 0, duration: 0.3 }, t5 + 0.3);
+      IN("#wa-f1", t5 + 0.1, 0.5, { x: -16 }, { x: 0 });
+      ARROW("#wa-fa1", at(5, 0.22), 0.4);
+      IN("#wa-f2", at(5, 0.28), 0.4, { scale: 0.8, svgOrigin: "300 435" }, { scale: 1, svgOrigin: "300 435" });
+      ARROW("#wa-fa2", at(5, 0.45), 0.4);
+      IN("#wa-cfg", at(5, 0.5), 0.4);
+      ARROW("#wa-fa4", at(5, 0.55), 0.3);
+      IN("#wa-f3", at(5, 0.55), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#wa-fa3", at(5, 0.78), 0.4);
+      IN("#wa-f4", at(5, 0.84), 0.5);
+      OUT("#wa-uns", at(5, 0.84), 0.4);
+      IN("#wa-based", at(5, 0.84) + 0.45, 0.5);
+
+      // L6 手写版：只有 4902 走添加
+      const t6 = at(6, 0);
+      OUT("#wa-flow", t6 - 0.4, 0.4);
+      IN("#wa-hand", t6, 0.2);
+      IN("#wa-panel2", t6, 0.5);
+      for (let i = 0; i < 11; i++) IN(`#wa-w${i}`, t6 + 0.15 + 0.07 * i, 0.4, { x: -12 }, { x: 0 });
+      IN("#wa-hl2", at(6, 0.42), 0.4);
+      tl.to("#wa-w5", { fill: "#FF9F43", duration: 0.3 }, at(6, 0.42));
+      IN("#wa-hn1", at(6, 0.5), 0.5);
+      IN("#wa-hn2", at(6, 0.78), 0.5);
+
+      // L7 时间线：发交易前再查链
+      const t7 = at(7, 0);
+      OUT(["#wa-hand", "#wa-ui"], t7 - 0.4, 0.4);
+      DRAW("#wa-tg", t7 + 0.1, 0.8); IN("#wa-tgl", t7 + 0.3, 0.5);
+      DRAW("#wa-to", at(7, 0.12), 0.8); IN("#wa-tol", at(7, 0.14), 0.5);
+      IN("#wa-gate", at(7, 0.3), 0.5);
+      IN("#wa-wrong", at(7, 0.36), 0.5);
+      IN("#wa-tx", at(7, 0.48), 0.5);
+      tl.to("#wa-txm", { x: 390, duration: 1.4, ease: "power2.in" }, at(7, 0.55));
+      const tb = at(7, 0.55) + 1.4;
+      tl.to("#wa-gate rect", { fill: "#FC6255", duration: 0.2 }, tb);
+      tl.to("#wa-txm", { x: 360, duration: 0.3, ease: "back.out(3)" }, tb);
+      IN("#wa-x", tb + 0.2, 0.4, { scale: 0.5, svgOrigin: "1758 484" }, { scale: 1, svgOrigin: "1758 484" });
+      IN("#wa-err", tb + 0.4, 0.5);
+
+
+      tl.to("#wa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#wa-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["wagmi"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,364 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tables，id 前缀 ta- -->
+  <div id="root" data-composition-id="tables" data-duration="85.66" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ta-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ta-all">
+        <!-- 左侧 ER：8 张表卡片 -->
+        <g id="ta-links">
+          <path id="ta-e1" class="dr" pathLength="1" d="M400 280 L410 280 L410 362 L430 362" fill="none" stroke="#3a404c" stroke-width="2.5" />
+          <path id="ta-e2" class="dr" pathLength="1" d="M400 460 L418 460 L418 378 L430 378" fill="none" stroke="#3a404c" stroke-width="2.5" />
+          <path id="ta-e3" class="dr" pathLength="1" d="M400 640 L418 640 L418 394 L430 394" fill="none" stroke="#3a404c" stroke-width="2.5" />
+          <path id="ta-e4" class="dr" pathLength="1" d="M235 680 L235 780" fill="none" stroke="#3a404c" stroke-width="2.5" />
+          <path id="ta-e5" class="dr" pathLength="1" d="M605 410 L605 510" fill="none" stroke="#3a404c" stroke-width="2.5" />
+          <path id="ta-e6" class="dr" pathLength="1" d="M605 590 L605 690" fill="none" stroke="#3a404c" stroke-width="2.5" />
+          <path id="ta-e7" class="dr" pathLength="1" d="M605 770 L605 870" fill="none" stroke="#3a404c" stroke-width="2.5" />
+        </g>
+        <g id="ta-k1" class="h"><rect id="ta-k1r" x="70" y="240" width="330" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text id="ta-k1t" class="mono" x="90" y="290" font-size="28" fill="#e8e6df" xml:space="preserve">deposit_addresses</text></g>
+        <g id="ta-k2" class="h"><rect id="ta-k2r" x="70" y="420" width="330" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text id="ta-k2t" class="mono" x="90" y="470" font-size="28" fill="#e8e6df" xml:space="preserve">tokens</text></g>
+        <g id="ta-k3" class="h"><rect id="ta-k3r" x="70" y="600" width="330" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text id="ta-k3t" class="mono" x="90" y="650" font-size="28" fill="#e8e6df" xml:space="preserve">blocks</text></g>
+        <g id="ta-k4" class="h"><rect id="ta-k4r" x="70" y="780" width="330" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text id="ta-k4t" class="mono" x="90" y="830" font-size="28" fill="#e8e6df" xml:space="preserve">cursors</text></g>
+        <g id="ta-k5" class="h"><rect id="ta-k5r" x="430" y="330" width="350" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text id="ta-k5t" class="mono" x="450" y="380" font-size="28" fill="#e8e6df" xml:space="preserve">deposits</text></g>
+        <g id="ta-k6" class="h"><rect id="ta-k6r" x="430" y="510" width="350" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text id="ta-k6t" class="mono" x="450" y="560" font-size="28" fill="#e8e6df" xml:space="preserve">ledger_entries</text></g>
+        <g id="ta-k7" class="h"><rect id="ta-k7r" x="430" y="690" width="350" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text id="ta-k7t" class="mono" x="450" y="740" font-size="28" fill="#e8e6df" xml:space="preserve">outbox</text></g>
+        <g id="ta-k8" class="h"><rect id="ta-k8r" x="430" y="870" width="350" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text id="ta-k8t" class="mono" x="450" y="920" font-size="28" fill="#e8e6df" xml:space="preserve">webhook_deliveries</text></g>
+
+        <!-- L0 两条规矩 -->
+        <text id="ta-r1" class="h" x="1330" y="500" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">金额 → <tspan class="mono" fill="#F0B90B">NUMERIC(78,0)</tspan></text>
+        <text id="ta-r2" class="h" x="1330" y="620" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">哈希 / 地址 → <tspan class="mono" fill="#58C4DD">BYTEA</tspan></text>
+
+        <!-- 右侧代码面板 -->
+        <rect id="ta-pan" class="h" x="820" y="220" width="1020" height="490" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+        <g id="ta-hl" class="h">
+          <rect x="822" y="249" width="1016" height="41" fill="#58C4DD" opacity="0.15" />
+          <rect x="822" y="249" width="6" height="41" fill="#58C4DD" />
+        </g>
+        <g id="ta-hlg" class="h">
+          <rect x="822" y="577" width="1016" height="123" fill="#83C167" opacity="0.15" />
+          <rect x="822" y="577" width="6" height="123" fill="#83C167" />
+        </g>
+
+        <g id="ta-c1" class="h">
+          <text class="mono" id="ta-c1l-0" x="850" y="278" font-size="28" fill="#e8e6df" xml:space="preserve">CREATE TABLE deposit_addresses (</text>
+          <text class="mono" id="ta-c1l-1" x="850" y="319" font-size="28" fill="#e8e6df" xml:space="preserve">  chain_id     BIGINT NOT NULL,</text>
+          <text class="mono" id="ta-c1l-2" x="850" y="360" font-size="28" fill="#e8e6df" xml:space="preserve">  address      <tspan fill="#58C4DD">BYTEA</tspan>  NOT NULL,</text>
+          <text class="mono" id="ta-c1l-3" x="850" y="401" font-size="28" fill="#e8e6df" xml:space="preserve">  derive_index BIGINT NOT NULL,</text>
+          <text class="mono" id="ta-c1l-4" x="850" y="442" font-size="28" fill="#e8e6df" xml:space="preserve">  user_id      BIGINT,</text>
+          <text class="mono" id="ta-c1l-5" x="850" y="483" font-size="28" fill="#e8e6df" xml:space="preserve">  UNIQUE (chain_id, address),</text>
+          <text class="mono" id="ta-c1l-6" x="850" y="524" font-size="28" fill="#e8e6df" xml:space="preserve">  UNIQUE (chain_id, derive_index)</text>
+          <text class="mono" id="ta-c1l-7" x="850" y="565" font-size="28" fill="#e8e6df" xml:space="preserve">);</text>
+          <text class="mono" id="ta-c1l-8" x="850" y="606" font-size="28" fill="#e8e6df" xml:space="preserve">CREATE UNIQUE INDEX uq_addr_user</text>
+          <text class="mono" id="ta-c1l-9" x="850" y="647" font-size="28" fill="#e8e6df" xml:space="preserve">  ON deposit_addresses(chain_id, user_id)</text>
+          <text class="mono" id="ta-c1l-10" x="850" y="688" font-size="28" fill="#e8e6df" xml:space="preserve">  WHERE user_id IS NOT NULL;</text>
+          <text x="1600" y="360" font-size="28" fill="#8a8f99">20 字节</text>
+          <text x="1600" y="401" font-size="28" fill="#8a8f99">HD 派生序号</text>
+          <text x="1600" y="442" font-size="28" fill="#8a8f99">NULL = 空闲</text>
+        </g>
+        <text id="ta-c1n" class="h" x="1600" y="688" font-size="28" font-weight="700" fill="#83C167">每人一个地址</text>
+
+        <g id="ta-c2" class="h">
+          <text class="mono" id="ta-c2l-0" x="850" y="278" font-size="28" fill="#e8e6df" xml:space="preserve">CREATE TABLE tokens (</text>
+          <text class="mono" id="ta-c2l-1" x="850" y="319" font-size="28" fill="#e8e6df" xml:space="preserve">  symbol        TEXT,</text>
+          <text class="mono" id="ta-c2l-2" x="850" y="360" font-size="28" fill="#e8e6df" xml:space="preserve">  contract      <tspan fill="#58C4DD">BYTEA</tspan>,</text>
+          <text class="mono" id="ta-c2l-3" x="850" y="401" font-size="28" fill="#e8e6df" xml:space="preserve">  decimals      INT,</text>
+          <text class="mono" id="ta-c2l-4" x="850" y="442" font-size="28" fill="#e8e6df" xml:space="preserve">  min_deposit   <tspan fill="#F0B90B">NUMERIC(78,0)</tspan>,</text>
+          <text class="mono" id="ta-c2l-5" x="850" y="483" font-size="28" fill="#e8e6df" xml:space="preserve">  confirm_rules JSONB,</text>
+          <text class="mono" id="ta-c2l-6" x="850" y="524" font-size="28" fill="#e8e6df" xml:space="preserve">  enabled       BOOLEAN</text>
+          <text class="mono" id="ta-c2l-7" x="850" y="565" font-size="28" fill="#e8e6df" xml:space="preserve">);</text>
+          <text x="1420" y="360" font-size="28" fill="#8a8f99">ETH 为 NULL</text>
+          <text x="1420" y="442" font-size="28" fill="#8a8f99">防粉尘</text>
+          <text x="1420" y="483" font-size="28" fill="#8a8f99">按金额分档</text>
+        </g>
+
+        <!-- L3 算一算卡 -->
+        <g id="ta-calc" class="h">
+          <rect x="820" y="620" width="1020" height="370" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2" />
+          <text x="1810" y="664" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+          <text x="850" y="680" font-size="32" fill="#e8e6df"><tspan class="mono" fill="#F0B90B">DAI</tspan>：<tspan class="mono">decimals = 18</tspan></text>
+        </g>
+        <g id="ta-json" class="h">
+          <text class="mono" id="ta-jl-0" x="850" y="750" font-size="28" fill="#e8e6df" xml:space="preserve">[{"min":"0","conf":12},</text>
+          <text class="mono" id="ta-jl-1" x="850" y="791" font-size="28" fill="#e8e6df" xml:space="preserve"> {"min":"<tspan fill="#F0B90B">10000000000000000000000</tspan>","conf":64}]</text>
+        </g>
+        <text id="ta-pow" class="h" x="850" y="945" font-size="40" font-weight="700" fill="#F0B90B"><tspan id="ta-pw1">1 万 × 10</tspan><tspan id="ta-pw2" font-size="28" dy="-16">18</tspan><tspan id="ta-pw3" fill-opacity="0" dy="16"> = 10</tspan><tspan id="ta-pw4" fill-opacity="0" font-size="28" dy="-16">22</tspan></text>
+        <g id="ta-brace" class="h">
+          <path d="M1018 808 Q1018 820 1030 820 L1190 820 Q1203 820 1203 832 Q1203 820 1216 820 L1376 820 Q1388 820 1388 808" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+          <text x="1203" y="868" font-size="28" fill="#F0B90B" text-anchor="middle">22 个 0</text>
+        </g>
+
+        <!-- L4 blocks / cursors -->
+        <g id="ta-chain" class="h">
+          <line x1="990" y1="300" x2="1020" y2="300" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1150" y1="300" x2="1180" y2="300" stroke="#58C4DD" stroke-width="3" />
+          <rect x="860" y="260" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect x="1020" y="260" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect id="ta-b102" x="1180" y="260" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="925" y="310" font-size="30" fill="#e8e6df" text-anchor="middle" xml:space="preserve">100</text>
+          <text class="mono" x="1085" y="310" font-size="30" fill="#e8e6df" text-anchor="middle" xml:space="preserve">101</text>
+          <text class="mono" x="1245" y="310" font-size="30" fill="#e8e6df" text-anchor="middle" xml:space="preserve">102</text>
+        </g>
+        <g id="ta-tail" class="h">
+          <line x1="1310" y1="300" x2="1340" y2="300" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1470" y1="300" x2="1500" y2="300" stroke="#58C4DD" stroke-width="3" />
+          <rect id="ta-b103" x="1340" y="260" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect id="ta-b104" x="1500" y="260" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="1405" y="310" font-size="30" fill="#e8e6df" text-anchor="middle" xml:space="preserve">103</text>
+          <text class="mono" x="1565" y="310" font-size="30" fill="#e8e6df" text-anchor="middle" xml:space="preserve">104</text>
+        </g>
+        <path id="ta-cut" class="dr" pathLength="1" d="M1330 245 L1380 290 L1420 255 L1470 320 L1520 262 L1570 330 L1610 270 L1650 352" fill="none" stroke="#FC6255" stroke-width="6" stroke-linejoin="round" />
+        <text id="ta-anc" class="h" x="1245" y="396" font-size="28" fill="#8a8f99" text-anchor="middle">共同祖先</text>
+        <text id="ta-del" class="h" x="1495" y="396" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">删共同祖先之后</text>
+        <g id="ta-btab" class="h">
+          <rect x="860" y="430" width="640" height="290" rx="10" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <text class="mono" x="890" y="470" font-size="28" fill="#8a8f99" xml:space="preserve">number   hash</text>
+          <text class="mono" x="890" y="520" font-size="28" fill="#e8e6df" xml:space="preserve">100      0x8f3a…</text>
+          <text class="mono" x="890" y="562" font-size="28" fill="#e8e6df" xml:space="preserve">101      0x2c71…</text>
+          <text class="mono" x="890" y="604" font-size="28" fill="#e8e6df" xml:space="preserve">102      0x5c1e…</text>
+        </g>
+        <g id="ta-brow" class="h">
+          <text id="ta-br3" class="mono" x="890" y="646" font-size="28" fill="#e8e6df" xml:space="preserve">103      0xd04b…</text>
+          <text id="ta-br4" class="mono" x="890" y="688" font-size="28" fill="#e8e6df" xml:space="preserve">104      0x91aa…</text>
+        </g>
+        <g id="ta-cur" class="h">
+          <rect x="860" y="770" width="960" height="160" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <text class="mono" x="890" y="830" font-size="30" fill="#e8e6df" xml:space="preserve">(chain, name) → height, hash</text>
+          <text class="mono" x="890" y="895" font-size="28" fill="#8a8f99" xml:space="preserve">(1, 'scanner') → 102, 0x5c1e…</text>
+        </g>
+
+        <!-- L5 deposits -->
+        <g id="ta-c5" class="h">
+          <text class="mono" id="ta-c5l-0" x="850" y="278" font-size="28" fill="#e8e6df" xml:space="preserve">CREATE TABLE deposits (</text>
+          <text class="mono" id="ta-c5l-1" x="850" y="319" font-size="28" fill="#e8e6df" xml:space="preserve">  tx_hash       <tspan fill="#58C4DD">BYTEA</tspan>,</text>
+          <text class="mono" id="ta-c5l-2" x="850" y="360" font-size="28" fill="#e8e6df" xml:space="preserve">  log_index     INT,</text>
+          <text class="mono" id="ta-c5l-3" x="850" y="401" font-size="28" fill="#e8e6df" xml:space="preserve">  block_number  BIGINT,</text>
+          <text class="mono" id="ta-c5l-4" x="850" y="442" font-size="28" fill="#e8e6df" xml:space="preserve">  block_hash    <tspan fill="#58C4DD">BYTEA</tspan>,</text>
+          <text class="mono" id="ta-c5l-5" x="850" y="483" font-size="28" fill="#e8e6df" xml:space="preserve">  token_id      BIGINT,</text>
+          <text class="mono" id="ta-c5l-6" x="850" y="524" font-size="28" fill="#e8e6df" xml:space="preserve">  amount        <tspan fill="#F0B90B">NUMERIC(78,0)</tspan>,</text>
+          <text class="mono" id="ta-c5l-7" x="850" y="565" font-size="28" fill="#e8e6df" xml:space="preserve">  user_id       BIGINT,</text>
+          <text class="mono" id="ta-c5l-8" x="850" y="606" font-size="28" fill="#e8e6df" xml:space="preserve">  required_conf INT,</text>
+          <text class="mono" id="ta-c5l-9" x="850" y="647" font-size="28" fill="#e8e6df" xml:space="preserve">  status        TEXT</text>
+          <text class="mono" id="ta-c5l-10" x="850" y="688" font-size="28" fill="#e8e6df" xml:space="preserve">);</text>
+        </g>
+        <text id="ta-c5n" class="h" x="1420" y="360" font-size="28" font-weight="700" fill="#FF9F43">原生 ETH 记 -1</text>
+        <g id="ta-chips" class="h">
+          <rect x="850" y="740" width="150" height="54" rx="10" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+          <text class="mono" x="925" y="777" font-size="28" fill="#FF9F43" text-anchor="middle" xml:space="preserve">pending</text>
+          <rect x="1020" y="740" width="170" height="54" rx="10" fill="none" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="1105" y="777" font-size="28" fill="#83C167" text-anchor="middle" xml:space="preserve">credited</text>
+          <rect x="1210" y="740" width="170" height="54" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="1295" y="777" font-size="28" fill="#8a8f99" text-anchor="middle" xml:space="preserve">orphaned</text>
+          <rect x="1400" y="740" width="170" height="54" rx="10" fill="none" stroke="#FC6255" stroke-width="2.5" />
+          <text class="mono" x="1485" y="777" font-size="28" fill="#FC6255" text-anchor="middle" xml:space="preserve">reverted</text>
+        </g>
+
+        <!-- L6 ledger_entries -->
+        <g id="ta-c6" class="h">
+          <text class="mono" id="ta-c6l-0" x="850" y="278" font-size="28" fill="#e8e6df" xml:space="preserve">CREATE TABLE ledger_entries (</text>
+          <text class="mono" id="ta-c6l-1" x="850" y="319" font-size="28" fill="#e8e6df" xml:space="preserve">  deposit_id BIGINT REFERENCES deposits(id),</text>
+          <text class="mono" id="ta-c6l-2" x="850" y="360" font-size="28" fill="#e8e6df" xml:space="preserve">  amount     <tspan fill="#F0B90B">NUMERIC(78,0)</tspan>,</text>
+          <text class="mono" id="ta-c6l-3" x="850" y="401" font-size="28" fill="#e8e6df" xml:space="preserve">  kind       TEXT CHECK (kind IN ('credit','reverse')),</text>
+          <text class="mono" id="ta-c6l-4" x="850" y="442" font-size="28" fill="#e8e6df" xml:space="preserve">  UNIQUE (deposit_id, kind)</text>
+          <text class="mono" id="ta-c6l-5" x="850" y="483" font-size="28" fill="#e8e6df" xml:space="preserve">);</text>
+          <text x="1420" y="360" font-size="28" fill="#8a8f99">冲正为负数</text>
+        </g>
+        <g id="ta-lg" class="h">
+          <rect x="850" y="580" width="440" height="200" rx="10" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <text class="mono" x="880" y="620" font-size="28" fill="#8a8f99" xml:space="preserve">id  kind     amount</text>
+        </g>
+        <g id="ta-ra" class="h">
+          <rect x="866" y="640" width="408" height="52" rx="8" fill="#0f1117" stroke="#83C167" stroke-width="2" />
+          <text class="mono" x="880" y="676" font-size="28" fill="#e8e6df" xml:space="preserve">7   credit   <tspan fill="#F0B90B">+100</tspan></text>
+        </g>
+        <g id="ta-rb" class="h">
+          <rect id="ta-rbr" x="866" y="704" width="408" height="52" rx="8" fill="#0f1117" stroke="#83C167" stroke-width="2" />
+          <text class="mono" x="880" y="740" font-size="28" fill="#e8e6df" xml:space="preserve">7   credit   <tspan fill="#F0B90B">+100</tspan></text>
+        </g>
+        <text id="ta-rbx" class="h" x="1330" y="740" font-size="30" font-weight="700" fill="#FC6255">× <tspan class="mono">UNIQUE</tspan> 挡回</text>
+        <g id="ta-rc" class="h">
+          <rect x="866" y="704" width="408" height="52" rx="8" fill="#0f1117" stroke="#FC6255" stroke-width="2" />
+          <text class="mono" x="880" y="740" font-size="28" fill="#e8e6df" xml:space="preserve">7   reverse  <tspan fill="#FC6255">-100</tspan></text>
+        </g>
+        <text id="ta-rcok" class="h" x="1330" y="740" font-size="30" font-weight="700" fill="#83C167">✓ 允许一次</text>
+        <text id="ta-idem" class="h" x="1330" y="640" font-size="34" font-weight="700" fill="#83C167">数据库层幂等</text>
+
+        <!-- L7 outbox / webhook_deliveries -->
+        <g id="ta-ob" class="h">
+          <rect x="850" y="240" width="960" height="190" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <text class="mono" x="880" y="290" font-size="28" fill="#8a8f99" xml:space="preserve">topic</text>
+          <text class="mono" x="1220" y="290" font-size="28" fill="#8a8f99" xml:space="preserve">key</text>
+          <text class="mono" x="1380" y="290" font-size="28" fill="#8a8f99" xml:space="preserve">payload</text>
+          <text class="mono" x="1560" y="290" font-size="28" fill="#8a8f99" xml:space="preserve">sent_at</text>
+          <text class="mono" x="880" y="370" font-size="28" fill="#e8e6df" xml:space="preserve">deposit.credited</text>
+          <text class="mono" x="1220" y="370" font-size="28" fill="#e8e6df" xml:space="preserve">10086</text>
+          <text class="mono" x="1380" y="370" font-size="28" fill="#e8e6df" xml:space="preserve">{…}</text>
+        </g>
+        <rect id="ta-sa" class="h" x="1550" y="330" width="240" height="56" rx="8" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+        <text id="ta-sat" class="h mono" x="1670" y="370" font-size="28" fill="#83C167" text-anchor="middle" xml:space="preserve">12:00:03</text>
+        <text id="ta-san1" class="h" x="1670" y="476" font-size="28" fill="#FF9F43" text-anchor="middle">空 = 未发</text>
+        <text id="ta-san2" class="h" x="1670" y="476" font-size="28" fill="#83C167" text-anchor="middle">已发出</text>
+        <g id="ta-wh" class="h">
+          <rect x="850" y="560" width="960" height="190" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <text class="mono" x="880" y="610" font-size="28" fill="#8a8f99" xml:space="preserve">url</text>
+          <text class="mono" x="1560" y="610" font-size="28" fill="#8a8f99" xml:space="preserve">attempts</text>
+          <text class="mono" x="880" y="690" font-size="28" fill="#B48EF0" xml:space="preserve">https://shop.example/hook</text>
+        </g>
+        <text id="ta-att" class="h mono" x="1625" y="694" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle" xml:space="preserve">1</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const ROW = 41;
+      const HL = (i, t) => tl.to("#ta-hl", { y: i * ROW, duration: 0.35, ease: "power2.inOut" }, t);
+      const DIM = (k, t) => {
+        tl.to(`#ta-k${k}r`, { attr: { stroke: "#2a2f3a" }, duration: 0.4 }, t);
+        tl.to(`#ta-k${k}t`, { attr: { fill: "#8a8f99" }, duration: 0.4 }, t);
+      };
+      const CARD = (k, t) => IN(`#ta-k${k}`, t, 0.5, { x: -16 }, { x: 0 });
+      const SWAP = (oldSel, newSel, t) => { OUT(oldSel, t, 0.3); IN(newSel, t + 0.35, 0.5); };
+
+      // L0 两条规矩
+      IN("#ta-r1", at(0, 0.12), 0.7, { y: 16 }, { y: 0 });
+      IN("#ta-r2", at(0, 0.58), 0.7, { y: 16 }, { y: 0 });
+
+      // L1 地址池表
+      OUT("#ta-r1, #ta-r2", at(1, 0) - 0.3, 0.3);
+      CARD(1, at(1, 0.02));
+      IN("#ta-pan", at(1, 0.04), 0.5);
+      IN("#ta-c1", at(1, 0.08), 0.6);
+      IN("#ta-hl", at(1, 0.14), 0.3);
+      HL(1, at(1, 0.14));
+      HL(2, at(1, 0.24));
+      HL(3, at(1, 0.33));
+      HL(4, at(1, 0.42));
+      HL(5, at(1, 0.55));
+      HL(6, at(1, 0.63));
+      OUT("#ta-hl", at(1, 0.74), 0.25);
+      IN("#ta-hlg", at(1, 0.76), 0.4);
+      IN("#ta-c1n", at(1, 0.8), 0.5);
+
+      // L2 代币表
+      OUT("#ta-hlg, #ta-c1n", at(2, 0), 0.3);
+      SWAP("#ta-c1", "#ta-c2", at(2, 0));
+      tl.to("#ta-pan", { attr: { height: 367 }, duration: 0.5, ease: "power2.inOut" }, at(2, 0.02));
+      DIM(1, at(2, 0));
+      CARD(2, at(2, 0.04));
+      tl.set("#ta-hl", { y: 2 * ROW }, at(2, 0.05));
+      IN("#ta-hl", at(2, 0.12), 0.3);
+      HL(3, at(2, 0.3));
+      HL(4, at(2, 0.45));
+      HL(5, at(2, 0.76));
+
+      // L3 算一算：DAI 门槛
+      IN("#ta-calc", at(3, 0.03), 0.6, { y: 16 }, { y: 0 });
+      IN("#ta-json", at(3, 0.22), 0.6);
+      IN("#ta-pow", at(3, 0.5), 0.5, { x: -12 }, { x: 0 });
+      tl.to("#ta-pw3, #ta-pw4", { attr: { "fill-opacity": 1 }, duration: 0.4 }, at(3, 0.7));
+      IN("#ta-brace", at(3, 0.73), 0.5);
+
+      // L4 区块表 + 游标表
+      OUT("#ta-pan, #ta-c2, #ta-hl, #ta-calc, #ta-json, #ta-brace, #ta-pow", at(4, 0) - 0.3, 0.3);
+      DIM(2, at(4, 0));
+      CARD(3, at(4, 0.02));
+      IN("#ta-chain", at(4, 0.05), 0.5);
+      IN("#ta-tail", at(4, 0.08), 0.5);
+      IN("#ta-btab, #ta-brow", at(4, 0.12), 0.5);
+      DRAW("#ta-cut", at(4, 0.26), 0.5);
+      tl.to("#ta-b103, #ta-b104", { attr: { stroke: "#FC6255", "stroke-dasharray": "10 8" }, duration: 0.3 }, at(4, 0.3));
+      IN("#ta-anc", at(4, 0.28), 0.4);
+      IN("#ta-del", at(4, 0.32), 0.4);
+      tl.to("#ta-br3, #ta-br4", { attr: { fill: "#FC6255" }, duration: 0.3 }, at(4, 0.34));
+      OUT("#ta-brow", at(4, 0.44), 0.5);
+      OUT("#ta-tail, #ta-cut", at(4, 0.5), 0.5);
+      CARD(4, at(4, 0.55));
+      DRAW("#ta-e4", at(4, 0.58), 0.5);
+      IN("#ta-cur", at(4, 0.6), 0.6, { y: 16 }, { y: 0 });
+
+      // L5 充值表
+      OUT("#ta-chain, #ta-anc, #ta-del, #ta-btab, #ta-cur", at(5, 0) - 0.3, 0.3);
+      DIM(3, at(5, 0)); DIM(4, at(5, 0));
+      CARD(5, at(5, 0.02));
+      DRAW("#ta-e1", at(5, 0.06), 0.5); DRAW("#ta-e2", at(5, 0.06), 0.5); DRAW("#ta-e3", at(5, 0.06), 0.5);
+      tl.to("#ta-pan", { attr: { height: 490 }, duration: 0.01 }, at(5, 0));
+      IN("#ta-pan", at(5, 0.04), 0.4);
+      IN("#ta-c5", at(5, 0.08), 0.6);
+      tl.set("#ta-hl", { y: 0 }, at(5, 0));
+      IN("#ta-hl", at(5, 0.12), 0.3);
+      HL(1, at(5, 0.12));
+      HL(3, at(5, 0.22));
+      HL(6, at(5, 0.3));
+      HL(7, at(5, 0.36));
+      HL(8, at(5, 0.42));
+      HL(9, at(5, 0.5));
+      IN("#ta-chips", at(5, 0.52), 0.6);
+      HL(2, at(5, 0.66));
+      IN("#ta-c5n", at(5, 0.7), 0.5);
+
+      // L6 账本流水
+      OUT("#ta-c5, #ta-c5n, #ta-chips, #ta-hl", at(6, 0) - 0.3, 0.3);
+      DIM(5, at(6, 0));
+      CARD(6, at(6, 0.02));
+      DRAW("#ta-e5", at(6, 0.04), 0.5);
+      tl.to("#ta-pan", { attr: { height: 285 }, duration: 0.5, ease: "power2.inOut" }, at(6, 0));
+      IN("#ta-c6", at(6, 0.04), 0.6);
+      tl.set("#ta-hl", { y: 4 * ROW }, at(6, 0.05));
+      tl.set("#ta-hl rect", { attr: { fill: "#83C167" } }, at(6, 0.05));
+      IN("#ta-lg", at(6, 0.12), 0.5);
+      IN("#ta-ra", at(6, 0.2), 0.5, { x: 60 }, { x: 0 });
+      IN("#ta-rb", at(6, 0.33), 0.5, { x: 60 }, { x: 0 });
+      tl.to("#ta-rbr", { attr: { stroke: "#FC6255" }, duration: 0.2 }, at(6, 0.33) + 0.55);
+      tl.to("#ta-rb", { x: 14, duration: 0.08, yoyo: true, repeat: 3 }, at(6, 0.33) + 0.6);
+      IN("#ta-rbx", at(6, 0.33) + 0.7, 0.3);
+      OUT("#ta-rb", at(6, 0.33) + 1.3, 0.4);
+      OUT("#ta-rbx", at(6, 0.52), 0.3);
+      IN("#ta-rc", at(6, 0.56), 0.5, { y: 12 }, { y: 0 });
+      IN("#ta-rcok", at(6, 0.6), 0.4);
+      IN("#ta-hl", at(6, 0.13), 0.3);
+      IN("#ta-idem", at(6, 0.84), 0.5);
+
+      // L7 发件箱 + 回调投递
+      OUT("#ta-pan, #ta-c6, #ta-hl, #ta-lg, #ta-ra, #ta-rc, #ta-rcok, #ta-idem", at(7, 0) - 0.3, 0.3);
+      DIM(6, at(7, 0));
+      CARD(7, at(7, 0.02));
+      DRAW("#ta-e6", at(7, 0.04), 0.5);
+      IN("#ta-ob", at(7, 0.06), 0.5);
+      IN("#ta-sa", at(7, 0.1), 0.4);
+      IN("#ta-san1", at(7, 0.16), 0.4);
+      OUT("#ta-san1", at(7, 0.36), 0.25);
+      tl.to("#ta-sa", { attr: { stroke: "#83C167" }, duration: 0.3 }, at(7, 0.38));
+      IN("#ta-sat", at(7, 0.38), 0.4);
+      IN("#ta-san2", at(7, 0.42), 0.4);
+      CARD(8, at(7, 0.55));
+      DRAW("#ta-e7", at(7, 0.57), 0.5);
+      IN("#ta-wh", at(7, 0.58), 0.5);
+      IN("#ta-att", at(7, 0.62), 0.3);
+      COUNT("#ta-att", 1, 3, at(7, 0.7), 1.6);
+
+      tl.to("#ta-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tables"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,339 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 retry，id 前缀 ry- -->
+  <div id="root" data-composition-id="retry" data-duration="98.81" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ry-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ry-all">
+        <defs><marker id="ry-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker><marker id="ry-arrY" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker></defs>
+        <g id="ry-nav">
+          <line id="ry-navl" class="h" x1="130" y1="300" x2="130" y2="660" stroke="#3a3f4a" stroke-width="3" />
+          <circle id="ry-nc0" class="h" cx="130" cy="300" r="16" fill="#0f1117" stroke="#6b6f7a" stroke-width="3" />
+          <text id="ry-nt0" class="h" x="170" y="311" font-size="32" fill="#6b6f7a">超时</text>
+          <circle id="ry-nc1" class="h" cx="130" cy="420" r="16" fill="#0f1117" stroke="#6b6f7a" stroke-width="3" />
+          <text id="ry-nt1" class="h" x="170" y="431" font-size="32" fill="#6b6f7a">重试</text>
+          <circle id="ry-nc2" class="h" cx="130" cy="540" r="16" fill="#0f1117" stroke="#6b6f7a" stroke-width="3" />
+          <text id="ry-nt2" class="h" x="170" y="551" font-size="32" fill="#6b6f7a">批量限流</text>
+          <circle id="ry-nc3" class="h" cx="130" cy="660" r="16" fill="#0f1117" stroke="#6b6f7a" stroke-width="3" />
+          <text id="ry-nt3" class="h" x="170" y="671" font-size="32" fill="#6b6f7a">熔断</text>
+        </g>
+        <g id="ry-loop" class="h">
+          <circle cx="880" cy="580" r="170" fill="none" stroke="#58C4DD" stroke-width="4" opacity="0.4" />
+          <g id="ry-rot">
+            <path d="M880 410 A170 170 0 1 1 710 580" fill="none" stroke="#58C4DD" stroke-width="5" marker-end="url(#ry-arrB)" />
+            <circle cx="1050" cy="580" r="12" fill="#58C4DD" />
+            <circle cx="880" cy="750" r="12" fill="#58C4DD" />
+            <circle cx="760" cy="460" r="12" fill="#58C4DD" />
+          </g>
+          <text x="880" y="592" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">扫块循环</text>
+        </g>
+        <g id="ry-hg" class="h">
+          <rect x="1030" y="330" width="120" height="120" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <path d="M1066 352 H1114 L1090 390 L1114 428 H1066 L1090 390 Z" fill="none" stroke="#FF9F43" stroke-width="4" stroke-linejoin="round" />
+          <path d="M1078 420 H1102 L1090 404 Z" fill="#FF9F43" />
+        </g>
+        <line id="ry-cut" class="dr" pathLength="1" x1="1010" y1="470" x2="1170" y2="310" stroke="#FC6255" stroke-width="6" />
+        <g id="ry-sw" class="h">
+          <circle cx="1400" cy="560" r="70" fill="#161a22" stroke="#e8e6df" stroke-width="4" />
+          <rect x="1386" y="470" width="28" height="18" rx="4" fill="#e8e6df" />
+          <line id="ry-swh" x1="1400" y1="560" x2="1400" y2="508" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+        </g>
+        <text id="ry-sw1" class="h" x="1500" y="550" font-size="32" fill="#e8e6df">普通读 <tspan fill="#58C4DD" font-weight="700">5 s</tspan></text>
+        <text id="ry-sw2" class="h" x="1500" y="606" font-size="32" fill="#e8e6df">getLogs <tspan fill="#58C4DD" font-weight="700">15 s</tspan></text>
+        <g id="ry-bk1" class="h">
+          <path d="M560 420 L600 900 H1080 L1120 420" fill="none" stroke="#83C167" stroke-width="4" stroke-linejoin="round" />
+          <text x="840" y="380" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">重试 ✓</text>
+        </g>
+        <g id="ry-bk2" class="h">
+          <path d="M1260 420 L1300 900 H1740 L1780 420" fill="none" stroke="#FC6255" stroke-width="4" stroke-linejoin="round" />
+          <text x="1520" y="380" font-size="38" font-weight="700" fill="#FC6255" text-anchor="middle">不重试 ✕</text>
+        </g>
+        <g id="ry-ch0m"><g id="ry-ch0" class="h"><rect x="700" y="820" width="280" height="64" rx="32" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="840" y="863" font-size="32" fill="#e8e6df" text-anchor="middle">网络错误</text></g></g>
+        <g id="ry-ch1m"><g id="ry-ch1" class="h"><rect x="700" y="736" width="280" height="64" rx="32" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="840" y="779" font-size="32" fill="#e8e6df" text-anchor="middle">5xx</text></g></g>
+        <g id="ry-ch2m"><g id="ry-ch2" class="h"><rect x="700" y="652" width="280" height="64" rx="32" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="840" y="695" font-size="32" fill="#e8e6df" text-anchor="middle">429</text></g></g>
+        <g id="ry-ch3m"><g id="ry-ch3" class="h"><rect x="700" y="568" width="280" height="64" rx="32" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="840" y="611" font-size="32" fill="#e8e6df" text-anchor="middle">-32603</text></g></g>
+        <g id="ry-chxm"><g id="ry-chx" class="h"><rect x="1340" y="820" width="360" height="64" rx="32" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text x="1520" y="863" font-size="32" fill="#FC6255" text-anchor="middle">-32602 参数错误</text></g></g>
+        <text id="ry-f" class="h" x="1160" y="560" font-size="44" fill="#6b6f7a" text-anchor="middle">等待 = <tspan id="ry-fa">min(上限, </tspan><tspan id="ry-fb">基数 × 2<tspan font-size="30" dy="-20">次数</tspan><tspan dy="20">)</tspan></tspan> <tspan id="ry-fc">× 随机(0.5–1.5)</tspan></text>
+        <text id="ry-fl" class="h" x="1160" y="660" font-size="30" fill="#8a8f99" text-anchor="middle">指数增长 · 封顶 · 加抖动</text>
+        <g id="ry-ax" class="h">
+          <line x1="680" y1="880" x2="1380" y2="880" stroke="#8a8f99" stroke-width="3" />
+          <text x="760" y="926" font-size="28" fill="#8a8f99" text-anchor="middle">第 1 次</text>
+          <text x="960" y="926" font-size="28" fill="#8a8f99" text-anchor="middle">第 2 次</text>
+          <text x="1160" y="926" font-size="28" fill="#8a8f99" text-anchor="middle">第 3 次</text>
+        </g>
+        <text id="ry-ex" class="h" x="1820" y="250" font-size="28" fill="#6b6f7a" text-anchor="end">示例：基数 0.5 s，上限 8 s</text>
+        <line id="ry-capd" class="h" x1="680" y1="320" x2="1380" y2="320" stroke="#FF9F43" stroke-width="3" stroke-dasharray="14 10" />
+        <text id="ry-capt" class="h" x="1400" y="330" font-size="30" fill="#FF9F43">上限 8 s</text>
+        <rect id="ry-bar0" class="h" x="700" y="810" width="120" height="70" fill="#58C4DD" fill-opacity="0.7" />
+        <text id="ry-bt0" class="h" x="760" y="794" font-size="30" fill="#e8e6df" text-anchor="middle">1 s</text>
+        <rect id="ry-bar1" class="h" x="900" y="740" width="120" height="140" fill="#58C4DD" fill-opacity="0.7" />
+        <text id="ry-bt1" class="h" x="960" y="724" font-size="30" fill="#e8e6df" text-anchor="middle">2 s</text>
+        <rect id="ry-bar2" class="h" x="1100" y="600" width="120" height="280" fill="#58C4DD" fill-opacity="0.7" />
+        <text id="ry-bt2" class="h" x="1160" y="584" font-size="30" fill="#e8e6df" text-anchor="middle">4 s</text>
+        <g id="ry-jit" class="h">
+          <path d="M1250 740 H1270 V460 H1250" fill="none" stroke="#F0B90B" stroke-width="3" />
+          <text x="1290" y="610" font-size="32" font-weight="700" fill="#F0B90B">2–6 秒</text>
+        </g>
+        <g id="ry-nd" class="h">
+          <rect x="1540" y="300" width="240" height="580" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="1660" y="600" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">节点</text>
+        </g>
+        <g id="ry-txm"><g id="ry-tx" class="h">
+          <rect x="560" y="340" width="150" height="90" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <path d="M560 360 L635 395 L710 360" fill="none" stroke="#F0B90B" stroke-width="3" />
+          <text class="mono" x="635" y="470" font-size="28" fill="#F0B90B" text-anchor="middle">raw tx</text>
+        </g></g>
+        <path id="ry-ta1" class="dr h" pathLength="1" d="M730 370 H1528" fill="none" stroke="#F0B90B" stroke-width="3" marker-end="url(#ry-arrY)" />
+        <text id="ry-tl1" class="h" x="1130" y="350" font-size="28" fill="#8a8f99" text-anchor="middle">第 1 次 · 已接收</text>
+        <text id="ry-tl2" class="h" x="1130" y="350" font-size="28" fill="#8a8f99" text-anchor="middle">第 2 次 · 同一笔</text>
+        <g id="ry-akm"><g id="ry-ak" class="h"><rect x="1180" y="420" width="280" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="1320" y="458" font-size="28" fill="#8a8f99" text-anchor="middle">already known</text></g></g>
+        <g id="ry-rd" class="h">
+          <rect x="560" y="700" width="250" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="685" y="742" font-size="28" fill="#58C4DD" text-anchor="middle">getBalance</text>
+        </g>
+        <path id="ry-ra0" class="dr h" pathLength="1" d="M820 732 L1060 650" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ry-arrB)" />
+        <g id="ry-rr0" class="h"><rect x="1080" y="620" width="200" height="60" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1180" y="661" font-size="30" fill="#F0B90B" text-anchor="middle">2 ETH</text></g>
+        <path id="ry-ra1" class="dr h" pathLength="1" d="M820 732 L1060 740" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ry-arrB)" />
+        <g id="ry-rr1" class="h"><rect x="1080" y="710" width="200" height="60" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1180" y="751" font-size="30" fill="#F0B90B" text-anchor="middle">2 ETH</text></g>
+        <path id="ry-ra2" class="dr h" pathLength="1" d="M820 732 L1060 830" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ry-arrB)" />
+        <g id="ry-rr2" class="h"><rect x="1080" y="800" width="200" height="60" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1180" y="841" font-size="30" fill="#F0B90B" text-anchor="middle">2 ETH</text></g>
+        <text id="ry-idem" class="h" x="1310" y="745" font-size="38" font-weight="700" fill="#83C167">幂等</text>
+        <g id="ry-bat" class="h">
+          <path d="M590 280 H566 V480 H590" fill="none" stroke="#e8e6df" stroke-width="4" />
+          <path d="M890 280 H914 V480 H890" fill="none" stroke="#e8e6df" stroke-width="4" />
+          <rect x="600" y="300" width="280" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="740" y="342" font-size="28" fill="#58C4DD" text-anchor="middle">blockNumber</text>
+          <rect x="600" y="396" width="280" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="740" y="438" font-size="28" fill="#58C4DD" text-anchor="middle">chainId</text>
+        </g>
+        <path id="ry-ba" class="dr h" pathLength="1" d="M930 380 H1060" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ry-arr)" />
+        <g id="ry-res" class="h">
+          <path d="M1104 280 H1080 V480 H1104" fill="none" stroke="#83C167" stroke-width="4" />
+          <path d="M1756 280 H1780 V480 H1756" fill="none" stroke="#83C167" stroke-width="4" />
+          <text class="mono" x="1110" y="342" font-size="30" fill="#8a8f99">blockNumber → <tspan fill="#83C167">0x1312d00</tspan></text>
+          <text class="mono" x="1110" y="438" font-size="30" fill="#8a8f99">chainId → <tspan fill="#83C167">0x1</tspan></text>
+        </g>
+        <text id="ry-bn" class="h" x="740" y="530" font-size="28" fill="#8a8f99" text-anchor="middle">每批上限（示例 100）</text>
+        <g id="ry-bkt" class="h">
+          <path d="M1300 660 V860 H1500 V660" fill="none" stroke="#FF9F43" stroke-width="4" stroke-linejoin="round" />
+          <text x="1400" y="910" font-size="30" fill="#FF9F43" text-anchor="middle">令牌桶</text>
+        </g>
+        <g id="ry-tkm0"><circle id="ry-tk0" class="h" cx="1340" cy="830" r="17" fill="#FF9F43" /></g>
+        <g id="ry-tkm1"><circle id="ry-tk1" class="h" cx="1400" cy="830" r="17" fill="#FF9F43" /></g>
+        <g id="ry-tkm2"><circle id="ry-tk2" class="h" cx="1460" cy="830" r="17" fill="#FF9F43" /></g>
+        <g id="ry-tkm3"><circle id="ry-tk3" class="h" cx="1340" cy="786" r="17" fill="#FF9F43" /></g>
+        <g id="ry-qm0"><g id="ry-q0" class="h"><rect x="600" y="730" width="140" height="56" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="670" y="768" font-size="28" fill="#58C4DD" text-anchor="middle">req</text></g></g>
+        <g id="ry-qm1"><g id="ry-q1" class="h"><rect x="770" y="730" width="140" height="56" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="840" y="768" font-size="28" fill="#58C4DD" text-anchor="middle">req</text></g></g>
+        <g id="ry-qm2"><g id="ry-q2" class="h"><rect x="940" y="730" width="140" height="56" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1010" y="768" font-size="28" fill="#58C4DD" text-anchor="middle">req</text></g></g>
+        <g id="ry-exp" class="h">
+          <rect x="580" y="880" width="180" height="56" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="670" y="918" font-size="28" fill="#58C4DD" text-anchor="middle">getLogs</text>
+          <path d="M776 884 H880 L900 908 L880 932 H776 Z" fill="#FF9F43" fill-opacity="0.2" stroke="#FF9F43" stroke-width="2.5" />
+          <text class="mono" x="832" y="918" font-size="28" fill="#FF9F43" text-anchor="middle">$$$</text>
+          <rect x="950" y="880" width="140" height="56" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="1020" y="918" font-size="28" fill="#58C4DD" text-anchor="middle">trace</text>
+          <path d="M1106 884 H1210 L1230 908 L1210 932 H1106 Z" fill="#FF9F43" fill-opacity="0.2" stroke="#FF9F43" stroke-width="2.5" />
+          <text class="mono" x="1162" y="918" font-size="28" fill="#FF9F43" text-anchor="middle">$$$</text>
+        </g>
+        <text id="ry-thr" class="h" x="1130" y="262" font-size="30" fill="#FC6255" text-anchor="middle">阈值：30 秒内错误率 20%</text>
+        <g id="ry-n0" class="h">
+          <path d="M650 420 A80 80 0 0 1 810 420" fill="none" stroke="#3a3f4a" stroke-width="12" />
+          <path d="M665.3 373 A80 80 0 0 1 810 420" fill="none" stroke="#FC6255" stroke-width="12" opacity="0.7" />
+          <rect id="ry-nb0" x="610" y="460" width="240" height="150" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="730" y="520" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">节点 A</text>
+          <text id="ry-nr0" x="730" y="578" font-size="32" fill="#83C167" text-anchor="middle">3%</text>
+        </g>
+        <line id="ry-nd0" class="h" x1="730" y1="420" x2="664" y2="420" stroke="#e8e6df" stroke-width="5" stroke-linecap="round" />
+        <g id="ry-n1" class="h">
+          <path d="M1050 420 A80 80 0 0 1 1210 420" fill="none" stroke="#3a3f4a" stroke-width="12" />
+          <path d="M1065.3 373 A80 80 0 0 1 1210 420" fill="none" stroke="#FC6255" stroke-width="12" opacity="0.7" />
+          <rect id="ry-nb1" x="1010" y="460" width="240" height="150" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="1130" y="520" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">节点 B</text>
+          <text id="ry-nr1" x="1130" y="578" font-size="32" fill="#83C167" text-anchor="middle">2%</text>
+        </g>
+        <line id="ry-nd1" class="h" x1="1130" y1="420" x2="1064" y2="420" stroke="#e8e6df" stroke-width="5" stroke-linecap="round" />
+        <g id="ry-n2" class="h">
+          <path d="M1450 420 A80 80 0 0 1 1610 420" fill="none" stroke="#3a3f4a" stroke-width="12" />
+          <path d="M1465.3 373 A80 80 0 0 1 1610 420" fill="none" stroke="#FC6255" stroke-width="12" opacity="0.7" />
+          <rect id="ry-nb2" x="1410" y="460" width="240" height="150" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text x="1530" y="520" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">备用</text>
+          <text id="ry-nr2" x="1530" y="578" font-size="32" fill="#83C167" text-anchor="middle">1%</text>
+        </g>
+        <line id="ry-nd2" class="h" x1="1530" y1="420" x2="1464" y2="420" stroke="#e8e6df" stroke-width="5" stroke-linecap="round" />
+        <g id="ry-src" class="h">
+          <rect x="1030" y="820" width="200" height="80" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text x="1130" y="872" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">后端</text>
+        </g>
+        <path id="ry-w0" class="h" d="M1080 820 L730 616" fill="none" stroke="#83C167" stroke-width="4" />
+        <path id="ry-w1a" class="h" d="M1130 820 V740" fill="none" stroke="#83C167" stroke-width="4" />
+        <path id="ry-w1b" class="h" d="M1130 690 V616" fill="none" stroke="#83C167" stroke-width="4" />
+        <g id="ry-swb"><line id="ry-swl" class="h" x1="1130" y1="740" x2="1130" y2="690" stroke="#83C167" stroke-width="4" /></g>
+        <path id="ry-w2" class="h" d="M1180 820 L1530 616" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" />
+        <path id="ry-w2s" class="dr" pathLength="1" d="M1180 820 L1530 616" fill="none" stroke="#83C167" stroke-width="5" />
+        <text id="ry-off" class="h" x="1170" y="724" font-size="28" fill="#FC6255">断开</text>
+        <text id="ry-ct" class="h" x="960" y="200" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">上线清单</text>
+        <g id="ry-ci0" class="h"><rect x="520" y="290" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" /><text x="600" y="327" font-size="36" fill="#e8e6df">至少 2 个独立 RPC 源</text></g>
+        <path id="ry-ck0" class="dr" pathLength="1" d="M530 314 L542 328 L562 300" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        <g id="ry-ci1" class="h"><rect x="520" y="400" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" /><text x="600" y="437" font-size="36" fill="#e8e6df">超时和重试都有上限</text></g>
+        <path id="ry-ck1" class="dr" pathLength="1" d="M530 424 L542 438 L562 410" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        <g id="ry-ci2" class="h"><rect x="520" y="510" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" /><text x="600" y="547" font-size="36" fill="#e8e6df">历史查询走归档节点</text></g>
+        <path id="ry-ck2" class="dr" pathLength="1" d="M530 534 L542 548 L562 520" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        <g id="ry-ci3" class="h"><rect x="520" y="620" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" /><text x="600" y="657" font-size="36" fill="#e8e6df">getLogs 分段，有上限</text></g>
+        <path id="ry-ck3" class="dr" pathLength="1" d="M530 644 L542 658 L562 630" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        <g id="ry-ci4" class="h"><rect x="520" y="730" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" /><text x="600" y="767" font-size="36" fill="#e8e6df">WebSocket 只做提醒</text></g>
+        <path id="ry-ck4" class="dr" pathLength="1" d="M530 754 L542 768 L562 740" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        <g id="ry-ci5" class="h"><rect x="520" y="840" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" /><text x="600" y="877" font-size="36" fill="#e8e6df">监控错误率与延迟</text></g>
+        <path id="ry-ck5" class="dr" pathLength="1" d="M530 864 L542 878 L562 850" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        <text id="ry-cm" class="h mono" x="600" y="926" font-size="28" fill="#6b6f7a">rpc_request_errors_total · rpc_request_duration_seconds</text>
+      </g>
+      <g id="ry-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">指数退避 <tspan font-size="28" font-weight="400" fill="#8a8f99">Exponential Backoff</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">失败后等待时间按指数增长</text>
+      </g>
+      <g id="ry-term2" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">熔断 <tspan font-size="28" font-weight="400" fill="#8a8f99">Circuit Breaker</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">依赖故障率过高时暂停调用它</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const LIGHT = (k, t) => {
+        tl.to("#ry-nc" + k, { fill: "#58C4DD", stroke: "#58C4DD", duration: 0.3 }, t);
+        tl.to("#ry-nt" + k, { fill: "#e8e6df", duration: 0.3 }, t);
+        if (k > 0) { tl.to("#ry-nc" + (k - 1), { fill: "#83C167", stroke: "#83C167", duration: 0.3 }, t); tl.to("#ry-nt" + (k - 1), { fill: "#8a8f99", duration: 0.3 }, t); }
+      };
+      // 导航
+      IN("#ry-navl", at(0, 0), 0.4);
+      for (let k = 0; k < 4; k++) { IN("#ry-nc" + k, at(0, 0) + k * 0.08, 0.3); IN("#ry-nt" + k, at(0, 0) + k * 0.08, 0.3); }
+      // L0 超时
+      LIGHT(0, at(0, 0.06));
+      IN("#ry-loop", at(0, 0.08), 0.6);
+      tl.fromTo("#ry-rot", { rotation: 0 }, { rotation: 360, svgOrigin: "880 580", duration: 2.6, ease: "none", immediateRender: false }, at(0, 0.1));
+      IN("#ry-hg", at(0, 0.33), 0.4, { scale: 0.5, svgOrigin: "1090 390" }, { scale: 1, svgOrigin: "1090 390" });
+      tl.to("#ry-hg", { rotation: 180, svgOrigin: "1090 390", duration: 0.6, ease: "power2.inOut" }, at(0, 0.42));
+      IN("#ry-sw", at(0, 0.5), 0.5);
+      tl.fromTo("#ry-swh", { rotation: 0 }, { rotation: 300, svgOrigin: "1400 560", duration: 2.4, ease: "none", immediateRender: false }, at(0, 0.52));
+      IN("#ry-sw1", at(0, 0.55), 0.4);
+      IN("#ry-sw2", at(0, 0.66), 0.4);
+      DRAW("#ry-cut", at(0, 0.8), 0.3);
+      OUT("#ry-hg, #ry-cut", at(0, 0.84), 0.3);
+      tl.to("#ry-rot", { rotation: 720, svgOrigin: "880 580", duration: 1.6, ease: "none" }, at(0, 0.86));
+      // L1 重试：两个筐
+      OUT("#ry-loop, #ry-sw, #ry-sw1, #ry-sw2", at(1, 0), 0.4);
+      LIGHT(1, at(1, 0.02));
+      IN("#ry-bk1", at(1, 0.05), 0.5);
+      IN("#ry-bk2", at(1, 0.08), 0.5);
+      [0, 1, 2, 3].forEach(k => { const t = at(1, 0.16 + k * 0.1); IN("#ry-ch" + k, t, 0.2); tl.fromTo("#ry-ch" + k + "m", { y: -340 + k * 84 }, { y: 0, duration: 0.5, ease: "power2.in", immediateRender: false }, t); tl.set("#ry-ch" + k + "m", { y: -340 + k * 84 }, 0); });
+      IN("#ry-chx", at(1, 0.68), 0.2);
+      tl.fromTo("#ry-chxm", { y: -400 }, { y: 0, duration: 0.5, ease: "power2.in", immediateRender: false }, at(1, 0.68));
+      tl.set("#ry-chxm", { y: -400 }, 0);
+      // L2 公式逐段高亮
+      OUT("#ry-bk1, #ry-bk2, #ry-ch0, #ry-ch1, #ry-ch2, #ry-ch3, #ry-chx", at(2, 0), 0.4);
+      IN("#ry-f", at(2, 0.04), 0.6, { y: 10 }, { y: 0 });
+      IN("#ry-term", at(2, 0.08), 0.5);
+      tl.to("#ry-fb", { fill: "#58C4DD", duration: 0.3 }, at(2, 0.3));
+      tl.to("#ry-fa", { fill: "#FF9F43", duration: 0.3 }, at(2, 0.52));
+      tl.to("#ry-fc", { fill: "#F0B90B", duration: 0.3 }, at(2, 0.72));
+      IN("#ry-fl", at(2, 0.8), 0.4);
+      // L3 算一算柱状图
+      OUT("#ry-f, #ry-fl", at(3, 0), 0.4);
+      OUT("#ry-term", at(3, 0.05), 0.4);
+      IN("#ry-ex", at(3, 0.05), 0.4);
+      IN("#ry-ax", at(3, 0.08), 0.4);
+      IN("#ry-capd", at(3, 0.12), 0.4);
+      IN("#ry-capt", at(3, 0.14), 0.4);
+      [0, 1, 2].forEach(k => { IN("#ry-bar" + k, at(3, 0.25 + k * 0.12), 0.5, { scaleY: 0, svgOrigin: (760 + 200 * k) + " 880" }, { scaleY: 1, svgOrigin: (760 + 200 * k) + " 880" }); IN("#ry-bt" + k, at(3, 0.3 + k * 0.12), 0.3); });
+      IN("#ry-jit", at(3, 0.74), 0.5, { scaleY: 0.2, svgOrigin: "1260 600" }, { scaleY: 1, svgOrigin: "1260 600" });
+      // L4 幂等
+      OUT("#ry-ex, #ry-ax, #ry-capd, #ry-capt, #ry-bar0, #ry-bar1, #ry-bar2, #ry-bt0, #ry-bt1, #ry-bt2, #ry-jit", at(4, 0), 0.4);
+      IN("#ry-nd", at(4, 0.04), 0.5);
+      IN("#ry-tx", at(4, 0.06), 0.4);
+      ARROW("#ry-ta1", at(4, 0.12), 0.5);
+      IN("#ry-tl1", at(4, 0.14), 0.3);
+      OUT("#ry-tl1", at(4, 0.34), 0.25);
+      tl.to("#ry-ta1", { opacity: 0.3, duration: 0.2 }, at(4, 0.36));
+      tl.to("#ry-ta1", { opacity: 1, duration: 0.2 }, at(4, 0.39));
+      IN("#ry-tl2", at(4, 0.39), 0.3);
+      IN("#ry-ak", at(4, 0.44), 0.3);
+      tl.fromTo("#ry-akm", { x: 80 }, { x: 0, duration: 0.6, ease: "power3.out", immediateRender: false }, at(4, 0.44));
+      IN("#ry-rd", at(4, 0.58), 0.4);
+      [0, 1, 2].forEach(k => { ARROW("#ry-ra" + k, at(4, 0.64 + k * 0.08), 0.35); IN("#ry-rr" + k, at(4, 0.68 + k * 0.08), 0.3); });
+      IN("#ry-idem", at(4, 0.9), 0.4);
+      // L5 批量与限流
+      OUT("#ry-nd, #ry-tx, #ry-ta1, #ry-tl2, #ry-ak, #ry-rd, #ry-ra0, #ry-ra1, #ry-ra2, #ry-rr0, #ry-rr1, #ry-rr2, #ry-idem", at(5, 0), 0.4);
+      LIGHT(2, at(5, 0.02));
+      IN("#ry-bat", at(5, 0.04), 0.5, { x: -20 }, { x: 0 });
+      ARROW("#ry-ba", at(5, 0.12), 0.4);
+      IN("#ry-res", at(5, 0.17), 0.5, { x: 20 }, { x: 0 });
+      IN("#ry-bn", at(5, 0.32), 0.4);
+      IN("#ry-bkt", at(5, 0.5), 0.5);
+      [0, 1, 2, 3].forEach(k => { IN("#ry-tk" + k, at(5, 0.52 + k * 0.025), 0.2); tl.fromTo("#ry-tkm" + k, { y: -220 }, { y: 0, duration: 0.5, ease: "bounce.out", immediateRender: false }, at(5, 0.52 + k * 0.025)); tl.set("#ry-tkm" + k, { y: -220 }, 0); });
+      [0, 1, 2].forEach(k => IN("#ry-q" + k, at(5, 0.58) + k * 0.1, 0.3));
+      const TK = [[1340, 830], [1400, 830], [1460, 830]];
+      [0, 1, 2].forEach(k => {
+        const t = at(5, 0.66 + k * 0.05);
+        tl.to("#ry-tkm" + k, { x: 670 + 170 * k - TK[k][0], y: 758 - 52 - TK[k][1], duration: 0.5, ease: "power2.inOut" }, t);
+        tl.to("#ry-qm" + k + ", #ry-tkm" + k, { y: "-=60", duration: 0.4, ease: "power2.in" }, t + 0.55);
+        OUT("#ry-q" + k + ", #ry-tk" + k, t + 0.6, 0.35);
+      });
+      IN("#ry-exp", at(5, 0.86), 0.5, { y: 10 }, { y: 0 });
+      // L6 熔断
+      OUT("#ry-bat, #ry-ba, #ry-res, #ry-bn, #ry-bkt, #ry-tk3, #ry-exp", at(6, 0), 0.4);
+      LIGHT(3, at(6, 0.02));
+      [0, 1, 2].forEach(k => { IN("#ry-n" + k, at(6, 0.05 + k * 0.04), 0.4); IN("#ry-nd" + k, at(6, 0.05 + k * 0.04), 0.4); });
+      tl.set("#ry-nd0", { rotation: 5, svgOrigin: "730 420" }, 0);
+      tl.set("#ry-nd2", { rotation: 2, svgOrigin: "1530 420" }, 0);
+      tl.set("#ry-nd1", { rotation: 4, svgOrigin: "1130 420" }, 0);
+      IN("#ry-src", at(6, 0.12), 0.4);
+      IN("#ry-w0, #ry-w1a, #ry-w1b, #ry-swl, #ry-w2", at(6, 0.15), 0.4);
+      IN("#ry-term2", at(6, 0.18), 0.5);
+      IN("#ry-thr", at(6, 0.3), 0.4);
+      tl.to("#ry-nd1", { rotation: 49, svgOrigin: "1130 420", duration: 1.0, ease: "power2.in" }, at(6, 0.32));
+      COUNT("#ry-nr1", 2, 27, at(6, 0.32), 1.0, v => Math.round(v) + "%");
+      tl.to("#ry-nr1", { fill: "#FC6255", duration: 0.3 }, at(6, 0.42));
+      tl.to("#ry-swl", { rotation: -45, svgOrigin: "1130 740", stroke: "#FC6255", duration: 0.3, ease: "back.out(2)" }, at(6, 0.5));
+      IN("#ry-off", at(6, 0.53), 0.3);
+      tl.to("#ry-n1, #ry-nd1, #ry-w1b", { opacity: 0.3, duration: 0.4 }, at(6, 0.55));
+      tl.to("#ry-w1a", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.55));
+      DRAW("#ry-w2s", at(6, 0.66), 0.6);
+      tl.to("#ry-nb2", { stroke: "#83C167", duration: 0.3 }, at(6, 0.75));
+      // L7 上线清单
+      OUT("#ry-n0, #ry-n1, #ry-n2, #ry-nd0, #ry-nd1, #ry-nd2, #ry-src, #ry-w0, #ry-w1a, #ry-w1b, #ry-swl, #ry-w2, #ry-w2s, #ry-off, #ry-thr, #ry-nav", at(7, 0), 0.4);
+      OUT("#ry-term2", at(7, 0), 0.4);
+      IN("#ry-ct", at(7, 0.03), 0.5);
+      for (let k = 0; k < 6; k++) { IN("#ry-ci" + k, at(7, 0.06 + k * 0.14), 0.4, { x: -30 }, { x: 0 }); DRAW("#ry-ck" + k, at(7, 0.1 + k * 0.14), 0.3); }
+      IN("#ry-cm", at(7, 0.84), 0.4);
+
+      tl.to("#ry-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ry-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["retry"] = tl;
+    })();
+  </script>
+</template>

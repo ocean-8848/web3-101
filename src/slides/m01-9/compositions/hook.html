@@ -1,0 +1,240 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="40.34" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ho-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <!-- L0 手机 -->
+        <g id="ho-phone" class="h">
+          <rect x="160" y="300" width="360" height="520" rx="44" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <rect x="300" y="318" width="80" height="10" rx="5" fill="#2a2f3a" />
+          <text x="340" y="400" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">充值 · USDT</text>
+          <text x="340" y="574" font-size="28" fill="#8a8f99" text-anchor="middle">充值地址</text>
+          <rect x="200" y="596" width="280" height="64" rx="10" fill="#0f1117" stroke="#58C4DD" stroke-width="2" />
+          <text class="mono" x="340" y="638" font-size="28" fill="#58C4DD" text-anchor="middle">0x7e5f…</text>
+          <rect x="220" y="700" width="240" height="64" rx="32" fill="#F0B90B" />
+          <text x="340" y="742" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">转账</text>
+        </g>
+        <g id="ho-coin" class="h" data-layout-allow-overlap>
+          <circle cx="340" cy="480" r="40" fill="#F0B90B" />
+          <text class="mono" x="340" y="494" font-size="38" font-weight="700" fill="#0f1117" text-anchor="middle">U</text>
+        </g>
+        <g id="ho-block" class="h">
+          <rect id="ho-blkr" x="1380" y="420" width="280" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="1520" y="490" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">区块</text>
+        </g>
+        <text id="ho-amt" class="h mono" x="1520" y="580" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">100 USDT</text>
+        <text id="ho-ex" class="h" x="1840" y="1010" font-size="28" fill="#6b6f7a" text-anchor="end">100 USDT · 示例</text>
+        <g id="ho-pk" class="h">
+          <text x="1510" y="690" font-size="30" fill="#8a8f99" text-anchor="middle">已打包</text>
+          <path d="M1570 678 L1584 692 L1610 664" fill="none" stroke="#8a8f99" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+
+        <!-- L1 两个问题 -->
+        <g id="ho-qs">
+          <g id="ho-q1" class="h">
+            <rect x="540" y="260" width="400" height="120" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="740" y="334" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">钱真的到了？</text>
+          </g>
+          <g id="ho-q2" class="h">
+            <rect x="980" y="260" width="400" height="120" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="1180" y="334" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">何时加余额？</text>
+          </g>
+        </g>
+
+        <!-- L2 三个小剧场：列左边 200 / 730 / 1260 -->
+        <g id="ho-cols">
+          <!-- 列 1：加早了 -->
+          <g id="ho-c1" class="h">
+            <text x="430" y="370" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">加早了</text>
+            <rect x="260" y="430" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <rect x="385" y="430" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <line x1="350" y1="475" x2="385" y2="475" stroke="#58C4DD" stroke-width="3" />
+            <line x1="475" y1="475" x2="510" y2="475" stroke="#58C4DD" stroke-width="3" />
+            <text x="220" y="664" font-size="28" fill="#8a8f99">余额</text>
+            <rect x="300" y="630" width="340" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2" />
+          </g>
+          <rect id="ho-c1b3" class="h" x="510" y="430" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <path id="ho-c1z" class="dr" pathLength="1" d="M490 410 L530 450 L505 470 L560 500 L535 520 L620 548" fill="none" stroke="#FC6255" stroke-width="6" stroke-linejoin="round" />
+          <rect id="ho-c1bar" class="h" x="300" y="630" width="0" height="44" rx="8" fill="#F0B90B" />
+          <text id="ho-c1p" class="h mono" x="390" y="610" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">+100</text>
+          <text id="ho-c1l" class="h" x="430" y="790" font-size="38" font-weight="700" fill="#FC6255" text-anchor="middle">重组</text>
+
+          <!-- 列 2：加两次 -->
+          <g id="ho-c2" class="h">
+            <text x="960" y="370" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">加两次</text>
+            <rect x="800" y="440" width="290" height="80" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="945" y="491" font-size="30" fill="#F0B90B" text-anchor="middle">1 笔 100 USDT</text>
+            <text x="750" y="664" font-size="28" fill="#8a8f99">余额</text>
+            <rect x="830" y="630" width="340" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2" />
+          </g>
+          <text id="ho-c2x" class="h mono" x="1110" y="496" font-size="44" font-weight="700" fill="#FC6255">×2</text>
+          <rect id="ho-c2bar" class="h" x="830" y="630" width="0" height="44" rx="8" fill="#F0B90B" />
+          <text id="ho-c2p1" class="h mono" x="915" y="610" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">+100</text>
+          <text id="ho-c2p2" class="h mono" x="1085" y="610" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">+100</text>
+          <text id="ho-c2l" class="h" x="960" y="790" font-size="38" font-weight="700" fill="#FC6255" text-anchor="middle">平台亏损</text>
+
+          <!-- 列 3：漏加 -->
+          <g id="ho-c3" class="h">
+            <text x="1490" y="370" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">漏加</text>
+            <circle cx="1350" cy="452" r="24" fill="none" stroke="#e8e6df" stroke-width="3" />
+            <path d="M1306 530 Q1350 470 1394 530" fill="none" stroke="#e8e6df" stroke-width="3" />
+            <text x="1280" y="664" font-size="28" fill="#8a8f99">余额</text>
+            <rect x="1360" y="630" width="340" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <text class="mono" x="1530" y="664" font-size="30" fill="#8a8f99" text-anchor="middle">0</text>
+          </g>
+          <g id="ho-c3b" class="h">
+            <rect x="1430" y="420" width="270" height="84" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <path d="M1440 480 L1412 500 L1450 496" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round" />
+            <text x="1565" y="474" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">我的钱呢？</text>
+          </g>
+          <text id="ho-c3l" class="h" x="1490" y="790" font-size="38" font-weight="700" fill="#FF9F43" text-anchor="middle">找上门</text>
+        </g>
+
+        <!-- L3 中心大字 -->
+        <g id="ho-big-o">
+          <g id="ho-big">
+            <g id="ho-bigt" class="h">
+              <text x="440" y="560" font-size="60" font-weight="700" fill="#F0B90B">链上真到账的钱</text>
+              <text x="960" y="560" font-size="60" font-weight="700" fill="#e8e6df">平台</text>
+              <text x="1100" y="560" font-size="60" font-weight="700" fill="#83C167">恰好一次</text>
+              <text x="1372" y="560" font-size="60" font-weight="700" fill="#e8e6df">入账</text>
+            </g>
+            <path id="ho-biga" class="dr h" pathLength="1" d="M876 538 L940 538" fill="none" stroke="#e8e6df" stroke-width="5" marker-end="url(#ho-arr)" />
+            <rect id="ho-bigf" class="dr" pathLength="1" x="1086" y="486" width="268" height="98" rx="14" fill="none" stroke="#83C167" stroke-width="4" />
+          </g>
+        </g>
+
+        <!-- L4 本集要画的四样东西 -->
+        <text id="ho-sub" class="h" x="960" y="420" font-size="38" fill="#e8e6df" text-anchor="middle"><tspan fill="#58C4DD" font-weight="700">Go</tspan> · 充值监听与入账服务</text>
+        <g id="ho-i1" class="h">
+          <rect x="350" y="490" width="80" height="50" rx="6" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <rect x="470" y="490" width="80" height="50" rx="6" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <rect x="410" y="590" width="80" height="50" rx="6" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <line x1="430" y1="515" x2="470" y2="515" stroke="#8a8f99" stroke-width="3" />
+          <line x1="410" y1="540" x2="440" y2="590" stroke="#8a8f99" stroke-width="3" />
+          <line x1="510" y1="540" x2="470" y2="590" stroke="#8a8f99" stroke-width="3" />
+          <text x="450" y="720" font-size="34" fill="#e8e6df" text-anchor="middle">模块图</text>
+        </g>
+        <g id="ho-i2" class="h">
+          <circle cx="700" cy="565" r="16" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <circle cx="790" cy="565" r="16" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <circle cx="880" cy="565" r="16" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <path d="M718 565 L770 565" stroke="#8a8f99" stroke-width="3" marker-end="url(#ho-arrg)" />
+          <path d="M808 565 L860 565" stroke="#8a8f99" stroke-width="3" marker-end="url(#ho-arrg)" />
+          <path d="M700 520 Q790 470 880 520" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="8 6" />
+          <path d="M700 610 Q790 660 880 610" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="8 6" />
+          <text x="790" y="720" font-size="34" fill="#e8e6df" text-anchor="middle">数据流</text>
+        </g>
+        <g id="ho-i3" class="h">
+          <circle cx="1070" cy="565" r="34" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <circle cx="1190" cy="565" r="34" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <path d="M1092 538 Q1130 500 1166 536" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#ho-arrg)" />
+          <path d="M1168 592 Q1130 630 1094 594" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#ho-arrg)" />
+          <text x="1130" y="720" font-size="34" fill="#e8e6df" text-anchor="middle">状态机</text>
+        </g>
+        <g id="ho-i4" class="h">
+          <rect x="1370" y="490" width="200" height="150" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <line x1="1370" y1="527" x2="1570" y2="527" stroke="#8a8f99" stroke-width="3" />
+          <line x1="1370" y1="565" x2="1570" y2="565" stroke="#8a8f99" stroke-width="2" />
+          <line x1="1370" y1="603" x2="1570" y2="603" stroke="#8a8f99" stroke-width="2" />
+          <line x1="1440" y1="490" x2="1440" y2="640" stroke="#8a8f99" stroke-width="2" />
+          <text x="1470" y="720" font-size="34" fill="#e8e6df" text-anchor="middle">表结构</text>
+        </g>
+        <text id="ho-next" class="h" x="1840" y="960" font-size="30" fill="#6b6f7a" text-anchor="end">Go 代码 · 实现见下一集</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const W = (s, a, b, t, d = 0.6) => tl.fromTo(s, { attr: { width: a } }, { attr: { width: b }, duration: d, ease: "power2.out", immediateRender: false }, t);
+
+      // L0 手机 → 币飞向区块
+      IN("#ho-phone", at(0, 0), 0.7, { y: 20 }, { y: 0 });
+      IN("#ho-block", at(0, 0.12));
+      IN("#ho-ex", at(0, 0.2));
+      IN("#ho-coin", at(0, 0.3), 0.4);
+      tl.to("#ho-coin", { x: 1180, duration: 2.2, ease: "power1.inOut" }, at(0, 0.42));
+      tl.to("#ho-coin", { y: -260, duration: 1.1, ease: "power2.out" }, at(0, 0.42));
+      tl.to("#ho-coin", { y: 70, duration: 1.1, ease: "power2.in" }, at(0, 0.42) + 1.1);
+      OUT("#ho-coin", at(0, 0.42) + 2.15, 0.25);
+      IN("#ho-amt", at(0, 0.42) + 2.2, 0.4);
+
+      // L1 已打包 → 两个问题
+      IN("#ho-pk", at(1, 0.02));
+      tl.to("#ho-blkr", { attr: { "stroke-width": 5 }, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.02));
+      IN("#ho-q1", at(1, 0.45), 0.5, { y: 20 }, { y: 0 });
+      IN("#ho-q2", at(1, 0.72), 0.5, { y: 20 }, { y: 0 });
+
+      // L2 三个小剧场
+      OUT("#ho-phone, #ho-block, #ho-amt, #ho-pk, #ho-ex", at(2, 0));
+      tl.to("#ho-qs", { y: -170, duration: 0.6, ease: "power2.inOut" }, at(2, 0));
+      IN("#ho-c1, #ho-c1b3", at(2, 0.03));
+      W("#ho-c1bar", 0, 170, at(2, 0.1)); IN("#ho-c1bar", at(2, 0.1), 0.2);
+      IN("#ho-c1p", at(2, 0.1), 0.3);
+      DRAW("#ho-c1z", at(2, 0.17), 0.4);
+      tl.to("#ho-c1b3", { attr: { stroke: "#FC6255", "stroke-dasharray": "10 8" }, opacity: 0.45, duration: 0.3 }, at(2, 0.2));
+      W("#ho-c1bar", 170, 0, at(2, 0.23), 0.5);
+      OUT("#ho-c1p", at(2, 0.23), 0.4);
+      IN("#ho-c1l", at(2, 0.26));
+
+      IN("#ho-c2", at(2, 0.36));
+      IN("#ho-c2bar", at(2, 0.42), 0.2); W("#ho-c2bar", 0, 170, at(2, 0.42));
+      IN("#ho-c2p1", at(2, 0.42), 0.3, { y: 10 }, { y: 0 });
+      W("#ho-c2bar", 170, 340, at(2, 0.5)); tl.to("#ho-c2bar", { attr: { fill: "#FC6255" }, duration: 0.3 }, at(2, 0.5) + 0.62);
+      IN("#ho-c2p2", at(2, 0.5), 0.3, { y: 10 }, { y: 0 });
+      IN("#ho-c2x", at(2, 0.52), 0.4);
+      IN("#ho-c2l", at(2, 0.58));
+
+      IN("#ho-c3", at(2, 0.68));
+      IN("#ho-c3b", at(2, 0.76), 0.5, { y: 12 }, { y: 0 });
+      IN("#ho-c3l", at(2, 0.86));
+
+      // L3 唯一目标
+      OUT("#ho-cols > *, #ho-qs", at(3, 0), 0.4);
+      IN("#ho-bigt", at(3, 0.12), 0.8, { y: 20 }, { y: 0 });
+      ARROW("#ho-biga", at(3, 0.3), 0.4);
+      DRAW("#ho-bigf", at(3, 0.62), 0.7);
+
+      // L4 收到上方，四件要画的东西
+      tl.to("#ho-big-o", { y: -310, duration: 0.8, ease: "power2.inOut" }, at(4, 0));
+      tl.to("#ho-big", { scale: 0.75, svgOrigin: "960 540", duration: 0.8, ease: "power2.inOut" }, at(4, 0));
+      IN("#ho-sub", at(4, 0.08));
+      IN("#ho-i1", at(4, 0.3), 0.6, { y: 20 }, { y: 0 });
+      IN("#ho-i2", at(4, 0.38), 0.6, { y: 20 }, { y: 0 });
+      IN("#ho-i3", at(4, 0.46), 0.6, { y: 20 }, { y: 0 });
+      IN("#ho-i4", at(4, 0.54), 0.6, { y: 20 }, { y: 0 });
+      IN("#ho-next", at(4, 0.8));
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

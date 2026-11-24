@@ -1,0 +1,315 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 relay，id 前缀 rl- -->
+  <div id="root" data-composition-id="relay" data-duration="55.37" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+        <g id="rl-envd">
+          <rect x="0" y="0" width="52" height="34" rx="4" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="2.5" />
+          <path d="M0 2 L26 20 L52 2" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+        </g>
+        <g id="rl-envg">
+          <rect x="0" y="0" width="52" height="34" rx="4" fill="#8a8f99" fill-opacity="0.15" stroke="#8a8f99" stroke-width="2.5" />
+          <path d="M0 2 L26 20 L52 2" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+        </g>
+        <g id="rl-envr">
+          <rect x="0" y="0" width="52" height="34" rx="4" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="2.5" />
+          <path d="M0 2 L26 20 L52 2" fill="none" stroke="#FC6255" stroke-width="2.5" />
+        </g>
+      </defs>
+      <g id="rl-all">
+        <!-- 代码面板 x 820–1840 y 220–718；第 k 行基线 310 + 38(k-1) -->
+        <g id="rl-panel" class="h">
+          <rect id="rl-pr" x="800" y="220" width="1060" height="520" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <line x1="800" y1="270" x2="1860" y2="270" stroke="#2a2f3a" stroke-width="2" />
+        </g>
+        <text id="rl-t1" class="h mono" x="830" y="256" font-size="28" fill="#58C4DD">Relay.Once</text>
+        <text id="rl-t2" class="h mono" x="830" y="256" font-size="28" fill="#58C4DD">SignWebhook</text>
+        <rect id="rl-hl" class="h" x="802" y="283" width="1056" height="40" fill="#58C4DD" fill-opacity="0.15" />
+        <rect id="rl-hlb" class="h" x="802" y="283" width="6" height="40" fill="#58C4DD" />
+        <g id="rl-code1" class="h" font-size="28" fill="#e8e6df">
+          <text class="mono" x="830" y="312">pgx.BeginFunc(ctx, r.DB, func(tx pgx.Tx) error {</text>
+          <text class="mono" x="830" y="352">  rows := tx.Query(`SELECT id, msg_key, payload</text>
+          <text class="mono" x="830" y="392">    FROM outbox WHERE sent_at IS NULL</text>
+          <text class="mono" x="830" y="432">    ORDER BY id LIMIT 100 FOR UPDATE SKIP LOCKED`)</text>
+          <text class="mono" x="830" y="472">  ids, msgs := scan(rows)</text>
+          <text class="mono" x="830" y="512">  err := r.Writer.WriteMessages(ctx, msgs...)</text>
+          <text class="mono" x="830" y="552">  if err != nil { return err }</text>
+          <text class="mono" x="830" y="592">  _, err = tx.Exec(`UPDATE outbox SET sent_at=now()</text>
+          <text class="mono" x="830" y="632">    WHERE id = ANY($1)`, ids)</text>
+          <text class="mono" x="830" y="672">  return err</text>
+          <text class="mono" x="830" y="712">})</text>
+        </g>
+        <text id="rl-cm" class="h" x="1380" y="552" font-size="28" fill="#8a8f99">← 回滚，下次重发</text>
+        <g id="rl-code2" class="h" font-size="28" fill="#e8e6df">
+          <text class="mono" x="830" y="312">func SignWebhook(secret []byte, ts int64,</text>
+          <text class="mono" x="830" y="352">    body []byte) string {</text>
+          <text class="mono" x="830" y="392">  m := hmac.New(sha256.New, secret)</text>
+          <text class="mono" x="830" y="432">  m.Write([]byte(strconv.FormatInt(ts, 10) + "."))</text>
+          <text class="mono" x="830" y="472">  m.Write(body)</text>
+          <text class="mono" x="830" y="512">  return hex.EncodeToString(m.Sum(nil))</text>
+          <text class="mono" x="830" y="552">}</text>
+        </g>
+
+        <!-- 左侧流水线 -->
+        <g id="rl-flow">
+          <g id="rl-ob" class="h">
+            <rect x="100" y="220" width="640" height="250" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="128" y="262" font-size="30" fill="#58C4DD">outbox</text>
+          </g>
+          <g id="rl-envs">
+            <use class="h rl-e" href="#rl-envd" x="128" y="290" /><use class="h rl-e" href="#rl-envd" x="208" y="290" />
+            <use class="h rl-e" href="#rl-envd" x="368" y="290" /><use class="h rl-e" href="#rl-envd" x="448" y="290" />
+            <use class="h rl-e" href="#rl-envd" x="528" y="290" /><use class="h rl-e" href="#rl-envd" x="608" y="290" />
+            <use class="h rl-e" href="#rl-envd" x="128" y="344" /><use class="h rl-e" href="#rl-envd" x="208" y="344" />
+            <use class="h rl-e" href="#rl-envd" x="288" y="344" /><use class="h rl-e" href="#rl-envd" x="368" y="344" />
+            <use class="h rl-e" href="#rl-envd" x="528" y="344" /><use class="h rl-e" href="#rl-envd" x="608" y="344" />
+          </g>
+          <!-- 被别的 Relay 锁住的两封 -->
+          <g id="rl-lk1" class="h">
+            <use href="#rl-envg" x="288" y="290" />
+            <path d="M306 278 L306 272 Q306 264 314 264 Q322 264 322 272 L322 278" fill="none" stroke="#8a8f99" stroke-width="3" /><rect x="300" y="276" width="28" height="20" rx="3" fill="#8a8f99" />
+          </g>
+          <g id="rl-lk2" class="h">
+            <use href="#rl-envg" x="448" y="344" />
+            <path d="M466 332 L466 326 Q466 318 474 318 Q482 318 482 326 L482 332" fill="none" stroke="#8a8f99" stroke-width="3" /><rect x="460" y="330" width="28" height="20" rx="3" fill="#8a8f99" />
+          </g>
+          <rect id="rl-br" class="h" x="116" y="280" width="560" height="108" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="10 7" />
+          <text id="rl-brl" class="h mono" x="128" y="440" font-size="28" fill="#58C4DD">LIMIT 100</text>
+          <text id="rl-sn" class="h mono" x="330" y="440" font-size="28" fill="#8a8f99">sent_at NULL</text>
+          <text id="rl-ss" class="h mono" x="330" y="440" font-size="28" fill="#83C167">sent_at 12:00:03</text>
+          <path id="rl-bolt" class="h" d="M690 376 L652 426 L676 426 L644 480 L708 414 L684 414 L706 376 Z" fill="#FC6255" />
+
+          <path id="rl-a1" class="dr h" pathLength="1" d="M420 472 L420 498" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#rl-arr)" />
+          <g id="rl-gear" class="h">
+            <circle cx="420" cy="545" r="34" fill="none" stroke="#58C4DD" stroke-width="14" stroke-dasharray="9 7" />
+            <circle cx="420" cy="545" r="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          </g>
+          <text id="rl-gl" class="h mono" x="480" y="556" font-size="30" fill="#58C4DD">Relay</text>
+          <text id="rl-st1" class="h" x="110" y="556" font-size="28" fill="#FF9F43">发送失败</text>
+          <text id="rl-st2" class="h" x="110" y="556" font-size="28" fill="#FC6255">标记前崩溃</text>
+          <path id="rl-a2" class="dr h" pathLength="1" d="M420 590 L420 624" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#rl-arr)" />
+          <g id="rl-pipe" class="h">
+            <rect x="120" y="632" width="600" height="68" rx="34" fill="#58C4DD" fill-opacity="0.08" stroke="#58C4DD" stroke-width="3" />
+          </g>
+          <text id="rl-pl" class="h mono" x="620" y="616" font-size="28" fill="#58C4DD">Kafka</text>
+          <path id="rl-a3" class="dr h" pathLength="1" d="M380 702 L380 764" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#rl-arr)" />
+          <g id="rl-cons" class="h">
+            <rect x="200" y="772" width="360" height="90" rx="12" fill="#B48EF0" fill-opacity="0.12" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="230" y="828" font-size="30" fill="#B48EF0">账户服务 / 商户</text>
+          </g>
+          <use id="rl-c1" class="h" href="#rl-envd" x="600" y="782" />
+          <use id="rl-c2" class="h" href="#rl-envd" x="600" y="824" />
+          <!-- 飞行信封 -->
+          <use id="rl-fly" class="h" href="#rl-envd" x="0" y="0" />
+        </g>
+
+        <!-- L4 去重表 -->
+        <g id="rl-dd">
+          <text id="rl-k1" class="h" x="840" y="816" font-size="30" fill="#e8e6df">去重键 = 充值 ID + 事件类型</text>
+          <g id="rl-ch1" class="h">
+            <rect x="1260" y="784" width="170" height="46" rx="10" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <text class="mono" x="1276" y="817" font-size="28" fill="#8a8f99">credited</text>
+            <text x="1444" y="817" font-size="28" fill="#8a8f99">拦下</text>
+          </g>
+          <g id="rl-ch2" class="h">
+            <rect x="1520" y="784" width="170" height="46" rx="10" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="2" />
+            <text class="mono" x="1536" y="817" font-size="28" fill="#FC6255">reverted</text>
+            <path d="M1708 806 L1720 818 L1742 794" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <text id="rl-k2" class="h" x="840" y="926" font-size="30" fill="#8a8f99">去重键 = 只有充值 ID</text>
+          <g id="rl-ch3" class="h">
+            <rect x="1260" y="894" width="170" height="46" rx="10" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="2" />
+            <text class="mono" x="1276" y="927" font-size="28" fill="#FC6255">reverted</text>
+            <path d="M1446 904 L1470 928 M1470 904 L1446 928" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+            <text x="1486" y="927" font-size="28" fill="#FC6255">被误当成重复</text>
+          </g>
+        </g>
+
+        <!-- L5 HMAC -->
+        <g id="rl-hm">
+          <g id="rl-p1" class="h"><rect x="100" y="250" width="200" height="60" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="2" /><text class="mono" x="116" y="290" font-size="28" fill="#F0B90B">1732262400</text></g>
+          <g id="rl-p2" class="h"><rect x="312" y="250" width="50" height="60" rx="8" fill="#161a22" stroke="#e8e6df" stroke-width="2" /><text class="mono" x="337" y="290" font-size="28" fill="#e8e6df" text-anchor="middle">.</text></g>
+          <g id="rl-p3" class="h"><rect x="374" y="250" width="160" height="60" rx="8" fill="#161a22" stroke="#e8e6df" stroke-width="2" /><text class="mono" x="400" y="290" font-size="28" fill="#e8e6df">{body}</text></g>
+          <path id="rl-h1" class="dr h" pathLength="1" d="M330 318 L330 392" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#rl-arr)" />
+          <g id="rl-key" class="h">
+            <circle cx="126" cy="460" r="16" fill="none" stroke="#F0B90B" stroke-width="4" />
+            <path d="M142 460 L184 460 M172 460 L172 474 M182 460 L182 470" stroke="#F0B90B" stroke-width="4" fill="none" />
+          </g>
+          <g id="rl-mac" class="h">
+            <rect x="210" y="400" width="400" height="120" rx="14" fill="#83C167" fill-opacity="0.1" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="410" y="472" font-size="30" fill="#83C167" text-anchor="middle">HMAC-SHA256</text>
+          </g>
+          <path id="rl-h2" class="dr h" pathLength="1" d="M330 524 L330 570" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#rl-arr)" />
+          <text id="rl-sig" class="h mono" x="230" y="620" font-size="30" fill="#83C167">sig = 3fa9…c2</text>
+          <g id="rl-seal" class="h">
+            <circle cx="560" cy="608" r="30" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="3" />
+            <circle cx="560" cy="608" r="20" fill="none" stroke="#83C167" stroke-width="2" stroke-dasharray="4 3" />
+          </g>
+          <g id="rl-mer" class="h">
+            <rect x="100" y="690" width="620" height="110" rx="12" fill="#B48EF0" fill-opacity="0.12" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="130" y="756" font-size="32" font-weight="700" fill="#B48EF0">商户</text>
+            <circle cx="244" cy="745" r="12" fill="none" stroke="#F0B90B" stroke-width="3.5" />
+            <path d="M256 745 L290 745 M282 745 L282 756" stroke="#F0B90B" stroke-width="3.5" fill="none" />
+            <text x="314" y="756" font-size="28" fill="#e8e6df">同一把密钥验算</text>
+          </g>
+          <path id="rl-mok" class="h" d="M620 744 L634 758 L662 728" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+
+        <!-- L6 重放窗口 -->
+        <g id="rl-rp">
+          <g id="rl-axis" class="h">
+            <line x1="900" y1="800" x2="1780" y2="800" stroke="#6b6f7a" stroke-width="3" />
+            <rect x="1380" y="790" width="240" height="20" rx="4" fill="#83C167" fill-opacity="0.35" />
+            <line x1="1500" y1="782" x2="1500" y2="818" stroke="#e8e6df" stroke-width="3" />
+            <text x="1500" y="766" font-size="28" fill="#e8e6df" text-anchor="middle">现在</text>
+            <text x="1500" y="858" font-size="28" fill="#83C167" text-anchor="middle">±5 分钟</text>
+          </g>
+          <use id="rl-old" class="h" href="#rl-envg" x="1214" y="722" />
+          <g id="rl-oldl" class="h">
+            <line x1="1240" y1="788" x2="1240" y2="812" stroke="#8a8f99" stroke-width="3" />
+            <text x="1240" y="858" font-size="28" fill="#8a8f99" text-anchor="middle">10 分钟前</text>
+          </g>
+          <g id="rl-rej" class="h">
+            <path d="M1184 910 L1212 938 M1212 910 L1184 938" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+            <text x="1230" y="936" font-size="32" font-weight="700" fill="#FC6255">重放被拒</text>
+          </g>
+        </g>
+      </g>
+      <!-- 术语卡 -->
+      <g id="rl-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">至少一次投递 <tspan font-size="28" font-weight="400" fill="#8a8f99">At-least-once</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">保证送达，可能重复，消费方要幂等</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const HL = (a, b, t, d = 0.45) => tl.to("#rl-hl, #rl-hlb", { attr: { y: 283 + 40 * (a - 1), height: 40 * (b - a + 1) }, opacity: 1, duration: d, ease: "power2.inOut" }, t);
+      // 飞行信封：按关键点移动（x,y 为信封左上角）
+      const FLY = (pts, t, seg = 0.45) => {
+        tl.fromTo("#rl-fly", { opacity: 0, x: pts[0][0], y: pts[0][1] }, { opacity: 1, duration: 0.15, immediateRender: false }, t);
+        for (let i = 1; i < pts.length; i++) tl.to("#rl-fly", { x: pts[i][0], y: pts[i][1], duration: seg, ease: "power1.inOut" }, t + 0.15 + (i - 1) * seg);
+        return t + 0.15 + (pts.length - 1) * seg;
+      };
+      const SPIN = (t, d) => tl.to("#rl-gear", { rotation: "+=" + Math.round(d * 120), svgOrigin: "420 545", duration: d, ease: "none" }, t);
+      const OB = [128, 290], GEAR = [394, 528], PIPE0 = [150, 649], PIPE1 = [600, 649], CONS = [600, 782];
+
+      // L0 outbox → Relay
+      IN("#rl-panel, #rl-t1", at(0, 0.02), 0.5);
+      IN("#rl-code1", at(0, 0.08), 0.7);
+      IN("#rl-ob", at(0, 0.04), 0.5);
+      tl.fromTo(".rl-e", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.04 }, at(0, 0.14));
+      IN("#rl-lk1, #rl-lk2", at(0, 0.2), 0.3);
+      IN("#rl-sn", at(0, 0.3), 0.4);
+      ARROW("#rl-a1", at(0, 0.36), 0.3);
+      IN("#rl-gear, #rl-gl", at(0, 0.42), 0.4);
+      SPIN(at(0, 0.42), 2.2);
+      ARROW("#rl-a2", at(0, 0.6), 0.3);
+      IN("#rl-pipe, #rl-pl", at(0, 0.64), 0.4);
+      ARROW("#rl-a3", at(0, 0.76), 0.3);
+      IN("#rl-cons", at(0, 0.8), 0.4);
+      let e = FLY([OB, [394, 400], GEAR], at(0, 0.5), 0.4);
+      OUT("#rl-fly", e, 0.2);
+
+      // L1 第 2–4 行：取 100 条、加锁、跳过别人锁住的
+      HL(2, 4, at(1, 0.02));
+      IN("#rl-br", at(1, 0.1), 0.5);
+      IN("#rl-brl", at(1, 0.22), 0.4);
+      tl.to("#rl-lk1, #rl-lk2", { opacity: 0.35, duration: 0.3, yoyo: true, repeat: 3 }, at(1, 0.6));
+      SPIN(at(1, 0.3), 3);
+
+      // L2 第 6–9 行：发给 Kafka，再标记已发送
+      HL(6, 9, at(2, 0.02));
+      e = FLY([GEAR, PIPE0, PIPE1, CONS], at(2, 0.05), 0.4);
+      IN("#rl-c1", e, 0.2);
+      OUT("#rl-fly", e, 0.1);
+      OUT("#rl-sn", at(2, 0.66), 0.2);
+      IN("#rl-ss", at(2, 0.72), 0.4);
+      SPIN(at(2, 0.05), 2);
+
+      // L3 失败 → 回滚重发；成功但标记前崩溃 → 再发一次
+      OUT("#rl-c1, #rl-ss", at(3, 0), 0.3);
+      IN("#rl-sn", at(3, 0.04), 0.3);
+      HL(7, 7, at(3, 0.02));
+      IN("#rl-cm", at(3, 0.06), 0.4);
+      IN("#rl-st1", at(3, 0.08), 0.4);
+      e = FLY([GEAR, PIPE0], at(3, 0.08), 0.4);
+      tl.to("#rl-fly", { x: OB[0], y: OB[1], duration: 0.6, ease: "back.out(1.4)" }, e);
+      OUT("#rl-fly", e + 0.6, 0.2);
+      OUT("#rl-st1, #rl-cm", at(3, 0.4), 0.3);
+      HL(8, 9, at(3, 0.42));
+      IN("#rl-st2", at(3, 0.46), 0.4);
+      e = FLY([GEAR, PIPE0, PIPE1, CONS], at(3, 0.42), 0.3);
+      IN("#rl-c1", e, 0.2);
+      OUT("#rl-fly", e, 0.1);
+      IN("#rl-bolt", at(3, 0.66), 0.15);
+      tl.to("#rl-sn", { fill: "#FC6255", duration: 0.2, yoyo: true, repeat: 3 }, at(3, 0.68));
+      OUT("#rl-bolt", at(3, 0.76), 0.25);
+      e = FLY([OB, [394, 400], GEAR, PIPE0, PIPE1, [600, 824]], at(3, 0.74), 0.26);
+      IN("#rl-c2", e, 0.2);
+      OUT("#rl-fly", e, 0.1);
+      SPIN(at(3, 0.08), 9);
+
+      // L4 至少一次投递；消费方按 充值 ID + 事件类型 去重
+      OUT("#rl-st2, #rl-hl, #rl-hlb", at(4, 0), 0.3);
+      IN("#rl-term", at(4, 0.02), 0.6);
+      IN("#rl-k1", at(4, 0.24), 0.5);
+      IN("#rl-ch1", at(4, 0.36), 0.5, { x: 30 }, { x: 0 });
+      tl.to("#rl-c2", { opacity: 0.3, duration: 0.4 }, at(4, 0.4));
+      IN("#rl-ch2", at(4, 0.5), 0.5, { x: 30 }, { x: 0 });
+      IN("#rl-k2", at(4, 0.68), 0.5);
+      IN("#rl-ch3", at(4, 0.8), 0.5, { x: 30 }, { x: 0 });
+
+      // L5 HMAC 签名
+      OUT("#rl-term, #rl-flow, #rl-dd, #rl-code1, #rl-t1", at(5, 0), 0.4);
+      tl.to("#rl-pr", { attr: { height: 360 }, duration: 0.5, ease: "power2.inOut" }, at(5, 0.02));
+      IN("#rl-t2", at(5, 0.06), 0.4);
+      IN("#rl-code2", at(5, 0.08), 0.5);
+      HL(4, 5, at(5, 0.12));
+      IN("#rl-p1", at(5, 0.14), 0.4, { y: -12 }, { y: 0 });
+      IN("#rl-p2", at(5, 0.2), 0.4, { y: -12 }, { y: 0 });
+      IN("#rl-p3", at(5, 0.26), 0.4, { y: -12 }, { y: 0 });
+      ARROW("#rl-h1", at(5, 0.34), 0.4);
+      IN("#rl-mac", at(5, 0.36), 0.5);
+      IN("#rl-key", at(5, 0.42), 0.4, { x: -20 }, { x: 0 });
+      HL(6, 6, at(5, 0.5));
+      ARROW("#rl-h2", at(5, 0.52), 0.4);
+      IN("#rl-sig", at(5, 0.58), 0.4);
+      IN("#rl-seal", at(5, 0.62), 0.4, { scale: 1.6, svgOrigin: "560 608" }, { scale: 1, svgOrigin: "560 608" });
+      IN("#rl-mer", at(5, 0.74), 0.5);
+      IN("#rl-mok", at(5, 0.9), 0.4);
+
+      // L6 旧回调超出 ±5 分钟，重放被拒
+      OUT("#rl-hl, #rl-hlb", at(6, 0), 0.3);
+      IN("#rl-axis", at(6, 0.04), 0.5);
+      IN("#rl-old", at(6, 0.2), 0.6, { x: -280 }, { x: 0 });
+      IN("#rl-oldl", at(6, 0.4), 0.4);
+      tl.to("#rl-mer rect", { stroke: "#FC6255", duration: 0.2 }, at(6, 0.58));
+      IN("#rl-rej", at(6, 0.62), 0.4);
+
+      tl.to("#rl-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#rl-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["relay"] = tl;
+    })();
+  </script>
+</template>

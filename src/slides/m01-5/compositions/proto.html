@@ -1,0 +1,178 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 proto，id 前缀 pr- -->
+  <div id="root" data-composition-id="proto" data-duration="53.99" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pr-all">
+        <!-- L0 本地调用 vs 远程调用 -->
+        <g id="pr-loc" class="h">
+          <text x="320" y="300" font-size="30" fill="#8a8f99" text-anchor="middle">本地函数调用</text>
+          <rect x="120" y="330" width="400" height="300" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text class="mono" x="320" y="490" font-size="48" fill="#e8e6df" text-anchor="middle">f(x)</text>
+          <text x="320" y="590" font-size="28" fill="#6b6f7a" text-anchor="middle">同一台机器</text>
+        </g>
+        <g id="pr-m1" class="h">
+          <text x="840" y="300" font-size="30" fill="#8a8f99" text-anchor="middle">你的机器</text>
+          <rect x="680" y="330" width="320" height="300" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+        </g>
+        <g id="pr-m2" class="h">
+          <text x="1640" y="300" font-size="30" fill="#8a8f99" text-anchor="middle">另一台机器</text>
+          <rect x="1480" y="330" width="320" height="300" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        </g>
+        <text id="pr-f1" class="h mono" x="840" y="490" font-size="48" fill="#e8e6df" text-anchor="middle">f(x)</text>
+        <g id="pr-f2m">
+          <text id="pr-f2" class="h mono" x="1640" y="490" font-size="48" fill="#58C4DD" text-anchor="middle">f(x)</text>
+        </g>
+        <g id="pr-net" class="h">
+          <line x1="1010" y1="560" x2="1460" y2="560" stroke="#8a8f99" stroke-width="3" stroke-dasharray="12 10" />
+          <path d="M1456 550 L1474 560 L1456 570 Z" fill="#8a8f99" />
+          <text x="1240" y="610" font-size="28" fill="#8a8f99" text-anchor="middle">网络</text>
+        </g>
+        <circle id="pr-dot" class="h" cx="1010" cy="560" r="10" fill="#58C4DD" />
+        <text id="pr-rpc" class="h" x="960" y="770" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#58C4DD">RPC</tspan> = 远程过程调用</text>
+        <!-- L1–L2 请求卡 -->
+        <text id="pr-hd" class="h" x="960" y="246" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">JSON-RPC 请求</text>
+        <g id="pr-reqm">
+          <g id="pr-req" class="h">
+            <rect x="560" y="280" width="800" height="380" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="590" y="340" font-size="40" fill="#8a8f99">{</text>
+            <text class="mono" x="590" y="642" font-size="40" fill="#8a8f99">}</text>
+          </g>
+          <text id="pr-r0" class="h mono" x="620" y="400" font-size="32" fill="#8a8f99">"jsonrpc": <tspan fill="#58C4DD">"2.0"</tspan>,</text>
+          <text id="pr-r1" class="h mono" x="620" y="460" font-size="32" fill="#8a8f99">"id": <tspan fill="#58C4DD">1</tspan>,</text>
+          <text id="pr-r2" class="h mono" x="620" y="520" font-size="32" fill="#8a8f99">"method": <tspan fill="#58C4DD">"eth_blockNumber"</tspan>,</text>
+          <text id="pr-r3" class="h mono" x="620" y="580" font-size="32" fill="#8a8f99">"params": <tspan fill="#58C4DD">[]</tspan></text>
+        </g>
+        <text id="pr-a0" class="h" x="530" y="400" font-size="28" fill="#e8e6df" text-anchor="end">固定</text>
+        <text id="pr-a1" class="h" x="530" y="460" font-size="28" fill="#e8e6df" text-anchor="end">你起的编号</text>
+        <text id="pr-a2" class="h" x="530" y="520" font-size="28" fill="#e8e6df" text-anchor="end">方法名</text>
+        <text id="pr-a3" class="h" x="530" y="580" font-size="28" fill="#e8e6df" text-anchor="end">参数列表</text>
+        <!-- L3 节点与响应 -->
+        <g id="pr-node" class="h">
+          <rect x="1700" y="380" width="140" height="180" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1722" y1="430" x2="1818" y2="430" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1722" y1="470" x2="1818" y2="470" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1722" y1="510" x2="1818" y2="510" stroke="#58C4DD" stroke-width="3" />
+          <text x="1770" y="610" font-size="30" fill="#58C4DD" text-anchor="middle">节点</text>
+        </g>
+        <circle id="pr-dot2" class="h" cx="900" cy="470" r="10" fill="#58C4DD" />
+        <g id="pr-resm">
+          <g id="pr-res" class="h">
+            <rect x="980" y="280" width="660" height="380" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="1010" y="340" font-size="40" fill="#8a8f99">{</text>
+            <text class="mono" x="1040" y="400" font-size="32" fill="#8a8f99">"jsonrpc": <tspan fill="#58C4DD">"2.0"</tspan>,</text>
+            <text class="mono" x="1040" y="460" font-size="32" fill="#8a8f99">"id": <tspan fill="#F0B90B">1</tspan>,</text>
+            <text class="mono" x="1010" y="642" font-size="40" fill="#8a8f99">}</text>
+          </g>
+          <text id="pr-result" class="h mono" x="1040" y="520" font-size="32" fill="#8a8f99">"result": <tspan fill="#83C167">"0x1312d00"</tspan></text>
+        </g>
+        <line id="pr-gold" class="dr" pathLength="1" x1="326" y1="450" x2="1028" y2="450" stroke="#F0B90B" stroke-width="3" />
+        <text id="pr-hex" class="h" x="1310" y="715" font-size="28" fill="#8a8f99" text-anchor="middle">0x 开头 = 十六进制数</text>
+        <!-- L5 错误响应 -->
+        <g id="pr-errm">
+          <g id="pr-err" class="h">
+            <rect x="980" y="280" width="660" height="380" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text class="mono" x="1010" y="350" font-size="30" fill="#8a8f99">"id": <tspan fill="#F0B90B">1</tspan>,</text>
+            <text class="mono" x="1010" y="410" font-size="30" fill="#FC6255">"error": {</text>
+            <text class="mono" x="1046" y="470" font-size="30" fill="#8a8f99">"code": <tspan fill="#FC6255">-32602</tspan>,</text>
+            <text class="mono" x="1046" y="530" font-size="30" fill="#8a8f99">"message": <tspan fill="#FC6255">"…without 0x prefix"</tspan></text>
+            <text class="mono" x="1010" y="590" font-size="30" fill="#FC6255">}</text>
+          </g>
+        </g>
+        <!-- L6 curl 结构 -->
+        <g id="pr-tb" class="h">
+          <rect x="120" y="790" width="1680" height="160" rx="14" fill="#0a0c10" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="150" y="878" font-size="34" font-weight="700" fill="#83C167">$</text>
+        </g>
+        <g id="pr-b0" class="h"><rect x="190" y="830" width="140" height="70" rx="10" fill="none" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="260" y="878" font-size="34" fill="#83C167" text-anchor="middle">curl</text></g>
+        <g id="pr-b1" class="h"><rect x="350" y="830" width="190" height="70" rx="10" fill="none" stroke="#FF9F43" stroke-width="2.5" /><text class="mono" x="445" y="878" font-size="34" fill="#FF9F43" text-anchor="middle">-X POST</text></g>
+        <g id="pr-b2" class="h"><rect x="560" y="830" width="180" height="70" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5" /><text x="650" y="878" font-size="34" fill="#e8e6df" text-anchor="middle">JSON 头</text></g>
+        <g id="pr-b3" class="h"><rect x="760" y="830" width="360" height="70" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5" /><text x="940" y="878" font-size="34" fill="#58C4DD" text-anchor="middle">--data {请求体}</text></g>
+        <text id="pr-os" class="h" x="1760" y="878" font-size="28" fill="#8a8f99" text-anchor="end">macOS / Linux 自带</text>
+      </g>
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 本地调用 vs 远程调用
+IN("#pr-loc", at(0, 0.05), 0.6, { y: 16 }, { y: 0 });
+tl.to("#pr-loc rect", { stroke: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.28));
+IN("#pr-m1", at(0, 0.38), 0.5);
+IN("#pr-f1", at(0, 0.42), 0.5);
+IN("#pr-m2", at(0, 0.5), 0.5);
+IN("#pr-net", at(0, 0.55), 0.5);
+tl.fromTo("#pr-dot", { opacity: 1, attr: { cx: 1010 } }, { attr: { cx: 1460 }, duration: 1.0, ease: "power1.inOut", immediateRender: false }, at(0, 0.62));
+tl.to("#pr-dot", { opacity: 0, duration: 0.2 }, at(0, 0.62) + 1.0);
+IN("#pr-f2", at(0, 0.62) + 1.0, 0.4, { scale: 0.6, svgOrigin: "1640 475" }, { scale: 1, svgOrigin: "1640 475" });
+IN("#pr-rpc", at(0, 0.78), 0.6, { y: 14 }, { y: 0 });
+// L1 f(x) → JSON 卡片外壳
+OUT("#pr-loc, #pr-m1, #pr-m2, #pr-f1, #pr-net, #pr-rpc", at(1, 0), 0.4);
+tl.to("#pr-f2m", { x: -680, duration: 0.7, ease: "power2.inOut" }, at(1, 0.06));
+tl.to("#pr-f2", { opacity: 0, duration: 0.3 }, at(1, 0.06) + 0.6);
+IN("#pr-req", at(1, 0.06) + 0.55, 0.6, { scale: 0.4, svgOrigin: "960 470" }, { scale: 1, svgOrigin: "960 470" });
+IN("#pr-hd", at(1, 0.5), 0.5, { y: 10 }, { y: 0 });
+// L2 四个字段
+IN("#pr-r0", at(2, 0.06), 0.4, { x: -10 }, { x: 0 }); IN("#pr-a0", at(2, 0.1), 0.4);
+IN("#pr-r1", at(2, 0.3), 0.4, { x: -10 }, { x: 0 }); IN("#pr-a1", at(2, 0.34), 0.4);
+IN("#pr-r2", at(2, 0.55), 0.4, { x: -10 }, { x: 0 }); IN("#pr-a2", at(2, 0.59), 0.4);
+IN("#pr-r3", at(2, 0.78), 0.4, { x: -10 }, { x: 0 }); IN("#pr-a3", at(2, 0.82), 0.4);
+// L3 发出、带同一个 id 回来
+OUT("#pr-a0, #pr-a1, #pr-a2, #pr-a3, #pr-hd", at(3, 0), 0.35);
+tl.to("#pr-reqm", { x: -460, duration: 0.7, ease: "power2.inOut" }, at(3, 0.04));
+IN("#pr-node", at(3, 0.08), 0.5, { x: 20 }, { x: 0 });
+tl.fromTo("#pr-dot2", { opacity: 1, attr: { cx: 900 } }, { attr: { cx: 1690 }, duration: 0.6, ease: "power1.in", immediateRender: false }, at(3, 0.2));
+tl.to("#pr-dot2", { opacity: 0, duration: 0.15 }, at(3, 0.2) + 0.6);
+IN("#pr-res", at(3, 0.34), 0.5);
+tl.fromTo("#pr-resm", { x: 140 }, { x: 0, duration: 0.7, ease: "power3.out", immediateRender: false }, at(3, 0.34));
+tl.fromTo("#pr-gold", { opacity: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut", immediateRender: false }, at(3, 0.6));
+tl.to("#pr-gold", { strokeWidth: 7, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.6) + 0.6);
+// L4 result
+IN("#pr-result", at(4, 0.05), 0.5, { x: -10 }, { x: 0 });
+tl.to("#pr-res > rect", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.1));
+IN("#pr-hex", at(4, 0.55), 0.5, { y: 10 }, { y: 0 });
+// L5 error 取代 result
+OUT("#pr-res, #pr-result, #pr-hex, #pr-gold", at(5, 0), 0.35);
+IN("#pr-err", at(5, 0.08), 0.5);
+tl.fromTo("#pr-errm", { y: 120 }, { y: 0, duration: 0.7, ease: "power3.out", immediateRender: false }, at(5, 0.08));
+tl.to("#pr-err > rect", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.5));
+// L6 curl
+IN("#pr-tb", at(6, 0.02), 0.5, { y: 20 }, { y: 0 });
+IN("#pr-b0", at(6, 0.12), 0.4, { y: 10 }, { y: 0 });
+IN("#pr-b1", at(6, 0.3), 0.4, { y: 10 }, { y: 0 });
+IN("#pr-b2", at(6, 0.42), 0.4, { y: 10 }, { y: 0 });
+IN("#pr-b3", at(6, 0.54), 0.4, { y: 10 }, { y: 0 });
+IN("#pr-os", at(6, 0.8), 0.5);
+      /*ENDANIM*/
+
+      tl.to("#pr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["proto"] = tl;
+    })();
+  </script>
+</template>

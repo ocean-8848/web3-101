@@ -1,0 +1,146 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quorum，id 前缀 qu- -->
+  <div id="root" data-composition-id="quorum" data-duration="72.19" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="qu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="qu-all">
+        <text id="qu-f1" class="h mono" x="960" y="500" font-size="96" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#58C4DD">n</tspan> ≥ 3<tspan fill="#FC6255">f</tspan> + 1</text>
+        <text id="qu-f2" class="h mono" x="960" y="670" font-size="84" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#FC6255">f</tspan> &lt; <tspan fill="#58C4DD">n</tspan> / 3</text>
+        <line id="qu-un" class="dr h" pathLength="1" x1="676" y1="532" x2="726" y2="532" stroke="#58C4DD" stroke-width="6"/>
+        <line id="qu-uf" class="dr h" pathLength="1" x1="964" y1="532" x2="1014" y2="532" stroke="#FC6255" stroke-width="6"/>
+        <path id="qu-q1" class="h" d="M380.0 404.0 L640.0 404.0 A96 96 0 0 1 707.9 567.9 L447.9 827.9 A96 96 0 0 1 284.0 760.0 L284.0 500.0 A96 96 0 0 1 380.0 404.0 Z" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="4"/>
+        <path id="qu-q2" class="h" d="M748.0 500.0 L748.0 760.0 A108 108 0 0 1 640.0 868.0 L380.0 868.0 A108 108 0 0 1 303.6 683.6 L563.6 423.6 A108 108 0 0 1 748.0 500.0 Z" fill="none" stroke="#58C4DD" stroke-width="4" stroke-dasharray="14 10"/>
+        <g id="qu-nA" class="h"><circle cx="380" cy="500" r="62" fill="#161a22" stroke="#83C167" stroke-width="5"/><text x="380" y="516" font-size="48" font-weight="700" fill="#83C167" text-anchor="middle">A</text></g>
+        <g id="qu-nB" class="h"><circle cx="640" cy="500" r="62" fill="#161a22" stroke="#83C167" stroke-width="5"/><text x="640" y="516" font-size="48" font-weight="700" fill="#83C167" text-anchor="middle">B</text></g>
+        <g id="qu-nD" class="h"><circle cx="380" cy="760" r="62" fill="#161a22" stroke="#FC6255" stroke-width="5"/><text x="380" y="776" font-size="48" font-weight="700" fill="#FC6255" text-anchor="middle">D</text></g>
+        <g id="qu-nC" class="h"><circle cx="640" cy="760" r="62" fill="#161a22" stroke="#83C167" stroke-width="5"/><text x="640" y="776" font-size="48" font-weight="700" fill="#83C167" text-anchor="middle">C</text></g>
+        <circle id="qu-oB" class="h" cx="640" cy="500" r="80" fill="none" stroke="#FF9F43" stroke-width="4"/>
+        <circle id="qu-oD" class="h" cx="380" cy="760" r="80" fill="none" stroke="#FF9F43" stroke-width="4"/>
+        <text id="qu-nf" class="h" x="510" y="985" font-size="40" fill="#e8e6df" text-anchor="middle"><tspan class="mono" fill="#58C4DD">n = 4</tspan>，<tspan class="mono" fill="#FC6255">f = 1</tspan></text>
+        <g id="qu-once" class="h"><rect x="784" y="474" width="150" height="52" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="859" y="511" font-size="30" fill="#83C167" text-anchor="middle">只投一次</text></g>
+        <text id="qu-qn" class="h" x="1000" y="420" font-size="52" fill="#e8e6df"><tspan class="mono">2<tspan fill="#FC6255">f</tspan> + 1 = 3</tspan> 票</text>
+        <g id="qu-r1" class="h"><rect x="1000" y="530" width="40" height="40" rx="8" fill="#83C167" fill-opacity="0.3" stroke="#83C167" stroke-width="3"/><text x="1060" y="564" font-size="40" fill="#e8e6df">Q1 同意 <tspan fill="#58C4DD">X</tspan></text><text class="mono" x="1290" y="564" font-size="40" fill="#83C167">A B D</text><text class="mono" x="1470" y="564" font-size="40" font-weight="700" fill="#83C167">3 / 3</text></g>
+        <g id="qu-r2" class="h"><rect x="1000" y="630" width="40" height="40" rx="8" fill="none" stroke="#58C4DD" stroke-width="3" stroke-dasharray="6 5"/><text x="1060" y="664" font-size="40" fill="#e8e6df">Q2 同意 <tspan fill="#F0B90B">Y</tspan></text><text class="mono" x="1290" y="664" font-size="40" fill="#58C4DD"><tspan id="qu-mB">B</tspan> C D</text><text id="qu-c2" class="mono" x="1470" y="664" font-size="40" font-weight="700" fill="#8a8f99">? / 3</text></g>
+        <text id="qu-c2b" class="h mono" x="1470" y="664" font-size="40" font-weight="700" fill="#FC6255">2 / 3</text>
+        <line id="qu-xB" class="dr" pathLength="1" x1="1284" y1="650" x2="1318" y2="650" stroke="#FC6255" stroke-width="4"/>
+        <text id="qu-no" class="h" x="1470" y="740" font-size="36" font-weight="700" fill="#FC6255">凑不齐</text>
+        <text id="qu-safe" class="h" x="960" y="580" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">两个冲突的决定不能同时成立 = <tspan fill="#83C167">安全性</tspan></text>
+        <g id="qu-six" class="h"><text x="560" y="320" font-size="40" fill="#e8e6df" text-anchor="middle"><tspan class="mono" fill="#58C4DD">n = 6</tspan>，<tspan class="mono" fill="#FC6255">f = 2</tspan></text><rect id="qu-sx" x="212" y="362" width="440" height="426" rx="70" fill="#83C167" fill-opacity="0.1" stroke="#83C167" stroke-width="4"/><rect id="qu-sy" x="468" y="374" width="440" height="402" rx="70" fill="#58C4DD" fill-opacity="0.08" stroke="#58C4DD" stroke-width="4" stroke-dasharray="14 10"/>
+        <circle cx="300" cy="450" r="54" fill="#161a22" stroke="#83C167" stroke-width="5"/>
+        <circle cx="300" cy="700" r="54" fill="#161a22" stroke="#83C167" stroke-width="5"/>
+        <circle cx="560" cy="450" r="54" fill="#161a22" stroke="#FC6255" stroke-width="5"/>
+        <circle cx="560" cy="700" r="54" fill="#161a22" stroke="#FC6255" stroke-width="5"/>
+        <circle cx="820" cy="450" r="54" fill="#161a22" stroke="#83C167" stroke-width="5"/>
+        <circle cx="820" cy="700" r="54" fill="#161a22" stroke="#83C167" stroke-width="5"/>
+        </g>
+        <g id="qu-bx" class="h"><rect x="1060" y="400" width="160" height="120" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="4"/><text class="mono" x="1140" y="478" font-size="52" font-weight="700" fill="#58C4DD" text-anchor="middle">X</text><text x="1250" y="476" font-size="40" font-weight="700" fill="#83C167">4 票 ✓</text></g>
+        <g id="qu-by" class="h"><rect x="1060" y="640" width="160" height="120" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="4"/><text class="mono" x="1140" y="718" font-size="52" font-weight="700" fill="#F0B90B" text-anchor="middle">Y</text><text x="1250" y="716" font-size="40" font-weight="700" fill="#83C167">4 票 ✓</text></g>
+        <path id="qu-spark" class="dr" pathLength="1" d="M1118 534 L1158 562 L1124 580 L1166 626" fill="none" stroke="#FC6255" stroke-width="6" stroke-linejoin="round"/>
+        <text id="qu-q4" class="h" x="1060" y="840" font-size="32" fill="#8a8f99">法定人数 = 4</text>
+        <text id="qu-fail" class="h" x="560" y="900" font-size="48" font-weight="700" fill="#FC6255" text-anchor="middle"><tspan class="mono">f ≥ n/3</tspan> → 失败</text>
+        <g id="qu-card" class="h"><rect x="260" y="340" width="500" height="470" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="300" y="408" font-size="40" font-weight="700" fill="#58C4DD">验证者名单</text><circle cx="320" cy="470" r="18" fill="#8a8f99"/><rect x="356" y="463" width="300" height="14" rx="7" fill="#3a3f4a"/><circle cx="320" cy="530" r="18" fill="#8a8f99"/><rect x="356" y="523" width="260" height="14" rx="7" fill="#3a3f4a"/><circle cx="320" cy="590" r="18" fill="#8a8f99"/><rect x="356" y="583" width="220" height="14" rx="7" fill="#3a3f4a"/><circle cx="320" cy="650" r="18" fill="#8a8f99"/><rect x="356" y="643" width="180" height="14" rx="7" fill="#3a3f4a"/></g>
+        <text id="qu-n100" class="h mono" x="300" y="760" font-size="44" font-weight="700" fill="#58C4DD">n = 100</text>
+        <path id="qu-ok" class="dr" pathLength="1" d="M520 742 L536 758 L566 726" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round"/>
+        <g id="qu-btc" class="h"><circle cx="1080" cy="560" r="56" fill="#F0B90B"/><text class="mono" x="1080" y="578" font-size="52" font-weight="700" fill="#0f1117" text-anchor="middle">B</text></g>
+        <text id="qu-mq" class="h" x="1160" y="576" font-size="40" font-weight="700" fill="#FF9F43">矿工数 = <tspan class="mono">?</tspan></text>
+        <path id="qu-by2" class="dr h" pathLength="1" d="M1080 494 C1110 360, 1440 340, 1560 540" fill="none" stroke="#58C4DD" stroke-width="4" marker-end="url(#qu-arr)"/>
+        <g id="qu-pow" class="h"><rect x="1566" y="530" width="200" height="90" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3.5"/><text x="1666" y="590" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">PoW</text></g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="qu-term" class="h">
+        <rect x="70" y="56" width="520" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">法定人数 <tspan font-size="28" font-weight="400" fill="#8a8f99">Quorum</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">做出决定所需的最少票数</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+// L0 formula
+IN("#qu-f1", at(0, 0.02), 0.7, { scale: 0.85, svgOrigin: "960 470" }, { scale: 1, svgOrigin: "960 470" });
+IN("#qu-un", at(0, 0.18), 0.3); DRAW("#qu-un", at(0, 0.18), 0.5);
+IN("#qu-uf", at(0, 0.36), 0.3); DRAW("#qu-uf", at(0, 0.36), 0.5);
+tl.to("#qu-f1", { scale: 1.06, svgOrigin: "960 470", duration: 0.35, yoyo: true, repeat: 1 }, at(0, 0.46));
+IN("#qu-f2", at(0, 0.62), 0.6, { y: -40 }, { y: 0 });
+tl.to("#qu-f1 tspan:last-of-type", { fill: "#FF9F43", duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.3));
+// L1 shrink to corner, four nodes
+OUT("#qu-f1, #qu-un, #qu-uf", at(1, 0), 0.4);
+tl.to("#qu-f2", { attr: { x: 1560, y: 250, "font-size": 56 }, duration: 0.8, ease: "power2.inOut" }, at(1, 0.02));
+["#qu-nA", "#qu-nB", "#qu-nC", "#qu-nD"].forEach((s, k) => IN(s, at(1, 0.18 + k * 0.1), 0.4, { scale: 0.5, transformOrigin: "50% 50%" }, { scale: 1, ease: "back.out(2)" }));
+tl.to("#qu-nD circle", { scale: 1.15, svgOrigin: "380 760", duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.72));
+IN("#qu-nf", at(1, 0.8), 0.5);
+// L2 quorum
+IN("#qu-qn", at(2, 0.05), 0.6, { x: 20 }, { x: 0 });
+IN("#qu-term", at(2, 0.55), 0.5);
+// L3 two groups
+IN("#qu-q1", at(3, 0.05), 0.6);
+IN("#qu-r1", at(3, 0.15), 0.5, { x: 20 }, { x: 0 });
+IN("#qu-q2", at(3, 0.5), 0.6);
+IN("#qu-r2", at(3, 0.6), 0.5, { x: 20 }, { x: 0 });
+OUT("#qu-term", at(3, 0.95), 0.4);
+// L4 overlap
+IN("#qu-oB, #qu-oD", at(4, 0.12), 0.4);
+tl.to("#qu-oB, #qu-oD", { scale: 1.08, transformOrigin: "50% 50%", duration: 0.3, yoyo: true, repeat: 3 }, at(4, 0.18));
+tl.to("#qu-nB circle", { fill: "#24311f", duration: 0.2, yoyo: true, repeat: 3 }, at(4, 0.45));
+IN("#qu-once", at(4, 0.5), 0.5, { x: -16 }, { x: 0 });
+tl.to("#qu-mB", { fill: "#6b6f7a", duration: 0.3 }, at(4, 0.66));
+DRAW("#qu-xB", at(4, 0.66), 0.3);
+tl.to("#qu-c2", { opacity: 0, duration: 0.15 }, at(4, 0.72));
+IN("#qu-c2b", at(4, 0.76), 0.3);
+IN("#qu-no", at(4, 0.82), 0.4);
+// L5 safety
+OUT("#qu-q1, #qu-q2, #qu-nA, #qu-nB, #qu-nC, #qu-nD, #qu-oB, #qu-oD, #qu-once, #qu-nf, #qu-qn, #qu-r1, #qu-r2, #qu-c2b, #qu-xB, #qu-no", at(5, 0), 0.4);
+IN("#qu-safe", at(5, 0.12), 0.6, { scale: 0.9, svgOrigin: "960 560" }, { scale: 1, svgOrigin: "960 560" });
+// L6 f >= n/3 breaks it
+OUT("#qu-safe", at(6, 0), 0.4);
+IN("#qu-six", at(6, 0.06), 0.6);
+IN("#qu-bx", at(6, 0.4), 0.5, { x: 20 }, { x: 0 });
+IN("#qu-by", at(6, 0.55), 0.5, { x: 20 }, { x: 0 });
+IN("#qu-q4", at(6, 0.6), 0.4);
+DRAW("#qu-spark", at(6, 0.7), 0.3);
+tl.to("#qu-spark", { opacity: 0.3, duration: 0.15, yoyo: true, repeat: 5 }, at(6, 0.75));
+IN("#qu-fail", at(6, 0.82), 0.5);
+// L7 need n
+OUT("#qu-six, #qu-bx, #qu-by, #qu-q4, #qu-spark, #qu-fail", at(7, 0), 0.4);
+IN("#qu-card", at(7, 0.05), 0.6, { y: 20 }, { y: 0 });
+IN("#qu-n100", at(7, 0.22), 0.5);
+DRAW("#qu-ok", at(7, 0.3), 0.4);
+IN("#qu-btc", at(7, 0.48), 0.5, { scale: 0.6, svgOrigin: "1080 560" }, { scale: 1, svgOrigin: "1080 560" });
+IN("#qu-mq", at(7, 0.56), 0.5);
+tl.to("#qu-mq", { opacity: 0.4, duration: 0.25, yoyo: true, repeat: 3 }, at(7, 0.62));
+ARROW("#qu-by2", at(7, 0.74), 0.8);
+IN("#qu-pow", at(7, 0.82), 0.5);
+
+
+      tl.to("#qu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#qu-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["quorum"] = tl;
+    })();
+  </script>
+</template>

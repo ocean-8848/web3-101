@@ -1,0 +1,158 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 backup，id 前缀 ba- -->
+  <div id="root" data-composition-id="backup" data-duration="48.43" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ba-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ba-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+      </defs>
+      <g id="ba-all">
+        <g id="ba-p1">
+          <g id="ba-kc" class="h">
+            <rect x="240" y="300" width="700" height="440" rx="22" fill="#83C167" fill-opacity="0.06" stroke="#83C167" stroke-width="3"/>
+            <text class="mono" x="280" y="362" font-size="34" font-weight="700" fill="#83C167">Keychain</text>
+          </g>
+          <g id="ba-key" class="h"><circle cx="560" cy="540" r="14" fill="none" stroke="#F0B90B" stroke-width="5"/><path d="M574 540 H616 M604 540 v13 M614 540 v10" stroke="#F0B90B" stroke-width="5" fill="none"/></g>
+          <rect id="ba-lockbox" class="h" x="520" y="490" width="140" height="100" rx="14" fill="none" stroke="#83C167" stroke-width="4"/>
+          <text id="ba-only" class="h" x="590" y="660" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">只限本机</text>
+          <g id="ba-panel" class="h">
+            <rect x="1020" y="300" width="780" height="260" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text class="mono" x="1060" y="368" font-size="32" fill="#e8e6df">kSecAttrAccessible</text>
+            <text class="mono" x="1060" y="420" font-size="32" fill="#e8e6df">WhenUnlocked<tspan id="ba-hl" fill="#e8e6df">ThisDeviceOnly</tspan></text>
+          </g>
+          <g id="ba-sw" class="h">
+            <rect id="ba-swt" x="1060" y="466" width="110" height="54" rx="27" fill="#8a8f99" fill-opacity="0.3" stroke="#8a8f99" stroke-width="2.5"/>
+            <circle id="ba-swk" cx="1088" cy="493" r="20" fill="#e8e6df"/>
+          </g>
+          <text id="ba-on" class="h mono" x="1192" y="504" font-size="30" font-weight="700" fill="#83C167">ON</text>
+          <text id="ba-off" class="h mono" x="1192" y="504" font-size="30" font-weight="700" fill="#FC6255">OFF</text>
+          <!-- 反例 -->
+          <g id="ba-cloud" class="h"><path d="M1205 730 a30 30 0 0 1 8 -58 a42 42 0 0 1 80 -6 a30 30 0 0 1 30 64 z" fill="none" stroke="#8a8f99" stroke-width="3"/></g>
+          <g id="ba-pc" class="h" stroke="#8a8f99" stroke-width="3" fill="none"><rect x="1548" y="662" width="110" height="70" rx="6"/><path d="M1603 732 v14 M1578 748 h50"/></g>
+          <g id="ba-bx0" class="h"><rect x="480" y="508" width="220" height="64" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><g><circle cx="502" cy="540" r="14" fill="none" stroke="#F0B90B" stroke-width="3"/><path d="M516 540 H558 M546 540 v13 M556 540 v10" stroke="#F0B90B" stroke-width="3" fill="none"/></g><text x="570" y="550" font-size="28" fill="#e8e6df">整机备份</text></g>
+          <g id="ba-bx1" class="h"><rect x="1150" y="760" width="220" height="64" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><g><circle cx="1172" cy="792" r="14" fill="none" stroke="#F0B90B" stroke-width="3"/><path d="M1186 792 H1228 M1216 792 v13 M1226 792 v10" stroke="#F0B90B" stroke-width="3" fill="none"/></g><text x="1240" y="802" font-size="28" fill="#e8e6df">整机备份</text></g>
+          <ellipse id="ba-exp" class="h" cx="1430" cy="745" rx="350" ry="150" fill="#FC6255" fill-opacity="0.06" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 8"/>
+          <text id="ba-expl" class="h" x="1430" y="940" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">暴露面变大</text>
+          <!-- 由用户决定 -->
+          <path id="ba-fk0" class="dr h" pathLength="1" d="M960 600 Q1060 640 1150 690" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ba-arr-g)"/>
+          <path id="ba-fk1" class="dr h" pathLength="1" d="M960 600 Q1260 620 1490 690" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ba-arr-g)"/>
+          <g id="ba-o0" class="h"><rect x="1080" y="700" width="300" height="76" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1230" y="749" font-size="30" fill="#e8e6df" text-anchor="middle">加密云恢复</text></g>
+          <g id="ba-o1" class="h"><rect x="1440" y="700" width="300" height="76" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1590" y="749" font-size="30" fill="#e8e6df" text-anchor="middle">离线抄写</text></g>
+          <text id="ba-user" class="h" x="1410" y="850" font-size="32" fill="#e8e6df" text-anchor="middle">由用户决定</text>
+        </g>
+        <g id="ba-p2">
+          <g id="ba-doc" class="h">
+            <path d="M260 340 h220 l60 60 v330 h-280 z" fill="#161a22" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round"/>
+            <text class="mono" x="400" y="790" font-size="30" fill="#8a8f99" text-anchor="middle">AsyncStorage</text>
+          </g>
+          <rect id="ba-card" class="h" x="290" y="500" width="220" height="70" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5"/>
+          <g id="ba-clk" class="h" stroke="#8a8f99" stroke-width="3" fill="none"><path d="M388 440 v-10 a12 12 0 0 1 24 0 v10"/><rect x="380" y="440" width="40" height="30" rx="5"/></g>
+          <text id="ba-enc" class="h" x="400" y="546" font-size="28" fill="#e8e6df" text-anchor="middle">已加密助记词</text>
+          <text id="ba-pln" class="h" x="400" y="546" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">明文助记词</text>
+          <text id="ba-q" class="h" x="600" y="550" font-size="44" font-weight="700" fill="#FF9F43">够安全？</text>
+          <g id="ba-js" class="h">
+            <rect x="880" y="430" width="300" height="220" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3"/>
+            <text x="1030" y="700" font-size="30" fill="#58C4DD" text-anchor="middle">JS 代码包</text>
+          </g>
+          <rect id="ba-lid" class="h" x="870" y="400" width="320" height="34" rx="8" fill="#58C4DD" fill-opacity="0.35" stroke="#58C4DD" stroke-width="3"/>
+          <g id="ba-hk" class="h"><g><circle cx="992" cy="510" r="14" fill="none" stroke="#FC6255" stroke-width="5"/><path d="M1006 510 H1048 M1036 510 v13 M1046 510 v10" stroke="#FC6255" stroke-width="5" fill="none"/></g></g>
+          <text id="ba-hkl" class="h" x="1030" y="600" font-size="28" fill="#FC6255" text-anchor="middle">写死的密钥</text>
+          <g id="ba-se" class="h">
+            <rect x="1300" y="430" width="480" height="220" rx="16" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="3.5"/>
+            <text class="mono" x="1540" y="480" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">Keychain / Keystore</text>
+          </g>
+          <path id="ba-ok" class="dr h" pathLength="1" d="M1680 570 l20 20 l40 -46" stroke="#83C167" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+// L0 Keychain 框 + 开关面板
+IN("#ba-kc", at(0, 0.0), 0.6, { scale: 0.85, svgOrigin: "590 520" }, { scale: 1, svgOrigin: "590 520" });
+IN("#ba-key", at(0, 0.2), 0.5);
+IN("#ba-panel", at(0, 0.45), 0.5, { x: 30 }, { x: 0 });
+IN("#ba-sw", at(0, 0.6), 0.4);
+// L1 属性名 + 拨到 ON
+tl.to("#ba-hl", { fill: "#83C167", duration: 0.4 }, at(1, 0.55));
+tl.to("#ba-swk", { attr: { cx: 1142 }, duration: 0.35, ease: "power2.out" }, at(1, 0.75));
+tl.to("#ba-swt", { fill: "#83C167", stroke: "#83C167", duration: 0.35 }, at(1, 0.75));
+IN("#ba-on", at(1, 0.8), 0.3);
+// L2 反例：OFF → 备份飞走
+OUT("#ba-on", at(2, 0.0), 0.2);
+tl.to("#ba-swk", { attr: { cx: 1088 }, duration: 0.35 }, at(2, 0.02));
+tl.to("#ba-swt", { fill: "#FC6255", stroke: "#FC6255", duration: 0.35 }, at(2, 0.02));
+tl.to("#ba-hl", { fill: "#e8e6df", duration: 0.3 }, at(2, 0.02));
+IN("#ba-off", at(2, 0.06), 0.3);
+IN("#ba-cloud", at(2, 0.14), 0.4); IN("#ba-pc", at(2, 0.2), 0.4);
+IN("#ba-bx0", at(2, 0.24), 0.3);
+tl.to("#ba-bx0", { x: 670, y: 252, duration: 1.0, ease: "power2.inOut" }, at(2, 0.3));
+IN("#ba-bx1", at(2, 0.48), 0.01);
+tl.to("#ba-bx1", { x: 344, duration: 0.8, ease: "power2.inOut" }, at(2, 0.5));
+IN("#ba-exp", at(2, 0.66), 0.8, { scale: 0.3, svgOrigin: "1430 745" }, { scale: 1, svgOrigin: "1430 745" });
+IN("#ba-expl", at(2, 0.76), 0.4);
+// L3 开关回 ON，钥匙锁回本机；交给用户决定
+OUT("#ba-off", at(3, 0.0), 0.2);
+tl.to("#ba-swk", { attr: { cx: 1142 }, duration: 0.35 }, at(3, 0.02));
+tl.to("#ba-swt", { fill: "#83C167", stroke: "#83C167", duration: 0.35 }, at(3, 0.02));
+tl.to("#ba-hl", { fill: "#83C167", duration: 0.3 }, at(3, 0.02));
+IN("#ba-on", at(3, 0.06), 0.3);
+OUT("#ba-bx0, #ba-bx1, #ba-cloud, #ba-pc, #ba-exp, #ba-expl", at(3, 0.06), 0.5);
+IN("#ba-lockbox", at(3, 0.14), 0.5, { scale: 1.4, svgOrigin: "590 540" }, { scale: 1, svgOrigin: "590 540" });
+IN("#ba-only", at(3, 0.22), 0.4);
+ARROW("#ba-fk0", at(3, 0.5), 0.6); ARROW("#ba-fk1", at(3, 0.52), 0.6);
+IN("#ba-o0", at(3, 0.6), 0.4); IN("#ba-o1", at(3, 0.7), 0.4);
+IN("#ba-user", at(3, 0.85), 0.4);
+// L4 切换：AsyncStorage 存加密助记词
+OUT("#ba-p1", at(4, 0.0), 0.4);
+IN("#ba-doc", at(4, 0.1), 0.5, { y: 20 }, { y: 0 });
+IN("#ba-card, #ba-enc", at(4, 0.3), 0.4);
+IN("#ba-clk", at(4, 0.4), 0.4);
+IN("#ba-q", at(4, 0.7), 0.5, { scale: 0.6, svgOrigin: "690 535" }, { scale: 1, svgOrigin: "690 535" });
+// L5 拆包 → 明文 → 密钥移入芯片
+OUT("#ba-q", at(5, 0.0), 0.3);
+IN("#ba-js", at(5, 0.06), 0.5); IN("#ba-lid", at(5, 0.06), 0.5);
+tl.to("#ba-lid", { y: -70, duration: 0.6, ease: "back.out(1.5)" }, at(5, 0.18));
+IN("#ba-hk", at(5, 0.24), 0.4, { y: 20 }, { y: 0 }); IN("#ba-hkl", at(5, 0.28), 0.4);
+OUT("#ba-hkl", at(5, 0.42), 0.3);
+tl.to("#ba-hk", { x: -598, y: -55, duration: 0.8, ease: "power2.inOut" }, at(5, 0.42));
+tl.to("#ba-clk", { stroke: "#FC6255", duration: 0.2 }, at(5, 0.42) + 0.8);
+tl.to("#ba-clk path", { y: -10, duration: 0.25 }, at(5, 0.42) + 0.85);
+OUT("#ba-enc", at(5, 0.42) + 0.9, 0.25);
+IN("#ba-pln", at(5, 0.42) + 1.15, 0.3);
+tl.to("#ba-card", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.42) + 1.15);
+IN("#ba-se", at(5, 0.66), 0.5, { x: 30 }, { x: 0 });
+tl.to("#ba-hk", { x: 508, y: 50, duration: 1.0, ease: "power2.inOut" }, at(5, 0.74));
+tl.to("#ba-hk path, #ba-hk circle", { stroke: "#83C167", duration: 0.3 }, at(5, 0.74) + 0.8);
+tl.set("#ba-ok", { opacity: 1 }, at(5, 0.88)); DRAW("#ba-ok", at(5, 0.88), 0.4);
+
+
+      tl.to("#ba-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["backup"] = tl;
+    })();
+  </script>
+</template>

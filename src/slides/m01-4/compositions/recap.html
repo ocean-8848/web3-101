@@ -1,0 +1,190 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 rp- -->
+  <div id="root" data-composition-id="recap" data-duration="51.8" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="rp-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="rp-all">
+        <g id="rp-p1">
+          <!-- 三个问号 -->
+          <g id="rp-q1" class="h">
+            <rect class="rp-qr" x="120" y="220" width="400" height="76" rx="38" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <circle class="rp-qc" cx="170" cy="258" r="24" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="214" y="270" font-size="32" fill="#e8e6df">收款人在哪？</text>
+          </g>
+          <text id="rp-q1a" class="h" x="170" y="270" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">?</text>
+          <text id="rp-q1b" class="h" x="170" y="270" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">✓</text>
+          <path id="rp-a1" class="dr h" pathLength="1" d="M536 258 H600" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#rp-arrg)" />
+          <text id="rp-t1" class="h mono" x="620" y="270" font-size="36" fill="#58C4DD">data / topics[2]</text>
+
+          <g id="rp-q2" class="h">
+            <rect class="rp-qr" x="120" y="340" width="400" height="76" rx="38" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <circle class="rp-qc" cx="170" cy="378" r="24" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="214" y="390" font-size="32" fill="#e8e6df">扣了多少？</text>
+          </g>
+          <text id="rp-q2a" class="h" x="170" y="390" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">?</text>
+          <text id="rp-q2b" class="h" x="170" y="390" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">✓</text>
+          <path id="rp-a2" class="dr h" pathLength="1" d="M536 378 H600" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#rp-arrg)" />
+          <g id="rp-t2" class="h">
+            <text class="mono" x="620" y="390" font-size="36" fill="#F0B90B">gasUsed ×</text>
+            <text x="836" y="390" font-size="36" fill="#F0B90B">实际单价</text>
+          </g>
+
+          <!-- L1 编码流水线缩略 -->
+          <g id="rp-b1" class="h"><rect x="160" y="500" width="180" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="250" y="562" font-size="32" fill="#e8e6df" text-anchor="middle">字段</text></g>
+          <path id="rp-r1" class="dr h" pathLength="1" d="M350 550 H410" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)" />
+          <g id="rp-b2" class="h"><rect x="420" y="500" width="180" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="510" y="562" font-size="32" fill="#e8e6df" text-anchor="middle">RLP</text></g>
+          <path id="rp-r2" class="dr h" pathLength="1" d="M610 550 H670" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)" />
+          <g id="rp-b3" class="h"><rect x="680" y="500" width="180" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="770" y="562" font-size="32" fill="#e8e6df" text-anchor="middle">哈希</text></g>
+          <path id="rp-r3" class="dr h" pathLength="1" d="M870 550 H930" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)" />
+          <g id="rp-b4" class="h"><rect x="940" y="500" width="180" height="100" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text x="1030" y="562" font-size="32" fill="#FC6255" text-anchor="middle">私钥签名</text></g>
+          <path id="rp-r4" class="dr h" pathLength="1" d="M1130 550 H1190" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)" />
+          <g id="rp-b5" class="h"><rect x="1200" y="500" width="180" height="100" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><path d="M1200 504 L1290 524 L1380 504" fill="none" stroke="#83C167" stroke-width="2" /><text x="1290" y="576" font-size="32" fill="#83C167" text-anchor="middle">原始交易</text></g>
+          <path id="rp-r5" class="dr h" pathLength="1" d="M1390 550 H1450" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#rp-arr)" />
+          <g id="rp-b6" class="h"><rect x="1460" y="500" width="170" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1545" y="562" font-size="30" fill="#58C4DD" text-anchor="middle">交易哈希</text></g>
+          <g id="rp-pin" class="h"><line x1="1620" y1="512" x2="1620" y2="488" stroke="#83C167" stroke-width="3" /><circle cx="1620" cy="480" r="11" fill="#83C167" /></g>
+          <text id="rp-pint" class="h" x="1545" y="470" font-size="28" fill="#83C167" text-anchor="middle">签名即定</text>
+          <g id="rp-sh" class="h">
+            <path d="M1760 474 L1832 498 V552 Q1832 602 1760 632 Q1688 602 1688 552 V498 Z" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1760" y="562" font-size="28" fill="#58C4DD" text-anchor="middle">chainId</text>
+            <text x="1760" y="680" font-size="28" fill="#e8e6df" text-anchor="middle">防跨链重放</text>
+          </g>
+
+          <!-- L2 交易池 -->
+          <g id="rp-q3" class="h">
+            <rect class="rp-qr" x="120" y="760" width="400" height="76" rx="38" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <circle class="rp-qc" cx="170" cy="798" r="24" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="214" y="810" font-size="32" fill="#e8e6df">发出后去哪？</text>
+          </g>
+          <text id="rp-q3a" class="h" x="170" y="810" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">?</text>
+          <text id="rp-q3b" class="h" x="170" y="810" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">✓</text>
+          <path id="rp-a3" class="dr h" pathLength="1" d="M536 798 H600" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#rp-arrg)" />
+          <text id="rp-t3" class="h" x="620" y="810" font-size="36" fill="#83C167">交易池 → 回执</text>
+          <text id="rp-nl" class="h" x="960" y="744" font-size="28" fill="#83C167">nonce 连续</text>
+          <g id="rp-n0" class="h rp-n"><rect x="960" y="766" width="64" height="64" rx="8" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="992" y="808" font-size="30" fill="#e8e6df" text-anchor="middle">5</text></g>
+          <g id="rp-n1" class="h rp-n"><rect x="1036" y="766" width="64" height="64" rx="8" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="1068" y="808" font-size="30" fill="#e8e6df" text-anchor="middle">6</text></g>
+          <g id="rp-n2" class="h rp-n"><rect x="1112" y="766" width="64" height="64" rx="8" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="1144" y="808" font-size="30" fill="#e8e6df" text-anchor="middle">7</text></g>
+          <g id="rp-old"><g id="rp-oldi" class="h"><rect x="1280" y="766" width="180" height="64" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="1370" y="808" font-size="28" fill="#8a8f99" text-anchor="middle">nonce 5</text></g></g>
+          <path id="rp-ra" class="dr h" pathLength="1" d="M1630 798 H1474" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#rp-arrg)" />
+          <text id="rp-rl" class="h" x="1552" y="780" font-size="28" fill="#F0B90B" text-anchor="middle">+10%</text>
+          <g id="rp-new"><g id="rp-newi" class="h"><rect x="1640" y="766" width="180" height="64" rx="8" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="1730" y="808" font-size="28" fill="#83C167" text-anchor="middle">nonce 5</text></g></g>
+        </g>
+
+        <!-- L3 / L4 误区对照 -->
+        <text id="rp-mh" class="h" x="200" y="250" font-size="32" fill="#8a8f99">常见误区</text>
+        <g id="rp-m3"></g>
+        <g id="rp-m4"></g>
+
+        <!-- L5 下一集 -->
+        <text id="rp-next" class="h" x="960" y="560" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle">下一集 · <tspan fill="#58C4DD">节点与 JSON-RPC</tspan></text>
+      </g>
+      <rect id="rp-black" x="0" y="0" width="1920" height="1080" fill="#000000" opacity="0" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // ---- 误区行：左侧红色划掉，右侧绿色正解（宽度按字号估算）
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, parent, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; parent.appendChild(e); return e; };
+      const myths = [
+        ["m3", 400, "交易里有 from", 240, "从签名恢复"],
+        ["m3", 540, "maxFee = 实际单价", 312, "只是上限"],
+        ["m4", 380, "上链 = 成功", 184, "看 status"],
+        ["m4", 520, "ERC-20 的 to = 收款人", 352, "to = 代币合约"],
+        ["m4", 660, "发出可撤回", 180, "打包前只能同 nonce 替换"],
+      ];
+      myths.forEach(([g, y, a, w, b], i) => {
+        const p = document.getElementById("rp-" + g);
+        mk("text", { id: `rp-x${i}a`, class: "h", x: 880, y, "font-size": 36, fill: "#FC6255", "text-anchor": "end" }, p, a);
+        mk("line", { id: `rp-x${i}s`, class: "dr", pathLength: 1, x1: 872 - w, y1: y - 12, x2: 888, y2: y - 12, stroke: "#FC6255", "stroke-width": 4 }, p);
+        mk("path", { id: `rp-x${i}r`, class: "dr h", pathLength: 1, d: `M940 ${y - 12} H1050`, stroke: "#83C167", "stroke-width": 3, fill: "none", "marker-end": "url(#rp-arrg)" }, p);
+        mk("text", { id: `rp-x${i}b`, class: "h", x: 1090, y, "font-size": 36, fill: "#83C167" }, p, b);
+      });
+      const MYTH = (i, t, step = 1.0) => {
+        IN(`#rp-x${i}a`, t, 0.5, { x: -16 }, { x: 0 });
+        DRAW(`#rp-x${i}s`, t + step * 0.9, 0.4);
+        ARROW(`#rp-x${i}r`, t + step * 1.1, 0.4);
+        IN(`#rp-x${i}b`, t + step * 1.3, 0.5, { x: -16 }, { x: 0 });
+      };
+      const ANS = (k, t) => {
+        tl.to(`#rp-q${k} .rp-qr, #rp-q${k} .rp-qc`, { stroke: "#83C167", duration: 0.3 }, t);
+        OUT(`#rp-q${k}a`, t, 0.2);
+        IN(`#rp-q${k}b`, t + 0.15, 0.3, { scale: 0.5, svgOrigin: `170 ${[0, 258, 378, 798][k]}` }, { scale: 1, svgOrigin: `170 ${[0, 258, 378, 798][k]}` });
+        ARROW(`#rp-a${k}`, t + 0.2, 0.4);
+      };
+
+      // L0：前两个问号回来并给答案
+      IN("#rp-q1, #rp-q1a", at(0, 0.02), 0.5, { x: -20 }, { x: 0 });
+      IN("#rp-q2, #rp-q2a", at(0, 0.08), 0.5, { x: -20 }, { x: 0 });
+      ANS(1, at(0, 0.2));
+      IN("#rp-t1", at(0, 0.28), 0.5, { x: -16 }, { x: 0 });
+      ANS(2, at(0, 0.62));
+      IN("#rp-t2", at(0, 0.7), 0.5, { x: -16 }, { x: 0 });
+      // L1：编码流水线缩略 + chainId 盾牌
+      IN("#rp-b1", at(1, 0.03), 0.4);
+      ARROW("#rp-r1", at(1, 0.08), 0.3); IN("#rp-b2", at(1, 0.1), 0.4);
+      ARROW("#rp-r2", at(1, 0.15), 0.3); IN("#rp-b3", at(1, 0.17), 0.4);
+      ARROW("#rp-r3", at(1, 0.22), 0.3); IN("#rp-b4", at(1, 0.24), 0.4);
+      ARROW("#rp-r4", at(1, 0.3), 0.3); IN("#rp-b5", at(1, 0.32), 0.4, { scale: 0.9, svgOrigin: "1290 550" }, { scale: 1, svgOrigin: "1290 550" });
+      ARROW("#rp-r5", at(1, 0.42), 0.3); IN("#rp-b6", at(1, 0.44), 0.4);
+      IN("#rp-pin", at(1, 0.5), 0.3, { y: -16 }, { y: 0, ease: "back.out(2)" });
+      IN("#rp-pint", at(1, 0.52), 0.4);
+      IN("#rp-sh", at(1, 0.7), 0.6, { scale: 0.8, svgOrigin: "1760 552" }, { scale: 1, svgOrigin: "1760 552" });
+      tl.to("#rp-b4 rect", { strokeWidth: 4, duration: 0.3 }, at(1, 0.76));
+      // L2：交易池：nonce 连续 + 同 nonce +10% 替换
+      IN("#rp-q3, #rp-q3a", at(2, 0.02), 0.4, { x: -20 }, { x: 0 });
+      ANS(3, at(2, 0.1));
+      IN("#rp-t3", at(2, 0.16), 0.4, { x: -16 }, { x: 0 });
+      IN(".rp-n", at(2, 0.24), 0.3, { y: 12 }, { y: 0, stagger: 0.15 });
+      IN("#rp-nl", at(2, 0.4), 0.4);
+      IN("#rp-oldi", at(2, 0.55), 0.3);
+      IN("#rp-newi", at(2, 0.6), 0.3, { x: 30 }, { x: 0 });
+      IN("#rp-rl", at(2, 0.66), 0.3);
+      ARROW("#rp-ra", at(2, 0.66), 0.4);
+      tl.to("#rp-old", { opacity: 0, y: 40, duration: 0.5, ease: "power2.in" }, at(2, 0.78));
+      OUT("#rp-ra, #rp-rl", at(2, 0.78), 0.3);
+      tl.to("#rp-new", { x: -360, duration: 0.6, ease: "power2.inOut" }, at(2, 0.84));
+      // L3：误区 1–2
+      OUT("#rp-p1", at(3, 0), 0.5);
+      IN("#rp-mh", at(3, 0.06), 0.4);
+      MYTH(0, at(3, 0.1)); MYTH(1, at(3, 0.55));
+      // L4：误区 3–5（先清掉前两行）
+      OUT("#rp-m3", at(4, 0), 0.4);
+      MYTH(2, at(4, 0.05)); MYTH(3, at(4, 0.3)); MYTH(4, at(4, 0.6), 1.3);
+      // L5：下一集，然后淡到黑
+      OUT("#rp-m4, #rp-mh", at(5, 0), 0.4);
+      IN("#rp-next", at(5, 0.08), 0.7, { scale: 0.92, svgOrigin: "960 540" }, { scale: 1, svgOrigin: "960 540" });
+
+      tl.to("#rp-all", { opacity: 0, duration: 0.6, ease: "power2.in" }, C.d - 1.1);
+      tl.to("#rp-black", { opacity: 1, duration: 0.6, ease: "power2.in" }, C.d - 1.1);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

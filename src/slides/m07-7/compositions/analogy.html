@@ -1,0 +1,164 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 analogy，id 前缀 an- -->
+  <div id="root" data-composition-id="analogy" data-duration="42.66" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="an-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="an-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="an-all">
+
+        <!-- 三件事图标：外层位移，内层缩放 -->
+        <g id="an-icmove"><g id="an-icscale">
+          <g id="an-i1" class="h">
+            <path id="an-i1p" d="M560 490 C520 440 505 420 505 395 A55 55 0 1 1 615 395 C615 420 600 440 560 490 Z" fill="none" stroke="#FF9F43" stroke-width="6" />
+            <circle cx="560" cy="395" r="18" fill="#0f1117" stroke="#0f1117" stroke-width="0" />
+          </g>
+          <g id="an-i2" class="h">
+            <path id="an-i2p" d="M910 350 L1010 350 L960 420 L1010 490 L910 490 L960 420 Z" fill="none" stroke="#FF9F43" stroke-width="6" stroke-linejoin="round" />
+            <line x1="900" y1="350" x2="1020" y2="350" stroke="#e8e6df" stroke-width="6" stroke-linecap="round" />
+            <line x1="900" y1="490" x2="1020" y2="490" stroke="#e8e6df" stroke-width="6" stroke-linecap="round" />
+          </g>
+          <g id="an-i3" class="h">
+            <circle id="an-i3p" cx="1360" cy="420" r="68" fill="none" stroke="#FF9F43" stroke-width="6" />
+            <path d="M1320 420 L1395 420 M1370 392 L1400 420 L1370 448" fill="none" stroke="#e8e6df" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+        </g></g>
+        <text id="an-p1" class="h" x="560" y="600" font-size="36" fill="#e8e6df" text-anchor="middle">现在在哪一步</text>
+        <text id="an-p2" class="h" x="960" y="600" font-size="36" fill="#e8e6df" text-anchor="middle">还要等多久</text>
+        <text id="an-p3" class="h" x="1360" y="600" font-size="36" fill="#e8e6df" text-anchor="middle">下一步能做什么</text>
+        <!-- 外卖订单进度条 -->
+        <g id="an-del">
+          <line id="an-track" class="dr" pathLength="1" x1="260" y1="520" x2="1660" y2="520" stroke="#3a3f4a" stroke-width="8" stroke-linecap="round" />
+          <line id="an-g1" class="dr" pathLength="1" x1="260" y1="520" x2="727" y2="520" stroke="#83C167" stroke-width="8" />
+          <line id="an-g2" class="dr" pathLength="1" x1="727" y1="520" x2="1193" y2="520" stroke="#83C167" stroke-width="8" />
+          <line id="an-g3" class="dr" pathLength="1" x1="1193" y1="520" x2="1660" y2="520" stroke="#83C167" stroke-width="8" />
+          <circle id="an-d1" class="h" cx="260" cy="520" r="18" fill="#3a3f4a" />
+          <circle id="an-d2" class="h" cx="727" cy="520" r="18" fill="#3a3f4a" />
+          <circle id="an-d3" class="h" cx="1193" cy="520" r="18" fill="#3a3f4a" />
+          <circle id="an-d4" class="h" cx="1660" cy="520" r="18" fill="#3a3f4a" />
+          <text id="an-l1" class="h" x="260" y="590" font-size="32" fill="#e8e6df" text-anchor="middle">已接单</text>
+          <text id="an-l2" class="h" x="727" y="590" font-size="32" fill="#e8e6df" text-anchor="middle">已取餐</text>
+          <text id="an-l3" class="h" x="1193" y="590" font-size="32" fill="#e8e6df" text-anchor="middle">距你 1.2 公里</text>
+          <text id="an-l4" class="h" x="1660" y="590" font-size="32" fill="#e8e6df" text-anchor="middle">已送达</text>
+          <g id="an-c1" class="h"><circle cx="260" cy="640" r="14" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M260 632 L260 640 L266 644" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+          <g id="an-c2" class="h"><circle cx="727" cy="640" r="14" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M727 632 L727 640 L733 644" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+          <g id="an-c3" class="h"><circle cx="1193" cy="640" r="14" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M1193 632 L1193 640 L1199 644" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+          <g id="an-c4" class="h"><circle cx="1660" cy="640" r="14" fill="none" stroke="#8a8f99" stroke-width="3" /><path d="M1660 632 L1660 640 L1666 644" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+          <!-- 骑手 -->
+          <g id="an-rider" class="h">
+            <circle cx="238" cy="486" r="12" fill="none" stroke="#e8e6df" stroke-width="4" />
+            <circle cx="284" cy="486" r="12" fill="none" stroke="#e8e6df" stroke-width="4" />
+            <path d="M238 486 L256 462 L276 462 L284 486" fill="none" stroke="#e8e6df" stroke-width="4" stroke-linejoin="round" />
+            <rect x="236" y="440" width="22" height="20" rx="3" fill="#F0B90B" />
+            <circle cx="268" cy="440" r="9" fill="#e8e6df" />
+          </g>
+          <path id="an-back" class="h" d="M1660 470 Q1545 360 1440 462" fill="none" stroke="#FC6255" stroke-width="5" stroke-dasharray="14 10" marker-end="url(#an-arrR)" />
+          <text id="an-reorg" class="h" x="1550" y="378" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">链重组</text>
+        </g>
+        <!-- 对比卡 -->
+        <g id="an-ka" class="h">
+          <rect x="500" y="720" width="400" height="170" rx="16" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text x="540" y="778" font-size="32" fill="#8a8f99">外卖</text>
+          <text x="540" y="850" font-size="38" font-weight="700" fill="#83C167">可退款</text>
+          <path d="M840 800 A30 30 0 1 1 812 830" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" />
+          <path d="M828 790 L842 800 L830 814" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" />
+        </g>
+        <g id="an-kb" class="h">
+          <rect x="1000" y="720" width="480" height="170" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+          <text x="1040" y="778" font-size="32" fill="#8a8f99">链上</text>
+          <text x="1040" y="850" font-size="38" font-weight="700" fill="#FC6255">打包后不可撤回</text>
+          <path d="M1420 800 A30 30 0 1 1 1392 830" fill="none" stroke="#6b6f7a" stroke-width="5" stroke-linecap="round" />
+          <path id="an-x1" class="dr" pathLength="1" d="M1365 770 L1445 850" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+          <path id="an-x2" class="dr" pathLength="1" d="M1445 770 L1365 850" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="an-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">用户体验 <tspan font-size="28" font-weight="400" fill="#8a8f99">UX</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">看得懂、不犯错、等得安心</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // L0：三个图标依次出现，橙描边 → 绿填充
+      IN("#an-i1", at(0, 0.15), 0.6, { y: 20 }, { y: 0 });
+      IN("#an-i2", at(0, 0.3), 0.6, { y: 20 }, { y: 0 });
+      IN("#an-i3", at(0, 0.45), 0.6, { y: 20 }, { y: 0 });
+      tl.to(["#an-i1p", "#an-i2p", "#an-i3p"], { stroke: "#83C167", fill: "#83C167", fillOpacity: 0.25, duration: 0.6, stagger: 0.25 }, at(0, 0.7));
+      // L1：短语
+      IN("#an-p1", at(1, 0.0), 0.5, { y: 10 }, { y: 0 });
+      IN("#an-p2", at(1, 0.33), 0.5, { y: 10 }, { y: 0 });
+      IN("#an-p3", at(1, 0.62), 0.5, { y: 10 }, { y: 0 });
+      // L2：术语卡 UX；三图标轻跳
+      IN("#an-term", at(2, 0.05), 0.5);
+      tl.to("#an-icmove", { y: -14, duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.55));
+      tl.to("#an-icmove", { y: -14, duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.72));
+      tl.to("#an-icmove", { y: -14, duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.88));
+      // L3：图标上移缩小；外卖进度条
+      OUT("#an-term", at(3, 0.0), 0.4);
+      OUT(["#an-p1", "#an-p2", "#an-p3"], at(3, 0.0), 0.3);
+      tl.to("#an-icmove", { y: -230, duration: 0.8, ease: "power2.inOut" }, at(3, 0.04));
+      tl.to("#an-icscale", { scale: 0.5, svgOrigin: "960 420", duration: 0.8, ease: "power2.inOut" }, at(3, 0.04));
+      DRAW("#an-track", at(3, 0.08), 0.8);
+      IN(["#an-d1", "#an-d2", "#an-d3", "#an-d4"], at(3, 0.12), 0.4);
+      IN("#an-rider", at(3, 0.14), 0.4);
+      tl.to("#an-d1", { fill: "#83C167", duration: 0.3 }, at(3, 0.18));
+      IN("#an-l1", at(3, 0.18), 0.4); IN("#an-c1", at(3, 0.2), 0.4);
+      DRAW("#an-g1", at(3, 0.26), 1.2); tl.to("#an-rider", { x: 467, duration: 1.2, ease: "power1.inOut" }, at(3, 0.26));
+      tl.to("#an-d2", { fill: "#83C167", duration: 0.3 }, at(3, 0.38));
+      IN("#an-l2", at(3, 0.38), 0.4); IN("#an-c2", at(3, 0.4), 0.4);
+      DRAW("#an-g2", at(3, 0.44), 1.2); tl.to("#an-rider", { x: 933, duration: 1.2, ease: "power1.inOut" }, at(3, 0.44));
+      tl.to("#an-d3", { fill: "#83C167", duration: 0.3 }, at(3, 0.56));
+      IN("#an-l3", at(3, 0.56), 0.4); IN("#an-c3", at(3, 0.58), 0.4);
+      DRAW("#an-g3", at(3, 0.64), 1.2); tl.to("#an-rider", { x: 1400, duration: 1.2, ease: "power1.inOut" }, at(3, 0.64));
+      tl.to("#an-d4", { fill: "#83C167", duration: 0.3 }, at(3, 0.76));
+      IN("#an-l4", at(3, 0.76), 0.4); IN("#an-c4", at(3, 0.78), 0.4);
+      // L4：对比卡
+      IN("#an-ka", at(4, 0.12), 0.5, { y: 20 }, { y: 0 });
+      IN("#an-kb", at(4, 0.5), 0.5, { y: 20 }, { y: 0 });
+      DRAW("#an-x1", at(4, 0.72), 0.3);
+      DRAW("#an-x2", at(4, 0.8), 0.3);
+      // L5：已送达 → 被链重组拉回途中
+      tl.to("#an-d4", { scale: 1.4, svgOrigin: "1660 520", duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.1));
+      IN("#an-back", at(5, 0.4), 0.4);
+      IN("#an-reorg", at(5, 0.45), 0.4);
+      tl.to("#an-rider", { x: 1180, duration: 1.0, ease: "power2.inOut" }, at(5, 0.5));
+      tl.to("#an-d4", { fill: "#3a3f4a", duration: 0.3 }, at(5, 0.55));
+      tl.to("#an-g3", { stroke: "#FC6255", duration: 0.4 }, at(5, 0.55));
+      tl.to("#an-l4", { fill: "#6b6f7a", duration: 0.4 }, at(5, 0.55));
+
+      tl.to("#an-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#an-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["analogy"] = tl;
+    })();
+  </script>
+</template>

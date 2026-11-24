@@ -1,0 +1,127 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 loop，id 前缀 lo- -->
+  <div id="root" data-composition-id="loop" data-duration="35.71" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="lo-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="lo-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="lo-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="lo-all">
+        <rect id="lo-cell" x="927" y="586" width="66" height="28" rx="5" ry="5" fill="#4a3c10" stroke="#F0B90B" stroke-width="2" opacity="0" />
+        <path id="lo-a-mon" class="dr" pathLength="1" d="M971.5 270.2 A330 330 0 0 1 1239.9 425.1" fill="none" stroke="#58C4DD" stroke-width="26" />
+        <path id="lo-a-mid" class="dr" pathLength="1" d="M1256.6 455.3 A330 330 0 0 1 805.1 891.4" fill="none" stroke="#F0B90B" stroke-width="26" />
+        <path id="lo-a-fri" class="dr" pathLength="1" d="M775.5 873.6 A330 330 0 0 1 630.2 611.5" fill="none" stroke="#83C167" stroke-width="26" />
+        <path id="lo-a-wkd" class="dr" pathLength="1" d="M630.8 577.0 A330 330 0 0 1 937.0 270.8" fill="none" stroke="#B48EF0" stroke-width="26" />
+        <text id="lo-l-mon" class="h" x="1170" y="250" font-size="36" fill="#58C4DD" font-weight="700">周一</text>
+        <text id="lo-s-mon" class="h" x="1170" y="292" font-size="28" fill="#e8e6df">读 2–3 篇 · 做实验</text>
+        <text id="lo-l-mid" class="h" x="1240" y="890" font-size="36" fill="#F0B90B" font-weight="700">周二–周四</text>
+        <text id="lo-s-mid" class="h" x="1240" y="932" font-size="28" fill="#e8e6df">写代码 · 写测试</text>
+        <text id="lo-l-fri" class="h" x="600" y="800" font-size="36" fill="#83C167" text-anchor="end" font-weight="700">周五</text>
+        <text id="lo-s-fri" class="h" x="600" y="842" font-size="28" fill="#e8e6df" text-anchor="end">周报 · 复盘</text>
+        <text id="lo-l-wkd" class="h" x="650" y="330" font-size="36" fill="#B48EF0" text-anchor="end" font-weight="700">周末</text>
+        <text id="lo-s-wkd" class="h" x="650" y="372" font-size="28" fill="#e8e6df" text-anchor="end">分享 · 评审</text>
+        <g id="lo-i-mon" class="h" fill="none" stroke="#58C4DD" stroke-width="3"><path d="M1041.0 382.8141571295791 L1073.0 388.8141571295791 L1073.0 422.8141571295791 L1041.0 416.8141571295791 z M1077.0 388.8141571295791 L1109.0 382.8141571295791 L1109.0 416.8141571295791 L1077.0 422.8141571295791 z" /></g>
+        <text id="lo-i-mid" class="h mono" x="1120" y="784" font-size="36" fill="#F0B90B" text-anchor="middle">&lt;/&gt;</text>
+        <g id="lo-i-fri" class="h" fill="none" stroke="#83C167" stroke-width="3"><rect x="729" y="680" width="48" height="60" rx="4" /><path d="M739 696 H767 M739 710 H767 M739 724 H759" /></g>
+        <g id="lo-ci" class="h"><circle id="lo-cic" cx="1620" cy="560" r="50" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text class="mono" x="1620" y="571" font-size="32" fill="#e8e6df" text-anchor="middle" font-weight="700">CI</text></g>
+        <text id="lo-fix" class="h" x="1620" y="650" font-size="28" fill="#83C167" text-anchor="middle">当天修好</text>
+        <g id="lo-push" class="h"><rect x="1300" y="640" width="96" height="44" rx="8" fill="#F0B90B" /><text class="mono" x="1348" y="671" font-size="28" fill="#0f1117" text-anchor="middle" font-weight="700">push</text></g>
+        <g id="lo-peers">
+          <g id="lo-p0" class="h" stroke="#8a8f99" stroke-width="4" stroke-linecap="round" fill="none"><circle cx="520" cy="188" r="12" fill="#8a8f99" /><path d="M520 202 L520 230 M520 230 L509 250 M520 230 L531 250 M506 210 L534 210" /></g>
+          <g id="lo-p1" class="h" stroke="#8a8f99" stroke-width="4" stroke-linecap="round" fill="none"><circle cx="575" cy="188" r="12" fill="#8a8f99" /><path d="M575 202 L575 230 M575 230 L564 250 M575 230 L586 250 M561 210 L589 210" /></g>
+          <g id="lo-p2" class="h" stroke="#8a8f99" stroke-width="4" stroke-linecap="round" fill="none"><circle cx="630" cy="188" r="12" fill="#8a8f99" /><path d="M630 202 L630 230 M630 230 L619 250 M630 230 L641 250 M616 210 L644 210" /></g>
+        </g>
+        <path id="lo-fb" class="dr h" pathLength="1" d="M660 205 Q 900 90 1110 228" fill="none" stroke="#B48EF0" stroke-width="4" marker-end="url(#lo-arr)" />
+        <text id="lo-fbl" class="h" x="900" y="110" font-size="28" fill="#B48EF0" text-anchor="middle">评审反馈</text>
+        <g id="lo-run" class="h"><circle cx="960" cy="270" r="15" fill="#e8e6df" /></g>
+        <path id="lo-gap" class="h" d="M1288.2 634.5 A330 330 0 0 1 1266.0 723.6" fill="none" stroke="#0f1117" stroke-width="34" />
+        <g id="lo-gapr" class="h" stroke="#FC6255" stroke-width="5" stroke-linecap="round"><path d="M1264 632 L1312 637" /><path d="M1244 715 L1288 733" /></g>
+        <text id="lo-g1" class="h" x="960" y="590" font-size="40" fill="#FC6255" text-anchor="middle" font-weight="700">2 周没提交</text>
+        <text id="lo-g2" class="h" x="960" y="645" font-size="40" fill="#FC6255" text-anchor="middle" font-weight="700">→ 中断</text>
+        <text id="lo-myth" class="h" x="100" y="640" font-size="36" fill="#FC6255">先学完理论再动手</text>
+        <path id="lo-strike" class="dr" pathLength="1" d="M92 628 L398 628" stroke="#FC6255" stroke-width="4" />
+        <path id="lo-patch" class="dr" pathLength="1" d="M1289.2 623.0 A330 330 0 0 1 1261.5 734.2" fill="none" stroke="#83C167" stroke-width="26" />
+        <g id="lo-card" class="h"><rect x="780" y="470" width="360" height="220" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="810" y="516" font-size="30" fill="#83C167" font-weight="700">周报</text><rect x="810" y="540" width="290" height="12" rx="6" fill="#6b6f7a" /><rect x="810" y="575" width="120" height="12" rx="6" fill="#6b6f7a" /><rect id="lo-blank1" x="945" y="567" width="155" height="28" rx="6" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="8 6" /><rect x="810" y="615" width="290" height="12" rx="6" fill="#6b6f7a" /><rect id="lo-blank2" x="810" y="642" width="180" height="28" rx="6" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="8 6" /><rect x="1005" y="650" width="95" height="12" rx="6" fill="#6b6f7a" /></g>
+        <text id="lo-lab" class="h" x="960" y="770" font-size="40" fill="#FF9F43" text-anchor="middle" font-weight="700">讲不清 = 没学会</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      /*ANIM*/
+      // L0 一格放大成圆环
+      tl.fromTo("#lo-cell", { opacity: 0 }, { opacity: 1, duration: 0.3 }, at(0, 0.0));
+      tl.to("#lo-cell", { attr: { x: 630, y: 270, width: 660, height: 660, rx: 330, ry: 330 }, fill: "#0f1117", stroke: "#2a2f3a", strokeWidth: 26, duration: 1.2, ease: "power2.inOut" }, at(0, 0.12));
+      DRAW("#lo-a-mon", at(0, 0.6), 0.4); DRAW("#lo-a-mid", at(0, 0.66), 0.5); DRAW("#lo-a-fri", at(0, 0.74), 0.4); DRAW("#lo-a-wkd", at(0, 0.8), 0.4);
+      tl.set("#lo-a-mon,#lo-a-mid,#lo-a-fri,#lo-a-wkd", { opacity: 0.22 }, at(0, 0.6));
+      // L1 周一读、周二到周四写，push → CI
+      tl.to("#lo-a-mon", { opacity: 1, duration: 0.4 }, at(1, 0.0));
+      IN("#lo-l-mon", at(1, 0.0), 0.5); IN("#lo-s-mon", at(1, 0.06), 0.5); IN("#lo-i-mon", at(1, 0.1), 0.5);
+      tl.to("#lo-a-mid", { opacity: 1, duration: 0.4 }, at(1, 0.3));
+      IN("#lo-l-mid", at(1, 0.3), 0.5); IN("#lo-s-mid", at(1, 0.36), 0.5); IN("#lo-i-mid", at(1, 0.4), 0.5);
+      IN("#lo-ci", at(1, 0.55), 0.5);
+      IN("#lo-push", at(1, 0.6), 0.3);
+      tl.to("#lo-push", { x: 200, y: -100, duration: 0.8, ease: "power2.in" }, at(1, 0.62));
+      tl.to("#lo-push", { opacity: 0, duration: 0.2 }, at(1, 0.62) + 0.75);
+      tl.to("#lo-cic", { fill: "#FC6255", stroke: "#FC6255", duration: 0.3 }, at(1, 0.72));
+      tl.to("#lo-cic", { fill: "#2f4a24", stroke: "#83C167", duration: 0.4 }, at(1, 0.88));
+      IN("#lo-fix", at(1, 0.88), 0.5);
+      // L2 周五复盘，周末评审反馈回到周一，转一圈
+      tl.to("#lo-a-fri", { opacity: 1, duration: 0.4 }, at(2, 0.0));
+      IN("#lo-l-fri", at(2, 0.0), 0.5); IN("#lo-s-fri", at(2, 0.06), 0.5); IN("#lo-i-fri", at(2, 0.1), 0.5);
+      tl.to("#lo-a-wkd", { opacity: 1, duration: 0.4 }, at(2, 0.32));
+      IN("#lo-l-wkd", at(2, 0.32), 0.5); IN("#lo-s-wkd", at(2, 0.36), 0.5);
+      IN("#lo-peers .h", at(2, 0.42), 0.5, {}, { stagger: 0.12 });
+      ARROW("#lo-fb", at(2, 0.6), 0.8); IN("#lo-fbl", at(2, 0.66), 0.5);
+      IN("#lo-run", at(2, 0.72), 0.3);
+      tl.fromTo("#lo-run", { rotation: 0 }, { rotation: 360, svgOrigin: "960 600", duration: 1.8, ease: "power1.inOut", immediateRender: false }, at(2, 0.74));
+      // L3 只读不写 → 断开；误区
+      OUT("#lo-fb,#lo-fbl", at(3, 0.0), 0.4);
+      tl.to("#lo-a-mid,#lo-a-fri", { opacity: 0.15, duration: 0.5 }, at(3, 0.02));
+      tl.fromTo("#lo-run", { rotation: 0 }, { rotation: 58, svgOrigin: "960 600", duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, at(3, 0.08));
+      IN("#lo-gap", at(3, 0.38), 0.3); IN("#lo-gapr", at(3, 0.38), 0.3);
+      IN("#lo-g1", at(3, 0.42), 0.5); IN("#lo-g2", at(3, 0.48), 0.5);
+      IN("#lo-myth", at(3, 0.66), 0.5);
+      DRAW("#lo-strike", at(3, 0.78), 0.5);
+      // L4 修复，复盘卡片放大
+      OUT("#lo-g1,#lo-g2,#lo-gapr,#lo-myth,#lo-strike,#lo-i-mon,#lo-i-mid,#lo-i-fri", at(4, 0.0), 0.4);
+      tl.to("#lo-gap", { opacity: 0, duration: 0.3 }, at(4, 0.08));
+      DRAW("#lo-patch", at(4, 0.04), 0.5);
+      tl.to("#lo-a-mid,#lo-a-fri", { opacity: 1, duration: 0.5 }, at(4, 0.1));
+      tl.to("#lo-run", { rotation: 418, svgOrigin: "960 600", duration: 2.2, ease: "power1.inOut" }, at(4, 0.12));
+      IN("#lo-card", at(4, 0.2), 0.7, { scale: 0.25, svgOrigin: "753 710" }, { scale: 1, svgOrigin: "753 710" });
+      tl.fromTo("#lo-blank1,#lo-blank2", { fill: "rgba(255,159,67,0)" }, { fill: "rgba(255,159,67,0.35)", duration: 0.5, stagger: 0.25 }, at(4, 0.4));
+      IN("#lo-lab", at(4, 0.55), 0.5);
+      /*ENDANIM*/
+
+      tl.to("#lo-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["loop"] = tl;
+    })();
+  </script>
+</template>

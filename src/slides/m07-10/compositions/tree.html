@@ -1,0 +1,132 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tree，id 前缀 tr- -->
+  <div id="root" data-composition-id="tree" data-duration="64.27" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="tr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="tr-all">
+                <text id="tr-title" class="h" x="100" y="160" font-size="44" font-weight="700" fill="#e8e6df">组件树与状态归属</text>
+        <!-- guide lines -->
+        <g stroke="#3a3f4a" stroke-width="2" fill="none">
+          <path id="tr-gl0" class="dr" pathLength="1" d="M120 266 V296 H134" />
+          <path id="tr-gl1" class="dr" pathLength="1" d="M160 316 V346 H174 M160 346 V496 H174" />
+          <path id="tr-gl2" class="dr" pathLength="1" d="M200 366 V396 H214 M200 396 V446 H214" />
+          <path id="tr-gl3" class="dr" pathLength="1" d="M200 516 V546 H214 M200 546 V846 H214" />
+          <path id="tr-gl4" class="dr" pathLength="1" d="M160 496 V896 H174 M160 896 V946 H174" />
+        </g>
+        <g class="mono" font-size="28" fill="#e8e6df">
+          <text id="tr-r0" class="h" x="100" y="255">app/swap/page.tsx</text>
+          <text id="tr-r1" class="h" x="140" y="305">&lt;SwapPage&gt;</text>
+          <text id="tr-r2" class="h" x="180" y="355">&lt;Header&gt;</text>
+          <text id="tr-r3" class="h" x="220" y="405">&lt;ConnectButton&gt;</text>
+          <text id="tr-r4" class="h" x="220" y="455">&lt;NetworkSelect&gt;</text>
+          <text id="tr-r5" class="h" x="180" y="505">&lt;SwapCard&gt;</text>
+          <text id="tr-r6" class="h" x="220" y="555">&lt;TokenAmountInput in&gt;</text>
+          <text id="tr-r7" class="h" x="220" y="605">&lt;TokenSelectModal&gt;</text>
+          <text id="tr-r8" class="h" x="220" y="655">&lt;FlipButton&gt;</text>
+          <text id="tr-r9" class="h" x="220" y="705">&lt;TokenAmountInput out readOnly&gt;</text>
+          <text id="tr-r10" class="h" x="220" y="755">&lt;QuoteDetails&gt;</text>
+          <text id="tr-r11" class="h" x="220" y="805">&lt;SlippageSettings&gt;</text>
+          <text id="tr-r12" class="h" x="220" y="855">&lt;ActionButton&gt;</text>
+          <text id="tr-r13" class="h" x="180" y="905">&lt;TxToaster&gt;</text>
+          <text id="tr-r14" class="h" x="180" y="955">&lt;HistoryPanel&gt;</text>
+        </g>
+        <g id="tr-tag0" class="h"><rect x="400" y="222" width="420" height="46" rx="23" fill="none" stroke="#8a8f99" stroke-width="2" /><text x="610" y="255" font-size="28" text-anchor="middle" fill="#8a8f99">服务端 · 读代币列表 · SSG</text></g>
+        <g id="tr-tag1" class="h"><rect x="326" y="272" width="216" height="46" rx="23" fill="none" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="434" y="305" font-size="28" text-anchor="middle" fill="#58C4DD">use client</text></g>
+        <g id="tr-tag13" class="h"><rect x="386" y="872" width="90" height="46" rx="23" fill="none" stroke="#8a8f99" stroke-width="2" /><text x="431" y="905" font-size="28" text-anchor="middle" fill="#8a8f99">全局</text></g>
+        <g id="tr-tag14" class="h"><rect x="436" y="922" width="90" height="46" rx="23" fill="none" stroke="#8a8f99" stroke-width="2" /><text x="481" y="955" font-size="28" text-anchor="middle" fill="#8a8f99">全局</text></g>
+        <!-- connectors -->
+        <g stroke="#58C4DD" stroke-opacity="0.6" stroke-width="2" fill="none">
+          <path id="tr-c2" class="dr" pathLength="1" d="M330 346 H990 L1040 296" />
+          <path id="tr-c6" class="dr" pathLength="1" d="M590 546 H990 L1040 424" />
+          <path id="tr-c9" class="dr" pathLength="1" d="M758 696 H990 L1040 424" />
+          <path id="tr-c10" class="dr" pathLength="1" d="M472 746 H990 L1040 424" />
+          <path id="tr-c5" class="dr" pathLength="1" d="M364 496 H990 L1040 552" />
+          <path id="tr-c11" class="dr" pathLength="1" d="M538 796 H990 L1040 680" />
+          <path id="tr-c13" class="dr" pathLength="1" d="M490 896 H990 L1040 808" />
+          <path id="tr-c14" class="dr" pathLength="1" d="M540 946 H990 L1040 936" />
+        </g>
+        <!-- ownership cards -->
+        <g font-size="30" fill="#e8e6df">
+          <g id="tr-k1" class="h"><rect x="1040" y="240" width="790" height="112" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1064" y="286">连接 · 账户 · 链</text><text x="1064" y="332" font-size="28" fill="#58C4DD">wagmi · 唯一事实来源</text></g>
+          <g id="tr-k2" class="h"><rect x="1040" y="368" width="790" height="112" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1064" y="414">余额 · 授权 · 报价</text><text x="1064" y="460" font-size="28" fill="#58C4DD">TanStack Query · 缓存 · 去重 · 按区块失效</text></g>
+          <g id="tr-k3" class="h"><rect x="1040" y="496" width="790" height="112" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+            <text x="1064" y="542">代币 · 金额 · 滑点</text><text x="1064" y="588" font-size="28" fill="#58C4DD">SwapCard 状态 + URL 参数</text></g>
+          <g id="tr-k3a" class="h"><text class="mono" x="1440" y="542" font-size="28" fill="#F0B90B">"1000"</text><text x="1556" y="542" font-size="28" fill="#8a8f99">字符串</text></g>
+          <g id="tr-k3b" class="h">
+            <g stroke="#83C167" stroke-width="3.5" fill="none"><rect x="1592" y="566" width="26" height="16" rx="8" /><rect x="1610" y="572" width="26" height="16" rx="8" /></g>
+            <text x="1650" y="588" font-size="28" fill="#83C167">可分享</text></g>
+          <g id="tr-k4" class="h"><rect x="1040" y="624" width="790" height="112" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1064" y="670">滑点偏好 · 自定义代币</text><text class="mono" x="1064" y="716" font-size="28" fill="#58C4DD">localStorage · try/catch</text></g>
+          <g id="tr-k5" class="h"><rect x="1040" y="752" width="790" height="112" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="1064" y="798">待处理交易</text><text x="1064" y="844" font-size="28" fill="#58C4DD">localStorage + 内存 store</text></g>
+          <g id="tr-k5a" class="h"><path d="M1626 806 A16 16 0 1 1 1610 790" stroke="#FF9F43" stroke-width="3.5" fill="none" /><path d="M1604 782 L1614 790 L1604 798" stroke="#FF9F43" stroke-width="3.5" fill="none" />
+            <text x="1640" y="844" font-size="28" fill="#FF9F43">刷新后仍在</text></g>
+          <g id="tr-k6" class="h"><rect x="1040" y="880" width="790" height="112" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1064" y="926">历史</text><text x="1064" y="972" font-size="28" fill="#58C4DD">后端 API + 本地待确认</text></g>
+          <g id="tr-k6a" class="h"><g stroke="#8a8f99" stroke-width="3" fill="none"><rect x="1560" y="912" width="40" height="28" rx="3" /><rect x="1608" y="916" width="16" height="26" rx="3" /></g>
+            <text x="1640" y="972" font-size="28" fill="#8a8f99">跨设备可见</text></g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+            const HL = (s, t) => tl.to(s, { attr: { fill: "#58C4DD" }, duration: 0.4 }, t);
+      const R = i => "#tr-r" + i;
+      // L0
+      IN("#tr-title", at(0, 0)); IN(R(0), at(0, 0.4));
+      // L1
+      IN("#tr-tag0", at(1, 0.05)); DRAW("#tr-gl0", at(1, 0.5), 0.4); IN(R(1), at(1, 0.55)); IN("#tr-tag1", at(1, 0.7));
+      // L2
+      DRAW("#tr-gl1", at(2, 0.02), 0.6); IN(R(2), at(2, 0.05));
+      DRAW("#tr-gl2", at(2, 0.1), 0.4); IN(R(3), at(2, 0.12)); IN(R(4), at(2, 0.17));
+      IN(R(5), at(2, 0.3)); DRAW("#tr-gl3", at(2, 0.33), 1.2);
+      [6, 7, 8, 9, 10, 11, 12].forEach((i, k) => IN(R(i), at(2, 0.36 + k * 0.08)));
+      // L3
+      DRAW("#tr-gl4", at(3, 0.02), 0.6); IN(R(13), at(3, 0.1)); IN("#tr-tag13", at(3, 0.25)); IN(R(14), at(3, 0.45)); IN("#tr-tag14", at(3, 0.6));
+      // L4
+      IN("#tr-k1", at(4, 0.08)); DRAW("#tr-c2", at(4, 0.14)); HL(R(2), at(4, 0.2));
+      IN("#tr-k2", at(4, 0.5)); DRAW("#tr-c6", at(4, 0.56)); DRAW("#tr-c9", at(4, 0.6)); DRAW("#tr-c10", at(4, 0.64));
+      HL(R(6), at(4, 0.66)); HL(R(9), at(4, 0.7)); HL(R(10), at(4, 0.74));
+      // L5
+      IN("#tr-k3", at(5, 0.05)); DRAW("#tr-c5", at(5, 0.1)); HL(R(5), at(5, 0.16));
+      IN("#tr-k3b", at(5, 0.55), 0.6, { y: 10 }, { y: 0 }); IN("#tr-k3a", at(5, 0.82));
+      // L6
+      IN("#tr-k4", at(6, 0.03)); DRAW("#tr-c11", at(6, 0.08)); HL(R(11), at(6, 0.12));
+      IN("#tr-k5", at(6, 0.3)); DRAW("#tr-c13", at(6, 0.35)); HL(R(13), at(6, 0.39));
+      IN("#tr-k5a", at(6, 0.47)); tl.fromTo("#tr-k5a path", { rotation: 0 }, { rotation: 360, svgOrigin: "1610 806", duration: 0.8, immediateRender: false }, at(6, 0.49));
+      IN("#tr-k6", at(6, 0.62)); DRAW("#tr-c14", at(6, 0.67)); HL(R(14), at(6, 0.71)); IN("#tr-k6a", at(6, 0.82));
+
+
+      tl.to("#tr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tree"] = tl;
+    })();
+  </script>
+</template>

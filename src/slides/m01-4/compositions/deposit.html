@@ -1,0 +1,265 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 deposit，id 前缀 dt- -->
+  <div id="root" data-composition-id="deposit" data-duration="58.85" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="dt-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="dt-all">
+        <g id="dt-main">
+          <!-- 充值识别器漏斗 -->
+          <g id="dt-fun" class="h">
+            <path d="M700 290 H1300 L1080 560 V690 H920 V560 Z" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="1000" y="748" font-size="32" fill="#e8e6df" text-anchor="middle">充值识别器</text>
+          </g>
+          <!-- L0 掉入的卡片 -->
+          <g id="dt-drop">
+            <g id="dt-d0" class="h"><rect x="740" y="120" width="120" height="56" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="800" y="158" font-size="28" fill="#58C4DD" text-anchor="middle">tx</text></g>
+            <g id="dt-d1" class="h"><rect x="880" y="120" width="120" height="56" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="940" y="158" font-size="28" fill="#58C4DD" text-anchor="middle">log</text></g>
+            <g id="dt-d2" class="h"><rect x="1020" y="120" width="120" height="56" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1080" y="158" font-size="28" fill="#58C4DD" text-anchor="middle">tx</text></g>
+            <g id="dt-d3" class="h"><rect x="1160" y="120" width="120" height="56" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1220" y="158" font-size="28" fill="#58C4DD" text-anchor="middle">log</text></g>
+          </g>
+          <!-- 右侧三张错误卡 -->
+          <g id="dt-e1" class="h">
+            <rect x="1350" y="250" width="500" height="150" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1380" y="310" font-size="32" font-weight="700" fill="#FC6255">① 只看 tx.to</text>
+            <text x="1380" y="364" font-size="28" fill="#e8e6df">收款人在日志里</text>
+          </g>
+          <g id="dt-e2" class="h">
+            <rect x="1350" y="430" width="500" height="150" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1380" y="490" font-size="32" font-weight="700" fill="#FC6255">② 不查 log.address</text>
+            <text x="1380" y="544" font-size="28" fill="#e8e6df">假币能发同样的事件</text>
+          </g>
+          <g id="dt-e3" class="h">
+            <rect x="1350" y="610" width="500" height="150" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1380" y="670" font-size="32" font-weight="700" fill="#FC6255">③ 不查 status</text>
+            <text x="1380" y="724" font-size="28" fill="#e8e6df">失败交易没有日志</text>
+          </g>
+
+          <!-- L1：tx.to 检查 -->
+          <g id="dt-k1">
+            <g id="dt-k1q" class="h">
+              <text class="mono" x="100" y="300" font-size="32" fill="#e8e6df">tx.to ==</text>
+              <text x="272" y="300" font-size="32" fill="#e8e6df">用户地址？</text>
+            </g>
+            <g id="dt-k1c" class="h">
+              <rect x="100" y="340" width="540" height="160" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+              <text class="mono" x="130" y="404" font-size="30" fill="#e8e6df">to = 0xdAC1…1ec7</text>
+              <text x="130" y="462" font-size="28" fill="#8a8f99">USDT 代币合约</text>
+            </g>
+            <path id="dt-k1x" class="h" d="M560 268 L596 304 M596 268 L560 304" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+          </g>
+
+          <!-- L2：真假 USDT + 白名单 -->
+          <g id="dt-k2">
+            <g id="dt-real" class="h">
+              <rect x="100" y="300" width="220" height="100" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+              <text x="210" y="362" font-size="32" fill="#e8e6df" text-anchor="middle">USDT</text>
+              <text x="210" y="444" font-size="28" fill="#F0B90B" text-anchor="middle">官方</text>
+            </g>
+            <g id="dt-fake" class="h">
+              <rect x="400" y="300" width="220" height="100" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+              <text x="510" y="362" font-size="32" fill="#e8e6df" text-anchor="middle">USDT</text>
+              <text x="510" y="444" font-size="28" fill="#FC6255" text-anchor="middle">假币合约</text>
+            </g>
+            <g id="dt-lgr" class="h">
+              <rect x="100" y="490" width="220" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+              <text class="mono" x="210" y="532" font-size="28" fill="#58C4DD" text-anchor="middle">Transfer</text>
+            </g>
+            <g id="dt-lgf" class="h">
+              <rect id="dt-lgfr" x="400" y="490" width="220" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+              <text class="mono" x="510" y="532" font-size="28" fill="#58C4DD" text-anchor="middle">Transfer</text>
+            </g>
+            <text id="dt-same" class="h" x="360" y="610" font-size="28" fill="#8a8f99" text-anchor="middle">一模一样</text>
+          </g>
+          <g id="dt-wl" class="h">
+            <line x1="756" y1="358" x2="1244" y2="358" stroke="#83C167" stroke-width="4" stroke-dasharray="14 8" />
+            <text x="1000" y="424" font-size="30" fill="#83C167" text-anchor="middle">合约地址白名单</text>
+          </g>
+          <path id="dt-k2x" class="h" d="M1240 202 L1272 234 M1272 202 L1240 234" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+
+          <!-- L3：status 0x0 -->
+          <g id="dt-k3">
+            <g id="dt-k3a" class="h">
+              <rect x="100" y="290" width="540" height="150" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+              <text class="mono" x="130" y="348" font-size="32" fill="#FC6255">status 0x0</text>
+              <text class="mono" x="130" y="408" font-size="30" fill="#8a8f99">logs: []</text>
+              <text x="320" y="408" font-size="28" fill="#8a8f99">没有日志</text>
+            </g>
+            <g id="dt-k3b" class="h">
+              <rect x="100" y="480" width="540" height="240" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+              <text x="130" y="532" font-size="30" fill="#e8e6df">ETH 转账 · <tspan fill="#FC6255">失败</tspan></text>
+              <line x1="206" y1="612" x2="464" y2="612" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 7" />
+              <rect x="480" y="582" width="130" height="60" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+              <text x="545" y="622" font-size="28" fill="#e8e6df" text-anchor="middle">用户</text>
+            </g>
+            <circle id="dt-coin" class="h" cx="170" cy="612" r="26" fill="#F0B90B" />
+            <path id="dt-k3x" class="h" d="M323 600 L347 624 M347 600 L323 624" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+            <text id="dt-k3t" class="h" x="335" y="692" font-size="28" fill="#FC6255" text-anchor="middle">不到账</text>
+          </g>
+
+          <!-- L4：正确核对单 + Bloom -->
+          <g id="dt-ck">
+            <g id="dt-c1" class="h">
+              <text x="700" y="812" font-size="32" font-weight="700" fill="#83C167">✓</text>
+              <text class="mono" x="746" y="812" font-size="30" fill="#83C167">log.address =</text>
+              <text x="996" y="812" font-size="30" fill="#83C167">官方 USDT</text>
+            </g>
+            <g id="dt-c2" class="h">
+              <text x="700" y="876" font-size="32" font-weight="700" fill="#83C167">✓</text>
+              <text class="mono" x="746" y="876" font-size="30" fill="#83C167">topics[2] =</text>
+              <text x="960" y="876" font-size="30" fill="#83C167">用户地址</text>
+            </g>
+            <g id="dt-c3" class="h">
+              <text x="700" y="940" font-size="32" font-weight="700" fill="#83C167">✓</text>
+              <text class="mono" x="746" y="940" font-size="30" fill="#83C167">status = 1</text>
+            </g>
+          </g>
+          <g id="dt-bl" class="h">
+            <text x="360" y="320" font-size="30" fill="#e8e6df" text-anchor="middle">Bloom 过滤器</text>
+            <path d="M180 380 H540 L480 500 H240 Z" fill="none" stroke="#FF9F43" stroke-width="3" />
+            <g fill="#FF9F43">
+              <circle cx="260" cy="420" r="6" /><circle cx="310" cy="420" r="6" /><circle cx="360" cy="420" r="6" /><circle cx="410" cy="420" r="6" /><circle cx="460" cy="420" r="6" />
+              <circle cx="285" cy="460" r="6" /><circle cx="335" cy="460" r="6" /><circle cx="385" cy="460" r="6" /><circle cx="435" cy="460" r="6" />
+            </g>
+          </g>
+          <g id="dt-blf" class="h">
+            <rect x="300" y="540" width="120" height="50" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="360" y="575" font-size="28" fill="#8a8f99" text-anchor="middle">log</text>
+          </g>
+          <text id="dt-blt" class="h" x="360" y="650" font-size="30" fill="#FF9F43" text-anchor="middle">命中也会误报</text>
+        </g>
+
+        <!-- L5：区块浏览器示意窗口 -->
+        <g id="dt-win" class="h">
+          <rect x="160" y="220" width="1600" height="780" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <path d="M160 270 V236 Q160 220 176 220 H1744 Q1760 220 1760 236 V270 Z" fill="#232733" />
+          <circle cx="196" cy="245" r="8" fill="#6b6f7a" /><circle cx="224" cy="245" r="8" fill="#6b6f7a" /><circle cx="252" cy="245" r="8" fill="#6b6f7a" />
+          <text x="290" y="253" font-size="22" fill="#8a8f99" data-layout-ignore="">区块浏览器（示意）· USDT Transfer 交易</text>
+          <text x="220" y="326" font-size="28" fill="#e8e6df">Overview</text>
+          <text id="dt-tabl" x="400" y="326" font-size="28" fill="#6b6f7a">Logs</text>
+          <rect id="dt-tabu" class="h" x="396" y="338" width="72" height="4" fill="#58C4DD" />
+          <line x1="190" y1="350" x2="1730" y2="350" stroke="#3a3f4a" stroke-width="2" />
+        </g>
+        <g id="dt-s1" class="h">
+          <circle class="dt-n" cx="232" cy="410" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="232" y="420" font-size="28" fill="#e8e6df" text-anchor="middle">1</text>
+          <text x="282" y="420" font-size="30" fill="#e8e6df">Input Data</text>
+          <text class="mono" x="560" y="420" font-size="30" fill="#8a8f99"><tspan fill="#58C4DD" font-weight="700">0xa9059cbb</tspan> 0000…5aaeb6…beaed 0000…05f5e100</text>
+        </g>
+        <g id="dt-s2" class="h">
+          <circle class="dt-n" cx="232" cy="520" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="232" y="530" font-size="28" fill="#e8e6df" text-anchor="middle">2</text>
+          <text x="282" y="530" font-size="30" fill="#e8e6df">金额 hex</text>
+          <text class="mono" x="560" y="530" font-size="30" fill="#F0B90B">0x05f5e100</text>
+        </g>
+        <g id="dt-s3" class="h">
+          <circle class="dt-n" cx="232" cy="630" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="232" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">3</text>
+          <text x="282" y="640" font-size="30" fill="#e8e6df">转十进制</text>
+          <text x="560" y="640" font-size="30" fill="#F0B90B">100,000,000 ÷ 10⁶ = 100 USDT</text>
+        </g>
+        <g id="dt-s4" class="h">
+          <circle class="dt-n" cx="232" cy="740" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="232" y="750" font-size="28" fill="#e8e6df" text-anchor="middle">4</text>
+          <text x="282" y="750" font-size="30" fill="#e8e6df">Logs</text>
+          <text class="mono" x="560" y="750" font-size="30" fill="#58C4DD">topics[0] = 0xddf252ad…</text>
+          <text class="mono" x="560" y="814" font-size="30" fill="#58C4DD">topics[2] = 0x0000…5aaeb6…beaed</text>
+          <text x="1200" y="814" font-size="30" fill="#83C167">收款人 ✓</text>
+        </g>
+      </g>
+      <!-- 术语卡：本场景不用 -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0：漏斗 + 卡片掉入
+      IN("#dt-fun", at(0, 0.02), 0.6);
+      ["#dt-d0", "#dt-d1", "#dt-d2", "#dt-d3"].forEach((s, i) => {
+        const t = at(0, 0.18 + i * 0.12);
+        tl.fromTo(s, { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, t);
+        tl.to(s, { y: 200, opacity: 0, duration: 0.6, ease: "power2.in" }, t + 0.5);
+      });
+      // L1：错误 ①
+      IN("#dt-k1q", at(1, 0.08), 0.5);
+      IN("#dt-k1c", at(1, 0.3), 0.6, { x: -20 }, { x: 0 });
+      IN("#dt-k1x", at(1, 0.45), 0.3, { scale: 0.5, svgOrigin: "578 286" }, { scale: 1, svgOrigin: "578 286" });
+      tl.to("#dt-k1c rect", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.45));
+      IN("#dt-e1", at(1, 0.7), 0.6, { x: 30 }, { x: 0 });
+      // L2：错误 ② 假币合约 + 白名单
+      OUT("#dt-k1", at(2, 0), 0.4);
+      IN("#dt-real", at(2, 0.12), 0.5);
+      IN("#dt-fake", at(2, 0.24), 0.5);
+      IN("#dt-lgr", at(2, 0.4), 0.5, { y: -30 }, { y: 0 });
+      IN("#dt-lgf", at(2, 0.44), 0.5, { y: -30 }, { y: 0 });
+      IN("#dt-same", at(2, 0.5), 0.4);
+      IN("#dt-wl", at(2, 0.66), 0.5);
+      IN("#dt-e2", at(2, 0.7), 0.6, { x: 30 }, { x: 0 });
+      OUT("#dt-same", at(2, 0.74), 0.3);
+      const tf = at(2, 0.74);
+      tl.to("#dt-lgf", { x: 600, y: -250, duration: 0.8, ease: "power2.inOut" }, tf);
+      tl.to("#dt-lgfr", { stroke: "#FC6255", duration: 0.2 }, tf + 0.8);
+      tl.to("#dt-lgf", { y: -300, duration: 0.3, ease: "power2.out" }, tf + 0.8);
+      IN("#dt-k2x", tf + 0.85, 0.25);
+      tl.to("#dt-lgr", { y: -270, duration: 0.4, ease: "power2.out" }, tf + 1.2);
+      tl.to("#dt-lgr", { x: 640, duration: 0.6, ease: "power2.inOut" }, tf + 1.6);
+      tl.to("#dt-lgr", { y: -200, opacity: 0, duration: 0.4, ease: "power2.in" }, tf + 2.2);
+      // L3：错误 ③ status 0x0
+      OUT("#dt-k2, #dt-k2x", at(3, 0), 0.4);
+      IN("#dt-k3a", at(3, 0.08), 0.5, { x: -20 }, { x: 0 });
+      IN("#dt-e3", at(3, 0.25), 0.6, { x: 30 }, { x: 0 });
+      IN("#dt-k3b", at(3, 0.5), 0.5, { x: -20 }, { x: 0 });
+      IN("#dt-coin", at(3, 0.58), 0.3);
+      tl.to("#dt-coin", { attr: { cx: 230 }, duration: 0.4, ease: "power2.out" }, at(3, 0.66));
+      tl.to("#dt-coin", { attr: { cx: 170 }, duration: 0.4, ease: "back.out(2)" }, at(3, 0.66) + 0.4);
+      IN("#dt-k3x", at(3, 0.72), 0.3);
+      IN("#dt-k3t", at(3, 0.76), 0.4);
+      // L4：正确核对 + Bloom 误报
+      OUT("#dt-k3", at(4, 0), 0.4);
+      tl.to("#dt-wl line", { opacity: 0.3, duration: 0.3 }, at(4, 0));
+      IN("#dt-c1", at(4, 0.08), 0.5, { x: -16 }, { x: 0 });
+      IN("#dt-c2", at(4, 0.26), 0.5, { x: -16 }, { x: 0 });
+      IN("#dt-c3", at(4, 0.42), 0.5, { x: -16 }, { x: 0 });
+      IN("#dt-bl", at(4, 0.6), 0.5);
+      IN("#dt-blf", at(4, 0.68), 0.3, { y: -150 }, { y: 0, ease: "power2.in" });
+      IN("#dt-blt", at(4, 0.76), 0.5);
+      // L5：区块浏览器 4 步
+      OUT("#dt-main", at(5, 0), 0.5);
+      IN("#dt-win", at(5, 0.05), 0.6, { scale: 0.96, svgOrigin: "960 610" }, { scale: 1, svgOrigin: "960 610" });
+      const ST = (k, f) => {
+        IN(`#dt-s${k}`, at(5, f), 0.5);
+        tl.to(`#dt-s${k} .dt-n`, { fill: "#2c4a2a", stroke: "#83C167", duration: 0.3 }, at(5, f));
+      };
+      ST(1, 0.18); ST(2, 0.42); ST(3, 0.56);
+      tl.to("#dt-tabl", { fill: "#58C4DD", duration: 0.3 }, at(5, 0.76));
+      IN("#dt-tabu", at(5, 0.76), 0.3);
+      ST(4, 0.8);
+
+      tl.to("#dt-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["deposit"] = tl;
+    })();
+  </script>
+</template>

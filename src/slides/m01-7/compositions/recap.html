@@ -1,0 +1,214 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 re- -->
+  <div id="root" data-composition-id="recap" data-duration="58.73" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="re-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <!-- L0–L1：回答开头的两个问题 -->
+        <g id="re-g0">
+          <rect id="re-qb" class="h" x="660" y="200" width="600" height="140" rx="18" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="14 10" />
+          <text id="re-q" class="h" x="960" y="290" font-size="56" font-weight="700" fill="#FF9F43" text-anchor="middle">谁来翻译？</text>
+          <line id="re-l0" class="dr" pathLength="1" x1="900" y1="344" x2="520" y2="414" stroke="#8a8f99" stroke-width="2.5" />
+          <line id="re-l1" class="dr" pathLength="1" x1="960" y1="344" x2="960" y2="414" stroke="#8a8f99" stroke-width="2.5" />
+          <line id="re-l2" class="dr" pathLength="1" x1="1020" y1="344" x2="1400" y2="414" stroke="#8a8f99" stroke-width="2.5" />
+          <g id="re-a0" class="h">
+            <rect x="260" y="420" width="440" height="140" rx="14" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="480" y="484" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">ethclient</text>
+            <text x="480" y="534" font-size="30" fill="#e8e6df" text-anchor="middle">翻译 RPC</text>
+          </g>
+          <g id="re-a1" class="h">
+            <rect x="740" y="420" width="440" height="140" rx="14" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="960" y="484" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">abi 包</text>
+            <text x="960" y="534" font-size="30" fill="#e8e6df" text-anchor="middle">翻译合约数据</text>
+          </g>
+          <g id="re-a2" class="h">
+            <rect x="1220" y="420" width="440" height="140" rx="14" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1440" y="484" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">abigen</text>
+            <text x="1440" y="534" font-size="30" fill="#e8e6df" text-anchor="middle">生成绑定</text>
+          </g>
+          <g id="re-hex">
+            <text id="re-hx0" class="h mono" x="880" y="660" font-size="34" fill="#58C4DD" text-anchor="end">0x1312d00</text>
+            <path id="re-hxa" class="dr h" pathLength="1" d="M904 648 L1010 648" stroke="#e8e6df" stroke-width="2.5" fill="none" marker-end="url(#re-arr)" />
+            <text id="re-hx1" class="h mono" x="1034" y="660" font-size="34" fill="#F0B90B">*big.Int</text>
+          </g>
+          <text id="re-q2" class="h" x="960" y="730" font-size="48" font-weight="700" fill="#FF9F43" text-anchor="middle">能信吗？</text>
+          <g id="re-w0" class="h">
+            <rect x="220" y="790" width="440" height="76" rx="38" fill="#FC625522" stroke="#FC6255" stroke-width="2.5" />
+            <text x="440" y="839" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">节点落后 / 出错</text>
+          </g>
+          <g id="re-w1" class="h">
+            <rect x="740" y="790" width="440" height="76" rx="38" fill="#FC625522" stroke="#FC6255" stroke-width="2.5" />
+            <text x="960" y="839" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">假合约事件</text>
+          </g>
+          <g id="re-w2" class="h">
+            <rect x="1260" y="790" width="440" height="76" rx="38" fill="#FC625522" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1480" y="839" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">订阅静默断线</text>
+          </g>
+        </g>
+
+        <!-- L2–L5：五个误区 -->
+        <g id="re-myth">
+          <!-- 单卡：y 300–620 -->
+          <g id="re-c1" class="h">
+            <rect x="360" y="300" width="1200" height="320" rx="18" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text x="400" y="360" font-size="30" font-weight="700" fill="#FF9F43">误区 1</text>
+          </g>
+          <text id="re-x1" class="h" x="960" y="460" font-size="44" fill="#8a8f99" text-anchor="middle">订阅收到全部事件</text>
+          <line id="re-s1" class="dr" pathLength="1" x1="768" y1="445" x2="1152" y2="445" stroke="#FC6255" stroke-width="5" />
+          <text id="re-o1" class="h" x="960" y="570" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">订阅只唤醒，按游标拉</text>
+
+          <g id="re-c2" class="h">
+            <rect x="360" y="300" width="1200" height="320" rx="18" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text x="400" y="360" font-size="30" font-weight="700" fill="#FF9F43">误区 2</text>
+          </g>
+          <text id="re-x2" class="h" x="960" y="460" font-size="44" fill="#8a8f99" text-anchor="middle">代币都是 18 位</text>
+          <line id="re-s2" class="dr" pathLength="1" x1="780" y1="445" x2="1140" y2="445" stroke="#FC6255" stroke-width="5" />
+          <text id="re-o2" class="h" x="960" y="570" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">decimals 从合约读并缓存</text>
+
+          <g id="re-c3" class="h">
+            <rect x="360" y="300" width="1200" height="320" rx="18" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text x="400" y="360" font-size="30" font-weight="700" fill="#FF9F43">误区 3</text>
+          </g>
+          <text id="re-x3" class="h" x="960" y="460" font-size="44" fill="#8a8f99" text-anchor="middle">签名对 = 真转账</text>
+          <line id="re-s3" class="dr" pathLength="1" x1="772" y1="445" x2="1148" y2="445" stroke="#FC6255" stroke-width="5" />
+          <text id="re-o3" class="h" x="960" y="570" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">校验合约地址白名单</text>
+
+          <!-- 双卡：y 250–520 与 580–850 -->
+          <g id="re-c4" class="h">
+            <rect x="360" y="250" width="1200" height="270" rx="18" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text x="400" y="306" font-size="30" font-weight="700" fill="#FF9F43">误区 4</text>
+          </g>
+          <text id="re-x4" class="h" x="960" y="392" font-size="44" fill="#8a8f99" text-anchor="middle">批量成功 = 每个成功</text>
+          <line id="re-s4" class="dr" pathLength="1" x1="728" y1="377" x2="1192" y2="377" stroke="#FC6255" stroke-width="5" />
+          <text id="re-o4" class="h" x="960" y="482" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">逐个检查 Error</text>
+
+          <g id="re-c5" class="h">
+            <rect x="360" y="580" width="1200" height="270" rx="18" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text x="400" y="636" font-size="30" font-weight="700" fill="#FF9F43">误区 5</text>
+          </g>
+          <text id="re-x5" class="h" x="960" y="722" font-size="44" fill="#8a8f99" text-anchor="middle">并发越高越快</text>
+          <line id="re-s5" class="dr" pathLength="1" x1="812" y1="707" x2="1108" y2="707" stroke="#FC6255" stroke-width="5" />
+          <text id="re-o5" class="h" x="960" y="812" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">按配额设并发和 QPS</text>
+
+          <!-- 已讲过的误区缩成左侧小图标 -->
+          <g id="re-i1" class="h"><circle cx="160" cy="340" r="34" fill="#83C16722" stroke="#83C167" stroke-width="2.5" /><text x="160" y="351" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">1</text></g>
+          <g id="re-i2" class="h"><circle cx="160" cy="440" r="34" fill="#83C16722" stroke="#83C167" stroke-width="2.5" /><text x="160" y="451" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">2</text></g>
+          <g id="re-i3" class="h"><circle cx="160" cy="540" r="34" fill="#83C16722" stroke="#83C167" stroke-width="2.5" /><text x="160" y="551" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">3</text></g>
+        </g>
+
+        <!-- L6：下一集 -->
+        <g id="re-next">
+          <text id="re-nt" class="h" x="960" y="300" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">下一集 · 索引器工程</text>
+          <text id="re-ns" class="h" x="960" y="380" font-size="36" fill="#8a8f99" text-anchor="middle">顺序推进、重组回滚、幂等与对账</text>
+          <g id="re-chain" class="h">
+            <line x1="570" y1="605" x2="630" y2="605" stroke="#58C4DD" stroke-width="3" />
+            <line x1="750" y1="605" x2="810" y2="605" stroke="#58C4DD" stroke-width="3" />
+            <line x1="930" y1="605" x2="990" y2="605" stroke="#58C4DD" stroke-width="3" />
+            <line x1="1110" y1="605" x2="1170" y2="605" stroke="#58C4DD" stroke-width="3" />
+            <line x1="1290" y1="605" x2="1350" y2="605" stroke="#58C4DD" stroke-width="3" />
+            <rect x="450" y="560" width="120" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <rect x="630" y="560" width="120" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <rect x="810" y="560" width="120" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <rect x="990" y="560" width="120" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <rect id="re-b4" x="1170" y="560" width="120" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <rect id="re-b5" x="1350" y="560" width="120" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+          </g>
+          <path id="re-rb" class="dr h" pathLength="1" d="M1410 548 Q1230 450 1056 546" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#re-arrO)" />
+          <g id="re-flag" class="h">
+            <line x1="1050" y1="770" x2="1050" y2="668" stroke="#83C167" stroke-width="4" stroke-linecap="round" />
+            <path d="M1050 668 L1102 688 L1050 708 Z" fill="#83C167" />
+          </g>
+          <text id="re-fl" class="h" x="1120" y="756" font-size="28" fill="#83C167">游标</text>
+        </g>
+      </g>
+      <rect id="re-black" class="h" x="0" y="0" width="1920" height="1080" fill="#000" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      // 一张误区卡：卡片 → 错误说法 → 划掉 → 正确做法
+      const MYTH = (n, t, sp) => {
+        IN(`#re-c${n}`, t, 0.5, { y: 16 }, { y: 0 });
+        IN(`#re-x${n}`, t + 0.2, 0.5);
+        DRAW(`#re-s${n}`, t + sp, 0.5);
+        tl.to(`#re-x${n}`, { fill: "#6b6f7a", duration: 0.3 }, t + sp);
+        IN(`#re-o${n}`, t + sp * 2, 0.5, { y: 10 }, { y: 0 });
+      };
+      // 收起一张误区卡，变成左侧小图标
+      const FOLD = (n, t) => {
+        OUT(`#re-c${n}, #re-x${n}, #re-s${n}, #re-o${n}`, t, 0.4);
+        IN(`#re-i${n}`, t + 0.3, 0.4, { scale: 0.4, svgOrigin: `160 ${240 + n * 100}` }, { scale: 1, svgOrigin: `160 ${240 + n * 100}` });
+      };
+
+      // L0 谁来翻译？三样工具；十六进制 → Go 类型
+      IN("#re-qb, #re-q", at(0, 0.0), 0.6, { scale: 0.8, svgOrigin: "960 270" }, { scale: 1, svgOrigin: "960 270" });
+      DRAW("#re-l0", at(0, 0.3), 0.4); IN("#re-a0", at(0, 0.34), 0.5, { y: 14 }, { y: 0 });
+      DRAW("#re-l1", at(0, 0.46), 0.4); IN("#re-a1", at(0, 0.5), 0.5, { y: 14 }, { y: 0 });
+      DRAW("#re-l2", at(0, 0.56), 0.4); IN("#re-a2", at(0, 0.6), 0.5, { y: 14 }, { y: 0 });
+      IN("#re-hx0", at(0, 0.76), 0.4);
+      ARROW("#re-hxa", at(0, 0.8), 0.4);
+      IN("#re-hx1", at(0, 0.86), 0.4, { x: -10 }, { x: 0 });
+
+      // L1 能信吗？三个红色警示
+      OUT("#re-hex", at(1, 0), 0.35);
+      IN("#re-q2", at(1, 0.06), 0.5, { y: 10 }, { y: 0 });
+      IN("#re-w0", at(1, 0.3), 0.4, { y: 12 }, { y: 0 });
+      IN("#re-w1", at(1, 0.52), 0.4, { y: 12 }, { y: 0 });
+      IN("#re-w2", at(1, 0.74), 0.4, { y: 12 }, { y: 0 });
+
+      // L2 误区 1
+      OUT("#re-g0", at(2, 0), 0.4);
+      MYTH(1, at(2, 0.1), 1.8);
+
+      // L3 误区 2
+      FOLD(1, at(3, 0));
+      MYTH(2, at(3, 0.08), 2.0);
+
+      // L4 误区 3
+      FOLD(2, at(4, 0));
+      MYTH(3, at(4, 0.1), 1.4);
+
+      // L5 误区 4、5 同时出现
+      FOLD(3, at(5, 0));
+      MYTH(4, at(5, 0.06), 1.0);
+      MYTH(5, at(5, 0.5), 1.0);
+
+      // L6 下一集：索引器工程；回滚箭头与游标小旗
+      OUT("#re-myth", at(6, 0), 0.4);
+      IN("#re-nt", at(6, 0.06), 0.5, { y: 12 }, { y: 0 });
+      IN("#re-ns", at(6, 0.14), 0.5);
+      IN("#re-chain", at(6, 0.22), 0.5);
+      ARROW("#re-rb", at(6, 0.4), 0.6);
+      tl.to("#re-b4, #re-b5", { stroke: "#FF9F43", fill: "#FF9F4322", duration: 0.3 }, at(6, 0.48));
+      IN("#re-flag", at(6, 0.55), 0.4, { y: 16 }, { y: 0 });
+      IN("#re-fl", at(6, 0.58), 0.4);
+
+      // 结尾淡到黑，留黑 0.5 s
+      tl.to("#re-all", { opacity: 0, duration: 0.8, ease: "power2.in" }, C.d - 1.3);
+      tl.to("#re-black", { opacity: 1, duration: 0.8, ease: "power2.in" }, C.d - 1.3);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

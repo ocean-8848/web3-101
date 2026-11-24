@@ -1,0 +1,178 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 permit，id 前缀 pe- -->
+  <div id="root" data-composition-id="permit" data-duration="62.09" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pe-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="pe-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="pe-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="pe-all">
+        <!-- L0 两笔合成一笔 -->
+        <g id="pe-tx1" class="h"><rect x="560" y="460" width="300" height="100" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="710" y="522" font-size="30" text-anchor="middle" fill="#F0B90B" class="mono">approve</text></g>
+        <g id="pe-tx2" class="h"><rect x="1060" y="460" width="300" height="100" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="1210" y="522" font-size="30" text-anchor="middle" fill="#F0B90B">存入</text></g>
+        <g id="pe-txm" class="h"><rect x="740" y="460" width="440" height="100" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="960" y="522" font-size="30" font-weight="700" text-anchor="middle" fill="#FF9F43">Permit · EIP-2612</text></g>
+        <text id="pe-n2" class="h" x="960" y="660" font-size="32" text-anchor="middle" fill="#F0B90B">交易 × 2</text>
+        <text id="pe-n1" class="h" x="960" y="660" font-size="32" font-weight="700" text-anchor="middle" fill="#F0B90B">交易 × 1</text>
+        <!-- L1 结构化消息卡 -->
+        <g id="pe-msg" class="h">
+          <rect x="160" y="260" width="640" height="600" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text x="190" y="314" font-size="30" font-weight="700" fill="#FF9F43">签名消息</text>
+        </g>
+        <g id="pe-m0" class="h"><text x="190" y="392" font-size="28" fill="#8a8f99" class="mono">owner</text><text x="420" y="392" font-size="28" fill="#e8e6df">你</text></g>
+        <g id="pe-m1" class="h"><text x="190" y="482" font-size="28" fill="#8a8f99" class="mono">spender</text><text x="420" y="482" font-size="28" fill="#e8e6df">金库</text></g>
+        <g id="pe-m2" class="h"><text x="190" y="572" font-size="28" fill="#8a8f99" class="mono">value</text><text x="420" y="572" font-size="28" fill="#e8e6df">100</text></g>
+        <g id="pe-m3" class="h"><text x="190" y="662" font-size="28" fill="#8a8f99" class="mono">nonce</text><text x="420" y="662" font-size="28" fill="#e8e6df">7</text></g>
+        <g id="pe-m4" class="h"><text x="190" y="752" font-size="28" fill="#8a8f99" class="mono">deadline</text><text x="420" y="752" font-size="28" fill="#e8e6df">20 分钟后</text></g>
+        <g id="pe-stamp" class="h"><circle cx="730" cy="820" r="36" fill="none" stroke="#FF9F43" stroke-width="4" /><text x="730" y="830" font-size="28" font-weight="700" text-anchor="middle" fill="#FF9F43">签名</text></g>
+        <!-- L2 一笔交易里两步 -->
+        <g id="pe-tx" class="h">
+          <rect x="900" y="300" width="860" height="560" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="930" y="352" font-size="30" fill="#F0B90B">一笔交易</text>
+          <rect x="960" y="390" width="740" height="390" rx="14" fill="#1a1626" stroke="#B48EF0" stroke-width="2.5" />
+          <text x="990" y="440" font-size="30" fill="#B48EF0">金库合约</text>
+          <rect id="pe-s1" x="1000" y="480" width="660" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="1330" y="531" font-size="30" text-anchor="middle" fill="#e8e6df" class="mono">permit(…)</text>
+          <path d="M1330 564 L1330 630" stroke="#8a8f99" stroke-width="3" marker-end="url(#pe-arrG)" />
+          <rect id="pe-s2" x="1000" y="640" width="660" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="1330" y="691" font-size="30" text-anchor="middle" fill="#e8e6df" class="mono">transferFrom</text>
+        </g>
+        <text id="pe-one" class="h" x="1330" y="830" font-size="30" font-weight="700" text-anchor="middle" fill="#F0B90B">交易 × 1</text>
+        <g id="pe-fly" class="h"><rect x="694" y="790" width="72" height="60" rx="8" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" /></g>
+        <g id="pe-fly2" class="h"><rect id="pe-fly2r" x="694" y="790" width="72" height="60" rx="8" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" /></g>
+        <!-- L3 nonce / deadline -->
+        <text id="pe-nn" class="h" x="480" y="662" font-size="28" fill="#83C167">每签一次 +1，防重放</text>
+        <text id="pe-rp" class="h" x="160" y="932" font-size="28" fill="#FC6255">✕ 同一签名再交一次 → 被拒</text>
+        <g id="pe-hg" class="h" fill="none" stroke="#83C167" stroke-width="3"><path d="M572 724 H600 L586 740 L600 756 H572 L586 740 Z" /></g>
+        <text id="pe-near" class="h" x="620" y="752" font-size="28" fill="#83C167">设近一点</text>
+        <!-- L4 支持的代币 -->
+        <text id="pe-sup" class="h" x="960" y="370" font-size="34" text-anchor="middle" fill="#e8e6df">实现 EIP-2612 的代币才行</text>
+        <g id="pe-k1" class="h"><circle cx="560" cy="540" r="90" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="560" y="550" font-size="30" text-anchor="middle" fill="#e8e6df">USDC</text><text x="560" y="712" font-size="40" font-weight="700" text-anchor="middle" fill="#83C167">✓</text></g>
+        <g id="pe-k2" class="h"><circle cx="820" cy="540" r="90" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="820" y="550" font-size="30" text-anchor="middle" fill="#e8e6df">DAI</text><text x="820" y="712" font-size="40" font-weight="700" text-anchor="middle" fill="#83C167">✓</text></g>
+        <g id="pe-k3" class="h"><rect x="1040" y="460" width="460" height="160" rx="80" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8" /><text x="1270" y="551" font-size="30" text-anchor="middle" fill="#8a8f99">其他代币</text><text x="1270" y="706" font-size="28" text-anchor="middle" fill="#8a8f99">不支持 → approve / Permit2</text></g>
+        <!-- L5 钓鱼 -->
+        <g id="pe-ph" class="h">
+          <rect x="1000" y="300" width="760" height="560" rx="16" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="14 10" />
+          <text x="1030" y="354" font-size="30" font-weight="700" fill="#FC6255">钓鱼网站</text>
+        </g>
+        <g id="pe-sc" class="h">
+          <rect x="200" y="440" width="420" height="240" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text x="230" y="492" font-size="30" font-weight="700" fill="#FF9F43">签名消息</text>
+          <text x="230" y="572" font-size="28" fill="#8a8f99" class="mono">spender</text>
+          <text id="pe-sp1" x="400" y="572" font-size="28" fill="#e8e6df">金库</text>
+          <text id="pe-sp2" class="h" x="400" y="572" font-size="28" font-weight="700" fill="#FC6255">攻击者</text>
+          <text x="230" y="640" font-size="28" fill="#8a8f99" class="mono">value</text>
+          <text x="400" y="640" font-size="28" fill="#e8e6df">100</text>
+        </g>
+        <text id="pe-risk" class="h" x="960" y="962" font-size="36" font-weight="700" text-anchor="middle" fill="#FF9F43">风险换到签名上</text>
+        <!-- L6 方案表 -->
+        <g id="pe-th" class="h"><text x="150" y="318" font-size="28" fill="#8a8f99">方案</text><text x="550" y="318" font-size="28" fill="#8a8f99">交易数</text><text x="950" y="318" font-size="28" fill="#8a8f99">适用</text><text x="1370" y="318" font-size="28" fill="#8a8f99">风险</text><line x1="120" y1="334" x2="1800" y2="334" stroke="#3a3f4a" stroke-width="2" /></g>
+        <g id="pe-t0" class="h"><rect x="120" y="344" width="1680" height="112" rx="10" fill="#161a22" /><text x="150" y="412" font-size="28" fill="#e8e6df">approve 精确金额 + 操作</text><text x="550" y="412" font-size="28" fill="#e8e6df">2</text><text x="950" y="412" font-size="28" fill="#e8e6df">所有 ERC-20</text><text x="1370" y="412" font-size="28" fill="#83C167">最安全，但每次都要授权</text></g>
+        <g id="pe-t1" class="h"><rect x="120" y="464" width="1680" height="112" rx="10" fill="#161a22" /><text x="150" y="532" font-size="28" fill="#e8e6df">approve 无限 + 操作</text><text x="550" y="532" font-size="28" fill="#e8e6df">首次 2，之后 1</text><text x="950" y="532" font-size="28" fill="#e8e6df">所有 ERC-20</text><text x="1370" y="532" font-size="28" fill="#FC6255">合约被攻破时全部余额暴露</text></g>
+        <g id="pe-t2" class="h"><rect x="120" y="584" width="1680" height="112" rx="10" fill="#161a22" /><text x="150" y="652" font-size="28" fill="#e8e6df">EIP-2612 Permit</text><text x="550" y="652" font-size="28" fill="#e8e6df">1</text><text x="950" y="632" font-size="28" fill="#e8e6df">实现了 permit 的代币</text><text x="950" y="672" font-size="28" fill="#e8e6df">（USDC、DAI 等）</text><text x="1370" y="652" font-size="28" fill="#FC6255">签名可被钓鱼网站滥用</text></g>
+        <g id="pe-t3" class="h"><rect x="120" y="704" width="1680" height="112" rx="10" fill="#161a22" /><text x="150" y="772" font-size="28" fill="#e8e6df">Permit2</text><text x="550" y="752" font-size="28" fill="#e8e6df">首次 approve Permit2</text><text x="550" y="792" font-size="28" fill="#e8e6df">之后每次签名</text><text x="950" y="752" font-size="28" fill="#e8e6df">任意 ERC-20</text><text x="950" y="792" font-size="28" fill="#e8e6df">Uniswap 等采用</text><text x="1370" y="752" font-size="28" fill="#FC6255">一次签名可授权多个代币</text><text x="1370" y="792" font-size="28" fill="#FC6255">钓鱼危害大</text></g>
+        <g id="pe-t4" class="h"><rect x="120" y="824" width="1680" height="112" rx="10" fill="#161a22" /><text x="150" y="892" font-size="28" fill="#e8e6df">EIP-5792 批量调用</text><text x="550" y="892" font-size="28" fill="#e8e6df">用户确认 1 次</text><text x="950" y="892" font-size="28" fill="#e8e6df">支持的钱包（智能账户）</text><text x="1370" y="892" font-size="28" fill="#FF9F43">依赖钱包支持，需降级方案</text></g>
+        
+      </g>
+      <g id="pe-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Permit <tspan font-size="28" font-weight="400" fill="#8a8f99">EIP-2612</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">用链下签名代替 approve 交易</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 两笔交易合成一笔
+      IN("#pe-tx1", at(0, 0.03), 0.5);
+      IN("#pe-tx2", at(0, 0.1), 0.5);
+      IN("#pe-n2", at(0, 0.16), 0.4);
+      IN("#pe-term", at(0, 0.38), 0.5);
+      tl.to("#pe-tx1", { x: 250, opacity: 0, duration: 0.8, ease: "power2.in" }, at(0, 0.5));
+      tl.to("#pe-tx2", { x: -250, opacity: 0, duration: 0.8, ease: "power2.in" }, at(0, 0.5));
+      IN("#pe-txm", at(0, 0.5) + 0.7, 0.5, { scale: 0.7, svgOrigin: "960 510" }, { scale: 1, svgOrigin: "960 510", ease: "back.out(2)" });
+      OUT("#pe-n2", at(0, 0.5) + 0.7, 0.25);
+      IN("#pe-n1", at(0, 0.5) + 1.0, 0.4);
+
+      // L1 链下签一条结构化消息
+      OUT("#pe-txm, #pe-n1", at(1, 0.0), 0.35);
+      OUT("#pe-term", at(1, 0.42), 0.4);
+      IN("#pe-msg", at(1, 0.06), 0.5);
+      ["#pe-m0", "#pe-m1", "#pe-m2", "#pe-m3", "#pe-m4"].forEach((s, i) => IN(s, at(1, 0.16 + i * 0.13), 0.4, { x: -12 }, { x: 0 }));
+      IN("#pe-stamp", at(1, 0.86), 0.35, { scale: 1.6, svgOrigin: "730 820" }, { scale: 1, svgOrigin: "730 820", ease: "back.out(2)" });
+
+      // L2 签名进交易：permit → transferFrom
+      IN("#pe-tx", at(2, 0.03), 0.6);
+      IN("#pe-fly", at(2, 0.2), 0.2);
+      tl.to("#pe-fly", { x: 310, y: -290, duration: 0.9, ease: "power2.inOut" }, at(2, 0.22));
+      OUT("#pe-fly", at(2, 0.22) + 0.8, 0.25);
+      tl.to("#pe-s1", { attr: { stroke: "#FF9F43", fill: "#2a1f12" }, duration: 0.4 }, at(2, 0.42));
+      tl.to("#pe-s2", { attr: { stroke: "#B48EF0", fill: "#221a33" }, duration: 0.4 }, at(2, 0.62));
+      IN("#pe-one", at(2, 0.78), 0.5);
+
+      // L3 nonce 防重放；deadline 设近
+      IN("#pe-nn", at(3, 0.04), 0.5);
+      IN("#pe-fly2", at(3, 0.22), 0.2);
+      tl.to("#pe-fly2", { x: 140, duration: 0.5, ease: "power2.in" }, at(3, 0.24));
+      tl.to("#pe-fly2r", { attr: { stroke: "#FC6255", fill: "#FC6255" }, duration: 0.15 }, at(3, 0.24) + 0.5);
+      tl.to("#pe-fly2", { x: 0, opacity: 0, duration: 0.6, ease: "power2.out" }, at(3, 0.24) + 0.65);
+      IN("#pe-rp", at(3, 0.42), 0.5);
+      IN("#pe-hg", at(3, 0.66), 0.4);
+      tl.fromTo("#pe-hg", { rotation: 0 }, { rotation: 180, svgOrigin: "586 740", duration: 0.6, immediateRender: false }, at(3, 0.7));
+      IN("#pe-near", at(3, 0.74), 0.5);
+
+      // L4 只有实现标准的代币支持
+      OUT("#pe-msg, #pe-m0, #pe-m1, #pe-m2, #pe-m3, #pe-m4, #pe-stamp, #pe-tx, #pe-one, #pe-nn, #pe-rp, #pe-hg, #pe-near", at(4, 0.0), 0.4);
+      IN("#pe-sup", at(4, 0.08), 0.5);
+      IN("#pe-k1", at(4, 0.22), 0.5, { scale: 0.7, svgOrigin: "560 600" }, { scale: 1, svgOrigin: "560 600" });
+      IN("#pe-k2", at(4, 0.34), 0.5, { scale: 0.7, svgOrigin: "820 600" }, { scale: 1, svgOrigin: "820 600" });
+      IN("#pe-k3", at(4, 0.58), 0.6);
+
+      // L5 钓鱼网站骗走同一张签名
+      OUT("#pe-sup, #pe-k1, #pe-k2, #pe-k3", at(5, 0.0), 0.4);
+      IN("#pe-sc", at(5, 0.06), 0.5);
+      IN("#pe-ph", at(5, 0.18), 0.5);
+      tl.to("#pe-sc", { x: 960, duration: 1.0, ease: "power2.inOut" }, at(5, 0.32));
+      OUT("#pe-sp1", at(5, 0.56), 0.25);
+      IN("#pe-sp2", at(5, 0.56) + 0.3, 0.4);
+      tl.to("#pe-sc rect", { attr: { stroke: "#FC6255" }, duration: 0.4 }, at(5, 0.56) + 0.3);
+      IN("#pe-risk", at(5, 0.74), 0.5);
+
+      // L6 方案对比表
+      OUT("#pe-sc, #pe-ph, #pe-risk", at(6, 0.0), 0.4);
+      IN("#pe-th", at(6, 0.03), 0.5);
+      ["#pe-t0", "#pe-t1", "#pe-t2", "#pe-t3", "#pe-t4"].forEach((s, i) => IN(s, at(6, 0.06 + i * 0.17), 0.5, { x: -16 }, { x: 0 }));
+
+      tl.to("#pe-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#pe-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["permit"] = tl;
+    })();
+  </script>
+</template>

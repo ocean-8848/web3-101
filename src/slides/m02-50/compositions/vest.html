@@ -1,0 +1,195 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 vest，id 前缀 ve- -->
+  <div id="root" data-composition-id="vest" data-duration="71.31" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ve-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <pattern id="ve-hatch" patternUnits="userSpaceOnUse" width="22" height="22" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="22" stroke="#FF9F43" stroke-width="5" stroke-opacity="0.55"/>
+        </pattern>
+      </defs>
+      <g id="ve-all">
+        <!-- 坐标系：x 0–48 月 → 240–1680；y 0–1.2M → 900–300 -->
+        <g id="ve-axes" class="h">
+          <line x1="240" y1="900" x2="1720" y2="900" stroke="#8a8f99" stroke-width="3"/>
+          <line x1="240" y1="900" x2="240" y2="290" stroke="#8a8f99" stroke-width="3"/>
+          <g stroke="#8a8f99" stroke-width="3">
+            <line x1="600" y1="900" x2="600" y2="912"/><line x1="960" y1="900" x2="960" y2="912"/>
+            <line x1="1320" y1="900" x2="1320" y2="912"/><line x1="1680" y1="900" x2="1680" y2="912"/>
+            <line x1="228" y1="750" x2="240" y2="750"/><line x1="228" y1="600" x2="240" y2="600"/>
+            <line x1="228" y1="450" x2="240" y2="450"/><line x1="228" y1="300" x2="240" y2="300"/>
+          </g>
+          <g font-size="28" fill="#8a8f99" text-anchor="middle">
+            <text class="mono" x="240" y="950">0</text><text class="mono" x="600" y="950">12</text>
+            <text class="mono" x="960" y="950">24</text><text class="mono" x="1320" y="950">36</text>
+            <text class="mono" x="1680" y="950">48</text>
+          </g>
+          <text x="1760" y="950" font-size="28" fill="#8a8f99" text-anchor="middle">月</text>
+          <g font-size="28" fill="#8a8f99" text-anchor="end">
+            <text class="mono" x="214" y="760">300,000</text><text class="mono" x="214" y="610">600,000</text>
+            <text class="mono" x="214" y="460">900,000</text><text class="mono" x="214" y="310">1,200,000</text>
+          </g>
+          <text x="262" y="282" font-size="28" fill="#8a8f99">枚</text>
+        </g>
+        <!-- 悬崖期阴影 -->
+        <g id="ve-cliff" class="h">
+          <rect x="242" y="300" width="358" height="598" fill="url(#ve-hatch)"/>
+          <rect x="252" y="444" width="128" height="52" rx="8" fill="#0f1117"/>
+          <text x="316" y="482" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">悬崖期</text>
+        </g>
+        <!-- 曲线 -->
+        <line id="ve-diag" class="h" x1="240" y1="900" x2="1680" y2="300" stroke="#F0B90B" stroke-width="4" stroke-dasharray="14 10" stroke-opacity="0.45"/>
+        <path id="ve-c0" class="dr" pathLength="1" d="M240 898 H600" fill="none" stroke="#F0B90B" stroke-width="7" stroke-linecap="round"/>
+        <path id="ve-c1" class="dr" pathLength="1" d="M600 898 V750" fill="none" stroke="#F0B90B" stroke-width="7" stroke-linecap="round"/>
+        <path id="ve-c2" class="dr" pathLength="1" d="M600 750 L1680 300" fill="none" stroke="#F0B90B" stroke-width="7" stroke-linecap="round"/>
+        <text id="ve-jump" class="h" x="622" y="830" font-size="32" font-weight="700" fill="#F0B90B">+300,000</text>
+        <g id="ve-z0" class="h"><rect x="496" y="836" width="48" height="48" rx="8" fill="#0f1117"/><text x="520" y="872" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">0</text></g>
+        <text id="ve-all1" class="h" x="1680" y="270" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">全部</text>
+        <circle id="ve-endpt" class="h" cx="1680" cy="300" r="12" fill="#F0B90B"/>
+        <!-- 误解：红色虚线 -->
+        <line id="ve-wrong" class="h" x1="600" y1="900" x2="1680" y2="300" stroke="#FC6255" stroke-width="5" stroke-dasharray="16 10"/>
+        <g id="ve-wl" class="h">
+          <text x="1320" y="770" font-size="32" font-weight="700" fill="#FC6255">误：从 0 开始慢放</text>
+          <path d="M1612 738 L1644 770 M1644 738 L1612 770" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+        </g>
+        <!-- 柱 -->
+        <rect id="ve-b12" x="585" y="900" width="30" height="0" fill="#83C167"/>
+        <text id="ve-b12l" class="h" x="632" y="836" font-size="32" font-weight="700" fill="#83C167">领 300,000</text>
+        <rect id="ve-b24g" x="945" y="900" width="30" height="0" fill="#83C167"/>
+        <rect id="ve-b24y" x="945" y="750" width="30" height="0" fill="#F0B90B"/>
+        <text id="ve-b24a" class="h" x="992" y="836" font-size="30" font-weight="700" fill="#F0B90B">可领 300,000</text>
+        <text id="ve-b24b" class="h" x="992" y="882" font-size="30" font-weight="700" fill="#83C167">已领 300,000</text>
+        <!-- 游标 -->
+        <g id="ve-cur" class="h">
+          <line x1="420" y1="440" x2="420" y2="900" stroke="#e8e6df" stroke-width="2.5" stroke-dasharray="8 8"/>
+          <circle id="ve-curd" cx="420" cy="900" r="11" fill="#FF9F43"/>
+        </g>
+        <!-- 公式 -->
+        <text id="ve-f1" class="h" x="960" y="200" font-size="38" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#F0B90B">已解锁</tspan> = 总量 × (当前 − 起点) ÷ 总时长</text>
+        <text id="ve-f2" class="h" x="960" y="258" font-size="38" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#F0B90B">可领取</tspan> = 已解锁 − <tspan fill="#83C167">已领取</tspan></text>
+        <!-- 参数牌 -->
+        <g id="ve-par" class="h"><g id="ve-pari">
+          <rect x="640" y="330" width="700" height="76" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="990" y="380" font-size="30" fill="#e8e6df" text-anchor="middle">总量 <tspan fill="#F0B90B" font-weight="700">1,200,000</tspan> · 48 个月 · <tspan fill="#FF9F43">悬崖 12 个月</tspan></text>
+        </g></g>
+        <text id="ve-ex" class="h" x="1362" y="380" font-size="28" fill="#6b6f7a">示例</text>
+        <!-- 读数 -->
+        <text id="ve-r6" class="h" x="990" y="385" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">第 6 个月 · 悬崖期内 = 0</text>
+        <text id="ve-r12" class="mono h" x="990" y="385" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">1,200,000 × 12 ÷ 48 = 300,000</text>
+        <text id="ve-r24" class="h" x="990" y="385" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">第 24 个月 · 已解锁 600,000</text>
+        <text id="ve-r36" class="h" x="990" y="385" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">第 36 个月 · 已解锁 900,000</text>
+        <text id="ve-r48" class="h" x="990" y="385" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">第 48 个月 · 1,200,000 全部解锁</text>
+        <text id="ve-ok" class="h" x="990" y="385" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">对：悬崖结束，累计部分一次到账</text>
+      </g>
+      <!-- 术语卡 -->
+      <g id="ve-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">线性释放 <tspan font-size="28" font-weight="400" fill="#8a8f99">Linear Vesting</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">随时间按比例逐步解锁</text>
+      </g>
+      <g id="ve-term2" class="h">
+        <rect x="70" y="56" width="630" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">悬崖期 <tspan font-size="28" font-weight="400" fill="#8a8f99">Cliff</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">期间一枚不能领，结束时一次性解锁</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      // 游标移到第 m 月（曲线上 y）
+      const ycur = m => m < 12 ? 900 : 900 - Math.min(m, 48) / 48 * 600;
+      const CUR = (m, t, col = "#F0B90B") => {
+        tl.to("#ve-cur", { x: 240 + m * 30 - 420, duration: 0.8, ease: "power2.inOut" }, t);
+        tl.to("#ve-curd", { attr: { cy: ycur(m) }, fill: col, duration: 0.8, ease: "power2.inOut" }, t);
+      };
+
+      // L0 术语卡 + 坐标系 + 淡金色斜线
+      IN("#ve-term", at(0, 0.02), 0.6);
+      IN("#ve-axes", at(0, 0.12), 0.7);
+      IN("#ve-diag", at(0, 0.45), 0.8);
+      // L1 悬崖期
+      OUT("#ve-term", at(1, 0), 0.3);
+      IN("#ve-term2", at(1, 0.12), 0.5);
+      IN("#ve-cliff", at(1, 0.25), 0.6);
+      DRAW("#ve-c0", at(1, 0.5), 0.8);
+      // L2 台阶 + 继续线性
+      DRAW("#ve-c1", at(2, 0.25), 0.25);
+      tl.fromTo("#ve-c1", { stroke: "#F0B90B" }, { stroke: "#fff3c4", duration: 0.2, yoyo: true, repeat: 3, immediateRender: false }, at(2, 0.3));
+      IN("#ve-jump", at(2, 0.34), 0.5, { y: 14 }, { y: 0 });
+      DRAW("#ve-c2", at(2, 0.62), 1.8);
+      // L3 公式（术语卡先淡出）
+      OUT("#ve-term2", at(3, 0), 0.4); OUT("#ve-jump", at(3, 0), 0.4);
+      IN("#ve-f1", at(3, 0.06), 0.7, { y: 12 }, { y: 0 });
+      tl.fromTo("#ve-c0", { stroke: "#F0B90B" }, { stroke: "#FF9F43", duration: 0.3, yoyo: true, repeat: 3, immediateRender: false }, at(3, 0.42));
+      tl.to("#ve-cliff", { opacity: 0.35, duration: 0.4, yoyo: true, repeat: 1 }, at(3, 0.25));
+      IN("#ve-z0", at(3, 0.43), 0.4, { y: 10 }, { y: 0 });
+      IN("#ve-all1", at(3, 0.6), 0.4, { y: 10 }, { y: 0 });
+      IN("#ve-endpt", at(3, 0.58), 0.4, { scale: 0.3, svgOrigin: "1680 300" }, { scale: 1, svgOrigin: "1680 300" });
+      IN("#ve-f2", at(3, 0.78), 0.7, { y: 12 }, { y: 0 });
+      // L4 参数牌
+      IN("#ve-par", at(4, 0.1), 0.6, { y: 14 }, { y: 0 });
+      IN("#ve-ex", at(4, 0.3), 0.4);
+      tl.fromTo("#ve-endpt", { scale: 1 }, { scale: 1.6, svgOrigin: "1680 300", duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(4, 0.55));
+      // L5 游标：6 月、12 月
+      OUT("#ve-z0", at(5, 0), 0.3); OUT("#ve-all1", at(5, 0), 0.3);
+      OUT("#ve-f1", at(5, 0), 0.4); OUT("#ve-f2", at(5, 0), 0.4); OUT("#ve-ex", at(5, 0), 0.3);
+      tl.to("#ve-par", { y: -150, duration: 0.6, ease: "power2.inOut" }, at(5, 0.03));
+      IN("#ve-cur", at(5, 0.06), 0.4);
+      tl.set("#ve-curd", { fill: "#FF9F43" }, at(5, 0.06));
+      IN("#ve-r6", at(5, 0.1), 0.4);
+      OUT("#ve-r6", at(5, 0.3), 0.3);
+      CUR(12, at(5, 0.3));
+      IN("#ve-r12", at(5, 0.4), 0.5);
+      tl.to("#ve-b12", { attr: { y: 750, height: 150 }, duration: 0.7, ease: "power2.out" }, at(5, 0.82));
+      IN("#ve-b12l", at(5, 0.86), 0.4);
+      // L6 24 / 36 / 48 月
+      OUT("#ve-r12", at(6, 0), 0.3); OUT("#ve-b12l", at(6, 0), 0.3);
+      CUR(24, at(6, 0.02));
+      IN("#ve-r24", at(6, 0.1), 0.4);
+      tl.to("#ve-b24g", { attr: { y: 750, height: 150 }, duration: 0.6, ease: "power2.out" }, at(6, 0.22));
+      IN("#ve-b24b", at(6, 0.25), 0.4);
+      tl.to("#ve-b24y", { attr: { y: 600, height: 150 }, duration: 0.6, ease: "power2.out" }, at(6, 0.36));
+      IN("#ve-b24a", at(6, 0.39), 0.4);
+      OUT("#ve-r24", at(6, 0.55), 0.3);
+      CUR(36, at(6, 0.56));
+      IN("#ve-r36", at(6, 0.62), 0.4);
+      OUT("#ve-r36", at(6, 0.78), 0.3);
+      CUR(48, at(6, 0.79));
+      IN("#ve-r48", at(6, 0.85), 0.4);
+      tl.fromTo("#ve-c2", { stroke: "#F0B90B" }, { stroke: "#fff3c4", duration: 0.25, yoyo: true, repeat: 3, immediateRender: false }, at(6, 0.9));
+      // L7 误解对照
+      OUT("#ve-r48", at(7, 0), 0.3); OUT("#ve-cur", at(7, 0), 0.3);
+      IN("#ve-wrong", at(7, 0.04), 0.2);
+      tl.fromTo("#ve-wrong", { attr: { x2: 600, y2: 900 } }, { attr: { x2: 1680, y2: 300 }, duration: 2.2, ease: "power1.inOut", immediateRender: false }, at(7, 0.04));
+      IN("#ve-wl", at(7, 0.3), 0.5);
+      tl.fromTo("#ve-c1", { strokeWidth: 7 }, { strokeWidth: 14, duration: 0.35, yoyo: true, repeat: 3, immediateRender: false }, at(7, 0.6));
+      IN("#ve-ok", at(7, 0.65), 0.5);
+
+      tl.to("#ve-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ve-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["vest"] = tl;
+    })();
+  </script>
+</template>

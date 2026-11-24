@@ -1,0 +1,210 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 decode，id 前缀 de- -->
+  <div id="root" data-composition-id="decode" data-duration="68.81" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="de-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="de-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="de-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+      </defs>
+      <g id="de-all">
+        <!-- L0 / L1：示例转账 + 金额换算 -->
+        <g id="de-intro">
+          <g id="de-alice" class="h">
+            <circle cx="250" cy="392" r="24" fill="none" stroke="#e8e6df" stroke-width="3" />
+            <path d="M200 466 Q200 424 250 424 Q300 424 300 466 Z" fill="none" stroke="#e8e6df" stroke-width="3" />
+            <text x="250" y="520" font-size="32" fill="#e8e6df" text-anchor="middle">Alice</text>
+          </g>
+          <path id="de-a1" class="dr h" pathLength="1" d="M330 430 H760" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#de-arr)" />
+          <text id="de-amt" class="h mono" x="545" y="398" font-size="32" fill="#F0B90B" text-anchor="middle">100 USDT</text>
+          <g id="de-usdt" class="h">
+            <rect x="780" y="360" width="360" height="140" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="960" y="443" font-size="36" fill="#e8e6df" text-anchor="middle">USDT 合约</text>
+          </g>
+          <path id="de-a2" class="dr h" pathLength="1" d="M1160 430 H1440" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#de-arr)" />
+          <g id="de-rcv" class="h">
+            <rect x="1460" y="380" width="380" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1650" y="443" font-size="36" fill="#e8e6df" text-anchor="middle">0x5aAe…</text>
+            <text x="1650" y="530" font-size="28" fill="#8a8f99" text-anchor="middle">收款人</text>
+          </g>
+          <text id="de-ex" class="h" x="1840" y="300" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+          <text id="de-f1" class="h" x="560" y="680" font-size="48" fill="#F0B90B" text-anchor="middle">100 × 10⁶</text>
+          <text id="de-f1s" class="h" x="560" y="750" font-size="28" fill="#8a8f99" text-anchor="middle">精度 6 位小数</text>
+          <text id="de-f2" class="h mono" x="960" y="680" font-size="48" fill="#F0B90B" text-anchor="middle">= 100,000,000</text>
+          <text id="de-f3" class="h mono" x="1400" y="680" font-size="48" font-weight="700" fill="#F0B90B" text-anchor="middle">= 0x5f5e100</text>
+        </g>
+
+        <!-- L2–L4：68 字节 input data，按 ABI 分三行（4 + 32 + 32） -->
+        <text id="de-hd" class="h" x="96" y="272" font-size="28" fill="#8a8f99">input data · 68 字节</text>
+        <text id="de-abi" class="h" x="1820" y="272" font-size="28" fill="#8a8f99" text-anchor="end">编码规则：ABI</text>
+        <g id="de-rects"></g>
+        <g id="de-texts"></g>
+        <path id="de-ka" class="dr h" pathLength="1" d="M594 328 H326" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#de-arrb)" />
+        <text id="de-kc" class="h mono" x="612" y="338" font-size="28" fill="#58C4DD">keccak256("transfer(address,uint256)")</text>
+        <text id="de-kc2" class="h" x="1252" y="338" font-size="28" fill="#e8e6df">的前 4 字节</text>
+        <text id="de-l1" class="h" x="96" y="444" font-size="32" fill="#58C4DD">参数 1 · to</text>
+        <text id="de-l1z" class="h" x="96" y="558" font-size="28" fill="#8a8f99">12 个 00 · 左侧补零</text>
+        <text id="de-l1a" class="h" x="1282" y="558" font-size="28" fill="#58C4DD" text-anchor="middle">收款地址 · 20 字节</text>
+        <text id="de-l2" class="h" x="96" y="644" font-size="32" fill="#F0B90B">参数 2 · amount</text>
+        <text id="de-l2z" class="h" x="96" y="758" font-size="28" fill="#8a8f99">28 个 00 · 左侧补零</text>
+        <text id="de-l2a" class="h" x="1820" y="758" font-size="30" fill="#F0B90B" text-anchor="end">÷ 10⁶ = 100 USDT</text>
+
+        <!-- L5：交易卡 + 朋友 -->
+        <rect id="de-ahl" class="h" x="736" y="452" width="1092" height="72" rx="8" fill="none" stroke="#83C167" stroke-width="3" />
+        <path id="de-gl" class="dr h" pathLength="1" d="M1828 488 H1856 V915 H1828" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#de-arrg)" />
+        <g id="de-tx" class="h">
+          <rect x="96" y="830" width="780" height="170" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="130" y="898" font-size="32" fill="#e8e6df">to    = 0xdAC1…1ec7</text>
+          <text x="540" y="898" font-size="28" fill="#8a8f99">USDT 合约</text>
+          <text class="mono" x="130" y="962" font-size="32" fill="#F0B90B">value = 0</text>
+        </g>
+        <g id="de-fr" class="h">
+          <rect x="1380" y="830" width="440" height="170" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <circle cx="1450" cy="890" r="18" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <path d="M1414 950 Q1414 916 1450 916 Q1486 916 1486 950 Z" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <text x="1510" y="932" font-size="36" fill="#e8e6df">朋友</text>
+        </g>
+        <text id="de-q" class="h" x="1700" y="938" font-size="60" font-weight="700" fill="#FF9F43" text-anchor="middle">?</text>
+        <text id="de-ok" class="h" x="1700" y="938" font-size="60" font-weight="700" fill="#83C167" text-anchor="middle">✓</text>
+
+        <!-- L6：回执日志缩略卡 -->
+        <g id="de-log" class="h">
+          <rect x="96" y="796" width="1724" height="220" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect id="de-hb1" class="h" x="112" y="822" width="1692" height="52" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="de-hb2" class="h" x="112" y="880" width="1692" height="52" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="de-hb3" class="h" x="112" y="938" width="1692" height="52" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+          <text class="mono" x="136" y="858" font-size="30" fill="#58C4DD">topics[1] = 0x0000…<tspan fill="#8a8f99">(Alice)</tspan></text>
+          <text class="mono" x="136" y="916" font-size="30" fill="#58C4DD">topics[2] = 0x0000…5aaeb6…beaed</text>
+          <text class="mono" x="136" y="974" font-size="30" fill="#58C4DD">data      = 0x0000…<tspan fill="#F0B90B">05f5e100</tspan></text>
+          <text x="1200" y="858" font-size="30" fill="#e8e6df">发送方 Alice</text>
+          <text x="1200" y="916" font-size="30" fill="#83C167">收款人</text>
+          <text x="1200" y="974" font-size="30" fill="#F0B90B">金额 100 USDT</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="de-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">函数选择器 <tspan font-size="28" font-weight="400" fill="#8a8f99">Function Selector</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">函数签名哈希的前 4 字节</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // ---- 生成 68 个字节格子（真实值：transfer(0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed, 100000000)）
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, parent, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; parent.appendChild(e); return e; };
+      const addr = "5a ae b6 05 3f 3e 94 c9 b9 a0 9f 33 66 94 35 e7 ef 1b ea ed".split(" ");
+      const Z = n => Array(n).fill("00");
+      const rows = [
+        { y: 300, segs: [["s", "a9 05 9c bb".split(" ")]] },
+        { y: 460, segs: [["z1", Z(12)], ["ad", addr]] },
+        { y: 660, segs: [["z2", Z(28)], ["am", "05 f5 e1 00".split(" ")]] },
+      ];
+      const gR = document.getElementById("de-rects"), gT = document.getElementById("de-texts");
+      const tcol = { s: "#e8e6df", z1: "#8a8f99", ad: "#e8e6df", z2: "#8a8f99", am: "#F0B90B" };
+      rows.forEach((r, ri) => {
+        let i = 0;
+        r.segs.forEach(([k, bytes]) => {
+          bytes.forEach(b => {
+            const x = 96 + i * 54;
+            mk("rect", { class: `h de-r de-r${ri} de-k${k}`, x, y: r.y, width: 50, height: 56, rx: 6, fill: "#161a22", stroke: "#8a8f99", "stroke-width": 2 }, gR);
+            mk("text", { class: `h mono de-t de-t${k}`, x: x + 25, y: r.y + 38, "font-size": 28, fill: tcol[k], "text-anchor": "middle" }, gT, b);
+            i++;
+          });
+        });
+      });
+
+      // L0：Alice → USDT 合约 → 0x5aAe…
+      IN("#de-alice", at(0, 0.03), 0.6, { x: -20 }, { x: 0 });
+      ARROW("#de-a1", at(0, 0.2), 0.7);
+      IN("#de-amt", at(0, 0.3), 0.5);
+      IN("#de-usdt", at(0, 0.38), 0.6, { scale: 0.9, svgOrigin: "960 430" }, { scale: 1, svgOrigin: "960 430" });
+      ARROW("#de-a2", at(0, 0.55), 0.6);
+      IN("#de-rcv", at(0, 0.62), 0.6, { x: 20 }, { x: 0 });
+      IN("#de-ex", at(0, 0.8), 0.5);
+      // L1：100 × 10⁶ = 100,000,000 = 0x5f5e100
+      IN("#de-f1", at(1, 0.05), 0.6, { y: 16 }, { y: 0 });
+      IN("#de-f1s", at(1, 0.2), 0.5);
+      IN("#de-f2", at(1, 0.4), 0.6, { x: -20 }, { x: 0 });
+      IN("#de-f3", at(1, 0.68), 0.6, { x: -20 }, { x: 0 });
+      // L2：68 字节带 + 选择器
+      OUT("#de-intro", at(2, 0), 0.4);
+      IN("#de-term", at(2, 0.05), 0.5);
+      IN("#de-hd", at(2, 0.1), 0.5);
+      IN(".de-r", at(2, 0.12), 0.3, {}, { stagger: 0.012 });
+      tl.to(".de-ks", { stroke: "#58C4DD", fill: "#1d3a46", strokeWidth: 3, duration: 0.4 }, at(2, 0.3));
+      IN(".de-ts", at(2, 0.3), 0.4, { y: -8 }, { y: 0, stagger: 0.1 });
+      ARROW("#de-ka", at(2, 0.48), 0.5);
+      IN("#de-kc", at(2, 0.5), 0.6);
+      IN("#de-kc2", at(2, 0.58), 0.5);
+      OUT("#de-term", at(2, 0.6), 0.4);
+      IN("#de-abi", at(2, 0.8), 0.5);
+      // L3：参数 1：12 个 00 + 20 字节地址
+      IN("#de-l1", at(3, 0.04), 0.5);
+      IN(".de-tz1", at(3, 0.3), 0.3, {}, { stagger: 0.04 });
+      IN("#de-l1z", at(3, 0.38), 0.5);
+      tl.to(".de-kad", { stroke: "#58C4DD", fill: "#1d3a46", duration: 0.4, stagger: 0.02 }, at(3, 0.55));
+      IN(".de-tad", at(3, 0.55), 0.3, {}, { stagger: 0.03 });
+      IN("#de-l1a", at(3, 0.7), 0.5);
+      // L4：参数 2：28 个 00 + 05 f5 e1 00
+      IN("#de-l2", at(4, 0.04), 0.5);
+      IN(".de-tz2", at(4, 0.14), 0.3, {}, { stagger: 0.03 });
+      IN("#de-l2z", at(4, 0.3), 0.5);
+      tl.to(".de-kam", { stroke: "#F0B90B", fill: "#3a3214", duration: 0.4, stagger: 0.08 }, at(4, 0.5));
+      IN(".de-tam", at(4, 0.5), 0.3, {}, { stagger: 0.08 });
+      IN("#de-l2a", at(4, 0.72), 0.6, { x: 16 }, { x: 0 });
+      // L5：to 是合约、value 0，收款人只在 data 里
+      IN("#de-tx", at(5, 0.04), 0.6, { y: 20 }, { y: 0 });
+      IN("#de-fr", at(5, 0.25), 0.6, { y: 20 }, { y: 0 });
+      IN("#de-q", at(5, 0.3), 0.4, { scale: 0.6, svgOrigin: "1700 918" }, { scale: 1, svgOrigin: "1700 918" });
+      IN("#de-ahl", at(5, 0.5), 0.4);
+      ARROW("#de-gl", at(5, 0.56), 0.9);
+      OUT("#de-q", at(5, 0.72), 0.25);
+      IN("#de-ok", at(5, 0.75), 0.4, { scale: 0.6, svgOrigin: "1700 918" }, { scale: 1, svgOrigin: "1700 918" });
+      tl.to("#de-fr rect", { stroke: "#83C167", duration: 0.4 }, at(5, 0.75));
+      // L6：回执日志
+      OUT("#de-tx, #de-fr, #de-ok, #de-gl, #de-ahl", at(6, 0), 0.4);
+      IN("#de-log", at(6, 0.08), 0.6, { y: 20 }, { y: 0 });
+      IN("#de-hb1", at(6, 0.25), 0.3);
+      OUT("#de-hb1", at(6, 0.45), 0.3);
+      IN("#de-hb2", at(6, 0.47), 0.3);
+      tl.to(".de-kad", { stroke: "#83C167", duration: 0.3 }, at(6, 0.47));
+      OUT("#de-hb2", at(6, 0.68), 0.3);
+      tl.to(".de-kad", { stroke: "#58C4DD", duration: 0.3 }, at(6, 0.68));
+      IN("#de-hb3", at(6, 0.7), 0.3);
+      tl.to(".de-kam", { strokeWidth: 4, duration: 0.3 }, at(6, 0.7));
+
+      tl.to("#de-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#de-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["decode"] = tl;
+    })();
+  </script>
+</template>

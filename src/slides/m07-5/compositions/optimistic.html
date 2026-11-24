@@ -1,0 +1,200 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 optimistic，id 前缀 op- -->
+  <div id="root" data-composition-id="optimistic" data-duration="47.7" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="op-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="op-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+      </defs>
+      <g id="op-all">
+        <g id="op-top">
+          <g id="op-cardg" class="h">
+            <rect id="op-card" x="700" y="300" width="520" height="240" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="740" y="360" font-size="32" fill="#8a8f99">余额</text>
+            <text id="op-val5" class="mono" x="960" y="495" font-size="110" font-weight="700" fill="#e8e6df" text-anchor="middle">500</text>
+            <text id="op-val4" class="h mono" x="960" y="495" font-size="110" font-weight="700" fill="#FF9F43" text-anchor="middle">400</text>
+            <text id="op-valb" class="h mono" x="960" y="495" font-size="110" font-weight="700" fill="#58C4DD" text-anchor="middle">500</text>
+            <rect id="op-dash" class="h" x="688" y="288" width="544" height="264" rx="24" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="14 10"/>
+            <text id="op-tag" class="h" x="1190" y="360" font-size="28" fill="#FF9F43" text-anchor="end">未确认</text>
+            <text id="op-tagr" class="h" x="1190" y="360" font-size="28" fill="#FC6255" text-anchor="end">已回滚</text>
+            <g id="op-stale" class="h">
+              <rect x="1110" y="236" width="110" height="44" rx="10" fill="#FF9F43"/>
+              <text x="1165" y="268" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">过期</text>
+            </g>
+            <g id="op-chain" class="h">
+              <rect x="820" y="640" width="280" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+              <text x="960" y="692" font-size="32" fill="#58C4DD" text-anchor="middle">链上</text>
+            </g>
+            <path id="op-ca" class="dr h" d="M960 630 V566" fill="none" stroke="#58C4DD" stroke-width="3.5" pathLength="1" marker-end="url(#op-arrb)"/>
+            <text id="op-truth" class="h" x="960" y="790" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">以链上为准</text>
+          </g>
+          <g id="op-btn" class="h">
+            <rect id="op-btnr" x="830" y="600" width="260" height="76" rx="14" fill="#58C4DD"/>
+            <text x="960" y="650" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">转账 100</text>
+          </g>
+          <g id="op-s1" class="h">
+            <circle cx="840" cy="290" r="26" fill="none" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="840" y="301" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">1</text>
+            <text x="885" y="301" font-size="32" fill="#e8e6df">取消进行中的查询</text>
+            <text class="mono" x="1180" y="300" font-size="28" fill="#8a8f99">cancelQueries</text>
+          </g>
+          <line id="op-old" class="dr" x1="1780" y1="380" x2="700" y2="380" stroke="#8a8f99" stroke-width="3" pathLength="1"/>
+          <text id="op-oldl" class="h" x="1560" y="358" font-size="28" fill="#8a8f99">旧结果</text>
+          <path id="op-cut" class="h" d="M1222 362 L1258 398 M1258 362 L1222 398" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+          <g id="op-s2" class="h">
+            <circle cx="840" cy="470" r="26" fill="none" stroke="#FF9F43" stroke-width="2.5"/>
+            <text x="840" y="481" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">2</text>
+            <text x="885" y="481" font-size="32" fill="#e8e6df">把缓存余额直接扣掉</text>
+            <text class="mono" x="1200" y="480" font-size="28" fill="#8a8f99">setQueryData</text>
+          </g>
+          <g id="op-s3" class="h">
+            <circle cx="840" cy="650" r="26" fill="none" stroke="#FC6255" stroke-width="2.5"/>
+            <text x="840" y="661" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">3</text>
+            <text x="885" y="661" font-size="32" fill="#FC6255">失败：恢复原值</text>
+            <text class="mono" x="1140" y="660" font-size="28" fill="#8a8f99">setQueryData(prev)</text>
+          </g>
+          <g id="op-s4" class="h">
+            <text class="mono" x="820" y="841" font-size="30" font-weight="700" fill="#58C4DD">finally</text>
+            <text x="970" y="841" font-size="32" fill="#e8e6df">让查询过期，重读链上</text>
+            <text class="mono" x="1320" y="840" font-size="28" fill="#8a8f99">invalidateQueries</text>
+          </g>
+        </g>
+        <g id="op-fit">
+          <g id="op-ha" class="h">
+            <text x="200" y="300" font-size="44" font-weight="700" fill="#83C167">适合</text>
+            <line x1="200" y1="326" x2="880" y2="326" stroke="#83C167" stroke-width="2"/>
+          </g>
+          <g id="op-a0" class="h">
+            <path d="M200 408 L212 420 L234 394" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="250" y="420" font-size="34" fill="#e8e6df">点赞、关注 · 链上社交</text>
+          </g>
+          <g id="op-a1" class="h">
+            <path d="M200 558 L212 570 L234 544" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="250" y="570" font-size="34" fill="#e8e6df">已模拟成功的小额转账</text>
+          </g>
+          <text id="op-a1s" class="h" x="250" y="616" font-size="28" fill="#8a8f99">扣多少是确定的</text>
+          <g id="op-a2" class="h">
+            <path d="M200 708 L212 720 L234 694" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="250" y="720" font-size="34" fill="#e8e6df">待办列表先加一条</text>
+          </g>
+          <g id="op-a2t" class="h">
+            <rect x="540" y="683" width="130" height="52" rx="8" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="8 6"/>
+            <text x="605" y="719" font-size="28" fill="#FF9F43" text-anchor="middle">待确认</text>
+          </g>
+          <g id="op-hb" class="h">
+            <text x="1040" y="300" font-size="44" font-weight="700" fill="#FC6255">不适合</text>
+            <line x1="1040" y1="326" x2="1720" y2="326" stroke="#FC6255" stroke-width="2"/>
+          </g>
+          <g id="op-b0" class="h">
+            <path d="M1042 396 L1066 420 M1066 396 L1042 420" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+            <text x="1090" y="420" font-size="34" fill="#e8e6df">大额转账、提现</text>
+          </g>
+          <g id="op-b1" class="h">
+            <path d="M1042 546 L1066 570 M1066 546 L1042 570" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+            <text x="1090" y="570" font-size="34" fill="#e8e6df">依赖价格的兑换</text>
+          </g>
+          <text id="op-b1q" class="h" x="1450" y="585" font-size="72" font-weight="700" fill="#FF9F43">?</text>
+          <text id="op-b1s" class="h" x="1090" y="616" font-size="28" fill="#8a8f99">成交多少，发出时不知道</text>
+          <g id="op-b2" class="h">
+            <path d="M1042 696 L1066 720 M1066 696 L1042 720" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+            <text x="1090" y="720" font-size="34" fill="#e8e6df">跨链操作</text>
+          </g>
+          <line id="op-b2l" class="dr" x1="1250" y1="708" x2="1690" y2="708" stroke="#FF9F43" stroke-width="3" stroke-dasharray="1" pathLength="1"/>
+          <path id="op-b2h" class="h" d="M1712 684 H1748 L1730 708 L1748 732 H1712 L1730 708 Z" fill="none" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round"/>
+          <text id="op-b2s" class="h" x="1090" y="766" font-size="28" fill="#8a8f99">目标链结果要等很久</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="op-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">乐观更新 <tspan font-size="28" font-weight="400" fill="#8a8f99">Optimistic Update</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">先假设成功更新界面，失败再回滚</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 balance card, optimistic flip
+      IN("#op-cardg", at(0, 0.03), 0.6, { y: 16 }, { y: 0 });
+      IN("#op-btn", at(0, 0.12), 0.5);
+      IN("#op-term", at(0, 0.42), 0.5);
+      tl.to("#op-btnr", { fill: "#2f7f95", duration: 0.12, yoyo: true, repeat: 1 }, at(0, 0.58));
+      OUT("#op-val5", at(0, 0.6), 0.12);
+      IN("#op-val4", at(0, 0.62), 0.15);
+      IN("#op-dash, #op-tag", at(0, 0.64), 0.35);
+      // L1 three actions
+      OUT("#op-btn", at(1, 0), 0.3);
+      tl.to("#op-cardg", { x: -560, duration: 0.8, ease: "power2.inOut" }, at(1, 0.02));
+      OUT("#op-term", at(1, 0.08), 0.4);
+      IN("#op-s1", at(1, 0.12), 0.4, { x: 16 }, { x: 0 });
+      IN("#op-oldl", at(1, 0.18), 0.3);
+      tl.fromTo("#op-old", { strokeDashoffset: 1 }, { strokeDashoffset: 0.5, duration: 1.0, ease: "none" }, at(1, 0.18));
+      IN("#op-cut", at(1, 0.29), 0.2, { scale: 1.6, svgOrigin: "1240 380" }, { scale: 1, svgOrigin: "1240 380" });
+      OUT("#op-old, #op-oldl, #op-cut", at(1, 0.36), 0.4);
+      IN("#op-s2", at(1, 0.45), 0.4, { x: 16 }, { x: 0 });
+      tl.to("#op-val4", { fill: "#ffffff", duration: 0.2, yoyo: true, repeat: 1 }, at(1, 0.55));
+      IN("#op-s3", at(1, 0.74), 0.4, { x: 16 }, { x: 0 });
+      OUT("#op-val4, #op-tag", at(1, 0.8), 0.15);
+      tl.set("#op-val5", { fill: "#FC6255" }, at(1, 0.8));
+      IN("#op-val5", at(1, 0.82), 0.25, { y: 16 }, { y: 0, ease: "back.out(3)" });
+      tl.to("#op-dash", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.82));
+      IN("#op-tagr", at(1, 0.84), 0.3);
+      // L2 finally: invalidate + re-read chain
+      IN("#op-s4", at(2, 0.04), 0.4, { x: 16 }, { x: 0 });
+      OUT("#op-tagr", at(2, 0.1), 0.25);
+      IN("#op-stale", at(2, 0.18), 0.3, { y: -10 }, { y: 0 });
+      IN("#op-chain", at(2, 0.3), 0.4);
+      ARROW("#op-ca", at(2, 0.42), 0.4);
+      OUT("#op-val5, #op-dash, #op-stale", at(2, 0.55), 0.2);
+      IN("#op-valb", at(2, 0.6), 0.3);
+      IN("#op-truth", at(2, 0.7), 0.4);
+      // L3 suitable
+      OUT("#op-top", at(3, 0), 0.4);
+      IN("#op-ha", at(3, 0.05), 0.4);
+      IN("#op-a0", at(3, 0.14), 0.4, { x: -16 }, { x: 0 });
+      IN("#op-a1", at(3, 0.42), 0.4, { x: -16 }, { x: 0 });
+      IN("#op-a1s", at(3, 0.58), 0.4);
+      IN("#op-a2", at(3, 0.75), 0.4, { x: -16 }, { x: 0 });
+      IN("#op-a2t", at(3, 0.84), 0.4, { scale: 1.2, svgOrigin: "605 709" }, { scale: 1, svgOrigin: "605 709" });
+      // L4 not suitable
+      IN("#op-hb", at(4, 0.02), 0.4);
+      IN("#op-b0", at(4, 0.1), 0.4, { x: -16 }, { x: 0 });
+      IN("#op-b1", at(4, 0.3), 0.4, { x: -16 }, { x: 0 });
+      IN("#op-b1q", at(4, 0.45), 0.4, { y: -12 }, { y: 0 });
+      IN("#op-b1s", at(4, 0.5), 0.4);
+      IN("#op-b2", at(4, 0.7), 0.4, { x: -16 }, { x: 0 });
+      DRAW("#op-b2l", at(4, 0.74), 1.4);
+      IN("#op-b2h", at(4, 0.84), 0.4);
+      IN("#op-b2s", at(4, 0.86), 0.4);
+
+      tl.to("#op-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#op-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["optimistic"] = tl;
+    })();
+  </script>
+</template>

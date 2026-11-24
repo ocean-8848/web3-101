@@ -1,0 +1,173 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ercacalc，id 前缀 ec- -->
+  <div id="root" data-composition-id="ercacalc" data-duration="65.87" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ec-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ec-all">
+        <text id="ec-cap" class="h" x="960" y="92" font-size="28" fill="#8a8f99" text-anchor="middle">示例 · 只计存储与事件，不计 21,000 基础费</text>
+        <g id="ec-p1" class="h">
+          <rect x="300" y="128" width="600" height="76" rx="38" fill="#F0B90B14" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="600" y="178" font-size="32" fill="#e8e6df" text-anchor="middle">新槽首写 <tspan class="mono" fill="#F0B90B">≈ 22,100 Gas</tspan></text>
+        </g>
+        <g id="ec-p2" class="h">
+          <rect x="1020" y="128" width="600" height="76" rx="38" fill="#F0B90B14" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="1320" y="178" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan class="mono">Transfer</tspan> 事件 <tspan class="mono" fill="#F0B90B">≈ 1,756 Gas</tspan></text>
+        </g>
+        <g id="ec-cols">
+          <g id="ec-c1" class="h">
+            <rect x="120" y="250" width="780" height="460" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+            <text x="150" y="306" font-size="34" font-weight="700" fill="#e8e6df">标准 <tspan class="mono">ERC-721</tspan> · 铸 5 枚</text>
+          </g>
+          <g id="ec-c2" class="h">
+            <rect x="1020" y="250" width="780" height="460" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+            <text x="1050" y="306" font-size="34" font-weight="700" fill="#58C4DD"><tspan class="mono">ERC721A</tspan><tspan fill="#e8e6df"> · 铸 5 枚</tspan></text>
+          </g>
+          <g id="ec-a0" class="h"><text x="150" y="375" font-size="30" fill="#e8e6df">所有者新槽</text><text class="mono" x="870" y="375" font-size="32" fill="#F0B90B" text-anchor="end">5 × 22,100 = 110,500</text></g>
+          <g id="ec-a1" class="h"><text x="150" y="445" font-size="30" fill="#e8e6df">余额首写</text><text class="mono" x="870" y="445" font-size="32" fill="#F0B90B" text-anchor="end">22,100</text></g>
+          <g id="ec-a2" class="h"><text x="150" y="515" font-size="30" fill="#e8e6df">4 次重复写</text><text class="mono" x="870" y="515" font-size="32" fill="#F0B90B" text-anchor="end">≈ 400</text></g>
+          <g id="ec-a3" class="h"><text x="150" y="585" font-size="30" fill="#e8e6df">5 个事件</text><text class="mono" x="870" y="585" font-size="32" fill="#F0B90B" text-anchor="end">≈ 8,780</text></g>
+          <line id="ec-ad" class="dr" pathLength="1" x1="150" y1="615" x2="870" y2="615" stroke="#6b6f7a" stroke-width="2"/>
+          <g id="ec-at" class="h"><text x="150" y="676" font-size="36" font-weight="700" fill="#e8e6df">合计</text><text class="mono" x="870" y="676" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="end">≈ <tspan id="ec-atn">0</tspan></text></g>
+          <g id="ec-b0" class="h"><text x="1050" y="375" font-size="30" fill="#e8e6df">所有者槽</text><text class="mono" x="1770" y="375" font-size="32" fill="#F0B90B" text-anchor="end">22,100</text></g>
+          <g id="ec-b1" class="h"><text x="1050" y="445" font-size="30" fill="#e8e6df">打包的地址数据槽</text><text class="mono" x="1770" y="445" font-size="32" fill="#F0B90B" text-anchor="end">22,100</text></g>
+          <g id="ec-b2" class="h"><text x="1050" y="515" font-size="30" fill="#e8e6df">下一个编号的计数</text><text class="mono" x="1770" y="515" font-size="32" fill="#F0B90B" text-anchor="end">≈ 5,000</text></g>
+          <g id="ec-b3" class="h"><text x="1050" y="585" font-size="30" fill="#e8e6df">5 个事件</text><text class="mono" x="1770" y="585" font-size="32" fill="#F0B90B" text-anchor="end">≈ 8,780</text></g>
+          <line id="ec-bd" class="dr" pathLength="1" x1="1050" y1="615" x2="1770" y2="615" stroke="#6b6f7a" stroke-width="2"/>
+          <g id="ec-bt" class="h"><text x="1050" y="676" font-size="36" font-weight="700" fill="#e8e6df">合计</text><text class="mono" x="1770" y="676" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="end">≈ <tspan id="ec-btn">0</tspan></text></g>
+        </g>
+        <g id="ec-bars">
+          <text id="ec-l1" class="h mono" x="120" y="802" font-size="28" fill="#e8e6df">ERC-721</text>
+          <text id="ec-l2" class="h mono" x="120" y="882" font-size="28" fill="#58C4DD">ERC721A</text>
+          <rect id="ec-r1" class="h" x="340" y="770" width="0" height="44" rx="6" fill="#F0B90B"/>
+          <rect id="ec-r2" class="h" x="340" y="850" width="0" height="44" rx="6" fill="#F0B90B"/>
+          <text id="ec-v1" class="h mono" x="1660" y="802" font-size="28" fill="#F0B90B">141,780</text>
+          <text id="ec-v2" class="h mono" x="892" y="882" font-size="28" fill="#F0B90B">57,980</text>
+          <text id="ec-n5" class="h" x="120" y="960" font-size="30" fill="#8a8f99">一次铸 <tspan fill="#e8e6df" font-weight="700">5</tspan> 枚</text>
+          <text id="ec-n1" class="h" x="120" y="960" font-size="30" fill="#8a8f99">一次铸 <tspan fill="#e8e6df" font-weight="700">1</tspan> 枚 · 两者几乎一样</text>
+        </g>
+        <g id="ec-ax">
+          <text id="ec-axl" class="h" x="960" y="330" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">从起始值连续递增</text>
+          <g id="ec-ok" class="h">
+            <circle cx="560" cy="430" r="44" fill="#83C16718" stroke="#83C167" stroke-width="3"/><text class="mono" x="560" y="443" font-size="36" fill="#e8e6df" text-anchor="middle">1</text>
+            <circle cx="760" cy="430" r="44" fill="#83C16718" stroke="#83C167" stroke-width="3"/><text class="mono" x="760" y="443" font-size="36" fill="#e8e6df" text-anchor="middle">2</text>
+            <circle cx="960" cy="430" r="44" fill="#83C16718" stroke="#83C167" stroke-width="3"/><text class="mono" x="960" y="443" font-size="36" fill="#e8e6df" text-anchor="middle">3</text>
+            <circle cx="1160" cy="430" r="44" fill="#83C16718" stroke="#83C167" stroke-width="3"/><text class="mono" x="1160" y="443" font-size="36" fill="#e8e6df" text-anchor="middle">4</text>
+            <circle cx="1360" cy="430" r="44" fill="#83C16718" stroke="#83C167" stroke-width="3"/><text class="mono" x="1360" y="443" font-size="36" fill="#e8e6df" text-anchor="middle">5</text>
+          </g>
+          <path id="ec-k0" class="dr h" pathLength="1" d="M612 430 H700" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#ec-arr)"/>
+          <path id="ec-k1" class="dr h" pathLength="1" d="M812 430 H900" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#ec-arr)"/>
+          <path id="ec-k2" class="dr h" pathLength="1" d="M1012 430 H1100" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#ec-arr)"/>
+          <path id="ec-k3" class="dr h" pathLength="1" d="M1212 430 H1300" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#ec-arr)"/>
+          <path id="ec-okm" class="dr h" pathLength="1" d="M1470 430 L1494 456 L1536 404" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <text id="ec-bdl" class="h" x="960" y="620" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">随意编号</text>
+          <g id="ec-bad" class="h">
+            <circle cx="760" cy="720" r="44" fill="#FC625518" stroke="#FC6255" stroke-width="3"/><text class="mono" x="760" y="733" font-size="36" fill="#e8e6df" text-anchor="middle">7</text>
+            <circle cx="960" cy="720" r="44" fill="#FC625518" stroke="#FC6255" stroke-width="3"/><text class="mono" x="960" y="733" font-size="36" fill="#e8e6df" text-anchor="middle">3</text>
+            <circle cx="1160" cy="720" r="44" fill="#FC625518" stroke="#FC6255" stroke-width="3"/><text class="mono" x="1160" y="733" font-size="36" fill="#e8e6df" text-anchor="middle">19</text>
+          </g>
+          <path id="ec-x" class="h" d="M1280 690 L1340 750 M1340 690 L1280 750" stroke="#FC6255" stroke-width="8" stroke-linecap="round"/>
+        </g>
+        <g id="ec-code" class="h">
+          <rect x="160" y="300" width="1600" height="380" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+          <rect x="160" y="300" width="4" height="380" fill="#58C4DD"/>
+          <text class="mono" data-layout-ignore x="190" y="342" font-size="22" fill="#8a8f99">BatchBadge.sol</text>
+          <rect id="ec-hl" class="h" x="166" y="452" width="1588" height="40" fill="#58C4DD22"/>
+          <g id="ec-cl">
+            <text class="mono" x="190.0" y="400" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">contract</tspan> BatchBadge <tspan fill="#58C4DD">is</tspan> ERC721A {</text>
+            <text class="mono" x="257.2" y="440" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> mint(<tspan fill="#58C4DD">uint256</tspan> quantity) <tspan fill="#58C4DD">external payable</tspan> {</text>
+            <text id="ec-c3" class="mono" x="324.4" y="480" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">require</tspan>(quantity &lt;= <tspan fill="#F0B90B">5</tspan>, "max 5");</text>
+            <text class="mono" x="324.4" y="520" font-size="28" fill="#e8e6df">_mint(msg.sender, quantity);</text>
+            <text class="mono" x="257.2" y="560" font-size="28" fill="#e8e6df">}</text>
+            <text class="mono" x="257.2" y="600" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> _startTokenId() <tspan fill="#58C4DD">internal pure override returns</tspan> (<tspan fill="#58C4DD">uint256</tspan>) { <tspan fill="#58C4DD">return</tspan> <tspan fill="#F0B90B">1</tspan>; }</text>
+            <text class="mono" x="190.0" y="640" font-size="28" fill="#e8e6df">}</text>
+          </g>
+          <text id="ec-cn1" class="h" x="190" y="750" font-size="30" fill="#58C4DD">第 3 行 · 限制单次铸造数量</text>
+          <text id="ec-cn2" class="h" x="190" y="806" font-size="30" fill="#8a8f99">转让时向前扫描就不会太长</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const fmtN = v => Math.round(v).toLocaleString("en-US");
+      // L0 unit prices
+      IN("#ec-cap", at(0, 0.03), 0.6);
+      IN("#ec-p1", at(0, 0.42), 0.6, { y: -10 }, { y: 0 });
+      IN("#ec-p2", at(0, 0.75), 0.6, { y: -10 }, { y: 0 });
+      // L1 standard column
+      IN("#ec-c1", at(1, 0.02), 0.6);
+      IN("#ec-a0", at(1, 0.18), 0.5, { x: -14 }, { x: 0 });
+      tl.to("#ec-p1 rect", { strokeWidth: 5, duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.2));
+      IN("#ec-a1", at(1, 0.42), 0.5, { x: -14 }, { x: 0 });
+      IN("#ec-a2", at(1, 0.6), 0.5, { x: -14 }, { x: 0 });
+      IN("#ec-a3", at(1, 0.73), 0.5, { x: -14 }, { x: 0 });
+      tl.to("#ec-p2 rect", { strokeWidth: 5, duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.74));
+      DRAW("#ec-ad", at(1, 0.84), 0.5);
+      IN("#ec-at", at(1, 0.86), 0.4);
+      COUNT("#ec-atn", 0, 141780, at(1, 0.86), 1.2, fmtN);
+      // L2 ERC721A column
+      IN("#ec-c2", at(2, 0.02), 0.6);
+      IN("#ec-b0", at(2, 0.16), 0.5, { x: -14 }, { x: 0 });
+      IN("#ec-b1", at(2, 0.36), 0.5, { x: -14 }, { x: 0 });
+      IN("#ec-b2", at(2, 0.56), 0.5, { x: -14 }, { x: 0 });
+      IN("#ec-b3", at(2, 0.72), 0.5, { x: -14 }, { x: 0 });
+      DRAW("#ec-bd", at(2, 0.84), 0.5);
+      IN("#ec-bt", at(2, 0.86), 0.4);
+      COUNT("#ec-btn", 0, 57980, at(2, 0.86), 1.2, fmtN);
+      // L3 bars: batch 5 vs batch 1
+      IN("#ec-l1, #ec-l2, #ec-r1, #ec-r2, #ec-n5", at(3, 0.0), 0.3);
+      tl.fromTo("#ec-r1", { attr: { width: 0 } }, { attr: { width: 1300 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(3, 0.02));
+      tl.fromTo("#ec-r2", { attr: { width: 0 } }, { attr: { width: 532 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(3, 0.02));
+      IN("#ec-v1, #ec-v2", at(3, 0.2), 0.4);
+      const t1 = at(3, 0.52);
+      OUT("#ec-v1, #ec-v2, #ec-n5", t1, 0.25);
+      IN("#ec-n1", t1 + 0.3, 0.4);
+      tl.to("#ec-r1", { attr: { width: 430 }, duration: 0.8, ease: "power2.inOut" }, t1 + 0.1);
+      tl.to("#ec-r2", { attr: { width: 440 }, duration: 0.8, ease: "power2.inOut" }, t1 + 0.1);
+      // L4 consecutive ids vs arbitrary
+      OUT("#ec-cols, #ec-bars, #ec-p1, #ec-p2", at(4, 0.0), 0.4);
+      IN("#ec-axl", at(4, 0.08), 0.5);
+      IN("#ec-ok", at(4, 0.12), 0.5);
+      ["#ec-k0", "#ec-k1", "#ec-k2", "#ec-k3"].forEach((s, i) => ARROW(s, at(4, 0.18) + 0.25 * i, 0.3));
+      DRAW("#ec-okm", at(4, 0.3), 0.4); tl.set("#ec-okm", { opacity: 1 }, at(4, 0.3));
+      IN("#ec-bdl", at(4, 0.62), 0.5);
+      IN("#ec-bad", at(4, 0.66), 0.5, { y: 12 }, { y: 0 });
+      IN("#ec-x", at(4, 0.8), 0.3, { scale: 1.4, svgOrigin: "1310 720" }, { scale: 1, svgOrigin: "1310 720" });
+      // L5 code panel
+      OUT("#ec-ax, #ec-cap", at(5, 0.0), 0.35);
+      IN("#ec-code", at(5, 0.06), 0.6, { y: 16 }, { y: 0 });
+      IN("#ec-hl", at(5, 0.3), 0.4);
+      tl.to("#ec-cl text:not(#ec-c3)", { opacity: 0.6, duration: 0.4 }, at(5, 0.3));
+      IN("#ec-cn1", at(5, 0.4), 0.5);
+      IN("#ec-cn2", at(5, 0.62), 0.5);
+
+      tl.to("#ec-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["ercacalc"] = tl;
+    })();
+  </script>
+</template>

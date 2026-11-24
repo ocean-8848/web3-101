@@ -1,0 +1,184 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 verify，id 前缀 ve- -->
+  <div id="root" data-composition-id="verify" data-duration="67.7" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ve-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ve-all">
+        <g id="ve-sig" class="h">
+          <rect x="880" y="96" width="160" height="56" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+          <text x="960" y="134" text-anchor="middle" font-size="30" fill="#B48EF0">签名</text>
+        </g>
+        <g id="ve-be" class="h">
+          <rect x="760" y="220" width="400" height="160" rx="16" fill="#58C4DD33" stroke="#58C4DD" stroke-width="3" />
+          <text x="960" y="316" text-anchor="middle" font-size="44" font-weight="700" fill="#e8e6df">后端</text>
+        </g>
+        <!-- 左：EOA -->
+        <path id="ve-la" class="dr h" pathLength="1" d="M820 384 L580 440" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ve-arr)" />
+        <g id="ve-l0" class="h">
+          <text x="440" y="488" text-anchor="middle" font-size="34" fill="#B48EF0">外部账户（EOA）</text>
+          <rect x="250" y="525" width="380" height="72" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="440" y="572" text-anchor="middle" class="mono" font-size="28" fill="#58C4DD">ecrecover(hash, sig)</text>
+        </g>
+        <path id="ve-la2" class="dr h" pathLength="1" d="M440 602 L440 660" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ve-arr)" />
+        <text id="ve-l1" class="h" x="440" y="712" text-anchor="middle" font-size="32" fill="#83C167">恢复地址 == 声称地址 ✓</text>
+        <text id="ve-l2" class="h" x="440" y="790" text-anchor="middle" font-size="30" fill="#8a8f99">不需要联网</text>
+        <!-- 右：合约钱包 -->
+        <path id="ve-ra" class="dr h" pathLength="1" d="M1100 384 L1340 440" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ve-arr)" />
+        <g id="ve-r0" class="h">
+          <text x="1480" y="488" text-anchor="middle" font-size="34" fill="#58C4DD">合约钱包（Safe）</text>
+          <rect x="1410" y="512" width="140" height="96" rx="12" fill="#58C4DD33" stroke="#58C4DD" stroke-width="3" />
+          <circle cx="1480" cy="560" r="26" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1480" y1="560" x2="1480" y2="540" stroke="#58C4DD" stroke-width="3" />
+        </g>
+        <text id="ve-r1" class="h" x="1480" y="680" text-anchor="middle" font-size="30" fill="#FC6255"><tspan class="mono">ecrecover</tspan> → 无私钥 ✕</text>
+        <g id="ve-r2" class="h">
+          <rect x="1230" y="635" width="500" height="68" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1480" y="680" text-anchor="middle" class="mono" font-size="28" fill="#58C4DD">isValidSignature(hash, sig)</text>
+        </g>
+        <path id="ve-ra2" class="dr h" pathLength="1" d="M1480 708 L1480 758" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ve-arr)" />
+        <text id="ve-rpc" class="h" x="1500" y="744" font-size="28" fill="#8a8f99">RPC</text>
+        <text id="ve-r3" class="h" x="1480" y="806" text-anchor="middle" font-size="32" fill="#83C167"><tspan class="mono">0x1626ba7e</tspan> ✓</text>
+        <text id="ve-r4" class="h" x="1480" y="870" text-anchor="middle" font-size="30" fill="#58C4DD">ERC-1271</text>
+        <!-- 中：未部署账户 -->
+        <g id="ve-c0" class="h">
+          <rect x="860" y="470" width="200" height="90" rx="14" fill="none" stroke="#B48EF0" stroke-width="3" stroke-dasharray="10 8" />
+          <text x="960" y="525" text-anchor="middle" font-size="28" fill="#B48EF0">未部署账户</text>
+        </g>
+        <g id="ve-c1" class="h">
+          <rect x="850" y="615" width="220" height="96" rx="8" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <path d="M850 615 L960 670 L1070 615" fill="none" stroke="#FF9F43" stroke-width="2" opacity="0.6" />
+          <text x="960" y="700" text-anchor="middle" class="mono" font-size="28" fill="#FF9F43">ERC-6492</text>
+        </g>
+        <text id="ve-c2" class="h" x="960" y="790" text-anchor="middle" font-size="30" fill="#83C167">拆开验证 ✓</text>
+        <!-- 对比表 -->
+        <g id="ve-th" class="h">
+          <text x="220" y="600" font-size="28" fill="#8a8f99">验签方法</text>
+          <text x="1120" y="600" text-anchor="middle" font-size="28" fill="#8a8f99">EOA</text>
+          <text x="1380" y="600" text-anchor="middle" font-size="28" fill="#8a8f99">合约钱包</text>
+          <text x="1620" y="600" text-anchor="middle" font-size="28" fill="#8a8f99">需要 RPC</text>
+          <line x1="200" y1="625" x2="1720" y2="625" stroke="#6b6f7a" stroke-width="2" />
+        </g>
+        <rect id="ve-hl" x="200" y="630" width="1520" height="100" rx="8" fill="#58C4DD" fill-opacity="0.15" opacity="0" />
+        <g id="ve-m0" class="h">
+          <text x="220" y="672" class="mono" font-size="28" fill="#58C4DD">verifyMessage / verifyTypedData</text>
+          <text x="220" y="714" font-size="28" fill="#8a8f99">独立函数</text>
+        </g>
+        <text id="ve-a0" class="h" x="1120" y="690" text-anchor="middle" font-size="30" fill="#83C167">是</text>
+        <text id="ve-b0" class="h" x="1380" y="690" text-anchor="middle" font-size="30" fill="#FC6255">否</text>
+        <text id="ve-c0x" class="h" x="1620" y="690" text-anchor="middle" font-size="30" fill="#83C167">否</text>
+        <g id="ve-m1" class="h">
+          <text x="220" y="780" class="mono" font-size="28" fill="#58C4DD">publicClient.verifyMessage / …TypedData</text>
+          <text x="220" y="822" font-size="28" fill="#8a8f99">公共客户端方法</text>
+        </g>
+        <text id="ve-a1" class="h" x="1120" y="798" text-anchor="middle" font-size="30" fill="#83C167">是</text>
+        <text id="ve-b1" class="h" x="1380" y="798" text-anchor="middle" font-size="30" fill="#83C167">是（1271、6492）</text>
+        <text id="ve-c1x" class="h" x="1620" y="798" text-anchor="middle" font-size="30" fill="#FF9F43">是</text>
+        <g id="ve-m2" class="h">
+          <text x="220" y="888" class="mono" font-size="28" fill="#58C4DD">publicClient.verifySiweMessage</text>
+          <text x="220" y="930" font-size="28" fill="#8a8f99">另外核对 SIWE 字段</text>
+        </g>
+        <text id="ve-a2" class="h" x="1120" y="906" text-anchor="middle" font-size="30" fill="#83C167">是</text>
+        <text id="ve-b2" class="h" x="1380" y="906" text-anchor="middle" font-size="30" fill="#83C167">是</text>
+        <text id="ve-c2x" class="h" x="1620" y="906" text-anchor="middle" font-size="30" fill="#FF9F43">是</text>
+        <!-- 结局：Safe 用户登录 -->
+        <g id="ve-u" class="h">
+          <rect x="250" y="560" width="140" height="96" rx="12" fill="#58C4DD33" stroke="#58C4DD" stroke-width="3" />
+          <circle cx="320" cy="608" r="26" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <text x="320" y="712" text-anchor="middle" font-size="30" fill="#e8e6df">Safe 用户</text>
+        </g>
+        <path id="ve-ua" class="dr h" pathLength="1" d="M410 608 L730 608" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ve-arr)" />
+        <text id="ve-ual" class="h" x="570" y="584" text-anchor="middle" font-size="28" fill="#8a8f99">登录</text>
+        <rect id="ve-fb" class="h" x="750" y="550" width="420" height="116" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text id="ve-f1" class="h" x="960" y="620" text-anchor="middle" font-size="32" fill="#e8e6df">后端：独立函数</text>
+        <text id="ve-f2" class="h" x="960" y="620" text-anchor="middle" font-size="32" fill="#e8e6df">后端：<tspan class="mono" fill="#58C4DD">publicClient</tspan></text>
+        <g id="ve-spin" class="h"><path d="M1290 568 A40 40 0 1 1 1250 608" fill="none" stroke="#8a8f99" stroke-width="6" stroke-linecap="round" /></g>
+        <text id="ve-fail" class="h" x="1360" y="622" font-size="38" font-weight="700" fill="#FC6255">登录失败</text>
+        <text id="ve-ok" class="h" x="1290" y="622" font-size="38" font-weight="700" fill="#83C167">✓ 登录成功</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ve-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">合约钱包 <tspan font-size="28" font-weight="400" fill="#8a8f99">Smart Contract Wallet</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">由合约代码控制的地址，如 Safe 多签</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      IN("#ve-sig", at(0, 0.0), 0.5, { y: -30 }, { y: 0 });
+      IN("#ve-be", at(0, 0.05), 0.6);
+      tl.to("#ve-sig", { y: 110, opacity: 0, duration: 0.6, ease: "power2.in" }, at(0, 0.14));
+      ARROW("#ve-la", at(0, 0.2));
+      IN("#ve-l0", at(0, 0.3), 0.6);
+      ARROW("#ve-la2", at(0, 0.5), 0.4);
+      IN("#ve-l1", at(0, 0.58), 0.5);
+      IN("#ve-l2", at(0, 0.85), 0.5);
+      IN("#ve-term", at(1, 0.0), 0.5);
+      ARROW("#ve-ra", at(1, 0.05));
+      IN("#ve-r0", at(1, 0.1), 0.6);
+      IN("#ve-r1", at(1, 0.2), 0.5);
+      OUT("#ve-r1", at(1, 0.38), 0.35);
+      IN("#ve-r2", at(1, 0.42), 0.6);
+      tl.to("#ve-term", { opacity: 0, duration: 0.4 }, at(1, 0.45));
+      ARROW("#ve-ra2", at(1, 0.6), 0.4);
+      IN("#ve-rpc", at(1, 0.6), 0.4);
+      IN("#ve-r3", at(1, 0.68), 0.5);
+      IN("#ve-r4", at(1, 0.88), 0.5);
+      IN("#ve-c0", at(2, 0.05), 0.6);
+      IN("#ve-c1", at(2, 0.3), 0.5, { y: 40 }, { y: 0 });
+      IN("#ve-c2", at(2, 0.7), 0.5);
+      // 表
+      OUT(["#ve-la", "#ve-l0", "#ve-la2", "#ve-l1", "#ve-l2", "#ve-ra", "#ve-r0", "#ve-r2", "#ve-ra2", "#ve-rpc", "#ve-r3", "#ve-r4", "#ve-c0", "#ve-c1", "#ve-c2"], at(3, 0), 0.4);
+      IN("#ve-th", at(3, 0.08), 0.5);
+      IN("#ve-m0", at(3, 0.15), 0.5);
+      tl.to("#ve-hl", { opacity: 1, duration: 0.4 }, at(3, 0.22));
+      IN("#ve-a0", at(3, 0.4), 0.4); IN("#ve-b0", at(3, 0.52), 0.4); IN("#ve-c0x", at(3, 0.75), 0.4);
+      IN("#ve-m1", at(4, 0.02), 0.5);
+      tl.to("#ve-hl", { attr: { y: 738 }, duration: 0.4, ease: "power2.out" }, at(4, 0.02));
+      IN("#ve-a1", at(4, 0.12), 0.4); IN("#ve-b1", at(4, 0.24), 0.4); IN("#ve-c1x", at(4, 0.42), 0.4);
+      IN("#ve-m2", at(4, 0.6), 0.5);
+      tl.to("#ve-hl", { attr: { y: 846 }, duration: 0.4, ease: "power2.out" }, at(4, 0.6));
+      IN("#ve-a2", at(4, 0.7), 0.4); IN("#ve-b2", at(4, 0.74), 0.4); IN("#ve-c2x", at(4, 0.78), 0.4);
+      // 结局
+      OUT(["#ve-th", "#ve-hl", "#ve-m0", "#ve-m1", "#ve-m2", "#ve-a0", "#ve-a1", "#ve-a2", "#ve-b0", "#ve-b1", "#ve-b2", "#ve-c0x", "#ve-c1x", "#ve-c2x"], at(5, 0), 0.4);
+      IN("#ve-u", at(5, 0.06), 0.5);
+      ARROW("#ve-ua", at(5, 0.1), 0.5); IN("#ve-ual", at(5, 0.1), 0.4);
+      IN("#ve-fb", at(5, 0.14), 0.4); IN("#ve-f1", at(5, 0.16), 0.4);
+      IN("#ve-spin", at(5, 0.2), 0.3);
+      tl.to("#ve-spin", { rotation: 720, svgOrigin: "1290 608", duration: 2.2, ease: "none" }, at(5, 0.2));
+      IN("#ve-fail", at(5, 0.32), 0.4);
+      OUT(["#ve-spin", "#ve-fail", "#ve-f1"], at(5, 0.55), 0.35);
+      IN("#ve-f2", at(5, 0.62), 0.4);
+      IN("#ve-ok", at(5, 0.7), 0.4);
+
+      tl.to("#ve-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ve-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["verify"] = tl;
+    })();
+  </script>
+</template>

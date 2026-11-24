@@ -1,0 +1,221 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz3，id 前缀 q3- -->
+  <div id="root" data-composition-id="quiz3" data-duration="53.08" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="q3-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="q3-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+      </defs>
+      <g id="q3-all">
+        <!-- 题号徽章 x70–260 y70–130 -->
+        <g id="q3-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 3 题</text>
+        </g>
+        <!-- 题干：y 200–330，40px，打字机用 clipPath 揭开（宽度 ≤ 1400，避开右上倒数环） -->
+        <clipPath id="q3-qclip"><rect id="q3-qcr" x="60" y="200" width="0" height="64" /></clipPath>
+        <clipPath id="q3-qclip2"><rect id="q3-qcr2" x="60" y="264" width="0" height="64" /></clipPath>
+        <text id="q3-q" class="h" x="70" y="250" font-size="40" fill="#e8e6df" clip-path="url(#q3-qclip)">Alice 想发给 Bob 一个<tspan fill="#FF9F43">只有 Bob 能看</tspan>的数字。</text>
+        <text id="q3-q2" class="h" x="70" y="310" font-size="40" fill="#e8e6df" clip-path="url(#q3-qclip2)">她把数字写进交易并<tspan fill="#FF9F43">用私钥签名</tspan>。结果是？</text>
+        <!-- 暂停图标 + 倒数圆环：x 1500–1850 y 150–300（与 quiz1 一致） -->
+        <g id="q3-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="q3-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <!-- 选项卡：x 70–1100，y0 = 380 / 515 / 650 / 785，高 115，间距 20 -->
+        <g id="q3-oA" class="h">
+          <rect id="q3-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q3-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q3-oA-dim">
+            <circle id="q3-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q3-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="q3-oA-t" x="190" y="449" font-size="32" fill="#e8e6df">只有 Bob 能看到，因为签名就是加密</text>
+          </g>
+          <text id="q3-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255">签名不是加密</text>
+        </g>
+        <g id="q3-oB" class="h">
+          <rect id="q3-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q3-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q3-oB-dim">
+            <circle id="q3-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q3-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="q3-oB-t" x="190" y="584" font-size="32" fill="#e8e6df">只有拿到 Alice 公钥的人能看到</text>
+          </g>
+          <text id="q3-oB-n" class="h" x="190" y="612" font-size="28" fill="#FC6255">公钥本来就公开</text>
+        </g>
+        <g id="q3-oC" class="h">
+          <rect id="q3-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q3-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q3-oC-dim">
+            <circle id="q3-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q3-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="q3-oC-t" x="190" y="698" font-size="32" fill="#e8e6df">所有人都能看到这个数字；</text>
+            <text id="q3-oC-t2" x="190" y="742" font-size="32" fill="#e8e6df">签名只证明是 Alice 发的、内容没被改</text>
+          </g>
+        </g>
+        <g id="q3-oD" class="h">
+          <rect id="q3-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q3-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q3-oD-dim">
+            <circle id="q3-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q3-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="q3-oD-t" x="190" y="854" font-size="32" fill="#e8e6df">出块者看不到，只有 Alice 和 Bob 能看到</text>
+          </g>
+          <text id="q3-oD-n" class="h" x="190" y="882" font-size="28" fill="#FC6255">出块者要检查执行，内容人人可见（解读）</text>
+        </g>
+        <!-- 右侧示意区 x 1160–1850 y 380–900 -->
+        <g id="q3-tx" class="h">
+          <rect id="q3-txb" x="1290" y="420" width="430" height="180" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="1320" y="466" font-size="28" fill="#F0B90B">交易</text>
+          <text x="1320" y="530" font-size="40" fill="#e8e6df">数字：<tspan class="mono">42</tspan></text>
+          <text x="1320" y="578" font-size="28" fill="#8a8f99">（示例）</text>
+        </g>
+        <g id="q3-seal" class="h">
+          <circle cx="1660" cy="550" r="32" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="3" />
+          <text x="1660" y="560" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">签</text>
+        </g>
+        <g id="q3-glass" class="h">
+          <path d="M1515 515 L1565 432 M1555 515 L1605 432 M1595 505 L1640 432" stroke="#e8e6df" stroke-width="3" opacity="0.3" />
+        </g>
+        <g id="q3-eye0" class="h"><ellipse cx="1210" cy="450" rx="24" ry="13" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="1210" cy="450" r="6" fill="#e8e6df" /></g>
+        <g id="q3-eye1" class="h"><ellipse cx="1210" cy="570" rx="24" ry="13" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="1210" cy="570" r="6" fill="#e8e6df" /></g>
+        <g id="q3-eye2" class="h"><ellipse cx="1800" cy="450" rx="24" ry="13" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="1800" cy="450" r="6" fill="#e8e6df" /></g>
+        <g id="q3-eye3" class="h"><ellipse cx="1800" cy="570" rx="24" ry="13" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="1800" cy="570" r="6" fill="#e8e6df" /></g>
+        <g id="q3-eye4" class="h"><ellipse cx="1400" cy="395" rx="24" ry="13" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="1400" cy="395" r="6" fill="#e8e6df" /></g>
+        <g id="q3-eye5" class="h"><ellipse cx="1610" cy="395" rx="24" ry="13" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="1610" cy="395" r="6" fill="#e8e6df" /></g>
+        <g id="q3-eye6" class="h"><ellipse cx="1400" cy="630" rx="24" ry="13" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="1400" cy="630" r="6" fill="#e8e6df" /></g>
+        <g id="q3-eye7" class="h"><ellipse cx="1610" cy="630" rx="24" ry="13" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="1610" cy="630" r="6" fill="#e8e6df" /></g>
+        <g id="q3-t0" class="h"><rect x="1190" y="670" width="86" height="44" rx="22" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2" /><text x="1233" y="702" font-size="28" fill="#83C167" text-anchor="middle">身份</text></g>
+        <g id="q3-t1" class="h"><rect x="1294" y="670" width="114" height="44" rx="22" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2" /><text x="1351" y="702" font-size="28" fill="#83C167" text-anchor="middle">完整性</text></g>
+        <g id="q3-t2" class="h"><rect x="1426" y="670" width="142" height="44" rx="22" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2" /><text x="1497" y="702" font-size="28" fill="#83C167" text-anchor="middle">不可抵赖</text></g>
+        <g id="q3-t3" class="h"><rect x="1586" y="670" width="86" height="44" rx="22" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="2" /><text x="1629" y="702" font-size="28" fill="#FC6255" text-anchor="middle">保密</text></g>
+        <line id="q3-t3x" class="dr h" pathLength="1" x1="1592" y1="704" x2="1666" y2="680" stroke="#FC6255" stroke-width="4" />
+        <g id="q3-cmp" class="h">
+          <circle cx="1330" cy="800" r="32" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="3" />
+          <text x="1330" y="810" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">签</text>
+          <text x="1330" y="878" font-size="28" fill="#F0B90B" text-anchor="middle">签名</text>
+          <text x="1505" y="818" font-size="52" fill="#e8e6df" text-anchor="middle">≠</text>
+          <rect x="1655" y="795" width="50" height="40" rx="6" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <path d="M1665 795 v-12 a15 15 0 0 1 30 0 v12" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <text x="1680" y="878" font-size="28" fill="#8a8f99" text-anchor="middle">加密</text>
+        </g>
+        <g id="q3-key" class="h">
+          <circle cx="1220" cy="800" r="16" fill="none" stroke="#58C4DD" stroke-width="4" />
+          <path d="M1236 800 H1284 M1272 800 v14 M1284 800 v10" fill="none" stroke="#58C4DD" stroke-width="4" stroke-linecap="round" />
+          <text x="1200" y="872" font-size="28" fill="#58C4DD">Alice 公钥</text>
+        </g>
+        <g id="q3-pub" class="h"><rect x="1310" y="778" width="86" height="44" rx="22" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2" /><text x="1353" y="810" font-size="28" fill="#FF9F43" text-anchor="middle">公开</text></g>
+        <g id="q3-crown" class="h">
+          <path d="M1676 830 L1670 786 L1690 802 L1706 776 L1722 802 L1742 786 L1736 830 Z" fill="#F0B90B" fill-opacity="0.2" stroke="#F0B90B" stroke-width="3" stroke-linejoin="round" />
+          <text x="1706" y="878" font-size="28" fill="#e8e6df" text-anchor="middle">出块者</text>
+        </g>
+        <path id="q3-look" class="dr h" pathLength="1" d="M1706 768 V614" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#q3-arr)" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // ===== 测验版式（与 quiz1 一致）=====
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      IN("#q3-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#q3-q", at(0, 0.05), 0.01);
+      tl.fromTo("#q3-qcr", { attr: { width: 0 } }, { attr: { width: 1000 }, duration: 2.4, ease: "none" }, at(0, 0.08));
+      IN("#q3-q2", at(0, 0.05), 0.01);
+      tl.fromTo("#q3-qcr2", { attr: { width: 0 } }, { attr: { width: 900 }, duration: 2.0, ease: "none" }, at(0, 0.08) + 2.4);
+      const SHOW = (k, t) => {
+        IN(`#q3-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#q3-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#q3-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      const PAUSE = () => {
+        IN("#q3-pause", at(2, 0.0), 0.3);
+        tl.fromTo("#q3-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+        OUT("#q3-pause", at(3, 0.0), 0.3);
+      };
+      const RIGHT = (k, t) => {
+        tl.to(`#q3-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#q3-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#q3-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#q3-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#q3-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q3-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q3-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#q3-o${k}-t`, { attr: { y: Y0[k] + 52 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#q3-o${k}-n`, t + 0.3, 0.5);
+      };
+      const POP = (s, t, ox, oy, d = 0.45) => IN(s, t, d, { scale: 0.6, svgOrigin: `${ox} ${oy}` }, { scale: 1, svgOrigin: `${ox} ${oy}`, ease: "back.out(2)" });
+      const PULSE = (s, t, color, back) => {
+        tl.to(s, { stroke: color, strokeWidth: 5, duration: 0.25 }, t);
+        tl.to(s, { stroke: back, strokeWidth: 3, duration: 0.5 }, t + 1.2);
+      };
+
+      // L0 交易卡 + 签名印章
+      IN("#q3-tx", at(0, 0.673), 0.6, { y: 16 }, { y: 0 });
+      tl.fromTo("#q3-seal", { opacity: 0, scale: 1.8, svgOrigin: "1660 550" }, { opacity: 1, scale: 1, svgOrigin: "1660 550", duration: 0.4, ease: "back.out(2)" }, at(0, 0.8));
+      // L1 选项
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.204)); SHOW("C", at(1, 0.398)); SHOW("D", at(1, 0.741));
+      // L2 暂停
+      PAUSE();
+      // L3 揭晓 C：交易卡变玻璃，八只眼睛；三个保证 + 划掉的保密
+      RIGHT("C", at(3, 0.03));
+      tl.to("#q3-txb", { fill: "#1a2a30", stroke: "#9fd8e8", duration: 0.6 }, at(3, 0.143));
+      IN("#q3-glass", at(3, 0.143), 0.6);
+      POP("#q3-eye0", at(3, 0.143) + 0.00, 1210, 450, 0.35);
+      POP("#q3-eye1", at(3, 0.143) + 0.12, 1210, 570, 0.35);
+      POP("#q3-eye2", at(3, 0.143) + 0.24, 1800, 450, 0.35);
+      POP("#q3-eye3", at(3, 0.143) + 0.36, 1800, 570, 0.35);
+      POP("#q3-eye4", at(3, 0.143) + 0.48, 1400, 395, 0.35);
+      POP("#q3-eye5", at(3, 0.143) + 0.60, 1610, 395, 0.35);
+      POP("#q3-eye6", at(3, 0.143) + 0.72, 1400, 630, 0.35);
+      POP("#q3-eye7", at(3, 0.143) + 0.84, 1610, 630, 0.35);
+      POP("#q3-t0", at(3, 0.548), 1233, 692);
+      POP("#q3-t1", at(3, 0.619), 1351, 692);
+      POP("#q3-t2", at(3, 0.714), 1497, 692);
+      POP("#q3-t3", at(3, 0.929) - 0.3, 1629, 692);
+      ARROW("#q3-t3x", at(3, 0.929) + 0.2, 0.3);
+      // L4 A 错：签名 ≠ 加密
+      WRONG("A", at(4, 0.02));
+      IN("#q3-cmp", at(4, 0.111), 0.6, { y: 12 }, { y: 0 });
+      // L5 B、D 错：公钥公开；出块者也在看
+      OUT("#q3-cmp", at(5, 0.0), 0.4);
+      WRONG("B", at(5, 0.03));
+      IN("#q3-key", at(5, 0.154), 0.5, { x: -16 }, { x: 0 });
+      IN("#q3-pub", at(5, 0.269), 0.4, { x: -12 }, { x: 0 });
+      WRONG("D", at(5, 0.346));
+      IN("#q3-crown", at(5, 0.462), 0.5, { y: 12 }, { y: 0 });
+      ARROW("#q3-look", at(5, 0.538), 0.5);
+
+      tl.to("#q3-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz3"] = tl;
+    })();
+  </script>
+</template>

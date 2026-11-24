@@ -1,0 +1,217 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 send，id 前缀 se- -->
+  <div id="root" data-composition-id="send" data-duration="50.43" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="se-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="se-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="se-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="se-all">
+        <!-- wagmi hook -->
+        <g id="se-hk" class="h"><rect x="120" y="126" width="460" height="64" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="140" y="169" font-size="28" fill="#8a8f99">wagmi</text><text class="mono" x="240" y="169" font-size="30" font-weight="700" fill="#58C4DD">useWriteContract</text></g>
+        <!-- 进度条 -->
+        <g id="se-prog" class="h">
+          <rect x="120" y="214" width="300" height="52" rx="26" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect x="460" y="214" width="300" height="52" rx="26" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect id="se-p3" x="800" y="214" width="300" height="52" rx="26" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect x="1140" y="214" width="300" height="52" rx="26" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect x="1480" y="214" width="300" height="52" rx="26" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <text x="270" y="250" font-size="28" text-anchor="middle" fill="#5f8f4a">校验</text>
+          <text x="610" y="250" font-size="28" text-anchor="middle" fill="#5f8f4a">模拟</text>
+          <text id="se-p3t" x="950" y="250" font-size="28" text-anchor="middle" fill="#6b6f7a">签名</text>
+          <text x="1290" y="250" font-size="28" text-anchor="middle" fill="#6b6f7a">等回执</text>
+          <text x="1630" y="250" font-size="28" text-anchor="middle" fill="#6b6f7a">刷新</text>
+        </g>
+        <!-- 泳道 -->
+        <g id="se-lanes" class="h">
+          <text x="300" y="330" font-size="30" text-anchor="middle" fill="#8a8f99">用户</text>
+          <text x="700" y="330" font-size="30" text-anchor="middle" fill="#8a8f99">前端</text>
+          <text x="1100" y="330" font-size="30" text-anchor="middle" fill="#58C4DD">RPC 节点</text>
+          <text x="1500" y="330" font-size="30" text-anchor="middle" fill="#FF9F43">钱包</text>
+          <g stroke="#2a2f3a" stroke-width="2" stroke-dasharray="8 10">
+            <line x1="300" y1="352" x2="300" y2="1010" />
+            <line x1="700" y1="352" x2="700" y2="1010" />
+            <line x1="1100" y1="352" x2="1100" y2="1010" />
+            <line x1="1500" y1="352" x2="1500" y2="1010" />
+          </g>
+        </g>
+        <!-- 前端界面 -->
+        <g id="se-fe" class="h">
+          <rect x="500" y="380" width="400" height="330" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="530" y="452" font-size="28" fill="#8a8f99">收款</text>
+          <text x="630" y="452" font-size="28" fill="#e8e6df" class="mono">0x7e5f…</text>
+          <text x="530" y="522" font-size="28" fill="#8a8f99">金额</text>
+          <text x="630" y="522" font-size="28" fill="#F0B90B">100 USDC</text>
+          <rect id="se-btn" x="530" y="590" width="340" height="76" rx="12" fill="#58C4DD" />
+        </g>
+        <text id="se-btn1" class="h" x="700" y="638" font-size="30" font-weight="700" text-anchor="middle" fill="#0f1117">发送</text>
+        <text id="se-btn2" class="h" x="700" y="638" font-size="28" text-anchor="middle" fill="#8a8f99">请在钱包中确认…</text>
+        <text id="se-btn3" class="h" x="700" y="638" font-size="30" font-weight="700" text-anchor="middle" fill="#0f1117">发送</text>
+        <!-- request 信封 -->
+        <g id="se-env" class="h">
+          <rect x="920" y="420" width="120" height="76" rx="8" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="3" />
+          <polyline points="920,422 980,462 1040,422" fill="none" stroke="#83C167" stroke-width="3" />
+        </g>
+        <!-- 钱包弹窗 -->
+        <g id="se-pop" class="h">
+          <rect x="1340" y="360" width="480" height="400" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text x="1370" y="414" font-size="30" font-weight="700" fill="#FF9F43">确认交易</text>
+          <text x="1370" y="492" font-size="28" fill="#8a8f99">收款</text>
+          <text x="1370" y="562" font-size="28" fill="#8a8f99">金额</text>
+          <text x="1480" y="562" font-size="28" fill="#F0B90B">100 USDC</text>
+          <rect id="se-rej" x="1370" y="650" width="190" height="72" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="1465" y="696" font-size="28" text-anchor="middle" fill="#8a8f99">拒绝</text>
+          <rect id="se-ok" x="1600" y="650" width="190" height="72" rx="12" fill="#FF9F43" />
+          <text x="1695" y="696" font-size="28" font-weight="700" text-anchor="middle" fill="#0f1117">确认</text>
+        </g>
+        <text id="se-pa1" class="h mono" x="1480" y="492" font-size="28" fill="#e8e6df">0x7e5f…</text>
+        <text id="se-pa2" class="h mono" x="1480" y="492" font-size="28" fill="#FC6255">0x9a3c…</text>
+        <text id="se-pa3" class="h mono" x="1480" y="492" font-size="28" fill="#e8e6df">0x7e5f…</text>
+        <!-- 等号线 -->
+        <path id="se-eq1" class="dr" pathLength="1" d="M906 442 C 1100 442, 1150 482, 1334 482" fill="none" stroke="#83C167" stroke-width="3" />
+        <path id="se-eq2" class="dr" pathLength="1" d="M906 512 C 1100 512, 1150 552, 1334 552" fill="none" stroke="#83C167" stroke-width="3" />
+        <text id="se-must" class="h" x="1820" y="812" text-anchor="end" font-size="34" font-weight="700" fill="#FC6255">✕ 必须一致</text>
+        <!-- 防重复提交 -->
+        <g id="se-cur" class="h">
+          <path d="M880 760 L880 804 L891 793 L899 812 L907 808 L899 790 L914 790 Z" fill="#e8e6df" stroke="#0f1117" stroke-width="2" />
+        </g>
+        <circle id="se-rip1" class="h" cx="800" cy="650" r="16" fill="none" stroke="#e8e6df" stroke-width="3" />
+        <circle id="se-rip2" class="h" cx="800" cy="650" r="16" fill="none" stroke="#e8e6df" stroke-width="3" />
+        <text id="se-dup" class="h" x="520" y="782" font-size="30" fill="#83C167">防重复提交</text>
+        <text id="se-cnt" class="h" x="740" y="782" font-size="30" fill="#F0B90B">交易 × 1</text>
+        <!-- 广播 + txHash -->
+        <path id="se-bc" class="dr h" pathLength="1" d="M1494 872 L1112 872" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#se-arrO)" />
+        <text id="se-bcl" class="h" x="1305" y="850" font-size="28" text-anchor="middle" fill="#FF9F43">广播已签名交易</text>
+        <circle id="se-node" class="h" cx="1100" cy="872" r="10" fill="#58C4DD" />
+        <g id="se-tk" class="h">
+          <rect x="550" y="920" width="300" height="64" rx="10" fill="#0f1117" />
+          <rect x="550" y="920" width="300" height="64" rx="10" fill="#FF9F43" fill-opacity="0.14" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="10 6" />
+          <text x="700" y="962" font-size="28" text-anchor="middle" fill="#FF9F43" class="mono">txHash 0x3f9a…</text>
+        </g>
+        <g id="se-stamp" class="h">
+          <rect x="880" y="920" width="170" height="64" rx="8" fill="none" stroke="#FF9F43" stroke-width="4" />
+          <text x="965" y="963" font-size="32" font-weight="700" text-anchor="middle" fill="#FF9F43">已广播</text>
+        </g>
+        <g id="se-nok" class="h">
+          <text x="340" y="964" font-size="30" fill="#6b6f7a" style="text-decoration: line-through">已成功</text>
+          <text x="446" y="964" font-size="30" fill="#FC6255">✕</text>
+        </g>
+        <!-- 拒签 4001 -->
+        <path id="se-rj" class="dr h" pathLength="1" d="M1494 872 L712 872" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#se-arrG)" />
+        <text id="se-rjl" class="h mono" x="1300" y="850" font-size="30" text-anchor="middle" fill="#8a8f99">4001</text>
+        <text id="se-cancel" class="h" x="520" y="782" font-size="30" fill="#8a8f99">已取消</text>
+        <g id="se-errbox" class="h">
+          <rect x="540" y="920" width="320" height="80" rx="12" fill="#0f1117" />
+          <rect x="540" y="920" width="320" height="80" rx="12" fill="#FC6255" fill-opacity="0.16" stroke="#FC6255" stroke-width="3" />
+          <circle cx="700" cy="960" r="24" fill="none" stroke="#FC6255" stroke-width="3" />
+          <line x1="700" y1="947" x2="700" y2="964" stroke="#FC6255" stroke-width="4" />
+          <circle cx="700" cy="972" r="2.5" fill="#FC6255" />
+        </g>
+        <path id="se-x1" class="dr" pathLength="1" d="M550 926 L850 994" fill="none" stroke="#8a8f99" stroke-width="4" />
+        <path id="se-x2" class="dr" pathLength="1" d="M850 926 L550 994" fill="none" stroke="#8a8f99" stroke-width="4" />
+        <text id="se-nored" class="h" x="890" y="972" font-size="28" fill="#8a8f99">不弹红色报错</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 进度条“签名”亮；request 信封飞到钱包，弹窗展开
+      IN("#se-prog", 0.05, 0.5);
+      IN("#se-lanes", 0.1, 0.5);
+      tl.to("#se-p3", { attr: { stroke: "#FF9F43", fill: "#2a1f12" }, duration: 0.5 }, at(0, 0.08));
+      tl.to("#se-p3t", { attr: { fill: "#FF9F43" }, duration: 0.5 }, at(0, 0.08));
+      IN("#se-fe", at(0, 0.05), 0.6);
+      IN("#se-btn1", at(0, 0.05), 0.6);
+      IN("#se-env", at(0, 0.22), 0.5, { scale: 0.6, svgOrigin: "980 458" }, { scale: 1, svgOrigin: "980 458" });
+      tl.to("#se-env", { x: 400, duration: 0.9, ease: "power2.inOut" }, at(0, 0.36));
+      OUT("#se-env", at(0, 0.36) + 0.75, 0.3);
+      IN("#se-pop", at(0, 0.36) + 0.85, 0.6, { scale: 0.7, svgOrigin: "1580 560" }, { scale: 1, svgOrigin: "1580 560" });
+      IN("#se-pa1", at(0, 0.36) + 1.1, 0.5);
+
+      // L1 界面与弹窗字段一致；篡改示例
+      // L1 wagmi：发送对应 useWriteContract，请求原样交给它
+      IN("#se-hk", at(1, 0.15), 0.5, { scale: 0.8, svgOrigin: "350 158" }, { scale: 1, svgOrigin: "350 158" });
+      tl.to("#se-pa1", { attr: { fill: "#58C4DD" }, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.6));
+
+      DRAW("#se-eq1", at(2, 0.04), 0.8);
+      DRAW("#se-eq2", at(2, 0.14), 0.8);
+      OUT("#se-pa1", at(2, 0.42), 0.3);
+      IN("#se-pa2", at(2, 0.42) + 0.35, 0.4);
+      tl.to("#se-eq1", { attr: { stroke: "#FC6255" }, duration: 0.3 }, at(2, 0.42) + 0.35);
+      IN("#se-must", at(2, 0.48), 0.5, { scale: 1.3, svgOrigin: "1735 800" }, { scale: 1, svgOrigin: "1735 800" });
+      OUT("#se-pa2", at(2, 0.86), 0.3);
+      IN("#se-pa3", at(2, 0.86) + 0.35, 0.4);
+      tl.to("#se-eq1", { attr: { stroke: "#83C167" }, duration: 0.3 }, at(2, 0.86) + 0.35);
+
+      // L2 按钮禁用；连点两下只出一笔
+      OUT("#se-must", at(3, 0.0), 0.3);
+      OUT("#se-btn1", at(3, 0.06), 0.25);
+      tl.to("#se-btn", { attr: { fill: "#2c313c" }, duration: 0.4 }, at(3, 0.06));
+      IN("#se-btn2", at(3, 0.06) + 0.3, 0.4);
+      IN("#se-cur", at(3, 0.32), 0.4);
+      tl.to("#se-cur", { x: -80, y: -110, duration: 0.7, ease: "power2.inOut" }, at(3, 0.36));
+      tl.fromTo("#se-rip1", { opacity: 1, attr: { r: 10 } }, { opacity: 0, attr: { r: 44 }, duration: 0.5, immediateRender: false }, at(3, 0.55));
+      tl.fromTo("#se-rip2", { opacity: 1, attr: { r: 10 } }, { opacity: 0, attr: { r: 44 }, duration: 0.5, immediateRender: false }, at(3, 0.66));
+      IN("#se-cnt", at(3, 0.6), 0.4);
+      IN("#se-dup", at(3, 0.76), 0.5);
+      OUT("#se-cur", at(3, 0.92), 0.3);
+
+      // L3 确认 → 广播；返回 txHash 票据
+      tl.to("#se-ok", { attr: { fill: "#ffc078" }, duration: 0.15, yoyo: true, repeat: 1 }, at(4, 0.04));
+      ARROW("#se-bc", at(4, 0.12), 0.6);
+      IN("#se-node", at(4, 0.12) + 0.55, 0.3);
+      IN("#se-bcl", at(4, 0.2), 0.4);
+      tl.fromTo("#se-tk", { opacity: 0, x: 800 }, { opacity: 1, x: 0, duration: 1.1, ease: "power2.inOut" }, at(4, 0.45));
+
+      // L4 已广播 ≠ 已成功
+      IN("#se-stamp", at(5, 0.08), 0.4, { scale: 1.5, svgOrigin: "965 952" }, { scale: 1, svgOrigin: "965 952", ease: "back.out(2)" });
+      IN("#se-nok", at(5, 0.45), 0.5);
+
+      // L5 拒签 4001：恢复按钮，不弹红框
+      OUT("#se-tk, #se-stamp, #se-nok, #se-bc, #se-bcl, #se-node, #se-dup, #se-cnt", at(6, 0.0), 0.4);
+      tl.to("#se-rej", { attr: { fill: "#3a3f4a" }, duration: 0.15, yoyo: true, repeat: 1 }, at(6, 0.08));
+      ARROW("#se-rj", at(6, 0.14), 0.7);
+      IN("#se-rjl", at(6, 0.18), 0.4);
+      OUT("#se-btn2", at(6, 0.32), 0.25);
+      tl.to("#se-btn", { attr: { fill: "#58C4DD" }, duration: 0.4 }, at(6, 0.32));
+      IN("#se-btn3", at(6, 0.32) + 0.3, 0.4);
+      IN("#se-cancel", at(6, 0.4), 0.4);
+      IN("#se-errbox", at(6, 0.56), 0.35, { scale: 0.5, svgOrigin: "700 960" }, { scale: 1, svgOrigin: "700 960", ease: "back.out(2)" });
+      DRAW("#se-x1", at(6, 0.66), 0.35);
+      DRAW("#se-x2", at(6, 0.66) + 0.2, 0.35);
+      IN("#se-nored", at(6, 0.7), 0.4);
+      OUT("#se-errbox, #se-x1, #se-x2", at(6, 0.88), 0.4);
+
+      tl.to("#se-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["send"] = tl;
+    })();
+  </script>
+</template>

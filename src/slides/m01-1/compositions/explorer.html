@@ -1,0 +1,223 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 explorer，id 前缀 ex- -->
+  <div id="root" data-composition-id="explorer" data-duration="62.36" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ex-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ex-all">
+        <!-- L0–L3：JSON-RPC 面板 -->
+        <g id="ex-json">
+          <rect id="ex-jp" class="h" x="100" y="210" width="840" height="590" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <rect id="ex-hl" class="h" x="112" y="281" width="816" height="40" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+<text id="ex-j0" class="h mono ex-j" x="130" y="270" font-size="28" fill="#e8e6df" xml:space="preserve">{</text>
+<text id="ex-j1" class="h mono ex-j" x="130" y="311" font-size="28" fill="#e8e6df" xml:space="preserve">  "number": "0x1312d00",</text>
+<text id="ex-j2" class="h mono ex-j" x="130" y="352" font-size="28" fill="#e8e6df" xml:space="preserve">  "hash": "0x9f1c…",</text>
+<text id="ex-j3" class="h mono ex-j" x="130" y="393" font-size="28" fill="#e8e6df" xml:space="preserve">  "parentHash": "0x4b2a…",</text>
+<text id="ex-j4" class="h mono ex-j" x="130" y="434" font-size="28" fill="#e8e6df" xml:space="preserve">  "stateRoot": "0x7d3e…",</text>
+<text id="ex-j5" class="h mono ex-j" x="130" y="475" font-size="28" fill="#e8e6df" xml:space="preserve">  "transactionsRoot": "0x1a8c…",</text>
+<text id="ex-j6" class="h mono ex-j" x="130" y="516" font-size="28" fill="#e8e6df" xml:space="preserve">  "receiptsRoot": "0x5e0f…",</text>
+<text id="ex-j7" class="h mono ex-j" x="130" y="557" font-size="28" fill="#e8e6df" xml:space="preserve">  "logsBloom": "0x0020…",</text>
+<text id="ex-j8" class="h mono ex-j" x="130" y="598" font-size="28" fill="#e8e6df" xml:space="preserve">  "gasLimit": "0x2160ec0",</text>
+<text id="ex-j9" class="h mono ex-j" x="130" y="639" font-size="28" fill="#e8e6df" xml:space="preserve">  "gasUsed": "0x10b0760",</text>
+<text id="ex-j10" class="h mono ex-j" x="130" y="680" font-size="28" fill="#e8e6df" xml:space="preserve">  "baseFeePerGas": "0x2540be400",</text>
+<text id="ex-j11" class="h mono ex-j" x="130" y="721" font-size="28" fill="#e8e6df" xml:space="preserve">  "timestamp": "0x6720a1b3"</text>
+<text id="ex-j12" class="h mono ex-j" x="130" y="762" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+        </g>
+        <!-- L1 换算 -->
+        <text id="ex-n1" class="h mono" x="1020" y="330" font-size="30" fill="#8a8f99">0x1312d00</text>
+        <text id="ex-n2" class="h mono" x="1020" y="392" font-size="36" font-weight="700" fill="#58C4DD">= 20,000,000</text>
+        <text id="ex-f1" class="h mono" x="1020" y="520" font-size="30" fill="#8a8f99">0x2540be400</text>
+        <text id="ex-f2" class="h mono" x="1020" y="580" font-size="32" fill="#F0B90B">= 10,000,000,000 wei</text>
+        <text id="ex-f3" class="h mono" x="1020" y="644" font-size="40" font-weight="700" fill="#F0B90B">= 10 gwei</text>
+        <!-- L2 精度 -->
+        <text id="ex-wl" class="h" x="1020" y="300" font-size="28" fill="#8a8f99">一个 wei 数</text>
+        <text id="ex-wn" class="h mono" x="1020" y="352" font-size="30" fill="#F0B90B">12345678901234567890123456</text>
+        <g id="ex-fb" class="h">
+          <rect x="1020" y="410" width="540" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="1590" y="462" font-size="28" fill="#8a8f99">float64</text>
+        </g>
+        <text id="ex-fv" class="h mono" x="1045" y="462" font-size="30" fill="#e8e6df">1234567890123456<tspan id="ex-ft" fill="#e8e6df">8000000000</tspan></text>
+        <text id="ex-fx" class="h" x="1725" y="463" font-size="32" font-weight="700" fill="#FC6255">✕</text>
+        <g id="ex-bb" class="h">
+          <rect x="1020" y="540" width="540" height="80" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="1045" y="592" font-size="30" fill="#e8e6df">12345678901234567890123456</text>
+          <text x="1590" y="592" font-size="28" fill="#83C167">大整数 ✓</text>
+        </g>
+        <text id="ex-go" class="h mono" x="1020" y="700" font-size="28" fill="#8a8f99">Go: *big.Int · SQL: NUMERIC(78,0)</text>
+        <!-- L3 时间容差 -->
+        <rect id="ex-band" class="h" x="1180" y="380" width="520" height="80" fill="#FF9F43" fill-opacity="0.18" />
+        <text id="ex-bandl" class="h" x="1440" y="355" text-anchor="middle" font-size="28" fill="#FF9F43">±2 小时 容差</text>
+        <line id="ex-ax" class="dr" pathLength="1" x1="1020" y1="420" x2="1840" y2="420" stroke="#8a8f99" stroke-width="2.5" />
+        <g id="ex-dl" class="h"><circle cx="1330" cy="420" r="12" fill="#8a8f99" /><text x="1330" y="510" text-anchor="middle" font-size="28" fill="#8a8f99">本地接收</text></g>
+        <g id="ex-db" class="h"><circle cx="1580" cy="420" r="12" fill="#58C4DD" /><text x="1580" y="510" text-anchor="middle" font-size="28" fill="#58C4DD">区块时间</text></g>
+        <g id="ex-tb" class="h">
+          <rect x="1020" y="600" width="820" height="180" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <line x1="1430" y1="600" x2="1430" y2="780" stroke="#8a8f99" stroke-width="2" />
+          <line x1="1020" y1="680" x2="1840" y2="680" stroke="#8a8f99" stroke-width="2" />
+          <text x="1225" y="650" text-anchor="middle" font-size="28" fill="#e8e6df">本地接收时间</text>
+          <text x="1635" y="650" text-anchor="middle" font-size="28" fill="#58C4DD">区块时间</text>
+        </g>
+        <g id="ex-tr" class="h">
+          <text class="mono" x="1225" y="742" text-anchor="middle" font-size="28" fill="#e8e6df">12:00:05</text>
+          <text class="mono" x="1635" y="742" text-anchor="middle" font-size="28" fill="#58C4DD">11:58:41</text>
+        </g>
+
+        <!-- L4 左窗口：比特币浏览器（自绘示意） -->
+        <g id="ex-wl1" class="h">
+          <rect x="80" y="200" width="850" height="740" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <path d="M80 250 L80 214 Q80 200 94 200 L916 200 Q930 200 930 214 L930 250 Z" fill="#20242d" />
+          <circle cx="112" cy="225" r="7" fill="#6b6f7a" /><circle cx="136" cy="225" r="7" fill="#6b6f7a" /><circle cx="160" cy="225" r="7" fill="#6b6f7a" />
+          <rect x="110" y="268" width="790" height="56" rx="28" fill="#0f1117" stroke="#3a3f4a" stroke-width="2" />
+          <text class="mono" x="140" y="306" font-size="28" fill="#8a8f99">mempool.space</text>
+          <rect x="110" y="350" width="790" height="60" rx="8" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+          <circle cx="140" cy="376" r="10" fill="none" stroke="#8a8f99" stroke-width="3" /><line x1="147" y1="383" x2="156" y2="392" stroke="#8a8f99" stroke-width="3" />
+        </g>
+        <text id="ex-ls" class="h mono" x="180" y="390" font-size="28" fill="#e8e6df">000000000019d6…8ce26f</text>
+        <g id="ex-lr1" class="h"><text x="130" y="470" font-size="28" fill="#8a8f99">时间戳</text><text class="mono" x="330" y="470" font-size="28" fill="#e8e6df">2009-01-03 18:15:05</text><text class="ex-ck" x="860" y="472" font-size="32" fill="#83C167">✓</text></g>
+        <g id="ex-lr2" class="h"><text x="130" y="530" font-size="28" fill="#8a8f99">bits</text><text class="mono" x="330" y="530" font-size="28" fill="#e8e6df">1d00ffff</text><text x="860" y="532" font-size="32" fill="#83C167">✓</text></g>
+        <g id="ex-lr3" class="h"><text x="130" y="590" font-size="28" fill="#8a8f99">nonce</text><text class="mono" x="330" y="590" font-size="28" fill="#e8e6df">2083236893</text><text x="860" y="592" font-size="32" fill="#83C167">✓</text></g>
+        <g id="ex-lr4" class="h"><text x="130" y="650" font-size="28" fill="#8a8f99">默克尔根</text><text class="mono" x="330" y="650" font-size="28" fill="#e8e6df">4a5e1e4b…eda33b</text><text x="860" y="652" font-size="32" fill="#83C167">✓</text></g>
+        <path id="ex-la" class="dr h" pathLength="1" d="M505 676 L505 738" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ex-arr)" />
+        <g id="ex-lb" class="h">
+          <rect x="110" y="748" width="790" height="140" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="140" y="798" font-size="28" fill="#e8e6df">高度 1 · 父区块哈希</text>
+          <text class="mono" x="140" y="854" font-size="28" fill="#58C4DD">000000000019d6…8ce26f</text>
+        </g>
+        <text id="ex-lbk" class="h" x="850" y="856" font-size="32" fill="#83C167">✓</text>
+
+        <!-- L5 右窗口：以太坊浏览器（自绘示意） -->
+        <g id="ex-wr" class="h">
+          <rect x="990" y="200" width="850" height="740" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <path d="M990 250 L990 214 Q990 200 1004 200 L1826 200 Q1840 200 1840 214 L1840 250 Z" fill="#20242d" />
+          <circle cx="1022" cy="225" r="7" fill="#6b6f7a" /><circle cx="1046" cy="225" r="7" fill="#6b6f7a" /><circle cx="1070" cy="225" r="7" fill="#6b6f7a" />
+          <rect x="1020" y="268" width="790" height="56" rx="28" fill="#0f1117" stroke="#3a3f4a" stroke-width="2" />
+          <text class="mono" x="1050" y="306" font-size="28" fill="#8a8f99">etherscan.io</text>
+        </g>
+        <g id="ex-ra">
+          <g id="ex-rs" class="h">
+            <rect x="1020" y="350" width="790" height="60" rx="8" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+            <circle cx="1050" cy="376" r="10" fill="none" stroke="#8a8f99" stroke-width="3" /><line x1="1057" y1="383" x2="1066" y2="392" stroke="#8a8f99" stroke-width="3" />
+            <text class="mono" x="1090" y="390" font-size="28" fill="#e8e6df">15537394</text>
+          </g>
+          <text id="ex-rt" class="h" x="1020" y="466" font-size="28" fill="#FF9F43">2022-09 · 合并后第一个 PoS 区块</text>
+          <g id="ex-rf1" class="h"><text class="mono" x="1020" y="530" font-size="28" fill="#8a8f99">Fee Recipient</text><rect x="1420" y="514" width="380" height="14" rx="7" fill="#2a2f3a" /></g>
+          <g id="ex-rf2" class="h"><text id="ex-rgu" class="mono" x="1020" y="582" font-size="28" fill="#8a8f99">Gas Used</text><rect x="1420" y="566" width="380" height="14" rx="7" fill="#2a2f3a" /></g>
+          <g id="ex-rf3" class="h"><text class="mono" x="1020" y="634" font-size="28" fill="#8a8f99">Gas Limit</text><rect x="1420" y="618" width="380" height="14" rx="7" fill="#2a2f3a" /></g>
+          <g id="ex-rf4" class="h"><text id="ex-rbf" class="mono" x="1020" y="686" font-size="28" fill="#8a8f99">Base Fee Per Gas</text><rect x="1420" y="670" width="380" height="14" rx="7" fill="#2a2f3a" /></g>
+          <g id="ex-rf5" class="h"><text id="ex-rbu" class="mono" x="1020" y="738" font-size="28" fill="#8a8f99">Burnt Fees</text><rect x="1420" y="722" width="380" height="14" rx="7" fill="#2a2f3a" /></g>
+          <g id="ex-req" class="h">
+            <rect x="1010" y="790" width="810" height="84" rx="10" fill="#2a2410" stroke="#F0B90B" stroke-width="2.5" />
+            <text class="mono" x="1035" y="843" font-size="28" fill="#F0B90B">Burnt Fees ≈ Base Fee Per Gas × Gas Used</text>
+          </g>
+        </g>
+        <!-- L6 最新区块 → 父区块 -->
+        <g id="ex-rbw"><g id="ex-rb" class="h">
+          <text x="1020" y="400" font-size="30" font-weight="700" fill="#e8e6df">最新区块 · More Details</text>
+          <text class="mono" x="1020" y="490" font-size="28" fill="#8a8f99">Parent Hash</text>
+          <text id="ex-pv" class="mono" x="1400" y="490" font-size="28" fill="#58C4DD">0x4b2a…</text>
+          <line id="ex-pu" x1="1400" y1="504" x2="1534" y2="504" stroke="#58C4DD" stroke-width="2" opacity="0" />
+          <text class="mono" x="1020" y="570" font-size="28" fill="#8a8f99">StateRoot</text>
+          <text class="mono" x="1400" y="570" font-size="28" fill="#58C4DD">0x7d3e…</text>
+          <text class="mono" x="1020" y="650" font-size="28" fill="#8a8f99">Withdrawals Root</text>
+          <text class="mono" x="1400" y="650" font-size="28" fill="#58C4DD">0x3c91…</text>
+        </g></g>
+        <g id="ex-rcw"><g id="ex-rc" class="h">
+          <text x="1020" y="400" font-size="30" font-weight="700" fill="#e8e6df">高度 − 1 的区块</text>
+          <text class="mono" x="1020" y="490" font-size="28" fill="#8a8f99">Block Hash</text>
+          <text class="mono" x="1400" y="490" font-size="28" fill="#58C4DD">0x4b2a…</text>
+          <text x="1020" y="580" font-size="30" fill="#83C167">✓ 就是刚才的父哈希</text>
+        </g></g>
+        <g id="ex-cur" class="h">
+          <path d="M1700 760 L1700 800 L1710 790 L1718 808 L1725 805 L1717 787 L1731 787 Z" fill="#e8e6df" stroke="#0f1117" stroke-width="2" />
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0 JSON 逐行打出
+      IN("#ex-jp", at(0, 0.0), 0.4);
+      for (let i = 0; i <= 12; i++) IN(`#ex-j${i}`, at(0, 0.06 + i * 0.065), 0.25, { x: -10 }, { x: 0 });
+
+      // L1 十六进制换算
+      IN("#ex-hl", at(1, 0.04), 0.3);
+      IN("#ex-n1", at(1, 0.08), 0.4);
+      IN("#ex-n2", at(1, 0.25), 0.5, { x: -20 }, { x: 0 });
+      tl.to("#ex-hl", { attr: { y: 650 }, duration: 0.5, ease: "power2.inOut" }, at(1, 0.48));
+      IN("#ex-f1", at(1, 0.52), 0.4);
+      IN("#ex-f2", at(1, 0.66), 0.5, { x: -20 }, { x: 0 });
+      IN("#ex-f3", at(1, 0.84), 0.5, { x: -20 }, { x: 0 });
+
+      // L2 大整数
+      OUT("#ex-n1, #ex-n2, #ex-f1, #ex-f2, #ex-f3, #ex-hl", at(2, 0.0), 0.35);
+      IN("#ex-wl, #ex-wn", at(2, 0.06), 0.5);
+      IN("#ex-fb, #ex-fv", at(2, 0.25), 0.5);
+      tl.to("#ex-ft", { attr: { fill: "#FC6255" }, duration: 0.2 }, at(2, 0.42));
+      IN("#ex-fx", at(2, 0.46), 0.3);
+      IN("#ex-bb", at(2, 0.62), 0.5, { y: 20 }, { y: 0 });
+      IN("#ex-go", at(2, 0.82), 0.5);
+
+      // L3 时间容差 + 两列
+      OUT("#ex-wl, #ex-wn, #ex-fb, #ex-fv, #ex-fx, #ex-bb, #ex-go", at(3, 0.0), 0.35);
+      DRAW("#ex-ax", at(3, 0.05), 0.6);
+      IN("#ex-db", at(3, 0.1), 0.4);
+      IN("#ex-band", at(3, 0.18), 0.6, { scaleX: 0.1, svgOrigin: "1580 420" }, { scaleX: 1, svgOrigin: "1580 420" });
+      IN("#ex-bandl", at(3, 0.24), 0.4);
+      IN("#ex-dl", at(3, 0.55), 0.4);
+      IN("#ex-tb", at(3, 0.66), 0.5);
+      IN("#ex-tr", at(3, 0.82), 0.4);
+
+      // L4 左窗口：创世块对照
+      OUT("#ex-json, #ex-band, #ex-bandl, #ex-ax, #ex-dl, #ex-db, #ex-tb, #ex-tr", at(4, 0.0), 0.4);
+      IN("#ex-wl1", at(4, 0.04), 0.5, { y: 20 }, { y: 0 });
+      IN("#ex-ls", at(4, 0.12), 0.4);
+      IN("#ex-lr1", at(4, 0.28), 0.4); IN("#ex-lr2", at(4, 0.36), 0.4);
+      IN("#ex-lr3", at(4, 0.44), 0.4); IN("#ex-lr4", at(4, 0.52), 0.4);
+      ARROW("#ex-la", at(4, 0.66), 0.5);
+      IN("#ex-lb", at(4, 0.7), 0.5);
+      IN("#ex-lbk", at(4, 0.9), 0.3, { scale: 1.6, svgOrigin: "865 845" }, { scale: 1, svgOrigin: "865 845" });
+
+      // L5 右窗口：合并后第一个 PoS 区块
+      IN("#ex-wr", at(5, 0.0), 0.5, { y: 20 }, { y: 0 });
+      IN("#ex-rs", at(5, 0.08), 0.4);
+      IN("#ex-rt", at(5, 0.32), 0.4);
+      ["#ex-rf1", "#ex-rf2", "#ex-rf3", "#ex-rf4", "#ex-rf5"].forEach((s, k) => IN(s, at(5, 0.55) + k * 0.25, 0.35, { x: -12 }, { x: 0 }));
+      IN("#ex-req", at(5, 0.8), 0.5);
+      tl.to("#ex-rgu, #ex-rbf, #ex-rbu", { fill: "#F0B90B", duration: 0.4 }, at(5, 0.84));
+
+      // L6 最新区块 → 点父哈希 → 高度 − 1
+      tl.to("#ex-ra", { opacity: 0, x: -40, duration: 0.4, ease: "power2.in" }, at(6, 0.0));
+      IN("#ex-rb", at(6, 0.06), 0.5, { x: 30 }, { x: 0 });
+      IN("#ex-cur", at(6, 0.35), 0.3);
+      tl.to("#ex-cur", { x: 1550 - 1700, y: 486 - 760, duration: 0.8, ease: "power2.inOut" }, at(6, 0.4));
+      tl.to("#ex-pu", { opacity: 1, duration: 0.15 }, at(6, 0.4) + 0.8);
+      tl.to("#ex-pv", { fill: "#e8e6df", duration: 0.12, yoyo: true, repeat: 1 }, at(6, 0.4) + 0.85);
+      tl.to("#ex-rbw", { x: -60, opacity: 0, duration: 0.4, ease: "power2.in" }, at(6, 0.62));
+      OUT("#ex-cur", at(6, 0.62), 0.3);
+      IN("#ex-rc", at(6, 0.62) + 0.4, 0.5, { x: 60 }, { x: 0 });
+
+      tl.to("#ex-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["explorer"] = tl;
+    })();
+  </script>
+</template>

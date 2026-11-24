@@ -1,0 +1,150 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 slots，id 前缀 sl- -->
+  <div id="root" data-composition-id="slots" data-duration="54.05" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sl-all">
+
+        <text id="sl-title" class="h" x="960" y="300" font-size="72" font-weight="700" fill="#FC6255" text-anchor="middle">存储槽冲突</text>
+        <g id="sl-one">
+          <g id="sl-k0" class="h"><rect x="760" y="320" width="360" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono sl-kn" x="776" y="362" font-size="28" fill="#8a8f99">Slot 0</text></g>
+<g id="sl-k1" class="h"><rect x="760" y="396" width="360" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono sl-kn" x="776" y="438" font-size="28" fill="#8a8f99">Slot 1</text></g>
+<g id="sl-k2" class="h"><rect x="760" y="472" width="360" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono sl-kn" x="776" y="514" font-size="28" fill="#8a8f99">Slot 2</text></g>
+<g id="sl-k3" class="h"><rect x="760" y="548" width="360" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono sl-kn" x="776" y="590" font-size="28" fill="#8a8f99">Slot 3</text></g>
+<g id="sl-k4" class="h"><rect x="760" y="624" width="360" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono sl-kn" x="776" y="666" font-size="28" fill="#8a8f99">Slot 4</text></g>
+          <text id="sl-v0" class="h mono" x="900" y="362" font-size="28" fill="#58C4DD">uint256 a</text>
+<text id="sl-v1" class="h mono" x="900" y="438" font-size="28" fill="#58C4DD">uint256 b</text>
+<text id="sl-v2" class="h mono" x="900" y="514" font-size="28" fill="#58C4DD">uint256 c</text>
+<text id="sl-v3" class="h mono" x="900" y="590" font-size="28" fill="#58C4DD">uint256 d</text>
+<text id="sl-v4" class="h mono" x="900" y="666" font-size="28" fill="#58C4DD">uint256 e</text>
+          <text id="sl-rule" class="h" x="940" y="780" font-size="34" fill="#e8e6df" text-anchor="middle">EVM 只认编号 · 每格 32 字节</text>
+        </g>
+        <g id="sl-two">
+          <g id="sl-L" class="h">
+            <text x="260" y="340" font-size="34" font-weight="700" fill="#F0B90B">Proxy 视角</text>
+            <g id="sl-L0"><rect x="260" y="380" width="400" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="276" y="422" font-size="28" fill="#8a8f99">Slot 0</text></g><g id="sl-L1"><rect x="260" y="456" width="400" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="276" y="498" font-size="28" fill="#8a8f99">Slot 1</text></g><g id="sl-L2"><rect x="260" y="532" width="400" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="276" y="574" font-size="28" fill="#8a8f99">Slot 2</text></g>
+          </g>
+          <text id="sl-limpl" class="h mono" x="400" y="422" font-size="28" fill="#B48EF0">implementation</text>
+          <text id="sl-lbob" class="h mono" x="400" y="422" font-size="28" font-weight="700" fill="#FC6255">0xB0b…</text>
+          <g id="sl-R" class="h">
+            <text x="1260" y="340" font-size="34" font-weight="700" fill="#58C4DD">Impl 视角</text>
+            <g id="sl-R0"><rect x="1260" y="380" width="400" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="1276" y="422" font-size="28" fill="#8a8f99">Slot 0</text></g><g id="sl-R1"><rect x="1260" y="456" width="400" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="1276" y="498" font-size="28" fill="#8a8f99">Slot 1</text></g><g id="sl-R2"><rect x="1260" y="532" width="400" height="64" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="1276" y="574" font-size="28" fill="#8a8f99">Slot 2</text></g>
+            <text class="mono" x="1400" y="422" font-size="28" fill="#58C4DD">owner</text>
+          </g>
+          <line id="sl-same" class="h" x1="664" y1="412" x2="1256" y2="412" stroke="#FC6255" stroke-width="3" stroke-dasharray="12 8"/>
+          <text id="sl-samel" class="h" x="960" y="392" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">同一格</text>
+          <g id="sl-im" class="h">
+            <rect x="820" y="720" width="280" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text x="960" y="772" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">Impl</text>
+          </g>
+          <path id="sl-ptr" class="dr h" pathLength="1" d="M256 412 C180 412, 180 760, 810 760" fill="none" stroke="#B48EF0" stroke-width="3" marker-end="url(#sl-arr)"/>
+          <path id="sl-brk" class="h" d="M480 738 L524 782 M524 738 L480 782" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/>
+          <text id="sl-call" class="h mono" x="1260" y="280" font-size="30" fill="#FF9F43">setOwner(Bob)</text>
+          <circle id="sl-dot" class="h" cx="1380" cy="292" r="11" fill="#FF9F43"/>
+          <g id="sl-zig" class="h">
+            <path d="M260 630 L660 630 M260 700 L660 700" stroke="#6b6f7a" stroke-width="2" stroke-dasharray="6 8"/>
+            <path d="M440 618 l20 12 l-20 12 l20 12 l-20 12 l20 12" fill="none" stroke="#8a8f99" stroke-width="3"/>
+            <text x="690" y="676" font-size="28" fill="#8a8f99">相距极远（示意）</text>
+          </g>
+          <g id="sl-flyo"><g id="sl-fly" class="h">
+            <rect id="sl-flyr" x="260" y="380" width="400" height="64" rx="8" fill="#0f1117" stroke="#B48EF0" stroke-width="3"/>
+            <text class="mono" x="400" y="422" font-size="28" fill="#B48EF0">implementation</text>
+          </g></g>
+          <text id="sl-1967" class="h mono" x="270" y="862" font-size="30" font-weight="700" fill="#83C167">EIP-1967</text>
+          <g id="sl-f" class="h mono">
+            <text x="720" y="904" font-size="28" fill="#58C4DD">bytes32(uint256(keccak256(</text>
+            <text x="750" y="948" font-size="28" fill="#58C4DD">"eip1967.proxy.implementation")) - 1)</text>
+          </g>
+          <g id="sl-b1" class="h"><rect x="720" y="760" width="160" height="52" rx="26" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text x="800" y="797" font-size="30" fill="#B48EF0" text-anchor="middle">透明代理</text></g>
+          <g id="sl-b2" class="h"><rect x="900" y="760" width="120" height="52" rx="26" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="960" y="797" font-size="30" fill="#FF9F43" text-anchor="middle">UUPS</text></g>
+          <text id="sl-use" class="h" x="1050" y="798" font-size="32" font-weight="700" fill="#83C167">都用这一格</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="sl-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">存储槽冲突 <tspan font-size="28" font-weight="400" fill="#8a8f99">Storage Collision</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">不同合约对同一槽位赋予不同含义</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      IN("#sl-title", at(0, 0.05), 0.6, { scale: 0.8, svgOrigin: "960 280" }, { scale: 1 });
+      IN("#sl-term", at(0, 0.35), 0.5);
+      tl.to("#sl-title", { opacity: 0.5, duration: 0.25, yoyo: true, repeat: 3 }, at(0, 0.5));
+      // L1 EVM 只认编号
+      OUT("#sl-title", at(1, 0), 0.3);
+      [0, 1, 2, 3, 4].forEach(i => IN("#sl-k" + i, at(1, 0.03) + 0.1 * i, 0.4));
+      [0, 1, 2, 3, 4].forEach(i => IN("#sl-v" + i, at(1, 0.18) + 0.35 * i, 0.4, { x: 160 }, { x: 0 }));
+      OUT("#sl-term", at(1, 0.6), 0.4);
+      [0, 1, 2, 3, 4].forEach(i => OUT("#sl-v" + i, at(1, 0.55) + 0.12 * i, 0.3));
+      tl.to(".sl-kn", { fill: "#e8e6df", duration: 0.4 }, at(1, 0.6));
+      IN("#sl-rule", at(1, 0.66), 0.5);
+      // L2 两个视角
+      OUT("#sl-one", at(2, 0), 0.4);
+      IN("#sl-L", at(2, 0.05), 0.5); IN("#sl-limpl", at(2, 0.1), 0.5);
+      IN("#sl-im", at(2, 0.15), 0.5); ARROW("#sl-ptr", at(2, 0.2), 0.7);
+      IN("#sl-R", at(2, 0.5), 0.5);
+      IN("#sl-same", at(2, 0.72), 0.4); IN("#sl-samel", at(2, 0.76), 0.4);
+      tl.to(["#sl-L0 rect", "#sl-R0 rect"], { stroke: "#FC6255", duration: 0.3 }, at(2, 0.76));
+      // L3 setOwner 覆盖实现地址
+      IN("#sl-call", at(3, 0.02), 0.4);
+      IN("#sl-dot", at(3, 0.1), 0.2);
+      tl.to("#sl-dot", { attr: { cx: 1640, cy: 412 }, duration: 0.6, ease: "power1.in" }, at(3, 0.12));
+      OUT("#sl-dot", at(3, 0.26), 0.2);
+      OUT("#sl-limpl", at(3, 0.32), 0.2); IN("#sl-lbob", at(3, 0.34), 0.3);
+      tl.to(["#sl-L0", "#sl-lbob"], { x: 6, duration: 0.05, yoyo: true, repeat: 5 }, at(3, 0.4));
+      tl.to("#sl-ptr", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.55));
+      IN("#sl-brk", at(3, 0.62), 0.3);
+      tl.to("#sl-ptr", { opacity: 0.25, duration: 0.4 }, at(3, 0.7));
+      // L4 EIP-1967：搬到远处
+      ["#sl-brk", "#sl-ptr", "#sl-im", "#sl-same", "#sl-samel", "#sl-call", "#sl-lbob"].forEach(s => OUT(s, at(4, 0), 0.4));
+      tl.to(["#sl-L0 rect", "#sl-R0 rect"], { stroke: "#58C4DD", duration: 0.3 }, at(4, 0.05));
+      IN("#sl-fly", at(4, 0.1), 0.3);
+      IN("#sl-zig", at(4, 0.2), 0.5);
+      tl.to("#sl-flyo", { y: 500, duration: 1.2, ease: "power2.inOut" }, at(4, 0.25));
+      tl.to("#sl-flyr", { stroke: "#83C167", duration: 0.4 }, at(4, 0.55));
+      IN("#sl-1967", at(4, 0.62), 0.5);
+      // L5 公式
+      IN("#sl-f", at(5, 0.1), 0.6, { x: 30 }, { x: 0 });
+      tl.to("#sl-f text", { fill: "#83C167", duration: 0.4 }, at(5, 0.6));
+      tl.to("#sl-zig", { opacity: 0.5, duration: 0.3, yoyo: true, repeat: 3 }, at(5, 0.7));
+      // L6 都用这一格
+      IN("#sl-b1", at(6, 0.05), 0.5, { x: 300 }, { x: 0 });
+      IN("#sl-b2", at(6, 0.25), 0.5, { x: 300 }, { x: 0 });
+      IN("#sl-use", at(6, 0.5), 0.5);
+
+
+      tl.to("#sl-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#sl-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["slots"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,301 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 units，id 前缀 un- -->
+  <div id="root" data-composition-id="units" data-duration="69.47" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="un-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="un-all">
+<g id="un-pn" class="h">
+<rect x="70" y="230" width="1000" height="554" rx="14" fill="#161a22" stroke="#2a3040" stroke-width="2" />
+<circle cx="98" cy="256" r="7" fill="#4a4f5a" /><circle cx="122" cy="256" r="7" fill="#4a4f5a" /><circle cx="146" cy="256" r="7" fill="#4a4f5a" />
+<text x="1046" y="268" font-size="28" fill="#6b6f7a" text-anchor="end">节选</text>
+</g>
+<g id="un-hl" class="h"><rect id="un-hlbg" x="72" y="0" width="996" height="40" fill="#58C4DD" fill-opacity="0.12" /><rect id="un-hlbar" x="72" y="0" width="6" height="40" fill="#58C4DD" /></g>
+<g id="un-k1" class="h">
+<text id="un-k1-l0" x="110" y="315" font-size="28" xml:space="preserve"><tspan class="mono" fill="#B48EF0">func</tspan><tspan class="mono" fill="#e8e6df"> FormatUnits(v </tspan><tspan class="mono" fill="#58C4DD">*big.Int</tspan><tspan class="mono" fill="#e8e6df">, decimals </tspan><tspan class="mono" fill="#58C4DD">int</tspan><tspan class="mono" fill="#e8e6df">) </tspan><tspan class="mono" fill="#58C4DD">string</tspan><tspan class="mono" fill="#e8e6df"> {</tspan></text>
+<text id="un-k1-l1" x="110" y="355" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">  abs := new(</tspan><tspan class="mono" fill="#58C4DD">big.Int</tspan><tspan class="mono" fill="#e8e6df">).Abs(v)</tspan></text>
+<text id="un-k1-l2" x="110" y="395" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">  d := big.NewInt(</tspan><tspan class="mono" fill="#58C4DD">int64</tspan><tspan class="mono" fill="#e8e6df">(decimals))</tspan></text>
+<text id="un-k1-l3" x="110" y="435" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">  base := new(</tspan><tspan class="mono" fill="#58C4DD">big.Int</tspan><tspan class="mono" fill="#e8e6df">).Exp(big.NewInt(</tspan><tspan class="mono" fill="#F0B90B">10</tspan><tspan class="mono" fill="#e8e6df">), d, </tspan><tspan class="mono" fill="#B48EF0">nil</tspan><tspan class="mono" fill="#e8e6df">)</tspan></text>
+<text id="un-k1-l4" x="110" y="475" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">  q, r := new(</tspan><tspan class="mono" fill="#58C4DD">big.Int</tspan><tspan class="mono" fill="#e8e6df">).QuoRem(abs, base, new(</tspan><tspan class="mono" fill="#58C4DD">big.Int</tspan><tspan class="mono" fill="#e8e6df">))</tspan></text>
+<text id="un-k1-l5" x="110" y="515" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">  s := q.String()</tspan></text>
+<text id="un-k1-l6" x="110" y="555" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">  </tspan><tspan class="mono" fill="#B48EF0">if</tspan><tspan class="mono" fill="#e8e6df"> r.Sign() != </tspan><tspan class="mono" fill="#F0B90B">0</tspan><tspan class="mono" fill="#e8e6df"> {</tspan></text>
+<text id="un-k1-l7" x="110" y="595" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">    frac := fmt.Sprintf(</tspan><tspan class="mono" fill="#83C167">"%0*s"</tspan><tspan class="mono" fill="#e8e6df">, decimals, r.String())</tspan></text>
+<text id="un-k1-l8" x="110" y="635" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">    s += </tspan><tspan class="mono" fill="#83C167">"."</tspan><tspan class="mono" fill="#e8e6df"> + strings.TrimRight(frac, </tspan><tspan class="mono" fill="#83C167">"0"</tspan><tspan class="mono" fill="#e8e6df">)</tspan></text>
+<text id="un-k1-l9" x="110" y="675" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">  }</tspan></text>
+<text id="un-k1-l10" x="110" y="715" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">  </tspan><tspan class="mono" fill="#B48EF0">return</tspan><tspan class="mono" fill="#e8e6df"> s</tspan></text>
+<text id="un-k1-l11" x="110" y="755" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">}</tspan></text>
+</g>
+<g id="un-k2" class="h">
+<text id="un-k2-l0" x="110" y="315" font-size="28" xml:space="preserve"><tspan class="mono" fill="#6b6f7a">// ParseUnits</tspan></text>
+<text id="un-k2-l1" x="110" y="355" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">s = strings.TrimSpace(s)</tspan></text>
+<text id="un-k2-l2" x="110" y="395" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">intPart, frac, _ := strings.Cut(s, </tspan><tspan class="mono" fill="#83C167">"."</tspan><tspan class="mono" fill="#e8e6df">)</tspan></text>
+<text id="un-k2-l3" x="110" y="435" font-size="28" xml:space="preserve"><tspan class="mono" fill="#B48EF0">if</tspan><tspan class="mono" fill="#e8e6df"> len(frac) &gt; decimals {</tspan></text>
+<text id="un-k2-l4" x="110" y="475" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">  </tspan><tspan class="mono" fill="#B48EF0">return</tspan><tspan class="mono" fill="#e8e6df"> </tspan><tspan class="mono" fill="#B48EF0">nil</tspan><tspan class="mono" fill="#e8e6df">, ErrBadAmount</tspan></text>
+<text id="un-k2-l5" x="110" y="515" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">}</tspan></text>
+<text id="un-k2-l6" x="110" y="555" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">frac += strings.Repeat(</tspan><tspan class="mono" fill="#83C167">"0"</tspan><tspan class="mono" fill="#e8e6df">, decimals-len(frac))</tspan></text>
+<text id="un-k2-l7" x="110" y="595" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">v, ok := new(</tspan><tspan class="mono" fill="#58C4DD">big.Int</tspan><tspan class="mono" fill="#e8e6df">).SetString(intPart+frac, </tspan><tspan class="mono" fill="#F0B90B">10</tspan><tspan class="mono" fill="#e8e6df">)</tspan></text>
+<text id="un-k2-l8" x="110" y="635" font-size="28" xml:space="preserve"><tspan class="mono" fill="#B48EF0">if</tspan><tspan class="mono" fill="#e8e6df"> !ok || intPart == </tspan><tspan class="mono" fill="#83C167">""</tspan><tspan class="mono" fill="#e8e6df"> {</tspan></text>
+<text id="un-k2-l9" x="110" y="675" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">  </tspan><tspan class="mono" fill="#B48EF0">return</tspan><tspan class="mono" fill="#e8e6df"> </tspan><tspan class="mono" fill="#B48EF0">nil</tspan><tspan class="mono" fill="#e8e6df">, ErrBadAmount</tspan></text>
+<text id="un-k2-l10" x="110" y="715" font-size="28" xml:space="preserve"><tspan class="mono" fill="#e8e6df">}</tspan></text>
+<text id="un-k2-l11" x="110" y="755" font-size="28" xml:space="preserve"><tspan class="mono" fill="#B48EF0">return</tspan><tspan class="mono" fill="#e8e6df"> v, </tspan><tspan class="mono" fill="#B48EF0">nil</tspan></text>
+</g>
+<text id="un-n10" class="h" x="90" y="850" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="400">10 的 decimals 次方做除数</text>
+<text id="un-n11" class="h" x="90" y="850" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="400">整数除法：商和余数</text>
+<text id="un-n12" class="h" x="90" y="850" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="400">余数左侧补 0 到 decimals 位</text>
+<text id="un-n13" class="h" x="90" y="850" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="400">去掉末尾的 0</text>
+<text id="un-n14" class="h" x="90" y="850" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="400">负数先取绝对值（负号分支省略）</text>
+<text id="un-n20" class="h" x="90" y="850" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="400">去掉首尾空格</text>
+<text id="un-n21" class="h" x="90" y="850" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="400">从小数点切开</text>
+<text id="un-n22" class="h" x="90" y="850" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="400">小数位超过精度：报错</text>
+<text id="un-n23" class="h" x="90" y="850" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="400">右侧补 0 到 decimals 位</text>
+<text id="un-n24" class="h" x="90" y="850" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="400">拼接后转成大整数</text>
+<g id="un-cv" class="h">
+<rect x="1110" y="450" width="270" height="110" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+<text class="mono" x="1245" y="519" font-size="40" fill="#F0B90B" text-anchor="middle">1500000</text>
+<text x="1245" y="610" font-size="28" fill="#8a8f99" text-anchor="middle">链上整数</text>
+<rect x="1580" y="450" width="270" height="110" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+<text class="mono" x="1715" y="519" font-size="40" fill="#e8e6df" text-anchor="middle">1.5</text>
+<text x="1715" y="610" font-size="28" fill="#8a8f99" text-anchor="middle">人能读的小数</text>
+<text class="mono" x="1480" y="424" font-size="28" fill="#58C4DD" text-anchor="middle">FormatUnits</text>
+<text class="mono" x="1480" y="618" font-size="28" fill="#58C4DD" text-anchor="middle">ParseUnits</text>
+</g>
+<path id="un-cva" class="dr h" pathLength="1" d="M1394 482 L1564 482" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#un-arr)" />
+<path id="un-cvb" class="dr h" pathLength="1" d="M1566 530 L1396 530" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#un-arr)" />
+<text id="un-a1" class="h mono" x="1130" y="310" font-size="36" fill="#58C4DD" text-anchor="start" font-weight="400" xml:space="preserve">base = 1000000</text>
+<text id="un-a2" class="h mono" x="1130" y="410" font-size="44" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">1050000</text>
+<text id="un-a2t" class="h" x="1330" y="408" font-size="30" fill="#8a8f99" text-anchor="start" font-weight="400">÷ base</text>
+<g id="un-a3" class="h">
+<rect x="1130" y="470" width="110" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+<text class="mono" x="1185" y="524" font-size="40" fill="#e8e6df" text-anchor="middle">1</text>
+<rect x="1290" y="470" width="220" height="80" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+<text class="mono" x="1400" y="524" font-size="40" fill="#F0B90B" text-anchor="middle">50000</text>
+<text x="1185" y="590" font-size="28" fill="#8a8f99" text-anchor="middle">商</text>
+<text x="1400" y="590" font-size="28" fill="#8a8f99" text-anchor="middle">余数</text>
+</g>
+<text id="un-p0" class="h mono" x="1130" y="690" font-size="40" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-p1" class="h mono" x="1154" y="690" font-size="40" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">5</text>
+<text id="un-p2" class="h mono" x="1178" y="690" font-size="40" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-p3" class="h mono" x="1202" y="690" font-size="40" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-p4" class="h mono" x="1226" y="690" font-size="40" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-p5" class="h mono" x="1250" y="690" font-size="40" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-pt1" class="h" x="1330" y="688" font-size="30" fill="#FF9F43" text-anchor="start" font-weight="400">左侧补 0</text>
+<text id="un-pt2" class="h" x="1330" y="688" font-size="30" fill="#FC6255" text-anchor="start" font-weight="400">去掉末尾 0</text>
+<g id="un-a5" class="h">
+<rect x="1120" y="800" width="290" height="90" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+<text class="mono" x="1265" y="860" font-size="44" fill="#F0B90B" text-anchor="middle">1.05</text>
+</g>
+<text id="un-a6" class="h mono" x="1440" y="862" font-size="44" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">-1.05</text>
+<text id="un-a6t" class="h" x="1600" y="860" font-size="28" fill="#8a8f99" text-anchor="start" font-weight="400">负号最后补上</text>
+<text id="un-b0" class="h" x="1130" y="300" font-size="34" fill="#FF9F43" text-anchor="start" font-weight="700">算一算</text>
+<text id="un-b1" class="h mono" x="1130" y="400" font-size="40" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">1234500 ÷ 10^6</text>
+<text id="un-b2" class="h mono" x="1130" y="500" font-size="40" fill="#e8e6df" text-anchor="start" font-weight="400" xml:space="preserve">= 1 … 234500</text>
+<text id="un-b2t" class="h" x="1500" y="498" font-size="28" fill="#8a8f99" text-anchor="start" font-weight="400">商 1 · 余数 234500</text>
+<text id="un-b3" class="h mono" x="1130" y="600" font-size="40" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">234500</text>
+<text id="un-b3t" class="h" x="1330" y="598" font-size="28" fill="#8a8f99" text-anchor="start" font-weight="400">已够 6 位</text>
+<text id="un-b4" class="h mono" x="1130" y="700" font-size="40" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">2345</text>
+<text id="un-b4z" class="h mono" x="1226" y="700" font-size="40" fill="#FC6255" text-anchor="start" font-weight="400" xml:space="preserve">00</text>
+<text id="un-b4t" class="h" x="1330" y="698" font-size="28" fill="#8a8f99" text-anchor="start" font-weight="400">去掉末尾 0</text>
+<g id="un-b5" class="h">
+<rect x="1120" y="790" width="320" height="96" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+<text class="mono" x="1280" y="853" font-size="44" fill="#F0B90B" text-anchor="middle">"1.2345"</text>
+</g>
+<text id="un-c1" class="h mono" x="1130" y="330" font-size="44" fill="#e8e6df" text-anchor="start" font-weight="400" xml:space="preserve">" 1.5 "</text>
+<text id="un-c2" class="h mono" x="1130" y="440" font-size="44" fill="#e8e6df" text-anchor="start" font-weight="400" xml:space="preserve">"1.5"</text>
+<text id="un-c2t" class="h" x="1560" y="438" font-size="28" fill="#8a8f99" text-anchor="start" font-weight="400">去掉首尾空格</text>
+<g id="un-c3" class="h">
+<rect x="1130" y="500" width="90" height="76" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+<text class="mono" x="1175" y="552" font-size="40" fill="#e8e6df" text-anchor="middle">1</text>
+<rect x="1260" y="500" width="90" height="76" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+<text class="mono" x="1305" y="552" font-size="40" fill="#e8e6df" text-anchor="middle">5</text>
+</g>
+<text id="un-c3t" class="h" x="1560" y="548" font-size="28" fill="#8a8f99" text-anchor="start" font-weight="400">在小数点切开</text>
+<text id="un-q0" class="h mono" x="1130" y="670" font-size="40" fill="#e8e6df" text-anchor="start" font-weight="400" xml:space="preserve">5</text>
+<text id="un-q1" class="h mono" x="1154" y="670" font-size="40" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-q2" class="h mono" x="1178" y="670" font-size="40" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-q3" class="h mono" x="1202" y="670" font-size="40" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-q4" class="h mono" x="1226" y="670" font-size="40" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-q5" class="h mono" x="1250" y="670" font-size="40" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-c4t" class="h" x="1560" y="668" font-size="28" fill="#8a8f99" text-anchor="start" font-weight="400">右侧补 0 到 6 位</text>
+<g id="un-c5" class="h">
+<rect x="1120" y="740" width="300" height="96" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+<text class="mono" x="1270" y="803" font-size="44" fill="#F0B90B" text-anchor="middle">1500000</text>
+</g>
+<text id="un-c5t" class="h" x="1560" y="798" font-size="28" fill="#8a8f99" text-anchor="start" font-weight="400">拼接成大整数</text>
+<text id="un-d1" class="h mono" x="1130" y="330" font-size="44" fill="#e8e6df" text-anchor="start" font-weight="400" xml:space="preserve">"0.05"</text>
+<text id="un-d1t" class="h" x="1330" y="328" font-size="30" fill="#8a8f99" text-anchor="start" font-weight="400">精度 18</text>
+<g id="un-d2" class="h">
+<rect x="1130" y="390" width="90" height="76" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+<text class="mono" x="1175" y="442" font-size="40" fill="#e8e6df" text-anchor="middle">0</text>
+<rect x="1260" y="390" width="110" height="76" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+<text class="mono" x="1315" y="442" font-size="40" fill="#e8e6df" text-anchor="middle">05</text>
+</g>
+<text id="un-z0" class="h mono" x="1130.0" y="570" font-size="36" fill="#e8e6df" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z1" class="h mono" x="1151.6" y="570" font-size="36" fill="#e8e6df" text-anchor="start" font-weight="400" xml:space="preserve">5</text>
+<text id="un-z2" class="h mono" x="1173.2" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z3" class="h mono" x="1194.8" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z4" class="h mono" x="1216.4" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z5" class="h mono" x="1238.0" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z6" class="h mono" x="1259.6" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z7" class="h mono" x="1281.2" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z8" class="h mono" x="1302.8" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z9" class="h mono" x="1324.4" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z10" class="h mono" x="1346.0" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z11" class="h mono" x="1367.6" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z12" class="h mono" x="1389.2" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z13" class="h mono" x="1410.8" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z14" class="h mono" x="1432.4" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z15" class="h mono" x="1454.0" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z16" class="h mono" x="1475.6" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-z17" class="h mono" x="1497.2" y="570" font-size="36" fill="#FF9F43" text-anchor="start" font-weight="400" xml:space="preserve">0</text>
+<text id="un-dct" class="h" x="1130" y="640" font-size="28" fill="#8a8f99" text-anchor="start" font-weight="400">小数位数</text>
+<text id="un-dc" class="h mono" x="1250" y="642" font-size="34" fill="#FF9F43">2</text>
+<text id="un-dct2" class="h" x="1300" y="640" font-size="28" fill="#8a8f99" text-anchor="start" font-weight="400">/ 18</text>
+<text id="un-d4" class="h mono" x="1130" y="760" font-size="36" fill="#F0B90B" text-anchor="start" font-weight="400" xml:space="preserve">50000000000000000</text>
+<g id="un-d5" class="h">
+<rect x="1120" y="810" width="440" height="90" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+<text class="mono" x="1340" y="869" font-size="40" fill="#F0B90B" text-anchor="middle">5 × 10^16 wei</text>
+</g>
+<g id="un-e1" class="h">
+<rect x="1110" y="360" width="260" height="76" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+<text x="1240" y="409" font-size="30" fill="#e8e6df" text-anchor="middle">小数位过多</text>
+</g>
+<g id="un-e2" class="h">
+<rect x="1110" y="560" width="320" height="76" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+<text x="1270" y="609" font-size="30" fill="#e8e6df" text-anchor="middle">整数为空 / 非法字符</text>
+</g>
+<path id="un-ea1" class="dr h" pathLength="1" d="M1376 400 C1460 400 1470 470 1528 478" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#un-arr)" />
+<path id="un-ea2" class="dr h" pathLength="1" d="M1436 596 C1490 596 1490 528 1528 520" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#un-arr)" />
+<g id="un-e3" class="h">
+<rect x="1540" y="455" width="300" height="86" rx="12" fill="#2a1416" stroke="#FC6255" stroke-width="3" />
+<text class="mono" x="1690" y="510" font-size="32" fill="#FC6255" text-anchor="middle">ErrBadAmount</text>
+</g>
+<text id="un-e3t" class="h" x="1690" y="590" font-size="28" fill="#8a8f99" text-anchor="middle">金额不合法</text>
+<rect id="un-scan" class="h" x="1540" y="455" width="40" height="86" fill="#58C4DD" fill-opacity="0.35" />
+<text id="un-e4" class="h mono" x="1130" y="760" font-size="30" fill="#58C4DD" text-anchor="start" font-weight="400" xml:space="preserve">errors.Is(err, ErrBadAmount)</text>
+<text id="un-e5" class="h" x="1660" y="760" font-size="40" fill="#83C167" text-anchor="start" font-weight="700">✓</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // 代码逐行高亮
+      const HLON = (top, t) => { tl.set(["#un-hlbg", "#un-hlbar"], { attr: { y: top } }, t); IN("#un-hl", t, 0.3); };
+      const HL = (grp, n, i, top, t, lh = LH) => {
+        tl.to(["#un-hlbg", "#un-hlbar"], { attr: { y: top + i * lh }, duration: 0.35, ease: "power2.inOut" }, t);
+        for (let k = 0; k < n; k++) tl.to(`#${grp}-l${k}`, { opacity: k === i ? 1 : 0.55, duration: 0.3 }, t);
+      };
+      // 文字换一条：旧的先淡出，再出新的
+      const SWAP = (a, b, t) => { if (a) OUT(a, t, 0.3); IN(b, t + 0.35, 0.4); };
+
+      const LH = 40, TOP = 286;
+      // L0 双向转换器
+      IN("#un-cv", at(0, 0.05), 0.6);
+      ARROW("#un-cva", at(0, 0.45), 0.6);
+      ARROW("#un-cvb", at(0, 0.7), 0.6);
+      OUT(["#un-cv", "#un-cva", "#un-cvb"], at(1, 0) - 0.1, 0.35);
+      // L1 FormatUnits
+      IN("#un-pn", at(0, 0.6), 0.6);
+      IN("#un-k1", at(0, 0.7), 0.6);
+      HLON(TOP + 3 * LH, at(1, 0.03)); HL("un-k1", 12, 3, TOP, at(1, 0.03));
+      IN("#un-n10", at(1, 0.05), 0.4);
+      IN("#un-a1", at(1, 0.08), 0.5, { x: -20 }, { x: 0 });
+      HL("un-k1", 12, 4, TOP, at(1, 0.2)); SWAP("#un-n10", "#un-n11", at(1, 0.2));
+      IN(["#un-a2", "#un-a2t"], at(1, 0.2), 0.5);
+      IN("#un-a3", at(1, 0.3), 0.6, { y: -30 }, { y: 0 });
+      HL("un-k1", 12, 7, TOP, at(1, 0.44)); SWAP("#un-n11", "#un-n12", at(1, 0.44));
+      IN(["#un-p1", "#un-p2", "#un-p3", "#un-p4", "#un-p5"], at(1, 0.46), 0.5);
+      IN("#un-p0", at(1, 0.52), 0.5, { x: -40 }, { x: 0 });
+      IN("#un-pt1", at(1, 0.52), 0.4);
+      HL("un-k1", 12, 8, TOP, at(1, 0.62)); SWAP("#un-n12", "#un-n13", at(1, 0.62));
+      SWAP("#un-pt1", "#un-pt2", at(1, 0.62));
+      tl.to(["#un-p2", "#un-p3", "#un-p4", "#un-p5"], { fill: "#FC6255", duration: 0.3 }, at(1, 0.64));
+      tl.to(["#un-p2", "#un-p3", "#un-p4", "#un-p5"], { opacity: 0, y: 20, duration: 0.5, stagger: 0.08 }, at(1, 0.68));
+      IN("#un-a5", at(1, 0.74), 0.6);
+      HL("un-k1", 12, 1, TOP, at(1, 0.82)); SWAP("#un-n13", "#un-n14", at(1, 0.82));
+      IN(["#un-a6", "#un-a6t"], at(1, 0.88), 0.5, { x: 30 }, { x: 0 });
+      // L2 算一算
+      OUT(["#un-a1", "#un-a2", "#un-a2t", "#un-a3", "#un-p0", "#un-p1", "#un-pt2", "#un-a5", "#un-a6", "#un-a6t", "#un-n14"], at(2, 0) - 0.2, 0.35);
+      IN("#un-b0", at(2, 0.04), 0.4);
+      IN("#un-b1", at(2, 0.12), 0.5);
+      HL("un-k1", 12, 4, TOP, at(2, 0.3));
+      IN("#un-b2", at(2, 0.3), 0.5); IN("#un-b2t", at(2, 0.36), 0.4);
+      HL("un-k1", 12, 7, TOP, at(2, 0.55));
+      IN(["#un-b3", "#un-b3t"], at(2, 0.55), 0.5);
+      HL("un-k1", 12, 8, TOP, at(2, 0.7));
+      IN(["#un-b4", "#un-b4z", "#un-b4t"], at(2, 0.68), 0.5);
+      tl.to("#un-b4z", { opacity: 0, y: 20, duration: 0.5 }, at(2, 0.78));
+      HL("un-k1", 12, 10, TOP, at(2, 0.88));
+      IN("#un-b5", at(2, 0.86), 0.6, { y: 20 }, { y: 0 });
+      // L3 ParseUnits
+      OUT(["#un-b0", "#un-b1", "#un-b2", "#un-b2t", "#un-b3", "#un-b3t", "#un-b4", "#un-b4t", "#un-b5", "#un-k1", "#un-hl"], at(3, 0) - 0.3, 0.35);
+      IN("#un-k2", at(3, 0.02), 0.5);
+      HLON(TOP + LH, at(3, 0.05)); HL("un-k2", 12, 1, TOP, at(3, 0.05));
+      IN("#un-n20", at(3, 0.03), 0.4);
+      IN("#un-c1", at(3, 0.05), 0.5);
+      IN(["#un-c2", "#un-c2t"], at(3, 0.14), 0.5);
+      HL("un-k2", 12, 2, TOP, at(3, 0.19)); SWAP("#un-n20", "#un-n21", at(3, 0.17));
+      IN(["#un-c3", "#un-c3t"], at(3, 0.27), 0.5, { y: -20 }, { y: 0 });
+      HL("un-k2", 12, 3, TOP, at(3, 0.35)); SWAP("#un-n21", "#un-n22", at(3, 0.33));
+      HL("un-k2", 12, 6, TOP, at(3, 0.56)); SWAP("#un-n22", "#un-n23", at(3, 0.52));
+      IN("#un-q0", at(3, 0.62), 0.4);
+      IN(["#un-q1", "#un-q2", "#un-q3", "#un-q4", "#un-q5"], at(3, 0.66), 0.4, { x: 30 }, { x: 0, stagger: 0.12 });
+      IN("#un-c4t", at(3, 0.66), 0.4);
+      HL("un-k2", 12, 7, TOP, at(3, 0.8)); SWAP("#un-n23", "#un-n24", at(3, 0.76));
+      IN(["#un-c5", "#un-c5t"], at(3, 0.76), 0.6, { y: 20 }, { y: 0 });
+      // L4 0.05 精度 18
+      OUT(["#un-c1", "#un-c2", "#un-c2t", "#un-c3", "#un-c3t", "#un-q0", "#un-q1", "#un-q2", "#un-q3", "#un-q4", "#un-q5", "#un-c4t", "#un-c5", "#un-c5t"], at(4, 0) - 0.2, 0.35); OUT("#un-n24", at(4, 0.08), 0.3);
+      HL("un-k2", 12, 2, TOP, at(4, 0.1));
+      IN(["#un-d1", "#un-d1t"], at(4, 0.04), 0.5);
+      IN("#un-d2", at(4, 0.22), 0.5, { y: -20 }, { y: 0 });
+      HL("un-k2", 12, 6, TOP, at(4, 0.38));
+      IN(["#un-z0", "#un-z1", "#un-dct", "#un-dc", "#un-dct2"], at(4, 0.36), 0.4);
+      IN(["#un-z2","#un-z3","#un-z4","#un-z5","#un-z6","#un-z7","#un-z8","#un-z9","#un-z10","#un-z11","#un-z12","#un-z13","#un-z14","#un-z15","#un-z16","#un-z17"], at(4, 0.42), 0.25, { y: -16 }, { y: 0, stagger: 0.13 });
+      COUNT("#un-dc", 2, 18, at(4, 0.42), 2.2);
+      HL("un-k2", 12, 7, TOP, at(4, 0.72));
+      IN("#un-d4", at(4, 0.7), 0.5);
+      IN("#un-d5", at(4, 0.84), 0.6, { y: 20 }, { y: 0 });
+      // L5 ErrBadAmount
+      OUT(["#un-d1", "#un-d1t", "#un-d2", "#un-z0","#un-z1","#un-z2","#un-z3","#un-z4","#un-z5","#un-z6","#un-z7","#un-z8","#un-z9","#un-z10","#un-z11","#un-z12","#un-z13","#un-z14","#un-z15","#un-z16","#un-z17", "#un-dct", "#un-dc", "#un-dct2", "#un-d4", "#un-d5"], at(5, 0) - 0.2, 0.35);
+      HL("un-k2", 12, 4, TOP, at(5, 0.05));
+      IN("#un-e1", at(5, 0.04), 0.4);
+      HL("un-k2", 12, 9, TOP, at(5, 0.22));
+      IN("#un-e2", at(5, 0.2), 0.4);
+      IN(["#un-e3", "#un-e3t"], at(5, 0.3), 0.5);
+      ARROW("#un-ea1", at(5, 0.32), 0.5); ARROW("#un-ea2", at(5, 0.36), 0.5);
+      IN("#un-e4", at(5, 0.6), 0.5);
+      tl.fromTo("#un-scan", { opacity: 0, x: 0 }, { opacity: 1, duration: 0.2 }, at(5, 0.7));
+      tl.to("#un-scan", { x: 260, duration: 0.8, ease: "power1.inOut" }, at(5, 0.7));
+      tl.to("#un-scan", { opacity: 0, duration: 0.2 }, at(5, 0.7) + 0.8);
+      IN("#un-e5", at(5, 0.86), 0.4);
+
+
+      tl.to("#un-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["units"] = tl;
+    })();
+  </script>
+</template>

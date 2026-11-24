@@ -1,0 +1,293 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 race，id 前缀 ra- -->
+  <!-- 泳道沿用 flow：中心 300 / 700 / 1100，泳道头 y 210–270，生命线到 y 1000，左侧 x 60 时间刻度；
+       代币合约放在右侧 x 1340–1860（状态板 + 生命线 x 1600） -->
+  <div id="root" data-composition-id="race" data-duration="73.36" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ra-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="ra-arr-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="ra-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="ra-arr-gr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+      </defs>
+      <g id="ra-all">
+        <g id="ra-lanes">
+          <!-- 泳道头 -->
+          <g id="ra-hd1" class="h">
+            <rect x="120" y="210" width="360" height="60" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <circle cx="170" cy="232" r="9" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <path d="M156 258 Q156 244 170 244 Q184 244 184 258 Z" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="200" y="250" font-size="28" font-weight="700" fill="#e8e6df">Alice</text>
+          </g>
+          <g id="ra-hd2" class="h">
+            <rect x="520" y="210" width="360" height="60" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="10 6" />
+            <rect x="560" y="226" width="26" height="12" rx="2" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+            <rect x="560" y="244" width="26" height="12" rx="2" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="604" y="250" font-size="28" font-weight="700" fill="#FF9F43">内存池</text>
+          </g>
+          <g id="ra-hd3" class="h">
+            <rect id="ra-hd3r" x="920" y="210" width="360" height="60" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <circle id="ra-bobc" cx="970" cy="232" r="9" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <path id="ra-bobb" d="M956 258 Q956 244 970 244 Q984 244 984 258 Z" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <text id="ra-bobt" x="1000" y="250" font-size="28" font-weight="700" fill="#e8e6df">Bob（被授权方）</text>
+          </g>
+          <g id="ra-hd4" class="h">
+            <rect x="1340" y="210" width="520" height="60" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <ellipse cx="1392" cy="228" rx="13" ry="5" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <path d="M1379 228 V252 A13 5 0 0 0 1405 252 V228" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1424" y="250" font-size="28" font-weight="700" fill="#58C4DD">代币合约</text>
+          </g>
+          <line id="ra-ll1" class="h" x1="300" y1="272" x2="300" y2="1000" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 8" />
+          <line id="ra-ll2" class="h" x1="700" y1="620" x2="700" y2="1000" stroke="#FF9F43" stroke-width="2" stroke-dasharray="8 8" />
+          <line id="ra-ll3" class="h" x1="1100" y1="272" x2="1100" y2="1000" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 8" />
+          <line id="ra-ll4" class="h" x1="1600" y1="600" x2="1600" y2="1000" stroke="#58C4DD" stroke-width="2" stroke-dasharray="8 8" />
+          <!-- 内存池框 -->
+          <rect id="ra-pool" class="h" x="530" y="290" width="340" height="320" rx="14" fill="#FF9F43" fill-opacity="0.05" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="10 7" />
+          <!-- 时间刻度 -->
+          <g id="ra-time" class="h">
+            <line x1="60" y1="640" x2="60" y2="1000" stroke="#3a3f4a" stroke-width="2" />
+            <line x1="60" y1="660" x2="76" y2="660" stroke="#8a8f99" stroke-width="2" />
+            <line x1="60" y1="770" x2="76" y2="770" stroke="#8a8f99" stroke-width="2" />
+            <line x1="60" y1="880" x2="76" y2="880" stroke="#8a8f99" stroke-width="2" />
+            <text x="72" y="704" font-size="28" fill="#8a8f99">区块 N</text>
+            <text x="72" y="814" font-size="28" fill="#8a8f99">区块 N+1</text>
+            <text x="72" y="924" font-size="28" fill="#8a8f99">区块 N+2</text>
+          </g>
+          <!-- 合约状态板 -->
+          <g id="ra-board" class="h">
+            <rect x="1360" y="300" width="480" height="130" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+            <text x="1385" y="340" font-size="28" font-weight="700" fill="#FF9F43">授权表</text>
+            <line x1="1360" y1="354" x2="1840" y2="354" stroke="#FF9F43" stroke-width="1.2" opacity="0.4" />
+            <text class="mono" x="1385" y="400" font-size="28" fill="#e8e6df">Alice → Bob</text>
+            <rect x="1360" y="450" width="480" height="130" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+            <text x="1385" y="490" font-size="28" font-weight="700" fill="#58C4DD">余额表</text>
+            <line x1="1360" y1="504" x2="1840" y2="504" stroke="#58C4DD" stroke-width="1.2" opacity="0.4" />
+            <text class="mono" x="1385" y="550" font-size="28" fill="#e8e6df">Bob</text>
+          </g>
+          <g id="ra-vals" class="h">
+            <text id="ra-al" class="mono" x="1815" y="400" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="end">100</text>
+            <text id="ra-bb" class="mono" x="1815" y="550" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="end">0</text>
+          </g>
+
+          <!-- L1 Alice 的 approve 进内存池 -->
+          <g id="ra-top">
+            <path id="ra-m1" class="dr h" pathLength="1" d="M300 360 L522 360" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#ra-arr-o)" />
+            <g id="ra-cA">
+              <g id="ra-cAin" class="h">
+                <rect x="525" y="0" width="350" height="56" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+                <text class="mono" x="700" y="38" font-size="28" fill="#FF9F43" text-anchor="middle">approve(Bob, 50)</text>
+              </g>
+            </g>
+            <text id="ra-pend" class="h" x="700" y="586" font-size="28" fill="#8a8f99" text-anchor="middle">未上链</text>
+            <!-- L2 Bob 盯着内存池 -->
+            <g id="ra-eye" class="h">
+              <path d="M1060 340 Q1100 304 1140 340 Q1100 376 1060 340 Z" fill="none" stroke="#FC6255" stroke-width="3" />
+              <circle cx="1100" cy="340" r="10" fill="#FC6255" />
+            </g>
+            <polygon id="ra-beam" class="h" points="1056,340 872,300 872,600" fill="#FC6255" fill-opacity="0.10" />
+            <path id="ra-m2" class="dr h" pathLength="1" d="M1100 448 L878 448" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ra-arr-r)" />
+            <text id="ra-tip" class="h" x="990" y="428" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">小费 ↑</text>
+            <g id="ra-cB">
+              <g id="ra-cBin" class="h">
+                <rect x="525" y="0" width="350" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+                <text class="mono" x="700" y="38" font-size="28" fill="#FC6255" text-anchor="middle">transferFrom 100</text>
+              </g>
+            </g>
+          </g>
+
+          <!-- L3 三个区块 -->
+          <path id="ra-b1" class="dr h" pathLength="1" d="M700 690 L1592 690" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ra-arr-r)" />
+          <g id="ra-b1l" class="h">
+            <rect x="980" y="640" width="360" height="40" fill="#0f1117" />
+            <text class="mono" x="1160" y="670" font-size="28" fill="#FC6255" text-anchor="middle">transferFrom(…, 100)</text>
+          </g>
+          <path id="ra-b2" class="dr h" pathLength="1" d="M700 800 L1592 800" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#ra-arr-o)" />
+          <g id="ra-b2l" class="h">
+            <rect x="1010" y="750" width="300" height="40" fill="#0f1117" />
+            <text class="mono" x="1160" y="780" font-size="28" fill="#FF9F43" text-anchor="middle">approve(Bob, 50)</text>
+          </g>
+          <path id="ra-b3" class="dr h" pathLength="1" d="M1100 930 L1592 930" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ra-arr-r)" />
+          <g id="ra-b3l" class="h">
+            <rect x="1170" y="880" width="350" height="40" fill="#0f1117" />
+            <text class="mono" x="1345" y="910" font-size="28" fill="#FC6255" text-anchor="middle">transferFrom(…, 50)</text>
+          </g>
+          <text id="ra-p1" class="h mono" x="1700" y="660" font-size="30" font-weight="700" fill="#F0B90B">+100</text>
+          <text id="ra-p2" class="h mono" x="1700" y="900" font-size="30" font-weight="700" fill="#F0B90B">+50</text>
+          <!-- L4 根因标签 -->
+          <g id="ra-root" class="h">
+            <rect x="760" y="814" width="400" height="42" rx="8" fill="#0f1117" stroke="#FF9F43" stroke-width="2" />
+            <text x="960" y="845" font-size="28" fill="#FF9F43" text-anchor="middle">直接覆盖，不看旧值是否已用</text>
+          </g>
+          <!-- L4 汇总（左上区域） -->
+          <g id="ra-sum" class="h">
+            <text class="mono" x="500" y="400" font-size="72" font-weight="700" fill="#FC6255" text-anchor="middle">100 + 50 = 150</text>
+            <text x="500" y="470" font-size="32" fill="#8a8f99" text-anchor="middle">Alice 两次授权：<tspan class="mono">100</tspan> / <tspan class="mono">50</tspan></text>
+            <text x="500" y="530" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">150 &gt; 任何一次</text>
+          </g>
+          <text id="ra-ex2" class="h" x="500" y="592" font-size="28" fill="#6b6f7a" text-anchor="middle">示例二：200 改 80 → 最多 280</text>
+          <!-- L5 前提 + 防法 -->
+          <rect id="ra-ring" class="h" x="910" y="200" width="380" height="80" rx="16" fill="none" stroke="#FC6255" stroke-width="4" />
+          <g id="ra-pre" class="h"><rect x="944" y="300" width="312" height="44" fill="#0f1117" /><text x="1100" y="332" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">前提：被授权方不可信</text></g>
+          <g id="ra-doc" class="h"><rect x="964" y="362" width="272" height="44" fill="#0f1117" /><text x="1100" y="394" font-size="28" fill="#8a8f99" text-anchor="middle">标准文档专门提示</text></g>
+          <g id="ra-st1" class="h">
+            <rect x="200" y="300" width="600" height="64" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="500" y="343" font-size="30" fill="#83C167" text-anchor="middle">approve(Bob, 0)</text>
+          </g>
+          <path id="ra-sa1" class="dr h" pathLength="1" d="M500 368 L500 400" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#ra-arr-gr)" />
+          <g id="ra-st2" class="h">
+            <rect x="200" y="404" width="600" height="64" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="500" y="447" font-size="30" fill="#83C167" text-anchor="middle">查 <tspan class="mono">allowance</tspan>：旧额度动过没有</text>
+          </g>
+          <path id="ra-sa2" class="dr h" pathLength="1" d="M500 472 L500 504" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#ra-arr-gr)" />
+          <g id="ra-st3" class="h">
+            <rect x="200" y="508" width="600" height="64" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="500" y="551" font-size="30" fill="#83C167" text-anchor="middle">approve(Bob, 50)</text>
+          </g>
+        </g>
+
+        <!-- L6 代码面板 -->
+        <g id="ra-code" class="h">
+          <rect x="140" y="240" width="1120" height="330" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect x="140" y="240" width="4" height="330" fill="#58C4DD" />
+          <text x="180" y="290" font-size="28" fill="#8a8f99">集成方</text>
+          <rect id="ra-hl" x="150" y="316" width="1100" height="42" fill="#58C4DD" fill-opacity="0.15" />
+          <text id="ra-c1" class="mono" x="180" y="346" font-size="28" fill="#6b6f7a">// OpenZeppelin v4: increaseAllowance / decreaseAllowance</text>
+          <text id="ra-c2" class="mono" x="180" y="398" font-size="28" fill="#6b6f7a">// OpenZeppelin v5: removed from ERC20</text>
+          <line id="ra-strike" class="dr" pathLength="1" x1="176" y1="388" x2="830" y2="388" stroke="#FC6255" stroke-width="4" />
+          <text id="ra-c3" class="mono" x="180" y="450" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">using</tspan> SafeERC20 <tspan fill="#58C4DD">for</tspan> IERC20;</text>
+          <text id="ra-c4" class="mono" x="180" y="502" font-size="28" fill="#e8e6df">token.<tspan fill="#83C167">safeIncreaseAllowance</tspan>(spender, <tspan fill="#F0B90B">50</tspan>);</text>
+          <text id="ra-c5" class="mono" x="180" y="554" font-size="28" fill="#e8e6df">token.<tspan fill="#83C167">forceApprove</tspan>(spender, <tspan fill="#F0B90B">50</tspan>);</text>
+        </g>
+        <text id="ra-n1" class="h" x="1300" y="346" font-size="28" fill="#8a8f99">第 4 版提供</text>
+        <text id="ra-n2" class="h" x="1300" y="398" font-size="28" fill="#FC6255">第 5 版已移除</text>
+        <text id="ra-n3" class="h" x="1300" y="528" font-size="28" fill="#83C167">集成方改用这两个</text>
+        <g id="ra-usdt" class="h">
+          <rect x="140" y="630" width="1120" height="150" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="180" y="684" font-size="34" font-weight="700" fill="#FF9F43">主网 USDT</text>
+          <text x="180" y="742" font-size="30" fill="#e8e6df">额度不为 0 时，不能直接改成另一个非 0 值，须先归零</text>
+        </g>
+        <text id="ra-d1" class="h mono" x="1300" y="690" font-size="34" font-weight="700" fill="#FC6255">100 → 50  ✕</text>
+        <text id="ra-d2" class="h mono" x="1300" y="756" font-size="34" font-weight="700" fill="#83C167">100 → 0 → 50  ✓</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ra-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">approve 竞态 <tspan font-size="28" font-weight="400" fill="#8a8f99">Race Condition</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">改授权时被抢先用掉旧额度</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const MSG = (a, lab, t) => { ARROW(a, t, 0.6); IN(lab, t + 0.3, 0.4); };
+      const DIM = (s, t) => tl.to(s, { opacity: 0.3, duration: 0.4 }, t);
+      // 内存池卡槽：上 = 先上链
+      const SLOT1 = 320, SLOT2 = 420;
+      tl.set("#ra-cA", { y: SLOT1 }, 0);
+      tl.set("#ra-cB", { y: SLOT2 }, 0);
+
+      // L0 术语卡 + 泳道
+      IN("#ra-term", at(0, 0.02), 0.5);
+      IN("#ra-hd1", at(0, 0.2), 0.4, { y: -12 }, { y: 0 });
+      IN("#ra-hd2", at(0, 0.27), 0.4, { y: -12 }, { y: 0 });
+      IN("#ra-hd3", at(0, 0.34), 0.4, { y: -12 }, { y: 0 });
+      IN("#ra-hd4", at(0, 0.41), 0.4, { y: -12 }, { y: 0 });
+      [["#ra-ll1", 272], ["#ra-ll2", 620], ["#ra-ll3", 272], ["#ra-ll4", 600]].forEach(([s, y0], k) => {
+        IN(s, at(0, 0.5 + 0.05 * k), 0.1);
+        tl.fromTo(s, { attr: { y2: y0 } }, { attr: { y2: 1000 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(0, 0.5 + 0.05 * k));
+      });
+      IN("#ra-pool", at(0, 0.6), 0.5);
+      IN("#ra-board", at(0, 0.7), 0.5, { x: 20 }, { x: 0 });
+      IN("#ra-vals", at(0, 0.75), 0.4);
+      IN("#ra-time", at(0, 0.8), 0.5);
+      // L1 Alice → 内存池
+      ARROW("#ra-m1", at(1, 0.45), 0.5);
+      IN("#ra-cAin", at(1, 0.5), 0.5, { x: -200 }, { x: 0 });
+      IN("#ra-pend", at(1, 0.7), 0.4);
+      // L2 Bob 盯着，抢先插队
+      OUT("#ra-term", at(2, 0), 0.3);
+      IN("#ra-eye", at(2, 0.15), 0.4);
+      tl.fromTo("#ra-beam", { opacity: 0 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 3, immediateRender: false }, at(2, 0.2));
+      tl.to("#ra-hd3r, #ra-bobc, #ra-bobb", { stroke: "#FC6255", duration: 0.4 }, at(2, 0.35));
+      tl.to("#ra-bobt", { fill: "#FC6255", duration: 0.4 }, at(2, 0.35));
+      MSG("#ra-m2", "#ra-tip", at(2, 0.5));
+      IN("#ra-cBin", at(2, 0.55), 0.5, { x: 200 }, { x: 0 });
+      tl.to("#ra-cB", { y: SLOT1, duration: 0.7, ease: "power2.inOut" }, at(2, 0.75));
+      tl.to("#ra-cA", { y: SLOT2, duration: 0.7, ease: "power2.inOut" }, at(2, 0.75));
+      // L3 区块 N / N+1 / N+2
+      OUT("#ra-eye", at(3, 0), 0.3);
+      DIM("#ra-m1, #ra-m2, #ra-tip", at(3, 0));
+      OUT("#ra-cBin", at(3, 0.02), 0.3);
+      MSG("#ra-b1", "#ra-b1l", at(3, 0.04));
+      COUNT("#ra-al", 100, 0, at(3, 0.12), 0.7);
+      COUNT("#ra-bb", 0, 100, at(3, 0.14), 0.7);
+      IN("#ra-p1", at(3, 0.14), 0.3, { y: 10 }, { y: 0 });
+      OUT("#ra-p1", at(3, 0.3), 0.3);
+      OUT("#ra-cAin, #ra-pend", at(3, 0.36), 0.3);
+      MSG("#ra-b2", "#ra-b2l", at(3, 0.38));
+      COUNT("#ra-al", 0, 50, at(3, 0.46), 0.7);
+      DIM("#ra-b1, #ra-b1l text", at(3, 0.7));
+      MSG("#ra-b3", "#ra-b3l", at(3, 0.72));
+      COUNT("#ra-al", 50, 0, at(3, 0.8), 0.7);
+      COUNT("#ra-bb", 100, 150, at(3, 0.82), 0.7);
+      IN("#ra-p2", at(3, 0.82), 0.3, { y: 10 }, { y: 0 });
+      OUT("#ra-p2", at(3, 0.97), 0.3);
+      // L4 合计 150；根因
+      OUT("#ra-pool, #ra-m1, #ra-m2, #ra-tip, #ra-ll1", at(4, 0), 0.4);
+      IN("#ra-sum", at(4, 0.05), 0.6, { y: 14 }, { y: 0 });
+      tl.to("#ra-bb", { fill: "#FC6255", duration: 0.3, yoyo: true, repeat: 3 }, at(4, 0.1));
+      IN("#ra-root", at(4, 0.55), 0.5, { y: 10 }, { y: 0 });
+      IN("#ra-ex2", at(4, 0.8), 0.5);
+      // L5 前提：被授权方不可信；用户侧防法
+      OUT("#ra-sum, #ra-ex2", at(5, 0), 0.4);
+      IN("#ra-ring", at(5, 0.04), 0.3, { scale: 1.15, svgOrigin: "1100 240" }, { scale: 1, svgOrigin: "1100 240" });
+      tl.to("#ra-ring", { opacity: 0.2, duration: 0.2, yoyo: true, repeat: 3 }, at(5, 0.04) + 0.4);
+      IN("#ra-pre", at(5, 0.08), 0.4);
+      IN("#ra-doc", at(5, 0.33), 0.4, { y: 8 }, { y: 0 });
+      IN("#ra-st1", at(5, 0.6), 0.4, { x: -14 }, { x: 0 });
+      ARROW("#ra-sa1", at(5, 0.66), 0.3);
+      IN("#ra-st2", at(5, 0.7), 0.4, { x: -14 }, { x: 0 });
+      ARROW("#ra-sa2", at(5, 0.83), 0.3);
+      IN("#ra-st3", at(5, 0.87), 0.4, { x: -14 }, { x: 0 });
+      // L6 代码面板 + USDT
+      OUT("#ra-lanes", at(6, 0), 0.5);
+      IN("#ra-code", at(6, 0.03), 0.5, { y: 14 }, { y: 0 });
+      IN("#ra-n1", at(6, 0.07), 0.4);
+      tl.to("#ra-hl", { attr: { y: 368 }, duration: 0.4, ease: "power2.inOut" }, at(6, 0.16));
+      DRAW("#ra-strike", at(6, 0.18), 0.5);
+      tl.to("#ra-c2", { fill: "#FC6255", duration: 0.3 }, at(6, 0.18));
+      IN("#ra-n2", at(6, 0.2), 0.4);
+      tl.to("#ra-hl", { attr: { y: 472, height: 94 }, duration: 0.4, ease: "power2.inOut" }, at(6, 0.3));
+      tl.to("#ra-c1, #ra-c3", { opacity: 0.6, duration: 0.3 }, at(6, 0.3));
+      IN("#ra-n3", at(6, 0.32), 0.4);
+      OUT("#ra-hl", at(6, 0.55), 0.3);
+      IN("#ra-usdt", at(6, 0.58), 0.5, { y: 14 }, { y: 0 });
+      IN("#ra-d1", at(6, 0.72), 0.4, { x: 14 }, { x: 0 });
+      IN("#ra-d2", at(6, 0.86), 0.4, { x: 14 }, { x: 0 });
+
+      tl.to("#ra-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ra-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["race"] = tl;
+    })();
+  </script>
+</template>

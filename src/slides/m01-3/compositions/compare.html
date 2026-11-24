@@ -1,0 +1,91 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 compare，id 前缀 co- -->
+  <div id="root" data-composition-id="compare" data-duration="51.26" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="co-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="co-all">
+        <defs><linearGradient id="co-gr" x1="170" y1="0" x2="1750" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FF9F43"/><stop offset="0.5" stop-color="#F0B90B"/><stop offset="1" stop-color="#83C167"/></linearGradient><marker id="co-am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker></defs>
+        <g id="co-c0" class="co-col h"><rect x="150" y="260" width="500" height="720" rx="18" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><g><rect x="230" y="286" width="44" height="52" rx="5" fill="none" stroke="#e8e6df" stroke-width="3"/><path d="M238 302 L266 302 M238 316 L258 316" stroke="#58C4DD" stroke-width="3"/></g><text x="430" y="330" font-size="46" font-weight="700" fill="#58C4DD" text-anchor="middle">PoW</text><line x1="180" y1="360" x2="620" y2="360" stroke="#3a3f4a" stroke-width="2"/></g>
+        <g id="co-c1" class="co-col h"><rect x="710" y="260" width="500" height="720" rx="18" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><g><ellipse cx="760" cy="328" rx="24" ry="7" fill="#F0B90B"/><ellipse cx="760" cy="318" rx="24" ry="7" fill="#F0B90B" stroke="#a07a06" stroke-width="1.5"/><ellipse cx="760" cy="308" rx="24" ry="7" fill="#F0B90B" stroke="#a07a06" stroke-width="1.5"/><ellipse cx="760" cy="298" rx="24" ry="7" fill="#F0B90B" stroke="#a07a06" stroke-width="1.5"/></g><text x="990" y="330" font-size="46" font-weight="700" fill="#F0B90B" text-anchor="middle">PoS 以太坊</text><line x1="740" y1="360" x2="1180" y2="360" stroke="#3a3f4a" stroke-width="2"/></g>
+        <g id="co-c2" class="co-col h"><rect x="1270" y="260" width="500" height="720" rx="18" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><g><ellipse cx="1360" cy="318" rx="30" ry="12" fill="#2a2f3a" stroke="#8a8f99" stroke-width="2"/><circle cx="1340" cy="296" r="7" fill="#8a8f99"/><circle cx="1360" cy="292" r="7" fill="#8a8f99"/><circle cx="1380" cy="296" r="7" fill="#8a8f99"/></g><text x="1550" y="330" font-size="46" font-weight="700" fill="#58C4DD" text-anchor="middle">BFT</text><line x1="1300" y1="360" x2="1740" y2="360" stroke="#3a3f4a" stroke-width="2"/></g>
+        <g id="co-hl" opacity="0"><rect class="co-hr" x="156" y="375" width="488" height="92" rx="8" fill="#58C4DD" opacity="0.09"/><rect class="co-hr" x="716" y="375" width="488" height="92" rx="8" fill="#58C4DD" opacity="0.09"/><rect class="co-hr" x="1276" y="375" width="488" height="92" rx="8" fill="#58C4DD" opacity="0.09"/></g>
+        <text id="co-l0" class="h" x="176" y="405" font-size="28" fill="#8a8f99">出块</text>
+        <text class="co-r0 h" x="400" y="449" font-size="32" fill="#e8e6df" text-anchor="middle">算力竞争</text>
+        <text class="co-r0 h" x="960" y="449" font-size="32" fill="#e8e6df" text-anchor="middle">按质押随机抽选</text>
+        <text class="co-r0 h" x="1520" y="449" font-size="32" fill="#e8e6df" text-anchor="middle">按质押轮流提议</text>
+        <text id="co-l1" class="h" x="176" y="497" font-size="28" fill="#8a8f99">分叉选择</text>
+        <text class="co-r1 h" x="400" y="541" font-size="32" fill="#e8e6df" text-anchor="middle">最重链</text>
+        <text class="co-r1 h" x="960" y="541" font-size="32" fill="#e8e6df" text-anchor="middle">LMD-GHOST + Casper FFG</text>
+        <text class="co-r1 h" x="1520" y="541" font-size="32" fill="#e8e6df" text-anchor="middle">不分叉，2/3 才提交</text>
+        <text id="co-l2" class="h" x="176" y="589" font-size="28" fill="#8a8f99">容错边界</text>
+        <text class="co-r2 h" x="400" y="633" font-size="32" fill="#e8e6df" text-anchor="middle">诚实算力 &gt; 50%</text>
+        <text class="co-r2 h" x="960" y="633" font-size="32" fill="#e8e6df" text-anchor="middle">恶意质押 &lt; 1/3</text>
+        <text class="co-r2 h" x="1520" y="633" font-size="32" fill="#e8e6df" text-anchor="middle">恶意权重 &lt; 1/3</text>
+        <text id="co-l3" class="h" x="176" y="681" font-size="28" fill="#8a8f99">最终性</text>
+        <text class="co-r3 h" x="400" y="725" font-size="32" fill="#FF9F43" text-anchor="middle">概率性</text>
+        <text class="co-r3 h" x="960" y="725" font-size="32" fill="#F0B90B" text-anchor="middle">约 12.8 分钟 · 经济</text>
+        <text class="co-r3 h" x="1520" y="725" font-size="32" fill="#83C167" text-anchor="middle">1 个块 · 秒级 · 确定</text>
+        <text id="co-l4" class="h" x="176" y="773" font-size="28" fill="#8a8f99">故障时</text>
+        <text class="co-r4 h" x="400" y="817" font-size="32" fill="#FC6255" text-anchor="middle">继续出块，可能深度重组</text>
+        <text class="co-r4 h" x="960" y="817" font-size="32" fill="#FF9F43" text-anchor="middle">继续出块，最终性延迟</text>
+        <text class="co-r4 h" x="1520" y="817" font-size="32" fill="#FF9F43" text-anchor="middle">停止出块</text>
+        <text id="co-l5" class="h" x="176" y="865" font-size="28" fill="#8a8f99">作恶代价</text>
+        <text class="co-r5 h" x="400" y="909" font-size="32" fill="#e8e6df" text-anchor="middle">电费和机器</text>
+        <text class="co-r5 h" x="960" y="909" font-size="32" fill="#e8e6df" text-anchor="middle">罚没质押</text>
+        <text class="co-r5 h" x="1520" y="909" font-size="32" fill="#e8e6df" text-anchor="middle">罚没质押（看实现）</text>
+        <path id="co-ar" class="dr h" pathLength="1" d="M180 950 L1740 950" stroke="url(#co-gr)" stroke-width="6" fill="none" marker-end="url(#co-am)"/>
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+      // L0 三栏
+      IN(".co-col", at(0, 0.0), 0.6, { y: 20 }, { y: 0, stagger: 0.2 });
+      const ROW = (k, t, d) => {
+        tl.to(".co-hr", { attr: { y: 375 + 92 * k }, duration: 0.4, ease: "power2.inOut" }, t);
+        tl.to("#co-hl", { opacity: 1, duration: 0.4 }, t);
+        IN("#co-l" + k, t, 0.4);
+        IN(".co-r" + k, t + 0.2, 0.5, { y: 10 }, { y: 0, stagger: d });
+      };
+      ROW(0, at(1, 0.02), 1.9);
+      ROW(1, at(2, 0.02), 2.2);
+      ROW(2, at(3, 0.02), 1.6);
+      ROW(3, at(4, 0.02), 2.4);
+      ARROW("#co-ar", at(4, 0.62), 1.4);
+      ROW(4, at(5, 0.02), 2.0);
+      ROW(5, at(6, 0.02), 1.3);
+      tl.to("#co-hl", { opacity: 0, duration: 0.5 }, at(6, 0.8));
+
+
+      tl.to("#co-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["compare"] = tl;
+    })();
+  </script>
+</template>

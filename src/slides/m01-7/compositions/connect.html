@@ -1,0 +1,257 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 connect，id 前缀 co- -->
+  <div id="root" data-composition-id="connect" data-duration="71.56" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="co-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="co-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="co-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="co-all">
+        <!-- L0：终端 -->
+        <g id="co-term">
+          <g id="co-tw" class="h">
+            <rect x="70" y="220" width="820" height="340" rx="14" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <path d="M70 262 L890 262" stroke="#2a2f3a" stroke-width="2" />
+            <circle cx="100" cy="241" r="7" fill="#FC6255" /><circle cx="124" cy="241" r="7" fill="#F0B90B" /><circle cx="148" cy="241" r="7" fill="#83C167" />
+            <text data-layout-ignore="" x="480" y="248" font-size="20" fill="#6b6f7a" text-anchor="middle">terminal</text>
+          </g>
+          <text id="co-t0" class="h mono" x="100" y="315" font-size="28" fill="#e8e6df"><tspan fill="#83C167">$</tspan> go mod init example.com/readchain</text>
+          <text id="co-t1" class="h mono" x="100" y="365" font-size="28" fill="#e8e6df"><tspan fill="#83C167">$</tspan> go get github.com/ethereum/go-ethereum</text>
+          <text id="co-t1b" xml:space="preserve" class="h mono" x="100" y="408" font-size="28" fill="#e8e6df">      golang.org/x/sync/errgroup</text>
+          <text id="co-t2" class="h mono" x="100" y="458" font-size="28" fill="#e8e6df"><tspan fill="#83C167">$</tspan> go mod tidy</text>
+          <text id="co-t3" class="h mono" x="100" y="508" font-size="28" fill="#e8e6df"><tspan fill="#83C167">$</tspan> export RPC_URL=<tspan fill="#B48EF0">…</tspan></text>
+          <g id="co-tag0" class="h">
+            <rect x="70" y="600" width="270" height="54" rx="27" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <text x="205" y="637" font-size="28" fill="#8a8f99" text-anchor="middle">练习：公共节点</text>
+          </g>
+          <g id="co-tag1" class="h">
+            <rect x="370" y="600" width="300" height="54" rx="27" fill="#B48EF022" stroke="#B48EF0" stroke-width="2" />
+            <text x="520" y="637" font-size="28" fill="#B48EF0" text-anchor="middle">生产：付费 / 自建</text>
+          </g>
+        </g>
+        <!-- 代码面板 A -->
+        <g id="co-code" class="h">
+          <rect x="900" y="200" width="960" height="492" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <rect id="co-hb" class="h" x="902" y="223" width="956" height="41" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="co-hs" class="h" x="902" y="223" width="4" height="41" fill="#58C4DD" />
+          <text class="mono" x="952" y="252" font-size="28" fill="#6b6f7a" text-anchor="end">1</text>
+          <text id="co-c0" class="mono" x="972" y="252" font-size="28" fill="#e8e6df" xml:space="preserve">ctx, cancel := context.WithTimeout(</text>
+          <text class="mono" x="952" y="293" font-size="28" fill="#6b6f7a" text-anchor="end">2</text>
+          <text id="co-c1" class="mono" x="972" y="293" font-size="28" fill="#e8e6df" xml:space="preserve">    context.Background(), 60*time.Second)</text>
+          <text class="mono" x="952" y="334" font-size="28" fill="#6b6f7a" text-anchor="end">3</text>
+          <text id="co-c2" class="mono" x="972" y="334" font-size="28" fill="#e8e6df" xml:space="preserve">defer cancel()</text>
+          <text class="mono" x="952" y="375" font-size="28" fill="#6b6f7a" text-anchor="end">4</text>
+          <text id="co-c3" class="mono" x="972" y="375" font-size="28" fill="#e8e6df" xml:space="preserve">client, err := ethclient.DialContext(ctx, rpcURL)</text>
+          <text class="mono" x="952" y="416" font-size="28" fill="#6b6f7a" text-anchor="end">5</text>
+          <text id="co-c4" class="mono" x="972" y="416" font-size="28" fill="#e8e6df" xml:space="preserve">if err != nil { log.Fatalf("dial: %v", err) }</text>
+          <text class="mono" x="952" y="457" font-size="28" fill="#6b6f7a" text-anchor="end">6</text>
+          <text id="co-c5" class="mono" x="972" y="457" font-size="28" fill="#e8e6df" xml:space="preserve">defer client.Close()</text>
+          <text class="mono" x="952" y="498" font-size="28" fill="#6b6f7a" text-anchor="end">7</text>
+          <text id="co-c6" class="mono" x="972" y="498" font-size="28" fill="#e8e6df" xml:space="preserve">chainID, err := client.ChainID(ctx)</text>
+          <text class="mono" x="952" y="539" font-size="28" fill="#6b6f7a" text-anchor="end">8</text>
+          <text id="co-c7" class="mono" x="972" y="539" font-size="28" fill="#e8e6df" xml:space="preserve">head, err := client.BlockNumber(ctx)</text>
+          <text class="mono" x="952" y="580" font-size="28" fill="#6b6f7a" text-anchor="end">9</text>
+          <text id="co-c8" class="mono" x="972" y="580" font-size="28" fill="#e8e6df" xml:space="preserve">bal, err := client.BalanceAt(ctx, holder, nil)</text>
+          <text class="mono" x="952" y="621" font-size="28" fill="#6b6f7a" text-anchor="end">10</text>
+          <text id="co-c9" class="mono" x="972" y="621" font-size="28" fill="#e8e6df" xml:space="preserve">hdr, err := client.HeaderByNumber(ctx,</text>
+          <text class="mono" x="952" y="662" font-size="28" fill="#6b6f7a" text-anchor="end">11</text>
+          <text id="co-c10" class="mono" x="972" y="662" font-size="28" fill="#e8e6df" xml:space="preserve">    new(big.Int).SetUint64(head))</text>
+        </g>
+        <text id="co-n0" class="h" x="900" y="752" font-size="28" fill="#8a8f99">ctx 一路传给后面每个调用</text>
+        <text id="co-n1" class="h" x="900" y="752" font-size="28" fill="#8a8f99">每一步都检查 err（下面几行省略）</text>
+        <text id="co-n2" class="h" x="900" y="752" font-size="28" fill="#8a8f99">nil = 最新状态（latest）</text>
+        <!-- 左侧机制图 -->
+        <g id="co-left">
+          <g id="co-hg" class="h">
+            <path d="M96 236 L150 236 L123 276 Z M96 316 L150 316 L123 276 Z" fill="#FF9F4333" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round" />
+            <text class="mono" x="172" y="290" font-size="30" font-weight="700" fill="#FF9F43">ctx · 60s</text>
+          </g>
+          <line id="co-ctxl" class="h" x1="123" y1="332" x2="123" y2="790" stroke="#FF9F43" stroke-width="2" stroke-dasharray="8 8" />
+          <g id="co-go" class="h">
+            <rect x="170" y="360" width="220" height="110" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="280" y="427" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">Go 程序</text>
+          </g>
+          <g id="co-node" class="h">
+            <rect x="640" y="360" width="220" height="110" rx="14" fill="#B48EF022" stroke="#B48EF0" stroke-width="3" />
+            <text x="750" y="427" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">RPC 节点</text>
+          </g>
+          <line id="co-link" class="dr" pathLength="1" x1="392" y1="415" x2="638" y2="415" stroke="#58C4DD" stroke-width="4" />
+          <text id="co-linkl" class="h" x="515" y="396" font-size="28" fill="#58C4DD" text-anchor="middle">连接</text>
+          <text id="co-cid" class="h" x="720" y="342" font-size="28" fill="#83C167" text-anchor="middle"><tspan class="mono">chainId: 1</tspan> ✓ 主网</text>
+          <text id="co-rej" class="h" x="720" y="296" font-size="28" fill="#FC6255" text-anchor="middle"><tspan class="mono">11155111</tspan> → 拒绝启动</text>
+          <g id="co-thead" class="h">
+            <text x="170" y="540" font-size="28" fill="#6b6f7a">方法</text>
+            <text x="400" y="540" font-size="28" fill="#6b6f7a">RPC</text>
+            <text x="680" y="540" font-size="28" fill="#6b6f7a">返回</text>
+            <line x1="170" y1="560" x2="860" y2="560" stroke="#2a2f3a" stroke-width="2" />
+          </g>
+          <g id="co-row0" class="h">
+            <line x1="127" y1="600" x2="155" y2="600" stroke="#FF9F43" stroke-width="2" stroke-dasharray="6 5" />
+            <text class="mono" x="170" y="610" font-size="28" fill="#e8e6df">ChainID</text>
+            <text class="mono" x="400" y="610" font-size="28" fill="#58C4DD">eth_chainId</text>
+            <text class="mono" x="680" y="610" font-size="28" fill="#e8e6df">*big.Int</text>
+          </g>
+          <g id="co-row1" class="h">
+            <line x1="127" y1="660" x2="155" y2="660" stroke="#FF9F43" stroke-width="2" stroke-dasharray="6 5" />
+            <text class="mono" x="170" y="670" font-size="28" fill="#e8e6df">BlockNumber</text>
+            <text class="mono" x="400" y="670" font-size="28" fill="#58C4DD">eth_blockNumber</text>
+            <text class="mono" x="680" y="670" font-size="28" fill="#e8e6df">uint64</text>
+          </g>
+          <g id="co-row2" class="h">
+            <line x1="127" y1="720" x2="155" y2="720" stroke="#FF9F43" stroke-width="2" stroke-dasharray="6 5" />
+            <text class="mono" x="170" y="730" font-size="28" fill="#e8e6df">BalanceAt</text>
+            <text class="mono" x="400" y="730" font-size="28" fill="#58C4DD">eth_getBalance</text>
+            <text class="mono" x="680" y="730" font-size="28" fill="#F0B90B">*big.Int</text>
+          </g>
+          <text id="co-wei" class="h" x="680" y="782" font-size="28" fill="#F0B90B">单位 wei</text>
+        </g>
+        <!-- L6：往返与仪表 -->
+        <g id="co-g6">
+          <g id="co-go2" class="h">
+            <rect x="100" y="330" width="240" height="470" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="220" y="580" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">Go 程序</text>
+          </g>
+          <g id="co-node2" class="h">
+            <rect x="1020" y="330" width="240" height="470" rx="16" fill="#B48EF022" stroke="#B48EF0" stroke-width="3" />
+            <text x="1140" y="580" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">RPC 节点</text>
+          </g>
+          <path id="co-q0" class="dr h" pathLength="1" d="M350 400 L1010 400" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#co-arrB)" />
+          <path id="co-p0" class="dr h" pathLength="1" d="M1010 430 L350 430" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#co-arrG)" />
+          <text id="co-k0" class="h mono" x="680" y="380" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">1</text>
+          <path id="co-q1" class="dr h" pathLength="1" d="M350 510 L1010 510" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#co-arrB)" />
+          <path id="co-p1" class="dr h" pathLength="1" d="M1010 540 L350 540" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#co-arrG)" />
+          <text id="co-k1" class="h mono" x="680" y="490" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">2</text>
+          <path id="co-q2" class="dr h" pathLength="1" d="M350 620 L1010 620" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#co-arrB)" />
+          <path id="co-p2" class="dr h" pathLength="1" d="M1010 650 L350 650" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#co-arrG)" />
+          <text id="co-k2" class="h mono" x="680" y="600" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">3</text>
+          <path id="co-q3" class="dr h" pathLength="1" d="M350 730 L1010 730" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#co-arrB)" />
+          <path id="co-p3" class="dr h" pathLength="1" d="M1010 760 L350 760" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#co-arrG)" />
+          <text id="co-k3" class="h mono" x="680" y="710" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">4</text>
+          <line id="co-p2x" class="h" x1="1010" y1="650" x2="680" y2="650" stroke="#FC6255" stroke-width="3.5" stroke-dasharray="12 8" />
+          <text id="co-to" class="h" x="860" y="700" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">超时</text>
+          <text id="co-err" class="h mono" x="220" y="870" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">if err != nil</text>
+          <g id="co-gs" class="h">
+            <path d="M1470 480 A130 130 0 0 1 1730 480" fill="none" stroke="#58C4DD" stroke-width="10" stroke-linecap="round" />
+            <circle cx="1600" cy="480" r="10" fill="#e8e6df" />
+            <text x="1600" y="540" font-size="30" fill="#58C4DD" text-anchor="middle">速度</text>
+          </g>
+          <line id="co-ns" class="h" x1="1600" y1="480" x2="1600" y2="375" stroke="#e8e6df" stroke-width="5" stroke-linecap="round" />
+          <g id="co-gb" class="h">
+            <path d="M1470 780 A130 130 0 0 1 1730 780" fill="none" stroke="#F0B90B" stroke-width="10" stroke-linecap="round" />
+            <circle cx="1600" cy="780" r="10" fill="#e8e6df" />
+            <text x="1600" y="840" font-size="30" fill="#F0B90B" text-anchor="middle">RPC 账单</text>
+          </g>
+          <line id="co-nb" class="h" x1="1600" y1="780" x2="1600" y2="675" stroke="#e8e6df" stroke-width="5" stroke-linecap="round" />
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      // 逐行高亮：a..b 行（从 0 开始）
+      const N = 11, B0 = 252, ST = 41;
+      const HL = (a, b, t) => {
+        tl.to("#co-hb, #co-hs", { opacity: 1, attr: { y: B0 - 29 + ST * a, height: ST * (b - a + 1) }, duration: 0.35, ease: "power2.inOut" }, t);
+        for (let i = 0; i < N; i++) tl.to(`#co-c${i}`, { opacity: i >= a && i <= b ? 1 : 0.6, duration: 0.3 }, t);
+      };
+
+      // L0 建项目、加依赖、RPC_URL；练习 / 生产节点
+      IN("#co-tw", at(0, 0.02), 0.5);
+      IN("#co-t0", at(0, 0.1), 0.4, { x: -12 }, { x: 0 });
+      IN("#co-t1", at(0, 0.24), 0.4, { x: -12 }, { x: 0 });
+      IN("#co-t1b", at(0, 0.3), 0.4, { x: -12 }, { x: 0 });
+      IN("#co-t2", at(0, 0.42), 0.4, { x: -12 }, { x: 0 });
+      IN("#co-t3", at(0, 0.56), 0.4, { x: -12 }, { x: 0 });
+      IN("#co-tag0", at(0, 0.76), 0.5, { y: 12 }, { y: 0 });
+      IN("#co-tag1", at(0, 0.84), 0.5, { y: 12 }, { y: 0 });
+
+      // L1 代码面板；ctx 60 秒超时
+      OUT("#co-term", at(1, 0), 0.4);
+      IN("#co-code", at(1, 0.05), 0.6, { x: 30 }, { x: 0 });
+      HL(0, 2, at(1, 0.12));
+      IN("#co-hg", at(1, 0.3), 0.5, { scale: 0.7, svgOrigin: "123 276" }, { scale: 1, svgOrigin: "123 276" });
+      IN("#co-ctxl", at(1, 0.6), 0.8, { scaleY: 0, svgOrigin: "123 332" }, { scaleY: 1, svgOrigin: "123 332" });
+      IN("#co-n0", at(1, 0.62), 0.5);
+
+      // L2 DialContext 连上节点，退出前关闭
+      HL(3, 5, at(2, 0.02));
+      IN("#co-go", at(2, 0.1), 0.5);
+      IN("#co-node", at(2, 0.22), 0.5);
+      DRAW("#co-link", at(2, 0.38), 0.6);
+      IN("#co-linkl", at(2, 0.48), 0.4);
+      OUT("#co-n0", at(2, 0.6), 0.3);
+      IN("#co-n1", at(2, 0.68), 0.4);
+
+      // L3 ChainID：主网 1；配错就拒绝启动
+      HL(6, 6, at(3, 0.02));
+      IN("#co-thead", at(3, 0.08), 0.5);
+      IN("#co-row0", at(3, 0.16), 0.5, { x: -16 }, { x: 0 });
+      IN("#co-cid", at(3, 0.45), 0.5, { y: 10 }, { y: 0 });
+      IN("#co-rej", at(3, 0.72), 0.5, { y: 10 }, { y: 0 });
+      tl.to("#co-link", { stroke: "#FC6255", duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.76));
+
+      // L4 BlockNumber
+      OUT("#co-rej", at(4, 0), 0.3);
+      HL(7, 7, at(4, 0.02));
+      IN("#co-row1", at(4, 0.2), 0.5, { x: -16 }, { x: 0 });
+
+      // L5 BalanceAt，nil = latest，单位 wei
+      HL(8, 8, at(5, 0.02));
+      IN("#co-row2", at(5, 0.15), 0.5, { x: -16 }, { x: 0 });
+      OUT("#co-n1", at(5, 0.4), 0.3);
+      IN("#co-n2", at(5, 0.46), 0.4);
+      IN("#co-wei", at(5, 0.75), 0.5, { y: 10 }, { y: 0 });
+
+      // L6 每个调用 = 一次往返：速度与账单；超时 → 检查 err
+      OUT("#co-code, #co-n2, #co-left", at(6, 0), 0.5);
+      IN("#co-go2", at(6, 0.04), 0.5);
+      IN("#co-node2", at(6, 0.07), 0.5);
+      for (let i = 0; i < 4; i++) {
+        const t = at(6, 0.12 + i * 0.07);
+        ARROW(`#co-q${i}`, t, 0.4);
+        ARROW(`#co-p${i}`, t + 0.4, 0.4);
+        IN(`#co-k${i}`, t + 0.1, 0.3, { scale: 0.5, svgOrigin: `680 ${370 + i * 110}` }, { scale: 1, svgOrigin: `680 ${370 + i * 110}` });
+      }
+      IN("#co-gs, #co-ns", at(6, 0.36), 0.5);
+      IN("#co-gb, #co-nb", at(6, 0.4), 0.5);
+      tl.fromTo("#co-ns", { rotation: 60, svgOrigin: "1600 480" }, { rotation: -55, svgOrigin: "1600 480", duration: 1.6, ease: "power2.inOut", immediateRender: false }, at(6, 0.46));
+      tl.fromTo("#co-nb", { rotation: -60, svgOrigin: "1600 780" }, { rotation: 55, svgOrigin: "1600 780", duration: 1.6, ease: "power2.inOut", immediateRender: false }, at(6, 0.52));
+      tl.set("#co-ns", { rotation: 60, svgOrigin: "1600 480" }, 0);
+      tl.set("#co-nb", { rotation: -60, svgOrigin: "1600 780" }, 0);
+      tl.to("#co-p2", { opacity: 0.15, duration: 0.3 }, at(6, 0.7));
+      IN("#co-p2x", at(6, 0.7), 0.3);
+      IN("#co-to", at(6, 0.72), 0.4, { y: 8 }, { y: 0 });
+      IN("#co-err", at(6, 0.86), 0.5, { scale: 0.8, svgOrigin: "220 860" }, { scale: 1, svgOrigin: "220 860" });
+
+      tl.to("#co-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["connect"] = tl;
+    })();
+  </script>
+</template>

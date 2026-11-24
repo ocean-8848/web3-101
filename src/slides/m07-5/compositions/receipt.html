@@ -1,0 +1,288 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 receipt，id 前缀 re- -->
+  <div id="root" data-composition-id="receipt" data-duration="60.49" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="re-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="re-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="re-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="re-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <!-- wagmi hook -->
+        <g id="re-wg" class="h"><rect x="1160" y="60" width="640" height="64" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1180" y="103" font-size="28" fill="#8a8f99">wagmi</text><text class="mono" x="1280" y="103" font-size="30" font-weight="700" fill="#58C4DD">useWaitForTransactionReceipt</text></g>
+        <text id="re-wgc" class="h" x="1800" y="170" text-anchor="end" font-size="28" fill="#83C167">要看 status 是否 success</text>
+        <!-- 进度条 -->
+        <g id="re-prog" class="h">
+          <rect x="120" y="214" width="300" height="52" rx="26" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect x="460" y="214" width="300" height="52" rx="26" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect x="800" y="214" width="300" height="52" rx="26" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect id="re-p4" x="1140" y="214" width="300" height="52" rx="26" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect id="re-p5" x="1480" y="214" width="300" height="52" rx="26" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <text x="270" y="250" font-size="28" text-anchor="middle" fill="#5f8f4a">校验</text>
+          <text x="610" y="250" font-size="28" text-anchor="middle" fill="#5f8f4a">模拟</text>
+          <text x="950" y="250" font-size="28" text-anchor="middle" fill="#8a6a45">签名</text>
+          <text id="re-p4t" x="1290" y="250" font-size="28" text-anchor="middle" fill="#6b6f7a">等回执</text>
+          <text id="re-p5t" x="1630" y="250" font-size="28" text-anchor="middle" fill="#6b6f7a">刷新</text>
+        </g>
+        <!-- 泳道 -->
+        <g id="re-lanesA" class="h">
+          <text x="300" y="330" font-size="30" text-anchor="middle" fill="#8a8f99">用户</text>
+          <text x="1500" y="330" font-size="30" text-anchor="middle" fill="#FF9F43">钱包</text>
+          <g stroke="#2a2f3a" stroke-width="2" stroke-dasharray="8 10">
+            <line x1="300" y1="352" x2="300" y2="1010" />
+            <line x1="1500" y1="352" x2="1500" y2="1010" />
+          </g>
+        </g>
+        <g id="re-lanesB" class="h">
+          <text x="700" y="330" font-size="30" text-anchor="middle" fill="#8a8f99">前端</text>
+          <text x="1100" y="330" font-size="30" text-anchor="middle" fill="#58C4DD">RPC 节点</text>
+          <g stroke="#2a2f3a" stroke-width="2" stroke-dasharray="8 10">
+            <line x1="700" y1="352" x2="700" y2="1010" />
+            <line x1="1100" y1="352" x2="1100" y2="1010" />
+          </g>
+        </g>
+        <g id="re-tk" class="h">
+          <rect x="550" y="400" width="300" height="64" rx="10" fill="#FF9F43" fill-opacity="0.14" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="10 6" />
+          <text x="700" y="442" font-size="28" text-anchor="middle" fill="#FF9F43" class="mono">txHash 0x3f9a…</text>
+        </g>
+        <!-- 轮询 -->
+        <text id="re-ask" class="h" x="975" y="512" font-size="28" text-anchor="middle" fill="#8a8f99">打包了吗？</text>
+        <path id="re-q1" class="dr h" pathLength="1" d="M860 545 L1090 545" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+        <text id="re-no1" class="h" x="975" y="598" font-size="28" text-anchor="middle" fill="#6b6f7a">还没</text>
+        <text id="re-no2" class="h" x="975" y="598" font-size="28" text-anchor="middle" fill="#6b6f7a">还没</text>
+        <path id="re-q2" class="dr h" pathLength="1" d="M860 545 L1090 545" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+        <path id="re-q3" class="dr h" pathLength="1" d="M860 545 L1090 545" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+        <!-- 链 -->
+        <g id="re-chain" class="h">
+          <g stroke="#58C4DD" stroke-width="3"><line x1="1020" y1="910" x2="1040" y2="910" /><line x1="1100" y1="910" x2="1120" y2="910" /><line x1="1180" y1="910" x2="1200" y2="910" /><line x1="1260" y1="910" x2="1280" y2="910" /></g>
+          <rect x="960" y="880" width="60" height="60" rx="8" fill="#1b2a33" stroke="#58C4DD" stroke-width="2.5" />
+          <rect x="1040" y="880" width="60" height="60" rx="8" fill="#1b2a33" stroke="#58C4DD" stroke-width="2.5" />
+          <rect x="1120" y="880" width="60" height="60" rx="8" fill="#1b2a33" stroke="#58C4DD" stroke-width="2.5" />
+          <rect x="1200" y="880" width="60" height="60" rx="8" fill="#1b2a33" stroke="#58C4DD" stroke-width="2.5" />
+        </g>
+        <rect id="re-blk" class="h" x="1280" y="880" width="60" height="60" rx="8" fill="#F0B90B" fill-opacity="0.3" stroke="#F0B90B" stroke-width="3" />
+        <!-- 回执卡 -->
+        <g id="re-card" class="h">
+          <rect x="900" y="380" width="600" height="380" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="930" y="434" font-size="32" font-weight="700" fill="#58C4DD">回执</text>
+          <line x1="930" y1="560" x2="1470" y2="560" stroke="#2a2f3a" stroke-width="2" />
+          <line x1="930" y1="650" x2="1470" y2="650" stroke="#2a2f3a" stroke-width="2" />
+        </g>
+        <g id="re-r1" class="h"><text x="940" y="522" font-size="30" fill="#e8e6df" class="mono">status</text><text x="1180" y="522" font-size="28" fill="#8a8f99">执行状态</text></g>
+        <g id="re-r2" class="h"><text x="940" y="612" font-size="30" fill="#e8e6df" class="mono">gasUsed</text><text x="1180" y="612" font-size="28" fill="#8a8f99">实际用掉的 Gas</text></g>
+        <g id="re-r3" class="h"><text x="940" y="702" font-size="30" fill="#e8e6df" class="mono">logs</text><text x="1180" y="702" font-size="28" fill="#8a8f99">事件日志</text></g>
+        <!-- status 分叉 -->
+        <path id="re-b1" class="dr" pathLength="1" d="M1504 512 C1530 512, 1530 472, 1556 472" fill="none" stroke="#83C167" stroke-width="3" />
+        <text id="re-ok" class="h" x="1570" y="484" font-size="30" font-weight="700" fill="#83C167">success ✓</text>
+        <g id="re-bad">
+          <path id="re-b2" class="dr" pathLength="1" d="M1504 512 C1530 512, 1530 592, 1556 592" fill="none" stroke="#FC6255" stroke-width="3" />
+          <text id="re-ng" class="h" x="1570" y="604" font-size="30" font-weight="700" fill="#FC6255">reverted ✕</text>
+          <text id="re-ngn" class="h" x="1570" y="652" font-size="28" fill="#FC6255">已上链 · 执行失败</text>
+        </g>
+        <!-- revert：状态撤销 -->
+        <g id="re-ct" class="h">
+          <rect x="120" y="540" width="500" height="300" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="150" y="594" font-size="30" fill="#B48EF0">合约状态</text>
+        </g>
+        <g id="re-cells" class="h">
+          <rect id="re-c0" x="150" y="620" width="130" height="80" rx="8" fill="#232833" />
+          <rect id="re-c1" x="300" y="620" width="130" height="80" rx="8" fill="#232833" />
+          <rect id="re-c2" x="450" y="620" width="130" height="80" rx="8" fill="#232833" />
+          <rect id="re-c3" x="150" y="720" width="130" height="80" rx="8" fill="#232833" />
+          <rect id="re-c4" x="300" y="720" width="130" height="80" rx="8" fill="#232833" />
+          <rect id="re-c5" x="450" y="720" width="130" height="80" rx="8" fill="#232833" />
+        </g>
+        <text id="re-undo" class="h" x="150" y="892" font-size="30" fill="#83C167">改动全部撤销</text>
+        <circle id="re-coin" class="h" cx="1710" cy="730" r="30" fill="#F0B90B" stroke="#c99a06" stroke-width="4" />
+        <g id="re-bag" class="h">
+          <path d="M1640 850 Q1612 960 1710 962 Q1808 960 1780 850 Z" fill="#3a2f1a" stroke="#F0B90B" stroke-width="3" />
+          <path d="M1650 850 L1770 850" stroke="#F0B90B" stroke-width="5" />
+        </g>
+        <text id="re-nogas" class="h" x="1640" y="1006" font-size="30" font-weight="700" fill="#F0B90B">Gas 不退</text>
+        <!-- 前端提示 -->
+        <g id="re-fe" class="h">
+          <rect x="120" y="540" width="740" height="320" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <rect x="150" y="580" width="680" height="88" rx="12" fill="#FC6255" fill-opacity="0.14" stroke="#FC6255" stroke-width="2.5" />
+          <text x="175" y="636" font-size="28" fill="#FC6255">交易已上链但执行失败，Gas 已扣除</text>
+        </g>
+        <g id="re-wait" class="h">
+          <rect x="150" y="740" width="380" height="76" rx="12" fill="#2c313c" />
+          <text x="340" y="789" font-size="28" text-anchor="middle" fill="#8a8f99">交易确认中…</text>
+          <path id="re-spin" d="M580 760 A18 18 0 1 1 562 778" fill="none" stroke="#58C4DD" stroke-width="4" />
+        </g>
+        <!-- 刷新：查询卡 -->
+        <text id="re-reread" class="h" x="120" y="392" font-size="28" fill="#58C4DD">从链上重读</text>
+        <g id="re-qc0" class="h"><rect x="120" y="420" width="680" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="150" y="482" font-size="30" fill="#e8e6df">余额</text></g>
+        <g id="re-qc1" class="h"><rect x="120" y="560" width="680" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="150" y="622" font-size="30" fill="#e8e6df">授权额度</text></g>
+        <g id="re-qc2" class="h"><rect x="120" y="700" width="680" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="150" y="762" font-size="30" fill="#e8e6df">交易历史</text></g>
+        <text id="re-v0a" class="h" x="620" y="482" font-size="28" text-anchor="end" fill="#F0B90B">500 USDC</text>
+        <text id="re-v0b" class="h" x="620" y="482" font-size="28" text-anchor="end" fill="#F0B90B">400 USDC</text>
+        <text id="re-v1" class="h" x="620" y="622" font-size="28" text-anchor="end" fill="#83C167">已更新</text>
+        <text id="re-v2" class="h" x="620" y="762" font-size="28" text-anchor="end" fill="#83C167">已更新</text>
+        <g id="re-st" class="h">
+          <rect x="650" y="448" width="120" height="44" rx="8" fill="#FF9F43" fill-opacity="0.18" stroke="#FF9F43" stroke-width="2" />
+          <text x="710" y="480" font-size="28" text-anchor="middle" fill="#FF9F43">过期</text>
+          <rect x="650" y="588" width="120" height="44" rx="8" fill="#FF9F43" fill-opacity="0.18" stroke="#FF9F43" stroke-width="2" />
+          <text x="710" y="620" font-size="28" text-anchor="middle" fill="#FF9F43">过期</text>
+          <rect x="650" y="728" width="120" height="44" rx="8" fill="#FF9F43" fill-opacity="0.18" stroke="#FF9F43" stroke-width="2" />
+          <text x="710" y="760" font-size="28" text-anchor="middle" fill="#FF9F43">过期</text>
+        </g>
+        <g id="re-fresh" class="h" fill="none" stroke="#83C167" stroke-width="4">
+          <path d="M728 470 A18 18 0 1 1 710 452" /><path d="M728 610 A18 18 0 1 1 710 592" /><path d="M728 750 A18 18 0 1 1 710 732" />
+        </g>
+        <path id="re-a0" class="dr h" pathLength="1" d="M894 470 L812 470" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#re-arrB)" />
+        <path id="re-a1" class="dr h" pathLength="1" d="M894 610 L812 610" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#re-arrB)" />
+        <path id="re-a2" class="dr h" pathLength="1" d="M894 750 L812 750" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#re-arrB)" />
+        <!-- 回到钩子：跳过等回执 -->
+        <g id="re-hk" class="h">
+          <rect x="360" y="540" width="280" height="100" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text x="500" y="602" font-size="32" text-anchor="middle" fill="#FF9F43">签名</text>
+          <rect id="re-hk2" x="820" y="540" width="280" height="100" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="960" y="602" font-size="32" text-anchor="middle" fill="#58C4DD">等回执</text>
+          <rect x="1280" y="540" width="280" height="100" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+          <text x="1420" y="602" font-size="32" text-anchor="middle" fill="#83C167">成功</text>
+          <path d="M644 590 L812 590" stroke="#6b6f7a" stroke-width="3" marker-end="url(#re-arrG)" />
+          <path d="M1104 590 L1272 590" stroke="#6b6f7a" stroke-width="3" marker-end="url(#re-arrG)" />
+        </g>
+        <path id="re-jump" class="dr h" pathLength="1" d="M500 534 C 700 330, 1220 330, 1420 530" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#re-arrR)" />
+        <path id="re-jx1" class="dr" pathLength="1" d="M936 360 L984 408" fill="none" stroke="#FC6255" stroke-width="6" />
+        <path id="re-jx2" class="dr" pathLength="1" d="M984 360 L936 408" fill="none" stroke="#FC6255" stroke-width="6" />
+        <text id="re-skip" class="h" x="960" y="750" font-size="36" font-weight="700" text-anchor="middle" fill="#FC6255">跳过第四步 = bug</text>
+      </g>
+      <g id="re-term" class="h">
+        <rect x="70" y="56" width="520" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">回执 <tspan font-size="28" font-weight="400" fill="#8a8f99">Receipt</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">交易打包后的结果</text>
+      </g>
+      <g id="re-term2" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">revert <tspan font-size="28" font-weight="400" fill="#8a8f99">回滚</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">检查不通过，撤销全部改动</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 进度条“等回执”亮；拿着 txHash 轮询
+      IN("#re-prog", 0.05, 0.5);
+      IN("#re-lanesA", 0.1, 0.5);
+      IN("#re-lanesB", 0.1, 0.5);
+      tl.to("#re-p4", { attr: { stroke: "#58C4DD", fill: "#13242c" }, duration: 0.5 }, at(0, 0.08));
+      tl.to("#re-p4t", { attr: { fill: "#58C4DD" }, duration: 0.5 }, at(0, 0.08));
+      IN("#re-tk", at(0, 0.05), 0.6);
+      IN("#re-ask", at(0, 0.2), 0.5);
+      ARROW("#re-q1", at(0, 0.25), 0.5); OUT("#re-q1", at(0, 0.25) + 0.7, 0.3);
+      ARROW("#re-q2", at(0, 0.5), 0.5); OUT("#re-q2", at(0, 0.5) + 0.7, 0.3);
+      ARROW("#re-q3", at(0, 0.75), 0.5);
+      IN("#re-no1", at(0, 0.25) + 0.45, 0.3); OUT("#re-no1", at(0, 0.5) - 0.2, 0.25);
+      IN("#re-no2", at(0, 0.5) + 0.45, 0.3); OUT("#re-no2", at(0, 0.75) - 0.2, 0.25);
+      tl.to("#re-tk", { opacity: 0.55, duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(0, 0.32));
+
+      // L1 区块落链；回执卡三行
+      // L1 wagmi：等回执用 useWaitForTransactionReceipt，要看状态
+      IN("#re-wg", at(1, 0.05), 0.5, { scale: 0.8, svgOrigin: "1480 92" }, { scale: 1, svgOrigin: "1480 92" });
+      IN("#re-wgc", at(1, 0.55), 0.5);
+
+      OUT("#re-q3, #re-ask, #re-lanesA", at(2, 0.0), 0.35);
+      IN("#re-chain", at(2, 0.02), 0.4);
+      tl.fromTo("#re-blk", { opacity: 0, y: -90 }, { opacity: 1, y: 0, duration: 0.6, ease: "bounce.out" }, at(2, 0.06));
+      IN("#re-card", at(2, 0.22), 0.6, { scale: 0.8, svgOrigin: "1100 570" }, { scale: 1, svgOrigin: "1100 570" });
+      IN("#re-term", at(2, 0.06), 0.5);
+      IN("#re-r1", at(2, 0.42), 0.5);
+      IN("#re-r2", at(2, 0.58), 0.5);
+      IN("#re-r3", at(2, 0.74), 0.5);
+
+      // L2 status 分叉
+      DRAW("#re-b1", at(3, 0.05), 0.5);
+      IN("#re-ok", at(3, 0.12), 0.5);
+      DRAW("#re-b2", at(3, 0.42), 0.5);
+      IN("#re-ng", at(3, 0.5), 0.5);
+      IN("#re-ngn", at(3, 0.66), 0.5);
+      OUT("#re-term", at(3, 0.5), 0.4);
+
+      // L3 revert：状态全部撤销，Gas 不退
+      IN("#re-term2", at(4, 0.03), 0.5);
+      OUT("#re-chain, #re-blk", at(4, 0.0), 0.4);
+      IN("#re-ct", at(4, 0.06), 0.5);
+      IN("#re-cells", at(4, 0.06), 0.5);
+      ["#re-c0", "#re-c4", "#re-c2", "#re-c3"].forEach((c, i) => tl.to(c, { attr: { fill: "#B48EF0" }, duration: 0.3 }, at(4, 0.16) + i * 0.25));
+      tl.to("#re-c0, #re-c2, #re-c3, #re-c4", { attr: { fill: "#232833" }, duration: 0.6 }, at(4, 0.42));
+      IN("#re-undo", at(4, 0.5), 0.5);
+      IN("#re-bag", at(4, 0.56), 0.4);
+      tl.fromTo("#re-coin", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.3 }, at(4, 0.6));
+      tl.to("#re-coin", { y: 160, duration: 0.6, ease: "power2.in" }, at(4, 0.6) + 0.4);
+      IN("#re-nogas", at(4, 0.78), 0.5);
+      OUT("#re-term2", at(4, 0.96), 0.4);
+
+      // L4 前端提示；等待期按钮
+      OUT("#re-ct, #re-cells, #re-undo, #re-bag, #re-coin, #re-nogas", at(5, 0.0), 0.4);
+      IN("#re-fe", at(5, 0.08), 0.6);
+      IN("#re-wait", at(5, 0.52), 0.5);
+      tl.fromTo("#re-spin", { rotation: 0 }, { rotation: 720, svgOrigin: "562 778", duration: 3.5, ease: "none", immediateRender: false }, at(5, 0.52));
+
+      // L5 进度条“刷新”亮；三个查询过期、重读
+      OUT("#re-fe, #re-wait, #re-tk, #re-bad", at(6, 0.0), 0.4);
+      OUT("#re-wg, #re-wgc", at(6, 0.0), 0.4);
+      tl.to("#re-p4", { attr: { stroke: "#3a3f4a", fill: "#161a22" }, duration: 0.4 }, at(6, 0.02));
+      tl.to("#re-p4t", { attr: { fill: "#3f6f80" }, duration: 0.4 }, at(6, 0.02));
+      tl.to("#re-p5", { attr: { stroke: "#58C4DD", fill: "#13242c" }, duration: 0.5 }, at(6, 0.02));
+      tl.to("#re-p5t", { attr: { fill: "#58C4DD" }, duration: 0.5 }, at(6, 0.02));
+      IN("#re-qc0", at(6, 0.06), 0.5); IN("#re-v0a", at(6, 0.06), 0.5);
+      IN("#re-qc1", at(6, 0.1), 0.5);
+      IN("#re-qc2", at(6, 0.14), 0.5);
+      IN("#re-st", at(6, 0.26), 0.4, { scale: 1.3, svgOrigin: "710 610" }, { scale: 1, svgOrigin: "710 610" });
+      IN("#re-reread", at(6, 0.44), 0.4);
+      ARROW("#re-a0", at(6, 0.46), 0.4); ARROW("#re-a1", at(6, 0.49), 0.4); ARROW("#re-a2", at(6, 0.52), 0.4);
+      OUT("#re-st", at(6, 0.56), 0.3);
+      IN("#re-fresh", at(6, 0.56) + 0.3, 0.2);
+      tl.fromTo("#re-fresh", { rotation: 0 }, { rotation: 360, svgOrigin: "710 610", duration: 1.2, ease: "power1.inOut", immediateRender: false }, at(6, 0.56) + 0.3);
+      OUT("#re-fresh", at(6, 0.56) + 1.5, 0.2);
+      OUT("#re-v0a", at(6, 0.7), 0.3);
+      IN("#re-v0b", at(6, 0.7) + 0.35, 0.4);
+      IN("#re-v1", at(6, 0.74), 0.4);
+      IN("#re-v2", at(6, 0.78), 0.4);
+
+      // L6 回到钩子：签名直接跳到成功
+      OUT("#re-qc0, #re-qc1, #re-qc2, #re-v0b, #re-v1, #re-v2, #re-a0, #re-a1, #re-a2, #re-reread, #re-card, #re-r1, #re-r2, #re-r3, #re-b1, #re-ok, #re-lanesB", at(7, 0.0), 0.4);
+      IN("#re-hk", at(7, 0.1), 0.5);
+      tl.to("#re-hk2", { attr: { "stroke-width": 7 }, duration: 0.3, yoyo: true, repeat: 3 }, at(7, 0.2));
+      ARROW("#re-jump", at(7, 0.32), 0.7);
+      DRAW("#re-jx1", at(7, 0.55), 0.25);
+      DRAW("#re-jx2", at(7, 0.55) + 0.15, 0.25);
+      IN("#re-skip", at(7, 0.62), 0.5);
+
+      tl.to("#re-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#re-term, #re-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["receipt"] = tl;
+    })();
+  </script>
+</template>

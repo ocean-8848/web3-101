@@ -1,0 +1,210 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 rec- -->
+  <div id="root" data-composition-id="recap" data-duration="46.24" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rec-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="rec-all">
+        <!-- L0 钩子画面 -->
+        <g id="rec-bal" class="h">
+          <rect x="300" y="380" width="460" height="240" rx="16" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <text x="340" y="444" font-size="30" fill="#8a8f99">余额</text>
+          <text class="mono" x="340" y="548" font-size="56" font-weight="700" fill="#83C167">+100 USDT</text>
+        </g>
+        <g id="rec-blk" class="h">
+          <rect x="1160" y="400" width="240" height="200" rx="12" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="12 8" />
+          <text class="mono" x="1280" y="480" font-size="30" fill="#8a8f99" text-anchor="middle">区块 h</text>
+          <text x="1280" y="550" font-size="30" fill="#FC6255" text-anchor="middle">被重组</text>
+        </g>
+        <text id="rec-bad" class="h" x="960" y="800" font-size="60" font-weight="700" fill="#FC6255" text-anchor="middle">坏账？</text>
+
+        <!-- L1 五步串起来 -->
+        <g id="rec-b0" class="h">
+          <rect x="140" y="440" width="280" height="160" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+          <text x="280" y="512" font-size="32" fill="#FC6255" text-anchor="middle">父哈希 ≠</text><text class="mono" x="280" y="562" font-size="28" fill="#8a8f99" text-anchor="middle">Scanner</text>
+        </g>
+        <path id="rec-a0" class="dr h" pathLength="1" d="M426 520 L472 520" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rec-arr)" />
+        <g id="rec-b1" class="h">
+          <rect x="480" y="440" width="280" height="160" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text x="620" y="512" font-size="32" fill="#83C167" text-anchor="middle">共同祖先</text><text class="mono" x="620" y="562" font-size="28" fill="#8a8f99" text-anchor="middle">anc</text>
+        </g>
+        <path id="rec-a1" class="dr h" pathLength="1" d="M766 520 L812 520" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rec-arr)" />
+        <g id="rec-b2" class="h">
+          <rect x="820" y="440" width="280" height="160" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+          <text class="mono" x="960" y="512" font-size="34" fill="#FC6255" text-anchor="middle">reverted</text><text x="960" y="562" font-size="28" fill="#8a8f99" text-anchor="middle">充值记录</text>
+        </g>
+        <path id="rec-a2" class="dr h" pathLength="1" d="M1106 520 L1152 520" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rec-arr)" />
+        <g id="rec-b3" class="h">
+          <rect x="1160" y="440" width="280" height="160" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+          <text class="mono" x="1300" y="512" font-size="30" fill="#FC6255" text-anchor="middle">−100 reverse</text><text x="1300" y="562" font-size="28" fill="#8a8f99" text-anchor="middle">冲正流水</text>
+        </g>
+        <path id="rec-a3" class="dr h" pathLength="1" d="M1446 520 L1492 520" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rec-arr)" />
+        <g id="rec-b4" class="h">
+          <rect x="1500" y="440" width="280" height="160" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+          <rect x="1540" y="468" width="56" height="38" rx="4" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="2.5" /><path d="M1540 470 L1568 490 L1596 470" fill="none" stroke="#FC6255" stroke-width="2.5" />
+          <path d="M1632 474 L1632 466 Q1632 452 1646 452 Q1660 452 1660 466 L1660 474" fill="none" stroke="#F0B90B" stroke-width="4" /><rect x="1624" y="474" width="44" height="34" rx="5" fill="#F0B90B" />
+          <path d="M1716 462 Q1716 474 1710 486 L1698 500 L1744 500 L1732 486 Q1726 474 1726 462 Z" fill="#FC6255" /><path d="M1702 498 Q1702 470 1721 464 Q1740 470 1740 498 Z" fill="#FC6255" /><circle cx="1721" cy="506" r="5" fill="#FC6255" />
+          <text x="1640" y="566" font-size="28" fill="#FC6255" text-anchor="middle">冻结 · <tspan class="mono">P1</tspan> 告警</text>
+        </g>
+        <rect id="rec-tx" class="dr h" pathLength="1" x="110" y="410" width="1700" height="220" rx="18" fill="none" stroke="#58C4DD" stroke-width="3" />
+        <text id="rec-txl" class="h" x="120" y="680" font-size="30" fill="#58C4DD">一个事务</text>
+        <g id="rec-keep" class="h">
+          <path d="M790 790 L804 804 L830 774" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="850" y="806" font-size="40" fill="#e8e6df">记录一条不删</text>
+        </g>
+
+        <!-- L2 滑条 -->
+        <path id="rec-track" class="dr h" pathLength="1" d="M360 520 L1560 520" stroke="#6b6f7a" stroke-width="6" stroke-linecap="round" fill="none" />
+        <g id="rec-depth" class="h">
+          <path d="M900 488 L900 552" stroke="#FC6255" stroke-width="5" />
+          <text x="900" y="462" font-size="30" fill="#FC6255" text-anchor="middle">重组深度</text>
+        </g>
+        <g id="rec-hd" class="h">
+          <circle cx="600" cy="520" r="22" fill="#83C167" />
+          <text x="600" y="610" font-size="30" fill="#83C167" text-anchor="middle">确认数 <tspan class="mono">N</tspan></text>
+        </g>
+        <g id="rec-cnt" class="h">
+          <text x="360" y="770" font-size="32" fill="#e8e6df">入账后回滚事故</text>
+          <text class="mono" x="610" y="776" font-size="56" font-weight="700" fill="#83C167">0</text>
+        </g>
+        <g id="rec-fc" class="h">
+          <rect x="1160" y="700" width="400" height="100" rx="12" fill="none" stroke="#58C4DD" stroke-width="3" stroke-dasharray="10 8" />
+          <text class="mono" x="1190" y="762" font-size="30" fill="#58C4DD">fakeChain</text>
+          <path d="M1480 750 L1494 764 L1520 734" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+
+        <!-- L3/L4 误区卡 -->
+        <text id="rec-t4" class="h" x="960" y="220" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">四个误区</text>
+        <g id="rec-m0" class="h">
+          <rect x="160" y="300" width="1600" height="160" rx="16" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <path d="M210 362 L246 398 M246 362 L210 398" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          <text x="280" y="393" font-size="36" fill="#8a8f99">交易一上链就入账</text>
+        </g>
+        <path id="rec-ma0" class="dr h" pathLength="1" d="M960 380 L1060 380" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rec-arr)" />
+        <g id="rec-mr0" class="h">
+          <path d="M1100 380 L1114 394 L1140 364" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="1170" y="393" font-size="36" fill="#83C167">等够确认数</text>
+        </g>
+        <g id="rec-m1" class="h">
+          <rect x="160" y="520" width="1600" height="160" rx="16" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <path d="M210 582 L246 618 M246 582 L210 618" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          <text x="280" y="613" font-size="36" fill="#8a8f99">看代币名识别 <tspan class="mono">USDT</tspan></text>
+        </g>
+        <path id="rec-ma1" class="dr h" pathLength="1" d="M960 600 L1060 600" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rec-arr)" />
+        <g id="rec-mr1" class="h">
+          <path d="M1100 600 L1114 614 L1140 584" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="1170" y="613" font-size="36" fill="#83C167">只认合约地址</text>
+        </g>
+        <g id="rec-m2" class="h">
+          <rect x="160" y="300" width="1600" height="160" rx="16" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <path d="M210 362 L246 398 M246 362 L210 398" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          <text x="280" y="393" font-size="36" fill="#8a8f99">先入账再发消息</text>
+        </g>
+        <path id="rec-ma2" class="dr h" pathLength="1" d="M960 380 L1060 380" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rec-arr)" />
+        <g id="rec-mr2" class="h">
+          <path d="M1100 380 L1114 394 L1140 364" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="1170" y="393" font-size="36" fill="#83C167">事务性发件箱</text>
+        </g>
+        <g id="rec-m3" class="h">
+          <rect x="160" y="520" width="1600" height="160" rx="16" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <path d="M210 582 L246 618 M246 582 L210 618" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          <text x="280" y="613" font-size="36" fill="#8a8f99"><tspan class="mono">Kafka</tspan> 只投递一次</text>
+        </g>
+        <path id="rec-ma3" class="dr h" pathLength="1" d="M960 600 L1060 600" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rec-arr)" />
+        <g id="rec-mr3" class="h">
+          <path d="M1100 600 L1114 614 L1140 584" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="1170" y="613" font-size="36" fill="#83C167">至少一次 + 去重</text>
+        </g>
+
+        <!-- L5 下一集 -->
+        <text id="rec-next" class="h" x="960" y="560" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">下一集 · 区块链基础与 <tspan class="mono">Go</tspan> 后端 回顾串讲</text>
+
+      </g>
+      <rect id="rec-black" x="0" y="0" width="1920" height="1080" fill="#000" opacity="0" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 钩子回来
+      IN("#rec-bal", at(0, 0.0), 0.6, { y: 12 }, { y: 0 });
+      IN("#rec-blk", at(0, 0.25), 0.6);
+      IN("#rec-bad", at(0, 0.6), 0.5, { scale: 1.2, svgOrigin: "960 780" }, { scale: 1, svgOrigin: "960 780" });
+
+      // L1 五步 + 事务框
+      OUT(["#rec-bal", "#rec-blk", "#rec-bad"], at(1, 0) - 0.3, 0.35);
+      IN("#rec-b0", at(1, 0.02), 0.5);
+      ARROW("#rec-a0", at(1, 0.12), 0.4);
+      IN("#rec-b1", at(1, 0.14), 0.5);
+      ARROW("#rec-a1", at(1, 0.26), 0.4);
+      IN("#rec-b2", at(1, 0.28), 0.5);
+      ARROW("#rec-a2", at(1, 0.4), 0.4);
+      IN("#rec-b3", at(1, 0.42), 0.5);
+      ARROW("#rec-a3", at(1, 0.54), 0.4);
+      IN("#rec-b4", at(1, 0.56), 0.5);
+      DRAW("#rec-tx", at(1, 0.74), 0.9); IN("#rec-tx", at(1, 0.74), 0.01);
+      IN("#rec-txl", at(1, 0.78), 0.5);
+      IN("#rec-keep", at(1, 0.88), 0.5);
+
+      // L2 确认数 N > 重组深度
+      OUT(["#rec-b0", "#rec-b1", "#rec-b2", "#rec-b3", "#rec-b4", "#rec-a0", "#rec-a1", "#rec-a2", "#rec-a3", "#rec-tx", "#rec-txl", "#rec-keep"], at(2, 0) - 0.3, 0.35);
+      DRAW("#rec-track", at(2, 0.02), 0.6); IN("#rec-track", at(2, 0.02), 0.01);
+      IN("#rec-depth", at(2, 0.1), 0.4);
+      IN("#rec-hd", at(2, 0.16), 0.4);
+      tl.to("#rec-hd", { x: 700, duration: 1.4, ease: "power2.inOut" }, at(2, 0.26));
+      IN("#rec-cnt", at(2, 0.6), 0.4);
+      IN("#rec-fc", at(2, 0.74), 0.5);
+
+      // L3 误区 1、2
+      OUT(["#rec-track", "#rec-depth", "#rec-hd", "#rec-cnt", "#rec-fc"], at(3, 0) - 0.3, 0.35);
+      IN("#rec-t4", at(3, 0.0), 0.5);
+      IN("#rec-m0", at(3, 0.12), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#rec-ma0", at(3, 0.3), 0.4);
+      IN("#rec-mr0", at(3, 0.34), 0.5);
+      IN("#rec-m1", at(3, 0.56), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#rec-ma1", at(3, 0.78), 0.4);
+      IN("#rec-mr1", at(3, 0.82), 0.5);
+
+      // L4 误区 3、4（同位置替换，旧卡先完全淡出）
+      OUT(["#rec-m0", "#rec-ma0", "#rec-mr0", "#rec-m1", "#rec-ma1", "#rec-mr1"], at(4, 0) - 0.3, 0.35);
+      IN("#rec-m2", at(4, 0.04), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#rec-ma2", at(4, 0.3), 0.4);
+      IN("#rec-mr2", at(4, 0.36), 0.5);
+      IN("#rec-m3", at(4, 0.6), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#rec-ma3", at(4, 0.82), 0.4);
+      IN("#rec-mr3", at(4, 0.86), 0.5);
+
+      // L5 下一集 → 淡到黑
+      OUT(["#rec-t4", "#rec-m2", "#rec-ma2", "#rec-mr2", "#rec-m3", "#rec-ma3", "#rec-mr3"], at(5, 0) - 0.3, 0.35);
+      IN("#rec-next", at(5, 0.05), 0.7);
+
+
+      tl.to("#rec-all", { opacity: 0, duration: 0.8, ease: "power2.in" }, C.d - 1.4);
+      tl.to("#rec-black", { opacity: 1, duration: 0.8, ease: "power2.in" }, C.d - 1.4);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

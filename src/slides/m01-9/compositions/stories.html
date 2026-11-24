@@ -1,0 +1,286 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 stories，id 前缀 st- -->
+  <div id="root" data-composition-id="stories" data-duration="51.69" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="st-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="st-arry" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="st-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="st-all">
+        <!-- 左列 7 个角色：第 i 行中心 y = 270 + 108i -->
+        <rect id="st-mk" class="h" x="88" y="236" width="6" height="68" rx="3" fill="#58C4DD" />
+        <g id="st-p0" class="h"><circle cx="140" cy="270" r="26" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="140" cy="262" r="9" fill="#e8e6df" /><text x="186" y="280" font-size="30" fill="#e8e6df">用户</text></g>
+        <g id="st-p1" class="h"><circle cx="140" cy="378" r="26" fill="none" stroke="#e8e6df" stroke-width="3" /><circle cx="140" cy="370" r="9" fill="#e8e6df" /><text x="186" y="388" font-size="30" fill="#e8e6df">用户</text></g>
+        <g id="st-p2" class="h"><rect x="114" y="460" width="52" height="52" rx="10" fill="none" stroke="#B48EF0" stroke-width="3" /><text x="186" y="496" font-size="30" fill="#B48EF0">账户服务</text></g>
+        <g id="st-p3" class="h"><rect x="114" y="568" width="52" height="52" rx="10" fill="none" stroke="#B48EF0" stroke-width="3" /><text x="186" y="604" font-size="30" fill="#B48EF0">外部商户</text></g>
+        <g id="st-p4" class="h"><circle cx="140" cy="702" r="26" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="140" cy="694" r="9" fill="#8a8f99" /><text x="186" y="712" font-size="30" fill="#e8e6df">运维</text></g>
+        <g id="st-p5" class="h"><circle cx="140" cy="810" r="26" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="140" cy="802" r="9" fill="#8a8f99" /><text x="186" y="820" font-size="30" fill="#e8e6df">财务</text></g>
+        <g id="st-p6" class="h"><circle cx="140" cy="918" r="26" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="140" cy="910" r="9" fill="#8a8f99" /><text x="186" y="928" font-size="30" fill="#e8e6df">风控</text></g>
+
+        <!-- L0 用户：手机里的确认进度 -->
+        <g id="st-u">
+          <g id="st-ph" class="h">
+            <rect x="560" y="260" width="300" height="600" rx="40" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="710" y="322" font-size="28" fill="#8a8f99" text-anchor="middle">固定地址</text>
+            <text class="mono" x="710" y="364" font-size="28" fill="#58C4DD" text-anchor="middle">0x7e5f…</text>
+          </g>
+          <text id="st-cfl" class="h" x="710" y="438" font-size="30" fill="#FF9F43" text-anchor="middle">确认中</text>
+          <circle id="st-trk" class="h" cx="710" cy="570" r="90" fill="none" stroke="#2a2f3a" stroke-width="14" />
+          <path id="st-ring" class="dr" pathLength="1" d="M710 480 A90 90 0 1 1 709.99 480" fill="none" stroke="#FF9F43" stroke-width="14" stroke-linecap="round" />
+          <text id="st-cnt" class="h mono" x="710" y="584" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle"><tspan id="st-n">0</tspan>/12</text>
+          <text id="st-ok" class="h" x="710" y="584" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">可用</text>
+          <text id="st-10" class="h" x="960" y="560" font-size="44" font-weight="700" fill="#83C167">≤ 10 秒</text>
+          <text id="st-10b" class="h" x="960" y="620" font-size="30" fill="#e8e6df">余额可用</text>
+        </g>
+
+        <!-- L1 账户服务：两种事件，按 deposit_id 去重 -->
+        <g id="st-a">
+          <g id="st-abox" class="h">
+            <rect x="1240" y="440" width="320" height="160" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text x="1400" y="532" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">账户服务</text>
+          </g>
+          <g id="st-e1o"><g id="st-e1" class="h">
+            <rect x="500" y="380" width="230" height="60" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="615" y="420" font-size="28" fill="#83C167" text-anchor="middle">credited</text>
+          </g></g>
+          <g id="st-e2o"><g id="st-e2" class="h">
+            <rect x="500" y="600" width="230" height="60" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="615" y="640" font-size="28" fill="#FC6255" text-anchor="middle">reverted</text>
+          </g></g>
+          <g id="st-e3o"><g id="st-e3" class="h">
+            <rect x="500" y="490" width="230" height="60" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5" stroke-dasharray="8 6" />
+            <text class="mono" x="615" y="530" font-size="28" fill="#83C167" text-anchor="middle">credited</text>
+          </g></g>
+          <path id="st-e3x" class="h" d="M1132 496 L1172 536 M1172 496 L1132 536" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          <text id="st-dd" class="h" x="1400" y="690" font-size="30" fill="#e8e6df" text-anchor="middle">按 <tspan class="mono" fill="#58C4DD">deposit_id</tspan> 去重</text>
+        </g>
+
+        <!-- L2 外部商户：HTTP 回调 + 签名 + 退避重试 -->
+        <g id="st-m">
+          <g id="st-plat" class="h">
+            <rect x="520" y="480" width="260" height="130" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="650" y="556" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">平台</text>
+          </g>
+          <g id="st-mer" class="h">
+            <rect x="1400" y="480" width="300" height="130" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text x="1550" y="556" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">外部商户</text>
+          </g>
+          <path id="st-h1" class="dr h" pathLength="1" d="M784 520 L1392 520" fill="none" stroke="#F0B90B" stroke-width="4" marker-end="url(#st-arry)" />
+          <text id="st-h1l" class="h mono" x="1090" y="496" font-size="28" fill="#F0B90B" text-anchor="middle">HTTP POST</text>
+          <g id="st-seal" class="h">
+            <circle cx="1440" cy="410" r="28" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="3" />
+            <path d="M1428 410 L1437 419 L1453 401" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="1484" y="421" font-size="30" fill="#83C167">签名可验证</text>
+          </g>
+          <path id="st-h2" class="dr h" pathLength="1" d="M784 576 L1240 576" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#st-arrr)" />
+          <path id="st-h2x" class="h" d="M1262 558 L1294 590 M1294 558 L1262 590" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          <path id="st-h3" class="dr h" pathLength="1" d="M1250 600 Q1020 690 792 606" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="1" marker-end="url(#st-arrr)" />
+          <g id="st-clk" class="h">
+            <circle cx="960" cy="770" r="34" fill="none" stroke="#e8e6df" stroke-width="3" />
+            <line x1="960" y1="770" x2="960" y2="746" stroke="#e8e6df" stroke-width="3" stroke-linecap="round" />
+            <line x1="960" y1="770" x2="978" y2="770" stroke="#e8e6df" stroke-width="3" stroke-linecap="round" />
+            <text x="1012" y="781" font-size="30" fill="#e8e6df">退避重试 <tspan fill="#FF9F43" font-weight="700">24 小时</tspan></text>
+          </g>
+        </g>
+
+        <!-- L3 运维：监控面板 -->
+        <g id="st-o">
+          <g id="st-pan" class="h">
+            <rect x="520" y="270" width="1200" height="580" rx="16" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text x="556" y="332" font-size="30" fill="#8a8f99">监控面板</text>
+            <rect x="550" y="370" width="360" height="330" rx="10" fill="none" stroke="#2a2f3a" stroke-width="2" />
+            <rect x="940" y="370" width="360" height="330" rx="10" fill="none" stroke="#2a2f3a" stroke-width="2" />
+            <rect x="1330" y="370" width="360" height="330" rx="10" fill="none" stroke="#2a2f3a" stroke-width="2" />
+            <text x="574" y="418" font-size="28" fill="#e8e6df">扫块落后</text>
+            <text x="964" y="418" font-size="28" fill="#e8e6df">RPC 错误</text>
+            <text x="1354" y="418" font-size="28" fill="#e8e6df">重组次数</text>
+          </g>
+          <path id="st-g1" class="dr" pathLength="1" d="M570 660 L610 650 L650 655 L690 640 L730 648 L770 600 L810 560 L850 520 L890 500" fill="none" stroke="#FF9F43" stroke-width="3.5" />
+          <path id="st-g2" class="dr" pathLength="1" d="M960 640 L1000 645 L1040 636 L1080 650 L1120 642 L1160 646 L1200 638 L1240 644 L1280 640" fill="none" stroke="#58C4DD" stroke-width="3.5" />
+          <path id="st-g3" class="dr" pathLength="1" d="M1350 660 L1400 660 L1450 660 L1480 660 L1500 560 L1520 660 L1580 660 L1630 660 L1670 660" fill="none" stroke="#FC6255" stroke-width="3.5" />
+          <g id="st-bell" class="h">
+            <path d="M1644 336 Q1644 300 1668 296 Q1692 300 1692 336 L1698 344 L1638 344 Z" fill="none" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round" />
+            <circle cx="1668" cy="352" r="5" fill="#FF9F43" />
+            <text x="1620" y="342" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="end">告警</text>
+          </g>
+          <g id="st-rule" class="h">
+            <rect x="550" y="740" width="420" height="64" rx="32" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="760" y="783" font-size="28" fill="#FF9F43" text-anchor="middle">规则：落后 &gt; 20 块 → 告警</text>
+          </g>
+        </g>
+
+        <!-- L4 财务 + 风控 -->
+        <g id="st-f">
+          <g id="st-f1" class="h">
+            <text x="600" y="380" font-size="30" fill="#8a8f99" text-anchor="middle">链上收到</text>
+            <text class="mono" x="600" y="452" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">12,400</text>
+          </g>
+          <g id="st-f2" class="h">
+            <text x="940" y="380" font-size="30" fill="#8a8f99" text-anchor="middle">账本入账</text>
+            <text class="mono" x="940" y="452" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">12,400</text>
+          </g>
+          <text id="st-feq" class="h mono" x="770" y="450" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">=</text>
+          <g id="st-f0" class="h">
+            <rect x="660" y="510" width="220" height="76" rx="14" fill="none" stroke="#83C167" stroke-width="3" />
+            <text x="770" y="562" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">差异 0</text>
+          </g>
+          <text id="st-fex" class="h" x="770" y="640" font-size="28" fill="#6b6f7a" text-anchor="middle">每日 · 示例</text>
+          <line id="st-div" class="dr" pathLength="1" x1="1130" y1="300" x2="1130" y2="760" stroke="#2a2f3a" stroke-width="2" />
+          <g id="st-r1" class="h">
+            <circle cx="1240" cy="400" r="46" fill="#F0B90B" />
+            <text x="1240" y="410" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">大额</text>
+            <text x="1310" y="411" font-size="32" fill="#FF9F43">等最终确定</text>
+          </g>
+          <g id="st-r2" class="h">
+            <rect x="1190" y="570" width="200" height="60" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="1290" y="610" font-size="28" fill="#FC6255" text-anchor="middle">reverted</text>
+          </g>
+          <path id="st-ra" class="dr h" pathLength="1" d="M1394 600 L1506 600" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#st-arrr)" />
+          <g id="st-lock" class="h">
+            <path d="M1530 594 L1530 572 Q1530 548 1554 548 Q1578 548 1578 572 L1578 594" fill="none" stroke="#FC6255" stroke-width="4" />
+            <rect x="1518" y="594" width="72" height="56" rx="8" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="3" />
+            <text x="1612" y="634" font-size="34" font-weight="700" fill="#FC6255">冻结</text>
+          </g>
+        </g>
+
+        <!-- L5 不在本期范围 -->
+        <g id="st-n5">
+          <g id="st-oos" class="h">
+            <rect x="560" y="340" width="1140" height="420" rx="18" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="12 8" />
+            <text x="600" y="402" font-size="32" fill="#8a8f99">不在本期范围</text>
+            <text x="1130" y="580" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">归集 · 提币 · 多链</text>
+          </g>
+          <rect id="st-s1" class="h" x="830" y="740" width="40" height="40" rx="6" fill="#0f1117" stroke="#58C4DD" stroke-width="3" />
+          <rect id="st-s2" class="h" x="1110" y="740" width="40" height="40" rx="6" fill="#0f1117" stroke="#58C4DD" stroke-width="3" />
+          <rect id="st-s3" class="h" x="1390" y="740" width="40" height="40" rx="6" fill="#0f1117" stroke="#58C4DD" stroke-width="3" />
+          <text id="st-sl" class="h" x="1130" y="836" font-size="30" fill="#58C4DD" text-anchor="middle">留好接口</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="st-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">回调 <tspan font-size="28" font-weight="400" fill="#8a8f99">Webhook</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">事件发生时，平台主动发 HTTP 通知</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      // 点亮角色：rows 为点亮的行号，其余变暗；标记条移到第一行
+      const P = [0, 1, 2, 3, 4, 5, 6].map(i => `#st-p${i}`);
+      const FOCUS = (rows, t) => {
+        P.forEach((p, i) => tl.to(p, { opacity: rows.includes(i) ? 1 : 0.3, duration: 0.4 }, t));
+        if (rows.length) {
+          const y0 = 236 + 108 * rows[0], h = 68 + 108 * (rows[rows.length - 1] - rows[0]);
+          tl.to("#st-mk", { opacity: 1, attr: { y: y0, height: h }, duration: 0.5, ease: "power2.inOut" }, t);
+        } else tl.to("#st-mk", { opacity: 0, duration: 0.4 }, t);
+      };
+
+      // 角色列出现
+      P.forEach((p, i) => IN(p, at(0, 0.0) + i * 0.08, 0.4, { x: -10 }, { x: 0 }));
+      FOCUS([0, 1], at(0, 0.08));
+
+      // L0 用户
+      IN("#st-ph", at(0, 0.12), 0.6);
+      IN("#st-cfl, #st-trk, #st-cnt", at(0, 0.36), 0.5);
+      tl.set("#st-ring", { opacity: 1 }, at(0, 0.38));
+      tl.fromTo("#st-ring", { strokeDashoffset: 1 }, { strokeDashoffset: 0.75, duration: 1.0, ease: "power2.out" }, at(0, 0.4));
+      COUNT("#st-n", 0, 3, at(0, 0.4), 1.0);
+      tl.to("#st-ring", { strokeDashoffset: 0, duration: 1.4, ease: "power1.inOut" }, at(0, 0.66));
+      COUNT("#st-n", 3, 12, at(0, 0.66), 1.4);
+      tl.to("#st-ring", { attr: { stroke: "#83C167" }, duration: 0.3 }, at(0, 0.66) + 1.4);
+      OUT("#st-cnt, #st-cfl", at(0, 0.66) + 1.4, 0.25);
+      IN("#st-ok", at(0, 0.66) + 1.7, 0.4);
+      IN("#st-10", at(0, 0.8), 0.5, { x: -12 }, { x: 0 });
+      IN("#st-10b", at(0, 0.88), 0.4);
+
+      // L1 账户服务
+      OUT("#st-u > *", at(1, 0), 0.4);
+      FOCUS([2], at(1, 0));
+      IN("#st-abox", at(1, 0.06), 0.5);
+      IN("#st-e1", at(1, 0.14), 0.4); IN("#st-e2", at(1, 0.24), 0.4);
+      tl.to("#st-e1o", { x: 500, y: 60, duration: 0.8, ease: "power2.in" }, at(1, 0.22));
+      tl.to("#st-e2o", { x: 500, y: -60, duration: 0.8, ease: "power2.in" }, at(1, 0.32));
+      OUT("#st-e1", at(1, 0.22) + 0.75, 0.2); OUT("#st-e2", at(1, 0.32) + 0.75, 0.2);
+      IN("#st-dd", at(1, 0.62), 0.4);
+      IN("#st-e3", at(1, 0.66), 0.3);
+      tl.to("#st-e3o", { x: 380, duration: 0.6, ease: "power2.in" }, at(1, 0.68));
+      IN("#st-e3x", at(1, 0.68) + 0.6, 0.2);
+      OUT("#st-e3, #st-e3x", at(1, 0.68) + 1.0, 0.3);
+
+      // L2 外部商户
+      OUT("#st-a > *", at(2, 0), 0.4);
+      FOCUS([3], at(2, 0));
+      IN("#st-plat", at(2, 0.04), 0.5); IN("#st-mer", at(2, 0.08), 0.5);
+      IN("#st-term", at(2, 0.12), 0.5);
+      ARROW("#st-h1", at(2, 0.16), 0.7); IN("#st-h1l", at(2, 0.2), 0.4);
+      IN("#st-seal", at(2, 0.42), 0.5, { y: 8 }, { y: 0 });
+      ARROW("#st-h2", at(2, 0.66), 0.5); IN("#st-h2x", at(2, 0.66) + 0.5, 0.2);
+      ARROW("#st-h3", at(2, 0.66) + 0.7, 0.6);
+      IN("#st-clk", at(2, 0.8), 0.5);
+      tl.to("#st-clk line:first-of-type", { rotation: 360, svgOrigin: "960 770", duration: 1.4, ease: "none" }, at(2, 0.82));
+
+      // L3 运维
+      OUT("#st-m > *, #st-term", at(3, 0), 0.4);
+      FOCUS([4], at(3, 0));
+      IN("#st-pan", at(3, 0.06), 0.5);
+      DRAW("#st-g1", at(3, 0.14), 0.8); DRAW("#st-g2", at(3, 0.36), 0.8); DRAW("#st-g3", at(3, 0.56), 0.8);
+      IN("#st-bell", at(3, 0.72), 0.3);
+      tl.fromTo("#st-bell", { x: -4 }, { x: 4, duration: 0.08, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, at(3, 0.74));
+      IN("#st-rule", at(3, 0.84), 0.4);
+
+      // L4 财务 + 风控
+      OUT("#st-o > *, #st-g1, #st-g2, #st-g3", at(4, 0), 0.4);
+      FOCUS([5], at(4, 0));
+      IN("#st-f1", at(4, 0.04), 0.5); IN("#st-f2", at(4, 0.1), 0.5);
+      IN("#st-feq", at(4, 0.16), 0.3);
+      IN("#st-f0", at(4, 0.24), 0.5, { y: 8 }, { y: 0 });
+      IN("#st-fex", at(4, 0.28), 0.4);
+      FOCUS([6], at(4, 0.38));
+      DRAW("#st-div", at(4, 0.38), 0.5);
+      IN("#st-r1", at(4, 0.46), 0.5);
+      IN("#st-r2", at(4, 0.7), 0.4, { x: -16 }, { x: 0 });
+      ARROW("#st-ra", at(4, 0.78), 0.4);
+      IN("#st-lock", at(4, 0.84), 0.4);
+
+      // L5 不在本期范围 + 接口插槽
+      OUT("#st-f > *", at(5, 0), 0.4);
+      FOCUS([], at(5, 0));
+      P.forEach(p => tl.to(p, { opacity: 0.3, duration: 0.4 }, at(5, 0)));
+      IN("#st-oos", at(5, 0.08), 0.5);
+      IN("#st-s1", at(5, 0.5), 0.3); IN("#st-s2", at(5, 0.56), 0.3); IN("#st-s3", at(5, 0.62), 0.3);
+      IN("#st-sl", at(5, 0.7), 0.4);
+
+      tl.to("#st-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#st-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["stories"] = tl;
+    })();
+  </script>
+</template>

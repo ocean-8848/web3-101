@@ -1,0 +1,237 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz6，id 前缀 q6- -->
+  <div id="root" data-composition-id="quiz6" data-duration="57.52" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="q6-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="q6-all">
+        <g id="q6-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 6 题</text>
+        </g>
+        <clipPath id="q6-qclip"><rect id="q6-qcr" x="60" y="200" width="0" height="64" /></clipPath>
+        <clipPath id="q6-qclip2"><rect id="q6-qcr2" x="60" y="264" width="0" height="64" /></clipPath>
+        <text id="q6-q" class="h" x="70" y="250" font-size="40" fill="#e8e6df" clip-path="url(#q6-qclip)">同一套金库代码在同一条链上部署了 <tspan fill="#F0B90B">V1</tspan> 和 <tspan fill="#F0B90B">V2</tspan>。提款签名包含</text>
+        <text id="q6-q2" class="h" x="70" y="310" font-size="40" fill="#e8e6df" clip-path="url(#q6-qclip2)"><tspan class="mono" fill="#58C4DD">nonce</tspan> 和 <tspan class="mono" fill="#58C4DD">chainId</tspan>，但域分隔符里<tspan fill="#FF9F43">没有合约地址</tspan>。<tspan fill="#FF9F43">风险</tspan>是？</text>
+        <g id="q6-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="q6-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <!-- 选项卡 -->
+        <g id="q6-oA" class="h">
+          <rect id="q6-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q6-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q6-oA-dim">
+            <circle id="q6-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q6-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="q6-oA-t" x="190" y="428" font-size="32" fill="#e8e6df">给 V1 的签名可以拿到 V2 上重放；</text>
+            <text id="q6-oA-t2" x="190" y="472" font-size="32" fill="#e8e6df">域分隔符要包含 <tspan class="mono" fill="#58C4DD">verifyingContract</tspan></text>
+          </g>
+        </g>
+        <g id="q6-oB" class="h">
+          <rect id="q6-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q6-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q6-oB-dim">
+            <circle id="q6-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q6-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="q6-oB-t" x="190" y="584" font-size="32" fill="#e8e6df">没有风险，<tspan class="mono">chainId</tspan> 已经防住所有重放</text>
+          </g>
+          <text id="q6-oB-n" class="h" x="190" y="612" font-size="28" fill="#FC6255"><tspan class="mono">chainId</tspan> 只防跨链重放</text>
+        </g>
+        <g id="q6-oC" class="h">
+          <rect id="q6-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q6-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q6-oC-dim">
+            <circle id="q6-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q6-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="q6-oC-t" x="190" y="719" font-size="32" fill="#e8e6df">签名会被拿到其他链上重放</text>
+          </g>
+          <text id="q6-oC-n" class="h" x="190" y="747" font-size="28" fill="#FC6255">跨链已由 <tspan class="mono">chainId</tspan> 防住，漏的是同链另一份部署</text>
+        </g>
+        <g id="q6-oD" class="h">
+          <rect id="q6-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q6-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q6-oD-dim">
+            <circle id="q6-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q6-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="q6-oD-t" x="190" y="854" font-size="32" fill="#e8e6df">两份合约会共享同一个 <tspan class="mono">nonce</tspan> 计数器</text>
+          </g>
+          <text id="q6-oD-n" class="h" x="190" y="882" font-size="28" fill="#FC6255">正相反：V2 的 <tspan class="mono">nonce</tspan> 记录独立，旧签名在 V2 仍有效</text>
+        </g>
+
+        <!-- 右侧示意区 x 1160–1850 y 380–900 -->
+        <!-- 签名卡 -->
+        <text id="q6-full" class="h" x="1180" y="414" font-size="30" font-weight="700" fill="#83C167">完整防重放</text>
+        <g id="q6-card" class="h">
+          <rect id="q6-cardb" x="1180" y="432" width="410" height="168" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text x="1200" y="478" font-size="28" class="mono" fill="#e8e6df">chainId</text>
+          <path d="M1332 466 l9 10 l18 -22" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          <text id="q6-fn" x="1200" y="526" font-size="28" class="mono" fill="#e8e6df">nonce 5</text>
+          <text id="q6-fa" x="1200" y="574" font-size="28" fill="#6b6f7a">合约地址 —</text>
+          <text id="q6-fv" class="h mono" x="1200" y="574" font-size="28" fill="#83C167">verifyingContract=V1</text>
+          <text id="q6-fd" class="h mono" x="1200" y="622" font-size="28" fill="#83C167">deadline</text>
+        </g>
+        <!-- 另一条链（L4） -->
+        <g id="q6-ch2" class="h">
+          <rect x="1660" y="432" width="180" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6" />
+          <text x="1750" y="478" font-size="28" fill="#8a8f99" text-anchor="middle">另一条链</text>
+        </g>
+        <path id="q6-xa" class="dr h" pathLength="1" d="M1596 467 H1648" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#q6-arr)" />
+        <path id="q6-wall" class="dr h" pathLength="1" d="M1624 440 V494" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+        <g id="q6-wl" class="h">
+          <text x="1660" y="546" font-size="28" class="mono" fill="#83C167">chainId</text>
+          <text x="1660" y="586" font-size="28" fill="#83C167">已防住</text>
+        </g>
+        <!-- 链 + 两个金库 + nonce 记录本 -->
+        <path id="q6-chain" class="dr h" pathLength="1" d="M1180 812 H1840" fill="none" stroke="#58C4DD" stroke-width="4" />
+        <g id="q6-v1" class="h">
+          <rect x="1200" y="700" width="200" height="100" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="1300" y="762" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">V1</text>
+        </g>
+        <g id="q6-v2" class="h">
+          <rect id="q6-v2b" x="1620" y="700" width="200" height="100" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="1720" y="762" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">V2</text>
+        </g>
+        <g id="q6-b1" class="h">
+          <rect x="1190" y="830" width="220" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text id="q6-b1t" x="1300" y="868" font-size="28" fill="#8a8f99" text-anchor="middle">已用：无</text>
+          <text id="q6-b1u" class="h" x="1300" y="868" font-size="28" fill="#F0B90B" text-anchor="middle">已用：5</text>
+        </g>
+        <g id="q6-b2" class="h">
+          <rect x="1610" y="830" width="220" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="1720" y="868" font-size="28" fill="#8a8f99" text-anchor="middle">已用：无</text>
+        </g>
+        <!-- 投递的签名副本 -->
+        <g id="q6-s1m" class="h"><g id="q6-s1">
+          <rect x="1255" y="610" width="90" height="48" rx="8" fill="#FF9F43" />
+          <text x="1300" y="644" font-size="28" fill="#0f1117" text-anchor="middle">签名</text>
+        </g></g>
+        <g id="q6-s2m" class="h"><g id="q6-s2">
+          <rect x="1255" y="610" width="90" height="48" rx="8" fill="#FF9F43" />
+          <text x="1300" y="644" font-size="28" fill="#0f1117" text-anchor="middle">签名</text>
+        </g></g>
+        <g id="q6-s3m" class="h"><g id="q6-s3">
+          <rect x="1255" y="640" width="90" height="48" rx="8" fill="#FF9F43" />
+          <text x="1300" y="674" font-size="28" fill="#0f1117" text-anchor="middle">签名</text>
+        </g></g>
+        <text id="q6-rep" class="h" x="1720" y="684" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">重放成功</text>
+        <g id="q6-rej" class="h">
+          <path d="M1622 662 l18 18 M1640 662 l-18 18" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" />
+          <text x="1656" y="684" font-size="30" font-weight="700" fill="#83C167">地址不符</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // ===== 测验版式（与 quiz1 一致）=====
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      IN("#q6-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#q6-q", at(0, 0.05), 0.01);
+      tl.fromTo("#q6-qcr", { attr: { width: 0 } }, { attr: { width: 1400 }, duration: 2.6, ease: "none" }, at(0, 0.08));
+      IN("#q6-q2", at(0, 0.05), 0.01);
+      tl.fromTo("#q6-qcr2", { attr: { width: 0 } }, { attr: { width: 1400 }, duration: 2.6, ease: "none" }, at(0, 0.08) + 2.6);
+      const SHOW = (k, t) => {
+        IN(`#q6-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#q6-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#q6-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      const PAUSE = () => {
+        IN("#q6-pause", at(2, 0.0), 0.3);
+        tl.fromTo("#q6-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+        OUT("#q6-pause", at(3, 0.0), 0.3);
+      };
+      const RIGHT = (k, t) => {
+        tl.to(`#q6-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#q6-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#q6-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#q6-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#q6-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q6-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q6-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#q6-o${k}-t`, { attr: { y: Y0[k] + 52 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#q6-o${k}-n`, t + 0.3, 0.5);
+      };
+      const POP = (s, t, ox, oy, d = 0.45) => IN(s, t, d, { scale: 0.6, svgOrigin: `${ox} ${oy}` }, { scale: 1, svgOrigin: `${ox} ${oy}`, ease: "back.out(2)" });
+
+      // L0 链上两份部署 + 签名卡
+      DRAW("#q6-chain", at(0, 0.3), 0.8);
+      tl.set("#q6-chain", { opacity: 1 }, at(0, 0.3));
+      IN("#q6-v1", at(0, 0.36), 0.5, { y: 14 }, { y: 0 });
+      IN("#q6-v2", at(0, 0.42), 0.5, { y: 14 }, { y: 0 });
+      IN("#q6-b1", at(0, 0.48), 0.4);
+      IN("#q6-b2", at(0, 0.5), 0.4);
+      IN("#q6-card", at(0, 0.6), 0.6, { y: -12 }, { y: 0 });
+      tl.to("#q6-fa", { fill: "#FF9F43", duration: 0.3 }, at(0, 0.86));
+      tl.to("#q6-fa", { fill: "#6b6f7a", duration: 0.5 }, at(0, 0.86) + 1.4);
+      // L1 选项
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.33)); SHOW("C", at(1, 0.58)); SHOW("D", at(1, 0.76));
+      // L2 暂停
+      PAUSE();
+      // L3 揭晓 A：签名先进 V1，再复制进 V2 —— 重放成功
+      RIGHT("A", at(3, 0.03));
+      IN("#q6-s1m", at(3, 0.06), 0.3);
+      tl.to("#q6-s1", { y: 110, duration: 0.6, ease: "power2.in" }, at(3, 0.1));
+      tl.to("#q6-s1m", { opacity: 0, duration: 0.25 }, at(3, 0.1) + 0.6);
+      OUT("#q6-b1t", at(3, 0.22), 0.2);
+      IN("#q6-b1u", at(3, 0.24), 0.3);
+      IN("#q6-s2m", at(3, 0.4), 0.3);
+      tl.to("#q6-s2", { x: 420, duration: 0.7, ease: "power2.inOut" }, at(3, 0.45));
+      tl.to("#q6-s2", { y: 110, duration: 0.5, ease: "power2.in" }, at(3, 0.45) + 0.7);
+      tl.to("#q6-s2m", { opacity: 0, duration: 0.25 }, at(3, 0.45) + 1.2);
+      tl.to("#q6-v2b", { stroke: "#FC6255", strokeWidth: 4, duration: 0.3 }, at(3, 0.45) + 1.2);
+      POP("#q6-rep", at(3, 0.45) + 1.3, 1720, 674);
+      // L4 B、C 错：chainId 只防跨链
+      WRONG("B", at(4, 0.02));
+      IN("#q6-ch2", at(4, 0.12), 0.5, { x: 16 }, { x: 0 });
+      ARROW("#q6-xa", at(4, 0.2), 0.5);
+      DRAW("#q6-wall", at(4, 0.3), 0.3);
+      tl.set("#q6-wall", { opacity: 1 }, at(4, 0.3));
+      IN("#q6-wl", at(4, 0.36), 0.5);
+      WRONG("C", at(4, 0.5));
+      tl.to("#q6-rep", { opacity: 0.4, duration: 0.25, yoyo: true, repeat: 3 }, at(4, 0.78));
+      // L5 D 错；补上合约地址 → V2 拒收
+      WRONG("D", at(5, 0.02));
+      OUT("#q6-ch2, #q6-xa, #q6-wall, #q6-wl, #q6-rep", at(5, 0.1), 0.4);
+      tl.to("#q6-v2b", { stroke: "#F0B90B", strokeWidth: 3, duration: 0.3 }, at(5, 0.12));
+      OUT("#q6-fa", at(5, 0.14), 0.3);
+      IN("#q6-fv", at(5, 0.16), 0.5, { x: -10 }, { x: 0 });
+      IN("#q6-s3m", at(5, 0.3), 0.3);
+      tl.to("#q6-s3", { x: 420, duration: 0.6, ease: "power2.inOut" }, at(5, 0.32));
+      tl.to("#q6-s3", { y: 70, duration: 0.4, ease: "power2.in" }, at(5, 0.32) + 0.6);
+      tl.to("#q6-s3", { y: 10, duration: 0.3, ease: "power2.out" }, at(5, 0.32) + 1.0);
+      tl.to("#q6-s3m", { opacity: 0, duration: 0.25 }, at(5, 0.32) + 1.0);
+      POP("#q6-rej", at(5, 0.32) + 1.3, 1700, 674);
+      tl.to("#q6-cardb", { attr: { height: 210 }, stroke: "#83C167", duration: 0.5 }, at(5, 0.6));
+      tl.to("#q6-fn", { fill: "#83C167", duration: 0.4 }, at(5, 0.64));
+      IN("#q6-fd", at(5, 0.7), 0.4);
+      IN("#q6-full", at(5, 0.78), 0.5, { y: 8 }, { y: 0 });
+
+      tl.to("#q6-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz6"] = tl;
+    })();
+  </script>
+</template>

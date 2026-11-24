@@ -1,0 +1,256 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pow，id 前缀 po- -->
+  <div id="root" data-composition-id="pow" data-duration="60.74" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="po-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="po-all">
+        <g id="po-title" class="h"><text x="120" y="250" font-size="52" font-weight="700" fill="#58C4DD">PoW <tspan fill="#e8e6df">工作量证明</tspan></text></g>
+        <g id="po-btc" class="h"><circle cx="545" cy="232" r="26" fill="#F0B90B"/><text x="545" y="244" font-size="32" font-weight="800" fill="#0f1117" text-anchor="middle">B</text></g>
+        <g id="po-s1">
+          <g id="po-pool" class="h">
+            <rect x="200" y="400" width="320" height="400" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="2"/>
+            <text x="230" y="452" font-size="32" fill="#F0B90B">交易池</text>
+          </g>
+          <g id="po-chain" class="h">
+            <rect x="820" y="300" width="80" height="50" rx="8" fill="rgba(88,196,221,0.18)" stroke="#58C4DD" stroke-width="2.5"/>
+            <rect x="940" y="300" width="80" height="50" rx="8" fill="rgba(88,196,221,0.18)" stroke="#58C4DD" stroke-width="2.5"/>
+            <rect x="1060" y="300" width="80" height="50" rx="8" fill="rgba(88,196,221,0.18)" stroke="#58C4DD" stroke-width="2.5"/>
+            <line x1="900" y1="325" x2="940" y2="325" stroke="#58C4DD" stroke-width="2.5"/>
+            <line x1="1020" y1="325" x2="1060" y2="325" stroke="#58C4DD" stroke-width="2.5"/>
+          </g>
+          <text id="po-top" class="h" x="1160" y="336" font-size="28" fill="#58C4DD">链顶</text>
+          <g id="po-frame" class="h">
+            <rect x="700" y="400" width="500" height="300" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text x="730" y="452" font-size="32" fill="#58C4DD">区块头</text>
+            <text class="mono" x="730" y="511" font-size="30" fill="#e8e6df">prevHash</text>
+            <text x="730" y="580" font-size="30" fill="#e8e6df">交易</text>
+            <rect x="830" y="550" width="80" height="36" rx="6" fill="none" stroke="#3a3f4a" stroke-width="2" stroke-dasharray="6 5"/>
+            <rect x="930" y="550" width="80" height="36" rx="6" fill="none" stroke="#3a3f4a" stroke-width="2" stroke-dasharray="6 5"/>
+            <rect x="1030" y="550" width="80" height="36" rx="6" fill="none" stroke="#3a3f4a" stroke-width="2" stroke-dasharray="6 5"/>
+            <text class="mono" x="730" y="660" font-size="30" fill="#e8e6df">nonce =</text>
+            <text id="po-nv" class="mono" x="880" y="660" font-size="30" font-weight="700" fill="#e8e6df">0</text>
+          </g>
+          <path id="po-pa" class="dr h" pathLength="1" d="M892 499 H1100 V360" fill="none" stroke="#58C4DD" stroke-width="2.5" marker-end="url(#po-arr)"/>
+          <g id="po-cards">
+            <rect class="h" x="230" y="490" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="330" y="490" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="430" y="490" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="230" y="550" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="330" y="550" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="430" y="550" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="230" y="610" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="330" y="610" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="430" y="610" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="230" y="670" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="330" y="670" width="80" height="36" rx="6" fill="#F0B90B"/>
+            <rect class="h" x="430" y="670" width="80" height="36" rx="6" fill="#F0B90B"/>
+          </g>
+          <g id="po-hm" class="h">
+            <text x="1280" y="455" font-size="30" fill="#e8e6df">区块头哈希</text>
+            <rect x="1280" y="480" width="520" height="44" rx="6" fill="#1d222c" stroke="#3a3f4a" stroke-width="2"/>
+            <rect id="po-hb" x="1280" y="480" width="300" height="44" rx="6" fill="#FC6255"/>
+            <line x1="1400" y1="466" x2="1400" y2="538" stroke="#FF9F43" stroke-width="3" stroke-dasharray="7 5"/>
+            <text x="1400" y="578" font-size="28" fill="#FF9F43" text-anchor="middle">目标值</text>
+            <g id="po-hres">
+              <path id="po-hx" d="M1282 628 L1306 652 M1306 628 L1282 652" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+              <path id="po-hk" d="M1280 640 L1291 652 L1310 626" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+              <text id="po-hr" x="1324" y="652" font-size="32" fill="#FC6255">太大</text>
+            </g>
+          </g>
+          <clipPath id="po-clip"><rect x="1360" y="200" width="560" height="820"/></clipPath>
+          <g clip-path="url(#po-clip)">
+            <circle id="po-rp1" class="h" cx="1290" cy="550" r="40" fill="none" stroke="#58C4DD" stroke-width="3"/>
+            <circle id="po-rp2" class="h" cx="1290" cy="550" r="40" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          </g>
+          <g id="po-nb" class="h">
+            <rect x="1230" y="510" width="120" height="80" rx="10" fill="rgba(88,196,221,0.25)" stroke="#58C4DD" stroke-width="3"/>
+            <text x="1290" y="560" font-size="28" fill="#e8e6df" text-anchor="middle">新区块</text>
+          </g>
+          <g id="po-nodes"></g>
+          <text id="po-lg" class="h" x="1410" y="822" font-size="30" fill="#e8e6df">检查：工作量 · 交易 · 父哈希</text>
+        </g>
+        <g id="po-s2">
+          <path id="po-gl1" class="dr" pathLength="1" d="M300 390 H900 L960 465 H1100" fill="none" stroke="#58C4DD" stroke-width="18" stroke-opacity="0.22" stroke-linecap="round"/>
+          <path id="po-gl2" class="dr" pathLength="1" d="M300 390 H900 L960 315 H1300" fill="none" stroke="#58C4DD" stroke-width="18" stroke-opacity="0.22" stroke-linecap="round"/>
+          <g id="po-up">
+            <rect class="h" x="300" y="330" width="160" height="120" rx="12" fill="rgba(88,196,221,0.35)" stroke="#58C4DD" stroke-width="3"/>
+            <line class="h" x1="460" y1="390" x2="520" y2="390" stroke="#58C4DD" stroke-width="3"/>
+            <rect class="h" x="520" y="330" width="160" height="120" rx="12" fill="rgba(88,196,221,0.35)" stroke="#58C4DD" stroke-width="3"/>
+            <line class="h" x1="680" y1="390" x2="740" y2="390" stroke="#58C4DD" stroke-width="3"/>
+            <rect class="h" x="740" y="330" width="160" height="120" rx="12" fill="rgba(88,196,221,0.35)" stroke="#58C4DD" stroke-width="3"/>
+          </g>
+          <g id="po-s2b">
+            <text id="po-n3" class="h" x="930" y="402" font-size="30" fill="#8a8f99">3 块</text>
+            <g id="po-low"></g>
+            <text id="po-n6" class="h" x="1080" y="747" font-size="30" fill="#8a8f99">6 块</text>
+            <text id="po-lowl" class="h" x="300" y="812" font-size="32" fill="#FC6255">低难度长链</text>
+            <g id="po-cmp" class="h">
+              <path d="M302 856 L328 882 M328 856 L302 882" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+              <text x="345" y="882" font-size="32" fill="#e8e6df">区块数 6 &gt; 3，但总工作量更小</text>
+            </g>
+            <g id="po-bal" class="h">
+              <text x="1550" y="300" font-size="30" fill="#8a8f99" text-anchor="middle">累计工作量</text>
+              <line x1="1550" y1="400" x2="1550" y2="620" stroke="#8a8f99" stroke-width="4"/>
+              <line x1="1470" y1="620" x2="1630" y2="620" stroke="#8a8f99" stroke-width="4"/>
+              <g id="po-beam"><line x1="1390" y1="400" x2="1710" y2="400" stroke="#8a8f99" stroke-width="5" stroke-linecap="round"/></g>
+              <g id="po-pl">
+                <path d="M1390 400 L1345 490 M1390 400 L1435 490" stroke="#6b6f7a" stroke-width="2"/>
+                <path d="M1335 490 Q1390 524 1445 490 Z" fill="#8a8f99"/>
+                <rect x="1360" y="444" width="60" height="44" rx="6" fill="rgba(88,196,221,0.45)" stroke="#58C4DD" stroke-width="2.5"/>
+              </g>
+              <g id="po-pr">
+                <path d="M1710 400 L1665 490 M1710 400 L1755 490" stroke="#6b6f7a" stroke-width="2"/>
+                <path d="M1655 490 Q1710 524 1765 490 Z" fill="#8a8f99"/>
+                <rect x="1683" y="476" width="54" height="10" rx="3" fill="#3a3f4a" stroke="#8a8f99" stroke-width="1.5"/>
+                <rect x="1683" y="463" width="54" height="10" rx="3" fill="#3a3f4a" stroke="#8a8f99" stroke-width="1.5"/>
+              </g>
+            </g>
+          </g>
+          <g id="po-pool2" class="h">
+            <rect x="1500" y="640" width="300" height="200" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2"/>
+            <text x="1530" y="690" font-size="30" fill="#F0B90B">交易池</text>
+          </g>
+          <line id="po-la" class="dr" pathLength="1" x1="900" y1="390" x2="960" y2="315" stroke="#FF9F43" stroke-width="3"/>
+          <line id="po-lb" class="dr" pathLength="1" x1="900" y1="390" x2="960" y2="465" stroke="#FF9F43" stroke-width="3"/>
+          <g id="po-fa" class="h"><rect id="po-far" x="960" y="270" width="140" height="90" rx="10" fill="rgba(255,159,67,0.18)" stroke="#FF9F43" stroke-width="3"/></g>
+          <g id="po-fb" class="h">
+            <rect id="po-fbr" x="960" y="420" width="140" height="90" rx="10" fill="rgba(255,159,67,0.18)" stroke="#FF9F43" stroke-width="3"/>
+            <rect id="po-t1" x="985" y="453" width="40" height="24" rx="4" fill="#F0B90B"/>
+            <rect id="po-t2" x="1035" y="453" width="40" height="24" rx="4" fill="#F0B90B"/>
+          </g>
+          <line id="po-lc" class="dr" pathLength="1" x1="1100" y1="315" x2="1160" y2="315" stroke="#58C4DD" stroke-width="3"/>
+          <g id="po-fc" class="h"><rect x="1160" y="270" width="140" height="90" rx="10" fill="rgba(88,196,221,0.35)" stroke="#58C4DD" stroke-width="3"/></g>
+          <text id="po-orl" class="h" x="1120" y="622" font-size="30" fill="#8a8f99">孤立块</text>
+          <text id="po-reorg" class="h" x="1320" y="328" font-size="32" font-weight="700" fill="#FF9F43">重组</text>
+        </g>
+      </g>
+      <g id="po-term" class="h">
+        <rect x="70" y="56" width="520" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">算力 <tspan font-size="28" font-weight="400" fill="#8a8f99">Hashrate</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">每秒能算多少次哈希</text>
+      </g>
+      <g id="po-term2" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">最重链规则 <tspan font-size="28" font-weight="400" fill="#8a8f99">Heaviest Chain Rule</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">跟随累计工作量最大的链</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+      // nodes + ticks
+      const ND = document.querySelector("#po-nodes"), NP = [[1450,430],[1700,430],[1450,560],[1700,560],[1450,690],[1700,690]];
+      NP.forEach(([x, y], i) => {
+        mk("circle", { id: `po-nd${i}`, class: "h", cx: x, cy: y, r: 30, fill: "#2a2f3a", stroke: "#8a8f99", "stroke-width": 2.5 }, ND);
+        for (let j = 0; j < 3; j++) { const bx = x + 44 + j * 36; mk("path", { id: `po-tk${i}_${j}`, class: "dr", pathLength: 1, d: `M${bx} ${y} L${bx + 8} ${y + 9} L${bx + 24} ${y - 9}`, fill: "none", stroke: "#83C167", "stroke-width": 4, "stroke-linecap": "round", "stroke-linejoin": "round" }, ND); }
+      });
+      // lower (light) chain
+      const LW = document.querySelector("#po-low");
+      for (let i = 0; i < 6; i++) { const x = 300 + i * 130; mk("rect", { class: "h", x, y: 720, width: 100, height: 30, rx: 5, fill: "#2a2f3a", stroke: "#8a8f99", "stroke-width": 2 }, LW); if (i < 5) mk("line", { class: "h", x1: x + 100, y1: 735, x2: x + 130, y2: 735, stroke: "#8a8f99", "stroke-width": 2 }, LW); }
+
+      // L0
+      IN("#po-title", at(0, 0.05), 0.7, { x: -30 }, { x: 0 });
+      IN("#po-btc", at(0, 0.55), 0.5, { scale: 0.3, svgOrigin: "545 232" }, { scale: 1, svgOrigin: "545 232" });
+      // L1 pool -> header
+      IN("#po-pool", at(1, 0), 0.6);
+      tl.fromTo("#po-cards rect", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.04 }, at(1, 0.05));
+      IN("#po-frame", at(1, 0.25), 0.6, { scale: 0.95, svgOrigin: "950 550" }, { scale: 1, svgOrigin: "950 550" });
+      const cards = document.querySelectorAll("#po-cards rect"), pick = [1, 5, 6], slot = [830, 930, 1030];
+      pick.forEach((k, i) => { const c = cards[k]; tl.to(c, { x: slot[i] - +c.getAttribute("x"), y: 550 - +c.getAttribute("y"), duration: 0.7, ease: "power2.inOut" }, at(1, 0.4) + i * 0.15); });
+      IN("#po-chain", at(1, 0.62), 0.5);
+      ARROW("#po-pa", at(1, 0.72), 0.6);
+      IN("#po-top", at(1, 0.8), 0.4);
+      // L2 nonce search
+      IN("#po-hm", at(2, 0.04), 0.5);
+      const NV = document.querySelector("#po-nv"), HB = document.querySelector("#po-hb"), HR = document.querySelector("#po-hr"), HX = document.querySelector("#po-hx"), HK = document.querySelector("#po-hk");
+      let seed = 7; const rnd = () => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; };
+      const N = 26, W = []; for (let k = 0; k < N; k++) W.push(k === N - 1 ? 70 : 170 + rnd() * 330);
+      const nonceOf = k => (k === N - 1 ? 2851039 : k * k * k * 131 + k);
+      const ro = { v: 0 };
+      tl.fromTo(ro, { v: 0 }, { v: N - 0.001, duration: at(2, 0.55) - at(2, 0.1), ease: "power1.in", immediateRender: false, onUpdate: () => {
+        const k = Math.min(N - 1, Math.floor(ro.v)), ok = k === N - 1;
+        NV.textContent = String(nonceOf(k)); HB.setAttribute("width", W[k].toFixed(1)); HB.setAttribute("fill", ok ? "#83C167" : "#FC6255");
+        HR.textContent = ok ? "小于目标" : "太大"; HR.setAttribute("fill", ok ? "#83C167" : "#FC6255"); HX.setAttribute("opacity", ok ? 0 : 1); HK.setAttribute("opacity", ok ? 1 : 0);
+      } }, at(2, 0.1));
+      tl.to("#po-nv", { fill: "#83C167", duration: 0.3 }, at(2, 0.56));
+      IN("#po-term", at(2, 0.6), 0.5);
+      tl.to("#po-hb", { attr: { width: 520 }, fill: "#F0B90B", duration: 0.6, ease: "power2.inOut" }, at(2, 0.8));
+      tl.to("#po-hb", { attr: { width: 70 }, fill: "#83C167", duration: 0.5 }, at(2, 0.93));
+      // L3 broadcast + verify
+      OUT("#po-hm", at(3, 0), 0.4);
+      IN("#po-nb", at(3, 0.06), 0.5, { scale: 0.2, svgOrigin: "1200 550" }, { scale: 1, svgOrigin: "1200 550", ease: "back.out(1.8)" });
+      tl.fromTo("#po-nodes circle", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.06 }, at(3, 0.1));
+      [["#po-rp1", 0.18], ["#po-rp2", 0.27]].forEach(([s, f]) => tl.fromTo(s, { attr: { r: 40 }, opacity: 0.9 }, { attr: { r: 620 }, opacity: 0, duration: 1.5, ease: "power1.out", immediateRender: false }, at(3, f)));
+      OUT("#po-term", at(3, 0.35), 0.4);
+      IN("#po-lg", at(3, 0.38), 0.5);
+      NP.forEach((_, i) => { for (let j = 0; j < 3; j++) DRAW(`#po-tk${i}_${j}`, at(3, 0.42) + j * 0.9 + i * 0.12, 0.3); });
+      // L4 heaviest chain
+      OUT("#po-s1", at(4, 0), 0.5);
+      IN("#po-term2", at(4, 0.03), 0.5);
+      tl.fromTo("#po-up > *", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.08 }, at(4, 0.12));
+      tl.fromTo("#po-low > *", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.05 }, at(4, 0.3));
+      IN("#po-n3", at(4, 0.45), 0.4); IN("#po-n6", at(4, 0.5), 0.4);
+      IN("#po-bal", at(4, 0.55), 0.5);
+      tl.to("#po-beam", { rotation: -10, svgOrigin: "1550 400", duration: 1.0, ease: "back.out(1.6)" }, at(4, 0.72));
+      tl.to("#po-pl", { y: 28, duration: 1.0, ease: "back.out(1.6)" }, at(4, 0.72));
+      tl.to("#po-pr", { y: -28, duration: 1.0, ease: "back.out(1.6)" }, at(4, 0.72));
+      // L5 fake long chain
+      OUT("#po-term2", at(5, 0.08), 0.4);
+      tl.to("#po-low rect", { stroke: "#FC6255", fill: "rgba(252,98,85,0.22)", duration: 0.5 }, at(5, 0.05));
+      tl.to("#po-low line", { stroke: "#FC6255", duration: 0.5 }, at(5, 0.05));
+      IN("#po-lowl", at(5, 0.12), 0.5);
+      IN("#po-cmp", at(5, 0.32), 0.5, { x: -20 }, { x: 0 });
+      tl.to("#po-up rect", { strokeWidth: 7, duration: 0.35, yoyo: true, repeat: 1 }, at(5, 0.66));
+      tl.to("#po-pl rect", { strokeWidth: 6, duration: 0.35, yoyo: true, repeat: 1 }, at(5, 0.66));
+      // L6 short fork + reorg
+      OUT("#po-s2b", at(6, 0), 0.5);
+      DRAW("#po-la", at(6, 0.05), 0.4); DRAW("#po-lb", at(6, 0.06), 0.4);
+      IN("#po-fa", at(6, 0.08), 0.4, { scale: 0.6, svgOrigin: "1030 315" }, { scale: 1, svgOrigin: "1030 315" });
+      IN("#po-fb", at(6, 0.09), 0.4);
+      DRAW("#po-gl1", at(6, 0.15), 0.8);
+      DRAW("#po-lc", at(6, 0.27), 0.3);
+      IN("#po-fc", at(6, 0.29), 0.4, { x: 30 }, { x: 0 });
+      tl.to("#po-far", { stroke: "#58C4DD", fill: "rgba(88,196,221,0.35)", duration: 0.4 }, at(6, 0.33));
+      OUT("#po-gl1", at(6, 0.36), 0.3); OUT("#po-lb", at(6, 0.36), 0.3);
+      tl.to("#po-fb", { y: 140, duration: 0.8, ease: "power2.in" }, at(6, 0.38));
+      tl.to("#po-fbr", { stroke: "#8a8f99", fill: "rgba(138,143,153,0.12)", duration: 0.5 }, at(6, 0.38));
+      IN("#po-orl", at(6, 0.46), 0.4);
+      IN("#po-pool2", at(6, 0.5), 0.5);
+      tl.to("#po-t1", { x: 555, y: 140, duration: 0.8, ease: "power2.inOut" }, at(6, 0.57));
+      tl.to("#po-t2", { x: 605, y: 140, duration: 0.8, ease: "power2.inOut" }, at(6, 0.61));
+      DRAW("#po-gl2", at(6, 0.74), 0.9);
+      IN("#po-reorg", at(6, 0.8), 0.5);
+
+      tl.to("#po-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#po-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["pow"] = tl;
+    })();
+  </script>
+</template>

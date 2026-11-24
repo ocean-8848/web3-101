@@ -1,0 +1,227 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 intro，id 前缀 in- -->
+  <div id="root" data-composition-id="intro" data-duration="52.04" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="in-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="in-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="in-all">
+        <!-- L0 两组：必修 / 选修（不画数量）；外层 g 负责位移，内层 g 负责缩放 -->
+        <g id="in-dotsMove">
+          <g id="in-dots">
+            <g id="in-gReq" class="h">
+              <rect x="330" y="490" width="560" height="100" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="4" />
+              <text x="610" y="556" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">必修</text>
+            </g>
+            <g id="in-gOpt" class="h">
+              <rect x="1030" y="490" width="560" height="100" rx="20" fill="#161a22" stroke="#FF9F43" stroke-width="4" stroke-dasharray="14 9" />
+              <text x="1310" y="556" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">选修</text>
+            </g>
+          </g>
+        </g>
+        <text id="in-lEVM" class="h" x="610" y="650" font-size="28" fill="#58C4DD" text-anchor="middle">从 EVM 起步</text>
+        <text id="in-lAud" class="h" x="1170" y="650" font-size="28" fill="#FF9F43" text-anchor="middle">审计与应急</text>
+        <text id="in-lByte" class="h" x="1450" y="650" font-size="28" fill="#FF9F43" text-anchor="middle">字节码逆向</text>
+
+        <!-- L1 三个短标签 -->
+        <text id="in-t1" class="h" x="520" y="580" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">链上</text>
+        <text id="in-t2" class="h" x="940" y="580" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">任何人可调用</text>
+        <g id="in-t3" class="h">
+          <rect x="1252" y="548" width="30" height="26" rx="5" fill="none" stroke="#B48EF0" stroke-width="3.5" />
+          <path d="M1258 548 v-8 a9 9 0 0 1 18 0 v8" fill="none" stroke="#B48EF0" stroke-width="3.5" />
+          <text x="1300" y="580" font-size="44" font-weight="700" fill="#B48EF0">不能私自修改</text>
+        </g>
+
+        <!-- L2 自动售货机 x760–1160 y300–900 -->
+        <g id="in-vm" class="h">
+          <rect x="760" y="300" width="400" height="600" rx="22" fill="#161a22" stroke="#8a8f99" stroke-width="4" />
+          <rect x="790" y="330" width="220" height="310" rx="10" fill="#0f1117" stroke="#3a3f4a" stroke-width="3" />
+          <!-- 货架三层 -->
+          <line x1="790" y1="433" x2="1010" y2="433" stroke="#3a3f4a" stroke-width="3" />
+          <line x1="790" y1="536" x2="1010" y2="536" stroke="#3a3f4a" stroke-width="3" />
+          <rect x="815" y="365" width="36" height="62" rx="8" fill="#58C4DD" opacity="0.7" />
+          <rect x="882" y="365" width="36" height="62" rx="8" fill="#83C167" opacity="0.7" />
+          <rect x="949" y="365" width="36" height="62" rx="8" fill="#FF9F43" opacity="0.7" />
+          <rect x="815" y="468" width="36" height="62" rx="8" fill="#FF9F43" opacity="0.7" />
+          <rect id="in-can0" x="882" y="468" width="36" height="62" rx="8" fill="#58C4DD" opacity="0.7" />
+          <rect x="949" y="468" width="36" height="62" rx="8" fill="#83C167" opacity="0.7" />
+          <rect x="815" y="571" width="36" height="62" rx="8" fill="#83C167" opacity="0.7" />
+          <rect x="882" y="571" width="36" height="62" rx="8" fill="#FF9F43" opacity="0.7" />
+          <rect x="949" y="571" width="36" height="62" rx="8" fill="#58C4DD" opacity="0.7" />
+          <!-- 投币口、按钮 -->
+          <rect x="1060" y="360" width="50" height="12" rx="4" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+          <circle id="in-btn" cx="1085" cy="450" r="22" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" />
+          <!-- 出货口 -->
+          <rect x="820" y="780" width="280" height="90" rx="10" fill="#0f1117" stroke="#3a3f4a" stroke-width="3" />
+        </g>
+        <rect id="in-canF" class="h" x="882" y="468" width="36" height="62" rx="8" fill="#58C4DD" />
+        <circle id="in-coin" class="h" cx="1250" cy="366" r="18" fill="#F0B90B" />
+        <g id="in-rule" class="h">
+          <rect x="790" y="670" width="340" height="66" rx="10" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3" />
+          <text x="960" y="714" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">规则写死</text>
+        </g>
+        <g id="in-clerk" class="h">
+          <circle cx="1340" cy="540" r="26" fill="none" stroke="#8a8f99" stroke-width="4" />
+          <path d="M1340 566 V640 M1300 596 H1380 M1340 640 L1310 690 M1340 640 L1370 690" fill="none" stroke="#8a8f99" stroke-width="4" stroke-linecap="round" />
+          <line id="in-x1" class="dr" pathLength="1" x1="1286" y1="494" x2="1394" y2="702" stroke="#FC6255" stroke-width="6" />
+          <text x="1340" y="756" font-size="28" fill="#8a8f99" text-anchor="middle">没有店员</text>
+        </g>
+
+        <!-- L3 两格对照 x1260–1800 -->
+        <g id="in-cellA" class="h">
+          <rect x="1260" y="320" width="540" height="220" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
+          <!-- 扳手 -->
+          <path d="M1300 380 a22 22 0 1 0 30 30 L1376 456 a10 10 0 0 0 14 -14 L1344 396 a22 22 0 0 0 -30 -30 l14 14 -6 14 -14 6 z" fill="none" stroke="#8a8f99" stroke-width="3.5" stroke-linejoin="round" />
+          <text x="1420" y="406" font-size="32" fill="#e8e6df">售货机坏了</text>
+          <text x="1420" y="470" font-size="32" fill="#8a8f99">→ 找厂家</text>
+          <path d="M1600 450 l18 20 l36 -42" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <rect id="in-cellBbox" class="h" x="1260" y="580" width="540" height="300" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
+        <g id="in-cellB" class="h">
+          <text x="1300" y="660" font-size="32" fill="#e8e6df">合约有漏洞</text>
+          <text x="1300" y="726" font-size="32" fill="#FC6255">→ 钱追不回</text>
+        </g>
+        <g id="in-flyCoins">
+          <circle id="in-fc0" class="h" cx="1520" cy="810" r="14" fill="#F0B90B" />
+          <circle id="in-fc1" class="h" cx="1560" cy="830" r="14" fill="#F0B90B" />
+          <circle id="in-fc2" class="h" cx="1600" cy="806" r="14" fill="#F0B90B" />
+        </g>
+        <!-- The DAO -->
+        <g id="in-dao" class="h">
+          <rect x="1290" y="610" width="170" height="110" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="1375" y="676" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">金库</text>
+          <rect x="1600" y="610" width="180" height="110" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <text x="1690" y="676" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">攻击合约</text>
+          <rect x="1290" y="745" width="170" height="20" rx="4" fill="#2a2f3a" />
+          <text x="1300" y="832" font-size="28" fill="#8a8f99">账面余额 <tspan id="in-bk" class="mono" fill="#e8e6df">1</tspan></text>
+        </g>
+        <rect id="in-bar" class="h" x="1290" y="745" width="170" height="20" rx="4" fill="#F0B90B" />
+        <path id="in-darr" class="dr h" pathLength="1" d="M1470 665 H1590" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#in-arrR)" />
+        <circle id="in-dc" class="h" cx="1470" cy="665" r="12" fill="#F0B90B" />
+        <path id="in-dback" class="dr h" pathLength="1" d="M1690 725 C1690 800 1530 800 1530 730" fill="none" stroke="#FC6255" stroke-width="3.5" stroke-dasharray="1" marker-end="url(#in-arrR)" />
+        <text id="in-daoBig" class="h" x="1530" y="972" font-size="48" font-weight="700" fill="#F0B90B" text-anchor="middle">2016 · 超过 360 万 ETH</text>
+
+        <!-- L4 问题卡 -->
+        <g id="in-qcard" class="h">
+          <rect x="360" y="380" width="1200" height="220" rx="22" fill="#161a22" stroke="#FF9F43" stroke-width="3.5" />
+          <text x="960" y="470" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">一段无法修改的代码，</text>
+          <text x="960" y="554" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">怎么<tspan id="in-w1">写对</tspan>、<tspan id="in-w2">测透</tspan>、<tspan id="in-w3">守住</tspan>？</text>
+        </g>
+        <text id="in-n1" class="h" x="780" y="720" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">知识地图</text>
+        <path id="in-n12" class="dr h" pathLength="1" d="M890 706 H1010" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#in-arr)" />
+        <text id="in-n2" class="h" x="1110" y="720" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">六道题</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="in-term" class="h">
+        <rect x="70" y="56" width="630" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">智能合约 <tspan font-size="28" font-weight="400" fill="#8a8f99">Smart Contract</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">部署在链上、按代码规则执行的程序</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // ===== L0 两组：必修（蓝实线）/ 选修（橙虚线）=====
+      IN("#in-gReq", at(0, 0.04), 0.6, { scale: 0.85, svgOrigin: "610 540" }, { scale: 1, svgOrigin: "610 540", ease: "back.out(1.6)" });
+      IN("#in-gOpt", at(0, 0.18), 0.6, { scale: 0.85, svgOrigin: "1310 540" }, { scale: 1, svgOrigin: "1310 540", ease: "back.out(1.6)" });
+      IN("#in-lEVM", at(0, 0.6), 0.5, { y: 10 }, { y: 0 });
+      IN("#in-lAud", at(0, 0.72), 0.5, { y: 10 }, { y: 0 });
+      IN("#in-lByte", at(0, 0.86), 0.5, { y: 10 }, { y: 0 });
+
+      // ===== L1 圆点缩小上移；术语卡；三个标签 =====
+      OUT("#in-lEVM, #in-lAud, #in-lByte", at(1, 0.0), 0.35);
+      tl.to("#in-dotsMove", { y: -300, duration: 0.9, ease: "power2.inOut" }, at(1, 0.03));
+      tl.to("#in-dots", { scale: 0.75, svgOrigin: "960 540", duration: 0.9, ease: "power2.inOut" }, at(1, 0.03));
+      IN("#in-term", at(1, 0.08), 0.6);
+      IN("#in-t1", at(1, 0.38), 0.5, { y: 20 }, { y: 0 });
+      IN("#in-t2", at(1, 0.55), 0.5, { y: 20 }, { y: 0 });
+      IN("#in-t3", at(1, 0.74), 0.5, { y: 20 }, { y: 0 });
+
+      // ===== L2 售货机 =====
+      OUT("#in-term", at(2, 0.0), 0.35);
+      OUT("#in-t1, #in-t2, #in-t3, #in-dotsMove", at(2, 0.0), 0.35);
+      IN("#in-vm", at(2, 0.06), 0.7, { scale: 0.9, svgOrigin: "960 600" }, { scale: 1, svgOrigin: "960 600" });
+      IN("#in-coin", at(2, 0.2), 0.3);
+      tl.to("#in-coin", { attr: { cx: 1085 }, duration: 0.6, ease: "power2.in" }, at(2, 0.22));
+      tl.to("#in-coin", { opacity: 0, duration: 0.2 }, at(2, 0.22) + 0.6);
+      tl.to("#in-btn", { fill: "#83C167", stroke: "#83C167", duration: 0.3 }, at(2, 0.33));
+      tl.set("#in-canF", { opacity: 1 }, at(2, 0.43));
+      tl.set("#in-can0", { opacity: 0 }, at(2, 0.43));
+      tl.to("#in-canF", { attr: { y: 798 }, duration: 0.7, ease: "bounce.out" }, at(2, 0.43));
+      IN("#in-rule", at(2, 0.6), 0.6, { scale: 1.15, svgOrigin: "960 703" }, { scale: 1, svgOrigin: "960 703" });
+      IN("#in-clerk", at(2, 0.8), 0.5);
+      DRAW("#in-x1", at(2, 0.86), 0.5);
+
+      // ===== L3 两格对照 → The DAO =====
+      OUT("#in-clerk", at(3, 0.0), 0.35);
+      IN("#in-cellA", at(3, 0.04), 0.6, { x: 30 }, { x: 0 });
+      IN("#in-cellBbox", at(3, 0.2), 0.5);
+      IN("#in-cellB", at(3, 0.2), 0.6, { x: 30 }, { x: 0 });
+      ["#in-fc0", "#in-fc1", "#in-fc2"].forEach((s, j) => {
+        IN(s, at(3, 0.3) + j * 0.15, 0.2);
+        tl.to(s, { attr: { cx: 1860 }, opacity: 0, duration: 1.0, ease: "power2.in" }, at(3, 0.32) + j * 0.15);
+      });
+      OUT("#in-cellB", at(3, 0.47), 0.4);
+      IN("#in-dao", at(3, 0.5), 0.6);
+      IN("#in-bar", at(3, 0.5), 0.6);
+      // 先转账（三次反复），账面余额一直是 1，金库在流失
+      for (let k = 0; k < 3; k++) {
+        const t0 = at(3, 0.56) + k * 1.25;
+        ARROW("#in-darr", t0, 0.3);
+        tl.fromTo("#in-dc", { opacity: 1, attr: { cx: 1470 } }, { attr: { cx: 1590 }, duration: 0.55, ease: "power1.in", immediateRender: false }, t0 + 0.05);
+        tl.to("#in-dc", { opacity: 0, duration: 0.1 }, t0 + 0.6);
+        tl.to("#in-bar", { attr: { width: 170 * (2 - k) / 3 }, duration: 0.4 }, t0 + 0.5);
+        if (k < 2) {
+          ARROW("#in-dback", t0 + 0.65, 0.45);
+          tl.to("#in-dback", { opacity: 0, duration: 0.15 }, t0 + 1.15);
+        }
+        tl.to("#in-darr", { opacity: 0, duration: 0.1 }, t0 + 1.1);
+        tl.to("#in-bk", { fill: "#FC6255", duration: 0.15, yoyo: true, repeat: 1 }, t0 + 0.6);
+      }
+      // 最后才记账：账面变 0
+      tl.set("#in-bk", { textContent: "0" }, at(3, 0.56) + 3.9);
+      tl.to("#in-bk", { fill: "#FC6255", duration: 0.3 }, at(3, 0.56) + 3.9);
+      IN("#in-daoBig", at(3, 0.86), 0.6, { scale: 0.9, svgOrigin: "1530 955" }, { scale: 1, svgOrigin: "1530 955" });
+
+      // ===== L4 问题卡 =====
+      OUT("#in-vm, #in-canF, #in-rule, #in-cellA, #in-cellBbox, #in-dao, #in-bar, #in-daoBig", at(4, 0.0), 0.4);
+      IN("#in-qcard", at(4, 0.06), 0.7, { scale: 0.92, svgOrigin: "960 490" }, { scale: 1, svgOrigin: "960 490" });
+      tl.to("#in-w1", { fill: "#58C4DD", duration: 0.3 }, at(4, 0.36));
+      tl.to("#in-w2", { fill: "#83C167", duration: 0.3 }, at(4, 0.43));
+      tl.to("#in-w3", { fill: "#B48EF0", duration: 0.3 }, at(4, 0.5));
+      IN("#in-n1", at(4, 0.7), 0.5, { y: 15 }, { y: 0 });
+      ARROW("#in-n12", at(4, 0.8), 0.4);
+      IN("#in-n2", at(4, 0.88), 0.5, { y: 15 }, { y: 0 });
+
+      tl.to("#in-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#in-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["intro"] = tl;
+    })();
+  </script>
+</template>

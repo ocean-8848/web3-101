@@ -1,0 +1,241 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 permit，id 前缀 pe- -->
+  <div id="root" data-composition-id="permit" data-duration="62.71" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pe-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pe-all">
+
+<g id="pe-g0">
+  <g id="pe-src" class="h">
+    <circle cx="300" cy="400" r="34" fill="#8a8f99" fill-opacity="0.15" stroke="#8a8f99" stroke-width="3" />
+    <circle cx="300" cy="540" r="34" fill="#8a8f99" fill-opacity="0.15" stroke="#8a8f99" stroke-width="3" />
+    <circle cx="300" cy="680" r="34" fill="#8a8f99" fill-opacity="0.15" stroke="#8a8f99" stroke-width="3" />
+    <text class="mono" x="248" y="410" font-size="28" fill="#8a8f99" text-anchor="end">Uniswap</text>
+    <text x="248" y="550" font-size="28" fill="#8a8f99" text-anchor="end">其他池子</text>
+    <text x="248" y="690" font-size="28" fill="#8a8f99" text-anchor="end">其他池子</text>
+  </g>
+  <path id="pe-l1" class="dr" pathLength="1" d="M334 410 L556 510" fill="none" stroke="#8a8f99" stroke-width="3" />
+  <path id="pe-l2" class="dr" pathLength="1" d="M334 540 L550 540" fill="none" stroke="#8a8f99" stroke-width="3" />
+  <path id="pe-l3" class="dr" pathLength="1" d="M334 670 L556 570" fill="none" stroke="#8a8f99" stroke-width="3" />
+  <g id="pe-agg" class="h"><circle cx="640" cy="540" r="90" fill="#B48EF0" fill-opacity="0.15" stroke="#B48EF0" stroke-width="3.5" />
+    <text x="640" y="553" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">聚合器</text></g>
+  <path id="pe-a0" class="dr h" pathLength="1" d="M740 540 L882 540" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pe-arr)" />
+  <g id="pe-env0" class="h"><rect x="900" y="495" width="160" height="90" rx="8" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="3" />
+<path d="M900 495 L980 535 L1060 495" fill="none" stroke="#F0B90B" stroke-width="3" />
+<text class="mono" x="980" y="575" font-size="28" fill="#F0B90B" text-anchor="middle">tx</text></g>
+  <text id="pe-envl" class="h" x="980" y="640" font-size="28" fill="#e8e6df" text-anchor="middle">现成的交易</text>
+  <g id="pe-p2" class="h"><rect x="1140" y="490" width="360" height="100" rx="12" fill="#FF9F43" fill-opacity="0.12" stroke="#FF9F43" stroke-width="3" />
+    <text x="1320" y="551" font-size="30" fill="#FF9F43" text-anchor="middle"><tspan class="mono">Permit2</tspan> 签名数据</text></g>
+  <text id="pe-0x" class="h" x="1860" y="1000" font-size="28" fill="#8a8f99" text-anchor="end">以 <tspan class="mono">0x Swap API v2</tspan> 为例</text>
+</g>
+<g id="pe-pn" class="h">
+<rect x="760" y="180" width="1100" height="510" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+<line x1="760" y1="224" x2="1860" y2="224" stroke="#2a2f3a" stroke-width="2" />
+<text class="mono" data-layout-ignore="" x="784" y="211" font-size="24" fill="#58C4DD">swapViaAggregator</text>
+<rect id="pe-pn-hl" class="h" x="762" y="236" width="1096" height="40" fill="#58C4DD" fill-opacity="0.15" />
+<rect id="pe-pn-hlb" class="h" x="762" y="236" width="6" height="40" fill="#58C4DD" />
+<text class="mono" style="white-space:pre" x="790" y="265" font-size="28" fill="#e8e6df">if (!isAddressEqual(q.transaction.to,</text>
+<text class="mono" style="white-space:pre" x="790" y="305" font-size="28" fill="#e8e6df">    ALLOWED_AGG_TARGETS[chainId]))</text>
+<text class="mono" style="white-space:pre" x="790" y="345" font-size="28" fill="#e8e6df">  throw new Error('…')</text>
+<text class="mono" style="white-space:pre" x="790" y="385" font-size="28" fill="#e8e6df">let data = q.transaction.data</text>
+<text class="mono" style="white-space:pre" x="790" y="425" font-size="28" fill="#e8e6df">if (q.permit2?.eip712) {</text>
+<text class="mono" style="white-space:pre" x="790" y="465" font-size="28" fill="#e8e6df">  const sig = await signTypedDataAsync(q.permit2.eip712)</text>
+<text class="mono" style="white-space:pre" x="790" y="505" font-size="28" fill="#e8e6df">  data = concat([data,</text>
+<text class="mono" style="white-space:pre" x="790" y="545" font-size="28" fill="#e8e6df">    numberToHex(size(sig), { size: 32 }), sig])</text>
+<text class="mono" style="white-space:pre" x="790" y="585" font-size="28" fill="#e8e6df">}</text>
+<text class="mono" style="white-space:pre" x="790" y="625" font-size="28" fill="#e8e6df">return sendTransactionAsync({</text>
+<text class="mono" style="white-space:pre" x="790" y="665" font-size="28" fill="#e8e6df">  to: q.transaction.to, data, value })</text>
+</g>
+<g id="pe-g1">
+  <g id="pe-sa" class="h"><rect x="80" y="220" width="640" height="120" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+    <text class="mono" x="110" y="270" font-size="30" fill="#FF9F43">approve → Permit2</text>
+    <text x="110" y="318" font-size="28" fill="#8a8f99">只需一次</text></g>
+  <path id="pe-a1" class="dr h" pathLength="1" d="M400 350 L400 408" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pe-arr)" />
+  <g id="pe-sb" class="h"><rect x="80" y="420" width="640" height="110" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+    <path d="M116 500 L150 446 L162 454 L128 508 Z M116 500 L112 514 L128 508" fill="none" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round" />
+    <text x="186" y="486" font-size="30" fill="#e8e6df">每次兑换：签 <tspan class="mono" fill="#FF9F43">EIP-712</tspan></text></g>
+  <text id="pe-dl" class="h" x="80" y="620" font-size="28" fill="#8a8f99">交易数据</text>
+  <g id="pe-d1" class="h"><rect x="80" y="645" width="300" height="80" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="3" />
+    <text class="mono" x="230" y="695" font-size="28" fill="#58C4DD" text-anchor="middle">data</text></g>
+  <g id="pe-d2" class="h"><rect x="380" y="645" width="140" height="80" fill="#8a8f99" fill-opacity="0.18" stroke="#8a8f99" stroke-width="3" />
+    <text x="450" y="695" font-size="28" fill="#e8e6df" text-anchor="middle">长度</text></g>
+  <g id="pe-d3" class="h"><rect x="520" y="645" width="200" height="80" fill="#FF9F43" fill-opacity="0.18" stroke="#FF9F43" stroke-width="3" />
+    <text x="620" y="695" font-size="28" fill="#FF9F43" text-anchor="middle">签名</text></g>
+</g>
+<g id="pe-g2">
+  <g id="pe-gate" class="h"><rect x="380" y="320" width="20" height="440" rx="6" fill="#83C167" />
+    <text x="390" y="296" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">白名单</text></g>
+  <g id="pe-eA" class="h"><g id="pe-eA0" class=""><rect x="120" y="390" width="160" height="90" rx="8" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="3" />
+<path d="M120 390 L200 430 L280 390" fill="none" stroke="#F0B90B" stroke-width="3" />
+<text class="mono" x="200" y="470" font-size="28" fill="#F0B90B" text-anchor="middle">to</text></g></g>
+  <path id="pe-okA" class="h" d="M640 430 L654 444 L682 413" fill="none" stroke="#83C167" stroke-width="7.0" stroke-linecap="round" stroke-linejoin="round" />
+  <g id="pe-eB"><g id="pe-eB0" class="h"><rect x="120" y="570" width="160" height="90" rx="8" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="3" />
+<path d="M120 570 L200 610 L280 570" fill="none" stroke="#FC6255" stroke-width="3" />
+<text class="mono" x="200" y="650" font-size="28" fill="#FC6255" text-anchor="middle">to</text></g></g>
+  <path id="pe-xB" class="h" d="M318 518 L342 542 M342 518 L318 542" fill="none" stroke="#FC6255" stroke-width="5.0" stroke-linecap="round" />
+  <text id="pe-msgB" class="h" x="80" y="720" font-size="28" fill="#FC6255">未知的交易目标合约</text>
+</g>
+<g id="pe-g3">
+  <path id="pe-a3" class="dr h" pathLength="1" d="M630 410 L748 360" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pe-arr)" />
+  <g id="pe-dec" class="h"><rect x="760" y="220" width="500" height="300" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+    <text x="790" y="275" font-size="30" font-weight="700" fill="#58C4DD">解码展示</text></g>
+  <g id="pe-bars" class="h"><rect x="790" y="320" width="400" height="22" rx="6" fill="#58C4DD" fill-opacity="0.5" />
+    <rect x="790" y="380" width="320" height="22" rx="6" fill="#58C4DD" fill-opacity="0.5" />
+    <rect x="790" y="440" width="360" height="22" rx="6" fill="#58C4DD" fill-opacity="0.5" /></g>
+  <g id="pe-sim" class="h"><rect x="760" y="580" width="500" height="200" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" />
+    <text x="790" y="632" font-size="30" font-weight="700" fill="#83C167">模拟资产变化</text>
+    <text class="mono" x="790" y="690" font-size="30" fill="#e8e6df">USDC −1000</text>
+    <text class="mono" x="790" y="745" font-size="30" fill="#83C167">WETH +0.285</text></g>
+  <path id="pe-a4" class="dr h" pathLength="1" d="M1272 500 L1408 500" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pe-arr)" />
+  <g id="pe-wal" class="h"><rect x="1420" y="430" width="340" height="140" rx="20" fill="#B48EF0" fill-opacity="0.12" stroke="#B48EF0" stroke-width="3.5" />
+    <text x="1590" y="512" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">钱包</text></g>
+</g>
+<g id="pe-g4">
+  <g id="pe-raw" class="h"><rect x="100" y="300" width="540" height="340" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+    <text x="130" y="352" font-size="30" font-weight="700" fill="#FF9F43"><tspan class="mono">EIP-712</tspan> 原始数据</text>
+    <text class="mono" style="white-space:pre" x="130" y="420" font-size="28" fill="#8a8f99">{ "domain": …,</text>
+    <text class="mono" style="white-space:pre" x="130" y="470" font-size="28" fill="#8a8f99">  "types": …,</text>
+    <text class="mono" style="white-space:pre" x="130" y="520" font-size="28" fill="#8a8f99">  "message": … }</text></g>
+  <path id="pe-a5" class="dr h" pathLength="1" d="M652 470 L786 470" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pe-arr)" />
+  <g id="pe-hum" class="h"><rect x="800" y="220" width="1000" height="500" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" />
+    <text x="840" y="278" font-size="32" font-weight="700" fill="#83C167">签名前：人话版</text></g>
+  <rect id="pe-hrow" class="h" x="812" y="588" width="976" height="72" rx="8" fill="#83C167" fill-opacity="0.15" />
+  <g id="pe-r1" class="h"><text x="840" y="370" font-size="30" fill="#8a8f99">代币</text><text class="mono" x="1100" y="370" font-size="30" fill="#e8e6df">USDC</text></g>
+  <g id="pe-r2" class="h"><text x="840" y="460" font-size="30" fill="#8a8f99">额度</text><text class="mono" x="1100" y="460" font-size="30" fill="#F0B90B">1000</text></g>
+  <g id="pe-r3" class="h"><text x="840" y="550" font-size="30" fill="#8a8f99">授权给</text><text class="mono" x="1100" y="550" font-size="30" fill="#e8e6df">Permit2 / Router</text></g>
+  <g id="pe-r4" class="h"><text x="840" y="636" font-size="30" fill="#8a8f99">有效期</text><text x="1100" y="636" font-size="30" fill="#e8e6df">10 分钟（示例）</text></g>
+  <g id="pe-tag" class="h"><rect x="1560" y="600" width="180" height="48" rx="24" fill="none" stroke="#83C167" stroke-width="2.5" />
+    <text x="1650" y="634" font-size="28" fill="#83C167" text-anchor="middle">分钟级</text></g>
+</g>
+<g id="pe-g5">
+  <g id="pe-br" class="h"><rect x="100" y="300" width="520" height="420" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+    <text x="140" y="360" font-size="34" font-weight="700" fill="#e8e6df">浏览器</text></g>
+  <g id="pe-sv" class="h"><rect x="900" y="300" width="520" height="420" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+    <text x="940" y="360" font-size="34" font-weight="700" fill="#e8e6df">服务端</text>
+    <text class="mono" x="940" y="415" font-size="30" fill="#58C4DD">/api/quote</text></g>
+  <g id="pe-key" class="h"><circle cx="1120" cy="560" r="22" fill="none" stroke="#F0B90B" stroke-width="5" />
+<path d="M1142 560 L1200 560 M1182 560 L1182 578 M1196 560 L1196 574" fill="none" stroke="#F0B90B" stroke-width="5" stroke-linecap="round" /></g>
+  <text id="pe-keyl" class="h mono" x="1160" y="650" font-size="28" fill="#F0B90B" text-anchor="middle">API Key</text>
+  <path id="pe-b1" class="dr h" pathLength="1" d="M632 450 L888 450" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pe-arr)" />
+  <text id="pe-b1l" class="h" x="760" y="424" font-size="28" fill="#e8e6df" text-anchor="middle">请求报价</text>
+  <path id="pe-b2" class="dr h" pathLength="1" d="M1432 510 L1578 510" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pe-arr)" />
+  <text id="pe-b2l" class="h" x="1505" y="484" font-size="28" fill="#F0B90B" text-anchor="middle">附上 Key</text>
+  <g id="pe-agg2" class="h"><circle cx="1680" cy="510" r="90" fill="#B48EF0" fill-opacity="0.15" stroke="#B48EF0" stroke-width="3.5" />
+    <text x="1680" y="523" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">聚合器</text></g>
+  <rect id="pe-wall" class="h" x="750" y="520" width="22" height="200" rx="4" fill="#FC6255" />
+  <g id="pe-ghost"><g id="pe-key2" class="h"><circle cx="1120" cy="560" r="22" fill="none" stroke="#F0B90B" stroke-width="5" />
+<path d="M1142 560 L1200 560 M1182 560 L1182 578 M1196 560 L1196 574" fill="none" stroke="#F0B90B" stroke-width="5" stroke-linecap="round" /></g></g>
+  <path id="pe-xk" class="h" d="M686 606 L714 634 M714 606 L686 634" fill="none" stroke="#FC6255" stroke-width="6.0" stroke-linecap="round" />
+  <text id="pe-np" class="h" x="100" y="800" font-size="28" fill="#8a8f99">Key 的变量名不带 <tspan class="mono" fill="#FC6255">NEXT_PUBLIC_</tspan></text>
+</g>
+
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="pe-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">聚合器 <tspan font-size="28" font-weight="400" fill="#8a8f99">DEX Aggregator</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">在多个流动性来源间寻找最优路径</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const PN = {"pe-pn":[236,40]};
+      const HL = (pid, k, t, n = 1) => { const [y0, lh] = PN[pid];
+        tl.to("#" + pid + "-hl, #" + pid + "-hlb", { opacity: 1, attr: { y: y0 + (k - 1) * lh, height: n * lh }, duration: 0.35, ease: "power2.out" }, t); };
+      const SET = (s, t, v) => tl.to(s, { ...v, duration: 0.4, ease: "power2.out" }, t);
+      const OUTALL = (arr, t, d = 0.4) => arr.forEach(s => OUT(s, t, d));
+
+      // L0 aggregator
+      IN("#pe-term", at(0, 0.3));
+      IN("#pe-src", at(0, 0.1));
+      DRAW("#pe-l1", at(0, 0.25)); DRAW("#pe-l2", at(0, 0.3)); DRAW("#pe-l3", at(0, 0.35));
+      IN("#pe-agg", at(0, 0.3), 0.6, { scale: 0.6, svgOrigin: "640 540" }, { scale: 1, svgOrigin: "640 540" });
+      ARROW("#pe-a0", at(0, 0.55));
+      IN("#pe-env0", at(0, 0.6)); IN("#pe-envl", at(0, 0.62));
+      IN("#pe-p2", at(0, 0.8));
+      IN("#pe-0x", at(0, 0.7));
+      // L1 Permit2 flow + code
+      OUT("#pe-g0", at(1, 0)); OUT("#pe-term", at(1, 0));
+      IN("#pe-pn", at(1, 0.05));
+      HL("pe-pn", 5, at(1, 0.1), 5);
+      IN("#pe-sa", at(1, 0.12));
+      ARROW("#pe-a1", at(1, 0.3));
+      IN("#pe-sb", at(1, 0.36));
+      IN("#pe-dl", at(1, 0.58));
+      IN("#pe-d1", at(1, 0.6), 0.5, { x: -30 }, { x: 0 });
+      HL("pe-pn", 7, at(1, 0.62), 2);
+      IN("#pe-d2", at(1, 0.7), 0.5, { x: -30 }, { x: 0 });
+      IN("#pe-d3", at(1, 0.8), 0.5, { x: -30 }, { x: 0 });
+      HL("pe-pn", 10, at(1, 0.9), 2);
+      // L2 whitelist gate
+      OUT("#pe-g1", at(2, 0));
+      HL("pe-pn", 1, at(2, 0.05), 3);
+      IN("#pe-gate", at(2, 0.1));
+      IN("#pe-eA", at(2, 0.15));
+      tl.to("#pe-eA", { x: 340, duration: 1.0, ease: "power2.inOut" }, at(2, 0.28));
+      IN("#pe-okA", at(2, 0.42));
+      IN("#pe-eB0", at(2, 0.5));
+      tl.to("#pe-eB", { x: 80, duration: 0.5, ease: "power2.in" }, at(2, 0.58));
+      tl.to("#pe-eB", { x: 0, duration: 0.5, ease: "power2.out" }, at(2, 0.58) + 0.5);
+      IN("#pe-xB", at(2, 0.7)); IN("#pe-msgB", at(2, 0.72));
+      // L3 decode + simulate + wallet
+      OUTALL(["#pe-pn", "#pe-gate", "#pe-eB", "#pe-xB", "#pe-msgB"], at(3, 0));
+      ARROW("#pe-a3", at(3, 0.08));
+      IN("#pe-dec", at(3, 0.12));
+      IN("#pe-bars", at(3, 0.25));
+      IN("#pe-sim", at(3, 0.45));
+      ARROW("#pe-a4", at(3, 0.7)); IN("#pe-wal", at(3, 0.75));
+      // L4 human-readable signature
+      OUTALL(["#pe-g2", "#pe-g3"], at(4, 0));
+      IN("#pe-raw", at(4, 0.06));
+      ARROW("#pe-a5", at(4, 0.2));
+      IN("#pe-hum", at(4, 0.24));
+      IN("#pe-r1", at(4, 0.3)); IN("#pe-r2", at(4, 0.38)); IN("#pe-r3", at(4, 0.46)); IN("#pe-r4", at(4, 0.56));
+      IN("#pe-hrow", at(4, 0.72)); IN("#pe-tag", at(4, 0.76));
+      // L5 API key stays on server
+      OUT("#pe-g4", at(5, 0));
+      IN("#pe-br", at(5, 0.05)); IN("#pe-sv", at(5, 0.12));
+      IN("#pe-key", at(5, 0.2)); IN("#pe-keyl", at(5, 0.2));
+      ARROW("#pe-b1", at(5, 0.3)); IN("#pe-b1l", at(5, 0.32));
+      IN("#pe-agg2", at(5, 0.45)); ARROW("#pe-b2", at(5, 0.5)); IN("#pe-b2l", at(5, 0.52));
+      IN("#pe-wall", at(5, 0.62));
+      tl.fromTo("#pe-key2", { opacity: 0 }, { opacity: 0.8, duration: 0.2 }, at(5, 0.66));
+      tl.to("#pe-ghost", { x: -320, duration: 0.6, ease: "power2.in" }, at(5, 0.66));
+      tl.to("#pe-key2", { opacity: 0, duration: 0.3 }, at(5, 0.66) + 0.5);
+      IN("#pe-xk", at(5, 0.74));
+      IN("#pe-np", at(5, 0.8));
+
+
+      tl.to("#pe-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#pe-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["permit"] = tl;
+    })();
+  </script>
+</template>

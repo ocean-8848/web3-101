@@ -1,0 +1,285 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 packcalc，id 前缀 pa- -->
+  <div id="root" data-composition-id="packcalc" data-duration="70.22" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pa-all">
+        <!-- 上方两列槽格 -->
+        <g id="pa-top">
+          <text id="pa-note" class="h" x="180" y="160" font-size="28" fill="#8a8f99">示例 · 新交易 · 全部从 0 写成非 0</text>
+          <text id="pa-tb" class="h" x="180" y="232" font-size="36" font-weight="700" fill="#FC6255">布局差</text>
+          <text id="pa-tg" class="h" x="1060" y="232" font-size="36" font-weight="700" fill="#83C167">布局好</text>
+          <g id="pa-bs0" class="h"><text x="165" y="308" font-size="28" fill="#8a8f99" text-anchor="end">槽 0</text></g>
+          <g id="pa-bs1" class="h"><text x="165" y="404" font-size="28" fill="#8a8f99" text-anchor="end">槽 1</text></g>
+          <g id="pa-bs2" class="h"><text x="165" y="500" font-size="28" fill="#8a8f99" text-anchor="end">槽 2</text></g>
+          <g id="pa-gs0" class="h"><text x="1045" y="308" font-size="28" fill="#8a8f99" text-anchor="end">槽 0</text></g>
+          <g id="pa-gs1" class="h"><text x="1045" y="404" font-size="28" fill="#8a8f99" text-anchor="end">槽 1</text></g>
+          <g id="pa-blk"></g>
+          <text id="pa-tag0a" class="h mono" x="836" y="308" font-size="28" fill="#F0B90B">20,000</text>
+          <text id="pa-tag0" class="h mono" x="836" y="308" font-size="28" fill="#F0B90B">22,100</text>
+          <text id="pa-tag1" class="h mono" x="836" y="404" font-size="28" fill="#F0B90B">22,100</text>
+          <text id="pa-tag2" class="h mono" x="836" y="500" font-size="28" fill="#F0B90B">22,100</text>
+          <text id="pa-tag3" class="h mono" x="1716" y="308" font-size="28" fill="#F0B90B">22,100</text>
+          <text id="pa-tag4" class="h mono" x="1716" y="404" font-size="28" fill="#F0B90B">22,100</text>
+        </g>
+
+        <!-- 推导区 -->
+        <g id="pa-der" class="h">
+          <text x="960" y="620" class="mono" font-size="44" fill="#F0B90B" text-anchor="middle">20,000 <tspan fill="#e8e6df">+</tspan> <tspan fill="#FC6255">2,100</tspan> <tspan fill="#e8e6df">=</tspan> <tspan font-weight="700">22,100</tspan></text>
+        </g>
+        <text id="pa-d1" class="h" x="735" y="676" font-size="28" fill="#F0B90B" text-anchor="middle">0 → 非 0</text>
+        <text id="pa-d2" class="h" x="960" y="676" font-size="28" fill="#FC6255" text-anchor="middle">冷访问</text>
+
+        <g id="pa-bars">
+          <text id="pa-lb" class="h" x="180" y="714" font-size="32" fill="#FC6255">布局差</text>
+          <text id="pa-lg" class="h" x="180" y="794" font-size="32" fill="#83C167">布局好</text>
+          <rect id="pa-barB" x="330" y="682" width="0" height="44" rx="6" fill="#FC6255" />
+          <rect id="pa-barG" x="330" y="762" width="0" height="44" rx="6" fill="#83C167" />
+          <text id="pa-nb" class="h mono" x="1250" y="716" font-size="36" font-weight="700" fill="#FC6255">0</text>
+          <text id="pa-ng" class="h mono" x="1250" y="796" font-size="36" font-weight="700" fill="#83C167">0</text>
+          <rect id="pa-diff" class="h" x="932" y="764" width="296" height="40" rx="6" fill="none" stroke="#F0B90B" stroke-width="2.5" stroke-dasharray="8 6" />
+          <text id="pa-dt" class="h" x="932" y="866" font-size="32" fill="#F0B90B">省 <tspan class="mono">22,100</tspan> ≈ 33%</text>
+        </g>
+
+        <text id="pa-chain" x="300" y="950" font-size="34" fill="#e8e6df"><tspan id="pa-c1" class="mono" fill="#F0B90B" fill-opacity="0">22,100 Gas</tspan><tspan id="pa-c2" class="mono" fill-opacity="0"> × 20 gwei</tspan><tspan id="pa-c3" class="mono" fill-opacity="0"> = 0.000442 ETH</tspan><tspan id="pa-c4" fill-opacity="0"><tspan class="mono"> × 3,000 </tspan>美元</tspan><tspan id="pa-c5" fill="#F0B90B" font-weight="700" fill-opacity="0"><tspan class="mono"> ≈ 1.33 </tspan>美元 / 次</tspan></text>
+        <text id="pa-ex" class="h" x="300" y="1002" font-size="28" fill="#6b6f7a">示例：Gas 价格 20 gwei、ETH 3,000 美元</text>
+
+        <!-- 右下 Gas 计价器 -->
+        <g id="pa-meter" class="h">
+          <rect x="1480" y="900" width="380" height="120" rx="14" fill="#161a22" stroke="#3a404c" stroke-width="2" />
+          <text x="1510" y="974" class="mono" font-size="30" fill="#8a8f99">Gas</text>
+          <text id="pa-mn" x="1830" y="980" class="mono" font-size="52" font-weight="700" fill="#F0B90B" text-anchor="end">0</text>
+        </g>
+        <text id="pa-mi" class="h" x="1856" y="872" font-size="32" fill="#FC6255" text-anchor="end"><tspan class="mono">+22,100</tspan> / 次</text>
+
+        <!-- L4 Position 重排 -->
+        <g id="pa-pos">
+          <text id="pa-pt" class="h mono" x="150" y="250" font-size="36" fill="#58C4DD">struct Position</text>
+          <g id="pa-k0" class="h"><rect x="150" y="300" width="340" height="60" rx="10" fill="#161a22" stroke="#3a404c" stroke-width="2" /><text x="172" y="340" class="mono" font-size="28" fill="#e8e6df">address owner</text></g>
+          <g id="pa-k1" class="h"><rect x="150" y="380" width="340" height="60" rx="10" fill="#161a22" stroke="#3a404c" stroke-width="2" /><text x="172" y="420" class="mono" font-size="28" fill="#e8e6df">uint64 openedAt</text></g>
+          <g id="pa-k2" class="h"><rect x="150" y="460" width="340" height="60" rx="10" fill="#161a22" stroke="#3a404c" stroke-width="2" /><text x="172" y="500" class="mono" font-size="28" fill="#e8e6df">bool active</text></g>
+          <g id="pa-k3" class="h"><rect id="pa-k3r" x="150" y="540" width="340" height="60" rx="10" fill="#161a22" stroke="#3a404c" stroke-width="2" /><text x="172" y="580" class="mono" font-size="28" fill="#e8e6df">uint256 size</text></g>
+          <g id="pa-q0" class="h"><text x="744" y="348" font-size="28" fill="#8a8f99" text-anchor="end">槽 0</text></g>
+          <g id="pa-q1" class="h"><text x="744" y="488" font-size="28" fill="#8a8f99" text-anchor="end">槽 1</text></g>
+          <g id="pa-q2" class="h"><text x="744" y="628" font-size="28" fill="#8a8f99" text-anchor="end">槽 2</text></g>
+          <rect id="pa-qe" class="h" x="762" y="302" width="92" height="72" rx="4" fill="#12151c" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6" />
+          <g id="pa-qe2" class="h">
+            <rect x="762" y="302" width="380" height="72" rx="4" fill="#12151c" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6" />
+            <text x="952" y="348" font-size="28" fill="#8a8f99" text-anchor="middle">空 12 字节</text>
+          </g>
+          <g id="pa-qo" class="h"><rect x="1144" y="300" width="640" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="1464" y="348" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">owner</text></g>
+          <g id="pa-qs" class="h"><rect id="pa-qsr" x="760" y="440" width="1024" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="1272" y="488" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">size</text></g>
+          <g id="pa-qm">
+            <g id="pa-qt" class="h"><rect x="888" y="300" width="256" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="1016" y="348" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">openedAt</text></g>
+            <g id="pa-qa" class="h"><rect x="856" y="300" width="32" height="76" rx="3" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="872" y="420" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">active</text></g>
+          </g>
+        </g>
+
+        <!-- L5 打包的前提 -->
+        <g id="pa-pre">
+          <text id="pa-pre-t" class="h" x="180" y="250" font-size="44" font-weight="700" fill="#FF9F43">前提：一起读写才有收益</text>
+          <g id="pa-u0" class="h"><text x="284" y="388" font-size="28" fill="#8a8f99" text-anchor="end">槽 0</text></g>
+          <g id="pa-uc" class="h"><rect id="pa-ucr" x="300" y="340" width="384" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="492" y="388" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">c</text></g>
+          <g id="pa-ua" class="h"><rect x="684" y="340" width="384" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="876" y="388" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">a</text></g>
+          <g id="pa-gear1" class="h"></g>
+          <text id="pa-op1" class="h" x="1200" y="390" font-size="28" fill="#8a8f99">移位</text>
+          <text id="pa-op2" class="h" x="1290" y="390" font-size="28" fill="#8a8f99">掩码</text>
+          <text id="pa-op3" class="h" x="1380" y="390" font-size="28" fill="#8a8f99">合并</text>
+          <text id="pa-l1" class="h" x="300" y="474" font-size="32" fill="#FF9F43">总是分开写 → 反而多指令</text>
+          <g id="pa-u1" class="h"><text x="284" y="608" font-size="28" fill="#8a8f99" text-anchor="end">槽 1</text>
+            <rect x="302" y="562" width="740" height="72" rx="4" fill="#12151c" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6" />
+            <rect x="1044" y="560" width="24" height="76" rx="3" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1090" y="608" class="mono" font-size="28" fill="#e8e6df">uint8</text>
+          </g>
+          <g id="pa-gear2" class="h"></g>
+          <text id="pa-l2" class="h" x="300" y="700" font-size="32" fill="#FC6255">单独的 uint8 ≠ 更省</text>
+          <g id="pa-l3" class="h">
+            <text x="300" y="764" class="mono" font-size="32" fill="#FC6255">uint8 &lt; uint256</text>
+            <line x1="296" y1="753" x2="600" y2="753" stroke="#FC6255" stroke-width="3" />
+          </g>
+          <text id="pa-l4" class="h" x="660" y="764" font-size="32" fill="#83C167">打包时才省</text>
+        </g>
+
+        <!-- L6 可升级合约 -->
+        <g id="pa-up">
+          <text id="pa-v1t" class="h mono" x="300" y="364" font-size="40" font-weight="700" fill="#58C4DD">V1</text>
+          <text id="pa-v2t" class="h mono" x="1160" y="364" font-size="40" font-weight="700" fill="#58C4DD">V2</text>
+          <g id="pa-v10" class="h"><text x="285" y="448" font-size="28" fill="#8a8f99" text-anchor="end">槽 0</text>
+            <rect x="300" y="400" width="640" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="620" y="448" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">uint256 total</text></g>
+          <g id="pa-v11" class="h"><text x="285" y="568" font-size="28" fill="#8a8f99" text-anchor="end">槽 1</text>
+            <rect x="302" y="522" width="236" height="72" rx="4" fill="#12151c" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6" />
+            <rect x="540" y="520" width="400" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="740" y="568" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">address owner</text></g>
+          <g id="pa-v20" class="h"><text x="1145" y="448" font-size="28" fill="#8a8f99" text-anchor="end">槽 0</text>
+            <rect x="1162" y="402" width="236" height="72" rx="4" fill="#12151c" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6" />
+            <rect class="pa-v2r" x="1400" y="400" width="400" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="1600" y="448" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">address owner</text></g>
+          <g id="pa-v21" class="h"><text x="1145" y="568" font-size="28" fill="#8a8f99" text-anchor="end">槽 1</text>
+            <rect class="pa-v2r" x="1160" y="520" width="640" height="76" rx="4" fill="#1b3a44" stroke="#58C4DD" stroke-width="2.5" /><text x="1480" y="568" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">uint256 total</text></g>
+          <path id="pa-x0" class="dr h" pathLength="1" d="M952 438 L1066 438" fill="none" stroke="#FC6255" stroke-width="3" />
+          <path id="pa-x1" class="dr h" pathLength="1" d="M952 558 L1066 558" fill="none" stroke="#FC6255" stroke-width="3" />
+          <text id="pa-ne" class="h" x="1009" y="512" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">≠</text>
+          <text id="pa-bad" class="h" x="1160" y="660" font-size="32" fill="#FC6255">旧数据被读错 ✕</text>
+          <text id="pa-rule" class="h" x="960" y="790" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">可升级合约：不改已有变量的顺序和类型</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, p, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt) e.textContent = txt; const P = document.querySelector(p); P.insertBefore(e, P.firstChild); return e; };
+      const SLOT = (p, x, y, w, h = 76) => { for (let i = 31; i >= 1; i--) { const xx = x + w * i / 32; mk("line", { x1: xx, y1: y + 6, x2: xx, y2: y + h - 6, stroke: "#2a2f3a", "stroke-width": 1.5 }, p); } mk("rect", { x, y, width: w, height: h, rx: 4, fill: "#12151c", stroke: "#3a404c", "stroke-width": 2 }, p); };
+      const GEAR = (p, cx, cy, r) => { const g = document.querySelector(p); const pts = []; for (let i = 0; i < 16; i++) { const a = i * Math.PI / 8, rr = i % 2 ? r * 0.78 : r; pts.push(`${cx + rr * Math.cos(a)},${cy + rr * Math.sin(a)}`); } const e1 = document.createElementNS(NS, "polygon"); e1.setAttribute("points", pts.join(" ")); e1.setAttribute("fill", "none"); e1.setAttribute("stroke", "#8a8f99"); e1.setAttribute("stroke-width", 3); e1.setAttribute("stroke-linejoin", "round"); g.appendChild(e1); const e2 = document.createElementNS(NS, "circle"); e2.setAttribute("cx", cx); e2.setAttribute("cy", cy); e2.setAttribute("r", r * 0.3); e2.setAttribute("fill", "none"); e2.setAttribute("stroke", "#8a8f99"); e2.setAttribute("stroke-width", 3); g.appendChild(e2); };
+      const fmt = v => Math.round(v).toLocaleString("en-US");
+      [0, 1, 2].forEach(i => SLOT(`#pa-bs${i}`, 180, 260 + i * 96, 640));
+      [0, 1].forEach(i => SLOT(`#pa-gs${i}`, 1060, 260 + i * 96, 640));
+      [0, 1, 2].forEach(i => SLOT(`#pa-q${i}`, 760, 300 + i * 140, 1024));
+      SLOT("#pa-u0", 300, 340, 768); SLOT("#pa-u1", 300, 560, 768);
+      GEAR("#pa-gear1", 1140, 378, 32); GEAR("#pa-gear2", 1230, 598, 32);
+
+      // 变量块：灰（值 0）→ 写入后变蓝（非 0）
+      const B = [
+        ["b0", 500, 260, 320, "a"], ["b1", 180, 356, 640, "b"], ["b2", 500, 452, 320, "c"],
+        ["g0", 1060, 260, 320, "c"], ["g1", 1380, 260, 320, "a"], ["g2", 1060, 356, 640, "b"]];
+      const E = [[182, 262, 316], [182, 454, 316]];
+      const blk = document.querySelector("#pa-blk");
+      const add = (tag, a, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt) e.textContent = txt; blk.appendChild(e); return e; };
+      E.forEach(([x, y, w], i) => add("rect", { id: `pa-e${i}`, class: "h", x, y, width: w, height: 72, rx: 4, fill: "#12151c", stroke: "#8a8f99", "stroke-width": 2, "stroke-dasharray": "8 6" }));
+      B.forEach(([id, x, y, w, n]) => {
+        add("rect", { id: `pa-${id}r`, class: "h", x, y, width: w, height: 76, rx: 4, fill: "#161a22", stroke: "#6b6f7a", "stroke-width": 2.5 });
+        add("text", { id: `pa-${id}z`, class: "h mono", x: x + w / 2, y: y + 48, "font-size": 28, fill: "#8a8f99", "text-anchor": "middle" }, `${n} = 0`);
+        add("text", { id: `pa-${id}n`, class: "h mono", x: x + w / 2, y: y + 48, "font-size": 28, fill: "#e8e6df", "text-anchor": "middle" }, `${n} ≠ 0`);
+      });
+      const WRITE = (id, t) => {
+        tl.to(`#pa-${id}r`, { attr: { fill: "#1b3a44" }, stroke: "#58C4DD", duration: 0.3 }, t);
+        OUT(`#pa-${id}z`, t, 0.2); IN(`#pa-${id}n`, t + 0.2, 0.3);
+      };
+
+      // L0 两列槽格，全部为 0
+      IN("#pa-tb, #pa-bs0, #pa-bs1, #pa-bs2", at(0, 0.05), 0.6);
+      IN("#pa-tg, #pa-gs0, #pa-gs1", at(0, 0.12), 0.6);
+      IN("#pa-e0, #pa-e1", at(0, 0.25), 0.4);
+      B.forEach(([id], i) => IN(`#pa-${id}r, #pa-${id}z`, at(0, 0.28 + i * 0.04), 0.4));
+      IN("#pa-note", at(0, 0.55), 0.5);
+
+      // L1 一个槽 = 20,000 + 2,100
+      IN("#pa-meter", at(1, 0.02), 0.4);
+      WRITE("b0", at(1, 0.08));
+      IN("#pa-tag0a", at(1, 0.2), 0.3);
+      COUNT("#pa-mn", 0, 20000, at(1, 0.2), 0.6, fmt);
+      IN("#pa-der", at(1, 0.25), 0.5);
+      IN("#pa-d1", at(1, 0.3), 0.4);
+      IN("#pa-d2", at(1, 0.55), 0.4);
+      COUNT("#pa-mn", 20000, 22100, at(1, 0.6), 0.4, fmt);
+      OUT("#pa-tag0a", at(1, 0.8), 0.2);
+      IN("#pa-tag0", at(1, 0.84), 0.3);
+
+      // L2 3 槽 vs 2 槽
+      OUT("#pa-der, #pa-d1, #pa-d2, #pa-meter", at(2, 0), 0.4);
+      IN("#pa-lb, #pa-nb", at(2, 0.04), 0.4);
+      tl.fromTo("#pa-barB", { attr: { width: 0 } }, { attr: { width: 300 }, duration: 0.4, immediateRender: false }, at(2, 0.06));
+      COUNT("#pa-nb", 0, 22100, at(2, 0.06), 0.4, fmt);
+      WRITE("b1", at(2, 0.12)); IN("#pa-tag1", at(2, 0.14), 0.3);
+      tl.to("#pa-barB", { attr: { width: 600 }, duration: 0.4 }, at(2, 0.14));
+      COUNT("#pa-nb", 22100, 44200, at(2, 0.14), 0.4, fmt);
+      WRITE("b2", at(2, 0.2)); IN("#pa-tag2", at(2, 0.22), 0.3);
+      tl.to("#pa-barB", { attr: { width: 900 }, duration: 0.4 }, at(2, 0.22));
+      COUNT("#pa-nb", 44200, 66300, at(2, 0.22), 0.4, fmt);
+      IN("#pa-lg, #pa-ng", at(2, 0.4), 0.4);
+      WRITE("g0", at(2, 0.44)); WRITE("g1", at(2, 0.44)); IN("#pa-tag3", at(2, 0.46), 0.3);
+      tl.fromTo("#pa-barG", { attr: { width: 0 } }, { attr: { width: 300 }, duration: 0.4, immediateRender: false }, at(2, 0.46));
+      COUNT("#pa-ng", 0, 22100, at(2, 0.46), 0.4, fmt);
+      WRITE("g2", at(2, 0.54)); IN("#pa-tag4", at(2, 0.56), 0.3);
+      tl.to("#pa-barG", { attr: { width: 600 }, duration: 0.4 }, at(2, 0.56));
+      COUNT("#pa-ng", 22100, 44200, at(2, 0.56), 0.4, fmt);
+      IN("#pa-diff", at(2, 0.74), 0.4);
+      IN("#pa-dt", at(2, 0.82), 0.4);
+
+      // L3 换算成美元
+      const REV = (s, t) => tl.fromTo(s, { attr: { "fill-opacity": 0 } }, { attr: { "fill-opacity": 1 }, duration: 0.4, immediateRender: false }, t);
+      REV("#pa-c1", at(3, 0.05)); REV("#pa-c2", at(3, 0.22)); REV("#pa-c3", at(3, 0.38));
+      REV("#pa-c4", at(3, 0.5)); REV("#pa-c5", at(3, 0.72));
+      IN("#pa-ex", at(3, 0.3), 0.4);
+
+      // L4 Position 重排：地址后紧跟 uint256
+      OUT("#pa-top, #pa-bars, #pa-chain, #pa-ex", at(4, 0), 0.4);
+      IN("#pa-pt, #pa-k0, #pa-k1, #pa-k2, #pa-k3", at(4, 0.04), 0.5);
+      IN("#pa-q0, #pa-q1", at(4, 0.06), 0.5);
+      IN("#pa-qo, #pa-qt, #pa-qa, #pa-qe, #pa-qs", at(4, 0.1), 0.5);
+      COUNT("#pa-mn", 44200, 44200, at(4, 0.1), 0.05, fmt);
+      IN("#pa-meter", at(4, 0.12), 0.4);
+      // 卡片重排：size 上移到第二位
+      tl.to("#pa-k3", { y: -160, duration: 0.8, ease: "power2.inOut" }, at(4, 0.22));
+      tl.to("#pa-k3r", { stroke: "#FC6255", duration: 0.3 }, at(4, 0.22));
+      tl.to("#pa-k1, #pa-k2", { y: 80, duration: 0.8, ease: "power2.inOut" }, at(4, 0.22));
+      // 槽内：size 想进槽 0 剩余空间 → 放不下；两个小字段被挤到槽 2
+      tl.to("#pa-qs", { y: -100, duration: 0.3, ease: "power2.out" }, at(4, 0.36));
+      tl.to("#pa-qsr", { stroke: "#FC6255", duration: 0.15 }, at(4, 0.4));
+      tl.to("#pa-qs", { y: 0, duration: 0.4, ease: "bounce.out" }, at(4, 0.44));
+      tl.to("#pa-qsr", { stroke: "#58C4DD", duration: 0.3 }, at(4, 0.5));
+      IN("#pa-q2", at(4, 0.46), 0.4);
+      OUT("#pa-qe", at(4, 0.5), 0.2);
+      tl.to("#pa-qm", { x: 640, y: 280, duration: 0.9, ease: "power2.inOut" }, at(4, 0.52));
+      IN("#pa-qe2", at(4, 0.62), 0.4);
+      COUNT("#pa-mn", 44200, 66300, at(4, 0.7), 0.6, fmt);
+      tl.to("#pa-mn", { fill: "#FC6255", duration: 0.3 }, at(4, 0.7));
+      IN("#pa-mi", at(4, 0.74), 0.4);
+
+      // L5 前提：一起读写才省；单独 uint8 不省
+      OUT("#pa-pos, #pa-meter, #pa-mi", at(5, 0), 0.4);
+      IN("#pa-pre-t", at(5, 0.05), 0.5);
+      IN("#pa-u0, #pa-uc, #pa-ua", at(5, 0.12), 0.5);
+      tl.to("#pa-ucr", { stroke: "#FF9F43", duration: 0.2 }, at(5, 0.24));
+      IN("#pa-gear1", at(5, 0.24), 0.3);
+      tl.fromTo("#pa-gear1", { rotation: 0 }, { rotation: 540, svgOrigin: "1140 378", duration: 3.0, ease: "none", immediateRender: false }, at(5, 0.24));
+      IN("#pa-op1", at(5, 0.27), 0.3); IN("#pa-op2", at(5, 0.31), 0.3); IN("#pa-op3", at(5, 0.35), 0.3);
+      IN("#pa-l1", at(5, 0.4), 0.5);
+      IN("#pa-u1", at(5, 0.55), 0.5);
+      IN("#pa-gear2", at(5, 0.6), 0.3);
+      tl.fromTo("#pa-gear2", { rotation: 0 }, { rotation: 540, svgOrigin: "1230 598", duration: 3.0, ease: "none", immediateRender: false }, at(5, 0.6));
+      IN("#pa-l2", at(5, 0.66), 0.5);
+      IN("#pa-l3", at(5, 0.74), 0.5);
+      IN("#pa-l4", at(5, 0.86), 0.5);
+
+      // L6 可升级合约：顺序一改，槽位错开
+      OUT("#pa-pre", at(6, 0), 0.4);
+      IN("#pa-v1t, #pa-v10, #pa-v11", at(6, 0.05), 0.5);
+      IN("#pa-v2t, #pa-v20, #pa-v21", at(6, 0.2), 0.5, { x: 40 }, { x: 0 });
+      tl.to(".pa-v2r", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.36));
+      DRAW("#pa-x0", at(6, 0.36), 0.5); IN("#pa-x0", at(6, 0.36), 0.1);
+      DRAW("#pa-x1", at(6, 0.4), 0.5); IN("#pa-x1", at(6, 0.4), 0.1);
+      IN("#pa-ne", at(6, 0.46), 0.3);
+      IN("#pa-bad", at(6, 0.55), 0.4);
+      IN("#pa-rule", at(6, 0.2), 0.6);
+      /*ENDANIM*/
+
+      tl.to("#pa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["packcalc"] = tl;
+    })();
+  </script>
+</template>

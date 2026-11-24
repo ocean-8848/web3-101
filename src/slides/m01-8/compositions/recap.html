@@ -1,0 +1,172 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 rp- -->
+  <div id="root" data-composition-id="recap" data-duration="73.28" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="rp-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="rp-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="rp-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="rp-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="rp-arrP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker>
+        <marker id="rp-arrY" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+
+      </defs>
+      <g id="rp-all">
+        <g id="rp-s0">
+          <g id="rp-i0" class="h"><rect x="260" y="400" width="600" height="140" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+            <text x="300" y="458" font-size="36" font-weight="700" fill="#FC6255">重复入账</text>
+            <text class="mono" x="300" y="512" font-size="30" fill="#F0B90B">+1,000 USDT ×2</text></g>
+          <path id="rp-shf0" class="h" d="M220 360 H900 V560 Q900 650 560 700 Q220 650 220 560 Z" fill="#83C167" fill-opacity="0.08"/>
+          <path id="rp-sh0" class="dr" pathLength="1" d="M560 360 H900 V560 Q900 650 560 700 Q220 650 220 560 V360 Z" fill="none" stroke="#83C167" stroke-width="4"/>
+          <text id="rp-sl0" class="h" x="560" y="770" font-size="34" fill="#83C167" text-anchor="middle">唯一键 + 同一事务</text>
+          <g id="rp-i1" class="h"><rect x="1060" y="400" width="600" height="140" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+            <text x="1100" y="458" font-size="36" font-weight="700" fill="#FC6255">入账后被撤回</text>
+            <text class="mono" x="1100" y="512" font-size="30" fill="#F0B90B">+1,000 USDT</text></g>
+          <path id="rp-shf1" class="h" d="M1020 360 H1700 V560 Q1700 650 1360 700 Q1020 650 1020 560 Z" fill="#83C167" fill-opacity="0.08"/>
+          <path id="rp-sh1" class="dr" pathLength="1" d="M1360 360 H1700 V560 Q1700 650 1360 700 Q1020 650 1020 560 V360 Z" fill="none" stroke="#83C167" stroke-width="4"/>
+          <text id="rp-sl1" class="h" x="1360" y="770" font-size="34" fill="#83C167" text-anchor="middle">父哈希 → 共同祖先 + 确认数</text>
+        </g>
+        <g id="rp-card" class="h"><rect x="200" y="300" width="1520" height="460" rx="16" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5"/></g>
+        <g id="rp-m0">
+          <text id="rp-m0n" class="h" x="260" y="380" font-size="32" fill="#8a8f99">误区 ①</text>
+          <text id="rp-m0w" class="h" x="260" y="480" font-size="44" fill="#FC6255">只用高度判断处理过没有</text>
+          <path id="rp-m0x" class="dr" pathLength="1" d="M252 466 H726" stroke="#FC6255" stroke-width="4" fill="none"/>
+          <text id="rp-m0y" class="h" x="260" y="568" font-size="30" fill="#8a8f99">同一高度可能有不同区块</text>
+          <text id="rp-m0r" class="h" x="260" y="680" font-size="44" fill="#83C167">✓ 高度 + 哈希，并核对父哈希</text>
+        </g>
+        <g id="rp-m1">
+          <text id="rp-m1n" class="h" x="260" y="380" font-size="32" fill="#8a8f99">误区 ②</text>
+          <text id="rp-m1w" class="h" x="260" y="480" font-size="44" fill="#FC6255">并发拉块，谁先回来先写谁</text>
+          <path id="rp-m1x" class="dr" pathLength="1" d="M252 466 H768" stroke="#FC6255" stroke-width="4" fill="none"/>
+          <text id="rp-m1y" class="h" x="260" y="568" font-size="30" fill="#8a8f99">否则游标和重组检测都会坏</text>
+          <text id="rp-m1r" class="h" x="260" y="680" font-size="44" fill="#83C167">✓ 拉取可并发，写库按高度顺序</text>
+        </g>
+        <g id="rp-m2">
+          <text id="rp-m2n" class="h" x="260" y="380" font-size="32" fill="#8a8f99">误区 ③</text>
+          <text id="rp-m2w" class="h" x="260" y="480" font-size="44" fill="#FC6255">WebSocket 日志直接入库</text>
+          <path id="rp-m2x" class="dr" pathLength="1" d="M252 466 H755" stroke="#FC6255" stroke-width="4" fill="none"/>
+          <text id="rp-m2y" class="h" x="260" y="568" font-size="30" fill="#8a8f99">断线会丢，重组会撤回</text>
+          <text id="rp-m2r" class="h" x="260" y="680" font-size="44" fill="#83C167">✓ 订阅只用来唤醒，按高度拉取为准</text>
+        </g>
+        <g id="rp-m3">
+          <text id="rp-m3n" class="h" x="260" y="380" font-size="32" fill="#8a8f99">误区 ④</text>
+          <text id="rp-m3w" class="h" x="260" y="480" font-size="44" fill="#FC6255">写死退一块就行</text>
+          <path id="rp-m3x" class="dr" pathLength="1" d="M252 466 H557" stroke="#FC6255" stroke-width="4" fill="none"/>
+          <text id="rp-m3y" class="h" x="260" y="568" font-size="30" fill="#8a8f99">重组深度不固定</text>
+          <text id="rp-m3r" class="h" x="260" y="680" font-size="44" fill="#83C167">✓ 找共同祖先 + 最大深度保护</text>
+        </g>
+        <g id="rp-m5">
+          <rect id="rp-m5b" class="h" x="200" y="800" width="1520" height="140" rx="16" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5"/>
+          <text id="rp-m5n" class="h" x="240" y="884" font-size="30" fill="#8a8f99">误区 ⑤</text>
+          <text id="rp-m5w" class="h" x="400" y="884" font-size="36" fill="#FC6255">只用 tx_hash 当唯一键</text>
+          <path id="rp-m5x" class="dr" pathLength="1" d="M394 872 H762" stroke="#FC6255" stroke-width="4" fill="none"/>
+          <text id="rp-m5r" class="h" x="960" y="884" font-size="36" fill="#83C167">✓ 带上 log_index</text>
+        </g>
+        <g id="rp-s5">
+          <g id="rp-b0" class="h"><rect x="150" y="260" width="260" height="100" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="280" y="322" font-size="32" fill="#B48EF0" text-anchor="middle">RPC 节点</text></g>
+          <path id="rp-ar0" class="dr h" pathLength="1" d="M414 310 L484 310" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)"/>
+          <g id="rp-b1" class="h"><rect x="490" y="260" width="260" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="620" y="322" font-size="32" fill="#e8e6df" text-anchor="middle">Fetcher</text></g>
+          <path id="rp-ar1" class="dr h" pathLength="1" d="M754 310 L824 310" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)"/>
+          <g id="rp-b2" class="h"><rect x="830" y="260" width="260" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="960" y="322" font-size="32" fill="#e8e6df" text-anchor="middle">Parser</text></g>
+          <path id="rp-ar2" class="dr h" pathLength="1" d="M1094 310 L1164 310" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)"/>
+          <g id="rp-b3" class="h"><rect x="1170" y="260" width="260" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1300" y="322" font-size="32" fill="#58C4DD" text-anchor="middle">Store</text></g>
+          <path id="rp-ar3" class="dr h" pathLength="1" d="M1434 310 L1504 310" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)"/>
+          <g id="rp-b4" class="h"><rect x="1510" y="260" width="260" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1640" y="322" font-size="32" fill="#83C167" text-anchor="middle">Confirmer</text></g>
+          <g id="rp-tx" class="h">
+            <line x1="1300" y1="360" x2="1300" y2="440" stroke="#83C167" stroke-width="3"/>
+            <rect x="900" y="440" width="800" height="200" rx="16" fill="none" stroke="#83C167" stroke-width="3" stroke-dasharray="12 8"/>
+            <text x="930" y="488" font-size="30" fill="#83C167">同一个数据库事务</text>
+            <rect x="940" y="512" width="200" height="96" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1040" y="571" font-size="30" fill="#58C4DD" text-anchor="middle">区块</text>
+            <rect x="1180" y="512" width="200" height="96" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text x="1280" y="571" font-size="30" fill="#F0B90B" text-anchor="middle">事件</text>
+            <path d="M1440 512 H1600 V608 L1520 584 L1440 608 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1520" y="565" font-size="30" fill="#58C4DD" text-anchor="middle">游标</text>
+          </g>
+          <text id="rp-p0" class="h" x="440" y="800" font-size="40" fill="#e8e6df">顺序推进</text>
+          <text id="rp-d0" class="h" x="630" y="800" font-size="40" fill="#8a8f99" text-anchor="middle">·</text>
+          <text id="rp-p1" class="h" x="660" y="800" font-size="40" fill="#e8e6df">回到祖先</text>
+          <text id="rp-d1" class="h" x="850" y="800" font-size="40" fill="#8a8f99" text-anchor="middle">·</text>
+          <text id="rp-p2" class="h" x="880" y="800" font-size="40" fill="#e8e6df">安全重来</text>
+          <text id="rp-d2" class="h" x="1070" y="800" font-size="40" fill="#8a8f99" text-anchor="middle">·</text>
+          <text id="rp-p3" class="h" x="1100" y="800" font-size="40" fill="#e8e6df">够数才算</text>
+          <text id="rp-d3" class="h" x="1290" y="800" font-size="40" fill="#8a8f99" text-anchor="middle">·</text>
+          <text id="rp-p4" class="h" x="1320" y="800" font-size="40" fill="#e8e6df">每天查账</text>
+        </g>
+        <g id="rp-nx" class="h">
+          <text x="960" y="470" font-size="34" fill="#8a8f99" text-anchor="middle">下一集</text>
+          <text x="960" y="572" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">实战设计：链上充值监听与入账服务</text>
+        </g>
+      </g>
+
+      <rect id="rp-black" class="h" x="0" y="0" width="1920" height="1080" fill="#000"/>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 两件事故被两块盾牌罩住
+      IN("#rp-i0", at(0, 0.02), 0.5, { y: 15 }, { y: 0 });
+      IN("#rp-i1", at(0, 0.07), 0.5, { y: 15 }, { y: 0 });
+      DRAW("#rp-sh0", at(0, 0.18), 0.9);
+      IN("#rp-shf0", at(0, 0.24), 0.5);
+      IN("#rp-sl0", at(0, 0.3), 0.5);
+      tl.to("#rp-i0 rect", { stroke: "#83C167", duration: 0.4 }, at(0, 0.36));
+      DRAW("#rp-sh1", at(0, 0.5), 0.9);
+      IN("#rp-shf1", at(0, 0.56), 0.5);
+      IN("#rp-sl1", at(0, 0.66), 0.5);
+      tl.to("#rp-i1 rect", { stroke: "#83C167", duration: 0.4 }, at(0, 0.85));
+      // L1-L4 误区卡，每次一条
+      OUT("#rp-s0", at(1, 0), 0.4);
+      IN("#rp-card", at(1, 0) + 0.45, 0.4);
+      const MIS = (k, i, first) => {
+        const t0 = at(i, 0) + (first ? 0.6 : 0.45);
+        if (!first) OUT(`#rp-m${k - 1}`, at(i, 0), 0.35);
+        IN(`#rp-m${k}n`, t0, 0.3);
+        IN(`#rp-m${k}w`, t0 + 0.1, 0.5, { x: -15 }, { x: 0 });
+        tl.to(`#rp-m${k}w`, { fill: "#ffb0a8", duration: 0.3, yoyo: true, repeat: 1 }, at(i, 0.22));
+        DRAW(`#rp-m${k}x`, at(i, i === 4 ? 0.26 : 0.38), 0.5);
+        IN(`#rp-m${k}y`, at(i, i === 4 ? 0.31 : 0.42), 0.5);
+        IN(`#rp-m${k}r`, at(i, 0.62), 0.5, { y: 15 }, { y: 0 });
+      };
+      MIS(0, 1, true); MIS(1, 2); MIS(2, 3); MIS(3, 4);
+      IN("#rp-m5b, #rp-m5n", at(4, 0.72), 0.4);
+      IN("#rp-m5w", at(4, 0.76), 0.4);
+      DRAW("#rp-m5x", at(4, 0.86), 0.4);
+      IN("#rp-m5r", at(4, 0.9), 0.4);
+      // L5 一图看懂回来做总结
+      OUT("#rp-card, #rp-m3, #rp-m5", at(5, 0), 0.4);
+      for (let i = 0; i < 5; i++) IN(`#rp-b${i}`, at(5, 0) + 0.45 + i * 0.12, 0.4, { y: 15 }, { y: 0 });
+      for (let i = 0; i < 4; i++) ARROW(`#rp-ar${i}`, at(5, 0) + 0.6 + i * 0.12, 0.3);
+      IN("#rp-tx", at(5, 0.2), 0.6);
+      [0.1, 0.3, 0.55, 0.72, 0.86].forEach((f, i) => {
+        if (i) IN(`#rp-d${i - 1}`, at(5, f), 0.3);
+        IN(`#rp-p${i}`, at(5, f), 0.4, { y: 12 }, { y: 0 });
+      });
+      // L6 下一集 → 淡到黑
+      OUT("#rp-s5", at(6, 0), 0.4);
+      IN("#rp-nx", at(6, 0.1), 0.6, { y: 15 }, { y: 0 });
+
+      tl.to("#rp-black", { opacity: 1, duration: 0.6, ease: "power2.in" }, C.d - 1.3);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

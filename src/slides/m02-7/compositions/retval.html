@@ -1,0 +1,285 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 retval，id 前缀 rl- -->
+  <div id="root" data-composition-id="retval" data-duration="65.5" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="rl-all">
+        <defs>
+<marker id="rl-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker>
+<marker id="rl-arrw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker>
+<pattern id="rl-hatch" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="16" stroke="#2a2f3a" stroke-width="6"/></pattern></defs>
+<text id="rl-title" class="h" x="960" y="200" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">外部调用的返回值</text>
+<g id="rl-c0" class="h"><rect id="rl-c0r" x="120" y="300" width="300" height="200" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+<text class="mono" x="270" y="412" font-size="30" fill="#e8e6df" text-anchor="middle">send</text></g>
+<g id="rl-c1" class="h"><rect id="rl-c1r" x="465" y="300" width="300" height="200" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+<text class="mono" x="615" y="412" font-size="30" fill="#e8e6df" text-anchor="middle">transfer</text></g>
+<g id="rl-c2" class="h"><rect id="rl-c2r" x="810" y="300" width="300" height="200" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+<text class="mono" x="960" y="412" font-size="30" fill="#e8e6df" text-anchor="middle">call</text></g>
+<g id="rl-c3" class="h"><rect id="rl-c3r" x="1155" y="300" width="300" height="200" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+<text class="mono" x="1305" y="412" font-size="30" fill="#e8e6df" text-anchor="middle">token.transfer</text></g>
+<g id="rl-c4o"><g id="rl-c4" class="h"><rect x="1500" y="300" width="300" height="200" rx="16" fill="url(#rl-hatch)" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8"/>
+<text x="1650" y="424" font-size="64" font-weight="700" fill="#8a8f99" text-anchor="middle">?</text></g></g>
+<g id="rl-send" class="h">
+<text class="mono" x="200" y="680" font-size="30" fill="#e8e6df">ok = to.send(amt);</text>
+<text class="mono" x="200" y="740" font-size="30" fill="#e8e6df">paid[to] = true;</text>
+<text class="mono" x="200" y="800" font-size="30" fill="#e8e6df">nextStep();</text></g>
+<path id="rl-caret" class="h" d="M150 656 L172 670 L150 684 Z" fill="#e8e6df"/>
+<g id="rl-false" class="h"><rect x="560" y="648" width="124" height="48" rx="8" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2"/><text class="mono" x="622" y="682" font-size="30" fill="#FC6255" text-anchor="middle">false</text></g>
+<g id="rl-cell" class="h"><rect x="1000" y="640" width="360" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+<text class="mono" x="1024" y="692" font-size="30" fill="#58C4DD">paid[to]</text><text x="1260" y="692" font-size="30" fill="#58C4DD">已改</text></g>
+<g id="rl-bag" class="h"><path d="M1566 636 L1594 636 L1586 650 Q1624 666 1620 702 Q1616 720 1580 720 Q1544 720 1540 702 Q1536 666 1574 650 Z" fill="#F0B90B"/><text x="1580" y="702" font-size="40" font-weight="700" fill="#0f1117" text-anchor="middle" class="mono">$</text></g>
+<g id="rl-bagx" class="h"><path d="M1624 624 L1656 656 M1656 624 L1624 656" stroke="#FC6255" stroke-width="6" stroke-linecap="round" fill="none"/></g>
+<text id="rl-bagl" class="h" x="1580" y="790" font-size="30" fill="#FC6255" text-anchor="middle">没到</text>
+<g id="rl-tr" class="h"><rect x="200" y="780" width="1040" height="60" rx="30" fill="none" stroke="#8a8f99" stroke-width="3"/>
+<text class="mono" x="220" y="756" font-size="30" fill="#F0B90B">2300 Gas</text></g>
+<rect id="rl-trs" class="h" x="210" y="803" width="0" height="14" rx="7" fill="#F0B90B"/>
+<g id="rl-ms" class="h"><rect x="1300" y="730" width="200" height="160" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="1400" y="822" font-size="32" fill="#B48EF0" text-anchor="middle">多签</text></g>
+<g id="rl-sw" class="h"><rect x="1560" y="730" width="240" height="160" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1680" y="822" font-size="32" fill="#e8e6df" text-anchor="middle">智能钱包</text></g>
+<g id="rl-trx" class="h"><path d="M1386 676 L1414 704 M1414 676 L1386 704" stroke="#FC6255" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M1666 676 L1694 704 M1694 676 L1666 704" stroke="#FC6255" stroke-width="6" stroke-linecap="round" fill="none"/></g>
+<text id="rl-trl" class="h" x="1550" y="950" font-size="30" fill="#FC6255" text-anchor="middle">收款失败</text>
+<g id="rl-call" class="h"><rect x="200" y="640" width="840" height="80" rx="40" fill="none" stroke="#8a8f99" stroke-width="3"/>
+<text x="200" y="616" font-size="30" fill="#F0B90B">全部 Gas</text></g>
+<rect id="rl-calls" class="h" x="208" y="648" width="0" height="64" rx="32" fill="#F0B90B" fill-opacity="0.85"/>
+<text id="rl-tuple" class="h mono" x="1080" y="692" font-size="32" fill="#FC6255">(false, data)</text>
+<g id="rl-chk" class="h"><rect x="1080" y="764" width="40" height="40" rx="6" fill="none" stroke="#FF9F43" stroke-width="3"/>
+<text class="mono" x="1140" y="796" font-size="30" fill="#FF9F43">require(ok)</text></g>
+<path id="rl-chkm" class="dr" pathLength="1" d="M1088 784 L1098 796 L1114 772" stroke="#FF9F43" stroke-width="4" fill="none" stroke-linecap="round"/>
+<g id="rl-tok" class="h"><circle cx="1700" cy="680" r="38" fill="#FF9F43"/>
+<circle cx="1688" cy="680" r="10" fill="none" stroke="#0f1117" stroke-width="5"/><path d="M1698 680 H1720 M1714 680 V690" stroke="#0f1117" stroke-width="5" stroke-linecap="round"/></g>
+<text id="rl-tokl" class="h" x="1700" y="770" font-size="30" fill="#FF9F43" text-anchor="middle">还要防重入</text>
+<g id="rl-ta" class="h"><circle cx="260" cy="720" r="50" fill="#F0B90B"/><text x="260" y="736" font-size="40" font-weight="700" fill="#0f1117" text-anchor="middle">A</text>
+<text x="260" y="820" font-size="30" fill="#e8e6df" text-anchor="middle">代币 A</text></g>
+<path id="rl-taa" class="dr h" pathLength="1" d="M322 720 H418" stroke="#8a8f99" stroke-width="4" marker-end="url(#rl-arrw)" fill="none"/>
+<g id="rl-tf"><g id="rl-tfi" class="h"><rect id="rl-tfr" x="430" y="696" width="124" height="48" rx="8" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2"/><text id="rl-tft" class="mono" x="492" y="730" font-size="30" fill="#FC6255" text-anchor="middle">false</text></g></g>
+<text id="rl-tfl" class="h" x="430" y="820" font-size="30" fill="#8a8f99">被忽略 · 静默失败</text>
+<g id="rl-tu" class="h"><circle cx="1000" cy="720" r="50" fill="#F0B90B"/><text x="1000" y="736" font-size="40" font-weight="700" fill="#0f1117" text-anchor="middle">₮</text>
+<text class="mono" x="1000" y="820" font-size="30" fill="#e8e6df" text-anchor="middle">USDT</text></g>
+<path id="rl-tua" class="dr h" pathLength="1" d="M1062 720 H1158" stroke="#8a8f99" stroke-width="4" marker-end="url(#rl-arrw)" fill="none"/>
+<g id="rl-te" class="h"><rect x="1170" y="690" width="120" height="60" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6"/><text x="1230" y="731" font-size="30" fill="#8a8f99" text-anchor="middle">空</text></g>
+<path id="rl-tea" class="dr h" pathLength="1" d="M1302 720 H1398" stroke="#8a8f99" stroke-width="4" marker-end="url(#rl-arrw)" fill="none"/>
+<g id="rl-dec" class="h"><rect id="rl-decr" x="1410" y="680" width="330" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1575" y="731" font-size="30" fill="#58C4DD" text-anchor="middle">decode → bool</text></g>
+<text id="rl-rev" class="h mono" x="1575" y="850" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">revert</text>
+<g id="rl-pb" class="h">
+<rect x="70" y="230" width="870" height="166" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/>
+<rect x="70" y="238" width="4" height="150" fill="#FC6255"/>
+<path d="M105 253 L123 271 M123 253 L105 271" stroke="#FC6255" stroke-width="4" stroke-linecap="round" fill="none"/>
+<text x="136" y="272" font-size="28" fill="#FC6255" font-weight="700">漏洞</text>
+<rect id="rl-pb-hl0" class="h" x="84" y="297" width="842" height="40" rx="6" fill="#FC6255" fill-opacity="0.14"/>
+<rect id="rl-pb-hl1" class="h" x="84" y="337" width="842" height="40" rx="6" fill="#FC6255" fill-opacity="0.14"/>
+<text id="rl-pb-l0" class="mono" x="106.0" y="326" font-size="28" fill="#e8e6df">token.transfer(seller, price);</text>
+<text id="rl-pb-l1" class="mono" x="106.0" y="366" font-size="28" fill="#e8e6df">order.paid = <tspan fill="#58C4DD">true</tspan>;</text>
+<text id="rl-pbc" x="444" y="366" font-size="28" fill="#6b6f7a">失败也标记已支付</text>
+</g>
+<g id="rl-pg" class="h">
+<rect x="980" y="230" width="870" height="206" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/>
+<rect x="980" y="238" width="4" height="190" fill="#83C167"/>
+<path d="M1013 262 L1020.3 269.7 L1035 254.3" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="1046" y="272" font-size="28" fill="#83C167" font-weight="700">修复</text>
+<rect id="rl-pg-hl0" class="h" x="994" y="297" width="842" height="40" rx="6" fill="#83C167" fill-opacity="0.14"/>
+<rect id="rl-pg-hl1" class="h" x="994" y="337" width="842" height="40" rx="6" fill="#83C167" fill-opacity="0.14"/>
+<rect id="rl-pg-hl2" class="h" x="994" y="377" width="842" height="40" rx="6" fill="#83C167" fill-opacity="0.14"/>
+<text id="rl-pg-l0" class="mono" x="1016.0" y="326" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">using</tspan> SafeERC20 <tspan fill="#58C4DD">for</tspan> IERC20;</text>
+<text id="rl-pg-l1" class="mono" x="1016.0" y="366" font-size="28" fill="#e8e6df">order.paid = <tspan fill="#58C4DD">true</tspan>;   <tspan fill="#6b6f7a">// Effects</tspan></text>
+<text id="rl-pg-l2" class="mono" x="1016.0" y="406" font-size="28" fill="#e8e6df">IERC20(token).safeTransfer(seller, price);</text>
+
+</g>
+<g id="rl-ob" class="h"><rect x="120" y="480" width="440" height="160" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+<text x="150" y="532" font-size="32" fill="#e8e6df">订单</text><text class="mono" x="150" y="602" font-size="30" fill="#58C4DD">paid = true</text></g>
+<g id="rl-stamp" class="h"><rect x="600" y="500" width="200" height="90" rx="10" fill="none" stroke="#FC6255" stroke-width="4"/><text x="700" y="560" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">已支付</text></g>
+<text id="rl-obl" class="h" x="120" y="710" font-size="30" fill="#FC6255">转账失败 · 钱没到</text>
+<g id="rl-og" class="h"><rect id="rl-ogr" x="1000" y="500" width="380" height="140" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+<text x="1030" y="552" font-size="32" fill="#e8e6df">订单</text><text class="mono" x="1030" y="612" font-size="30" fill="#58C4DD">paid = true</text></g>
+<text id="rl-ogl" class="h" x="1000" y="710" font-size="32" fill="#83C167">失败则整笔回滚</text>
+<g id="rl-c5f" class="h"><rect x="1440" y="480" width="400" height="420" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+<text class="mono" x="1470" y="542" font-size="34" font-weight="700" fill="#83C167">SafeERC20</text>
+<text id="rl-f1" class="h" x="1470" y="612" font-size="30" fill="#e8e6df">兼容无返回值</text>
+<text id="rl-f2" class="h" x="1470" y="672" font-size="30" fill="#e8e6df">统一 revert</text>
+<text id="rl-f3" class="h" x="1470" y="732" font-size="30" fill="#e8e6df">检查目标有代码</text>
+<text id="rl-f4" class="h" x="1470" y="812" font-size="28" fill="#8a8f99">不防重入</text>
+<text id="rl-f5" class="h" x="1470" y="860" font-size="28" fill="#8a8f99">不排顺序</text></g>
+<g id="rl-box" class="h"><rect x="520" y="260" width="880" height="540" rx="20" fill="none" stroke="#58C4DD" stroke-width="3"/>
+<text x="550" y="312" font-size="32" font-weight="700" fill="#58C4DD">你的合约</text></g>
+<g id="rl-ac" class="h"><text class="mono" x="600" y="400" font-size="34" fill="#e8e6df">target.call(data)</text>
+<rect x="600" y="440" width="740" height="70" rx="10" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6"/>
+<text class="mono" x="624" y="487" font-size="30" fill="#e8e6df">target =</text>
+<rect x="600" y="535" width="740" height="70" rx="10" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6"/>
+<text class="mono" x="624" y="582" font-size="30" fill="#e8e6df">data =</text></g>
+<text id="rl-s1v" class="h" x="800" y="488" font-size="30" fill="#FC6255">某代币</text>
+<text id="rl-s2v" class="h mono" x="760" y="582" font-size="30" fill="#FC6255">transferFrom(…)</text>
+<g id="rl-hand" class="h"><path d="M1500 470 L1500 580 L1526 556 L1546 600 L1564 592 L1544 548 L1580 548 Z" fill="#FC6255" stroke="#0f1117" stroke-width="3" stroke-linejoin="round"/></g>
+<text id="rl-handl" class="h" x="1540" y="650" font-size="28" fill="#FC6255" text-anchor="middle">外部传入</text>
+<g id="rl-alw" class="h"><text x="600" y="690" font-size="28" fill="#FF9F43">用户授权给合约的额度</text></g>
+<rect id="rl-alwb" class="h" x="600" y="712" width="740" height="34" rx="8" fill="#FF9F43"/>
+<path id="rl-alwa" class="dr h" pathLength="1" d="M1350 729 H1640" stroke="#FC6255" stroke-width="4" marker-end="url(#rl-arrr)" fill="none"/>
+<text id="rl-alwl" class="h" x="1450" y="706" font-size="28" fill="#FC6255">被抽走</text>
+<g id="rl-st" class="h"><rect x="580" y="360" width="380" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+<text class="mono" x="600" y="412" font-size="30" fill="#58C4DD">owner</text>
+<rect x="1000" y="360" width="340" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+<text class="mono" x="1020" y="412" font-size="30" fill="#58C4DD">balances</text></g>
+<text id="rl-ov1" class="h" x="760" y="413" font-size="30" fill="#e8e6df">你</text>
+<text id="rl-ov2" class="h" x="760" y="413" font-size="30" font-weight="700" fill="#FC6255">攻击者</text>
+<text id="rl-dl" class="h mono" x="1500" y="380" font-size="30" fill="#FF9F43">delegatecall</text>
+<g id="rl-ext" class="h"><rect x="1500" y="400" width="300" height="100" rx="12" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="3"/>
+<text x="1650" y="462" font-size="32" fill="#FC6255" text-anchor="middle">外部代码</text></g>
+<path id="rl-exa" class="dr h" pathLength="1" d="M860 552 L780 452" stroke="#FC6255" stroke-width="4" marker-end="url(#rl-arrr)" fill="none"/>
+<path id="rl-crk1" class="dr h" pathLength="1" d="M520 330 L548 352 L530 380 L556 404 L540 430" stroke="#FC6255" stroke-width="4" fill="none"/>
+<path id="rl-crk2" class="dr h" pathLength="1" d="M1300 800 L1278 772 L1306 752 L1284 724 L1310 704" stroke="#FC6255" stroke-width="4" fill="none"/>
+<rect id="rl-gate" class="h" x="1408" y="300" width="18" height="460" rx="6" fill="#83C167"/>
+<text id="rl-gatel" class="h" x="1450" y="340" font-size="32" font-weight="700" fill="#83C167">白名单</text>
+<g id="rl-ext2" class="h"><rect x="1600" y="520" width="220" height="80" rx="12" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="3"/>
+<text x="1710" y="571" font-size="30" fill="#FC6255" text-anchor="middle">外部代码</text></g>
+<g id="rl-ext2x" class="h"><path d="M1694 644 L1726 676 M1726 644 L1694 676" stroke="#FC6255" stroke-width="6" stroke-linecap="round" fill="none"/></g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="rl-term" class="h"><rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">SafeERC20 <tspan font-size="28" font-weight="400" fill="#8a8f99">OpenZeppelin</tspan></text><text x="100" y="160" font-size="28" fill="#e8e6df">兼容非标准代币的安全转账库</text></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+const HL = (p, n, idx, t, dim = 0.6) => { for (let i = 0; i < n; i++) { tl.to(`#${p}-l${i}`, { opacity: idx.includes(i) ? 1 : dim, duration: 0.3 }, t); tl.to(`#${p}-hl${i}`, { opacity: idx.includes(i) ? 1 : 0, duration: 0.3 }, t); } };
+const MOVE = (s, t, v, d = 0.7, e = "power2.inOut") => tl.to(s, { ...v, duration: d, ease: e }, t);
+
+const CARDS = ["#rl-c0", "#rl-c1", "#rl-c2", "#rl-c3", "#rl-c4"];
+const FOCUS = (k, t) => { CARDS.forEach((s, i) => tl.to(s, { opacity: i === k ? 1 : 0.35, duration: 0.3 }, t)); for (let i = 0; i < 4; i++) tl.to(`#rl-c${i}r`, { stroke: i === k ? "#FF9F43" : "#8a8f99", duration: 0.3 }, t); };
+// L0 title + cards
+IN("#rl-title", at(0, 0.03), 0.6);
+CARDS.forEach((s, i) => IN(s, at(0, 0.2) + i * 0.25, 0.5, { y: 20 }, { y: 0 }));
+// L1 send
+FOCUS(0, at(1, 0));
+IN("#rl-send", at(1, 0.03), 0.5);
+IN("#rl-caret", at(1, 0.06), 0.3);
+IN("#rl-false", at(1, 0.11), 0.4, { x: -30 }, { x: 0 });
+tl.to("#rl-false", { y: 110, rotation: 8, svgOrigin: "622 672", opacity: 0.5, duration: 1.0, ease: "power1.in" }, at(1, 0.15));
+MOVE("#rl-caret", at(1, 0.2), { y: 60 }, 0.4);
+IN("#rl-cell", at(1, 0.25), 0.4);
+MOVE("#rl-caret", at(1, 0.3), { y: 120 }, 0.4);
+IN("#rl-bag", at(1, 0.33), 0.4);
+IN("#rl-bagx, #rl-bagl", at(1, 0.4), 0.3);
+// transfer
+OUT("#rl-send, #rl-caret, #rl-false, #rl-cell, #rl-bag, #rl-bagx, #rl-bagl", at(1, 0.47), 0.3);
+FOCUS(1, at(1, 0.5));
+IN("#rl-tr", at(1, 0.52), 0.4);
+IN("#rl-trs", at(1, 0.6), 0.1);
+tl.to("#rl-trs", { attr: { width: 700 }, duration: 1.2, ease: "power1.inOut" }, at(1, 0.6));
+IN("#rl-ms, #rl-sw", at(1, 0.74), 0.4);
+tl.to("#rl-trs", { opacity: 0.25, duration: 0.5 }, at(1, 0.84));
+IN("#rl-trx, #rl-trl", at(1, 0.86), 0.3);
+// L2 call
+OUT("#rl-tr, #rl-trs, #rl-ms, #rl-sw, #rl-trx, #rl-trl", at(2, 0), 0.3);
+FOCUS(2, at(2, 0.02));
+IN("#rl-call", at(2, 0.05), 0.4);
+IN("#rl-calls", at(2, 0.1), 0.1);
+tl.to("#rl-calls", { attr: { width: 824 }, duration: 0.8, ease: "power2.out" }, at(2, 0.1));
+IN("#rl-tuple", at(2, 0.3), 0.4, { x: -20 }, { x: 0 });
+IN("#rl-chk", at(2, 0.36), 0.4);
+DRAW("#rl-chkm", at(2, 0.42), 0.4);
+IN("#rl-tok", at(2, 0.5), 0.5, { x: -250 }, { x: 0 });
+IN("#rl-tokl", at(2, 0.54), 0.4);
+// L3 token.transfer
+OUT("#rl-call, #rl-calls, #rl-tuple, #rl-chk, #rl-chkm, #rl-tok, #rl-tokl", at(3, 0), 0.3);
+FOCUS(3, at(3, 0.02));
+IN("#rl-ta", at(3, 0.05), 0.4);
+ARROW("#rl-taa", at(3, 0.12), 0.4);
+IN("#rl-tfi", at(3, 0.16), 0.4, { x: -20 }, { x: 0 });
+IN("#rl-tu", at(3, 0.3), 0.4);
+ARROW("#rl-tua", at(3, 0.36), 0.4);
+IN("#rl-te", at(3, 0.4), 0.4);
+tl.to("#rl-tfr", { stroke: "#6b6f7a", fill: "#6b6f7a", duration: 0.4 }, at(3, 0.56));
+tl.to("#rl-tft", { fill: "#6b6f7a", duration: 0.4 }, at(3, 0.56));
+IN("#rl-tfl", at(3, 0.58), 0.4);
+ARROW("#rl-tea", at(3, 0.72), 0.4);
+IN("#rl-dec", at(3, 0.75), 0.4);
+tl.to("#rl-decr", { stroke: "#FC6255", duration: 0.2 }, at(3, 0.86));
+IN("#rl-rev", at(3, 0.86), 0.3, { scale: 1.5, svgOrigin: "1575 836" }, { scale: 1, svgOrigin: "1575 836" });
+// L4 SafeERC20
+OUT("#rl-title, #rl-ta, #rl-taa, #rl-tfi, #rl-tfl, #rl-tu, #rl-tua, #rl-te, #rl-tea, #rl-dec, #rl-rev, #rl-c0, #rl-c1, #rl-c2, #rl-c3", at(4, 0), 0.35);
+tl.to("#rl-c4", { opacity: 1, duration: 0.3 }, at(4, 0));
+MOVE("#rl-c4o", at(4, 0.03), { x: -10, y: 290 }, 0.8);
+IN("#rl-pb", at(4, 0.05), 0.5);
+HL("rl-pb", 2, [0], at(4, 0.1));
+HL("rl-pb", 2, [1], at(4, 0.2));
+IN("#rl-ob", at(4, 0.18), 0.4);
+IN("#rl-stamp", at(4, 0.24), 0.3, { scale: 1.6, svgOrigin: "700 545" }, { scale: 1, svgOrigin: "700 545" });
+IN("#rl-obl", at(4, 0.28), 0.4);
+IN("#rl-term", at(4, 0.33), 0.5);
+IN("#rl-pg", at(4, 0.36), 0.5);
+tl.to("#rl-c4", { scaleX: 0, svgOrigin: "1650 400", duration: 0.25, ease: "power2.in" }, at(4, 0.45));
+tl.set("#rl-c4", { opacity: 0 }, at(4, 0.45) + 0.25);
+IN("#rl-c5f", at(4, 0.45) + 0.25, 0.01);
+tl.fromTo("#rl-c5f", { scaleX: 0, svgOrigin: "1640 690" }, { scaleX: 1, svgOrigin: "1640 690", duration: 0.3, ease: "power2.out", immediateRender: false }, at(4, 0.45) + 0.25);
+IN("#rl-f1", at(4, 0.53), 0.4);
+HL("rl-pg", 3, [2], at(4, 0.58));
+IN("#rl-og", at(4, 0.58), 0.4);
+tl.to("#rl-ogr", { stroke: "#FC6255", duration: 0.2 }, at(4, 0.64));
+tl.to("#rl-og", { opacity: 0, scale: 0.85, svgOrigin: "1190 570", duration: 0.6, ease: "power2.in" }, at(4, 0.67));
+IN("#rl-ogl", at(4, 0.67), 0.4);
+IN("#rl-f2", at(4, 0.66), 0.4);
+IN("#rl-f3", at(4, 0.78), 0.4);
+IN("#rl-f4, #rl-f5", at(4, 0.9), 0.4);
+// L5 arbitrary call
+OUT("#rl-term, #rl-pb, #rl-pg, #rl-ob, #rl-stamp, #rl-obl, #rl-ogl, #rl-c5f", at(5, 0), 0.4);
+IN("#rl-box", at(5, 0.06), 0.6);
+IN("#rl-ac", at(5, 0.12), 0.5);
+IN("#rl-hand, #rl-handl", at(5, 0.24), 0.4, { x: 60 }, { x: 0 });
+MOVE("#rl-hand", at(5, 0.3), { x: -60 }, 0.3);
+IN("#rl-s1v", at(5, 0.33), 0.3);
+MOVE("#rl-hand", at(5, 0.38), { x: 0 }, 0.3);
+MOVE("#rl-hand", at(5, 0.44), { x: -60 }, 0.3);
+IN("#rl-s2v", at(5, 0.47), 0.3);
+MOVE("#rl-hand", at(5, 0.52), { x: 0 }, 0.3);
+IN("#rl-alw, #rl-alwb", at(5, 0.6), 0.4);
+tl.to("#rl-alwb", { attr: { x: 1340, width: 0 }, duration: 1.0, ease: "power2.in" }, at(5, 0.78));
+ARROW("#rl-alwa", at(5, 0.78), 0.6); IN("#rl-alwl", at(5, 0.82), 0.3);
+// L6 delegatecall
+OUT("#rl-ac, #rl-s1v, #rl-s2v, #rl-hand, #rl-handl, #rl-alw, #rl-alwb, #rl-alwa, #rl-alwl", at(6, 0), 0.35);
+IN("#rl-st, #rl-ov1", at(6, 0.04), 0.5);
+IN("#rl-dl, #rl-ext", at(6, 0.08), 0.5, { x: 30 }, { x: 0 });
+MOVE("#rl-ext", at(6, 0.28), { x: -700, y: 160 }, 0.9);
+ARROW("#rl-exa", at(6, 0.44), 0.4);
+OUT("#rl-ov1", at(6, 0.48), 0.2);
+IN("#rl-ov2", at(6, 0.5), 0.3);
+tl.to("#rl-box rect", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.6));
+tl.fromTo("#rl-crk1, #rl-crk2", { opacity: 0 }, { opacity: 1, duration: 0.01 }, at(6, 0.6));
+DRAW("#rl-crk1, #rl-crk2", at(6, 0.6), 0.5);
+OUT("#rl-ext, #rl-exa, #rl-crk1, #rl-crk2, #rl-ov2, #rl-dl", at(6, 0.76), 0.35);
+tl.to("#rl-box rect", { stroke: "#58C4DD", duration: 0.3 }, at(6, 0.78));
+IN("#rl-ov1", at(6, 0.8), 0.3);
+IN("#rl-gate, #rl-gatel", at(6, 0.8), 0.4);
+IN("#rl-ext2", at(6, 0.84), 0.3);
+MOVE("#rl-ext2", at(6, 0.86), { x: -150 }, 0.3, "power2.in");
+MOVE("#rl-ext2", at(6, 0.86) + 0.3, { x: 40 }, 0.5, "back.out(2)");
+IN("#rl-ext2x", at(6, 0.86) + 0.35, 0.2);
+
+
+      tl.to("#rl-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#rl-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["retval"] = tl;
+    })();
+  </script>
+</template>

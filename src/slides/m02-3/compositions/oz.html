@@ -1,0 +1,233 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 oz，id 前缀 oz- -->
+  <div id="root" data-composition-id="oz" data-duration="54.71" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="oz-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="oz-all">
+
+        <!-- L0 工具箱 -->
+        <g id="oz-box" class="h">
+          <path d="M900 470 V438 Q900 420 918 420 H1002 Q1020 420 1020 438 V470" fill="none" stroke="#58C4DD" stroke-width="8" stroke-linecap="round" />
+          <rect x="780" y="470" width="360" height="56" rx="10" fill="#24414d" stroke="#58C4DD" stroke-width="4" />
+          <rect x="790" y="526" width="340" height="200" rx="10" fill="#1b2a33" stroke="#58C4DD" stroke-width="4" />
+          <rect x="935" y="508" width="50" height="34" rx="6" fill="#58C4DD" />
+          <text class="mono" x="960" y="650" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">library</text>
+        </g>
+        <g id="oz-f1" class="h">
+          <ellipse cx="520" cy="560" rx="34" ry="12" fill="none" stroke="#58C4DD" stroke-width="4" />
+          <path d="M486 560 V610 A34 12 0 0 0 554 610 V560" fill="none" stroke="#58C4DD" stroke-width="4" />
+          <circle cx="520" cy="588" r="62" fill="none" stroke="#FC6255" stroke-width="7" />
+          <line x1="476" y1="544" x2="564" y2="632" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+          <text x="520" y="706" font-size="32" fill="#e8e6df" text-anchor="middle">无状态变量</text>
+        </g>
+        <g id="oz-f2" class="h">
+          <circle cx="1400" cy="588" r="30" fill="#F0B90B" />
+          <circle cx="1400" cy="588" r="62" fill="none" stroke="#FC6255" stroke-width="7" />
+          <line x1="1356" y1="544" x2="1444" y2="632" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+          <text x="1400" y="706" font-size="32" fill="#e8e6df" text-anchor="middle">不能收 ETH</text>
+        </g>
+        <!-- L1-L2 代码面板 -->
+        <rect id="oz-panel" class="h" x="90" y="230" width="1070" height="330" rx="14" fill="#161a22" stroke="#2a3040" stroke-width="2" />
+        <rect id="oz-hl" class="h" x="96" y="304" width="1058" height="46" fill="#58C4DD" fill-opacity="0.18" />
+        <rect id="oz-hlb" class="h" x="96" y="304" width="6" height="46" fill="#58C4DD" />
+<g id="oz-L1" class="h"><text class="mono" x="140" y="290" font-size="28" fill="#6b6f7a" text-anchor="end">1</text><text class="mono" x="160" y="290" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre"><tspan fill="#58C4DD">contract</tspan> Pay {</text></g>
+<g id="oz-L2" class="h"><text class="mono" x="140" y="336" font-size="28" fill="#6b6f7a" text-anchor="end">2</text><text class="mono" x="160" y="336" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  <tspan fill="#58C4DD">using</tspan> SafeERC20 <tspan fill="#58C4DD">for</tspan> IERC20;</text></g>
+<g id="oz-L3" class="h"><text class="mono" x="140" y="382" font-size="28" fill="#6b6f7a" text-anchor="end">3</text><text class="mono" x="160" y="382" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  <tspan fill="#58C4DD">function</tspan> pull(IERC20 token, <tspan fill="#58C4DD">uint256</tspan> amt) <tspan fill="#58C4DD">external</tspan> {</text></g>
+<g id="oz-L4" class="h"><text class="mono" x="140" y="428" font-size="28" fill="#6b6f7a" text-anchor="end">4</text><text class="mono" x="160" y="428" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    token.safeTransferFrom(msg.sender, <tspan fill="#58C4DD">address</tspan>(<tspan fill="#58C4DD">this</tspan>), amt);</text></g>
+<g id="oz-L5" class="h"><text class="mono" x="140" y="474" font-size="28" fill="#6b6f7a" text-anchor="end">5</text><text class="mono" x="160" y="474" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  }</text></g>
+<g id="oz-L6" class="h"><text class="mono" x="140" y="520" font-size="28" fill="#6b6f7a" text-anchor="end">6</text><text class="mono" x="160" y="520" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">}</text></g>
+        <g id="oz-blk" class="h">
+          <rect x="1330" y="620" width="400" height="110" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="4" />
+          <text class="mono" x="1530" y="688" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">IERC20</text>
+        </g>
+        <g id="oz-mtw" class="h"><g id="oz-mt">
+          <path d="M1490 300 V284 Q1490 270 1504 270 H1556 Q1570 270 1570 284 V300" fill="none" stroke="#58C4DD" stroke-width="6" stroke-linecap="round" />
+          <rect x="1390" y="300" width="280" height="110" rx="12" fill="#1b2a33" stroke="#58C4DD" stroke-width="4" />
+          <text class="mono" x="1530" y="368" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">SafeERC20</text>
+        </g></g>
+        <rect id="oz-snap" class="h" x="1330" y="620" width="400" height="110" rx="14" fill="none" stroke="#83C167" stroke-width="5" />
+        <text id="oz-dot" class="h mono" x="1530" y="800" font-size="30" fill="#e8e6df" text-anchor="middle">token.<tspan fill="#58C4DD">safeTransferFrom</tspan>(…)</text>
+        <!-- L2 两种代币 -->
+        <g id="oz-tA" class="h">
+          <circle cx="1300" cy="360" r="56" fill="#F0B90B" />
+          <text x="1300" y="462" font-size="30" fill="#e8e6df" text-anchor="middle">标准代币</text>
+          <path d="M1380 340 L1410 352 L1410 328 Z" fill="#161a22" stroke="#e8e6df" stroke-width="3" stroke-linejoin="round" />
+          <rect x="1408" y="312" width="200" height="76" rx="18" fill="#161a22" stroke="#e8e6df" stroke-width="3" />
+          <text class="mono" x="1508" y="362" font-size="34" fill="#e8e6df" text-anchor="middle">true</text>
+        </g>
+        <g id="oz-tB" class="h">
+          <circle cx="1300" cy="650" r="56" fill="#F0B90B" />
+          <text class="mono" x="1300" y="752" font-size="30" fill="#e8e6df" text-anchor="middle">USDT</text>
+          <path d="M1380 630 L1410 642 L1410 618 Z" fill="#161a22" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round" />
+          <rect x="1408" y="602" width="200" height="76" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" />
+        </g>
+        <path id="oz-okA" class="dr h" pathLength="1" d="M1660 352 L1684 376 L1730 326" fill="none" stroke="#83C167" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+        <path id="oz-okB" class="dr h" pathLength="1" d="M1660 642 L1684 666 L1730 616" fill="none" stroke="#83C167" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+        <text id="oz-catch" class="h" x="1640" y="520" font-size="30" fill="#83C167" text-anchor="middle"><tspan class="mono">SafeERC20</tspan> 都接住</text>
+        <!-- L3 组件货架 -->
+        <g id="oz-s1" class="h">
+          <rect id="oz-sr1" x="90" y="230" width="860" height="230" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="3" />
+          <text class="mono" x="124" y="296" font-size="36" font-weight="700" fill="#FF9F43">Ownable</text>
+          <text x="124" y="358" font-size="28" fill="#e8e6df">单一所有者</text>
+          <text class="mono" x="124" y="420" font-size="28" fill="#6b6f7a">access/Ownable.sol</text>
+        </g><g id="oz-s2" class="h">
+          <rect id="oz-sr2" x="970" y="230" width="860" height="230" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="3" />
+          <text class="mono" x="1004" y="296" font-size="36" font-weight="700" fill="#B48EF0">AccessControl</text>
+          <text x="1004" y="358" font-size="28" fill="#e8e6df">多角色：<tspan class="mono">grantRole · revokeRole · onlyRole</tspan></text>
+          <text class="mono" x="1004" y="420" font-size="28" fill="#6b6f7a">access/AccessControl.sol</text>
+        </g><g id="oz-s3" class="h">
+          <rect id="oz-sr3" x="90" y="480" width="860" height="230" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="3" />
+          <text class="mono" x="124" y="546" font-size="36" font-weight="700" fill="#83C167">ReentrancyGuard</text>
+          <text x="124" y="608" font-size="28" fill="#e8e6df"><tspan class="mono">nonReentrant</tspan> 重入锁</text>
+          <text class="mono" x="124" y="670" font-size="28" fill="#6b6f7a">utils/ReentrancyGuard.sol</text>
+        </g><g id="oz-s4" class="h">
+          <rect id="oz-sr4" x="970" y="480" width="860" height="230" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="3" />
+          <text class="mono" x="1004" y="546" font-size="36" font-weight="700" fill="#FF9F43">Pausable</text>
+          <text x="1004" y="608" font-size="28" fill="#e8e6df"><tspan class="mono">whenNotPaused</tspan> 暂停</text>
+          <text class="mono" x="1004" y="670" font-size="28" fill="#6b6f7a">utils/Pausable.sol</text>
+        </g><g id="oz-s5" class="h">
+          <rect id="oz-sr5" x="90" y="730" width="860" height="230" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="3" />
+          <text class="mono" x="124" y="796" font-size="36" font-weight="700" fill="#58C4DD">SafeERC20</text>
+          <text x="124" y="858" font-size="28" fill="#e8e6df">安全调用非标准 ERC-20</text>
+          <text class="mono" x="124" y="920" font-size="28" fill="#6b6f7a">token/ERC20/utils/SafeERC20.sol</text>
+        </g><g id="oz-s6" class="h">
+          <rect id="oz-sr6" x="970" y="730" width="860" height="230" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="3" />
+          <text class="mono" x="1004" y="796" font-size="36" font-weight="700" fill="#F0B90B">ERC20 · ERC721 · ERC1155</text>
+          <text x="1004" y="858" font-size="28" fill="#e8e6df">代币标准实现</text>
+          <text class="mono" x="1004" y="920" font-size="28" fill="#6b6f7a">token/…</text>
+        </g>
+        <!-- L4 v4 → v5 -->
+        <g id="oz-hdr" class="h">
+          <text class="mono" x="480" y="290" font-size="48" font-weight="700" fill="#8a8f99" text-anchor="middle">v4</text>
+          <text class="mono" x="1440" y="290" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">v5</text>
+        </g>
+        <g id="oz-fd1" class="h">
+          <path d="M330 360 H430 L452 382 H630 V470 H330 Z" fill="#161a22" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round" />
+          <text class="mono" x="480" y="438" font-size="32" fill="#8a8f99" text-anchor="middle">security/</text>
+        </g>
+        <g id="oz-fd2" class="h">
+          <path d="M1290 360 H1390 L1412 382 H1590 V470 H1290 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round" />
+          <text class="mono" x="1440" y="438" font-size="32" fill="#58C4DD" text-anchor="middle">utils/</text>
+        </g>
+        <g id="oz-chip" class="h">
+          <rect x="350" y="494" width="260" height="58" rx="10" fill="#1b2a33" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="480" y="533" font-size="28" fill="#e8e6df" text-anchor="middle">Pausable.sol</text>
+        </g>
+        <text id="oz-r2a" class="h mono" x="480" y="680" font-size="32" fill="#8a8f99" text-anchor="middle">require(<tspan fill="#F0B90B">"…"</tspan>)</text>
+        <path id="oz-a2" class="dr h" pathLength="1" d="M760 669 H1160" stroke="#e8e6df" stroke-width="3" marker-end="url(#oz-arr)" />
+        <text id="oz-r2b" class="h mono" x="1440" y="680" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan fill="#58C4DD">error</tspan> <tspan fill="#FC6255">…</tspan></text>
+        <text id="oz-r3a" class="h mono" x="480" y="860" font-size="32" fill="#8a8f99" text-anchor="middle">Ownable()</text>
+        <path id="oz-a3" class="dr h" pathLength="1" d="M760 849 H1160" stroke="#e8e6df" stroke-width="3" marker-end="url(#oz-arr)" />
+        <rect id="oz-slot" class="h" x="1386" y="822" width="242" height="52" rx="8" fill="#FF9F43" fill-opacity="0.3" />
+        <text id="oz-r3b" class="h mono" x="1440" y="860" font-size="32" fill="#e8e6df" text-anchor="middle">Ownable(<tspan fill="#FF9F43">initialOwner</tspan>)</text>
+        <!-- L5 旧代码纸片 -->
+        <g id="oz-paper" class="h">
+          <path d="M740 300 H1110 L1160 350 V780 H740 Z" fill="#1b1f29" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round" />
+          <path d="M1110 300 V350 H1160" fill="none" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round" />
+          <text x="940" y="380" font-size="32" fill="#e8e6df" text-anchor="middle">网上复制的旧代码</text>
+          <g stroke="#3a4050" stroke-width="10" stroke-linecap="round">
+            <line x1="790" y1="450" x2="1080" y2="450" /><line x1="820" y1="510" x2="1040" y2="510" /><line x1="820" y1="570" x2="1100" y2="570" />
+            <line x1="850" y1="630" x2="1010" y2="630" /><line x1="820" y1="690" x2="1060" y2="690" /><line x1="790" y1="740" x2="900" y2="740" />
+          </g>
+        </g>
+        <g id="oz-tag" class="h">
+          <line x1="1160" y1="620" x2="1220" y2="620" stroke="#FF9F43" stroke-width="4" />
+          <rect x="1220" y="578" width="260" height="84" rx="14" fill="#FF9F43" />
+          <text x="1350" y="634" font-size="40" font-weight="700" fill="#0f1117" text-anchor="middle">先查版本</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="oz-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">库 <tspan font-size="28" font-weight="400" fill="#8a8f99">Library</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">无状态、可复用的函数集合</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const HL = (k, n, t) => tl.to("#oz-hl, #oz-hlb", { attr: { y: 290 + 46 * (k - 1) - 32, height: 46 * n }, duration: 0.35, ease: "power2.inOut" }, t);
+      // L0 库：工具箱 + 两个禁止
+      IN("#oz-term", at(0, 0.02), 0.5);
+      IN("#oz-box", at(0, 0.1), 0.7, { y: 30 }, { y: 0 });
+      IN("#oz-f1", at(0, 0.42), 0.5, { x: 30 }, { x: 0 });
+      IN("#oz-f2", at(0, 0.66), 0.5, { x: -30 }, { x: 0 });
+      // L1 using ... for：代码 + 挂到类型上
+      OUT("#oz-box, #oz-f1, #oz-f2", at(1, 0.0), 0.4);
+      IN("#oz-panel", at(1, 0.04), 0.5);
+      for (let k = 1; k <= 6; k++) IN(`#oz-L${k}`, at(1, 0.06) + (k - 1) * 0.15, 0.3, { x: -12 }, { x: 0 });
+      IN("#oz-hl, #oz-hlb", at(1, 0.22), 0.3);
+      IN("#oz-mtw", at(1, 0.3), 0.5);
+      IN("#oz-blk", at(1, 0.36), 0.5);
+      tl.to("#oz-mt", { y: 210, duration: 0.7, ease: "back.in(1.4)" }, at(1, 0.55));
+      tl.fromTo("#oz-snap", { opacity: 1 }, { opacity: 0, duration: 0.8, ease: "power2.out", immediateRender: false }, at(1, 0.55) + 0.7);
+      tl.to("#oz-blk rect", { stroke: "#58C4DD", duration: 0.3 }, at(1, 0.55) + 0.7);
+      OUT("#oz-term", at(1, 0.8), 0.4);
+      // L2 safeTransferFrom：两种代币都接住
+      HL(4, 1, at(2, 0.02));
+      IN("#oz-dot", at(2, 0.1), 0.5, { y: 10 }, { y: 0 });
+      OUT("#oz-mtw, #oz-blk, #oz-dot", at(2, 0.36), 0.4);
+      IN("#oz-tA", at(2, 0.42), 0.5, { x: 30 }, { x: 0 });
+      IN("#oz-tB", at(2, 0.58), 0.5, { x: 30 }, { x: 0 });
+      tl.to("#oz-tB rect", { stroke: "#FC6255", duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.68));
+      IN("#oz-catch", at(2, 0.78), 0.4);
+      DRAW("#oz-okA", at(2, 0.8), 0.4); tl.set("#oz-okA", { opacity: 1 }, at(2, 0.8));
+      DRAW("#oz-okB", at(2, 0.86), 0.4); tl.set("#oz-okB", { opacity: 1 }, at(2, 0.86));
+      // L3 OpenZeppelin 组件货架，逐格点亮
+      OUT("#oz-panel, #oz-hl, #oz-hlb, #oz-L1, #oz-L2, #oz-L3, #oz-L4, #oz-L5, #oz-L6, #oz-tA, #oz-tB, #oz-okA, #oz-okB, #oz-catch", at(3, 0.0), 0.4);
+      for (let i = 1; i <= 6; i++) IN(`#oz-s${i}`, at(3, 0.03) + (i - 1) * 0.06, 0.4, {}, { opacity: 0.3 });
+      const LIT = ["#FF9F43", "#B48EF0", "#83C167", "#FF9F43", "#58C4DD", "#F0B90B"];
+      [0.08, 0.2, 0.38, 0.52, 0.66, 0.84].forEach((f, i) => {
+        tl.to(`#oz-s${i + 1}`, { opacity: 1, duration: 0.4 }, at(3, f));
+        tl.to(`#oz-sr${i + 1}`, { stroke: LIT[i], duration: 0.4 }, at(3, f));
+      });
+      // L4 v4 → v5 差异
+      OUT("#oz-s1, #oz-s2, #oz-s3, #oz-s4, #oz-s5, #oz-s6", at(4, 0.0), 0.4);
+      IN("#oz-hdr", at(4, 0.04), 0.5);
+      IN("#oz-fd1, #oz-fd2", at(4, 0.08), 0.5);
+      IN("#oz-chip", at(4, 0.12), 0.4);
+      tl.to("#oz-chip", { x: 960, duration: 1.1, ease: "power2.inOut" }, at(4, 0.18));
+      IN("#oz-r2a", at(4, 0.4), 0.4);
+      ARROW("#oz-a2", at(4, 0.46), 0.5);
+      IN("#oz-r2b", at(4, 0.52), 0.4, { x: -20 }, { x: 0 });
+      IN("#oz-r3a", at(4, 0.68), 0.4);
+      ARROW("#oz-a3", at(4, 0.73), 0.5);
+      IN("#oz-r3b", at(4, 0.79), 0.4, { x: -20 }, { x: 0 });
+      tl.fromTo("#oz-slot", { opacity: 0 }, { opacity: 1, duration: 0.25, yoyo: true, repeat: 3, immediateRender: false }, at(4, 0.86));
+      tl.set("#oz-slot", { opacity: 1 }, at(4, 0.86) + 1.0);
+      // L5 先查版本
+      OUT("#oz-hdr, #oz-fd1, #oz-fd2, #oz-chip, #oz-r2a, #oz-a2, #oz-r2b, #oz-r3a, #oz-a3, #oz-r3b, #oz-slot", at(5, 0.0), 0.35);
+      IN("#oz-paper", at(5, 0.1), 0.5, { y: 20 }, { y: 0 });
+      IN("#oz-tag", at(5, 0.4), 0.4, { x: 30 }, { x: 0 });
+
+      tl.to("#oz-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#oz-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["oz"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,359 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 calls，id 前缀 ca- -->
+  <div id="root" data-composition-id="calls" data-duration="75.0" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ca-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ca-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+        <marker id="ca-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="ca-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+      </defs>
+      <g id="ca-all">
+        <!-- ===== L0 执行权接力 + 63/64 ===== -->
+        <g id="ca-p0">
+          <g id="ca-A" class="h">
+            <rect x="300" y="300" width="300" height="140" rx="16" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="450" y="384" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">合约 A</text>
+          </g>
+          <g id="ca-B" class="h">
+            <rect x="1320" y="300" width="300" height="140" rx="16" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1470" y="384" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">合约 B</text>
+          </g>
+          <path id="ca-ab" class="dr h" pathLength="1" d="M606 400 H1312" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ca-arr)" />
+          <text id="ca-abl" class="h" x="960" y="450" font-size="28" fill="#e8e6df" text-anchor="middle">交出执行权</text>
+          <g id="ca-baton" class="h">
+            <rect x="590" y="374" width="70" height="22" rx="11" fill="#F0B90B" />
+          </g>
+          <path id="ca-re" class="dr h" pathLength="1" d="M1470 294 C1470 170 450 170 450 290" stroke="#FC6255" stroke-width="3.5" fill="none" marker-end="url(#ca-arrR)" />
+          <text id="ca-rel" class="h" x="960" y="246" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">重入入口</text>
+          <!-- 油箱 -->
+          <text id="ca-gl" class="h" x="300" y="590" font-size="28" fill="#8a8f99">A 剩余 Gas</text>
+          <g id="ca-gA"></g>
+          <g id="ca-gB"></g>
+          <text id="ca-gbl" class="h" x="300" y="790" font-size="28" fill="#8a8f99">转发给 B</text>
+          <text id="ca-6364" class="h mono" x="1660" y="840" font-size="40" font-weight="700" fill="#F0B90B">63/64</text>
+          <text id="ca-keep" class="h" x="1660" y="675" font-size="28" fill="#8a8f99">A 留 1/64</text>
+        </g>
+
+        <!-- ===== L1–L3 三列对比 ===== -->
+        <g id="ca-p1">
+          <g id="ca-cols" class="h">
+            <rect x="180" y="210" width="500" height="760" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <rect x="710" y="210" width="500" height="760" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <rect x="1240" y="210" width="500" height="760" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text class="mono" x="430" y="272" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">call</text>
+            <text class="mono" x="960" y="272" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">staticcall</text>
+            <text class="mono" x="1490" y="272" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">delegatecall</text>
+          </g>
+          <g id="ca-ex" class="h">
+            <text x="430" y="336" font-size="28" fill="#8a8f99" text-anchor="middle">执行：对方的代码</text>
+            <text x="960" y="336" font-size="28" fill="#8a8f99" text-anchor="middle">执行：对方的代码</text>
+            <text x="1490" y="336" font-size="28" fill="#8a8f99" text-anchor="middle">执行：对方的代码</text>
+          </g>
+          <g id="ca-lb" class="h">
+            <text x="210" y="406" font-size="30" fill="#e8e6df">存储：</text>
+            <text x="740" y="406" font-size="30" fill="#e8e6df">存储：</text>
+            <text x="1270" y="406" font-size="30" fill="#e8e6df">存储：</text>
+            <text x="210" y="466" font-size="30" fill="#e8e6df"><tspan class="mono">msg.sender</tspan>：</text>
+            <text x="740" y="466" font-size="30" fill="#e8e6df"><tspan class="mono">msg.sender</tspan>：</text>
+            <text x="1270" y="466" font-size="30" fill="#e8e6df"><tspan class="mono">msg.sender</tspan>：</text>
+          </g>
+          <g id="ca-q">
+            <text id="ca-q0" class="h" x="310" y="406" font-size="30" fill="#FF9F43">？</text>
+            <text id="ca-q1" class="h" x="840" y="406" font-size="30" fill="#FF9F43">？</text>
+            <text id="ca-q2" class="h" x="1370" y="406" font-size="30" fill="#FF9F43">？</text>
+            <text id="ca-q3" class="h" x="435" y="466" font-size="30" fill="#FF9F43">？</text>
+            <text id="ca-q4" class="h" x="965" y="466" font-size="30" fill="#FF9F43">？</text>
+            <text id="ca-q5" class="h" x="1495" y="466" font-size="30" fill="#FF9F43">？</text>
+          </g>
+          <text id="ca-v0" class="h" x="310" y="406" font-size="30" font-weight="700" fill="#58C4DD">B 的</text>
+          <text id="ca-v1" class="h" x="840" y="406" font-size="30" font-weight="700" fill="#58C4DD">B 的 · 只读</text>
+          <text id="ca-v2" class="h" x="1370" y="406" font-size="30" font-weight="700" fill="#FF9F43">A 自己的</text>
+          <text id="ca-v3" class="h" x="435" y="466" font-size="30" font-weight="700" fill="#e8e6df">A</text>
+          <text id="ca-v4" class="h" x="965" y="466" font-size="30" font-weight="700" fill="#e8e6df">A</text>
+          <text id="ca-v5" class="h" x="1495" y="466" font-size="30" font-weight="700" fill="#B48EF0">原始用户 U</text>
+
+          <!-- 三列示意：A 方块、B 方块、各自存储格 -->
+          <g id="ca-mini" class="h">
+            <rect x="215" y="530" width="160" height="90" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2" /><text x="295" y="587" font-size="32" fill="#e8e6df" text-anchor="middle">A</text>
+            <rect x="485" y="530" width="160" height="90" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2" /><text x="565" y="587" font-size="32" fill="#e8e6df" text-anchor="middle">B</text>
+            <rect x="745" y="530" width="160" height="90" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2" /><text x="825" y="587" font-size="32" fill="#e8e6df" text-anchor="middle">A</text>
+            <rect x="1015" y="530" width="160" height="90" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2" /><text x="1095" y="587" font-size="32" fill="#e8e6df" text-anchor="middle">B</text>
+            <rect x="1275" y="530" width="160" height="90" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2" /><text x="1355" y="587" font-size="32" fill="#e8e6df" text-anchor="middle">A</text>
+            <rect x="1545" y="530" width="160" height="90" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2" /><text x="1625" y="587" font-size="32" fill="#e8e6df" text-anchor="middle">B</text>
+            <!-- 存储格 -->
+            <rect id="ca-sA0" x="235" y="690" width="120" height="70" rx="8" fill="#FF9F4310" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="ca-sB0" x="505" y="690" width="120" height="70" rx="8" fill="#FF9F4310" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="ca-sA1" x="765" y="690" width="120" height="70" rx="8" fill="#FF9F4310" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="ca-sB1" x="1035" y="690" width="120" height="70" rx="8" fill="#FF9F4310" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="ca-sA2" x="1295" y="690" width="120" height="70" rx="8" fill="#FF9F4310" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="ca-sB2" x="1565" y="690" width="120" height="70" rx="8" fill="#FF9F4310" stroke="#6b6f7a" stroke-width="2" />
+            <text x="295" y="800" font-size="28" fill="#8a8f99" text-anchor="middle">存储</text>
+            <text x="565" y="800" font-size="28" fill="#8a8f99" text-anchor="middle">存储</text>
+            <text x="825" y="800" font-size="28" fill="#8a8f99" text-anchor="middle">存储</text>
+            <text x="1095" y="800" font-size="28" fill="#8a8f99" text-anchor="middle">存储</text>
+            <text x="1355" y="800" font-size="28" fill="#8a8f99" text-anchor="middle">存储</text>
+            <text x="1625" y="800" font-size="28" fill="#8a8f99" text-anchor="middle">存储</text>
+            <path d="M295 624 V686 M565 624 V686 M825 624 V686 M1095 624 V686 M1355 624 V686 M1625 624 V686" stroke="#3a3f4a" stroke-width="2" stroke-dasharray="6 6" />
+          </g>
+          <!-- call 列 -->
+          <path id="ca-c0a" class="dr h" pathLength="1" d="M379 560 H479" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ca-arr)" />
+          <circle id="ca-coin" class="h" cx="420" cy="592" r="14" fill="#F0B90B" />
+          <text id="ca-coinl" class="h" x="430" y="880" font-size="28" fill="#F0B90B" text-anchor="middle">可附带 ETH</text>
+          <!-- staticcall 列 -->
+          <path id="ca-c1a" class="dr h" pathLength="1" d="M909 560 H1009" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ca-arr)" />
+          <g id="ca-lock" class="h">
+            <rect x="1081" y="712" width="28" height="24" rx="4" fill="#8a8f99" />
+            <path d="M1086 712 V704 A9 9 0 0 1 1104 704 V712" stroke="#8a8f99" stroke-width="3.5" fill="none" />
+          </g>
+          <path id="ca-wr" class="dr h" pathLength="1" d="M1180 600 C1230 640 1210 700 1162 718" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ca-arrR)" />
+          <text id="ca-wrl" class="h mono" x="960" y="880" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">revert</text>
+          <!-- delegatecall 列 -->
+          <path id="ca-house" class="dr h" pathLength="1" d="M1250 790 V528 L1355 488 L1460 528 V790" stroke="#FF9F43" stroke-width="3" fill="none" />
+          <g id="ca-code" class="h">
+            <rect x="1565" y="636" width="120" height="40" rx="6" fill="#58C4DD" />
+            <text x="1625" y="666" font-size="28" fill="#0f1117" text-anchor="middle" font-weight="700">B 代码</text>
+          </g>
+          <path id="ca-dw" class="dr h" pathLength="1" d="M1355 676 V686" stroke="#FF9F43" stroke-width="3" fill="none" />
+          <text id="ca-dval" class="h" x="1490" y="880" font-size="28" fill="#F0B90B" text-anchor="middle">沿用原 <tspan class="mono">msg.value</tspan></text>
+          <text id="ca-proxy" class="h" x="1490" y="932" font-size="28" fill="#e8e6df" text-anchor="middle">代理靠它</text>
+        </g>
+
+        <!-- ===== L4 算一算：owner 被改写 ===== -->
+        <g id="ca-p4">
+          <g id="ca-codep" class="h">
+            <rect x="80" y="200" width="880" height="470" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          </g>
+          <rect id="ca-hlb" class="h" x="96" y="306" width="848" height="40" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+          <g id="ca-code1" class="h">
+            <text class="mono" xml:space="preserve" style="white-space:pre" x="110" y="250" font-size="28" fill="#e8e6df"><tspan fill="#B48EF0">contract</tspan> Logic {</text>
+            <text class="mono" xml:space="preserve" style="white-space:pre" x="110" y="290" font-size="28" fill="#e8e6df">  uint256 public number;</text>
+            <text class="mono" xml:space="preserve" style="white-space:pre" x="110" y="330" font-size="28" fill="#e8e6df">  function setNumber(uint256 n)</text>
+            <text class="mono" xml:space="preserve" style="white-space:pre" x="110" y="370" font-size="28" fill="#e8e6df">    external { number = n; } }</text>
+            <text x="760" y="290" font-size="28" fill="#FF9F43">← 槽 0</text>
+          </g>
+          <g id="ca-code2" class="h">
+            <text class="mono" xml:space="preserve" style="white-space:pre" x="110" y="430" font-size="28" fill="#e8e6df"><tspan fill="#B48EF0">contract</tspan> Proxy {</text>
+            <text class="mono" xml:space="preserve" style="white-space:pre" x="110" y="470" font-size="28" fill="#e8e6df">  address public owner;</text>
+            <text class="mono" xml:space="preserve" style="white-space:pre" x="110" y="510" font-size="28" fill="#e8e6df">  address public logic;</text>
+            <text class="mono" xml:space="preserve" style="white-space:pre" x="110" y="550" font-size="28" fill="#e8e6df">  function setNumber(uint256 n) external {</text>
+            <text class="mono" xml:space="preserve" style="white-space:pre" x="110" y="590" font-size="28" fill="#e8e6df">    logic.delegatecall(abi.encodeCall(</text>
+            <text class="mono" xml:space="preserve" style="white-space:pre" x="110" y="630" font-size="28" fill="#e8e6df">      Logic.setNumber, (n))); } }</text>
+            <text x="760" y="470" font-size="28" fill="#FF9F43">← 槽 0</text>
+            <text x="760" y="510" font-size="28" fill="#FF9F43">← 槽 1</text>
+          </g>
+          <!-- 两张存储表 -->
+          <g id="ca-tL" class="h">
+            <text x="1220" y="250" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">Logic 存储</text>
+            <rect x="1040" y="280" width="360" height="70" rx="8" fill="#FF9F4314" stroke="#FF9F43" stroke-width="2" />
+            <path d="M1110 280 V350" stroke="#FF9F43" stroke-width="2" />
+            <text class="mono" x="1075" y="326" font-size="28" fill="#8a8f99" text-anchor="middle">0</text>
+            <text class="mono" x="1130" y="326" font-size="28" fill="#e8e6df">number</text>
+          </g>
+          <g id="ca-tP" class="h">
+            <text x="1650" y="250" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">Proxy 存储</text>
+            <rect id="ca-pr0" x="1460" y="280" width="390" height="70" rx="8" fill="#FF9F4314" stroke="#FF9F43" stroke-width="2" />
+            <rect x="1460" y="360" width="390" height="70" rx="8" fill="#FF9F4314" stroke="#FF9F43" stroke-width="2" />
+            <path d="M1530 280 V350 M1530 360 V430" stroke="#FF9F43" stroke-width="2" />
+            <text class="mono" x="1495" y="326" font-size="28" fill="#8a8f99" text-anchor="middle">0</text>
+            <text class="mono" x="1495" y="406" font-size="28" fill="#8a8f99" text-anchor="middle">1</text>
+            <text class="mono" x="1550" y="406" font-size="28" fill="#e8e6df">logic</text>
+          </g>
+          <text id="ca-own0" class="h mono" x="1550" y="326" font-size="28" fill="#B48EF0">owner=0xAbC…</text>
+          <text id="ca-own1" class="h mono" x="1550" y="326" font-size="28" font-weight="700" fill="#FC6255">0x0000…0007</text>
+          <!-- 调用动画 -->
+          <g id="ca-call7" class="h">
+            <rect x="1500" y="560" width="350" height="70" rx="12" fill="#B48EF033" stroke="#B48EF0" stroke-width="2.5" />
+            <text class="mono" x="1675" y="606" font-size="30" fill="#e8e6df" text-anchor="middle">setNumber(7)</text>
+          </g>
+          <path id="ca-toP" class="dr h" pathLength="1" d="M1675 556 V440" stroke="#B48EF0" stroke-width="3" fill="none" marker-end="url(#ca-arr)" />
+          <path id="ca-dg" class="dr h" pathLength="1" d="M1496 595 H1180 C1060 595 1040 460 966 348" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ca-arrB)" />
+          <text id="ca-dgl" class="h mono" x="1210" y="650" font-size="28" fill="#58C4DD" text-anchor="middle">delegatecall</text>
+          <text id="ca-w0" class="h" x="1040" y="790" font-size="32" fill="#e8e6df">Logic 代码：写 <tspan class="mono" fill="#FF9F43">槽 0 = 7</tspan></text>
+          <path id="ca-wP" class="dr h" pathLength="1" d="M1490 840 C1460 650 1430 430 1452 322" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ca-arrR)" />
+          <text id="ca-w1" class="h" x="1040" y="850" font-size="32" fill="#FC6255">写进的是 Proxy 的槽 0</text>
+
+          <!-- L5 槽号对齐 + 用户传入地址 -->
+          <path id="ca-al" class="dr h" pathLength="1" d="M1404 315 H1456" stroke="#FC6255" stroke-width="4" fill="none" />
+          <text id="ca-all1" class="h" x="1445" y="490" font-size="28" fill="#FC6255" text-anchor="middle">同一槽号 · 不同变量 → 错位</text>
+          <g id="ca-inp" class="h">
+            <rect x="120" y="580" width="420" height="80" rx="12" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8" />
+            <text x="330" y="632" font-size="30" fill="#e8e6df" text-anchor="middle">用户传入地址</text>
+            <rect x="620" y="580" width="420" height="80" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="830" y="632" font-size="30" fill="#e8e6df" text-anchor="middle"><tspan class="mono">delegatecall</tspan> 目标</text>
+          </g>
+          <path id="ca-inpa" class="dr h" pathLength="1" d="M544 620 H614" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ca-arr)" />
+          <path id="ca-inpx" class="dr h" pathLength="1" d="M555 595 L605 645 M605 595 L555 645" stroke="#FC6255" stroke-width="6" fill="none" />
+          <text id="ca-inpl" class="h" x="580" y="730" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">绝不能由用户传入</text>
+        </g>
+
+        <!-- ===== L6 返回值 ===== -->
+        <g id="ca-p6">
+          <text id="ca-ret" class="h mono" x="960" y="270" font-size="36" fill="#e8e6df" text-anchor="middle">(<tspan fill="#F0B90B">bool ok</tspan>, bytes ret) = target.call(data);</text>
+          <g id="ca-k1" class="h">
+            <rect x="120" y="360" width="520" height="300" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <text class="mono" x="380" y="430" font-size="30" fill="#FC6255" text-anchor="middle">ok = false</text>
+            <text x="380" y="500" font-size="28" fill="#8a8f99" text-anchor="middle">未检查 ok</text>
+            <text x="380" y="600" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">失败被当成功</text>
+          </g>
+          <g id="ca-k2" class="h">
+            <rect x="700" y="360" width="520" height="300" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <rect x="780" y="400" width="360" height="90" rx="12" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8" />
+            <text x="960" y="456" font-size="28" fill="#8a8f99" text-anchor="middle">空地址 · 无代码</text>
+            <text class="mono" x="960" y="600" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">ok = true</text>
+          </g>
+          <path id="ca-k2a" class="dr h" pathLength="1" d="M960 494 V556" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ca-arr)" />
+          <text id="ca-k2l" class="h mono" x="980" y="534" font-size="28" fill="#8a8f99">call</text>
+          <g id="ca-k3" class="h">
+            <rect x="1280" y="360" width="540" height="300" rx="16" fill="#83C16722" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1550" y="440" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">Address.functionCall</text>
+            <text x="1550" y="530" font-size="28" fill="#e8e6df" text-anchor="middle">✓ 检查目标有代码</text>
+            <text x="1550" y="590" font-size="28" fill="#e8e6df" text-anchor="middle">✓ 失败原样抛出</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const NS = "http://www.w3.org/2000/svg";
+      // 油箱 64 格（A）与 63 格（B）
+      const mk = (gid, cls, k, y, fill) => {
+        const c = document.createElementNS(NS, "rect");
+        c.setAttribute("class", cls); c.setAttribute("x", 300 + k * 21); c.setAttribute("y", y);
+        c.setAttribute("width", 17); c.setAttribute("height", 50); c.setAttribute("rx", 3);
+        c.setAttribute("fill", fill); c.setAttribute("opacity", 0);
+        document.getElementById(gid).appendChild(c);
+      };
+      for (let k = 0; k < 64; k++) mk("ca-gA", "ca-ga" + (k < 63 ? " ca-gam" : " ca-gak"), k, 610, "#F0B90B");
+      for (let k = 0; k < 63; k++) mk("ca-gB", "ca-gb", k, 810, "#F0B90B");
+
+      // L0
+      IN("#ca-A", at(0, 0.02), 0.6, { x: -20 }, { x: 0 });
+      IN("#ca-B", at(0, 0.06), 0.6, { x: 20 }, { x: 0 });
+      ARROW("#ca-ab", at(0, 0.1), 0.8);
+      IN("#ca-baton", at(0, 0.1), 0.2);
+      tl.fromTo("#ca-baton", { x: 0 }, { x: 650, duration: 1.0, ease: "power2.inOut", immediateRender: false }, at(0, 0.1));
+      IN("#ca-abl", at(0, 0.16), 0.4);
+      ARROW("#ca-re", at(0, 0.3), 0.9);
+      IN("#ca-rel", at(0, 0.36), 0.5);
+      IN("#ca-gl", at(0, 0.58), 0.4);
+      tl.to(".ca-ga", { opacity: 1, duration: 0.1, stagger: 0.012 }, at(0, 0.6));
+      IN("#ca-gbl", at(0, 0.74), 0.4);
+      tl.to(".ca-gam", { attr: { fill: "#6b6f7a" }, duration: 0.2, stagger: 0.012 }, at(0, 0.76));
+      tl.to(".ca-gb", { opacity: 1, duration: 0.15, stagger: 0.012 }, at(0, 0.76));
+      IN("#ca-keep", at(0, 0.86), 0.4);
+      IN("#ca-6364", at(0, 0.88), 0.5, { scale: 0.7, svgOrigin: "1720 826" }, { scale: 1, svgOrigin: "1720 826" });
+
+      // L1 三列
+      OUT("#ca-p0", at(1, 0), 0.4);
+      IN("#ca-cols", at(1, 0.06), 0.6, { y: 12 }, { y: 0 });
+      IN("#ca-ex", at(1, 0.4), 0.5);
+      IN("#ca-lb", at(1, 0.66), 0.5);
+      IN(["#ca-q0", "#ca-q1", "#ca-q2"], at(1, 0.7), 0.4);
+      IN(["#ca-q3", "#ca-q4", "#ca-q5"], at(1, 0.84), 0.4);
+      IN("#ca-mini", at(1, 0.86), 0.6);
+
+      // L2 call / staticcall
+      ARROW("#ca-c0a", at(2, 0.02), 0.5);
+      OUT(["#ca-q0", "#ca-q3"], at(2, 0.04), 0.25);
+      IN("#ca-v0", at(2, 0.08), 0.4);
+      tl.to("#ca-sB0", { attr: { fill: "#58C4DD55", stroke: "#58C4DD" }, duration: 0.4 }, at(2, 0.1));
+      IN("#ca-v3", at(2, 0.26), 0.4);
+      IN("#ca-coin", at(2, 0.4), 0.2);
+      tl.fromTo("#ca-coin", { x: -10 }, { x: 60, duration: 0.6, ease: "power2.inOut", immediateRender: false }, at(2, 0.4));
+      IN("#ca-coinl", at(2, 0.44), 0.4);
+      ARROW("#ca-c1a", at(2, 0.55), 0.5);
+      OUT(["#ca-q1", "#ca-q4"], at(2, 0.56), 0.25);
+      IN(["#ca-v1", "#ca-v4"], at(2, 0.6), 0.4);
+      tl.to("#ca-sB1", { attr: { fill: "#58C4DD55", stroke: "#58C4DD" }, duration: 0.4 }, at(2, 0.62));
+      IN("#ca-lock", at(2, 0.66), 0.3);
+      ARROW("#ca-wr", at(2, 0.76), 0.4);
+      tl.to("#ca-sB1", { attr: { stroke: "#FC6255" }, duration: 0.2 }, at(2, 0.82));
+      IN("#ca-wrl", at(2, 0.84), 0.3, { scale: 1.4, svgOrigin: "960 870" }, { scale: 1, svgOrigin: "960 870" });
+
+      // L3 delegatecall：借代码到 A 家运行
+      OUT(["#ca-q2", "#ca-q5"], at(3, 0.02), 0.25);
+      DRAW("#ca-house", at(3, 0.04), 0.6); IN("#ca-house", at(3, 0.04), 0.1);
+      IN("#ca-code", at(3, 0.1), 0.3);
+      tl.fromTo("#ca-code", { x: 0, y: 0 }, { x: -270, y: 0, duration: 1.0, ease: "power2.inOut", immediateRender: false }, at(3, 0.16));
+      DRAW("#ca-dw", at(3, 0.3), 0.2); IN("#ca-dw", at(3, 0.3), 0.1);
+      IN("#ca-v2", at(3, 0.3), 0.4);
+      tl.to("#ca-sA2", { attr: { fill: "#FF9F4366", stroke: "#FF9F43" }, duration: 0.4 }, at(3, 0.32));
+      IN("#ca-v5", at(3, 0.52), 0.4);
+      IN("#ca-dval", at(3, 0.66), 0.4);
+      IN("#ca-proxy", at(3, 0.86), 0.4);
+
+      // L4 算一算
+      OUT("#ca-p1", at(4, 0), 0.4);
+      IN("#ca-codep", at(4, 0.04), 0.5);
+      IN("#ca-code1", at(4, 0.05), 0.5);
+      IN("#ca-tL", at(4, 0.08), 0.5);
+      IN("#ca-code2", at(4, 0.16), 0.5);
+      IN("#ca-tP", at(4, 0.18), 0.5);
+      IN("#ca-own0", at(4, 0.18), 0.5);
+      IN("#ca-call7", at(4, 0.36), 0.5, { y: 12 }, { y: 0 });
+      ARROW("#ca-toP", at(4, 0.4), 0.4);
+      ARROW("#ca-dg", at(4, 0.46), 0.7);
+      IN("#ca-dgl", at(4, 0.48), 0.4);
+      IN("#ca-hlb", at(4, 0.5), 0.3);
+      tl.to("#ca-hlb", { attr: { y: 346 }, duration: 0.4, ease: "power2.inOut" }, at(4, 0.56));
+      IN("#ca-w0", at(4, 0.58), 0.4);
+      ARROW("#ca-wP", at(4, 0.7), 0.6);
+      IN("#ca-w1", at(4, 0.72), 0.4);
+      OUT("#ca-own0", at(4, 0.8), 0.25);
+      IN("#ca-own1", at(4, 0.83), 0.3);
+      tl.fromTo("#ca-pr0", { attr: { fill: "#FF9F4314" } }, { attr: { fill: "#FC625577" }, duration: 0.3, yoyo: true, repeat: 3, immediateRender: false }, at(4, 0.83));
+      tl.to("#ca-pr0", { attr: { stroke: "#FC6255" }, duration: 0.3 }, at(4, 0.83));
+
+      // L5 布局一致 + 目标不能用户传入
+      OUT(["#ca-codep", "#ca-code1", "#ca-code2", "#ca-hlb", "#ca-call7", "#ca-toP", "#ca-dg", "#ca-dgl", "#ca-w0", "#ca-wP", "#ca-w1"], at(5, 0), 0.4);
+      DRAW("#ca-al", at(5, 0.08), 0.4); IN("#ca-al", at(5, 0.08), 0.1);
+      IN("#ca-all1", at(5, 0.12), 0.5);
+      IN("#ca-inp", at(5, 0.5), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#ca-inpa", at(5, 0.56), 0.4);
+      DRAW("#ca-inpx", at(5, 0.7), 0.4); IN("#ca-inpx", at(5, 0.7), 0.1);
+      IN("#ca-inpl", at(5, 0.74), 0.4);
+
+      // L6 返回值
+      OUT("#ca-p4", at(6, 0), 0.4);
+      IN("#ca-ret", at(6, 0.04), 0.5, { y: -10 }, { y: 0 });
+      IN("#ca-k1", at(6, 0.14), 0.5, { y: 12 }, { y: 0 });
+      IN("#ca-k2", at(6, 0.44), 0.5, { y: 12 }, { y: 0 });
+      ARROW("#ca-k2a", at(6, 0.5), 0.4);
+      IN("#ca-k2l", at(6, 0.5), 0.3);
+      IN("#ca-k3", at(6, 0.72), 0.5, { y: 12 }, { y: 0 });
+
+      tl.to("#ca-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["calls"] = tl;
+    })();
+  </script>
+</template>

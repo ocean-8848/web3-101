@@ -1,0 +1,250 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 mainrun，id 前缀 mr- -->
+  <div id="root" data-composition-id="mainrun" data-duration="62.63" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="mr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="mr-all">
+        <g id="mr-code-part">
+          <!-- 代码面板 x 820–1840 y 220–756；第 k 行基线 310 + 38(k-1) -->
+          <g id="mr-panel" class="h">
+            <rect x="800" y="220" width="1060" height="560" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <line x1="800" y1="270" x2="1860" y2="270" stroke="#2a2f3a" stroke-width="2" />
+            <text x="830" y="256" font-size="28" fill="#58C4DD"><tspan class="mono">main.go</tspan>（节选）</text>
+          </g>
+          <rect id="mr-hl" class="h" x="802" y="283" width="1056" height="40" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="mr-hlb" class="h" x="802" y="283" width="6" height="40" fill="#58C4DD" />
+          <g id="mr-code" class="h" font-size="28" fill="#e8e6df">
+            <text class="mono" x="830" y="312">db, _ := pgxpool.New(ctx, os.Getenv("DATABASE_URL"))</text>
+            <text class="mono" x="830" y="352">cl, _ := ethclient.DialContext(ctx, os.Getenv("RPC_URL"))</text>
+            <text class="mono" x="830" y="392">if id, _ := cl.ChainID(ctx); id.Int64() != 1 {</text>
+            <text class="mono" x="830" y="432">  log.Fatalf("unexpected chain id")</text>
+            <text class="mono" x="830" y="472">}</text>
+            <text class="mono" x="830" y="512">stable := []deposit.ConfirmRule{</text>
+            <text class="mono" x="830" y="552">  {MinAmount: big.NewInt(0), Confirmations: 12},</text>
+            <text class="mono" x="830" y="592">  {MinAmount: big.NewInt(10_000 * 1_000_000),</text>
+            <text class="mono" x="830" y="632">   Confirmations: 64}}</text>
+            <text class="mono" x="830" y="672">w := &amp;kafka.Writer{Balancer: &amp;kafka.Hash{},</text>
+            <text class="mono" x="830" y="712">  RequiredAcks: kafka.RequireAll}</text>
+            <text class="mono" x="830" y="752">g.Go(book.Loop); g.Go(sc.Run); g.Go(relayLoop)</text>
+          </g>
+          <text id="mr-cm" class="h" x="1440" y="432" font-size="28" fill="#8a8f99">← 防止连错链</text>
+
+          <!-- L0 链 ID 徽章 -->
+          <g id="mr-id1" class="h">
+            <rect x="100" y="300" width="420" height="80" rx="40" fill="#83C167" fill-opacity="0.1" stroke="#83C167" stroke-width="2.5" />
+            <text x="136" y="352" font-size="30" fill="#e8e6df"><tspan class="mono">chain id 1</tspan> · 主网</text>
+            <path d="M552 340 L566 354 L594 324" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <g id="mr-id2" class="h">
+            <rect x="100" y="420" width="420" height="80" rx="40" fill="#FC6255" fill-opacity="0.1" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="136" y="472" font-size="30" fill="#e8e6df">chain id 11155111</text>
+            <path d="M556 446 L586 476 M586 446 L556 476" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          </g>
+          <text id="mr-id3" class="h" x="100" y="556" font-size="28" fill="#8a8f99">示例：连错到测试网</text>
+
+          <!-- L1 确认规则 + Kafka -->
+          <text id="mr-ad1" class="h mono" x="100" y="320" font-size="28" fill="#8a8f99">USDT  0xdAC1…</text>
+          <text id="mr-ad2" class="h mono" x="100" y="374" font-size="28" fill="#8a8f99">USDC  0xA0b8…</text>
+          <text id="mr-bd1" class="h mono" x="850" y="830" font-size="30" fill="#F0B90B">10_000 × 1_000_000</text>
+          <text id="mr-bd2" class="h" x="850" y="894" font-size="30" fill="#F0B90B">= 1 万美元 × 10⁶（6 位小数）</text>
+          <g id="mr-kf">
+            <g id="mr-key" class="h">
+              <rect x="100" y="545" width="110" height="50" rx="25" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="2.5" />
+              <text class="mono" x="155" y="580" font-size="28" fill="#F0B90B" text-anchor="middle">key</text>
+            </g>
+            <path id="mr-ka" class="dr h" pathLength="1" d="M216 570 L292 570" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#mr-arr)" />
+            <g id="mr-parts" class="h" font-size="28">
+              <rect x="300" y="460" width="120" height="60" rx="8" fill="#161a22" stroke="#2a2f3a" stroke-width="2" /><text class="mono" x="360" y="500" fill="#6b6f7a" text-anchor="middle">P0</text>
+              <rect id="mr-p1" x="300" y="540" width="120" height="60" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="360" y="580" fill="#58C4DD" text-anchor="middle">P1</text>
+              <rect x="300" y="620" width="120" height="60" rx="8" fill="#161a22" stroke="#2a2f3a" stroke-width="2" /><text class="mono" x="360" y="660" fill="#6b6f7a" text-anchor="middle">P2</text>
+            </g>
+            <g id="mr-reps" class="h">
+              <rect x="480" y="540" width="60" height="60" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+              <rect x="580" y="540" width="60" height="60" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+              <rect x="680" y="540" width="60" height="60" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+              <path d="M424 570 L474 570" stroke="#8a8f99" stroke-width="2" />
+            </g>
+            <path id="mr-ck1" class="h" d="M496 570 L506 580 L524 558" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <path id="mr-ck2" class="h" d="M596 570 L606 580 L624 558" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <path id="mr-ck3" class="h" d="M696 570 L706 580 L724 558" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <text id="mr-kt" class="h" x="480" y="650" font-size="28" fill="#83C167">所有副本确认</text>
+          </g>
+        </g>
+
+        <!-- L2 咨询锁 -->
+        <g id="mr-lockpart">
+          <g id="mr-r1" class="h">
+            <rect id="mr-r1r" x="260" y="520" width="360" height="200" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="440" y="574" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">副本 1</text>
+            <text class="mono" x="440" y="628" font-size="28" fill="#8a8f99" text-anchor="middle">API · Relay</text>
+          </g>
+          <g id="mr-r2" class="h">
+            <rect id="mr-r2r" x="780" y="520" width="360" height="200" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="960" y="574" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">副本 2</text>
+            <text class="mono" x="960" y="628" font-size="28" fill="#8a8f99" text-anchor="middle">API · Relay</text>
+          </g>
+          <g id="mr-r3" class="h">
+            <rect x="1300" y="520" width="360" height="200" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1480" y="574" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">副本 3</text>
+            <text class="mono" x="1480" y="628" font-size="28" fill="#8a8f99" text-anchor="middle">API · Relay</text>
+          </g>
+          <text id="mr-sc1" class="h mono" x="440" y="686" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">Scanner</text>
+          <text id="mr-sc2" class="h mono" x="960" y="686" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">Scanner</text>
+          <g id="mr-lock" class="h">
+            <path d="M935 340 L935 315 Q935 290 960 290 Q985 290 985 315 L985 340" fill="none" stroke="#F0B90B" stroke-width="8" />
+            <rect x="920" y="335" width="80" height="64" rx="8" fill="#F0B90B" />
+            <circle cx="960" cy="362" r="7" fill="#0f1117" />
+          </g>
+          <text id="mr-ll" class="h" x="1040" y="360" font-size="28" fill="#F0B90B"><tspan class="mono">advisory lock</tspan> · 每条链一个锁号</text>
+          <text id="mr-cut" class="h" x="440" y="774" font-size="28" fill="#FC6255" text-anchor="middle">连接断开</text>
+        </g>
+
+        <!-- L3–L5 算一算 -->
+        <g id="mr-calc">
+          <text id="mr-cnt0" class="h" x="960" y="316" font-size="44" fill="#e8e6df" text-anchor="middle">确认数 <tspan id="mr-cnt" class="mono" font-size="64" font-weight="700" fill="#F0B90B">1</tspan></text>
+          <text id="mr-ex" class="h" x="1800" y="232" font-size="28" fill="#6b6f7a" text-anchor="end">示例规则</text>
+          <circle id="mr-coin" class="h" cx="195" cy="372" r="16" fill="#F0B90B" />
+          <g id="mr-chain" font-size="28"></g>
+          <g id="mr-secs" font-size="28" fill="#8a8f99"></g>
+          <text id="mr-f1" class="h" x="600" y="656" font-size="48" fill="#e8e6df">11 × 12 s = <tspan font-weight="700" fill="#58C4DD">132 s</tspan></text>
+          <text id="mr-f2" class="h" x="600" y="736" font-size="40" fill="#e8e6df">+ 扫描轮询 ≤ 3 s</text>
+          <text id="mr-f3" class="h" x="600" y="806" font-size="40" fill="#e8e6df">+ Relay 轮询 ≤ 1 s</text>
+          <line id="mr-fl" class="h" x1="600" y1="838" x2="1160" y2="838" stroke="#6b6f7a" stroke-width="2" />
+          <text id="mr-f4" class="h" x="600" y="910" font-size="52" font-weight="700" fill="#83C167">≈ 136 s ≈ 2 分 16 秒</text>
+          <text id="mr-ga" class="h" x="140" y="664" font-size="36" fill="#83C167">12 确认 ≈ 2 分 16 秒</text>
+          <rect id="mr-ba" class="h" x="140" y="690" width="268" height="34" rx="6" fill="#83C167" />
+          <text id="mr-gb" class="h" x="140" y="814" font-size="36" fill="#FF9F43">64 确认：63 × 12 s = 756 s ≈ 12.6 分钟</text>
+          <rect id="mr-bb" class="h" x="140" y="840" width="1500" height="34" rx="6" fill="#FF9F43" />
+        </g>
+      </g>
+      <!-- 术语卡 -->
+      <g id="mr-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">咨询锁 <tspan font-size="28" font-weight="400" fill="#8a8f99">Advisory Lock</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">数据库应用级锁，保证同时只有一个实例</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "none", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const HL = (a, b, t, d = 0.45) => tl.to("#mr-hl, #mr-hlb", { attr: { y: 283 + 40 * (a - 1), height: 40 * (b - a + 1) }, opacity: 1, duration: d, ease: "power2.inOut" }, t);
+
+      // 区块链条：12 块，h … h+11
+      const NS = "http://www.w3.org/2000/svg", chain = document.getElementById("mr-chain"), secs = document.getElementById("mr-secs");
+      for (let i = 0; i < 12; i++) {
+        const x = 140 + 136 * i, g = document.createElementNS(NS, "g");
+        g.setAttribute("id", "mr-k" + i); g.setAttribute("class", "h");
+        const r = document.createElementNS(NS, "rect");
+        Object.entries({ x, y: 400, width: 110, height: 80, rx: 8, fill: "#161a22", stroke: i === 0 ? "#F0B90B" : "#58C4DD", "stroke-width": 2.5 }).forEach(([k, v]) => r.setAttribute(k, v));
+        const t = document.createElementNS(NS, "text");
+        Object.entries({ x: x + 55, y: 450, "text-anchor": "middle", fill: "#e8e6df", class: "mono" }).forEach(([k, v]) => t.setAttribute(k, v));
+        t.textContent = i === 0 ? "h" : "h+" + i;
+        g.appendChild(r); g.appendChild(t); chain.appendChild(g);
+        if (i > 0) {
+          const s = document.createElementNS(NS, "text");
+          Object.entries({ id: "mr-s" + i, class: "h", x: x + 55, y: 530, "text-anchor": "middle" }).forEach(([k, v]) => s.setAttribute(k, v));
+          s.textContent = "12 s"; secs.appendChild(s);
+        }
+      }
+
+      // L0 连库连节点 → 校验链 ID
+      IN("#mr-panel", at(0, 0.02), 0.5);
+      IN("#mr-code", at(0, 0.06), 0.7);
+      HL(1, 2, at(0, 0.1));
+      HL(3, 5, at(0, 0.4));
+      IN("#mr-cm", at(0, 0.44), 0.4);
+      IN("#mr-id1", at(0, 0.5), 0.5, { x: -16 }, { x: 0 });
+      IN("#mr-id2", at(0, 0.66), 0.5, { x: -16 }, { x: 0 });
+      IN("#mr-id3", at(0, 0.76), 0.4);
+
+      // L1 确认规则 + Kafka 写入方
+      OUT("#mr-id1, #mr-id2, #mr-id3, #mr-cm", at(1, 0), 0.4);
+      HL(6, 9, at(1, 0.02));
+      IN("#mr-ad1", at(1, 0.1), 0.4);
+      IN("#mr-ad2", at(1, 0.16), 0.4);
+      tl.to("#mr-hl, #mr-hlb", { attr: { y: 283 + 40 * 7, height: 80 }, duration: 0.4 }, at(1, 0.3));
+      IN("#mr-bd1", at(1, 0.32), 0.4);
+      IN("#mr-bd2", at(1, 0.42), 0.5);
+      HL(10, 11, at(1, 0.62));
+      IN("#mr-key", at(1, 0.64), 0.4);
+      ARROW("#mr-ka", at(1, 0.68), 0.4);
+      IN("#mr-parts", at(1, 0.7), 0.4);
+      IN("#mr-reps", at(1, 0.8), 0.4);
+      IN("#mr-ck1", at(1, 0.86), 0.2); IN("#mr-ck2", at(1, 0.89), 0.2); IN("#mr-ck3", at(1, 0.92), 0.2);
+      IN("#mr-kt", at(1, 0.93), 0.4);
+
+      // L2 多副本 + 咨询锁
+      OUT("#mr-code-part", at(2, 0), 0.5);
+      IN("#mr-term", at(2, 0.03), 0.6);
+      IN("#mr-r1", at(2, 0.06), 0.5);
+      IN("#mr-r2", at(2, 0.1), 0.5);
+      IN("#mr-r3", at(2, 0.14), 0.5);
+      IN("#mr-lock", at(2, 0.18), 0.5, { y: -20 }, { y: 0 });
+      IN("#mr-ll", at(2, 0.22), 0.5);
+      tl.to("#mr-lock", { x: -520, y: 110, duration: 0.8, ease: "power2.inOut" }, at(2, 0.34));
+      IN("#mr-sc1", at(2, 0.42), 0.4);
+      tl.to("#mr-r1r", { fill: "#16303a", duration: 0.4 }, at(2, 0.42));
+      tl.to("#mr-r1r", { stroke: "#FC6255", duration: 0.15, yoyo: true, repeat: 3 }, at(2, 0.66));
+      IN("#mr-cut", at(2, 0.66), 0.3);
+      tl.to("#mr-r1r", { stroke: "#6b6f7a", fill: "#161a22", duration: 0.3 }, at(2, 0.66) + 0.65);
+      OUT("#mr-sc1", at(2, 0.7), 0.3);
+      tl.to("#mr-lock", { y: 170, opacity: 0.5, duration: 0.35, ease: "power2.in" }, at(2, 0.7));
+      tl.to("#mr-lock", { x: 0, y: 110, opacity: 1, duration: 0.7, ease: "power2.inOut" }, at(2, 0.74));
+      IN("#mr-sc2", at(2, 0.8), 0.4);
+      tl.to("#mr-r2r", { fill: "#16303a", duration: 0.4 }, at(2, 0.8));
+
+      // L3 算一算：h → h+11，确认数 1 → 12
+      OUT("#mr-lockpart, #mr-term", at(3, 0), 0.5);
+      IN("#mr-cnt0", at(3, 0.06), 0.5);
+      IN("#mr-coin", at(3, 0.1), 0.4, { y: -20 }, { y: 0 });
+      for (let i = 0; i < 12; i++) IN(`#mr-k${i}`, at(3, 0.12 + i * 0.06), 0.3, { y: 10 }, { y: 0 });
+      COUNT("#mr-cnt", 1, 12, at(3, 0.12), 0.66 * (L[3][1] - L[3][0]));
+
+      // L4 132 s + 轮询 ≈ 2 分 16 秒
+      IN("#mr-ex", at(4, 0.0), 0.4);
+      tl.fromTo("#mr-secs text", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.08 }, at(4, 0.02));
+      IN("#mr-f1", at(4, 0.14), 0.5);
+      IN("#mr-f2", at(4, 0.44), 0.5);
+      IN("#mr-f3", at(4, 0.6), 0.5);
+      IN("#mr-fl", at(4, 0.72), 0.3);
+      IN("#mr-f4", at(4, 0.76), 0.6);
+
+      // L5 64 确认 ≈ 12.6 分钟：长短进度条
+      OUT("#mr-f1, #mr-f2, #mr-f3, #mr-fl, #mr-f4", at(5, 0), 0.4);
+      IN("#mr-ga", at(5, 0.08), 0.4);
+      IN("#mr-ba", at(5, 0.1), 0.1);
+      tl.fromTo("#mr-ba", { attr: { width: 0 } }, { attr: { width: 268 }, duration: 0.6, ease: "power2.out" }, at(5, 0.1));
+      IN("#mr-gb", at(5, 0.3), 0.4);
+      IN("#mr-bb", at(5, 0.34), 0.1);
+      tl.fromTo("#mr-bb", { attr: { width: 0 } }, { attr: { width: 1500 }, duration: 2.0, ease: "power1.inOut" }, at(5, 0.34));
+
+      tl.to("#mr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#mr-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["mainrun"] = tl;
+    })();
+  </script>
+</template>

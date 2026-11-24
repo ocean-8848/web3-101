@@ -1,0 +1,381 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ci，id 前缀 ci- -->
+  <div id="root" data-composition-id="ci" data-duration="67.5" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ci-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ci-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="ci-all">
+        <!-- L0 提交 → CI 服务器 -->
+        <g id="ci-s0">
+          <path id="ci-a0" class="dr h" pathLength="1" d="M470 530 H1220" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ci-arr)"/>
+          <g id="ci-env" class="h">
+            <rect x="280" y="475" width="170" height="110" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <path d="M282 478 L365 538 L448 478" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          </g>
+          <text id="ci-envl" class="h" x="365" y="645" font-size="34" fill="#e8e6df" text-anchor="middle">提交</text>
+          <g id="ci-srv" class="h">
+            <rect x="1240" y="330" width="320" height="400" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+            <line x1="1270" y1="610" x2="1530" y2="610" stroke="#B48EF0" stroke-width="2" opacity="0.6"/>
+            <line x1="1270" y1="660" x2="1530" y2="660" stroke="#B48EF0" stroke-width="2" opacity="0.6"/>
+            <circle cx="1505" cy="635" r="7" fill="#B48EF0"/><circle cx="1505" cy="685" r="7" fill="#B48EF0"/>
+            <text x="1400" y="790" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">CI 服务器</text>
+          </g>
+          <g id="ci-gear" class="h">
+            <circle cx="1400" cy="465" r="62" fill="none" stroke="#B48EF0" stroke-width="18" stroke-dasharray="16 16.5"/>
+            <circle cx="1400" cy="465" r="50" fill="#161a22" stroke="#B48EF0" stroke-width="6"/>
+            <circle cx="1400" cy="465" r="16" fill="#B48EF0"/>
+          </g>
+          <g id="ci-j0" class="h"><text x="1620" y="430" font-size="34" fill="#e8e6df">编译</text><path d="M1712 418 L1724 430 L1748 402" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+          <g id="ci-j1" class="h"><text x="1620" y="510" font-size="34" fill="#e8e6df">测试</text><path d="M1712 498 L1724 510 L1748 482" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+          <g id="ci-j2" class="h"><text x="1620" y="590" font-size="34" fill="#e8e6df">检查</text><path d="M1712 578 L1724 590 L1748 562" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+        </g>
+
+        <!-- L1 静态分析 Slither -->
+        <g id="ci-s1">
+          <g id="ci-sheet" class="h">
+            <text class="mono" x="1120" y="290" font-size="30" fill="#58C4DD">src/</text>
+            <rect x="1120" y="315" width="440" height="330" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <rect id="ci-b0" x="1150" y="345" width="300" height="16" rx="5" fill="#3a3f4a"/>
+            <rect id="ci-b1" x="1180" y="390" width="260" height="16" rx="5" fill="#3a3f4a"/>
+            <rect id="ci-b2" x="1180" y="435" width="320" height="16" rx="5" fill="#3a3f4a"/>
+            <rect id="ci-b3" x="1210" y="480" width="220" height="16" rx="5" fill="#3a3f4a"/>
+            <rect id="ci-b4" x="1180" y="525" width="290" height="16" rx="5" fill="#3a3f4a"/>
+            <rect id="ci-b5" x="1150" y="570" width="200" height="16" rx="5" fill="#3a3f4a"/>
+          </g>
+          <g id="ci-magm" class="h">
+            <circle cx="1330" cy="360" r="44" fill="#58C4DD" fill-opacity="0.08" stroke="#e8e6df" stroke-width="6"/>
+            <line x1="1362" y1="392" x2="1402" y2="432" stroke="#e8e6df" stroke-width="10" stroke-linecap="round"/>
+          </g>
+          <g id="ci-fold" class="h">
+            <g id="ci-flib">
+              <path d="M1660 330 H1700 L1712 344 H1780 V400 H1660 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+              <text class="mono" x="1720" y="450" font-size="30" fill="#58C4DD" text-anchor="middle">lib/</text>
+            </g>
+            <g id="ci-ftst">
+              <path d="M1660 500 H1700 L1712 514 H1780 V570 H1660 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+              <text class="mono" x="1720" y="620" font-size="30" fill="#58C4DD" text-anchor="middle">test/</text>
+            </g>
+          </g>
+          <text id="ci-ign" class="h" x="1720" y="690" font-size="30" fill="#8a8f99" text-anchor="middle">忽略</text>
+          <g id="ci-t1" class="h">
+            <rect x="70" y="250" width="940" height="210" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+            <rect x="70" y="264" width="4" height="182" fill="#58C4DD"/>
+            <text class="mono" x="98" y="290" font-size="22" fill="#8a8f99" data-layout-ignore="true">terminal</text>
+          </g>
+          <text id="ci-t1l0" class="h mono" x="100" y="340" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">$</tspan> pip3 install slither-analyzer</text>
+          <text id="ci-t1l1" class="h mono" x="100" y="385" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">$</tspan> <tspan fill="#58C4DD">slither</tspan> .</text>
+          <text id="ci-t1l2" class="h mono" x="100" y="430" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">$</tspan> <tspan fill="#58C4DD">slither</tspan> . --filter-paths "lib|test"</text>
+        </g>
+
+        <!-- L2 四项检查 -->
+        <g id="ci-s2">
+          <g id="ci-k0" class="h">
+            <rect x="70" y="320" width="425" height="420" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/>
+            <text class="mono" x="282" y="385" font-size="28" fill="#58C4DD" text-anchor="middle">forge fmt --check</text>
+            <rect id="ci-f0" x="150" y="450" width="230" height="16" rx="5" fill="#8a8f99"/>
+            <rect id="ci-f1" x="210" y="495" width="170" height="16" rx="5" fill="#8a8f99"/>
+            <rect id="ci-f2" x="130" y="540" width="200" height="16" rx="5" fill="#8a8f99"/>
+            <rect id="ci-f3" x="170" y="585" width="140" height="16" rx="5" fill="#8a8f99"/>
+            <text x="282" y="700" font-size="32" fill="#e8e6df" text-anchor="middle">格式</text>
+          </g>
+          <g id="ci-k1" class="h">
+            <rect x="525" y="320" width="425" height="420" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/>
+            <text class="mono" x="737" y="385" font-size="28" fill="#58C4DD" text-anchor="middle">forge coverage</text>
+            <circle cx="737" cy="530" r="80" fill="none" stroke="#3a3f4a" stroke-width="18"/>
+            <path id="ci-cov" class="dr" pathLength="1" d="M737 450 A80 80 0 1 1 657 530" fill="none" stroke="#83C167" stroke-width="18"/>
+            <text x="737" y="700" font-size="32" fill="#e8e6df" text-anchor="middle">覆盖率</text>
+          </g>
+          <g id="ci-k2" class="h">
+            <rect x="980" y="320" width="425" height="420" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/>
+            <text class="mono" x="1192" y="385" font-size="28" fill="#58C4DD" text-anchor="middle">forge test --gas-report</text>
+            <line x1="1060" y1="620" x2="1330" y2="620" stroke="#8a8f99" stroke-width="2"/>
+            <rect id="ci-g0" x="1080" y="520" width="40" height="100" fill="#F0B90B"/>
+            <rect id="ci-g1" x="1145" y="470" width="40" height="150" fill="#F0B90B"/>
+            <rect id="ci-g2" x="1210" y="560" width="40" height="60" fill="#F0B90B"/>
+            <rect id="ci-g3" x="1275" y="500" width="40" height="120" fill="#F0B90B"/>
+            <text x="1192" y="700" font-size="32" fill="#e8e6df" text-anchor="middle">每函数 gas</text>
+          </g>
+          <g id="ci-k3" class="h">
+            <rect x="1435" y="320" width="425" height="420" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/>
+            <text class="mono" x="1647" y="385" font-size="28" fill="#58C4DD" text-anchor="middle">forge snapshot</text>
+            <path d="M1610 440 H1670 L1700 470 V560 H1610 Z" fill="none" stroke="#F0B90B" stroke-width="3.5"/>
+            <line x1="1628" y1="490" x2="1682" y2="490" stroke="#F0B90B" stroke-width="3"/>
+            <line x1="1628" y1="515" x2="1682" y2="515" stroke="#F0B90B" stroke-width="3"/>
+            <line x1="1628" y1="540" x2="1662" y2="540" stroke="#F0B90B" stroke-width="3"/>
+            <text class="mono" x="1655" y="620" font-size="28" fill="#e8e6df" text-anchor="middle">.gas-snapshot</text>
+            <text x="1647" y="700" font-size="32" fill="#e8e6df" text-anchor="middle">gas 基线</text>
+          </g>
+        </g>
+
+        <!-- L3–L5 工作流 -->
+        <g id="ci-s3">
+          <g id="ci-p" class="h">
+            <rect x="70" y="200" width="830" height="500" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+            <rect x="70" y="214" width="4" height="472" fill="#58C4DD"/>
+            <text class="mono" x="98" y="240" font-size="22" fill="#8a8f99" data-layout-ignore="true">.github/workflows/test.yml</text>
+            <rect id="ci-p-hl" data-lh="38" x="82" y="263" width="806" height="38" rx="6" fill="#58C4DD" fill-opacity="0.15" opacity="0"/>
+            <text id="ci-p-l0" class="mono" x="100" y="290" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">on</tspan>: [push, pull_request]</text>
+            <text id="ci-p-l1" class="mono" x="100" y="328" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">jobs</tspan>:</text>
+            <text id="ci-p-l2" class="mono" x="133.6" y="366" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">test</tspan>:</text>
+            <text id="ci-p-l3" class="mono" x="167.2" y="404" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">steps</tspan>:</text>
+            <text id="ci-p-l4" class="mono" x="200.8" y="442" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">-</tspan> <tspan fill="#58C4DD">uses</tspan>: actions/checkout@v4</text>
+            <text id="ci-p-l5" class="mono" x="234.4" y="480" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">with</tspan>: { <tspan fill="#58C4DD">submodules</tspan>: recursive }</text>
+            <text id="ci-p-l6" class="mono" x="200.8" y="518" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">-</tspan> <tspan fill="#58C4DD">uses</tspan>: foundry-rs/foundry-toolchain@v1</text>
+            <text id="ci-p-l7" class="mono" x="200.8" y="556" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">-</tspan> <tspan fill="#58C4DD">run</tspan>: forge fmt --check</text>
+            <text id="ci-p-l8" class="mono" x="200.8" y="594" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">-</tspan> <tspan fill="#58C4DD">run</tspan>: forge build --sizes</text>
+            <text id="ci-p-l9" class="mono" x="200.8" y="632" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">-</tspan> <tspan fill="#58C4DD">run</tspan>: forge test -vvv</text>
+            <text id="ci-p-l10" class="mono" x="200.8" y="670" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">-</tspan> <tspan fill="#58C4DD">run</tspan>: forge snapshot --check</text>
+          </g>
+          <line id="ci-sline" class="h" x1="990" y1="262" x2="990" y2="712" stroke="#3a3f4a" stroke-width="3"/>
+          <g id="ci-st0" class="h"><circle id="ci-sc0" cx="990" cy="262" r="16" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/><text x="1025" y="272" font-size="30" fill="#e8e6df">触发</text></g>
+          <g id="ci-st1" class="h"><circle id="ci-sc1" cx="990" cy="337" r="16" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/><text x="1025" y="347" font-size="30" fill="#e8e6df">拉代码</text></g>
+          <g id="ci-st2" class="h"><circle id="ci-sc2" cx="990" cy="412" r="16" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/><text x="1025" y="422" font-size="30" fill="#e8e6df">装 Foundry</text></g>
+          <g id="ci-st3" class="h"><circle id="ci-sc3" cx="990" cy="487" r="16" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1025" y="497" font-size="30" fill="#e8e6df">fmt</text></g>
+          <g id="ci-st4" class="h"><circle id="ci-sc4" cx="990" cy="562" r="16" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1025" y="572" font-size="30" fill="#e8e6df">build</text></g>
+          <g id="ci-st5" class="h"><circle id="ci-sc5" cx="990" cy="637" r="16" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1025" y="647" font-size="30" fill="#e8e6df">test</text></g>
+          <g id="ci-st6" class="h"><circle id="ci-sc6" cx="990" cy="712" r="16" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1025" y="722" font-size="30" fill="#e8e6df">snapshot</text></g>
+          <g id="ci-lib" class="h">
+            <path d="M1150 322 H1172 L1180 330 H1206 V356 H1150 Z" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text class="mono" x="1218" y="350" font-size="28" fill="#58C4DD">lib/</text>
+          </g>
+          <!-- L4 合约大小 / gas 快照 -->
+          <g id="ci-size" class="h">
+            <text x="1200" y="528" font-size="28" fill="#8a8f99">合约大小</text>
+            <rect x="1200" y="552" width="520" height="26" rx="6" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          </g>
+          <rect id="ci-sbar" class="h" x="1202" y="554" width="0" height="22" rx="5" fill="#83C167"/>
+          <g id="ci-lim" class="h">
+            <line x1="1620" y1="540" x2="1620" y2="592" stroke="#FC6255" stroke-width="4"/>
+            <text class="mono" x="1640" y="528" font-size="28" fill="#FC6255">24KB</text>
+          </g>
+          <g id="ci-gas" class="h">
+            <line x1="1200" y1="960" x2="1420" y2="960" stroke="#8a8f99" stroke-width="2"/>
+            <rect x="1225" y="840" width="60" height="120" fill="#F0B90B" fill-opacity="0.55"/>
+            <text x="1255" y="1000" font-size="30" fill="#e8e6df" text-anchor="middle">基线</text>
+            <text x="1375" y="1000" font-size="30" fill="#e8e6df" text-anchor="middle">本次</text>
+          </g>
+          <rect id="ci-gnow" class="h" x="1345" y="840" width="60" height="120" fill="#F0B90B"/>
+          <text id="ci-gfail" class="h" x="1460" y="900" font-size="36" font-weight="700" fill="#FC6255">失败</text>
+          <!-- L5 slither job -->
+          <g id="ci-job" class="h">
+            <rect x="1300" y="235" width="560" height="260" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/>
+            <text class="mono" x="1330" y="290" font-size="30" font-weight="700" fill="#58C4DD">slither</text>
+            <text class="mono" x="1330" y="350" font-size="28" fill="#e8e6df">crytic/slither-action@v0.4.2</text>
+            <text class="mono" x="1330" y="400" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">fail-on</tspan>: high</text>
+          </g>
+          <circle id="ci-jl" class="h" cx="1820" cy="280" r="16" fill="#83C167" stroke="#83C167" stroke-width="2.5"/>
+          <g id="ci-hi" class="h">
+            <rect x="1330" y="425" width="96" height="46" rx="10" fill="#FC6255"/>
+            <text x="1378" y="458" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">高危</text>
+          </g>
+          <text id="ci-red" class="h" x="1300" y="640" font-size="48" font-weight="700" fill="#FC6255">CI 失败</text>
+        </g>
+
+        <!-- L6 Secrets / 私钥不进 CI -->
+        <g id="ci-s6">
+          <g id="ci-safe" class="h">
+            <rect x="120" y="300" width="460" height="340" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+            <path d="M486 270 V254 A18 18 0 0 1 522 254 V270" fill="none" stroke="#FF9F43" stroke-width="6"/>
+            <rect x="476" y="268" width="56" height="42" rx="6" fill="#FF9F43"/>
+            <text class="mono" x="150" y="360" font-size="32" font-weight="700" fill="#FF9F43">Secrets</text>
+          </g>
+          <g id="ci-sec0" class="h">
+            <rect x="150" y="395" width="400" height="70" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="2"/>
+            <text class="mono" x="175" y="440" font-size="28" fill="#e8e6df">MAINNET_RPC_URL</text>
+          </g>
+          <g id="ci-sec1" class="h">
+            <rect x="150" y="490" width="400" height="70" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="2"/>
+            <text class="mono" x="175" y="535" font-size="28" fill="#e8e6df">ETHERSCAN_API_KEY</text>
+          </g>
+          <path id="ci-a6" class="dr h" pathLength="1" d="M590 470 H770" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ci-arr)"/>
+          <g id="ci-srv2" class="h">
+            <rect x="790" y="300" width="300" height="340" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+            <circle cx="940" cy="430" r="56" fill="none" stroke="#B48EF0" stroke-width="16" stroke-dasharray="14.6 14.7"/>
+            <circle cx="940" cy="430" r="45" fill="#161a22" stroke="#B48EF0" stroke-width="5"/>
+            <circle cx="940" cy="430" r="14" fill="#B48EF0"/>
+            <line x1="820" y1="560" x2="1060" y2="560" stroke="#B48EF0" stroke-width="2" opacity="0.6"/>
+            <line x1="820" y1="600" x2="1060" y2="600" stroke="#B48EF0" stroke-width="2" opacity="0.6"/>
+            <text x="940" y="700" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">CI 服务器</text>
+          </g>
+          <g id="ci-keym" class="h">
+            <g>
+              <circle cx="1560" cy="470" r="30" fill="none" stroke="#FF9F43" stroke-width="10"/>
+              <path d="M1530 470 H1420 M1440 470 V496 M1465 470 V490" stroke="#FF9F43" stroke-width="10" stroke-linecap="round" fill="none"/>
+            </g>
+            <text x="1500" y="570" font-size="32" fill="#FF9F43" text-anchor="middle">部署私钥</text>
+          </g>
+          <g id="ci-ban" class="h">
+            <circle cx="1185" cy="470" r="48" fill="none" stroke="#FC6255" stroke-width="9"/>
+            <line x1="1151" y1="436" x2="1219" y2="504" stroke="#FC6255" stroke-width="9"/>
+          </g>
+          <g id="ci-ms" class="h">
+            <rect x="1020" y="780" width="260" height="90" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+            <circle cx="1075" cy="825" r="14" fill="none" stroke="#83C167" stroke-width="5"/>
+            <circle cx="1150" cy="825" r="14" fill="none" stroke="#83C167" stroke-width="5"/>
+            <circle cx="1225" cy="825" r="14" fill="none" stroke="#83C167" stroke-width="5"/>
+            <text x="1150" y="925" font-size="30" fill="#83C167" text-anchor="middle">多签 · 人工确认</text>
+          </g>
+          <path id="ci-a7" class="dr h" pathLength="1" d="M1295 825 H1570" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#ci-arrg)"/>
+          <g id="ci-globe" class="h">
+            <circle cx="1640" cy="825" r="54" fill="none" stroke="#8a8f99" stroke-width="3"/>
+            <ellipse cx="1640" cy="825" rx="22" ry="54" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+            <line x1="1586" y1="825" x2="1694" y2="825" stroke="#8a8f99" stroke-width="2.5"/>
+            <text x="1640" y="925" font-size="30" fill="#e8e6df" text-anchor="middle">主网</text>
+          </g>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ci-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">持续集成 <tspan font-size="28" font-weight="400" fill="#8a8f99">CI</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">每次提交自动编译、测试、检查</text>
+      </g>
+      <g id="ci-term2" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">静态分析 <tspan font-size="28" font-weight="400" fill="#8a8f99">Static Analysis</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">不运行代码，分析源码找问题</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const POP = (s, t, ox, oy, d = 0.5) => IN(s, t, d, { scale: 0.6, svgOrigin: ox + " " + oy }, { scale: 1, svgOrigin: ox + " " + oy, ease: "back.out(2)" });
+      const HL = (id, a, b, t, n, d = 0.35) => {
+        const y0 = +document.querySelector("#" + id + "-l0").getAttribute("y");
+        const lh = +document.querySelector("#" + id + "-hl").getAttribute("data-lh");
+        tl.to("#" + id + "-hl", { opacity: 1, attr: { y: y0 - lh * 0.71 + a * lh, height: (b - a + 1) * lh }, duration: d, ease: "power2.out" }, t);
+        for (let i = 0; i < n; i++) tl.to("#" + id + "-l" + i, { opacity: (i >= a && i <= b) ? 1 : 0.6, duration: d }, t);
+      };
+      const LIT = (k, t, c = "#83C167") => tl.to("#ci-sc" + k, { fill: c, stroke: c, duration: 0.3 }, t);
+
+      // L0 CI：提交投进服务器
+      IN("#ci-term", at(0, 0.02), 0.5);
+      IN("#ci-env", at(0, 0.1), 0.5, { y: 20 }, { y: 0 });
+      IN("#ci-envl", at(0, 0.12), 0.5);
+      POP("#ci-srv", at(0, 0.25), 1400, 530, 0.6);
+      IN("#ci-gear", at(0, 0.27), 0.5);
+      ARROW("#ci-a0", at(0, 0.4), 0.6);
+      OUT("#ci-envl", at(0, 0.5), 0.3);
+      tl.to("#ci-env", { x: 1035, y: -40, opacity: 0, duration: 1.0, ease: "power2.in" }, at(0, 0.5));
+      tl.fromTo("#ci-gear", { rotation: 0 }, { rotation: 540, svgOrigin: "1400 465", duration: 5.5, ease: "none", immediateRender: false }, at(0, 0.6));
+      IN("#ci-j0", at(0, 0.68), 0.4, { x: -16 }, { x: 0 });
+      IN("#ci-j1", at(0, 0.76), 0.4, { x: -16 }, { x: 0 });
+      IN("#ci-j2", at(0, 0.84), 0.4, { x: -16 }, { x: 0 });
+
+      // L1 静态分析
+      OUT("#ci-s0", at(1, 0), 0.4);
+      OUT("#ci-term", at(1, 0), 0.3);
+      IN("#ci-term2", at(1, 0) + 0.35, 0.5);
+      IN("#ci-sheet", at(1, 0.22), 0.6);
+      IN("#ci-magm", at(1, 0.32), 0.3);
+      tl.fromTo("#ci-magm", { y: 0, x: 0 }, { y: 240, x: 40, duration: 2.0, ease: "sine.inOut", immediateRender: false }, at(1, 0.34));
+      tl.to("#ci-b1", { fill: "#FF9F43", duration: 0.3 }, at(1, 0.39));
+      tl.to("#ci-b4", { fill: "#FF9F43", duration: 0.3 }, at(1, 0.5));
+      OUT("#ci-magm", at(1, 0.54), 0.3);
+      IN("#ci-t1", at(1, 0.56), 0.5);
+      IN("#ci-t1l0", at(1, 0.6), 0.4, { x: -12 }, { x: 0 });
+      IN("#ci-t1l1", at(1, 0.68), 0.4, { x: -12 }, { x: 0 });
+      IN("#ci-fold", at(1, 0.7), 0.5);
+      IN("#ci-t1l2", at(1, 0.84), 0.4, { x: -12 }, { x: 0 });
+      tl.to("#ci-fold", { opacity: 0.3, duration: 0.5 }, at(1, 0.9));
+      IN("#ci-ign", at(1, 0.92), 0.4);
+
+      // L2 四项检查
+      OUT("#ci-s1", at(2, 0), 0.4);
+      OUT("#ci-term2", at(2, 0), 0.4);
+      IN("#ci-k0", at(2, 0.08), 0.5, { y: 20 }, { y: 0 });
+      tl.to("#ci-f0", { attr: { x: 130 }, duration: 0.5, ease: "power2.inOut" }, at(2, 0.2));
+      tl.to("#ci-f1", { attr: { x: 130 }, duration: 0.5, ease: "power2.inOut" }, at(2, 0.22));
+      tl.to("#ci-f3", { attr: { x: 130 }, duration: 0.5, ease: "power2.inOut" }, at(2, 0.24));
+      IN("#ci-k1", at(2, 0.3), 0.5, { y: 20 }, { y: 0 });
+      tl.fromTo("#ci-cov", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.2, ease: "power2.inOut" }, at(2, 0.36));
+      IN("#ci-k2", at(2, 0.52), 0.5, { y: 20 }, { y: 0 });
+      [["#ci-g0", 520], ["#ci-g1", 470], ["#ci-g2", 560], ["#ci-g3", 500]].forEach(([g, y], i) => tl.fromTo(g, { attr: { height: 0, y: 620 } }, { attr: { height: 620 - y, y }, duration: 0.5, ease: "power2.out" }, at(2, 0.58) + i * 0.12));
+      IN("#ci-k3", at(2, 0.78), 0.5, { y: 20 }, { y: 0 });
+
+      // L3 工作流
+      OUT("#ci-s2", at(3, 0), 0.4);
+      IN("#ci-p", at(3, 0.03), 0.6);
+      IN("#ci-sline", at(3, 0.12), 0.4);
+      for (let k = 0; k < 6; k++) IN("#ci-st" + k, at(3, 0.14) + k * 0.08, 0.3);
+      HL("ci-p", 0, 0, at(3, 0.28), 11); LIT(0, at(3, 0.3));
+      HL("ci-p", 4, 5, at(3, 0.42), 11); LIT(1, at(3, 0.44));
+      IN("#ci-lib", at(3, 0.52), 0.5, { x: 60 }, { x: 0 });
+      HL("ci-p", 6, 6, at(3, 0.7), 11); LIT(2, at(3, 0.72));
+      HL("ci-p", 7, 7, at(3, 0.84), 11); LIT(3, at(3, 0.85));
+      HL("ci-p", 8, 8, at(3, 0.9), 11); LIT(4, at(3, 0.91));
+      HL("ci-p", 9, 9, at(3, 0.96), 11); LIT(5, at(3, 0.97));
+
+      // L4 合约大小 + gas 快照
+      HL("ci-p", 8, 8, at(4, 0.02), 11);
+      IN("#ci-size", at(4, 0.06), 0.5);
+      IN("#ci-lim", at(4, 0.28), 0.4);
+      IN("#ci-sbar", at(4, 0.36), 0.1);
+      tl.to("#ci-sbar", { attr: { width: 300 }, duration: 0.8, ease: "power2.out" }, at(4, 0.36));
+      HL("ci-p", 10, 10, at(4, 0.55), 11);
+      IN("#ci-st6", at(4, 0.55), 0.3); LIT(6, at(4, 0.6));
+      IN("#ci-gas", at(4, 0.62), 0.5);
+      IN("#ci-gnow", at(4, 0.66), 0.4);
+      tl.to("#ci-gnow", { attr: { y: 790, height: 170 }, duration: 0.6, ease: "power2.out" }, at(4, 0.76));
+      LIT(6, at(4, 0.86), "#FC6255");
+      IN("#ci-gfail", at(4, 0.87), 0.4);
+
+      // L5 Slither 任务
+      OUT("#ci-size, #ci-sbar, #ci-lim, #ci-gas, #ci-gnow, #ci-gfail, #ci-lib", at(5, 0), 0.35);
+      LIT(6, at(5, 0.02));
+      tl.to("#ci-p-hl", { opacity: 0, duration: 0.35 }, at(5, 0.02));
+      for (let i = 0; i < 11; i++) tl.to("#ci-p-l" + i, { opacity: 1, duration: 0.35 }, at(5, 0.02));
+      IN("#ci-job", at(5, 0.1), 0.5, { x: 30 }, { x: 0 });
+      IN("#ci-jl", at(5, 0.2), 0.3);
+      POP("#ci-hi", at(5, 0.5), 1378, 448, 0.4);
+      for (let k = 0; k < 7; k++) LIT(k, at(5, 0.7), "#FC6255");
+      tl.to("#ci-jl", { fill: "#FC6255", stroke: "#FC6255", duration: 0.3 }, at(5, 0.7));
+      IN("#ci-red", at(5, 0.74), 0.4);
+
+      // L6 Secrets + 私钥不进 CI
+      OUT("#ci-s3", at(6, 0), 0.4);
+      IN("#ci-safe", at(6, 0.04), 0.5);
+      IN("#ci-sec0", at(6, 0.12), 0.4, { x: -16 }, { x: 0 });
+      IN("#ci-sec1", at(6, 0.18), 0.4, { x: -16 }, { x: 0 });
+      IN("#ci-srv2", at(6, 0.22), 0.5);
+      ARROW("#ci-a6", at(6, 0.3), 0.5);
+      IN("#ci-keym", at(6, 0.42), 0.4);
+      tl.to("#ci-keym", { x: -200, duration: 0.6, ease: "power2.in" }, at(6, 0.5));
+      POP("#ci-ban", at(6, 0.56), 1185, 470, 0.35);
+      tl.to("#ci-keym", { x: 0, duration: 0.5, ease: "back.out(2)" }, at(6, 0.56) + 0.3);
+      IN("#ci-ms", at(6, 0.72), 0.5, { y: 16 }, { y: 0 });
+      IN("#ci-globe", at(6, 0.78), 0.5);
+      ARROW("#ci-a7", at(6, 0.84), 0.6);
+
+      tl.to("#ci-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ci-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["ci"] = tl;
+    })();
+  </script>
+</template>

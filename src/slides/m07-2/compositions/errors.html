@@ -1,0 +1,155 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 errors，id 前缀 er- -->
+  <div id="root" data-composition-id="errors" data-duration="55.27" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="er-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="er-all">
+        <text id="er-title" class="h" x="100" y="150" font-size="52" font-weight="700" fill="#e8e6df">错误码 → 前端怎么做</text>
+
+        <!-- 左侧六张错误码牌 -->
+        <g id="er-c0" class="h"><rect id="er-cr0" x="100" y="230" width="420" height="88" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" /><text class="mono" x="124" y="287" font-size="34" fill="#FC6255">4001</text><text x="496" y="284" font-size="28" fill="#e8e6df" text-anchor="end">用户拒绝</text></g>
+        <g id="er-c1" class="h"><rect id="er-cr1" x="100" y="340" width="420" height="88" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" /><text class="mono" x="124" y="397" font-size="34" fill="#FC6255">4100</text><text x="496" y="394" font-size="28" fill="#e8e6df" text-anchor="end">未授权</text></g>
+        <g id="er-c2" class="h"><rect id="er-cr2" x="100" y="450" width="420" height="88" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" /><text class="mono" x="124" y="507" font-size="34" fill="#FC6255">4200</text><text x="496" y="504" font-size="28" fill="#e8e6df" text-anchor="end">不支持方法</text></g>
+        <g id="er-c3" class="h"><rect id="er-cr3" x="100" y="560" width="420" height="88" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" /><text class="mono" x="124" y="617" font-size="34" fill="#FC6255">4900 / 4901</text><text x="496" y="614" font-size="28" fill="#e8e6df" text-anchor="end">断开</text></g>
+        <g id="er-c4" class="h"><rect id="er-cr4" x="100" y="670" width="420" height="88" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" /><text class="mono" x="124" y="727" font-size="34" fill="#FC6255">4902</text><text x="496" y="724" font-size="28" fill="#e8e6df" text-anchor="end">未知链</text></g>
+        <g id="er-c5" class="h"><rect id="er-cr5" x="100" y="780" width="420" height="88" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" /><text class="mono" x="124" y="837" font-size="34" fill="#FC6255">-32002</text><text x="496" y="834" font-size="28" fill="#e8e6df" text-anchor="end">请求在等待</text></g>
+
+        <!-- L0：请求飞出、错误码弹回 -->
+        <g id="er-l0">
+          <g id="er-web" class="h"><rect x="760" y="420" width="340" height="160" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="930" y="512" font-size="36" fill="#58C4DD" text-anchor="middle">网页</text></g>
+          <g id="er-wal" class="h"><rect x="1420" y="420" width="340" height="160" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1590" y="512" font-size="36" fill="#FF9F43" text-anchor="middle">钱包</text></g>
+          <g id="er-env" class="h"><rect x="1120" y="465" width="110" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1175" y="510" font-size="28" fill="#58C4DD" text-anchor="middle">请求</text></g>
+          <g id="er-bad" class="h"><rect x="1290" y="465" width="120" height="70" rx="8" fill="#2a1416" stroke="#FC6255" stroke-width="2.5" /><text x="1350" y="510" font-size="28" fill="#FC6255" text-anchor="middle">错误码</text></g>
+        </g>
+
+        <!-- L1：4001 -->
+        <g id="er-r1">
+          <rect id="er-btn" class="h" x="820" y="440" width="400" height="100" rx="50" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <circle id="er-spin" class="h" cx="880" cy="490" r="18" fill="none" stroke="#58C4DD" stroke-width="5" stroke-dasharray="70 44" />
+          <text id="er-btn1" class="h" x="1050" y="501" font-size="32" fill="#8a8f99" text-anchor="middle">连接中…</text>
+          <text id="er-btn2" class="h" x="1020" y="501" font-size="32" fill="#58C4DD" text-anchor="middle">连接钱包</text>
+          <text id="er-cancel" class="h" x="1020" y="610" font-size="28" fill="#8a8f99" text-anchor="middle">已取消</text>
+          <g id="er-pop" class="h"><rect x="1330" y="410" width="440" height="160" rx="14" fill="#2a1416" stroke="#FC6255" stroke-width="3" /><text x="1550" y="502" font-size="32" fill="#FC6255" text-anchor="middle">错误：用户拒绝</text></g>
+          <path id="er-x1" class="dr" pathLength="1" d="M1340 420 L1760 560" stroke="#e8e6df" stroke-width="8" stroke-linecap="round" fill="none" />
+          <path id="er-x2" class="dr" pathLength="1" d="M1760 420 L1340 560" stroke="#e8e6df" stroke-width="8" stroke-linecap="round" fill="none" />
+        </g>
+
+        <!-- L2：4100 / 4200 -->
+        <g id="er-r2">
+          <text id="er-a1" class="mono h" x="760" y="482" font-size="34" fill="#FC6255">4100</text>
+          <path id="er-a1r" class="dr h" pathLength="1" d="M880 470 L1080 470" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#er-arr)" />
+          <g id="er-a1p" class="h"><rect x="1100" y="425" width="360" height="90" rx="45" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1280" y="481" font-size="32" fill="#58C4DD" text-anchor="middle">先请求连接</text></g>
+          <text id="er-b1" class="mono h" x="760" y="652" font-size="34" fill="#FC6255">4200</text>
+          <path id="er-b1r" class="dr h" pathLength="1" d="M880 640 L1080 640" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#er-arr)" />
+          <g id="er-b1p" class="h"><rect x="1100" y="595" width="420" height="90" rx="45" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="1310" y="651" font-size="32" fill="#e8e6df" text-anchor="middle">降级方案 / 换钱包</text></g>
+        </g>
+
+        <!-- L3：4900 / 4901 -->
+        <g id="er-r3">
+          <g id="er-bar3" class="h"><rect x="800" y="430" width="900" height="90" rx="12" fill="#2a1416" stroke="#FC6255" stroke-width="2.5" /><text x="840" y="487" font-size="32" fill="#FC6255">连接已断开</text></g>
+          <g id="er-re" class="h"><rect id="er-rer" x="1040" y="590" width="200" height="80" rx="40" fill="#58C4DD" /><text x="1140" y="642" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">重连</text></g>
+        </g>
+
+        <!-- L4：4902 -->
+        <g id="er-r4">
+          <text id="er-c4a" class="mono h" x="760" y="482" font-size="34" fill="#FF9F43">4902</text>
+          <path id="er-c4r" class="dr h" pathLength="1" d="M880 470 L1020 470" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#er-arr)" />
+          <g id="er-c4p" class="h"><rect x="1040" y="425" width="480" height="90" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="1060" y="481" font-size="30" fill="#58C4DD">wallet_addEthereumChain</text></g>
+          <path id="er-c4d" class="dr h" pathLength="1" d="M1280 520 L1280 590" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#er-arr)" />
+          <g id="er-c4w" class="h"><rect x="1040" y="600" width="480" height="280" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1070" y="650" font-size="28" fill="#8a8f99">钱包</text><text x="1070" y="730" font-size="30" fill="#e8e6df">已有链</text></g>
+          <g id="er-c4n" class="h"><rect x="1060" y="770" width="440" height="60" rx="10" fill="#1a2a17" stroke="#83C167" stroke-width="2" /><text x="1080" y="811" font-size="30" fill="#83C167">+ 新增链</text></g>
+        </g>
+
+        <!-- L5：-32002 -->
+        <g id="er-r5">
+          <g id="er-w5" class="h"><rect x="1060" y="380" width="280" height="240" rx="24" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1200" y="513" font-size="36" fill="#FF9F43" text-anchor="middle">钱包</text></g>
+          <g id="er-badge" class="h"><circle id="er-bc" cx="1340" cy="380" r="32" fill="#FF9F43" /><text x="1340" y="392" font-size="34" font-weight="700" fill="#0f1117" text-anchor="middle">1</text></g>
+          <g id="er-bar5" class="h"><rect x="800" y="700" width="920" height="90" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="1260" y="757" font-size="32" fill="#FF9F43" text-anchor="middle">请打开钱包处理待确认请求</text></g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const HI = (i, t) => {
+        if (i > 0) tl.to("#er-cr" + (i - 1), { attr: { stroke: "#6b6f7a", "stroke-width": 2.5 }, duration: 0.3 }, t);
+        tl.to("#er-cr" + i, { attr: { stroke: "#FC6255", "stroke-width": 5 }, duration: 0.3 }, t);
+      };
+
+      // L0：标题 + 六张牌；请求飞出、错误码弹回
+      IN("#er-title", at(0, 0));
+      for (let i = 0; i < 6; i++) IN("#er-c" + i, at(0, 0.08) + i * 0.18, 0.5, { x: -30 }, { x: 0 });
+      IN("#er-web", at(0, 0.3)); IN("#er-wal", at(0, 0.35));
+      IN("#er-env", at(0, 0.45), 0.3);
+      tl.to("#er-env", { x: 170, duration: 0.8, ease: "power2.inOut" }, at(0, 0.5));
+      OUT("#er-env", at(0, 0.62), 0.2);
+      IN("#er-bad", at(0, 0.64), 0.3);
+      tl.to("#er-bad", { x: -170, duration: 0.8, ease: "power2.inOut" }, at(0, 0.7));
+
+      // L1：4001
+      OUT("#er-l0", at(1, 0), 0.4);
+      HI(0, at(1, 0));
+      IN("#er-btn", at(1, 0.06)); IN("#er-spin", at(1, 0.06)); IN("#er-btn1", at(1, 0.06));
+      tl.fromTo("#er-spin", { rotation: 0 }, { rotation: 900, svgOrigin: "880 490", duration: 2.8, ease: "none" }, at(1, 0.06));
+      OUT("#er-spin", at(1, 0.38), 0.3); OUT("#er-btn1", at(1, 0.38), 0.3);
+      IN("#er-btn2", at(1, 0.43), 0.5);
+      IN("#er-cancel", at(1, 0.5), 0.5);
+      IN("#er-pop", at(1, 0.6), 0.4);
+      DRAW("#er-x1", at(1, 0.72), 0.3); DRAW("#er-x2", at(1, 0.76), 0.3);
+      OUT("#er-pop", at(1, 0.88), 0.4); OUT("#er-x1", at(1, 0.88), 0.4); OUT("#er-x2", at(1, 0.88), 0.4);
+
+      // L2：4100 / 4200
+      OUT("#er-r1", at(2, 0), 0.4);
+      HI(1, at(2, 0));
+      IN("#er-a1", at(2, 0.05)); ARROW("#er-a1r", at(2, 0.12)); IN("#er-a1p", at(2, 0.2));
+      HI(2, at(2, 0.48));
+      IN("#er-b1", at(2, 0.5)); ARROW("#er-b1r", at(2, 0.56)); IN("#er-b1p", at(2, 0.64));
+
+      // L3：4900 / 4901
+      OUT("#er-r2", at(3, 0), 0.4);
+      HI(3, at(3, 0));
+      IN("#er-bar3", at(3, 0.1));
+      IN("#er-re", at(3, 0.45), 0.6, { y: 20 }, { y: 0 });
+      tl.to("#er-rer", { attr: { fill: "#83C167" }, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.75));
+
+      // L4：4902
+      OUT("#er-r3", at(4, 0), 0.4);
+      HI(4, at(4, 0));
+      IN("#er-c4a", at(4, 0.05)); ARROW("#er-c4r", at(4, 0.3)); IN("#er-c4p", at(4, 0.36));
+      ARROW("#er-c4d", at(4, 0.55)); IN("#er-c4w", at(4, 0.58));
+      IN("#er-c4n", at(4, 0.72), 0.6, { x: -20 }, { x: 0 });
+
+      // L5：-32002
+      OUT("#er-r4", at(5, 0), 0.4);
+      HI(5, at(5, 0));
+      IN("#er-w5", at(5, 0.06));
+      IN("#er-badge", at(5, 0.22), 0.4);
+      tl.to("#er-bc", { attr: { r: 40 }, duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.3));
+      IN("#er-bar5", at(5, 0.42));
+      const cols = ["#8a8f99", "#58C4DD", "#8a8f99", "#58C4DD", "#FF9F43", "#FF9F43"];
+      cols.forEach((c, i) => tl.to("#er-cr" + i, { attr: { stroke: c, "stroke-width": 3.5 }, duration: 0.3 }, at(5, 0.7) + i * 0.15));
+
+      tl.to("#er-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["errors"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,157 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 swap，id 前缀 sw- -->
+  <div id="root" data-composition-id="swap" data-duration="76.6" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="sw-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker><marker id="sw-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker><marker id="sw-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker><marker id="sw-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker><marker id="sw-arrN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker><marker id="sw-arrP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker><marker id="sw-arrGR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker><marker id="sw-arrW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker></defs>
+      <g id="sw-all">
+<g id="sw-cp" class="h"><rect x="790" y="380" width="1070" height="565" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/><path d="M791 428 H1859" stroke="#2a2f3a" stroke-width="2"/><circle cx="814" cy="404" r="7" fill="#3a3f4a"/><circle cx="836" cy="404" r="7" fill="#3a3f4a"/><circle cx="858" cy="404" r="7" fill="#3a3f4a"/><text class="mono" x="886" y="414" font-size="28" fill="#58C4DD">hooks/useSwap.ts · swap</text><g id="sw-cp-hl" opacity="0"><rect x="793" y="440" width="1064" height="40.6" fill="#58C4DD" fill-opacity="0.13"/><rect x="793" y="440" width="6" height="40.6" fill="#58C4DD"/></g><text class="mono" x="814" y="469.2" font-size="28" fill="#e8e6df" xml:space="preserve">const fresh = Date.now() - quote.at &gt; 15_000</text><text class="mono" x="814" y="509.8" font-size="28" fill="#e8e6df" xml:space="preserve">  ? await getFreshQuote() : quote</text><text class="mono" x="814" y="550.4" font-size="28" fill="#e8e6df" xml:space="preserve">const minOut = fresh.amountOut * (10_000n - bps) / 10_000n</text><text class="mono" x="814" y="591.0" font-size="28" fill="#e8e6df" xml:space="preserve">const deadline = BigInt(nowSec + 20 * 60)</text><text class="mono" x="814" y="631.6" font-size="28" fill="#e8e6df" xml:space="preserve">const inner = encodeFunctionData({</text><text class="mono" x="814" y="672.2" font-size="28" fill="#e8e6df" xml:space="preserve">  functionName: 'exactInputSingle',</text><text class="mono" x="814" y="712.8" font-size="28" fill="#e8e6df" xml:space="preserve">  args: [{ tokenIn, tokenOut, fee, recipient: address,</text><text class="mono" x="814" y="753.4" font-size="28" fill="#e8e6df" xml:space="preserve">    amountIn, amountOutMinimum: minOut }] })</text><text class="mono" x="814" y="794.0" font-size="28" fill="#e8e6df" xml:space="preserve">const { request } = await simulateContract(config, {</text><text class="mono" x="814" y="834.6" font-size="28" fill="#e8e6df" xml:space="preserve">  address: router, functionName: 'multicall',</text><text class="mono" x="814" y="875.2" font-size="28" fill="#e8e6df" xml:space="preserve">  args: [deadline, [inner]],</text><text class="mono" x="814" y="915.8" font-size="28" fill="#e8e6df" xml:space="preserve">  value: tokenIn.isNative ? fresh.amountIn : 0n })</text><text x="1560" y="591.0" font-size="28" fill="#8a8f99">20 分钟</text></g>
+<g id="sw-cq" class="h"><rect x="790" y="380" width="1070" height="484" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/><path d="M791 428 H1859" stroke="#2a2f3a" stroke-width="2"/><circle cx="814" cy="404" r="7" fill="#3a3f4a"/><circle cx="836" cy="404" r="7" fill="#3a3f4a"/><circle cx="858" cy="404" r="7" fill="#3a3f4a"/><text class="mono" x="886" y="414" font-size="28" fill="#58C4DD">hooks/useSwap.ts · swap</text><g id="sw-cq-hl" opacity="0"><rect x="793" y="440" width="1064" height="40.6" fill="#58C4DD" fill-opacity="0.13"/><rect x="793" y="440" width="6" height="40.6" fill="#58C4DD"/></g><text class="mono" x="814" y="469.2" font-size="28" fill="#e8e6df" xml:space="preserve">const hash = await writeContractAsync(request)</text><text class="mono" x="814" y="509.8" font-size="28" fill="#e8e6df" xml:space="preserve">tracker.add({ hash, kind: 'swap' })</text><text class="mono" x="814" y="550.4" font-size="28" fill="#e8e6df" xml:space="preserve">void fetch('/api/swaps', { method: 'POST', body: … })</text><text class="mono" x="814" y="591.0" font-size="28" fill="#e8e6df" xml:space="preserve">const rc = await waitForTransactionReceipt(config,</text><text class="mono" x="814" y="631.6" font-size="28" fill="#e8e6df" xml:space="preserve">  { hash, onReplaced: r =&gt; tracker.replace(hash, r) })</text><text class="mono" x="814" y="672.2" font-size="28" fill="#e8e6df" xml:space="preserve">const logs = parseEventLogs({ abi: erc20Abi,</text><text class="mono" x="814" y="712.8" font-size="28" fill="#e8e6df" xml:space="preserve">  eventName: 'Transfer', logs: rc.logs })</text><text class="mono" x="814" y="753.4" font-size="28" fill="#e8e6df" xml:space="preserve">const received = logs.find(l =&gt; l.address == tokenOut</text><text class="mono" x="814" y="794.0" font-size="28" fill="#e8e6df" xml:space="preserve">  &amp;&amp; l.args.to == me)?.args.value</text><text class="mono" x="814" y="834.6" font-size="28" fill="#e8e6df" xml:space="preserve">qc.invalidateQueries({ queryKey: ['balances'] })</text><text x="1730" y="550.4" font-size="28" fill="#8a8f99">历史</text></g>
+<g id="sw-st0" class="h"><rect id="sw-sr0" x="100" y="236" width="400" height="76" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><text id="sw-stt0" x="300" y="285" font-size="30" fill="#6b6f7a" text-anchor="middle">① 重报 / 算底线</text></g>
+<g id="sw-st1" class="h"><rect id="sw-sr1" x="540" y="236" width="400" height="76" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><text id="sw-stt1" x="740" y="285" font-size="30" fill="#6b6f7a" text-anchor="middle">② 模拟</text></g>
+<g id="sw-st2" class="h"><rect id="sw-sr2" x="980" y="236" width="400" height="76" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><text id="sw-stt2" x="1180" y="285" font-size="30" fill="#6b6f7a" text-anchor="middle">③ 发送追踪</text></g>
+<g id="sw-st3" class="h"><rect id="sw-sr3" x="1420" y="236" width="400" height="76" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><text id="sw-stt3" x="1620" y="285" font-size="30" fill="#6b6f7a" text-anchor="middle">④ 读实收</text></g>
+<g id="sw-qc" class="h"><rect x="100" y="420" width="440" height="170" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.2"/><text x="130" y="470" font-size="28" fill="#8a8f99">报价</text><text font-weight="700" x="130" y="550" font-size="40" fill="#F0B90B">0.285 WETH</text></g>
+<g id="sw-qn" class="h"><rect x="100" y="420" width="440" height="170" rx="12" fill="#F0B90B18" stroke="#F0B90B" stroke-width="3.5"/><text x="130" y="470" font-size="28" fill="#F0B90B">新报价</text><text font-weight="700" x="130" y="550" font-size="40" fill="#F0B90B">0.285 WETH</text></g>
+<g id="sw-ck" class="h"><circle cx="640" cy="470" r="30" fill="none" stroke="#58C4DD" stroke-width="3.5"/><path d="M640 450 V470 L654 480" stroke="#58C4DD" stroke-width="3.5" fill="none" stroke-linecap="round"/></g>
+<text id="sw-cn" class="h" text-anchor="middle" font-weight="700" x="640" y="550" font-size="32" fill="#58C4DD">0 s</text>
+<text id="sw-rq" class="h" x="100" y="650" font-size="30" fill="#FF9F43">提交前重报</text>
+<g id="sw-bk" class="h"><path d="M188 522 L200 826 Q290 846 380 826 L392 522 Z" fill="#F0B90B44"/><path d="M180 450 L196 832 Q290 852 384 832 L400 450" fill="none" stroke="#F0B90B" stroke-width="4"/><text class="mono" text-anchor="middle" x="290" y="436" font-size="28" fill="#F0B90B">amountOut</text></g>
+<path id="sw-mo" class="dr" pathLength="1" d="M170 600 L410 600" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+<text id="sw-mol" class="h mono" x="450" y="620" font-size="28" fill="#83C167">minOut</text>
+<path id="sw-br" class="h" d="M420 522 H430 V598 H420" fill="none" stroke="#FF9F43" stroke-width="3"/>
+<text id="sw-brl" class="h" x="444" y="570" font-size="28" fill="#FF9F43">滑点</text>
+<g id="sw-pc" class="h"><rect x="100" y="420" width="560" height="400" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.2"/><text class="mono" font-weight="700" x="130" y="470" font-size="30" fill="#58C4DD">exactInputSingle</text><text class="mono" x="130" y="530" font-size="28" fill="#e8e6df">tokenIn</text><text class="mono" x="130" y="576" font-size="28" fill="#e8e6df">tokenOut</text><text class="mono" x="130" y="622" font-size="28" fill="#e8e6df">fee</text><text class="mono" x="130" y="668" font-size="28" fill="#e8e6df">recipient</text><text class="mono" x="130" y="714" font-size="28" fill="#e8e6df">amountIn</text><text class="mono" x="130" y="760" font-size="28" fill="#e8e6df">amountOutMinimum</text></g>
+<g id="sw-hg" class="h"><path d="M588.0 490.0 L632.0 490.0 L610 520 L632.0 550.0 L588.0 550.0 L610 520 Z" fill="#FF9F4333" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round"/><path d="M582.0 490.0 H638.0 M582.0 550.0 H638.0" stroke="#FF9F43" stroke-width="4" stroke-linecap="round"/></g>
+<text id="sw-qm" class="h" font-weight="700" x="680" y="790" font-size="48" fill="#FC6255">?</text>
+<g id="sw-ev" class="h"><rect id="sw-evr" x="100" y="420" width="620" height="300" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text class="mono" x="130" y="470" font-size="28" fill="#FF9F43">multicall(deadline, [ … ])</text></g>
+<g id="sw-in" class="h"><rect x="160" y="520" width="320" height="70" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.2"/><text class="mono" text-anchor="middle" x="320.0" y="565.08" font-size="28" fill="#58C4DD">exactInputSingle</text></g>
+<g id="sw-hg2" class="h"><path d="M618.0 610.0 L662.0 610.0 L640 640 L662.0 670.0 L618.0 670.0 L640 640 Z" fill="#FF9F4333" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round"/><path d="M612.0 610.0 H668.0 M612.0 670.0 H668.0" stroke="#FF9F43" stroke-width="4" stroke-linecap="round"/></g>
+<path id="sw-tl" class="h" d="M100 800 L720 800" fill="none" stroke="#8a8f99" stroke-width="3" stroke-linecap="round"/>
+<path id="sw-tk" class="h" d="M480 782 V818" stroke="#FF9F43" stroke-width="4"/>
+<text id="sw-tkl" class="h mono" text-anchor="middle" x="480" y="770" font-size="28" fill="#FF9F43">deadline</text>
+<rect id="sw-bl" class="h" x="110" y="784" width="32" height="32" rx="4" fill="#58C4DD"/>
+<text id="sw-err" class="h mono" x="100" y="880" font-size="28" fill="#FC6255">Transaction too old · revert</text>
+<g id="sw-tx" class="h"><rect x="300" y="520" width="120" height="60" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.2"/><text text-anchor="middle" x="360.0" y="560.08" font-size="28" fill="#F0B90B">交易</text></g>
+<g id="sw-tm" class="h"><circle cx="180" cy="550" r="28" fill="none" stroke="#58C4DD" stroke-width="3.5"/><path d="M180 532 V550 L192 558" stroke="#58C4DD" stroke-width="3.5" fill="none" stroke-linecap="round"/></g>
+<path id="sw-tx4" class="h" d="M402 622 L438 658 M438 622 L402 658" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+<text id="sw-bc" class="h" x="100" y="720" font-size="30" fill="#8a8f99">已广播，撤不回</text>
+<g id="sw-eth" class="h"><circle cx="160" cy="520" r="50" fill="#8a8f9933" stroke="#8a8f99" stroke-width="3"/><text class="mono" text-anchor="middle" x="160" y="530" font-size="28" fill="#e8e6df">ETH</text></g>
+<g id="sw-rt" class="h"><rect x="280" y="470" width="220" height="100" rx="12" fill="#B48EF022" stroke="#B48EF0" stroke-width="2.2"/><text class="mono" text-anchor="middle" x="390.0" y="530.8" font-size="30" fill="#B48EF0">Router</text></g>
+<g id="sw-weth" class="h"><circle cx="630" cy="520" r="56" fill="#F0B90B33" stroke="#F0B90B" stroke-width="3"/><text class="mono" text-anchor="middle" x="630" y="530" font-size="28" fill="#F0B90B">WETH</text></g>
+<text id="sw-wr" class="h" text-anchor="middle" x="390" y="610" font-size="28" fill="#B48EF0">自动包装</text>
+<g id="sw-sb" class="h"><rect x="100" y="690" width="360" height="150" rx="12" fill="#58C4DD0c" stroke="#58C4DD" stroke-width="2.2" stroke-dasharray="10 8"/><text x="125" y="730" font-size="28" fill="#58C4DD">模拟</text></g>
+<g id="sw-em" class="h"><rect x="130" y="760" width="250" height="56" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.2"/><text class="mono" text-anchor="middle" x="255.0" y="798.08" font-size="28" fill="#FF9F43">multicall</text></g>
+<path id="sw-sk" class="h" d="M404 788 L414.7 799.2 L436 776.8" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text id="sw-uw" class="h" x="100" y="900" font-size="28" fill="#8a8f99">输出原生 ETH 需 unwrapWETH9，此处省略</text>
+<g id="sw-tk6" class="h"><rect x="100" y="420" width="620" height="220" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.2"/><text x="130" y="465" font-size="30" fill="#FF9F43">追踪列表</text></g>
+<g id="sw-ra" class="h"><rect x="130" y="500" width="560" height="64" rx="12" fill="#FF9F4322" stroke="#FF9F43" stroke-width="2.2"/><text text-anchor="middle" x="410.0" y="542.08" font-size="28" fill="#FF9F43">原交易 · pending</text></g>
+<g id="sw-rb" class="h"><rect x="130" y="500" width="560" height="64" rx="12" fill="#FF9F4344" stroke="#FF9F43" stroke-width="2.2"/><text text-anchor="middle" x="410.0" y="542.08" font-size="28" fill="#FF9F43">加速后 · pending</text></g>
+<path id="sw-br6" class="dr" pathLength="1" d="M410 646 L590 760" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-linecap="round"/>
+<g id="sw-db" class="h"><path d="M570 772 V842 A50 14 0 0 0 670 842 V772" fill="#8a8f9922" stroke="#8a8f99" stroke-width="3"/><ellipse cx="620" cy="772" rx="50" ry="14" fill="#8a8f9944" stroke="#8a8f99" stroke-width="3"/><text text-anchor="middle" x="620" y="896" font-size="28" fill="#8a8f99">后端历史</text></g>
+<text id="sw-dbl" class="h" x="100" y="800" font-size="28" fill="#8a8f99">报价 · 最少收到 · 滑点</text>
+<g id="sw-lg0" class="h"><rect x="100" y="420" width="560" height="52" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.2"/><text class="mono" x="125" y="456" font-size="28" fill="#e8e6df">log 0</text></g>
+<g id="sw-lg1" class="h"><rect x="100" y="482" width="560" height="52" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.2"/><text class="mono" x="125" y="518" font-size="28" fill="#e8e6df">log 1</text></g>
+<g id="sw-lg2" class="h"><rect x="100" y="544" width="560" height="52" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.2"/><text class="mono" x="125" y="580" font-size="28" fill="#e8e6df">log 2</text></g>
+<g id="sw-lg3" class="h"><rect x="100" y="606" width="560" height="52" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.2"/><text class="mono" x="125" y="642" font-size="28" fill="#e8e6df">log 3</text></g>
+<g id="sw-lgm" class="h"><rect x="100" y="544" width="560" height="52" rx="12" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.2"/><text x="125" y="580" font-size="28" fill="#F0B90B">Transfer · WETH → 你</text></g>
+<g id="sw-rc" class="h"><rect x="100" y="780" width="440" height="130" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.2"/><text x="130" y="825" font-size="28" fill="#8a8f99">实际收到（示例）</text></g>
+<text id="sw-val" class="h mono" font-weight="700" x="130" y="888" font-size="36" fill="#F0B90B">0.2849… WETH</text>
+<text id="sw-bal" class="h" x="580" y="862" font-size="28" fill="#58C4DD">↻ 余额缓存</text>
+      </g>
+      <g id="sw-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">最少收到 <tspan font-size="28" font-weight="400" fill="#8a8f99">Minimum Received</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">由报价和滑点算出、写入交易的成交下限</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      const PAN = {"sw-cp": {"y0": 440, "lh": 40.6}, "sw-cq": {"y0": 440, "lh": 40.6}};
+      const HL = (id, a, b, t) => { const P = PAN[id]; tl.to("#" + id + "-hl", { opacity: 1, duration: 0.3 }, t); tl.to("#" + id + "-hl rect", { attr: { y: P.y0 + a * P.lh, height: (b - a + 1) * P.lh }, duration: 0.45, ease: "power2.inOut" }, t); };
+
+
+      const STEP = (i, t) => [0, 1, 2, 3].forEach(j => {
+        TO("#sw-sr" + j, t, { attr: { stroke: j == i ? "#58C4DD" : "#3a3f4a", fill: j == i ? "#58C4DD33" : "#161a22" } }, 0.4);
+        TO("#sw-stt" + j, t, { attr: { fill: j == i ? "#e8e6df" : "#6b6f7a" } }, 0.4);
+      });
+      [0, 1, 2, 3].forEach(i => IN("#sw-st" + i, at(0, 0.02) + i * 0.12, 0.5));
+      STEP(0, at(0, 0.2));
+      IN("#sw-cp", at(0, 0.05), 0.6); HL("sw-cp", 0, 1, at(0, 0.2));
+      IN("#sw-qc", at(0, 0.2), 0.5); IN("#sw-ck", at(0, 0.25), 0.4); IN("#sw-cn", at(0, 0.25), 0.4);
+      COUNT("#sw-cn", 0, 15, at(0, 0.3), 2.4, v => Math.round(v) + " s");
+      TO("#sw-cn", at(0, 0.3) + 2.2, { attr: { fill: "#FF9F43" } }, 0.3);
+      OUT("#sw-qc", at(0, 0.68), 0.3); IN("#sw-qn", at(0, 0.68) + 0.35, 0.5, { y: -16 }, { y: 0 });
+      IN("#sw-rq", at(0, 0.82), 0.5);
+      ["#sw-qn", "#sw-ck", "#sw-cn", "#sw-rq"].forEach(s => OUT(s, at(1, 0)));
+      HL("sw-cp", 2, 2, at(1, 0.05));
+      IN("#sw-bk", at(1, 0.1), 0.6); IN("#sw-term", at(1, 0.15), 0.6);
+      DRAW("#sw-mo", at(1, 0.4), 0.6); tl.set("#sw-mo", { opacity: 1 }, at(1, 0.4)); IN("#sw-mol", at(1, 0.48), 0.4);
+      IN("#sw-br", at(1, 0.62), 0.4); IN("#sw-brl", at(1, 0.66), 0.4);
+      ["#sw-bk", "#sw-mo", "#sw-mol", "#sw-br", "#sw-brl", "#sw-term"].forEach(s => OUT(s, at(2, 0)));
+      HL("sw-cp", 3, 7, at(2, 0.05));
+      IN("#sw-pc", at(2, 0.25), 0.6);
+      IN("#sw-hg", at(2, 0.5), 0.4); tl.to("#sw-hg", { y: 230, duration: 1.6, ease: "power1.inOut" }, at(2, 0.55));
+      IN("#sw-qm", at(2, 0.82), 0.4, { scale: 0.4, svgOrigin: "694 775" }, { scale: 1 });
+      ["#sw-pc", "#sw-hg", "#sw-qm"].forEach(s => OUT(s, at(3, 0)));
+      HL("sw-cp", 9, 10, at(3, 0.05));
+      IN("#sw-in", at(3, 0.06), 0.4); IN("#sw-ev", at(3, 0.16), 0.6, { scale: 0.9, svgOrigin: "410 570" }, { scale: 1 });
+      IN("#sw-hg2", at(3, 0.3), 0.4, { y: -30 }, { y: 0 });
+      IN("#sw-tl", at(3, 0.4), 0.4); IN("#sw-tk", at(3, 0.42), 0.4); IN("#sw-tkl", at(3, 0.42), 0.4); IN("#sw-bl", at(3, 0.46), 0.3);
+      tl.to("#sw-bl", { x: 440, duration: 2.6, ease: "none" }, at(3, 0.5));
+      TO("#sw-evr", at(3, 0.5) + 1.8, { attr: { stroke: "#FC6255", fill: "#FC625522" } }, 0.3);
+      IN("#sw-err", at(3, 0.5) + 2.0, 0.4);
+      ["#sw-in", "#sw-ev", "#sw-hg2", "#sw-tl", "#sw-tk", "#sw-tkl", "#sw-bl", "#sw-err"].forEach(s => OUT(s, at(4, 0)));
+      IN("#sw-tx", at(4, 0.08), 0.3); IN("#sw-tm", at(4, 0.08), 0.3);
+      tl.to("#sw-tx", { x: 300, duration: 0.6, ease: "power2.in" }, at(4, 0.15));
+      tl.to("#sw-tm", { x: 200, duration: 1.4, ease: "power1.out" }, at(4, 0.2));
+      IN("#sw-tx4", at(4, 0.55), 0.3); IN("#sw-bc", at(4, 0.6), 0.4);
+      ["#sw-tx", "#sw-tm", "#sw-tx4", "#sw-bc"].forEach(s => OUT(s, at(5, 0)));
+      STEP(1, at(5, 0.02)); HL("sw-cp", 8, 11, at(5, 0.05));
+      IN("#sw-eth", at(5, 0.08), 0.4); IN("#sw-rt", at(5, 0.08), 0.4);
+      tl.to("#sw-eth", { x: 230, opacity: 0, duration: 0.8, ease: "power2.in" }, at(5, 0.18));
+      IN("#sw-weth", at(5, 0.18) + 0.75, 0.5, { x: -60 }, { x: 0 }); IN("#sw-wr", at(5, 0.3), 0.4);
+      IN("#sw-sb", at(5, 0.52), 0.4); IN("#sw-em", at(5, 0.56), 0.4, { y: 30 }, { y: 0 }); IN("#sw-sk", at(5, 0.68), 0.3);
+      IN("#sw-uw", at(5, 0.8), 0.5);
+      ["#sw-rt", "#sw-weth", "#sw-wr", "#sw-sb", "#sw-em", "#sw-sk", "#sw-uw"].forEach(s => OUT(s, at(6, 0)));
+      STEP(2, at(6, 0.02)); OUT("#sw-cp", at(6, 0), 0.3); IN("#sw-cq", at(6, 0) + 0.35, 0.5); HL("sw-cq", 0, 4, at(6, 0.06));
+      IN("#sw-tk6", at(6, 0.08), 0.5); IN("#sw-ra", at(6, 0.14), 0.4, { y: -16 }, { y: 0 });
+      DRAW("#sw-br6", at(6, 0.32), 0.5); IN("#sw-db", at(6, 0.36), 0.4); IN("#sw-dbl", at(6, 0.4), 0.4);
+      OUT("#sw-ra", at(6, 0.72), 0.25); IN("#sw-rb", at(6, 0.72) + 0.3, 0.4, { x: 40 }, { x: 0 });
+      ["#sw-tk6", "#sw-rb", "#sw-br6", "#sw-db", "#sw-dbl"].forEach(s => OUT(s, at(7, 0)));
+      STEP(3, at(7, 0.02)); HL("sw-cq", 5, 9, at(7, 0.06));
+      [0, 1, 2, 3].forEach(i => IN("#sw-lg" + i, at(7, 0.1) + i * 0.15, 0.4, { x: -20 }, { x: 0 }));
+      [0, 1, 3].forEach(i => OUT("#sw-lg" + i, at(7, 0.4), 0.4));
+      OUT("#sw-lg2", at(7, 0.4), 0.3); IN("#sw-lgm", at(7, 0.4) + 0.3, 0.4);
+      IN("#sw-rc", at(7, 0.5), 0.4);
+      IN("#sw-val", at(7, 0.58), 0.4, { y: -300 }, { y: 0, duration: 1.0, ease: "power2.inOut" });
+      IN("#sw-bal", at(7, 0.82), 0.4);
+      tl.to("#sw-bal", { opacity: 0.4, duration: 0.25, yoyo: true, repeat: 3 }, at(7, 0.82) + 0.5);
+
+
+      tl.to("#sw-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#sw-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["swap"] = tl;
+    })();
+  </script>
+</template>

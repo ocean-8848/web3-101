@@ -1,0 +1,241 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 overview，id 前缀 ov- -->
+  <div id="root" data-composition-id="overview" data-duration="53.73" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ov-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ov-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ov-arry" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="ov-arrp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" />
+        </marker>
+        <filter id="ov-glow" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="14" /></filter>
+      </defs>
+      <g id="ov-all">
+        <!-- L0 三区 + 五个部件标签 -->
+        <g id="ov-z1" class="h">
+          <rect x="80" y="220" width="400" height="640" rx="18" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="12 8" />
+          <text x="110" y="266" font-size="30" fill="#8a8f99">链上</text>
+        </g>
+        <g id="ov-z2" class="h">
+          <rect x="540" y="220" width="840" height="640" rx="18" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="12 8" />
+          <text x="570" y="266" font-size="30" fill="#8a8f99">充值服务（Go）</text>
+        </g>
+        <g id="ov-z3" class="h">
+          <rect x="1440" y="220" width="400" height="640" rx="18" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="12 8" />
+          <text x="1470" y="266" font-size="30" fill="#8a8f99">业务方</text>
+        </g>
+        <g id="ov-tags">
+          <g id="ov-k1" class="h"><rect x="1000" y="96" width="130" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1065" y="137" font-size="30" fill="#58C4DD" text-anchor="middle">地址池</text></g>
+          <g id="ov-k2" class="h"><rect x="1154" y="96" width="130" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1219" y="137" font-size="30" fill="#58C4DD" text-anchor="middle">索引器</text></g>
+          <g id="ov-k3" class="h"><rect x="1308" y="96" width="130" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1373" y="137" font-size="30" fill="#58C4DD" text-anchor="middle">确认器</text></g>
+          <g id="ov-k4" class="h"><rect x="1462" y="96" width="160" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1542" y="137" font-size="30" fill="#58C4DD" text-anchor="middle">幂等账本</text></g>
+          <g id="ov-k5" class="h"><rect x="1646" y="96" width="160" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1726" y="137" font-size="30" fill="#58C4DD" text-anchor="middle">可靠通知</text></g>
+        </g>
+
+        <!-- L1 地址池 -->
+        <g id="ov-stack" class="h">
+          <rect x="150" y="740" width="180" height="60" rx="8" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <rect x="158" y="750" width="180" height="60" rx="8" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <rect x="166" y="760" width="180" height="60" rx="8" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <rect x="174" y="770" width="180" height="60" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="374" y="810" font-size="28" fill="#8a8f99">地址池</text>
+        </g>
+        <rect id="ov-slide" class="h" x="142" y="730" width="180" height="60" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+        <g id="ov-addr" class="h">
+          <rect x="130" y="590" width="300" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="270" y="632" font-size="30" fill="#e8e6df" text-anchor="middle">充值地址</text>
+          <text class="mono" x="270" y="674" font-size="28" fill="#58C4DD" text-anchor="middle">0x7e5f…</text>
+        </g>
+        <g id="ov-av" class="h">
+          <circle cx="400" cy="616" r="11" fill="none" stroke="#e8e6df" stroke-width="2.5" />
+          <path d="M384 646 Q400 624 416 646" fill="none" stroke="#e8e6df" stroke-width="2.5" />
+        </g>
+
+        <!-- L2 用户转账 → Scanner → pending -->
+        <g id="ov-wal" class="h">
+          <rect x="130" y="310" width="300" height="100" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+          <text x="280" y="372" font-size="32" fill="#e8e6df" text-anchor="middle">用户钱包</text>
+        </g>
+        <path id="ov-gold" class="dr h" pathLength="1" d="M280 414 L280 582" fill="none" stroke="#F0B90B" stroke-width="5" marker-end="url(#ov-arry)" />
+        <text id="ov-goldl" class="h mono" x="298" y="510" font-size="28" fill="#F0B90B">100 USDT</text>
+        <path id="ov-rt" class="dr h" pathLength="1" d="M434 640 L505 640 L505 370 L594 370" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#ov-arrb)" />
+        <g id="ov-scan" class="h">
+          <rect x="600" y="320" width="240" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="720" y="382" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">Scanner</text>
+        </g>
+        <g id="ov-rec">
+          <rect id="ov-recr" class="h" x="680" y="460" width="180" height="60" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text id="ov-recp" class="h mono" x="770" y="500" font-size="28" fill="#FF9F43" text-anchor="middle">pending</text>
+          <text id="ov-recc" class="h mono" x="770" y="500" font-size="28" fill="#83C167" text-anchor="middle">credited</text>
+        </g>
+        <g id="ov-pg" class="h">
+          <rect x="600" y="640" width="700" height="160" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="630" y="694" font-size="32" font-weight="700" fill="#58C4DD">PostgreSQL</text>
+        </g>
+        <text id="ov-t1" class="h mono" x="630" y="762" font-size="28" fill="#8a8f99">deposits</text>
+        <text id="ov-t2" class="h mono" x="800" y="762" font-size="28" fill="#8a8f99">ledger_entries</text>
+        <text id="ov-t3" class="h mono" x="1080" y="762" font-size="28" fill="#8a8f99">outbox</text>
+        <path id="ov-s2p" class="dr h" pathLength="1" d="M630 424 L630 632" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ov-arrb)" />
+
+        <!-- L3 Confirmer -->
+        <path id="ov-sc" class="dr h" pathLength="1" d="M844 370 L1052 370" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#ov-arr)" />
+        <g id="ov-conf" class="h">
+          <rect x="1060" y="320" width="240" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" />
+          <text class="mono" x="1180" y="382" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">Confirmer</text>
+        </g>
+        <text id="ov-nob" class="h" x="680" y="590" font-size="28" fill="#8a8f99"><tspan class="mono" fill="#FF9F43">pending</tspan> 不加余额</text>
+        <path id="ov-c2p" class="dr h" pathLength="1" d="M1090 424 L1090 632" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ov-arrb)" />
+
+        <!-- L4 Kafka → 账户服务 -->
+        <path id="ov-p2k" class="dr h" pathLength="1" d="M1304 690 L1472 690" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#ov-arrb)" />
+        <g id="ov-kaf" class="h">
+          <rect x="1480" y="640" width="320" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect x="1482" y="726" width="316" height="12" rx="4" fill="#B48EF0" />
+          <text class="mono" x="1640" y="702" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">Kafka</text>
+        </g>
+        <path id="ov-k2a" class="dr h" pathLength="1" d="M1760 636 L1760 528" fill="none" stroke="#B48EF0" stroke-width="3.5" marker-end="url(#ov-arrp)" />
+        <g id="ov-acct" class="h">
+          <rect x="1480" y="320" width="320" height="200" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="1640" y="374" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">账户服务</text>
+          <text x="1510" y="462" font-size="28" fill="#8a8f99">余额</text>
+        </g>
+        <text id="ov-bal" class="h mono" x="1590" y="466" font-size="40" font-weight="700" fill="#F0B90B">0</text>
+        <text id="ov-dd" class="h" x="1580" y="590" font-size="28" fill="#8a8f99" text-anchor="middle">去重后加余额</text>
+        <circle id="ov-dot" class="h" cx="1304" cy="690" r="10" fill="#F0B90B" />
+
+        <!-- L5 唯一事实来源 -->
+        <rect id="ov-glw" class="h" x="600" y="640" width="700" height="160" rx="16" fill="none" stroke="#58C4DD" stroke-width="14" filter="url(#ov-glow)" />
+        <text id="ov-src" class="h" x="1276" y="694" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="end">唯一事实来源</text>
+        <circle id="ov-dot2" class="h" cx="630" cy="424" r="10" fill="#58C4DD" />
+
+        <!-- L6 不碰私钥 -->
+        <g id="ov-pill" class="h">
+          <rect x="520" y="900" width="880" height="64" rx="32" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="960" y="943" font-size="30" fill="#FF9F43" text-anchor="middle">服务不碰私钥：私钥在钱包系统（HSM / MPC）里</text>
+        </g>
+        <g id="ov-safe" class="h">
+          <rect x="1700" y="56" width="110" height="96" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <circle cx="1755" cy="104" r="24" fill="none" stroke="#B48EF0" stroke-width="3" />
+          <line x1="1755" y1="104" x2="1772" y2="90" stroke="#B48EF0" stroke-width="3" stroke-linecap="round" />
+          <text class="mono" x="1755" y="196" font-size="28" fill="#B48EF0" text-anchor="middle">HSM</text>
+        </g>
+        <path id="ov-wall" class="dr" pathLength="1" d="M1650 44 L1650 206" fill="none" stroke="#FF9F43" stroke-width="4" />
+        <text id="ov-addrn" class="h" x="1590" y="130" font-size="28" fill="#8a8f99" text-anchor="end">服务只存地址和派生序号</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ov-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">地址池 <tspan font-size="28" font-weight="400" fill="#8a8f99">Address Pool</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">预先生成、按需分配的充值地址</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const PULSE = (s, t) => tl.fromTo(s, { opacity: 1 }, { opacity: 0.35, duration: 0.25, yoyo: true, repeat: 1, immediateRender: false }, t);
+
+      // L0 三区 + 五部件
+      IN("#ov-z1", at(0, 0.02)); IN("#ov-z2", at(0, 0.08)); IN("#ov-z3", at(0, 0.14));
+      ["#ov-k1", "#ov-k2", "#ov-k3", "#ov-k4", "#ov-k5"].forEach((k, i) => IN(k, at(0, 0.36 + i * 0.12), 0.5, { y: 10 }, { y: 0 }));
+
+      // L1 地址池
+      IN("#ov-term", at(1, 0.02), 0.5);
+      PULSE("#ov-k1", at(1, 0.04));
+      IN("#ov-stack", at(1, 0.15));
+      IN("#ov-slide", at(1, 0.15), 0.01);
+      tl.to("#ov-slide", { attr: { y: 610 }, duration: 0.7, ease: "power2.inOut" }, at(1, 0.5));
+      OUT("#ov-slide", at(1, 0.5) + 0.6, 0.3);
+      IN("#ov-addr", at(1, 0.5) + 0.55, 0.4);
+      IN("#ov-av", at(1, 0.82), 0.4, { y: -8 }, { y: 0 });
+      OUT("#ov-term", at(2, 0.55), 0.4);
+
+      // L2 转账 → Scanner → pending
+      IN("#ov-wal", at(2, 0.02));
+      ARROW("#ov-gold", at(2, 0.1), 0.6);
+      IN("#ov-goldl", at(2, 0.14), 0.4);
+      ARROW("#ov-rt", at(2, 0.3), 0.8);
+      IN("#ov-scan", at(2, 0.36), 0.5);
+      PULSE("#ov-k2", at(2, 0.38));
+      IN("#ov-pg", at(2, 0.55));
+      IN("#ov-t1", at(2, 0.6), 0.4);
+      ARROW("#ov-s2p", at(2, 0.62), 0.5);
+      IN("#ov-recr, #ov-recp", at(2, 0.82), 0.5, { y: -10 }, { y: 0 });
+
+      // L3 pending 不加余额；Confirmer 改 credited，写账本 + 待发消息
+      IN("#ov-nob", at(3, 0.04), 0.4);
+      ARROW("#ov-sc", at(3, 0.18), 0.5);
+      IN("#ov-conf", at(3, 0.22), 0.5);
+      PULSE("#ov-k3", at(3, 0.24));
+      tl.to("#ov-rec", { x: 460, duration: 0.8, ease: "power2.inOut" }, at(3, 0.36));
+      OUT("#ov-recp", at(3, 0.44), 0.25);
+      tl.to("#ov-recr", { attr: { stroke: "#83C167" }, duration: 0.3 }, at(3, 0.48));
+      IN("#ov-recc", at(3, 0.52), 0.3);
+      ARROW("#ov-c2p", at(3, 0.66), 0.5);
+      IN("#ov-t2", at(3, 0.7), 0.4); tl.to("#ov-t2", { attr: { fill: "#58C4DD" }, duration: 0.3 }, at(3, 0.72));
+      PULSE("#ov-k4", at(3, 0.72));
+      IN("#ov-t3", at(3, 0.88), 0.4); tl.to("#ov-t3", { attr: { fill: "#58C4DD" }, duration: 0.3 }, at(3, 0.9));
+
+      // L4 Kafka → 账户服务 去重后加余额
+      ARROW("#ov-p2k", at(4, 0.02), 0.5);
+      IN("#ov-kaf", at(4, 0.08), 0.5);
+      PULSE("#ov-k5", at(4, 0.1));
+      IN("#ov-acct", at(4, 0.3), 0.5);
+      ARROW("#ov-k2a", at(4, 0.36), 0.4);
+      IN("#ov-bal", at(4, 0.36), 0.4);
+      IN("#ov-dot", at(4, 0.42), 0.15);
+      tl.to("#ov-dot", { attr: { cx: 1472 }, duration: 0.5, ease: "none" }, at(4, 0.42));
+      tl.to("#ov-dot", { attr: { cx: 1760 }, opacity: 0, duration: 0.3, ease: "none" }, at(4, 0.42) + 0.5);
+      tl.fromTo("#ov-dot", { attr: { cy: 690 } }, { attr: { cy: 690 }, duration: 0.01, immediateRender: false }, at(4, 0.42) + 0.8);
+      IN("#ov-dd", at(4, 0.6), 0.4);
+      COUNT("#ov-bal", 0, 100, at(4, 0.72), 0.9);
+
+      // L5 先落库 → 再通知
+      IN("#ov-glw", at(5, 0.05), 0.6);
+      IN("#ov-src", at(5, 0.12), 0.5);
+      IN("#ov-dot2", at(5, 0.45), 0.15);
+      tl.to("#ov-dot2", { attr: { cy: 632 }, duration: 0.7, ease: "power1.in" }, at(5, 0.45));
+      tl.to("#ov-dot2", { attr: { cx: 1304, cy: 690 }, duration: 0.6, ease: "none" }, at(5, 0.45) + 0.7);
+      tl.to("#ov-dot2", { attr: { cx: 1472 }, duration: 0.5, ease: "none" }, at(5, 0.45) + 1.3);
+      tl.to("#ov-dot2", { attr: { cx: 1760, cy: 640 }, duration: 0.3, ease: "none" }, at(5, 0.45) + 1.8);
+      tl.to("#ov-dot2", { attr: { cy: 528 }, opacity: 0, duration: 0.4, ease: "none" }, at(5, 0.45) + 2.1);
+
+      // L6 不碰私钥
+      OUT("#ov-tags", at(6, 0), 0.4);
+      OUT("#ov-glw", at(6, 0), 0.4);
+      IN("#ov-pill", at(6, 0.08), 0.6, { y: 12 }, { y: 0 });
+      IN("#ov-addrn", at(6, 0.3), 0.5);
+      IN("#ov-safe", at(6, 0.62), 0.5);
+      DRAW("#ov-wall", at(6, 0.72), 0.5);
+
+      tl.to("#ov-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["overview"] = tl;
+    })();
+  </script>
+</template>

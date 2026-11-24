@@ -1,0 +1,161 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 history，id 前缀 hi- -->
+  <div id="root" data-composition-id="history" data-duration="55.8" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="hi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="hi-all">
+        <text id="hi-title" class="h" x="960" y="250" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">钱 = 记录<tspan fill="#F0B90B">价值</tspan>的转移</text>
+        <!-- 时间轴分段 -->
+        <path id="hi-ax0" class="dr" pathLength="1" d="M120 560 L300 560" stroke="#8a8f99" stroke-width="4" fill="none"/>
+        <path id="hi-ax1" class="dr" pathLength="1" d="M300 560 L760 560" stroke="#8a8f99" stroke-width="4" fill="none"/>
+        <path id="hi-ax2" class="dr" pathLength="1" d="M760 560 L1220 560" stroke="#8a8f99" stroke-width="4" fill="none"/>
+        <path id="hi-ax3" class="dr" pathLength="1" d="M1220 560 L1680 560" stroke="#8a8f99" stroke-width="4" fill="none"/>
+        <path id="hi-ax4" class="dr" pathLength="1" d="M1680 560 L1820 560" stroke="#8a8f99" stroke-width="4" fill="none"/>
+        <circle id="hi-p0" class="h" cx="300" cy="560" r="14" fill="#3a3f4b"/>
+        <circle id="hi-p1" class="h" cx="760" cy="560" r="14" fill="#3a3f4b"/>
+        <circle id="hi-p2" class="h" cx="1220" cy="560" r="14" fill="#3a3f4b"/>
+        <circle id="hi-p3" class="h" cx="1680" cy="560" r="14" fill="#3a3f4b"/>
+
+        <!-- 站 1：贝壳 / 金银 -->
+        <g id="hi-s0">
+          <g id="hi-i0" class="h">
+            <circle cx="300" cy="430" r="62" fill="none" stroke="#F0B90B" stroke-width="4"/>
+            <path d="M300 430 m0 -6 a6 6 0 1 1 -6 6 a12 12 0 1 1 12 12 a20 20 0 1 1 -20 -20 a30 30 0 1 1 30 30 a40 40 0 1 1 -40 -40" fill="none" stroke="#F0B90B" stroke-width="3" stroke-linecap="round"/>
+          </g>
+          <g id="hi-b0">
+            <text id="hi-n0" class="h" x="300" y="625" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">实物 · 贝壳 金银</text>
+            <text id="hi-w0" class="h" x="300" y="675" font-size="30" fill="#8a8f99" text-anchor="middle">谁记账：不用记账</text>
+            <text id="hi-r00" class="h" x="300" y="735" font-size="28" fill="#FC6255" text-anchor="middle">笨重</text>
+            <text id="hi-r01" class="h" x="300" y="777" font-size="28" fill="#FC6255" text-anchor="middle">难分割</text>
+            <text id="hi-r02" class="h" x="300" y="819" font-size="28" fill="#FC6255" text-anchor="middle">不能远程</text>
+          </g>
+        </g>
+        <!-- 站 2：银票 / 纸币 -->
+        <g id="hi-s1">
+          <g id="hi-i1" class="h">
+            <rect x="675" y="385" width="170" height="92" rx="8" fill="none" stroke="#F0B90B" stroke-width="4"/>
+            <rect x="688" y="398" width="144" height="66" rx="4" fill="none" stroke="#F0B90B" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="760" cy="431" r="22" fill="none" stroke="#F0B90B" stroke-width="3"/>
+            <path d="M750 420 L760 432 L770 420 M760 432 L760 444 M752 434 L768 434" stroke="#F0B90B" stroke-width="2.5" fill="none"/>
+          </g>
+          <g id="hi-b1">
+            <text id="hi-n1" class="h" x="760" y="625" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">银票 · 纸币</text>
+            <text id="hi-w1" class="h" x="760" y="675" font-size="30" fill="#8a8f99" text-anchor="middle">谁记账：<tspan fill="#B48EF0">发行方担保</tspan></text>
+            <text id="hi-r10" class="h" x="760" y="735" font-size="28" fill="#FC6255" text-anchor="middle">可伪造</text>
+            <text id="hi-r11" class="h" x="760" y="777" font-size="28" fill="#FC6255" text-anchor="middle">可超发</text>
+          </g>
+        </g>
+        <!-- 站 3：银行余额 -->
+        <g id="hi-s2">
+          <g id="hi-i2" class="h">
+            <path d="M1110 410 L1180 372 L1250 410 Z" fill="none" stroke="#B48EF0" stroke-width="4" stroke-linejoin="round"/>
+            <line x1="1125" y1="420" x2="1125" y2="482" stroke="#B48EF0" stroke-width="6"/>
+            <line x1="1165" y1="420" x2="1165" y2="482" stroke="#B48EF0" stroke-width="6"/>
+            <line x1="1205" y1="420" x2="1205" y2="482" stroke="#B48EF0" stroke-width="6"/>
+            <line x1="1240" y1="420" x2="1240" y2="482" stroke="#B48EF0" stroke-width="6"/>
+            <rect x="1105" y="488" width="150" height="12" rx="3" fill="#B48EF0"/>
+          </g>
+          <g id="hi-db" class="h">
+            <ellipse cx="1310" cy="410" rx="34" ry="12" fill="#0f1117" stroke="#58C4DD" stroke-width="3"/>
+            <path d="M1276 410 L1276 486 A34 12 0 0 0 1344 486 L1344 410" fill="none" stroke="#58C4DD" stroke-width="3"/>
+            <path d="M1276 436 A34 12 0 0 0 1344 436 M1276 462 A34 12 0 0 0 1344 462" fill="none" stroke="#58C4DD" stroke-width="2" opacity="0.7"/>
+          </g>
+          <g id="hi-b2">
+            <text id="hi-n2" class="h" x="1220" y="625" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">银行余额</text>
+            <text id="hi-w2" class="h" x="1220" y="675" font-size="30" fill="#8a8f99" text-anchor="middle">谁记账：<tspan fill="#B48EF0">银行</tspan></text>
+            <text id="hi-r20" class="h" x="1220" y="735" font-size="28" fill="#FC6255" text-anchor="middle">必须信任</text>
+            <text id="hi-r21" class="h" x="1220" y="777" font-size="28" fill="#FC6255" text-anchor="middle">跨境慢贵</text>
+            <text id="hi-r22" class="h" x="1220" y="819" font-size="28" fill="#FC6255" text-anchor="middle">可冻结</text>
+          </g>
+        </g>
+        <!-- 站 4：区块链 -->
+        <g id="hi-s3">
+          <g id="hi-i3" class="h">
+            <rect x="1580" y="405" width="52" height="52" rx="6" fill="none" stroke="#58C4DD" stroke-width="4"/>
+            <rect x="1654" y="405" width="52" height="52" rx="6" fill="none" stroke="#58C4DD" stroke-width="4"/>
+            <rect x="1728" y="405" width="52" height="52" rx="6" fill="none" stroke="#58C4DD" stroke-width="4"/>
+            <line x1="1632" y1="431" x2="1654" y2="431" stroke="#58C4DD" stroke-width="3"/>
+            <line x1="1706" y1="431" x2="1728" y2="431" stroke="#58C4DD" stroke-width="3"/>
+          </g>
+          <g id="hi-b3">
+            <text id="hi-n3" class="h" x="1680" y="625" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">区块链</text>
+            <text id="hi-w3" class="h" x="1680" y="675" font-size="30" fill="#8a8f99" text-anchor="middle">谁记账：<tspan fill="#58C4DD">全网节点</tspan></text>
+            <text id="hi-r30" class="h" x="1680" y="735" font-size="28" fill="#FC6255" text-anchor="middle">性能有限</text>
+            <text id="hi-r31" class="h" x="1680" y="777" font-size="28" fill="#FC6255" text-anchor="middle">私钥丢失不可找回</text>
+          </g>
+        </g>
+
+        <!-- L5 余额只是一条记录 -->
+        <g id="hi-rec" class="h">
+          <rect x="1070" y="620" width="300" height="84" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="1220" y="676" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle">余额 <tspan class="mono">¥400</tspan></text>
+        </g>
+        <text id="hi-big" class="h" x="960" y="830" font-size="60" font-weight="700" fill="#e8e6df" text-anchor="middle">现代的钱 = <tspan fill="#58C4DD">账本里的数字</tspan></text>
+        <text id="hi-ctl" class="h" x="960" y="930" font-size="44" fill="#e8e6df" text-anchor="middle"><tspan fill="#FF9F43">谁</tspan>控制账本，<tspan fill="#FF9F43">谁</tspan>就控制钱</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const PX = [300, 760, 1220, 1680];
+      const LIT = ["#F0B90B", "#F0B90B", "#B48EF0", "#58C4DD"];
+      // L0 标题，然后时间轴与暗站点
+      IN("#hi-title", at(0, 0.05), 0.8, { y: 16 }, { y: 0 });
+      DRAW("#hi-ax0", at(0, 0.55), 0.6);
+      IN("#hi-p0, #hi-p1, #hi-p2, #hi-p3", at(0, 0.7), 0.5);
+
+      // 每句点亮一站
+      const light = (k, i, tw, rs) => {
+        DRAW("#hi-ax" + (k + 1), at(i, 0.0), 0.8);
+        tl.to("#hi-p" + k, { fill: LIT[k], attr: { r: 18 }, duration: 0.3 }, at(i, 0.04));
+        IN("#hi-i" + k, at(i, 0.06), 0.6, { y: 20 }, { y: 0 });
+        IN("#hi-n" + k, at(i, 0.12), 0.5);
+        IN("#hi-w" + k, at(i, tw), 0.5);
+        rs.forEach((f, j) => IN("#hi-r" + k + j, at(i, f), 0.4, { y: 8 }, { y: 0 }));
+        if (k > 0) tl.to("#hi-p" + (k - 1), { attr: { r: 14 }, duration: 0.3 }, at(i, 0.04));
+      };
+      light(0, 1, 0.38, [0.66, 0.76, 0.86]);
+      light(1, 2, 0.32, [0.66, 0.82]);
+      light(2, 3, 0.3, [0.5, 0.64, 0.84]);
+      IN("#hi-db", at(3, 0.2), 0.5, { y: 10 }, { y: 0 });
+      light(3, 4, 0.36, [0.68, 0.82]);
+      DRAW("#hi-ax4", at(4, 0.0) + 0.8, 0.4);
+
+      // L5 余额只是一条记录
+      OUT("#hi-b0, #hi-b1, #hi-b2, #hi-b3", at(5, 0.0), 0.4);
+      tl.to("#hi-i0, #hi-i1, #hi-i3", { opacity: 0.25, duration: 0.5 }, at(5, 0.02));
+      tl.to("#hi-db", { scale: 1.25, svgOrigin: "1310 448", duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.06));
+      IN("#hi-rec", at(5, 0.14), 0.6, { scale: 0.3, svgOrigin: "1310 470" }, { scale: 1, svgOrigin: "1310 470" });
+      IN("#hi-big", at(5, 0.42), 0.7, { y: 16 }, { y: 0 });
+      IN("#hi-ctl", at(5, 0.74), 0.6, { y: 12 }, { y: 0 });
+
+      tl.to("#hi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["history"] = tl;
+    })();
+  </script>
+</template>

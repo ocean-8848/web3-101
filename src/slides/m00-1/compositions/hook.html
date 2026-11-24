@@ -1,0 +1,219 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="42.58" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ho-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+        <marker id="ho-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <!-- L0–L2 两部手机 + 金币 + 账本表 -->
+        <g id="ho-s1">
+          <g id="ho-ph0" class="h">
+            <rect x="240" y="300" width="240" height="480" rx="34" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <rect x="262" y="350" width="196" height="370" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="1.5" opacity="0.6"/>
+            <line x1="330" y1="325" x2="390" y2="325" stroke="#8a8f99" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <text id="ho-pt" class="h" x="360" y="545" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">转账 <tspan fill="#F0B90B">¥100</tspan></text>
+          <text id="ho-pl0" class="h" x="360" y="840" font-size="34" fill="#e8e6df" text-anchor="middle">你</text>
+          <g id="ho-ph1" class="h">
+            <rect x="1440" y="300" width="240" height="480" rx="34" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+            <rect x="1462" y="350" width="196" height="370" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="1.5" opacity="0.6"/>
+            <line x1="1530" y1="325" x2="1590" y2="325" stroke="#8a8f99" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <text id="ho-pl1" class="h" x="1560" y="840" font-size="34" fill="#e8e6df" text-anchor="middle">朋友</text>
+          <g id="ho-dots" fill="#F0B90B"></g>
+          <g id="ho-coin" class="h">
+            <circle id="ho-coinc" cx="480" cy="400" r="32" fill="#F0B90B" stroke="#ffd65c" stroke-width="3"/>
+          </g>
+          <g id="ho-x" class="h"><path d="M930 220 L990 280 M990 220 L930 280" stroke="#FC6255" stroke-width="9" stroke-linecap="round"/></g>
+          <g id="ho-tab" class="h">
+            <rect x="760" y="410" width="400" height="250" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="790" y="462" font-size="28" fill="#B48EF0">银行数据库</text>
+            <line x1="760" y1="484" x2="1160" y2="484" stroke="#58C4DD" stroke-width="1.5" opacity="0.5"/>
+            <text x="790" y="550" font-size="34" fill="#e8e6df">你</text>
+            <text class="mono" x="880" y="550" font-size="34" fill="#6b6f7a">¥500</text>
+            <text class="mono" x="985" y="550" font-size="34" fill="#8a8f99">→</text>
+            <text class="mono" x="1030" y="550" font-size="34" fill="#F0B90B">¥</text>
+            <text x="790" y="625" font-size="34" fill="#e8e6df">朋友</text>
+            <text class="mono" x="880" y="625" font-size="34" fill="#6b6f7a">¥200</text>
+            <text class="mono" x="985" y="625" font-size="34" fill="#8a8f99">→</text>
+            <text class="mono" x="1030" y="625" font-size="34" fill="#F0B90B">¥</text>
+          </g>
+          <text id="ho-v0" class="h mono" x="1051" y="550" font-size="34" font-weight="700" fill="#F0B90B">500</text>
+          <text id="ho-v1" class="h mono" x="1051" y="625" font-size="34" font-weight="700" fill="#F0B90B">200</text>
+          <text id="ho-ex" class="h" x="1160" y="700" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+        </g>
+        <!-- L3 问题 -->
+        <text id="ho-q" class="h" x="960" y="570" font-size="88" font-weight="700" fill="#e8e6df" text-anchor="middle">这本账，由<tspan fill="#FF9F43">谁</tspan>来记？</text>
+        <!-- L4 左面板：中心化 -->
+        <g id="ho-lp" class="h">
+          <rect x="120" y="300" width="780" height="660" rx="20" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/>
+          <text x="510" y="370" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">中心化：一家机构记账</text>
+        </g>
+        <g id="ho-bank" class="h">
+          <path d="M410 540 L510 486 L610 540 Z" fill="none" stroke="#B48EF0" stroke-width="4" stroke-linejoin="round"/>
+          <line x1="420" y1="552" x2="600" y2="552" stroke="#B48EF0" stroke-width="4"/>
+          <line x1="440" y1="562" x2="440" y2="650" stroke="#B48EF0" stroke-width="7"/>
+          <line x1="487" y1="562" x2="487" y2="650" stroke="#B48EF0" stroke-width="7"/>
+          <line x1="533" y1="562" x2="533" y2="650" stroke="#B48EF0" stroke-width="7"/>
+          <line x1="580" y1="562" x2="580" y2="650" stroke="#B48EF0" stroke-width="7"/>
+          <rect x="405" y="660" width="210" height="16" rx="3" fill="#B48EF0"/>
+        </g>
+        <text id="ho-one" class="h" x="510" y="730" font-size="30" fill="#B48EF0" text-anchor="middle">唯一账本</text>
+        <g id="ho-u0" class="h"><circle cx="220" cy="480" r="32" fill="none" stroke="#8a8f99" stroke-width="3"/><circle cx="220" cy="470" r="10" fill="#8a8f99"/><path d="M200 498 Q220 482 240 498" stroke="#8a8f99" stroke-width="3" fill="none"/></g>
+        <g id="ho-u1" class="h"><circle cx="800" cy="480" r="32" fill="none" stroke="#8a8f99" stroke-width="3"/><circle cx="800" cy="470" r="10" fill="#8a8f99"/><path d="M780 498 Q800 482 820 498" stroke="#8a8f99" stroke-width="3" fill="none"/></g>
+        <g id="ho-u2" class="h"><circle cx="220" cy="790" r="32" fill="none" stroke="#8a8f99" stroke-width="3"/><circle cx="220" cy="780" r="10" fill="#8a8f99"/><path d="M200 808 Q220 792 240 808" stroke="#8a8f99" stroke-width="3" fill="none"/></g>
+        <g id="ho-u3" class="h"><circle cx="800" cy="790" r="32" fill="none" stroke="#8a8f99" stroke-width="3"/><circle cx="800" cy="780" r="10" fill="#8a8f99"/><path d="M780 808 Q800 792 820 808" stroke="#8a8f99" stroke-width="3" fill="none"/></g>
+        <path id="ho-a0" class="h" d="M256 500 L398 552" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="9 7" fill="none" marker-end="url(#ho-arrG)"/>
+        <path id="ho-a1" class="h" d="M764 500 L622 552" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="9 7" fill="none" marker-end="url(#ho-arrG)"/>
+        <path id="ho-a2" class="h" d="M256 770 L398 672" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="9 7" fill="none" marker-end="url(#ho-arrG)"/>
+        <path id="ho-a3" class="h" d="M764 770 L622 672" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="9 7" fill="none" marker-end="url(#ho-arrG)"/>
+        <text id="ho-must" class="h" x="510" y="900" font-size="30" fill="#FF9F43" text-anchor="middle">相信它：不出错 · 不作恶 · 不倒闭</text>
+        <!-- L5 右面板：区块链 -->
+        <g id="ho-rp" class="h">
+          <rect x="1020" y="300" width="780" height="660" rx="20" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/>
+          <text x="1410" y="370" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">区块链：每个节点各存一本</text>
+        </g>
+        <g id="ho-edges" class="h" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="9 7" fill="none">
+          <line x1="1188" y1="490" x2="1632" y2="490"/>
+          <line x1="1188" y1="780" x2="1632" y2="780"/>
+          <line x1="1140" y1="538" x2="1140" y2="732"/>
+          <line x1="1680" y1="538" x2="1680" y2="732"/>
+        </g>
+        <g id="ho-n0" class="h"><circle cx="1140" cy="490" r="44" fill="#0f1117" stroke="#58C4DD" stroke-width="3.5"/><rect x="1124" y="470" width="32" height="40" rx="3" fill="none" stroke="#58C4DD" stroke-width="2.5"/><line x1="1130" y1="482" x2="1150" y2="482" stroke="#58C4DD" stroke-width="2"/><line x1="1130" y1="492" x2="1150" y2="492" stroke="#58C4DD" stroke-width="2"/><line x1="1130" y1="502" x2="1144" y2="502" stroke="#58C4DD" stroke-width="2"/></g>
+        <g id="ho-n1" class="h"><circle cx="1680" cy="490" r="44" fill="#0f1117" stroke="#58C4DD" stroke-width="3.5"/><rect x="1664" y="470" width="32" height="40" rx="3" fill="none" stroke="#58C4DD" stroke-width="2.5"/><line x1="1670" y1="482" x2="1690" y2="482" stroke="#58C4DD" stroke-width="2"/><line x1="1670" y1="492" x2="1690" y2="492" stroke="#58C4DD" stroke-width="2"/><line x1="1670" y1="502" x2="1684" y2="502" stroke="#58C4DD" stroke-width="2"/></g>
+        <g id="ho-n2" class="h"><circle cx="1140" cy="780" r="44" fill="#0f1117" stroke="#58C4DD" stroke-width="3.5"/><rect x="1124" y="760" width="32" height="40" rx="3" fill="none" stroke="#58C4DD" stroke-width="2.5"/><line x1="1130" y1="772" x2="1150" y2="772" stroke="#58C4DD" stroke-width="2"/><line x1="1130" y1="782" x2="1150" y2="782" stroke="#58C4DD" stroke-width="2"/><line x1="1130" y1="792" x2="1144" y2="792" stroke="#58C4DD" stroke-width="2"/></g>
+        <g id="ho-n3" class="h"><circle cx="1680" cy="780" r="44" fill="#0f1117" stroke="#58C4DD" stroke-width="3.5"/><rect x="1664" y="760" width="32" height="40" rx="3" fill="none" stroke="#58C4DD" stroke-width="2.5"/><line x1="1670" y1="772" x2="1690" y2="772" stroke="#58C4DD" stroke-width="2"/><line x1="1670" y1="782" x2="1690" y2="782" stroke="#58C4DD" stroke-width="2"/><line x1="1670" y1="792" x2="1684" y2="792" stroke="#58C4DD" stroke-width="2"/></g>
+        <g id="ho-cap" class="h">
+          <rect x="1255" y="600" width="310" height="66" rx="33" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="1410" y="644" font-size="32" fill="#58C4DD" text-anchor="middle">同一份账本 × N</text>
+        </g>
+        <!-- L6 信任标签 -->
+        <g id="ho-tl" class="h">
+          <rect x="360" y="862" width="300" height="64" rx="12" fill="#2a2140" stroke="#B48EF0" stroke-width="2.5"/>
+          <text x="510" y="906" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">信任一家机构</text>
+        </g>
+        <g id="ho-tr" class="h">
+          <rect x="1180" y="862" width="460" height="64" rx="12" fill="#1a2a1a" stroke="#83C167" stroke-width="2.5"/>
+          <text x="1410" y="906" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">信任公开规则 + 多数节点</text>
+        </g>
+        <path id="ho-sw" class="dr h" pathLength="1" d="M668 894 L1168 894" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#ho-arrO)"/>
+        <text id="ho-swl" class="h" x="960" y="868" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">换成</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ho-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">账本 <tspan font-size="28" font-weight="400" fill="#8a8f99">Ledger</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">记录资产归属和转移的数据</text>
+      </g>
+      <g id="ho-term2" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">节点 <tspan font-size="28" font-weight="400" fill="#8a8f99">Node</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">参与网络、保存完整或部分账本的计算机</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // 金币弧线：二次贝塞尔 (480,400) → 控制点 (960,100) → (1440,400)
+      const P0 = [480, 400], P1 = [960, 100], P2 = [1440, 400];
+      const bez = u => [(1 - u) * (1 - u) * P0[0] + 2 * (1 - u) * u * P1[0] + u * u * P2[0], (1 - u) * (1 - u) * P0[1] + 2 * (1 - u) * u * P1[1] + u * u * P2[1]];
+      const dots = document.querySelector("#ho-dots"), NS = "http://www.w3.org/2000/svg";
+      for (let k = 1; k <= 13; k++) {
+        const [x, y] = bez(k / 14), c = document.createElementNS(NS, "circle");
+        c.setAttribute("id", "ho-d" + k); c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", 6); c.setAttribute("opacity", 0);
+        dots.appendChild(c);
+      }
+
+      // L0 手机
+      IN("#ho-ph0", at(0, 0.0), 0.6, { y: 30 }, { y: 0 });
+      IN("#ho-pl0", at(0, 0.1), 0.5);
+      IN("#ho-pt", at(0, 0.35), 0.5, { scale: 0.8, svgOrigin: "360 535" }, { scale: 1, svgOrigin: "360 535" });
+      IN("#ho-ph1", at(0, 0.6), 0.6, { y: 30 }, { y: 0 });
+      IN("#ho-pl1", at(0, 0.7), 0.5);
+      // L1 金币飞过去
+      const t1 = at(1, 0.05), fly = 1.5;
+      IN("#ho-coin", t1, 0.2);
+      const pr = { u: 0 }, cc = document.querySelector("#ho-coinc");
+      tl.fromTo(pr, { u: 0 }, { u: 1, duration: fly, ease: "power1.inOut", immediateRender: false, onUpdate: () => { const [x, y] = bez(pr.u); cc.setAttribute("cx", x); cc.setAttribute("cy", y); } }, t1);
+      for (let k = 1; k <= 13; k++) tl.fromTo("#ho-d" + k, { opacity: 0 }, { opacity: 0.9, duration: 0.15 }, t1 + fly * (k / 14) * 0.95);
+      tl.to("#ho-ph1 rect", { stroke: "#F0B90B", duration: 0.25, yoyo: true, repeat: 1 }, t1 + fly);
+      // L2 什么都没移动：轨迹打叉，账本表升起
+      tl.to("#ho-dots circle", { opacity: 0.25, duration: 0.3 }, at(2, 0.0));
+      OUT("#ho-coin", at(2, 0.0), 0.4);
+      IN("#ho-x", at(2, 0.06), 0.3, { scale: 0.5, svgOrigin: "960 250" }, { scale: 1, svgOrigin: "960 250", ease: "back.out(2)" });
+      OUT("#ho-dots circle, #ho-x", at(2, 0.24), 0.4);
+      IN("#ho-tab", at(2, 0.3), 0.7, { y: 60 }, { y: 0 });
+      IN("#ho-ex", at(2, 0.4), 0.5);
+      IN("#ho-v0, #ho-v1", at(2, 0.35), 0.5);
+      tl.to("#ho-v0", { fill: "#FC6255", duration: 0.2 }, at(2, 0.5));
+      COUNT("#ho-v0", 500, 400, at(2, 0.5), 1.0);
+      tl.to("#ho-v0", { fill: "#F0B90B", duration: 0.4 }, at(2, 0.5) + 1.1);
+      tl.to("#ho-v1", { fill: "#83C167", duration: 0.2 }, at(2, 0.76));
+      COUNT("#ho-v1", 200, 300, at(2, 0.76), 1.0);
+      tl.to("#ho-v1", { fill: "#F0B90B", duration: 0.4 }, at(2, 0.76) + 1.1);
+      // L3 由谁来记
+      OUT("#ho-s1 > *", at(3, 0.0), 0.5);
+      IN("#ho-q", at(3, 0.15), 0.7, { scale: 0.9, svgOrigin: "960 540" }, { scale: 1, svgOrigin: "960 540" });
+      tl.to("#ho-q", { attr: { y: 236, "font-size": 52 }, duration: 0.8, ease: "power2.inOut" }, at(3, 0.72));
+      // L4 左面板：一家机构记账
+      IN("#ho-lp", at(4, 0.0), 0.6);
+      IN("#ho-term", at(4, 0.03), 0.5);
+      IN("#ho-bank", at(4, 0.08), 0.6, { y: 20 }, { y: 0 });
+      IN("#ho-one", at(4, 0.2), 0.5);
+      ["#ho-u0", "#ho-u1", "#ho-u2", "#ho-u3"].forEach((s, k) => IN(s, at(4, 0.28 + k * 0.06), 0.4, { scale: 0.6, svgOrigin: ["220 480", "800 480", "220 790", "800 790"][k] }, { scale: 1, svgOrigin: ["220 480", "800 480", "220 790", "800 790"][k] }));
+      ["#ho-a0", "#ho-a1", "#ho-a2", "#ho-a3"].forEach((s, k) => IN(s, at(4, 0.42 + k * 0.04), 0.4));
+      IN("#ho-must", at(4, 0.68), 0.6, { y: 12 }, { y: 0 });
+      OUT("#ho-term", at(4, 0.97), 0.3);
+      // L5 右面板：每个节点各一本
+      IN("#ho-rp", at(5, 0.0), 0.6);
+      IN("#ho-term2", at(5, 0.04), 0.5);
+      ["#ho-n0", "#ho-n1", "#ho-n3", "#ho-n2"].forEach((s, k) => IN(s, at(5, 0.14 + k * 0.07), 0.45, { scale: 0.5, svgOrigin: ["1140 490", "1680 490", "1680 780", "1140 780"][k] }, { scale: 1, svgOrigin: ["1140 490", "1680 490", "1680 780", "1140 780"][k] }));
+      IN("#ho-edges", at(5, 0.45), 0.6);
+      IN("#ho-cap", at(5, 0.55), 0.6, { scale: 0.8, svgOrigin: "1410 633" }, { scale: 1, svgOrigin: "1410 633" });
+      ["#ho-n0", "#ho-n1", "#ho-n3", "#ho-n2"].forEach((s, k) => tl.to(s + " circle", { stroke: "#83C167", duration: 0.2, yoyo: true, repeat: 1 }, at(5, 0.8 + k * 0.04)));
+      OUT("#ho-term2", at(6, 0.0), 0.3);
+      // L6 信任的转换
+      OUT("#ho-must", at(6, 0.02), 0.3);
+      IN("#ho-tl", at(6, 0.1), 0.5, { y: 14 }, { y: 0 });
+      ARROW("#ho-sw", at(6, 0.24), 0.8);
+      IN("#ho-swl", at(6, 0.28), 0.4);
+      IN("#ho-tr", at(6, 0.36), 0.5, { y: 14 }, { y: 0 });
+      tl.to("#ho-tr rect", { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.66));
+      tl.to("#ho-q", { opacity: 0.5, duration: 0.5 }, at(6, 0.75));
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ho-term, #ho-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

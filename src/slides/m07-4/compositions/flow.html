@@ -1,0 +1,114 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 flow，id 前缀 fw- -->
+  <div id="root" data-composition-id="flow" data-duration="43.13" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fw-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="fw-all">
+
+        <g id="fw-in" class="h"><rect id="fw-inb" x="120" y="460" width="280" height="140" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text x="260" y="508" font-size="28" text-anchor="middle" fill="#8a8f99">输入字符串</text></g>
+        <text id="fw-inv" class="h mono" x="260" y="572" font-size="44" text-anchor="middle" fill="#e8e6df">"1.5"</text>
+        <path id="fw-a1" class="dr h" pathLength="1" d="M400 530 L516 530" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fw-arr)" />
+        <text id="fw-a1t" class="h" x="460" y="440" font-size="28" text-anchor="middle" fill="#FF9F43">校验格式与位数</text>
+        <g id="fw-pu" class="h"><rect id="fw-pub" x="520" y="460" width="280" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text class="mono" x="660" y="542" font-size="34" text-anchor="middle" fill="#58C4DD">parseUnits</text></g>
+        <text id="fw-puo" class="h mono" x="660" y="652" font-size="28" text-anchor="middle" fill="#58C4DD">1500000000000000000n</text>
+        <g id="fw-ch" class="h"><rect id="fw-chb" x="920" y="220" width="340" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="1090" y="272" font-size="30" text-anchor="middle" fill="#e8e6df">合约返回 bigint</text>
+          <text x="1090" y="318" font-size="28" text-anchor="middle" fill="#8a8f99">余额</text></g>
+        <path id="fw-a2" class="dr h" pathLength="1" d="M800 530 L916 530" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fw-arr)" />
+        <path id="fw-a3" class="dr h" pathLength="1" d="M1090 340 L1090 416" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fw-arr)" />
+        <g id="fw-calc" class="h"><rect id="fw-cab" x="920" y="420" width="340" height="220" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="6"/>
+          <text x="1090" y="512" font-size="34" text-anchor="middle" fill="#e8e6df">bigint 运算</text></g>
+        <text id="fw-ops" class="h mono" x="1090" y="588" font-size="36" text-anchor="middle" fill="#58C4DD">+ − × ÷ &lt;</text>
+        <path id="fw-a4" class="dr h" pathLength="1" d="M1260 470 L1416 330" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#fw-arr)" />
+        <g id="fw-tx" class="h"><rect id="fw-txb" x="1420" y="260" width="360" height="120" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3"/>
+          <text class="mono" x="1600" y="331" font-size="32" text-anchor="middle" fill="#F0B90B">writeContract</text></g>
+        <text id="fw-txt" class="h" x="1600" y="238" font-size="28" text-anchor="middle" fill="#F0B90B">交易参数</text>
+        <path id="fw-a5" class="dr h" pathLength="1" d="M1260 590 L1416 696" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fw-arr)" />
+        <g id="fw-fu" class="h"><rect id="fw-fub" x="1420" y="640" width="220" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text class="mono" x="1530" y="709" font-size="28" text-anchor="middle" fill="#58C4DD">formatUnits</text></g>
+        <path id="fw-a6" class="dr h" pathLength="1" d="M1530 760 L1530 836" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fw-arr)" />
+        <g id="fw-di" class="h"><rect id="fw-dib" x="1420" y="840" width="360" height="120" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text class="mono" x="1600" y="893" font-size="40" text-anchor="middle" fill="#e8e6df">1,234.56</text>
+          <text x="1600" y="940" font-size="28" text-anchor="middle" fill="#8a8f99">千分位 · 舍入</text></g>
+        <text id="fw-dit" class="h" x="1395" y="912" font-size="28" text-anchor="end" fill="#FF9F43">唯一可以舍入的地方</text>
+        <g id="fw-lock" class="h">
+          <rect x="1430" y="410" width="28" height="22" rx="4" fill="#83C167"/>
+          <path d="M1436 410 V400 a8 8 0 0 1 16 0 V410" stroke="#83C167" stroke-width="4" fill="none"/>
+          <text x="1472" y="432" font-size="28" fill="#83C167">原始 bigint，不舍入</text></g>
+        <path id="fw-a7" class="dr h" pathLength="1" d="M260 600 L260 816" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#fw-arr)"/>
+        <g id="fw-num" class="h"><rect id="fw-nub" x="120" y="820" width="280" height="110" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <text class="mono" x="260" y="864" font-size="30" text-anchor="middle" fill="#FC6255">Number</text>
+          <text class="mono" x="260" y="906" font-size="30" text-anchor="middle" fill="#FC6255">parseFloat</text></g>
+        <path id="fw-a8" class="dr h" pathLength="1" d="M400 875 L536 875" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#fw-arr)" />
+        <g id="fw-bad" class="h"><rect id="fw-bab" x="540" y="820" width="260" height="110" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <text x="670" y="886" font-size="32" text-anchor="middle" fill="#FC6255">精度丢失</text></g>
+        <circle id="fw-ball" class="h" cx="260" cy="620" r="14" fill="#F0B90B"/>
+        <polygon id="fw-spike" class="h" points="670,742 678,756 694,752 686,766 700,776 684,780 688,796 674,788 664,800 660,784 644,786 654,772 642,760 658,760 656,744 668,754" fill="#FC6255"/>
+        <text id="fw-neq" class="h" x="1720" y="622" font-size="72" font-weight="700" text-anchor="middle" fill="#FC6255">≠</text>
+        <text id="fw-neqt" class="h" x="1720" y="680" font-size="28" text-anchor="middle" fill="#FC6255">不一致</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+
+      IN("#fw-in", at(0, 0.1)); IN("#fw-inv", at(0, 0.6), 0.5, { scale: 1.3, svgOrigin: "260 560" }, { scale: 1 });
+      // L1
+      ARROW("#fw-a1", at(1, 0.05)); IN("#fw-a1t", at(1, 0.1));
+      IN("#fw-pu", at(1, 0.45)); IN("#fw-puo", at(1, 0.8));
+      // L2
+      IN("#fw-ch", at(2, 0.05), 0.7, { y: -60 }, { y: 0 });
+      ARROW("#fw-a2", at(2, 0.4)); ARROW("#fw-a3", at(2, 0.4));
+      IN("#fw-calc", at(2, 0.5));
+      tl.fromTo("#fw-ops", { opacity: 0 }, { opacity: 1, duration: 0.3, repeat: 2, yoyo: true }, at(2, 0.72));
+      TO("#fw-ops", at(2, 0.72) + 1.6, { opacity: 1 }, 0.2);
+      // L3
+      ARROW("#fw-a4", at(3, 0.08)); IN("#fw-tx", at(3, 0.18)); IN("#fw-txt", at(3, 0.25));
+      ARROW("#fw-a5", at(3, 0.5)); IN("#fw-fu", at(3, 0.58));
+      ARROW("#fw-a6", at(3, 0.72)); IN("#fw-di", at(3, 0.8));
+      // L4
+      TO("#fw-dib", at(4, 0.05), { stroke: "#FF9F43", strokeWidth: 5 });
+      IN("#fw-dit", at(4, 0.12));
+      IN("#fw-lock", at(4, 0.6));
+      // L5
+      ARROW("#fw-a7", at(5, 0.12)); IN("#fw-num", at(5, 0.25));
+      IN("#fw-ball", at(5, 0.32), 0.2);
+      tl.to("#fw-ball", { attr: { cy: 875 }, duration: 0.8, ease: "power1.inOut" }, at(5, 0.34));
+      ARROW("#fw-a8", at(5, 0.45)); IN("#fw-bad", at(5, 0.5));
+      tl.to("#fw-ball", { attr: { cx: 670, cy: 770 }, duration: 0.8, ease: "power1.inOut" }, at(5, 0.5));
+      OUT("#fw-ball", at(5, 0.62), 0.2); IN("#fw-spike", at(5, 0.62), 0.3, { scale: 0.3, svgOrigin: "670 770" }, { scale: 1 });
+      TO("#fw-dib", at(5, 0.8), { stroke: "#FC6255" }); TO("#fw-txb", at(5, 0.8), { stroke: "#FC6255" });
+      IN("#fw-neq", at(5, 0.82)); IN("#fw-neqt", at(5, 0.86));
+
+      tl.to("#fw-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["flow"] = tl;
+    })();
+  </script>
+</template>

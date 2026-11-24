@@ -1,0 +1,230 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 rw，id 前缀 rw- -->
+  <div id="root" data-composition-id="rw" data-duration="47.22" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rw-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="rw-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="rw-arrx" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="rw-all">
+        <!-- L0–L2：积木（React / wagmi / viem） -->
+        <g id="rw-stack">
+          <g id="rw-bv" class="h">
+            <rect id="rw-bvr" x="400" y="760" width="1100" height="120" rx="12" fill="#58C4DD" fill-opacity="0.28" stroke="#58C4DD" stroke-width="3" />
+            <text id="rw-bvt" x="950" y="835" font-size="40" fill="#e8e6df" text-anchor="middle">viem · 和链通信</text>
+          </g>
+          <g id="rw-bw" class="h">
+            <rect id="rw-bwr" x="400" y="620" width="1100" height="120" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#8fd8ea" stroke-width="3" />
+            <text id="rw-bwt" x="950" y="695" font-size="40" fill="#e8e6df" text-anchor="middle">wagmi · React Hooks</text>
+          </g>
+          <g id="rw-br" class="h">
+            <rect id="rw-brr" x="400" y="480" width="1100" height="120" rx="12" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <text id="rw-brt" x="950" y="555" font-size="40" fill="#e8e6df" text-anchor="middle">React 页面</text>
+          </g>
+        </g>
+
+        <!-- L1：代码面板 -->
+        <g id="rw-code" class="h">
+          <rect x="680" y="220" width="1180" height="400" rx="14" fill="#161a22" stroke="#3a3f4b" stroke-width="2" />
+          <rect id="rw-hl" x="692" y="251" width="1156" height="41" rx="6" fill="#58C4DD" fill-opacity="0.15" opacity="0" />
+          <g class="mono" font-size="28" fill="#e8e6df">
+            <text id="rw-c0" x="720" y="280">const [account] = await wallet.requestAddresses()</text>
+            <text id="rw-c1" x="720" y="321">const bal = await pub.readContract({</text>
+            <text id="rw-c2" x="754" y="362">functionName: 'balanceOf', ... })</text>
+            <text id="rw-c3" x="720" y="403">const { request } = await pub.simulateContract({</text>
+            <text id="rw-c4" x="754" y="444">functionName: 'transfer',</text>
+            <text id="rw-c5" x="754" y="485">args: [to, parseUnits('25', 6)] })</text>
+            <text id="rw-c6" x="720" y="526">const hash = await wallet.writeContract(request)</text>
+            <text id="rw-c7" x="720" y="567">const receipt = await pub.waitForTransactionReceipt({ hash })</text>
+          </g>
+        </g>
+
+        <!-- L1：四步卡 -->
+        <g id="rw-steps">
+          <g id="rw-s1" class="h">
+            <rect id="rw-s1r" x="680" y="690" width="280" height="150" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5" />
+            <text x="820" y="744" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">① 连钱包</text>
+            <text x="820" y="796" font-size="28" fill="#8a8f99" text-anchor="middle">拿地址</text>
+          </g>
+          <g id="rw-s2" class="h">
+            <rect id="rw-s2r" x="980" y="690" width="280" height="150" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5" />
+            <text x="1120" y="740" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">② 读</text>
+            <text x="1120" y="782" font-size="28" fill="#83C167" text-anchor="middle">不签名</text>
+            <text x="1120" y="820" font-size="28" fill="#83C167" text-anchor="middle">不花 Gas</text>
+          </g>
+          <g id="rw-s3" class="h">
+            <rect id="rw-s3r" x="1280" y="690" width="280" height="150" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5" />
+            <text x="1420" y="744" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">③ 模拟 → 发送</text>
+            <text x="1420" y="796" font-size="28" fill="#8a8f99" text-anchor="middle">先模拟</text>
+          </g>
+          <g id="rw-s4" class="h">
+            <rect id="rw-s4r" x="1580" y="690" width="280" height="150" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5" />
+            <text x="1720" y="744" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">④ 等回执</text>
+            <text x="1720" y="796" font-size="28" fill="#8a8f99" text-anchor="middle">再更新界面</text>
+          </g>
+        </g>
+
+        <!-- L2：模拟失败不弹钱包 -->
+        <g id="rw-sim">
+          <g id="rw-sbox" class="h">
+            <rect id="rw-sboxr" x="720" y="370" width="340" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="890" y="435" font-size="28" fill="#e8e6df" text-anchor="middle">simulate</text>
+          </g>
+          <text id="rw-sfail" class="h" x="890" y="540" font-size="32" fill="#FC6255" text-anchor="middle">✕ 模拟失败</text>
+          <path id="rw-sarr" class="dr h" pathLength="1" d="M1080 425 L1250 425" stroke="#8a8f99" stroke-width="3" stroke-dasharray="1" fill="none" marker-end="url(#rw-arrx)" />
+          <g id="rw-swal" class="h">
+            <rect x="1280" y="370" width="170" height="110" rx="16" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <rect x="1400" y="405" width="50" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <circle cx="1418" cy="425" r="5" fill="#8a8f99" />
+          </g>
+          <text id="rw-swalt" class="h" x="1365" y="540" font-size="30" fill="#e8e6df" text-anchor="middle">不弹钱包</text>
+          <g id="rw-flame" class="h">
+            <path d="M1660 480 C1610 480 1600 430 1630 400 C1640 420 1650 420 1650 405 C1650 380 1665 365 1675 355 C1675 385 1715 400 1705 445 C1700 470 1685 480 1660 480 Z" fill="#F0B90B" fill-opacity="0.85" stroke="#F0B90B" stroke-width="2" />
+          </g>
+          <text id="rw-flamet" class="h" x="1660" y="540" font-size="30" fill="#83C167" text-anchor="middle">不白付 Gas</text>
+        </g>
+
+        <!-- L3：精度 -->
+        <g id="rw-prec">
+          <text id="rw-eq" class="mono h" x="960" y="440" font-size="56" fill="#FC6255" text-anchor="middle">0.1 + 0.2 = 0.300000000000000<tspan id="rw-eqt">04</tspan></text>
+          <text id="rw-n53" class="h" x="960" y="540" font-size="36" fill="#e8e6df" text-anchor="middle"><tspan class="mono">number</tspan>：53 位精度</text>
+          <g id="rw-big" class="h">
+            <rect x="420" y="400" width="820" height="100" rx="12" fill="#58C4DD" fill-opacity="0.22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="460" y="465" font-size="40" fill="#e8e6df">bigint</text>
+          </g>
+          <g id="rw-dec" class="h">
+            <rect x="1270" y="400" width="240" height="100" rx="12" fill="none" stroke="#F0B90B" stroke-width="3" />
+            <text class="mono" x="1390" y="463" font-size="36" fill="#F0B90B" text-anchor="middle">decimals</text>
+          </g>
+          <text id="rw-rule" class="h" x="960" y="600" font-size="40" fill="#83C167" text-anchor="middle">金额一律这样算</text>
+        </g>
+
+        <!-- L4：算一算 -->
+        <g id="rw-calc">
+          <text id="rw-ct" class="h" x="960" y="250" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">算一算</text>
+          <g id="rw-c25" class="h">
+            <rect x="180" y="380" width="320" height="110" rx="14" fill="none" stroke="#F0B90B" stroke-width="3" />
+            <text x="340" y="452" font-size="52" fill="#F0B90B" text-anchor="middle">25 USDC</text>
+          </g>
+          <text id="rw-cal" class="h" x="760" y="395" font-size="30" fill="#e8e6df" text-anchor="middle">× 10^6（decimals = 6）</text>
+          <path id="rw-carr" class="dr h" pathLength="1" d="M530 435 L990 435" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#rw-arrg)" />
+          <text id="rw-cres" class="mono h" x="1030" y="455" font-size="56" fill="#F0B90B">25,000,000</text>
+          <text id="rw-cw" class="h" x="180" y="640" font-size="32" fill="#8a8f99">若误用 decimals = 18</text>
+          <text id="rw-cwn" class="mono h" x="180" y="730" font-size="46" fill="#FC6255">25,000,000,000,000,000,000</text>
+          <text id="rw-cx" class="h" x="1100" y="730" font-size="36" fill="#FC6255">÷ 25,000,000 = 10^12 · 一万亿倍</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="rw-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">viem / wagmi</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">TS 以太坊库 + React Hooks 封装</text>
+      </g>
+      <g id="rw-term2" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">回执 <tspan font-size="28" font-weight="400" fill="#8a8f99">Transaction Receipt</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">上链结果：status、gasUsed、logs</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0：术语卡 + 三层积木自下而上
+      IN("#rw-term", at(0, 0.05), 0.5);
+      IN("#rw-bv", at(0, 0.2), 0.6, { y: 40 }, { y: 0 });
+      IN("#rw-bw", at(0, 0.55), 0.6, { y: 40 }, { y: 0 });
+      IN("#rw-br", at(0, 0.85), 0.6, { y: 40 }, { y: 0 });
+
+      // L1：积木收到左侧，代码面板 + 四步卡
+      const t1 = at(1, 0), E = "power2.inOut";
+      [["v", 512, 568], ["w", 406, 462], ["r", 300, 356]].forEach(([k, y, ty]) => {
+        tl.to(`#rw-b${k}r`, { attr: { x: 80, y, width: 540, height: 90 }, duration: 0.8, ease: E }, t1);
+        tl.to(`#rw-b${k}t`, { attr: { x: 350, y: ty, "font-size": 30 }, duration: 0.8, ease: E }, t1);
+      });
+      IN("#rw-code", t1 + 0.4, 0.6);
+      for (let i = 0; i < 8; i++) IN(`#rw-c${i}`, t1 + 0.5 + i * 0.08, 0.4);
+      const HL = (y0, n, t) => tl.to("#rw-hl", { attr: { y: 251 + 41 * y0, height: 41 * n }, opacity: 1, duration: 0.4, ease: E }, t);
+      const STEP = (k, t) => {
+        IN(`#rw-s${k}`, t, 0.5, { y: 20 }, { y: 0 });
+        tl.to(`#rw-s${k}r`, { stroke: "#58C4DD", duration: 0.3 }, t + 0.1);
+        if (k > 1) tl.to(`#rw-s${k - 1}r`, { stroke: "#3a3f4b", duration: 0.3 }, t + 0.1);
+      };
+      HL(0, 1, at(1, 0.12)); STEP(1, at(1, 0.12));
+      HL(1, 2, at(1, 0.3)); STEP(2, at(1, 0.3));
+      HL(3, 4, at(1, 0.6)); STEP(3, at(1, 0.6));
+      HL(7, 1, at(1, 0.76)); STEP(4, at(1, 0.76));
+      OUT("#rw-term", at(1, 0.74), 0.3);
+      IN("#rw-term2", at(1, 0.8), 0.5);
+
+      // L2：第 ③ 步放大：模拟失败 → 不弹钱包 → 不白付 Gas
+      OUT("#rw-code", at(2, 0), 0.4);
+      tl.to("#rw-s4r", { stroke: "#3a3f4b", duration: 0.3 }, at(2, 0));
+      tl.to("#rw-s3r", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.2));
+      IN("#rw-sbox", at(2, 0.1), 0.5, { scale: 0.9, svgOrigin: "890 425" }, { scale: 1, svgOrigin: "890 425" });
+      tl.to("#rw-sboxr", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.22));
+      IN("#rw-sfail", at(2, 0.24), 0.4);
+      ARROW("#rw-sarr", at(2, 0.4), 0.5);
+      IN("#rw-swal", at(2, 0.48), 0.5);
+      IN("#rw-swalt", at(2, 0.55), 0.4);
+      IN("#rw-flame", at(2, 0.72), 0.5, { scale: 0.6, svgOrigin: "1660 480" }, { scale: 1, svgOrigin: "1660 480" });
+      IN("#rw-flamet", at(2, 0.8), 0.4);
+      OUT("#rw-term2", at(2, 0.9), 0.3);
+
+      // L3：精度陷阱 → bigint + decimals
+      const t3 = at(3, 0);
+      OUT("#rw-stack", t3, 0.4); OUT("#rw-steps", t3, 0.4); OUT("#rw-sim", t3, 0.4);
+      IN("#rw-n53", at(3, 0.12), 0.5);
+      IN("#rw-eq", at(3, 0.3), 0.6, { scale: 0.9, svgOrigin: "960 420" }, { scale: 1, svgOrigin: "960 420" });
+      tl.fromTo("#rw-eqt", { fill: "#FC6255" }, { fill: "#ffffff", duration: 0.25, repeat: 5, yoyo: true, immediateRender: false }, at(3, 0.42));
+      OUT("#rw-eq", at(3, 0.64), 0.4); OUT("#rw-n53", at(3, 0.64), 0.4);
+      IN("#rw-big", at(3, 0.7), 0.6, { x: -40 }, { x: 0 });
+      IN("#rw-dec", at(3, 0.8), 0.5, { x: 40 }, { x: 0 });
+      IN("#rw-rule", at(3, 0.88), 0.5);
+
+      // L4：算一算 25 USDC
+      const t4 = at(4, 0);
+      OUT("#rw-prec", t4, 0.4);
+      IN("#rw-ct", at(4, 0.03), 0.5);
+      IN("#rw-c25", at(4, 0.24), 0.5, { scale: 0.9, svgOrigin: "340 435" }, { scale: 1, svgOrigin: "340 435" });
+      IN("#rw-cal", at(4, 0.36), 0.4);
+      ARROW("#rw-carr", at(4, 0.38), 0.6);
+      IN("#rw-cres", at(4, 0.48), 0.3);
+      COUNT("#rw-cres", 0, 25000000, at(4, 0.48), 1.4, v => Math.round(v).toLocaleString("en-US"));
+      IN("#rw-cw", at(4, 0.7), 0.4);
+      IN("#rw-cwn", at(4, 0.74), 0.5, { x: -30 }, { x: 0 });
+      IN("#rw-cx", at(4, 0.86), 0.5);
+
+      tl.to("#rw-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#rw-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["rw"] = tl;
+    })();
+  </script>
+</template>

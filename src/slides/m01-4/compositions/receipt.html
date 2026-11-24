@@ -1,0 +1,211 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 receipt，id 前缀 rt- -->
+  <div id="root" data-composition-id="receipt" data-duration="72.97" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rt-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="rt-all">
+        <defs><clipPath id="rt-clip"><rect x="0" y="222" width="1920" height="858"/></clipPath></defs>
+        <rect id="rt-slot" class="h" x="240" y="206" width="680" height="16" rx="8" fill="#8a8f99"/>
+        <text id="rt-blk" class="h" x="944" y="226" font-size="30" fill="#8a8f99">区块</text>
+        <g clip-path="url(#rt-clip)"><g id="rt-paper">
+          <rect x="260" y="214" width="640" height="560" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="290" y="270" font-size="32" font-weight="700" fill="#58C4DD">回执</text>
+          <rect id="rt-hb" x="276" y="299" width="608" height="42" rx="6" fill="#58C4DD" fill-opacity="0"/>
+          <text id="rt-f0" class="mono" x="300" y="330" font-size="30" fill="#8a8f99">status</text>
+          <text id="rt-f1" class="mono" x="300" y="410" font-size="30" fill="#8a8f99">gasUsed</text>
+          <text id="rt-f2" class="mono" x="300" y="460" font-size="30" fill="#8a8f99">effectiveGasPrice</text>
+          <text id="rt-f3" class="mono" x="300" y="510" font-size="30" fill="#8a8f99">cumulativeGasUsed</text>
+          <text id="rt-f4" class="mono" x="300" y="590" font-size="30" fill="#8a8f99">contractAddress</text>
+          <text id="rt-f5" class="mono" x="300" y="640" font-size="30" fill="#8a8f99">blockNumber</text>
+          <text id="rt-f6" class="mono" x="300" y="720" font-size="30" fill="#8a8f99">logs</text>
+        </g></g>
+        <text id="rt-n3" class="h" x="650" y="510" font-size="28" fill="#6b6f7a">一般不用</text>
+        <text id="rt-n4" class="h" x="610" y="590" font-size="28" fill="#e8e6df">新建合约</text>
+        <text id="rt-n5" class="h" x="560" y="640" font-size="28" fill="#e8e6df">确认数 · 重组</text>
+        <g id="rt-st">
+          <g id="rt-ok" class="h">
+            <rect x="1000" y="280" width="340" height="130" rx="16" fill="#83C167" fill-opacity="0.1" stroke="#83C167" stroke-width="4"/>
+            <text class="mono" x="1040" y="364" font-size="48" font-weight="700" fill="#83C167">0x1</text>
+            <path d="M1230 345 L1255 372 L1300 318" stroke="#83C167" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <text id="rt-okl" class="h" x="1170" y="462" font-size="30" fill="#83C167" text-anchor="middle">成功</text>
+          <g id="rt-bad" class="h">
+            <rect x="1420" y="280" width="340" height="130" rx="16" fill="#FC6255" fill-opacity="0.1" stroke="#FC6255" stroke-width="4"/>
+            <text class="mono" x="1460" y="364" font-size="48" font-weight="700" fill="#FC6255">0x0</text>
+            <path d="M1660 320 L1708 368 M1708 320 L1660 368" stroke="#FC6255" stroke-width="8" stroke-linecap="round"/>
+          </g>
+          <text id="rt-badl" class="h" x="1590" y="462" font-size="30" fill="#FC6255" text-anchor="middle">失败回滚</text>
+          <g id="rt-stamp" class="h">
+            <rect x="1430" y="510" width="320" height="76" rx="10" fill="none" stroke="#FC6255" stroke-width="4"/>
+            <text x="1590" y="560" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">已上链 · 已扣费</text>
+          </g>
+          <text id="rt-fee1" class="h mono" x="1000" y="690" font-size="30" fill="#e8e6df">gasUsed × effectiveGasPrice</text>
+          <text id="rt-fee2" class="h" x="1000" y="752" font-size="36" font-weight="700" fill="#F0B90B">= 手续费</text>
+        </g>
+        <path id="rt-la" class="dr h" pathLength="1" d="M400 710 H994" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#rt-arr)"/>
+        <g id="rt-log" class="h">
+          <rect x="1000" y="236" width="800" height="494" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="1030" y="284" font-size="30" font-weight="700" fill="#58C4DD">日志</text>
+        </g>
+        <text id="rt-ad" class="h mono" x="1030" y="338" font-size="30" fill="#e8e6df">address <tspan fill="#8a8f99">0xdAC1…</tspan></text>
+        <g id="rt-tp" class="h">
+          <text class="mono" x="1030" y="396" font-size="30" fill="#e8e6df">topics</text>
+          <text class="mono" x="1030" y="452" font-size="28" fill="#8a8f99">0</text>
+          <text class="mono" x="1030" y="508" font-size="28" fill="#8a8f99">1</text>
+          <text class="mono" x="1030" y="564" font-size="28" fill="#8a8f99">2</text>
+          <text class="mono" x="1030" y="620" font-size="28" fill="#8a8f99">3</text>
+          <rect id="rt-c0" x="1070" y="418" width="700" height="48" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+          <rect id="rt-c1" x="1070" y="474" width="700" height="48" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+          <rect id="rt-c2" x="1070" y="530" width="700" height="48" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+          <rect id="rt-c3" x="1070" y="586" width="700" height="48" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+        </g>
+        <text id="rt-dt" class="h mono" x="1030" y="694" font-size="30" fill="#e8e6df">data</text>
+        <text id="rt-v0" class="h mono" x="1092" y="452" font-size="28" fill="#58C4DD">0xddf252ad…</text>
+        <text id="rt-v1" class="h" x="1092" y="508" font-size="28" fill="#8a8f99">00…00 <tspan fill="#e8e6df">+</tspan> <tspan fill="#58C4DD">from 地址</tspan></text>
+        <text id="rt-v2" class="h" x="1092" y="564" font-size="28" fill="#8a8f99">00…00 <tspan fill="#e8e6df">+</tspan> <tspan fill="#58C4DD">to 地址</tspan></text>
+        <text id="rt-v3" class="h" x="1092" y="620" font-size="28" fill="#6b6f7a">（空）</text>
+        <text id="rt-vd" class="h" x="1130" y="694" font-size="28" fill="#F0B90B">value（ABI 编码）</text>
+        <text id="rt-k1" class="h mono" x="1000" y="800" font-size="28" fill="#e8e6df">keccak256("Transfer(address,address,uint256)")</text>
+        <text id="rt-k2" class="h mono" x="1000" y="856" font-size="30" font-weight="700" fill="#58C4DD">= 0xddf252ad…</text>
+        <g id="rt-chips">
+          <text id="rt-tr" class="h mono" x="1000" y="868" font-size="30" fill="#e8e6df">Transfer(</text>
+          <text id="rt-ix1" class="h mono" x="1235" y="816" font-size="28" fill="#FF9F43" text-anchor="middle">indexed</text>
+          <text id="rt-ix2" class="h mono" x="1385" y="816" font-size="28" fill="#FF9F43" text-anchor="middle">indexed</text>
+          <g id="rt-chf" class="h"><rect x="1170" y="830" width="130" height="54" rx="10" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="1235" y="867" font-size="30" fill="#e8e6df" text-anchor="middle">from</text></g>
+          <g id="rt-cht" class="h"><rect x="1320" y="830" width="130" height="54" rx="10" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="1385" y="867" font-size="30" fill="#e8e6df" text-anchor="middle">to</text></g>
+          <g id="rt-chv" class="h"><rect x="1470" y="830" width="160" height="54" rx="10" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="2"/><text class="mono" x="1550" y="867" font-size="30" fill="#e8e6df" text-anchor="middle">value</text></g>
+          <text id="rt-trc" class="h mono" x="1646" y="868" font-size="30" fill="#e8e6df">)</text>
+        </g>
+        <g id="rt-p1" class="h">
+          <text x="1000" y="852" font-size="30" fill="#e8e6df">按 topic 过滤</text>
+          <rect x="1240" y="822" width="380" height="40" rx="20" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="3"/>
+          <path d="M1668 818 L1650 846 H1666 L1654 870 L1684 838 H1668 L1680 818 Z" fill="#83C167"/>
+          <text x="1710" y="853" font-size="32" font-weight="700" fill="#83C167">快</text>
+        </g>
+        <g id="rt-p2" class="h">
+          <text x="1000" y="952" font-size="30" fill="#e8e6df">按 data 过滤</text>
+          <rect x="1240" y="922" width="380" height="40" rx="20" fill="#FF9F43" fill-opacity="0.12" stroke="#FF9F43" stroke-width="3"/>
+          <text x="1710" y="953" font-size="32" font-weight="700" fill="#FF9F43">慢</text>
+        </g>
+        <circle id="rt-d1" class="h" cx="1262" cy="842" r="9" fill="#83C167"/>
+        <circle id="rt-d2" class="h" cx="1262" cy="942" r="9" fill="#FF9F43"/>
+        <circle id="rt-d3" class="h" cx="1262" cy="942" r="9" fill="#FF9F43"/>
+      </g>
+      <g id="rt-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">交易回执 <tspan font-size="28" font-weight="400" fill="#8a8f99">Transaction Receipt</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">交易执行结果的记录</text>
+      </g>
+      <g id="rt-term2" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">主题 <tspan font-size="28" font-weight="400" fill="#8a8f99">Topic</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">日志中可索引的 32 字节字段</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const HB = (base, t) => tl.to("#rt-hb", { attr: { y: base - 31, "fill-opacity": 0.15 }, duration: 0.4, ease: "power2.inOut" }, t);
+// L0 回执从区块打印出来
+IN("#rt-term", at(0, 0.03), 0.5);
+IN("#rt-slot, #rt-blk", at(0, 0.08), 0.4);
+tl.fromTo("#rt-paper", { y: -560 }, { y: 0, duration: 2.2, ease: "power1.inOut" }, at(0, 0.2));
+// L1 status
+HB(330, at(1, 0.04));
+tl.to("#rt-f0", { fill: "#e8e6df", duration: 0.3 }, at(1, 0.04));
+IN("#rt-ok", at(1, 0.15), 0.5, { scale: 0.85, svgOrigin: "1170 345" }, { scale: 1, svgOrigin: "1170 345" });
+IN("#rt-okl", at(1, 0.2), 0.4);
+IN("#rt-bad", at(1, 0.3), 0.5, { scale: 0.85, svgOrigin: "1590 345" }, { scale: 1, svgOrigin: "1590 345" });
+IN("#rt-badl", at(1, 0.35), 0.4);
+OUT("#rt-term", at(1, 0.3), 0.4);
+IN("#rt-stamp", at(1, 0.55), 0.4, { scale: 1.5, svgOrigin: "1590 548" }, { scale: 1, svgOrigin: "1590 548" });
+tl.to("#rt-hb", { attr: { fill: "#FC6255" }, duration: 0.3 }, at(1, 0.8));
+// L2 手续费
+tl.to("#rt-hb", { attr: { fill: "#58C4DD" }, duration: 0.2 }, at(2, 0));
+HB(410, at(2, 0.02));
+tl.to("#rt-f1", { fill: "#e8e6df", duration: 0.3 }, at(2, 0.04));
+HB(460, at(2, 0.24));
+tl.to("#rt-f2", { fill: "#e8e6df", duration: 0.3 }, at(2, 0.26));
+IN("#rt-fee1", at(2, 0.32), 0.5, { y: 16 }, { y: 0 });
+IN("#rt-fee2", at(2, 0.45), 0.5);
+HB(510, at(2, 0.62));
+IN("#rt-n3", at(2, 0.78), 0.4);
+// L3 contractAddress / blockNumber / logs
+OUT("#rt-st, #rt-blk", at(3, 0), 0.4);
+HB(590, at(3, 0.02));
+tl.to("#rt-f4", { fill: "#e8e6df", duration: 0.3 }, at(3, 0.04));
+IN("#rt-n4", at(3, 0.1), 0.4);
+HB(640, at(3, 0.3));
+tl.to("#rt-f5", { fill: "#e8e6df", duration: 0.3 }, at(3, 0.32));
+IN("#rt-n5", at(3, 0.38), 0.4);
+HB(720, at(3, 0.66));
+tl.to("#rt-f6", { fill: "#58C4DD", duration: 0.3 }, at(3, 0.68));
+ARROW("#rt-la", at(3, 0.74), 0.6);
+IN("#rt-log", at(3, 0.8), 0.5, { x: -30 }, { x: 0 });
+// L4 address / topics / data
+IN("#rt-term2", at(4, 0.04), 0.5);
+IN("#rt-ad", at(4, 0.14), 0.5);
+IN("#rt-tp", at(4, 0.36), 0.5);
+IN("#rt-dt", at(4, 0.8), 0.4);
+// L5 topics[0] = 事件签名哈希
+IN("#rt-k1", at(5, 0.06), 0.5, { y: 16 }, { y: 0 });
+IN("#rt-k2", at(5, 0.4), 0.5);
+OUT("#rt-term2", at(4, 0.95), 0.4);
+IN("#rt-v0", at(5, 0.6), 0.5, { x: 20 }, { x: 0 });
+tl.to("#rt-c0", { attr: { "stroke-width": 4 }, stroke: "#bfefff", duration: 0.3 }, at(5, 0.6));
+// L6 indexed → topics[1..2]，其余 → data
+OUT("#rt-k1, #rt-k2", at(6, 0), 0.35);
+IN("#rt-tr, #rt-trc", at(6, 0.06), 0.4);
+IN("#rt-chf, #rt-cht, #rt-chv", at(6, 0.1), 0.4);
+IN("#rt-ix1, #rt-ix2", at(6, 0.18), 0.4);
+tl.to("#rt-chf", { x: 400, y: -362, opacity: 0, duration: 0.8, ease: "power2.in" }, at(6, 0.32));
+OUT("#rt-ix1", at(6, 0.32), 0.4);
+IN("#rt-v1", at(6, 0.38), 0.5);
+tl.to("#rt-cht", { x: 250, y: -306, opacity: 0, duration: 0.8, ease: "power2.in" }, at(6, 0.45));
+OUT("#rt-ix2", at(6, 0.45), 0.4);
+IN("#rt-v2", at(6, 0.52), 0.5);
+tl.to("#rt-chv", { x: 100, y: -180, opacity: 0, duration: 0.8, ease: "power2.in" }, at(6, 0.7));
+IN("#rt-vd", at(6, 0.78), 0.5);
+IN("#rt-v3", at(6, 0.86), 0.4);
+// L7 过滤快慢
+OUT("#rt-chips", at(7, 0), 0.35);
+IN("#rt-p1", at(7, 0.06), 0.5);
+IN("#rt-d1", at(7, 0.12), 0.2);
+tl.fromTo("#rt-d1", { attr: { cx: 1262 } }, { attr: { cx: 1598 }, duration: 0.5, ease: "none", repeat: 4, immediateRender: false }, at(7, 0.14));
+IN("#rt-p2", at(7, 0.36), 0.5);
+IN("#rt-d2, #rt-d3", at(7, 0.42), 0.2);
+tl.fromTo("#rt-d2", { attr: { cx: 1262 } }, { attr: { cx: 1598 }, duration: 3.0, ease: "none", immediateRender: false }, at(7, 0.44));
+tl.fromTo("#rt-d3", { attr: { cx: 1262 } }, { attr: { cx: 1430 }, duration: 3.0, ease: "none", immediateRender: false }, at(7, 0.44));
+
+
+      tl.to("#rt-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#rt-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["receipt"] = tl;
+    })();
+  </script>
+</template>

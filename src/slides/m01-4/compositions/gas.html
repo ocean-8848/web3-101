@@ -1,0 +1,194 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 gas，id 前缀 ga- -->
+  <div id="root" data-composition-id="gas" data-duration="40.58" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ga-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ga-all">
+        <!-- 68 字节带（缩小版，上方） -->
+        <text id="ga-hd" class="h" x="76" y="214" font-size="28" fill="#8a8f99">input data · 68 字节</text>
+        <g id="ga-strip"></g>
+        <g id="ga-sl" class="h">
+          <text class="mono" x="76" y="322" font-size="28" fill="#58C4DD">a9059cbb</text>
+          <text class="mono" x="336" y="322" font-size="28" fill="#8a8f99" text-anchor="middle">00 ×12</text>
+          <text class="mono" x="752" y="322" font-size="28" fill="#58C4DD" text-anchor="middle">5aae…beaed</text>
+          <text class="mono" x="1376" y="322" font-size="28" fill="#8a8f99" text-anchor="middle">00 ×28</text>
+          <text class="mono" x="1844" y="322" font-size="28" fill="#F0B90B" text-anchor="end">05f5e100</text>
+        </g>
+        <!-- 规则卡 -->
+        <g id="ga-rule" class="h">
+          <rect x="1320" y="400" width="520" height="210" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1350" y="456" font-size="32" font-weight="700" fill="#58C4DD">EIP-2028</text>
+          <rect x="1350" y="484" width="28" height="28" rx="4" fill="#2a2e36" stroke="#8a8f99" stroke-width="2" />
+          <text x="1396" y="508" font-size="30" fill="#e8e6df">零字节 <tspan fill="#8a8f99">4 Gas</tspan></text>
+          <rect x="1350" y="546" width="28" height="28" rx="4" fill="#1d3a46" stroke="#58C4DD" stroke-width="2" />
+          <text x="1396" y="570" font-size="30" fill="#e8e6df">非零字节 <tspan fill="#58C4DD">16 Gas</tspan></text>
+        </g>
+        <!-- 两个篮子 -->
+        <g id="ga-bk">
+          <g id="ga-b0" class="h">
+            <text x="370" y="570" font-size="30" fill="#8a8f99" text-anchor="middle">零字节</text>
+            <path d="M120 600 V840 Q120 870 150 870 H590 Q620 870 620 840 V600" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <text id="ga-n0" class="mono" x="370" y="690" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle">0</text>
+          </g>
+          <g id="ga-b1" class="h">
+            <text x="970" y="570" font-size="30" fill="#58C4DD" text-anchor="middle">非零字节</text>
+            <path d="M720 600 V840 Q720 870 750 870 H1190 Q1220 870 1220 840 V600" fill="none" stroke="#58C4DD" stroke-width="3" />
+            <text id="ga-n1" class="mono" x="970" y="690" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle">0</text>
+          </g>
+          <g id="ga-fly"></g>
+          <!-- L1 / L2 加法 -->
+          <text id="ga-e00" class="h mono" x="216" y="940" font-size="32" fill="#8a8f99">12</text>
+          <text id="ga-e01" class="h mono" x="273.6" y="940" font-size="32" fill="#8a8f99">+ 28</text>
+          <text id="ga-e02" class="h mono" x="369.6" y="940" font-size="32" fill="#8a8f99">+ 1</text>
+          <text id="ga-e03" class="h mono" x="446.4" y="940" font-size="32" font-weight="700" fill="#e8e6df">= 41</text>
+          <text id="ga-e10" class="h mono" x="826" y="940" font-size="32" fill="#58C4DD">4</text>
+          <text id="ga-e11" class="h mono" x="864.4" y="940" font-size="32" fill="#58C4DD">+ 20</text>
+          <text id="ga-e12" class="h mono" x="960.4" y="940" font-size="32" fill="#F0B90B">+ 3</text>
+          <text id="ga-e13" class="h mono" x="1037.2" y="940" font-size="32" font-weight="700" fill="#e8e6df">= 27</text>
+          <!-- L3 乘法 -->
+          <text id="ga-m0" class="h mono" x="370" y="940" font-size="36" fill="#e8e6df" text-anchor="middle">41 × 4 = 164</text>
+          <text id="ga-m1" class="h mono" x="970" y="940" font-size="36" fill="#e8e6df" text-anchor="middle">27 × 16 = 432</text>
+          <text id="ga-s0" class="h mono" x="1580" y="730" font-size="40" fill="#e8e6df" text-anchor="middle">164 + 432</text>
+          <text id="ga-s1" class="h mono" x="1580" y="820" font-size="56" font-weight="700" fill="#58C4DD" text-anchor="middle">= 596 Gas</text>
+          <text id="ga-s2" class="h" x="1580" y="880" font-size="28" fill="#8a8f99" text-anchor="middle">calldata 成本</text>
+        </g>
+        <!-- L4 堆叠柱 -->
+        <g id="ga-bar">
+          <rect id="ga-r0" class="h" x="120" y="560" width="0" height="80" rx="4" fill="#4a505c" />
+          <text id="ga-t0" class="h" x="391" y="530" font-size="32" fill="#e8e6df" text-anchor="middle">21,000 基础</text>
+          <rect id="ga-r1" class="h" x="663" y="560" width="15" height="80" fill="#58C4DD" />
+          <text id="ga-t1" class="h" x="700" y="530" font-size="32" fill="#58C4DD">+ 596 calldata</text>
+          <rect id="ga-r2" class="h" x="678" y="560" width="0" height="80" fill="#2c4250" />
+          <rect id="ga-rr" class="h" x="678" y="560" width="1122" height="80" rx="4" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8" />
+          <text id="ga-t2" class="h" x="916" y="694" font-size="30" fill="#e8e6df" text-anchor="middle">+ 合约执行</text>
+          <g id="ga-tk" class="h">
+            <line x1="1154" y1="644" x2="1154" y2="664" stroke="#e8e6df" stroke-width="3" />
+            <line x1="1800" y1="644" x2="1800" y2="664" stroke="#e8e6df" stroke-width="3" />
+            <text x="1154" y="702" font-size="30" fill="#e8e6df" text-anchor="middle">4 万</text>
+            <text x="1800" y="702" font-size="30" fill="#e8e6df" text-anchor="middle">6.5 万</text>
+          </g>
+          <path id="ga-br" class="dr h" pathLength="1" d="M1154 740 V756 H1800 V740" fill="none" stroke="#83C167" stroke-width="3" />
+          <text id="ga-t3" class="h" x="1477" y="812" font-size="34" fill="#83C167" text-anchor="middle">一笔 ERC-20 转账：4 万 – 6.5 万 Gas</text>
+        </g>
+      </g>
+      <!-- 术语卡：本场景不用 -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // ---- 68 个字节格子：a9059cbb | 00×12 | 5aaeb6…beaed | 00×28 | 05 f5 e1 00
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, parent) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); parent.appendChild(e); return e; };
+      const kinds = [];
+      for (let i = 0; i < 68; i++) {
+        let k;
+        if (i < 4) k = "s"; else if (i < 16) k = "z1"; else if (i < 36) k = "ad"; else if (i < 64) k = "z2"; else if (i < 67) k = "am"; else k = "z3";
+        kinds.push(k);
+      }
+      const sty = {
+        s: ["#1d3a46", "#58C4DD"], ad: ["#1d3a46", "#58C4DD"], am: ["#3a3214", "#F0B90B"],
+        z1: ["#2a2e36", "#8a8f99"], z2: ["#2a2e36", "#8a8f99"], z3: ["#2a2e36", "#F0B90B"],
+      };
+      const gS = document.getElementById("ga-strip"), gF = document.getElementById("ga-fly");
+      let nz = 0, nn = 0;
+      kinds.forEach((k, i) => {
+        const x = 76 + i * 26, [f, s] = sty[k];
+        mk("rect", { id: `ga-c${i}`, class: `h ga-c ga-c${k}`, x, y: 240, width: 24, height: 40, rx: 4, fill: f, stroke: s, "stroke-width": 2 }, gS);
+        const zero = k[0] === "z";
+        const j = zero ? nz++ : nn++;
+        const bx = (zero ? 152 : 752) + (j % 16) * 28, by = 826 - Math.floor(j / 16) * 30;
+        const r = mk("rect", { id: `ga-f${i}`, class: `h ga-f ga-f${k}`, x, y: 240, width: 24, height: 26, rx: 4, fill: f, stroke: s, "stroke-width": 2 }, gF);
+        r.dataset.bx = bx; r.dataset.by = by;
+      });
+      const FLY = (k, t, st = 0.04) => {
+        const els = Array.from(document.getElementsByClassName("ga-f" + k));
+        els.forEach((e, n) => {
+          const i = +e.id.slice(4), tt = t + n * st;
+          tl.fromTo(e, { opacity: 0 }, { opacity: 1, duration: 0.05 }, tt);
+          tl.fromTo(e, { attr: { x: 76 + i * 26, y: 240 } }, { attr: { x: +e.dataset.bx, y: +e.dataset.by }, duration: 0.6, ease: "power2.in", immediateRender: false }, tt);
+          tl.to(`#ga-c${i}`, { opacity: 0.25, duration: 0.2 }, tt);
+        });
+      };
+
+      // L0：字节带 + 规则卡
+      IN("#ga-hd", at(0, 0.03), 0.5);
+      IN(".ga-c", at(0, 0.05), 0.3, { y: -10 }, { y: 0, stagger: 0.012 });
+      IN("#ga-sl", at(0, 0.22), 0.6);
+      IN("#ga-rule", at(0, 0.45), 0.6, { x: 20 }, { x: 0 });
+      IN("#ga-b0", at(0, 0.75), 0.5);
+      IN("#ga-b1", at(0, 0.82), 0.5);
+      // L1：41 个零字节落进左篮
+      FLY("z1", at(1, 0.18), 0.05);
+      COUNT("#ga-n0", 0, 12, at(1, 0.18), 1.2);
+      IN("#ga-e00", at(1, 0.25), 0.4);
+      FLY("z2", at(1, 0.42), 0.035);
+      COUNT("#ga-n0", 12, 40, at(1, 0.42), 1.6);
+      IN("#ga-e01", at(1, 0.48), 0.4);
+      FLY("z3", at(1, 0.72), 0.05);
+      COUNT("#ga-n0", 40, 41, at(1, 0.72), 0.6);
+      IN("#ga-e02", at(1, 0.74), 0.4);
+      IN("#ga-e03", at(1, 0.88), 0.4);
+      // L2：27 个非零字节落进右篮
+      FLY("s", at(2, 0.1), 0.06);
+      COUNT("#ga-n1", 0, 4, at(2, 0.1), 0.8);
+      IN("#ga-e10", at(2, 0.12), 0.4);
+      FLY("ad", at(2, 0.32), 0.035);
+      COUNT("#ga-n1", 4, 24, at(2, 0.32), 1.2);
+      IN("#ga-e11", at(2, 0.36), 0.4);
+      FLY("am", at(2, 0.62), 0.06);
+      COUNT("#ga-n1", 24, 27, at(2, 0.62), 0.6);
+      IN("#ga-e12", at(2, 0.64), 0.4);
+      IN("#ga-e13", at(2, 0.82), 0.4);
+      // L3：41×4 + 27×16 = 596
+      OUT("#ga-e00, #ga-e01, #ga-e02, #ga-e03, #ga-e10, #ga-e11, #ga-e12, #ga-e13", at(3, 0.06), 0.3);
+      IN("#ga-m0", at(3, 0.14), 0.5, { y: 12 }, { y: 0 });
+      IN("#ga-m1", at(3, 0.38), 0.5, { y: 12 }, { y: 0 });
+      IN("#ga-s0", at(3, 0.62), 0.5);
+      IN("#ga-s1", at(3, 0.74), 0.6, { scale: 0.85, svgOrigin: "1580 800" }, { scale: 1, svgOrigin: "1580 800" });
+      IN("#ga-s2", at(3, 0.84), 0.4);
+      // L4：堆叠柱
+      OUT("#ga-bk, #ga-rule", at(4, 0), 0.5);
+      IN("#ga-r0", at(4, 0.08), 0.01);
+      tl.fromTo("#ga-r0", { attr: { width: 0 } }, { attr: { width: 543 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(4, 0.08));
+      IN("#ga-t0", at(4, 0.14), 0.5);
+      IN("#ga-r1", at(4, 0.24), 0.3);
+      IN("#ga-t1", at(4, 0.26), 0.5);
+      IN("#ga-r2", at(4, 0.36), 0.01);
+      tl.fromTo("#ga-r2", { attr: { width: 0 } }, { attr: { width: 476 }, duration: 0.9, ease: "power2.out", immediateRender: false }, at(4, 0.36));
+      IN("#ga-t2", at(4, 0.4), 0.5);
+      IN("#ga-rr", at(4, 0.48), 0.5);
+      IN("#ga-tk", at(4, 0.5), 0.5);
+      tl.to("#ga-r2", { attr: { width: 900 }, duration: 1.2, ease: "sine.inOut" }, at(4, 0.56));
+      IN("#ga-br", at(4, 0.56), 0.01); DRAW("#ga-br", at(4, 0.56), 0.6);
+      IN("#ga-t3", at(4, 0.62), 0.5);
+
+      tl.to("#ga-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["gas"] = tl;
+    })();
+  </script>
+</template>

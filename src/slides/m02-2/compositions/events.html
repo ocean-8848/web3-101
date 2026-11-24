@@ -1,0 +1,220 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 events，id 前缀 ev- -->
+  <div id="root" data-composition-id="events" data-duration="54.27" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ev-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ev-all">
+        <!-- L0：代码面板 -->
+        <g id="ev-code" class="h">
+          <rect x="80" y="220" width="680" height="280" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+          <line x1="80" y1="256" x2="760" y2="256" stroke="#2a2f3a" stroke-width="2"/>
+          <text class="mono" x="104" y="246" font-size="22" fill="#58C4DD" data-layout-ignore="">events</text>
+        </g>
+        <g id="ev-h1" class="h"><rect x="82" y="272" width="676" height="122" fill="rgba(88,196,221,.12)"/><rect x="82" y="272" width="6" height="122" fill="#58C4DD"/></g>
+        <g id="ev-h2" class="h"><rect x="82" y="422" width="676" height="42" fill="rgba(88,196,221,.12)"/><rect x="82" y="422" width="6" height="42" fill="#58C4DD"/></g>
+        <g id="ev-cl" class="h">
+          <text class="mono" x="104" y="300" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">event</tspan> Posted(<tspan fill="#58C4DD">uint256 indexed</tspan> id,</text>
+          <text class="mono" x="322" y="341" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">address indexed</tspan> author,</text>
+          <text class="mono" x="322" y="382" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">string</tspan> text);</text>
+          <text class="mono" x="104" y="450" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">emit</tspan> Posted(id, msg.sender, text);</text>
+        </g>
+        <!-- L1–L2：一条日志记录 -->
+        <g id="ev-log">
+          <g id="ev-rec" class="h">
+            <text x="820" y="312" font-size="28" fill="#8a8f99">topics</text>
+            <text x="1630" y="312" font-size="28" fill="#8a8f99">data</text>
+            <rect x="820" y="340" width="260" height="100" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+            <rect id="ev-k1" x="1095" y="340" width="170" height="100" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+            <rect id="ev-k2" x="1280" y="340" width="170" height="100" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+            <rect x="1465" y="340" width="135" height="100" rx="10" fill="none" stroke="#6b6f7a" stroke-width="2" stroke-dasharray="8 6"/>
+            <rect id="ev-kd" x="1630" y="340" width="190" height="100" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          </g>
+          <text id="ev-t0" class="h mono" x="950" y="400" font-size="28" fill="#6b6f7a" text-anchor="middle">topic0</text>
+          <text id="ev-t1" class="h mono" x="1180" y="400" font-size="28" fill="#6b6f7a" text-anchor="middle">topic1</text>
+          <text id="ev-t2" class="h mono" x="1365" y="400" font-size="28" fill="#6b6f7a" text-anchor="middle">topic2</text>
+          <text id="ev-t3" class="h mono" x="1532" y="400" font-size="28" fill="#6b6f7a" text-anchor="middle">topic3</text>
+          <text id="ev-p0" class="h mono" x="1180" y="560" font-size="30" fill="#58C4DD" text-anchor="middle">id</text>
+          <text id="ev-p1" class="h mono" x="1365" y="560" font-size="30" fill="#58C4DD" text-anchor="middle">author</text>
+          <text id="ev-p2" class="h mono" x="1725" y="560" font-size="30" fill="#8a8f99" text-anchor="middle">text</text>
+          <text id="ev-sig" class="h mono" x="950" y="400" font-size="28" fill="#FF9F43" text-anchor="middle">keccak256(…)</text>
+          <text id="ev-sigl" class="h" x="950" y="490" font-size="28" fill="#FF9F43" text-anchor="middle">事件签名</text>
+          <path id="ev-br" class="dr" pathLength="1" d="M1095 470 V480 H1600 V470" stroke="#e8e6df" stroke-width="2.5" fill="none"/>
+          <text id="ev-3" class="h mono" x="1347" y="550" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">3</text>
+          <text id="ev-anon" class="h" x="1347" y="610" font-size="28" fill="#8a8f99" text-anchor="middle">匿名事件：4</text>
+        </g>
+        <!-- L3：时序图 -->
+        <g id="ev-seq">
+          <g id="ev-lanes" class="h">
+            <rect x="120" y="220" width="160" height="60" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+            <text x="200" y="260" font-size="30" fill="#e8e6df" text-anchor="middle">用户</text>
+            <rect x="520" y="220" width="240" height="60" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+            <text x="640" y="260" font-size="30" fill="#58C4DD" text-anchor="middle">留言板合约</text>
+            <rect x="1000" y="220" width="160" height="60" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+            <text x="1080" y="260" font-size="30" fill="#e8e6df" text-anchor="middle">节点</text>
+            <rect x="1590" y="220" width="260" height="60" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+            <text x="1720" y="260" font-size="30" fill="#e8e6df" text-anchor="middle">索引器 / 前端</text>
+            <path d="M200 290 V960 M640 290 V960 M1080 290 V960 M1720 290 V960" stroke="#2a2f3a" stroke-width="2.5" stroke-dasharray="10 8"/>
+          </g>
+          <path id="ev-s1" class="dr h" pathLength="1" d="M204 360 L630 360" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#ev-arr)"/>
+          <text id="ev-s1l" class="h" x="420" y="342" font-size="28" fill="#F0B90B" text-anchor="middle"><tspan class="mono">post(</tspan>“你好”<tspan class="mono">)</tspan></text>
+          <path id="ev-s2" class="dr h" pathLength="1" d="M644 430 H700 V480 H652" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ev-arr)"/>
+          <text id="ev-s2l" class="h" x="716" y="466" font-size="28" fill="#58C4DD">写存储 <tspan class="mono">messages.push</tspan></text>
+          <path id="ev-s3" class="dr h" pathLength="1" d="M644 560 L1070 560" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ev-arr)"/>
+          <text id="ev-s3l" class="h mono" x="860" y="542" font-size="28" fill="#58C4DD" text-anchor="middle">emit Posted</text>
+          <path id="ev-s4" class="dr h" pathLength="1" d="M1084 620 H1140 V670 H1092" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ev-arr)"/>
+          <text id="ev-s4l" class="h" x="1156" y="656" font-size="28" fill="#58C4DD">写入回执 <tspan class="mono">logs</tspan></text>
+          <path id="ev-s5" class="dr h" pathLength="1" d="M1716 760 L1090 760" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ev-arr)"/>
+          <text id="ev-s5l" class="h" x="1400" y="742" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan class="mono">eth_getLogs</tspan> · <tspan class="mono">topic2</tspan> = 作者地址</text>
+          <path id="ev-s6" class="dr h" pathLength="1" d="M1084 840 L1710 840" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ev-arr)"/>
+          <text id="ev-s6l" class="h" x="1400" y="822" font-size="28" fill="#58C4DD" text-anchor="middle">返回日志</text>
+          <path id="ev-s7" class="dr h" pathLength="1" d="M1716 890 H1660 V940 H1708" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ev-arr)"/>
+          <text id="ev-s7l" class="h" x="1644" y="926" font-size="28" fill="#83C167" text-anchor="end"><tspan class="mono">ABI</tspan> 解码 · 更新页面</text>
+        </g>
+        <!-- L4：成本条 -->
+        <g id="ev-cost">
+          <text id="ev-cs" class="h" x="380" y="442" font-size="34" fill="#e8e6df" text-anchor="end">存储</text>
+          <rect id="ev-cbs" class="h" x="410" y="400" width="0" height="60" rx="8" fill="#F0B90B"/>
+          <text id="ev-ce" class="h" x="380" y="582" font-size="34" fill="#e8e6df" text-anchor="end">事件</text>
+          <rect id="ev-cbe" class="h" x="410" y="540" width="0" height="60" rx="8" fill="#F0B90B"/>
+          <text id="ev-cel" class="h" x="610" y="582" font-size="30" fill="#F0B90B"><tspan class="mono">topic</tspan> 375 Gas · <tspan class="mono">data</tspan> 8 Gas/字节</text>
+          <text id="ev-cn" class="h" x="410" y="740" font-size="34" fill="#83C167">只给链外看 → 放事件</text>
+        </g>
+        <!-- L5：三个注意点 -->
+        <g id="ev-warn">
+          <g id="ev-wa">
+            <rect id="ev-wtx" class="h" x="300" y="300" width="200" height="80" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+            <text id="ev-wtxt" class="h mono" x="400" y="352" font-size="32" fill="#F0B90B" text-anchor="middle">tx</text>
+            <g id="ev-wlog" class="h"><rect x="270" y="470" width="260" height="60" rx="8" fill="rgba(88,196,221,.2)" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="400" y="510" font-size="28" fill="#58C4DD" text-anchor="middle">Posted</text></g>
+            <text id="ev-wal" class="h" x="400" y="680" font-size="30" fill="#FC6255" text-anchor="middle">交易回滚 → 日志撤销</text>
+          </g>
+          <g id="ev-wb">
+            <g id="ev-chain" class="h">
+              <rect x="740" y="300" width="90" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+              <rect x="850" y="300" width="90" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+              <rect x="960" y="300" width="90" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+            </g>
+            <rect id="ev-blk" class="h" x="1070" y="300" width="90" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+            <rect id="ev-blk2" class="h" x="1070" y="300" width="90" height="70" rx="8" fill="#2a2014" stroke="#FF9F43" stroke-width="2.5"/>
+            <g id="ev-fe" class="h">
+              <rect x="760" y="440" width="400" height="150" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+              <rect x="790" y="470" width="340" height="34" rx="6" fill="rgba(88,196,221,.3)"/>
+            </g>
+            <rect id="ev-fel" class="h" x="790" y="526" width="340" height="34" rx="6" fill="rgba(88,196,221,.3)"/>
+            <text id="ev-wbl" class="h" x="960" y="680" font-size="30" fill="#FF9F43" text-anchor="middle">链重组 → 日志可能消失</text>
+          </g>
+          <g id="ev-wc">
+            <g id="ev-orig" class="h">
+              <rect x="1380" y="300" width="280" height="80" rx="10" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6"/>
+              <text x="1490" y="352" font-size="32" fill="#8a8f99" text-anchor="middle">“你好”</text>
+              <rect x="1596" y="330" width="28" height="22" rx="3" fill="#8a8f99"/>
+              <path d="M1601 330 V322 a9 9 0 0 1 18 0 V330" fill="none" stroke="#8a8f99" stroke-width="3"/>
+            </g>
+            <path id="ev-wca" class="dr h" pathLength="1" d="M1520 388 L1520 452" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ev-arr)"/>
+            <g id="ev-hash" class="h">
+              <rect x="1340" y="460" width="360" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+              <text class="mono" x="1520" y="510" font-size="28" fill="#58C4DD" text-anchor="middle">keccak256(text)</text>
+            </g>
+            <text id="ev-wcl" class="h" x="1520" y="680" font-size="30" fill="#8a8f99" text-anchor="middle"><tspan class="mono">indexed</tspan> 字符串只存哈希</text>
+          </g>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ev-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">事件 <tspan font-size="28" font-weight="400" fill="#8a8f99">Event</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">写进交易日志、供链外过滤的结构化数据</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 代码面板 + 术语卡
+IN("#ev-term", at(0, 0.02), 0.5);
+IN("#ev-code, #ev-cl", at(0, 0.1), 0.6, { y: 16 }, { y: 0 });
+IN("#ev-h1", at(0, 0.45), 0.3);
+OUT("#ev-h1", at(0, 0.78), 0.3); IN("#ev-h2", at(0, 0.8), 0.3);
+OUT("#ev-term", at(0, 0.02) + 7.4, 0.4);
+// L1 日志记录：indexed → topics，其余 → data
+OUT("#ev-h2", at(1, 0), 0.3); IN("#ev-h1", at(1, 0.02), 0.3);
+IN("#ev-rec", at(1, 0.04), 0.5);
+IN("#ev-t0, #ev-t1, #ev-t2, #ev-t3", at(1, 0.1), 0.4);
+IN("#ev-p0, #ev-p1, #ev-p2", at(1, 0.22), 0.4, { y: 12 }, { y: 0 });
+OUT("#ev-t1, #ev-t2", at(1, 0.36), 0.25);
+tl.to("#ev-p0, #ev-p1", { y: -160, duration: 0.7, ease: "power2.inOut" }, at(1, 0.4));
+tl.to("#ev-k1, #ev-k2", { stroke: "#58C4DD", fill: "rgba(88,196,221,.15)", duration: 0.3 }, at(1, 0.4) + 0.6);
+tl.to("#ev-p2", { y: -160, duration: 0.7, ease: "power2.inOut" }, at(1, 0.72));
+tl.to("#ev-kd", { fill: "rgba(138,143,153,.15)", duration: 0.3 }, at(1, 0.72) + 0.6);
+// L2 topic0 = 事件签名哈希
+OUT("#ev-t0", at(2, 0.04), 0.25); IN("#ev-sig", at(2, 0.04) + 0.3, 0.4);
+IN("#ev-sigl", at(2, 0.15), 0.4);
+DRAW("#ev-br", at(2, 0.1), 0.5);
+IN("#ev-3", at(2, 0.14), 0.5, { scale: 0.6, svgOrigin: "1347 530" }, { scale: 1, svgOrigin: "1347 530" });
+OUT("#ev-t3", at(2, 0.62), 0.25);
+IN("#ev-anon", at(2, 0.64), 0.4);
+// L3 时序图
+OUT("#ev-code, #ev-cl, #ev-h1, #ev-log", at(3, 0), 0.4);
+IN("#ev-lanes", at(3, 0.03), 0.5);
+const S = [[0.08, 1], [0.2, 2], [0.32, 3], [0.44, 4], [0.58, 5], [0.72, 6], [0.84, 7]];
+S.forEach(([f, k]) => { ARROW(`#ev-s${k}`, at(3, f), 0.5); IN(`#ev-s${k}l`, at(3, f) + 0.1, 0.4); });
+// L4 成本对比
+OUT("#ev-seq", at(4, 0), 0.4);
+IN("#ev-cs", at(4, 0.04), 0.4);
+tl.set("#ev-cbs", { opacity: 1 }, at(4, 0.06));
+tl.fromTo("#ev-cbs", { attr: { width: 0 } }, { attr: { width: 1300 }, duration: 1.2, ease: "power2.out", immediateRender: false }, at(4, 0.06));
+IN("#ev-ce", at(4, 0.2), 0.4);
+tl.set("#ev-cbe", { opacity: 1 }, at(4, 0.22));
+tl.fromTo("#ev-cbe", { attr: { width: 0 } }, { attr: { width: 170 }, duration: 0.6, ease: "power2.out", immediateRender: false }, at(4, 0.22));
+IN("#ev-cel", at(4, 0.3), 0.5);
+IN("#ev-cn", at(4, 0.72), 0.5);
+// L5 回滚 / 重组 / indexed 字符串
+OUT("#ev-cost", at(5, 0), 0.4);
+IN("#ev-wtx, #ev-wtxt", at(5, 0.03), 0.4);
+IN("#ev-wlog", at(5, 0.06), 0.4);
+tl.to("#ev-wtx", { stroke: "#FC6255", fill: "#2a1416", duration: 0.3 }, at(5, 0.12));
+tl.to("#ev-wtxt", { fill: "#FC6255", duration: 0.3 }, at(5, 0.12));
+OUT("#ev-wlog", at(5, 0.16), 0.6);
+IN("#ev-wal", at(5, 0.18), 0.4);
+IN("#ev-chain, #ev-blk, #ev-fe, #ev-fel", at(5, 0.3), 0.4);
+tl.to("#ev-blk", { y: -60, opacity: 0, duration: 0.5, ease: "power2.in" }, at(5, 0.4));
+tl.fromTo("#ev-blk2", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out", immediateRender: false }, at(5, 0.4) + 0.4);
+tl.to("#ev-fel", { fill: "rgba(255,159,67,.6)", duration: 0.3 }, at(5, 0.4) + 0.9);
+OUT("#ev-fel", at(5, 0.4) + 1.3, 0.5);
+IN("#ev-wbl", at(5, 0.5), 0.4);
+IN("#ev-orig", at(5, 0.72), 0.4);
+ARROW("#ev-wca", at(5, 0.76), 0.4);
+IN("#ev-hash", at(5, 0.8), 0.4);
+IN("#ev-wcl", at(5, 0.84), 0.4);
+      /*ENDANIM*/
+
+      tl.to("#ev-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ev-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["events"] = tl;
+    })();
+  </script>
+</template>

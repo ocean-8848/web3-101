@@ -1,0 +1,228 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 practice，id 前缀 pr- -->
+  <div id="root" data-composition-id="practice" data-duration="52.8" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pr-all">
+                <g id="pr-p1">
+        <g id="pr-list" class="h">
+          <rect x="120" y="220" width="800" height="680" rx="18" fill="#161a22" stroke="#3a3f4b" stroke-width="2" />
+          <text x="170" y="290" font-size="44" font-weight="700" fill="#e8e6df">上线检查清单</text>
+          <rect x="170" y="338" width="44" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <path id="pr-k0" class="dr" pathLength="1" d="M180 360 L190 371 L206 348" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          <text id="pr-t0" x="240" y="371" font-size="32" fill="#6b6f7a">所有写操作先 simulate</text>
+          <rect x="170" y="433" width="44" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <path id="pr-k1" class="dr" pathLength="1" d="M180 455 L190 466 L206 443" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          <text id="pr-t1" x="240" y="466" font-size="32" fill="#6b6f7a">签名 / 确认期间禁用按钮</text>
+          <rect x="170" y="528" width="44" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <path id="pr-k2" class="dr" pathLength="1" d="M180 550 L190 561 L206 538" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          <text id="pr-t2" x="240" y="561" font-size="32" fill="#6b6f7a">授权默认精确金额</text>
+          <rect x="170" y="623" width="44" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <path id="pr-k3" class="dr" pathLength="1" d="M180 645 L190 656 L206 633" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          <text id="pr-t3" x="240" y="656" font-size="32" fill="#6b6f7a">ABI 含全部自定义 error</text>
+          <rect x="170" y="718" width="44" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <path id="pr-k4" class="dr" pathLength="1" d="M180 740 L190 751 L206 728" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          <text id="pr-t4" x="240" y="751" font-size="32" fill="#6b6f7a">回执 status 必须检查</text>
+          <rect x="170" y="813" width="44" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <path id="pr-k5" class="dr" pathLength="1" d="M180 835 L190 846 L206 823" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          <text id="pr-t5" x="240" y="846" font-size="32" fill="#6b6f7a">埋点：签名拒绝率、revert 率</text>
+        </g>
+        <!-- ① simulate → request → writeContract -->
+        <g id="pr-f1" class="h">
+          <rect x="1000" y="400" width="250" height="80" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="1125" y="451" font-size="30" fill="#83C167" text-anchor="middle">simulate</text>
+          <path d="M1260 440 L1438 440" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#pr-arr)" />
+          <text class="mono" x="1350" y="418" font-size="28" fill="#83C167" text-anchor="middle">request</text>
+          <rect x="1450" y="400" width="300" height="80" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text class="mono" x="1600" y="451" font-size="30" fill="#FF9F43" text-anchor="middle">writeContract</text>
+          <text x="1000" y="570" font-size="30" fill="#8a8f99">发送只接收模拟返回的请求</text>
+        </g>
+        <!-- ② 连点两次 → 一笔 -->
+        <g id="pr-f2" class="h">
+          <rect x="1100" y="380" width="500" height="80" rx="14" fill="#2a2e38" stroke="#6b6f7a" stroke-width="2" />
+          <text x="1350" y="431" font-size="30" fill="#8a8f99" text-anchor="middle">请在钱包中确认…</text>
+          <circle id="pr-r1" cx="1350" cy="420" r="20" fill="none" stroke="#e8e6df" stroke-width="3" opacity="0" />
+          <circle id="pr-r2" cx="1350" cy="420" r="20" fill="none" stroke="#e8e6df" stroke-width="3" opacity="0" />
+          <text x="1350" y="560" font-size="30" fill="#8a8f99" text-anchor="middle">连点两次</text>
+          <text id="pr-one" x="1350" y="640" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle" opacity="0">交易 × 1</text>
+        </g>
+        <!-- ③ 精确授权 -->
+        <g id="pr-f3" class="h">
+          <text x="1000" y="420" font-size="30" fill="#8a8f99">本次金额</text>
+          <rect x="1160" y="392" width="360" height="40" rx="6" fill="#F0B90B" />
+          <text x="1000" y="500" font-size="30" fill="#8a8f99">授权额度</text>
+          <rect x="1160" y="472" width="360" height="40" rx="6" fill="#83C167" />
+          <text x="1000" y="590" font-size="32" fill="#83C167">默认相等，不给无限</text>
+        </g>
+        <!-- ④ error → 中文文案 -->
+        <g id="pr-f4" class="h">
+          <text class="mono" x="1000" y="420" font-size="28" fill="#FC6255">ERC20InsufficientBalance</text>
+          <path d="M1200 445 L1200 512" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#pr-arr)" />
+          <text x="1000" y="570" font-size="32" fill="#e8e6df">“代币余额不足”</text>
+          <text x="1000" y="650" font-size="30" fill="#8a8f99">每个 error 都有中文文案</text>
+        </g>
+        <!-- ⑤ 本地链构造 revert → UI 显示失败 -->
+        <g id="pr-f5" class="h">
+          <rect x="980" y="400" width="250" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1105" y="451" font-size="30" fill="#58C4DD" text-anchor="middle"><tspan class="mono">anvil</tspan> 本地链</text>
+          <path d="M1240 440 L1468 440" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#pr-arr)" />
+          <text class="mono" x="1354" y="418" font-size="28" fill="#FC6255" text-anchor="middle">revert</text>
+          <rect x="1480" y="340" width="360" height="240" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="1510" y="395" font-size="30" fill="#e8e6df">转账</text>
+          <g id="pr-fail" opacity="0">
+            <rect x="1510" y="440" width="300" height="70" rx="10" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="2" />
+            <text x="1660" y="486" font-size="30" fill="#FC6255" text-anchor="middle">✕ 交易失败</text>
+          </g>
+        </g>
+        <!-- ⑥ 两个仪表盘 -->
+        <g id="pr-f6" class="h">
+          <path d="M1000 640 L1380 640" stroke="#6b6f7a" stroke-width="2" fill="none" />
+          <rect id="pr-g1" x="1030" y="520" width="60" height="120" fill="#8a8f99" />
+          <rect id="pr-g2" x="1120" y="470" width="60" height="170" fill="#8a8f99" />
+          <rect id="pr-g3" x="1210" y="540" width="60" height="100" fill="#8a8f99" />
+          <rect id="pr-g4" x="1300" y="500" width="60" height="140" fill="#8a8f99" />
+          <text x="1190" y="700" font-size="30" fill="#8a8f99" text-anchor="middle">签名拒绝率</text>
+          <path d="M1460 640 L1840 640" stroke="#6b6f7a" stroke-width="2" fill="none" />
+          <rect id="pr-g5" x="1490" y="590" width="60" height="50" fill="#FC6255" />
+          <rect id="pr-g6" x="1580" y="570" width="60" height="70" fill="#FC6255" />
+          <rect id="pr-g7" x="1670" y="600" width="60" height="40" fill="#FC6255" />
+          <rect id="pr-g8" x="1760" y="460" width="60" height="180" fill="#FC6255" />
+          <text class="mono" x="1650" y="700" font-size="30" fill="#FC6255" text-anchor="middle">revert <tspan font-family="NotoSC">率</tspan></text>
+          <text x="1420" y="790" font-size="30" fill="#e8e6df" text-anchor="middle">分开统计：体验问题 / 合约问题</text>
+        </g>
+        </g>
+
+        <g id="pr-p2">
+          <!-- 测试网流程条 -->
+          <g id="pr-s1" class="h">
+            <rect x="135" y="290" width="360" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="315" y="358" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan class="mono">Sepolia</tspan> 水龙头</text>
+            <text x="315" y="460" font-size="28" fill="#8a8f99" text-anchor="middle">领测试 ETH</text>
+          </g>
+          <path id="pr-sa1" class="dr h" pathLength="1" d="M500 345 L560 345" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#pr-arr)" />
+          <g id="pr-s2" class="h">
+            <rect x="565" y="290" width="360" height="110" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="745" y="358" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan class="mono">Remix</tspan> 部署 <tspan class="mono">ERC20</tspan></text>
+            <text class="mono" x="745" y="460" font-size="28" fill="#8a8f99" text-anchor="middle">remix.ethereum.org</text>
+          </g>
+          <path id="pr-sa2" class="dr h" pathLength="1" d="M930 345 L990 345" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#pr-arr)" />
+          <g id="pr-s3" class="h">
+            <rect x="995" y="290" width="360" height="110" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="1175" y="358" font-size="32" fill="#F0B90B" text-anchor="middle">铸 1000 个</text>
+          </g>
+          <path id="pr-sa3" class="dr h" pathLength="1" d="M1360 345 L1420 345" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#pr-arr)" />
+          <g id="pr-s4" class="h">
+            <rect x="1425" y="290" width="360" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1605" y="358" font-size="32" fill="#e8e6df" text-anchor="middle">接上转账表单</text>
+          </g>
+          <!-- 三个预期结果 -->
+          <g id="pr-e1" class="h">
+            <text x="135" y="621" font-size="32" fill="#e8e6df">输入超过余额</text>
+            <path d="M480 610 L600 610" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#pr-arr)" />
+            <rect x="620" y="570" width="260" height="80" rx="12" fill="#2a2e38" stroke="#6b6f7a" stroke-width="2" />
+            <text x="750" y="621" font-size="30" fill="#8a8f99" text-anchor="middle">转账</text>
+            <text x="920" y="621" font-size="30" fill="#8a8f99">按钮变灰</text>
+          </g>
+          <g id="pr-e2" class="h">
+            <text x="135" y="761" font-size="32" fill="#e8e6df">钱包里点拒绝</text>
+            <path d="M480 750 L600 750" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#pr-arr)" />
+            <rect x="620" y="710" width="260" height="80" rx="12" fill="#58C4DD" />
+            <text x="750" y="761" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">转账</text>
+            <text x="920" y="761" font-size="30" fill="#83C167">按钮恢复 · 没有红色报错</text>
+          </g>
+          <g id="pr-e3" class="h">
+            <text x="135" y="901" font-size="32" fill="#e8e6df">再确认一次</text>
+            <path d="M480 890 L600 890" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#pr-arr)" />
+            <rect x="620" y="850" width="300" height="80" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="770" y="901" font-size="30" fill="#FF9F43" text-anchor="middle">交易确认中…</text>
+          </g>
+          <path id="pr-ea" class="dr h" pathLength="1" d="M930 890 L1098 890" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#pr-arr)" />
+          <text id="pr-12" class="h" x="1014" y="868" font-size="28" fill="#8a8f99" text-anchor="middle">约 12 秒</text>
+          <g id="pr-e4" class="h">
+            <rect x="1110" y="850" width="300" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1260" y="901" font-size="30" fill="#58C4DD" text-anchor="middle">余额自动刷新</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const CHK = (i, t) => { DRAW("#pr-k" + i, t, 0.4); tl.to("#pr-t" + i, { attr: { fill: "#e8e6df" }, duration: 0.3 }, t); };
+      // L0 清单
+      IN("#pr-list", at(0, 0.05), 0.6, { y: 20 }, { y: 0 });
+      // L1 ① 先 simulate
+      CHK(0, at(1, 0.05));
+      IN("#pr-f1", at(1, 0.25), 0.6, { x: 40 }, { x: 0 });
+      // L2 ② 禁用按钮
+      OUT("#pr-f1", at(2, 0) - 0.3, 0.3);
+      CHK(1, at(2, 0.02));
+      IN("#pr-f2", at(2, 0.08), 0.5);
+      tl.fromTo("#pr-r1", { opacity: 1, attr: { r: 14 } }, { opacity: 0, attr: { r: 60 }, duration: 0.5, ease: "power2.out", immediateRender: false }, at(2, 0.35));
+      tl.fromTo("#pr-r2", { opacity: 1, attr: { r: 14 } }, { opacity: 0, attr: { r: 60 }, duration: 0.5, ease: "power2.out", immediateRender: false }, at(2, 0.47));
+      tl.to("#pr-one", { opacity: 1, duration: 0.5 }, at(2, 0.65));
+      // L3 ③ ④ ⑤
+      OUT("#pr-f2", at(3, 0) - 0.3, 0.3);
+      CHK(2, at(3, 0.02));
+      IN("#pr-f3", at(3, 0.06), 0.5);
+      OUT("#pr-f3", at(3, 0.26), 0.3);
+      CHK(3, at(3, 0.3));
+      IN("#pr-f4", at(3, 0.32), 0.5);
+      OUT("#pr-f4", at(3, 0.53), 0.3);
+      CHK(4, at(3, 0.57));
+      IN("#pr-f5", at(3, 0.59), 0.5);
+      tl.to("#pr-fail", { opacity: 1, duration: 0.4 }, at(3, 0.8));
+      // L4 ⑥ 两个埋点
+      OUT("#pr-f5", at(4, 0) - 0.3, 0.3);
+      CHK(5, at(4, 0.03));
+      IN("#pr-f6", at(4, 0.1), 0.6);
+      tl.from(["#pr-g1", "#pr-g2", "#pr-g3", "#pr-g4", "#pr-g5", "#pr-g6", "#pr-g7", "#pr-g8"], { attr: { height: 0, y: 640 }, duration: 0.6, stagger: 0.08, immediateRender: false }, at(4, 0.12));
+      tl.to("#pr-g8", { attr: { fill: "#ff8a80" }, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.75));
+      // L5 清单收起 → 测试网流程
+      OUT("#pr-p1", at(5, 0) - 0.3, 0.35);
+      IN("#pr-s1", at(5, 0.05), 0.5, { y: 20 }, { y: 0 });
+      ARROW("#pr-sa1", at(5, 0.3), 0.4);
+      IN("#pr-s2", at(5, 0.33), 0.5, { y: 20 }, { y: 0 });
+      ARROW("#pr-sa2", at(5, 0.55), 0.4);
+      IN("#pr-s3", at(5, 0.58), 0.5, { y: 20 }, { y: 0 });
+      ARROW("#pr-sa3", at(5, 0.8), 0.4);
+      IN("#pr-s4", at(5, 0.83), 0.5, { y: 20 }, { y: 0 });
+      // L6 三个预期结果
+      IN("#pr-e1", at(6, 0.03), 0.5, { x: -30 }, { x: 0 });
+      IN("#pr-e2", at(6, 0.25), 0.5, { x: -30 }, { x: 0 });
+      IN("#pr-e3", at(6, 0.55), 0.5, { x: -30 }, { x: 0 });
+      ARROW("#pr-ea", at(6, 0.75), 0.8);
+      IN("#pr-12", at(6, 0.75), 0.4);
+      IN("#pr-e4", at(6, 0.85), 0.5);
+
+      tl.to("#pr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["practice"] = tl;
+    })();
+  </script>
+</template>

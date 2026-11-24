@@ -1,0 +1,156 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 siwe，id 前缀 se- -->
+  <div id="root" data-composition-id="siwe" data-duration="60.47" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="se-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="se-all">
+        <!-- 左：SIWE 消息卡 -->
+        <g id="se-card" class="h">
+          <rect x="120" y="220" width="840" height="700" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="150" y="272" font-size="28" fill="#8a8f99">SIWE 消息 · EIP-4361</text>
+        </g>
+        <rect id="se-hl" class="h" x="132" y="308" width="816" height="48" rx="6" fill="#58C4DD" fill-opacity="0.15"/>
+        <text id="se-m0" class="h mono" x="150" y="342" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">app.example.com</tspan> wants you to sign in…</text>
+        <text id="se-m0b" class="h mono" x="150" y="342" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">app-examp1e.com</tspan> wants you to sign in…</text>
+        <text id="se-m1" class="h mono" x="150" y="402" font-size="28" fill="#B48EF0">0x9f3a…c21d</text>
+        <text id="se-m1t" class="h" x="380" y="402" font-size="28" fill="#8a8f99">校验和格式</text>
+        <text id="se-m2" class="h" x="150" y="462" font-size="28" fill="#e8e6df">登录 Example DApp。</text>
+        <text id="se-m2b" class="h" x="150" y="507" font-size="28" fill="#e8e6df">此签名不会发起交易，也不会花费 Gas。</text>
+        <text id="se-m3" class="h mono" x="150" y="577" font-size="28" fill="#e8e6df">URI: https://app.example.com</text>
+        <text id="se-m4" class="h mono" x="150" y="627" font-size="28" fill="#e8e6df">Version: 1</text>
+        <text id="se-m5" class="h mono" x="150" y="677" font-size="28" fill="#e8e6df">Chain ID: 8453</text>
+        <text id="se-m5t" class="h" x="430" y="677" font-size="28" fill="#58C4DD">合约钱包验签用</text>
+        <text id="se-m6" class="h mono" x="150" y="747" font-size="28" fill="#e8e6df">Nonce: <tspan fill="#FF9F43">8f3k2LqZ9wPx1aB7</tspan></text>
+        <text id="se-m7" class="h mono" x="150" y="817" font-size="28" fill="#e8e6df">Issued At: 2026-10-23T08:00:00.000Z</text>
+        <text id="se-m8" class="h mono" x="150" y="867" font-size="28" fill="#e8e6df">Expiration Time: 2026-10-23T08:10:00.000Z</text>
+        <!-- L0 钱包展示域名 -->
+        <g id="se-wal" class="h">
+          <rect x="1160" y="320" width="540" height="300" rx="18" fill="#1b1730" stroke="#B48EF0" stroke-width="3"/>
+          <text x="1430" y="390" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">登录请求</text>
+          <rect x="1200" y="440" width="460" height="70" rx="10" fill="#58C4DD22"/>
+          <text class="mono" x="1430" y="486" font-size="32" fill="#58C4DD" text-anchor="middle">app.example.com</text>
+          <text x="1430" y="580" font-size="28" fill="#8a8f99" text-anchor="middle">钱包认出：这是登录</text>
+        </g>
+        <!-- 右：后端核对 -->
+        <g id="se-pan" class="h">
+          <rect x="1040" y="220" width="760" height="700" rx="16" fill="none" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="1070" y="272" font-size="30" font-weight="700" fill="#58C4DD">后端核对</text>
+        </g>
+        <g id="se-k0" class="h"><circle id="se-d0" cx="1086" cy="332" r="13" fill="#6b6f7a"/><text x="1114" y="342" font-size="28" fill="#e8e6df">等于本站域名？</text></g>
+        <text id="se-k0ok" class="h" x="1770" y="342" font-size="28" font-weight="700" fill="#83C167" text-anchor="end">通过</text>
+        <text id="se-k0no" class="h" x="1770" y="342" font-size="28" font-weight="700" fill="#FC6255" text-anchor="end">拒绝</text>
+        <g id="se-k1" class="h"><circle id="se-d1" cx="1086" cy="392" r="13" fill="#6b6f7a"/><text x="1114" y="402" font-size="28" fill="#e8e6df">等于签名恢复出的地址？</text></g>
+        <text id="se-k1ok" class="h" x="1770" y="402" font-size="28" font-weight="700" fill="#83C167" text-anchor="end">通过</text>
+        <g id="se-k2" class="h"><circle cx="1086" cy="474" r="13" fill="#6b6f7a"/><text x="1114" y="484" font-size="28" fill="#8a8f99">可选 · 给人看</text></g>
+        <g id="se-k3" class="h"><circle id="se-d3" cx="1086" cy="617" r="13" fill="#6b6f7a"/><text class="mono" x="1114" y="627" font-size="28" fill="#e8e6df">Version == 1</text></g>
+        <g id="se-k4" class="h">
+          <circle id="se-n0" cx="1086" cy="737" r="13" fill="#6b6f7a"/><text x="1112" y="747" font-size="28" fill="#e8e6df">存在</text>
+          <circle id="se-n1" cx="1206" cy="737" r="13" fill="#6b6f7a"/><text x="1232" y="747" font-size="28" fill="#e8e6df">未使用</text>
+          <circle id="se-n2" cx="1356" cy="737" r="13" fill="#6b6f7a"/><text x="1382" y="747" font-size="28" fill="#e8e6df">未过期</text>
+        </g>
+        <g id="se-void" class="h">
+          <rect x="1560" y="704" width="160" height="66" rx="10" fill="#FF9F4322" stroke="#FF9F43" stroke-width="4"/>
+          <text x="1640" y="749" font-size="34" font-weight="900" fill="#FF9F43" text-anchor="middle">作废</text>
+        </g>
+        <g id="se-tw" class="h">
+          <line x1="1080" y1="850" x2="1770" y2="850" stroke="#8a8f99" stroke-width="3"/>
+          <rect x="1200" y="828" width="420" height="48" fill="#83C167" fill-opacity="0.22"/>
+          <text x="1200" y="904" font-size="28" fill="#8a8f99" text-anchor="middle">签发</text>
+          <text x="1620" y="904" font-size="28" fill="#8a8f99" text-anchor="middle">过期</text>
+        </g>
+        <g id="se-now" class="h">
+          <path d="M1400 818 L1400 882" stroke="#83C167" stroke-width="5"/>
+          <text x="1400" y="806" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">现在</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="se-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">nonce <tspan font-size="28" font-weight="400" fill="#8a8f99">Number used once</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">只用一次，防止旧签名被重复使用</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const HL = (y, h, t) => tl.to("#se-hl", { attr: { y, height: h }, duration: 0.45, ease: "power2.inOut" }, t);
+      const LAMP = (s, c, t) => tl.to(s, { attr: { fill: c }, duration: 0.25 }, t);
+      // L0 消息卡逐行打出；钱包认出登录请求并展示域名
+      IN("#se-card", at(0, 0.02), 0.6);
+      ["#se-m0", "#se-m1", "#se-m2", "#se-m2b", "#se-m3", "#se-m4", "#se-m5", "#se-m6", "#se-m7", "#se-m8"].forEach((s, k) =>
+        IN(s, at(0, 0.08) + k * 0.35, 0.35, { x: -12 }, { x: 0 }));
+      IN("#se-wal", at(0, 0.62), 0.6, { y: 30 }, { y: 0 });
+      IN("#se-hl", at(0, 0.8), 0.4);
+      // L1 域名行：本站 → 通过；钓鱼站 → 拒绝
+      OUT("#se-wal", at(1, 0.0), 0.4);
+      IN("#se-pan", at(1, 0.06), 0.5);
+      IN("#se-k0", at(1, 0.14), 0.4);
+      LAMP("#se-d0", "#83C167", at(1, 0.3));
+      IN("#se-k0ok", at(1, 0.3), 0.3);
+      OUT("#se-k0ok", at(1, 0.56), 0.25);
+      OUT("#se-m0", at(1, 0.56), 0.25);
+      IN("#se-m0b", at(1, 0.56) + 0.3, 0.3);
+      LAMP("#se-d0", "#FC6255", at(1, 0.56) + 0.4);
+      IN("#se-k0no", at(1, 0.56) + 0.4, 0.3);
+      OUT("#se-k0no, #se-m0b", at(1, 0.93), 0.25);
+      IN("#se-m0", at(1, 0.93) + 0.3, 0.3, {}, { immediateRender: false });
+      LAMP("#se-d0", "#83C167", at(1, 0.93) + 0.3);
+      // L2 地址行
+      HL(368, 48, at(2, 0.02));
+      IN("#se-m1t", at(2, 0.3), 0.4);
+      IN("#se-k1", at(2, 0.5), 0.4);
+      LAMP("#se-d1", "#83C167", at(2, 0.85));
+      IN("#se-k1ok", at(2, 0.85), 0.3);
+      // L3 说明行（可选）
+      HL(428, 96, at(3, 0.02));
+      IN("#se-k2", at(3, 0.7), 0.4);
+      // L4 URI / Version / Chain ID
+      HL(545, 150, at(4, 0.02));
+      IN("#se-k3", at(4, 0.45), 0.4);
+      LAMP("#se-d3", "#83C167", at(4, 0.55));
+      IN("#se-m5t", at(4, 0.72), 0.4, { x: -10 }, { x: 0 });
+      // L5 nonce + 有效期
+      IN("#se-term", at(5, 0.02), 0.5);
+      HL(713, 48, at(5, 0.04));
+      IN("#se-k4", at(5, 0.15), 0.4);
+      LAMP("#se-n0", "#83C167", at(5, 0.27));
+      LAMP("#se-n1", "#83C167", at(5, 0.31));
+      LAMP("#se-n2", "#83C167", at(5, 0.35));
+      IN("#se-void", at(5, 0.44), 0.35, { scale: 1.5, svgOrigin: "1640 737" }, { scale: 1, svgOrigin: "1640 737" });
+      tl.to("#se-m6", { opacity: 0.4, duration: 0.3 }, at(5, 0.47));
+      HL(783, 102, at(5, 0.6));
+      IN("#se-tw", at(5, 0.66), 0.5);
+      IN("#se-now", at(5, 0.82), 0.4, { y: -20 }, { y: 0 });
+      OUT("#se-term", at(5, 0.68), 0.4);
+
+      tl.to("#se-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#se-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["siwe"] = tl;
+    })();
+  </script>
+</template>

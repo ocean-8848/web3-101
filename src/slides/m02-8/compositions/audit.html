@@ -1,0 +1,348 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 audit，id 前缀 au- -->
+  <div id="root" data-composition-id="audit" data-duration="76.44" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="au-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="au-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <mask id="au-rm" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">
+          <path id="au-rmp" class="dr" pathLength="1" d="M200 276 H1600 V926 H130 V276 Z" fill="none" stroke="#fff" stroke-width="16" />
+        </mask>
+      </defs>
+      <g id="au-all">
+        <!-- 五条线缩略图（全绿）+ 两枚盾 -->
+        <g id="au-thumb">
+          <rect x="1650" y="89" width="34" height="28" rx="3" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <g stroke-width="3" stroke="#83C167">
+            <line x1="1684" y1="103" x2="1784" y2="61" />
+            <line x1="1684" y1="103" x2="1784" y2="82" />
+            <line x1="1684" y1="103" x2="1784" y2="103" />
+            <line x1="1684" y1="103" x2="1784" y2="124" />
+            <line x1="1684" y1="103" x2="1784" y2="145" />
+          </g>
+          <g fill="#83C167">
+            <circle cx="1790" cy="61" r="6" /><circle cx="1790" cy="82" r="6" /><circle cx="1790" cy="103" r="6" /><circle cx="1790" cy="124" r="6" /><circle cx="1790" cy="145" r="6" />
+          </g>
+        </g>
+        <g id="au-sh" class="h">
+          <path id="au-sh0" d="M1490 60 L1512 68 L1512 90 Q1512 106 1490 114 Q1468 106 1468 90 L1468 68 Z" fill="#B48EF0" fill-opacity="0.14" stroke="#B48EF0" stroke-width="2.5" />
+          <path id="au-sh1" d="M1580 60 L1602 68 L1602 90 Q1602 106 1580 114 Q1558 106 1558 90 L1558 68 Z" fill="#B48EF0" fill-opacity="0.08" stroke="#6b6f7a" stroke-width="2.5" />
+          <text id="au-shl0" x="1490" y="148" font-size="28" font-weight="700" fill="#B48EF0" text-anchor="middle">审计</text>
+          <text x="1580" y="148" font-size="28" font-weight="700" fill="#6b6f7a" text-anchor="middle">应急</text>
+        </g>
+
+        <g id="au-ring">
+          <path d="M200 276 H1600 V926 H130 V276 Z" mask="url(#au-rm)" fill="none" stroke="#6b6f7a" stroke-width="3" stroke-dasharray="14 12" />
+          <text id="au-core" class="h" x="830" y="640" font-size="72" font-weight="700" fill="#e8e6df" text-anchor="middle">闭环</text>
+          <!-- 节点间箭头 -->
+          <g stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#au-arr)">
+            <path id="au-a1" class="dr h" pathLength="1" d="M708 276 H742" />
+            <path id="au-a2" class="dr h" pathLength="1" d="M1254 276 H1288" />
+            <path id="au-a3" class="dr h" pathLength="1" d="M1600 344 V530" />
+            <path id="au-a4" class="dr h" pathLength="1" d="M1600 669 V855" />
+            <path id="au-a5" class="dr h" pathLength="1" d="M1290 926 H1256" />
+            <path id="au-a6" class="dr h" pathLength="1" d="M744 926 H710" />
+          </g>
+          <path id="au-back" class="dr h" pathLength="1" d="M198 926 H130 V276 H194" fill="none" stroke="#FF9F43" stroke-width="4" marker-end="url(#au-arrO)" />
+          <g id="au-backl" class="h" font-size="28" font-weight="700" fill="#FF9F43">
+            <text x="150" y="590">任何</text>
+            <text x="150" y="630">代码变更</text>
+          </g>
+          <!-- 七个节点 -->
+          <g id="au-n1" class="h">
+            <rect x="200" y="210" width="506" height="132" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="226" y="262" font-size="32" font-weight="700" fill="#58C4DD">① 冻结范围</text>
+            <text x="226" y="312" font-size="28" fill="#e8e6df">commit 哈希 · 文档 · 威胁模型</text>
+          </g>
+          <g id="au-n2" class="h">
+            <rect x="746" y="210" width="506" height="132" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="772" y="262" font-size="32" font-weight="700" fill="#58C4DD">② 内部自查</text>
+            <text x="772" y="312" font-size="28" fill="#e8e6df">单元 · 模糊 · 不变量 · 覆盖率</text>
+          </g>
+          <g id="au-n3" class="h">
+            <rect x="1292" y="210" width="506" height="132" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1318" y="262" font-size="32" font-weight="700" fill="#58C4DD">③ 自动化工具</text>
+            <text class="mono" x="1318" y="312" font-size="28" fill="#e8e6df">Slither · Echidna …</text>
+          </g>
+          <g id="au-n4" class="h">
+            <rect x="1398" y="535" width="420" height="132" rx="16" fill="#161a22" stroke="#e8e6df" stroke-width="4" />
+            <text x="1424" y="587" font-size="32" font-weight="700" fill="#e8e6df">④ 人工审阅</text>
+            <text x="1424" y="637" font-size="28" fill="#e8e6df">逐行 · 业务逻辑 · 经济攻击</text>
+          </g>
+          <g id="au-n5" class="h">
+            <rect x="1292" y="860" width="506" height="132" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1318" y="912" font-size="32" font-weight="700" fill="#58C4DD">⑤ 报告分级</text>
+            <text x="1318" y="962" font-size="28" fill="#e8e6df">影响 × 可能性</text>
+          </g>
+          <g id="au-n6" class="h">
+            <rect x="746" y="860" width="506" height="132" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="772" y="912" font-size="32" font-weight="700" fill="#58C4DD">⑥ 修复 + 复审</text>
+            <text x="772" y="962" font-size="28" fill="#e8e6df">审计方逐个确认</text>
+          </g>
+          <g id="au-n7" class="h">
+            <rect x="200" y="860" width="506" height="132" rx="16" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="226" y="912" font-size="32" font-weight="700" fill="#83C167">⑦ 上线</text>
+            <text x="226" y="962" font-size="28" fill="#e8e6df">赏金 · 监控 · 限额逐步放开</text>
+          </g>
+          <circle id="au-dot" class="h" cx="130" cy="926" r="10" fill="#FF9F43" />
+
+          <!-- L1 中心：commit 卡 + 改动 -->
+          <g id="au-c1">
+            <g id="au-hash" class="h">
+              <rect x="380" y="440" width="400" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+              <text class="mono" x="580" y="508" font-size="36" fill="#58C4DD" text-anchor="middle">commit a3f9…</text>
+              <text x="580" y="600" font-size="28" fill="#6b6f7a" text-anchor="middle">示例</text>
+            </g>
+            <g id="au-src" class="h">
+              <rect x="880" y="420" width="420" height="230" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2" />
+              <rect x="910" y="450" width="300" height="16" rx="4" fill="#58C4DD" fill-opacity="0.5" />
+              <rect x="910" y="490" width="340" height="16" rx="4" fill="#58C4DD" fill-opacity="0.5" />
+              <rect id="au-chg" x="910" y="530" width="220" height="16" rx="4" fill="#58C4DD" fill-opacity="0.5" />
+              <rect x="910" y="570" width="280" height="16" rx="4" fill="#58C4DD" fill-opacity="0.5" />
+              <rect x="910" y="610" width="180" height="16" rx="4" fill="#58C4DD" fill-opacity="0.5" />
+            </g>
+            <path id="au-lnk" class="dr h" pathLength="1" d="M786 495 H874" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#au-arr)" />
+            <text id="au-chgl" class="h" x="880" y="710" font-size="30" font-weight="700" fill="#FF9F43">审计后改动 → 不在范围内 → 复审</text>
+          </g>
+          <!-- L2 中心：测试勾 + 工具筛 -->
+          <g id="au-c2">
+            <g id="au-tests" class="h">
+              <rect x="380" y="410" width="360" height="40" rx="6" fill="#161a22" stroke="#3a3f4b" />
+              <rect x="380" y="466" width="360" height="40" rx="6" fill="#161a22" stroke="#3a3f4b" />
+              <rect x="380" y="522" width="360" height="40" rx="6" fill="#161a22" stroke="#3a3f4b" />
+              <text x="400" y="440" font-size="28" fill="#e8e6df">单元</text>
+              <text x="400" y="496" font-size="28" fill="#e8e6df">模糊</text>
+              <text x="400" y="552" font-size="28" fill="#e8e6df">不变量</text>
+            </g>
+            <g font-size="30" font-weight="700" fill="#83C167">
+              <text id="au-tk0" class="h" x="700" y="441">✓</text>
+              <text id="au-tk1" class="h" x="700" y="497">✓</text>
+              <text id="au-tk2" class="h" x="700" y="553">✓</text>
+            </g>
+            <rect id="au-cov" x="380" y="610" width="0" height="20" rx="4" fill="#83C167" fill-opacity="0.7" />
+            <text id="au-covl" class="h" x="380" y="680" font-size="28" fill="#8a8f99">覆盖率</text>
+          </g>
+          <g id="au-sieve" class="h">
+            <line x1="340" y1="560" x2="1340" y2="560" stroke="#58C4DD" stroke-width="4" stroke-dasharray="20 14" />
+            <text x="1100" y="610" font-size="28" fill="#58C4DD" text-anchor="middle">工具筛</text>
+          </g>
+          <!-- L3 筛子 -->
+          <g id="au-c3">
+            <rect id="au-sm0" class="h" x="890" y="400" width="30" height="30" rx="4" fill="#FC6255" />
+            <rect id="au-sm1" class="h" x="1040" y="400" width="30" height="30" rx="4" fill="#FC6255" />
+            <text id="au-sml0" class="h" x="932" y="540" font-size="28" fill="#FC6255">重入</text>
+            <text id="au-sml1" class="h" x="1082" y="540" font-size="28" fill="#FC6255">未检查返回值</text>
+            <g id="au-bg0" class="h">
+              <rect x="360" y="380" width="170" height="64" rx="8" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" />
+              <text x="445" y="423" font-size="28" fill="#e8e6df" text-anchor="middle">业务逻辑</text>
+            </g>
+            <g id="au-bg1" class="h">
+              <rect x="560" y="380" width="170" height="64" rx="8" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" />
+              <text x="645" y="423" font-size="28" fill="#e8e6df" text-anchor="middle">经济攻击</text>
+            </g>
+            <g id="au-hum" class="h">
+              <line x1="340" y1="790" x2="760" y2="790" stroke="#e8e6df" stroke-width="3" />
+              <text x="550" y="836" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">人工审阅接住</text>
+            </g>
+            <text id="au-fv" class="h" x="860" y="720" font-size="28" fill="#8a8f99">形式化验证：Certora · Halmos · Kontrol</text>
+          </g>
+          <!-- L4 分级矩阵 -->
+          <g id="au-c4">
+            <g id="au-mx" class="h" stroke="#3a3f4b" stroke-width="2" fill="none">
+              <rect x="560" y="400" width="600" height="380" />
+              <line x1="860" y1="400" x2="860" y2="780" />
+              <line x1="560" y1="590" x2="1160" y2="590" />
+            </g>
+            <text id="au-mxy" class="h" x="540" y="600" font-size="28" fill="#8a8f99" text-anchor="end">影响 ↑</text>
+            <text id="au-mxx" class="h" x="1160" y="826" font-size="28" fill="#8a8f99" text-anchor="end">可能性 →</text>
+            <text id="au-norm" class="h" x="1180" y="430" font-size="28" fill="#6b6f7a">一般做法</text>
+            <g id="au-lv0" class="h">
+              <text x="1010" y="480" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">Critical</text>
+              <text x="1010" y="530" font-size="28" fill="#FC6255" text-anchor="middle">直接盗取 / 永久冻结</text>
+            </g>
+            <g id="au-lv1" class="h">
+              <text x="710" y="480" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">High</text>
+              <text x="710" y="530" font-size="28" fill="#FF9F43" text-anchor="middle">有条件损失资金</text>
+            </g>
+            <text id="au-lv2" class="h" x="1010" y="700" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">Medium</text>
+            <text id="au-lv3" class="h" x="710" y="700" font-size="36" font-weight="700" fill="#8a8f99" text-anchor="middle">Low / Info</text>
+          </g>
+          <!-- L5 -->
+          <g id="au-c5" class="h">
+            <path d="M560 560 L620 620 M620 560 L560 620" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+            <text x="650" y="604" font-size="40" font-weight="700" fill="#FC6255">只审一次 + 频繁升级 = 没审</text>
+          </g>
+          <!-- L6 工具表 -->
+          <g id="au-c6">
+            <g font-size="30" font-weight="700" fill="#58C4DD">
+              <text id="au-tr0a" class="h" x="340" y="440">静态分析</text>
+              <text id="au-tr1a" class="h" x="340" y="520">模糊与不变量</text>
+              <text id="au-tr2a" class="h" x="340" y="600">形式化</text>
+              <text id="au-tr3a" class="h" x="340" y="680">人工与竞赛平台</text>
+              <text id="au-tr4a" class="h" x="340" y="760" fill="#F0B90B">赏金</text>
+            </g>
+            <g font-size="28" fill="#e8e6df">
+              <text id="au-tr0b" class="h mono" x="640" y="440">Slither · Aderyn</text>
+              <text id="au-tr1b" class="h mono" x="640" y="520">Echidna · Medusa</text>
+              <text id="au-tr2b" class="h mono" x="640" y="600">Certora · Halmos · Kontrol</text>
+              <text id="au-tr3b" class="h mono" x="640" y="680">Code4rena · Sherlock · Cantina</text>
+              <text id="au-tr4b" class="h" x="640" y="760">Immunefi 等 · Critical 按比例 + 上限</text>
+            </g>
+          </g>
+        </g>
+
+        <!-- L7 终端 -->
+        <g id="au-term">
+          <g id="au-tw" class="h">
+            <rect x="260" y="240" width="1400" height="620" rx="14" fill="#161a22" stroke="#3a3f4b" stroke-width="2" />
+            <rect x="260" y="240" width="1400" height="40" rx="14" fill="#232836" />
+            <circle cx="290" cy="260" r="7" fill="#6b6f7a" /><circle cx="314" cy="260" r="7" fill="#6b6f7a" /><circle cx="338" cy="260" r="7" fill="#6b6f7a" />
+          </g>
+          <text id="au-cmd0" class="h mono" x="300" y="330" font-size="28" fill="#e8e6df" xml:space="preserve">$ slither .</text>
+          <text id="au-warn" class="h mono" x="300" y="372" font-size="28" fill="#FF9F43" xml:space="preserve">reentrancy-eth: VulnerableVault.withdraw()</text>
+          <rect id="au-fixbar" class="h" x="290" y="496" width="6" height="38" fill="#83C167" />
+          <g class="mono" font-size="28" fill="#e8e6df">
+            <text id="au-k0" class="h" x="310" y="440" xml:space="preserve">function withdraw() external {</text>
+            <text id="au-k1" class="h" x="310" y="480" xml:space="preserve">    uint256 amt = balances[msg.sender];</text>
+            <text id="au-k2" class="h" x="310" y="520" xml:space="preserve">    (bool ok,) = msg.sender.call{value: amt}("");</text>
+            <text id="au-k3" class="h" x="310" y="560" xml:space="preserve">    require(ok);</text>
+            <text id="au-k4" class="h" x="310" y="600" xml:space="preserve">    balances[msg.sender] = 0;</text>
+            <text id="au-k5" class="h" x="310" y="640" xml:space="preserve">}</text>
+          </g>
+          <path id="au-wa" class="dr h" pathLength="1" d="M1030 364 C1260 364 1260 592 830 592" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#au-arrO)" />
+          <text id="au-cei" class="h" x="1180" y="640" font-size="30" font-weight="700" fill="#83C167">先改状态，再转账</text>
+          <text id="au-cmd1" class="h mono" x="300" y="740" font-size="28" fill="#e8e6df" xml:space="preserve">$ slither .</text>
+          <text id="au-ok" class="h mono" x="300" y="782" font-size="28" fill="#83C167" xml:space="preserve">0 results</text>
+          <text id="au-okl" class="h" x="520" y="782" font-size="28" fill="#83C167">告警消失</text>
+        </g>
+      </g>
+      <!-- 术语卡 -->
+      <g id="au-term-card" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">漏洞赏金 <tspan font-size="28" font-weight="400" fill="#8a8f99">Bug Bounty</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">向报告漏洞的白帽支付奖励的长期计划</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const NODE = (s, t) => IN(s, t, 0.6, { y: 14 }, { y: 0 });
+
+      // L0 闭环轮廓 + 缩略图旁两枚盾
+      DRAW("#au-rmp", at(0, 0.05), 1.8);
+      IN("#au-core", at(0, 0.3), 0.6, { scale: 0.8, svgOrigin: "830 620" }, { scale: 1, svgOrigin: "830 620" });
+      IN("#au-sh", at(0, 0.55), 0.5);
+      tl.to("#au-sh0", { fillOpacity: 0.45, duration: 0.4 }, at(0, 0.8));
+      // L1 ① 冻结范围
+      OUT("#au-core", at(1, 0), 0.35);
+      NODE("#au-n1", at(1, 0.04));
+      IN("#au-hash", at(1, 0.16), 0.5, { y: 12 }, { y: 0 });
+      IN("#au-src", at(1, 0.3), 0.5);
+      ARROW("#au-lnk", at(1, 0.34), 0.4);
+      tl.to("#au-chg", { attr: { width: 330 }, fill: "#FF9F43", fillOpacity: 0.9, duration: 0.6 }, at(1, 0.6));
+      IN("#au-chgl", at(1, 0.68), 0.5);
+      // L2 ② 内部自查、③ 工具
+      OUT("#au-c1", at(2, 0), 0.4);
+      ARROW("#au-a1", at(2, 0.04), 0.3);
+      NODE("#au-n2", at(2, 0.06));
+      IN("#au-tests", at(2, 0.12), 0.5);
+      IN("#au-tk0", at(2, 0.2), 0.3);
+      IN("#au-tk1", at(2, 0.25), 0.3);
+      IN("#au-tk2", at(2, 0.3), 0.3);
+      tl.to("#au-cov", { attr: { width: 360 }, duration: 0.8, ease: "power2.out" }, at(2, 0.34));
+      IN("#au-covl", at(2, 0.36), 0.4);
+      ARROW("#au-a2", at(2, 0.5), 0.3);
+      NODE("#au-n3", at(2, 0.52));
+      IN("#au-sieve", at(3, 0.05), 0.5);
+      tl.to("#au-n3 rect", { stroke: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.8));
+      // L3 ④ 人工审阅：筛子
+      OUT("#au-c2", at(3, 0), 0.35);
+      ARROW("#au-a3", at(3, 0.02), 0.4);
+      NODE("#au-n4", at(3, 0.06));
+      IN("#au-sm0, #au-sm1", at(3, 0.1), 0.3);
+      tl.to("#au-sm0, #au-sm1", { attr: { y: 528 }, duration: 0.6, ease: "bounce.out" }, at(3, 0.12));
+      IN("#au-sml0", at(3, 0.2), 0.4);
+      IN("#au-sml1", at(3, 0.24), 0.4);
+      IN("#au-bg0, #au-bg1", at(3, 0.36), 0.4);
+      IN("#au-hum", at(3, 0.4), 0.4);
+      tl.to("#au-bg0, #au-bg1", { y: 330, duration: 0.9, ease: "power2.in" }, at(3, 0.44));
+      tl.to("#au-n4 rect", { stroke: "#83C167", duration: 0.4 }, at(3, 0.6));
+      IN("#au-fv", at(3, 0.62), 0.5);
+      // L4 ⑤ 报告分级
+      OUT("#au-c3, #au-sieve", at(4, 0), 0.4);
+      ARROW("#au-a4", at(4, 0.02), 0.4);
+      NODE("#au-n5", at(4, 0.05));
+      IN("#au-mx", at(4, 0.12), 0.5);
+      IN("#au-mxy, #au-mxx", at(4, 0.16), 0.4);
+      IN("#au-norm", at(4, 0.2), 0.4);
+      IN("#au-lv0", at(4, 0.3), 0.5, { y: -30 }, { y: 0, ease: "bounce.out" });
+      IN("#au-lv1", at(4, 0.52), 0.5, { y: -30 }, { y: 0, ease: "bounce.out" });
+      IN("#au-lv2", at(4, 0.74), 0.5, { y: -30 }, { y: 0, ease: "bounce.out" });
+      IN("#au-lv3", at(4, 0.84), 0.5, { y: -30 }, { y: 0, ease: "bounce.out" });
+      // L5 ⑥ ⑦ + 回到 ①
+      OUT("#au-c4", at(5, 0), 0.4);
+      ARROW("#au-a5", at(5, 0.03), 0.3);
+      NODE("#au-n6", at(5, 0.05));
+      ARROW("#au-a6", at(5, 0.18), 0.3);
+      NODE("#au-n7", at(5, 0.2));
+      ARROW("#au-back", at(5, 0.5), 0.9);
+      IN("#au-backl", at(5, 0.56), 0.4);
+      IN("#au-dot", at(5, 0.56), 0.2);
+      tl.to("#au-dot", { attr: { cy: 276 }, duration: 0.9, ease: "power1.inOut" }, at(5, 0.58));
+      tl.to("#au-dot", { attr: { cx: 200 }, duration: 0.3, ease: "power1.out" }, at(5, 0.58) + 0.9);
+      OUT("#au-dot", at(5, 0.58) + 1.2, 0.2);
+      tl.to("#au-n1 rect", { stroke: "#FF9F43", duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.58) + 1.1);
+      IN("#au-c5", at(5, 0.8), 0.5, { scale: 1.15, svgOrigin: "860 590" }, { scale: 1, svgOrigin: "860 590" });
+      // L6 术语卡 + 工具表
+      OUT("#au-c5", at(6, 0), 0.35);
+      IN("#au-term-card", at(6, 0.02), 0.5);
+      ["0", "1", "2", "3", "4"].forEach((k, i) => {
+        IN(`#au-tr${k}a`, at(6, 0.12 + i * 0.1), 0.4, { x: -12 }, { x: 0 });
+        IN(`#au-tr${k}b`, at(6, 0.15 + i * 0.1), 0.4);
+      });
+      tl.to("#au-tr4b", { fill: "#F0B90B", duration: 0.4 }, at(6, 0.8));
+      // L7 终端演示
+      OUT("#au-ring, #au-term-card", at(7, 0), 0.5);
+      IN("#au-tw", at(7, 0.04), 0.5);
+      IN("#au-k0, #au-k1, #au-k2, #au-k3, #au-k4, #au-k5", at(7, 0.06), 0.5);
+      IN("#au-cmd0", at(7, 0.1), 0.3);
+      IN("#au-warn", at(7, 0.2), 0.4);
+      ARROW("#au-wa", at(7, 0.26), 0.6);
+      tl.to("#au-k4", { fill: "#FF9F43", duration: 0.3 }, at(7, 0.32));
+      OUT("#au-wa", at(7, 0.48), 0.3);
+      tl.to("#au-k4", { y: -80, fill: "#83C167", duration: 0.8, ease: "power2.inOut" }, at(7, 0.5));
+      tl.to("#au-k2, #au-k3", { y: 40, duration: 0.8, ease: "power2.inOut" }, at(7, 0.5));
+      IN("#au-fixbar", at(7, 0.6), 0.3);
+      IN("#au-cei", at(7, 0.62), 0.4);
+      tl.to("#au-warn", { opacity: 0.25, duration: 0.3 }, at(7, 0.68));
+      IN("#au-cmd1", at(7, 0.72), 0.3);
+      IN("#au-ok", at(7, 0.8), 0.4);
+      IN("#au-okl", at(7, 0.84), 0.4);
+
+      tl.to("#au-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#au-term-card", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["audit"] = tl;
+    })();
+  </script>
+</template>

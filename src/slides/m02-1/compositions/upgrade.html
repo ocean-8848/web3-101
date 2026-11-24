@@ -1,0 +1,320 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 upgrade，id 前缀 up- -->
+  <div id="root" data-composition-id="upgrade" data-duration="52.02" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="up-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="up-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="up-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+        <marker id="up-arrP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" />
+        </marker>
+      </defs>
+      <g id="up-all">
+        <!-- ===== L0 不可修改 ===== -->
+        <g id="up-p0">
+          <g id="up-box" class="h">
+            <rect x="760" y="360" width="400" height="280" rx="18" fill="#58C4DD33" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="960" y="420" font-size="30" fill="#58C4DD" text-anchor="middle">runtime code</text>
+          </g>
+          <g id="up-bug" class="h">
+            <path d="M930 520 L900 500 M930 545 L895 545 M930 570 L900 590 M990 520 L1020 500 M990 545 L1025 545 M990 570 L1020 590" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+            <ellipse cx="960" cy="548" rx="34" ry="44" fill="#FC6255" />
+            <circle cx="960" cy="496" r="18" fill="#FC6255" />
+          </g>
+          <g id="up-seal" class="h">
+            <circle cx="1170" cy="360" r="74" fill="#6b6f7a" stroke="#8a8f99" stroke-width="4" />
+            <circle cx="1170" cy="360" r="58" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="6 6" />
+            <text x="1170" y="370" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">不可修改</text>
+          </g>
+          <g id="up-patch" class="h">
+            <rect x="1170" y="500" width="130" height="64" rx="8" fill="#FF9F4333" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="8 6" />
+            <text x="1235" y="543" font-size="28" fill="#FF9F43" text-anchor="middle">补丁</text>
+          </g>
+          <text id="up-law" class="h" x="960" y="760" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">代码即法律 · bug 也改不了</text>
+        </g>
+
+        <!-- ===== L1–L3 代理结构 ===== -->
+        <g id="up-p1">
+          <g id="up-user" class="h">
+            <circle cx="200" cy="462" r="30" fill="#8a8f99" />
+            <path d="M150 560 C150 510 250 510 250 560 Z" fill="#8a8f99" />
+            <text x="200" y="610" font-size="30" fill="#e8e6df" text-anchor="middle">用户</text>
+          </g>
+          <path id="up-ua" class="dr h" pathLength="1" d="M270 510 H472" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#up-arr)" />
+          <text id="up-same" class="h" x="372" y="474" font-size="28" fill="#83C167" text-anchor="middle">地址不变</text>
+          <g id="up-px" class="h">
+            <rect x="480" y="320" width="480" height="380" rx="18" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+            <text x="720" y="372" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">代理 <tspan class="mono" fill="#58C4DD">Proxy</tspan></text>
+          </g>
+          <g id="up-st" class="h">
+            <rect x="510" y="400" width="420" height="120" rx="12" fill="#FF9F4318" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="534" y="472" font-size="30" fill="#FF9F43">全部状态</text>
+            <rect x="700" y="436" width="60" height="48" rx="6" fill="#FF9F4344" stroke="#FF9F43" stroke-width="2" />
+            <rect x="772" y="436" width="60" height="48" rx="6" fill="#FF9F4344" stroke="#FF9F43" stroke-width="2" />
+            <rect x="844" y="436" width="60" height="48" rx="6" fill="#FF9F4344" stroke="#FF9F43" stroke-width="2" />
+          </g>
+          <circle id="up-co0" class="h" cx="730" cy="460" r="15" fill="#F0B90B" />
+          <circle id="up-co1" class="h" cx="802" cy="460" r="15" fill="#F0B90B" />
+          <circle id="up-co2" class="h" cx="874" cy="460" r="15" fill="#F0B90B" />
+          <g id="up-im" class="h">
+            <rect x="510" y="550" width="420" height="120" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="534" y="622" font-size="30" fill="#e8e6df">实现地址</text>
+            <rect id="up-imc" x="740" y="580" width="160" height="60" rx="8" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2" />
+          </g>
+          <text id="up-iv1" class="h mono" x="820" y="621" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">V1</text>
+          <text id="up-iv2" class="h mono" x="820" y="621" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">V2</text>
+          <text id="up-iv3" class="h mono" x="820" y="621" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">X</text>
+          <path id="up-d1" class="dr h" pathLength="1" d="M964 610 H1292" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#up-arrB)" />
+          <path id="up-d1x" class="h" d="M964 610 H1292" stroke="#6b6f7a" stroke-width="3" fill="none" stroke-dasharray="10 10" />
+          <text id="up-dl" class="h mono" x="1128" y="590" font-size="28" fill="#58C4DD" text-anchor="middle">DELEGATECALL</text>
+          <g id="up-v1" class="h">
+            <rect id="up-v1r" x="1300" y="540" width="360" height="140" rx="16" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1480" y="622" font-size="32" fill="#e8e6df" text-anchor="middle">实现合约 <tspan class="mono">V1</tspan></text>
+          </g>
+          <path id="up-d2" class="dr h" pathLength="1" d="M964 630 C1120 640 1150 830 1292 830" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#up-arrB)" />
+          <path id="up-d3" class="dr h" pathLength="1" d="M964 630 C1120 640 1150 830 1292 830" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#up-arrR)" />
+          <g id="up-v2" class="h">
+            <rect x="1300" y="760" width="360" height="140" rx="16" fill="#83C16722" stroke="#83C167" stroke-width="2.5" />
+            <text x="1480" y="842" font-size="32" fill="#e8e6df" text-anchor="middle">实现合约 <tspan class="mono">V2</tspan></text>
+          </g>
+          <g id="up-evil" class="h">
+            <rect x="1300" y="760" width="360" height="140" rx="16" fill="#FC625533" stroke="#FC6255" stroke-width="3" />
+            <text x="1480" y="842" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">全部转给我</text>
+          </g>
+          <!-- 管理员 -->
+          <g id="up-ad" class="h">
+            <rect x="480" y="790" width="480" height="96" rx="14" fill="#B48EF022" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="510" y="850" font-size="32" font-weight="700" fill="#B48EF0">管理员</text>
+            <rect x="634" y="830" width="26" height="24" rx="4" fill="#B48EF0" />
+            <path d="M639 830 V822 A8 8 0 0 1 655 822 V830" stroke="#B48EF0" stroke-width="3.5" fill="none" />
+            <text x="674" y="850" font-size="28" fill="#e8e6df">多签 + 时间锁</text>
+          </g>
+          <g id="up-keyo">
+            <g id="up-key" class="h">
+              <circle cx="912" cy="838" r="14" fill="none" stroke="#F0B90B" stroke-width="4" />
+              <path d="M912 852 V876 M912 866 H922 M912 874 H920" stroke="#F0B90B" stroke-width="4" />
+            </g>
+          </g>
+          <path id="up-ug" class="dr h" pathLength="1" d="M720 786 V704" stroke="#B48EF0" stroke-width="3" fill="none" marker-end="url(#up-arrP)" />
+          <text id="up-ugl" class="h mono" x="740" y="756" font-size="28" fill="#B48EF0">upgradeTo(V2)</text>
+          <g id="up-hand" class="h">
+            <path d="M1010 1030 L1000 930 L985 885 M1000 930 L1010 880 M1000 930 L1030 885 M1000 930 L1045 900" stroke="#FC6255" stroke-width="10" stroke-linecap="round" fill="none" />
+          </g>
+          <g id="up-shield" class="h">
+            <rect x="466" y="776" width="508" height="124" rx="20" fill="none" stroke="#83C167" stroke-width="4" />
+            <text x="720" y="948" font-size="28" fill="#83C167" text-anchor="middle">多签 3/5（示例）· 时间锁 48h（示例）</text>
+          </g>
+        </g>
+
+        <!-- ===== L4 布局对比 ===== -->
+        <g id="up-p4">
+          <g id="up-tb" class="h">
+            <text x="530" y="270" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan class="mono">V1</tspan> 存储布局</text>
+            <text x="1390" y="270" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan class="mono">V2</tspan> 存储布局</text>
+            <rect x="300" y="300" width="460" height="74" rx="10" fill="#FF9F4314" stroke="#FF9F43" stroke-width="2" />
+            <rect x="300" y="390" width="460" height="74" rx="10" fill="#FF9F4314" stroke="#FF9F43" stroke-width="2" />
+            <rect x="1160" y="300" width="460" height="74" rx="10" fill="#FF9F4314" stroke="#FF9F43" stroke-width="2" />
+            <rect x="1160" y="390" width="460" height="74" rx="10" fill="#FF9F4314" stroke="#FF9F43" stroke-width="2" />
+            <text x="324" y="348" font-size="28" fill="#8a8f99">槽 <tspan class="mono">0</tspan></text>
+            <text x="324" y="438" font-size="28" fill="#8a8f99">槽 <tspan class="mono">1</tspan></text>
+            <text x="1184" y="348" font-size="28" fill="#8a8f99">槽 <tspan class="mono">0</tspan></text>
+            <text x="1184" y="438" font-size="28" fill="#8a8f99">槽 <tspan class="mono">1</tspan></text>
+            <text x="440" y="348" font-size="28" fill="#e8e6df">变量 <tspan class="mono">a</tspan></text>
+            <text x="440" y="438" font-size="28" fill="#e8e6df">变量 <tspan class="mono">b</tspan></text>
+          </g>
+          <text id="up-n0" class="h" x="1300" y="348" font-size="28" fill="#e8e6df">变量 <tspan class="mono">a</tspan></text>
+          <text id="up-n1" class="h" x="1300" y="438" font-size="28" fill="#e8e6df">变量 <tspan class="mono">b</tspan></text>
+          <text id="up-m0" class="h" x="1300" y="348" font-size="28" font-weight="700" fill="#FC6255">变量 <tspan class="mono">b</tspan></text>
+          <text id="up-m1" class="h" x="1300" y="438" font-size="28" font-weight="700" fill="#FC6255">变量 <tspan class="mono">a</tspan></text>
+          <path id="up-l0" class="h" d="M764 337 H1156" stroke="#83C167" stroke-width="4" fill="none" />
+          <path id="up-l1" class="h" d="M764 427 H1156" stroke="#83C167" stroke-width="4" fill="none" />
+          <text id="up-swap" class="h" x="960" y="520" font-size="30" fill="#FC6255" text-anchor="middle">顺序调换 → 槽错位</text>
+          <g id="up-tool" class="h">
+            <rect x="760" y="580" width="400" height="96" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <path d="M800 646 L830 616 M824 600 A16 16 0 1 0 846 622" stroke="#8a8f99" stroke-width="6" stroke-linecap="round" fill="none" />
+            <text x="880" y="640" font-size="30" fill="#e8e6df">检查布局</text>
+            <path d="M1060 628 L1080 648 L1118 606" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+          </g>
+          <g id="up-tg0" class="h">
+            <rect x="240" y="780" width="560" height="76" rx="38" fill="#FF9F4318" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="520" y="830" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan class="mono" fill="#FF9F43">EIP-1967</tspan> · 实现地址放固定槽</text>
+          </g>
+          <g id="up-tg1" class="h">
+            <rect x="860" y="780" width="330" height="76" rx="38" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1025" y="830" font-size="30" fill="#e8e6df" text-anchor="middle">Transparent</text>
+          </g>
+          <g id="up-tg2" class="h">
+            <rect x="1250" y="780" width="220" height="76" rx="38" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1360" y="830" font-size="30" fill="#e8e6df" text-anchor="middle">UUPS</text>
+          </g>
+          <text id="up-tgl" class="h" x="1500" y="830" font-size="28" fill="#8a8f99">两种主流实现</text>
+        </g>
+
+        <!-- ===== L5 SELFDESTRUCT ===== -->
+        <g id="up-p5">
+          <g id="up-sd" class="h">
+            <rect x="700" y="230" width="520" height="100" rx="50" fill="#FC625533" stroke="#FC6255" stroke-width="3" />
+            <text class="mono" x="960" y="296" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">SELFDESTRUCT</text>
+          </g>
+          <text id="up-sdl" class="h" x="960" y="390" font-size="30" fill="#8a8f99" text-anchor="middle"><tspan class="mono">2024</tspan> · <tspan class="mono">Cancun</tspan> · <tspan class="mono">EIP-6780</tspan></text>
+          <path id="up-bl" class="dr h" pathLength="1" d="M860 410 C760 440 620 450 600 486" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#up-arr)" />
+          <path id="up-br" class="dr h" pathLength="1" d="M1060 410 C1160 440 1300 450 1320 486" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#up-arr)" />
+          <g id="up-bx0" class="h">
+            <rect x="300" y="500" width="600" height="300" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <text x="600" y="560" font-size="30" fill="#e8e6df" text-anchor="middle">同一交易内 创建 + 销毁</text>
+          </g>
+          <rect id="up-cd0" class="h" x="520" y="600" width="160" height="70" rx="10" fill="#58C4DD55" stroke="#58C4DD" stroke-width="2.5" />
+          <rect id="up-cd0x" class="h" x="520" y="600" width="160" height="70" rx="10" fill="none" stroke="#6b6f7a" stroke-width="2.5" stroke-dasharray="8 8" />
+          <text id="up-r0" class="h" x="600" y="750" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">代码删除</text>
+          <g id="up-bx1" class="h">
+            <rect x="1020" y="500" width="600" height="300" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <text x="1320" y="560" font-size="30" fill="#e8e6df" text-anchor="middle">其他情况</text>
+            <rect x="1240" y="600" width="160" height="70" rx="10" fill="#58C4DD55" stroke="#58C4DD" stroke-width="2.5" />
+          </g>
+          <circle id="up-e0" class="h" cx="1420" cy="620" r="13" fill="#F0B90B" />
+          <circle id="up-e1" class="h" cx="1420" cy="650" r="13" fill="#F0B90B" />
+          <text id="up-r1" class="h" x="1320" y="750" font-size="30" fill="#e8e6df" text-anchor="middle">只转走 <tspan class="mono" fill="#F0B90B">ETH</tspan> · 代码仍在</text>
+          <text id="up-dont" class="h" x="960" y="900" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">新代码不要依赖它</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0 封蜡 + 补丁弹开
+      IN("#up-box", at(0, 0.02), 0.6, { scale: 0.94, svgOrigin: "960 500" }, { scale: 1, svgOrigin: "960 500" });
+      IN("#up-bug", at(0, 0.12), 0.4);
+      IN("#up-seal", at(0, 0.22), 0.4, { scale: 1.6, svgOrigin: "1170 360" }, { scale: 1, svgOrigin: "1170 360" });
+      IN("#up-law", at(0, 0.36), 0.5);
+      IN("#up-patch", at(0, 0.55), 0.2);
+      tl.fromTo("#up-patch", { x: 400 }, { x: 0, duration: 0.5, ease: "power2.in", immediateRender: false }, at(0, 0.55));
+      tl.to("#up-patch", { x: 300, y: 60, duration: 0.6, ease: "back.out(2)" }, at(0, 0.55) + 0.5);
+      OUT("#up-patch", at(0, 0.55) + 1.0, 0.4);
+
+      // L1 代理结构
+      OUT("#up-p0", at(1, 0), 0.4);
+      IN("#up-user", at(1, 0.04), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#up-ua", at(1, 0.1), 0.5);
+      IN("#up-px", at(1, 0.16), 0.6);
+      IN("#up-st", at(1, 0.32), 0.5, { y: 10 }, { y: 0 });
+      IN(["#up-co0", "#up-co1", "#up-co2"], at(1, 0.36), 0.4);
+      IN("#up-im", at(1, 0.46), 0.5, { y: 10 }, { y: 0 });
+      IN("#up-iv1", at(1, 0.5), 0.4);
+      ARROW("#up-d1", at(1, 0.64), 0.6);
+      IN("#up-dl", at(1, 0.66), 0.4);
+      IN("#up-v1", at(1, 0.76), 0.5, { x: 16 }, { x: 0 });
+
+      // L2 升级 V1 → V2
+      IN("#up-ad", at(2, 0.02), 0.5, { y: 12 }, { y: 0 });
+      IN("#up-key", at(2, 0.04), 0.4);
+      ARROW("#up-ug", at(2, 0.16), 0.4);
+      IN("#up-ugl", at(2, 0.18), 0.4);
+      OUT("#up-iv1", at(2, 0.36), 0.25);
+      IN("#up-iv2", at(2, 0.42), 0.3);
+      tl.to("#up-imc", { attr: { stroke: "#83C167" }, duration: 0.3 }, at(2, 0.42));
+      OUT("#up-d1", at(2, 0.42), 0.3);
+      IN("#up-d1x", at(2, 0.44), 0.3);
+      tl.to("#up-v1", { opacity: 0.35, duration: 0.4 }, at(2, 0.46));
+      IN("#up-v2", at(2, 0.5), 0.5, { x: 16 }, { x: 0 });
+      ARROW("#up-d2", at(2, 0.54), 0.6);
+      IN("#up-same", at(2, 0.72), 0.4);
+      tl.fromTo("#up-ua", { attr: { "stroke-width": 3 } }, { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(2, 0.72));
+
+      // L3 私钥被盗 → 倒回 → 多签 + 时间锁
+      OUT(["#up-ug", "#up-ugl", "#up-same"], at(3, 0), 0.3);
+      IN("#up-hand", at(3, 0.04), 0.3);
+      tl.fromTo("#up-hand", { x: 120, y: 160 }, { x: -60, y: 0, duration: 0.6, ease: "power2.out", immediateRender: false }, at(3, 0.04));
+      tl.to(["#up-hand", "#up-keyo"], { x: "+=180", y: "+=220", duration: 0.6, ease: "power2.in" }, at(3, 0.04) + 0.8);
+      tl.set("#up-key", { opacity: 0 }, at(3, 0.04) + 1.4);
+      tl.set("#up-hand", { opacity: 0 }, at(3, 0.04) + 1.4);
+      const te = at(3, 0.2);
+      OUT("#up-v2", te, 0.25);
+      OUT("#up-d2", te, 0.25);
+      IN("#up-evil", te + 0.3, 0.4);
+      ARROW("#up-d3", te + 0.3, 0.5);
+      OUT("#up-iv2", te + 0.2, 0.2);
+      IN("#up-iv3", te + 0.45, 0.25);
+      tl.to("#up-imc", { attr: { stroke: "#FC6255" }, duration: 0.3 }, te + 0.4);
+      tl.to("#up-co0", { attr: { cx: 1480, cy: 960 }, duration: 0.8, ease: "power2.in" }, te + 0.9);
+      tl.to("#up-co1", { attr: { cx: 1530, cy: 980 }, duration: 0.8, ease: "power2.in" }, te + 1.05);
+      tl.to("#up-co2", { attr: { cx: 1580, cy: 960 }, duration: 0.8, ease: "power2.in" }, te + 1.2);
+      // 倒回
+      const tr = at(3, 0.58);
+      tl.to("#up-co0", { attr: { cx: 730, cy: 460 }, duration: 0.6, ease: "power2.inOut" }, tr);
+      tl.to("#up-co1", { attr: { cx: 802, cy: 460 }, duration: 0.6, ease: "power2.inOut" }, tr);
+      tl.to("#up-co2", { attr: { cx: 874, cy: 460 }, duration: 0.6, ease: "power2.inOut" }, tr);
+      OUT(["#up-evil", "#up-d3", "#up-iv3"], tr, 0.3);
+      IN("#up-v2", tr + 0.35, 0.4);
+      DRAW("#up-d2", tr + 0.35, 0.01);
+      IN("#up-d2", tr + 0.35, 0.4);
+      IN("#up-iv2", tr + 0.4, 0.3);
+      tl.to("#up-imc", { attr: { stroke: "#83C167" }, duration: 0.3 }, tr + 0.4);
+      tl.set("#up-keyo", { x: 0, y: 0 }, tr);
+      IN("#up-key", tr + 0.4, 0.4);
+      IN("#up-shield", at(3, 0.76), 0.6, { scale: 1.08, svgOrigin: "720 838" }, { scale: 1, svgOrigin: "720 838" });
+
+      // L4 存储布局对比
+      OUT("#up-p1", at(4, 0), 0.4);
+      IN("#up-tb", at(4, 0.04), 0.6);
+      IN(["#up-n0", "#up-n1"], at(4, 0.06), 0.6);
+      IN(["#up-l0", "#up-l1"], at(4, 0.1), 0.4);
+      OUT(["#up-n0", "#up-n1"], at(4, 0.18), 0.3);
+      IN(["#up-m0", "#up-m1"], at(4, 0.21), 0.3);
+      tl.to(["#up-l0", "#up-l1"], { attr: { stroke: "#FC6255" }, duration: 0.3 }, at(4, 0.21));
+      tl.to("#up-l0", { attr: { d: "M764 337 L1156 427" }, duration: 0.6, ease: "power2.inOut" }, at(4, 0.24));
+      tl.to("#up-l1", { attr: { d: "M764 427 L1156 337" }, duration: 0.6, ease: "power2.inOut" }, at(4, 0.24));
+      IN("#up-swap", at(4, 0.27), 0.4);
+      IN("#up-tool", at(4, 0.36), 0.5, { y: 12 }, { y: 0 });
+      IN("#up-tg0", at(4, 0.5), 0.5, { y: 12 }, { y: 0 });
+      IN("#up-tg1", at(4, 0.74), 0.5, { y: 12 }, { y: 0 });
+      IN("#up-tg2", at(4, 0.82), 0.5, { y: 12 }, { y: 0 });
+      IN("#up-tgl", at(4, 0.88), 0.4);
+
+      // L5 SELFDESTRUCT
+      OUT("#up-p4", at(5, 0), 0.4);
+      IN("#up-sd", at(5, 0.04), 0.5, { scale: 0.85, svgOrigin: "960 280" }, { scale: 1, svgOrigin: "960 280" });
+      IN("#up-sdl", at(5, 0.14), 0.4);
+      ARROW("#up-bl", at(5, 0.28), 0.4);
+      IN("#up-bx0", at(5, 0.3), 0.4);
+      IN("#up-cd0", at(5, 0.34), 0.3);
+      OUT("#up-cd0", at(5, 0.44), 0.5);
+      IN("#up-cd0x", at(5, 0.46), 0.4);
+      IN("#up-r0", at(5, 0.5), 0.4);
+      ARROW("#up-br", at(5, 0.56), 0.4);
+      IN("#up-bx1", at(5, 0.58), 0.4);
+      IN(["#up-e0", "#up-e1"], at(5, 0.62), 0.2);
+      tl.to("#up-e0", { attr: { cx: 1580, cy: 560 }, duration: 0.7, ease: "power2.in" }, at(5, 0.66));
+      tl.to("#up-e1", { attr: { cx: 1590, cy: 600 }, duration: 0.7, ease: "power2.in" }, at(5, 0.7));
+      OUT(["#up-e0", "#up-e1"], at(5, 0.76), 0.3);
+      IN("#up-r1", at(5, 0.7), 0.4);
+      IN("#up-dont", at(5, 0.84), 0.4);
+
+      tl.to("#up-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["upgrade"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,322 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 subscribe，id 前缀 su- -->
+  <div id="root" data-composition-id="subscribe" data-duration="75.42" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="su-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="su-all">
+        <!-- L0–L1：HTTP vs WebSocket 长连接 -->
+        <g id="su-l0">
+          <g id="su-go" class="h">
+            <rect x="160" y="360" width="300" height="140" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="310" y="442" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">Go 程序</text>
+          </g>
+          <g id="su-nd" class="h">
+            <rect x="1460" y="360" width="300" height="140" rx="16" fill="#B48EF022" stroke="#B48EF0" stroke-width="3" />
+            <text x="1610" y="442" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">RPC 节点</text>
+          </g>
+          <line id="su-http" class="dr" pathLength="1" x1="460" y1="395" x2="1460" y2="395" stroke="#8a8f99" stroke-width="3" />
+          <text id="su-httpt" class="h mono" x="700" y="376" font-size="28" fill="#8a8f99" text-anchor="middle">HTTP</text>
+          <circle id="su-q0" class="h" cx="470" cy="395" r="9" fill="#8a8f99" />
+          <circle id="su-q1" class="h" cx="470" cy="395" r="9" fill="#8a8f99" />
+          <circle id="su-q2" class="h" cx="470" cy="395" r="9" fill="#8a8f99" />
+          <text id="su-hx" class="h" x="960" y="408" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">✕</text>
+          <line id="su-ws" class="dr" pathLength="1" x1="460" y1="465" x2="1460" y2="465" stroke="#58C4DD" stroke-width="5" />
+          <line id="su-wsx" class="h" x1="460" y1="465" x2="1460" y2="465" stroke="#FC6255" stroke-width="4" stroke-dasharray="16 12" />
+          <text id="su-wst" class="h mono" x="700" y="512" font-size="28" fill="#58C4DD" text-anchor="middle">WebSocket / IPC</text>
+          <rect id="su-h0" class="h" x="1430" y="455" width="20" height="20" rx="3" fill="#58C4DD" />
+          <rect id="su-h1" class="h" x="1430" y="455" width="20" height="20" rx="3" fill="#58C4DD" />
+          <rect id="su-h2" class="h" x="1430" y="455" width="20" height="20" rx="3" fill="#58C4DD" />
+          <rect id="su-h3" class="h" x="1430" y="455" width="20" height="20" rx="3" fill="#58C4DD" />
+          <rect id="su-h4" class="h" x="1430" y="455" width="20" height="20" rx="3" fill="#58C4DD" />
+          <rect id="su-h5" class="h" x="1430" y="455" width="20" height="20" rx="3" fill="#58C4DD" />
+          <rect id="su-h6" class="h" x="1430" y="455" width="20" height="20" rx="3" fill="#58C4DD" />
+          <rect id="su-h7" class="h" x="1430" y="455" width="20" height="20" rx="3" fill="#58C4DD" />
+          <rect id="su-h8" class="h" x="1430" y="455" width="20" height="20" rx="3" fill="#58C4DD" />
+          <g id="su-k0" class="h"><path d="M870 438 L852 466 L872 466 L854 494" fill="none" stroke="#FF9F43" stroke-width="5" stroke-linejoin="round" /><text x="862" y="580" font-size="28" fill="#FF9F43" text-anchor="middle">网络抖动</text></g>
+          <g id="su-k1" class="h"><path d="M1070 438 L1052 466 L1072 466 L1054 494" fill="none" stroke="#FF9F43" stroke-width="5" stroke-linejoin="round" /><text x="1062" y="580" font-size="28" fill="#FF9F43" text-anchor="middle">节点重启</text></g>
+          <g id="su-k2" class="h"><path d="M1270 438 L1252 466 L1272 466 L1254 494" fill="none" stroke="#FF9F43" stroke-width="5" stroke-linejoin="round" /><text x="1262" y="580" font-size="28" fill="#FF9F43" text-anchor="middle">空闲超时</text></g>
+          <g id="su-pp" class="h">
+            <rect id="su-ppr" x="190" y="560" width="240" height="54" rx="27" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text id="su-ppt" class="mono" x="310" y="597" font-size="28" fill="#e8e6df" text-anchor="middle">sub.Err()</text>
+          </g>
+          <text id="su-map" class="h mono" x="160" y="900" font-size="28" fill="#e8e6df" xml:space="preserve">SubscribeNewHead -&gt; <tspan fill="#58C4DD">eth_subscribe newHeads</tspan> (WS)</text>
+        </g>
+
+        <!-- L2：select 三岔路口 -->
+        <g id="su-cf" class="h">
+          <rect x="920" y="220" width="940" height="241" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <rect id="su-cf-hb" class="h" x="922" y="237" width="936" height="41" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="su-cf-hs" class="h" x="922" y="237" width="4" height="41" fill="#58C4DD" />
+          <text class="mono" x="972" y="266" font-size="28" fill="#6b6f7a" text-anchor="end">1</text>
+          <text id="su-cf-c0" class="mono" x="988" y="266" font-size="28" fill="#e8e6df" xml:space="preserve">select {</text>
+          <text class="mono" x="972" y="307" font-size="28" fill="#6b6f7a" text-anchor="end">2</text>
+          <text id="su-cf-c1" class="mono" x="988" y="307" font-size="28" fill="#e8e6df" xml:space="preserve">case h := &lt;-ch:          onHead(h)</text>
+          <text class="mono" x="972" y="348" font-size="28" fill="#6b6f7a" text-anchor="end">3</text>
+          <text id="su-cf-c2" class="mono" x="988" y="348" font-size="28" fill="#e8e6df" xml:space="preserve">case err := &lt;-sub.Err(): return err</text>
+          <text class="mono" x="972" y="389" font-size="28" fill="#6b6f7a" text-anchor="end">4</text>
+          <text id="su-cf-c3" class="mono" x="988" y="389" font-size="28" fill="#e8e6df" xml:space="preserve">case &lt;-ctx.Done():       return ctx.Err()</text>
+          <text class="mono" x="972" y="430" font-size="28" fill="#6b6f7a" text-anchor="end">5</text>
+          <text id="su-cf-c4" class="mono" x="988" y="430" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+        </g>
+        <g id="su-l2">
+          <g id="su-tr" class="h">
+            <text class="mono" x="120" y="292" font-size="30" fill="#e8e6df">select</text>
+            <line x1="160" y1="312" x2="160" y2="700" stroke="#e8e6df" stroke-width="3" />
+          </g>
+          <path id="su-b0" class="dr h" pathLength="1" d="M160 360 L556 360" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#su-arr)" />
+          <path id="su-b1" class="dr h" pathLength="1" d="M160 530 L556 530" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#su-arr)" />
+          <path id="su-b2" class="dr h" pathLength="1" d="M160 700 L556 700" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#su-arr)" />
+          <text id="su-bl0" class="h mono" x="190" y="340" font-size="28" fill="#58C4DD">ch</text>
+          <text id="su-bl1" class="h mono" x="190" y="510" font-size="28" fill="#FC6255">sub.Err()</text>
+          <text id="su-bl2" class="h mono" x="190" y="680" font-size="28" fill="#8a8f99">ctx.Done()</text>
+          <g id="su-o0" class="h"><rect x="570" y="325" width="320" height="70" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="730" y="370" font-size="28" fill="#e8e6df" text-anchor="middle">onHead(h)</text></g>
+          <g id="su-o1" class="h"><rect x="570" y="495" width="320" height="70" rx="12" fill="#FC625522" stroke="#FC6255" stroke-width="2.5" /><text x="730" y="541" font-size="30" fill="#FC6255" text-anchor="middle">结束这一轮</text></g>
+          <g id="su-o2" class="h"><rect x="570" y="665" width="320" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="730" y="711" font-size="30" fill="#8a8f99" text-anchor="middle">整个退出</text></g>
+        </g>
+
+        <!-- L3：指数退避 -->
+        <g id="su-cg" class="h">
+          <rect x="920" y="220" width="940" height="528" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <rect id="su-cg-hb" class="h" x="922" y="237" width="936" height="41" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="su-cg-hs" class="h" x="922" y="237" width="4" height="41" fill="#58C4DD" />
+          <text class="mono" x="972" y="266" font-size="28" fill="#6b6f7a" text-anchor="end">1</text>
+          <text id="su-cg-c0" class="mono" x="988" y="266" font-size="28" fill="#e8e6df" xml:space="preserve">backoff := time.Second</text>
+          <text class="mono" x="972" y="307" font-size="28" fill="#6b6f7a" text-anchor="end">2</text>
+          <text id="su-cg-c1" class="mono" x="988" y="307" font-size="28" fill="#e8e6df" xml:space="preserve">for ctx.Err() == nil {</text>
+          <text class="mono" x="972" y="348" font-size="28" fill="#6b6f7a" text-anchor="end">3</text>
+          <text id="su-cg-c2" class="mono" x="988" y="348" font-size="28" fill="#e8e6df" xml:space="preserve">    err := subscribeOnce(ctx, wsURL, onHead)</text>
+          <text class="mono" x="972" y="389" font-size="28" fill="#6b6f7a" text-anchor="end">4</text>
+          <text id="su-cg-c3" class="mono" x="988" y="389" font-size="28" fill="#e8e6df" xml:space="preserve">    log.Printf(</text>
+          <text class="mono" x="972" y="430" font-size="28" fill="#6b6f7a" text-anchor="end">5</text>
+          <text id="su-cg-c4" class="mono" x="988" y="430" font-size="28" fill="#e8e6df" xml:space="preserve">        "subscription ended: %v, retry in %s",</text>
+          <text class="mono" x="972" y="471" font-size="28" fill="#6b6f7a" text-anchor="end">6</text>
+          <text id="su-cg-c5" class="mono" x="988" y="471" font-size="28" fill="#e8e6df" xml:space="preserve">        err, backoff)</text>
+          <text class="mono" x="972" y="512" font-size="28" fill="#6b6f7a" text-anchor="end">7</text>
+          <text id="su-cg-c6" class="mono" x="988" y="512" font-size="28" fill="#e8e6df" xml:space="preserve">    select {</text>
+          <text class="mono" x="972" y="553" font-size="28" fill="#6b6f7a" text-anchor="end">8</text>
+          <text id="su-cg-c7" class="mono" x="988" y="553" font-size="28" fill="#e8e6df" xml:space="preserve">    case &lt;-time.After(backoff):</text>
+          <text class="mono" x="972" y="594" font-size="28" fill="#6b6f7a" text-anchor="end">9</text>
+          <text id="su-cg-c8" class="mono" x="988" y="594" font-size="28" fill="#e8e6df" xml:space="preserve">    case &lt;-ctx.Done(): return</text>
+          <text class="mono" x="972" y="635" font-size="28" fill="#6b6f7a" text-anchor="end">10</text>
+          <text id="su-cg-c9" class="mono" x="988" y="635" font-size="28" fill="#e8e6df" xml:space="preserve">    }</text>
+          <text class="mono" x="972" y="676" font-size="28" fill="#6b6f7a" text-anchor="end">11</text>
+          <text id="su-cg-c10" class="mono" x="988" y="676" font-size="28" fill="#e8e6df" xml:space="preserve">    if backoff &lt; 30*time.Second { backoff *= 2 }</text>
+          <text class="mono" x="972" y="717" font-size="28" fill="#6b6f7a" text-anchor="end">12</text>
+          <text id="su-cg-c11" class="mono" x="988" y="717" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+        </g>
+        <text id="su-gn" class="h" x="950" y="800" font-size="28" fill="#8a8f99">subscribeOnce 连上时把 backoff 重置为 1s</text>
+        <g id="su-l3">
+          <g id="su-cap" class="h">
+            <line x1="800" y1="262" x2="800" y2="680" stroke="#FF9F43" stroke-width="3" stroke-dasharray="10 8" />
+            <text x="800" y="244" font-size="28" fill="#FF9F43" text-anchor="middle">上限</text>
+          </g>
+          <text id="su-bt0" class="h mono" x="180" y="310" font-size="28" fill="#e8e6df" text-anchor="end">1s</text><rect id="su-bar0" class="h" x="200" y="280" width="0" height="40" rx="4" fill="#FF9F43" />
+          <text id="su-bt1" class="h mono" x="180" y="380" font-size="28" fill="#e8e6df" text-anchor="end">2s</text><rect id="su-bar1" class="h" x="200" y="350" width="0" height="40" rx="4" fill="#FF9F43" />
+          <text id="su-bt2" class="h mono" x="180" y="450" font-size="28" fill="#e8e6df" text-anchor="end">4s</text><rect id="su-bar2" class="h" x="200" y="420" width="0" height="40" rx="4" fill="#FF9F43" />
+          <text id="su-bt3" class="h mono" x="180" y="520" font-size="28" fill="#e8e6df" text-anchor="end">8s</text><rect id="su-bar3" class="h" x="200" y="490" width="0" height="40" rx="4" fill="#FF9F43" />
+          <text id="su-bt4" class="h mono" x="180" y="590" font-size="28" fill="#e8e6df" text-anchor="end">16s</text><rect id="su-bar4" class="h" x="200" y="560" width="0" height="40" rx="4" fill="#FF9F43" />
+          <text id="su-bt5" class="h mono" x="180" y="660" font-size="28" fill="#e8e6df" text-anchor="end">≈30s</text><rect id="su-bar5" class="h" x="200" y="630" width="0" height="40" rx="4" fill="#FF9F43" />
+          <g id="su-ok" class="h"><circle cx="215" cy="720" r="13" fill="#83C167" /><text x="244" y="730" font-size="28" font-weight="700" fill="#83C167">连上</text></g>
+          <g id="su-r7" class="h"><text class="mono" x="180" y="810" font-size="28" fill="#e8e6df" text-anchor="end">1s</text><rect x="200" y="780" width="20" height="40" rx="4" fill="#FF9F43" /></g>
+        </g>
+
+        <!-- L4：回调只唤醒；按高度逐块拉 -->
+        <g id="su-l4">
+          <g id="su-oh" class="h"><rect x="160" y="300" width="260" height="80" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="290" y="350" font-size="30" fill="#e8e6df" text-anchor="middle">onHead</text></g>
+          <path id="su-oa" class="dr h" pathLength="1" d="M426 340 L560 340" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#su-arr)" />
+          <g id="su-alo" class="h">
+            <g id="su-al">
+              <circle cx="612" cy="344" r="32" fill="#161a22" stroke="#e8e6df" stroke-width="3.5" />
+              <path d="M612 326 L612 344 L626 352" fill="none" stroke="#e8e6df" stroke-width="3.5" stroke-linecap="round" />
+              <path d="M586 316 L576 306 M638 316 L648 306" stroke="#e8e6df" stroke-width="4" stroke-linecap="round" />
+            </g>
+            <text x="670" y="354" font-size="30" fill="#e8e6df">唤醒扫块循环</text>
+          </g>
+          <g id="su-gap" class="h">
+            <line x1="760" y1="530" x2="1320" y2="530" stroke="#FC6255" stroke-width="3" stroke-dasharray="12 8" />
+            <text x="1040" y="510" font-size="28" fill="#FC6255" text-anchor="middle">断线期间</text>
+          </g>
+          <g id="su-n0" class="h"><rect id="su-nr0" x="160" y="560" width="160" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="240" y="616" font-size="28" fill="#e8e6df" text-anchor="middle">N</text></g>
+          <g id="su-n1" class="h"><rect id="su-nr1" x="360" y="560" width="160" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="440" y="616" font-size="28" fill="#e8e6df" text-anchor="middle">N+1</text></g>
+          <g id="su-n2" class="h"><rect id="su-nr2" x="560" y="560" width="160" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="640" y="616" font-size="28" fill="#e8e6df" text-anchor="middle">N+2</text></g>
+          <g id="su-n3" class="h"><rect id="su-nr3" x="760" y="560" width="160" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="840" y="616" font-size="28" fill="#e8e6df" text-anchor="middle">N+3</text></g>
+          <g id="su-n4" class="h"><rect id="su-nr4" x="960" y="560" width="160" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1040" y="616" font-size="28" fill="#e8e6df" text-anchor="middle">N+4</text></g>
+          <g id="su-n5" class="h"><rect id="su-nr5" x="1160" y="560" width="160" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1240" y="616" font-size="28" fill="#e8e6df" text-anchor="middle">N+5</text></g>
+          <g id="su-n6" class="h"><rect id="su-nr6" x="1360" y="560" width="160" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1440" y="616" font-size="28" fill="#e8e6df" text-anchor="middle">N+6</text></g>
+          <g id="su-n7" class="h"><rect id="su-nr7" x="1560" y="560" width="160" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1640" y="616" font-size="28" fill="#e8e6df" text-anchor="middle">N+7</text></g>
+        </g>
+
+        <!-- L5：Removed 日志 → 撤销 -->
+        <g id="su-l5">
+          <g id="su-c0" class="h"><rect x="200" y="300" width="180" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="290" y="356" font-size="28" fill="#e8e6df" text-anchor="middle">N−1</text></g>
+          <g id="su-c1" class="h"><rect x="420" y="300" width="180" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="510" y="356" font-size="28" fill="#e8e6df" text-anchor="middle">N</text></g>
+          <path id="su-cl" class="h" d="M380 345 L420 345 M600 345 L640 345" stroke="#58C4DD" stroke-width="3" />
+          <g id="su-orp"><g id="su-c2" class="h"><rect id="su-c2r" x="640" y="300" width="180" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="730" y="356" font-size="28" fill="#e8e6df" text-anchor="middle">N+1</text></g></g>
+          <text id="su-rg" class="h" x="730" y="166" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">重组</text>
+          <g id="su-c3" class="h"><rect x="640" y="300" width="180" height="90" rx="10" fill="#83C16722" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="730" y="356" font-size="28" fill="#e8e6df" text-anchor="middle">N+1′</text></g>
+          <line id="su-lk" class="h" x1="820" y1="345" x2="980" y2="250" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6" />
+          <g id="su-lg" class="h">
+            <rect x="980" y="190" width="500" height="130" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1010" y="238" font-size="28" fill="#58C4DD">Transfer 日志</text>
+            <text class="mono" x="1010" y="292" font-size="30" font-weight="700" fill="#FC6255">Removed: true</text>
+          </g>
+          <g id="su-rec" class="h">
+            <rect x="980" y="560" width="500" height="100" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="1010" y="622" font-size="30" fill="#e8e6df">未确认充值 <tspan class="mono" fill="#F0B90B">+100 USDC</tspan></text>
+          </g>
+          <line id="su-st" class="dr" pathLength="1" x1="1000" y1="611" x2="1360" y2="611" stroke="#FC6255" stroke-width="4" />
+          <path id="su-rb" class="dr h" pathLength="1" d="M970 610 L806 610" stroke="#FF9F43" stroke-width="3.5" fill="none" marker-end="url(#su-arr)" />
+          <text id="su-rbt" class="h" x="888" y="590" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">撤销</text>
+        </g>
+      </g>
+      <!-- 术语卡 -->
+      <g id="su-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">订阅 <tspan font-size="28" font-weight="400" fill="#8a8f99">Subscription</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">节点通过 WebSocket 主动推送</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const HL = (p, n, B0, a, b, t) => {
+        tl.to(`#${p}-hb, #${p}-hs`, { opacity: 1, attr: { y: B0 - 29 + 41 * a, height: 41 * (b - a + 1) }, duration: 0.35, ease: "power2.inOut" }, t);
+        for (let i = 0; i < n; i++) tl.to(`#${p}-c${i}`, { opacity: i >= a && i <= b ? 1 : 0.6, duration: 0.3 }, t);
+      };
+      const HF = (a, b, t) => HL("su-cf", 5, 266, a, b, t);
+      const HG = (a, b, t) => HL("su-cg", 12, 266, a, b, t);
+
+      // L0 轮询太慢 → 订阅；只能走 WS / IPC，HTTP 不行
+      IN("#su-go", at(0, 0.0), 0.5);
+      IN("#su-nd", at(0, 0.02), 0.5);
+      DRAW("#su-http", at(0, 0.04), 0.6);
+      IN("#su-httpt", at(0, 0.06), 0.4);
+      ["#su-q0", "#su-q1", "#su-q2"].forEach((s, i) => {
+        const t = at(0, 0.08 + i * 0.07);
+        IN(s, t, 0.1);
+        tl.to(s, { attr: { cx: 1450 }, duration: 0.8, ease: "none" }, t);
+        OUT(s, t + 0.75, 0.15);
+      });
+      IN("#su-term", at(0, 0.3), 0.5);
+      DRAW("#su-ws", at(0, 0.44), 0.7);
+      IN("#su-wst", at(0, 0.5), 0.4);
+      IN("#su-map", at(0, 0.56), 0.5, { x: -16 }, { x: 0 });
+      IN("#su-h0", at(0, 0.60), 0.1); tl.to("#su-h0", { x: -950, duration: 1.6, ease: "none" }, at(0, 0.60)); OUT("#su-h0", at(0, 0.60) + 1.45, 0.15);
+      IN("#su-h1", at(0, 0.68), 0.1); tl.to("#su-h1", { x: -950, duration: 1.6, ease: "none" }, at(0, 0.68)); OUT("#su-h1", at(0, 0.68) + 1.45, 0.15);
+      IN("#su-h2", at(0, 0.76), 0.1); tl.to("#su-h2", { x: -950, duration: 1.6, ease: "none" }, at(0, 0.76)); OUT("#su-h2", at(0, 0.76) + 1.45, 0.15);
+      IN("#su-h3", at(0, 0.84), 0.1); tl.to("#su-h3", { x: -950, duration: 1.6, ease: "none" }, at(0, 0.84)); OUT("#su-h3", at(0, 0.84) + 1.45, 0.15);
+      IN("#su-h4", at(0, 0.92), 0.1); tl.to("#su-h4", { x: -950, duration: 1.6, ease: "none" }, at(0, 0.92)); OUT("#su-h4", at(0, 0.92) + 1.45, 0.15);
+      IN("#su-h5", at(1, 0.00), 0.1); tl.to("#su-h5", { x: -950, duration: 1.6, ease: "none" }, at(1, 0.00)); OUT("#su-h5", at(1, 0.00) + 1.45, 0.15);
+      IN("#su-h6", at(1, 0.12), 0.1); tl.to("#su-h6", { x: -950, duration: 1.6, ease: "none" }, at(1, 0.12)); OUT("#su-h6", at(1, 0.12) + 1.45, 0.15);
+      IN("#su-h7", at(1, 0.24), 0.1); tl.to("#su-h7", { x: -950, duration: 1.6, ease: "none" }, at(1, 0.24)); OUT("#su-h7", at(1, 0.24) + 1.45, 0.15);
+      IN("#su-h8", at(1, 0.36), 0.1); tl.to("#su-h8", { x: -950, duration: 1.6, ease: "none" }, at(1, 0.36)); OUT("#su-h8", at(1, 0.36) + 1.45, 0.15);
+      tl.to("#su-http, #su-httpt", { opacity: 0.4, duration: 0.3 }, at(0, 0.86));
+      IN("#su-hx", at(0, 0.86), 0.3, { scale: 1.6, svgOrigin: "960 395" }, { scale: 1, svgOrigin: "960 395" });
+      OUT("#su-term", at(0, 0.88), 0.4);
+
+      // L1 长连接会断 → sub.Err() 收到错误
+      IN("#su-k0", at(1, 0.22), 0.35, { y: -10 }, { y: 0 });
+      IN("#su-k1", at(1, 0.32), 0.35, { y: -10 }, { y: 0 });
+      IN("#su-k2", at(1, 0.44), 0.35, { y: -10 }, { y: 0 });
+      OUT("#su-ws", at(1, 0.58), 0.3);
+      IN("#su-wsx", at(1, 0.58), 0.3);
+      tl.to("#su-wst", { fill: "#FC6255", duration: 0.3 }, at(1, 0.58));
+      IN("#su-pp", at(1, 0.7), 0.4);
+      tl.to("#su-ppr", { stroke: "#FC6255", fill: "#FC625533", duration: 0.3 }, at(1, 0.84));
+      tl.to("#su-ppt", { fill: "#FC6255", duration: 0.3 }, at(1, 0.84));
+
+      // L2 select 同时等三件事
+      OUT("#su-l0", at(2, 0), 0.4);
+      IN("#su-cf", at(2, 0.04), 0.5);
+      HF(0, 4, at(2, 0.06));
+      IN("#su-tr", at(2, 0.08), 0.5);
+      HF(1, 1, at(2, 0.26));
+      ARROW("#su-b0", at(2, 0.28), 0.5); IN("#su-bl0", at(2, 0.3), 0.3); IN("#su-o0", at(2, 0.36), 0.4);
+      HF(2, 2, at(2, 0.5));
+      ARROW("#su-b1", at(2, 0.52), 0.5); IN("#su-bl1", at(2, 0.54), 0.3); IN("#su-o1", at(2, 0.6), 0.4);
+      HF(3, 3, at(2, 0.78));
+      ARROW("#su-b2", at(2, 0.8), 0.5); IN("#su-bl2", at(2, 0.82), 0.3); IN("#su-o2", at(2, 0.88), 0.4);
+
+      // L3 指数退避：1 → 2 → 4 → … → 封顶；连上后回到 1s
+      OUT("#su-cf, #su-l2", at(3, 0), 0.4);
+      IN("#su-cg", at(3, 0.04), 0.5);
+      HG(0, 0, at(3, 0.06));
+      HG(6, 9, at(3, 0.18));
+      IN("#su-bt0, #su-bar0", at(3, 0.20), 0.2); tl.fromTo("#su-bar0", { attr: { width: 0 } }, { attr: { width: 20 }, duration: 0.5, ease: "power1.out", immediateRender: false }, at(3, 0.20));
+      IN("#su-bt1, #su-bar1", at(3, 0.27), 0.2); tl.fromTo("#su-bar1", { attr: { width: 0 } }, { attr: { width: 40 }, duration: 0.5, ease: "power1.out", immediateRender: false }, at(3, 0.27));
+      IN("#su-bt2, #su-bar2", at(3, 0.34), 0.2); tl.fromTo("#su-bar2", { attr: { width: 0 } }, { attr: { width: 80 }, duration: 0.5, ease: "power1.out", immediateRender: false }, at(3, 0.34));
+      IN("#su-bt3, #su-bar3", at(3, 0.41), 0.2); tl.fromTo("#su-bar3", { attr: { width: 0 } }, { attr: { width: 160 }, duration: 0.5, ease: "power1.out", immediateRender: false }, at(3, 0.41));
+      IN("#su-bt4, #su-bar4", at(3, 0.48), 0.2); tl.fromTo("#su-bar4", { attr: { width: 0 } }, { attr: { width: 320 }, duration: 0.5, ease: "power1.out", immediateRender: false }, at(3, 0.48));
+      IN("#su-bt5, #su-bar5", at(3, 0.55), 0.2); tl.fromTo("#su-bar5", { attr: { width: 0 } }, { attr: { width: 600 }, duration: 0.5, ease: "power1.out", immediateRender: false }, at(3, 0.55));
+      HG(10, 10, at(3, 0.44));
+      IN("#su-cap", at(3, 0.62), 0.4);
+      HG(2, 2, at(3, 0.82));
+      IN("#su-gn", at(3, 0.82), 0.4);
+      IN("#su-ok", at(3, 0.84), 0.4, { scale: 0.5, svgOrigin: "215 720" }, { scale: 1, svgOrigin: "215 720" });
+      IN("#su-r7", at(3, 0.9), 0.4, { x: -10 }, { x: 0 });
+
+      // L4 回调只叫醒扫块循环；按高度逐块拉，断线期间也补上
+      OUT("#su-cg, #su-gn, #su-l3", at(4, 0), 0.4);
+      IN("#su-oh", at(4, 0.04), 0.4);
+      ARROW("#su-oa", at(4, 0.1), 0.4);
+      IN("#su-alo", at(4, 0.14), 0.4);
+      tl.to("#su-al", { rotation: 10, svgOrigin: "612 344", duration: 0.07, yoyo: true, repeat: 7 }, at(4, 0.2));
+      IN("#su-gap", at(4, 0.5), 0.4);
+      IN("#su-n0", at(4, 0.55), 0.35, { y: -30 }, { y: 0 });
+      IN("#su-n1", at(4, 0.60), 0.35, { y: -30 }, { y: 0 });
+      IN("#su-n2", at(4, 0.65), 0.35, { y: -30 }, { y: 0 });
+      IN("#su-n3", at(4, 0.70), 0.35, { y: -30 }, { y: 0 });
+      tl.to("#su-nr3", { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, at(4, 0.70) + 0.3);
+      IN("#su-n4", at(4, 0.75), 0.35, { y: -30 }, { y: 0 });
+      tl.to("#su-nr4", { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, at(4, 0.75) + 0.3);
+      IN("#su-n5", at(4, 0.80), 0.35, { y: -30 }, { y: 0 });
+      tl.to("#su-nr5", { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, at(4, 0.80) + 0.3);
+      IN("#su-n6", at(4, 0.85), 0.35, { y: -30 }, { y: 0 });
+      IN("#su-n7", at(4, 0.90), 0.35, { y: -30 }, { y: 0 });
+
+      // L5 Removed=true：区块被重组，撤销未确认充值
+      OUT("#su-l4", at(5, 0), 0.4);
+      IN("#su-c0, #su-c1, #su-c2, #su-cl", at(5, 0.03), 0.5);
+      IN("#su-lk", at(5, 0.12), 0.3);
+      IN("#su-lg", at(5, 0.14), 0.5, { x: 16 }, { x: 0 });
+      tl.to("#su-orp", { y: -110, duration: 0.6, ease: "power2.inOut" }, at(5, 0.36));
+      tl.to("#su-lk", { attr: { y1: 235 }, duration: 0.6, ease: "power2.inOut" }, at(5, 0.36));
+      tl.to("#su-c2r", { stroke: "#FC6255", strokeDasharray: "10 6", fill: "#FC625518", duration: 0.3 }, at(5, 0.42));
+      IN("#su-rg", at(5, 0.44), 0.4);
+      IN("#su-c3", at(5, 0.48), 0.5, { y: 40 }, { y: 0 });
+      IN("#su-rec", at(5, 0.62), 0.5, { y: 12 }, { y: 0 });
+      DRAW("#su-st", at(5, 0.84), 0.4);
+      tl.to("#su-rec", { opacity: 0.6, duration: 0.3 }, at(5, 0.88));
+      ARROW("#su-rb", at(5, 0.88), 0.4);
+      IN("#su-rbt", at(5, 0.9), 0.3);
+
+      tl.to("#su-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#su-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["subscribe"] = tl;
+    })();
+  </script>
+</template>

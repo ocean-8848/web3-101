@@ -1,0 +1,261 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 location，id 前缀 lo- -->
+  <div id="root" data-composition-id="location" data-duration="59.97" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="lo-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="lo-all">
+        <!-- L0–L1：引用类型四张卡 -->
+        <g id="lo-grid">
+          <g id="lo-cA" class="h">
+            <rect x="120" y="220" width="820" height="330" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="150" y="278" font-size="36" font-weight="700" fill="#58C4DD">T[] 数组</text>
+            <rect x="160" y="340" width="70" height="70" rx="8" fill="rgba(88,196,221,.25)" stroke="#58C4DD" stroke-width="2"/>
+            <rect x="240" y="340" width="70" height="70" rx="8" fill="rgba(88,196,221,.25)" stroke="#58C4DD" stroke-width="2"/>
+            <rect x="320" y="340" width="70" height="70" rx="8" fill="rgba(88,196,221,.25)" stroke="#58C4DD" stroke-width="2"/>
+            <rect x="400" y="340" width="70" height="70" rx="8" fill="rgba(88,196,221,.25)" stroke="#58C4DD" stroke-width="2"/>
+          </g>
+          <rect id="lo-push" class="h" x="480" y="340" width="70" height="70" rx="8" fill="rgba(240,185,11,.35)" stroke="#F0B90B" stroke-width="2"/>
+          <text id="lo-pushl" class="h mono" x="620" y="388" font-size="32" fill="#F0B90B">push(x)</text>
+          <text id="lo-popl" class="h mono" x="620" y="388" font-size="32" fill="#F0B90B">pop()</text>
+          <g id="lo-cB" class="h">
+            <rect x="980" y="220" width="820" height="330" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="1010" y="278" font-size="36" font-weight="700" fill="#58C4DD">mapping(K =&gt; V)</text>
+          </g>
+          <g id="lo-map" class="h">
+            <rect x="1020" y="310" width="480" height="180" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+            <line x1="1260" y1="310" x2="1260" y2="490" stroke="#8a8f99" stroke-width="2"/>
+            <line x1="1020" y1="370" x2="1500" y2="370" stroke="#8a8f99" stroke-width="2"/>
+            <line x1="1020" y1="430" x2="1500" y2="430" stroke="#8a8f99" stroke-width="1.5" opacity="0.6"/>
+            <text class="mono" x="1140" y="351" font-size="30" fill="#8a8f99" text-anchor="middle">K</text>
+            <text class="mono" x="1380" y="351" font-size="30" fill="#8a8f99" text-anchor="middle">V</text>
+            <text class="mono" x="1140" y="411" font-size="30" fill="#e8e6df" text-anchor="middle">k1</text>
+            <text class="mono" x="1380" y="411" font-size="30" fill="#58C4DD" text-anchor="middle">v1</text>
+            <text class="mono" x="1140" y="471" font-size="30" fill="#e8e6df" text-anchor="middle">k2</text>
+            <text class="mono" x="1380" y="471" font-size="30" fill="#58C4DD" text-anchor="middle">v2</text>
+          </g>
+          <g id="lo-cC" class="h">
+            <rect x="120" y="590" width="820" height="330" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="150" y="648" font-size="36" font-weight="700" fill="#58C4DD">struct</text>
+          </g>
+          <g id="lo-st" class="h">
+            <rect x="160" y="680" width="460" height="120" rx="12" fill="none" stroke="#58C4DD" stroke-width="2.5"/>
+            <rect x="180" y="705" width="110" height="70" rx="8" fill="rgba(88,196,221,.18)" stroke="#58C4DD" stroke-width="1.5"/>
+            <rect x="305" y="705" width="140" height="70" rx="8" fill="rgba(88,196,221,.18)" stroke="#58C4DD" stroke-width="1.5"/>
+            <rect x="460" y="705" width="140" height="70" rx="8" fill="rgba(88,196,221,.18)" stroke="#58C4DD" stroke-width="1.5"/>
+            <text class="mono" x="235" y="750" font-size="28" fill="#e8e6df" text-anchor="middle">id</text>
+            <text class="mono" x="375" y="750" font-size="28" fill="#e8e6df" text-anchor="middle">text</text>
+            <text class="mono" x="530" y="750" font-size="28" fill="#e8e6df" text-anchor="middle">done</text>
+          </g>
+          <text id="lo-stn" class="h" x="160" y="870" font-size="28" fill="#FF9F43">可嵌套 mapping → 只能在 storage</text>
+          <g id="lo-cD" class="h">
+            <rect x="980" y="590" width="820" height="330" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="1010" y="648" font-size="36" font-weight="700" fill="#58C4DD">string · bytes</text>
+          </g>
+          <g id="lo-sa" class="h">
+            <rect x="1020" y="690" width="70" height="70" rx="8" fill="rgba(88,196,221,.18)" stroke="#58C4DD" stroke-width="2"/>
+            <text class="mono" x="1055" y="736" font-size="30" fill="#e8e6df" text-anchor="middle">a</text>
+            <rect x="1440" y="690" width="70" height="70" rx="8" fill="rgba(88,196,221,.18)" stroke="#58C4DD" stroke-width="2"/>
+            <text class="mono" x="1475" y="736" font-size="30" fill="#e8e6df" text-anchor="middle">b</text>
+          </g>
+          <path id="lo-sar1" class="dr h" pathLength="1" d="M1098 725 L1160 725" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+          <path id="lo-sar2" class="dr h" pathLength="1" d="M1518 725 L1580 725" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+          <g id="lo-sh" class="h">
+            <rect x="1172" y="690" width="96" height="70" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/>
+            <path d="M1190 705 V745 M1202 705 V745 M1218 705 V745 M1226 705 V745 M1240 705 V745 M1252 705 V745" stroke="#58C4DD" stroke-width="4"/>
+            <rect x="1592" y="690" width="96" height="70" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/>
+            <path d="M1610 705 V745 M1622 705 V745 M1638 705 V745 M1646 705 V745 M1660 705 V745 M1672 705 V745" stroke="#58C4DD" stroke-width="4"/>
+          </g>
+          <text id="lo-eq" class="h" x="1354" y="740" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">=</text>
+          <text id="lo-kec" class="h mono" x="1010" y="870" font-size="28" fill="#8a8f99">keccak256(bytes(a)) == keccak256(bytes(b))</text>
+        </g>
+        <!-- L2–L5：左侧引用类型标签列 -->
+        <g id="lo-tags">
+          <g id="lo-t0" class="h"><rect x="100" y="240" width="460" height="76" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="130" y="290" font-size="30" fill="#58C4DD">T[] 数组</text></g>
+          <g id="lo-t1" class="h"><rect x="100" y="340" width="460" height="76" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="130" y="390" font-size="30" fill="#58C4DD">mapping(K =&gt; V)</text></g>
+          <g id="lo-t2" class="h"><rect x="100" y="440" width="460" height="76" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="130" y="490" font-size="30" fill="#58C4DD">struct</text></g>
+          <g id="lo-t3" class="h"><rect x="100" y="540" width="460" height="76" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="130" y="590" font-size="30" fill="#58C4DD">string · bytes</text></g>
+        </g>
+        <!-- L2–L4：数据位置图 -->
+        <g id="lo-dl">
+          <g id="lo-ncd" class="h">
+            <rect x="860" y="240" width="360" height="140" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text class="mono" x="890" y="298" font-size="34" fill="#e8e6df">calldata</text>
+            <text x="890" y="352" font-size="28" fill="#8a8f99">外部输入 · 只读</text>
+            <rect x="1162" y="280" width="32" height="26" rx="4" fill="#8a8f99"/>
+            <path d="M1168 280 V270 a10 10 0 0 1 20 0 V280" fill="none" stroke="#8a8f99" stroke-width="4"/>
+          </g>
+          <g id="lo-nme" class="h">
+            <rect x="1460" y="240" width="360" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="12 8"/>
+            <text class="mono" x="1490" y="298" font-size="34" fill="#58C4DD">memory</text>
+            <text x="1490" y="352" font-size="28" fill="#e8e6df">本次调用的临时副本</text>
+          </g>
+          <g id="lo-nst" class="h">
+            <path d="M1460 625 V880 A180 25 0 0 0 1820 880 V625" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <ellipse cx="1640" cy="625" rx="180" ry="25" fill="#1b2230" stroke="#58C4DD" stroke-width="2.5"/>
+            <text class="mono" x="1490" y="700" font-size="34" fill="#58C4DD">storage</text>
+            <text x="1490" y="745" font-size="28" fill="#e8e6df">链上永久存储</text>
+            <rect x="1500" y="775" width="80" height="56" rx="6" fill="rgba(88,196,221,.18)" stroke="#58C4DD" stroke-width="1.5"/>
+            <rect id="lo-slot" x="1590" y="775" width="80" height="56" rx="6" fill="rgba(88,196,221,.18)" stroke="#58C4DD" stroke-width="1.5"/>
+            <rect x="1680" y="775" width="80" height="56" rx="6" fill="rgba(88,196,221,.18)" stroke="#58C4DD" stroke-width="1.5"/>
+          </g>
+          <path id="lo-a1" class="dr h" pathLength="1" d="M1226 310 L1450 310" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+          <g id="lo-a1l" class="h">
+            <rect x="1268" y="266" width="20" height="24" rx="3" fill="none" stroke="#8a8f99" stroke-width="2"/>
+            <rect x="1276" y="272" width="20" height="24" rx="3" fill="#0f1117" stroke="#8a8f99" stroke-width="2"/>
+            <text x="1310" y="292" font-size="28" fill="#e8e6df">复制</text>
+          </g>
+          <path id="lo-a2" class="dr h" pathLength="1" d="M1540 596 L1540 392" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+          <text id="lo-a2l" class="h" x="1524" y="504" font-size="28" fill="#e8e6df" text-anchor="end">复制</text>
+          <path id="lo-a3" class="dr h" pathLength="1" d="M1640 388 L1640 590" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#lo-arr)"/>
+          <text id="lo-a3l" class="h" x="1656" y="504" font-size="28" fill="#F0B90B">复制并写链</text>
+          <circle id="lo-flash" class="h" cx="1640" cy="612" r="20" fill="none" stroke="#F0B90B" stroke-width="5"/>
+          <g id="lo-nptr" class="h">
+            <rect x="820" y="740" width="320" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/>
+            <text x="850" y="802" font-size="32" fill="#83C167">storage 指针</text>
+          </g>
+          <path id="lo-pl" class="dr" pathLength="1" d="M1142 803 L1588 803" stroke="#83C167" stroke-width="4" fill="none"/>
+          <circle id="lo-pdot" class="h" cx="1590" cy="803" r="7" fill="#83C167"/>
+          <text id="lo-pll" class="h" x="1170" y="868" font-size="28" fill="#83C167">不复制 · 改即写链</text>
+        </g>
+        <!-- L5：memory 副本 vs storage -->
+        <g id="lo-mini">
+          <g id="lo-mm" class="h">
+            <rect x="860" y="240" width="440" height="200" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="12 8"/>
+            <text x="890" y="296" font-size="30" fill="#58C4DD">memory 副本</text>
+            <text class="mono" x="890" y="390" font-size="32" fill="#e8e6df">done:</text>
+          </g>
+          <text id="lo-mf" class="h mono" x="1010" y="390" font-size="32" fill="#8a8f99">false</text>
+          <text id="lo-mt" class="h mono" x="1010" y="390" font-size="32" fill="#83C167">true</text>
+          <g id="lo-ms" class="h">
+            <path d="M1420 262 V500 A200 22 0 0 0 1820 500 V262" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <ellipse cx="1620" cy="262" rx="200" ry="22" fill="#1b2230" stroke="#58C4DD" stroke-width="2.5"/>
+            <text class="mono" x="1460" y="340" font-size="30" fill="#58C4DD">storage</text>
+            <text class="mono" x="1460" y="420" font-size="32" fill="#e8e6df">done:</text>
+          </g>
+          <text id="lo-sf" class="h mono" x="1580" y="420" font-size="32" fill="#8a8f99">false</text>
+          <text id="lo-stt" class="h mono" x="1580" y="420" font-size="32" fill="#83C167">true</text>
+          <text id="lo-nochg" class="h" x="1620" y="572" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">链上没变</text>
+          <g id="lo-code" class="h">
+            <rect x="820" y="600" width="1020" height="360" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+            <line x1="820" y1="636" x2="1840" y2="636" stroke="#2a2f3a" stroke-width="2"/>
+            <text class="mono" x="846" y="626" font-size="22" fill="#58C4DD" data-layout-ignore="">items</text>
+          </g>
+          <g id="lo-hr" class="h"><rect x="822" y="668" width="1016" height="88" fill="rgba(252,98,85,.12)"/><rect x="822" y="668" width="6" height="88" fill="#FC6255"/></g>
+          <g id="lo-hg" class="h"><rect x="822" y="788" width="1016" height="88" fill="rgba(131,193,103,.12)"/><rect x="822" y="788" width="6" height="88" fill="#83C167"/></g>
+          <g id="lo-cl" class="h">
+            <text class="mono" x="860" y="702" font-size="30" fill="#e8e6df"><tspan fill="#58C4DD">Item memory</tspan> it = items[i];</text>
+            <text class="mono" x="860" y="744" font-size="30" fill="#e8e6df">it.done = <tspan fill="#FF9F43">true</tspan>;</text>
+            <text class="mono" x="860" y="822" font-size="30" fill="#e8e6df"><tspan fill="#58C4DD">Item storage</tspan> p = items[i];</text>
+            <text class="mono" x="860" y="864" font-size="30" fill="#e8e6df">p.done = <tspan fill="#FF9F43">true</tspan>;</text>
+          </g>
+          <text id="lo-c1" class="h" x="1420" y="744" font-size="28" fill="#FC6255">只改了副本 ✕</text>
+          <text id="lo-c2" class="h" x="1420" y="864" font-size="28" fill="#83C167">直接写链 ✓</text>
+        </g>
+        <!-- L6：三条建议 -->
+        <text id="lo-s0" class="h" x="100" y="330" font-size="30" fill="#83C167">只读参数 → calldata，最省 Gas</text>
+        <text id="lo-s1" class="h" x="100" y="450" font-size="30" fill="#FF9F43">mapping 只能在 storage，不能做外部参数</text>
+        <text id="lo-s2" class="h" x="100" y="570" font-size="30" fill="#8a8f99">memory 数组创建后长度固定</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="lo-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">数据位置 <tspan font-size="28" font-weight="400" fill="#8a8f99">Data Location</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">引用类型存在 storage、memory 还是 calldata</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 四张卡
+IN("#lo-cA", at(0, 0.05), 0.6, { y: 20 }, { y: 0 });
+IN("#lo-cB", at(0, 0.3), 0.6, { y: 20 }, { y: 0 });
+IN("#lo-cC", at(0, 0.5), 0.6, { y: 20 }, { y: 0 });
+IN("#lo-cD", at(0, 0.7), 0.6, { y: 20 }, { y: 0 });
+// L1 数组 push / pop
+IN("#lo-pushl", at(1, 0.0), 0.4);
+IN("#lo-push", at(1, 0.02), 0.6, { x: 120 }, { x: 0 });
+OUT("#lo-pushl", at(1, 0.12), 0.3);
+IN("#lo-popl", at(1, 0.15), 0.4);
+tl.to("#lo-push", { x: 120, opacity: 0, duration: 0.6, ease: "power2.in" }, at(1, 0.17));
+// mapping 键值表
+IN("#lo-map", at(1, 0.26), 0.6);
+// struct
+IN("#lo-st", at(1, 0.45), 0.6, { scale: 0.92, svgOrigin: "390 740" }, { scale: 1, svgOrigin: "390 740" });
+IN("#lo-stn", at(1, 0.55), 0.5);
+// string：先各自取哈希再比
+IN("#lo-sa", at(1, 0.7), 0.4);
+ARROW("#lo-sar1", at(1, 0.74), 0.4); ARROW("#lo-sar2", at(1, 0.74), 0.4);
+IN("#lo-sh", at(1, 0.8), 0.4);
+IN("#lo-eq", at(1, 0.86), 0.4);
+IN("#lo-kec", at(1, 0.9), 0.5);
+// L2 卡片收成标签列 + 数据位置三节点
+OUT("#lo-grid", at(2, 0), 0.5);
+["#lo-t0", "#lo-t1", "#lo-t2", "#lo-t3"].forEach((s, i) => IN(s, at(2, 0.02) + 0.5 + i * 0.12, 0.4, { x: -20 }, { x: 0 }));
+IN("#lo-term", at(2, 0.05), 0.5);
+IN("#lo-nst", at(2, 0.12), 0.6, { y: 20 }, { y: 0 });
+IN("#lo-nme", at(2, 0.42), 0.6, { y: 20 }, { y: 0 });
+IN("#lo-ncd", at(2, 0.72), 0.6, { y: 20 }, { y: 0 });
+OUT("#lo-term", at(2, 0.05) + 7.5, 0.4);
+// L3 复制箭头
+ARROW("#lo-a1", at(3, 0.05), 0.6); IN("#lo-a1l", at(3, 0.12), 0.4);
+ARROW("#lo-a2", at(3, 0.22), 0.6); IN("#lo-a2l", at(3, 0.3), 0.4);
+ARROW("#lo-a3", at(3, 0.58), 0.6); IN("#lo-a3l", at(3, 0.64), 0.4);
+tl.fromTo("#lo-flash", { opacity: 1, attr: { r: 10 } }, { opacity: 0, attr: { r: 70 }, duration: 0.9, ease: "power2.out", immediateRender: false }, at(3, 0.58) + 0.6);
+// L4 storage 指针
+IN("#lo-nptr", at(4, 0.05), 0.5, { x: -20 }, { x: 0 });
+DRAW("#lo-pl", at(4, 0.25), 0.7); IN("#lo-pdot", at(4, 0.25) + 0.7, 0.2);
+tl.to("#lo-slot", { fill: "rgba(131,193,103,.45)", stroke: "#83C167", duration: 0.4 }, at(4, 0.25) + 0.7);
+IN("#lo-pll", at(4, 0.5), 0.5);
+// L5 memory 副本 bug
+OUT("#lo-dl", at(5, 0), 0.5);
+IN("#lo-mm, #lo-mf", at(5, 0.08), 0.5);
+IN("#lo-ms, #lo-sf", at(5, 0.12), 0.5);
+IN("#lo-code, #lo-cl", at(5, 0.16), 0.5);
+IN("#lo-hr", at(5, 0.3), 0.3);
+OUT("#lo-mf", at(5, 0.42), 0.25); IN("#lo-mt", at(5, 0.42) + 0.3, 0.3);
+IN("#lo-c1", at(5, 0.5), 0.4);
+IN("#lo-nochg", at(5, 0.6), 0.4);
+tl.to("#lo-sf", { fill: "#FC6255", duration: 0.3 }, at(5, 0.6));
+OUT("#lo-hr", at(5, 0.84), 0.3); IN("#lo-hg", at(5, 0.86), 0.3);
+OUT("#lo-nochg", at(5, 0.86), 0.3);
+OUT("#lo-sf", at(5, 0.92), 0.25); IN("#lo-stt", at(5, 0.92) + 0.3, 0.3);
+IN("#lo-c2", at(5, 0.95), 0.4);
+// L6 三条建议
+OUT("#lo-tags", at(6, 0), 0.4);
+IN("#lo-s0", at(6, 0.06), 0.5, { x: -20 }, { x: 0 });
+IN("#lo-s1", at(6, 0.4), 0.5, { x: -20 }, { x: 0 });
+IN("#lo-s2", at(6, 0.72), 0.5, { x: -20 }, { x: 0 });
+      /*ENDANIM*/
+
+      tl.to("#lo-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#lo-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["location"] = tl;
+    })();
+  </script>
+</template>

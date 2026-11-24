@@ -1,0 +1,263 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 flow，id 前缀 fl- -->
+  <div id="root" data-composition-id="flow" data-duration="61.8" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="fl-all">
+        <g id="fl-p1">
+          <g id="fl-n1" class="h"><rect x="770" y="228" width="380" height="70" rx="12" fill="#B48EF033" stroke="#B48EF0" stroke-width="2.5"/><text x="960" y="274" font-size="30" fill="#e8e6df" text-anchor="middle">用户签名交易</text></g>
+          <g id="fl-tx" class="h">
+            <rect x="140" y="220" width="400" height="120" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2"/>
+            <text x="165" y="266" font-size="28" fill="#e8e6df"><tspan class="mono">to =</tspan> 合约</text>
+            <text x="165" y="316" font-size="28" fill="#e8e6df"><tspan class="mono">data =</tspan> <tspan fill="#F0B90B">选择器</tspan> + <tspan fill="#58C4DD">参数</tspan></text>
+          </g>
+          <path id="fl-txa" class="dr h" pathLength="1" d="M544 270 L766 263" stroke="#B48EF0" stroke-width="2.5" fill="none" stroke-dasharray="1"/>
+          <path id="fl-a12" class="dr h" pathLength="1" d="M960 300 L960 332" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fl-arr)"/>
+          <g id="fl-n2" class="h"><path d="M800 392 L960 336 L1120 392 L960 448 Z" fill="#FF9F4322" stroke="#FF9F43" stroke-width="2.5"/><text x="960" y="402" font-size="30" fill="#FF9F43" text-anchor="middle">节点校验</text></g>
+          <g id="fl-lt0" class="h"><circle id="fl-lc0" cx="172" cy="382" r="11" fill="#6b6f7a"/><text x="194" y="392" font-size="28" fill="#e8e6df">签名</text></g>
+          <g id="fl-lt1" class="h"><circle id="fl-lc1" cx="172" cy="427" r="11" fill="#6b6f7a"/><text class="mono" x="194" y="437" font-size="28" fill="#e8e6df">nonce</text></g>
+          <g id="fl-lt2" class="h"><circle id="fl-lc2" cx="172" cy="472" r="11" fill="#6b6f7a"/><text x="194" y="482" font-size="28" fill="#e8e6df">余额 ≥ <tspan class="mono">gasLimit</tspan> × 最高单价</text></g>
+          <path id="fl-rj" class="dr h" pathLength="1" d="M1124 392 L1178 392" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#fl-arr)"/>
+          <text id="fl-rjt" class="h" x="1190" y="402" font-size="28" fill="#8a8f99">丢弃，不上链，不收费</text>
+          <path id="fl-a23" class="dr h" pathLength="1" d="M960 450 L960 478" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fl-arr)"/>
+          <g id="fl-n3" class="h"><rect id="fl-n3r" x="770" y="482" width="380" height="70" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="960" y="528" font-size="28" fill="#e8e6df" text-anchor="middle">预扣费用 · <tspan class="mono" fill="#FF9F43">nonce + 1</tspan></text></g>
+          <path id="fl-a34" class="dr h" pathLength="1" d="M960 554 L960 586" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fl-arr)"/>
+          <g id="fl-n4" class="h"><rect x="770" y="590" width="380" height="70" rx="12" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2.5"/><text x="960" y="636" font-size="28" fill="#e8e6df" text-anchor="middle">执行（分发器跳转）</text></g>
+          <path id="fl-sc" class="dr h" pathLength="1" d="M766 625 C700 625 690 592 646 592 M766 625 C700 625 690 646 646 646 M766 625 C700 625 690 700 646 700" stroke="#8a8f99" stroke-width="2.5" fill="none"/>
+          <text id="fl-scl" class="h" x="520" y="552" font-size="28" fill="#8a8f99" text-anchor="middle">子调用</text>
+          <g id="fl-sb" class="h">
+            <rect x="400" y="570" width="240" height="44" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="520" y="602" font-size="28" fill="#e8e6df" text-anchor="middle">CALL</text>
+            <rect x="400" y="624" width="240" height="44" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="520" y="656" font-size="28" fill="#e8e6df" text-anchor="middle">DELEGATECALL</text>
+            <rect x="400" y="678" width="240" height="44" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="520" y="710" font-size="28" fill="#e8e6df" text-anchor="middle">STATICCALL</text>
+          </g>
+          <g id="fl-st" class="h">
+            <text x="1320" y="622" font-size="28" fill="#8a8f99" text-anchor="middle">状态</text>
+            <rect id="fl-st0" x="1210" y="640" width="100" height="50" rx="8" fill="#8a8f9922" stroke="#FF9F43" stroke-width="2"/>
+            <rect id="fl-st1" x="1330" y="640" width="100" height="50" rx="8" fill="#8a8f9922" stroke="#FF9F43" stroke-width="2"/>
+          </g>
+          <path id="fl-a46" class="dr h" pathLength="1" d="M960 662 L960 690" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fl-arr)"/>
+          <g id="fl-n6" class="h"><path d="M820 742 L960 692 L1100 742 L960 792 Z" fill="#FF9F4322" stroke="#FF9F43" stroke-width="2.5"/><text x="960" y="752" font-size="28" fill="#e8e6df" text-anchor="middle">正常结束？</text></g>
+          <path id="fl-ag" class="dr h" pathLength="1" d="M818 742 H550 V786" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#fl-arr)"/>
+          <path id="fl-ar" class="dr h" pathLength="1" d="M1102 742 H1330 V786" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#fl-arr)"/>
+          <g id="fl-ok" class="h"><rect x="400" y="790" width="300" height="62" rx="12" fill="#83C16733" stroke="#83C167" stroke-width="2.5"/><text x="550" y="831" font-size="28" fill="#83C167" text-anchor="middle">提交 · <tspan class="mono">status = 1</tspan></text></g>
+          <g id="fl-bad" class="h"><rect x="1180" y="790" width="300" height="62" rx="12" fill="#FC625533" stroke="#FC6255" stroke-width="2.5"/><text x="1330" y="831" font-size="28" fill="#FC6255" text-anchor="middle">撤销 · <tspan class="mono">status = 0</tspan></text></g>
+          <g id="fl-log" class="h"><rect x="380" y="870" width="40" height="50" rx="4" fill="#e8e6df"/><path d="M388 884 H412 M388 896 H412 M388 908 H404" stroke="#0f1117" stroke-width="3"/><text x="432" y="905" font-size="28" fill="#e8e6df">日志</text></g>
+          <path id="fl-cg" class="dr h" pathLength="1" d="M550 856 V966 H744" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#fl-arr)"/>
+          <path id="fl-cr" class="dr h" pathLength="1" d="M1330 856 V966 H1176" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#fl-arr)"/>
+          <g id="fl-n8" class="h"><rect x="750" y="932" width="420" height="68" rx="12" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.5"/><text x="960" y="977" font-size="28" fill="#e8e6df" text-anchor="middle">按 <tspan class="mono">gasUsed</tspan> 结算，退还未用</text></g>
+          <g id="fl-tank" class="h">
+            <rect x="1500" y="220" width="340" height="780" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <text x="1670" y="270" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">Gas 油箱</text>
+            <rect x="1538" y="298" width="84" height="604" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+          </g>
+          <rect id="fl-gold" class="h" x="1542" y="900" width="76" height="0" fill="#F0B90B"/>
+          <rect id="fl-used" class="h" x="1542" y="300" width="76" height="0" fill="#6b6f7a"/>
+          <text id="fl-gl" class="h mono" x="1640" y="314" font-size="28" fill="#F0B90B">gasLimit</text>
+          <text id="fl-u1" class="h mono" x="1640" y="352" font-size="28" fill="#8a8f99">21,000 +</text>
+          <text id="fl-u2" class="h mono" x="1640" y="388" font-size="28" fill="#8a8f99">calldata</text>
+          <text id="fl-u3" class="h" x="1640" y="540" font-size="28" fill="#8a8f99">已用</text>
+          <text id="fl-rf" class="h" x="1640" y="740" font-size="28" fill="#F0B90B">退还</text>
+          <circle id="fl-co0" class="h" cx="1580" cy="700" r="16" fill="#F0B90B"/>
+          <circle id="fl-co1" class="h" cx="1580" cy="760" r="16" fill="#F0B90B"/>
+          <circle id="fl-co2" class="h" cx="1580" cy="820" r="16" fill="#F0B90B"/>
+        </g>
+        <g id="fl-p2">
+          <text id="fl-at1" class="h" x="960" y="470" font-size="80" font-weight="700" fill="#e8e6df" text-anchor="middle">原子性 <tspan font-size="48" font-weight="400" fill="#8a8f99">Atomicity</tspan></text>
+          <text id="fl-at2" class="h" x="960" y="620" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#83C167">全有</tspan>或<tspan fill="#FC6255">全无</tspan></text>
+          <rect id="fl-atg" class="h" x="660" y="670" width="300" height="12" rx="6" fill="#83C167"/>
+          <rect id="fl-atr" class="h" x="960" y="670" width="300" height="12" rx="6" fill="#FC6255"/>
+        </g>
+        <g id="fl-p3">
+          <g id="fl-g0" class="h">
+            <rect x="240" y="230" width="700" height="310" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <text class="mono" x="270" y="296" font-size="34" font-weight="700" fill="#e8e6df">require / revert</text>
+            <text x="270" y="360" font-size="28" fill="#8a8f99">走 <tspan class="mono">REVERT</tspan></text>
+            <text x="270" y="492" font-size="30" font-weight="700" fill="#83C167">剩余 Gas 退回</text>
+            <rect x="830" y="290" width="64" height="200" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+            <rect id="fl-gf0" x="832" y="292" width="60" height="196" rx="6" fill="#F0B90B"/>
+          </g>
+          <g id="fl-g1" class="h">
+            <rect x="980" y="230" width="700" height="310" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <text x="1010" y="296" font-size="34" font-weight="700" fill="#e8e6df"><tspan class="mono">assert</tspan> · 溢出 · 越界</text>
+            <text x="1010" y="360" font-size="28" fill="#8a8f99">走 <tspan class="mono">REVERT · Panic</tspan>（例：<tspan class="mono">0x11</tspan> = 溢出）</text>
+            <text x="1010" y="492" font-size="30" font-weight="700" fill="#83C167">剩余 Gas 退回</text>
+            <rect x="1570" y="290" width="64" height="200" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+            <rect id="fl-gf1" x="1572" y="292" width="60" height="196" rx="6" fill="#F0B90B"/>
+          </g>
+          <g id="fl-g2" class="h">
+            <rect x="240" y="590" width="700" height="310" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <text class="mono" x="270" y="656" font-size="34" font-weight="700" fill="#e8e6df">Out of Gas</text>
+            <text x="270" y="720" font-size="28" fill="#8a8f99">Gas 用完</text>
+            <text x="270" y="852" font-size="30" font-weight="700" fill="#FC6255">剩余 Gas 全部耗尽</text>
+            <rect x="830" y="650" width="64" height="200" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+            <rect id="fl-gf2" x="832" y="652" width="60" height="196" rx="6" fill="#F0B90B"/>
+          </g>
+          <g id="fl-g3" class="h">
+            <rect x="980" y="590" width="700" height="310" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <text class="mono" x="1010" y="656" font-size="34" font-weight="700" fill="#e8e6df">INVALID 0xfe</text>
+            <text x="1010" y="720" font-size="28" fill="#8a8f99">无效操作码</text>
+            <text x="1010" y="852" font-size="30" font-weight="700" fill="#FC6255">剩余 Gas 全部耗尽</text>
+            <rect x="1570" y="650" width="64" height="200" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+            <rect id="fl-gf3" x="1572" y="652" width="60" height="196" rx="6" fill="#F0B90B"/>
+          </g>
+        </g>
+        <g id="fl-p4">
+          <g id="fl-LA" class="h">
+            <text x="160" y="250" font-size="34" font-weight="700" fill="#e8e6df">底层 <tspan class="mono">call</tspan></text>
+            <rect id="fl-LAr" x="160" y="290" width="740" height="580" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text class="mono" x="190" y="342" font-size="34" font-weight="700" fill="#e8e6df">A</text>
+            <rect id="fl-La0" x="620" y="310" width="110" height="48" rx="8" fill="#8a8f9922" stroke="#FF9F43" stroke-width="2"/>
+            <rect id="fl-La1" x="750" y="310" width="110" height="48" rx="8" fill="#8a8f9922" stroke="#FF9F43" stroke-width="2"/>
+          </g>
+          <g id="fl-LB" class="h">
+            <rect id="fl-LBr" x="260" y="430" width="540" height="250" rx="14" fill="#1b2029" stroke="#8a8f99" stroke-width="2.5"/>
+            <text class="mono" x="290" y="482" font-size="34" font-weight="700" fill="#e8e6df">B</text>
+            <rect id="fl-Lb0" x="430" y="560" width="110" height="52" rx="8" fill="#8a8f9922" stroke="#FF9F43" stroke-width="2"/>
+            <rect id="fl-Lb1" x="570" y="560" width="110" height="52" rx="8" fill="#8a8f9922" stroke="#FF9F43" stroke-width="2"/>
+          </g>
+          <path id="fl-Lx" class="h" d="M730 450 L770 490 M770 450 L730 490" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/>
+          <g id="fl-RA" class="h">
+            <text x="1060" y="250" font-size="34" font-weight="700" fill="#e8e6df">高级调用</text>
+            <rect id="fl-RAr" x="1060" y="290" width="740" height="580" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text class="mono" x="1090" y="342" font-size="34" font-weight="700" fill="#e8e6df">A</text>
+            <rect id="fl-Ra0" x="1520" y="310" width="110" height="48" rx="8" fill="#8a8f9922" stroke="#FF9F43" stroke-width="2"/>
+            <rect id="fl-Ra1" x="1650" y="310" width="110" height="48" rx="8" fill="#8a8f9922" stroke="#FF9F43" stroke-width="2"/>
+          </g>
+          <g id="fl-RB" class="h">
+            <rect id="fl-RBr" x="1160" y="430" width="540" height="250" rx="14" fill="#1b2029" stroke="#8a8f99" stroke-width="2.5"/>
+            <text class="mono" x="1190" y="482" font-size="34" font-weight="700" fill="#e8e6df">B</text>
+            <rect id="fl-Rb0" x="1330" y="560" width="110" height="52" rx="8" fill="#8a8f9922" stroke="#FF9F43" stroke-width="2"/>
+            <rect id="fl-Rb1" x="1470" y="560" width="110" height="52" rx="8" fill="#8a8f9922" stroke="#FF9F43" stroke-width="2"/>
+          </g>
+          <path id="fl-Rx" class="h" d="M1630 450 L1670 490 M1670 450 L1630 490" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/>
+          <text id="fl-false" class="h mono" x="290" y="760" font-size="30" fill="#83C167">ok = false</text>
+          <path id="fl-cont" class="dr h" pathLength="1" d="M560 704 V830" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#fl-arr)"/>
+          <text id="fl-contl" class="h" x="584" y="790" font-size="30" fill="#83C167">继续执行</text>
+          <path id="fl-up" class="dr h" pathLength="1" d="M1400 426 V232" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#fl-arr)"/>
+          <text id="fl-roll" class="h" x="1430" y="790" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">整笔回滚</text>
+        </g>
+      </g>
+      <g id="fl-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">回滚 <tspan font-size="28" font-weight="400" fill="#8a8f99">Revert</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">撤销交易对状态的所有修改，手续费照付</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const GOLD = (y, t, d = 0.8) => tl.to("#fl-gold", { attr: { y: y, height: 900 - y }, duration: d, ease: "power2.inOut" }, t);
+      const USED = (h, t, d = 0.8) => tl.to("#fl-used", { attr: { height: h }, duration: d, ease: "power2.inOut" }, t);
+      // L0 用户签名交易
+      IN("#fl-n1", at(0, 0.05), 0.5, { y: -15 }, { y: 0 });
+      IN("#fl-tx", at(0, 0.3), 0.5, { x: -20 }, { x: 0 });
+      DRAW("#fl-txa", at(0, 0.45), 0.5); IN("#fl-txa", at(0, 0.45), 0.01);
+      IN("#fl-tank", at(0, 0.72), 0.6);
+      // L1 节点校验
+      ARROW("#fl-a12", at(1, 0.02), 0.3);
+      IN("#fl-n2", at(1, 0.05), 0.5, { scale: 0.8, svgOrigin: "960 392" }, { scale: 1, svgOrigin: "960 392" });
+      [0, 1, 2].forEach(i => {
+        IN(`#fl-lt${i}`, at(1, 0.12 + i * 0.1), 0.3);
+        tl.to(`#fl-lc${i}`, { fill: "#83C167", duration: 0.2 }, at(1, 0.16 + i * 0.1));
+      });
+      tl.to("#fl-lc2", { fill: "#FC6255", duration: 0.2 }, at(1, 0.6));
+      ARROW("#fl-rj", at(1, 0.64), 0.3);
+      IN("#fl-rjt", at(1, 0.67), 0.4, { x: -10 }, { x: 0 });
+      // L2 预扣、nonce+1、扣基础 Gas、执行
+      OUT("#fl-rj, #fl-rjt", at(2, 0), 0.3);
+      tl.to("#fl-lc2", { fill: "#83C167", duration: 0.2 }, at(2, 0.01));
+      ARROW("#fl-a23", at(2, 0.03), 0.3);
+      IN("#fl-n3", at(2, 0.05), 0.4);
+      IN("#fl-gold", at(2, 0.06), 0.1); GOLD(300, at(2, 0.06), 1.0); IN("#fl-gl", at(2, 0.12), 0.4);
+      tl.to("#fl-n3r", { attr: { "stroke-width": 5 }, duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.2));
+      IN("#fl-used", at(2, 0.3), 0.1); USED(80, at(2, 0.3), 0.6); GOLD(380, at(2, 0.3), 0.6);
+      IN("#fl-u1, #fl-u2", at(2, 0.34), 0.4);
+      ARROW("#fl-a34", at(2, 0.5), 0.3);
+      IN("#fl-n4", at(2, 0.53), 0.4);
+      USED(260, at(2, 0.56), 1.6); GOLD(560, at(2, 0.56), 1.6);
+      IN("#fl-u3", at(2, 0.7), 0.4);
+      DRAW("#fl-sc", at(2, 0.68), 0.5); IN("#fl-sc", at(2, 0.68), 0.01);
+      IN("#fl-scl", at(2, 0.7), 0.3); IN("#fl-sb", at(2, 0.72), 0.4, { x: 15 }, { x: 0 });
+      IN("#fl-st", at(2, 0.8), 0.4);
+      tl.to("#fl-st0, #fl-st1", { fill: "#FF9F43", duration: 0.3 }, at(2, 0.88));
+      // L3 提交 / 撤销，按实际用量结算
+      ARROW("#fl-a46", at(3, 0.01), 0.3);
+      IN("#fl-n6", at(3, 0.03), 0.4);
+      IN("#fl-term", at(3, 0.06), 0.5);
+      ARROW("#fl-ag", at(3, 0.1), 0.5); IN("#fl-ok", at(3, 0.15), 0.4);
+      IN("#fl-log", at(3, 0.2), 0.5, { y: -40 }, { y: 0, ease: "bounce.out" });
+      ARROW("#fl-ar", at(3, 0.32), 0.5); IN("#fl-bad", at(3, 0.37), 0.4);
+      tl.to("#fl-st0, #fl-st1", { fill: "#8a8f9922", duration: 0.5, ease: "back.out(3)" }, at(3, 0.44));
+      tl.fromTo("#fl-st", { scale: 1.08, svgOrigin: "1320 665" }, { scale: 1, svgOrigin: "1320 665", duration: 0.5, ease: "back.out(3)", immediateRender: false }, at(3, 0.44));
+      ARROW("#fl-cg", at(3, 0.56), 0.5); ARROW("#fl-cr", at(3, 0.56), 0.5);
+      IN("#fl-n8", at(3, 0.62), 0.4);
+      IN("#fl-rf", at(3, 0.7), 0.3);
+      [0, 1, 2].forEach(i => {
+        IN(`#fl-co${i}`, at(3, 0.72) + i * 0.1, 0.1);
+        tl.to(`#fl-co${i}`, { attr: { cx: 790 + i * 30, cy: 262 }, duration: 0.9, ease: "power2.in" }, at(3, 0.74) + i * 0.1);
+        tl.to(`#fl-co${i}`, { opacity: 0, duration: 0.2 }, at(3, 0.74) + i * 0.1 + 0.9);
+      });
+      GOLD(900, at(3, 0.74), 0.9);
+      OUT("#fl-term", at(3, 0.8), 0.5);
+      // L4 原子性
+      OUT("#fl-p1", at(4, 0), 0.4);
+      IN("#fl-at1", at(4, 0.08), 0.6, { scale: 0.85, svgOrigin: "960 450" }, { scale: 1, svgOrigin: "960 450" });
+      IN("#fl-at2", at(4, 0.3), 0.5);
+      IN("#fl-atg", at(4, 0.4), 0.3, { attr: { width: 0, x: 960 } }, { attr: { width: 300, x: 660 } });
+      IN("#fl-atr", at(4, 0.4), 0.3, { attr: { width: 0 } }, { attr: { width: 300 } });
+      // L5 回滚来源
+      OUT("#fl-p2", at(5, 0), 0.4);
+      IN("#fl-g0", at(5, 0.04), 0.4, { y: 15 }, { y: 0 });
+      IN("#fl-g1", at(5, 0.16), 0.4, { y: 15 }, { y: 0 });
+      tl.to("#fl-gf0", { attr: { y: 388, height: 100 }, duration: 0.8, ease: "power2.out" }, at(5, 0.3));
+      tl.to("#fl-gf1", { attr: { y: 388, height: 100 }, duration: 0.8, ease: "power2.out" }, at(5, 0.3));
+      IN("#fl-g2", at(5, 0.58), 0.4, { y: 15 }, { y: 0 });
+      IN("#fl-g3", at(5, 0.7), 0.4, { y: 15 }, { y: 0 });
+      tl.to("#fl-gf2, #fl-gf3", { attr: { y: 848, height: 0 }, duration: 0.9, ease: "power2.in" }, at(5, 0.78));
+      // L6 嵌套调用
+      OUT("#fl-p3", at(6, 0), 0.4);
+      IN("#fl-LA, #fl-RA", at(6, 0.03), 0.4);
+      tl.to("#fl-La0, #fl-La1, #fl-Ra0, #fl-Ra1", { fill: "#FF9F43", duration: 0.3 }, at(6, 0.09));
+      IN("#fl-LB, #fl-RB", at(6, 0.14), 0.4, { scale: 0.9, svgOrigin: "960 555" }, { scale: 1, svgOrigin: "960 555" });
+      tl.to("#fl-Lb0, #fl-Lb1, #fl-Rb0, #fl-Rb1", { fill: "#FF9F43", duration: 0.3 }, at(6, 0.2));
+      tl.to("#fl-LBr, #fl-RBr", { stroke: "#FC6255", duration: 0.2 }, at(6, 0.3));
+      IN("#fl-Lx, #fl-Rx", at(6, 0.3), 0.3);
+      tl.to("#fl-Lb0, #fl-Lb1, #fl-Rb0, #fl-Rb1", { fill: "#8a8f9922", duration: 0.5, ease: "back.out(3)" }, at(6, 0.35));
+      IN("#fl-false", at(6, 0.48), 0.4);
+      ARROW("#fl-cont", at(6, 0.52), 0.5); IN("#fl-contl", at(6, 0.55), 0.4);
+      ARROW("#fl-up", at(6, 0.68), 0.5);
+      tl.to("#fl-RAr", { stroke: "#FC6255", duration: 0.2 }, at(6, 0.74));
+      tl.to("#fl-Ra0, #fl-Ra1", { fill: "#8a8f9922", duration: 0.5, ease: "back.out(3)" }, at(6, 0.76));
+      IN("#fl-roll", at(6, 0.8), 0.4, { scale: 0.85, svgOrigin: "1430 780" }, { scale: 1, svgOrigin: "1430 780" });
+
+      tl.to("#fl-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#fl-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["flow"] = tl;
+    })();
+  </script>
+</template>

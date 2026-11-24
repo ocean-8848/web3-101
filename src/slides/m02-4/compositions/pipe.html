@@ -1,0 +1,315 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pipe，id 前缀 pi- -->
+  <div id="root" data-composition-id="pipe" data-duration="61.98" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="pi-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="pi-all">
+        <text id="pi-title" class="h" x="960" y="250" font-size="60" font-weight="700" fill="#e8e6df" text-anchor="middle">从提交到上线</text>
+
+        <!-- 流水线：外层 g 负责位移，内层 g 负责缩放 -->
+        <g id="pi-pmove"><g id="pi-pscale">
+          <g id="pi-belt" class="h">
+            <line x1="70" y1="602" x2="1835" y2="602" stroke="#8a8f99" stroke-width="5"/>
+            <g fill="#3a3f4a">
+              <circle cx="110" cy="618" r="9"/><circle cx="335" cy="618" r="9"/><circle cx="560" cy="618" r="9"/><circle cx="785" cy="618" r="9"/>
+              <circle cx="1010" cy="618" r="9"/><circle cx="1235" cy="618" r="9"/><circle cx="1460" cy="618" r="9"/><circle cx="1685" cy="618" r="9"/>
+            </g>
+          </g>
+          <!-- 站点：cx = 165 + 225k，框 190×120 -->
+          <g id="pi-st0" class="h"><rect id="pi-r0" x="70" y="420" width="190" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="165" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">提交 PR</text></g>
+          <g id="pi-st1" class="h"><rect id="pi-r1" x="295" y="420" width="190" height="120" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text class="mono" x="390" y="492" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">CI</text></g>
+          <g id="pi-st2" class="h"><rect id="pi-r2" x="520" y="420" width="190" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="615" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">Slither</text></g>
+          <g id="pi-st3" class="h"><rect id="pi-r3" x="745" y="420" width="190" height="120" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="840" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">人工评审</text></g>
+          <g id="pi-st4" class="h">
+            <rect x="960" y="406" width="210" height="148" rx="18" fill="none" stroke="#B48EF0" stroke-width="2.5" stroke-dasharray="10 8"/>
+            <text x="1065" y="390" font-size="32" fill="#B48EF0" text-anchor="middle">重大版本</text>
+            <rect id="pi-r4" x="970" y="420" width="190" height="120" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="1065" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">外部审计</text>
+          </g>
+          <g id="pi-st5" class="h"><rect id="pi-r5" x="1195" y="420" width="190" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1290" y="472" font-size="32" fill="#e8e6df" text-anchor="middle">测试网</text><text x="1290" y="514" font-size="32" fill="#8a8f99" text-anchor="middle">部署+验证</text></g>
+          <g id="pi-st6" class="h"><rect id="pi-r6" x="1420" y="420" width="190" height="120" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1515" y="472" font-size="32" fill="#e8e6df" text-anchor="middle">主网部署</text><text x="1515" y="514" font-size="32" fill="#83C167" text-anchor="middle">多签</text></g>
+          <g id="pi-st7" class="h"><rect id="pi-r7" x="1645" y="420" width="190" height="120" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1740" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">监控</text></g>
+          <!-- 通过徽章：框右上角 -->
+          <g id="pi-ok1" class="h"><circle cx="480" cy="422" r="17" fill="#83C167"/><path d="M471 422 L478 429 L490 414" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+          <g id="pi-ok2" class="h"><circle cx="705" cy="422" r="17" fill="#83C167"/><path d="M696 422 L703 429 L715 414" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+          <g id="pi-ok3" class="h"><circle cx="930" cy="422" r="17" fill="#83C167"/><path d="M921 422 L928 429 L940 414" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+          <g id="pi-ok4" class="h"><circle cx="1155" cy="422" r="17" fill="#83C167"/><path d="M1146 422 L1153 429 L1165 414" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+          <g id="pi-ok5" class="h"><circle cx="1380" cy="422" r="17" fill="#83C167"/><path d="M1371 422 L1378 429 L1390 414" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+          <g id="pi-ok6" class="h"><circle cx="1605" cy="422" r="17" fill="#83C167"/><path d="M1596 422 L1603 429 L1615 414" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+          <!-- PR 包裹 -->
+          <g id="pi-pkg" class="h">
+            <rect id="pi-pkgr" x="120" y="548" width="90" height="48" rx="8" fill="#1b2a33" stroke="#58C4DD" stroke-width="3"/>
+            <text class="mono" x="165" y="582" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">PR</text>
+          </g>
+        </g></g>
+
+        <!-- 打回线 -->
+        <path id="pi-back1" class="dr h" pathLength="1" d="M390 632 V660 H165 V640" stroke="#FC6255" stroke-width="3.5" fill="none" marker-end="url(#pi-arrr)"/>
+        <text id="pi-backl1" class="h" x="278" y="706" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">打回</text>
+        <path id="pi-back2" class="dr h" pathLength="1" d="M615 632 V660 H165 V640" stroke="#FC6255" stroke-width="3.5" fill="none" marker-end="url(#pi-arrr)"/>
+        <text id="pi-backl2" class="h" x="390" y="706" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">打回</text>
+
+        <!-- L1 CI 六灯 -->
+        <g id="pi-ci" class="h">
+          <circle id="pi-c0" cx="130" cy="790" r="18" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/>
+          <circle id="pi-c1" cx="260" cy="790" r="18" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/>
+          <circle id="pi-c2" cx="390" cy="790" r="18" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/>
+          <circle id="pi-c3" cx="520" cy="790" r="18" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/>
+          <circle id="pi-c4" cx="650" cy="790" r="18" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/>
+          <circle id="pi-c5" cx="780" cy="790" r="18" fill="#2a2e38" stroke="#8a8f99" stroke-width="2.5"/>
+          <text class="mono" x="130" y="850" font-size="28" fill="#e8e6df" text-anchor="middle">fmt</text>
+          <text class="mono" x="260" y="850" font-size="28" fill="#e8e6df" text-anchor="middle">build</text>
+          <text x="390" y="850" font-size="28" fill="#e8e6df" text-anchor="middle">单元</text>
+          <text x="520" y="850" font-size="28" fill="#e8e6df" text-anchor="middle">模糊</text>
+          <text x="650" y="850" font-size="28" fill="#e8e6df" text-anchor="middle">不变量</text>
+          <text class="mono" x="780" y="850" font-size="28" fill="#e8e6df" text-anchor="middle">fork</text>
+        </g>
+
+        <!-- L2 Slither -->
+        <rect id="pi-scan" class="h" x="560" y="540" width="10" height="62" fill="#58C4DD" opacity="0.8"/>
+        <g id="pi-hi" class="h">
+          <circle cx="560" cy="790" r="14" fill="#FC6255"/>
+          <text x="590" y="801" font-size="32" font-weight="700" fill="#FC6255">高危</text>
+        </g>
+        <g id="pi-fp" class="h">
+          <circle id="pi-fpd" cx="560" cy="790" r="14" fill="#FF9F43"/>
+          <text id="pi-fpt" x="590" y="801" font-size="32" fill="#FF9F43">误报？</text>
+        </g>
+        <g id="pi-hand" class="h">
+          <path d="M710 790 L728 808 L762 770" stroke="#83C167" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <text x="780" y="801" font-size="30" fill="#83C167">人工确认</text>
+        </g>
+        <text id="pi-logic" class="h" x="1850" y="990" font-size="30" fill="#FF9F43" text-anchor="end">查不出业务逻辑错误</text>
+
+        <!-- L3 人工评审 -->
+        <g id="pi-heads" class="h" fill="none" stroke="#8a8f99" stroke-width="4">
+          <circle cx="800" cy="740" r="20"/><path d="M766 810 A34 34 0 0 1 834 810"/>
+          <circle cx="880" cy="740" r="20"/><path d="M846 810 A34 34 0 0 1 914 810"/>
+        </g>
+
+        <!-- L4 测试网 -->
+        <g id="pi-vault" class="h">
+          <rect x="1150" y="690" width="200" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text class="mono" x="1250" y="757" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">Vault</text>
+        </g>
+        <g id="pi-ver" class="h">
+          <text class="mono" x="1370" y="785" font-size="28" font-weight="700" fill="#83C167">Verified</text>
+          <path d="M1516 770 L1528 782 L1550 756" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </g>
+        <g id="pi-bt0" class="h"><rect x="1150" y="850" width="130" height="60" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1215" y="891" font-size="30" fill="#e8e6df" text-anchor="middle">升级</text></g>
+        <path id="pi-bk0" class="dr" pathLength="1" d="M1296 880 L1307 891 L1328 866" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <g id="pi-bt1" class="h"><rect x="1360" y="850" width="130" height="60" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1425" y="891" font-size="30" fill="#e8e6df" text-anchor="middle">暂停</text></g>
+        <path id="pi-bk1" class="dr" pathLength="1" d="M1506 880 L1517 891 L1538 866" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+        <!-- L5 多签 + 监控 -->
+        <g id="pi-keys">
+          <g id="pi-k0" class="h" stroke="#8a8f99" stroke-width="7" fill="none" stroke-linecap="round"><circle cx="1400" cy="720" r="18"/><path d="M1400 738 V800 M1400 772 H1416 M1400 790 H1412"/></g>
+          <g id="pi-k1" class="h" stroke="#8a8f99" stroke-width="7" fill="none" stroke-linecap="round"><circle cx="1515" cy="720" r="18"/><path d="M1515 738 V800 M1515 772 H1531 M1515 790 H1527"/></g>
+          <g id="pi-k2" class="h" stroke="#8a8f99" stroke-width="7" fill="none" stroke-linecap="round"><circle cx="1630" cy="720" r="18"/><path d="M1630 738 V800 M1630 772 H1646 M1630 790 H1642"/></g>
+          <text id="pi-kx" class="h" x="1515" y="860" font-size="28" fill="#6b6f7a" text-anchor="middle">示意</text>
+        </g>
+        <g id="pi-dash" class="h">
+          <rect x="1220" y="680" width="640" height="290" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/>
+          <text x="1250" y="762" font-size="30" fill="#e8e6df">事件</text>
+          <text x="1250" y="842" font-size="30" fill="#e8e6df">余额</text>
+          <text x="1250" y="922" font-size="30" fill="#e8e6df">权限变更</text>
+        </g>
+        <path id="pi-ln0" class="dr" pathLength="1" d="M1420 752 L1460 740 L1500 756 L1540 744 L1580 750 L1620 738 L1660 752 L1700 746" stroke="#58C4DD" stroke-width="3" fill="none"/>
+        <path id="pi-ln1" class="dr" pathLength="1" d="M1420 826 L1460 830 L1500 822 L1540 828 L1580 824 L1620 830 L1660 826 L1700 828" stroke="#F0B90B" stroke-width="3" fill="none"/>
+        <path id="pi-ln2" class="dr" pathLength="1" d="M1420 912 L1460 912 L1500 912 L1540 912 L1580 912 L1620 912" stroke="#8a8f99" stroke-width="3" fill="none"/>
+        <path id="pi-ln2b" class="dr" pathLength="1" d="M1620 912 L1640 872 L1660 912 L1700 912" stroke="#FC6255" stroke-width="4" fill="none"/>
+        <g id="pi-bell" class="h">
+          <path d="M1730 925 V905 A16 16 0 0 1 1762 905 V925 Z" fill="#FC6255"/>
+          <rect x="1724" y="923" width="44" height="6" rx="3" fill="#FC6255"/>
+          <text x="1778" y="932" font-size="30" font-weight="700" fill="#FC6255">告警</text>
+        </g>
+
+        <!-- L6 三份证据 → 同一个 commit -->
+        <g id="pi-f0" class="h">
+          <path d="M450 680 H492 L512 700 V760 H450 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text class="mono" x="480" y="808" font-size="30" fill="#58C4DD" text-anchor="middle">broadcast/</text>
+        </g>
+        <g id="pi-f1" class="h">
+          <path d="M930 680 H972 L992 700 V760 H930 Z" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+          <text x="960" y="808" font-size="30" fill="#83C167" text-anchor="middle">Verified 源码</text>
+        </g>
+        <g id="pi-f2" class="h">
+          <path d="M1410 680 H1452 L1472 700 V760 H1410 Z" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+          <text x="1440" y="808" font-size="30" fill="#B48EF0" text-anchor="middle">审计报告</text>
+        </g>
+        <path id="pi-cl0" class="dr" pathLength="1" d="M480 826 L944 938" stroke="#8a8f99" stroke-width="3" fill="none"/>
+        <path id="pi-cl1" class="dr" pathLength="1" d="M960 826 V928" stroke="#8a8f99" stroke-width="3" fill="none"/>
+        <path id="pi-cl2" class="dr" pathLength="1" d="M1440 826 L976 938" stroke="#8a8f99" stroke-width="3" fill="none"/>
+        <circle id="pi-dot" class="h" cx="960" cy="945" r="15" fill="#58C4DD"/>
+        <text id="pi-hash" class="h mono" x="960" y="1010" font-size="28" fill="#58C4DD" text-anchor="middle">commit a1b2c3…</text>
+
+        <!-- L7 生产清单 -->
+        <g id="pi-list">
+          <g id="pi-i0" class="h"><circle id="pi-ic0" cx="140" cy="500" r="20" fill="none" stroke="#83C167" stroke-width="3"/><text x="185" y="512" font-size="34" fill="#e8e6df">编译器锁定</text></g>
+          <g id="pi-i1" class="h"><circle id="pi-ic1" cx="140" cy="610" r="20" fill="none" stroke="#83C167" stroke-width="3"/><text x="185" y="622" font-size="34" fill="#e8e6df">单元 + 模糊 + 不变量全过</text><text x="185" y="664" font-size="28" fill="#6b6f7a">fuzz runs ≥ 1000，示例</text></g>
+          <g id="pi-i2" class="h"><circle id="pi-ic2" cx="140" cy="740" r="20" fill="none" stroke="#83C167" stroke-width="3"/><text x="185" y="752" font-size="34" fill="#e8e6df">Slither 无未处理高 / 中危</text></g>
+          <g id="pi-i3" class="h"><circle id="pi-ic3" cx="140" cy="850" r="20" fill="none" stroke="#83C167" stroke-width="3"/><text x="185" y="862" font-size="34" fill="#e8e6df">keystore / 硬件钱包</text></g>
+          <g id="pi-i4" class="h"><circle id="pi-ic4" cx="1020" cy="500" r="20" fill="none" stroke="#83C167" stroke-width="3"/><text x="1065" y="512" font-size="34" fill="#e8e6df">管理员是多签</text></g>
+          <g id="pi-i5" class="h"><circle id="pi-ic5" cx="1020" cy="610" r="20" fill="none" stroke="#83C167" stroke-width="3"/><text x="1065" y="622" font-size="34" fill="#e8e6df">源码已验证</text></g>
+          <g id="pi-i6" class="h"><circle id="pi-ic6" cx="1020" cy="740" r="20" fill="none" stroke="#83C167" stroke-width="3"/><text x="1065" y="752" font-size="34" fill="#e8e6df">gas 快照进 CI</text></g>
+          <path id="pi-ik0" class="dr" pathLength="1" d="M130 500 L138 508 L151 490" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path id="pi-ik1" class="dr" pathLength="1" d="M130 610 L138 618 L151 600" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path id="pi-ik2" class="dr" pathLength="1" d="M130 740 L138 748 L151 730" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path id="pi-ik3" class="dr" pathLength="1" d="M130 850 L138 858 L151 840" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path id="pi-ik4" class="dr" pathLength="1" d="M1010 500 L1018 508 L1031 490" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path id="pi-ik5" class="dr" pathLength="1" d="M1010 610 L1018 618 L1031 600" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path id="pi-ik6" class="dr" pathLength="1" d="M1010 740 L1018 748 L1031 730" stroke="#0f1117" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const POP = (s, t, ox, oy, d = 0.5) => IN(s, t, d, { scale: 0.6, svgOrigin: ox + " " + oy }, { scale: 1, svgOrigin: ox + " " + oy, ease: "back.out(2)" });
+      const ST = (k, t) => IN("#pi-st" + k, t, 0.5, { y: -24 }, { y: 0 });
+      const MOVE = (k, t, d = 0.8) => tl.to("#pi-pkg", { x: 225 * k, duration: d, ease: "power2.inOut" }, t);
+      const OK = (k, t) => { POP("#pi-ok" + k, t, 165 + 225 * k + 90, 422, 0.4); tl.to("#pi-r" + k, { strokeWidth: 6, duration: 0.15, yoyo: true, repeat: 1 }, t); };
+      const LAMP = (k, t, c = "#83C167") => tl.to("#pi-c" + k, { fill: c, stroke: c, duration: 0.2 }, t);
+
+      // L0 传送带 + 包裹
+      IN("#pi-title", at(0, 0.02), 0.6);
+      IN("#pi-belt", at(0, 0.25), 0.6);
+      IN("#pi-pkg", at(0, 0.45), 0.5, { y: -30 }, { y: 0 });
+
+      // L1 提交 PR → CI，失败打回
+      ST(0, at(1, 0.02));
+      ST(1, at(1, 0.12));
+      MOVE(1, at(1, 0.16), 0.7);
+      IN("#pi-ci", at(1, 0.22), 0.4);
+      [0.28, 0.35, 0.42, 0.49].forEach((f, k) => LAMP(k, at(1, f)));
+      LAMP(4, at(1, 0.62), "#FC6255");
+      tl.to("#pi-pkgr", { stroke: "#FC6255", duration: 0.2 }, at(1, 0.8));
+      ARROW("#pi-back1", at(1, 0.8), 0.5);
+      IN("#pi-backl1", at(1, 0.84), 0.3);
+      MOVE(0, at(1, 0.86), 0.7);
+
+      // L2 修正重来全绿 → Slither 高危打回 → 误报人工确认
+      OUT("#pi-back1, #pi-backl1", at(2, 0), 0.3);
+      tl.to("#pi-pkgr", { stroke: "#58C4DD", duration: 0.2 }, at(2, 0));
+      MOVE(1, at(2, 0.0), 0.5);
+      for (let k = 0; k < 6; k++) LAMP(k, at(2, 0.04) + k * 0.08);
+      OK(1, at(2, 0.1));
+      ST(2, at(2, 0.1));
+      OUT("#pi-ci", at(2, 0.14), 0.3);
+      MOVE(2, at(2, 0.14), 0.5);
+      IN("#pi-scan", at(2, 0.19), 0.1);
+      tl.fromTo("#pi-scan", { x: 0 }, { x: 100, duration: 0.6, ease: "none", immediateRender: false }, at(2, 0.19));
+      OUT("#pi-scan", at(2, 0.19) + 0.6, 0.1);
+      POP("#pi-hi", at(2, 0.24), 560, 790, 0.4);
+      tl.to("#pi-pkgr", { stroke: "#FC6255", duration: 0.2 }, at(2, 0.28));
+      ARROW("#pi-back2", at(2, 0.28), 0.4);
+      IN("#pi-backl2", at(2, 0.3), 0.3);
+      MOVE(0, at(2, 0.31), 0.6);
+      OUT("#pi-hi, #pi-back2, #pi-backl2", at(2, 0.42), 0.3);
+      tl.to("#pi-pkgr", { stroke: "#58C4DD", duration: 0.2 }, at(2, 0.44));
+      MOVE(2, at(2, 0.44), 0.6);
+      tl.fromTo("#pi-scan", { x: 0, opacity: 0 }, { x: 100, opacity: 0.8, duration: 0.6, ease: "none", immediateRender: false }, at(2, 0.51));
+      OUT("#pi-scan", at(2, 0.51) + 0.6, 0.1);
+      POP("#pi-fp", at(2, 0.55), 560, 790, 0.4);
+      IN("#pi-hand", at(2, 0.66), 0.5, { x: -16 }, { x: 0 });
+      tl.to("#pi-fpt, #pi-fpd", { opacity: 0.35, duration: 0.4 }, at(2, 0.7));
+      OK(2, at(2, 0.72));
+      IN("#pi-logic", at(2, 0.8), 0.5);
+
+      // L3 人工评审 + 外部审计
+      OUT("#pi-fp, #pi-hand, #pi-logic", at(3, 0), 0.35);
+      ST(3, at(3, 0.02));
+      IN("#pi-heads", at(3, 0.08), 0.4);
+      MOVE(3, at(3, 0.1), 0.6);
+      OK(3, at(3, 0.32));
+      OUT("#pi-heads", at(3, 0.45), 0.3);
+      ST(4, at(3, 0.5));
+      MOVE(4, at(3, 0.58), 0.6);
+      OK(4, at(3, 0.84));
+
+      // L4 测试网部署 + 验证 + 演练
+      ST(5, at(4, 0.02));
+      MOVE(5, at(4, 0.06), 0.7);
+      POP("#pi-vault", at(4, 0.24), 1250, 745, 0.5);
+      IN("#pi-ver", at(4, 0.42), 0.4, { x: -12 }, { x: 0 });
+      IN("#pi-bt0", at(4, 0.56), 0.3);
+      tl.to("#pi-bt0", { scale: 0.9, svgOrigin: "1215 880", duration: 0.12, yoyo: true, repeat: 1 }, at(4, 0.64));
+      DRAW("#pi-bk0", at(4, 0.68), 0.3);
+      IN("#pi-bt1", at(4, 0.74), 0.3);
+      tl.to("#pi-bt1", { scale: 0.9, svgOrigin: "1425 880", duration: 0.12, yoyo: true, repeat: 1 }, at(4, 0.82));
+      DRAW("#pi-bk1", at(4, 0.86), 0.3);
+      OK(5, at(4, 0.92));
+
+      // L5 主网多签 + 监控告警
+      OUT("#pi-vault, #pi-ver, #pi-bt0, #pi-bt1, #pi-bk0, #pi-bk1", at(5, 0), 0.35);
+      ST(6, at(5, 0.03));
+      MOVE(6, at(5, 0.06), 0.7);
+      IN("#pi-k0, #pi-k1, #pi-k2", at(5, 0.12), 0.4);
+      IN("#pi-kx", at(5, 0.14), 0.4);
+      tl.to("#pi-k0", { stroke: "#83C167", duration: 0.25 }, at(5, 0.2));
+      tl.to("#pi-k1", { stroke: "#83C167", duration: 0.25 }, at(5, 0.27));
+      OK(6, at(5, 0.33));
+      OUT("#pi-keys", at(5, 0.42), 0.3);
+      ST(7, at(5, 0.45));
+      MOVE(7, at(5, 0.47), 0.6);
+      IN("#pi-dash", at(5, 0.54), 0.4);
+      DRAW("#pi-ln0", at(5, 0.6), 0.6);
+      DRAW("#pi-ln1", at(5, 0.66), 0.6);
+      DRAW("#pi-ln2", at(5, 0.72), 0.5);
+      DRAW("#pi-ln2b", at(5, 0.84), 0.25);
+      POP("#pi-bell", at(5, 0.88), 1746, 915, 0.4);
+      tl.to("#pi-bell", { rotation: 12, svgOrigin: "1746 895", duration: 0.12, yoyo: true, repeat: 3 }, at(5, 0.88) + 0.4);
+
+      // L6 三份证据对应同一提交
+      OUT("#pi-dash, #pi-ln0, #pi-ln1, #pi-ln2, #pi-ln2b, #pi-bell", at(6, 0), 0.35);
+      IN("#pi-f0", at(6, 0.28), 0.4, { y: 16 }, { y: 0 });
+      IN("#pi-f1", at(6, 0.4), 0.4, { y: 16 }, { y: 0 });
+      IN("#pi-f2", at(6, 0.52), 0.4, { y: 16 }, { y: 0 });
+      DRAW("#pi-cl0", at(6, 0.64), 0.6);
+      DRAW("#pi-cl1", at(6, 0.64), 0.6);
+      DRAW("#pi-cl2", at(6, 0.64), 0.6);
+      POP("#pi-dot", at(6, 0.72), 960, 945, 0.4);
+      IN("#pi-hash", at(6, 0.76), 0.4);
+      tl.to("#pi-cl0, #pi-cl1, #pi-cl2", { stroke: "#83C167", duration: 0.4 }, at(6, 0.88));
+
+      // L7 流水线上移 + 生产清单
+      OUT("#pi-title, #pi-f0, #pi-f1, #pi-f2, #pi-cl0, #pi-cl1, #pi-cl2, #pi-dot, #pi-hash", at(7, 0), 0.35);
+      tl.to("#pi-pscale", { scale: 0.9, svgOrigin: "960 400", duration: 0.8, ease: "power2.inOut" }, at(7, 0.03));
+      tl.to("#pi-pmove", { y: -190, duration: 0.8, ease: "power2.inOut" }, at(7, 0.03));
+      [0.12, 0.2, 0.29, 0.5, 0.74, 0.84, 0.91].forEach((f, k) => {
+        IN("#pi-i" + k, at(7, f), 0.4, { x: -16 }, { x: 0 });
+        tl.to("#pi-ic" + k, { fill: "#83C167", duration: 0.25 }, at(7, f) + 0.3);
+        DRAW("#pi-ik" + k, at(7, f) + 0.35, 0.3);
+      });
+
+      tl.to("#pi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["pipe"] = tl;
+    })();
+  </script>
+</template>

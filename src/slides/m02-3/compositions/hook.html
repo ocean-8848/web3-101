@@ -1,0 +1,212 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="39.45" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ho-arrp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" />
+        </marker>
+        <marker id="ho-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <g id="ho-main">
+          <!-- 用户小人 -->
+          <g id="ho-users" class="h">
+            <g fill="none" stroke="#8a8f99" stroke-width="4" stroke-linecap="round">
+              <circle cx="300" cy="400" r="22" /><path d="M262 480 Q300 428 338 480" />
+              <circle cx="300" cy="545" r="22" /><path d="M262 625 Q300 573 338 625" />
+              <circle cx="300" cy="690" r="22" /><path d="M262 770 Q300 718 338 770" />
+            </g>
+          </g>
+          <!-- 等距金库 -->
+          <g id="ho-vault" class="h">
+            <polygon points="760,400 830,340 1190,340 1120,400" fill="#1b2a33" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round" />
+            <polygon points="1120,400 1190,340 1190,680 1120,740" fill="#14202a" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round" />
+            <rect x="760" y="400" width="360" height="340" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="900" y="446" font-size="28" fill="#58C4DD" text-anchor="middle">Vault</text>
+            <circle id="ho-door" cx="900" cy="575" r="100" fill="#10161e" stroke="#58C4DD" stroke-width="4" />
+            <circle cx="900" cy="575" r="84" fill="none" stroke="#2a3040" stroke-width="2" stroke-dasharray="6 6" />
+            <rect id="ho-win" x="1030" y="595" width="70" height="60" rx="6" fill="#10161e" stroke="#58C4DD" stroke-width="3" />
+          </g>
+          <text id="ho-num" class="h mono" x="900" y="588" font-size="56" font-weight="700" fill="#F0B90B" text-anchor="middle">0</text>
+          <text id="ho-eth" class="h mono" x="900" y="630" font-size="28" fill="#F0B90B" text-anchor="middle">ETH</text>
+          <!-- 飞入的币 -->
+          <g id="ho-c0" class="h"><circle cx="360" cy="440" r="18" fill="#F0B90B" /></g>
+          <g id="ho-c1" class="h"><circle cx="360" cy="585" r="18" fill="#F0B90B" /></g>
+          <g id="ho-c2" class="h"><circle cx="360" cy="730" r="18" fill="#F0B90B" /></g>
+          <g id="ho-c3" class="h"><circle cx="360" cy="440" r="18" fill="#F0B90B" /></g>
+          <g id="ho-c4" class="h"><circle cx="360" cy="585" r="18" fill="#F0B90B" /></g>
+          <g id="ho-c5" class="h"><circle cx="360" cy="730" r="18" fill="#F0B90B" /></g>
+          <!-- 问号气泡 -->
+          <g id="ho-q1" class="h">
+            <rect x="390" y="200" width="340" height="84" rx="22" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <path d="M600 284 L630 316 L640 284" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round" />
+            <rect x="598" y="279" width="44" height="8" fill="#161a22" />
+            <text x="560" y="256" font-size="40" fill="#FF9F43" text-anchor="middle">谁能按暂停键？</text>
+          </g>
+          <g id="ho-q2" class="h">
+            <rect x="1170" y="200" width="380" height="84" rx="22" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <path d="M1200 284 L1180 316 L1240 284" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round" />
+            <rect x="1198" y="279" width="44" height="8" fill="#161a22" />
+            <text x="1360" y="256" font-size="40" fill="#FF9F43" text-anchor="middle">每人每天取多少？</text>
+          </g>
+          <g id="ho-q3" class="h">
+            <rect x="740" y="800" width="380" height="84" rx="22" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <path d="M880 800 L900 768 L920 800" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round" />
+            <rect x="878" y="797" width="44" height="8" fill="#161a22" />
+            <text x="930" y="856" font-size="40" fill="#FF9F43" text-anchor="middle">先扣账？先转账？</text>
+          </g>
+          <!-- 顺序卡片 -->
+          <text id="ho-o1" class="h" x="1620" y="530" font-size="30" fill="#8a8f99">先</text>
+          <text id="ho-o2" class="h" x="1620" y="650" font-size="30" fill="#8a8f99">后</text>
+          <g id="ho-kA" class="h">
+            <rect x="1240" y="480" width="160" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1320" y="531" font-size="34" fill="#58C4DD" text-anchor="middle">扣账</text>
+          </g>
+          <g id="ho-kB" class="h">
+            <rect x="1240" y="600" width="160" height="80" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="1320" y="651" font-size="34" fill="#F0B90B" text-anchor="middle">转账</text>
+          </g>
+          <!-- 红手 -->
+          <g id="ho-hand" class="h">
+            <path d="M1960 270 L1030 495" fill="none" stroke="#FC6255" stroke-width="16" stroke-linecap="round" />
+            <circle cx="1020" cy="498" r="22" fill="#FC6255" />
+          </g>
+          <g id="ho-t0" class="h"><circle cx="985" cy="520" r="18" fill="#F0B90B" /></g>
+          <g id="ho-t1" class="h"><circle cx="985" cy="520" r="18" fill="#F0B90B" /></g>
+          <g id="ho-t2" class="h"><circle cx="985" cy="520" r="18" fill="#F0B90B" /></g>
+          <text id="ho-norev" class="h" x="1660" y="800" font-size="48" font-weight="700" fill="#FC6255" text-anchor="middle">无法撤回</text>
+          <!-- 四个比喻标签 -->
+          <g id="ho-bell" class="h">
+            <path d="M955 378 Q955 348 975 346 Q995 348 995 378 Z" fill="#FC6255" />
+            <circle cx="975" cy="383" r="5" fill="#FC6255" />
+          </g>
+          <g id="ho-grid" class="h" stroke="#58C4DD" stroke-width="1.5" opacity="0.8">
+            <line x1="1140" y1="400" x2="1140" y2="723" /><line x1="1160" y1="383" x2="1160" y2="706" />
+            <line x1="1120" y1="480" x2="1190" y2="420" /><line x1="1120" y1="560" x2="1190" y2="500" /><line x1="1120" y1="640" x2="1190" y2="580" />
+          </g>
+          <g id="ho-l1" class="h">
+            <text x="220" y="222" font-size="36" fill="#FC6255">错误处理 = 报警器</text>
+            <line class="dr" pathLength="1" x1="522" y1="222" x2="948" y2="362" stroke="#FC6255" stroke-width="2.5" />
+          </g>
+          <g id="ho-l2" class="h">
+            <text x="1380" y="222" font-size="36" fill="#58C4DD">继承 = 标准图纸</text>
+            <line class="dr" pathLength="1" x1="1395" y1="252" x2="1176" y2="430" stroke="#58C4DD" stroke-width="2.5" />
+          </g>
+          <g id="ho-l3" class="h">
+            <text x="220" y="900" font-size="36" fill="#FF9F43">修饰器 = 门禁</text>
+            <line class="dr" pathLength="1" x1="482" y1="858" x2="815" y2="635" stroke="#FF9F43" stroke-width="2.5" />
+          </g>
+          <g id="ho-l4" class="h">
+            <text x="1380" y="900" font-size="36" fill="#F0B90B">收发 ETH = 出纳窗口</text>
+            <line class="dr" pathLength="1" x1="1390" y1="848" x2="1102" y2="660" stroke="#F0B90B" stroke-width="2.5" />
+          </g>
+        </g>
+        <!-- 左右对比 -->
+        <line id="ho-div" class="h" x1="960" y1="330" x2="960" y2="790" stroke="#2a3040" stroke-width="3" />
+        <g id="ho-bank" class="h">
+          <rect x="360" y="380" width="320" height="170" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <path d="M440 480 L600 480" stroke="#B48EF0" stroke-width="5" stroke-linecap="round" />
+          <path d="M600 480 Q640 430 600 420 L470 420" fill="none" stroke="#B48EF0" stroke-width="5" stroke-linecap="round" marker-end="url(#ho-arrp)" />
+          <text x="520" y="660" font-size="48" font-weight="700" fill="#B48EF0" text-anchor="middle">银行：人工冲正</text>
+        </g>
+        <g id="ho-chain" class="h">
+          <rect x="1240" y="380" width="320" height="170" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <path d="M1300 465 L1560 465" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          <path d="M1540 465 L1640 465" stroke="#FC6255" stroke-width="5" stroke-linecap="round" marker-end="url(#ho-arrr)" />
+          <path d="M1585 410 L1625 450 M1625 410 L1585 450" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+          <circle cx="1350" cy="465" r="0" fill="#F0B90B" />
+          <text x="1400" y="660" font-size="48" font-weight="700" fill="#FC6255" text-anchor="middle">合约：转走即终局</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 金库 + 用户存币
+      IN("#ho-vault", at(0, 0.02), 0.8, { y: 30 }, { y: 0 });
+      IN("#ho-num, #ho-eth", at(0, 0.12), 0.5);
+      IN("#ho-users", at(0, 0.18), 0.6, { x: -30 }, { x: 0 });
+      for (let k = 0; k < 6; k++) {
+        const t = at(0, 0.3 + k * 0.1), dy = [135, -10, -155][k % 3];
+        tl.fromTo(`#ho-c${k}`, { opacity: 0, x: 0, y: 0 }, { opacity: 1, duration: 0.15 }, t);
+        tl.to(`#ho-c${k}`, { x: 540, y: dy, duration: 0.55, ease: "power2.in" }, t + 0.1);
+        tl.to(`#ho-c${k}`, { opacity: 0, duration: 0.12 }, t + 0.6);
+      }
+      COUNT("#ho-num", 0, 12, at(0, 0.42), 2.6);
+      // L1 两个问号气泡
+      IN("#ho-q1", at(1, 0.08), 0.5, { y: 20 }, { y: 0 });
+      IN("#ho-q2", at(1, 0.55), 0.5, { y: 20 }, { y: 0 });
+      // L2 第三个气泡 + 两张卡片来回交换
+      IN("#ho-q3", at(2, 0.05), 0.5, { y: -20 }, { y: 0 });
+      IN("#ho-kA, #ho-kB, #ho-o1, #ho-o2", at(2, 0.3), 0.5);
+      const SW = (t, a) => { // a=1 交换到下/上；a=0 回原位
+        tl.to("#ho-kA", { keyframes: [{ x: 190, duration: 0.25 }, { y: a ? 120 : 0, duration: 0.3 }, { x: 0, duration: 0.25 }], ease: "power1.inOut" }, t);
+        tl.to("#ho-kB", { keyframes: [{ x: 0, duration: 0.25 }, { y: a ? -120 : 0, duration: 0.3 }, { x: 0, duration: 0.25 }], ease: "power1.inOut" }, t);
+      };
+      SW(at(2, 0.48), 1); SW(at(2, 0.74), 0);
+      // L3 停在“先转账”，红手取币
+      SW(at(3, 0.0), 1);
+      OUT("#ho-q1, #ho-q2", at(3, 0.02), 0.4);
+      IN("#ho-hand", at(3, 0.2), 0.5, { x: 300, y: -70 }, { x: 0, y: 0 });
+      for (let k = 0; k < 3; k++) {
+        const t = at(3, 0.32 + k * 0.14);
+        tl.fromTo(`#ho-t${k}`, { opacity: 0, x: 0, y: 0 }, { opacity: 1, duration: 0.1 }, t);
+        tl.to(`#ho-t${k}`, { x: 960, y: -235, duration: 0.6, ease: "power2.in" }, t + 0.05);
+        tl.to(`#ho-t${k}`, { opacity: 0, duration: 0.1 }, t + 0.6);
+      }
+      COUNT("#ho-num", 12, 0, at(3, 0.34), 2.0);
+      tl.to("#ho-num", { fill: "#FC6255", duration: 0.3 }, at(3, 0.6));
+      IN("#ho-norev", at(3, 0.72), 0.5, { scale: 0.8, svgOrigin: "1660 785" }, { scale: 1, svgOrigin: "1660 785" });
+      // L4 复原 + 四个标签
+      OUT("#ho-hand, #ho-norev, #ho-q3, #ho-kA, #ho-kB, #ho-o1, #ho-o2, #ho-users", at(4, 0.0), 0.4);
+      tl.to("#ho-num", { fill: "#F0B90B", duration: 0.3 }, at(4, 0.05));
+      COUNT("#ho-num", 0, 12, at(4, 0.05), 0.8);
+      const LAB = (k, t) => { IN(`#ho-l${k}`, t, 0.4); DRAW(`#ho-l${k} line`, t + 0.1, 0.5); };
+      LAB(3, at(4, 0.2));
+      tl.to("#ho-door", { stroke: "#FF9F43", duration: 0.4 }, at(4, 0.24));
+      LAB(2, at(4, 0.4));
+      IN("#ho-grid", at(4, 0.42), 0.5);
+      LAB(1, at(4, 0.6));
+      IN("#ho-bell", at(4, 0.6), 0.3);
+      tl.to("#ho-bell", { keyframes: [{ rotation: 14, duration: 0.1 }, { rotation: -14, duration: 0.15 }, { rotation: 10, duration: 0.12 }, { rotation: 0, duration: 0.12 }], svgOrigin: "975 346" }, at(4, 0.66));
+      LAB(4, at(4, 0.8));
+      tl.to("#ho-win", { stroke: "#F0B90B", duration: 0.4 }, at(4, 0.84));
+      // L5 左右对比
+      tl.to("#ho-main", { opacity: 0, scale: 0.9, svgOrigin: "960 560", duration: 0.6, ease: "power2.inOut" }, at(5, 0.0));
+      IN("#ho-div", at(5, 0.1), 0.5);
+      IN("#ho-bank", at(5, 0.18), 0.6, { x: -30 }, { x: 0 });
+      IN("#ho-chain", at(5, 0.5), 0.6, { x: 30 }, { x: 0 });
+      tl.fromTo("#ho-chain path:nth-of-type(2)", { x: -60 }, { x: 0, duration: 0.6, ease: "power2.out", immediateRender: false }, at(5, 0.55));
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

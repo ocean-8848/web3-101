@@ -1,0 +1,218 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz1，id 前缀 qu- -->
+  <div id="root" data-composition-id="quiz1" data-duration="46.07" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="qu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="qu-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+      </defs>
+      <g id="qu-all">
+        <!-- 题号徽章 x70–260 y70–130 -->
+        <g id="qu-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 1 题</text>
+        </g>
+        <!-- 题干：两行 40px，y 200–310，clipPath 逐行揭开 -->
+        <clipPath id="qu-qclip1"><rect id="qu-qcr1" x="60" y="190" width="0" height="64" /></clipPath>
+        <clipPath id="qu-qclip2"><rect id="qu-qcr2" x="60" y="254" width="0" height="64" /></clipPath>
+        <text id="qu-q1" class="h" x="70" y="236" font-size="40" fill="#e8e6df" clip-path="url(#qu-qclip1)">一个猜数字合约把<tspan fill="#FF9F43">答案</tspan>存在 <tspan class="mono" font-size="34">uint256 <tspan fill="#FF9F43">private</tspan> answer</tspan> 里，</text>
+        <text id="qu-q2" class="h" x="70" y="298" font-size="40" fill="#e8e6df" clip-path="url(#qu-qclip2)">猜中的人赢走奖池。问题在哪？</text>
+        <!-- 暂停图标 + 倒数圆环：x 1500–1850 y 150–300 -->
+        <g id="qu-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="qu-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <!-- 选项卡：x 70–1100，y0 = 380 / 515 / 650 / 785，高 115，间距 20；圆标 cx130 r32；文字 x190 32px；短评 x190 28px -->
+        <g id="qu-oA" class="h">
+          <rect id="qu-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oA-dim">
+            <circle id="qu-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="qu-oA-t" x="190" y="449" font-size="32" fill="#e8e6df">没有问题，<tspan class="mono">private</tspan> 变量外部读不到</text>
+          </g>
+          <text id="qu-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255"><tspan class="mono">private</tspan> 只限制其他合约调用，不隐藏数据</text>
+        </g>
+        <g id="qu-oB" class="h">
+          <rect id="qu-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oB-dim">
+            <circle id="qu-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="qu-oB-t" x="190" y="584" font-size="32" fill="#e8e6df">任何人都能用 <tspan class="mono">eth_getStorageAt</tspan> 读出存储槽里的答案</text>
+          </g>
+        </g>
+        <g id="qu-oC" class="h">
+          <rect id="qu-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oC-dim">
+            <circle id="qu-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="qu-oC-t" x="190" y="719" font-size="32" fill="#e8e6df">只有合约 <tspan class="mono">owner</tspan> 能读到答案</text>
+          </g>
+          <text id="qu-oC-n" class="h" x="190" y="747" font-size="28" fill="#FC6255">链上存储对所有人公开，没有“读权限”（解读）</text>
+        </g>
+        <g id="qu-oD" class="h">
+          <rect id="qu-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oD-dim">
+            <circle id="qu-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="qu-oD-t" x="190" y="854" font-size="32" fill="#e8e6df">答案在 <tspan class="mono">memory</tspan> 里，交易结束就消失</text>
+          </g>
+          <text id="qu-oD-n" class="h" x="190" y="882" font-size="28" fill="#FC6255">状态变量在存储里，<tspan class="mono">memory</tspan> 只是临时副本（解读）</text>
+        </g>
+        <!-- 右侧示意区 x 1160–1850 y 380–930 -->
+        <g id="qu-panel">
+          <g id="qu-ct" class="h">
+            <rect x="1220" y="380" width="480" height="300" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1244" y="424" font-size="28" font-weight="700" fill="#58C4DD">猜数字合约</text>
+            <rect x="1250" y="446" width="420" height="54" rx="8" fill="#0f1117" stroke="#3a3f4a" stroke-width="2.5" />
+            <text class="mono" x="1266" y="483" font-size="28" fill="#8a8f99">slot 0</text>
+            <rect id="qu-s1" x="1250" y="516" width="420" height="54" rx="8" fill="#0f1117" stroke="#F0B90B" stroke-width="2.5" />
+            <text class="mono" x="1266" y="553" font-size="28" fill="#8a8f99">slot 1</text>
+            <text class="mono" x="1400" y="553" font-size="28" fill="#e8e6df">answer</text>
+            <rect x="1250" y="586" width="420" height="54" rx="8" fill="#0f1117" stroke="#3a3f4a" stroke-width="2.5" />
+            <text class="mono" x="1266" y="623" font-size="28" fill="#8a8f99">slot 2</text>
+          </g>
+          <g id="qu-lock" class="h">
+            <line x1="1700" y1="543" x2="1740" y2="543" stroke="#8a8f99" stroke-width="3" />
+            <rect x="1742" y="530" width="32" height="28" rx="5" fill="#161a22" stroke="#8a8f99" stroke-width="3.5" />
+            <path d="M1748 530 v-8 a10 10 0 0 1 20 0 v8" fill="none" stroke="#8a8f99" stroke-width="3.5" />
+            <text class="mono" x="1775" y="505" font-size="28" fill="#8a8f99" text-anchor="middle">private</text>
+          </g>
+          <text id="qu-42" class="h mono" x="1654" y="554" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="end">42</text>
+          <path id="qu-req" class="dr h" pathLength="1" d="M1190 750 V543 H1244" fill="none" stroke="#58C4DD" stroke-width="4" marker-end="url(#qu-arrB)" />
+          <text id="qu-reqt" class="h mono" x="1180" y="790" font-size="28" fill="#58C4DD">eth_getStorageAt(slot 1)</text>
+          <text id="qu-lockt" class="h" x="1850" y="740" font-size="28" fill="#FF9F43" text-anchor="end">只挡其他合约调用</text>
+          <g id="qu-ppl">
+            <g id="qu-p0" class="h">
+              <circle cx="1190" cy="864" r="13" fill="none" stroke="#58C4DD" stroke-width="3.5" />
+              <path d="M1172 914 a18 18 0 0 1 36 0" fill="none" stroke="#58C4DD" stroke-width="3.5" />
+              <text class="mono" x="1212" y="890" font-size="28" fill="#F0B90B">42</text>
+            </g>
+            <g id="qu-p1" class="h">
+              <circle cx="1300" cy="864" r="13" fill="none" stroke="#83C167" stroke-width="3.5" />
+              <path d="M1282 914 a18 18 0 0 1 36 0" fill="none" stroke="#83C167" stroke-width="3.5" />
+              <text class="mono" x="1322" y="890" font-size="28" fill="#F0B90B">42</text>
+            </g>
+            <g id="qu-p2" class="h">
+              <circle cx="1410" cy="864" r="13" fill="none" stroke="#F0B90B" stroke-width="3.5" />
+              <path d="M1392 914 a18 18 0 0 1 36 0" fill="none" stroke="#F0B90B" stroke-width="3.5" />
+              <text class="mono" x="1432" y="890" font-size="28" fill="#F0B90B">42</text>
+            </g>
+            <g id="qu-p3" class="h">
+              <circle cx="1520" cy="864" r="13" fill="none" stroke="#e8e6df" stroke-width="3.5" />
+              <path d="M1502 914 a18 18 0 0 1 36 0" fill="none" stroke="#e8e6df" stroke-width="3.5" />
+              <text class="mono" x="1542" y="890" font-size="28" fill="#F0B90B">42</text>
+            </g>
+            <g id="qu-p4" class="h">
+              <circle cx="1630" cy="864" r="13" fill="none" stroke="#B48EF0" stroke-width="3.5" />
+              <path d="M1612 914 a18 18 0 0 1 36 0" fill="none" stroke="#B48EF0" stroke-width="3.5" />
+              <text class="mono" x="1652" y="890" font-size="28" fill="#F0B90B">42</text>
+            </g>
+            <text id="qu-own" class="h mono" x="1700" y="890" font-size="28" fill="#B48EF0">owner</text>
+          </g>
+          <g id="qu-stor" class="h">
+            <rect x="1180" y="836" width="250" height="66" rx="12" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="3" />
+            <text x="1305" y="880" font-size="28" fill="#F0B90B" text-anchor="middle">存储 · 永久</text>
+          </g>
+          <text id="qu-vs" class="h" x="1470" y="880" font-size="28" fill="#8a8f99" text-anchor="middle">vs</text>
+          <g id="qu-mem" class="h">
+            <rect x="1510" y="836" width="200" height="66" rx="12" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 7" />
+            <text class="mono" x="1610" y="880" font-size="28" fill="#8a8f99" text-anchor="middle">memory</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // ===== 测验版式（quiz2–6 照此）=====
+      // 题号徽章 L0 起；题干两行用 clipPath 宽度 0→1300 打出
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      IN("#qu-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#qu-q1, #qu-q2", at(0, 0.05), 0.01);
+      tl.fromTo("#qu-qcr1", { attr: { width: 0 } }, { attr: { width: 1300 }, duration: 2.4, ease: "none" }, at(0, 0.06));
+      tl.fromTo("#qu-qcr2", { attr: { width: 0 } }, { attr: { width: 1300 }, duration: 1.6, ease: "none" }, at(0, 0.06) + 2.4);
+      IN("#qu-ct", at(0, 0.45), 0.6, { scale: 0.92, svgOrigin: "1460 530" }, { scale: 1, svgOrigin: "1460 530" });
+      IN("#qu-lock", at(0, 0.6), 0.5);
+      // L1 选项：按旁白念到的位置滑入；正在念的那张描边提亮
+      const SHOW = (k, t) => {
+        IN(`#qu-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#qu-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#qu-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.26)); SHOW("C", at(1, 0.6)); SHOW("D", at(1, 0.78));
+      // L2 暂停：选项不动；暂停图标 + 圆环倒数到 L3 开头
+      IN("#qu-pause", at(2, 0.0), 0.3);
+      tl.fromTo("#qu-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+      OUT("#qu-pause", at(3, 0.0), 0.3);
+      // 揭晓：正确项 = 描边 + 圆标变绿、绿底 15%
+      const RIGHT = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      // 干扰项 = 红描边、内容降到 60%，选项文字上移到 y0+52，卡内第二行 y0+97 出红色短评（28px）
+      const WRONG = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#qu-o${k}-t`, { attr: { y: Y0[k] + 50 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#qu-o${k}-n`, t + 0.3, 0.5);
+      };
+      // L3 B 正确：请求线绕过 private 锁直接伸进 slot 1，取出 42
+      RIGHT("B", at(3, 0.02));
+      IN("#qu-reqt", at(3, 0.15), 0.5);
+      ARROW("#qu-req", at(3, 0.22), 0.8);
+      tl.to("#qu-s1", { strokeWidth: 5, duration: 0.3 }, at(3, 0.35));
+      IN("#qu-42", at(3, 0.4), 0.4, { scale: 1.8, svgOrigin: "1634 543" }, { scale: 1, svgOrigin: "1634 543", ease: "back.out(2)" });
+      tl.to("#qu-42", { scale: 1.3, svgOrigin: "1634 543", duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.7));
+      // L4 A、C 错：锁只挡其他合约调用；人人都读到 42
+      WRONG("A", at(4, 0.02));
+      IN("#qu-lockt", at(4, 0.15), 0.5);
+      WRONG("C", at(4, 0.6));
+      [0, 1, 2, 3, 4].forEach(j => IN(`#qu-p${j}`, at(4, 0.68) + j * 0.15, 0.4, { y: 12 }, { y: 0 }));
+      IN("#qu-own", at(4, 0.68) + 0.75, 0.4);
+      // L5 D 错：存储（永久）vs memory（交易结束淡出）
+      WRONG("D", at(5, 0.02));
+      OUT("#qu-ppl", at(5, 0.05), 0.3);
+      IN("#qu-stor", at(5, 0.15), 0.5);
+      IN("#qu-vs", at(5, 0.25), 0.4);
+      IN("#qu-mem", at(5, 0.3), 0.5);
+      tl.to("#qu-mem", { opacity: 0, duration: 0.8, ease: "power1.in" }, at(5, 0.7));
+
+      tl.to("#qu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz1"] = tl;
+    })();
+  </script>
+</template>

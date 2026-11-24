@@ -485,6 +485,11 @@ function mountLab(slot, id) {
   const body = $(`[data-labbody="${id}"]`);
   try { L.mount(body, id); } catch (e) { body.innerHTML = `<div class="verdict risk">实验加载失败：${esc(e.message)}</div>`; console.error(e); }
 }
+/* chapters that have an animated Slides deck (H.slides comes from slides-index.js, written by tools/make_slides.py) */
+function slidesCta(c) {
+  const s = H.slides && H.slides[c.id];
+  return s ? `<a class="slides-cta" href="slides.html#${c.id}"><b>▶ 看 Slides</b><span>${s.pages} 页动画，几分钟过完本章要点</span></a>` : '';
+}
 function render(id) {
   if (ALIAS[id]) { id = ALIAS[id]; history.replaceState(null, '', '#' + id); }
   const view = $('#view');
@@ -495,7 +500,7 @@ function render(id) {
     c = chap;
   } else {
     if (!c) { c = H.ch[0]; id = c.id; }
-    view.innerHTML = (c.group === 'tools' ? '' : blockHead(c)) + (typeof c.html === 'function' ? c.html() : c.html) + refsHtml(c.id) + pager(c);
+    view.innerHTML = (c.group === 'tools' ? '' : blockHead(c)) + slidesCta(c) + (typeof c.html === 'function' ? c.html() : c.html) + refsHtml(c.id) + pager(c);
     if (c.mod && c.sub === 0) { const mt = $('.meta', view); if (mt) mt.insertAdjacentHTML('afterend', subGrid(c) + depGraph(c)); }
     if (c.mod && c.sub > 0) { const mt = $('.meta', view); if (mt) mt.insertAdjacentHTML('afterbegin', tagsHtml(c)); }
   }

@@ -1,0 +1,297 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 trust，id 前缀 tr- -->
+  <div id="root" data-composition-id="trust" data-duration="66.99" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="tr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+        <marker id="tr-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <g id="tr-ledg">
+          <rect x="-26" y="-32" width="52" height="64" rx="5" fill="#0f1117" stroke="#58C4DD" stroke-width="3"/>
+          <line x1="-14" y1="-14" x2="14" y2="-14" stroke="#58C4DD" stroke-width="2.5"/>
+          <line x1="-14" y1="0" x2="14" y2="0" stroke="#58C4DD" stroke-width="2.5"/>
+          <line x1="-14" y1="14" x2="6" y2="14" stroke="#58C4DD" stroke-width="2.5"/>
+        </g>
+        <g id="tr-house">
+          <path d="M-48 0 L0 -40 L48 0" fill="none" stroke="#8a8f99" stroke-width="3.5" stroke-linejoin="round"/>
+          <rect x="-38" y="0" width="76" height="56" fill="#161a22" stroke="#8a8f99" stroke-width="3.5"/>
+          <rect x="-10" y="24" width="20" height="32" fill="#8a8f99"/>
+        </g>
+        <g id="tr-pc">
+          <rect x="-34" y="-58" width="68" height="44" rx="5" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <line x1="0" y1="-14" x2="0" y2="-4" stroke="#8a8f99" stroke-width="4"/>
+          <line x1="-18" y1="-2" x2="18" y2="-2" stroke="#8a8f99" stroke-width="4" stroke-linecap="round"/>
+        </g>
+        <g id="tr-keyi">
+          <circle cx="-8" cy="0" r="8" fill="none" stroke="#F0B90B" stroke-width="3"/>
+          <path d="M0 0 L18 0 M12 0 L12 7 M17 0 L17 6" stroke="#F0B90B" stroke-width="3" fill="none"/>
+        </g>
+      </defs>
+      <g id="tr-all">
+        <!-- L0–L1 银行 + 16 个用户 -->
+        <g id="tr-p1">
+          <g id="tr-lines" class="h" stroke="#FF9F43" stroke-width="1.5" opacity="0.55"></g>
+          <g id="tr-users" fill="#8a8f99"></g>
+          <text id="tr-tl" class="h" x="960" y="935" font-size="30" fill="#FF9F43" text-anchor="middle">信任</text>
+          <g id="tr-bank" class="h">
+            <rect id="tr-bankr" x="860" y="380" width="200" height="180" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3.5"/>
+            <path d="M900 444 L960 410 L1020 444 Z" fill="none" stroke="#B48EF0" stroke-width="3.5" stroke-linejoin="round"/>
+            <line x1="912" y1="452" x2="912" y2="500" stroke="#B48EF0" stroke-width="5"/>
+            <line x1="944" y1="452" x2="944" y2="500" stroke="#B48EF0" stroke-width="5"/>
+            <line x1="976" y1="452" x2="976" y2="500" stroke="#B48EF0" stroke-width="5"/>
+            <line x1="1008" y1="452" x2="1008" y2="500" stroke="#B48EF0" stroke-width="5"/>
+            <text x="960" y="542" font-size="30" font-weight="700" fill="#B48EF0" text-anchor="middle">银行</text>
+          </g>
+          <g id="tr-k0" class="h">
+            <rect x="770" y="420" width="34" height="26" rx="4" fill="#FC6255"/>
+            <path d="M777 420 L777 410 A10 10 0 0 1 797 410 L797 420" fill="none" stroke="#FC6255" stroke-width="4"/>
+            <text x="752" y="444" font-size="30" fill="#FC6255" text-anchor="end">冻结</text>
+          </g>
+          <g id="tr-k1" class="h">
+            <path d="M942 300 L978 336 M978 300 L942 336" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/>
+            <text x="1000" y="330" font-size="30" fill="#FC6255">拒绝</text>
+          </g>
+          <g id="tr-k2" class="h">
+            <circle cx="1120" cy="430" r="20" fill="none" stroke="#FC6255" stroke-width="4"/>
+            <text x="1120" y="442" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">!</text>
+            <text x="1156" y="442" font-size="30" fill="#FC6255">出错</text>
+          </g>
+          <text id="tr-k3" class="h" x="1100" y="598" font-size="30" fill="#FC6255">倒闭</text>
+          <text id="tr-only" class="h" x="1840" y="260" font-size="30" fill="#e8e6df" text-anchor="end">只能依靠：<tspan fill="#B48EF0">银行 + 监管</tspan></text>
+        </g>
+
+        <!-- L2 跨行链路 -->
+        <g id="tr-p2">
+          <g id="tr-c0" class="h"><circle cx="200" cy="600" r="44" fill="#161a22" stroke="#8a8f99" stroke-width="3.5"/><circle cx="200" cy="588" r="12" fill="#8a8f99"/><path d="M178 622 Q200 600 222 622" stroke="#8a8f99" stroke-width="3.5" fill="none"/></g>
+          <g id="tr-c1" class="h"><rect x="530" y="550" width="100" height="100" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3.5"/><path d="M550 590 L580 568 L610 590 Z M556 598 L556 630 M580 598 L580 630 M604 598 L604 630" stroke="#B48EF0" stroke-width="4" fill="none"/></g>
+          <g id="tr-c2" class="h"><rect x="910" y="550" width="100" height="100" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3.5"/><path d="M930 590 L960 568 L990 590 Z M936 598 L936 630 M960 598 L960 630 M984 598 L984 630" stroke="#B48EF0" stroke-width="4" fill="none"/></g>
+          <g id="tr-c3" class="h"><rect x="1290" y="550" width="100" height="100" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3.5"/><path d="M1310 590 L1340 568 L1370 590 Z M1316 598 L1316 630 M1340 598 L1340 630 M1364 598 L1364 630" stroke="#B48EF0" stroke-width="4" fill="none"/></g>
+          <g id="tr-c4" class="h"><circle cx="1720" cy="600" r="44" fill="#161a22" stroke="#8a8f99" stroke-width="3.5"/><circle cx="1720" cy="588" r="12" fill="#8a8f99"/><path d="M1698 622 Q1720 600 1742 622" stroke="#8a8f99" stroke-width="3.5" fill="none"/></g>
+          <path id="tr-e0" class="dr h" pathLength="1" d="M250 600 L520 600" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#tr-arr)"/>
+          <path id="tr-e1" class="dr h" pathLength="1" d="M636 600 L900 600" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#tr-arr)"/>
+          <path id="tr-e2" class="dr h" pathLength="1" d="M1016 600 L1280 600" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#tr-arr)"/>
+          <path id="tr-e3" class="dr h" pathLength="1" d="M1396 600 L1670 600" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#tr-arr)"/>
+          <text id="tr-cl0" class="h" x="200" y="692" font-size="30" fill="#e8e6df" text-anchor="middle">用户</text>
+          <text id="tr-cl1" class="h" x="580" y="692" font-size="30" fill="#B48EF0" text-anchor="middle">银行 A</text>
+          <text id="tr-cl2" class="h" x="960" y="692" font-size="30" fill="#B48EF0" text-anchor="middle">清算机构</text>
+          <text id="tr-cl3" class="h" x="1340" y="692" font-size="30" fill="#B48EF0" text-anchor="middle">银行 B</text>
+          <text id="tr-cl4" class="h" x="1720" y="692" font-size="30" fill="#e8e6df" text-anchor="middle">收款人</text>
+          <path id="tr-r0" class="dr h" pathLength="1" d="M622 776 L918 776" stroke="#58C4DD" stroke-width="3" fill="none" marker-start="url(#tr-arrB)" marker-end="url(#tr-arrB)"/>
+          <path id="tr-r1" class="dr h" pathLength="1" d="M1002 776 L1298 776" stroke="#58C4DD" stroke-width="3" fill="none" marker-start="url(#tr-arrB)" marker-end="url(#tr-arrB)"/>
+          <text id="tr-rl0" class="h" x="770" y="830" font-size="28" fill="#58C4DD" text-anchor="middle">对账</text>
+          <text id="tr-rl1" class="h" x="1150" y="830" font-size="28" fill="#58C4DD" text-anchor="middle">对账</text>
+          <circle id="tr-coin" class="h" cx="200" cy="540" r="18" fill="#F0B90B" stroke="#ffd65c" stroke-width="2"/>
+          <text id="tr-slow" class="h" x="1800" y="960" font-size="44" font-weight="700" fill="#FC6255" text-anchor="end">慢 · 贵</text>
+        </g>
+        <use id="tr-L0" class="h" href="#tr-ledg" x="580" y="776"/>
+        <use id="tr-L1" class="h" href="#tr-ledg" x="960" y="776"/>
+        <use id="tr-L2" class="h" href="#tr-ledg" x="1340" y="776"/>
+
+        <!-- L3 记账权 -->
+        <g id="tr-p3">
+          <text id="tr-t1" class="h" x="960" y="300" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">区块链没有发明账本</text>
+          <text id="tr-t2" class="h" x="960" y="384" font-size="44" fill="#FF9F43" text-anchor="middle">它改变的是：谁有记账权</text>
+          <g id="tr-ring"></g>
+          <g id="tr-sb" class="h">
+            <rect x="250" y="630" width="100" height="100" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3.5"/>
+            <path d="M270 670 L300 648 L330 670 Z M276 678 L276 710 M300 678 L300 710 M324 678 L324 710" stroke="#B48EF0" stroke-width="4" fill="none"/>
+          </g>
+          <text id="tr-sbl" class="h" x="300" y="772" font-size="30" fill="#B48EF0" text-anchor="middle">一家机构</text>
+          <g id="tr-pen" class="h">
+            <path d="M0 0 L-8 -20 L30 -58 L42 -46 L4 -8 Z" fill="#e8e6df"/>
+            <path d="M0 0 L-8 -20 L-3 -5 Z" fill="#F0B90B"/>
+          </g>
+        </g>
+
+        <!-- L4–L5 村子 -->
+        <g id="tr-p4">
+          <g id="tr-board" class="h">
+            <rect x="760" y="300" width="400" height="260" rx="10" fill="#1b2620" stroke="#8a6a44" stroke-width="8"/>
+          </g>
+          <text id="tr-b0" class="h" x="960" y="392" font-size="34" fill="#e8e6df" text-anchor="middle">张三欠李四 2 袋米</text>
+          <text id="tr-b1" class="h" x="960" y="462" font-size="34" fill="#83C167" text-anchor="middle">李四还张三 1 袋米</text>
+          <text id="tr-bx" class="h" x="1140" y="540" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+          <g id="tr-chief" class="h">
+            <circle cx="1290" cy="370" r="24" fill="none" stroke="#B48EF0" stroke-width="4"/>
+            <path d="M1250 460 Q1290 400 1330 460" fill="none" stroke="#B48EF0" stroke-width="4" stroke-linecap="round"/>
+            <text x="1290" y="510" font-size="30" font-weight="700" fill="#B48EF0" text-anchor="middle">村长</text>
+          </g>
+          <rect id="tr-chalk" class="h" x="1222" y="402" width="30" height="10" rx="3" fill="#e8e6df"/>
+          <g id="tr-houses"></g>
+          <g id="tr-hand" class="h">
+            <path d="M1250 380 L1200 380 Q1186 380 1186 394 Q1186 408 1200 408 L1250 408 Z" fill="#FC6255"/>
+            <rect x="1250" y="376" width="40" height="36" rx="8" fill="#FC6255"/>
+          </g>
+          <g id="tr-hx" class="h"><path d="M1190 300 L1236 346 M1236 300 L1190 346" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/></g>
+          <text id="tr-hxl" class="h" x="1256" y="336" font-size="30" fill="#FC6255">改不了</text>
+        </g>
+        <!-- L6 类比的局限 -->
+        <g id="tr-p6">
+          <path id="tr-globe" class="dr" pathLength="1" d="M255.4 1040 A900 900 0 0 1 1664.6 1040" stroke="#3a3f4b" stroke-width="3" fill="none"/>
+          <g id="tr-pcs"></g>
+          <text id="tr-lim" class="h" x="1840" y="120" font-size="32" fill="#FF9F43" text-anchor="end">类比的局限</text>
+          <text id="tr-anon" class="h" x="1840" y="172" font-size="28" fill="#8a8f99" text-anchor="end">全球匿名 · 随时进出</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="tr-term" class="h">
+        <rect x="70" y="56" width="520" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">记账权</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">谁有权往账本里写新记录</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+      const use = (ref, x, y, id, parent) => { const u = mk("use", { href: ref, x, y, id, opacity: 0 }, parent); return u; };
+
+      // ---------- L0 银行 + 16 个用户 ----------
+      const gl = document.querySelector("#tr-lines"), gu = document.querySelector("#tr-users");
+      for (let k = 0; k < 16; k++) {
+        const x = 300 + k * 88;
+        mk("line", { x1: x, y1: 846, x2: 960, y2: 562 }, gl);
+        mk("circle", { id: "tr-u" + k, cx: x, cy: 860, r: 14, opacity: 0 }, gu);
+      }
+      IN("#tr-bank", at(0, 0.0), 0.6, { scale: 0.85, svgOrigin: "960 470" }, { scale: 1, svgOrigin: "960 470" });
+      for (let k = 0; k < 16; k++) IN("#tr-u" + k, at(0, 0.2) + Math.abs(k - 7.5) * 0.04, 0.3);
+      IN("#tr-lines", at(0, 0.55), 0.6, {}, { opacity: 0.55 });
+      IN("#tr-tl", at(0, 0.7), 0.5);
+      // ---------- L1 四种风险 ----------
+      IN("#tr-k0", at(1, 0.06), 0.35, { scale: 0.6, svgOrigin: "787 430" }, { scale: 1, svgOrigin: "787 430", ease: "back.out(2)" });
+      IN("#tr-k1", at(1, 0.22), 0.35, { scale: 0.6, svgOrigin: "960 318" }, { scale: 1, svgOrigin: "960 318", ease: "back.out(2)" });
+      IN("#tr-k2", at(1, 0.36), 0.35, { scale: 0.6, svgOrigin: "1120 430" }, { scale: 1, svgOrigin: "1120 430", ease: "back.out(2)" });
+      tl.to("#tr-bank", { y: 40, duration: 0.6, ease: "power2.in" }, at(1, 0.46));
+      tl.to("#tr-bank rect, #tr-bank path, #tr-bank line", { stroke: "#6b6f7a", duration: 0.5 }, at(1, 0.46));
+      tl.to("#tr-bank text", { fill: "#6b6f7a", duration: 0.5 }, at(1, 0.46));
+      IN("#tr-k3", at(1, 0.5), 0.4);
+      IN("#tr-only", at(1, 0.72), 0.5, { x: 16 }, { x: 0 });
+      // ---------- L2 跨行跨境：层层对账 ----------
+      OUT("#tr-p1 > *", at(2, 0.0), 0.5);
+      ["#tr-c0", "#tr-c1", "#tr-c2", "#tr-c3", "#tr-c4"].forEach((s, k) => { IN(s, at(2, 0.06 + k * 0.05), 0.4, { y: 16 }, { y: 0 }); IN("#tr-cl" + k, at(2, 0.08 + k * 0.05), 0.4); });
+      ["#tr-e0", "#tr-e1", "#tr-e2", "#tr-e3"].forEach((s, k) => ARROW(s, at(2, 0.1 + k * 0.05), 0.4));
+      ["#tr-L0", "#tr-L1", "#tr-L2"].forEach((s, k) => IN(s, at(2, 0.36 + k * 0.05), 0.4, { y: -12 }, { y: 0 }));
+      ARROW("#tr-r0", at(2, 0.52), 0.5); IN("#tr-rl0", at(2, 0.54), 0.3);
+      ARROW("#tr-r1", at(2, 0.62), 0.5); IN("#tr-rl1", at(2, 0.64), 0.3);
+      tl.to("#tr-r0, #tr-r1", { strokeWidth: 6, duration: 0.25, yoyo: true, repeat: 3 }, at(2, 0.72));
+      IN("#tr-coin", at(2, 0.3), 0.3);
+      tl.to("#tr-coin", { attr: { cx: 1720 }, duration: (at(2, 0.92) - at(2, 0.32)), ease: "none" }, at(2, 0.32));
+      IN("#tr-slow", at(2, 0.84), 0.5, { scale: 0.8, svgOrigin: "1700 945" }, { scale: 1, svgOrigin: "1700 945" });
+      // ---------- L3 账本收拢，记账权转移 ----------
+      OUT("#tr-p2 > *", at(3, 0.0), 0.5);
+      tl.to("#tr-L0", { attr: { x: 960, y: 680 }, duration: 0.8, ease: "power2.inOut" }, at(3, 0.02));
+      tl.to("#tr-L1", { attr: { x: 960, y: 680 }, duration: 0.8, ease: "power2.inOut" }, at(3, 0.02));
+      tl.to("#tr-L2", { attr: { x: 960, y: 680 }, duration: 0.8, ease: "power2.inOut" }, at(3, 0.02));
+      OUT("#tr-L0, #tr-L2", at(3, 0.02) + 0.8, 0.1);
+      tl.to("#tr-L1", { scale: 1.6, svgOrigin: "960 680", duration: 0.5, ease: "back.out(2)" }, at(3, 0.02) + 0.8);
+      IN("#tr-t1", at(3, 0.06), 0.6, { y: 12 }, { y: 0 });
+      IN("#tr-t2", at(3, 0.3), 0.6, { y: 12 }, { y: 0 });
+      IN("#tr-term", at(3, 0.38), 0.5);
+      // 一圈蓝色节点
+      const ring = document.querySelector("#tr-ring"), RN = [];
+      for (let k = 0; k < 6; k++) {
+        const a = -Math.PI / 2 + k * Math.PI / 3, x = 960 + 360 * Math.cos(a), y = 690 + 220 * Math.sin(a);
+        RN.push([x, y]);
+        mk("circle", { id: "tr-rn" + k, cx: x.toFixed(1), cy: y.toFixed(1), r: 34, fill: "#0f1117", stroke: "#58C4DD", "stroke-width": 3.5, opacity: 0 }, ring);
+      }
+      IN("#tr-sb, #tr-sbl", at(3, 0.2), 0.5);
+      // 笔：先在银行手里
+      const PEN0 = [352, 640];
+      IN("#tr-pen", at(3, 0.24), 0.4, { x: PEN0[0], y: PEN0[1] }, { x: PEN0[0], y: PEN0[1] });
+      for (let k = 0; k < 6; k++) IN("#tr-rn" + k, at(3, 0.5 + k * 0.03), 0.35, { scale: 0.5, svgOrigin: RN[k][0].toFixed(1) + " " + RN[k][1].toFixed(1) }, { scale: 1, svgOrigin: RN[k][0].toFixed(1) + " " + RN[k][1].toFixed(1) });
+      tl.to("#tr-sb, #tr-sbl", { opacity: 0.3, duration: 0.5 }, at(3, 0.72));
+      const hop = [4, 5, 0, 1];
+      hop.forEach((k, j) => {
+        const t = at(3, 0.7 + j * 0.07);
+        tl.to("#tr-pen", { x: RN[k][0] + 30, y: RN[k][1] - 30, duration: 0.45, ease: "power2.inOut" }, t);
+        tl.to("#tr-rn" + k, { stroke: "#83C167", duration: 0.2, yoyo: true, repeat: 1 }, t + 0.4);
+      });
+      // ---------- L4 村子黑板 ----------
+      OUT("#tr-p3 > *, #tr-ring circle, #tr-L1", at(4, 0.0), 0.5);
+      OUT("#tr-term", at(4, 0.0), 0.3);
+      IN("#tr-board", at(4, 0.06), 0.6, { y: -20 }, { y: 0 });
+      IN("#tr-bx", at(4, 0.2), 0.4);
+      IN("#tr-b0", at(4, 0.22), 0.8, { x: -12 }, { x: 0 });
+      IN("#tr-chief", at(4, 0.48), 0.5, { x: 20 }, { x: 0 });
+      IN("#tr-chalk", at(4, 0.52), 0.4);
+      tl.to("#tr-chalk", { x: -8, y: -6, duration: 0.2, yoyo: true, repeat: 3 }, at(4, 0.58));
+      const HX = [460, 640, 820, 1100, 1280, 1460], HY = [770, 830, 860, 860, 830, 770];
+      const hg = document.querySelector("#tr-houses");
+      for (let k = 0; k < 6; k++) {
+        use("#tr-house", HX[k], HY[k], "tr-h" + k, hg);
+        mk("text", { id: "tr-hq" + k, x: HX[k], y: HY[k] - 54, "font-size": 34, "font-weight": 700, fill: "#FF9F43", "text-anchor": "middle", opacity: 0 }, hg).textContent = "?";
+        const mb = mk("g", { id: "tr-mb" + k, opacity: 0 }, hg);
+        mk("rect", { x: HX[k] - 34, y: HY[k] - 102, width: 68, height: 40, rx: 4, fill: "#1b2620", stroke: "#8a6a44", "stroke-width": 3 }, mb);
+        mk("line", { x1: HX[k] - 22, y1: HY[k] - 88, x2: HX[k] + 22, y2: HY[k] - 88, stroke: "#e8e6df", "stroke-width": 2.5 }, mb);
+        mk("line", { id: "tr-mbl" + k, x1: HX[k] - 22, y1: HY[k] - 76, x2: HX[k] + 16, y2: HY[k] - 76, stroke: "#83C167", "stroke-width": 2.5, opacity: 0 }, mb);
+        mk("path", { id: "tr-ok" + k, d: `M${HX[k] + 48} ${HY[k] - 86} l10 10 l20 -24`, stroke: "#83C167", "stroke-width": 5, fill: "none", "stroke-linecap": "round", "stroke-linejoin": "round", opacity: 0 }, hg);
+      }
+      for (let k = 0; k < 6; k++) IN("#tr-h" + k, at(4, 0.62 + k * 0.03), 0.35, { y: 16 }, { y: 0 });
+      for (let k = 0; k < 6; k++) IN("#tr-hq" + k, at(4, 0.84 + k * 0.015), 0.3);
+      // ---------- L5 每户一份，多数签字 ----------
+      OUT("#tr-chalk", at(5, 0.02), 0.3);
+      for (let k = 0; k < 6; k++) OUT("#tr-hq" + k, at(5, 0.04), 0.3);
+      OUT("#tr-chief", at(5, 0.08), 0.5);
+      for (let k = 0; k < 6; k++) IN("#tr-mb" + k, at(5, 0.12 + k * 0.03), 0.4, { scale: 0.3, svgOrigin: HX[k] + " " + (HY[k] - 82) }, { scale: 1, svgOrigin: HX[k] + " " + (HY[k] - 82) });
+      const SIGN = [0, 2, 3, 5];
+      SIGN.forEach((k, j) => IN("#tr-ok" + k, at(5, 0.36 + j * 0.04), 0.3, { scale: 0.4, svgOrigin: (HX[k] + 60) + " " + (HY[k] - 80) }, { scale: 1, svgOrigin: (HX[k] + 60) + " " + (HY[k] - 80), ease: "back.out(2)" }));
+      IN("#tr-b1", at(5, 0.54), 0.6, { x: -12 }, { x: 0 });
+      for (let k = 0; k < 6; k++) IN("#tr-mbl" + k, at(5, 0.56), 0.4);
+      SIGN.forEach(k => OUT("#tr-ok" + k, at(5, 0.68), 0.3));
+      IN("#tr-hand", at(5, 0.72), 0.3, { x: 40 }, { x: 0 });
+      tl.to("#tr-hand", { x: -14, duration: 0.3, ease: "power2.in" }, at(5, 0.72) + 0.3);
+      tl.to("#tr-mb1 rect", { stroke: "#FC6255", duration: 0.25 }, at(5, 0.8));
+      IN("#tr-hx", at(5, 0.86), 0.25, { scale: 0.5, svgOrigin: "1213 323" }, { scale: 1, svgOrigin: "1213 323" });
+      IN("#tr-hxl", at(5, 0.88), 0.3);
+      tl.to("#tr-hand", { x: 30, opacity: 0, duration: 0.5 }, at(5, 0.92));
+      // ---------- L6 房子 → 匿名计算机 ----------
+      OUT("#tr-hx, #tr-hxl", at(6, 0.0), 0.3);
+      IN("#tr-lim", at(6, 0.04), 0.5);
+      for (let k = 0; k < 6; k++) OUT("#tr-h" + k + ", #tr-mb" + k, at(6, 0.12 + k * 0.02), 0.4);
+      DRAW("#tr-globe", at(6, 0.14), 1.0);
+      const gx = [380, 560, 760, 960, 1160, 1360, 1560, 470, 1260, 1460, 860];
+      const pg = document.querySelector("#tr-pcs");
+      gx.forEach((x, k) => {
+        const dx = x - 960, y = 1600 - Math.sqrt(900 * 900 - dx * dx) - 2;
+        use("#tr-pc", x, y.toFixed(1), "tr-pc" + k, pg);
+        use("#tr-keyi", x + 44, (y - 58).toFixed(1), "tr-key" + k, pg);
+      });
+      for (let k = 0; k < 7; k++) IN("#tr-pc" + k, at(6, 0.22 + k * 0.025), 0.4, { scale: 0.5, svgOrigin: gx[k] + " 900" }, { scale: 1, svgOrigin: gx[k] + " 900" });
+      IN("#tr-anon", at(6, 0.36), 0.4);
+      // 有的加入，有的离开
+      IN("#tr-pc7", at(6, 0.44), 0.4); OUT("#tr-pc2", at(6, 0.48), 0.4);
+      IN("#tr-pc8", at(6, 0.54), 0.4); OUT("#tr-pc5", at(6, 0.58), 0.4);
+      IN("#tr-pc9", at(6, 0.62), 0.4); IN("#tr-pc2", at(6, 0.66), 0.4);
+      // 签字 → 密码学签名
+      [0, 1, 3, 4, 6, 8].forEach((k, j) => IN("#tr-key" + k, at(6, 0.74 + j * 0.03), 0.3, { y: -10 }, { y: 0 }));
+
+      tl.to("#tr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#tr-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["trust"] = tl;
+    })();
+  </script>
+</template>

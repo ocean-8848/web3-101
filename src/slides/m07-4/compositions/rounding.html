@@ -1,0 +1,159 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 rounding，id 前缀 ro- -->
+  <div id="root" data-composition-id="rounding" data-duration="89.68" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ro-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ro-all">
+
+        <defs>
+          <marker id="ro-ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker>
+          <marker id="ro-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker>
+        </defs>
+        <g id="ro-g0">
+          <g id="ro-card" class="h"><rect x="660" y="240" width="600" height="160" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text class="mono" x="960" y="340" font-size="56" text-anchor="middle" fill="#e8e6df">1,234.56 USDC</text></g>
+          <path id="ro-c1" class="dr" pathLength="1" d="M860 400 L700 500" stroke="#8a8f99" stroke-width="2.5" fill="none"/>
+          <text id="ro-c1t" class="h" x="620" y="545" font-size="30" fill="#e8e6df" text-anchor="middle" >可读 · 千分位</text>
+          <path id="ro-c2" class="dr" pathLength="1" d="M1080 400 L1240 500" stroke="#8a8f99" stroke-width="2.5" fill="none"/>
+          <text id="ro-c2t" class="h" x="1320" y="545" font-size="30" fill="#e8e6df" text-anchor="middle" >不误导 · 方向保守</text>
+          <polygon id="ro-cur" class="h" points="1222,352 1222,388 1232,378 1240,394 1246,391 1238,375 1251,375" fill="#e8e6df" stroke="#0f1117" stroke-width="2"/>
+          <g id="ro-tip" class="h"><rect x="760" y="640" width="400" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text class="mono" x="960" y="699" font-size="40" text-anchor="middle" fill="#58C4DD">1234.567891</text></g>
+          <text id="ro-c3t" class="h" x="1190" y="697" font-size="30" fill="#FF9F43" text-anchor="start">可核对</text>
+        </g>
+        <g id="ro-tree">
+          <g id="ro-root" class="h"><rect x="760" y="220" width="400" height="80" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="960.0" y="271" font-size="30" text-anchor="middle" fill="#e8e6df">要显示一个 bigint 金额</text></g>
+          <path id="ro-t0" class="dr h" pathLength="1" d="M960 300 L960 336" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <g id="ro-d1" class="h"><polygon points="960,340 1180,400 960,460 740,400" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="960" y="411" font-size="30" text-anchor="middle" fill="#e8e6df">用户拥有或将收到？</text></g>
+          <path id="ro-t1" class="dr h" pathLength="1" d="M740 400 L420 400 L420 466" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <text id="ro-t1y" class="h" x="580" y="386" font-size="28" fill="#e8e6df" text-anchor="middle" >是</text>
+          <g id="ro-bl" class="h"><rect x="200" y="470" width="440" height="120" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="420.0" y="520" font-size="30" text-anchor="middle" fill="#83C167">向下截断 · 宁可少显示</text><text x="420.0" y="568" font-size="28" text-anchor="middle" fill="#8a8f99">例：余额 · 最少收到</text></g>
+          <g id="ro-note" class="h">
+            <text x="200" y="652" font-size="28" fill="#FC6255">“最少收到”向上舍入</text>
+            <text x="200" y="694" font-size="28" fill="#FC6255">= 承诺拿不到的数</text>
+            <text x="200" y="736" font-size="28" fill="#FC6255">→ 客诉 / 法律风险</text></g>
+          <path id="ro-t2" class="dr h" pathLength="1" d="M960 460 L960 556" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <text id="ro-t2n" class="h" x="992" y="516" font-size="28" fill="#e8e6df" text-anchor="middle" >否</text>
+          <g id="ro-d2" class="h"><polygon points="960,560 1180,620 960,680 740,620" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="960" y="631" font-size="30" text-anchor="middle" fill="#e8e6df">用户要付出？</text></g>
+          <path id="ro-t3" class="dr h" pathLength="1" d="M1180 620 L1500 620 L1500 666" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <text id="ro-t3y" class="h" x="1340" y="606" font-size="28" fill="#e8e6df" text-anchor="middle" >是</text>
+          <g id="ro-br" class="h"><rect x="1280" y="670" width="440" height="120" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1500.0" y="720" font-size="30" text-anchor="middle" fill="#83C167">向上取整 ↑ 宁可多显示</text><text x="1500.0" y="765" font-size="28" text-anchor="middle" fill="#8a8f99">例：支付额 · Gas · 手续费</text></g>
+          <path id="ro-t4" class="dr h" pathLength="1" d="M960 680 L960 836" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <text id="ro-t4n" class="h" x="992" y="766" font-size="28" fill="#e8e6df" text-anchor="middle" >否</text>
+          <g id="ro-bg" class="h"><rect x="700" y="840" width="520" height="120" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="960.0" y="892" font-size="30" text-anchor="middle" fill="#e8e6df">保留有效数字 · 标注“约”</text><text x="960.0" y="937" font-size="28" text-anchor="middle" fill="#8a8f99">例：价格 · 汇率</text></g>
+        </g>
+        <g id="ro-g4">
+          <text id="ro-top" class="h" x="960" y="340" font-size="40" text-anchor="middle" fill="#e8e6df">链上整数 <tspan fill="#58C4DD">1234567</tspan> ÷ 10⁶ = <tspan fill="#F0B90B">1.234567</tspan></text>
+          <g id="ro-ax" class="h"><line x1="300" y1="560" x2="1620" y2="560" stroke="#8a8f99" stroke-width="3"/>
+            <line x1="400" y1="545" x2="400" y2="575" stroke="#8a8f99" stroke-width="3"/><line x1="1520" y1="545" x2="1520" y2="575" stroke="#8a8f99" stroke-width="3"/>
+            <text class="mono" x="400" y="615" font-size="34" text-anchor="middle" fill="#e8e6df">1.23</text>
+            <text class="mono" x="1520" y="615" font-size="34" text-anchor="middle" fill="#e8e6df">1.24</text></g>
+          <circle id="ro-dot" class="h" cx="911" cy="560" r="12" fill="#F0B90B"/>
+          <text id="ro-dl" class="h mono" x="911" y="615" font-size="34" fill="#F0B90B" text-anchor="middle" >1.234567</text>
+          <path id="ro-ga" class="dr h" pathLength="1" d="M900 535 Q 650 420 412 535" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ro-ag)"/>
+          <path id="ro-ra" class="dr h" pathLength="1" d="M922 535 Q 1220 420 1508 535" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ro-ar)"/>
+          <text id="ro-gl" class="h" x="400" y="705" font-size="32" fill="#83C167" text-anchor="middle" >✓ 显示 1.23</text>
+          <text id="ro-rl" class="h" x="1520" y="705" font-size="32" fill="#FC6255" text-anchor="middle" >✕ 四舍五入 1.24</text>
+        </g>
+        <g id="ro-g5">
+          <g id="ro-f1" class="h"><rect x="300" y="790" width="180" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text class="mono" x="390" y="844" font-size="40" text-anchor="middle" fill="#e8e6df">1.24</text></g>
+          <path id="ro-fa1" class="dr h" pathLength="1" d="M480 830 L556 830" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <g id="ro-f2" class="h"><rect x="560" y="795" width="160" height="70" rx="35" fill="#2a2f3a" stroke="#8a8f99" stroke-width="2"/>
+            <text x="640" y="841" font-size="30" text-anchor="middle" fill="#e8e6df">最大</text></g>
+          <path id="ro-fa2" class="dr h" pathLength="1" d="M720 830 L796 830" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <g id="ro-f3" class="h"><rect x="800" y="790" width="380" height="80" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="990.0" y="841" font-size="30" text-anchor="middle" fill="#FC6255">余额不足 · 失败</text></g>
+          <g id="ro-f4" class="h"><rect x="1240" y="790" width="380" height="80" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="1430.0" y="841" font-size="30" text-anchor="middle" fill="#FC6255">✕ 四舍五入最公平</text></g>
+        </g>
+        <g id="ro-g6">
+          <g id="ro-sb" class="h"><rect x="200" y="230" width="440" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="420.0" y="292" font-size="34" text-anchor="middle" fill="#83C167">向下截断</text></g>
+          <path id="ro-s0" class="dr h" pathLength="1" d="M420 330 L420 406" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <g id="ro-sd" class="h"><polygon points="420,410 660,470 420,530 180,470" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="420" y="481" font-size="28" text-anchor="middle" fill="#e8e6df">显示为 0 但原值 &gt; 0？</text></g>
+          <text id="ro-sx" class="h mono" x="700" y="392" font-size="30" fill="#FC6255" text-anchor="start">0.0000003 → 0</text>
+          <path id="ro-s1" class="dr h" pathLength="1" d="M660 470 L756 470" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <text id="ro-s1y" class="h" x="708" y="454" font-size="28" fill="#e8e6df" text-anchor="middle" >是</text>
+          <g id="ro-sr" class="h"><rect x="760" y="430" width="340" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="930.0" y="482" font-size="34" text-anchor="middle" fill="#FF9F43">&lt; 0.000001</text></g>
+          <rect id="ro-pan" class="h" x="160" y="600" width="1600" height="350" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <g id="ro-ch0" class="h"><rect id="ro-chr0" x="200" y="640" width="220" height="64" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="310.0" y="682" font-size="28" text-anchor="middle" fill="#e8e6df">formatUnits</text></g><path id="ro-cha0" class="dr h" pathLength="1" d="M420 672 L466 672" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/><g id="ro-ch1" class="h"><rect id="ro-chr1" x="470" y="640" width="290" height="64" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="2"/><text x="615.0" y="682" font-size="28" text-anchor="middle" fill="#e8e6df">截断 maxFrac 位</text></g><path id="ro-cha1" class="dr h" pathLength="1" d="M760 672 L806 672" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/><g id="ro-ch2" class="h"><rect id="ro-chr2" x="810" y="640" width="150" height="64" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="2"/><text x="885.0" y="682" font-size="28" text-anchor="middle" fill="#e8e6df">去尾零</text></g><path id="ro-cha2" class="dr h" pathLength="1" d="M960 672 L1006 672" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/><g id="ro-ch3" class="h"><rect id="ro-chr3" x="1010" y="640" width="250" height="64" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="2"/><text x="1135.0" y="682" font-size="28" text-anchor="middle" fill="#e8e6df">Intl 千分位</text></g>
+          <text id="ro-o1" class="h mono" x="200" y="800" font-size="28" fill="#e8e6df">formatAmount(1234567891n, 6, 2) → '1,234.56'</text>
+          <text id="ro-o2" class="h mono" x="200" y="870" font-size="28" fill="#e8e6df">formatAmount(300n, 18, 6) → '&lt; 0.000001'</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+
+      IN("#ro-card", at(0, 0.05));
+      DRAW("#ro-c1", at(0, 0.3)); IN("#ro-c1t", at(0, 0.34));
+      DRAW("#ro-c2", at(0, 0.55)); IN("#ro-c2t", at(0, 0.59));
+      IN("#ro-cur", at(0, 0.8), 0.4, { x: 40, y: 40 }, { x: 0, y: 0 });
+      IN("#ro-tip", at(0, 0.84), 0.5, { y: -20 }, { y: 0 }); IN("#ro-c3t", at(0, 0.87));
+      // L1
+      OUT("#ro-g0", at(1, 0.0));
+      IN("#ro-root", at(1, 0.03)); ARROW("#ro-t0", at(1, 0.07)); IN("#ro-d1", at(1, 0.1));
+      ARROW("#ro-t1", at(1, 0.25)); IN("#ro-t1y", at(1, 0.27)); IN("#ro-bl", at(1, 0.32));
+      TO("#ro-bl rect", at(1, 0.42), { strokeWidth: 6, fill: "#22331f" }, 0.4); TO("#ro-bl rect", at(1, 0.56), { strokeWidth: 2.5, fill: "#161a22" }, 0.4);
+      IN("#ro-note", at(1, 0.68));
+      TO("#ro-note", at(1, 0.84), { opacity: 0.45 }, 0.3); TO("#ro-note", at(1, 0.9), { opacity: 1 }, 0.3);
+      // L2
+      ARROW("#ro-t2", at(2, 0.03)); IN("#ro-t2n", at(2, 0.05)); IN("#ro-d2", at(2, 0.1));
+      ARROW("#ro-t3", at(2, 0.3)); IN("#ro-t3y", at(2, 0.32)); IN("#ro-br", at(2, 0.4));
+      TO("#ro-br rect", at(2, 0.62), { strokeWidth: 6, fill: "#22331f" }, 0.4); TO("#ro-br rect", at(2, 0.84), { strokeWidth: 2.5, fill: "#161a22" }, 0.4);
+      // L3
+      ARROW("#ro-t4", at(3, 0.05)); IN("#ro-t4n", at(3, 0.08)); IN("#ro-bg", at(3, 0.2));
+      // L4
+      OUT("#ro-tree", at(4, 0.0));
+      IN("#ro-top", at(4, 0.08)); IN("#ro-ax", at(4, 0.22));
+      IN("#ro-dot", at(4, 0.3), 0.4, { scale: 0.2, svgOrigin: "911 560" }, { scale: 1 }); IN("#ro-dl", at(4, 0.32));
+      ARROW("#ro-ga", at(4, 0.5), 0.9); IN("#ro-gl", at(4, 0.58));
+      ARROW("#ro-ra", at(4, 0.75), 0.9); IN("#ro-rl", at(4, 0.83));
+      // L5
+      IN("#ro-f1", at(5, 0.05)); ARROW("#ro-fa1", at(5, 0.15)); IN("#ro-f2", at(5, 0.2));
+      TO("#ro-f2 rect", at(5, 0.32), { fill: "#3a4150" }, 0.2);
+      ARROW("#ro-fa2", at(5, 0.35)); IN("#ro-f3", at(5, 0.4));
+      IN("#ro-f4", at(5, 0.75));
+      // L6
+      OUT("#ro-g4", at(6, 0.0)); OUT("#ro-g5", at(6, 0.0));
+      IN("#ro-sb", at(6, 0.03)); ARROW("#ro-s0", at(6, 0.06)); IN("#ro-sd", at(6, 0.09));
+      IN("#ro-sx", at(6, 0.12));
+      ARROW("#ro-s1", at(6, 0.2)); IN("#ro-s1y", at(6, 0.21)); IN("#ro-sr", at(6, 0.24));
+      IN("#ro-pan", at(6, 0.38));
+      [0, 1, 2, 3].forEach(i => {
+        IN("#ro-ch" + i, at(6, 0.42 + i * 0.09));
+        if (i < 3) ARROW("#ro-cha" + i, at(6, 0.46 + i * 0.09), 0.4);
+        TO("#ro-chr" + i, at(6, 0.42 + i * 0.09), { stroke: "#58C4DD" }, 0.3);
+        if (i > 0) TO("#ro-chr" + (i - 1), at(6, 0.42 + i * 0.09), { stroke: "#8a8f99" }, 0.3);
+      });
+      IN("#ro-o1", at(6, 0.82)); IN("#ro-o2", at(6, 0.88));
+
+      tl.to("#ro-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["rounding"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,160 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quote，id 前缀 qt- -->
+  <div id="root" data-composition-id="quote" data-duration="61.72" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="qt-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker><marker id="qt-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker><marker id="qt-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker><marker id="qt-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker><marker id="qt-arrN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker><marker id="qt-arrP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker><marker id="qt-arrGR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker><marker id="qt-arrW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker></defs>
+      <g id="qt-all">
+<g id="qt-cp" class="h"><rect x="790" y="220" width="1070" height="565" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/><path d="M791 268 H1859" stroke="#2a2f3a" stroke-width="2"/><circle cx="814" cy="244" r="7" fill="#3a3f4a"/><circle cx="836" cy="244" r="7" fill="#3a3f4a"/><circle cx="858" cy="244" r="7" fill="#3a3f4a"/><text class="mono" x="886" y="254" font-size="28" fill="#58C4DD">hooks/useQuote.ts</text><g id="qt-cp-hl" opacity="0"><rect x="793" y="280" width="1064" height="40.6" fill="#58C4DD" fill-opacity="0.13"/><rect x="793" y="280" width="6" height="40.6" fill="#58C4DD"/></g><text class="mono" x="814" y="309.2" font-size="28" fill="#e8e6df" xml:space="preserve">const debounced = useDebounce(amountIn, 300)</text><text class="mono" x="814" y="349.8" font-size="28" fill="#e8e6df" xml:space="preserve">const { data: block } = useBlockNumber({ watch: true })</text><text class="mono" x="814" y="390.4" font-size="28" fill="#e8e6df" xml:space="preserve">return useQuery({</text><text class="mono" x="814" y="431.0" font-size="28" fill="#e8e6df" xml:space="preserve">  queryKey: ['quote', chainId, pair, debounced, block],</text><text class="mono" x="814" y="471.6" font-size="28" fill="#e8e6df" xml:space="preserve">  placeholderData: prev =&gt; prev,</text><text class="mono" x="814" y="512.2" font-size="28" fill="#e8e6df" xml:space="preserve">  queryFn: async () =&gt; {</text><text class="mono" x="814" y="552.8" font-size="28" fill="#e8e6df" xml:space="preserve">    const rs = await Promise.allSettled(FEE_TIERS.map(</text><text class="mono" x="814" y="593.4" font-size="28" fill="#e8e6df" xml:space="preserve">      fee =&gt; client.simulateContract({ address: quoterV2,</text><text class="mono" x="814" y="634.0" font-size="28" fill="#e8e6df" xml:space="preserve">        functionName: 'quoteExactInputSingle', … })))</text><text class="mono" x="814" y="674.6" font-size="28" fill="#e8e6df" xml:space="preserve">    const ok = rs.filter(fulfilled)</text><text class="mono" x="814" y="715.2" font-size="28" fill="#e8e6df" xml:space="preserve">    if (!ok.length) throw new NoRouteError()</text><text class="mono" x="814" y="755.8" font-size="28" fill="#e8e6df" xml:space="preserve">    return best(ok)</text></g>
+<text id="qt-st" class="h mono" x="814" y="840" font-size="28" fill="#8a8f99">staleTime: 30_000 · retry: 1</text>
+<text id="qt-inl" class="h" x="100" y="240" font-size="28" fill="#8a8f99">卖出数量</text>
+<rect id="qt-in" class="h" x="100" y="260" width="600" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.2"/>
+<text id="qt-d0" class="h mono" font-weight="700" x="130" y="326" font-size="44" fill="#F0B90B">1</text>
+<circle id="qt-k0" class="h" cx="150" cy="400" r="8" fill="#8a8f99"/>
+<text id="qt-d1" class="h mono" font-weight="700" x="130" y="326" font-size="44" fill="#F0B90B">10</text>
+<circle id="qt-k1" class="h" cx="190" cy="400" r="8" fill="#8a8f99"/>
+<text id="qt-d2" class="h mono" font-weight="700" x="130" y="326" font-size="44" fill="#F0B90B">100</text>
+<circle id="qt-k2" class="h" cx="230" cy="400" r="8" fill="#8a8f99"/>
+<text id="qt-d3" class="h mono" font-weight="700" x="130" y="326" font-size="44" fill="#F0B90B">1000</text>
+<circle id="qt-k3" class="h" cx="270" cy="400" r="8" fill="#8a8f99"/>
+<rect id="qt-tb" class="h" x="100" y="450" width="600" height="14" rx="7" fill="#2a2f3a" stroke="#2a2f3a" stroke-width="0"/>
+<rect id="qt-tf" x="100" y="450" width="0" height="14" rx="7" fill="#FF9F43"/>
+<text id="qt-tl" class="h mono" x="100" y="505" font-size="28" fill="#FF9F43">300 ms</text>
+<path id="qt-qa" class="dr h" pathLength="1" d="M400 470 L400 580" fill="none" stroke="#F0B90B" stroke-width="3.5" stroke-linecap="round" marker-end="url(#qt-arrG)"/>
+<g id="qt-qp" class="h"><rect x="330" y="590" width="140" height="56" rx="12" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.2"/><text text-anchor="middle" x="400.0" y="628.08" font-size="28" fill="#F0B90B">报价</text></g>
+<path id="qt-line" class="h" d="M100 340 L700 340" fill="none" stroke="#58C4DD" stroke-width="3" stroke-linecap="round"/>
+<rect id="qt-b0" class="h" x="110" y="264" width="120" height="70" rx="8" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.2"/>
+<path id="qt-pl0" class="dr h" pathLength="1" d="M170 346 L170 470" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-linecap="round" marker-end="url(#qt-arrB)"/>
+<rect id="qt-b1" class="h" x="260" y="264" width="120" height="70" rx="8" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.2"/>
+<path id="qt-pl1" class="dr h" pathLength="1" d="M320 346 L320 470" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-linecap="round" marker-end="url(#qt-arrB)"/>
+<rect id="qt-b2" class="h" x="410" y="264" width="120" height="70" rx="8" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.2"/>
+<path id="qt-pl2" class="dr h" pathLength="1" d="M470 346 L470 470" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-linecap="round" marker-end="url(#qt-arrB)"/>
+<rect id="qt-b3" class="h" x="560" y="264" width="120" height="70" rx="8" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.2"/>
+<path id="qt-pl3" class="dr h" pathLength="1" d="M620 346 L620 470" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-linecap="round" marker-end="url(#qt-arrB)"/>
+<g id="qt-qc" class="h"><rect x="100" y="480" width="600" height="200" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.2"/><text x="130" y="530" font-size="28" fill="#8a8f99">预计收到</text></g>
+<text id="qt-qv" class="h" font-weight="700" x="130" y="625" font-size="48" fill="#F0B90B">0.285 WETH</text>
+<g id="qt-src" class="h"><rect x="300" y="270" width="140" height="56" rx="12" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.2"/><text text-anchor="middle" x="370.0" y="308.08" font-size="28" fill="#F0B90B">报价</text></g>
+<text id="qt-par" class="h" x="460" y="308" font-size="28" fill="#F0B90B">同时发出</text>
+<path id="qt-r0" class="dr h" pathLength="1" d="M370 334 L170 488" fill="none" stroke="#F0B90B" stroke-width="3" stroke-linecap="round" marker-end="url(#qt-arrG)"/>
+<path id="qt-r1" class="dr h" pathLength="1" d="M370 334 L310 488" fill="none" stroke="#F0B90B" stroke-width="3" stroke-linecap="round" marker-end="url(#qt-arrG)"/>
+<path id="qt-r2" class="dr h" pathLength="1" d="M370 334 L450 488" fill="none" stroke="#F0B90B" stroke-width="3" stroke-linecap="round" marker-end="url(#qt-arrG)"/>
+<path id="qt-r3" class="dr h" pathLength="1" d="M370 334 L590 488" fill="none" stroke="#F0B90B" stroke-width="3" stroke-linecap="round" marker-end="url(#qt-arrG)"/>
+<g id="qt-pools" class="h"><g><path d="M115 500 L125 550 Q170 564 215 550 L225 500" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5"/><ellipse cx="170" cy="500" rx="55" ry="14" fill="#58C4DD55" stroke="#58C4DD" stroke-width="2.5"/></g><text text-anchor="middle" x="170" y="610" font-size="28" fill="#e8e6df">0.01%</text><g><path d="M255 500 L265 550 Q310 564 355 550 L365 500" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5"/><ellipse cx="310" cy="500" rx="55" ry="14" fill="#58C4DD55" stroke="#58C4DD" stroke-width="2.5"/></g><text text-anchor="middle" x="310" y="610" font-size="28" fill="#e8e6df">0.05%</text><g><path d="M395 500 L405 550 Q450 564 495 550 L505 500" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5"/><ellipse cx="450" cy="500" rx="55" ry="14" fill="#58C4DD55" stroke="#58C4DD" stroke-width="2.5"/></g><text text-anchor="middle" x="450" y="610" font-size="28" fill="#e8e6df">0.3%</text><g><path d="M535 500 L545 550 Q590 564 635 550 L645 500" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5"/><ellipse cx="590" cy="500" rx="55" ry="14" fill="#58C4DD55" stroke="#58C4DD" stroke-width="2.5"/></g><text text-anchor="middle" x="590" y="610" font-size="28" fill="#e8e6df">1%</text></g>
+<g id="qt-qz" class="h"><rect x="100" y="260" width="620" height="400" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.2"/><text class="mono" font-weight="700" x="130" y="310" font-size="32" fill="#B48EF0">QuoterV2</text></g>
+<circle id="qt-coin" class="h" cx="180" cy="470" r="22" fill="#F0B90B"/>
+<rect id="qt-wall" class="h" x="560" y="370" width="30" height="200" rx="4" fill="#FC6255"/>
+<text id="qt-rv" class="h mono" text-anchor="middle" x="575" y="355" font-size="28" fill="#FC6255">revert</text>
+<g id="qt-ao" class="h"><rect x="300" y="580" width="200" height="56" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.2"/><text class="mono" text-anchor="middle" x="400.0" y="618.08" font-size="28" fill="#F0B90B">amountOut</text></g>
+<path id="qt-back" class="dr h" pathLength="1" d="M575 578 Q575 608 508 608" fill="none" stroke="#F0B90B" stroke-width="3" stroke-linecap="round" marker-end="url(#qt-arrG)"/>
+<text id="qt-rc" class="h" x="110" y="740" font-size="28" fill="#8a8f99">readContract（只读）</text>
+<path id="qt-rcx" class="h" d="M441 716 L469 744 M469 716 L441 744" fill="none" stroke="#8a8f99" stroke-width="4" stroke-linecap="round"/>
+<text id="qt-sim" class="h mono" x="110" y="740" font-size="28" fill="#58C4DD">simulateContract → eth_call</text>
+<text id="qt-gas" class="h" x="110" y="800" font-size="28" fill="#83C167">不上链 · 0 Gas</text>
+<circle id="qt-cn0" class="h" cx="170" cy="440" r="16" fill="#F0B90B"/>
+<circle id="qt-cn1" class="h" cx="310" cy="440" r="16" fill="#F0B90B"/>
+<circle id="qt-cn2" class="h" cx="450" cy="440" r="16" fill="#F0B90B"/>
+<path id="qt-x0" class="h" d="M155 425 L185 455 M185 425 L155 455" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+<path id="qt-x1" class="h" d="M295 425 L325 455 M325 425 L295 455" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+<path id="qt-x2" class="h" d="M435 425 L465 455 M465 425 L435 455" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+<path id="qt-x3" class="h" d="M575 425 L605 455 M605 425 L575 455" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+<text id="qt-np" class="h" text-anchor="middle" x="590" y="665" font-size="28" fill="#FC6255">无池子</text>
+<g id="qt-nr" class="h"><rect x="260" y="720" width="240" height="60" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.2"/><text text-anchor="middle" x="380.0" y="760.08" font-size="28" fill="#FF9F43">没有可用路径</text></g>
+<rect id="qt-bar0" x="150" y="700" width="110" height="0" fill="#F0B90B" fill-opacity="0.55" stroke="#F0B90B" stroke-width="2"/>
+<text id="qt-bl0" class="h" text-anchor="middle" x="205" y="745" font-size="28" fill="#e8e6df">0.01%</text>
+<rect id="qt-bar1" x="330" y="700" width="110" height="0" fill="#F0B90B" fill-opacity="0.55" stroke="#F0B90B" stroke-width="2"/>
+<text id="qt-bl1" class="h" text-anchor="middle" x="385" y="745" font-size="28" fill="#e8e6df">0.05%</text>
+<rect id="qt-bar2" x="510" y="700" width="110" height="0" fill="#F0B90B" fill-opacity="0.55" stroke="#F0B90B" stroke-width="2"/>
+<text id="qt-bl2" class="h" text-anchor="middle" x="565" y="745" font-size="28" fill="#e8e6df">0.3%</text>
+<text id="qt-max" class="h" text-anchor="middle" font-weight="700" x="385" y="410" font-size="30" fill="#F0B90B">取最大</text>
+<text id="qt-nt" class="h" x="100" y="830" font-size="28" fill="#8a8f99">更严谨：比较扣除 Gas 后的净收益（此处简化）</text>
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      const PAN = {"qt-cp": {"y0": 280, "lh": 40.6}};
+      const HL = (id, a, b, t) => { const P = PAN[id]; tl.to("#" + id + "-hl", { opacity: 1, duration: 0.3 }, t); tl.to("#" + id + "-hl rect", { attr: { y: P.y0 + a * P.lh, height: (b - a + 1) * P.lh }, duration: 0.45, ease: "power2.inOut" }, t); };
+
+
+      IN("#qt-cp", at(0, 0), 0.6); HL("qt-cp", 0, 0, at(0, 0.05));
+      IN("#qt-inl", at(0, 0.05), 0.5); IN("#qt-in", at(0, 0.05), 0.5);
+      [0, 1, 2, 3].forEach(i => {
+        const t = at(0, 0.18 + i * 0.07);
+        if (i > 0) OUT("#qt-d" + (i - 1), t, 0.06);
+        IN("#qt-d" + i, t + 0.07, 0.1);
+        IN("#qt-k" + i, t, 0.1); OUT("#qt-k" + i, t + 0.3, 0.2);
+      });
+      IN("#qt-tb", at(0, 0.48), 0.3); IN("#qt-tl", at(0, 0.48), 0.4);
+      tl.to("#qt-tf", { attr: { width: 600 }, duration: 0.9, ease: "none" }, at(0, 0.5));
+      ARROW("#qt-qa", at(0, 0.66)); IN("#qt-qp", at(0, 0.72), 0.4, { y: -10 }, { y: 0 });
+      ["#qt-inl", "#qt-in", "#qt-d3", "#qt-tb", "#qt-tf", "#qt-tl", "#qt-qa", "#qt-qp"].forEach(s => OUT(s, at(1, 0)));
+      HL("qt-cp", 1, 1, at(1, 0.05));
+      IN("#qt-line", at(1, 0.08), 0.5);
+      IN("#qt-qc", at(1, 0.12), 0.5); IN("#qt-qv", at(1, 0.12), 0.5);
+      [0, 1, 2, 3].forEach(i => {
+        const t = at(1, 0.2 + i * 0.18);
+        IN("#qt-b" + i, t, 0.45, { y: -60 }, { y: 0, ease: "bounce.out" });
+        ARROW("#qt-pl" + i, t + 0.4, 0.4);
+        tl.to("#qt-qv", { opacity: 0.45, duration: 0.2 }, t + 0.7);
+        tl.to("#qt-qv", { opacity: 1, duration: 0.3 }, t + 1.1);
+        OUT("#qt-pl" + i, t + 1.3, 0.3);
+      });
+      HL("qt-cp", 3, 4, at(1, 0.42)); IN("#qt-st", at(1, 0.75), 0.5);
+      ["#qt-line", "#qt-qc", "#qt-qv", "#qt-b0", "#qt-b1", "#qt-b2", "#qt-b3"].forEach(s => OUT(s, at(2, 0)));
+      HL("qt-cp", 6, 6, at(2, 0.05));
+      IN("#qt-pools", at(2, 0.1), 0.6); IN("#qt-src", at(2, 0.25), 0.5);
+      [0, 1, 2, 3].forEach(i => ARROW("#qt-r" + i, at(2, 0.45), 0.6));
+      IN("#qt-par", at(2, 0.5), 0.5);
+      ["#qt-pools", "#qt-src", "#qt-par", "#qt-r0", "#qt-r1", "#qt-r2", "#qt-r3"].forEach(s => OUT(s, at(3, 0)));
+      HL("qt-cp", 7, 8, at(3, 0.05));
+      IN("#qt-qz", at(3, 0.08), 0.6); IN("#qt-coin", at(3, 0.15), 0.4); IN("#qt-wall", at(3, 0.15), 0.4); IN("#qt-rv", at(3, 0.15), 0.4);
+      tl.to("#qt-coin", { x: 340, duration: 1.3, ease: "power1.in" }, at(3, 0.25));
+      tl.to("#qt-wall", { attr: { fill: "#ff9a90" }, duration: 0.1, yoyo: true, repeat: 3 }, at(3, 0.25) + 1.3);
+      OUT("#qt-coin", at(3, 0.25) + 1.4, 0.3);
+      IN("#qt-ao", at(3, 0.62), 0.5); ARROW("#qt-back", at(3, 0.6), 0.5);
+      IN("#qt-rc", at(4, 0.02), 0.4); IN("#qt-rcx", at(4, 0.15), 0.3);
+      OUT("#qt-rc", at(4, 0.32), 0.3); OUT("#qt-rcx", at(4, 0.32), 0.3);
+      IN("#qt-sim", at(4, 0.4), 0.5); IN("#qt-gas", at(4, 0.7), 0.5);
+      ["#qt-qz", "#qt-wall", "#qt-rv", "#qt-ao", "#qt-back", "#qt-sim", "#qt-gas"].forEach(s => OUT(s, at(5, 0)));
+      HL("qt-cp", 9, 10, at(5, 0.05));
+      IN("#qt-pools", at(5, 0.06), 0.5);
+      [0, 1, 2].forEach(i => IN("#qt-cn" + i, at(5, 0.18), 0.4, { y: 40 }, { y: 0 }));
+      IN("#qt-x3", at(5, 0.18), 0.4); IN("#qt-np", at(5, 0.22), 0.4);
+      [0, 1, 2].forEach(i => OUT("#qt-cn" + i, at(5, 0.5), 0.3));
+      [0, 1, 2].forEach(i => IN("#qt-x" + i, at(5, 0.56) + i * 0.12, 0.3));
+      IN("#qt-nr", at(5, 0.72), 0.5, { y: 14 }, { y: 0 });
+      ["#qt-pools", "#qt-x0", "#qt-x1", "#qt-x2", "#qt-x3", "#qt-np", "#qt-nr"].forEach(s => OUT(s, at(6, 0)));
+      HL("qt-cp", 11, 11, at(6, 0.05));
+      [[210, 0], [270, 1], [180, 2]].forEach(([hh, i]) => {
+        tl.to("#qt-bar" + i, { attr: { y: 700 - hh, height: hh }, duration: 0.7, ease: "power2.out" }, at(6, 0.1) + i * 0.15);
+        IN("#qt-bl" + i, at(6, 0.1) + i * 0.15, 0.4);
+      });
+      TO("#qt-bar1", at(6, 0.4), { attr: { "fill-opacity": 0.95, "stroke-width": 5 } }, 0.4);
+      IN("#qt-max", at(6, 0.42), 0.4); IN("#qt-nt", at(6, 0.62), 0.6);
+
+
+      tl.to("#qt-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quote"] = tl;
+    })();
+  </script>
+</template>

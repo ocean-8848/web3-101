@@ -1,0 +1,234 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 filter，id 前缀 fi- -->
+  <div id="root" data-composition-id="filter" data-duration="46.66" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="fi-all">
+        <!-- L0：转账不动 ETH 余额，留下日志 -->
+        <g id="fi-l0">
+          <g id="fi-ct" class="h">
+            <rect x="120" y="280" width="300" height="120" rx="14" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+            <text x="270" y="352" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">USDC 合约</text>
+          </g>
+          <g id="fi-w" class="h">
+            <circle cx="170" cy="530" r="34" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="170" y="540" font-size="28" fill="#e8e6df" text-anchor="middle">A</text>
+            <circle cx="370" cy="530" r="34" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="370" y="540" font-size="28" fill="#e8e6df" text-anchor="middle">B</text>
+          </g>
+          <circle id="fi-coin" class="h" cx="170" cy="470" r="16" fill="#F0B90B" />
+          <g id="fi-eth" class="h">
+            <text x="520" y="476" font-size="28" fill="#8a8f99">ETH 余额</text>
+            <rect x="520" y="496" width="340" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <rect x="520" y="496" width="230" height="36" rx="6" fill="#8a8f99" fill-opacity="0.5" />
+          </g>
+          <text id="fi-same" class="h" x="520" y="590" font-size="28" fill="#8a8f99">不变</text>
+          <g id="fi-slip" class="h">
+            <rect x="520" y="280" width="340" height="120" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="550" y="330" font-size="30" font-weight="700" fill="#58C4DD">事件日志</text>
+            <path d="M550 366 L830 366" stroke="#58C4DD" stroke-width="3" stroke-linecap="round" opacity="0.5" />
+          </g>
+        </g>
+        <text id="fi-map" class="h mono" x="120" y="930" font-size="28" fill="#e8e6df" xml:space="preserve">FilterLogs -&gt; <tspan fill="#58C4DD">eth_getLogs</tspan> -&gt; []types.Log</text>
+
+        <g id="fi-code" class="h">
+          <rect x="920" y="200" width="940" height="405" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <rect id="fi-code-hb" class="h" x="922" y="217" width="936" height="41" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="fi-code-hs" class="h" x="922" y="217" width="4" height="41" fill="#58C4DD" />
+          <text class="mono" x="972" y="246" font-size="28" fill="#6b6f7a" text-anchor="end">1</text>
+          <text id="fi-code-c0" class="mono" x="988" y="246" font-size="28" fill="#e8e6df" xml:space="preserve">transferSig := crypto.Keccak256Hash(</text>
+          <text class="mono" x="972" y="287" font-size="28" fill="#6b6f7a" text-anchor="end">2</text>
+          <text id="fi-code-c1" class="mono" x="988" y="287" font-size="28" fill="#e8e6df" xml:space="preserve">    []byte("Transfer(address,address,uint256)"))</text>
+          <text class="mono" x="972" y="328" font-size="28" fill="#6b6f7a" text-anchor="end">3</text>
+          <text id="fi-code-c2" class="mono" x="988" y="328" font-size="28" fill="#e8e6df" xml:space="preserve">q := ethereum.FilterQuery{</text>
+          <text class="mono" x="972" y="369" font-size="28" fill="#6b6f7a" text-anchor="end">4</text>
+          <text id="fi-code-c3" class="mono" x="988" y="369" font-size="28" fill="#e8e6df" xml:space="preserve">    FromBlock: new(big.Int).SetUint64(head - 5),</text>
+          <text class="mono" x="972" y="410" font-size="28" fill="#6b6f7a" text-anchor="end">5</text>
+          <text id="fi-code-c4" class="mono" x="988" y="410" font-size="28" fill="#e8e6df" xml:space="preserve">    ToBlock:   new(big.Int).SetUint64(head - 5),</text>
+          <text class="mono" x="972" y="451" font-size="28" fill="#6b6f7a" text-anchor="end">6</text>
+          <text id="fi-code-c5" class="mono" x="988" y="451" font-size="28" fill="#e8e6df" xml:space="preserve">    Addresses: []common.Address{usdc},</text>
+          <text class="mono" x="972" y="492" font-size="28" fill="#6b6f7a" text-anchor="end">7</text>
+          <text id="fi-code-c6" class="mono" x="988" y="492" font-size="28" fill="#e8e6df" xml:space="preserve">    Topics:    [][]common.Hash{{transferSig}},</text>
+          <text class="mono" x="972" y="533" font-size="28" fill="#6b6f7a" text-anchor="end">8</text>
+          <text id="fi-code-c7" class="mono" x="988" y="533" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+          <text class="mono" x="972" y="574" font-size="28" fill="#6b6f7a" text-anchor="end">9</text>
+          <text id="fi-code-c8" class="mono" x="988" y="574" font-size="28" fill="#e8e6df" xml:space="preserve">logs, err := client.FilterLogs(ctx, q)</text>
+        </g>
+
+        <!-- L1：事件签名 -->
+        <g id="fi-l1">
+          <text id="fi-sig" class="h mono" x="120" y="320" font-size="28" fill="#e8e6df">Transfer(address,address,uint256)</text>
+          <g id="fi-fun" class="h">
+            <path d="M200 380 L620 380 L470 520 L350 520 Z" fill="#58C4DD18" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="410" y="460" font-size="30" fill="#58C4DD" text-anchor="middle">Keccak</text>
+          </g>
+          <path id="fi-fa" class="dr h" pathLength="1" d="M410 526 L410 568" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#fi-arr)" />
+          <text id="fi-hash" class="h mono" x="410" y="616" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">0xddf252ad…</text>
+        </g>
+
+        <!-- L2：三层筛子 -->
+        <g id="fi-l2">
+          <g id="fi-n0" class="h"><path d="M100 400 L500 400" stroke="#8a8f99" stroke-width="4" stroke-dasharray="10 8" /><text x="540" y="410" font-size="28" fill="#e8e6df">区块：最新高度 − 5</text></g>
+          <g id="fi-n1" class="h"><path d="M100 560 L500 560" stroke="#8a8f99" stroke-width="4" stroke-dasharray="10 8" /><text x="540" y="570" font-size="28" fill="#e8e6df">地址：USDC</text></g>
+          <g id="fi-n2" class="h"><path d="M100 720 L500 720" stroke="#8a8f99" stroke-width="4" stroke-dasharray="10 8" /><text class="mono" x="540" y="730" font-size="28" fill="#e8e6df">topics[0] = 0xddf2…</text></g>
+          <rect id="fi-pt0" class="h" x="116" y="250" width="22" height="22" rx="4" fill="#8a8f99" />
+          <rect id="fi-pt1" class="h" x="148" y="250" width="22" height="22" rx="4" fill="#FF9F43" />
+          <rect id="fi-pt2" class="h" x="180" y="250" width="22" height="22" rx="4" fill="#e8e6df" />
+          <rect id="fi-pt3" class="h" x="212" y="250" width="22" height="22" rx="4" fill="#58C4DD" />
+          <rect id="fi-pt4" class="h" x="244" y="250" width="22" height="22" rx="4" fill="#8a8f99" />
+          <rect id="fi-pt5" class="h" x="276" y="250" width="22" height="22" rx="4" fill="#B48EF0" />
+          <rect id="fi-pt6" class="h" x="308" y="250" width="22" height="22" rx="4" fill="#e8e6df" />
+          <rect id="fi-pt7" class="h" x="340" y="250" width="22" height="22" rx="4" fill="#58C4DD" />
+          <rect id="fi-pt8" class="h" x="372" y="250" width="22" height="22" rx="4" fill="#FF9F43" />
+          <rect id="fi-pt9" class="h" x="404" y="250" width="22" height="22" rx="4" fill="#8a8f99" />
+          <rect id="fi-pt10" class="h" x="436" y="250" width="22" height="22" rx="4" fill="#58C4DD" />
+          <rect id="fi-pt11" class="h" x="468" y="250" width="22" height="22" rx="4" fill="#8a8f99" />
+        </g>
+        <text id="fi-cm" class="h" x="990" y="650" font-size="28" fill="#8a8f99">Topics 第 0 位 = 事件签名</text>
+
+        <!-- L3：日志数组与一条日志的字段 -->
+        <g id="fi-l3">
+          <g id="fi-s0" class="h"><rect x="120" y="300" width="150" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="185" y="356" font-size="28" fill="#e8e6df" text-anchor="middle">[0]</text></g>
+          <g id="fi-s1" class="h"><rect x="300" y="300" width="150" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="365" y="356" font-size="28" fill="#e8e6df" text-anchor="middle">[1]</text></g>
+          <g id="fi-s2" class="h"><rect x="480" y="300" width="150" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="545" y="356" font-size="28" fill="#e8e6df" text-anchor="middle">[2]</text></g>
+          <g id="fi-s3" class="h"><rect x="660" y="300" width="150" height="90" rx="10" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="725" y="356" font-size="28" fill="#e8e6df" text-anchor="middle">[3]</text></g>
+          <text id="fi-k0" class="h" x="230" y="356" font-size="30" font-weight="700" fill="#83C167">✓</text>
+          <text id="fi-k1" class="h" x="410" y="356" font-size="30" font-weight="700" fill="#83C167">✓</text>
+          <text id="fi-k2" class="h" x="590" y="356" font-size="30" font-weight="700" fill="#83C167">✓</text>
+          <path id="fi-lk" class="dr" pathLength="1" d="M160 392 L160 452" stroke="#58C4DD" stroke-width="3" fill="none" />
+          <g id="fi-card" class="h">
+            <rect x="120" y="456" width="740" height="340" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="150" y="516" font-size="28" fill="#8a8f99">Address</text><text class="mono" x="380" y="516" font-size="28" fill="#e8e6df">0xA0b8…eB48</text>
+            <text class="mono" x="150" y="576" font-size="28" fill="#8a8f99">Topics</text><text class="mono" x="380" y="576" font-size="28" fill="#58C4DD">[sig, from, to]</text>
+            <text class="mono" x="150" y="636" font-size="28" fill="#8a8f99">Data</text><text class="mono" x="380" y="636" font-size="28" fill="#F0B90B">0x…0f4240</text>
+            <text class="mono" x="150" y="696" font-size="28" fill="#8a8f99">TxHash</text><text class="mono" x="380" y="696" font-size="28" fill="#e8e6df">0x7b1c…</text>
+            <text class="mono" x="150" y="756" font-size="28" fill="#8a8f99">Index</text><text class="mono" x="380" y="756" font-size="28" fill="#e8e6df">57</text>
+          </g>
+          <g id="fi-rc" class="h">
+            <rect x="120" y="456" width="560" height="260" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="150" y="512" font-size="34" font-weight="700" fill="#58C4DD">回执 <tspan font-size="28" font-weight="400" fill="#8a8f99">Receipt</tspan></text>
+            <line x1="120" y1="540" x2="680" y2="540" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="150" y="600" font-size="28" fill="#8a8f99">status</text><text class="mono" x="380" y="600" font-size="28" font-weight="700" fill="#83C167">1</text>
+            <text class="mono" x="150" y="670" font-size="28" fill="#8a8f99">logs</text>
+            <rect x="380" y="646" width="56" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2" />
+            <rect x="450" y="646" width="56" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2" />
+          </g>
+        </g>
+        <text id="fi-note" class="h" x="1860" y="1000" font-size="28" fill="#6b6f7a" text-anchor="end">数值为示例，每次不同</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const HL = (p, n, B0, a, b, t) => {
+        tl.to(`#${p}-hb, #${p}-hs`, { opacity: 1, attr: { y: B0 - 29 + 41 * a, height: 41 * (b - a + 1) }, duration: 0.35, ease: "power2.inOut" }, t);
+        for (let i = 0; i < n; i++) tl.to(`#${p}-c${i}`, { opacity: i >= a && i <= b ? 1 : 0.6, duration: 0.3 }, t);
+      };
+      const H = (a, b, t) => HL("fi-code", 9, 246, a, b, t);
+
+      // L0 一笔 USDC 转账：ETH 余额不动，合约吐出一条日志
+      IN("#fi-ct", at(0, 0.0), 0.5);
+      IN("#fi-w", at(0, 0.04), 0.5);
+      IN("#fi-eth", at(0, 0.1), 0.5);
+      IN("#fi-coin", at(0, 0.14), 0.3);
+      tl.to("#fi-coin", { attr: { cx: 370 }, duration: 1.0, ease: "power2.inOut" }, at(0, 0.18));
+      IN("#fi-same", at(0, 0.32), 0.4, { y: 8 }, { y: 0 });
+      IN("#fi-slip", at(0, 0.42), 0.7, { x: -300 }, { x: 0 });
+      IN("#fi-map", at(0, 0.72), 0.5, { x: -16 }, { x: 0 });
+
+      // L1 事件签名 = Keccak(Transfer(address,address,uint256))
+      OUT("#fi-l0", at(1, 0), 0.4);
+      IN("#fi-code", at(1, 0.03), 0.5);
+      H(0, 1, at(1, 0.06));
+      IN("#fi-sig", at(1, 0.1), 0.5, { y: -10 }, { y: 0 });
+      IN("#fi-fun", at(1, 0.3), 0.5);
+      tl.to("#fi-sig", { y: 110, opacity: 0, duration: 0.8, ease: "power2.in" }, at(1, 0.5));
+      ARROW("#fi-fa", at(1, 0.6), 0.35);
+      IN("#fi-hash", at(1, 0.66), 0.5, { y: -12 }, { y: 0 });
+
+      // L2 三层过滤：区块范围 / 地址 / topics[0]
+      OUT("#fi-l1", at(2, 0), 0.4);
+      H(2, 4, at(2, 0.04));
+      IN("#fi-n0", at(2, 0.06), 0.5, { y: -30 }, { y: 0 });
+      H(5, 5, at(2, 0.42));
+      IN("#fi-n1", at(2, 0.42), 0.5, { y: -30 }, { y: 0 });
+      H(6, 6, at(2, 0.62));
+      IN("#fi-n2", at(2, 0.62), 0.5, { y: -30 }, { y: 0 });
+      IN("#fi-cm", at(2, 0.7), 0.4);
+      IN("#fi-pt0", at(2, 0.74) + 0.00, 0.2);
+      tl.to("#fi-pt0", { attr: { y: 374 }, duration: 0.71, ease: "power2.in" }, at(2, 0.74) + 0.00);
+      OUT("#fi-pt0", at(2, 0.74) + 0.00 + 0.96, 0.4);
+      IN("#fi-pt1", at(2, 0.74) + 0.05, 0.2);
+      tl.to("#fi-pt1", { attr: { y: 534 }, duration: 0.97, ease: "power2.in" }, at(2, 0.74) + 0.05);
+      OUT("#fi-pt1", at(2, 0.74) + 0.05 + 1.22, 0.4);
+      IN("#fi-pt2", at(2, 0.74) + 0.10, 0.2);
+      tl.to("#fi-pt2", { attr: { y: 694 }, duration: 1.24, ease: "power2.in" }, at(2, 0.74) + 0.10);
+      OUT("#fi-pt2", at(2, 0.74) + 0.10 + 1.49, 0.4);
+      IN("#fi-pt3", at(2, 0.74) + 0.15, 0.2);
+      tl.to("#fi-pt3", { attr: { y: 780 }, duration: 1.38, ease: "power2.in" }, at(2, 0.74) + 0.15);
+      IN("#fi-pt4", at(2, 0.74) + 0.20, 0.2);
+      tl.to("#fi-pt4", { attr: { y: 374 }, duration: 0.71, ease: "power2.in" }, at(2, 0.74) + 0.20);
+      OUT("#fi-pt4", at(2, 0.74) + 0.20 + 0.96, 0.4);
+      IN("#fi-pt5", at(2, 0.74) + 0.25, 0.2);
+      tl.to("#fi-pt5", { attr: { y: 534 }, duration: 0.97, ease: "power2.in" }, at(2, 0.74) + 0.25);
+      OUT("#fi-pt5", at(2, 0.74) + 0.25 + 1.22, 0.4);
+      IN("#fi-pt6", at(2, 0.74) + 0.30, 0.2);
+      tl.to("#fi-pt6", { attr: { y: 694 }, duration: 1.24, ease: "power2.in" }, at(2, 0.74) + 0.30);
+      OUT("#fi-pt6", at(2, 0.74) + 0.30 + 1.49, 0.4);
+      IN("#fi-pt7", at(2, 0.74) + 0.35, 0.2);
+      tl.to("#fi-pt7", { attr: { y: 780 }, duration: 1.38, ease: "power2.in" }, at(2, 0.74) + 0.35);
+      IN("#fi-pt8", at(2, 0.74) + 0.40, 0.2);
+      tl.to("#fi-pt8", { attr: { y: 534 }, duration: 0.97, ease: "power2.in" }, at(2, 0.74) + 0.40);
+      OUT("#fi-pt8", at(2, 0.74) + 0.40 + 1.22, 0.4);
+      IN("#fi-pt9", at(2, 0.74) + 0.45, 0.2);
+      tl.to("#fi-pt9", { attr: { y: 374 }, duration: 0.71, ease: "power2.in" }, at(2, 0.74) + 0.45);
+      OUT("#fi-pt9", at(2, 0.74) + 0.45 + 0.96, 0.4);
+      IN("#fi-pt10", at(2, 0.74) + 0.50, 0.2);
+      tl.to("#fi-pt10", { attr: { y: 780 }, duration: 1.38, ease: "power2.in" }, at(2, 0.74) + 0.50);
+      IN("#fi-pt11", at(2, 0.74) + 0.55, 0.2);
+      tl.to("#fi-pt11", { attr: { y: 374 }, duration: 0.71, ease: "power2.in" }, at(2, 0.74) + 0.55);
+      OUT("#fi-pt11", at(2, 0.74) + 0.55 + 0.96, 0.4);
+
+      // L3 拿回日志数组；展开一条
+      OUT("#fi-l2", at(3, 0), 0.4);
+      OUT("#fi-cm", at(3, 0), 0.3);
+      H(8, 8, at(3, 0.03));
+      ["#fi-s0", "#fi-s1", "#fi-s2", "#fi-s3"].forEach((s, i) => IN(s, at(3, 0.08 + i * 0.06), 0.4, { y: 20 }, { y: 0 }));
+      DRAW("#fi-lk", at(3, 0.42), 0.35);
+      IN("#fi-card", at(3, 0.46), 0.5, { y: -16 }, { y: 0 });
+
+      // L4 打印前 3 条，读第一条的回执
+      ["#fi-k0", "#fi-k1", "#fi-k2"].forEach((s, i) => IN(s, at(4, 0.04 + i * 0.07), 0.3, { scale: 0.5, svgOrigin: `${245 + i * 180} 346` }, { scale: 1, svgOrigin: `${245 + i * 180} 346` }));
+      OUT("#fi-card", at(4, 0.32), 0.35);
+      IN("#fi-rc", at(4, 0.4), 0.5, { y: 16 }, { y: 0 });
+      IN("#fi-note", at(4, 0.7), 0.5);
+
+      tl.to("#fi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["filter"] = tl;
+    })();
+  </script>
+</template>

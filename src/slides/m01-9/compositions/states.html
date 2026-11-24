@@ -1,0 +1,134 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 states，id 前缀 ss- -->
+  <div id="root" data-composition-id="states" data-duration="47.5" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ss-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ss-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="ss-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="ss-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="ss-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="ss-mG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="ss-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker>
+        <marker id="ss-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+        <marker id="ss-mt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+      </defs>
+      <g id="ss-all">
+
+        <text id="ss-title" class="h" x="960" y="110" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">充值记录的四种状态</text>
+        <circle id="ss-dot" class="h" cx="260" cy="580" r="14" fill="#e8e6df"/>
+        <path id="ss-s0" class="dr h" pathLength="1" d="M276 580 H474" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#ss-mt)"/>
+        <text id="ss-s0l" class="h" x="375" y="556" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan class="mono">Scanner</tspan> 发现</text>
+        <path id="ss-s1" class="dr h" pathLength="1" d="M610 528 V350 H994" fill="none" stroke="#83C167" stroke-width="7" marker-end="url(#ss-mG)"/>
+        <text id="ss-s1l" class="h" x="804" y="326" font-size="28" fill="#83C167" text-anchor="middle">确认数达标 + 多源哈希一致</text>
+        <text id="ss-norm" class="h" x="650" y="398" font-size="28" fill="#83C167" text-anchor="start" font-weight="700">正常路径</text>
+        <path id="ss-s2" class="dr h" pathLength="1" d="M610 632 V810 H994" fill="none" stroke="#8a8f99" stroke-width="4" marker-end="url(#ss-mgr)"/>
+        <text id="ss-s2l" class="h" x="804" y="788" font-size="28" fill="#8a8f99" text-anchor="middle">所在区块被重组</text>
+        <text id="ss-nofund" class="h" x="1130" y="906" font-size="28" fill="#8a8f99" text-anchor="middle">无资金影响</text>
+        <path id="ss-s3" class="dr h" pathLength="1" d="M1260 350 H1494" fill="none" stroke="#FC6255" stroke-width="5" marker-end="url(#ss-mr)"/>
+        <text id="ss-s3l" class="h" x="1378" y="326" font-size="28" fill="#FC6255" text-anchor="middle">确认后仍被重组</text>
+        <text id="ss-acc" class="h" x="1630" y="272" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">事故</text>
+        <g id="ss-pend" class="h"><rect id="ss-pendr" x="480" y="530" width="260" height="100" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3.5"/><text class="mono" x="610" y="592" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">pending</text></g>
+        <g id="ss-cred" class="h"><rect id="ss-credr" x="1000" y="300" width="260" height="100" rx="18" fill="#161a22" stroke="#83C167" stroke-width="3.5"/><text class="mono" x="1130" y="362" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">credited</text></g>
+        <g id="ss-orph" class="h"><rect id="ss-orphr" x="1000" y="760" width="260" height="100" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3.5"/><text class="mono" x="1130" y="822" font-size="36" font-weight="700" fill="#8a8f99" text-anchor="middle">orphaned</text></g>
+        <g id="ss-rev" class="h"><rect id="ss-revr" x="1500" y="300" width="260" height="100" rx="18" fill="#161a22" stroke="#FC6255" stroke-width="3.5"/><text class="mono" x="1630" y="362" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">reverted</text></g>
+        <g id="ss-audit" class="h"><rect x="1282" y="788" width="100" height="48" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <text x="1332" y="822" font-size="28" font-weight="700" fill="#8a8f99" text-anchor="middle">审计</text></g>
+        <g id="ss-blk" class="h"><rect x="408" y="690" width="40" height="40" rx="6" fill="#58C4DD"/>
+          <text x="464" y="721" font-size="28" fill="#58C4DD">新区块</text></g>
+        <rect id="ss-mini" class="h" x="-28" y="-15" width="56" height="30" rx="7" fill="#3a2a14" stroke="#FF9F43" stroke-width="3"/>
+        <g id="ss-user" class="h"><circle cx="1560" cy="452" r="13" fill="none" stroke="#e8e6df" stroke-width="3"/>
+          <path d="M1536 500 Q1536 474 1560 474 Q1584 474 1584 500" fill="none" stroke="#e8e6df" stroke-width="3"/></g>
+        <g id="ss-coin" class="h"><circle cx="1612" cy="476" r="16" fill="#F0B90B"/><circle cx="1612" cy="476" r="9" fill="none" stroke="#7a5d05" stroke-width="2.5"/></g>
+        <text id="ss-gone" class="h" x="1630" y="562" font-size="28" fill="#F0B90B" text-anchor="middle">可能已交易 / 提走</text>
+        <g id="ss-rvs" class="h"><rect x="1490" y="604" width="250" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/>
+          <text class="mono" x="1508" y="642" font-size="28" fill="#FC6255">−100 reverse</text></g>
+        <g id="ss-frz" class="h"><path d="M1505 708 V700 A9 9 0 0 1 1523 700 V708" fill="none" stroke="#FF9F43" stroke-width="4"/>
+          <rect x="1498" y="708" width="32" height="26" rx="4" fill="#FF9F43"/>
+          <text x="1548" y="732" font-size="28" fill="#FF9F43">冻结账户</text></g>
+        <g id="ss-tkt" class="h"><rect x="1498" y="790" width="32" height="38" rx="4" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <path d="M1505 802 H1523 M1505 812 H1523 M1505 820 H1517" stroke="#8a8f99" stroke-width="2.5"/>
+          <text x="1548" y="820" font-size="28" fill="#8a8f99">事故流程</text></g>
+        <path id="ss-b0" class="h" d="M1120 470 H884" fill="none" stroke="#FC6255" stroke-width="4" stroke-dasharray="12 8" marker-end="url(#ss-mr)"/>
+        <path id="ss-b1" class="h" d="M1470 470 H1294" fill="none" stroke="#FC6255" stroke-width="4" stroke-dasharray="12 8" marker-end="url(#ss-mr)"/>
+        <g id="ss-x0" class="h"><path d="M982 452 L1018 488 M1018 452 L982 488" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/></g>
+        <g id="ss-x1" class="h"><path d="M1364 452 L1400 488 M1400 452 L1364 488" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/></g>
+        <text id="ss-fwd" class="h" x="960" y="994" font-size="56" fill="#e8e6df" text-anchor="middle" font-weight="700">状态只前进，不后退</text>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+const P = "#ss-";
+IN(P+"title", at(0, 0), 0.6, { y: 12 }, { y: 0 });
+["pend", "cred", "orph", "rev"].forEach((s, i) => IN(P + s, at(0, 0.15 + i * 0.16), 0.5, { scale: 0.9, svgOrigin: "960 580" }, { scale: 1, svgOrigin: "960 580" }));
+// L1 正常路径
+IN(P+"dot", at(1, 0.02), 0.3);
+ARROW(P+"s0", at(1, 0.06), 0.5); IN(P+"s0l", at(1, 0.12), 0.4);
+ARROW(P+"s1", at(1, 0.34), 0.9); IN(P+"s1l", at(1, 0.46), 0.5);
+IN(P+"norm", at(1, 0.7), 0.4);
+tl.to(P+"credr", { fill: "#1e2e1a", duration: 0.4, yoyo: true, repeat: 1 }, at(1, 0.72));
+// L2 orphaned
+ARROW(P+"s2", at(2, 0.04), 0.8); IN(P+"s2l", at(2, 0.14), 0.4);
+tl.to(P+"orphr", { fill: "#262a33", duration: 0.4, yoyo: true, repeat: 1 }, at(2, 0.4));
+IN(P+"nofund", at(2, 0.55), 0.5);
+// L3 新区块里的新 pending → credited；旧记录审计
+IN(P+"blk", at(3, 0.04), 0.4, { y: 20 }, { y: 0 });
+tl.set(P+"mini", { x: 428, y: 710 }, at(3, 0.14));
+tl.fromTo(P+"mini", { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, at(3, 0.14));
+tl.to(P+"mini", { keyframes: [{ x: 610, y: 690, duration: 0.6 }, { x: 610, y: 350, duration: 0.9 }, { x: 990, y: 350, duration: 0.9 }], ease: "power1.inOut" }, at(3, 0.22));
+tl.to(P+"mini", { opacity: 0, duration: 0.25 }, at(3, 0.22) + 2.3);
+tl.to(P+"credr", { fill: "#1e2e1a", duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.22) + 2.4);
+OUT(P+"blk", at(3, 0.62), 0.4);
+IN(P+"audit", at(3, 0.74), 0.4, { scale: 1.5, svgOrigin: "1332 812" }, { scale: 1, svgOrigin: "1332 812", ease: "power3.in" });
+// L4 reverted 事故
+ARROW(P+"s3", at(4, 0.04), 0.6); IN(P+"s3l", at(4, 0.12), 0.4);
+IN(P+"acc", at(4, 0.3), 0.3);
+tl.to(P+"revr", { fill: "#3a1816", duration: 0.25, yoyo: true, repeat: 5 }, at(4, 0.3));
+IN(P+"user", at(4, 0.5), 0.4); IN(P+"coin", at(4, 0.52), 0.4);
+tl.to(P+"coin", { x: 150, y: -30, opacity: 0, duration: 0.9, ease: "power2.in" }, at(4, 0.64));
+IN(P+"gone", at(4, 0.66), 0.5);
+// L5 冲正 + 冻结 + 事故流程
+IN(P+"rvs", at(5, 0.04), 0.5, { x: -16 }, { x: 0 });
+IN(P+"frz", at(5, 0.32), 0.5, { y: -20 }, { y: 0, ease: "bounce.out" });
+IN(P+"tkt", at(5, 0.6), 0.5, { x: -16 }, { x: 0 });
+// L6 只前进不后退
+IN(P+"b0", at(6, 0.04), 0.4, { x: 40 }, { x: 0 });
+IN(P+"x0", at(6, 0.12), 0.25, { scale: 0.3, svgOrigin: "1000 470" }, { scale: 1, svgOrigin: "1000 470" });
+IN(P+"b1", at(6, 0.2), 0.4, { x: 40 }, { x: 0 });
+IN(P+"x1", at(6, 0.28), 0.25, { scale: 0.3, svgOrigin: "1382 470" }, { scale: 1, svgOrigin: "1382 470" });
+OUT([P+"b0", P+"x0", P+"b1", P+"x1"], at(6, 0.46), 0.4);
+tl.to([P+"s0", P+"s1", P+"s2", P+"s3"], { strokeWidth: 8, duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.5));
+IN(P+"fwd", at(6, 0.55), 0.6, { y: 16 }, { y: 0 });
+
+
+      tl.to("#ss-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["states"] = tl;
+    })();
+  </script>
+</template>

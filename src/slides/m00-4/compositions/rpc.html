@@ -1,0 +1,200 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 rpc，id 前缀 rp- -->
+  <div id="root" data-composition-id="rpc" data-duration="73.77" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="rp-all">
+        <!-- 左：浏览器窗口（示意） -->
+        <g id="rp-bw" class="h">
+          <rect x="90" y="250" width="600" height="540" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="1.5"/>
+          <line x1="90" y1="302" x2="690" y2="302" stroke="#8a8f99" stroke-width="1.5"/>
+          <circle cx="118" cy="276" r="7" fill="#8a8f99"/><circle cx="142" cy="276" r="7" fill="#8a8f99"/><circle cx="166" cy="276" r="7" fill="#8a8f99"/>
+          <text x="196" y="286" font-size="28" fill="#8a8f99">区块浏览器（示意）</text>
+        </g>
+        <g id="rp-ph" class="h">
+          <rect x="130" y="340" width="300" height="20" rx="5" fill="#8a8f99" opacity="0.35"/><rect x="130" y="400" width="460" height="20" rx="5" fill="#8a8f99" opacity="0.35"/>
+          <rect x="130" y="460" width="380" height="20" rx="5" fill="#8a8f99" opacity="0.35"/><rect x="130" y="520" width="420" height="20" rx="5" fill="#8a8f99" opacity="0.35"/>
+          <rect x="130" y="580" width="260" height="20" rx="5" fill="#8a8f99" opacity="0.35"/><rect x="130" y="640" width="440" height="20" rx="5" fill="#8a8f99" opacity="0.35"/>
+          <rect x="130" y="700" width="340" height="20" rx="5" fill="#8a8f99" opacity="0.35"/>
+        </g>
+        <g id="rp-p0" class="h"><rect id="rp-p0r" x="120" y="320" width="540" height="146" rx="12" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="2.5"/><text x="390" y="405" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle">交易</text></g>
+        <g id="rp-p1" class="h"><rect id="rp-p1r" x="120" y="476" width="540" height="146" rx="12" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="2.5"/><text x="390" y="561" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">回执</text></g>
+        <g id="rp-p2" class="h"><rect id="rp-p2r" x="120" y="632" width="540" height="136" rx="12" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="2.5"/><text x="390" y="714" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">区块</text></g>
+        <text id="rp-eq" class="h" x="390" y="860" font-size="32" fill="#e8e6df" text-anchor="middle">三份数据 = 一个页面</text>
+        <!-- 右：终端 + RPC 节点 -->
+        <g id="rp-term0" class="h">
+          <rect x="1120" y="250" width="700" height="270" rx="16" fill="#0b0d12" stroke="#8a8f99" stroke-width="1.5"/>
+          <line x1="1120" y1="302" x2="1820" y2="302" stroke="#8a8f99" stroke-width="1.5"/>
+          <circle cx="1148" cy="276" r="7" fill="#8a8f99"/><circle cx="1172" cy="276" r="7" fill="#8a8f99"/><circle cx="1196" cy="276" r="7" fill="#8a8f99"/>
+          <text x="1226" y="286" font-size="28" fill="#8a8f99">终端（示意）</text>
+          <text class="mono" x="1150" y="370" font-size="28" fill="#8a8f99">$ curl $RPC_URL -d '{…}'</text>
+        </g>
+        <text id="rp-res" class="h mono" x="1150" y="440" font-size="28" fill="#e8e6df">{"jsonrpc":"2.0","result":…}</text>
+        <path id="rp-ln" class="dr" pathLength="1" d="M1470 528 L1470 696" stroke="#58C4DD" stroke-width="3" fill="none"/>
+        <text id="rp-lnl" class="h mono" x="1490" y="622" font-size="30" fill="#58C4DD">JSON-RPC</text>
+        <g id="rp-node" class="h"><rect x="1320" y="700" width="300" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="1470" y="768" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">RPC 节点</text></g>
+        <path id="rp-dash" class="dr" pathLength="1" d="M700 600 C 1000 600, 1080 755, 1312 755" stroke="#8a8f99" stroke-width="2.5" fill="none"/>
+        <!-- L2 交易 -->
+        <path id="rp-cn0" class="dr" pathLength="1" d="M668 393 L790 300" stroke="#F0B90B" stroke-width="2.5" fill="none"/>
+        <g id="rp-tp" class="h"><rect x="800" y="220" width="1040" height="190" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2"/></g>
+        <text id="rp-tm" class="h mono" x="820" y="290" font-size="30" font-weight="700" fill="#F0B90B">eth_getTransactionByHash</text>
+        <g id="rp-c0" class="h"><rect x="820" y="330" width="100" height="52" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2"/><text class="mono" x="870" y="366" font-size="28" fill="#e8e6df" text-anchor="middle">from</text></g><g id="rp-c1" class="h"><rect x="940" y="330" width="76" height="52" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2"/><text class="mono" x="978" y="366" font-size="28" fill="#e8e6df" text-anchor="middle">to</text></g><g id="rp-c2" class="h"><rect x="1036" y="330" width="120" height="52" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2"/><text class="mono" x="1096" y="366" font-size="28" fill="#e8e6df" text-anchor="middle">value</text></g><g id="rp-c3" class="h"><rect x="1176" y="330" width="120" height="52" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2"/><text class="mono" x="1236" y="366" font-size="28" fill="#e8e6df" text-anchor="middle">nonce</text></g><g id="rp-c4" class="h"><rect x="1316" y="330" width="120" height="52" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2"/><text class="mono" x="1376" y="366" font-size="28" fill="#e8e6df" text-anchor="middle">input</text></g><g id="rp-c5" class="h"><rect x="1456" y="330" width="150" height="52" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2"/><text class="" x="1531" y="366" font-size="28" fill="#e8e6df" text-anchor="middle">gas 设置</text></g>
+        <!-- L3 回执 -->
+        <path id="rp-cn1" class="dr" pathLength="1" d="M668 549 L790 560" stroke="#83C167" stroke-width="2.5" fill="none"/>
+        <g id="rp-rp" class="h"><rect x="800" y="450" width="1040" height="390" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2"/></g>
+        <text id="rp-rm" class="h mono" x="820" y="510" font-size="30" font-weight="700" fill="#83C167">eth_getTransactionReceipt</text>
+        <g id="rp-st" class="h"><text class="mono" x="820" y="590" font-size="30" fill="#e8e6df">status</text><text x="960" y="590" font-size="30" fill="#83C167">0x1 = 成功</text><text x="1130" y="590" font-size="30" fill="#8a8f99">·</text><text x="1170" y="590" font-size="30" fill="#FC6255">0x0 = 失败</text></g>
+        <g id="rp-e0" class="h"><rect x="820" y="640" width="220" height="52" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2"/><text class="mono" x="930" y="676" font-size="28" fill="#e8e6df" text-anchor="middle">blockNumber</text></g><g id="rp-e1" class="h"><rect x="1060" y="640" width="152" height="52" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2"/><text class="mono" x="1136" y="676" font-size="28" fill="#e8e6df" text-anchor="middle">gasUsed</text></g><g id="rp-e2" class="h"><rect x="1232" y="640" width="320" height="52" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2"/><text class="mono" x="1392" y="676" font-size="28" fill="#e8e6df" text-anchor="middle">effectiveGasPrice</text></g><g id="rp-e3" class="h"><rect x="1572" y="640" width="100" height="52" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2"/><text class="mono" x="1622" y="676" font-size="28" fill="#e8e6df" text-anchor="middle">logs</text></g>
+        <text id="rp-gu" class="h mono" x="820" y="790" font-size="40" font-weight="700" fill="#e8e6df">gasUsed = 0x5208</text>
+        <text id="rp-gu2" class="h mono" x="1250" y="790" font-size="40" font-weight="700" fill="#F0B90B">= 21,000</text>
+        <!-- L4 索引器 -->
+        <g id="rp-bk0" class="h"><rect x="800" y="560" width="64" height="64" rx="8" fill="#58C4DD" fill-opacity="0.3" stroke="#58C4DD" stroke-width="2"/></g>
+        <g id="rp-bk1" class="h"><rect x="800" y="560" width="64" height="64" rx="8" fill="#58C4DD" fill-opacity="0.3" stroke="#58C4DD" stroke-width="2"/></g>
+        <g id="rp-bk2" class="h"><rect x="800" y="560" width="64" height="64" rx="8" fill="#58C4DD" fill-opacity="0.3" stroke="#58C4DD" stroke-width="2"/></g>
+        <text id="rp-bkl" class="h" x="832" y="680" font-size="28" fill="#58C4DD" text-anchor="middle">区块</text>
+        <path id="rp-ia" class="dr h" pathLength="1" d="M880 592 L960 592" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)"/>
+        <g id="rp-ix" class="h"><rect x="972" y="540" width="220" height="104" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="1082" y="603" font-size="32" fill="#e8e6df" text-anchor="middle">索引器</text></g>
+        <path id="rp-ib" class="dr h" pathLength="1" d="M1204 592 L1270 592" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)"/>
+        <g id="rp-lg" class="h"><rect x="1282" y="556" width="110" height="34" rx="6" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2"/><rect x="1282" y="598" width="110" height="34" rx="6" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2"/></g>
+        <text id="rp-lgl" class="h" x="1337" y="680" font-size="28" fill="#58C4DD" text-anchor="middle">日志</text>
+        <path id="rp-ic" class="dr h" pathLength="1" d="M1404 592 L1470 592" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)"/>
+        <g id="rp-tb" class="h">
+          <rect x="1482" y="520" width="340" height="200" rx="10" fill="#0f1117" stroke="#58C4DD" stroke-width="2"/>
+          <line x1="1482" y1="570" x2="1822" y2="570" stroke="#58C4DD" stroke-width="1.5"/>
+          <line x1="1482" y1="620" x2="1822" y2="620" stroke="#58C4DD" stroke-width="1" opacity="0.5"/>
+          <line x1="1482" y1="670" x2="1822" y2="670" stroke="#58C4DD" stroke-width="1" opacity="0.5"/>
+          <line x1="1630" y1="520" x2="1630" y2="720" stroke="#58C4DD" stroke-width="1" opacity="0.5"/>
+          <text x="1652" y="764" font-size="28" fill="#8a8f99" text-anchor="middle">数据库</text>
+        </g>
+        <path id="rp-id" class="dr h" pathLength="1" d="M1652 512 L1652 452" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)"/>
+        <g id="rp-mini" class="h">
+          <rect x="1462" y="270" width="380" height="170" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="1.5"/>
+          <line x1="1462" y1="318" x2="1842" y2="318" stroke="#8a8f99" stroke-width="1.5"/>
+          <circle cx="1486" cy="294" r="6" fill="#8a8f99"/><circle cx="1506" cy="294" r="6" fill="#8a8f99"/>
+          <text x="1528" y="304" font-size="28" fill="#8a8f99">小型浏览器（示意）</text>
+          <rect x="1490" y="346" width="240" height="18" rx="5" fill="#8a8f99" opacity="0.35"/><rect x="1490" y="390" width="300" height="18" rx="5" fill="#8a8f99" opacity="0.35"/>
+        </g>
+        <text id="rp-minil" class="h" x="1436" y="366" font-size="28" fill="#e8e6df" text-anchor="end">自制的小型区块浏览器</text>
+        <!-- L5-L6 动手练 -->
+        <g id="rp-card" class="h">
+          <rect x="800" y="220" width="1040" height="610" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="1.5"/>
+          <text x="840" y="290" font-size="44" font-weight="700" fill="#e8e6df">动手练</text>
+        </g>
+        <g id="rp-i0" class="h"><rect x="840" y="336" width="40" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="910" y="370" font-size="32" fill="#e8e6df">转 0.001 给第二账户</text></g>
+          <path id="rp-k0" class="dr" pathLength="1" d="M848 355 L858 366 L876 342" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="rp-i1" class="h"><rect x="840" y="436" width="40" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="910" y="470" font-size="32" fill="#e8e6df">确认成功 · Gas 21,000</text></g>
+          <path id="rp-k1" class="dr" pathLength="1" d="M848 455 L858 466 L876 442" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="rp-i2" class="h"><rect x="840" y="536" width="40" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="910" y="570" font-size="32" fill="#e8e6df">手算手续费 = 页面（误差 0）</text></g>
+          <path id="rp-k2" class="dr" pathLength="1" d="M848 555 L858 566 L876 542" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="rp-i3" class="h"><rect x="840" y="636" width="40" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="910" y="670" font-size="32" fill="#e8e6df">再发一笔：nonce +1</text></g>
+          <path id="rp-k3" class="dr" pathLength="1" d="M848 655 L858 666 L876 642" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="rp-i4" class="h"><rect x="840" y="736" width="40" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="910" y="770" font-size="32" fill="#e8e6df">RPC 查回执 status / gasUsed</text></g>
+          <path id="rp-k4" class="dr" pathLength="1" d="M848 755 L858 766 L876 742" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <text id="rp-n0" class="h mono" x="1500" y="670" font-size="32" font-weight="700" fill="#58C4DD">nonce 0</text>
+        <text id="rp-n1" class="h mono" x="1500" y="670" font-size="32" font-weight="700" fill="#58C4DD">nonce 1</text>
+        <text id="rp-note" class="h" x="1840" y="880" font-size="28" fill="#6b6f7a" text-anchor="end">公共节点可能限速或变更</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 浏览器退到左侧；右侧终端 → RPC 节点
+IN("#rp-bw", at(0, 0), 0.6, { x: 200 }, { x: 0 });
+IN("#rp-ph", at(0, 0.05), 0.5);
+IN("#rp-term0", at(0, 0.28), 0.5, { y: 16 }, { y: 0 });
+DRAW("#rp-ln", at(0, 0.45), 0.6);
+IN("#rp-node", at(0, 0.5), 0.5);
+IN("#rp-lnl", at(0, 0.58), 0.4);
+IN("#rp-res", at(0, 0.7), 0.4);
+DRAW("#rp-dash", at(0, 0.82), 0.8);
+// L1 三块拼图
+OUT("#rp-ph", at(1, 0), 0.3);
+IN("#rp-p0", at(1, 0.15), 0.5, { x: -90, y: -40 }, { x: 0, y: 0 });
+IN("#rp-p1", at(1, 0.4), 0.5, { x: 90 }, { x: 0 });
+IN("#rp-p2", at(1, 0.65), 0.5, { x: -90, y: 40 }, { x: 0, y: 0 });
+IN("#rp-eq", at(1, 0.85), 0.4);
+// L2 交易
+OUT("#rp-term0, #rp-res, #rp-ln, #rp-lnl, #rp-node, #rp-dash, #rp-eq", at(2, 0), 0.4);
+tl.to("#rp-p0r", { attr: { "stroke-width": 6 }, duration: 0.3 }, at(2, 0.05));
+DRAW("#rp-cn0", at(2, 0.08), 0.4);
+IN("#rp-tp", at(2, 0.1), 0.4);
+IN("#rp-tm", at(2, 0.14), 0.4);
+["#rp-c0", "#rp-c1", "#rp-c2", "#rp-c3", "#rp-c4", "#rp-c5"].forEach((c, i) => IN(c, at(2, 0.38) + i * 0.6, 0.35, { y: 12 }, { y: 0 }));
+// L3 回执
+tl.to("#rp-p0r", { attr: { "stroke-width": 2.5 }, duration: 0.3 }, at(3, 0));
+tl.to("#rp-p1r", { attr: { "stroke-width": 6 }, duration: 0.3 }, at(3, 0.02));
+DRAW("#rp-cn1", at(3, 0.04), 0.4);
+IN("#rp-rp", at(3, 0.05), 0.4);
+IN("#rp-rm", at(3, 0.08), 0.4);
+IN("#rp-st", at(3, 0.14), 0.5, { x: 16 }, { x: 0 });
+["#rp-e0", "#rp-e1", "#rp-e2", "#rp-e3"].forEach((c, i) => IN(c, at(3, 0.34) + i * 0.8, 0.35, { y: 12 }, { y: 0 }));
+IN("#rp-gu", at(3, 0.66), 0.5, { scale: 0.8, svgOrigin: "1100 776" }, { scale: 1, svgOrigin: "1100 776" });
+IN("#rp-gu2", at(3, 0.84), 0.5, { x: -16 }, { x: 0 });
+// L4 索引器
+OUT("#rp-tp, #rp-tm, #rp-c0, #rp-c1, #rp-c2, #rp-c3, #rp-c4, #rp-c5, #rp-cn0, #rp-rp, #rp-rm, #rp-st, #rp-e0, #rp-e1, #rp-e2, #rp-e3, #rp-gu, #rp-gu2, #rp-cn1", at(4, 0), 0.4);
+tl.to("#rp-p0r, #rp-p1r", { attr: { "stroke-width": 2.5 }, duration: 0.3 }, at(4, 0));
+IN("#rp-ix", at(4, 0.08), 0.4);
+IN("#rp-bkl", at(4, 0.12), 0.4);
+["#rp-bk0", "#rp-bk1", "#rp-bk2"].forEach((b, i) => {
+  const t = at(4, 0.14) + i * 0.9;
+  IN(b, t, 0.25, { x: -60 }, { x: 0 });
+  if (i < 2) tl.to(b, { x: 200, opacity: 0, duration: 0.6, ease: "power2.in" }, t + 0.4);
+});
+ARROW("#rp-ia", at(4, 0.14), 0.4);
+ARROW("#rp-ib", at(4, 0.4), 0.4);
+IN("#rp-lg", at(4, 0.44), 0.4); IN("#rp-lgl", at(4, 0.46), 0.4);
+ARROW("#rp-ic", at(4, 0.56), 0.4);
+IN("#rp-tb", at(4, 0.6), 0.4);
+ARROW("#rp-id", at(4, 0.74), 0.4);
+IN("#rp-mini", at(4, 0.78), 0.5, { y: 16 }, { y: 0 });
+IN("#rp-minil", at(4, 0.84), 0.4);
+// L5 动手练
+OUT("#rp-bk2, #rp-ix, #rp-bkl, #rp-ia, #rp-ib, #rp-lg, #rp-lgl, #rp-ic, #rp-tb, #rp-id, #rp-mini, #rp-minil", at(5, 0), 0.4);
+IN("#rp-card", at(5, 0.05), 0.5);
+IN("#rp-i0", at(5, 0.1), 0.4, { x: 16 }, { x: 0 }); DRAW("#rp-k0", at(5, 0.3), 0.4);
+IN("#rp-i1", at(5, 0.36), 0.4, { x: 16 }, { x: 0 }); DRAW("#rp-k1", at(5, 0.52), 0.4);
+IN("#rp-i2", at(5, 0.6), 0.4, { x: 16 }, { x: 0 }); DRAW("#rp-k2", at(5, 0.9), 0.4);
+tl.to("#rp-p0r, #rp-p1r", { attr: { "stroke-width": 5 }, duration: 0.3 }, at(5, 0.62));
+// L6 追加两条
+tl.to("#rp-p0r, #rp-p1r", { attr: { "stroke-width": 2.5 }, duration: 0.3 }, at(6, 0));
+IN("#rp-i3", at(6, 0.02), 0.4, { x: 16 }, { x: 0 });
+IN("#rp-n0", at(6, 0.1), 0.3);
+tl.to("#rp-n0", { opacity: 0, y: -20, duration: 0.3 }, at(6, 0.22));
+IN("#rp-n1", at(6, 0.22), 0.3, { y: 20 }, { y: 0 });
+DRAW("#rp-k3", at(6, 0.3), 0.4);
+IN("#rp-i4", at(6, 0.42), 0.4, { x: 16 }, { x: 0 }); DRAW("#rp-k4", at(6, 0.62), 0.4);
+IN("#rp-note", at(6, 0.72), 0.5);
+      /*ENDANIM*/
+
+      tl.to("#rp-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["rpc"] = tl;
+    })();
+  </script>
+</template>

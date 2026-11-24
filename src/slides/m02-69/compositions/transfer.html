@@ -1,0 +1,175 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 transfer，id 前缀 tr- -->
+  <div id="root" data-composition-id="transfer" data-duration="63.39" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="tr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="tr-all">
+        <defs>
+          <marker id="tr-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        </defs>
+        <text id="tr-cap" class="h" x="80" y="180" font-size="34" font-weight="700" fill="#e8e6df">兼容 <tspan fill="#F0B90B">USDT</tspan> 等无返回值代币</text>
+        <g id="tr-code" class="h">
+          <rect x="80" y="220" width="820" height="530" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <rect id="tr-hl" class="h" x="92" y="253" width="796" height="40" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+          <text class="mono" font-size="28" fill="#e8e6df"><tspan x="110" y="282">let freePtr := mload(0x40)</tspan><tspan xml:space="preserve" x="110" y="322">mstore(0x00, 0xa9059cbb…)</tspan><tspan xml:space="preserve" x="110" y="362">mstore(0x04, and(to, 0xff…ff))</tspan><tspan xml:space="preserve" x="110" y="402">mstore(0x24, amount)</tspan><tspan xml:space="preserve" x="110" y="442">let ok := call(gas(), token, 0,</tspan><tspan xml:space="preserve" x="110" y="482">               0x00, 0x44, 0x00, 0x20)</tspan><tspan xml:space="preserve" x="110" y="522">if iszero(and(ok, or(</tspan><tspan xml:space="preserve" x="110" y="562">  and(iszero(returndatasize()),</tspan><tspan xml:space="preserve" x="110" y="602">      gt(extcodesize(token), 0)),</tspan><tspan xml:space="preserve" x="110" y="642">  eq(mload(0x00), 1)))) {</tspan><tspan xml:space="preserve" x="110" y="682"> mstore(0x00, 0x90b8ec18) revert(0x1c, 0x04)</tspan><tspan xml:space="preserve" x="110" y="722">} mstore(0x40, freePtr) mstore(0x60, 0)</tspan></text>
+        </g>
+        <g id="tr-band" class="h">
+          <rect x="980" y="560" width="860" height="100" fill="#161a22" stroke="#58C4DD" stroke-opacity="0.6" stroke-width="2.5" />
+          <rect x="982" y="562" width="428" height="96" fill="#58C4DD" fill-opacity="0.18" />
+          <line x1="1195" y1="562" x2="1195" y2="658" stroke="#3a3f4a" stroke-width="2" />
+          <rect id="tr-c40" x="1410" y="562" width="215" height="96" fill="#FF9F43" fill-opacity="0.2" stroke="#FF9F43" stroke-width="4" />
+          <rect id="tr-c60" x="1627" y="564" width="211" height="92" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+          <text class="mono" x="980" y="540" font-size="28" fill="#8a8f99" text-anchor="middle">0x00</text>
+          <text class="mono" x="1195" y="540" font-size="28" fill="#8a8f99" text-anchor="middle">0x20</text>
+          <text class="mono" x="1410" y="540" font-size="28" fill="#FF9F43" text-anchor="middle">0x40</text>
+          <text class="mono" x="1625" y="540" font-size="28" fill="#FF9F43" text-anchor="middle">0x60</text>
+          <text class="mono" x="1840" y="540" font-size="28" fill="#8a8f99" text-anchor="end">0x80</text>
+          <text id="tr-z" class="mono" x="1732" y="621" font-size="30" fill="#FF9F43" text-anchor="middle">0</text>
+        </g>
+        <text id="tr-cv" class="h mono" x="1517" y="621" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">0x80</text>
+        <text id="tr-cvb" class="h" x="1517" y="620" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">已改写</text>
+        <g id="tr-tpl" class="h">
+          <text x="980" y="322" font-size="30" fill="#8a8f99"><tspan class="mono">transfer</tspan> 调用数据</text>
+          <rect id="tr-t0" x="980" y="350" width="190" height="80" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="10 7" />
+          <text x="1075" y="401" font-size="30" fill="#58C4DD" text-anchor="middle">选择器</text>
+          <rect id="tr-t1" x="1190" y="350" width="310" height="80" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 7" />
+          <text x="1345" y="401" font-size="30" fill="#e8e6df" text-anchor="middle">收款地址</text>
+          <rect id="tr-t2" x="1520" y="350" width="320" height="80" rx="10" fill="none" stroke="#F0B90B" stroke-width="2.5" stroke-dasharray="10 7" />
+          <text x="1680" y="401" font-size="30" fill="#F0B90B" text-anchor="middle">金额</text>
+        </g>
+        <rect id="tr-p0" class="h" x="982" y="562" width="0" height="96" fill="#58C4DD" fill-opacity="0.85" />
+        <rect id="tr-p1" class="h" x="1007" y="562" width="0" height="96" fill="#8a8f99" fill-opacity="0.55" />
+        <rect id="tr-p2" class="h" x="1222" y="562" width="0" height="96" fill="#F0B90B" fill-opacity="0.6" />
+        <g id="tr-44" class="h">
+          <line x1="1437" y1="662" x2="1437" y2="690" stroke="#e8e6df" stroke-width="2.5" />
+          <text class="mono" x="1437" y="724" font-size="28" fill="#e8e6df" text-anchor="middle">0x44</text>
+        </g>
+        <text id="tr-sum" class="h mono" x="1410" y="800" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">4 + 32 + 32 = 68 = <tspan fill="#58C4DD">0x44</tspan></text>
+        <g id="tr-stk" class="h">
+          <rect x="80" y="800" width="420" height="140" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="110" y="882" font-size="32" font-weight="700" fill="#8a8f99">栈</text>
+        </g>
+        <text id="tr-sv" class="h mono" x="170" y="882" font-size="28" fill="#e8e6df">freePtr = <tspan fill="#FF9F43">0x80</tspan></text>
+        <text id="tr-fly" class="h mono" x="1517" y="621" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">0x80</text>
+        <rect id="tr-dirty" class="h" x="1007" y="562" width="81" height="96" fill="#FC6255" fill-opacity="0.85" />
+        <rect id="tr-mask" class="h" x="1007" y="562" width="0" height="96" fill="#83C167" fill-opacity="0.85" />
+        <text id="tr-dl" class="h" x="1047" y="724" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">脏位</text>
+        <text id="tr-ml" class="h" x="1047" y="724" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">清零</text>
+        <g id="tr-me" class="h"><rect x="1000" y="300" width="220" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1110" y="361" font-size="32" fill="#e8e6df" text-anchor="middle">本合约</text></g>
+        <g id="tr-tok" class="h"><rect x="1580" y="300" width="220" height="100" rx="12" fill="#2a2410" stroke="#F0B90B" stroke-width="3" /><text class="mono" x="1690" y="361" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">token</text></g>
+        <path id="tr-ca" class="dr h" pathLength="1" d="M1226 352 L1572 352" stroke="#F0B90B" stroke-width="3.5" fill="none" marker-end="url(#tr-arrg)" />
+        <text id="tr-cal" class="h mono" x="1400" y="332" font-size="28" fill="#F0B90B" text-anchor="middle">call</text>
+        <path id="tr-ra" class="dr h" pathLength="1" d="M1600 406 C1400 470, 1090 440, 1086 552" stroke="#F0B90B" stroke-width="3" fill="none" stroke-dasharray="1" marker-end="url(#tr-arrg)" />
+        <text id="tr-ral" class="h" x="1620" y="470" font-size="28" fill="#F0B90B">返回 32 字节</text>
+        <rect id="tr-ret" class="h" x="982" y="562" width="213" height="96" fill="#83C167" fill-opacity="0.5" />
+        <text id="tr-rt" class="h" x="1088" y="621" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">返回值</text>
+        <text id="tr-k1" class="h" x="1000" y="330" font-size="32" fill="#83C167">① <tspan class="mono">ok</tspan> 且 返回值 = 1</text>
+        <text id="tr-k2" class="h" x="1000" y="392" font-size="32" fill="#83C167">② 无返回数据 且 <tspan class="mono">extcodesize &gt; 0</tspan></text>
+        <text id="tr-k3" class="h" x="1000" y="462" font-size="32" fill="#FC6255">都不满足 → <tspan class="mono">TransferFailed()</tspan></text>
+        <text id="tr-done" class="h" x="1410" y="820" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">✓ 借用 → 恢复</text>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const HL = (i, n, t) => tl.to("#tr-hl", { attr: { y: 253 + 40 * i, height: 40 * n }, duration: 0.4, ease: "power2.inOut" }, t);
+IN("#tr-cap", at(0, 0.0), 0.5);
+IN("#tr-code", at(0, 0.1), 0.6, { x: -20 }, { x: 0 });
+IN("#tr-band", at(0, 0.45), 0.6);
+IN("#tr-cv", at(0, 0.55), 0.4);
+// L1 拼调用数据
+IN("#tr-hl", at(1, 0.0), 0.3); HL(1, 3, at(1, 0.0));
+IN("#tr-tpl", at(1, 0.2), 0.6, { y: 15 }, { y: 0 });
+// L2 算长度
+tl.set("#tr-p0", { opacity: 1 }, at(2, 0.1));
+tl.fromTo("#tr-p0", { attr: { width: 0 } }, { attr: { width: 25 }, duration: 0.4, immediateRender: false }, at(2, 0.1));
+tl.fromTo("#tr-t0", { attr: { "stroke-width": 2.5 } }, { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(2, 0.1));
+tl.set("#tr-p1", { opacity: 1 }, at(2, 0.3));
+tl.fromTo("#tr-p1", { attr: { width: 0 } }, { attr: { width: 215 }, duration: 0.6, immediateRender: false }, at(2, 0.3));
+tl.fromTo("#tr-t1", { attr: { "stroke-width": 2.5 } }, { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(2, 0.3));
+tl.set("#tr-p2", { opacity: 1 }, at(2, 0.5));
+tl.fromTo("#tr-p2", { attr: { width: 0 } }, { attr: { width: 215 }, duration: 0.6, immediateRender: false }, at(2, 0.5));
+tl.fromTo("#tr-t2", { attr: { "stroke-width": 2.5 } }, { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(2, 0.5));
+IN("#tr-sum", at(2, 0.7), 0.5);
+IN("#tr-44", at(2, 0.85), 0.4);
+// L3 压过 0x40 → 先备份
+OUT("#tr-sum", at(3, 0.0), 0.3);
+tl.fromTo("#tr-c40", { attr: { "fill-opacity": 0.2 } }, { attr: { "fill-opacity": 0.65 }, duration: 0.3, yoyo: true, repeat: 3, immediateRender: false }, at(3, 0.08));
+HL(0, 1, at(3, 0.45));
+IN("#tr-stk", at(3, 0.5), 0.4);
+tl.fromTo("#tr-fly", { opacity: 0 }, { opacity: 1, duration: 0.15 }, at(3, 0.55));
+tl.fromTo("#tr-fly", { attr: { y: 621 } }, { attr: { y: 882 }, duration: 0.5, ease: "power2.inOut", immediateRender: false }, at(3, 0.56));
+tl.fromTo("#tr-fly", { attr: { x: 1517 } }, { attr: { x: 372 }, duration: 0.9, ease: "power2.inOut", immediateRender: false }, at(3, 0.56) + 0.5);
+tl.set("#tr-fly", { opacity: 0 }, at(3, 0.56) + 1.42);
+tl.set("#tr-sv", { opacity: 1 }, at(3, 0.56) + 1.42);
+OUT("#tr-cv", at(3, 0.56) + 1.5, 0.25);
+IN("#tr-cvb", at(3, 0.56) + 1.8, 0.3);
+// L4 清高位 → call → 写回 0x00
+OUT("#tr-tpl", at(4, 0.0), 0.35);
+HL(2, 1, at(4, 0.0));
+IN("#tr-dirty", at(4, 0.05), 0.3);
+IN("#tr-dl", at(4, 0.08), 0.3);
+tl.set("#tr-mask", { opacity: 1 }, at(4, 0.25));
+tl.fromTo("#tr-mask", { attr: { width: 0 } }, { attr: { width: 81 }, duration: 0.5, ease: "power1.inOut", immediateRender: false }, at(4, 0.25));
+OUT("#tr-dl", at(4, 0.3), 0.2);
+IN("#tr-ml", at(4, 0.36), 0.3);
+HL(4, 2, at(4, 0.45));
+IN("#tr-me, #tr-tok", at(4, 0.42), 0.4);
+ARROW("#tr-ca", at(4, 0.52), 0.5);
+IN("#tr-cal", at(4, 0.55), 0.3);
+ARROW("#tr-ra", at(4, 0.72), 0.5);
+IN("#tr-ral", at(4, 0.74), 0.3);
+IN("#tr-ret", at(4, 0.85), 0.3);
+IN("#tr-rt", at(4, 0.88), 0.3);
+// L5 两条通过路径
+OUT("#tr-me, #tr-tok, #tr-ca, #tr-cal, #tr-ra, #tr-ral", at(5, 0.0), 0.35);
+HL(6, 4, at(5, 0.02));
+IN("#tr-k1", at(5, 0.08), 0.5, { x: -15 }, { x: 0 });
+IN("#tr-k2", at(5, 0.32), 0.5, { x: -15 }, { x: 0 });
+IN("#tr-k3", at(5, 0.68), 0.5, { x: -15 }, { x: 0 });
+HL(10, 1, at(5, 0.7));
+// L6 恢复
+OUT("#tr-k1, #tr-k2, #tr-k3, #tr-p0, #tr-p1, #tr-p2, #tr-dirty, #tr-mask, #tr-ml, #tr-ret, #tr-rt, #tr-44, #tr-cvb", at(6, 0.0), 0.4);
+HL(11, 1, at(6, 0.0));
+tl.set("#tr-sv tspan", { opacity: 0 }, at(6, 0.1));
+tl.fromTo("#tr-fly", { attr: { x: 372, y: 882 }, opacity: 1 }, { attr: { x: 1517 }, duration: 0.9, ease: "power2.inOut", immediateRender: false }, at(6, 0.1));
+tl.to("#tr-fly", { attr: { y: 621 }, duration: 0.5, ease: "power2.inOut" }, at(6, 0.1) + 0.9);
+tl.set("#tr-fly", { opacity: 0 }, at(6, 0.1) + 1.42);
+tl.set("#tr-cv", { opacity: 1 }, at(6, 0.1) + 1.42);
+tl.fromTo("#tr-c40", { attr: { "fill-opacity": 0.2 } }, { attr: { "fill-opacity": 0.65 }, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(6, 0.1) + 1.42);
+tl.fromTo("#tr-c60", { attr: { "stroke-width": 3 } }, { attr: { "stroke-width": 7 }, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(6, 0.45));
+tl.fromTo("#tr-z", { attr: { "font-size": 30 } }, { attr: { "font-size": 40 }, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(6, 0.45));
+IN("#tr-done", at(6, 0.7), 0.5, { y: 15 }, { y: 0 });
+
+
+      tl.to("#tr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["transfer"] = tl;
+    })();
+  </script>
+</template>

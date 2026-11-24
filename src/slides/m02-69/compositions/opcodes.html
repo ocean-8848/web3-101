@@ -1,0 +1,98 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .mono { white-space: pre; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 opcodes，id 前缀 op- -->
+  <div id="root" data-composition-id="opcodes" data-duration="51.25" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="op-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      <marker id="op-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+<marker id="op-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+      </defs>
+      <g id="op-all">
+        <text id="op-title" class="h" x="960" y="150" font-size="52" fill="#58C4DD" text-anchor="middle" font-weight="700">常用操作码</text>
+<line id="op-rule" class="dr" pathLength="1" x1="160" y1="330" x2="1760" y2="330" stroke="#F0B90B" stroke-width="3"/>
+<g id="op-ticks" class="h"><line x1="160" y1="318" x2="160" y2="342" stroke="#F0B90B" stroke-width="3"/><line x1="480" y1="318" x2="480" y2="342" stroke="#F0B90B" stroke-width="3"/><line x1="800" y1="318" x2="800" y2="342" stroke="#F0B90B" stroke-width="3"/><line x1="1120" y1="318" x2="1120" y2="342" stroke="#F0B90B" stroke-width="3"/><line x1="1440" y1="318" x2="1440" y2="342" stroke="#F0B90B" stroke-width="3"/><line x1="1760" y1="318" x2="1760" y2="342" stroke="#F0B90B" stroke-width="3"/><text x="160" y="300" font-size="28" fill="#8a8f99" text-anchor="start">Gas 成本 · 对数示意</text><text x="160" y="385" font-size="28" fill="#8a8f99" text-anchor="start">便宜</text><text x="1760" y="385" font-size="28" fill="#8a8f99" text-anchor="end">贵</text></g>
+<g id="op-cd" class="h"><line x1="390" y1="338" x2="390" y2="430" stroke="#58C4DD" stroke-width="2.5"/><circle cx="390" cy="330" r="9" fill="#58C4DD"/><rect x="160" y="430" width="460" height="175" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="190" y="485" font-size="30" fill="#58C4DD" text-anchor="start" font-weight="700">CALLDATALOAD</text><text class="mono" x="190" y="530" font-size="30" fill="#58C4DD" text-anchor="start" font-weight="700">CALLDATASIZE</text></g>
+<text id="op-cd3" class="h" x="190" y="580" font-size="28" fill="#e8e6df" text-anchor="start">只读输入 · 便宜</text>
+<g id="op-ss" class="h"><line x1="1530" y1="338" x2="1530" y2="430" stroke="#F0B90B" stroke-width="2.5"/><circle cx="1530" cy="330" r="9" fill="#F0B90B"/><rect x="1300" y="430" width="460" height="175" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="1330" y="485" font-size="30" fill="#F0B90B" text-anchor="start" font-weight="700">SLOAD / SSTORE</text></g>
+<text id="op-ss2" class="h" x="1330" y="532" font-size="28" fill="#e8e6df" text-anchor="start">冷读：2,100 Gas</text>
+<text id="op-ss3" class="h" x="1330" y="580" font-size="28" fill="#e8e6df" text-anchor="start">0 → 非 0：20,000 Gas</text>
+<g id="op-tl" class="h"><line x1="960" y1="338" x2="960" y2="430" stroke="#83C167" stroke-width="2.5"/><circle cx="960" cy="330" r="9" fill="#83C167"/><rect x="730" y="430" width="460" height="175" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text class="mono" x="760" y="485" font-size="30" fill="#83C167" text-anchor="start" font-weight="700">TLOAD / TSTORE</text></g>
+<text id="op-eip" class="h mono" x="760" y="530" font-size="28" fill="#8a8f99" text-anchor="start">EIP-1153</text>
+<text id="op-lk1" class="h mono" x="760" y="580" font-size="28" fill="#e8e6df" text-anchor="start">lock = 1</text>
+<text id="op-lk0" class="h mono" x="760" y="580" font-size="28" fill="#83C167" text-anchor="start">lock = 0</text>
+<g id="op-tx" class="h"><line x1="730" y1="690" x2="1190" y2="690" stroke="#3a3f4a" stroke-width="12" stroke-linecap="round"/><text x="730" y="745" font-size="28" fill="#8a8f99" text-anchor="start">一笔交易</text></g>
+<rect id="op-prog" x="730" y="684" width="0" height="12" rx="6" fill="#83C167"/>
+<text id="op-clr" class="h" x="1190" y="745" font-size="28" fill="#83C167" text-anchor="end">结束 → 清零</text>
+<text id="op-l1" class="h" x="160" y="860" font-size="28" fill="#e8e6df" text-anchor="start">存储槽锁</text>
+<rect id="op-b1" x="330" y="825" width="0" height="48" rx="6" fill="#F0B90B"/>
+<text id="op-v1" class="h" x="1250" y="860" font-size="28" fill="#F0B90B" text-anchor="start">数千 Gas</text>
+<text id="op-l2" class="h" x="160" y="940" font-size="28" fill="#e8e6df" text-anchor="start">瞬态锁</text>
+<rect id="op-b2" x="330" y="905" width="0" height="48" rx="6" fill="#83C167"/>
+<text id="op-v2" class="h" x="390" y="940" font-size="28" fill="#83C167" text-anchor="start">≈ 100 Gas</text>
+<text id="op-u1" class="h" x="160" y="1010" font-size="28" fill="#83C167" text-anchor="start">✓ 重入锁</text>
+<text id="op-u2" class="h" x="400" y="1010" font-size="28" fill="#83C167" text-anchor="start">✓ Uniswap V4 闪电记账</text>
+<text id="op-u3" class="h" x="900" y="1010" font-size="28" fill="#FC6255" text-anchor="start">✕ 永久余额</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="op-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">瞬态存储 <tspan font-size="28" font-weight="400" fill="#8a8f99">Transient Storage</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">单笔交易内有效、结束自动清零</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+
+IN("#op-title", at(0, 0), 0.6);
+DRAW("#op-rule", at(0, 0.3), 0.9);
+IN("#op-ticks", at(0, 0.6), 0.5);
+IN("#op-cd", at(1, 0.03), 0.6, { y: -20 }, { y: 0 });
+IN("#op-cd3", at(1, 0.3));
+TO("#op-cd3", at(1, 0.66), { fill: "#F0B90B" }, 0.4);
+IN("#op-ss", at(2, 0.03), 0.6, { y: -20 }, { y: 0 });
+IN("#op-ss2", at(2, 0.5)); IN("#op-ss3", at(2, 0.76));
+IN("#op-term", at(3, 0.02), 0.5);
+IN("#op-tl", at(3, 0.08), 0.6, { y: -20 }, { y: 0 });
+IN("#op-eip", at(3, 0.4)); IN("#op-lk1", at(3, 0.5));
+IN("#op-tx", at(3, 0.55));
+TO("#op-prog", at(3, 0.62), { attr: { width: 460 } }, 2.2);
+OUT("#op-lk1", at(3, 0.88), 0.3); IN("#op-lk0", at(3, 0.92), 0.4); IN("#op-clr", at(3, 0.92), 0.4);
+OUT("#op-term", at(3, 0.97), 0.4);
+IN("#op-l1", at(4, 0.05), 0.4); TO("#op-b1", at(4, 0.08), { attr: { width: 900 } }, 1); IN("#op-v1", at(4, 0.2), 0.4);
+IN("#op-l2", at(4, 0.3), 0.4); TO("#op-b2", at(4, 0.33), { attr: { width: 40 } }, 0.6); IN("#op-v2", at(4, 0.38), 0.4);
+TO("#op-b1", at(4, 0.75), { opacity: 0.45 }, 0.5);
+IN("#op-u1", at(5, 0.05)); IN("#op-u2", at(5, 0.2)); IN("#op-u3", at(5, 0.68));
+
+
+      tl.to("#op-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#op-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["opcodes"] = tl;
+    })();
+  </script>
+</template>

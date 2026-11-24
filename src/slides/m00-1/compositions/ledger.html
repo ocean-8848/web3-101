@@ -1,0 +1,199 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ledger，id 前缀 le- -->
+  <div id="root" data-composition-id="ledger" data-duration="52.43" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="le-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="le-all">
+        <g id="le-main">
+          <!-- 账户表 -->
+          <g id="le-ta" class="h">
+            <rect x="120" y="260" width="780" height="440" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="150" y="322" font-size="34" font-weight="700" fill="#58C4DD"><tspan class="mono">accounts</tspan> 账户表</text>
+            <line x1="120" y1="420" x2="900" y2="420" stroke="#58C4DD" stroke-width="1.5" opacity="0.5"/>
+          </g>
+          <text id="le-h0" class="h mono" x="150" y="404" font-size="28" fill="#8a8f99">id</text>
+          <text id="le-h1" class="h mono" x="230" y="404" font-size="28" fill="#8a8f99">owner_name</text>
+          <text id="le-h2" class="h mono" x="500" y="404" font-size="28" fill="#8a8f99">balance</text>
+          <text id="le-h3" class="h mono" x="720" y="404" font-size="28" fill="#8a8f99">frozen</text>
+          <g id="le-ra0" class="h">
+            <text class="mono" x="150" y="478" font-size="28" fill="#e8e6df">1</text>
+            <text class="mono" x="230" y="478" font-size="28" fill="#e8e6df">Alice</text>
+            <text class="mono" x="500" y="478" font-size="28" fill="#F0B90B">50000</text>
+          </g>
+          <text id="le-fz0" class="h mono" x="720" y="478" font-size="28" fill="#e8e6df">FALSE</text>
+          <text id="le-fz1" class="h mono" x="720" y="478" font-size="28" font-weight="700" fill="#B48EF0">TRUE</text>
+          <g id="le-ra1" class="h">
+            <text class="mono" x="150" y="538" font-size="28" fill="#e8e6df">2</text>
+            <text class="mono" x="230" y="538" font-size="28" fill="#e8e6df">Bob</text>
+            <text class="mono" x="500" y="538" font-size="28" fill="#F0B90B">20000</text>
+            <text class="mono" x="720" y="538" font-size="28" fill="#e8e6df">FALSE</text>
+          </g>
+          <text id="le-unit" class="h" x="500" y="596" font-size="28" fill="#58C4DD">单位：分</text>
+          <g id="le-bub" class="h">
+            <rect x="140" y="622" width="300" height="56" rx="28" fill="#0f1117" stroke="#FC6255" stroke-width="2"/>
+            <text class="mono" x="290" y="660" font-size="28" fill="#FC6255" text-anchor="middle">0.1 + 0.2 ≠ 0.3</text>
+          </g>
+          <g id="le-bubx" class="h"><path d="M460 632 L496 668 M496 632 L460 668" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/></g>
+          <!-- L2 CHECK 规则 + 透支演示 -->
+          <g id="le-chk" class="h">
+            <rect x="500" y="286" width="370" height="50" rx="10" fill="#14231a" stroke="#83C167" stroke-width="2.5"/>
+            <text class="mono" x="685" y="320" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">CHECK (balance &gt;= 0)</text>
+          </g>
+          <g id="le-demo" class="h">
+            <text class="mono" x="136" y="666" font-size="28" fill="#e8e6df">Alice</text>
+            <line id="le-zero" x1="250" y1="622" x2="250" y2="688" stroke="#8a8f99" stroke-width="3"/>
+          </g>
+          <rect id="le-bar" class="h" x="252" y="638" width="250" height="34" rx="5" fill="#F0B90B"/>
+          <text id="le-try" class="h" x="560" y="666" font-size="28" fill="#F0B90B">再转 600 元</text>
+          <g id="le-zx" class="h"><path d="M264 637 L294 667 M294 637 L264 667" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/></g>
+          <!-- L3 冻结 + UPDATE -->
+          <g id="le-lock" class="h">
+            <rect x="836" y="386" width="26" height="20" rx="3" fill="#B48EF0"/>
+            <path d="M841 386 L841 378 A8 8 0 0 1 857 378 L857 386" fill="none" stroke="#B48EF0" stroke-width="3"/>
+          </g>
+          <g id="le-code" class="h">
+            <rect x="120" y="730" width="840" height="150" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/>
+            <text class="mono" x="146" y="776" font-size="28" fill="#e8e6df">UPDATE accounts SET balance = balance - 10000</text>
+            <text class="mono" x="146" y="814" font-size="28" fill="#e8e6df">WHERE id = 1 AND <tspan id="le-k1">balance &gt;= 10000</tspan></text>
+            <text class="mono" x="180" y="852" font-size="28" fill="#e8e6df">AND <tspan id="le-k2">NOT frozen</tspan>;</text>
+          </g>
+          <text id="le-res" class="h" x="140" y="926" font-size="30" fill="#8a8f99">→ <tspan class="mono">0</tspan> 行更新：冻结账户扣不了款</text>
+
+          <!-- 流水表 -->
+          <g id="le-tj" class="h">
+            <rect x="1020" y="260" width="780" height="440" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="1050" y="322" font-size="34" font-weight="700" fill="#58C4DD"><tspan class="mono">journal</tspan> 流水表</text>
+            <line x1="1020" y1="420" x2="1800" y2="420" stroke="#58C4DD" stroke-width="1.5" opacity="0.5"/>
+            <text class="mono" x="1090" y="404" font-size="28" fill="#8a8f99">tx_id</text>
+            <text class="mono" x="1300" y="404" font-size="28" fill="#8a8f99">account_id</text>
+            <text class="mono" x="1560" y="404" font-size="28" fill="#8a8f99">amount</text>
+          </g>
+          <g id="le-app" class="h">
+            <path d="M1650 292 L1650 318 M1638 306 L1650 320 L1662 306" stroke="#58C4DD" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M1631 330 L1669 330" stroke="#58C4DD" stroke-width="3" stroke-linecap="round"/>
+            <text x="1684" y="322" font-size="28" fill="#58C4DD">只追加</text>
+          </g>
+          <g id="le-j0" class="h">
+            <text class="mono" x="1090" y="478" font-size="28" fill="#e8e6df">7b1c…</text>
+            <text class="mono" x="1300" y="478" font-size="28" fill="#e8e6df">1</text>
+            <text class="mono" x="1560" y="478" font-size="28" font-weight="700" fill="#FC6255">−10000</text>
+          </g>
+          <g id="le-j1" class="h">
+            <text class="mono" x="1090" y="538" font-size="28" fill="#e8e6df">7b1c…</text>
+            <text class="mono" x="1300" y="538" font-size="28" fill="#e8e6df">2</text>
+            <text class="mono" x="1560" y="538" font-size="28" font-weight="700" fill="#83C167">+10000</text>
+          </g>
+          <rect id="le-txb" class="h" x="1074" y="440" width="128" height="112" rx="12" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          <text id="le-txl" class="h" x="1090" y="612" font-size="28" fill="#58C4DD">同一交易编号</text>
+          <g id="le-er" class="h">
+            <rect x="1700" y="452" width="70" height="36" rx="6" fill="#d98aa0"/>
+            <rect x="1700" y="452" width="22" height="36" rx="4" fill="#8a8f99"/>
+          </g>
+          <g id="le-erx" class="h"><path d="M1712 500 L1748 536 M1748 500 L1712 536" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/></g>
+          <text id="le-erl" class="h" x="1780" y="612" font-size="28" fill="#FC6255" text-anchor="end">不修改</text>
+        </g>
+        <!-- L5 收拢成银行 -->
+        <g id="le-bank" class="h">
+          <rect x="320" y="400" width="1280" height="300" rx="24" fill="none" stroke="#B48EF0" stroke-width="3.5"/>
+          <text x="360" y="456" font-size="34" font-weight="700" fill="#B48EF0">银行</text>
+        </g>
+        <text id="le-eq" class="h" x="960" y="600" font-size="68" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#B48EF0">唯一记账人</tspan> + <tspan fill="#58C4DD">事务</tspan> = <tspan fill="#83C167">防双花</tspan></text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="le-term" class="h">
+        <rect x="70" y="56" width="580" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">双花 <tspan font-size="28" font-weight="400" fill="#8a8f99">Double Spending</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">同一笔数字资产被花了两次</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 两张表
+      IN("#le-ta", at(0, 0.1), 0.7, { y: 20 }, { y: 0 });
+      IN("#le-tj", at(0, 0.4), 0.7, { y: 20 }, { y: 0 });
+      // L1 账户表：列、两行、单位分
+      ["#le-h0", "#le-h1", "#le-h2", "#le-h3"].forEach((s, k) => IN(s, at(1, 0.04 + k * 0.06), 0.4, { y: -8 }, { y: 0 }));
+      IN("#le-ra0, #le-fz0", at(1, 0.3), 0.4, { x: -12 }, { x: 0 });
+      IN("#le-ra1", at(1, 0.38), 0.4, { x: -12 }, { x: 0 });
+      IN("#le-unit", at(1, 0.55), 0.5);
+      tl.to("#le-h2", { fill: "#58C4DD", duration: 0.3 }, at(1, 0.55));
+      IN("#le-bub", at(1, 0.72), 0.4, { scale: 0.7, svgOrigin: "290 650" }, { scale: 1, svgOrigin: "290 650" });
+      IN("#le-bubx", at(1, 0.86), 0.25, { scale: 0.5, svgOrigin: "478 650" }, { scale: 1, svgOrigin: "478 650" });
+      OUT("#le-bub, #le-bubx", at(2, 0.0), 0.4);
+      // L2 CHECK 规则：透支被挡住
+      IN("#le-chk", at(2, 0.06), 0.5, { y: -10 }, { y: 0 });
+      IN("#le-demo, #le-bar", at(2, 0.14), 0.4);
+      IN("#le-try", at(2, 0.2), 0.4, { x: 20 }, { x: 0 });
+      const tt = at(2, 0.3);
+      tl.to("#le-bar", { attr: { width: 0 }, duration: 0.6, ease: "power2.in" }, tt);
+      tl.to("#le-zero", { stroke: "#FC6255", strokeWidth: 6, duration: 0.15 }, tt + 0.6);
+      IN("#le-zx", tt + 0.6, 0.2);
+      tl.to("#le-bar", { attr: { width: 250 }, duration: 0.8, ease: "back.out(2)" }, tt + 0.7);
+      tl.to("#le-try", { fill: "#FC6255", duration: 0.2 }, tt + 0.7);
+      OUT("#le-zx", tt + 0.75, 0.2);
+      tl.to("#le-chk rect", { strokeWidth: 5, duration: 0.25, yoyo: true, repeat: 1 }, tt + 0.7);
+      IN("#le-term", at(2, 0.6), 0.5);
+      tl.to("#le-ra0 text:nth-child(3)", { fill: "#83C167", duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.88));
+      // L3 冻结标记 + UPDATE 条件
+      OUT("#le-demo, #le-bar, #le-try", at(3, 0.0), 0.4);
+      OUT("#le-term", at(3, 0.12), 0.4);
+      IN("#le-lock", at(3, 0.04), 0.4, { y: -10 }, { y: 0 });
+      tl.to("#le-h3", { fill: "#B48EF0", duration: 0.3 }, at(3, 0.04));
+      IN("#le-code", at(3, 0.2), 0.6, { y: 16 }, { y: 0 });
+      tl.to("#le-k1", { fill: "#F0B90B", fontWeight: 700, duration: 0.3 }, at(3, 0.4));
+      tl.to("#le-k2", { fill: "#B48EF0", fontWeight: 700, duration: 0.3 }, at(3, 0.52));
+      OUT("#le-fz0", at(3, 0.7), 0.25);
+      IN("#le-fz1", at(3, 0.7) + 0.3, 0.3);
+      tl.to("#le-code", { opacity: 0.45, duration: 0.4 }, at(3, 0.84));
+      IN("#le-res", at(3, 0.86), 0.4, { x: -12 }, { x: 0 });
+      // L4 流水表：只追加，共享交易编号
+      IN("#le-app", at(4, 0.04), 0.5, { y: -10 }, { y: 0 });
+      IN("#le-j0", at(4, 0.14), 0.4, { y: -12 }, { y: 0 });
+      IN("#le-er", at(4, 0.22), 0.3, { x: 40 }, { x: 0 });
+      tl.to("#le-er", { x: -22, duration: 0.3, ease: "power2.in" }, at(4, 0.22) + 0.35);
+      IN("#le-erx", at(4, 0.22) + 0.65, 0.2);
+      IN("#le-erl", at(4, 0.22) + 0.7, 0.3);
+      tl.to("#le-er", { x: 30, duration: 0.4, ease: "back.out(2)" }, at(4, 0.22) + 0.7);
+      OUT("#le-er, #le-erx, #le-erl", at(4, 0.42), 0.4);
+      IN("#le-j1", at(4, 0.5), 0.4, { y: -12 }, { y: 0 });
+      IN("#le-txb", at(4, 0.58), 0.4, { scale: 1.08, svgOrigin: "1138 496" }, { scale: 1, svgOrigin: "1138 496" });
+      IN("#le-txl", at(4, 0.62), 0.4);
+      tl.to("#le-j0 text:nth-child(3)", { scale: 1.12, svgOrigin: "1610 468", duration: 0.25, yoyo: true, repeat: 1 }, at(4, 0.8));
+      tl.to("#le-j1 text:nth-child(3)", { scale: 1.12, svgOrigin: "1610 528", duration: 0.25, yoyo: true, repeat: 1 }, at(4, 0.9));
+      // L5 收拢成一家银行
+      tl.to("#le-main", { opacity: 0, scale: 0.7, svgOrigin: "960 560", duration: 0.7, ease: "power2.inOut" }, at(5, 0.0));
+      IN("#le-bank", at(5, 0.12), 0.6, { scale: 1.15, svgOrigin: "960 550" }, { scale: 1, svgOrigin: "960 550" });
+      IN("#le-eq", at(5, 0.3), 0.7, { scale: 0.85, svgOrigin: "960 580" }, { scale: 1, svgOrigin: "960 580" });
+
+      tl.to("#le-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#le-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["ledger"] = tl;
+    })();
+  </script>
+</template>

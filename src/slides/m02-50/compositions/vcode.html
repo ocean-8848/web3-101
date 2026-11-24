@@ -1,0 +1,225 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    #root .k { fill: #58C4DD; }
+    #root .n { fill: #F0B90B; }
+  </style>
+  <!-- 场景 vcode，id 前缀 vc- -->
+  <div id="root" data-composition-id="vcode" data-duration="66.6" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="vc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="vc-all">
+        <!-- 代码面板 -->
+        <g id="vc-panel" class="h">
+          <rect x="80" y="210" width="1090" height="620" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+          <rect x="80" y="222" width="4" height="596" fill="#58C4DD"/>
+          <text class="mono" x="110" y="252" font-size="22" fill="#8a8f99" data-layout-ignore>LinearVesting.sol</text>
+          <rect id="vc-hl" x="86" y="301" width="1078" height="40" rx="6" fill="#58C4DD" opacity="0"/>
+          <g font-size="28" fill="#e8e6df">
+            <g id="vc-l1"><text class="mono" x="110" y="330"><tspan class="k">function</tspan> vested(<tspan class="k">uint64</tspan> ts) <tspan class="k">public view returns</tspan> (<tspan class="k">uint256</tspan>) {</text></g>
+            <g id="vc-l2"><text class="mono" x="144" y="371"><tspan class="k">uint256</tspan> total = token.balanceOf(address(this)) + released;</text></g>
+            <g id="vc-l3"><text class="mono" x="144" y="412"><tspan class="k">if</tspan> (ts &lt; cliffEnd) <tspan class="k">return</tspan> <tspan class="n">0</tspan>;</text></g>
+            <g id="vc-l4"><text class="mono" x="144" y="453"><tspan class="k">if</tspan> (ts &gt;= start + duration) <tspan class="k">return</tspan> total;</text></g>
+            <g id="vc-l5"><text class="mono" x="144" y="494"><tspan class="k">return</tspan> total * (ts - start) / duration;</text>
+              <text class="mono" x="850" y="494" fill="#6b6f7a">//</text><text x="892" y="494" fill="#6b6f7a">先乘后除</text></g>
+            <g id="vc-l6"><text class="mono" x="110" y="535">}</text></g>
+            <g id="vc-l8"><text class="mono" x="110" y="617"><tspan class="k">function</tspan> release() <tspan class="k">external</tspan> {</text></g>
+            <g id="vc-l9"><text class="mono" x="144" y="658"><tspan class="k">uint256</tspan> amount = vested(<tspan class="k">uint64</tspan>(block.timestamp)) - released;</text></g>
+            <g id="vc-l10"><text class="mono" x="144" y="699">released += amount;</text>
+              <text class="mono" x="850" y="699" fill="#6b6f7a">//</text><text x="892" y="699" fill="#6b6f7a">先记账</text></g>
+            <g id="vc-l11"><text class="mono" x="144" y="740">token.safeTransfer(beneficiary, amount);</text>
+              <text class="mono" x="850" y="740" fill="#6b6f7a">//</text><text x="892" y="740" fill="#6b6f7a">后转账</text></g>
+            <g id="vc-l12"><text class="mono" x="110" y="781">}</text></g>
+          </g>
+        </g>
+
+        <!-- L1 右侧：总量拼条 -->
+        <g id="vc-tot" class="h">
+          <rect x="1240" y="290" width="340" height="64" fill="#F0B90B"/>
+          <rect x="1580" y="290" width="180" height="64" fill="#83C167"/>
+          <text x="1410" y="333" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">余额</text>
+          <text x="1670" y="333" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">已领</text>
+          <path d="M1240 372 V386 H1760 V372" fill="none" stroke="#e8e6df" stroke-width="3"/>
+          <text x="1500" y="432" font-size="30" fill="#e8e6df" text-anchor="middle">总量</text>
+        </g>
+        <!-- 迷你释放曲线 -->
+        <g id="vc-mini">
+          <line id="vc-mb" class="h" x1="1240" y1="640" x2="1790" y2="640" stroke="#8a8f99" stroke-width="3"/>
+          <path id="vc-m0" class="dr" pathLength="1" d="M1240 637 H1370" fill="none" stroke="#FF9F43" stroke-width="7" stroke-linecap="round"/>
+          <text id="vc-m0l" class="h" x="1305" y="684" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">0</text>
+          <path id="vc-m2" class="dr" pathLength="1" d="M1700 524 H1780" fill="none" stroke="#F0B90B" stroke-width="7" stroke-linecap="round"/>
+          <text id="vc-m2l" class="h" x="1740" y="494" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">全部</text>
+          <path id="vc-m1" class="dr" pathLength="1" d="M1370 637 V602 L1700 524" fill="none" stroke="#F0B90B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <g id="vc-cmp1" class="h">
+          <text x="1240" y="770" font-size="30" font-weight="700" fill="#83C167">先乘后除</text>
+          <path d="M1378 754 L1393 769 L1420 736" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <g id="vc-cmp2" class="h">
+          <text x="1240" y="840" font-size="30" font-weight="700" fill="#FC6255">先除后乘 → 精度丢失</text>
+          <path d="M1556 812 L1584 840 M1584 812 L1556 840" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+        </g>
+
+        <!-- L2 三段色带 -->
+        <g id="vc-s1" class="h">
+          <rect x="1240" y="420" width="140" height="80" rx="12" fill="#8a8f9922" stroke="#8a8f99" stroke-width="3"/>
+          <text x="1310" y="472" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">算</text>
+        </g>
+        <path id="vc-a1" class="dr h" pathLength="1" d="M1388 460 H1430" fill="none" stroke="#8a8f99" stroke-width="4" marker-end="url(#vc-arr)"/>
+        <g id="vc-s2" class="h">
+          <rect id="vc-s2r" x="1442" y="420" width="160" height="80" rx="12" fill="#83C16722" stroke="#83C167" stroke-width="3"/>
+          <text x="1522" y="472" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">记账</text>
+        </g>
+        <path id="vc-a2" class="dr h" pathLength="1" d="M1610 460 H1652" fill="none" stroke="#8a8f99" stroke-width="4" marker-end="url(#vc-arr)"/>
+        <g id="vc-s3" class="h">
+          <rect x="1664" y="420" width="150" height="80" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="1739" y="472" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">转账</text>
+        </g>
+
+        <!-- L3 余额 + 已领 不变 -->
+        <g id="vc-q" class="h">
+          <rect x="1240" y="366" width="24" height="24" fill="#F0B90B"/>
+          <text x="1274" y="388" font-size="28" fill="#e8e6df">余额</text>
+          <rect x="1400" y="366" width="24" height="24" fill="#83C167"/>
+          <text x="1434" y="388" font-size="28" fill="#e8e6df">已领</text>
+          <rect id="vc-qg" x="1240" y="420" width="520" height="64" fill="#F0B90B"/>
+          <rect id="vc-qr" x="1760" y="420" width="0" height="64" fill="#83C167"/>
+          <path d="M1240 500 V514 H1760 V500" fill="none" stroke="#e8e6df" stroke-width="3"/>
+        </g>
+        <g id="vc-qok" class="h">
+          <text x="1470" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">总量不变</text>
+          <path d="M1550 550 L1565 565 L1592 532" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <text id="vc-qt" class="h" x="1500" y="670" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">只和时间有关</text>
+
+        <!-- L4 VestingWallet -->
+        <text id="vc-oz" class="mono h" x="960" y="420" font-size="48" font-weight="700" fill="#58C4DD" text-anchor="middle">OpenZeppelin VestingWallet</text>
+        <text id="vc-ozs" class="h" x="960" y="492" font-size="34" fill="#8a8f99" text-anchor="middle">扩展版支持悬崖期</text>
+        <g id="vc-bd1" class="h">
+          <rect x="540" y="600" width="360" height="84" rx="42" fill="#FF9F4322" stroke="#FF9F43" stroke-width="3"/>
+          <text x="720" y="655" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">总量怎么算</text>
+        </g>
+        <g id="vc-bd2" class="h">
+          <rect x="1020" y="600" width="360" height="84" rx="42" fill="#FF9F4322" stroke="#FF9F43" stroke-width="3"/>
+          <text x="1200" y="655" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">谁能改参数</text>
+        </g>
+
+        <!-- L5 增发 -->
+        <g id="vc-btn" class="h"><g id="vc-btnin">
+          <rect x="320" y="470" width="280" height="100" rx="18" fill="#FF9F4333" stroke="#FF9F43" stroke-width="3"/>
+          <text x="460" y="535" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">增发</text>
+        </g></g>
+        <rect id="vc-shell" class="h" x="290" y="436" width="340" height="168" rx="26" fill="none" stroke="#83C167" stroke-width="5"/>
+        <text id="vc-shl" class="h" x="460" y="408" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">多签 + 时间锁</text>
+        <text id="vc-cap" class="h" x="460" y="664" font-size="32" fill="#e8e6df" text-anchor="middle">写清增发上限</text>
+        <path id="vc-pa" class="dr h" pathLength="1" d="M650 520 H990" fill="none" stroke="#8a8f99" stroke-width="4" marker-end="url(#vc-arr)"/>
+        <g id="vc-pie" class="h">
+          <circle id="vc-pm" cx="1240" cy="540" r="100" fill="none" stroke="#FF9F43" stroke-width="200" pathLength="100" stroke-dasharray="0 100"/>
+          <circle id="vc-p1" cx="1240" cy="540" r="100" fill="none" stroke="#8a8f99" stroke-width="200" pathLength="100" stroke-dasharray="50 100"/>
+          <circle id="vc-p2" cx="1240" cy="540" r="100" fill="none" stroke="#6b6f7a" stroke-width="200" pathLength="100" stroke-dasharray="30 100" stroke-dashoffset="-50"/>
+          <circle id="vc-p3" cx="1240" cy="540" r="100" fill="none" stroke="#4a4f59" stroke-width="200" pathLength="100" stroke-dasharray="20 100" stroke-dashoffset="-80"/>
+        </g>
+        <text id="vc-pl" class="h" x="1240" y="806" font-size="32" fill="#8a8f99" text-anchor="middle">持有人份额</text>
+        <text id="vc-pml" class="h" x="1470" y="724" font-size="32" font-weight="700" fill="#FF9F43">新增发</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      // 代码行高亮
+      const LINES = [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12];
+      const ly = i => 330 + (i - 1) * 41;
+      const HL = (rows, t) => {
+        tl.to("#vc-hl", { opacity: 0.15, attr: { y: ly(rows[0]) - 29, height: rows.length * 41 - 1 }, duration: 0.35, ease: "power2.inOut" }, t);
+        LINES.forEach(i => tl.to("#vc-l" + i, { opacity: rows.includes(i) ? 1 : 0.6, duration: 0.3 }, t));
+      };
+
+      // L0 面板
+      IN("#vc-panel", at(0, 0.02), 0.6, { y: 16 }, { y: 0 });
+      LINES.forEach((i, k) => IN("#vc-l" + i, at(0, 0.15) + k * 0.08, 0.35));
+      // L1 vested()
+      HL([1], at(1, 0.0));
+      HL([2], at(1, 0.1));
+      IN("#vc-tot", at(1, 0.14), 0.6, { x: 20 }, { x: 0 });
+      HL([3], at(1, 0.4));
+      IN("#vc-mb", at(1, 0.4), 0.4);
+      DRAW("#vc-m0", at(1, 0.42), 0.6); IN("#vc-m0l", at(1, 0.46), 0.4);
+      HL([4], at(1, 0.55));
+      DRAW("#vc-m2", at(1, 0.57), 0.5); IN("#vc-m2l", at(1, 0.6), 0.4);
+      HL([5], at(1, 0.68));
+      DRAW("#vc-m1", at(1, 0.7), 0.9);
+      IN("#vc-cmp1", at(1, 0.78), 0.5, { x: -12 }, { x: 0 });
+      IN("#vc-cmp2", at(1, 0.9), 0.5, { x: -12 }, { x: 0 });
+      // L2 release()
+      ["#vc-tot", "#vc-mini", "#vc-cmp1", "#vc-cmp2"].forEach(s => OUT(s, at(2, 0), 0.4));
+      HL([8], at(2, 0.02));
+      HL([9], at(2, 0.1));
+      IN("#vc-s1", at(2, 0.12), 0.5);
+      HL([10], at(2, 0.4));
+      ARROW("#vc-a1", at(2, 0.42), 0.4); IN("#vc-s2", at(2, 0.45), 0.5);
+      HL([11], at(2, 0.58));
+      ARROW("#vc-a2", at(2, 0.6), 0.4); IN("#vc-s3", at(2, 0.63), 0.5);
+      HL([10, 11], at(2, 0.8));
+      tl.fromTo("#vc-s2r", { strokeWidth: 3 }, { strokeWidth: 7, duration: 0.3, yoyo: true, repeat: 3, immediateRender: false }, at(2, 0.82));
+      // L3 为什么单独记已领取
+      ["#vc-s1", "#vc-s2", "#vc-s3", "#vc-a1", "#vc-a2"].forEach(s => OUT(s, at(3, 0), 0.4));
+      HL([2], at(3, 0.04));
+      IN("#vc-q", at(3, 0.1), 0.6);
+      [0.3, 0.42, 0.54].forEach((f, k) => {
+        tl.to("#vc-qg", { attr: { width: 520 - 130 * (k + 1) }, duration: 0.5, ease: "power2.inOut" }, at(3, f));
+        tl.to("#vc-qr", { attr: { x: 1760 - 130 * (k + 1), width: 130 * (k + 1) }, duration: 0.5, ease: "power2.inOut" }, at(3, f));
+      });
+      IN("#vc-qok", at(3, 0.62), 0.5);
+      IN("#vc-qt", at(3, 0.78), 0.6, { y: 12 }, { y: 0 });
+      // L4 VestingWallet + 审查要点
+      ["#vc-panel", "#vc-q", "#vc-qok", "#vc-qt"].forEach(s => OUT(s, at(4, 0), 0.5));
+      IN("#vc-oz", at(4, 0.06), 0.7, { y: 14 }, { y: 0 });
+      IN("#vc-ozs", at(4, 0.3), 0.5);
+      IN("#vc-bd1", at(4, 0.68), 0.5, { scale: 0.8, svgOrigin: "720 642" }, { scale: 1, svgOrigin: "720 642" });
+      IN("#vc-bd2", at(4, 0.82), 0.5, { scale: 0.8, svgOrigin: "1200 642" }, { scale: 1, svgOrigin: "1200 642" });
+      // L5 增发权限
+      ["#vc-oz", "#vc-ozs", "#vc-bd1", "#vc-bd2"].forEach(s => OUT(s, at(5, 0), 0.4));
+      IN("#vc-btn", at(5, 0.04), 0.5);
+      IN("#vc-pie", at(5, 0.1), 0.6, { scale: 0.85, svgOrigin: "1240 540" }, { scale: 1, svgOrigin: "1240 540" });
+      IN("#vc-pl", at(5, 0.14), 0.5);
+      tl.to("#vc-btnin", { y: 8, duration: 0.12, yoyo: true, repeat: 1 }, at(5, 0.25));
+      ARROW("#vc-pa", at(5, 0.27), 0.5);
+      const pie = { m: 0 };
+      const setPie = () => {
+        const m = pie.m, k = (100 - m) / 100, a = 50 * k, b = 30 * k, c = 20 * k;
+        const S = (id, len, off) => { const e = document.getElementById(id); e.setAttribute("stroke-dasharray", len + " 100"); e.setAttribute("stroke-dashoffset", -off); };
+        S("vc-pm", m, 0); S("vc-p1", a, m); S("vc-p2", b, m + a); S("vc-p3", c, m + a + b);
+      };
+      tl.fromTo(pie, { m: 0 }, { m: 40, duration: 1.6, ease: "power2.inOut", immediateRender: false, onUpdate: setPie }, at(5, 0.31));
+      IN("#vc-pml", at(5, 0.4), 0.5);
+      IN("#vc-shell", at(5, 0.5), 0.5, { scale: 1.25, svgOrigin: "460 520" }, { scale: 1, svgOrigin: "460 520" });
+      IN("#vc-shl", at(5, 0.55), 0.5);
+      IN("#vc-cap", at(5, 0.68), 0.5, { y: 10 }, { y: 0 });
+      tl.fromTo("#vc-shell", { strokeWidth: 5 }, { strokeWidth: 9, duration: 0.3, yoyo: true, repeat: 3, immediateRender: false }, at(5, 0.84));
+
+      tl.to("#vc-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["vcode"] = tl;
+    })();
+  </script>
+</template>

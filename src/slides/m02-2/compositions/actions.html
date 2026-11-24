@@ -1,0 +1,336 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 actions，id 前缀 ac- -->
+  <div id="root" data-composition-id="actions" data-duration="60.82" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ac-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ac-all">
+        <defs>
+          <marker id="ac-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker>
+          <marker id="ac-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker>
+        </defs>
+        <g id="ac-code">
+        <g id="ac-panel" class="h">
+          <rect x="700" y="220" width="1160" height="550" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+          <line x1="700" y1="256" x2="1860" y2="256" stroke="#2a2f3a" stroke-width="2"/>
+          <g fill="#6b6f7a" font-size="22" text-anchor="end" class="mono" data-layout-ignore>
+            <text class="mono" x="752" y="300" data-layout-ignore>1</text><text class="mono" x="752" y="340" data-layout-ignore>2</text><text class="mono" x="752" y="380" data-layout-ignore>3</text><text class="mono" x="752" y="420" data-layout-ignore>4</text><text class="mono" x="752" y="460" data-layout-ignore>5</text><text class="mono" x="752" y="500" data-layout-ignore>6</text><text class="mono" x="752" y="540" data-layout-ignore>7</text><text class="mono" x="752" y="580" data-layout-ignore>8</text><text class="mono" x="752" y="620" data-layout-ignore>9</text><text class="mono" x="752" y="660" data-layout-ignore>10</text><text class="mono" x="752" y="700" data-layout-ignore>11</text><text class="mono" x="752" y="740" data-layout-ignore>12</text>
+          </g>
+        </g>
+        <text id="ac-tP" class="h mono" x="730" y="246" font-size="24" fill="#58C4DD" data-layout-ignore>MessageBoard.sol · post</text>
+        <text id="ac-tK" class="h mono" x="730" y="246" font-size="24" fill="#58C4DD" data-layout-ignore>MessageBoard.sol · like</text>
+        <text id="ac-tH" class="h mono" x="730" y="246" font-size="24" fill="#58C4DD" data-layout-ignore>MessageBoard.sol · hide · getMessage</text>
+        <g id="ac-hl" class="h">
+          <rect id="ac-hlr" x="702" y="271" width="1156" height="40" fill="rgba(88,196,221,.12)"/>
+          <rect id="ac-hlb" x="702" y="271" width="6" height="40" fill="#58C4DD"/>
+        </g>
+        <g id="ac-P" font-size="28" fill="#e8e6df">
+          <text id="ac-p1" class="h mono" x="770" y="300"><tspan fill="#58C4DD">function</tspan> post(<tspan fill="#58C4DD">string calldata</tspan> text)</text>
+          <text id="ac-p2" class="h mono" x="837.2" y="340"><tspan fill="#58C4DD">external returns</tspan> (<tspan fill="#58C4DD">uint256</tspan> id) {</text>
+          <text id="ac-p3" class="h mono" x="837.2" y="380"><tspan fill="#58C4DD">uint256</tspan> len = bytes(text).length;</text>
+          <text id="ac-p4" class="h mono" x="837.2" y="420">require(len &gt; <tspan fill="#FF9F43">0</tspan> &amp;&amp; len &lt;= MAX_LEN, <tspan fill="#F0B90B">"length 1-280"</tspan>);</text>
+          <text id="ac-p5" class="h mono" x="837.2" y="460">id = messages.length;</text>
+          <text id="ac-p6" class="h mono" x="837.2" y="500">messages.push(Message({</text>
+          <text id="ac-p7" class="h mono" x="904.4" y="540">author: msg.sender, createdAt: <tspan fill="#58C4DD">uint64</tspan>(block.timestamp),</text>
+          <text id="ac-p8" class="h mono" x="904.4" y="580">status: Status.Active, likes: <tspan fill="#FF9F43">0</tspan>, text: text</text>
+          <text id="ac-p9" class="h mono" x="837.2" y="620">}));</text>
+          <text id="ac-p10" class="h mono" x="837.2" y="660">postCount[msg.sender] += <tspan fill="#FF9F43">1</tspan>;</text>
+          <text id="ac-p11" class="h mono" x="837.2" y="700"><tspan fill="#58C4DD">emit</tspan> Posted(id, msg.sender, text);</text>
+          <text id="ac-p12" class="h mono" x="770" y="740">}</text>
+        </g>
+        <g id="ac-K" font-size="28" fill="#e8e6df">
+          <text id="ac-k1" class="h mono" x="770" y="300"><tspan fill="#58C4DD">function</tspan> like(<tspan fill="#58C4DD">uint256</tspan> id) <tspan fill="#58C4DD">external</tspan> {</text>
+          <text id="ac-k2" class="h mono" x="837.2" y="340">require(id &lt; messages.length, <tspan fill="#F0B90B">"no such id"</tspan>);</text>
+          <text id="ac-k3" class="h mono" x="837.2" y="380">require(!liked[id][msg.sender], <tspan fill="#F0B90B">"already liked"</tspan>);</text>
+          <text id="ac-k4" class="h mono" x="837.2" y="420">liked[id][msg.sender] = <tspan fill="#58C4DD">true</tspan>;</text>
+          <text id="ac-k5" class="h mono" x="837.2" y="460">Message <tspan fill="#83C167">storage</tspan> m = messages[id];</text>
+          <text id="ac-k5b" class="h mono" x="837.2" y="460">Message <tspan fill="#FC6255">memory</tspan> m = messages[id];</text>
+          <text id="ac-k6" class="h mono" x="837.2" y="500">m.likes += <tspan fill="#FF9F43">1</tspan>;</text>
+          <text id="ac-k7" class="h mono" x="837.2" y="540"><tspan fill="#58C4DD">emit</tspan> Liked(id, msg.sender, m.likes);</text>
+          <text id="ac-k8" class="h mono" x="770" y="580">}</text>
+        </g>
+        <g id="ac-H" font-size="28" fill="#e8e6df">
+          <text id="ac-h1" class="h mono" x="770" y="300"><tspan fill="#58C4DD">function</tspan> hide(<tspan fill="#58C4DD">uint256</tspan> id) <tspan fill="#58C4DD">external</tspan> {</text>
+          <text id="ac-h2" class="h mono" x="837.2" y="340">require(msg.sender == owner, <tspan fill="#F0B90B">"not owner"</tspan>);</text>
+          <text id="ac-h3" class="h mono" x="837.2" y="380">require(id &lt; messages.length, <tspan fill="#F0B90B">"no such id"</tspan>);</text>
+          <text id="ac-h4" class="h mono" x="837.2" y="420">messages[id].status = Status.Hidden;</text>
+          <text id="ac-h5" class="h mono" x="837.2" y="460"><tspan fill="#58C4DD">emit</tspan> Hidden(id);</text>
+          <text id="ac-h6" class="h mono" x="770" y="500">}</text>
+          <text id="ac-h7" class="h mono" x="770" y="540"><tspan fill="#58C4DD">function</tspan> getMessage(<tspan fill="#58C4DD">uint256</tspan> id)</text>
+          <text id="ac-h8" class="h mono" x="837.2" y="580"><tspan fill="#58C4DD">external view returns</tspan> (Message <tspan fill="#58C4DD">memory</tspan>) {</text>
+          <text id="ac-h9" class="h mono" x="837.2" y="620">require(id &lt; messages.length, <tspan fill="#F0B90B">"no such id"</tspan>);</text>
+          <text id="ac-h10" class="h mono" x="837.2" y="660"><tspan fill="#58C4DD">return</tspan> messages[id];</text>
+          <text id="ac-h11" class="h mono" x="770" y="700">}</text>
+        </g>
+        </g>
+
+        <!-- left: message array -->
+        <g id="ac-arr">
+          <text id="ac-arrl" class="h mono" x="100" y="538" font-size="28" fill="#8a8f99">messages</text>
+          <g id="ac-m0" class="h">
+            <rect x="100" y="560" width="160" height="120" rx="12" fill="#16303a" stroke="#58C4DD" stroke-width="2.5"/>
+            <text class="mono" x="118" y="602" font-size="28" fill="#58C4DD">#0</text>
+            <path d="M136 668 C112 654 123 635 136 648 C149 635 160 654 136 668 Z" fill="none" stroke="#F0B90B" stroke-width="3"/>
+            <text class="mono" x="170" y="664" font-size="28" fill="#F0B90B">5</text>
+          </g>
+          <g id="ac-m1" class="h">
+            <rect id="ac-m1r" x="280" y="560" width="160" height="120" rx="12" fill="#16303a" stroke="#58C4DD" stroke-width="2.5"/>
+            <text class="mono" x="298" y="602" font-size="28" fill="#58C4DD">#1</text>
+            <path id="ac-m1h" d="M316 668 C292 654 303 635 316 648 C329 635 340 654 316 668 Z" fill="none" stroke="#F0B90B" stroke-width="3"/>
+            <text id="ac-m1n" class="mono" x="350" y="664" font-size="28" fill="#F0B90B">3</text>
+          </g>
+          <g id="ac-m2" class="h">
+            <rect id="ac-m2r" x="460" y="560" width="160" height="120" rx="12" fill="#16303a" stroke="#58C4DD" stroke-width="2.5"/>
+            <text id="ac-m2t" class="mono" x="478" y="602" font-size="28" fill="#58C4DD">#2</text>
+            <path id="ac-m2h" d="M496 668 C472 654 483 635 496 648 C509 635 520 654 496 668 Z" fill="none" stroke="#F0B90B" stroke-width="3"/>
+            <text id="ac-m2n" class="mono" x="530" y="664" font-size="28" fill="#F0B90B">0</text>
+          </g>
+        </g>
+
+        <!-- L0 calldata -->
+        <g id="ac-cd" class="h">
+          <rect x="100" y="240" width="240" height="60" rx="10" fill="#1b2029" stroke="#8a8f99" stroke-width="2.5"/>
+          <text class="mono" x="120" y="281" font-size="28" fill="#8a8f99">calldata</text>
+          <path d="M296 266 L296 258 A10 10 0 0 1 316 258 L316 266" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <rect x="288" y="264" width="36" height="26" rx="4" fill="#8a8f99"/>
+          <text x="365" y="281" font-size="28" fill="#8a8f99">只读</text>
+        </g>
+        <!-- L1 post steps -->
+        <g id="ac-big" class="h"><rect id="ac-bigr" x="100" y="400" width="200" height="56" rx="10" fill="#2a2410" stroke="#F0B90B" stroke-width="2.5"/><text x="200" y="438" font-size="28" fill="#F0B90B" text-anchor="middle">300 字节</text></g>
+        <line id="ac-wall" class="h" x1="440" y1="380" x2="440" y2="476" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/>
+        <text id="ac-rev" class="h mono" x="466" y="440" font-size="30" fill="#FC6255">revert</text>
+        <text id="ac-len" class="h mono" x="100" y="440" font-size="28" fill="#e8e6df">messages.length = <tspan fill="#FF9F43">2</tspan></text>
+        <text id="ac-pc" class="h mono" x="100" y="760" font-size="28" fill="#58C4DD">postCount <tspan fill="#83C167">+1</tspan></text>
+        <g id="ac-horn" class="h">
+          <path d="M110 830 L128 830 L162 810 L162 870 L128 850 L110 850 Z" fill="none" stroke="#F0B90B" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M176 826 Q188 840 176 854 M188 816 Q206 840 188 864" fill="none" stroke="#F0B90B" stroke-width="3" stroke-linecap="round"/>
+          <text class="mono" x="226" y="851" font-size="30" fill="#F0B90B">Posted</text>
+        </g>
+        <!-- L2 liked registry -->
+        <g id="ac-grid" class="h">
+          <text class="mono" x="100" y="300" font-size="28" fill="#8a8f99">liked</text>
+          <g class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">
+            <text class="mono" x="275" y="300">0xA1</text><text class="mono" x="385" y="300">0xB2</text><text class="mono" x="495" y="300">0xC3</text>
+            <text class="mono" x="190" y="354">0</text><text class="mono" x="190" y="416">1</text><text class="mono" x="190" y="478">2</text>
+          </g>
+          <g fill="#1b2029" stroke="#2a2f3a" stroke-width="2">
+            <rect x="222" y="317" width="106" height="56"/><rect x="332" y="317" width="106" height="56"/><rect x="442" y="317" width="106" height="56"/>
+            <rect x="222" y="379" width="106" height="56"/><rect id="ac-gq" x="332" y="379" width="106" height="56"/><rect x="442" y="379" width="106" height="56"/>
+            <rect x="222" y="441" width="106" height="56"/><rect x="332" y="441" width="106" height="56"/><rect x="442" y="441" width="106" height="56"/>
+          </g>
+          <rect id="ac-gc" class="h" x="332" y="379" width="106" height="56" fill="#1f3a1f" stroke="#83C167" stroke-width="3"/>
+          <text id="ac-gt" class="h mono" x="385" y="417" font-size="28" fill="#83C167" text-anchor="middle">true</text>
+        </g>
+        <!-- L3 storage pointer vs memory copy -->
+        <text id="ac-stl" class="h mono" x="360" y="400" font-size="30" fill="#83C167" text-anchor="middle">storage</text>
+        <path id="ac-sta" class="dr h" pathLength="1" d="M360 418 L360 546" stroke="#83C167" stroke-width="5" marker-end="url(#ac-arrG)"/>
+        <g id="ac-cpo"><g id="ac-cp" class="h">
+          <rect x="280" y="560" width="160" height="120" rx="12" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="10 7"/>
+          <text class="mono" x="298" y="602" font-size="28" fill="#58C4DD">#1</text>
+          <path d="M316 668 C292 654 303 635 316 648 C329 635 340 654 316 668 Z" fill="none" stroke="#F0B90B" stroke-width="3"/>
+          <text id="ac-cpn" class="mono" x="350" y="664" font-size="28" fill="#F0B90B">3</text>
+        </g></g>
+        <text id="ac-cpl" class="h" x="180" y="790" font-size="28" fill="#58C4DD" text-anchor="middle">副本</text>
+        <text id="ac-nup" class="h" x="470" y="790" font-size="30" font-weight="700" fill="#FC6255">原卡不会涨</text>
+        <!-- L4 owner gate -->
+        <g id="ac-gate">
+          <g id="ac-own" class="h">
+            <rect x="100" y="255" width="200" height="60" rx="10" fill="#1d1a2b" stroke="#B48EF0" stroke-width="2.5"/>
+            <text class="mono" x="200" y="296" font-size="28" fill="#B48EF0" text-anchor="middle">owner</text>
+          </g>
+          <g id="ac-usr" class="h">
+            <rect x="100" y="375" width="200" height="60" rx="10" fill="#1b2029" stroke="#8a8f99" stroke-width="2.5"/>
+            <text class="mono" x="200" y="416" font-size="28" fill="#8a8f99" text-anchor="middle">0xC3</text>
+          </g>
+          <line id="ac-ga" class="h" x1="330" y1="245" x2="330" y2="325" stroke="#8a8f99" stroke-width="6" stroke-linecap="round"/>
+          <line id="ac-gb" class="h" x1="330" y1="365" x2="330" y2="445" stroke="#8a8f99" stroke-width="6" stroke-linecap="round"/>
+          <path id="ac-ok" class="h" d="M356 286 L370 300 L396 270" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <text id="ac-no" class="h mono" x="356" y="416" font-size="28" fill="#FC6255">"not owner"</text>
+        </g>
+        <text id="ac-hid" class="h" x="540" y="722" font-size="28" fill="#8a8f99" text-anchor="middle">已隐藏</text>
+        <!-- L5 getMessage view -->
+        <g id="ac-view">
+          <g id="ac-fe" class="h"><rect x="100" y="240" width="160" height="80" rx="12" fill="#1b2029" stroke="#e8e6df" stroke-width="2.5"/><text x="180" y="291" font-size="28" fill="#e8e6df" text-anchor="middle">前端</text></g>
+          <text id="ac-vf" class="h" x="290" y="292" font-size="28" fill="#83C167"><tspan class="mono">view</tspan> · 链外免费</text>
+          <g id="ac-vco"><g id="ac-vc" class="h">
+            <rect x="100" y="560" width="160" height="120" rx="12" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="10 7"/>
+            <text class="mono" x="118" y="602" font-size="28" fill="#58C4DD">#0</text>
+            <path d="M136 668 C112 654 123 635 136 648 C149 635 160 654 136 668 Z" fill="none" stroke="#F0B90B" stroke-width="3"/>
+            <text class="mono" x="170" y="664" font-size="28" fill="#F0B90B">5</text>
+          </g></g>
+          <path id="ac-va" class="dr h" pathLength="1" d="M180 374 L180 332" stroke="#58C4DD" stroke-width="4" marker-end="url(#ac-arrB)"/>
+          <text id="ac-vm" class="h mono" x="280" y="450" font-size="28" fill="#58C4DD">memory</text>
+          <text id="ac-idx" class="h" x="100" y="800" font-size="28" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">indexed</tspan> → 按作者筛选</text>
+          <text id="ac-tot" class="h mono" x="100" y="960" font-size="28" fill="#8a8f99">total() → messages.length</text>
+        </g>
+        <!-- L6 no getAll -->
+        <g id="ac-ga6">
+          <g id="ac-gbx" class="h">
+            <rect x="760" y="240" width="400" height="100" rx="14" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="12 8"/>
+            <text class="mono" x="960" y="302" font-size="34" fill="#8a8f99" text-anchor="middle">getAll()</text>
+          </g>
+          <path id="ac-gx" class="h" d="M1200 262 L1256 318 M1256 262 L1200 318" stroke="#FC6255" stroke-width="9" stroke-linecap="round"/>
+          <g id="ac-sc"></g>
+          <text id="ac-gasl" class="h mono" x="250" y="633" font-size="30" fill="#8a8f99">Gas</text>
+          <rect id="ac-gas" class="h" x="344" y="600" width="1232" height="44" rx="6" fill="#FF9F43"/>
+          <g id="ac-alt1" class="h">
+            <rect x="440" y="760" width="460" height="100" rx="14" fill="#1a2a17" stroke="#83C167" stroke-width="3"/>
+            <path d="M490 790 L530 790 M490 810 L530 810 M490 830 L530 830" stroke="#83C167" stroke-width="4" stroke-linecap="round"/>
+            <text x="570" y="821" font-size="32" fill="#83C167">按编号逐条读</text>
+          </g>
+          <g id="ac-alt2" class="h">
+            <rect x="1020" y="760" width="460" height="100" rx="14" fill="#1a2a17" stroke="#83C167" stroke-width="3"/>
+            <circle cx="1090" cy="804" r="18" fill="none" stroke="#83C167" stroke-width="4"/><line x1="1103" y1="817" x2="1120" y2="834" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+            <text x="1160" y="821" font-size="32" fill="#83C167">索引器</text>
+          </g>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+(() => {
+  const g = document.querySelector("#ac-sc"); let s = "";
+  for (let i = 0; i < 14; i++) s += `<rect class="ac-s" x="${344 + 88 * i}" y="440" width="72" height="80" rx="8" fill="#16303a" stroke="#58C4DD" stroke-width="2.5" opacity="0"/>`;
+  g.innerHTML = s;
+})();
+const HL = (k, t, n = 1, c = "#58C4DD", f = "rgba(88,196,221,.12)") => {
+  tl.to("#ac-hl", { y: 40 * (k - 1), duration: 0.35, ease: "power2.inOut" }, t);
+  tl.to("#ac-hlr, #ac-hlb", { attr: { height: 40 * n }, duration: 0.35, ease: "power2.inOut" }, t);
+  tl.to("#ac-hlb", { fill: c, duration: 0.3 }, t);
+  tl.to("#ac-hlr", { fill: f, duration: 0.3 }, t);
+};
+const SHOW = (p, ks, t) => ks.forEach((k, j) => IN(`#ac-${p}${k}`, t + j * 0.05, 0.35, { x: -10 }, { x: 0 }));
+const G = "#83C167", GF = "rgba(131,193,103,.14)", R = "#FC6255", RF = "rgba(252,98,85,.12)";
+// L0 post signature + calldata
+IN("#ac-panel", at(0, 0.0), 0.5, { y: 20 }, { y: 0 });
+IN("#ac-tP", at(0, 0.05), 0.4);
+SHOW("p", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], at(0, 0.1));
+IN("#ac-hl", at(0, 0.3), 0.3);
+HL(1, at(0, 0.3), 2);
+IN("#ac-cd", at(0, 0.5), 0.5, { x: -15 }, { x: 0 });
+IN("#ac-arrl", at(0, 0.72), 0.4);
+IN("#ac-m0", at(0, 0.75), 0.4, { y: 15 }, { y: 0 });
+IN("#ac-m1", at(0, 0.82), 0.4, { y: 15 }, { y: 0 });
+// L1 post body
+HL(3, at(1, 0.0), 2);
+IN("#ac-big", at(1, 0.02), 0.4, { x: -20 }, { x: 0 });
+IN("#ac-wall", at(1, 0.06), 0.3);
+tl.to("#ac-big", { x: 120, duration: 0.6, ease: "power2.in" }, at(1, 0.08));
+tl.to("#ac-bigr", { stroke: R, duration: 0.2 }, at(1, 0.08) + 0.6);
+IN("#ac-rev", at(1, 0.08) + 0.6, 0.3, { scale: 0.6, svgOrigin: "516 430" }, { scale: 1, svgOrigin: "516 430" });
+tl.to("#ac-big", { x: 0, duration: 0.5, ease: "power2.out" }, at(1, 0.08) + 0.8);
+OUT("#ac-big, #ac-wall, #ac-rev", at(1, 0.28), 0.35);
+HL(5, at(1, 0.33), 1);
+IN("#ac-len", at(1, 0.33) + 0.4, 0.4);
+tl.to("#ac-m0 rect, #ac-m1r", { stroke: "#9adff0", duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.4));
+HL(6, at(1, 0.5), 4);
+IN("#ac-m2", at(1, 0.52), 0.6, { y: -60 }, { y: 0, ease: "back.out(1.6)" });
+HL(10, at(1, 0.72), 1);
+IN("#ac-pc", at(1, 0.73), 0.4);
+HL(11, at(1, 0.86), 1);
+IN("#ac-horn", at(1, 0.87), 0.4, { scale: 0.6, svgOrigin: "136 840" }, { scale: 1, svgOrigin: "136 840" });
+// L2 like checks
+OUT("#ac-P, #ac-tP, #ac-cd, #ac-len, #ac-pc, #ac-horn", at(2, 0.0), 0.3);
+IN("#ac-tK", at(2, 0.05), 0.3);
+SHOW("k", [1, 2, 3, 4, 5, 6, 7, 8], at(2, 0.06));
+HL(2, at(2, 0.1), 1);
+tl.to("#ac-m1r", { stroke: "#9adff0", strokeWidth: 5, duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.2));
+IN("#ac-grid", at(2, 0.32), 0.4);
+HL(3, at(2, 0.38), 1);
+tl.to("#ac-gq", { stroke: "#FF9F43", duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.5));
+HL(4, at(2, 0.68), 1);
+IN("#ac-gc", at(2, 0.72), 0.3);
+IN("#ac-gt", at(2, 0.74), 0.3, { scale: 0.5, svgOrigin: "385 408" }, { scale: 1, svgOrigin: "385 408" });
+// L3 storage pointer vs memory copy
+OUT("#ac-grid", at(3, 0.0), 0.3);
+HL(5, at(3, 0.04), 2, G, GF);
+IN("#ac-stl", at(3, 0.1), 0.4);
+ARROW("#ac-sta", at(3, 0.14), 0.5);
+tl.to("#ac-m1r", { stroke: G, duration: 0.3 }, at(3, 0.2));
+tl.to("#ac-m1h", { scale: 1.35, svgOrigin: "316 655", duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.3));
+COUNT("#ac-m1n", 3, 4, at(3, 0.32), 0.5);
+OUT("#ac-stl, #ac-sta", at(3, 0.52), 0.3);
+OUT("#ac-k5", at(3, 0.55), 0.25);
+IN("#ac-k5b", at(3, 0.55) + 0.25, 0.3);
+HL(5, at(3, 0.56), 2, R, RF);
+tl.to("#ac-m1r", { stroke: "#58C4DD", duration: 0.3 }, at(3, 0.56));
+COUNT("#ac-m1n", 4, 3, at(3, 0.56), 0.2);
+IN("#ac-cp", at(3, 0.62), 0.3);
+tl.fromTo("#ac-cpo", { y: 0 }, { y: 160, duration: 0.7, ease: "power2.out" }, at(3, 0.62));
+IN("#ac-cpl", at(3, 0.68), 0.3);
+COUNT("#ac-cpn", 3, 4, at(3, 0.75), 0.4);
+IN("#ac-nup", at(3, 0.82), 0.4);
+tl.to("#ac-m1r", { stroke: R, duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.84));
+// L4 hide
+OUT("#ac-K, #ac-tK, #ac-cp, #ac-cpl, #ac-nup", at(4, 0.0), 0.3);
+IN("#ac-tH", at(4, 0.05), 0.3);
+SHOW("h", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], at(4, 0.05));
+HL(2, at(4, 0.08), 1);
+IN("#ac-own", at(4, 0.1), 0.4, { x: -15 }, { x: 0 });
+IN("#ac-usr", at(4, 0.14), 0.4, { x: -15 }, { x: 0 });
+IN("#ac-ga, #ac-gb", at(4, 0.16), 0.3);
+tl.to("#ac-ga", { stroke: G, duration: 0.3 }, at(4, 0.28));
+IN("#ac-ok", at(4, 0.3), 0.3);
+tl.to("#ac-gb", { stroke: R, duration: 0.3 }, at(4, 0.4));
+IN("#ac-no", at(4, 0.42), 0.3, { x: -10 }, { x: 0 });
+HL(4, at(4, 0.6), 1);
+tl.to("#ac-m2r", { stroke: "#6b6f7a", fill: "#14171d", duration: 0.4 }, at(4, 0.62));
+tl.to("#ac-m2t, #ac-m2h, #ac-m2n", { opacity: 0.4, duration: 0.4 }, at(4, 0.62));
+IN("#ac-hid", at(4, 0.66), 0.4);
+tl.to("#ac-arr rect", { strokeWidth: 4.5, duration: 0.25, yoyo: true, repeat: 1 }, at(4, 0.85));
+// L5 getMessage view
+OUT("#ac-gate", at(5, 0.0), 0.3);
+HL(7, at(5, 0.03), 4);
+IN("#ac-vc", at(5, 0.1), 0.3);
+tl.fromTo("#ac-vco", { y: 0 }, { y: -180, duration: 0.8, ease: "power2.out" }, at(5, 0.12));
+IN("#ac-vm", at(5, 0.22), 0.4);
+IN("#ac-fe", at(5, 0.3), 0.4);
+ARROW("#ac-va", at(5, 0.34), 0.4);
+IN("#ac-vf", at(5, 0.4), 0.4);
+IN("#ac-idx", at(5, 0.66), 0.4);
+IN("#ac-tot", at(5, 0.84), 0.4);
+// L6 no getAll
+OUT("#ac-code, #ac-arr, #ac-view, #ac-hid", at(6, 0.0), 0.35);
+IN("#ac-gbx", at(6, 0.06), 0.4);
+tl.to(".ac-s", { opacity: 1, duration: 0.25, stagger: 0.17 }, at(6, 0.12));
+IN("#ac-gasl", at(6, 0.14), 0.3);
+IN("#ac-gas", at(6, 0.14), 0.2);
+tl.fromTo("#ac-gas", { attr: { width: 60 }, fill: "#FF9F43" }, { attr: { width: 1232 }, fill: R, duration: 2.6, ease: "none", immediateRender: false }, at(6, 0.14));
+tl.to("#ac-gbx", { opacity: 0.35, duration: 0.3 }, at(6, 0.5));
+IN("#ac-gx", at(6, 0.5), 0.3, { scale: 0.5, svgOrigin: "1228 290" }, { scale: 1, svgOrigin: "1228 290" });
+IN("#ac-alt1", at(6, 0.64), 0.4, { y: 15 }, { y: 0 });
+IN("#ac-alt2", at(6, 0.8), 0.4, { y: 15 }, { y: 0 });
+      /*ENDANIM*/
+
+      tl.to("#ac-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["actions"] = tl;
+    })();
+  </script>
+</template>

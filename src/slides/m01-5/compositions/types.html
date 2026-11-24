@@ -1,0 +1,204 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 types，id 前缀 ty- -->
+  <div id="root" data-composition-id="types" data-duration="64.92" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ty-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ty-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="ty-arrW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="ty-all">
+        <!-- 三张卡框 -->
+        <g id="ty-k0" class="h">
+          <rect x="120" y="260" width="540" height="640" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="150" y="322" font-size="40" font-weight="700" fill="#58C4DD">全节点 <tspan font-size="28" font-weight="400" fill="#8a8f99">Full</tspan></text>
+        </g>
+        <g id="ty-k1" class="h">
+          <rect x="690" y="260" width="540" height="640" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="720" y="322" font-size="40" font-weight="700" fill="#58C4DD">归档节点 <tspan font-size="28" font-weight="400" fill="#8a8f99">Archive</tspan></text>
+          <rect x="1150" y="290" width="44" height="12" rx="3" fill="#58C4DD" opacity="0.5" />
+          <rect x="1150" y="306" width="44" height="12" rx="3" fill="#58C4DD" opacity="0.75" />
+          <rect x="1150" y="322" width="44" height="12" rx="3" fill="#58C4DD" />
+        </g>
+        <g id="ty-k2" class="h">
+          <rect x="1260" y="260" width="540" height="640" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="12 9" />
+          <text x="1290" y="322" font-size="40" font-weight="700" fill="#8a8f99">轻节点 <tspan font-size="28" font-weight="400" fill="#8a8f99">Light</tspan></text>
+        </g>
+        <!-- 全节点：链 + 最近状态 -->
+        <g id="ty-fch" class="h">
+          <rect x="150" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="208" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="266" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="324" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="382" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="440" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="498" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="556" y="360" width="46" height="40" rx="6" fill="#58C4DD" />
+          <rect x="150" y="412" width="46" height="28" rx="4" fill="none" stroke="#6b6f7a" stroke-width="1.5" stroke-dasharray="5 4" />
+        </g>
+        <g id="ty-fst" class="h">
+          <rect x="498" y="412" width="46" height="28" rx="4" fill="#58C4DD" opacity="0.55" /><rect x="556" y="412" width="46" height="28" rx="4" fill="#58C4DD" opacity="0.55" />
+          <text x="602" y="480" font-size="28" fill="#8a8f99" text-anchor="end">最近 128 块 · 示例</text>
+        </g>
+        <text id="ty-f1" class="h" x="150" y="580" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan> 最新余额</text>
+        <text id="ty-f2" class="h" x="150" y="626" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan> 最新合约状态</text>
+        <text id="ty-f3" class="h" x="150" y="672" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan> 交易与回执</text>
+        <text id="ty-fx" class="h" x="150" y="750" font-size="30" fill="#e8e6df"><tspan fill="#FC6255">✕</tspan> 很久以前的余额</text>
+        <text id="ty-fr" class="h" x="150" y="860" font-size="28" fill="#8a8f99">2 TB 以上 NVMe SSD</text>
+        <!-- 全节点：查询很早的区块 -->
+        <path id="ty-q0" class="dr h" pathLength="1" d="M173 522 L173 450" fill="none" stroke="#FF9F43" stroke-width="3.5" marker-end="url(#ty-arrO)" />
+        <text id="ty-q0l" class="h" x="196" y="522" font-size="28" fill="#FF9F43">很久以前的区块</text>
+        <text id="ty-err" class="h mono" x="196" y="522" font-size="28" font-weight="700" fill="#FC6255">missing trie node</text>
+        <!-- 归档节点 -->
+        <g id="ty-ach" class="h">
+          <rect x="720" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="778" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="836" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="894" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="952" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="1010" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="1068" y="360" width="46" height="40" rx="6" fill="#58C4DD" /><rect x="1126" y="360" width="46" height="40" rx="6" fill="#58C4DD" />
+        </g>
+        <g id="ty-ast" class="h">
+          <rect x="720" y="412" width="46" height="28" rx="4" fill="#58C4DD" opacity="0.55" /><rect x="778" y="412" width="46" height="28" rx="4" fill="#58C4DD" opacity="0.55" /><rect x="836" y="412" width="46" height="28" rx="4" fill="#58C4DD" opacity="0.55" /><rect x="894" y="412" width="46" height="28" rx="4" fill="#58C4DD" opacity="0.55" /><rect x="952" y="412" width="46" height="28" rx="4" fill="#58C4DD" opacity="0.55" /><rect x="1010" y="412" width="46" height="28" rx="4" fill="#58C4DD" opacity="0.55" /><rect x="1068" y="412" width="46" height="28" rx="4" fill="#58C4DD" opacity="0.55" /><rect x="1126" y="412" width="46" height="28" rx="4" fill="#58C4DD" opacity="0.55" />
+        </g>
+        <path id="ty-q1" class="dr h" pathLength="1" d="M743 522 L743 450" fill="none" stroke="#FF9F43" stroke-width="3.5" marker-end="url(#ty-arrO)" />
+        <text id="ty-hit" class="h" x="766" y="522" font-size="28" font-weight="700" fill="#83C167">命中 ✓</text>
+        <text id="ty-a1" class="h" x="720" y="580" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan> 任意高度的余额</text>
+        <text id="ty-a2" class="h" x="720" y="626" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan> 任意高度的只读调用</text>
+        <text id="ty-ae" class="h" x="720" y="750" font-size="28" fill="#FF9F43">例：2018 年的余额 → 归档节点</text>
+        <text id="ty-ar" class="h" x="720" y="860" font-size="28" fill="#8a8f99">磁盘：数倍于全节点</text>
+        <!-- 轻节点 -->
+        <g id="ty-lch" class="h">
+          <rect x="1290" y="374" width="46" height="12" rx="3" fill="#8a8f99" /><rect x="1348" y="374" width="46" height="12" rx="3" fill="#8a8f99" /><rect x="1406" y="374" width="46" height="12" rx="3" fill="#8a8f99" /><rect x="1464" y="374" width="46" height="12" rx="3" fill="#8a8f99" /><rect x="1522" y="374" width="46" height="12" rx="3" fill="#8a8f99" /><rect x="1580" y="374" width="46" height="12" rx="3" fill="#8a8f99" />
+        </g>
+        <text id="ty-lchl" class="h" x="1290" y="440" font-size="28" fill="#8a8f99">只存区块头</text>
+        <g id="ty-shm">
+          <g id="ty-sh" class="h">
+            <path d="M1720 340 L1760 354 V392 Q1760 420 1720 436 Q1680 420 1680 392 V354 Z" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <path d="M1704 388 L1716 402 L1738 374" fill="none" stroke="#83C167" stroke-width="4" />
+          </g>
+        </g>
+        <text id="ty-shl" class="h" x="1720" y="480" font-size="28" fill="#83C167" text-anchor="middle">证明</text>
+        <text id="ty-l1" class="h" x="1290" y="580" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan> 用证明验证余额</text>
+        <g id="ty-dev" class="h">
+          <rect x="1290" y="606" width="90" height="62" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <line x1="1290" y1="622" x2="1380" y2="622" stroke="#8a8f99" stroke-width="2.5" />
+          <rect x="1398" y="600" width="40" height="70" rx="7" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="1458" y="648" font-size="28" fill="#e8e6df">浏览器 · 手机</text>
+        </g>
+        <text id="ty-lx1" class="h" x="1290" y="750" font-size="30" fill="#e8e6df"><tspan fill="#FC6255">✕</tspan> 大批量查询</text>
+        <text id="ty-lx2" class="h" x="1290" y="796" font-size="30" fill="#e8e6df"><tspan fill="#FC6255">✕</tspan> 依赖别的全节点</text>
+        <text id="ty-lr" class="h" x="1290" y="860" font-size="28" fill="#8a8f99">例如 Helios</text>
+        <path id="ty-dep" class="dr h" pathLength="1" d="M1530 900 V940 H390 V912" fill="none" stroke="#8a8f99" stroke-width="2.5" marker-end="url(#ty-arrW)" />
+        <!-- L6 图书馆隐喻小图 -->
+        <g id="ty-i0" class="h">
+          <rect x="366" y="198" width="48" height="50" rx="4" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <line x1="378" y1="212" x2="402" y2="212" stroke="#58C4DD" stroke-width="2.5" /><line x1="378" y1="224" x2="402" y2="224" stroke="#58C4DD" stroke-width="2.5" /><line x1="378" y1="236" x2="396" y2="236" stroke="#58C4DD" stroke-width="2.5" />
+        </g>
+        <g id="ty-i1" class="h" fill="#58C4DD">
+          <rect x="906" y="200" width="14" height="48" opacity="0.5" /><rect x="924" y="200" width="14" height="48" opacity="0.65" /><rect x="942" y="200" width="14" height="48" opacity="0.8" /><rect x="960" y="200" width="14" height="48" /><rect x="978" y="200" width="14" height="48" opacity="0.8" /><rect x="996" y="200" width="14" height="48" opacity="0.65" />
+          <rect x="900" y="248" width="116" height="4" />
+        </g>
+        <g id="ty-i2" class="h">
+          <rect x="1496" y="206" width="68" height="44" rx="4" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="6 4" />
+          <line x1="1508" y1="222" x2="1552" y2="222" stroke="#8a8f99" stroke-width="2.5" /><line x1="1508" y1="234" x2="1540" y2="234" stroke="#8a8f99" stroke-width="2.5" />
+        </g>
+        <text id="ty-s0" class="h" x="390" y="975" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">查最新 → <tspan fill="#58C4DD">全节点</tspan></text>
+        <text id="ty-s1" class="h" x="960" y="975" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">查历史 → <tspan fill="#58C4DD">归档节点</tspan></text>
+        <text id="ty-s2" class="h" x="1530" y="975" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">自己验证 → <tspan fill="#8a8f99">轻节点</tspan></text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ty-term" class="h">
+        <rect x="70" y="56" width="540" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">全节点 <tspan font-size="28" font-weight="400" fill="#8a8f99">Full Node</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">保存全部区块，只留最近状态</text>
+      </g>
+      <g id="ty-term2" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">归档节点 <tspan font-size="28" font-weight="400" fill="#8a8f99">Archive Node</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">保存每个历史区块的完整状态</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 三张卡标题
+IN("#ty-k0", at(0, 0.15), 0.6, { y: 24 }, { y: 0 });
+IN("#ty-k1", at(0, 0.3), 0.6, { y: 24 }, { y: 0 });
+IN("#ty-k2", at(0, 0.45), 0.6, { y: 24 }, { y: 0 });
+// L1 全节点
+IN("#ty-term", at(1, 0.0), 0.5);
+IN("#ty-fch", at(1, 0.05), 0.6, { x: -16 }, { x: 0 });
+IN("#ty-fst", at(1, 0.2), 0.6, { y: 10 }, { y: 0 });
+OUT("#ty-term", at(1, 0.48), 0.4);
+IN("#ty-f1", at(1, 0.48), 0.4, { x: -10 }, { x: 0 });
+IN("#ty-f2", at(1, 0.56), 0.4, { x: -10 }, { x: 0 });
+IN("#ty-f3", at(1, 0.64), 0.4, { x: -10 }, { x: 0 });
+IN("#ty-fr", at(1, 0.8), 0.5);
+// L2 查很早的区块 → missing trie node
+ARROW("#ty-q0", at(2, 0.05), 0.6);
+IN("#ty-q0l", at(2, 0.08), 0.4);
+tl.to("#ty-q0", { stroke: "#FC6255", duration: 0.2 }, at(2, 0.4));
+OUT("#ty-q0l", at(2, 0.38), 0.25);
+IN("#ty-err", at(2, 0.44), 0.4, { scale: 1.2, svgOrigin: "339 512" }, { scale: 1, svgOrigin: "339 512" });
+IN("#ty-fx", at(2, 0.7), 0.5, { x: -10 }, { x: 0 });
+// L3 改道到归档节点
+OUT("#ty-q0, #ty-err", at(3, 0), 0.4);
+IN("#ty-ach", at(3, 0.03), 0.5, { x: -16 }, { x: 0 });
+IN("#ty-ast", at(3, 0.1), 0.5, { y: 10 }, { y: 0 });
+ARROW("#ty-q1", at(3, 0.16), 0.5);
+IN("#ty-hit", at(3, 0.22), 0.4);
+IN("#ty-term2", at(3, 0.25), 0.5);
+IN("#ty-a1", at(3, 0.5), 0.4, { x: -10 }, { x: 0 });
+IN("#ty-a2", at(3, 0.62), 0.4, { x: -10 }, { x: 0 });
+IN("#ty-ar", at(3, 0.84), 0.5);
+OUT("#ty-term2", at(3, 0.88), 0.4);
+IN("#ty-ae", at(3, 0.9), 0.5);
+// L4 轻节点
+IN("#ty-lch", at(4, 0.0), 0.5, { x: -16 }, { x: 0 });
+IN("#ty-lchl", at(4, 0.08), 0.4);
+IN("#ty-sh", at(4, 0.28), 0.2);
+tl.fromTo("#ty-shm", { x: 200 }, { x: 0, duration: 0.8, ease: "power3.out", immediateRender: false }, at(4, 0.28));
+IN("#ty-shl", at(4, 0.42), 0.4);
+IN("#ty-l1", at(4, 0.52), 0.4, { x: -10 }, { x: 0 });
+IN("#ty-dev", at(4, 0.72), 0.5, { y: 10 }, { y: 0 });
+IN("#ty-lr", at(4, 0.85), 0.5);
+// L5 轻节点的局限
+IN("#ty-lx2", at(5, 0.08), 0.4, { x: -10 }, { x: 0 });
+ARROW("#ty-dep", at(5, 0.25), 0.9);
+IN("#ty-lx1", at(5, 0.55), 0.4, { x: -10 }, { x: 0 });
+// L6 总结
+OUT("#ty-dep", at(6, 0), 0.4);
+IN("#ty-i0", at(6, 0.05), 0.5, { y: 12 }, { y: 0 });
+IN("#ty-i1", at(6, 0.1), 0.5, { y: 12 }, { y: 0 });
+IN("#ty-i2", at(6, 0.15), 0.5, { y: 12 }, { y: 0 });
+IN("#ty-s0", at(6, 0.2), 0.5, { y: 12 }, { y: 0 });
+tl.to("#ty-k0 rect", { strokeWidth: 5, duration: 0.3 }, at(6, 0.2));
+IN("#ty-s1", at(6, 0.45), 0.5, { y: 12 }, { y: 0 });
+tl.to("#ty-k1 rect", { strokeWidth: 5, duration: 0.3 }, at(6, 0.45));
+IN("#ty-s2", at(6, 0.72), 0.5, { y: 12 }, { y: 0 });
+tl.to("#ty-k2 > rect:first-child", { strokeWidth: 5, duration: 0.3 }, at(6, 0.72));
+      /*ENDANIM*/
+
+      tl.to("#ty-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ty-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["types"] = tl;
+    })();
+  </script>
+</template>

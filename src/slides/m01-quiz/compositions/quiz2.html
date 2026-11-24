@@ -1,0 +1,279 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz2，id 前缀 q2- -->
+  <div id="root" data-composition-id="quiz2" data-duration="54.35" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="q2-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="q2-all">
+        <!-- 题号徽章 x70–260 y70–130 -->
+        <g id="q2-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 2 题</text>
+        </g>
+        <!-- 题干 y 200–330，40px，两行打字机揭开（宽度 ≤ 1400） -->
+        <clipPath id="q2-qclip"><rect id="q2-qcr" x="60" y="200" width="0" height="64" /></clipPath>
+        <clipPath id="q2-qclip2"><rect id="q2-qcr2" x="60" y="264" width="0" height="64" /></clipPath>
+        <text id="q2-q" class="h" x="70" y="250" font-size="40" fill="#e8e6df" clip-path="url(#q2-qclip)">交易所同时支持以太坊和一条 Tendermint 链的<tspan fill="#FF9F43">大额</tspan>充值。</text>
+        <text id="q2-q2" class="h" x="70" y="310" font-size="40" fill="#e8e6df" clip-path="url(#q2-qclip2)">哪种<tspan fill="#FF9F43">确认策略</tspan>合理？</text>
+        <!-- 暂停图标 + 倒数圆环 x 1500–1850 y 150–300 -->
+        <g id="q2-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="q2-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <g id="q2-oA" class="h">
+          <rect id="q2-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q2-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q2-oA-dim">
+            <circle id="q2-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q2-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="q2-oA-t" x="190" y="449" font-size="32" fill="#e8e6df">两条链都等 6 个确认</text>
+          </g>
+          <text id="q2-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255">忽略了链之间的共识差异</text>
+        </g>
+        <g id="q2-oB" class="h">
+          <rect id="q2-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q2-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q2-oB-dim">
+            <circle id="q2-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q2-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="q2-oB-t" x="190" y="563" font-size="32" fill="#e8e6df"><tspan x="190">以太坊等 finalized（约 2 个 epoch）；</tspan><tspan x="190" dy="44">Tendermint 链提交即最终，1 个块即可</tspan></text>
+          </g>
+        </g>
+        <g id="q2-oC" class="h">
+          <rect id="q2-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q2-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q2-oC-dim">
+            <circle id="q2-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q2-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="q2-oC-t" x="190" y="719" font-size="32" fill="#e8e6df">以太坊用 latest 即可，Tendermint 链要等 100 个块</text>
+          </g>
+          <text id="q2-oC-n" class="h" x="190" y="747" font-size="28" fill="#FC6255">正好说反了</text>
+        </g>
+        <g id="q2-oD" class="h">
+          <rect id="q2-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q2-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q2-oD-dim">
+            <circle id="q2-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q2-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="q2-oD-t" x="190" y="854" font-size="32" fill="#e8e6df">两条链都只要交易被节点接收就入账</text>
+          </g>
+          <text id="q2-oD-n" class="h" x="190" y="882" font-size="28" fill="#FC6255">节点接收 ≠ 上链，只是进了交易池</text>
+        </g>
+        <!-- 右侧示意区 x 1160–1850 y 380–900：上 以太坊（finalized / latest），下 Tendermint（投票 + 绿章） -->
+        <g id="q2-eth" class="h">
+          <text x="1180" y="412" font-size="28" fill="#e8e6df">以太坊</text>
+          <rect x="1180" y="440" width="80" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect x="1284" y="440" width="80" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect x="1388" y="440" width="80" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect x="1492" y="440" width="80" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1260" y1="472" x2="1284" y2="472" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1364" y1="472" x2="1388" y2="472" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1468" y1="472" x2="1492" y2="472" stroke="#58C4DD" stroke-width="3" />
+        </g>
+        <g id="q2-ltw">
+          <g id="q2-lt" class="h">
+            <line x1="1572" y1="472" x2="1596" y2="472" stroke="#58C4DD" stroke-width="3" />
+            <rect x="1596" y="440" width="80" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <line x1="1676" y1="472" x2="1700" y2="472" stroke="#58C4DD" stroke-width="3" />
+            <rect x="1700" y="440" width="80" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          </g>
+          <g id="q2-lt2" class="h">
+            <rect x="1596" y="440" width="80" height="64" rx="10" fill="#2a1f14" stroke="#FF9F43" stroke-width="3" />
+            <line x1="1676" y1="472" x2="1700" y2="472" stroke="#FF9F43" stroke-width="3" />
+            <rect x="1700" y="440" width="80" height="64" rx="10" fill="#2a1f14" stroke="#FF9F43" stroke-width="3" />
+          </g>
+        </g>
+        <rect id="q2-fin" class="h" x="1168" y="428" width="414" height="88" rx="14" fill="none" stroke="#83C167" stroke-width="3" />
+        <rect id="q2-lat" class="h" x="1588" y="428" width="202" height="88" rx="14" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="10 8" />
+        <text id="q2-finl" class="h mono" x="1376" y="556" font-size="28" fill="#83C167" text-anchor="middle">finalized</text>
+        <text id="q2-latl" class="h mono" x="1688" y="556" font-size="28" fill="#FF9F43" text-anchor="middle">latest</text>
+        <text id="q2-reorg" class="h" x="1790" y="412" font-size="28" fill="#FF9F43" text-anchor="end">可能重组</text>
+        <g id="q2-tmw">
+          <g id="q2-tm" class="h">
+            <text x="1180" y="632" font-size="28" fill="#e8e6df">Tendermint</text>
+            <rect x="1180" y="660" width="80" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect x="1284" y="660" width="80" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect x="1388" y="660" width="80" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1260" y1="692" x2="1284" y2="692" stroke="#58C4DD" stroke-width="3" />
+          <line x1="1364" y1="692" x2="1388" y2="692" stroke="#58C4DD" stroke-width="3" />
+          <path d="M1206 692 l10 11 l20 -22" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M1310 692 l10 11 l20 -22" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M1414 692 l10 11 l20 -22" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="1190" cy="744" r="5" fill="#83C167" />
+          <circle cx="1210" cy="744" r="5" fill="#83C167" />
+          <circle cx="1230" cy="744" r="5" fill="#83C167" />
+          <circle cx="1250" cy="744" r="5" fill="#83C167" />
+          <circle cx="1190" cy="762" r="5" fill="#83C167" />
+          <circle cx="1210" cy="762" r="5" fill="#83C167" />
+          <circle cx="1230" cy="762" r="5" fill="#83C167" />
+          <circle cx="1250" cy="762" r="5" fill="#83C167" />
+          <circle cx="1294" cy="744" r="5" fill="#83C167" />
+          <circle cx="1314" cy="744" r="5" fill="#83C167" />
+          <circle cx="1334" cy="744" r="5" fill="#83C167" />
+          <circle cx="1354" cy="744" r="5" fill="#83C167" />
+          <circle cx="1294" cy="762" r="5" fill="#83C167" />
+          <circle cx="1314" cy="762" r="5" fill="#83C167" />
+          <circle cx="1334" cy="762" r="5" fill="#83C167" />
+          <circle cx="1354" cy="762" r="5" fill="#83C167" />
+          <circle cx="1398" cy="744" r="5" fill="#83C167" />
+          <circle cx="1418" cy="744" r="5" fill="#83C167" />
+          <circle cx="1438" cy="744" r="5" fill="#83C167" />
+          <circle cx="1458" cy="744" r="5" fill="#83C167" />
+          <circle cx="1398" cy="762" r="5" fill="#83C167" />
+          <circle cx="1418" cy="762" r="5" fill="#83C167" />
+          <circle cx="1438" cy="762" r="5" fill="#83C167" />
+          <circle cx="1458" cy="762" r="5" fill="#83C167" />
+          </g>
+          <line id="q2-nlk" class="h" x1="1468" y1="692" x2="1492" y2="692" stroke="#58C4DD" stroke-width="3" />
+          <g id="q2-nv">
+            <circle class="h" id="q2-v-00" cx="1502" cy="744" r="5" fill="#83C167" />
+          <circle class="h" id="q2-v-01" cx="1522" cy="744" r="5" fill="#83C167" />
+          <circle class="h" id="q2-v-02" cx="1542" cy="744" r="5" fill="#83C167" />
+          <circle class="h" id="q2-v-03" cx="1562" cy="744" r="5" fill="#83C167" />
+          <circle class="h" id="q2-v-10" cx="1502" cy="762" r="5" fill="#83C167" />
+          <circle class="h" id="q2-v-11" cx="1522" cy="762" r="5" fill="#83C167" />
+          <circle class="h" id="q2-v-12" cx="1542" cy="762" r="5" fill="#83C167" />
+          <circle class="h" id="q2-v-13" cx="1562" cy="762" r="5" fill="#83C167" />
+          </g>
+          <g id="q2-nb" class="h"><rect x="1492" y="660" width="80" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /></g>
+          <g id="q2-ns" class="h"><path d="M1518 692 l10 11 l20 -22" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+          <text id="q2-nsl" class="h" x="1532" y="810" font-size="28" fill="#83C167" text-anchor="middle">提交即最终</text>
+          <g id="q2-ft" class="h">
+            <line x1="1572" y1="692" x2="1596" y2="692" stroke="#8a8f99" stroke-width="3" stroke-dasharray="6 6" />
+            <rect x="1596" y="660" width="80" height="64" rx="10" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="8 7" />
+          </g>
+          <path id="q2-fx" class="h" d="M1622 678 L1650 706 M1650 678 L1622 706" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          <text id="q2-ftl" class="h" x="1622" y="810" font-size="28" fill="#8a8f99">停链，不分叉</text>
+          <text id="q2-pow" class="h" x="1180" y="878" font-size="28" fill="#FF9F43">小 PoW 链 6 个确认也可能不够</text>
+        </g>
+        <!-- A 卡旁的“6”被叉掉 -->
+        <text id="q2-six" class="h mono" x="1040" y="452" font-size="40" font-weight="700" fill="#8a8f99" text-anchor="middle">6</text>
+        <path id="q2-sixx" class="dr h" pathLength="1" d="M1016 410 L1064 462" fill="none" stroke="#8a8f99" stroke-width="5" stroke-linecap="round" />
+        <!-- L5 交易池 -->
+        <text id="q2-nol" class="h" x="1180" y="664" font-size="28" font-weight="700" fill="#FC6255">还没上链</text>
+        <g id="q2-mp" class="h">
+          <rect x="1180" y="686" width="460" height="164" rx="14" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" />
+          <text x="1200" y="728" font-size="28" fill="#8a8f99">交易池</text>
+          <rect x="1200" y="748" width="120" height="80" rx="10" fill="#0f1117" stroke="#3a3f4a" stroke-width="2.5" />
+          <rect x="1340" y="748" width="120" height="80" rx="10" fill="#0f1117" stroke="#3a3f4a" stroke-width="2.5" />
+          <rect x="1480" y="748" width="120" height="80" rx="10" fill="#0f1117" stroke="#3a3f4a" stroke-width="2.5" />
+        </g>
+        <g id="q2-tx" class="h">
+          <rect x="1200" y="748" width="120" height="80" rx="10" fill="#2a2414" stroke="#F0B90B" stroke-width="3" />
+          <text class="mono" x="1260" y="798" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">Tx</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // ===== 测验版式（照 EP009 quiz1/quiz2）=====
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      IN("#q2-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#q2-q", at(0, 0.05), 0.01);
+      tl.fromTo("#q2-qcr", { attr: { width: 0 } }, { attr: { width: 1400 }, duration: 2.4, ease: "none" }, at(0, 0.08));
+      IN("#q2-q2", at(0, 0.05), 0.01);
+      tl.fromTo("#q2-qcr2", { attr: { width: 0 } }, { attr: { width: 600 }, duration: 2.0, ease: "none" }, at(0, 0.08) + 2.4);
+      const SHOW = (k, t) => {
+        IN(`#q2-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#q2-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#q2-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      const PAUSE = () => {
+        IN("#q2-pause", at(2, 0.0), 0.3);
+        tl.fromTo("#q2-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+        OUT("#q2-pause", at(3, 0.0), 0.3);
+      };
+      const RIGHT = (k, t) => {
+        tl.to(`#q2-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#q2-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#q2-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#q2-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#q2-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q2-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q2-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#q2-o${k}-t`, { attr: { y: Y0[k] + 52 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#q2-o${k}-n`, t + 0.3, 0.5);
+      };
+      const POP = (s, t, ox, oy, d = 0.45) => IN(s, t, d, { scale: 0.6, svgOrigin: `${ox} ${oy}` }, { scale: 1, svgOrigin: `${ox} ${oy}`, ease: "back.out(2)" });
+      const PULSE = (s, t, color, back, w = 3) => {
+        tl.to(s, { stroke: color, strokeWidth: w + 2, duration: 0.25 }, t);
+        tl.to(s, { stroke: back, strokeWidth: w, duration: 0.5 }, t + 1.2);
+      };
+
+      // L0 示意区：两条链
+      IN("#q2-eth", at(0, 0.45), 0.6, { x: 20 }, { x: 0 });
+      IN("#q2-lt", at(0, 0.45), 0.6, { x: 20 }, { x: 0 });
+      IN("#q2-fin", at(0, 0.6), 0.5);
+      IN("#q2-finl", at(0, 0.6), 0.5);
+      IN("#q2-lat", at(0, 0.66), 0.5);
+      IN("#q2-latl", at(0, 0.66), 0.5);
+      IN("#q2-tm", at(0, 0.78), 0.6, { x: 20 }, { x: 0 });
+      // L1 选项 + 示意区随念到的词闪一下
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.11)); SHOW("C", at(1, 0.535)); SHOW("D", at(1, 0.843));
+      PULSE("#q2-fin", at(1, 0.165), "#e8e6df", "#83C167");
+      tl.to("#q2-tm", { opacity: 0.45, duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.339));
+      PULSE("#q2-lat", at(1, 0.591), "#e8e6df", "#FF9F43");
+      // L2 暂停
+      PAUSE();
+      // L3 揭晓 B：latest 两块被替换；finalized 不动；Tendermint 新块提交即最终；故障停链
+      RIGHT("B", at(3, 0.03));
+      tl.to("#q2-ltw", { x: 7, duration: 0.07, yoyo: true, repeat: 7, ease: "sine.inOut" }, at(3, 0.287));
+      IN("#q2-reorg", at(3, 0.287) + 0.2, 0.4);
+      OUT("#q2-lt", at(3, 0.287) + 0.65, 0.3);
+      IN("#q2-lt2", at(3, 0.287) + 0.85, 0.4, { y: -24 }, { y: 0 });
+      PULSE("#q2-fin", at(3, 0.438), "#83C167", "#83C167");
+      ARROW("#q2-nlk", at(3, 0.6), 0.3);
+      for (let r = 0; r < 2; r++) for (let j = 0; j < 4; j++) IN(`#q2-v-${r}${j}`, at(3, 0.6) + 0.1 + (r * 4 + j) * 0.06, 0.15);
+      POP("#q2-nb", at(3, 0.6) + 0.6, 1532, 692);
+      POP("#q2-ns", at(3, 0.6) + 0.9, 1532, 692);
+      IN("#q2-nsl", at(3, 0.6) + 1.0, 0.4);
+      IN("#q2-ft", at(3, 0.838), 0.4);
+      POP("#q2-fx", at(3, 0.838) + 0.3, 1636, 692);
+      IN("#q2-ftl", at(3, 0.838) + 0.5, 0.4);
+      // L4 A、C 错
+      WRONG("A", at(4, 0.02));
+      IN("#q2-six", at(4, 0.12), 0.3);
+      ARROW("#q2-sixx", at(4, 0.22), 0.3);
+      IN("#q2-pow", at(4, 0.35), 0.5);
+      WRONG("C", at(4, 0.68));
+      // L5 D 错：交易只进了交易池
+      WRONG("D", at(5, 0.02));
+      OUT("#q2-tmw, #q2-six, #q2-sixx", at(5, 0.02), 0.4);
+      IN("#q2-mp", at(5, 0.14), 0.5);
+      IN("#q2-tx", at(5, 0.24), 0.6, { x: 420 }, { x: 0 });
+      IN("#q2-nol", at(5, 0.45), 0.4, { y: 8 }, { y: 0 });
+      tl.to("#q2-nol", { opacity: 0.35, duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.7));
+
+      tl.to("#q2-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz2"] = tl;
+    })();
+  </script>
+</template>

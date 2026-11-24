@@ -1,0 +1,338 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tests，id 前缀 ts- -->
+  <div id="root" data-composition-id="tests" data-duration="71.8" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ts-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="ts-all">
+        <!-- L0–L2 测试金字塔（JS 生成 ts-p0…ts-p6，0 在最下） -->
+        <g id="ts-pyr"></g>
+
+        <!-- L1 anvil 小动画 -->
+        <g id="ts-anv">
+          <text id="ts-an0" class="h mono" x="960" y="290" font-size="32" font-weight="700" fill="#58C4DD">anvil</text>
+          <g id="ts-an1" class="h">
+            <rect x="1000" y="364" width="84" height="60" rx="8" fill="none" stroke="#e8e6df" stroke-width="3" />
+            <rect x="1022" y="352" width="30" height="14" rx="3" fill="#e8e6df" />
+            <circle cx="1042" cy="394" r="16" fill="none" stroke="#e8e6df" stroke-width="3" />
+            <text class="mono" x="1042" y="490" font-size="28" fill="#e8e6df" text-anchor="middle">snapshot</text>
+          </g>
+          <path id="ts-aa1" class="dr h" pathLength="1" d="M1100 394 L1222 394" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#ts-arr)" />
+          <g id="ts-an2" class="h">
+            <rect x="1240" y="354" width="100" height="80" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <circle cx="1290" cy="394" r="18" fill="#F0B90B" />
+            <text x="1290" y="490" font-size="28" fill="#e8e6df" text-anchor="middle">转账出块</text>
+          </g>
+          <path id="ts-aa2" class="dr h" pathLength="1" d="M1356 394 L1468 394" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#ts-arr)" />
+          <g id="ts-an3" class="h">
+            <path d="M1520 370 L1490 394 L1520 418 Z M1552 370 L1522 394 L1552 418 Z" fill="#e8e6df" />
+            <text class="mono" x="1522" y="490" font-size="28" fill="#e8e6df" text-anchor="middle">revert</text>
+          </g>
+          <g id="ts-an4" class="h">
+            <rect x="960" y="560" width="500" height="80" rx="10" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+            <text class="mono" x="990" y="611" font-size="30" fill="#F0B90B">100 USDT</text>
+          </g>
+          <text id="ts-an5" class="h mono" x="1210" y="611" font-size="30" fill="#FF9F43">pending</text>
+          <text id="ts-an6" class="h mono" x="1210" y="611" font-size="30" fill="#8a8f99">orphaned</text>
+        </g>
+
+        <!-- L2 四个故障 -->
+        <g id="ts-flt">
+          <g id="ts-f0" class="h">
+            <circle cx="1140" cy="390" r="54" fill="#FC6255" fill-opacity="0.1" stroke="#FC6255" stroke-width="3" />
+            <path d="M1116 366 L1164 414 M1164 366 L1116 414" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+            <text class="mono" x="1140" y="496" font-size="28" fill="#e8e6df" text-anchor="middle">kill -9</text>
+          </g>
+          <g id="ts-f1" class="h">
+            <circle cx="1580" cy="390" r="54" fill="#FF9F43" fill-opacity="0.1" stroke="#FF9F43" stroke-width="3" />
+            <circle cx="1580" cy="390" r="30" fill="none" stroke="#FF9F43" stroke-width="3" />
+            <path d="M1580 372 L1580 390 L1594 400" fill="none" stroke="#FF9F43" stroke-width="4" stroke-linecap="round" />
+            <text x="1580" y="496" font-size="28" fill="#e8e6df" text-anchor="middle">RPC 旧数据</text>
+          </g>
+          <g id="ts-f2" class="h">
+            <circle cx="1140" cy="640" r="54" fill="#FC6255" fill-opacity="0.1" stroke="#FC6255" stroke-width="3" />
+            <rect x="1104" y="624" width="72" height="32" rx="16" fill="none" stroke="#58C4DD" stroke-width="3" />
+            <path d="M1106 676 L1174 604" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+            <text x="1140" y="746" font-size="28" fill="#e8e6df" text-anchor="middle">Kafka 宕机 10 分钟</text>
+          </g>
+          <g id="ts-f3" class="h">
+            <circle cx="1580" cy="640" r="54" fill="#FF9F43" fill-opacity="0.1" stroke="#FF9F43" stroke-width="3" />
+            <path d="M1552 626 L1604 626 M1592 614 L1606 626 L1592 638 M1608 656 L1556 656 M1568 644 L1554 656 L1568 668" fill="none" stroke="#FF9F43" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="1580" y="746" font-size="28" fill="#e8e6df" text-anchor="middle">主从切换</text>
+          </g>
+        </g>
+
+        <!-- L3–L5 代码面板（x 820–1840，第 k 行基线 310 + 38(k-1)） -->
+        <g id="ts-panel" class="h">
+          <rect id="ts-pr" x="800" y="220" width="1060" height="400" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <line x1="800" y1="270" x2="1860" y2="270" stroke="#2a2f3a" stroke-width="2" />
+        </g>
+        <text id="ts-t1" class="h mono" x="830" y="256" font-size="28" fill="#58C4DD">fakeChain</text>
+        <text id="ts-t2" class="h mono" x="830" y="256" font-size="28" fill="#58C4DD">TestReorgAfterCredit</text>
+        <text id="ts-t3" class="h mono" x="830" y="256" font-size="28" fill="#58C4DD">TestReorgBeforeCredit</text>
+        <rect id="ts-hl" class="h" x="802" y="283" width="1056" height="40" fill="#58C4DD" fill-opacity="0.15" />
+        <rect id="ts-hlb" class="h" x="802" y="283" width="6" height="40" fill="#58C4DD" />
+        <g id="ts-c1" class="h" font-size="28" fill="#e8e6df">
+          <text class="mono" x="830" y="312">type fakeChain struct {</text>
+          <text class="mono" x="830" y="352">  headers []*types.Header             <tspan fill="#8a8f99">// index = height</tspan></text>
+          <text class="mono" x="830" y="392">  logs    map[common.Hash][]types.Log <tspan fill="#8a8f99">// by block hash</tspan></text>
+          <text class="mono" x="830" y="432">}</text>
+          <text class="mono" x="830" y="472">func (c *fakeChain) mine(fork string, dep bool)</text>
+          <text class="mono" x="830" y="512">func (c *fakeChain) reorg(depth int) {</text>
+          <text class="mono" x="830" y="552">  c.headers = c.headers[:len(c.headers)-depth]</text>
+          <text class="mono" x="830" y="592">}</text>
+        </g>
+        <text id="ts-n1" class="h" x="810" y="680" font-size="28" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">mine</tspan>：追加一块，<tspan class="mono">dep</tspan> = 这块里有 100 USDT 充值</text>
+        <text id="ts-n2" class="h" x="810" y="736" font-size="28" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">reorg</tspan>：砍掉最后 <tspan class="mono">depth</tspan> 块</text>
+        <g id="ts-c2" class="h" font-size="28" fill="#e8e6df">
+          <text class="mono" x="830" y="312">c.mine("a", false); c.mine("a", true); c.mine("a", false)</text>
+          <text class="mono" x="830" y="352">sc := newScanner(c, s, 1)</text>
+          <text class="mono" x="830" y="392">drain(t, sc)        <tspan fill="#8a8f99">// credited</tspan></text>
+          <text class="mono" x="830" y="432">c.reorg(2)          <tspan fill="#8a8f99">// cut heights 2, 3</tspan></text>
+          <text class="mono" x="830" y="472">c.mine("b", false); c.mine("b", false); c.mine("b", false)</text>
+          <text class="mono" x="830" y="512">drain(t, sc)        <tspan fill="#8a8f99">// want reverted</tspan></text>
+        </g>
+        <g id="ts-c3" class="h" font-size="28" fill="#e8e6df">
+          <text class="mono" x="830" y="312">c.mine("a", false); c.mine("a", false); c.mine("a", true)</text>
+          <text class="mono" x="830" y="352">sc := newScanner(c, s, 6)</text>
+          <text class="mono" x="830" y="392">drain(t, sc)        <tspan fill="#8a8f99">// pending</tspan></text>
+          <text class="mono" x="830" y="432">c.reorg(2)          <tspan fill="#8a8f99">// cut heights 2, 3</tspan></text>
+          <text class="mono" x="830" y="472">for i := 0; i &lt; 4; i++ { c.mine("b", false) }</text>
+          <text class="mono" x="830" y="512">drain(t, sc)        <tspan fill="#8a8f99">// want orphaned</tspan></text>
+        </g>
+
+        <!-- 左侧链条（JS 生成）：L3 ts-m*，L4 ts-a* / ts-b*，L5 ts-g* / ts-q* -->
+        <g id="ts-chains"></g>
+        <text id="ts-fa" class="h" x="560" y="346" font-size="28" fill="#8a8f99">分叉 a</text>
+        <text id="ts-fb" class="h" x="320" y="584" font-size="28" fill="#8a8f99">分叉 b</text>
+        <circle id="ts-coinA" class="h" cx="365" cy="280" r="14" fill="#F0B90B" />
+        <circle id="ts-coinB" class="h" cx="475" cy="280" r="14" fill="#F0B90B" />
+        <path id="ts-lnA" class="dr h" pathLength="1" d="M255 370 L355 470" fill="none" stroke="#8a8f99" stroke-width="3" />
+        <g id="ts-dep" class="h">
+          <rect x="100" y="620" width="460" height="80" rx="10" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <text class="mono" x="128" y="671" font-size="30" fill="#F0B90B">100 USDT</text>
+        </g>
+        <text id="ts-sP" class="h mono" x="340" y="671" font-size="30" fill="#FF9F43">pending</text>
+        <text id="ts-sC" class="h mono" x="340" y="671" font-size="30" fill="#83C167">credited</text>
+        <text id="ts-sR" class="h mono" x="340" y="671" font-size="30" fill="#FC6255">reverted</text>
+        <text id="ts-sO" class="h mono" x="340" y="671" font-size="30" fill="#8a8f99">orphaned</text>
+        <g id="ts-inc" class="h">
+          <path d="M118 730 L140 770 L96 770 Z" fill="none" stroke="#FC6255" stroke-width="3.5" stroke-linejoin="round" />
+          <path d="M118 744 L118 756" stroke="#FC6255" stroke-width="3.5" stroke-linecap="round" />
+          <text x="156" y="770" font-size="32" font-weight="700" fill="#FC6255">事故：入账后被回滚</text>
+        </g>
+        <g id="ts-safe" class="h">
+          <path d="M100 754 L114 768 L140 740" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="156" y="770" font-size="32" font-weight="700" fill="#83C167">无事故</text>
+        </g>
+
+        <!-- L6 重组实验：滑条 -->
+        <g id="ts-lab">
+          <g id="ts-sl" class="h">
+            <text x="160" y="472" font-size="32" fill="#58C4DD">确认数 N</text>
+            <line x1="460" y1="460" x2="1360" y2="460" stroke="#2a2f3a" stroke-width="8" stroke-linecap="round" />
+            <text x="160" y="612" font-size="32" fill="#FC6255">重组深度</text>
+            <line x1="460" y1="600" x2="1360" y2="600" stroke="#2a2f3a" stroke-width="8" stroke-linecap="round" />
+            <line x1="460" y1="600" x2="797" y2="600" stroke="#FC6255" stroke-width="8" stroke-linecap="round" />
+            <circle cx="797" cy="600" r="18" fill="#FC6255" />
+            <text class="mono" x="1410" y="612" font-size="32" fill="#FC6255">3</text>
+            <text x="1600" y="472" font-size="32" fill="#e8e6df">事故</text>
+          </g>
+          <line id="ts-nbar" class="h" x1="460" y1="460" x2="572" y2="460" stroke="#58C4DD" stroke-width="8" stroke-linecap="round" />
+          <circle id="ts-nk" class="h" cx="572" cy="460" r="18" fill="#58C4DD" />
+          <text id="ts-nv" class="h mono" x="1410" y="472" font-size="32" fill="#58C4DD">1</text>
+          <text id="ts-inc2" class="h mono" x="1600" y="620" font-size="96" font-weight="700" fill="#FC6255">0</text>
+          <text id="ts-law" class="h" x="960" y="820" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">N &gt; 重组深度 → 事故 = <tspan fill="#83C167">0</tspan></text>
+        </g>
+
+        <!-- L7 用例清单（JS 生成 ts-k0…ts-k11） -->
+        <g id="ts-list"></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const HL = (a, b, t, d = 0.4) => tl.to("#ts-hl, #ts-hlb", { attr: { y: 283 + 40 * (a - 1), height: 40 * (b - a + 1) }, opacity: 1, duration: d, ease: "power2.inOut" }, t);
+      const SWAP = (a, b, t) => { OUT(a, t, 0.25); IN(b, t + 0.28, 0.4); };
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, attrs, parent, txt) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (txt != null) e.textContent = txt; parent.appendChild(e); return e; };
+
+      // 金字塔：0 在最下
+      const LAY = [["单元", "表驱动 go test"], ["重组模拟", "fakeChain"], ["集成", "PostgreSQL 容器"], ["链上集成", "anvil"], ["压测", "每块 2,000 笔 · 100 万地址"], ["模糊", "fuzz"], ["故障注入", ""]];
+      const pyr = document.getElementById("ts-pyr");
+      LAY.forEach(([n, s], i) => {
+        const w = 800 - 60 * i, y = 832 - 96 * i, g = mk("g", { id: "ts-p" + i, class: "h" }, pyr);
+        mk("rect", { id: "ts-pr" + i, x: 470 - w / 2, y, width: w, height: 88, rx: 10, fill: "#161a22", stroke: i === 1 ? "#F0B90B" : "#2a2f3a", "stroke-width": i === 1 ? 3 : 2 }, g);
+        const t = mk("text", { id: "ts-pt" + i, x: 470, y: y + 55, "text-anchor": "middle", "font-size": 30, fill: "#8a8f99" }, g);
+        mk("tspan", { "font-weight": 700 }, t, n);
+        if (s) mk("tspan", { "font-size": 28, fill: "#6b6f7a", dx: 20 }, t, s);
+      });
+      const LIT = (i, t, col = "#58C4DD") => { tl.to(`#ts-pr${i}`, { stroke: col, fill: "#16242c", duration: 0.4 }, t); tl.to(`#ts-pt${i}`, { fill: "#e8e6df", duration: 0.4 }, t); };
+
+      // 链条块：w 90 h 70，间距 110，x0 100
+      const chains = document.getElementById("ts-chains");
+      const BLK = (id, i, y, stroke, dash, label) => {
+        const g = mk("g", { id, class: "h" }, chains), x = 100 + 110 * i;
+        mk("rect", { id: id + "r", x, y, width: 90, height: 70, rx: 8, fill: "#161a22", stroke, "stroke-width": 2.5, "stroke-dasharray": dash ? "8 6" : "none" }, g);
+        mk("text", { x: x + 45, y: y + 46, "text-anchor": "middle", "font-size": 28, fill: "#e8e6df", class: "mono" }, g, label);
+      };
+      for (let i = 0; i < 6; i++) BLK("ts-m" + i, i, 400, "#58C4DD", true, String(i < 4 ? i : i - 2));
+      for (let i = 0; i < 4; i++) BLK("ts-a" + i, i, 300, "#58C4DD", true, String(i));
+      for (let i = 2; i < 5; i++) BLK("ts-b" + i, i, 470, "#8a8f99", true, String(i));
+      for (let i = 0; i < 4; i++) BLK("ts-g" + i, i, 300, "#58C4DD", true, String(i));
+      for (let i = 2; i < 6; i++) BLK("ts-q" + i, i, 470, "#8a8f99", true, String(i));
+      // L3 演示：ts-m4/ts-m5 是新分叉的 2、3，摆在原位
+      ["ts-m4", "ts-m5"].forEach((id, k) => { document.getElementById(id + "r").setAttribute("x", 100 + 110 * (k + 2)); document.getElementById(id).querySelector("text").setAttribute("x", 145 + 110 * (k + 2)); });
+
+      // 用例清单
+      const CASES = ["USDT 100 → 12 块后 credited", "假 USDT 同签名事件 → 忽略", "0 金额 Transfer → 忽略", "回执 status = 0 → 忽略", "ERC-721 Transfer → 忽略", "同一块扫两次 → 1 条记录",
+        "入账前重组 → orphaned", "入账后重组 → reverted + 冲正", "同一交易进新块 → 只入账一次", "重组超过上限 → 停止推进", "Kafka 不可用 → 积压后全投递", "回调签名错或过期 → 拒绝"];
+      const NUM = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫", list = document.getElementById("ts-list");
+      CASES.forEach((c, i) => {
+        const x = i < 6 ? 120 : 1020, y = 236 + 110 * (i % 6), g = mk("g", { id: "ts-k" + i, class: "h" }, list);
+        mk("rect", { id: "ts-kr" + i, x, y, width: 780, height: 90, rx: 12, fill: "#161a22", stroke: "#2a2f3a", "stroke-width": 2 }, g);
+        const t = mk("text", { x: x + 30, y: y + 56, "font-size": 30, fill: "#e8e6df" }, g);
+        mk("tspan", { fill: "#58C4DD", "font-weight": 700 }, t, NUM[i]);
+        mk("tspan", { dx: 14 }, t, c);
+        mk("path", { id: "ts-kc" + i, class: "h", d: `M${x + 716} ${y + 45} L${x + 730} ${y + 59} L${x + 754} ${y + 31}`, fill: "none", stroke: "#83C167", "stroke-width": 5, "stroke-linecap": "round", "stroke-linejoin": "round" }, g);
+      });
+
+      // L0 七层逐层堆起
+      for (let i = 0; i < 7; i++) IN(`#ts-p${i}`, at(0, 0.06 + i * 0.1), 0.4, { y: -24 }, { y: 0 });
+
+      // L1 单元、集成、链上集成 + anvil
+      LIT(0, at(1, 0.03));
+      LIT(2, at(1, 0.22));
+      LIT(3, at(1, 0.42));
+      IN("#ts-an0", at(1, 0.44), 0.4);
+      IN("#ts-an4", at(1, 0.48), 0.4);
+      IN("#ts-an5", at(1, 0.5), 0.4);
+      IN("#ts-an1", at(1, 0.56), 0.4);
+      ARROW("#ts-aa1", at(1, 0.64), 0.4);
+      IN("#ts-an2", at(1, 0.68), 0.4, { y: -14 }, { y: 0 });
+      ARROW("#ts-aa2", at(1, 0.78), 0.4);
+      IN("#ts-an3", at(1, 0.82), 0.4);
+      tl.to("#ts-an2", { opacity: 0.25, duration: 0.4 }, at(1, 0.88));
+      SWAP("#ts-an5", "#ts-an6", at(1, 0.9));
+
+      // L2 模糊、压测、故障注入 + 四个故障
+      OUT("#ts-anv", at(2, 0), 0.4);
+      LIT(5, at(2, 0.04));
+      LIT(4, at(2, 0.14));
+      LIT(6, at(2, 0.24), "#FC6255");
+      ["#ts-f0", "#ts-f1", "#ts-f2", "#ts-f3"].forEach((s, k) => {
+        IN(s, at(2, 0.3 + k * 0.14), 0.3, { scale: 0.8, svgOrigin: k % 2 ? (k < 2 ? "1580 390" : "1580 640") : (k < 2 ? "1140 390" : "1140 640") }, { scale: 1 });
+      });
+
+      // L3 重组模拟：fakeChain
+      OUT("#ts-flt", at(3, 0), 0.4);
+      LIT(1, at(3, 0), "#F0B90B");
+      OUT("#ts-pyr", at(3, 0.12), 0.5);
+      IN("#ts-panel, #ts-t1", at(3, 0.16), 0.5);
+      IN("#ts-c1", at(3, 0.2), 0.5);
+      HL(5, 5, at(3, 0.3));
+      IN("#ts-n1", at(3, 0.32), 0.4);
+      for (let i = 0; i < 4; i++) IN(`#ts-m${i}`, at(3, 0.34 + i * 0.06), 0.3, { x: 20 }, { x: 0 });
+      HL(6, 8, at(3, 0.6));
+      IN("#ts-n2", at(3, 0.62), 0.4);
+      tl.to("#ts-m2r, #ts-m3r", { stroke: "#FC6255", duration: 0.2 }, at(3, 0.64));
+      OUT("#ts-m2, #ts-m3", at(3, 0.7), 0.3);
+      IN("#ts-m4", at(3, 0.8), 0.3, { x: 20 }, { x: 0 });
+      IN("#ts-m5", at(3, 0.86), 0.3, { x: 20 }, { x: 0 });
+
+      // L4 TestReorgAfterCredit
+      OUT("#ts-c1, #ts-t1, #ts-n1, #ts-n2, #ts-m0, #ts-m1, #ts-m4, #ts-m5", at(4, 0), 0.3);
+      tl.to("#ts-pr", { attr: { height: 320 }, duration: 0.4 }, at(4, 0.01));
+      IN("#ts-t2", at(4, 0.03), 0.4);
+      IN("#ts-c2", at(4, 0.04), 0.4);
+      HL(1, 1, at(4, 0.04));
+      for (let i = 0; i < 4; i++) IN(`#ts-a${i}`, at(4, 0.06 + i * 0.03), 0.3);
+      IN("#ts-coinA", at(4, 0.12), 0.3, { y: -12 }, { y: 0 });
+      IN("#ts-fa", at(4, 0.16), 0.3);
+      IN("#ts-dep", at(4, 0.16), 0.4);
+      HL(2, 2, at(4, 0.2));
+      IN("#ts-sP", at(4, 0.22), 0.3);
+      HL(3, 3, at(4, 0.3));
+      SWAP("#ts-sP", "#ts-sC", at(4, 0.32));
+      HL(4, 4, at(4, 0.44));
+      tl.to("#ts-a2r, #ts-a3r", { stroke: "#FC6255", duration: 0.2 }, at(4, 0.46));
+      tl.to("#ts-a2, #ts-a3, #ts-coinA", { opacity: 0.3, duration: 0.3 }, at(4, 0.52));
+      HL(5, 5, at(4, 0.58));
+      DRAW("#ts-lnA", at(4, 0.6), 0.3); IN("#ts-lnA", at(4, 0.6), 0.1);
+      for (let i = 2; i < 5; i++) IN(`#ts-b${i}`, at(4, 0.62 + (i - 2) * 0.04), 0.3, { x: 16 }, { x: 0 });
+      IN("#ts-fb", at(4, 0.72), 0.3);
+      HL(6, 6, at(4, 0.72));
+      SWAP("#ts-sC", "#ts-sR", at(4, 0.74));
+      IN("#ts-inc", at(4, 0.8), 0.4);
+
+      // L5 TestReorgBeforeCredit
+      OUT("#ts-c2, #ts-t2, #ts-a0, #ts-a1, #ts-a2, #ts-a3, #ts-coinA, #ts-b2, #ts-b3, #ts-b4, #ts-inc, #ts-sR, #ts-lnA", at(5, 0), 0.3);
+      IN("#ts-t3", at(5, 0.06), 0.3);
+      IN("#ts-c3", at(5, 0.06), 0.3);
+      HL(1, 2, at(5, 0.06));
+      for (let i = 0; i < 4; i++) IN(`#ts-g${i}`, at(5, 0.08 + i * 0.03), 0.25);
+      IN("#ts-coinB", at(5, 0.18), 0.3, { y: -12 }, { y: 0 });
+      HL(3, 3, at(5, 0.26));
+      IN("#ts-sP", at(5, 0.28), 0.3);
+      HL(4, 4, at(5, 0.4));
+      tl.to("#ts-g2r, #ts-g3r", { stroke: "#FC6255", duration: 0.2 }, at(5, 0.42));
+      tl.to("#ts-g2, #ts-g3, #ts-coinB", { opacity: 0.3, duration: 0.3 }, at(5, 0.48));
+      HL(5, 5, at(5, 0.54));
+      tl.fromTo("#ts-lnA", { opacity: 0, strokeDashoffset: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, at(5, 0.56));
+      for (let i = 2; i < 6; i++) IN(`#ts-q${i}`, at(5, 0.56 + (i - 2) * 0.03), 0.25, { x: 16 }, { x: 0 });
+      HL(6, 6, at(5, 0.7));
+      SWAP("#ts-sP", "#ts-sO", at(5, 0.72));
+      IN("#ts-safe", at(5, 0.84), 0.4);
+
+      // L6 滑条：N 小于深度 → 事故累加；N 拉大 → 0
+      OUT("#ts-panel, #ts-t3, #ts-c3, #ts-hl, #ts-hlb, #ts-chains, #ts-fa, #ts-fb, #ts-lnA, #ts-dep, #ts-sO, #ts-safe, #ts-coinB", at(6, 0), 0.4);
+      IN("#ts-sl", at(6, 0.06), 0.4);
+      IN("#ts-nbar, #ts-nk, #ts-nv", at(6, 0.08), 0.4);
+      IN("#ts-inc2", at(6, 0.1), 0.4);
+      const inc = document.getElementById("ts-inc2"), nv = document.getElementById("ts-nv");
+      const o = { v: 0 }, setInc = () => { inc.textContent = String(Math.round(o.v)); };
+      tl.fromTo(o, { v: 0 }, { v: 3, duration: 1.2, ease: "steps(3)", immediateRender: false, onUpdate: setInc }, at(6, 0.1));
+      tl.fromTo("#ts-inc2", { scale: 1.25, svgOrigin: "1630 590" }, { scale: 1, duration: 0.25, repeat: 2, repeatDelay: 0.15, immediateRender: false }, at(6, 0.1) + 0.4);
+      const n = { v: 1 };
+      tl.to(n, { v: 6, duration: 1.2, ease: "power2.inOut", immediateRender: false, onUpdate: () => { const x = 460 + n.v * 112.5; document.getElementById("ts-nk").setAttribute("cx", x); document.getElementById("ts-nbar").setAttribute("x2", x); nv.textContent = String(Math.round(n.v)); } }, at(6, 0.42));
+      tl.fromTo(o, { v: 3 }, { v: 0, duration: 0.05, immediateRender: false, onUpdate: setInc }, at(6, 0.42) + 1.2);
+      tl.to("#ts-inc2", { fill: "#83C167", duration: 0.3 }, at(6, 0.42) + 1.2);
+      IN("#ts-law", at(6, 0.64), 0.5);
+
+      // L7 用例清单
+      OUT("#ts-lab", at(7, 0), 0.4);
+      for (let i = 0; i < 12; i++) { IN(`#ts-k${i}`, at(7, 0.03 + i * 0.015), 0.3); IN(`#ts-kc${i}`, at(7, 0.12 + i * 0.015), 0.25); }
+      [[5, 0.3], [8, 0.55], [10, 0.8]].forEach(([i, f]) => {
+        const x = i < 6 ? 510 : 1410, y = 281 + 110 * (i % 6);
+        tl.to(`#ts-kr${i}`, { stroke: "#F0B90B", strokeWidth: 3, duration: 0.3 }, at(7, f));
+        tl.to(`#ts-k${i}`, { scale: 1.05, svgOrigin: `${x} ${y}`, duration: 0.4, ease: "back.out(2)" }, at(7, f));
+      });
+
+      tl.to("#ts-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tests"] = tl;
+    })();
+  </script>
+</template>

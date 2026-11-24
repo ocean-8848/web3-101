@@ -1,0 +1,151 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 cost，id 前缀 co- -->
+  <div id="root" data-composition-id="cost" data-duration="34.9" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="co-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="co-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="co-all">
+        <!-- L0：五个组件共享一个区块订阅 -->
+        <g id="co-p0">
+          <rect id="co-win" class="h" x="140" y="240" width="760" height="660" rx="18" fill="none" stroke="#B48EF0" stroke-width="2.5" />
+          <g id="co-cmps"></g>
+          <g id="co-lines" stroke="#58C4DD" stroke-width="2.5" fill="none"></g>
+          <g id="co-bell" class="h">
+            <circle cx="1160" cy="570" r="66" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <path d="M1132 592 Q1136 586 1136 570 Q1136 540 1160 536 Q1184 540 1184 570 Q1184 586 1188 592 Z" fill="#58C4DD" />
+            <circle cx="1160" cy="600" r="6" fill="#58C4DD" />
+          </g>
+          <text id="co-subl" class="h" x="1160" y="476" font-size="30" fill="#58C4DD" text-anchor="middle">订阅新区块</text>
+          <text id="co-shr" class="h" x="1160" y="690" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">共享 ×1 ✓</text>
+        </g>
+
+        <!-- L1：50 个查询 -->
+        <g id="co-grid"></g>
+        <g id="co-blk" class="h">
+          <rect x="490" y="160" width="64" height="64" rx="8" fill="#58C4DD33" stroke="#58C4DD" stroke-width="3" />
+          <text x="580" y="204" font-size="28" fill="#58C4DD">新区块</text>
+        </g>
+        <g id="co-arrs" fill="none" stroke-width="2"></g>
+        <g id="co-rpc" class="h">
+          <circle id="co-rpcc" cx="1650" cy="820" r="70" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="1650" y="832" font-size="34" fill="#58C4DD" text-anchor="middle">RPC</text>
+        </g>
+        <text id="co-cnt" class="h" x="1650" y="952" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle"><tspan id="co-cntn">50</tspan> 个请求 / 块</text>
+
+        <!-- L2：算式 -->
+        <text id="co-f0" class="h" x="1000" y="330" font-size="36" fill="#F0B90B">50 × 5 块/分钟 = 250 请求/分钟</text>
+        <text id="co-ex" class="h" x="1000" y="384" font-size="28" fill="#6b6f7a">示例：一分钟 5 个块</text>
+        <text id="co-f1" class="h" x="1000" y="460" font-size="36" fill="#F0B90B">× 在线用户数</text>
+        <text id="co-429" class="h" x="1650" y="716" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">429 限流</text>
+
+        <!-- L3：只给关键数据高频 -->
+        <text id="co-gl" class="h" x="160" y="960" font-size="28" fill="#83C167">staleTime / 确认后失效</text>
+        <text id="co-rl" class="h" x="600" y="960" font-size="28" fill="#FC6255">价格 · 高频刷新</text>
+        <g id="co-arr3" fill="none" stroke="#FC6255" stroke-width="3">
+          <path id="co-a3a" class="dr h" pathLength="1" d="M906 734 L1572 806" marker-end="url(#co-arrr)" />
+          <path id="co-a3b" class="dr h" pathLength="1" d="M906 797 L1572 818" marker-end="url(#co-arrr)" />
+          <path id="co-a3c" class="dr h" pathLength="1" d="M906 860 L1572 830" marker-end="url(#co-arrr)" />
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, parent, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; document.querySelector(parent).appendChild(e); return e; };
+
+      // 五个组件 + 订阅线
+      for (let i = 0; i < 5; i++) {
+        const y = 290 + i * 120;
+        const g = mk("g", { id: "co-cm" + i, class: "h" }, "#co-cmps");
+        const r = document.createElementNS(NS, "rect");
+        [["x", 200], ["y", y], ["width", 240], ["height", 80], ["rx", 12], ["fill", "#161a22"], ["stroke", "#B48EF0"], ["stroke-width", 2.5]].forEach(([k, v]) => r.setAttribute(k, v));
+        g.appendChild(r);
+        const t = document.createElementNS(NS, "text");
+        [["x", 320], ["y", y + 51], ["font-size", 30], ["fill", "#e8e6df"], ["text-anchor", "middle"]].forEach(([k, v]) => t.setAttribute(k, v));
+        t.textContent = "组件 " + (i + 1); g.appendChild(t);
+        mk("path", { id: "co-ln" + i, class: "dr h", pathLength: 1, d: `M444 ${y + 40} C760 ${y + 40} 900 570 1090 570` }, "#co-lines");
+      }
+      // 50 个查询格（10 行 × 5 列）+ 50 根请求箭头
+      const cell = (r, c) => ({ x: 170 + c * 146, y: 270 + r * 63 });
+      const hot = ["7-4", "8-4", "9-4"];
+      for (let r = 0; r < 10; r++) for (let c = 0; c < 5; c++) {
+        const p = cell(r, c), id = r + "-" + c;
+        mk("rect", { id: "co-q" + id, class: "h co-q" + (hot.includes(id) ? " co-hot" : " co-cold"), x: p.x, y: p.y, width: 130, height: 54, rx: 8, fill: "#58C4DD", "fill-opacity": 0.35, stroke: "#58C4DD", "stroke-width": 2 }, "#co-grid");
+        mk("path", { class: "dr h co-ar", pathLength: 1, stroke: "#58C4DD", "marker-end": "url(#co-arr)", d: `M906 ${p.y + 27 + (c - 2) * 6} L1572 ${790 + r * 6}` }, "#co-arrs");
+      }
+      ["7-4", "8-4", "9-4"].forEach(id => { const p = cell(+id.split("-")[0], 4); mk("text", { id: "co-ht" + id, class: "h co-ht", x: p.x + 65, y: p.y + 37, "font-size": 28, "font-weight": 700, fill: "#0f1117", "text-anchor": "middle" }, "#co-grid", "价格"); });
+
+      // L0 共享订阅
+      IN("#co-win", at(0, 0), 0.6);
+      for (let i = 0; i < 5; i++) IN("#co-cm" + i, at(0, 0.06) + i * 0.25, 0.4, { x: -20 }, { x: 0 });
+      IN("#co-bell", at(0, 0.3), 0.5, { scale: 0.7, svgOrigin: "1160 570" }, { scale: 1 });
+      IN("#co-subl", at(0, 0.35), 0.4);
+      for (let i = 0; i < 5; i++) ARROW("#co-ln" + i, at(0, 0.42) + i * 0.3, 0.7);
+      tl.to("#co-bell", { rotation: 12, svgOrigin: "1160 540", duration: 0.12, yoyo: true, repeat: 5 }, at(0, 0.7));
+      IN("#co-shr", at(0, 0.75), 0.5, { y: 10 }, { y: 0 });
+
+      // L1 50 个查询同时失效 → 50 个请求
+      OUT("#co-p0", at(1, 0), 0.4);
+      IN(".co-q", at(1, 0.06), 0.4, {}, { stagger: 0.015 });
+      IN("#co-rpc", at(1, 0.12), 0.5);
+      IN("#co-blk", at(1, 0.25), 0.35, { y: -60 }, { y: 0, ease: "bounce.out" });
+      tl.to(".co-q", { fill: "#8a8f99", stroke: "#8a8f99", duration: 0.25 }, at(1, 0.36));
+      ARROW(".co-ar", at(1, 0.44), 0.6);
+      tl.to(".co-ar", { stroke: "#FC6255", duration: 0.5 }, at(1, 0.62));
+      tl.to("#co-rpcc", { stroke: "#FC6255", duration: 0.5 }, at(1, 0.62));
+      IN("#co-cnt", at(1, 0.55), 0.3);
+      COUNT("#co-cntn", 0, 50, at(1, 0.55), 1.2);
+
+      // L2 算一算 → 限流
+      OUT(".co-ar", at(2, 0), 0.3); OUT("#co-blk", at(2, 0), 0.3);
+      IN("#co-f0", at(2, 0.06), 0.6, { x: -20 }, { x: 0 });
+      IN("#co-ex", at(2, 0.2), 0.4);
+      IN("#co-f1", at(2, 0.5), 0.6, { x: -20 }, { x: 0 });
+      IN("#co-429", at(2, 0.75), 0.4, { scale: 1.5, svgOrigin: "1650 704" }, { scale: 1 });
+      tl.to("#co-rpcc", { fill: "#FC625533", duration: 0.3 }, at(2, 0.75));
+
+      // L3 只给价格高频，其余 staleTime / 确认后失效
+      OUT("#co-429", at(3, 0), 0.3);
+      tl.to("#co-rpcc", { stroke: "#58C4DD", fill: "#161a22", duration: 0.5 }, at(3, 0.05));
+      tl.to(".co-cold", { fill: "#83C167", stroke: "#83C167", duration: 0.5, stagger: 0.01 }, at(3, 0.08));
+      tl.to(".co-hot", { fill: "#FC6255", stroke: "#FC6255", attr: { "fill-opacity": 0.9 }, duration: 0.3 }, at(3, 0.08));
+      IN(".co-ht", at(3, 0.12), 0.3);
+      IN("#co-gl", at(3, 0.25), 0.4); IN("#co-rl", at(3, 0.32), 0.4);
+      ["#co-a3a", "#co-a3b", "#co-a3c"].forEach((s, i) => ARROW(s, at(3, 0.4) + i * 0.1, 0.5));
+      COUNT("#co-cntn", 50, 3, at(3, 0.4), 1.2);
+      tl.to("#co-cnt", { fill: "#83C167", duration: 0.4 }, at(3, 0.5));
+      tl.to(".co-hot", { attr: { "fill-opacity": 0.4 }, duration: 0.25, yoyo: true, repeat: 5 }, at(3, 0.6));
+
+      tl.to("#co-cnt", { scale: 1.15, svgOrigin: "1650 940", duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.88));
+      tl.to("#co-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["cost"] = tl;
+    })();
+  </script>
+</template>

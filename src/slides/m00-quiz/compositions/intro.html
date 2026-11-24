@@ -1,0 +1,170 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 intro，id 前缀 in- -->
+  <div id="root" data-composition-id="intro" data-duration="46.51" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="in-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="in-all">
+        <g id="in-dots">
+          <line id="in-dline" class="dr" pathLength="1" x1="360" y1="540" x2="1560" y2="540" stroke="#8a8f99" stroke-width="3" />
+          <circle id="in-d0" cx="360" cy="540" r="18" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" /><circle id="in-d1" cx="560" cy="540" r="18" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" /><circle id="in-d2" cx="760" cy="540" r="18" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" /><circle id="in-d3" cx="960" cy="540" r="18" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" /><circle id="in-d4" cx="1160" cy="540" r="18" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" /><circle id="in-d5" cx="1360" cy="540" r="18" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" /><circle id="in-d6" cx="1560" cy="540" r="18" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" />
+        </g>
+        <g id="in-dlabs"><text id="in-dl0" class="h" x="360" y="612" font-size="30" fill="#58C4DD" text-anchor="middle">账本</text><text id="in-dl1" class="h" x="560" y="612" font-size="30" fill="#58C4DD" text-anchor="middle">哈希</text><text id="in-dl2" class="h" x="760" y="612" font-size="30" fill="#F0B90B" text-anchor="middle">签名</text><text id="in-dl3" class="h" x="960" y="612" font-size="30" fill="#F0B90B" text-anchor="middle">钱包</text><text id="in-dl4" class="h" x="1160" y="612" font-size="30" fill="#B48EF0" text-anchor="middle">生态</text><text id="in-dl5" class="h" x="1360" y="612" font-size="30" fill="#83C167" text-anchor="middle">安全</text><text id="in-dl6" class="h" x="1560" y="612" font-size="30" fill="#e8e6df" text-anchor="middle">路线</text></g>
+        <!-- L1 一句话 -->
+        <text id="in-s1" class="h" x="960" y="560" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#58C4DD">公开账本</tspan> + <tspan fill="#58C4DD">密码学</tspan> → <tspan fill="#8a8f99">代替中间机构</tspan></text>
+        <text id="in-s2" class="h" x="960" y="690" font-size="60" font-weight="700" fill="#e8e6df" text-anchor="middle">谁持有<tspan fill="#F0B90B">私钥</tspan>，谁就拥有资产</text>
+        <!-- L2 银行（左 x160–900 y300–940） -->
+        <g id="in-bank" class="h">
+          <polygon points="180,480 530,390 880,480" fill="none" stroke="#B48EF0" stroke-width="4" stroke-linejoin="round" />
+          <rect x="200" y="480" width="660" height="420" fill="none" stroke="#B48EF0" stroke-width="4" />
+          <rect x="230" y="500" width="30" height="400" fill="#B48EF0" opacity="0.35" />
+          <rect x="800" y="500" width="30" height="400" fill="#B48EF0" opacity="0.35" />
+          <text x="530" y="466" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">Web2</text>
+          <rect id="in-bsafe" x="420" y="610" width="220" height="210" rx="12" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" />
+          <circle cx="530" cy="715" r="38" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <line x1="530" y1="715" x2="530" y2="685" stroke="#8a8f99" stroke-width="3" />
+          <line x1="300" y1="540" x2="300" y2="560" stroke="#8a8f99" stroke-width="3" />
+          <g id="in-bkey">
+            <circle cx="300" cy="580" r="18" fill="none" stroke="#F0B90B" stroke-width="5" />
+            <path d="M300 598 V660 M300 640 H318 M300 655 H314" stroke="#F0B90B" stroke-width="5" fill="none" stroke-linecap="round" />
+          </g>
+        </g>
+        <g id="in-frz" class="h">
+          <rect x="500" y="320" width="60" height="46" rx="6" fill="#FC6255" />
+          <path d="M510 320 v-12 a20 20 0 0 1 40 0 v12" fill="none" stroke="#FC6255" stroke-width="6" />
+          <text x="578" y="358" font-size="36" font-weight="700" fill="#FC6255">冻结</text>
+        </g>
+        <!-- L3 家（右 x1060–1720 y340–960） -->
+        <text id="in-nofrz" class="h" x="1390" y="372" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">没人能冻结</text>
+        <g id="in-home">
+          <g id="in-house" class="h">
+            <polygon points="1060,520 1390,410 1720,520" fill="none" stroke="#e8e6df" stroke-width="4" stroke-linejoin="round" />
+            <rect x="1100" y="520" width="580" height="380" fill="none" stroke="#e8e6df" stroke-width="4" />
+            <text x="1390" y="500" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">Web3</text>
+          </g>
+          <rect id="in-hsafe" class="h" x="1320" y="620" width="220" height="210" rx="12" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3" />
+          <g id="in-dial" class="h">
+            <circle cx="1430" cy="725" r="38" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <line x1="1430" y1="725" x2="1430" y2="695" stroke="#8a8f99" stroke-width="3" />
+          </g>
+          <g id="in-coins" class="h">
+            <circle cx="1390" cy="790" r="20" fill="#F0B90B" /><circle cx="1432" cy="790" r="20" fill="#F0B90B" /><circle cx="1474" cy="790" r="20" fill="#F0B90B" />
+            <circle cx="1411" cy="756" r="20" fill="#F0B90B" /><circle cx="1453" cy="756" r="20" fill="#F0B90B" />
+          </g>
+          <g id="in-glock" class="h">
+            <rect x="1412" y="668" width="36" height="30" rx="5" fill="#83C167" />
+            <path d="M1418 668 v-8 a12 12 0 0 1 24 0 v8" fill="none" stroke="#83C167" stroke-width="5" />
+          </g>
+          <g id="in-man" class="h">
+            <circle cx="1190" cy="650" r="24" fill="none" stroke="#e8e6df" stroke-width="4" />
+            <path d="M1190 674 V780 M1190 780 L1165 850 M1190 780 L1215 850 M1190 700 L1235 735" stroke="#e8e6df" stroke-width="4" fill="none" stroke-linecap="round" />
+          </g>
+          <g id="in-hkey" class="h">
+            <circle cx="1250" cy="738" r="14" fill="none" stroke="#F0B90B" stroke-width="5" />
+            <path d="M1264 738 H1300 M1288 738 V752 M1298 738 V750" stroke="#F0B90B" stroke-width="5" fill="none" stroke-linecap="round" />
+          </g>
+          <g id="in-frag" class="h">
+            <rect id="in-f0" x="1232" y="874" width="14" height="8" fill="#6b6f7a" /><rect id="in-f1" x="1256" y="876" width="10" height="6" fill="#6b6f7a" />
+            <rect id="in-f2" x="1276" y="873" width="16" height="8" fill="#6b6f7a" /><rect id="in-f3" x="1300" y="877" width="8" height="5" fill="#6b6f7a" />
+          </g>
+          <text id="in-lost" class="h" x="1390" y="956" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">丢了无人能开</text>
+          <g id="in-eye0" class="h"><ellipse cx="1160" cy="600" rx="28" ry="15" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1160" cy="600" r="7" fill="#8a8f99" /></g>
+          <g id="in-eye1" class="h"><ellipse cx="1620" cy="600" rx="28" ry="15" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1620" cy="600" r="7" fill="#8a8f99" /></g>
+          <g id="in-eye2" class="h"><ellipse cx="1160" cy="780" rx="28" ry="15" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1160" cy="780" r="7" fill="#8a8f99" /></g>
+          <g id="in-eye3" class="h"><ellipse cx="1620" cy="780" rx="28" ry="15" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1620" cy="780" r="7" fill="#8a8f99" /></g>
+          <g id="in-eye4" class="h"><ellipse cx="1430" cy="575" rx="28" ry="15" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1430" cy="575" r="7" fill="#8a8f99" /></g>
+        </g>
+        <text id="in-see" class="h" x="560" y="740" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#58C4DD">看得见</tspan> · <tspan fill="#83C167">打不开</tspan></text>
+        <!-- L5 -->
+        <text id="in-n1" class="h" x="700" y="560" font-size="64" font-weight="700" fill="#58C4DD" text-anchor="middle">知识地图</text>
+        <path id="in-n2a" class="dr h" pathLength="1" d="M850 540 H1060" stroke="#e8e6df" stroke-width="4" fill="none" marker-end="url(#in-arr)" />
+        <text id="in-n3" class="h" x="1230" y="560" font-size="64" font-weight="700" fill="#FF9F43" text-anchor="middle">六道题</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="in-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">自托管 <tspan font-size="28" font-weight="400" fill="#8a8f99">Self-custody</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">自己保管私钥，不依赖第三方</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const DC = ["#58C4DD", "#58C4DD", "#F0B90B", "#F0B90B", "#B48EF0", "#83C167", "#e8e6df"];
+      // L0 七个圆点依次亮起，再连线
+      for (let i = 0; i < 7; i++) {
+        const t = at(0, 0.08 + i * 0.09);
+        tl.to(`#in-d${i}`, { fill: DC[i], stroke: DC[i], duration: 0.3 }, t);
+        tl.fromTo(`#in-d${i}`, { scale: 1 }, { scale: 1.35, svgOrigin: `${360 + 200 * i} 540`, duration: 0.18, yoyo: true, repeat: 1, immediateRender: false }, t);
+        IN(`#in-dl${i}`, t + 0.1, 0.4);
+      }
+      DRAW("#in-dline", at(0, 0.74), 0.9);
+      // L1 圆点缩小上移，大字两行
+      OUT("#in-dlabs", at(1, 0.0), 0.3);
+      tl.to("#in-dots", { scale: 0.6, y: -280, svgOrigin: "960 540", duration: 0.8, ease: "power2.inOut" }, at(1, 0.03));
+      IN("#in-s1", at(1, 0.12), 0.7, { y: 20 }, { y: 0 });
+      IN("#in-s2", at(1, 0.66), 0.7, { y: 20 }, { y: 0 });
+      // L2 银行保险箱，钥匙挂在银行墙上，银行能冻结
+      OUT("#in-s1, #in-s2, #in-dots", at(2, 0.0), 0.4);
+      IN("#in-bank", at(2, 0.12), 0.7, { y: 20 }, { y: 0 });
+      tl.fromTo("#in-bkey", { opacity: 0.3 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 3, immediateRender: false }, at(2, 0.42));
+      IN("#in-frz", at(2, 0.72), 0.4, { y: -30 }, { y: 0, ease: "back.out(2)" });
+      tl.to("#in-bsafe", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.8));
+      // L3 家里的保险箱 + 术语卡；钥匙掉落碎掉
+      IN("#in-term", at(3, 0.0), 0.5);
+      IN("#in-house", at(3, 0.03), 0.6, { y: 20 }, { y: 0 });
+      IN("#in-hsafe, #in-dial", at(3, 0.08), 0.5);
+      IN("#in-man, #in-hkey", at(3, 0.2), 0.5);
+      IN("#in-nofrz", at(3, 0.42), 0.5, { y: 10 }, { y: 0 });
+      const tk = at(3, 0.68);
+      tl.to("#in-hkey", { y: 132, duration: 0.5, ease: "power2.in" }, tk);
+      tl.to("#in-hkey", { opacity: 0, duration: 0.2 }, tk + 0.5);
+      IN("#in-frag", tk + 0.5, 0.2);
+      ["#in-f0", "#in-f1", "#in-f2", "#in-f3"].forEach((f, j) => tl.to(f, { x: (j - 1.5) * 22, y: -6 + j * 3, duration: 0.5, ease: "power2.out" }, tk + 0.5));
+      IN("#in-lost", tk + 0.7, 0.4);
+      // L4 术语卡与银行淡出；保险箱变透明，金币可见，眼睛围观，锁仍是绿色闭合
+      OUT("#in-term", at(4, 0.0), 0.4);
+      OUT("#in-bank, #in-frz, #in-man, #in-frag, #in-lost", at(4, 0.0), 0.4);
+      tl.to("#in-hsafe", { fill: "#58C4DD", fillOpacity: 0.12, stroke: "#58C4DD", duration: 0.6 }, at(4, 0.15));
+      OUT("#in-dial", at(4, 0.15), 0.4);
+      IN("#in-coins", at(4, 0.25), 0.5);
+      IN("#in-glock", at(4, 0.32), 0.4);
+      [0, 1, 2, 3, 4].forEach(j => IN(`#in-eye${j}`, at(4, 0.42) + j * 0.15, 0.4));
+      IN("#in-see", at(4, 0.6), 0.6, { y: 15 }, { y: 0 });
+      // L5 收起，知识地图 → 六道题
+      tl.to("#in-home, #in-house, #in-nofrz, #in-see", { opacity: 0, duration: 0.6, ease: "power2.in" }, at(5, 0.0));
+      tl.to("#in-home", { scale: 0.7, svgOrigin: "1390 700", duration: 0.6, ease: "power2.in" }, at(5, 0.0));
+      IN("#in-n1", at(5, 0.15), 0.6, { scale: 0.85, svgOrigin: "700 540" }, { scale: 1, svgOrigin: "700 540" });
+      ARROW("#in-n2a", at(5, 0.5), 0.5);
+      IN("#in-n3", at(5, 0.58), 0.6, { scale: 0.85, svgOrigin: "1230 540" }, { scale: 1, svgOrigin: "1230 540" });
+
+      tl.to("#in-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#in-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["intro"] = tl;
+    })();
+  </script>
+</template>

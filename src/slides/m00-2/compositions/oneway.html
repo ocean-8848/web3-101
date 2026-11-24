@@ -1,0 +1,278 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 oneway，id 前缀 on- -->
+  <div id="root" data-composition-id="oneway" data-duration="52.07" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="on-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs>
+        <marker id="on-aB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="on-aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="on-aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <clipPath id="on-clip3"><rect x="200" y="368" width="760" height="486" /></clipPath>
+        <clipPath id="on-clip5"><rect x="200" y="452" width="760" height="420" /></clipPath>
+      </defs>
+      <g id="on-all">
+        <!-- L0 方向 -->
+        <g id="on-p0">
+          <g id="on-in" class="h">
+            <text x="310" y="330" font-size="28" fill="#8a8f99" text-anchor="middle">输入</text>
+            <rect x="160" y="360" width="300" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="310" y="434" font-size="40" fill="#e8e6df" text-anchor="middle">hello</text>
+          </g>
+          <g id="on-out" class="h">
+            <text x="1610" y="330" font-size="28" fill="#8a8f99" text-anchor="middle">指纹</text>
+            <rect x="1460" y="360" width="300" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1610" y="430" font-size="30" fill="#58C4DD" text-anchor="middle">2cf24dba…b9824</text>
+          </g>
+          <path id="on-fw" class="dr h" pathLength="1" d="M478 390 L1440 390" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#on-aB)" />
+          <circle id="on-dot" class="h" cx="480" cy="390" r="9" fill="#e8e6df" />
+          <text id="on-fwl" class="h" x="960" y="362" font-size="34" fill="#58C4DD" text-anchor="middle">微秒级</text>
+          <path id="on-bw" class="dr h" pathLength="1" d="M1440 452 L992 452" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#on-aR)" />
+          <rect id="on-wall" class="h" x="950" y="410" width="22" height="84" rx="3" fill="#FC6255" />
+          <text id="on-bwl" class="h" x="961" y="548" font-size="34" fill="#FC6255" text-anchor="middle">没有捷径</text>
+        </g>
+        <!-- L1 加密 vs 哈希 -->
+        <g id="on-p1">
+          <g id="on-enc" class="h">
+            <rect x="160" y="250" width="740" height="480" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="530" y="326" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">加密</text>
+            <rect x="210" y="440" width="200" height="80" rx="12" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="310" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">原文</text>
+            <rect x="650" y="440" width="200" height="80" rx="12" fill="none" stroke="#83C167" stroke-width="2.5" />
+            <text x="750" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">密文</text>
+            <g stroke="#83C167" stroke-width="4" fill="none" stroke-linecap="round"><circle cx="500" cy="410" r="14" /><path d="M514 410 L562 410 M548 410 L548 422 M558 410 L558 420" /></g>
+            <text x="530" y="640" font-size="30" fill="#e8e6df" text-anchor="middle">有密钥 · 可解回原文</text>
+          </g>
+          <path id="on-ea" class="dr h" pathLength="1" d="M426 480 L634 480" stroke="#83C167" stroke-width="4" fill="none" marker-start="url(#on-aG)" marker-end="url(#on-aG)" />
+          <g id="on-hsh" class="h">
+            <rect x="1020" y="250" width="740" height="480" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="1390" y="326" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">哈希</text>
+            <rect x="1070" y="440" width="200" height="80" rx="12" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1170" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">原文</text>
+            <rect x="1510" y="440" width="200" height="80" rx="12" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1610" y="492" font-size="32" fill="#58C4DD" text-anchor="middle">指纹</text>
+          </g>
+          <path id="on-ha1" class="dr h" pathLength="1" d="M1286 480 L1494 480" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#on-aB)" />
+          <g id="on-nokey" class="h">
+            <g stroke="#6b6f7a" stroke-width="4" fill="none" stroke-linecap="round"><circle cx="1360" cy="404" r="14" /><path d="M1374 404 L1422 404 M1408 404 L1408 416 M1418 404 L1418 414" /></g>
+            <path d="M1346 426 L1432 384" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          </g>
+          <text id="on-hl1" class="h" x="1390" y="640" font-size="30" fill="#e8e6df" text-anchor="middle">没有密钥 · 不能解密</text>
+        </g>
+        <!-- L2 前提 -->
+        <text id="on-pre" class="h" x="960" y="244" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">前提：输入可能性足够多</text>
+        <!-- L3/L4 查表 -->
+        <g id="on-p3">
+          <rect id="on-tp" class="h" x="200" y="300" width="760" height="560" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text id="on-th" class="h" x="240" y="348" font-size="28" fill="#8a8f99">原文  →  指纹</text>
+          <g id="on-rows" class="h" clip-path="url(#on-clip3)">
+            <text id="on-r0" class="mono" x="250" y="410" font-size="30" fill="#e8e6df">000000</text>
+            <text id="on-r1" class="mono" x="250" y="462" font-size="30" fill="#e8e6df">000001</text>
+            <text id="on-r2" class="mono" x="250" y="514" font-size="30" fill="#e8e6df">000002</text>
+            <text id="on-r3" class="mono" x="250" y="566" font-size="30" fill="#e8e6df">000003</text>
+            <text id="on-r4" class="mono" x="250" y="618" font-size="30" fill="#e8e6df">000004</text>
+            <text id="on-r5" class="mono" x="250" y="670" font-size="30" fill="#e8e6df">000005</text>
+            <text id="on-r6" class="mono" x="250" y="722" font-size="30" fill="#e8e6df">000006</text>
+            <text id="on-r7" class="mono" x="250" y="774" font-size="30" fill="#e8e6df">000007</text>
+            <text id="on-r8" class="mono" x="250" y="826" font-size="30" fill="#e8e6df">000008</text>
+          </g>
+          <rect id="on-hl" class="h" x="222" y="580" width="716" height="52" rx="8" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="2" />
+          <text id="on-cn" class="h mono" x="1180" y="410" font-size="44" font-weight="700" fill="#FC6255">0</text>
+          <text id="on-cnl" class="h" x="1180" y="462" font-size="28" fill="#8a8f99">种可能，全部算一遍</text>
+          <g id="on-fp" class="h">
+            <rect x="1180" y="560" width="320" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+          </g>
+          <text id="on-fpt" class="h mono" x="1340" y="610" font-size="30" fill="#e8e6df" text-anchor="middle">--------…</text>
+          <g id="on-atk" class="h">
+            <circle cx="1620" cy="562" r="24" fill="#FC6255" />
+            <path d="M1578 652 Q1620 584 1662 652 Z" fill="#FC6255" />
+            <text x="1620" y="702" font-size="28" fill="#FC6255" text-anchor="middle">攻击者</text>
+          </g>
+          <path id="on-ha" class="dr h" pathLength="1" d="M1168 606 L980 606" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#on-aR)" />
+          <text id="on-fd" class="h" x="1340" y="702" font-size="30" fill="#FC6255" text-anchor="middle">原文：482915</text>
+          <!-- L4 两行 -->
+          <g id="on-two" class="h">
+            <text x="250" y="410" font-size="30" fill="#e8e6df">是</text>
+            <text class="mono" x="300" y="410" font-size="30" fill="#e8e6df">→  4f2a91c0…</text>
+            <text x="250" y="470" font-size="30" fill="#e8e6df">否</text>
+            <text class="mono" x="300" y="470" font-size="30" fill="#e8e6df">→  c4a1e8b0…</text>
+          </g>
+          <rect id="on-hl2" class="h" x="222" y="432" width="716" height="52" rx="8" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="2" />
+          <text id="on-cn2" class="h mono" x="1180" y="410" font-size="44" font-weight="700" fill="#FC6255">2</text>
+          <text id="on-cnl2" class="h" x="1180" y="462" font-size="28" fill="#8a8f99">种可能，算两次</text>
+          <text id="on-fpt2" class="h mono" x="1340" y="610" font-size="30" fill="#e8e6df" text-anchor="middle">c4a1e8b0…</text>
+          <path id="on-ha2" class="dr h" pathLength="1" d="M1168 600 L1060 600 L1060 458 L980 458" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#on-aR)" />
+          <text id="on-fd2" class="h" x="1340" y="702" font-size="30" fill="#FC6255" text-anchor="middle">原文：否</text>
+        </g>
+        <!-- L5 加盐 -->
+        <g id="on-p5">
+          <g id="on-s5a" class="h">
+            <rect x="300" y="300" width="260" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="430" y="352" font-size="36" fill="#e8e6df" text-anchor="middle">482915</text>
+          </g>
+          <text id="on-plus" class="h mono" x="610" y="354" font-size="40" fill="#83C167" text-anchor="middle">+</text>
+          <g id="on-salt" class="h">
+            <rect x="660" y="300" width="440" height="80" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="880" y="352" font-size="34" fill="#83C167" text-anchor="middle">salt 9fK2x7Qp…</text>
+          </g>
+          <rect id="on-tp5" class="h" x="200" y="440" width="760" height="440" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <g id="on-rows5" class="h" clip-path="url(#on-clip5)">
+            <text id="on-q0" class="mono" x="236" y="500" font-size="28" fill="#e8e6df">-</text>
+            <text id="on-q1" class="mono" x="236" y="556" font-size="28" fill="#e8e6df">-</text>
+            <text id="on-q2" class="mono" x="236" y="612" font-size="28" fill="#e8e6df">-</text>
+            <text id="on-q3" class="mono" x="236" y="668" font-size="28" fill="#e8e6df">-</text>
+            <text id="on-q4" class="mono" x="236" y="724" font-size="28" fill="#e8e6df">-</text>
+            <text id="on-q5" class="mono" x="236" y="780" font-size="28" fill="#e8e6df">-</text>
+            <text id="on-q6" class="mono" x="236" y="836" font-size="28" fill="#e8e6df">-</text>
+          </g>
+          <text id="on-cn5" class="h mono" x="1180" y="520" font-size="44" font-weight="700" fill="#FC6255">1,000,000</text>
+          <text id="on-cnl5" class="h" x="1180" y="572" font-size="28" fill="#8a8f99">种可能……还在涨</text>
+          <g id="on-fp5" class="h">
+            <rect x="1180" y="640" width="320" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="1340" y="690" font-size="30" fill="#e8e6df" text-anchor="middle">e91b07d4…</text>
+          </g>
+          <g id="on-atk5" class="h">
+            <circle cx="1620" cy="642" r="24" fill="#FC6255" />
+            <path d="M1578 732 Q1620 664 1662 732 Z" fill="#FC6255" />
+            <text x="1620" y="782" font-size="28" fill="#FC6255" text-anchor="middle">攻击者</text>
+          </g>
+          <path id="on-ha5" class="dr h" pathLength="1" d="M1168 680 L980 680" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#on-aR)" />
+          <g id="on-x5" class="h"><path d="M1056 662 L1092 698 M1092 662 L1056 698" stroke="#FC6255" stroke-width="7" stroke-linecap="round" /></g>
+          <text id="on-nf" class="h" x="1340" y="794" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">查不到</text>
+        </g>
+        <!-- L6 等式 -->
+        <g id="on-p6">
+          <text id="on-e1" class="h" x="600" y="480" font-size="60" font-weight="700" fill="#58C4DD" text-anchor="middle">哈希 = 发现篡改</text>
+          <text id="on-e2" class="h" x="960" y="480" font-size="60" font-weight="700" fill="#FC6255" text-anchor="middle">≠</text>
+          <text id="on-e3" class="h" x="1300" y="480" font-size="60" font-weight="700" fill="#8a8f99" text-anchor="middle">阻止篡改</text>
+          <path id="on-ea6" class="dr h" pathLength="1" d="M1300 512 L1300 636" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#on-aG)" />
+          <text id="on-e4" class="h" x="1300" y="724" font-size="64" font-weight="700" fill="#83C167" text-anchor="middle">共识</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="on-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">盐 <tspan font-size="28" font-weight="400" fill="#8a8f99">Salt</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">拼接在原文上的随机数，防止穷举反推</text>
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+const H = n => { let x = Math.imul((n + 0x2f1) ^ 0x5bd1e995, 2654435761) >>> 0; x = Math.imul(x ^ (x >>> 15), 2246822519) >>> 0; x = (x ^ (x >>> 13)) >>> 0; return x.toString(16).padStart(8, "0"); };
+const p6 = n => String(n).padStart(6, "0");
+const fmt = v => Math.round(v).toLocaleString("en-US");
+const SA = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const salt = n => { let x = (Math.imul(n, 1103515245) + 12345) >>> 0, s = ""; for (let k = 0; k < 4; k++) { x = (Math.imul(x, 1103515245) + 12345) >>> 0; s += SA[(x >>> 16) % SA.length]; } return s; };
+const rows = [0, 1, 2, 3, 4, 5, 6, 7, 8].map(i => document.querySelector("#on-r" + i));
+const setRows = v => rows.forEach((el, i) => { const n = Math.min(999999, Math.floor(v) + i); el.textContent = p6(n) + "  →  " + H(n) + "…"; });
+setRows(0);
+document.querySelector("#on-fpt").textContent = H(482915) + "…";
+const rows5 = [0, 1, 2, 3, 4, 5, 6].map(i => document.querySelector("#on-q" + i));
+const setRows5 = v => rows5.forEach((el, i) => { const n = (Math.floor(v) + i) % 1000000; el.textContent = p6(n) + "·" + salt(Math.floor(v) + i) + "…  →  " + H(n * 7 + 3) + "…"; });
+setRows5(0);
+const SCROLL = (fn, a, b, t, d, ease = "power2.inOut") => { const o = { v: a }; tl.fromTo(o, { v: a }, { v: b, duration: d, ease, immediateRender: false, onUpdate: () => fn(o.v) }, t); };
+
+// L0 方向：正向快、反向被墙挡住
+IN("#on-in", at(0, 0.02), 0.5, { x: -20 }, { x: 0 });
+IN("#on-out", at(0, 0.08), 0.5, { x: 20 }, { x: 0 });
+ARROW("#on-fw", at(0, 0.14), 0.35);
+IN("#on-fwl", at(0, 0.2), 0.4);
+IN("#on-dot", at(0, 0.18), 0.1);
+tl.fromTo("#on-dot", { attr: { cx: 480 } }, { attr: { cx: 1430 }, duration: 0.35, ease: "none", repeat: 3, repeatDelay: 0.25, immediateRender: false }, at(0, 0.2));
+OUT("#on-dot", at(0, 0.2) + 2.4, 0.2);
+ARROW("#on-bw", at(0, 0.58), 0.9);
+IN("#on-wall", at(0, 0.66), 0.25, { scaleY: 0.2, svgOrigin: "961 494" }, { scaleY: 1, svgOrigin: "961 494" });
+IN("#on-bwl", at(0, 0.72), 0.4);
+tl.to("#on-wall", { x: 6, duration: 0.06, yoyo: true, repeat: 3 }, at(0, 0.78));
+// L1 加密 vs 哈希
+OUT("#on-p0", at(1, 0), 0.4);
+IN("#on-enc", at(1, 0.06), 0.6, { y: 20 }, { y: 0 });
+ARROW("#on-ea", at(1, 0.16), 0.5);
+IN("#on-hsh", at(1, 0.42), 0.6, { y: 20 }, { y: 0 });
+ARROW("#on-ha1", at(1, 0.52), 0.5);
+IN("#on-nokey", at(1, 0.62), 0.4);
+IN("#on-hl1", at(1, 0.74), 0.5);
+// L2 前提
+OUT("#on-p1", at(2, 0), 0.4);
+IN("#on-pre", at(2, 0.12), 0.6, { scale: 0.9, svgOrigin: "960 230" }, { scale: 1, svgOrigin: "960 230" });
+// L3 6 位数字密码：查表
+IN("#on-tp, #on-th", at(3, 0.02), 0.5);
+IN("#on-rows", at(3, 0.06), 0.4);
+IN("#on-cn, #on-cnl", at(3, 0.1), 0.4);
+SCROLL(setRows, 0, 999991, at(3, 0.12), 3.6);
+COUNT("#on-cn", 0, 1000000, at(3, 0.12), 3.6, fmt);
+IN("#on-fp, #on-fpt", at(3, 0.5), 0.5, { x: 20 }, { x: 0 });
+IN("#on-atk", at(3, 0.52), 0.5, { x: 20 }, { x: 0 });
+ARROW("#on-ha", at(3, 0.62), 0.5);
+SCROLL(setRows, 999991, 482911, at(3, 0.66), 1.4, "power3.out");
+IN("#on-hl", at(3, 0.66) + 1.4, 0.3);
+IN("#on-fd", at(3, 0.66) + 1.6, 0.4);
+// L4 只有是/否
+OUT("#on-rows, #on-hl, #on-fd, #on-cn, #on-cnl, #on-fpt, #on-ha", at(4, 0), 0.35);
+tl.to("#on-tp", { attr: { height: 230 }, duration: 0.5, ease: "power2.inOut" }, at(4, 0.08));
+IN("#on-two", at(4, 0.18), 0.5);
+IN("#on-cn2, #on-cnl2", at(4, 0.22), 0.4);
+IN("#on-fpt2", at(4, 0.3), 0.4);
+ARROW("#on-ha2", at(4, 0.42), 0.5);
+IN("#on-hl2", at(4, 0.56), 0.3);
+IN("#on-fd2", at(4, 0.62), 0.4);
+// L5 加盐
+OUT("#on-p3", at(5, 0), 0.4);
+IN("#on-s5a", at(5, 0.05), 0.5);
+IN("#on-plus", at(5, 0.12), 0.3);
+IN("#on-salt", at(5, 0.14), 0.5, { x: 30 }, { x: 0 });
+IN("#on-term", at(5, 0.3), 0.5);
+IN("#on-tp5", at(5, 0.36), 0.4);
+IN("#on-rows5", at(5, 0.38), 0.4);
+IN("#on-cn5, #on-cnl5", at(5, 0.4), 0.4);
+SCROLL(setRows5, 0, 3200000, at(5, 0.4), 3.6, "power2.in");
+COUNT("#on-cn5", 1000000, 1000000000000000, at(5, 0.4), 3.6, fmt);
+tl.to("#on-tp5", { attr: { height: 600 }, duration: 3.0, ease: "power2.in" }, at(5, 0.42));
+IN("#on-fp5, #on-atk5", at(5, 0.55), 0.5, { x: 20 }, { x: 0 });
+ARROW("#on-ha5", at(5, 0.66), 0.5);
+IN("#on-x5", at(5, 0.76), 0.25, { scale: 0.4, svgOrigin: "1074 680" }, { scale: 1, svgOrigin: "1074 680" });
+IN("#on-nf", at(5, 0.8), 0.4);
+// L6 只发现，不阻止
+OUT("#on-p5, #on-pre", at(6, 0), 0.4);
+OUT("#on-term", at(6, 0), 0.3);
+IN("#on-e1", at(6, 0.12), 0.6, { y: 16 }, { y: 0 });
+IN("#on-e2", at(6, 0.34), 0.4);
+IN("#on-e3", at(6, 0.4), 0.6, { y: 16 }, { y: 0 });
+ARROW("#on-ea6", at(6, 0.7), 0.5);
+IN("#on-e4", at(6, 0.76), 0.6, { scale: 0.8, svgOrigin: "1300 700" }, { scale: 1, svgOrigin: "1300 700" });
+
+      /*ENDANIM*/
+
+      tl.to("#on-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#on-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["oneway"] = tl;
+    })();
+  </script>
+</template>

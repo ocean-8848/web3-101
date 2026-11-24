@@ -1,0 +1,201 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 harvest，id 前缀 ha- -->
+  <div id="root" data-composition-id="harvest" data-duration="50.03" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ha-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+        <marker id="ha-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="ha-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="ha-all">
+        <!-- 五条线缩略图 -->
+        <g id="ha-th">
+          <g stroke="#FF9F43" stroke-width="3">
+            <line x1="1683.6" y1="103" x2="1781.6" y2="61" stroke-width="4.5" />
+            <line x1="1683.6" y1="103" x2="1781.6" y2="82" />
+            <line x1="1683.6" y1="103" x2="1781.6" y2="103" />
+            <line x1="1683.6" y1="103" x2="1781.6" y2="124" />
+            <line x1="1683.6" y1="103" x2="1781.6" y2="145" />
+          </g>
+          <g fill="#FF9F43">
+            <circle cx="1790" cy="61" r="8" />
+            <circle cx="1790" cy="82" r="6" />
+            <circle cx="1790" cy="103" r="6" />
+            <circle cx="1790" cy="124" r="6" />
+            <circle cx="1790" cy="145" r="6" />
+          </g>
+          <rect x="1650" y="89" width="33.6" height="28" rx="3" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+        </g>
+        <text id="ha-title" class="h" x="960" y="130" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#F0B90B">2020 年 10 月</tspan> · Harvest Finance</text>
+        <text id="ha-sub" class="h" x="960" y="186" font-size="28" fill="#8a8f99" text-anchor="middle">真实事件 · 只看成因</text>
+        <g id="ha-body">
+          <!-- Curve 池 -->
+          <g id="ha-pool" class="h">
+            <rect x="260" y="260" width="380" height="340" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="450" y="312" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">Curve 池</text>
+            <line x1="300" y1="540" x2="600" y2="540" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="ha-b0" x="330" y="380" width="90" height="160" rx="5" fill="#58C4DD" fill-opacity="0.85" />
+            <rect id="ha-b1" x="480" y="380" width="90" height="160" rx="5" fill="#58C4DD" fill-opacity="0.85" />
+            <text class="mono" x="375" y="582" font-size="28" fill="#e8e6df" text-anchor="middle">USDC</text>
+            <text class="mono" x="525" y="582" font-size="28" fill="#e8e6df" text-anchor="middle">USDT</text>
+          </g>
+          <path id="ha-rd" class="dr h" pathLength="1" d="M652 400 L804 400" stroke="#8a8f99" stroke-width="4" fill="none" marker-end="url(#ha-arr)" />
+          <text id="ha-rdl" class="h" x="728" y="378" font-size="28" fill="#8a8f99" text-anchor="middle">读状态</text>
+          <!-- 金库 -->
+          <g id="ha-vault" class="h">
+            <rect x="820" y="260" width="640" height="240" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="852" y="314" font-size="36" font-weight="700" fill="#58C4DD">金库</text>
+            <text x="852" y="364" font-size="30" fill="#e8e6df">按 Curve 池状态算每份额价格</text>
+            <text x="852" y="452" font-size="30" fill="#e8e6df">份额价格</text>
+            <rect x="1010" y="424" width="400" height="32" rx="6" fill="#0f1117" stroke="#3a3f4a" stroke-width="1.5" />
+            <rect id="ha-mf" x="1010" y="424" width="300" height="32" rx="6" fill="#58C4DD" />
+          </g>
+          <!-- L2 存入 -->
+          <g id="ha-r1">
+            <g id="ha-r1c" class="h" fill="#F0B90B">
+              <circle cx="850" cy="600" r="22" /><circle cx="900" cy="600" r="22" /><circle cx="950" cy="600" r="22" />
+            </g>
+            <path id="ha-r1a" class="dr h" pathLength="1" d="M985 600 L1124 600" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#ha-arrG)" />
+            <g id="ha-r1s" class="h" fill="#58C4DD">
+              <rect x="1150" y="582" width="36" height="36" rx="5" /><rect x="1198" y="582" width="36" height="36" rx="5" /><rect x="1246" y="582" width="36" height="36" rx="5" />
+              <rect x="1294" y="582" width="36" height="36" rx="5" /><rect x="1342" y="582" width="36" height="36" rx="5" />
+            </g>
+            <text id="ha-r1l" class="h" x="1110" y="674" font-size="30" fill="#F0B90B" text-anchor="middle">存入 → 份额更多</text>
+          </g>
+          <!-- L3 赎回 -->
+          <g id="ha-r2">
+            <g id="ha-r2s" class="h" fill="#58C4DD">
+              <rect x="850" y="762" width="36" height="36" rx="5" /><rect x="898" y="762" width="36" height="36" rx="5" /><rect x="946" y="762" width="36" height="36" rx="5" />
+              <rect x="994" y="762" width="36" height="36" rx="5" /><rect x="1042" y="762" width="36" height="36" rx="5" />
+            </g>
+            <path id="ha-r2a" class="dr h" pathLength="1" d="M1094 780 L1204 780" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#ha-arrG)" />
+            <g id="ha-r2c" class="h" fill="#F0B90B">
+              <circle cx="1240" cy="780" r="20" /><circle cx="1290" cy="780" r="20" /><circle cx="1340" cy="780" r="20" />
+            </g>
+            <g id="ha-r2x" class="h">
+              <circle cx="1390" cy="780" r="20" fill="#F0B90B" /><circle cx="1440" cy="780" r="20" fill="#F0B90B" />
+              <rect x="1362" y="752" width="106" height="56" rx="28" fill="none" stroke="#FC6255" stroke-width="3" />
+            </g>
+            <text id="ha-r2l" class="h" x="1110" y="852" font-size="30" fill="#F0B90B" text-anchor="middle">赎回 → 多拿 <tspan class="mono">USDC</tspan></text>
+            <g id="ha-ppl" class="h" fill="#8a8f99">
+              <circle cx="1580" cy="730" r="15" /><path d="M1558 790 Q1558 752 1580 752 Q1602 752 1602 790 Z" />
+              <circle cx="1640" cy="730" r="15" /><path d="M1618 790 Q1618 752 1640 752 Q1662 752 1662 790 Z" />
+              <circle cx="1700" cy="730" r="15" /><path d="M1678 790 Q1678 752 1700 752 Q1722 752 1722 790 Z" />
+            </g>
+            <text id="ha-ppll" class="h" x="1640" y="840" font-size="28" fill="#8a8f99" text-anchor="middle">其他存款人</text>
+            <path id="ha-from" class="h" d="M1548 772 L1480 778" stroke="#FC6255" stroke-width="3" stroke-dasharray="8 6" fill="none" marker-end="url(#ha-arrR)" />
+          </g>
+          <!-- L4 偏离检查 -->
+          <g id="ha-chk">
+            <text id="ha-chkl" class="h" x="290" y="598" font-size="30" font-weight="700" fill="#FF9F43">偏离检查</text>
+            <line id="ha-base" class="h" x1="360" y1="880" x2="1040" y2="880" stroke="#6b6f7a" stroke-width="2" />
+            <line id="ha-thr" class="h" x1="360" y1="650" x2="1040" y2="650" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+            <text id="ha-thrl" class="h" x="290" y="660" font-size="28" fill="#FF9F43">阈值</text>
+            <path id="ha-zig" class="dr" pathLength="1" d="M360 880 L428 664 L496 880 L564 664 L632 880 L700 664 L768 880 L836 664 L904 880 L972 664 L1040 880" fill="none" stroke="#FC6255" stroke-width="4" stroke-linejoin="round" />
+            <text id="ha-zigl" class="h" x="700" y="942" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">阈值太宽 × 多轮重复</text>
+          </g>
+          <!-- L5 损失 -->
+          <g id="ha-loss">
+            <rect id="ha-lp" class="h" x="1120" y="620" width="600" height="310" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text id="ha-l0" class="h" x="1156" y="682" font-size="32" font-weight="700" fill="#F0B90B">多数报道 ≈ 2,400 万美元</text>
+            <g id="ha-ltag" class="h">
+              <rect x="1156" y="706" width="148" height="44" rx="22" fill="none" stroke="#FF9F43" stroke-width="2" />
+              <text x="1230" y="738" font-size="28" fill="#FF9F43" text-anchor="middle">估算不一</text>
+            </g>
+            <text id="ha-l1" class="h" x="1156" y="802" font-size="32" font-weight="700" fill="#F0B90B">另一统计 ≈ 3,380 万美元</text>
+            <line id="ha-lsep" class="h" x1="1156" y1="830" x2="1684" y2="830" stroke="#3a3f4a" stroke-width="1.5" />
+            <text id="ha-l2" class="h" x="1156" y="892" font-size="32" font-weight="700" fill="#83C167">事后退回 ≈ 250 万</text>
+          </g>
+        </g>
+        <!-- L6 根因 -->
+        <text id="ha-root" class="h" x="960" y="590" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">份额用了<tspan fill="#FC6255">一笔交易就能推动</tspan>的价格</text>
+        <path id="ha-ul" class="dr h" pathLength="1" d="M778 616 L1194 616" stroke="#FC6255" stroke-width="5" stroke-linecap="round" fill="none" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const BARS = (h0, h1, col, t, d = 0.9) => {
+        tl.to("#ha-b0", { attr: { y: 540 - h0, height: h0 }, fill: col, duration: d, ease: "power2.inOut" }, t);
+        tl.to("#ha-b1", { attr: { y: 540 - h1, height: h1 }, fill: col, duration: d, ease: "power2.inOut" }, t);
+      };
+
+      // L0 标题
+      IN("#ha-title", at(0, 0.1), 0.7, { y: 16 }, { y: 0 });
+      IN("#ha-sub", at(0, 0.5), 0.5);
+      // L1 金库按 Curve 池状态算份额价格
+      IN("#ha-pool", at(1, 0.05), 0.6, { y: 16 }, { y: 0 });
+      IN("#ha-vault", at(1, 0.25), 0.6, { y: 16 }, { y: 0 });
+      ARROW("#ha-rd", at(1, 0.5), 0.5);
+      IN("#ha-rdl", at(1, 0.55), 0.4);
+      // L2 比例偏离 → 份额价格偏低 → 存入拿更多份额
+      BARS(200, 80, "#FF9F43", at(2, 0.12));
+      tl.to("#ha-mf", { attr: { width: 150 }, fill: "#FC6255", duration: 0.8, ease: "power2.inOut" }, at(2, 0.4));
+      IN("#ha-r1c", at(2, 0.66), 0.4, { x: -16 }, { x: 0 });
+      ARROW("#ha-r1a", at(2, 0.72), 0.4);
+      IN("#ha-r1s", at(2, 0.78), 0.4, { x: -16 }, { x: 0 });
+      IN("#ha-r1l", at(2, 0.84), 0.4);
+      // L3 池子恢复 → 份额价值回升 → 赎回多拿；钱来自其他存款人
+      BARS(160, 160, "#83C167", at(3, 0.04));
+      tl.to("#ha-mf", { attr: { width: 300 }, fill: "#58C4DD", duration: 0.8, ease: "power2.inOut" }, at(3, 0.16));
+      IN("#ha-r2s", at(3, 0.32), 0.4, { x: -16 }, { x: 0 });
+      ARROW("#ha-r2a", at(3, 0.38), 0.4);
+      IN("#ha-r2c", at(3, 0.44), 0.4, { x: -16 }, { x: 0 });
+      IN("#ha-r2x", at(3, 0.5), 0.4, { x: -16 }, { x: 0 });
+      IN("#ha-r2l", at(3, 0.52), 0.4);
+      IN("#ha-ppl", at(3, 0.72), 0.4);
+      IN("#ha-ppll", at(3, 0.76), 0.4);
+      IN("#ha-from", at(3, 0.82), 0.4);
+      // L4 偏离检查：阈值太宽，多轮重复
+      OUT("#ha-r1, #ha-r2, #ha-pool, #ha-rd, #ha-rdl", at(4, 0), 0.4);
+      IN("#ha-chkl", at(4, 0.08), 0.4);
+      IN("#ha-base", at(4, 0.1), 0.4);
+      IN("#ha-thr, #ha-thrl", at(4, 0.2), 0.5);
+      tl.set("#ha-zig", { opacity: 1 }, at(4, 0.4));
+      DRAW("#ha-zig", at(4, 0.4), 3.0);
+      IN("#ha-zigl", at(4, 0.86), 0.4);
+      // L5 损失金额
+      IN("#ha-lp", at(5, 0.04), 0.5);
+      IN("#ha-l0", at(5, 0.2), 0.5, { x: -12 }, { x: 0 });
+      IN("#ha-ltag", at(5, 0.36), 0.4);
+      IN("#ha-l1", at(5, 0.5), 0.5, { x: -12 }, { x: 0 });
+      IN("#ha-lsep", at(5, 0.72), 0.3);
+      IN("#ha-l2", at(5, 0.78), 0.5, { x: -12 }, { x: 0 });
+      // L6 根因一句话
+      OUT("#ha-body, #ha-sub", at(6, 0), 0.4);
+      IN("#ha-root", at(6, 0.14), 0.7, { scale: 0.92, svgOrigin: "960 570" }, { scale: 1, svgOrigin: "960 570" });
+      IN("#ha-ul", at(6, 0.55), 0.3);
+      DRAW("#ha-ul", at(6, 0.55), 0.6);
+      tl.to("#ha-root, #ha-ul", { scale: 1.05, svgOrigin: "960 590", duration: 2.6, ease: "sine.inOut" }, at(6, 0.6));
+
+      tl.to("#ha-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["harvest"] = tl;
+    })();
+  </script>
+</template>

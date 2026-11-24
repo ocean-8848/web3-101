@@ -1,0 +1,221 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 balance，id 前缀 ba- -->
+  <div id="root" data-composition-id="balance" data-duration="74.4" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ba-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ba-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="ba-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="ba-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ba-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="ba-all">
+        <g id="ba-chip" class="h">
+          <rect x="160" y="220" width="460" height="180" rx="14" fill="#161a22" stroke="#3a3f4b" stroke-width="2" />
+          <circle cx="192" cy="244" r="7" fill="#FC6255" opacity="0.7" /><circle cx="216" cy="244" r="7" fill="#F0B90B" opacity="0.7" /><circle cx="240" cy="244" r="7" fill="#83C167" opacity="0.7" />
+          <text class="mono" x="210" y="330" font-size="36" fill="#e8e6df"><tspan fill="#6b6f7a">$ </tspan>curl <tspan fill="#58C4DD" font-weight="700">$RPC</tspan></text>
+        </g>
+        <g id="ba-q" class="h">
+          <rect x="680" y="220" width="780" height="180" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="710" y="290" font-size="32" fill="#8a8f99">method: <tspan fill="#58C4DD">eth_getBalance</tspan></text>
+          <text class="mono" x="710" y="350" font-size="32" fill="#8a8f99">params: [<tspan id="ba-addr" fill="#58C4DD">"0xd8dA…6045"</tspan>, <tspan fill="#FF9F43">"latest"</tspan>]</text>
+        </g>
+        <line id="ba-ab" class="h" x1="881" y1="368" x2="1128" y2="368" stroke="#58C4DD" stroke-width="4" />
+        <line id="ba-lb" class="h" x1="1166" y1="368" x2="1318" y2="368" stroke="#FF9F43" stroke-width="4" />
+        <text id="ba-lt" class="h" x="1249" y="456" font-size="28" fill="#FF9F43" text-anchor="middle">区块标签</text>
+        <g id="ba-respm"><g id="ba-resp" class="h">
+          <rect x="680" y="490" width="780" height="110" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <text class="mono" x="710" y="560" font-size="36" fill="#8a8f99">result: <tspan fill="#F0B90B" font-weight="700">"0x1bc16d674ec80000"</tspan></text>
+        </g>
+        <g id="ba-unit" class="h">
+          <rect x="1500" y="512" width="190" height="66" rx="12" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+          <text x="1595" y="557" font-size="30" fill="#F0B90B" text-anchor="middle">单位：wei</text>
+        </g></g>
+        <!-- L2 算一算 -->
+        <rect id="ba-fr" class="h" x="360" y="405" width="1240" height="410" rx="18" fill="none" stroke="#3a3f4b" stroke-width="2.5" />
+        <text id="ba-c1" class="h mono" x="400" y="475" font-size="36" fill="#e8e6df"><tspan fill="#F0B90B">0x1bc16d674ec80000</tspan> = 2,000,000,000,000,000,000 wei</text>
+        <text id="ba-c2" class="h mono" x="400" y="580" font-size="44" fill="#e8e6df">÷ 10<tspan font-size="30" dy="-18">18</tspan></text>
+        <text id="ba-c3" class="h mono" x="400" y="710" font-size="80" font-weight="700" fill="#F0B90B">= 2 ETH</text>
+        <g id="ba-again" class="h">
+          <text x="1040" y="780" font-size="28" fill="#6b6f7a">再试：</text>
+          <text class="mono" x="1124" y="780" font-size="28" fill="#6b6f7a">0x29a2241af62c0000 → 3 ETH</text>
+        </g>
+        <!-- L3 常用值 -->
+        <g id="ba-cm" class="h">
+          <rect x="1000" y="850" width="800" height="150" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <text x="1030" y="895" font-size="28" fill="#8a8f99">常用值</text>
+          <text class="mono" x="1030" y="955" font-size="34" fill="#e8e6df"><tspan id="ba-pre" fill="#F0B90B" font-weight="700">0xde0b6b</tspan><tspan fill="#F0B90B">3a7640000</tspan> = 10<tspan font-size="28" dy="-14">18</tspan><tspan dy="14"> wei = </tspan><tspan id="ba-1e" fill="#F0B90B" font-weight="700">1 ETH</tspan></text>
+          <line id="ba-ul" class="dr" pathLength="1" x1="1030" y1="970" x2="1194" y2="970" stroke="#F0B90B" stroke-width="3" />
+        </g>
+        <!-- L4 尺子 -->
+        <g id="ba-ru" class="h">
+          <line x1="200" y1="600" x2="1640" y2="600" stroke="#8a8f99" stroke-width="3" />
+          <line x1="200" y1="588" x2="200" y2="612" stroke="#8a8f99" stroke-width="3" />
+          <text class="mono" x="200" y="684" font-size="34" fill="#8a8f99" text-anchor="middle">2<tspan font-size="28" dy="-12">0</tspan></text>
+          <line x1="520" y1="588" x2="520" y2="612" stroke="#8a8f99" stroke-width="3" />
+          <text class="mono" x="520" y="684" font-size="34" fill="#8a8f99" text-anchor="middle">2<tspan font-size="28" dy="-12">16</tspan></text>
+          <line x1="840" y1="588" x2="840" y2="612" stroke="#8a8f99" stroke-width="3" />
+          <text class="mono" x="840" y="684" font-size="34" fill="#8a8f99" text-anchor="middle">2<tspan font-size="28" dy="-12">32</tspan></text>
+          <line x1="1160" y1="588" x2="1160" y2="612" stroke="#8a8f99" stroke-width="3" />
+          <text class="mono" x="1160" y="684" font-size="34" fill="#8a8f99" text-anchor="middle">2<tspan font-size="28" dy="-12">48</tspan></text>
+        </g>
+        <rect id="ba-bar" class="h" x="200" y="520" width="0" height="40" rx="6" fill="#F0B90B" />
+        <text id="ba-barl" class="h mono" x="200" y="500" font-size="32" fill="#F0B90B">100 ETH = 10<tspan font-size="28" dy="-13">20</tspan><tspan dy="13"> wei</tspan></text>
+        <g id="ba-red" class="h">
+          <line x1="1460" y1="470" x2="1460" y2="620" stroke="#FC6255" stroke-width="4" />
+          <text class="mono" x="1460" y="684" font-size="34" fill="#FC6255" text-anchor="middle">2<tspan font-size="28" dy="-12">63</tspan></text>
+          <text x="1460" y="452" font-size="30" fill="#FC6255" text-anchor="middle">printf 到此为止</text>
+        </g>
+        <g id="ba-t1" class="h">
+          <rect x="400" y="780" width="500" height="76" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="650" y="830" font-size="30" fill="#83C167" text-anchor="middle">cast to-dec / from-wei</text>
+          <text x="650" y="910" font-size="28" fill="#8a8f99" text-anchor="middle">Foundry</text>
+        </g>
+        <g id="ba-t2" class="h">
+          <rect x="1040" y="780" width="260" height="76" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="1170" y="830" font-size="30" fill="#83C167" text-anchor="middle">big.Int</text>
+          <text x="1170" y="910" font-size="28" fill="#8a8f99" text-anchor="middle">Go</text>
+        </g>
+        <!-- L5 eth_call -->
+        <text id="ba-ct" class="h mono" x="160" y="300" font-size="44" font-weight="700" fill="#58C4DD">eth_call</text>
+        <g id="ba-usdc" class="h">
+          <rect x="160" y="380" width="360" height="240" rx="18" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <text x="340" y="490" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">USDC 合约</text>
+          <text class="mono" x="340" y="552" font-size="28" fill="#8a8f99" text-anchor="middle">0xA0b8…eB48</text>
+        </g>
+        <g id="ba-mag" class="h">
+          <circle cx="800" cy="470" r="44" fill="none" stroke="#83C167" stroke-width="5" />
+          <line x1="832" y1="502" x2="872" y2="542" stroke="#83C167" stroke-width="8" stroke-linecap="round" />
+        </g>
+        <path id="ba-ma" class="dr h" pathLength="1" d="M 744 480 H 536" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#ba-arrG)" />
+        <text id="ba-ml" class="h" x="720" y="640" font-size="32" fill="#83C167" text-anchor="middle">不上链 · 不花钱</text>
+        <!-- L6 请求卡 -->
+        <g id="ba-q2" class="h">
+          <rect x="960" y="260" width="840" height="380" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="990" y="320" font-size="32" fill="#8a8f99">method: <tspan fill="#58C4DD">eth_call</tspan></text>
+        </g>
+        <g id="ba-to" class="h">
+          <text class="mono" x="990" y="385" font-size="32" fill="#8a8f99">to:</text>
+          <text x="1090" y="385" font-size="32" fill="#58C4DD">USDC 合约</text>
+        </g>
+        <text id="ba-dk" class="h mono" x="990" y="450" font-size="32" fill="#8a8f99">data:</text>
+        <g id="ba-s1" class="h">
+          <rect x="990" y="475" width="196" height="54" rx="8" fill="#FF9F43" fill-opacity="0.18" stroke="#FF9F43" stroke-width="2.5" />
+          <text class="mono" x="1088" y="512" font-size="28" fill="#FF9F43" text-anchor="middle">0x70a08231</text>
+          <text x="990" y="590" font-size="28" fill="#FF9F43">balanceOf 选择器</text>
+        </g>
+        <g id="ba-s2" class="h">
+          <rect x="1200" y="475" width="570" height="54" rx="8" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="1485" y="512" font-size="28" fill="#58C4DD" text-anchor="middle">000…d8da…6045</text>
+          <text x="1485" y="590" font-size="28" fill="#58C4DD" text-anchor="middle">补足 32 字节的地址</text>
+        </g>
+        <!-- L7 返回 -->
+        <g id="ba-r2" class="h">
+          <rect x="960" y="680" width="840" height="96" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <text class="mono" x="990" y="742" font-size="34" fill="#F0B90B">0x<tspan id="ba-z">000…000</tspan>5f5e100</text>
+        </g>
+        <text id="ba-r3" class="h mono" x="990" y="850" font-size="34" fill="#e8e6df"><tspan fill="#F0B90B">0x5f5e100</tspan> = <tspan id="ba-n">0</tspan></text>
+        <text id="ba-r4" class="h mono" x="990" y="925" font-size="34" fill="#e8e6df">÷ 10<tspan font-size="28" dy="-14">6</tspan><tspan dy="14"> (decimals = 6) = </tspan><tspan id="ba-u" fill="#F0B90B" font-weight="700">100 USDC</tspan></text>
+        <line id="ba-uul" class="dr" pathLength="1" x1="1457" y1="942" x2="1621" y2="942" stroke="#F0B90B" stroke-width="3" />
+        <text id="ba-no" class="h" x="160" y="960" font-size="28" fill="#8a8f99">没有 USDC → 64 个 0</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 eth_getBalance
+IN("#ba-chip", at(0, 0.03), 0.5);
+IN("#ba-q", at(0, 0.12), 0.6, { x: 30 }, { x: 0 });
+tl.to("#ba-addr", { fill: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.3));
+IN("#ba-ab", at(0, 0.36), 0.4);
+OUT("#ba-ab", at(0, 0.62), 0.3);
+IN("#ba-lb", at(0, 0.72), 0.4);
+IN("#ba-lt", at(0, 0.76), 0.4, { y: -10 }, { y: 0 });
+// L1 result 与 wei
+IN("#ba-resp", at(1, 0.05), 0.6, { y: 20 }, { y: 0 });
+IN("#ba-unit", at(1, 0.6), 0.5, { x: -20 }, { x: 0 });
+// L2 算一算
+OUT("#ba-chip, #ba-q, #ba-lb, #ba-lt", at(2, 0), 0.4);
+tl.to("#ba-respm", { y: -270, duration: 0.6, ease: "power2.inOut" }, at(2, 0.04));
+IN("#ba-fr", at(2, 0.1), 0.5);
+IN("#ba-c1", at(2, 0.16), 0.6, { x: -20 }, { x: 0 });
+IN("#ba-c2", at(2, 0.52), 0.5, { x: -20 }, { x: 0 });
+IN("#ba-c3", at(2, 0.8), 0.6, { scale: 0.8, svgOrigin: "400 690" }, { scale: 1, svgOrigin: "400 690" });
+IN("#ba-again", at(2, 0.92), 0.5);
+// L3 常用值
+IN("#ba-cm", at(3, 0.08), 0.6, { x: 80 }, { x: 0 });
+tl.to("#ba-pre", { fill: "#ffffff", duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.4));
+DRAW("#ba-ul", at(3, 0.45), 0.5);
+tl.to("#ba-1e", { fill: "#ffffff", duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.72));
+// L4 2^63 尺子
+OUT("#ba-fr, #ba-c1, #ba-c2, #ba-c3, #ba-again, #ba-cm, #ba-respm", at(4, 0), 0.4);
+IN("#ba-ru", at(4, 0.06), 0.5);
+IN("#ba-bar, #ba-barl", at(4, 0.14), 0.3);
+tl.fromTo("#ba-bar", { attr: { width: 0 } }, { attr: { width: 1328 }, duration: 1.8, ease: "power1.in", immediateRender: false }, at(4, 0.16));
+IN("#ba-red", at(4, 0.3), 0.4);
+tl.to("#ba-bar", { fill: "#FC6255", duration: 0.3 }, at(4, 0.38));
+IN("#ba-t1", at(4, 0.62), 0.5, { y: 15 }, { y: 0 });
+IN("#ba-t2", at(4, 0.82), 0.5, { y: 15 }, { y: 0 });
+// L5 eth_call 只读
+OUT("#ba-ru, #ba-bar, #ba-barl, #ba-red, #ba-t1, #ba-t2", at(5, 0), 0.4);
+IN("#ba-ct", at(5, 0.08), 0.5);
+IN("#ba-usdc", at(5, 0.2), 0.6, { scale: 0.9, svgOrigin: "340 500" }, { scale: 1, svgOrigin: "340 500" });
+IN("#ba-mag", at(5, 0.4), 0.5, { x: 30 }, { x: 0 });
+ARROW("#ba-ma", at(5, 0.48), 0.5);
+IN("#ba-ml", at(5, 0.65), 0.5);
+// L6 请求卡
+IN("#ba-q2", at(6, 0.04), 0.6, { x: 30 }, { x: 0 });
+IN("#ba-to", at(6, 0.2), 0.5);
+IN("#ba-dk", at(6, 0.36), 0.4);
+IN("#ba-s1", at(6, 0.46), 0.5, { y: 10 }, { y: 0 });
+IN("#ba-s2", at(6, 0.72), 0.5, { y: 10 }, { y: 0 });
+// L7 返回与换算
+IN("#ba-r2", at(7, 0.03), 0.6, { y: 20 }, { y: 0 });
+tl.to("#ba-z", { opacity: 0.15, duration: 0.6 }, at(7, 0.12));
+IN("#ba-r3", at(7, 0.18), 0.5);
+COUNT("#ba-n", 0, 100000000, at(7, 0.18), 1.4, v => Math.round(v).toLocaleString("en-US"));
+IN("#ba-r4", at(7, 0.38), 0.5);
+tl.to("#ba-u", { fill: "#ffffff", duration: 0.3, yoyo: true, repeat: 1 }, at(7, 0.56));
+DRAW("#ba-uul", at(7, 0.62), 0.5);
+IN("#ba-no", at(7, 0.72), 0.5);
+tl.to("#ba-usdc rect", { stroke: "#F0B90B", duration: 0.4 }, at(7, 0.86));
+
+      /*ENDANIM*/
+
+      tl.to("#ba-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["balance"] = tl;
+    })();
+  </script>
+</template>

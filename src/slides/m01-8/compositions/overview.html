@@ -1,0 +1,187 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 overview，id 前缀 ov- -->
+  <div id="root" data-composition-id="overview" data-duration="53.28" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ov-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="ov-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="ov-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="ov-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="ov-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+      </defs>
+      <g id="ov-all">
+        <g id="ov-dia">
+          <g id="ov-k0" class="h"><rect x="150" y="260" width="260" height="90" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="280" y="318" font-size="36" fill="#B48EF0" text-anchor="middle">RPC 节点</text></g>
+          <g id="ov-k1" class="h"><rect x="490" y="260" width="260" height="90" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="620" y="318" font-size="36" fill="#58C4DD" text-anchor="middle">Fetcher</text></g>
+          <g id="ov-k2" class="h"><rect x="830" y="260" width="260" height="90" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="960" y="318" font-size="36" fill="#58C4DD" text-anchor="middle">Parser</text></g>
+          <g id="ov-k3" class="h"><rect x="1170" y="260" width="260" height="90" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1300" y="318" font-size="36" fill="#58C4DD" text-anchor="middle">Store</text></g>
+          <g id="ov-k4" class="h"><rect x="1510" y="260" width="260" height="90" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1640" y="318" font-size="36" fill="#83C167" text-anchor="middle">Confirmer</text></g>
+          <path id="ov-a0" class="dr h" pathLength="1" d="M412 305 H486" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ov-arr)"/>
+          <path id="ov-a1" class="dr h" pathLength="1" d="M752 305 H826" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ov-arr)"/>
+          <path id="ov-a2" class="dr h" pathLength="1" d="M1092 305 H1166" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ov-arr)"/>
+          <path id="ov-a3" class="dr h" pathLength="1" d="M1432 305 H1506" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ov-arr)"/>
+          <g id="ov-sm">
+            <g id="ov-s0" class="h"><text x="280" y="402" font-size="28" fill="#8a8f99" text-anchor="middle">区块头 + 日志</text></g>
+            <g id="ov-s1" class="h"><text x="620" y="402" font-size="28" fill="#8a8f99" text-anchor="middle">按高度拉取</text><text x="620" y="442" font-size="28" fill="#8a8f99" text-anchor="middle">超时重试</text></g>
+            <g id="ov-s2" class="h"><text x="960" y="402" font-size="28" fill="#8a8f99" text-anchor="middle">按 ABI 解码</text><text x="960" y="442" font-size="28" fill="#8a8f99" text-anchor="middle">白名单过滤</text></g>
+            <g id="ov-s3" class="h"><text x="1300" y="402" font-size="28" fill="#8a8f99" text-anchor="middle">原子地写</text><text x="1300" y="442" font-size="28" fill="#8a8f99" text-anchor="middle">移动游标</text></g>
+            <g id="ov-s4" class="h"><text x="1640" y="402" font-size="28" fill="#8a8f99" text-anchor="middle">确认数达标</text><text x="1640" y="442" font-size="28" fill="#8a8f99" text-anchor="middle">才发事件</text></g>
+          </g>
+          <g id="ov-ic">
+            <g id="ov-i0" class="h"><rect x="1250" y="610" width="100" height="74" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/><line x1="1250" y1="630" x2="1350" y2="630" stroke="#8a8f99" stroke-width="3"/><circle cx="1295" cy="655" r="11" fill="none" stroke="#8a8f99" stroke-width="3"/><line x1="1303" y1="663" x2="1315" y2="675" stroke="#8a8f99" stroke-width="3"/><text x="1300" y="740" font-size="28" fill="#e8e6df" text-anchor="middle">区块浏览器</text></g>
+            <g id="ov-i1" class="h"><rect x="1450" y="616" width="100" height="68" rx="10" fill="none" stroke="#8a8f99" stroke-width="3"/><rect x="1510" y="636" width="40" height="28" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/><circle cx="1524" cy="650" r="4" fill="#8a8f99"/><text x="1500" y="740" font-size="28" fill="#e8e6df" text-anchor="middle">钱包</text></g>
+            <g id="ov-i2" class="h"><path d="M1655 632 H1740 M1725 620 L1740 632 L1725 644 M1745 664 H1660 M1675 652 L1660 664 L1675 676" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1700" y="740" font-size="28" fill="#e8e6df" text-anchor="middle">交易所</text></g>
+          </g>
+          <g id="ov-tx">
+            <line id="ov-txl" class="h" x1="1300" y1="352" x2="1300" y2="398" stroke="#83C167" stroke-width="3" stroke-dasharray="8 6"/>
+            <g id="ov-txf" class="h"><rect x="1000" y="400" width="600" height="190" rx="16" fill="none" stroke="#83C167" stroke-width="3" stroke-dasharray="12 8"/><text x="1030" y="446" font-size="30" fill="#83C167">同一个数据库事务</text></g>
+            <g id="ov-c0" class="h"><rect x="1030" y="476" width="160" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1110" y="526" font-size="30" fill="#e8e6df" text-anchor="middle">区块</text></g>
+            <g id="ov-c1" class="h"><rect x="1220" y="476" width="160" height="80" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text x="1300" y="526" font-size="30" fill="#e8e6df" text-anchor="middle">事件</text></g>
+            <g id="ov-c2" class="h"><path d="M1410 476 H1570 V556 L1490 538 L1410 556 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1490" y="520" font-size="30" fill="#58C4DD" text-anchor="middle">游标</text></g>
+          </g>
+          <g id="ov-rb" class="h"><rect x="150" y="680" width="760" height="150" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="180" y="740" font-size="32" font-weight="700" fill="#FC6255">父哈希对不上 = 发生重组</text><text x="180" y="795" font-size="30" fill="#e8e6df">→ 回退到共同祖先，再重新拉块</text></g>
+          <path id="ov-ra" class="h" d="M620 676 V364" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 7" fill="none" marker-end="url(#ov-arrR)"/>
+          <text id="ov-bl" class="h" x="960" y="940" font-size="36" fill="#e8e6df" text-anchor="middle">三样东西一起写入、一起回滚</text>
+        </g>
+        <g id="ov-met">
+          <text id="ov-bt" class="h" x="410" y="378" font-size="32" fill="#B48EF0" text-anchor="middle">银行流水</text>
+          <g id="ov-bp0" class="h"><rect x="260" y="420" width="300" height="70" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text class="mono" x="410" y="466" font-size="30" fill="#e8e6df" text-anchor="middle">#39</text></g>
+          <g id="ov-bp1" class="h"><rect x="260" y="506" width="300" height="70" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text class="mono" x="410" y="552" font-size="30" fill="#e8e6df" text-anchor="middle">#40</text></g>
+          <g id="ov-bp2" class="h"><rect class="pg" x="260" y="592" width="300" height="70" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text class="pt mono" x="410" y="638" font-size="30" fill="#e8e6df" text-anchor="middle">#41</text></g>
+          <g id="ov-bp3" class="h"><rect class="pg" x="260" y="678" width="300" height="70" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text class="pt mono" x="410" y="724" font-size="30" fill="#e8e6df" text-anchor="middle">#42</text></g>
+          <g id="ov-bn2" class="h"><rect x="260" y="592" width="300" height="70" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text class="mono" x="410" y="638" font-size="30" fill="#e8e6df" text-anchor="middle">#41′</text></g>
+          <g id="ov-bn3" class="h"><rect x="260" y="678" width="300" height="70" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text class="mono" x="410" y="724" font-size="30" fill="#e8e6df" text-anchor="middle">#42′</text></g>
+          <text id="ov-void" class="h" x="240" y="684" font-size="28" font-weight="700" fill="#FC6255" text-anchor="end">作废</text>
+          <text id="ov-lt" class="h" x="1510" y="378" font-size="32" fill="#58C4DD" text-anchor="middle">公司账本</text>
+          <g id="ov-lp0" class="h"><rect x="1360" y="420" width="300" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1510" y="466" font-size="30" fill="#e8e6df" text-anchor="middle">#39</text></g>
+          <g id="ov-lp1" class="h"><rect x="1360" y="506" width="300" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1510" y="552" font-size="30" fill="#e8e6df" text-anchor="middle">#40</text></g>
+          <g id="ov-lp2" class="h"><rect class="pg" x="1360" y="592" width="300" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="pt mono" x="1510" y="638" font-size="30" fill="#e8e6df" text-anchor="middle">#41</text></g>
+          <g id="ov-lp3" class="h"><rect class="pg" x="1360" y="678" width="300" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="pt mono" x="1510" y="724" font-size="30" fill="#e8e6df" text-anchor="middle">#42</text></g>
+          <rect id="ov-fly0" class="h" x="400" y="240" width="100" height="64" rx="8" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/>
+          <g id="ov-man" class="h" fill="none" stroke="#e8e6df" stroke-width="4" stroke-linecap="round">
+            <circle cx="960" cy="790" r="24"/><line x1="960" y1="814" x2="960" y2="890"/><line x1="920" y1="845" x2="1000" y2="835"/><line x1="960" y1="890" x2="935" y2="940"/><line x1="960" y1="890" x2="985" y2="940"/>
+          </g>
+          <g id="ov-card" class="h">
+            <rect x="820" y="430" width="280" height="200" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+            <text class="mono" x="850" y="492" font-size="40" fill="#e8e6df">#42</text>
+            <text x="850" y="572" font-size="30" fill="#e8e6df">上一页：<tspan class="mono">#41</tspan></text>
+          </g>
+          <rect id="ov-hl0" class="h" x="962" y="540" width="70" height="44" rx="6" fill="none" stroke="#FF9F43" stroke-width="3"/>
+          <rect id="ov-hl1" class="h" x="1472" y="606" width="76" height="44" rx="6" fill="none" stroke="#FF9F43" stroke-width="3"/>
+          <path id="ov-cl" class="dr" pathLength="1" d="M1034 562 L1470 627" stroke="#FF9F43" stroke-width="3" fill="none"/>
+          <text id="ov-ok" class="h" x="1180" y="556" font-size="30" font-weight="700" fill="#83C167">对得上</text>
+          <path id="ov-fa" class="dr h" pathLength="1" d="M1510 770 V842" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#ov-arr)"/>
+          <text id="ov-fin" class="h" x="1510" y="892" font-size="32" fill="#F0B90B" text-anchor="middle">财务：追回</text>
+          <g id="ov-spk" class="h">
+            <path d="M300 820 H316 L340 800 V860 L316 840 H300 Z" fill="none" stroke="#8a8f99" stroke-width="3"/>
+            <path d="M352 815 Q364 830 352 845" fill="none" stroke="#8a8f99" stroke-width="3"/>
+            <text x="380" y="841" font-size="30" fill="#8a8f99">通知</text>
+          </g>
+          <path id="ov-spx" class="dr" pathLength="1" d="M290 796 L366 864" stroke="#FC6255" stroke-width="5" fill="none"/>
+        </g>
+        <g id="ov-cu">
+          <g id="ov-cuL"><g class="h" id="ov-cuLi"><rect x="420" y="430" width="480" height="160" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="660" y="492" font-size="34" fill="#e8e6df" text-anchor="middle">新区块的父哈希</text><text class="mono" x="660" y="552" font-size="32" fill="#FF9F43" text-anchor="middle">0x7a…</text></g></g>
+          <g id="ov-cuR" class="h"><rect x="1020" y="430" width="480" height="160" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1260" y="492" font-size="34" fill="#e8e6df" text-anchor="middle">游标里的哈希</text><text class="mono" x="1260" y="552" font-size="32" fill="#58C4DD" text-anchor="middle">0x3c…</text></g>
+          <text id="ov-ne" class="h" x="960" y="534" font-size="64" font-weight="700" fill="#FC6255" text-anchor="middle">≠</text>
+        </g>
+
+      </g>
+      <g id="ov-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">索引器 <tspan font-size="28" font-weight="400" fill="#8a8f99">Indexer</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">扫描区块、把数据整理进数据库的后台服务</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 索引器：五框图逐步长出
+      IN("#ov-term", at(0, 0.02), 0.5);
+      for (let i = 0; i < 5; i++) {
+        IN(`#ov-k${i}`, at(0, 0.06 + i * 0.09), 0.5, { y: 16 }, { y: 0 });
+        IN(`#ov-s${i}`, at(0, 0.1 + i * 0.09), 0.5);
+        if (i < 4) ARROW(`#ov-a${i}`, at(0, 0.12 + i * 0.09), 0.4);
+      }
+      IN("#ov-i0", at(0, 0.74), 0.5, { y: 16 }, { y: 0 });
+      IN("#ov-i1", at(0, 0.8), 0.5, { y: 16 }, { y: 0 });
+      IN("#ov-i2", at(0, 0.86), 0.5, { y: 16 }, { y: 0 });
+      // L1 抄账员
+      OUT("#ov-term", at(1, 0), 0.4);
+      OUT("#ov-dia", at(1, 0), 0.4);
+      OUT("#ov-sm, #ov-ic", at(1, 0), 0.4);
+      IN("#ov-bt, #ov-bp0, #ov-bp1, #ov-bp2, #ov-bp3", at(1, 0.1), 0.5, { x: -20 }, { x: 0 });
+      IN("#ov-lt, #ov-lp0, #ov-lp1", at(1, 0.16), 0.5, { x: 20 }, { x: 0 });
+      IN("#ov-man", at(1, 0.22), 0.5);
+      tl.fromTo("#ov-fly0", { x: 0, opacity: 0 }, { keyframes: [{ opacity: 1, duration: 0.2 }, { x: 960, duration: 1.4, ease: "power1.inOut" }, { opacity: 0, duration: 0.2 }], immediateRender: false }, at(1, 0.4));
+      IN("#ov-lp2", at(1, 0.4) + 1.6, 0.4, { x: -20 }, { x: 0 });
+      // L2 核对上一页编号
+      IN("#ov-card", at(2, 0.04), 0.5, { y: 20 }, { y: 0 });
+      IN("#ov-hl0", at(2, 0.3), 0.3);
+      IN("#ov-hl1", at(2, 0.42), 0.3);
+      DRAW("#ov-cl", at(2, 0.48), 0.6);
+      tl.to("#ov-hl0, #ov-hl1", { stroke: "#83C167", duration: 0.2 }, at(2, 0.66));
+      tl.to("#ov-cl", { stroke: "#83C167", duration: 0.2 }, at(2, 0.66));
+      IN("#ov-ok", at(2, 0.68), 0.3, { scale: 1.3, svgOrigin: "1225 546" }, { scale: 1, svgOrigin: "1225 546" });
+      OUT("#ov-card, #ov-hl0, #ov-hl1, #ov-cl, #ov-ok", at(2, 0.86), 0.35);
+      IN("#ov-lp3", at(2, 0.9), 0.4, { x: -40 }, { x: 0 });
+      // L3 银行作废两页 → 撕掉账本两页 → 追回
+      tl.to("#ov-bp2 .pg, #ov-bp3 .pg", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.08));
+      tl.to("#ov-bp2 .pt, #ov-bp3 .pt", { fill: "#FC6255", duration: 0.3 }, at(3, 0.08));
+      IN("#ov-void", at(3, 0.1), 0.3);
+      OUT("#ov-bp2, #ov-bp3, #ov-void", at(3, 0.3), 0.35);
+      IN("#ov-bn2", at(3, 0.34), 0.4, { x: -30 }, { x: 0 });
+      IN("#ov-bn3", at(3, 0.38), 0.4, { x: -30 }, { x: 0 });
+      tl.to("#ov-lp2 .pg, #ov-lp3 .pg", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.5));
+      tl.to("#ov-lp2 .pt, #ov-lp3 .pt", { fill: "#FC6255", duration: 0.3 }, at(3, 0.5));
+      tl.to("#ov-lp2, #ov-lp3", { y: 120, opacity: 0, duration: 0.8, ease: "power2.in", stagger: 0.12 }, at(3, 0.58));
+      ARROW("#ov-fa", at(3, 0.74), 0.5);
+      IN("#ov-fin", at(3, 0.78), 0.4);
+      // L4 区块链不会通知
+      IN("#ov-spk", at(4, 0.04), 0.4);
+      DRAW("#ov-spx", at(4, 0.2), 0.4);
+      OUT("#ov-met", at(4, 0.42), 0.4);
+      IN("#ov-cuLi", at(4, 0.5), 0.4, { x: -30 }, { x: 0 });
+      IN("#ov-cuR", at(4, 0.5), 0.4, { x: 30 }, { x: 0 });
+      tl.to("#ov-cuL", { keyframes: [{ x: 26, duration: 0.18 }, { x: 0, duration: 0.18 }, { x: 26, duration: 0.18 }, { x: 0, duration: 0.18 }] }, at(4, 0.66));
+      IN("#ov-ne", at(4, 0.72), 0.3, { scale: 1.5, svgOrigin: "960 515" }, { scale: 1, svgOrigin: "960 515" });
+      // L5 回到五框图：同一事务 + 重组回退
+      OUT("#ov-cu", at(5, 0), 0.4);
+      tl.to("#ov-dia", { opacity: 1, duration: 0.5 }, at(5, 0.04));
+      tl.to("#ov-k1 rect", { strokeWidth: 6, duration: 0.2, yoyo: true, repeat: 1 }, at(5, 0.14));
+      IN("#ov-rb", at(5, 0.26), 0.5, { y: 20 }, { y: 0 });
+      IN("#ov-ra", at(5, 0.34), 0.5);
+      tl.to("#ov-k2 rect", { strokeWidth: 6, duration: 0.2, yoyo: true, repeat: 1 }, at(5, 0.44));
+      IN("#ov-txl, #ov-txf", at(5, 0.56), 0.5);
+      IN("#ov-c0", at(5, 0.62), 0.4, { y: -16 }, { y: 0 });
+      IN("#ov-c1", at(5, 0.66), 0.4, { y: -16 }, { y: 0 });
+      IN("#ov-c2", at(5, 0.8), 0.4, { y: -16 }, { y: 0 });
+      IN("#ov-bl", at(5, 0.7), 0.5);
+
+
+      tl.to("#ov-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ov-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["overview"] = tl;
+    })();
+  </script>
+</template>

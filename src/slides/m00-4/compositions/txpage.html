@@ -1,0 +1,213 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 txpage，id 前缀 tx- -->
+  <div id="root" data-composition-id="txpage" data-duration="68.65" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="tx-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="tx-arro" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+      </defs>
+      <g id="tx-all">
+        <!-- 区块浏览器窗口（示意） -->
+        <g id="tx-win" class="h">
+          <rect x="200" y="200" width="1520" height="800" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="1.5"/>
+          <line x1="200" y1="244" x2="1720" y2="244" stroke="#8a8f99" stroke-width="1"/>
+          <circle cx="228" cy="222" r="6" fill="#8a8f99"/><circle cx="250" cy="222" r="6" fill="#8a8f99"/><circle cx="272" cy="222" r="6" fill="#8a8f99"/>
+          <text x="296" y="232" font-size="26" fill="#8a8f99" data-layout-ignore>区块浏览器（示意）· Sepolia · 交易详情</text>
+          <line x1="1150" y1="264" x2="1150" y2="980" stroke="#2a2e37" stroke-width="1.5"/>
+        </g>
+        <rect id="tx-bar" class="h" x="216" y="282" width="922" height="58" rx="8" fill="#58C4DD" fill-opacity="0.15"/>
+        <g id="tx-names">
+          <text id="tx-k0" class="h mono" x="250" y="320" font-size="28" fill="#8a8f99">Transaction Hash</text>
+          <text id="tx-k1" class="h mono" x="250" y="410" font-size="28" fill="#8a8f99">Status</text>
+          <text id="tx-k2" class="h mono" x="250" y="500" font-size="28" fill="#8a8f99">Block</text>
+          <text id="tx-k3" class="h mono" x="250" y="590" font-size="28" fill="#8a8f99">Timestamp</text>
+          <text id="tx-k4" class="h mono" x="250" y="680" font-size="28" fill="#8a8f99">From</text>
+          <text id="tx-k5" class="h mono" x="250" y="770" font-size="28" fill="#8a8f99">To</text>
+          <text id="tx-k6" class="h mono" x="250" y="860" font-size="28" fill="#8a8f99">Value</text>
+          <text id="tx-k7" class="h mono" x="250" y="950" font-size="28" fill="#8a8f99">Nonce</text>
+        </g>
+        <text id="tx-v0" class="h mono" x="570" y="320" font-size="30" fill="#58C4DD">0x5c50…e3a1</text>
+        <g id="tx-v1" class="h">
+          <rect x="570" y="380" width="160" height="44" rx="22" fill="#83C16722" stroke="#83C167" stroke-width="1.5"/>
+          <text class="mono" x="650" y="411" font-size="28" fill="#83C167" text-anchor="middle">Success</text>
+        </g>
+        <text id="tx-v2" class="h mono" x="570" y="500" font-size="28" fill="#58C4DD">6,500,123 <tspan fill="#8a8f99">· 5 Block Confirmations</tspan></text>
+        <text id="tx-v3" class="h mono" x="570" y="590" font-size="28" fill="#e8e6df">1 min ago</text>
+        <text id="tx-v4" class="h mono" x="570" y="680" font-size="28" fill="#e8e6df">0xAbC…123</text>
+        <text id="tx-me" class="h" x="780" y="680" font-size="28" fill="#83C167">✓ 是我</text>
+        <text id="tx-v5" class="h mono" x="570" y="770" font-size="28" fill="#e8e6df">0xDeF…456</text>
+        <text id="tx-v6" class="h mono" x="570" y="860" font-size="28" fill="#F0B90B">0.001 ETH</text>
+        <text id="tx-v7" class="h mono" x="570" y="950" font-size="28" fill="#58C4DD">0</text>
+        <text id="tx-n1" class="h" x="620" y="950" font-size="28" fill="#8a8f99">第 1 笔交易</text>
+        <!-- L1 哈希机制 -->
+        <g id="tx-m1">
+          <g id="tx-sc" class="h">
+            <rect x="1330" y="282" width="210" height="70" rx="12" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.5"/>
+            <text x="1435" y="327" font-size="28" fill="#F0B90B" text-anchor="middle">签名后的交易</text>
+          </g>
+          <g id="tx-fun" class="h">
+            <path d="M1365 392 L1505 392 L1450 462 L1450 492 L1420 492 L1420 462 Z" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" stroke-linejoin="round"/>
+            <text class="mono" x="1520" y="450" font-size="28" fill="#58C4DD">Keccak-256</text>
+          </g>
+          <text id="tx-ho" class="h mono" x="1435" y="550" font-size="30" fill="#58C4DD" text-anchor="middle">0x5c50…e3a1</text>
+        </g>
+        <!-- L2 失败也扣费 -->
+        <g id="tx-m2">
+          <g id="tx-fail" class="h">
+            <rect x="1250" y="380" width="160" height="44" rx="22" fill="#FC625522" stroke="#FC6255" stroke-width="1.5"/>
+            <text class="mono" x="1330" y="411" font-size="28" fill="#FC6255" text-anchor="middle">Failed</text>
+          </g>
+          <g id="tx-coin" class="h"><circle cx="1330" cy="470" r="22" fill="#F0B90B"/><text class="mono" x="1330" y="480" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">$</text></g>
+          <text id="tx-fee" class="h" x="1380" y="560" font-size="28" fill="#F0B90B">失败也扣费</text>
+        </g>
+        <!-- L3 确认数 -->
+        <g id="tx-m3">
+          <g id="tx-blk0" class="h"><rect x="1250" y="840" width="140" height="44" rx="6" fill="#58C4DD" fill-opacity="0.85"/><text x="1420" y="872" font-size="28" fill="#58C4DD">交易所在块</text></g>
+          <rect id="tx-c1" class="h" x="1250" y="788" width="140" height="44" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+          <rect id="tx-c2" class="h" x="1250" y="736" width="140" height="44" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+          <rect id="tx-c3" class="h" x="1250" y="684" width="140" height="44" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+          <rect id="tx-c4" class="h" x="1250" y="632" width="140" height="44" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+          <rect id="tx-c5" class="h" x="1250" y="580" width="140" height="44" rx="6" fill="none" stroke="#58C4DD" stroke-width="2"/>
+          <text id="tx-cl" class="h" x="1420" y="666" font-size="30" fill="#e8e6df">确认数</text>
+          <text id="tx-cn" class="h mono" x="1520" y="668" font-size="44" font-weight="700" fill="#58C4DD">0</text>
+        </g>
+        <!-- L4 两个时钟 -->
+        <g id="tx-m4">
+          <g id="tx-ck0" class="h">
+            <circle cx="1300" cy="640" r="50" fill="none" stroke="#6b6f7a" stroke-width="3"/>
+            <path d="M1300 640 L1300 606 M1300 640 L1322 652" stroke="#6b6f7a" stroke-width="3" stroke-linecap="round"/>
+            <text x="1300" y="736" font-size="28" fill="#6b6f7a" text-anchor="middle">你点发送</text>
+          </g>
+          <g id="tx-ck1" class="h">
+            <circle id="tx-ck1c" cx="1560" cy="640" r="50" fill="none" stroke="#6b6f7a" stroke-width="3"/>
+            <path d="M1560 640 L1560 606 M1560 640 L1586 640" stroke="#58C4DD" stroke-width="3" stroke-linecap="round"/>
+            <text id="tx-ck1t" x="1560" y="736" font-size="28" fill="#6b6f7a" text-anchor="middle">区块时间</text>
+          </g>
+        </g>
+        <!-- L5 From / To -->
+        <g id="tx-m5">
+          <g id="tx-sig" class="h">
+            <circle cx="1272" cy="670" r="22" fill="#FF9F43"/>
+            <path d="M1262 672 L1270 680 L1284 662" fill="none" stroke="#0f1117" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="1306" y="680" font-size="28" fill="#FF9F43">由签名恢复</text>
+          </g>
+          <path id="tx-sa" class="dr h" pathLength="1" d="M1240 670 L902 670" stroke="#FF9F43" stroke-width="2.5" marker-end="url(#tx-arro)"/>
+          <g id="tx-types" class="h">
+            <circle cx="1262" cy="752" r="9" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+            <path d="M1246 782 Q1246 764 1262 764 Q1278 764 1278 782" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+            <text x="1294" y="780" font-size="28" fill="#e8e6df">普通地址</text>
+            <text x="1430" y="780" font-size="28" fill="#6b6f7a">/</text>
+            <path d="M1466 746 L1486 746 L1496 756 L1496 784 L1466 784 Z M1486 746 L1486 756 L1496 756" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-linejoin="round"/>
+            <text x="1510" y="780" font-size="28" fill="#58C4DD">合约</text>
+          </g>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="tx-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">区块浏览器 <tspan font-size="28" font-weight="400" fill="#8a8f99">Block Explorer</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">用网页查看链上数据的工具</text>
+      </g>
+      <g id="tx-term2" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">交易哈希 <tspan font-size="28" font-weight="400" fill="#8a8f99">Transaction Hash</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">签名后交易编码的哈希，交易的唯一编号</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+const BAR = (row, t, h = 58) => tl.to("#tx-bar", { attr: { y: 282 + row * 90, height: h }, duration: 0.45, ease: "power2.inOut" }, t);
+// L0 窗口 + 字段名
+IN("#tx-win", at(0, 0.02), 0.7, { scale: 0.96, svgOrigin: "960 600" }, { scale: 1, svgOrigin: "960 600" });
+IN("#tx-term", at(0, 0.42), 0.5);
+for (let i = 0; i < 8; i++) IN(`#tx-k${i}`, at(0, 0.62) + i * 0.15, 0.4, { x: -12 }, { x: 0 });
+IN("#tx-bar", at(0, 0.9), 0.4);
+// L1 交易哈希
+OUT("#tx-term", at(1, 0), 0.35);
+IN("#tx-term2", at(1, 0.04), 0.5);
+IN("#tx-sc", at(1, 0.14), 0.5, { y: -20 }, { y: 0 });
+IN("#tx-fun", at(1, 0.2), 0.5);
+tl.to("#tx-sc", { y: 90, scale: 0.4, svgOrigin: "1435 317", opacity: 0, duration: 0.6, ease: "power2.in" }, at(1, 0.32));
+tl.to("#tx-fun path", { fill: "#58C4DD55", duration: 0.2, yoyo: true, repeat: 1 }, at(1, 0.36));
+IN("#tx-ho", at(1, 0.42), 0.4, { y: -20 }, { y: 0 });
+tl.to("#tx-ho", { x: -766, y: -230, duration: 0.8, ease: "power2.inOut" }, at(1, 0.62));
+tl.set("#tx-ho", { opacity: 0 }, at(1, 0.62) + 0.85);
+tl.set("#tx-v0", { opacity: 1 }, at(1, 0.62) + 0.85);
+OUT("#tx-term2, #tx-fun", at(1, 0.94), 0.4);
+// L2 Status
+BAR(1, at(2, 0.02));
+IN("#tx-v1", at(2, 0.1), 0.4);
+IN("#tx-fail", at(2, 0.42), 0.4);
+IN("#tx-coin", at(2, 0.55), 0.2);
+tl.fromTo("#tx-coin", { y: 0 }, { y: 70, duration: 0.6, ease: "bounce.out", immediateRender: false }, at(2, 0.55));
+IN("#tx-fee", at(2, 0.62), 0.4);
+// L3 Block + 确认数
+OUT("#tx-m2", at(3, 0), 0.35);
+BAR(2, at(3, 0.02));
+IN("#tx-v2", at(3, 0.08), 0.4);
+IN("#tx-blk0", at(3, 0.14), 0.4);
+IN("#tx-cl, #tx-cn", at(3, 0.3), 0.4);
+for (let k = 1; k <= 5; k++) {
+  const t = at(3, 0.34) + (k - 1) * 0.45;
+  IN(`#tx-c${k}`, t, 0.3, { y: -30 }, { y: 0 });
+  COUNT("#tx-cn", k - 1, k, t + 0.1, 0.25);
+}
+// L4 Timestamp
+OUT("#tx-m3", at(4, 0), 0.35);
+BAR(3, at(4, 0.02));
+IN("#tx-v3", at(4, 0.1), 0.4);
+IN("#tx-ck0, #tx-ck1", at(4, 0.2), 0.4);
+tl.to("#tx-ck1c", { stroke: "#58C4DD", duration: 0.3 }, at(4, 0.62));
+tl.to("#tx-ck1t", { fill: "#58C4DD", duration: 0.3 }, at(4, 0.62));
+tl.to("#tx-ck0", { opacity: 0.45, duration: 0.3 }, at(4, 0.62));
+// L5 From / To
+OUT("#tx-m4", at(5, 0), 0.35);
+BAR(4, at(5, 0.02));
+IN("#tx-v4", at(5, 0.06), 0.4);
+IN("#tx-sig", at(5, 0.16), 0.4);
+ARROW("#tx-sa", at(5, 0.24), 0.5);
+IN("#tx-me", at(5, 0.36), 0.4, { scale: 0.7, svgOrigin: "830 670" }, { scale: 1, svgOrigin: "830 670" });
+BAR(5, at(5, 0.5));
+IN("#tx-v5", at(5, 0.54), 0.4);
+IN("#tx-types", at(5, 0.68), 0.5);
+// L6 Value + Nonce
+OUT("#tx-m5", at(6, 0), 0.35);
+BAR(6, at(6, 0.02));
+IN("#tx-v6", at(6, 0.08), 0.4);
+BAR(7, at(6, 0.55));
+IN("#tx-v7", at(6, 0.6), 0.4);
+IN("#tx-n1", at(6, 0.72), 0.4, { x: -10 }, { x: 0 });
+
+      /*ENDANIM*/
+
+      tl.to("#tx-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#tx-term, #tx-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["txpage"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,224 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz3，id 前缀 q3- -->
+  <div id="root" data-composition-id="quiz3" data-duration="56.47" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="q3-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="q3-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="q3-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="q3-all">
+        <!-- 题号徽章 -->
+        <g id="q3-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 3 题</text>
+        </g>
+        <!-- 题干 -->
+        <clipPath id="q3-qclip"><rect id="q3-qcr" x="60" y="200" width="0" height="64" /></clipPath>
+        <clipPath id="q3-qclip2"><rect id="q3-qcr2" x="60" y="264" width="0" height="64" /></clipPath>
+        <text id="q3-q" class="h" x="70" y="250" font-size="40" fill="#e8e6df" clip-path="url(#q3-qclip)">金库合约用 <tspan class="mono" fill="#58C4DD">payable(to).transfer(amount)</tspan> 给用户退款。</text>
+        <text id="q3-q2" class="h" x="70" y="310" font-size="40" fill="#e8e6df" clip-path="url(#q3-qclip2)">一个用 <tspan fill="#B48EF0">Safe 多签</tspan>的用户<tspan fill="#FF9F43">总是退款失败</tspan>。原因和推荐改法是？</text>
+        <!-- 暂停 + 倒数环 -->
+        <g id="q3-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="q3-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <!-- 选项卡 -->
+        <g id="q3-oA" class="h">
+          <rect id="q3-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q3-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q3-oA-dim">
+            <circle id="q3-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q3-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="q3-oA-t" x="190" y="449" font-size="32" fill="#e8e6df">Safe 不能接收 ETH，用户只能换成普通钱包</text>
+          </g>
+          <text id="q3-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255">Safe 能收 ETH，只是 2,300 Gas 不够它的收款逻辑</text>
+        </g>
+        <g id="q3-oB" class="h">
+          <rect id="q3-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q3-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q3-oB-dim">
+            <circle id="q3-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q3-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="q3-oB-t" x="190" y="584" font-size="32" fill="#e8e6df">金库余额不足，充值即可</text>
+          </g>
+          <text id="q3-oB-n" class="h" x="190" y="612" font-size="28" fill="#FC6255">与余额无关，只对合约钱包失败</text>
+        </g>
+        <g id="q3-oC" class="h">
+          <rect id="q3-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q3-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q3-oC-dim">
+            <circle id="q3-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q3-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="q3-oC-t" x="190" y="719" font-size="32" fill="#e8e6df">transfer 会转发全部 Gas，导致重入</text>
+          </g>
+          <text id="q3-oC-n" class="h" x="190" y="747" font-size="28" fill="#FC6255">说反了，转发全部 Gas 的是 call</text>
+        </g>
+        <g id="q3-oD" class="h">
+          <rect id="q3-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q3-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q3-oD-dim">
+            <circle id="q3-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q3-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="q3-oD-t" x="190" y="833" font-size="30" fill="#e8e6df">transfer 只转 2,300 Gas，合约钱包收款逻辑不够用；</text>
+            <text id="q3-oD-t2" x="190" y="877" font-size="30" fill="#e8e6df">改用 call 并检查返回值，先记账后转账，加 nonReentrant</text>
+          </g>
+        </g>
+        <!-- 右侧示意区 -->
+        <g id="q3-vault" class="h">
+          <rect id="q3-vaultb" x="1180" y="420" width="180" height="90" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="1270" y="476" font-size="32" fill="#F0B90B" text-anchor="middle">金库</text>
+        </g>
+        <g id="q3-safe" class="h">
+          <rect id="q3-safeb" x="1640" y="420" width="200" height="90" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="1740" y="476" font-size="30" fill="#B48EF0" text-anchor="middle">Safe 多签</text>
+        </g>
+        <rect id="q3-pipe" class="h" x="1362" y="459" width="276" height="12" rx="4" fill="#2a2f3a" stroke="#58C4DD" stroke-width="2" />
+        <text id="q3-meter" class="h mono" x="1500" y="548" font-size="28" fill="#FF9F43" text-anchor="middle">2,300 Gas</text>
+        <text id="q3-meter2" class="h" x="1500" y="548" font-size="28" fill="#58C4DD" text-anchor="middle"><tspan class="mono">call</tspan> · 无上限</text>
+        <circle id="q3-gas1" class="h" cx="1380" cy="465" r="5" fill="#58C4DD" />
+        <circle id="q3-gas2" class="h" cx="1380" cy="465" r="5" fill="#58C4DD" />
+        <circle id="q3-gas3" class="h" cx="1380" cy="465" r="5" fill="#58C4DD" />
+        <circle id="q3-eth" class="h" cx="1385" cy="465" r="17" fill="#F0B90B" stroke="#0f1117" stroke-width="2" />
+        <!-- Safe 的收款逻辑：齿轮 -->
+        <g id="q3-logic" class="h">
+          <text x="1740" y="604" font-size="28" fill="#8a8f99" text-anchor="middle">收款逻辑</text>
+          <g id="q3-g1"><circle cx="1705" cy="660" r="26" fill="none" stroke="#B48EF0" stroke-width="10" stroke-dasharray="7 6" /><circle cx="1705" cy="660" r="13" fill="none" stroke="#B48EF0" stroke-width="3" /></g>
+          <g id="q3-g2"><circle cx="1777" cy="676" r="22" fill="none" stroke="#B48EF0" stroke-width="9" stroke-dasharray="6 6" /><circle cx="1777" cy="676" r="10" fill="none" stroke="#B48EF0" stroke-width="3" /></g>
+        </g>
+        <text id="q3-oog" class="h mono" x="1640" y="756" font-size="28" fill="#FC6255">out of gas</text>
+        <!-- 两根管道对照 -->
+        <g id="q3-cmp1" class="h">
+          <text x="1180" y="640" font-size="28" class="mono" fill="#8a8f99">transfer</text>
+          <rect x="1340" y="626" width="250" height="8" rx="3" fill="#2a2f3a" stroke="#58C4DD" stroke-width="2" />
+          <text x="1614" y="640" font-size="28" class="mono" fill="#FF9F43">2,300</text>
+        </g>
+        <g id="q3-cmp2" class="h">
+          <text x="1180" y="730" font-size="28" class="mono" fill="#58C4DD">call</text>
+          <rect x="1340" y="702" width="250" height="34" rx="6" fill="#58C4DD" fill-opacity="0.25" stroke="#58C4DD" stroke-width="2" />
+          <text x="1614" y="730" font-size="28" fill="#58C4DD">全部 Gas</text>
+        </g>
+        <path id="q3-ok" class="h" d="M1786 548 l12 13 l24 -30" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        <!-- 再次进入 + 闸门 -->
+        <path id="q3-re" class="dr h" pathLength="1" d="M1740 514 C1740 670 1290 670 1290 556" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#q3-arrr)" />
+        <text id="q3-rel" class="h" x="1515" y="700" font-size="28" fill="#FC6255" text-anchor="middle">再次进入</text>
+        <rect id="q3-gate" class="h" x="1200" y="526" width="140" height="12" rx="4" fill="#83C167" />
+        <text id="q3-gatel" class="h" x="1180" y="790" font-size="28" fill="#83C167">检查 · 生效 · 交互 + 重入锁</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // ===== 测验版式（与 EP009 quiz 一致）=====
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      IN("#q3-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#q3-q", at(0, 0.05), 0.01);
+      tl.fromTo("#q3-qcr", { attr: { width: 0 } }, { attr: { width: 1400 }, duration: 2.4, ease: "none" }, at(0, 0.08));
+      IN("#q3-q2", at(0, 0.05), 0.01);
+      tl.fromTo("#q3-qcr2", { attr: { width: 0 } }, { attr: { width: 1400 }, duration: 2.4, ease: "none" }, at(0, 0.08) + 2.4);
+      const SHOW = (k, t) => {
+        IN(`#q3-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#q3-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#q3-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      const PAUSE = () => {
+        IN("#q3-pause", at(2, 0.0), 0.3);
+        tl.fromTo("#q3-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+        OUT("#q3-pause", at(3, 0.0), 0.3);
+      };
+      const RIGHT = (k, t) => {
+        tl.to(`#q3-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#q3-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#q3-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#q3-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#q3-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q3-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q3-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#q3-o${k}-t`, { attr: { y: Y0[k] + 52 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#q3-o${k}-n`, t + 0.3, 0.5);
+      };
+      const PULSE = (s, t, color, back) => {
+        tl.to(s, { stroke: color, strokeWidth: 5, duration: 0.25 }, t);
+        tl.to(s, { stroke: back, strokeWidth: 3, duration: 0.5 }, t + 1.2);
+      };
+
+      // L0 金库 → Safe 的 Gas 管道
+      IN("#q3-vault", at(0, 0.15), 0.5, { y: -10 }, { y: 0 });
+      IN("#q3-safe", at(0, 0.45), 0.5, { y: -10 }, { y: 0 });
+      IN("#q3-pipe", at(0, 0.62), 0.5);
+      IN("#q3-meter", at(0, 0.72), 0.5, { y: 10 }, { y: 0 });
+      // L1 选项
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.148)); SHOW("C", at(1, 0.231)); SHOW("D", at(1, 0.472));
+      PULSE("#q3-safeb", at(1, 0.03), "#e8e6df", "#B48EF0");
+      PULSE("#q3-vaultb", at(1, 0.16), "#e8e6df", "#F0B90B");
+      tl.to("#q3-meter", { fill: "#e8e6df", duration: 0.25 }, at(1, 0.6));
+      tl.to("#q3-meter", { fill: "#FF9F43", duration: 0.4 }, at(1, 0.6) + 1.2);
+      PULSE("#q3-pipe", at(1, 0.787), "#e8e6df", "#58C4DD");
+      PULSE("#q3-safeb", at(1, 0.9), "#83C167", "#B48EF0");
+      // L2 暂停
+      PAUSE();
+      // L3 揭晓 D：Gas 流进 Safe，齿轮转一半停下，ETH 退回
+      RIGHT("D", at(3, 0.03));
+      ["#q3-gas1", "#q3-gas2", "#q3-gas3"].forEach((s, i) => {
+        const t = at(3, 0.08) + i * 0.3;
+        tl.fromTo(s, { opacity: 1, attr: { cx: 1380 } }, { attr: { cx: 1630 }, duration: 0.8, ease: "none", immediateRender: false }, t);
+        tl.to(s, { opacity: 0, duration: 0.1 }, t + 0.8);
+      });
+      IN("#q3-eth", at(3, 0.1), 0.3);
+      tl.to("#q3-eth", { attr: { cx: 1615 }, duration: 1.0, ease: "power1.inOut" }, at(3, 0.15));
+      IN("#q3-logic", at(3, 0.3), 0.4);
+      tl.fromTo("#q3-g1", { rotation: 0 }, { rotation: 140, svgOrigin: "1705 660", duration: 1.4, ease: "power2.out", immediateRender: false }, at(3, 0.35));
+      tl.fromTo("#q3-g2", { rotation: 0 }, { rotation: -160, svgOrigin: "1777 676", duration: 1.4, ease: "power2.out", immediateRender: false }, at(3, 0.35));
+      IN("#q3-oog", at(3, 0.6), 0.4, { y: 8 }, { y: 0 });
+      tl.to("#q3-eth", { attr: { cx: 1385 }, duration: 0.9, ease: "power1.inOut" }, at(3, 0.7));
+      // L4 C 说反了：两根管道对照；A、B 也错
+      WRONG("C", at(4, 0.02));
+      OUT("#q3-logic, #q3-oog, #q3-eth", at(4, 0.02), 0.4);
+      IN("#q3-cmp1", at(4, 0.1), 0.5, { x: -10 }, { x: 0 });
+      IN("#q3-cmp2", at(4, 0.377), 0.5, { x: -10 }, { x: 0 });
+      WRONG("A", at(4, 0.472));
+      WRONG("B", at(4, 0.547));
+      // L5 换成 call：ETH 进入 Safe；对方回头再进，被闸门挡下
+      OUT("#q3-cmp1, #q3-cmp2, #q3-meter", at(5, 0.0), 0.4);
+      tl.to("#q3-pipe", { attr: { y: 450, height: 30 }, fill: "#1d3640", duration: 0.5 }, at(5, 0.04));
+      IN("#q3-meter2", at(5, 0.04) + 0.45, 0.5);
+      tl.fromTo("#q3-eth", { opacity: 1, attr: { cx: 1385 } }, { attr: { cx: 1740 }, duration: 1.0, ease: "power1.inOut", immediateRender: false }, at(5, 0.1));
+      tl.to("#q3-eth", { opacity: 0, duration: 0.3 }, at(5, 0.1) + 1.0);
+      IN("#q3-ok", at(5, 0.1) + 1.0, 0.4);
+      ARROW("#q3-re", at(5, 0.3), 0.9);
+      IN("#q3-rel", at(5, 0.33), 0.4);
+      IN("#q3-gate", at(5, 0.6), 0.4, { scaleX: 0.2, svgOrigin: "1270 532" }, { scaleX: 1, svgOrigin: "1270 532" });
+      IN("#q3-gatel", at(5, 0.62), 0.5, { y: 8 }, { y: 0 });
+      PULSE("#q3-vaultb", at(5, 0.65), "#83C167", "#F0B90B");
+
+      tl.to("#q3-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz3"] = tl;
+    })();
+  </script>
+</template>

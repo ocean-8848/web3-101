@@ -1,0 +1,121 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .mono { white-space: pre; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 trace，id 前缀 te- -->
+  <div id="root" data-composition-id="trace" data-duration="52.4" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="te-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      <marker id="te-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+<marker id="te-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+      </defs>
+      <g id="te-all">
+        <g id="te-flow" class="h">
+<rect id="te-s0" x="120" y="220" width="375" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+<text id="te-t0" x="307" y="282" font-size="30" fill="#e8e6df" text-anchor="middle">① 取字节码</text>
+<line x1="505" y1="270" x2="545" y2="270" stroke="#3a3f4a" stroke-width="3"/>
+<rect id="te-s1" x="555" y="220" width="375" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+<text id="te-t1" x="742" y="282" font-size="30" fill="#e8e6df" text-anchor="middle">② 识别选择器</text>
+<line x1="940" y1="270" x2="980" y2="270" stroke="#3a3f4a" stroke-width="3"/>
+<rect id="te-s2" x="990" y="220" width="375" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+<text id="te-t2" x="1177" y="282" font-size="30" fill="#e8e6df" text-anchor="middle">③ 反编译</text>
+<line x1="1375" y1="270" x2="1415" y2="270" stroke="#3a3f4a" stroke-width="3"/>
+<rect id="te-s3" x="1425" y="220" width="375" height="100" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/>
+<text id="te-t3" x="1612" y="282" font-size="30" fill="#6b6f7a" text-anchor="middle">④ 对照 Trace</text>
+</g>
+<g id="te-ps" class="h"><rect x="120" y="380" width="560" height="330" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="150" y="432" font-size="30" fill="#58C4DD" text-anchor="start" font-weight="700">能做什么</text>
+<text class="mono" x="150" y="492" font-size="28" fill="#e8e6df" text-anchor="start">function run() {</text><text class="mono" x="150" y="538" font-size="28" fill="#e8e6df" text-anchor="start">  pool.flashLoan();</text><text class="mono" x="150" y="584" font-size="28" fill="#e8e6df" text-anchor="start">  token.transfer(..);</text><text class="mono" x="150" y="630" font-size="28" fill="#e8e6df" text-anchor="start">}</text></g>
+<rect id="te-qb" class="h" x="760" y="380" width="1040" height="500" rx="14" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text id="te-q" class="h" x="1280" y="640" font-size="40" fill="#FF9F43" text-anchor="middle" font-weight="700">这一次做了什么？</text>
+<rect id="te-tm" class="h" x="760" y="380" width="1040" height="500" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+<text id="te-c1" class="h mono" x="790" y="435" font-size="28" fill="#e8e6df" text-anchor="start">$ cast run &lt;txHash&gt; \</text>
+<text id="te-c2" class="h mono" x="790" y="480" font-size="28" fill="#e8e6df" text-anchor="start">    --rpc-url $ARCHIVE_RPC --trace</text>
+<g id="te-db" class="h"><ellipse cx="220" cy="830" rx="70" ry="18" fill="none" stroke="#58C4DD" stroke-width="3"/><line x1="150" y1="830" x2="150" y2="920" stroke="#58C4DD" stroke-width="3"/><line x1="290" y1="830" x2="290" y2="920" stroke="#58C4DD" stroke-width="3"/><path d="M150 920 A70 18 0 0 0 290 920" fill="none" stroke="#58C4DD" stroke-width="3"/><path d="M150 875 A70 18 0 0 0 290 875" fill="none" stroke="#58C4DD" stroke-width="2" opacity="0.6"/><text x="320" y="885" font-size="30" fill="#58C4DD" text-anchor="start">归档节点</text></g>
+<path id="te-dba" class="dr h" pathLength="1" d="M460 870 L752 870" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#te-arr)"/>
+<text id="te-r0" class="h mono" x="790" y="550" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">CALL</tspan> Attacker.run()</text><text id="te-r1" class="h mono" x="824" y="600" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">CALL</tspan> Pool.flashLoan()</text><text id="te-r2" class="h mono" x="857" y="650" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">DELEGATECALL</tspan> Impl.exec()</text><text id="te-r3" class="h mono" x="891" y="700" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">STATICCALL</tspan> Oracle.price()</text><text id="te-r4" class="h mono" x="857" y="750" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">CALL</tspan> Token.transfer()</text><text id="te-r5" class="h mono" x="857" y="800" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">CALL</tspan> Vault.withdraw()</text>
+<text id="te-g1" class="h mono" x="1700" y="600" font-size="28" fill="#F0B90B" text-anchor="end">+1000</text>
+<text id="te-g2" class="h mono" x="1700" y="750" font-size="28" fill="#F0B90B" text-anchor="end">−1000</text>
+<text id="te-rv" class="h" x="1300" y="800" font-size="28" fill="#FC6255" text-anchor="start">revert：原因</text>
+<g id="te-td" class="h"><rect x="120" y="380" width="560" height="620" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="150" y="432" font-size="30" fill="#e8e6df" text-anchor="start" font-weight="700">Tenderly 调试器</text>
+<rect id="te-btn" x="585" y="398" width="76" height="46" rx="8" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="623" y="431" font-size="28" fill="#58C4DD" text-anchor="middle">▶|</text>
+<text class="mono" x="170" y="500" font-size="28" fill="#e8e6df" text-anchor="start">PUSH1 0x20</text><text class="mono" x="170" y="546" font-size="28" fill="#e8e6df" text-anchor="start">SLOAD</text><text class="mono" x="170" y="592" font-size="28" fill="#e8e6df" text-anchor="start">CALL</text><text class="mono" x="170" y="638" font-size="28" fill="#e8e6df" text-anchor="start">SSTORE</text>
+<text x="150" y="720" font-size="28" fill="#8a8f99" text-anchor="start">栈</text><text x="360" y="720" font-size="28" fill="#8a8f99" text-anchor="start">内存</text>
+<rect x="360" y="740" width="300" height="50" fill="none" stroke="#58C4DD" stroke-width="2"/></g>
+<rect id="te-hl" class="h" x="140" y="470" width="520" height="42" rx="6" fill="#58C4DD" fill-opacity="0.15"/>
+<rect id="te-k0" class="h" x="150" y="840" width="150" height="40" rx="4" fill="#58C4DD" fill-opacity="0.5"/>
+<rect id="te-k1" class="h" x="150" y="790" width="150" height="40" rx="4" fill="#58C4DD" fill-opacity="0.5"/>
+<rect id="te-k2" class="h" x="150" y="740" width="150" height="40" rx="4" fill="#58C4DD" fill-opacity="0.5"/>
+<rect id="te-m" x="362" y="742" width="0" height="46" fill="#58C4DD" fill-opacity="0.5"/>
+<path id="te-gl" class="dr h" pathLength="1" d="M680 575 C740 575 760 742 834 742" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#te-arrG)"/>
+<circle id="te-dot" class="h" cx="835" cy="641" r="10" fill="#FC6255"/>
+<rect id="te-slot" class="h" x="120" y="780" width="170" height="56" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<text id="te-slt" class="h mono" x="205" y="818" font-size="28" fill="#e8e6df" text-anchor="middle">slot 0</text>
+<text id="te-l1" class="h" x="310" y="818" font-size="28" fill="#FF9F43" text-anchor="start">被改写</text>
+<g id="te-l2" class="h"><line x1="120" y1="895" x2="170" y2="895" stroke="#F0B90B" stroke-width="5"/><text x="185" y="905" font-size="28" fill="#F0B90B" text-anchor="start">资金流出</text></g>
+<g id="te-l3" class="h"><circle cx="140" cy="965" r="10" fill="#FC6255"/><text x="185" y="975" font-size="28" fill="#FC6255" text-anchor="start">触发点</text></g>
+<text id="te-sum" class="h" x="960" y="540" font-size="40" fill="#e8e6df" text-anchor="middle" font-weight="700"><tspan fill="#58C4DD">反编译</tspan> → 控制流；<tspan fill="#F0B90B">Trace</tspan> → 路径与资金流</text>
+<g id="te-ic" class="h">
+<circle cx="660" cy="720" r="56" fill="none" stroke="#83C167" stroke-width="3"/><circle cx="650" cy="710" r="22" fill="none" stroke="#83C167" stroke-width="5"/><line x1="666" y1="726" x2="686" y2="746" stroke="#83C167" stroke-width="6"/>
+<circle cx="960" cy="720" r="56" fill="none" stroke="#83C167" stroke-width="3"/><line x1="935" y1="720" x2="985" y2="720" stroke="#83C167" stroke-width="7"/><line x1="960" y1="695" x2="960" y2="745" stroke="#83C167" stroke-width="7"/>
+<circle cx="1260" cy="720" r="56" fill="none" stroke="#83C167" stroke-width="3"/><rect x="1238" y="698" width="44" height="44" rx="4" fill="#83C167"/>
+<text x="660" y="830" font-size="32" fill="#83C167" text-anchor="middle">找漏洞</text><text x="960" y="830" font-size="32" fill="#83C167" text-anchor="middle">修补</text><text x="1260" y="830" font-size="32" fill="#83C167" text-anchor="middle">止损</text></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+const LIT = (i, t) => { TO("#te-s" + i, t, { stroke: i == 3 ? "#F0B90B" : "#58C4DD" }); TO("#te-t" + i, t, { fill: "#e8e6df" }); };
+
+IN("#te-flow", at(0, 0), 0.5); LIT(3, at(0, 0.03));
+IN("#te-ps", at(0, 0.1)); IN("#te-qb", at(0, 0.5)); IN("#te-q", at(0, 0.55));
+OUT(["#te-q", "#te-qb"], at(1, 0), 0.3);
+IN("#te-tm", at(1, 0.04), 0.4);
+IN("#te-c1", at(1, 0.12), 0.4); IN("#te-c2", at(1, 0.3), 0.4);
+IN("#te-db", at(1, 0.62)); ARROW("#te-dba", at(1, 0.7));
+[0,1,2,3,4,5].forEach(i => IN("#te-r" + i, at(2, 0.04) + i * 0.4, 0.4));
+IN("#te-g1", at(2, 0.55), 0.4); IN("#te-g2", at(2, 0.62), 0.4);
+IN("#te-rv", at(2, 0.8), 0.4);
+OUT(["#te-ps", "#te-db", "#te-dba"], at(3, 0), 0.4);
+IN("#te-td", at(3, 0.06)); IN("#te-hl", at(3, 0.1), 0.3); IN("#te-k0", at(3, 0.1), 0.3);
+[1,2,3].forEach(k => { const t = at(3, 0.2 + k * 0.2); TO("#te-btn", t, { fill: "rgba(88,196,221,0.35)" }, 0.15); TO("#te-btn", t + 0.2, { fill: "rgba(88,196,221,0)" }, 0.2); TO("#te-hl", t, { attr: { y: 470 + k * 46 } }, 0.3); });
+IN("#te-k1", at(3, 0.4) + 0.1, 0.3); IN("#te-k2", at(3, 0.6) + 0.1, 0.3); TO("#te-m", at(3, 0.6) + 0.1, { attr: { width: 120 } }, 0.4);
+OUT("#te-k2", at(3, 0.8) + 0.1, 0.3); TO("#te-m", at(3, 0.8) + 0.1, { attr: { width: 296 } }, 0.4);
+OUT(["#te-td", "#te-hl", "#te-k0", "#te-k1", "#te-m"], at(4, 0), 0.4);
+IN("#te-ps", at(4, 0.06));
+ARROW("#te-gl", at(4, 0.15), 0.8); IN("#te-l2", at(4, 0.2));
+IN("#te-slot", at(4, 0.45)); IN("#te-slt", at(4, 0.45)); TO("#te-slot", at(4, 0.55), { stroke: "#FF9F43", fill: "rgba(255,159,67,0.25)" }, 0.4); IN("#te-l1", at(4, 0.58));
+IN("#te-dot", at(4, 0.75), 0.4, { scale: 2, svgOrigin: "835 641" }, { scale: 1, svgOrigin: "835 641" }); IN("#te-l3", at(4, 0.78));
+OUT(["#te-ps", "#te-gl", "#te-l1", "#te-l2", "#te-l3", "#te-slot", "#te-slt", "#te-dot", "#te-tm", "#te-c1", "#te-c2", "#te-r0", "#te-r1", "#te-r2", "#te-r3", "#te-r4", "#te-r5", "#te-g1", "#te-g2", "#te-rv"], at(5, 0), 0.5);
+[0,1,2,3].forEach(i => { TO("#te-s" + i, at(5, 0.1) + i * 0.25, { strokeWidth: 5 }, 0.2); TO("#te-s" + i, at(5, 0.1) + i * 0.25 + 0.3, { strokeWidth: 2.5 }, 0.3); });
+IN("#te-sum", at(5, 0.15));
+IN("#te-ic", at(5, 0.8));
+
+
+      tl.to("#te-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["trace"] = tl;
+    })();
+  </script>
+</template>

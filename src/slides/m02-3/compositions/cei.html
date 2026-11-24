@@ -1,0 +1,173 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 cei，id 前缀 ce- -->
+  <div id="root" data-composition-id="cei" data-duration="60.82" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ce-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ce-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="ce-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+      </defs>
+      <g id="ce-all">
+        <g id="ce-big">
+          <g id="ce-v" class="h"><rect x="200" y="380" width="420" height="340" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" /><text x="410" y="440" font-size="34" fill="#58C4DD" text-anchor="middle">金库合约</text><rect x="270" y="610" width="280" height="70" rx="10" fill="#10161e" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="410" y="656" font-size="30" fill="#e8e6df" text-anchor="middle">withdraw</text></g>
+          <g id="ce-a" class="h"><rect x="1300" y="380" width="420" height="340" rx="18" fill="#1f1517" stroke="#FC6255" stroke-width="3.5" /><text x="1510" y="440" font-size="34" fill="#FC6255" text-anchor="middle">对方合约</text></g>
+          <path id="ce-call" class="dr h" pathLength="1" d="M620 480 L1296 480" fill="none" stroke="#F0B90B" stroke-width="4" marker-end="url(#ce-arrg)" />
+          <text id="ce-calll" class="h mono" x="960" y="458" font-size="32" fill="#F0B90B" text-anchor="middle">call</text>
+          <path id="ce-loop" class="dr h" pathLength="1" d="M1510 720 L1510 830 L410 830 L410 686" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#ce-arrr)" />
+          <g id="ce-ledg" class="h"><rect x="250" y="480" width="320" height="70" rx="10" fill="#10161e" stroke="#58C4DD" stroke-width="2" /></g>
+          <text id="ce-l3" class="h mono" x="410" y="526" font-size="30" fill="#e8e6df" text-anchor="middle">balance = 3</text>
+          <text id="ce-l0" class="h mono" x="410" y="526" font-size="30" fill="#FC6255" text-anchor="middle">balance = 0</text>
+          <text id="ce-ok" class="h" x="410" y="776" font-size="28" fill="#83C167" text-anchor="middle">✓ 检查通过</text>
+          <circle id="ce-got0" class="h" cx="1420" cy="600" r="22" fill="#F0B90B" />
+          <circle id="ce-got1" class="h" cx="1510" cy="600" r="22" fill="#F0B90B" />
+          <circle id="ce-got2" class="h" cx="1600" cy="600" r="22" fill="#F0B90B" />
+        </g>
+        <text id="ce-wrong" class="h" x="960" y="270" font-size="38" fill="#FC6255" text-anchor="middle">错误顺序：先转账，后扣账</text>
+        <circle id="ce-coin" class="h" cx="0" cy="0" r="22" fill="#F0B90B" />
+        <g id="ce-baton" class="h"><rect x="-38" y="-9" width="76" height="18" rx="9" fill="#e8e6df" /><rect x="-38" y="-9" width="18" height="18" rx="9" fill="#FC6255" /></g>
+        <g id="ce-panel" class="h"><rect x="60" y="230" width="1190" height="320" rx="14" fill="#161a22" stroke="#2a3040" stroke-width="2" /></g>
+        <rect id="ce-hl" class="h" x="62" y="292" width="1186" height="78" fill="#58C4DD" fill-opacity="0.18" />
+        <rect id="ce-hlb" class="h" x="62" y="292" width="6" height="78" fill="#FF9F43" />
+        <g class="ce-ln h"><text class="mono" x="110" y="280" font-size="28" fill="#6b6f7a" text-anchor="end">1</text><text class="mono" x="130" y="280" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> withdraw(<tspan fill="#58C4DD">uint256</tspan> amount) <tspan fill="#58C4DD">external</tspan> <tspan fill="#FF9F43">nonReentrant</tspan> {</text></g>
+        <g class="ce-ln h"><text class="mono" x="110" y="320" font-size="28" fill="#6b6f7a" text-anchor="end">2</text><text class="mono" x="197" y="320" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">uint256</tspan> bal = balances[msg.sender];</text></g>
+        <g class="ce-ln h"><text class="mono" x="110" y="360" font-size="28" fill="#6b6f7a" text-anchor="end">3</text><text class="mono" x="197" y="360" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">if</tspan> (amount &gt; bal) <tspan fill="#FC6255">revert Insufficient</tspan>(bal, amount);</text></g>
+        <g class="ce-ln h"><text class="mono" x="110" y="400" font-size="28" fill="#6b6f7a" text-anchor="end">4</text><text class="mono" x="197" y="400" font-size="28" fill="#e8e6df">balances[msg.sender] = bal - amount;</text></g>
+        <g class="ce-ln h"><text class="mono" x="110" y="440" font-size="28" fill="#6b6f7a" text-anchor="end">5</text><text class="mono" x="197" y="440" font-size="28" fill="#e8e6df">(<tspan fill="#58C4DD">bool</tspan> ok, ) = <tspan fill="#58C4DD">payable</tspan>(msg.sender).call{value: amount}(<tspan fill="#F0B90B">""</tspan>);</text></g>
+        <g class="ce-ln h"><text class="mono" x="110" y="480" font-size="28" fill="#6b6f7a" text-anchor="end">6</text><text class="mono" x="197" y="480" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">if</tspan> (!ok) <tspan fill="#FC6255">revert TransferFailed</tspan>();</text></g>
+        <g class="ce-ln h"><text class="mono" x="110" y="520" font-size="28" fill="#6b6f7a" text-anchor="end">7</text><text class="mono" x="130" y="520" font-size="28" fill="#e8e6df">}</text></g>
+        <text id="ce-s1" class="h" x="1275" y="350" font-size="30" fill="#FF9F43">① 检查</text>
+        <g id="ce-bub" class="h"><rect x="1418" y="318" width="440" height="50" rx="12" fill="#2a1618" stroke="#FC6255" stroke-width="2" /><text class="mono" x="1430" y="352" font-size="28" fill="#FC6255">Insufficient(bal, amount)</text></g>
+        <text id="ce-s2" class="h" x="1275" y="400" font-size="30" fill="#58C4DD">② 生效</text>
+        <text id="ce-s3" class="h" x="1275" y="470" font-size="30" fill="#F0B90B">③ 交互</text>
+        <g id="ce-nok" class="h"><line x1="1420" y1="460" x2="1446" y2="486" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /><line x1="1446" y1="460" x2="1420" y2="486" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /></g>
+        <g id="ce-lock" class="h"><rect x="1112" y="258" width="36" height="28" rx="5" fill="#83C167" /><path d="M1120 260 L1120 248 Q1130 236 1140 248 L1140 260" fill="none" stroke="#83C167" stroke-width="5" /></g>
+        <g id="ce-mv" class="h"><rect x="160" y="640" width="480" height="260" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="190" y="690" font-size="30" fill="#58C4DD">金库合约</text><rect x="190" y="720" width="420" height="70" rx="10" fill="#10161e" stroke="#58C4DD" stroke-width="2" /></g>
+        <text id="ce-m3" class="h mono" x="400" y="767" font-size="32" fill="#e8e6df" text-anchor="middle">balance = 3</text>
+        <text id="ce-m0" class="h mono" x="400" y="767" font-size="32" fill="#58C4DD" text-anchor="middle">balance = 0</text>
+        <g id="ce-ma" class="h"><rect x="1280" y="640" width="440" height="260" rx="16" fill="#1f1517" stroke="#FC6255" stroke-width="3" /><text x="1310" y="690" font-size="30" fill="#FC6255">对方合约</text></g>
+        <circle id="ce-mc" class="h" cx="600" cy="850" r="18" fill="#F0B90B" />
+        <path id="ce-re" class="dr h" pathLength="1" d="M1280 700 C1100 590 830 590 656 690" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#ce-arrr)" />
+        <rect id="ce-gate" class="h" x="632" y="650" width="16" height="96" rx="4" fill="#FF9F43" />
+        <text id="ce-rev" class="h mono" x="960" y="770" font-size="34" fill="#FC6255" text-anchor="middle">revert</text>
+        <g id="ce-glk" class="h"><rect x="614" y="684" width="52" height="40" rx="6" fill="#83C167" /><path d="M626 686 L626 670 Q640 652 654 670 L654 686" fill="none" stroke="#83C167" stroke-width="6" /></g>
+        <path id="ce-re2" class="dr h" pathLength="1" d="M1280 700 C1100 590 830 590 676 680" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#ce-arrr)" />
+        <g id="ce-x2" class="h"><line x1="700" y1="610" x2="730" y2="640" stroke="#FC6255" stroke-width="6" stroke-linecap="round" /><line x1="730" y1="610" x2="700" y2="640" stroke="#FC6255" stroke-width="6" stroke-linecap="round" /></g>
+        <g id="ce-sv" class="h"><text class="mono" x="160" y="990" font-size="28" fill="#e8e6df">Address.sendValue(payable(to), amount)</text><text x="820" y="990" font-size="28" fill="#8a8f99">封装同样逻辑</text></g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ce-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">重入 <tspan font-size="28" font-weight="400" fill="#8a8f99">Reentrancy</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">转账时对方趁机再次调用你的合约</text>
+      </g>
+      <g id="ce-term2" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">检查-生效-交互 <tspan font-size="28" font-weight="400" fill="#8a8f99">CEI</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">先校验、再改状态、最后外部调用</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const MV = (s, pts, t, d = 0.4) => { pts.forEach((p, i) => tl.to(s, { x: p[0], y: p[1], duration: d, ease: "power1.inOut" }, t + i * d)); };
+      const HL = (y, h, c, t) => { tl.to("#ce-hl", { attr: { y, height: h }, duration: 0.4, ease: "power2.inOut" }, t); tl.to("#ce-hlb", { attr: { y, height: h }, fill: c, duration: 0.4, ease: "power2.inOut" }, t); };
+      // L0 call 交出 ETH 与控制权，接力棒回到 withdraw
+      IN("#ce-v", at(0, 0), 0.6);
+      IN("#ce-a", at(0, 0.04), 0.6);
+      ARROW("#ce-call", at(0, 0.1), 0.7); IN("#ce-calll", at(0, 0.12), 0.4);
+      IN("#ce-coin", at(0, 0.15), 0.3, { x: 650, y: 480 }, { x: 650, y: 480 });
+      IN("#ce-baton", at(0, 0.15), 0.3, { x: 660, y: 520 }, { x: 660, y: 520 });
+      tl.to("#ce-coin", { x: 1440, y: 560, duration: 1.3, ease: "power2.inOut" }, at(0, 0.2));
+      tl.to("#ce-baton", { x: 1510, y: 520, duration: 1.3, ease: "power2.inOut" }, at(0, 0.2));
+      tl.to("#ce-coin", { opacity: 0, duration: 0.3 }, at(0, 0.2) + 1.3);
+      DRAW("#ce-loop", at(0, 0.5), 1.2); tl.set("#ce-loop", { opacity: 1 }, at(0, 0.5));
+      MV("#ce-baton", [[1510, 830], [410, 830], [410, 700]], at(0, 0.55), 0.55);
+      tl.to("#ce-v rect:nth-of-type(2)", { stroke: "#FC6255", duration: 0.2, yoyo: true, repeat: 1 }, at(0, 0.55) + 1.65);
+      IN("#ce-term", at(0, 0.84), 0.5);
+      // L1 错误顺序：先转账，后扣账
+      IN("#ce-wrong", at(1, 0), 0.5);
+      IN(["#ce-ledg", "#ce-l3"], at(1, 0.05), 0.5);
+      [0, 1, 2].forEach(k => {
+        const t = at(1, 0.15 + k * 0.23);
+        IN("#ce-ok", t, 0.25); OUT("#ce-ok", t + 0.7, 0.2);
+        tl.to("#ce-l3", { fill: "#F0B90B", duration: 0.15, yoyo: true, repeat: 1 }, t);
+        tl.fromTo("#ce-coin", { x: 640, y: 480, opacity: 1 }, { x: 1420 + k * 90, y: 600, opacity: 1, duration: 0.6, ease: "power2.inOut", immediateRender: false }, t + 0.4);
+        tl.set("#ce-coin", { opacity: 0 }, t + 1.0);
+        tl.set(`#ce-got${k}`, { opacity: 1 }, t + 1.0);
+        tl.set("#ce-baton", { x: 1510, y: 560 }, t + 1.0);
+        MV("#ce-baton", [[1510, 830], [410, 830], [410, 700]], t + 1.05, 0.38);
+      });
+      OUT("#ce-l3", at(1, 0.86), 0.2); IN("#ce-l0", at(1, 0.88), 0.3);
+      tl.to("#ce-ledg rect", { stroke: "#FC6255", strokeWidth: 5, duration: 0.15, yoyo: true, repeat: 3 }, at(1, 0.88));
+      // L2 推荐写法：① 检查
+      OUT(["#ce-big", "#ce-wrong", "#ce-coin", "#ce-baton", "#ce-term"], at(2, 0), 0.4);
+      IN("#ce-panel", at(2, 0.04), 0.5);
+      tl.fromTo(".ce-ln", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.07 }, at(2, 0.06));
+      IN(["#ce-mv", "#ce-m3"], at(2, 0.14), 0.5);
+      IN("#ce-ma", at(2, 0.18), 0.5);
+      IN(["#ce-hl", "#ce-hlb"], at(2, 0.3), 0.4);
+      IN("#ce-s1", at(2, 0.32), 0.4);
+      IN("#ce-bub", at(2, 0.62), 0.5, { x: -20 }, { x: 0 });
+      // L3 ② 生效：账本先扣
+      OUT("#ce-bub", at(3, 0), 0.3);
+      HL(372, 38, "#58C4DD", at(3, 0.02));
+      IN("#ce-s2", at(3, 0.06), 0.4);
+      OUT("#ce-m3", at(3, 0.32), 0.2); IN("#ce-m0", at(3, 0.38), 0.3);
+      tl.to("#ce-mv rect:nth-of-type(2)", { strokeWidth: 5, duration: 0.15, yoyo: true, repeat: 1 }, at(3, 0.38));
+      // L4 ③ 交互：最后才转账
+      HL(412, 78, "#F0B90B", at(4, 0.02));
+      IN("#ce-s3", at(4, 0.06), 0.4);
+      IN("#ce-mc", at(4, 0.25), 0.3);
+      tl.to("#ce-mc", { attr: { cx: 1500 }, duration: 0.9, ease: "power2.inOut" }, at(4, 0.3));
+      IN("#ce-nok", at(4, 0.7), 0.4, { scale: 0.5, svgOrigin: "1433 473" }, { scale: 1, svgOrigin: "1433 473" });
+      // L5 重入被余额检查拦下
+      HL(332, 38, "#FF9F43", at(5, 0.02));
+      ARROW("#ce-re", at(5, 0.08), 0.8);
+      IN("#ce-gate", at(5, 0.25), 0.3);
+      tl.to("#ce-m0", { fill: "#FF9F43", duration: 0.2, yoyo: true, repeat: 1 }, at(5, 0.35));
+      IN("#ce-rev", at(5, 0.5), 0.4, { scale: 0.6, svgOrigin: "960 758" }, { scale: 1, svgOrigin: "960 758", ease: "back.out(2)" });
+      // L6 nonReentrant 重入锁
+      OUT(["#ce-rev", "#ce-re", "#ce-gate"], at(6, 0), 0.4);
+      HL(252, 38, "#83C167", at(6, 0.02));
+      tl.to("#ce-hl", { fill: "#83C167", duration: 0.3 }, at(6, 0.02));
+      IN("#ce-lock", at(6, 0.06), 0.5, { y: -24 }, { y: 0, ease: "bounce.out" });
+      IN("#ce-glk", at(6, 0.12), 0.5, { y: -24 }, { y: 0, ease: "bounce.out" });
+      ARROW("#ce-re2", at(6, 0.2), 0.8);
+      IN("#ce-x2", at(6, 0.27), 0.3, { scale: 0.5, svgOrigin: "715 625" }, { scale: 1, svgOrigin: "715 625" });
+      IN("#ce-term2", at(6, 0.42), 0.5);
+      IN("#ce-sv", at(6, 0.62), 0.6);
+      [0.78, 0.9].forEach(f => {
+        tl.to(["#ce-glk", "#ce-lock"], { opacity: 0.45, duration: 0.25, yoyo: true, repeat: 1 }, at(6, f));
+        tl.to("#ce-x2", { opacity: 0.3, duration: 0.25, yoyo: true, repeat: 1 }, at(6, f));
+      });
+      tl.to("#ce-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+
+      tl.to("#ce-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ce-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["cei"] = tl;
+    })();
+  </script>
+</template>

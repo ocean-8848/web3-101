@@ -1,0 +1,268 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 phish，id 前缀 ph- -->
+  <div id="root" data-composition-id="phish" data-duration="63.65" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ph-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="ph-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="ph-all">
+        <!-- L0 假空投页面（自绘灰色示意窗口） -->
+        <g id="ph-s1">
+          <g id="ph-web" class="h">
+            <rect x="120" y="230" width="940" height="670" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <line x1="120" y1="276" x2="1060" y2="276" stroke="#8a8f99" stroke-width="2" />
+            <circle cx="146" cy="253" r="7" fill="#8a8f99" /><circle cx="168" cy="253" r="7" fill="#8a8f99" /><circle cx="190" cy="253" r="7" fill="#8a8f99" />
+            <rect x="220" y="241" width="600" height="24" rx="12" fill="#0f1117" stroke="#3a3f4a" stroke-width="1.5" />
+            <text x="590" y="430" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">限时空投</text>
+            <text x="590" y="496" font-size="30" fill="#8a8f99" text-anchor="middle">连接钱包即可领取</text>
+          </g>
+          <g id="ph-btn" class="h">
+            <rect id="ph-btnr" x="390" y="600" width="400" height="90" rx="14" fill="#FF9F43" fill-opacity="0.08" stroke="#FF9F43" stroke-width="3" />
+            <path d="M444 622 V658 A14 14 0 0 1 416 658 V650" fill="none" stroke="#FF9F43" stroke-width="4" />
+            <path d="M416 650 L410 660 M416 650 L424 658" stroke="#FF9F43" stroke-width="3" fill="none" />
+            <text x="620" y="658" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">领取空投</text>
+          </g>
+          <g id="ph-cur" class="h">
+            <path d="M700 760 L700 806 L712 794 L722 816 L730 812 L720 790 L736 790 Z" fill="#e8e6df" stroke="#0f1117" stroke-width="2" />
+          </g>
+        </g>
+
+        <!-- L1 钱包弹窗 -->
+        <g id="ph-pop" class="h">
+          <rect x="1140" y="260" width="660" height="520" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <line x1="1140" y1="306" x2="1800" y2="306" stroke="#8a8f99" stroke-width="2" />
+          <text data-layout-ignore x="1166" y="291" font-size="22" fill="#8a8f99">钱包 · 交易确认</text>
+          <text class="mono" x="1180" y="372" font-size="36" font-weight="700" fill="#FF9F43">approve</text>
+          <text class="mono" x="1180" y="440" font-size="28" fill="#8a8f99">spender</text>
+          <text class="mono" x="1180" y="490" font-size="34" font-weight="700" fill="#FC6255">0xBad…</text>
+          <text class="mono" x="1180" y="560" font-size="28" fill="#8a8f99">amount</text>
+          <text class="mono" x="1180" y="610" font-size="34" font-weight="700" fill="#FF9F43">Unlimited</text>
+          <rect x="1180" y="676" width="270" height="64" rx="10" fill="none" stroke="#8a8f99" stroke-width="2" />
+          <text x="1315" y="718" font-size="30" fill="#8a8f99" text-anchor="middle">拒绝</text>
+          <rect id="ph-ok" x="1490" y="676" width="270" height="64" rx="10" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="1625" y="718" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">确认</text>
+        </g>
+        <rect id="ph-hl" class="h" x="1162" y="406" width="610" height="104" rx="10" fill="none" stroke="#83C167" stroke-width="3.5" />
+        <text id="ph-chk" class="h" x="1470" y="850" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">✓ spender 是谁　✓ 金额多大</text>
+
+        <!-- L2 授权生效 → 无需私钥转走 -->
+        <g id="ph-s2">
+          <text id="ph-cellh" class="h" x="160" y="290" font-size="28" font-weight="700" fill="#FF9F43">授权表</text>
+          <g id="ph-cell" class="h">
+            <rect x="160" y="310" width="840" height="90" rx="12" fill="#FF9F43" fill-opacity="0.15" stroke="#FC6255" stroke-width="3.5" />
+            <text x="580" y="368" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">Alice → <tspan fill="#FC6255">攻击者</tspan> : <tspan class="mono" fill="#FF9F43">MAX</tspan></text>
+          </g>
+          <g id="ph-bal" class="h">
+            <rect x="160" y="480" width="840" height="68" rx="8" fill="none" stroke="#F0B90B" stroke-width="2" stroke-dasharray="8 6" />
+            <rect id="ph-balb" x="160" y="480" width="840" height="68" rx="8" fill="#F0B90B" fill-opacity="0.3" />
+          </g>
+          <text id="ph-ball" class="h" x="190" y="525" font-size="30" font-weight="700" fill="#e8e6df">Alice 余额</text>
+          <path id="ph-pull" class="dr h" pathLength="1" d="M580 560 L580 710" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ph-arr-r)" />
+          <text id="ph-pulll" class="h mono" x="604" y="644" font-size="28" fill="#FC6255">transferFrom</text>
+          <text id="ph-nokey" class="h" x="556" y="646" font-size="36" font-weight="700" fill="#FC6255" text-anchor="end">无需私钥</text>
+          <circle id="ph-cn1" class="h" cx="580" cy="520" r="14" fill="#F0B90B" />
+          <circle id="ph-cn2" class="h" cx="580" cy="520" r="14" fill="#F0B90B" />
+          <g id="ph-atk" class="h">
+            <rect x="380" y="720" width="400" height="100" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text x="580" y="782" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">攻击者</text>
+          </g>
+        </g>
+
+        <!-- L3 授权检查页（自绘灰色示意窗口） -->
+        <g id="ph-s3">
+          <text id="ph-ro" class="h" x="650" y="270" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">只读 · 无需签名</text>
+          <g id="ph-chkwin" class="h">
+            <rect x="120" y="300" width="1060" height="500" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <line x1="120" y1="346" x2="1180" y2="346" stroke="#8a8f99" stroke-width="2" />
+            <circle cx="146" cy="323" r="7" fill="#8a8f99" /><circle cx="168" cy="323" r="7" fill="#8a8f99" /><circle cx="190" cy="323" r="7" fill="#8a8f99" />
+            <text data-layout-ignore x="220" y="331" font-size="22" fill="#8a8f99">授权检查</text>
+            <rect x="160" y="372" width="980" height="56" rx="10" fill="#0f1117" stroke="#3a3f4a" stroke-width="2" />
+            <text x="184" y="410" font-size="28" fill="#6b6f7a">输入你的地址</text>
+            <text x="170" y="490" font-size="28" font-weight="700" fill="#8a8f99">代币</text>
+            <text class="mono" x="400" y="490" font-size="28" font-weight="700" fill="#8a8f99">spender</text>
+            <text x="700" y="490" font-size="28" font-weight="700" fill="#8a8f99">额度</text>
+            <line x1="160" y1="510" x2="1140" y2="510" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+          <g id="ph-r1" class="h">
+            <text x="170" y="572" font-size="30" fill="#e8e6df">代币 A</text>
+            <text x="400" y="572" font-size="30" fill="#B48EF0">协议 A</text>
+            <text class="mono" x="700" y="572" font-size="30" fill="#FF9F43">100</text>
+            <rect x="950" y="538" width="180" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <text class="mono" x="1040" y="572" font-size="28" fill="#8a8f99" text-anchor="middle">Revoke</text>
+          </g>
+          <g id="ph-r2" class="h">
+            <text x="170" y="652" font-size="30" fill="#e8e6df">代币 B</text>
+            <text class="mono" x="400" y="652" font-size="30" fill="#FC6255">0xBad…</text>
+            <text id="ph-unl" class="mono" x="700" y="652" font-size="30" font-weight="700" fill="#FF9F43">Unlimited</text>
+            <rect id="ph-rv" x="950" y="618" width="180" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <text id="ph-rvt" class="mono" x="1040" y="652" font-size="28" fill="#8a8f99" text-anchor="middle">Revoke</text>
+          </g>
+          <text id="ph-zero" class="h mono" x="700" y="652" font-size="30" font-weight="700" fill="#83C167">0</text>
+          <g id="ph-r3" class="h">
+            <text x="170" y="732" font-size="30" fill="#e8e6df">代币 C</text>
+            <text x="400" y="732" font-size="30" fill="#B48EF0">协议 B</text>
+            <text class="mono" x="700" y="732" font-size="30" fill="#FF9F43">50</text>
+            <rect x="950" y="698" width="180" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <text class="mono" x="1040" y="732" font-size="28" fill="#8a8f99" text-anchor="middle">Revoke</text>
+          </g>
+          <g id="ph-tools" class="h">
+            <text class="mono" x="1260" y="440" font-size="30" fill="#8a8f99">revoke.cash</text>
+            <text class="mono" x="1260" y="500" font-size="30" fill="#8a8f99">Etherscan</text>
+          </g>
+          <!-- L4 撤销交易弹窗 -->
+          <g id="ph-pop2" class="h">
+            <rect x="1260" y="340" width="540" height="420" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <line x1="1260" y1="386" x2="1800" y2="386" stroke="#8a8f99" stroke-width="2" />
+            <text data-layout-ignore x="1286" y="371" font-size="22" fill="#8a8f99">钱包 · 交易确认</text>
+            <text class="mono" x="1290" y="450" font-size="30" font-weight="700" fill="#83C167">approve(spender, 0)</text>
+            <text class="mono" x="1290" y="516" font-size="28" fill="#8a8f99">spender <tspan fill="#FC6255">0xBad…</tspan></text>
+            <circle cx="1310" cy="588" r="18" fill="#F0B90B" fill-opacity="0.3" stroke="#F0B90B" stroke-width="3" />
+            <text class="mono" x="1342" y="598" font-size="28" fill="#F0B90B">Gas</text>
+            <rect id="ph-ok2" x="1510" y="670" width="260" height="62" rx="10" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2.5" />
+            <text x="1640" y="712" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">确认</text>
+          </g>
+        </g>
+
+        <!-- L5 撤销只管以后 -->
+        <g id="ph-s4">
+          <path id="ph-axis" class="dr h" pathLength="1" d="M160 700 L1300 700" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ph-arr-g)" />
+          <text id="ph-axisl" class="h" x="1250" y="750" font-size="28" fill="#8a8f99">时间</text>
+          <g id="ph-mark" class="h">
+            <line x1="760" y1="580" x2="760" y2="740" stroke="#83C167" stroke-width="4" />
+            <text x="760" y="790" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">撤销</text>
+          </g>
+          <g id="ph-wall" class="h">
+            <rect x="820" y="520" width="440" height="14" rx="4" fill="#83C167" />
+            <text x="1040" y="494" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">之后：拿不走</text>
+          </g>
+          <circle id="ph-n1" class="h" cx="950" cy="676" r="16" fill="#F0B90B" />
+          <circle id="ph-n2" class="h" cx="1150" cy="676" r="16" fill="#F0B90B" />
+          <path id="ph-try" class="dr h" pathLength="1" d="M1050 680 L1050 546" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ph-arr-r)" />
+          <g id="ph-tryx" class="h">
+            <line x1="1030" y1="586" x2="1070" y2="626" stroke="#FC6255" stroke-width="6" />
+            <line x1="1070" y1="586" x2="1030" y2="626" stroke="#FC6255" stroke-width="6" />
+          </g>
+          <g id="ph-atk2" class="h">
+            <rect x="200" y="300" width="300" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text x="350" y="352" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">攻击者</text>
+          </g>
+          <circle id="ph-o1" class="h" cx="300" cy="676" r="16" fill="#F0B90B" />
+          <circle id="ph-o2" class="h" cx="450" cy="676" r="16" fill="#F0B90B" />
+          <circle id="ph-o3" class="h" cx="600" cy="676" r="16" fill="#F0B90B" />
+          <text id="ph-gone" class="h" x="560" y="432" font-size="32" font-weight="700" fill="#FC6255">追不回</text>
+          <g id="ph-bb1" class="h">
+            <rect x="1440" y="330" width="340" height="80" rx="40" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1610" y="382" font-size="32" fill="#e8e6df" text-anchor="middle">换钱包密码</text>
+          </g>
+          <line id="ph-x1" class="dr" pathLength="1" x1="1510" y1="370" x2="1710" y2="370" stroke="#FC6255" stroke-width="5" />
+          <g id="ph-bb2" class="h">
+            <rect x="1440" y="470" width="340" height="80" rx="40" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1610" y="522" font-size="32" fill="#e8e6df" text-anchor="middle">等授权过期</text>
+          </g>
+          <line id="ph-x2" class="dr" pathLength="1" x1="1510" y1="510" x2="1710" y2="510" stroke="#FC6255" stroke-width="5" />
+          <text id="ph-onc" class="h" x="1610" y="650" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">授权在链上</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ph-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">钓鱼 <tspan font-size="28" font-weight="400" fill="#8a8f99">Phishing</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">伪装正常网站，诱导你交出资产或授权</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const PRESS = (s, t) => tl.fromTo(s, { fillOpacity: 0.15 }, { fillOpacity: 0.6, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, t);
+
+      // L0 钓鱼：假空投页面
+      IN("#ph-term", at(0, 0.03), 0.5);
+      IN("#ph-web", at(0, 0.3), 0.6, { y: 16 }, { y: 0 });
+      IN("#ph-btn", at(0, 0.55), 0.5, { scale: 0.85, svgOrigin: "590 645" }, { scale: 1, svgOrigin: "590 645" });
+      tl.to("#ph-btnr", { strokeOpacity: 0.3, duration: 0.4, yoyo: true, repeat: 3 }, at(0, 0.7));
+      // L1 点按钮 → 钱包弹窗
+      OUT("#ph-term", at(1, 0), 0.3);
+      IN("#ph-cur", at(1, 0.02), 0.3);
+      tl.fromTo("#ph-cur", { x: 60, y: 60 }, { x: 0, y: -90, duration: 0.6, ease: "power2.inOut", immediateRender: false }, at(1, 0.05));
+      PRESS("#ph-btnr", at(1, 0.2));
+      IN("#ph-pop", at(1, 0.3), 0.6, { x: 200 }, { x: 0 });
+      // L2 确认 → 授权生效 → 转走
+      PRESS("#ph-ok", at(2, 0.02));
+      OUT("#ph-s1", at(2, 0.06), 0.4);
+      IN("#ph-cellh", at(2, 0.1), 0.4);
+      IN("#ph-cell", at(2, 0.1), 0.5, { scale: 0.8, svgOrigin: "580 355" }, { scale: 1, svgOrigin: "580 355" });
+      IN("#ph-bal, #ph-ball", at(2, 0.18), 0.4);
+      IN("#ph-atk", at(2, 0.22), 0.4, { y: 12 }, { y: 0 });
+      ARROW("#ph-pull", at(2, 0.28), 0.5);
+      IN("#ph-pulll", at(2, 0.3), 0.3);
+      IN("#ph-nokey", at(2, 0.36), 0.4, { x: -10 }, { x: 0 });
+      ["#ph-cn1", "#ph-cn2"].forEach((s, k) => {
+        const t = at(2, 0.33) + 0.35 * k;
+        IN(s, t, 0.1);
+        tl.to(s, { attr: { cy: 760 }, duration: 0.6, ease: "power2.in" }, t + 0.1);
+        tl.to(s, { opacity: 0, duration: 0.15 }, t + 0.65);
+      });
+      tl.to("#ph-balb", { attr: { width: 0 }, duration: 1.4, ease: "power2.inOut" }, at(2, 0.33));
+      IN("#ph-hl", at(2, 0.66), 0.4);
+      tl.to("#ph-hl", { attr: { y: 526 }, duration: 0.4, ease: "power2.inOut" }, at(2, 0.84));
+      IN("#ph-chk", at(2, 0.72), 0.5, { y: 10 }, { y: 0 });
+      // L3 授权检查页
+      OUT("#ph-s2, #ph-pop, #ph-hl, #ph-chk", at(3, 0), 0.4);
+      IN("#ph-chkwin", at(3, 0.06), 0.5, { y: 16 }, { y: 0 });
+      IN("#ph-tools", at(3, 0.12), 0.5, { x: 14 }, { x: 0 });
+      IN("#ph-ro", at(3, 0.3), 0.5);
+      IN("#ph-r1", at(3, 0.5), 0.4, { x: -10 }, { x: 0 });
+      IN("#ph-r2", at(3, 0.56), 0.4, { x: -10 }, { x: 0 });
+      IN("#ph-r3", at(3, 0.62), 0.4, { x: -10 }, { x: 0 });
+      tl.to("#ph-unl", { opacity: 0.25, duration: 0.35, yoyo: true, repeat: 7, immediateRender: false }, at(3, 0.75));
+      // L4 撤销 = approve(spender, 0)
+      OUT("#ph-tools", at(4, 0), 0.3);
+      tl.to("#ph-rv", { stroke: "#83C167", fill: "#83C167", fillOpacity: 0.25, duration: 0.2 }, at(4, 0.06));
+      tl.to("#ph-rvt", { fill: "#83C167", duration: 0.2 }, at(4, 0.06));
+      IN("#ph-pop2", at(4, 0.15), 0.5, { x: 120 }, { x: 0 });
+      PRESS("#ph-ok2", at(4, 0.72));
+      OUT("#ph-unl", at(4, 0.78), 0.3);
+      IN("#ph-zero", at(4, 0.8), 0.4, { scale: 1.6, svgOrigin: "710 642" }, { scale: 1, svgOrigin: "710 642" });
+      // L5 撤销只阻止以后
+      OUT("#ph-s3", at(5, 0), 0.4);
+      ARROW("#ph-axis", at(5, 0.03), 0.6); IN("#ph-axisl", at(5, 0.05), 0.4);
+      IN("#ph-mark", at(5, 0.07), 0.4);
+      IN("#ph-n1, #ph-n2", at(5, 0.1), 0.4, { y: -30 }, { y: 0 });
+      IN("#ph-wall", at(5, 0.12), 0.4);
+      ARROW("#ph-try", at(5, 0.16), 0.4);
+      IN("#ph-tryx", at(5, 0.19), 0.3, { scale: 1.6, svgOrigin: "1050 606" }, { scale: 1, svgOrigin: "1050 606" });
+      IN("#ph-atk2", at(5, 0.27), 0.4);
+      IN("#ph-o1, #ph-o2, #ph-o3", at(5, 0.27), 0.3);
+      [["#ph-o1", 280], ["#ph-o2", 350], ["#ph-o3", 420]].forEach(([s, x], k) => {
+        tl.to(s, { attr: { cx: x, cy: 418 }, duration: 0.7, ease: "power2.inOut" }, at(5, 0.3) + 0.15 * k);
+      });
+      IN("#ph-gone", at(5, 0.38), 0.4);
+      IN("#ph-bb1", at(5, 0.5), 0.4, { y: 10 }, { y: 0 });
+      DRAW("#ph-x1", at(5, 0.58), 0.4);
+      IN("#ph-onc", at(5, 0.64), 0.5);
+      IN("#ph-bb2", at(5, 0.76), 0.4, { y: 10 }, { y: 0 });
+      DRAW("#ph-x2", at(5, 0.86), 0.4);
+
+      tl.to("#ph-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ph-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["phish"] = tl;
+    })();
+  </script>
+</template>

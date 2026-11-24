@@ -1,0 +1,159 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="27.49" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <!-- L0 手机白屏 -->
+        <g id="ho-phone" class="h">
+          <rect x="760" y="220" width="400" height="680" rx="44" fill="#161a22" stroke="#8a8f99" stroke-width="4" />
+          <rect x="910" y="240" width="100" height="14" rx="7" fill="#2a2f3a" />
+          <rect x="800" y="290" width="200" height="26" rx="8" fill="#2a2f3a" />
+          <rect x="800" y="340" width="320" height="90" rx="14" fill="#1d222c" stroke="#2a2f3a" stroke-width="2" />
+          <rect x="800" y="450" width="320" height="90" rx="14" fill="#1d222c" stroke="#2a2f3a" stroke-width="2" />
+          <rect x="800" y="790" width="320" height="70" rx="35" fill="#2a2f3a" />
+          <g id="ho-spin">
+            <circle cx="960" cy="660" r="46" fill="none" stroke="#2a2f3a" stroke-width="10" />
+            <path d="M960 614 A46 46 0 0 1 1006 660" fill="none" stroke="#8a8f99" stroke-width="10" stroke-linecap="round" />
+          </g>
+        </g>
+        <text id="ho-timer" class="h" x="960" y="180" text-anchor="middle" font-size="48" font-weight="700" fill="#F0B90B">0.0 s</text>
+
+        <!-- L1 两张小卡 -->
+        <g id="ho-hist" class="h">
+          <rect x="1100" y="200" width="680" height="330" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="1140" y="258" font-size="34" font-weight="700" fill="#e8e6df">历史</text>
+          <rect id="ho-hrow0" x="1140" y="290" width="600" height="60" rx="10" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="10 8" />
+          <rect x="1140" y="370" width="600" height="56" rx="10" fill="#1d222c" />
+          <rect x="1170" y="390" width="260" height="16" rx="8" fill="#3a3f4a" />
+          <rect x="1140" y="446" width="600" height="56" rx="10" fill="#1d222c" />
+          <rect x="1170" y="466" width="220" height="16" rx="8" fill="#3a3f4a" />
+        </g>
+        <text id="ho-q" class="h" x="1440" y="334" text-anchor="middle" font-size="40" font-weight="700" fill="#FF9F43">?</text>
+
+        <g id="ho-acct" class="h">
+          <rect x="1100" y="580" width="680" height="300" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <circle id="ho-av" cx="1200" cy="680" r="48" fill="#B48EF033" stroke="#B48EF0" stroke-width="3" />
+          <text x="1290" y="668" font-size="30" fill="#8a8f99">账户</text>
+          <text x="1290" y="808" font-size="30" fill="#8a8f99">余额</text>
+          <text id="ho-bal" x="1380" y="810" font-size="44" font-weight="700" fill="#F0B90B">1.25 ETH</text>
+        </g>
+        <text id="ho-avA" class="h" x="1200" y="696" text-anchor="middle" font-size="44" font-weight="700" fill="#B48EF0">A</text>
+        <text id="ho-avB" class="h" x="1200" y="696" text-anchor="middle" font-size="44" font-weight="700" fill="#B48EF0">B</text>
+        <text id="ho-old" class="h" x="1700" y="808" text-anchor="middle" font-size="32" font-weight="700" fill="#FC6255">旧数据</text>
+
+        <!-- L2 RPC 挂了 -->
+        <g id="ho-srv" class="h">
+          <rect id="ho-srv1" x="180" y="260" width="200" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect id="ho-srv2" x="180" y="345" width="200" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <circle id="ho-led1" cx="345" cy="295" r="9" fill="#83C167" />
+          <circle id="ho-led2" cx="345" cy="380" r="9" fill="#83C167" />
+          <text x="280" y="470" text-anchor="middle" font-size="34" font-weight="700" fill="#e8e6df" class="mono">RPC</text>
+        </g>
+        <g id="ho-clock" class="h">
+          <circle cx="640" cy="340" r="80" fill="none" stroke="#8a8f99" stroke-width="4" />
+          <line x1="640" y1="340" x2="640" y2="290" stroke="#8a8f99" stroke-width="5" stroke-linecap="round" />
+          <line id="ho-hand" x1="640" y1="340" x2="640" y2="275" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          <text x="640" y="470" text-anchor="middle" font-size="32" fill="#e8e6df">30 分钟</text>
+        </g>
+        <g id="ho-team" class="h">
+          <circle cx="230" cy="640" r="30" fill="#8a8f99" />
+          <path d="M180 740 Q230 680 280 740 Z" fill="#8a8f99" />
+          <circle cx="330" cy="640" r="30" fill="#8a8f99" />
+          <path d="M280 740 Q330 680 380 740 Z" fill="#8a8f99" />
+          <text x="280" y="800" text-anchor="middle" font-size="30" fill="#8a8f99">团队</text>
+        </g>
+        <g id="ho-b1" class="h"><rect x="480" y="560" width="140" height="64" rx="20" fill="#2a2f3a" stroke="#8a8f99" stroke-width="2" /><circle cx="520" cy="592" r="6" fill="#8a8f99" /><circle cx="550" cy="592" r="6" fill="#8a8f99" /><circle cx="580" cy="592" r="6" fill="#8a8f99" /></g>
+        <g id="ho-b2" class="h"><rect x="560" y="650" width="140" height="64" rx="20" fill="#2a2f3a" stroke="#8a8f99" stroke-width="2" /><circle cx="600" cy="682" r="6" fill="#8a8f99" /><circle cx="630" cy="682" r="6" fill="#8a8f99" /><circle cx="660" cy="682" r="6" fill="#8a8f99" /></g>
+        <g id="ho-b3" class="h"><rect x="480" y="740" width="140" height="64" rx="20" fill="#2a2f3a" stroke="#8a8f99" stroke-width="2" /><circle cx="520" cy="772" r="6" fill="#8a8f99" /><circle cx="550" cy="772" r="6" fill="#8a8f99" /><circle cx="580" cy="772" r="6" fill="#8a8f99" /></g>
+        <g id="ho-bang" class="h">
+          <circle cx="210" cy="900" r="34" fill="#FC625533" stroke="#FC6255" stroke-width="3" />
+          <text x="210" y="916" text-anchor="middle" font-size="44" font-weight="700" fill="#FC6255">!</text>
+          <text x="270" y="912" font-size="36" font-weight="700" fill="#FC6255">投诉才知道</text>
+        </g>
+
+        <!-- L3 合约对了，前端仍出问题 → 四个徽章 -->
+        <text id="ho-ok" class="h" x="960" y="380" text-anchor="middle" font-size="56" font-weight="700" fill="#83C167">合约 ✓</text>
+        <text id="ho-fe" class="h" x="960" y="560" text-anchor="middle" font-size="44" font-weight="700" fill="#e8e6df">前端</text>
+        <text id="ho-bad" class="h" x="960" y="660" text-anchor="middle" font-size="40" fill="#FC6255">慢 · 不稳 · 出错没人知道</text>
+
+        <g id="ho-k0" class="h"><rect x="180" y="470" width="360" height="140" rx="24" fill="#F0B90B22" stroke="#F0B90B" stroke-width="3" /><text x="360" y="560" text-anchor="middle" font-size="60" font-weight="700" fill="#F0B90B">快</text></g>
+        <g id="ho-k1" class="h"><rect x="580" y="470" width="360" height="140" rx="24" fill="#83C16722" stroke="#83C167" stroke-width="3" /><text x="760" y="560" text-anchor="middle" font-size="60" font-weight="700" fill="#83C167">稳</text></g>
+        <g id="ho-k2" class="h"><rect x="980" y="470" width="360" height="140" rx="24" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" /><text x="1160" y="560" text-anchor="middle" font-size="60" font-weight="700" fill="#58C4DD">可测</text></g>
+        <g id="ho-k3" class="h"><rect x="1380" y="470" width="360" height="140" rx="24" fill="#B48EF022" stroke="#B48EF0" stroke-width="3" /><text x="1560" y="560" text-anchor="middle" font-size="60" font-weight="700" fill="#B48EF0">可观测</text></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "none", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 白屏转圈 + 计时
+      IN("#ho-phone", at(0, 0), 0.6, { scale: 0.94, svgOrigin: "960 560" }, { scale: 1, svgOrigin: "960 560" });
+      tl.fromTo("#ho-spin", { rotation: 0, svgOrigin: "960 660" }, { rotation: 1440, svgOrigin: "960 660", duration: L[1][0] - L[0][0], ease: "none" }, at(0, 0));
+      IN("#ho-timer", at(0, 0.1), 0.4);
+      COUNT("#ho-timer", 0, 3.5, at(0, 0.1), L[1][0] - at(0, 0.1), v => v.toFixed(1) + " s");
+
+      // L1 拆成两张卡
+      OUT("#ho-phone", at(1, 0), 0.35);
+      OUT("#ho-timer", at(1, 0), 0.35);
+      IN("#ho-hist", at(1, 0.07), 0.6, { x: -200 }, { x: 0 });
+      IN("#ho-q", at(1, 0.22), 0.4, { scale: 0.4, svgOrigin: "1440 320" }, { scale: 1, svgOrigin: "1440 320" });
+      tl.to("#ho-hrow0", { strokeOpacity: 0.3, duration: 0.3, yoyo: true, repeat: 3 }, at(1, 0.3));
+      IN("#ho-acct", at(1, 0.45), 0.6, { x: -200 }, { x: 0 });
+      IN("#ho-avA", at(1, 0.45), 0.6, { x: -200 }, { x: 0 });
+      OUT("#ho-avA", at(1, 0.68), 0.25);
+      IN("#ho-avB", at(1, 0.72), 0.3, { scale: 0.5, svgOrigin: "1200 680" }, { scale: 1, svgOrigin: "1200 680" });
+      tl.to("#ho-bal", { fill: "#FC6255", duration: 0.2, yoyo: true, repeat: 3 }, at(1, 0.82));
+      IN("#ho-old", at(1, 0.84), 0.4);
+
+      // L2 RPC 挂了半小时，投诉才知道
+      IN("#ho-srv", at(2, 0.02), 0.5);
+      tl.to(["#ho-srv1", "#ho-srv2"], { stroke: "#FC6255", duration: 0.3 }, at(2, 0.18));
+      tl.to(["#ho-led1", "#ho-led2"], { fill: "#3a3f4a", duration: 0.3 }, at(2, 0.18));
+      IN("#ho-clock", at(2, 0.25), 0.5);
+      tl.fromTo("#ho-hand", { rotation: 0, svgOrigin: "640 340" }, { rotation: 180, svgOrigin: "640 340", duration: 1.6, ease: "power1.inOut" }, at(2, 0.3));
+      IN("#ho-team", at(2, 0.55), 0.5);
+      IN("#ho-b1", at(2, 0.62), 0.4, { x: 500 }, { x: 0 });
+      IN("#ho-b2", at(2, 0.68), 0.4, { x: 500 }, { x: 0 });
+      IN("#ho-b3", at(2, 0.74), 0.4, { x: 500 }, { x: 0 });
+      IN("#ho-bang", at(2, 0.84), 0.4, { scale: 0.6, svgOrigin: "210 900" }, { scale: 1, svgOrigin: "210 900" });
+
+      // L3 收拢成四个徽章
+      OUT(["#ho-hist", "#ho-q", "#ho-acct", "#ho-avB", "#ho-old", "#ho-srv", "#ho-clock", "#ho-team", "#ho-b1", "#ho-b2", "#ho-b3", "#ho-bang"], at(3, 0), 0.4);
+      IN("#ho-ok", at(3, 0.05), 0.5);
+      IN("#ho-fe", at(3, 0.2), 0.4);
+      IN("#ho-bad", at(3, 0.26), 0.5);
+      OUT(["#ho-ok", "#ho-fe", "#ho-bad"], at(3, 0.5), 0.35);
+      ["#ho-k0", "#ho-k1", "#ho-k2", "#ho-k3"].forEach((s, i) => {
+        const cx = 360 + i * 400;
+        IN(s, at(3, 0.6 + i * 0.09), 0.5, { scale: 0.6, svgOrigin: cx + " 540" }, { scale: 1, svgOrigin: cx + " 540" });
+      });
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

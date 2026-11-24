@@ -1,0 +1,302 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root text { white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 vulns，id 前缀 vu- -->
+  <div id="root" data-composition-id="vulns" data-duration="52.73" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="vu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="vu-all">
+        <!-- L0 three shields -->
+        <g id="vu-sh">
+          <g id="vu-sh0" class="h"><path d="M400 390 L540 440 L540 560 Q540 680 400 740 Q260 680 260 560 L260 440 Z" fill="#161a22" stroke="#8a8f99" stroke-width="4"/><text x="400" y="810" font-size="36" fill="#e8e6df" text-anchor="middle">重入</text></g>
+          <g id="vu-sh1" class="h"><path d="M960 390 L1100 440 L1100 560 Q1100 680 960 740 Q820 680 820 560 L820 440 Z" fill="#161a22" stroke="#8a8f99" stroke-width="4"/><text x="960" y="810" font-size="36" fill="#e8e6df" text-anchor="middle">预言机操纵</text></g>
+          <g id="vu-sh2" class="h"><path d="M1520 390 L1660 440 L1660 560 Q1660 680 1520 740 Q1380 680 1380 560 L1380 440 Z" fill="#161a22" stroke="#8a8f99" stroke-width="4"/><text x="1520" y="810" font-size="36" fill="#e8e6df" text-anchor="middle">权限失控</text></g>
+        </g>
+        <!-- tabs -->
+        <g id="vu-tabs" class="h">
+          <rect id="vu-tb0" x="560" y="200" width="200" height="50" rx="10" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5"/>
+          <rect id="vu-tb1" x="800" y="200" width="280" height="50" rx="10" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5"/>
+          <rect id="vu-tb2" x="1120" y="200" width="240" height="50" rx="10" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5"/>
+          <text id="vu-tt0" x="660" y="236" font-size="30" fill="#6b6f7a" text-anchor="middle">重入</text>
+          <text id="vu-tt1" x="940" y="236" font-size="30" fill="#6b6f7a" text-anchor="middle">预言机操纵</text>
+          <text id="vu-tt2" x="1240" y="236" font-size="30" fill="#6b6f7a" text-anchor="middle">权限失控</text>
+        </g>
+        <!-- L1-L3 reentrancy -->
+        <g id="vu-re">
+          <g id="vu-hA" class="h"><rect x="180" y="270" width="240" height="60" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="300" y="311" font-size="30" fill="#FC6255" text-anchor="middle">攻击合约</text></g>
+          <g id="vu-hV" class="h"><rect x="680" y="270" width="280" height="60" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="820" y="311" font-size="30" fill="#F0B90B" text-anchor="middle">有漏洞的金库</text></g>
+          <g id="vu-lns" class="h" stroke-width="2" stroke-dasharray="6 6">
+            <line x1="300" y1="330" x2="300" y2="1000" stroke="#FC6255"/>
+            <line x1="820" y1="330" x2="820" y2="1000" stroke="#F0B90B"/>
+          </g>
+          <path id="vu-a1" class="dr h" pathLength="1" d="M300 420 L812 420" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#vu-arr)"/>
+          <text id="vu-k1" class="h mono" x="560" y="404" font-size="28" fill="#e8e6df" text-anchor="middle">withdraw()</text>
+          <text id="vu-bal" class="h mono" x="850" y="480" font-size="30" fill="#F0B90B">balance[A] = 1 ETH</text>
+          <g id="vu-pile" class="h">
+            <rect id="vu-c0" x="880" y="850" width="200" height="34" rx="17" fill="#F0B90B"/>
+            <rect id="vu-c1" x="880" y="808" width="200" height="34" rx="17" fill="#F0B90B"/>
+            <rect id="vu-c2" x="880" y="766" width="200" height="34" rx="17" fill="#F0B90B"/>
+          </g>
+          <text id="vu-zero" class="h mono" x="850" y="962" font-size="30" fill="#8a8f99">balance[A] = 0</text>
+          <text id="vu-last" class="h" x="1130" y="962" font-size="28" fill="#8a8f99">最后才执行</text>
+          <path id="vu-a2" class="dr h" pathLength="1" d="M820 540 L308 540" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#vu-arr)"/>
+          <text id="vu-k2" class="h" x="560" y="524" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan class="mono">call </tspan>转出<tspan class="mono"> 1 ETH</tspan></text>
+          <text id="vu-ctl" class="h" x="560" y="582" font-size="28" fill="#FF9F43" text-anchor="middle">交出控制权</text>
+          <text id="vu-rcv" class="h mono" x="280" y="625" font-size="28" fill="#FC6255" text-anchor="end">receive()</text>
+          <path id="vu-a3" class="dr h" pathLength="1" d="M300 660 L812 660" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#vu-arr)"/>
+          <text id="vu-k3" class="h mono" x="560" y="644" font-size="28" fill="#FC6255" text-anchor="middle">withdraw()</text>
+          <g id="vu-loopT" class="h"><path id="vu-loop" d="M620 800 A60 60 0 1 1 560 740" fill="none" stroke="#FC6255" stroke-width="5" marker-end="url(#vu-arr)"/></g>
+          <text id="vu-empty" class="h" x="980" y="830" font-size="44" font-weight="700" fill="#FC6255" text-anchor="middle">被掏空</text>
+          <!-- L3 fix -->
+          <g id="vu-s1" class="h"><rect x="1220" y="340" width="620" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1260" y="403" font-size="36" fill="#83C167">① 检查</text></g>
+          <path id="vu-d1" class="dr h" pathLength="1" d="M1530 444 L1530 482" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#vu-arr)"/>
+          <g id="vu-s2" class="h"><rect x="1220" y="490" width="620" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1260" y="553" font-size="36" fill="#83C167">② 改状态</text></g>
+          <path id="vu-d2" class="dr h" pathLength="1" d="M1530 594 L1530 632" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#vu-arr)"/>
+          <g id="vu-s3" class="h"><rect x="1220" y="640" width="620" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1260" y="703" font-size="36" fill="#83C167">③ 外部交互</text></g>
+          <g id="vu-lock" class="h">
+            <path d="M697 390 L697 378 Q697 362 712 362 Q727 362 727 378 L727 390" fill="none" stroke="#83C167" stroke-width="5"/>
+            <rect x="688" y="388" width="48" height="26" rx="5" fill="#83C167"/>
+          </g>
+          <text id="vu-lockl" class="h" x="712" y="464" font-size="28" fill="#83C167" text-anchor="middle">重入锁</text>
+        </g>
+        <!-- L4 oracle -->
+        <g id="vu-or">
+          <rect id="vu-frm" class="h" x="120" y="310" width="1340" height="570" rx="20" fill="none" stroke="#e8e6df" stroke-width="2.5" stroke-dasharray="14 10"/>
+          <text id="vu-frml" class="h" x="1460" y="294" font-size="30" fill="#e8e6df" text-anchor="end">一笔交易内</text>
+          <g id="vu-pool" class="h">
+            <rect x="180" y="460" width="320" height="300" rx="24" fill="#161a22" stroke="#58C4DD" stroke-width="4"/>
+            <rect x="186" y="620" width="308" height="134" rx="18" fill="#58C4DD" fill-opacity="0.25"/>
+            <path d="M260 580 A80 80 0 0 1 420 580" fill="none" stroke="#8a8f99" stroke-width="6"/>
+            <path d="M397 523 A80 80 0 0 1 420 580" fill="none" stroke="#FC6255" stroke-width="8"/>
+            <circle cx="340" cy="580" r="8" fill="#e8e6df"/>
+            <line id="vu-ndl" x1="340" y1="580" x2="340" y2="515" stroke="#e8e6df" stroke-width="5" stroke-linecap="round"/>
+            <text x="340" y="820" font-size="32" fill="#58C4DD" text-anchor="middle">交易池</text>
+          </g>
+          <g id="vu-lend" class="h">
+            <rect x="820" y="480" width="300" height="220" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="4"/>
+            <text x="970" y="602" font-size="36" fill="#F0B90B" text-anchor="middle">借贷协议</text>
+          </g>
+          <g id="vu-read" class="h">
+            <path d="M500 560 L812 560" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#vu-arr)"/>
+            <text x="656" y="540" font-size="28" fill="#58C4DD" text-anchor="middle">读即时价格</text>
+          </g>
+          <path id="vu-bolt" class="h" d="M440 330 L372 410 L405 410 L338 472 L360 418 L326 418 L392 330 Z" fill="#F0B90B"/>
+          <g id="vu-loan">
+            <circle id="vu-m0" class="h" cx="1220" cy="680" r="22" fill="#F0B90B"/>
+            <circle id="vu-m1" class="h" cx="1275" cy="680" r="22" fill="#F0B90B"/>
+            <circle id="vu-m2" class="h" cx="1330" cy="680" r="22" fill="#F0B90B"/>
+            <circle id="vu-m3" class="h" cx="1385" cy="680" r="22" fill="#F0B90B"/>
+            <circle id="vu-m4" class="h" cx="1248" cy="636" r="22" fill="#F0B90B"/>
+            <circle id="vu-m5" class="h" cx="1303" cy="636" r="22" fill="#F0B90B"/>
+            <circle id="vu-m6" class="h" cx="1358" cy="636" r="22" fill="#F0B90B"/>
+            <circle id="vu-m7" class="h" cx="1275" cy="592" r="22" fill="#F0B90B"/>
+            <circle id="vu-m8" class="h" cx="1330" cy="592" r="22" fill="#F0B90B"/>
+          </g>
+          <text id="vu-over" class="h" x="1302" y="770" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">超额借款</text>
+          <g id="vu-twr" class="h">
+            <path d="M1690 470 L1660 400 M1690 470 L1720 400 M1668 420 L1712 420 M1675 440 L1705 440" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="1690" cy="384" r="9" fill="#83C167"/>
+            <path d="M1660 360 Q1690 335 1720 360 M1645 340 Q1690 300 1735 340" fill="none" stroke="#83C167" stroke-width="3.5" stroke-linecap="round"/>
+            <text x="1690" y="522" font-size="32" fill="#83C167" text-anchor="middle">聚合预言机</text>
+            <text x="1690" y="564" font-size="28" fill="#8a8f99" text-anchor="middle">如 Chainlink</text>
+          </g>
+          <path id="vu-twap" class="dr h" pathLength="1" d="M1550 700 C1610 690 1640 660 1690 664 C1740 668 1770 640 1830 636" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+          <g id="vu-twl" class="h">
+            <text class="mono" x="1690" y="762" font-size="30" fill="#83C167" text-anchor="middle">TWAP</text>
+            <text x="1690" y="804" font-size="28" fill="#83C167" text-anchor="middle">时间加权平均价格</text>
+          </g>
+          <path id="vu-gin" class="dr h" pathLength="1" d="M1540 600 L1130 600" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#vu-arr)"/>
+        </g>
+        <!-- L5 admin -->
+        <g id="vu-ad">
+          <g id="vu-box" class="h">
+            <rect id="vu-boxr" x="660" y="540" width="600" height="260" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="4"/>
+            <text x="960" y="618" font-size="36" fill="#58C4DD" text-anchor="middle">合约</text>
+            <rect x="920" y="792" width="80" height="10" rx="3" fill="#0b0d12"/>
+          </g>
+          <g id="vu-bt0" class="h"><rect id="vu-bt0r" x="700" y="676" width="160" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text id="vu-bt0t" x="780" y="719" font-size="30" fill="#e8e6df" text-anchor="middle">升级</text></g>
+          <g id="vu-bt1" class="h"><rect x="880" y="676" width="160" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="960" y="719" font-size="30" fill="#e8e6df" text-anchor="middle">暂停</text></g>
+          <g id="vu-bt2" class="h"><rect x="1060" y="676" width="160" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="1140" y="719" font-size="30" fill="#e8e6df" text-anchor="middle">改参数</text></g>
+          <g id="vu-adm" class="h">
+            <circle cx="960" cy="325" r="26" fill="none" stroke="#B48EF0" stroke-width="5"/>
+            <path d="M960 352 L960 440 M960 378 L920 420 M960 378 L1004 405 M960 440 L930 505 M960 440 L990 505" fill="none" stroke="#B48EF0" stroke-width="5" stroke-linecap="round"/>
+            <text x="900" y="340" font-size="30" fill="#B48EF0" text-anchor="end">管理员</text>
+          </g>
+          <g id="vu-key" class="h">
+            <circle cx="1020" cy="405" r="13" fill="none" stroke="#FF9F43" stroke-width="5"/>
+            <path d="M1033 405 L1080 405 M1066 405 L1066 418 M1076 405 L1076 416" fill="none" stroke="#FF9F43" stroke-width="5" stroke-linecap="round"/>
+          </g>
+          <path id="vu-hand" class="h" d="M1095 390 Q1095 376 1110 378 L1175 386 L1175 424 L1110 432 Q1095 432 1095 418 Z M1175 395 L1240 395 L1240 415 L1175 415" fill="#FC6255"/>
+          <g id="vu-drop">
+            <circle id="vu-f0" class="h" cx="960" cy="820" r="18" fill="#F0B90B"/>
+            <circle id="vu-f1" class="h" cx="960" cy="820" r="18" fill="#F0B90B"/>
+            <circle id="vu-f2" class="h" cx="960" cy="820" r="18" fill="#F0B90B"/>
+            <circle id="vu-f3" class="h" cx="960" cy="820" r="18" fill="#F0B90B"/>
+            <circle id="vu-f4" class="h" cx="960" cy="820" r="18" fill="#F0B90B"/>
+            <circle id="vu-f5" class="h" cx="960" cy="820" r="18" fill="#F0B90B"/>
+          </g>
+          <text id="vu-atm" class="h" x="1100" y="950" font-size="40" font-weight="700" fill="#FC6255">提款机</text>
+          <g id="vu-ms">
+            <g id="vu-g0" class="h"><circle cx="1110" cy="330" r="12" fill="none" stroke="#83C167" stroke-width="5"/><path d="M1122 330 L1168 330 M1156 330 L1156 342" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/></g>
+            <g id="vu-g1" class="h"><circle cx="1110" cy="385" r="12" fill="none" stroke="#83C167" stroke-width="5"/><path d="M1122 385 L1168 385 M1156 385 L1156 397" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/></g>
+            <g id="vu-g2" class="h"><circle cx="1110" cy="440" r="12" fill="none" stroke="#83C167" stroke-width="5"/><path d="M1122 440 L1168 440 M1156 440 L1156 452" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/></g>
+            <text id="vu-msl" class="h" x="1200" y="396" font-size="30" fill="#83C167"><tspan>多签 </tspan><tspan class="mono">2/3</tspan></text>
+          </g>
+          <g id="vu-hg" class="h">
+            <path d="M1370 590 L1470 590 L1428 660 L1470 730 L1370 730 L1412 660 Z" fill="none" stroke="#83C167" stroke-width="4" stroke-linejoin="round"/>
+            <path id="vu-sT" d="M1384 598 L1456 598 L1420 652 Z" fill="#83C167"/>
+            <path id="vu-sB" d="M1420 668 L1460 722 L1380 722 Z" fill="#83C167"/>
+            <text x="1420" y="785" font-size="30" fill="#83C167" text-anchor="middle">时间锁</text>
+          </g>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="vu-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">重入 <tspan font-size="28" font-weight="400" fill="#8a8f99">Reentrancy</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">外部调用在状态更新前再次进入同一函数</text>
+      </g>
+      <g id="vu-term2" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">预言机 <tspan font-size="28" font-weight="400" fill="#8a8f99">Oracle</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">把链外数据写入链上的服务</text>
+      </g>
+      <g id="vu-term3" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">闪电贷 <tspan font-size="28" font-weight="400" fill="#8a8f99">Flash Loan</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">在同一笔交易内借出并归还的无抵押贷款</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const TAB = (k, t) => {
+        [0, 1, 2].forEach(j => {
+          tl.to(`#vu-tb${j}`, { stroke: j === k ? "#FC6255" : "#6b6f7a", duration: 0.3 }, t);
+          tl.to(`#vu-tt${j}`, { fill: j === k ? "#e8e6df" : "#6b6f7a", duration: 0.3 }, t);
+        });
+      };
+      // L0 shields -> tabs
+      IN("#vu-sh0", at(0, 0.05), 0.5, { y: 30 }, { y: 0 });
+      IN("#vu-sh1", at(0, 0.25), 0.5, { y: 30 }, { y: 0 });
+      IN("#vu-sh2", at(0, 0.45), 0.5, { y: 30 }, { y: 0 });
+      tl.to("#vu-sh", { opacity: 0, scale: 0.4, svgOrigin: "960 225", duration: 0.6, ease: "power2.in" }, at(1, 0.0));
+      IN("#vu-tabs", at(1, 0.08), 0.4);
+      TAB(0, at(1, 0.08));
+      // L1 reentrancy setup
+      IN("#vu-term", at(1, 0.05), 0.5);
+      IN("#vu-hA", at(1, 0.14), 0.4); IN("#vu-hV", at(1, 0.2), 0.4);
+      IN("#vu-lns", at(1, 0.24), 0.5);
+      IN("#vu-pile", at(1, 0.3), 0.4);
+      ARROW("#vu-a1", at(1, 0.38), 0.5); IN("#vu-k1", at(1, 0.4), 0.3);
+      IN("#vu-bal", at(1, 0.5), 0.4, { x: -16 }, { x: 0 });
+      IN("#vu-zero", at(1, 0.8), 0.4); IN("#vu-last", at(1, 0.84), 0.4);
+      // L2 reentry loop
+      ARROW("#vu-a2", at(2, 0.02), 0.5); IN("#vu-k2", at(2, 0.04), 0.3);
+      IN("#vu-ctl", at(2, 0.12), 0.4);
+      OUT("#vu-term", at(2, 0.2), 0.4);
+      IN("#vu-rcv", at(2, 0.28), 0.3);
+      ARROW("#vu-a3", at(2, 0.34), 0.5); IN("#vu-k3", at(2, 0.36), 0.3);
+      IN("#vu-loopT", at(2, 0.46), 0.3);
+      tl.fromTo("#vu-loopT", { rotation: 0 }, { rotation: 1080, svgOrigin: "560 800", duration: 3.6, ease: "none", immediateRender: false }, at(2, 0.48));
+      [2, 1, 0].forEach((c, k) => {
+        const t = at(2, 0.48) + 1.2 * (k + 1) - 0.3;
+        tl.to(`#vu-c${c}`, { opacity: 0, x: -40, duration: 0.3 }, t);
+        tl.to("#vu-bal", { fill: "#FF9F43", duration: 0.15, yoyo: true, repeat: 1 }, t);
+      });
+      OUT("#vu-loopT", at(2, 0.9), 0.3);
+      IN("#vu-empty", at(2, 0.9), 0.4, { scale: 0.8, svgOrigin: "980 815" }, { scale: 1, svgOrigin: "980 815" });
+      // L3 fix: CEI + lock
+      OUT("#vu-empty, #vu-a3, #vu-k3, #vu-rcv, #vu-last", at(3, 0.02), 0.4);
+      IN("#vu-s1", at(3, 0.12), 0.4, { x: 30 }, { x: 0 });
+      ARROW("#vu-d1", at(3, 0.22), 0.3);
+      IN("#vu-s2", at(3, 0.24), 0.4, { x: 30 }, { x: 0 });
+      ARROW("#vu-d2", at(3, 0.4), 0.3);
+      IN("#vu-s3", at(3, 0.42), 0.4, { x: 30 }, { x: 0 });
+      tl.to("#vu-zero", { attr: { y: 522 }, fill: "#83C167", duration: 0.8, ease: "power2.inOut" }, at(3, 0.56));
+      tl.to("#vu-s2 rect", { fill: "#1e2a1a", duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.6));
+      tl.to("#vu-c0, #vu-c1, #vu-c2", { opacity: 1, x: 0, duration: 0.4, stagger: 0.1 }, at(3, 0.66));
+      IN("#vu-lock", at(3, 0.84), 0.4, { y: -24 }, { y: 0 });
+      IN("#vu-lockl", at(3, 0.88), 0.3);
+      // L4 oracle
+      OUT("#vu-re", at(4, 0.0), 0.5);
+      TAB(1, at(4, 0.02));
+      IN("#vu-term2", at(4, 0.03), 0.5);
+      IN("#vu-pool", at(4, 0.12), 0.5);
+      IN("#vu-lend", at(4, 0.18), 0.5);
+      IN("#vu-read", at(4, 0.25), 0.4, { x: -20 }, { x: 0 });
+      OUT("#vu-term2", at(4, 0.35), 0.4);
+      IN("#vu-term3", at(4, 0.39), 0.5);
+      IN("#vu-bolt", at(4, 0.4), 0.3, { y: -40 }, { y: 0 });
+      tl.to("#vu-pool rect:nth-child(2)", { fillOpacity: 0.6, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.43));
+      IN("#vu-frm", at(4, 0.47), 0.4); IN("#vu-frml", at(4, 0.48), 0.4);
+      tl.to("#vu-ndl", { rotation: 72, svgOrigin: "340 580", duration: 0.5, ease: "back.out(2)" }, at(4, 0.53));
+      for (let k = 0; k < 9; k++) IN(`#vu-m${k}`, at(4, 0.6) + k * 0.08, 0.25, { x: -120 }, { x: 0 });
+      IN("#vu-over", at(4, 0.66), 0.4);
+      OUT("#vu-term3", at(4, 0.72), 0.4);
+      OUT("#vu-bolt, #vu-frm, #vu-frml, #vu-loan, #vu-over, #vu-read", at(4, 0.72), 0.4);
+      tl.to("#vu-ndl", { rotation: 0, svgOrigin: "340 580", duration: 0.5 }, at(4, 0.74));
+      IN("#vu-twr", at(4, 0.76), 0.5, { y: 20 }, { y: 0 });
+      ARROW("#vu-gin", at(4, 0.8), 0.5);
+      DRAW("#vu-twap", at(4, 0.86), 0.7); IN("#vu-twap", at(4, 0.86), 0.1);
+      IN("#vu-twl", at(4, 0.9), 0.4);
+      // L5 admin
+      OUT("#vu-or", at(5, 0.0), 0.5);
+      TAB(2, at(5, 0.02));
+      IN("#vu-box", at(5, 0.05), 0.5);
+      IN("#vu-adm", at(5, 0.1), 0.5, { y: -20 }, { y: 0 });
+      IN("#vu-key", at(5, 0.15), 0.4);
+      IN("#vu-bt0", at(5, 0.22), 0.3); IN("#vu-bt1", at(5, 0.29), 0.3); IN("#vu-bt2", at(5, 0.36), 0.3);
+      IN("#vu-hand", at(5, 0.45), 0.6, { x: 520 }, { x: 0, ease: "power2.out" });
+      tl.to("#vu-hand, #vu-key", { x: 700, duration: 0.7, ease: "power2.in" }, at(5, 0.53));
+      OUT("#vu-hand, #vu-key", at(5, 0.53) + 0.5, 0.2);
+      tl.to("#vu-boxr", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.58));
+      for (let k = 0; k < 6; k++) {
+        const t = at(5, 0.6) + k * 0.22;
+        IN(`#vu-f${k}`, t, 0.1);
+        tl.to(`#vu-f${k}`, { y: 170, duration: 0.5, ease: "power2.in" }, t);
+        OUT(`#vu-f${k}`, t + 0.45, 0.1);
+      }
+      IN("#vu-atm", at(5, 0.66), 0.4);
+      OUT("#vu-atm", at(5, 0.75), 0.3);
+      tl.to("#vu-boxr", { stroke: "#58C4DD", duration: 0.3 }, at(5, 0.75));
+      IN("#vu-g0", at(5, 0.76), 0.3); IN("#vu-g1", at(5, 0.78), 0.3); IN("#vu-g2", at(5, 0.8), 0.3);
+      IN("#vu-msl", at(5, 0.81), 0.3);
+      IN("#vu-hg", at(5, 0.83), 0.3);
+      const tp = at(5, 0.86);
+      tl.to("#vu-bt0r", { fill: "#2a2f3a", duration: 0.15 }, tp);
+      tl.fromTo("#vu-sT", { scaleY: 1, svgOrigin: "1420 652" }, { scaleY: 0, svgOrigin: "1420 652", duration: 0.9, ease: "none", immediateRender: false }, tp + 0.1);
+      tl.fromTo("#vu-sB", { scaleY: 0, svgOrigin: "1420 722" }, { scaleY: 1, svgOrigin: "1420 722", duration: 0.9, ease: "none" }, tp + 0.1);
+      tl.to("#vu-bt0r", { stroke: "#83C167", fill: "#161a22", duration: 0.2 }, tp + 1.0);
+      tl.to("#vu-bt0t", { fill: "#83C167", duration: 0.2 }, tp + 1.0);
+
+      tl.to("#vu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#vu-term, #vu-term2, #vu-term3", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["vulns"] = tl;
+    })();
+  </script>
+</template>

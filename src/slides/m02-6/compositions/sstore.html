@@ -1,0 +1,199 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 sstore，id 前缀 ss- -->
+  <div id="root" data-composition-id="sstore" data-duration="42.83" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ss-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ss-all">
+        <text id="ss-title" class="h" x="1000" y="140" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">按值怎么变来计费</text>
+        <!-- 大槽格 -->
+        <text id="ss-slotl" class="h" x="530" y="446" font-size="30" fill="#8a8f99" text-anchor="end">槽 0</text>
+        <rect id="ss-cellE" class="h" x="560" y="340" width="800" height="180" rx="12" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="14 10" />
+        <rect id="ss-cellF" class="h" x="560" y="340" width="800" height="180" rx="12" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="3" />
+        <rect id="ss-cellD" class="h" x="560" y="340" width="800" height="180" rx="12" fill="#58C4DD" fill-opacity="0.2" stroke="#FF9F43" stroke-width="4" stroke-dasharray="14 10" />
+        <text id="ss-v0" class="h mono" x="960" y="464" font-size="100" font-weight="700" fill="#8a8f99" text-anchor="middle">0</text>
+        <text id="ss-v5" class="h mono" x="960" y="464" font-size="100" font-weight="700" fill="#8a8f99" text-anchor="middle">5</text>
+        <text id="ss-v7" class="h mono" x="960" y="464" font-size="100" font-weight="700" fill="#8a8f99" text-anchor="middle">7</text>
+        <text id="ss-v8" class="h mono" x="960" y="464" font-size="100" font-weight="700" fill="#e8e6df" text-anchor="middle">8</text>
+        <text id="ss-v9" class="h mono" x="960" y="464" font-size="100" font-weight="700" fill="#e8e6df" text-anchor="middle">9</text>
+        <!-- 钥匙：租新格子 -->
+        <g id="ss-key" class="h" fill="none" stroke="#F0B90B" stroke-width="5" stroke-linecap="round">
+          <circle cx="1410" cy="400" r="22" />
+          <path d="M1410 422 V480 M1410 452 H1428 M1410 470 H1424" />
+        </g>
+        <text id="ss-same" class="h" x="960" y="314" font-size="30" fill="#8a8f99" text-anchor="middle">无变化</text>
+        <text id="ss-dirty" class="h" x="1390" y="444" font-size="34" font-weight="700" fill="#FF9F43">脏槽 <tspan class="mono" font-weight="400">dirty</tspan></text>
+        <!-- 计费表 -->
+        <g id="ss-tbl">
+          <g id="ss-thead" class="h">
+            <text x="220" y="640" font-size="30" fill="#8a8f99">变化</text>
+            <text x="480" y="640" font-size="30" fill="#FC6255">冷</text>
+            <path id="ss-ice" d="M535 617 V643 M524 623.5 L546 636.5 M524 636.5 L546 623.5" stroke="#FC6255" stroke-width="3" stroke-linecap="round" fill="none" />
+            <text x="790" y="640" font-size="30" fill="#FF9F43">热</text>
+            <path d="M843 643 C831 643 831 629 843 617 C845 627 855 633 843 643 Z" fill="#FF9F43" />
+            <text x="1000" y="640" font-size="30" fill="#8a8f99">说明</text>
+            <line x1="200" y1="664" x2="1200" y2="664" stroke="#2a2f3a" stroke-width="2" />
+          </g>
+          <g id="ss-r1" class="h">
+            <text x="220" y="715" font-size="30" fill="#e8e6df">0 → 非 0</text>
+            <text class="mono" x="480" y="715" font-size="30" fill="#F0B90B">20,000<tspan id="ss-c1"> + 2,100</tspan></text>
+            <text class="mono" x="790" y="715" font-size="30" fill="#F0B90B">20,000</text>
+            <text x="1000" y="715" font-size="30" fill="#e8e6df">新格子</text>
+          </g>
+          <g id="ss-r2" class="h">
+            <text x="220" y="785" font-size="30" fill="#e8e6df">非 0 → 非 0</text>
+            <text class="mono" x="480" y="785" font-size="30" fill="#F0B90B">2,900<tspan id="ss-c2"> + 2,100</tspan></text>
+            <text class="mono" x="790" y="785" font-size="30" fill="#F0B90B">2,900</text>
+            <text x="1000" y="785" font-size="30" fill="#e8e6df">改值</text>
+          </g>
+          <g id="ss-r3" class="h">
+            <text x="220" y="855" font-size="30" fill="#e8e6df">相同值</text>
+            <text class="mono" x="480" y="855" font-size="30" fill="#F0B90B">100<tspan id="ss-c3"> + 2,100</tspan></text>
+            <text class="mono" x="790" y="855" font-size="30" fill="#F0B90B">100</text>
+            <text x="1000" y="855" font-size="30" fill="#e8e6df">没变</text>
+          </g>
+          <rect id="ss-coldbox" class="h" x="462" y="598" width="290" height="284" rx="10" fill="none" stroke="#FC6255" stroke-width="3" />
+        </g>
+        <!-- 脏槽：连续写 -->
+        <g id="ss-w1" class="h">
+          <text class="mono" x="640" y="680" font-size="38" fill="#e8e6df" text-anchor="middle">5 → 7</text>
+          <text class="mono" x="640" y="740" font-size="34" fill="#F0B90B" text-anchor="middle">+5,000</text>
+          <text class="mono" x="640" y="790" font-size="28" fill="#8a8f99" text-anchor="middle">2,900 + 2,100</text>
+        </g>
+        <g id="ss-w2" class="h">
+          <text class="mono" x="960" y="680" font-size="38" fill="#e8e6df" text-anchor="middle">7 → 8</text>
+          <text class="mono" x="960" y="740" font-size="34" fill="#FF9F43" text-anchor="middle">+100</text>
+        </g>
+        <g id="ss-w3" class="h">
+          <text class="mono" x="1280" y="680" font-size="38" fill="#e8e6df" text-anchor="middle">8 → 9</text>
+          <text class="mono" x="1280" y="740" font-size="34" fill="#FF9F43" text-anchor="middle">+100</text>
+        </g>
+        <!-- 瞬态格 -->
+        <text id="ss-tl" class="h" x="530" y="700" font-size="30" fill="#58C4DD" text-anchor="end">瞬态</text>
+        <rect id="ss-tcell" class="h" x="560" y="620" width="800" height="140" rx="12" fill="none" stroke="#58C4DD" stroke-width="3" stroke-dasharray="14 10" />
+        <text id="ss-tv" class="h mono" x="960" y="710" font-size="56" fill="#e8e6df" text-anchor="middle">flag = 1</text>
+        <text id="ss-tv0" class="h mono" x="960" y="710" font-size="56" fill="#6b6f7a" text-anchor="middle">0</text>
+        <text id="ss-tcost" class="h mono" x="960" y="830" font-size="34" fill="#F0B90B" text-anchor="middle">TSTORE / TLOAD  100</text>
+        <text id="ss-tyear" class="h mono" x="960" y="884" font-size="28" fill="#8a8f99" text-anchor="middle">2024 · Cancun · EIP-1153</text>
+        <g id="ss-sweep" class="h">
+          <line x1="540" y1="600" x2="540" y2="780" stroke="#FC6255" stroke-width="4" stroke-dasharray="10 8" />
+        </g>
+        <text id="ss-txend" class="h" x="1390" y="700" font-size="30" fill="#FC6255">交易结束</text>
+        <!-- 计价器 -->
+        <g id="ss-meter" class="h">
+          <rect x="1480" y="900" width="380" height="120" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2" />
+          <text x="1510" y="972" font-size="30" fill="#8a8f99">Gas</text>
+          <text id="ss-mv" class="mono" x="1830" y="982" font-size="52" font-weight="700" fill="#F0B90B" text-anchor="end">0</text>
+        </g>
+        <text id="ss-d1" class="h mono" x="1830" y="876" font-size="34" fill="#F0B90B" text-anchor="end">+5,000</text>
+        <text id="ss-d2" class="h mono" x="1830" y="876" font-size="34" fill="#FF9F43" text-anchor="end">+100</text>
+        <text id="ss-d3" class="h mono" x="1830" y="876" font-size="34" fill="#FF9F43" text-anchor="end">+100</text>
+        <text id="ss-d4" class="h mono" x="1830" y="876" font-size="34" fill="#F0B90B" text-anchor="end">+100</text>
+      </g>
+      <g id="ss-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">瞬态存储 <tspan font-size="28" font-weight="400" fill="#8a8f99">Transient Storage</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">只在一笔交易内有效，结束自动清空</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const F = v => Math.round(v).toLocaleString("en-US");
+const SW = (a, b, t) => { OUT(a, t, 0.15); IN(b, t + 0.12, 0.2); };
+const POP = (s, t, ox, oy) => tl.fromTo(s, { scale: 1 }, { scale: 1.12, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out", svgOrigin: `${ox} ${oy}`, immediateRender: false }, t);
+const DELTA = (s, t) => { IN(s, t, 0.25, { y: 12 }, { y: 0 }); OUT(s, t + 1.3, 0.3); };
+// L0 预演 0 → 5 → 7 → 7 → 0
+IN("#ss-title", at(0, 0), 0.6, { y: -16 }, { y: 0 });
+IN("#ss-cellE, #ss-slotl", at(0, 0.08), 0.5);
+IN("#ss-v0", at(0, 0.15), 0.3);
+SW("#ss-v0", "#ss-v5", at(0, 0.35));
+SW("#ss-v5", "#ss-v7", at(0, 0.52));
+POP("#ss-v7", at(0, 0.7), 960, 430);
+SW("#ss-v7", "#ss-v0", at(0, 0.86));
+// L1 0 → 5：租新格子
+tl.set("#ss-v5", { fill: "#e8e6df" }, at(1, 0));
+tl.set("#ss-v7", { fill: "#e8e6df" }, at(1, 0));
+IN("#ss-thead", at(1, 0.05), 0.5);
+SW("#ss-v0", "#ss-v5", at(1, 0.3));
+OUT("#ss-cellE", at(1, 0.3), 0.3);
+IN("#ss-cellF", at(1, 0.32), 0.4, { scale: 0.96, svgOrigin: "960 430" }, { scale: 1, svgOrigin: "960 430" });
+IN("#ss-key", at(1, 0.42), 0.4, { y: -14 }, { y: 0 });
+IN("#ss-r1", at(1, 0.6), 0.5, { x: -16 }, { x: 0 });
+// L2 5 → 7
+OUT("#ss-key", at(2, 0), 0.3);
+SW("#ss-v5", "#ss-v7", at(2, 0.25));
+IN("#ss-r2", at(2, 0.45), 0.5, { x: -16 }, { x: 0 });
+// L3 7 → 7
+POP("#ss-v7", at(3, 0.2), 960, 430);
+IN("#ss-same", at(3, 0.3), 0.4);
+IN("#ss-r3", at(3, 0.5), 0.5, { x: -16 }, { x: 0 });
+OUT("#ss-same", at(3, 0.95), 0.3);
+// L4 冷列整列描红
+IN("#ss-coldbox", at(4, 0.1), 0.5);
+POP("#ss-ice", at(4, 0.15), 535, 630);
+tl.to("#ss-c1, #ss-c2, #ss-c3", { fill: "#FC6255", duration: 0.3, stagger: 0.25 }, at(4, 0.45));
+// L5 脏槽
+OUT("#ss-tbl", at(5, 0), 0.4);
+SW("#ss-v7", "#ss-v5", at(5, 0.03));
+IN("#ss-meter", at(5, 0.05), 0.5);
+const w1 = at(5, 0.14);
+IN("#ss-w1", w1, 0.4, { y: 12 }, { y: 0 });
+SW("#ss-v5", "#ss-v7", w1 + 0.2);
+COUNT("#ss-mv", 0, 5000, w1 + 0.2, 0.4, F); DELTA("#ss-d1", w1 + 0.2);
+const td = at(5, 0.34);
+OUT("#ss-cellF", td, 0.3); IN("#ss-cellD", td, 0.3);
+IN("#ss-dirty", td + 0.15, 0.4, { x: -12 }, { x: 0 });
+const w2 = at(5, 0.66), w3 = at(5, 0.84);
+IN("#ss-w2", w2, 0.4, { y: 12 }, { y: 0 }); SW("#ss-v7", "#ss-v8", w2 + 0.15);
+COUNT("#ss-mv", 5000, 5100, w2 + 0.15, 0.4, F); DELTA("#ss-d2", w2 + 0.15);
+IN("#ss-w3", w3, 0.4, { y: 12 }, { y: 0 }); SW("#ss-v8", "#ss-v9", w3 + 0.15);
+COUNT("#ss-mv", 5100, 5200, w3 + 0.15, 0.4, F); DELTA("#ss-d3", w3 + 0.15);
+// L6 瞬态存储
+OUT("#ss-w1, #ss-w2, #ss-w3", at(6, 0), 0.35);
+OUT("#ss-dirty", at(6, 0), 0.35);
+IN("#ss-term", at(6, 0.03), 0.5);
+IN("#ss-tl, #ss-tcell", at(6, 0.1), 0.5);
+IN("#ss-tv", at(6, 0.2), 0.4, { y: 10 }, { y: 0 });
+COUNT("#ss-mv", 5200, 5300, at(6, 0.2), 0.4, F); DELTA("#ss-d4", at(6, 0.2));
+IN("#ss-tcost", at(6, 0.3), 0.5);
+IN("#ss-tyear", at(6, 0.42), 0.5);
+const ts = at(6, 0.62);
+IN("#ss-sweep", ts, 0.15);
+tl.fromTo("#ss-sweep", { x: 0 }, { x: 820, duration: 1.0, ease: "power1.inOut", immediateRender: false }, ts);
+OUT("#ss-sweep", ts + 1.0, 0.3);
+IN("#ss-txend", ts + 0.9, 0.4);
+tl.to("#ss-tv", { y: -60, opacity: 0, duration: 0.8, ease: "power2.in" }, ts + 0.5);
+IN("#ss-tv0", ts + 1.2, 0.4);
+OUT("#ss-cellD", ts + 0.7, 0.4); tl.to("#ss-cellF", { opacity: 1, duration: 0.4 }, ts + 0.7);
+
+      tl.to("#ss-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ss-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["sstore"] = tl;
+    })();
+  </script>
+</template>

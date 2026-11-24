@@ -1,0 +1,143 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 rules，id 前缀 ru- -->
+  <div id="root" data-composition-id="rules" data-duration="41.03" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ru-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ru-all">
+        <defs>
+          <marker id="ru-arro" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+          <marker id="ru-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker>
+          <linearGradient id="ru-gf" x1="0" y1="0" x2="1" y2="0"><stop offset="0.6" stop-color="#83C167" stop-opacity="0.22" /><stop offset="1" stop-color="#83C167" stop-opacity="0" /></linearGradient>
+        </defs>
+        <text id="ru-title" class="h" x="960" y="160" font-size="64" font-weight="700" fill="#FF9F43" text-anchor="middle">内存铁律</text>
+        <g id="ru-band" class="h">
+          <rect x="120" y="220" width="1680" height="80" fill="#161a22" stroke="#58C4DD" stroke-opacity="0.6" stroke-width="2.5" />
+          <rect id="ru-s0" x="122" y="222" width="398" height="76" fill="#58C4DD" fill-opacity="0.25" />
+          <rect x="920" y="222" width="878" height="76" fill="url(#ru-gf)" />
+          <rect x="520" y="222" width="200" height="76" fill="#FF9F43" fill-opacity="0.22" stroke="#FF9F43" stroke-width="4" />
+          <rect id="ru-s2" x="722" y="224" width="196" height="72" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+          <line x1="920" y1="220" x2="920" y2="300" stroke="#e8e6df" stroke-width="3" />
+          <text class="mono" x="320" y="271" font-size="28" fill="#58C4DD" text-anchor="middle">0x00–0x3f</text>
+          <text class="mono" x="620" y="271" font-size="28" fill="#FF9F43" text-anchor="middle">0x40</text>
+          <text id="ru-l60" class="mono" x="820" y="271" font-size="28" fill="#FF9F43" text-anchor="middle">0x60</text>
+          <text class="mono" x="1560" y="271" font-size="28" fill="#83C167" text-anchor="middle">0x80 →</text>
+        </g>
+        <path id="ru-p" class="dr h" pathLength="1" d="M620 304 Q770 440 914 306" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#ru-arro)" />
+        <text id="ru-ok1" class="h" x="320" y="384" font-size="30" fill="#83C167" text-anchor="middle">✓ 指针不动</text>
+        <rect id="ru-a" class="h" x="922" y="222" width="196" height="76" fill="#83C167" fill-opacity="0.55" />
+        <text id="ru-at" class="h" x="1020" y="271" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">数据 A</text>
+        <path id="ru-ck" class="h" d="M960 222 L990 262 L970 298 M1040 222 L1020 255 L1060 280 L1050 298 M1100 230 L1080 270" stroke="#FC6255" stroke-width="4" fill="none" />
+        <rect id="ru-b" class="h" x="922" y="222" width="196" height="76" fill="#58C4DD" fill-opacity="0.7" />
+        <text id="ru-bt" class="h" x="1020" y="271" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">数据 B</text>
+        <text id="ru-cov" class="h" x="1140" y="271" font-size="30" font-weight="700" fill="#FC6255">被覆盖</text>
+        <text id="ru-nm" class="h" x="770" y="432" font-size="30" fill="#FF9F43" text-anchor="middle">指针没更新</text>
+        <text id="ru-r1" class="h" x="1100" y="470" font-size="44" font-weight="700" fill="#e8e6df">铁律一 · 同步更新 <tspan class="mono" fill="#FF9F43">0x40</tspan></text>
+        <text id="ru-r2" class="h" x="1100" y="470" font-size="44" font-weight="700" fill="#e8e6df">铁律二 · 零槽永远是 <tspan class="mono" fill="#FF9F43">0</tspan></text>
+        <rect id="ru-z" class="h" x="722" y="222" width="196" height="76" fill="#FC6255" fill-opacity="0.6" />
+        <text id="ru-zt" class="h" x="820" y="271" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">✕ 非零</text>
+        <g id="ru-lines">
+          <path id="ru-n0" class="dr" pathLength="1" d="M816 304 L404 722" stroke="#8a8f99" stroke-width="2.5" fill="none" />
+          <path id="ru-n1" class="dr" pathLength="1" d="M820 304 L820 722" stroke="#8a8f99" stroke-width="2.5" fill="none" />
+          <path id="ru-n2" class="dr" pathLength="1" d="M824 304 L1236 722" stroke="#8a8f99" stroke-width="2.5" fill="none" />
+        </g>
+        <g id="ru-ic" class="h">
+          <text x="400" y="762" font-size="30" fill="#e8e6df" text-anchor="middle"><tspan class="mono">[ ]</tspan> 空数组</text>
+          <text x="820" y="762" font-size="30" fill="#e8e6df" text-anchor="middle"><tspan class="mono">[ ]</tspan> 空数组</text>
+          <text x="1240" y="762" font-size="30" fill="#e8e6df" text-anchor="middle"><tspan class="mono">[ ]</tspan> 空数组</text>
+        </g>
+        <g id="ru-dirty" class="h">
+          <text x="400" y="816" font-size="30" fill="#FC6255" text-anchor="middle">脏数据 <tspan class="mono">#%&amp;</tspan></text>
+          <text x="820" y="816" font-size="30" fill="#FC6255" text-anchor="middle">脏数据 <tspan class="mono">@!?</tspan></text>
+          <text x="1240" y="816" font-size="30" fill="#FC6255" text-anchor="middle">脏数据 <tspan class="mono">%$#</tspan></text>
+        </g>
+        <g id="ru-safe" class="h">
+          <text class="mono" x="260" y="542" font-size="30" font-weight="700" fill="#83C167">assembly ("memory-safe")</text>
+          <rect x="260" y="560" width="840" height="300" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3.5" />
+          <text class="mono" x="300" y="640" font-size="28" fill="#e8e6df">mstore(0x00, a)</text>
+          <text class="mono" x="300" y="700" font-size="28" fill="#e8e6df">mstore(0x20, b)</text>
+          <text class="mono" x="300" y="760" font-size="28" fill="#e8e6df">let h := keccak256(0x00, 0x40)</text>
+        </g>
+        <path id="ru-sa" class="dr h" pathLength="1" d="M1112 710 L1284 710" stroke="#B48EF0" stroke-width="3.5" fill="none" marker-end="url(#ru-arrg)" />
+        <g id="ru-cmp" class="h">
+          <rect x="1300" y="640" width="260" height="140" rx="16" fill="#B48EF0" fill-opacity="0.12" stroke="#B48EF0" stroke-width="3" />
+          <text x="1430" y="722" font-size="38" font-weight="700" fill="#B48EF0" text-anchor="middle">编译器</text>
+          <text x="1430" y="846" font-size="32" fill="#83C167" text-anchor="middle">可放心开启 IR 优化</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+IN("#ru-title", at(0, 0.05), 0.6, { y: 15 }, { y: 0 });
+IN("#ru-band", at(0, 0.35), 0.7, { y: -20 }, { y: 0 });
+ARROW("#ru-p", at(0, 0.7), 0.6);
+// L1 铁律一
+tl.fromTo("#ru-s0", { attr: { "fill-opacity": 0.25 } }, { attr: { "fill-opacity": 0.6 }, duration: 0.4, yoyo: true, repeat: 1, immediateRender: false }, at(1, 0.08));
+IN("#ru-ok1", at(1, 0.15), 0.5);
+tl.set("#ru-a", { opacity: 1 }, at(1, 0.55));
+tl.fromTo("#ru-a", { attr: { width: 0 } }, { attr: { width: 196 }, duration: 0.6, ease: "power2.out", immediateRender: false }, at(1, 0.55));
+IN("#ru-at", at(1, 0.62), 0.4);
+tl.to("#ru-p", { attr: { d: "M620 304 Q870 450 1114 306" }, duration: 0.7, ease: "power2.inOut" }, at(1, 0.72));
+IN("#ru-r1", at(1, 0.8), 0.5);
+// L2 反例：指针没动 → 覆盖
+tl.to("#ru-p", { attr: { d: "M620 304 Q770 440 914 306" }, duration: 0.5, ease: "power2.inOut" }, at(2, 0.03));
+IN("#ru-nm", at(2, 0.12), 0.4);
+OUT("#ru-at", at(2, 0.3), 0.25);
+tl.to("#ru-a", { fill: "#FC6255", duration: 0.3 }, at(2, 0.35));
+IN("#ru-ck", at(2, 0.4), 0.2);
+IN("#ru-b", at(2, 0.55), 0.4, { x: 140 }, { x: 0 });
+OUT("#ru-ck", at(2, 0.66), 0.2);
+IN("#ru-bt", at(2, 0.72), 0.3);
+IN("#ru-cov", at(2, 0.78), 0.3);
+// L3 铁律二
+OUT("#ru-a, #ru-b, #ru-bt, #ru-cov, #ru-nm, #ru-r1, #ru-ok1", at(3, 0.0), 0.4);
+IN("#ru-r2", at(3, 0.2), 0.5);
+OUT("#ru-l60", at(3, 0.5), 0.2);
+IN("#ru-z", at(3, 0.55), 0.3);
+IN("#ru-zt", at(3, 0.6), 0.3);
+// L4 空数组读出脏数据
+IN("#ru-ic", at(4, 0.0), 0.5);
+DRAW("#ru-n0, #ru-n1, #ru-n2", at(4, 0.05), 0.7);
+tl.to("#ru-n0, #ru-n1, #ru-n2", { stroke: "#FC6255", duration: 0.3 }, at(4, 0.45));
+tl.to("#ru-ic text", { fill: "#FC6255", duration: 0.3 }, at(4, 0.5));
+IN("#ru-dirty", at(4, 0.6), 0.5);
+// L5 memory-safe
+OUT("#ru-ic, #ru-dirty, #ru-r2, #ru-zt, #ru-z", at(5, 0.0), 0.4);
+tl.to("#ru-n0, #ru-n1, #ru-n2", { opacity: 0, duration: 0.4 }, at(5, 0.0));
+IN("#ru-l60", at(5, 0.08), 0.3);
+IN("#ru-safe", at(5, 0.15), 0.6, { scale: 0.96, svgOrigin: "680 710" }, { scale: 1, svgOrigin: "680 710" });
+ARROW("#ru-sa", at(5, 0.5), 0.5);
+IN("#ru-cmp", at(5, 0.58), 0.6);
+
+
+      tl.to("#ru-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["rules"] = tl;
+    })();
+  </script>
+</template>

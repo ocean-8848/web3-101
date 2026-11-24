@@ -1,0 +1,160 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 collide，id 前缀 co- -->
+  <div id="root" data-composition-id="collide" data-duration="81.25" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="co-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+<marker id="co-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker>
+<marker id="co-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker>
+<marker id="co-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker>
+<marker id="co-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker>
+<marker id="co-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker>
+<marker id="co-arrY" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker>
+      </defs>
+      <g id="co-all">
+        <g id="co-bars">
+<text id="co-hd" class="h" x="1120" y="220" font-size="30" fill="#8a8f99">碰撞约需次数 · 耗时</text>
+<text id="co-l0" class="h" x="240" y="334" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="end">32 位</text>
+<rect id="co-bL0" class="h" x="280" y="298" width="50.0" height="44" rx="6" fill="#58C4DD"/>
+<rect id="co-bR0" class="h" x="330.0" y="298" width="50.0" height="44" rx="6" fill="#58C4DD"/>
+<line id="co-cut0" class="h" x1="330.0" y1="280" x2="330.0" y2="360" stroke="#e8e6df" stroke-width="3" stroke-dasharray="6 5"/>
+<text id="co-l1" class="h" x="240" y="534" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="end">64 位</text>
+<rect id="co-bL1" class="h" x="280" y="498" width="100.0" height="44" rx="6" fill="#58C4DD"/>
+<rect id="co-bR1" class="h" x="380.0" y="498" width="100.0" height="44" rx="6" fill="#58C4DD"/>
+<line id="co-cut1" class="h" x1="380.0" y1="480" x2="380.0" y2="560" stroke="#e8e6df" stroke-width="3" stroke-dasharray="6 5"/>
+<text id="co-l2" class="h" x="240" y="734" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="end">256 位</text>
+<rect id="co-bL2" class="h" x="280" y="698" width="400.0" height="44" rx="6" fill="#58C4DD"/>
+<rect id="co-bR2" class="h" x="680.0" y="698" width="400.0" height="44" rx="6" fill="#58C4DD"/>
+<line id="co-cut2" class="h" x1="680.0" y1="680" x2="680.0" y2="760" stroke="#e8e6df" stroke-width="3" stroke-dasharray="6 5"/>
+<text id="co-t0" class="h" x="1120" y="315" font-size="40" fill="#e8e6df">2<tspan dy="-17" font-size="28">16</tspan><tspan dy="17" font-size="40"> ≈ 6.5 万次</tspan></text>
+<g id="co-lap" class="h"><rect x="1124" y="342" width="50" height="32" rx="4" fill="none" stroke="#8a8f99" stroke-width="3"/><line x1="1114" y1="380" x2="1184" y2="380" stroke="#8a8f99" stroke-width="4" stroke-linecap="round"/></g>
+<text id="co-s0" class="h" x="1200" y="378" font-size="32" fill="#FC6255">一台笔记本，1 秒内</text>
+<text id="co-k0" class="h" x="1640" y="315" font-size="36" font-weight="700" fill="#FC6255">不安全</text>
+<text id="co-t1" class="h" x="1120" y="515" font-size="40" fill="#e8e6df">2<tspan dy="-17" font-size="28">32</tspan><tspan dy="17" font-size="40"> ≈ 43 亿次</tspan></text>
+<text id="co-s1" class="h" x="1120" y="575" font-size="32" fill="#FC6255">示例：每秒 10 亿次 → ≈ 4.3 秒</text>
+<text id="co-k1" class="h" x="1640" y="515" font-size="36" font-weight="700" fill="#FC6255">不安全</text>
+<text id="co-t2" class="h" x="1120" y="715" font-size="40" fill="#e8e6df">2<tspan dy="-17" font-size="28">128</tspan><tspan dy="17" font-size="40"> ≈ 3.4 × 10<tspan dy="-17" font-size="28">38</tspan><tspan dy="17" font-size="40"> 次</tspan></tspan></text>
+<text id="co-s2" class="h" x="1120" y="772" font-size="32" fill="#e8e6df">假设全球每秒 10<tspan dy="-13" font-size="28">21</tspan><tspan dy="13" font-size="32"> 次 → ≈ 100 亿年</tspan></text>
+<text id="co-k2" class="h" x="1680" y="715" font-size="36" font-weight="700" fill="#83C167">安全</text>
+<rect id="co-yb" class="h" x="1120" y="828" width="0" height="24" rx="5" fill="#83C167"/>
+<text id="co-yl" class="h" x="1560" y="850" font-size="28" fill="#83C167">破解 ≈ 100 亿年</text>
+<rect id="co-ub" class="h" x="1120" y="888" width="0" height="24" rx="5" fill="#B48EF0"/>
+<text id="co-ul" class="h" x="1560" y="910" font-size="28" fill="#B48EF0">宇宙年龄 ≈ 140 亿年</text>
+</g>
+<g id="co-myth">
+<rect id="co-mc" class="h" x="460" y="290" width="1000" height="400" rx="22" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+<text id="co-mt" class="h" x="510" y="360" font-size="40" font-weight="700" fill="#FF9F43">常见误解</text>
+<text id="co-m1" class="h" x="510" y="480" font-size="44" fill="#8a8f99">256 位碰撞需要 2<tspan dy="-18" font-size="28">256</tspan><tspan dy="18" font-size="44"> 次</tspan></text>
+<line id="co-m1x" class="dr" pathLength="1" x1="500" y1="465" x2="1070" y2="465" stroke="#FC6255" stroke-width="5"/>
+<text id="co-m2" class="h" x="510" y="610" font-size="44" font-weight="700" fill="#83C167">≈ 2<tspan dy="-18" font-size="28">128</tspan><tspan dy="18" font-size="44"> 次，仍远超可行范围</tspan></text>
+<text id="co-m3" class="h" x="960" y="830" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">安全的哈希至少 <tspan fill="#58C4DD">256 位</tspan></text>
+</g>
+<g id="co-hist">
+<g id="co-tbA" class="h"><path d="M140 680 L140 470 A190 190 0 0 1 520 470 L520 680 Z" fill="#1f1416" stroke="#FC6255" stroke-width="3.5"/><line x1="110" y1="682" x2="550" y2="682" stroke="#6b6f7a" stroke-width="3"/></g>
+<text id="co-a0" class="h" x="330" y="410" font-size="60" font-weight="700" fill="#FC6255" text-anchor="middle">MD5</text>
+<text id="co-a1" class="h mono" x="330" y="500" font-size="36" fill="#e8e6df" text-anchor="middle">2004</text>
+<text id="co-a2" class="h" x="330" y="560" font-size="32" fill="#e8e6df" text-anchor="middle">王小云等</text>
+<text id="co-a3" class="h" x="330" y="620" font-size="32" fill="#FC6255" text-anchor="middle">实用碰撞</text>
+<g id="co-tbB" class="h"><path d="M600 680 L600 470 A190 190 0 0 1 980 470 L980 680 Z" fill="#1f1416" stroke="#FC6255" stroke-width="3.5"/><line x1="570" y1="682" x2="1010" y2="682" stroke="#6b6f7a" stroke-width="3"/></g>
+<text id="co-b0" class="h" x="790" y="410" font-size="60" font-weight="700" fill="#FC6255" text-anchor="middle">SHA-1</text>
+<text id="co-b1" class="h mono" x="790" y="500" font-size="36" fill="#e8e6df" text-anchor="middle">2017-02</text>
+<text id="co-b2" class="h" x="790" y="560" font-size="32" fill="#e8e6df" text-anchor="middle">Google 与 CWI</text>
+<text id="co-b3" class="h mono" x="790" y="620" font-size="32" fill="#FC6255" text-anchor="middle">SHAttered</text>
+<g id="co-pdf0" class="h"><path d="M670 720 L722 720 L750 748 L750 820 L670 820 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="710" y="796" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">PDF</text></g>
+<g id="co-pdf1" class="h"><path d="M840 720 L892 720 L920 748 L920 820 L840 820 Z" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text class="mono" x="880" y="796" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">PDF</text></g>
+<path id="co-pa0" class="dr h" pathLength="1" d="M710 828 L778 880" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#co-arrR)"/>
+<path id="co-pa1" class="dr h" pathLength="1" d="M880 828 L812 880" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#co-arrR)"/>
+<text id="co-same" class="h" x="795" y="930" font-size="30" fill="#FC6255" text-anchor="middle">同一个 SHA-1 哈希</text>
+<text id="co-nonew" class="h" x="560" y="230" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">新系统不再用于安全用途</text>
+<g id="co-sh0" class="h"><path d="M1300 330 L1380 360 L1380 430 Q1380 495 1300 525 Q1220 495 1220 430 L1220 360 Z" fill="#1d2a18" stroke="#83C167" stroke-width="4"/><path d="M1276 428 l15.4 15.4 l28.6 -33.0" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><text class="mono" x="1300" y="585" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">SHA-256</text></g>
+<g id="co-sh1" class="h"><path d="M1620 330 L1700 360 L1700 430 Q1700 495 1620 525 Q1540 495 1540 430 L1540 360 Z" fill="#1d2a18" stroke="#83C167" stroke-width="4"/><path d="M1596 428 l15.4 15.4 l28.6 -33.0" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><text class="mono" x="1620" y="585" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">Keccak-256</text></g>
+<text id="co-safe" class="h" x="1460" y="680" font-size="34" fill="#83C167" text-anchor="middle">截至 2026 年无已知实用攻击</text>
+</g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+// L0 three bars
+[0,1,2].forEach(i => { IN("#co-l" + i, at(0, 0.05 + i * 0.15), 0.4); IN("#co-bL" + i + ", #co-bR" + i, at(0, 0.1 + i * 0.15), 0.5, { scaleX: 0, svgOrigin: "280 0" }, { scaleX: 1, svgOrigin: "280 0" }); });
+IN("#co-hd", at(0, 0.6), 0.4);
+const HALF = (i, t) => { IN("#co-cut" + i, t, 0.3); tl.to("#co-bR" + i, { opacity: 0.18, duration: 0.6 }, t + 0.3); };
+// L1 32 bit
+HALF(0, at(1, 0.08));
+IN("#co-t0", at(1, 0.2), 0.5, { x: -16 }, { x: 0 });
+IN("#co-lap", at(1, 0.6), 0.4); IN("#co-s0", at(1, 0.64), 0.4);
+tl.to("#co-bL0", { fill: "#FC6255", duration: 0.4 }, at(1, 0.4));
+IN("#co-k0", at(1, 0.8), 0.4, { scale: 1.4, svgOrigin: "1694 303" }, { scale: 1, svgOrigin: "1694 303" });
+// L2 64 bit
+HALF(1, at(2, 0.04));
+IN("#co-t1", at(2, 0.12), 0.5, { x: -16 }, { x: 0 });
+IN("#co-s1", at(2, 0.4), 0.5);
+tl.to("#co-bL1", { fill: "#FC6255", duration: 0.4 }, at(2, 0.6));
+IN("#co-k1", at(2, 0.78), 0.4, { scale: 1.4, svgOrigin: "1694 503" }, { scale: 1, svgOrigin: "1694 503" });
+// L3 256 bit
+HALF(2, at(3, 0.04));
+IN("#co-t2", at(3, 0.12), 0.5, { x: -16 }, { x: 0 });
+IN("#co-s2", at(3, 0.4), 0.5);
+IN("#co-yb, #co-yl", at(3, 0.58), 0.3);
+tl.to("#co-yb", { attr: { width: 300 }, duration: 0.8 }, at(3, 0.58));
+IN("#co-ub, #co-ul", at(3, 0.78), 0.3);
+tl.to("#co-ub", { attr: { width: 420 }, duration: 0.8 }, at(3, 0.78));
+IN("#co-k2", at(3, 0.92), 0.4);
+tl.to("#co-bL2", { fill: "#83C167", duration: 0.4 }, at(3, 0.92));
+// L4 myth
+OUT("#co-bars", at(4, 0.0), 0.4);
+IN("#co-mc, #co-mt", at(4, 0.05), 0.5);
+IN("#co-m1", at(4, 0.12), 0.5);
+DRAW("#co-m1x", at(4, 0.32), 0.4);
+IN("#co-m2", at(4, 0.42), 0.5, { y: 14 }, { y: 0 });
+tl.to("#co-m2", { scale: 1.05, svgOrigin: "510 595", duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.6));
+IN("#co-m3", at(4, 0.75), 0.5, { y: 14 }, { y: 0 });
+// L5 broken hashes
+OUT("#co-myth", at(5, 0.0), 0.4);
+IN("#co-tbA", at(5, 0.04), 0.6, { y: 30 }, { y: 0 });
+IN("#co-a0", at(5, 0.08), 0.4); IN("#co-a1", at(5, 0.14), 0.4); IN("#co-a2", at(5, 0.22), 0.4); IN("#co-a3", at(5, 0.32), 0.4);
+IN("#co-tbB", at(5, 0.44), 0.6, { y: 30 }, { y: 0 });
+IN("#co-b0", at(5, 0.48), 0.4); IN("#co-b1", at(5, 0.54), 0.4); IN("#co-b2", at(5, 0.62), 0.4); IN("#co-b3", at(5, 0.74), 0.4);
+IN("#co-pdf0", at(5, 0.78), 0.3); IN("#co-pdf1", at(5, 0.8), 0.3);
+ARROW("#co-pa0", at(5, 0.85), 0.4); ARROW("#co-pa1", at(5, 0.85), 0.4);
+IN("#co-same", at(5, 0.9), 0.4);
+// L6 safe now
+IN("#co-nonew", at(6, 0.05), 0.5, { y: 12 }, { y: 0 });
+tl.to("#co-tbA, #co-tbB", { opacity: 0.6, duration: 0.5 }, at(6, 0.2));
+IN("#co-sh0", at(6, 0.45), 0.5, { scale: 0.6, svgOrigin: "1300 430" }, { scale: 1, svgOrigin: "1300 430" });
+IN("#co-sh1", at(6, 0.55), 0.5, { scale: 0.6, svgOrigin: "1620 430" }, { scale: 1, svgOrigin: "1620 430" });
+IN("#co-safe", at(6, 0.72), 0.5);
+tl.to("#co-sh0, #co-sh1", { scale: 1.06, svgOrigin: "1460 430", duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.9));
+
+
+      tl.to("#co-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["collide"] = tl;
+    })();
+  </script>
+</template>

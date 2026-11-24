@@ -1,0 +1,160 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 schema，id 前缀 sc- -->
+  <div id="root" data-composition-id="schema" data-duration="49.92" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sc-all">
+        <g id="sc-pg" class="h"><ellipse cx="118" cy="112" rx="40" ry="34" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3.5" /><path d="M90 96 C70 92 66 124 88 126" fill="none" stroke="#58C4DD" stroke-width="3.5" /><path d="M150 118 C164 132 160 150 146 152" fill="none" stroke="#58C4DD" stroke-width="5" stroke-linecap="round" /><circle cx="132" cy="104" r="4" fill="#58C4DD" /><text x="180" y="126" font-size="40" font-weight="700" fill="#e8e6df">PostgreSQL</text></g>
+        <g id="sc-blk" class="h"><rect id="sc-blkr" x="70" y="220" width="400" height="180" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text class="mono" x="90" y="262" font-size="30" font-weight="700" fill="#58C4DD">blocks</text>
+        <text class="mono" x="90" y="304" font-size="28" fill="#8a8f99" xml:space="preserve">(chain_id, number)</text>
+        <rect id="sc-bk0" x="90" y="326" width="360" height="14" rx="4" fill="#58C4DD" fill-opacity="0.4" />
+        <rect id="sc-bk1" x="90" y="350" width="360" height="14" rx="4" fill="#58C4DD" fill-opacity="0.4" />
+        <rect id="sc-bk2" x="90" y="374" width="360" height="14" rx="4" fill="#58C4DD" fill-opacity="0.4" />
+        </g>
+        <g id="sc-txs" class="h"><rect id="sc-txsr" x="70" y="600" width="370" height="200" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text class="mono" x="90" y="642" font-size="30" font-weight="700" fill="#58C4DD">transactions</text>
+        <text class="mono" x="90" y="684" font-size="28" fill="#8a8f99" xml:space="preserve">(chain_id, tx_hash)</text>
+        <rect id="sc-tx0" x="90" y="708" width="330" height="14" rx="4" fill="#58C4DD" fill-opacity="0.4" />
+        <rect id="sc-tx1" x="90" y="734" width="330" height="14" rx="4" fill="#58C4DD" fill-opacity="0.4" />
+        <rect id="sc-tx2" x="90" y="760" width="330" height="14" rx="4" fill="#58C4DD" fill-opacity="0.4" />
+        </g>
+        <g id="sc-tfs" class="h"><rect id="sc-tfsr" x="470" y="600" width="410" height="236" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text class="mono" x="490" y="642" font-size="30" font-weight="700" fill="#58C4DD">transfers</text>
+        <text class="mono" x="490" y="684" font-size="28" fill="#8a8f99" xml:space="preserve">(chain_id, block_hash,</text>
+        <text class="mono" x="490" y="722" font-size="28" fill="#8a8f99" xml:space="preserve"> log_index)</text>
+        <rect id="sc-tf0" x="490" y="748" width="370" height="14" rx="4" fill="#58C4DD" fill-opacity="0.4" />
+        <rect id="sc-tf1" x="490" y="774" width="370" height="14" rx="4" fill="#58C4DD" fill-opacity="0.4" />
+        <rect id="sc-tf2" x="490" y="800" width="370" height="14" rx="4" fill="#58C4DD" fill-opacity="0.4" />
+        </g>
+        <g id="sc-cur" class="h"><rect x="70" y="866" width="810" height="164" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="90" y="908" font-size="30" font-weight="700" fill="#58C4DD">cursors</text><text class="mono" x="250" y="908" font-size="28" fill="#8a8f99">(chain_id, name)</text></g>
+        <g id="sc-cc0" class="h"><rect x="90" y="934" width="187" height="64" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="183" y="976" font-size="28" fill="#e8e6df" text-anchor="middle">transfers</text></g>
+        <g id="sc-cc1" class="h"><rect x="297" y="934" width="170" height="64" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="382" y="976" font-size="28" fill="#e8e6df" text-anchor="middle">deposits</text></g>
+        <g id="sc-cc2" class="h"><rect x="487" y="934" width="254" height="64" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="614" y="976" font-size="28" fill="#e8e6df" text-anchor="middle">backfill-2024</text></g>
+        <path id="sc-fk1" class="dr h" pathLength="1" d="M255 596 L255 410" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#sc-arr)" />
+        <path id="sc-fk2" class="dr h" pathLength="1" d="M540 596 L444 410" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#sc-arr)" />
+        <text id="sc-fkl" class="h mono" x="530" y="512" font-size="28" fill="#FF9F43">ON DELETE CASCADE</text>
+        <g id="sc-arc" class="h"><rect x="520" y="220" width="360" height="180" rx="14" fill="#8a8f9912" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 7" /><text class="mono" x="540" y="262" font-size="28" font-weight="700" fill="#8a8f99">orphaned_blocks</text><text x="540" y="304" font-size="28" fill="#8a8f99">审计用</text></g>
+        <rect id="sc-ghost" class="h" x="90" y="350" width="360" height="14" rx="4" fill="#FF9F43" fill-opacity="0.7" />
+        <rect id="sc-abar" class="h" x="540" y="350" width="320" height="14" rx="4" fill="#8a8f99" fill-opacity="0.6" />
+        <g id="sc-code" class="h"><rect id="sc-cbox" x="900" y="200" width="960" height="492" rx="14" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+<rect x="900" y="214" width="4" height="464" fill="#58C4DD" />
+<rect id="sc-hb" class="h" x="906" y="218" width="952" height="38" fill="#58C4DD" fill-opacity="0.15" />
+<text class="mono" x="930" y="245" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">CREATE</tspan> <tspan fill="#58C4DD">TABLE</tspan> transfers (</text>
+<text class="mono" x="930" y="283" font-size="28" fill="#e8e6df" xml:space="preserve">  chain_id     <tspan fill="#58C4DD">BIGINT</tspan>        <tspan fill="#58C4DD">NOT</tspan> <tspan fill="#58C4DD">NULL</tspan>,</text>
+<text class="mono" x="930" y="321" font-size="28" fill="#e8e6df" xml:space="preserve">  block_hash   <tspan fill="#58C4DD">BYTEA</tspan>         <tspan fill="#58C4DD">NOT</tspan> <tspan fill="#58C4DD">NULL</tspan>,</text>
+<text class="mono" x="930" y="359" font-size="28" fill="#e8e6df" xml:space="preserve">  log_index    <tspan fill="#58C4DD">INT</tspan>           <tspan fill="#58C4DD">NOT</tspan> <tspan fill="#58C4DD">NULL</tspan>,</text>
+<text class="mono" x="930" y="397" font-size="28" fill="#e8e6df" xml:space="preserve">  block_number <tspan fill="#58C4DD">BIGINT</tspan>        <tspan fill="#58C4DD">NOT</tspan> <tspan fill="#58C4DD">NULL</tspan>,</text>
+<text class="mono" x="930" y="435" font-size="28" fill="#e8e6df" xml:space="preserve">  amount       <tspan fill="#58C4DD">NUMERIC</tspan>(78,0) <tspan fill="#58C4DD">NOT</tspan> <tspan fill="#58C4DD">NULL</tspan>,</text>
+<text class="mono" x="930" y="473" font-size="28" fill="#e8e6df" xml:space="preserve">  <tspan fill="#58C4DD">PRIMARY</tspan> <tspan fill="#58C4DD">KEY</tspan> (chain_id, block_hash, log_index),</text>
+<text class="mono" x="930" y="511" font-size="28" fill="#e8e6df" xml:space="preserve">  <tspan fill="#58C4DD">FOREIGN</tspan> <tspan fill="#58C4DD">KEY</tspan> (chain_id, block_number)</text>
+<text class="mono" x="930" y="549" font-size="28" fill="#e8e6df" xml:space="preserve">    <tspan fill="#58C4DD">REFERENCES</tspan> blocks(chain_id, number)</text>
+<text class="mono" x="930" y="587" font-size="28" fill="#e8e6df" xml:space="preserve">    <tspan fill="#58C4DD">ON</tspan> <tspan fill="#58C4DD">DELETE</tspan> <tspan fill="#58C4DD">CASCADE</tspan>);</text>
+<text class="mono" x="930" y="625" font-size="28" fill="#e8e6df" xml:space="preserve"><tspan fill="#58C4DD">DELETE</tspan> <tspan fill="#58C4DD">FROM</tspan> blocks</text>
+<text class="mono" x="930" y="663" font-size="28" fill="#e8e6df" xml:space="preserve">  <tspan fill="#58C4DD">WHERE</tspan> chain_id = $1 <tspan fill="#58C4DD">AND</tspan> number &gt; $2;</text></g>
+        <g id="sc-u" class="h">
+        <text x="920" y="760" font-size="28" fill="#8a8f99"><tspan class="mono">uint256</tspan> 最大值</text>
+        <text class="mono" x="920" y="806" font-size="28" fill="#F0B90B">115792089237316195423570985008687907853</text>
+        <text class="mono" x="920" y="846" font-size="28" fill="#F0B90B">269984665640564039457584007913129639935</text>
+        </g>
+        <clipPath id="sc-uclip"><rect id="sc-ucr" x="920" y="870" width="0" height="40" /></clipPath>
+        <line id="sc-ubar" class="h" x1="920" y1="890" x2="1700" y2="890" stroke="#F0B90B" stroke-width="36" stroke-dasharray="8 2" clip-path="url(#sc-uclip)" />
+        <text id="sc-u78" class="h" x="1724" y="902" font-size="36" font-weight="700" fill="#F0B90B">78 位</text>
+        <g id="sc-h1" class="h"><text x="920" y="758" font-size="28" fill="#e8e6df">二进制 · <tspan fill="#58C4DD">32 字节</tspan></text><line x1="920" y1="790" x2="1304" y2="790" stroke="#58C4DD" stroke-width="36" stroke-dasharray="10 2" /></g>
+        <g id="sc-h2" class="h"><text x="920" y="852" font-size="28" fill="#e8e6df">十六进制字符串 · <tspan fill="#8a8f99">64 字符</tspan></text><line x1="920" y1="884" x2="1688" y2="884" stroke="#8a8f99" stroke-width="36" stroke-dasharray="10 2" /></g>
+        <text id="sc-half" class="h" x="1330" y="802" font-size="34" font-weight="700" fill="#83C167">省一半</text>
+        <g id="sc-enc" class="h"><text class="mono" x="920" y="962" font-size="28" fill="#e8e6df"><tspan fill="#F0B90B">'0x'</tspan> || encode(hash, <tspan fill="#F0B90B">'hex'</tspan>)</text><text x="1400" y="962" font-size="28" fill="#8a8f99">展示时再转换</text></g>
+        <text id="sc-pt" class="h" x="920" y="760" font-size="30" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">transfers</tspan>：每 100 万块一个分区（示例）</text>
+        <g id="sc-p0" class="h"><rect id="sc-pr0" x="920" y="790" width="210" height="76" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5" /><text id="sc-pl0" class="mono" x="1042" y="838" font-size="28" fill="#e8e6df" text-anchor="middle">0-1M</text></g>
+        <g id="sc-lk0" class="h"><rect x="938" y="820" width="24" height="20" rx="3" fill="#8a8f99" /><path d="M943 820 L943 813 A7 7 0 0 1 957 813 L957 820" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sc-p1" class="h"><rect id="sc-pr1" x="1140" y="790" width="210" height="76" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5" /><text id="sc-pl1" class="mono" x="1262" y="838" font-size="28" fill="#e8e6df" text-anchor="middle">1M-2M</text></g>
+        <g id="sc-lk1" class="h"><rect x="1158" y="820" width="24" height="20" rx="3" fill="#8a8f99" /><path d="M1163 820 L1163 813 A7 7 0 0 1 1177 813 L1177 820" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sc-p2" class="h"><rect id="sc-pr2" x="1360" y="790" width="210" height="76" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5" /><text id="sc-pl2" class="mono" x="1482" y="838" font-size="28" fill="#e8e6df" text-anchor="middle">2M-3M</text></g>
+        <g id="sc-lk2" class="h"><rect x="1378" y="820" width="24" height="20" rx="3" fill="#8a8f99" /><path d="M1383 820 L1383 813 A7 7 0 0 1 1397 813 L1397 820" fill="none" stroke="#8a8f99" stroke-width="3" /></g>
+        <g id="sc-p3" class="h"><rect id="sc-pr3" x="1580" y="790" width="210" height="76" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5" /><text id="sc-pl3" class="mono" x="1702" y="838" font-size="28" fill="#e8e6df" text-anchor="middle">3M-</text></g>
+        <text id="sc-pold" class="h" x="920" y="916" font-size="30" fill="#8a8f99">旧分区：只读 · 压缩 · 归档</text>
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const HL = (a, b, t) => tl.to("#sc-hb", { opacity: 1, attr: { y: 218 + 38 * a, height: 38 * (b - a + 1) }, duration: 0.35, ease: "power2.inOut" }, t);
+      // L0 tables drop in
+      IN("#sc-pg", at(0, 0), 0.5);
+      ["#sc-blk", "#sc-txs", "#sc-tfs", "#sc-cur"].forEach((id, k) => IN(id, at(0, 0.12) + 0.3 * k, 0.5, { y: -40 }, { y: 0, ease: "bounce.out" }));
+      IN("#sc-code", at(0, 0.55), 0.6);
+      // L1 amount NUMERIC(78,0)
+      HL(5, 5, at(1, 0));
+      IN("#sc-u", at(1, 0.25), 0.5);
+      tl.set("#sc-ubar", { opacity: 1 }, at(1, 0.5));
+      tl.to("#sc-ucr", { attr: { width: 790 }, duration: 1.6, ease: "none" }, at(1, 0.5));
+      IN("#sc-u78", at(1, 0.78), 0.4);
+      // L2 BYTEA
+      OUT("#sc-u, #sc-ubar, #sc-u78", at(2, 0), 0.3);
+      HL(2, 2, at(2, 0.02));
+      IN("#sc-h1", at(2, 0.1), 0.5);
+      IN("#sc-h2", at(2, 0.25), 0.5);
+      IN("#sc-half", at(2, 0.42), 0.4);
+      IN("#sc-enc", at(2, 0.72), 0.5);
+      // L3 FK + cascade
+      OUT("#sc-h1, #sc-h2, #sc-half, #sc-enc", at(3, 0), 0.3);
+      HL(7, 9, at(3, 0.02));
+      ARROW("#sc-fk1", at(3, 0.1), 0.6);
+      ARROW("#sc-fk2", at(3, 0.2), 0.6);
+      IN("#sc-fkl", at(3, 0.3), 0.4);
+      HL(10, 11, at(3, 0.55));
+      tl.to("#sc-bk2", { attr: { fill: "#FC6255", "fill-opacity": 1 }, duration: 0.3 }, at(3, 0.6));
+      OUT("#sc-bk2", at(3, 0.68), 0.4);
+      OUT("#sc-tx2, #sc-tf2", at(3, 0.78), 0.5);
+      // L4 archive before delete
+      IN("#sc-arc", at(4, 0.08), 0.5, { x: 20 }, { x: 0 });
+      tl.to("#sc-bk1", { attr: { fill: "#FF9F43" }, duration: 0.3 }, at(4, 0.35));
+      tl.set("#sc-ghost", { opacity: 1 }, at(4, 0.45));
+      tl.to("#sc-ghost", { x: 450, attr: { width: 320 }, duration: 0.8, ease: "power2.inOut" }, at(4, 0.45));
+      tl.set("#sc-ghost", { opacity: 0 }, at(4, 0.45) + 0.8);
+      tl.set("#sc-abar", { opacity: 1 }, at(4, 0.45) + 0.8);
+      tl.to("#sc-bk1", { attr: { fill: "#FC6255" }, duration: 0.2 }, at(4, 0.7));
+      OUT("#sc-bk1", at(4, 0.74), 0.4);
+      OUT("#sc-tx1, #sc-tf1", at(4, 0.82), 0.4);
+      // L5 cursors + partitions
+      HL(4, 4, at(5, 0.4));
+      [0, 1, 2].forEach(k => IN("#sc-cc" + k, at(5, 0.05) + 0.4 * k, 0.4, { y: 12 }, { y: 0 }));
+      IN("#sc-pt", at(5, 0.4), 0.5);
+      [0, 1, 2, 3].forEach(k => IN("#sc-p" + k, at(5, 0.45) + 0.2 * k, 0.4));
+      tl.to("#sc-pr0, #sc-pr1, #sc-pr2", { attr: { stroke: "#8a8f99", fill: "#8a8f9912" }, duration: 0.4 }, at(5, 0.75));
+      tl.to("#sc-pl0, #sc-pl1, #sc-pl2", { attr: { fill: "#8a8f99" }, duration: 0.4 }, at(5, 0.75));
+      IN("#sc-lk0, #sc-lk1, #sc-lk2", at(5, 0.77), 0.4);
+      IN("#sc-pold", at(5, 0.8), 0.5);
+
+
+      tl.to("#sc-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["schema"] = tl;
+    })();
+  </script>
+</template>

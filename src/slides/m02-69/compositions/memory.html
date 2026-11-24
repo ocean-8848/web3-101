@@ -1,0 +1,120 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 memory，id 前缀 me- -->
+  <div id="root" data-composition-id="memory" data-duration="45.99" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="me-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="me-all">
+        <defs>
+          <linearGradient id="me-fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0.75" stop-color="#58C4DD" stop-opacity="1" /><stop offset="1" stop-color="#58C4DD" stop-opacity="0" /></linearGradient>
+          <linearGradient id="me-gfade" x1="0" y1="0" x2="1" y2="0"><stop offset="0.6" stop-color="#83C167" stop-opacity="0.32" /><stop offset="1" stop-color="#83C167" stop-opacity="0" /></linearGradient>
+        </defs>
+        <text id="me-title" class="h" x="960" y="220" font-size="64" font-weight="700" fill="#58C4DD" text-anchor="middle">EVM 内存</text>
+        <g id="me-band" class="h">
+          <rect x="120" y="420" width="1680" height="140" fill="#161a22" stroke="url(#me-fade)" stroke-width="3" />
+            <line x1="320" y1="424" x2="320" y2="556" stroke="#3a3f4a" stroke-width="2" />
+            <line x1="520" y1="424" x2="520" y2="556" stroke="#3a3f4a" stroke-width="2" />
+            <line x1="720" y1="424" x2="720" y2="556" stroke="#3a3f4a" stroke-width="2" />
+            <line x1="920" y1="424" x2="920" y2="556" stroke="#3a3f4a" stroke-width="2" />
+            <line x1="1120" y1="424" x2="1120" y2="556" stroke="#3a3f4a" stroke-width="2" />
+            <line x1="1320" y1="424" x2="1320" y2="556" stroke="#3a3f4a" stroke-width="2" />
+            <line x1="1520" y1="424" x2="1520" y2="556" stroke="#3a3f4a" stroke-width="2" />
+            <line x1="1720" y1="424" x2="1720" y2="556" stroke="#3a3f4a" stroke-width="2" />
+          <text class="mono" x="104" y="500" font-size="30" fill="#8a8f99" text-anchor="end">0</text>
+        </g>
+        <g id="me-word" class="h">
+          <path d="M1600 576 L1600 592 L1800 592 L1800 576" stroke="#8a8f99" stroke-width="2.5" fill="none" />
+          <text x="1800" y="700" font-size="28" fill="#8a8f99" text-anchor="end">每 32 字节 = 1 个字</text>
+        </g>
+        <text id="me-conv" class="h" x="520" y="330" font-size="32" fill="#8a8f99" text-anchor="middle">所有合约共用的约定</text>
+        <rect id="me-f0" class="h" x="122" y="422" width="398" height="136" fill="#58C4DD" fill-opacity="0.32" />
+        <rect id="me-f1" class="h" x="520" y="422" width="200" height="136" fill="#FF9F43" fill-opacity="0.3" stroke="#FF9F43" stroke-width="4" />
+        <rect id="me-f2" class="h" x="722" y="424" width="196" height="132" fill="#FF9F43" fill-opacity="0.1" stroke="#FF9F43" stroke-width="4" stroke-dasharray="14 9" />
+        <rect id="me-f3" class="h" x="920" y="422" width="878" height="136" fill="url(#me-gfade)" />
+        <line id="me-d0" class="h" x1="520" y1="410" x2="520" y2="570" stroke="#e8e6df" stroke-width="4" />
+        <line id="me-d1" class="h" x1="720" y1="410" x2="720" y2="570" stroke="#e8e6df" stroke-width="4" />
+        <line id="me-d2" class="h" x1="920" y1="410" x2="920" y2="570" stroke="#e8e6df" stroke-width="4" />
+        <g id="me-t0" class="h">
+          <text class="mono" x="320" y="396" font-size="28" fill="#58C4DD" text-anchor="middle">0x00–0x3f</text>
+          <text x="320" y="612" font-size="30" fill="#e8e6df" text-anchor="middle">暂存区 64 字节</text>
+          <text x="320" y="656" font-size="28" fill="#8a8f99" text-anchor="middle"><tspan class="mono">keccak256</tspan> 临时用</text>
+        </g>
+        <g id="me-t1" class="h">
+          <text class="mono" x="620" y="396" font-size="28" fill="#FF9F43" text-anchor="middle">0x40–0x5f</text>
+          <text x="620" y="612" font-size="30" fill="#FF9F43" text-anchor="middle">空闲内存指针</text>
+        </g>
+        <g id="me-t2" class="h">
+          <text class="mono" x="820" y="396" font-size="28" fill="#FF9F43" text-anchor="middle">0x60–0x7f</text>
+          <text x="820" y="612" font-size="30" fill="#e8e6df" text-anchor="middle">零槽 = <tspan class="mono">0</tspan></text>
+        </g>
+        <g id="me-arr" class="h">
+          <line x1="905" y1="772" x2="905" y2="574" stroke="#8a8f99" stroke-width="2" />
+          <circle cx="905" cy="572" r="5" fill="#8a8f99" />
+          <text x="905" y="812" font-size="30" fill="#e8e6df" text-anchor="middle"><tspan class="mono">[ ]</tspan> 空数组</text>
+        </g>
+        <g id="me-t3" class="h">
+          <text class="mono" x="1000" y="396" font-size="28" fill="#83C167" text-anchor="middle">0x80 →</text>
+          <text x="940" y="612" font-size="30" fill="#83C167">动态对象：<tspan fill="#e8e6df">string · bytes · struct</tspan></text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+IN("#me-title", at(0, 0.05), 0.6, { y: 15 }, { y: 0 });
+// L1 字节带
+IN("#me-band", at(1, 0.05), 0.8, { x: -40 }, { x: 0 });
+IN("#me-word", at(1, 0.6), 0.5);
+// L2 分隔线
+IN("#me-conv", at(2, 0.1), 0.5);
+IN("#me-d0", at(2, 0.3), 0.4, { y: -30 }, { y: 0 });
+IN("#me-d1", at(2, 0.45), 0.4, { y: -30 }, { y: 0 });
+IN("#me-d2", at(2, 0.6), 0.4, { y: -30 }, { y: 0 });
+// L3 暂存区
+OUT("#me-conv", at(3, 0.0), 0.4);
+IN("#me-f0", at(3, 0.08), 0.6);
+IN("#me-t0", at(3, 0.15), 0.6);
+tl.fromTo("#me-f0", { attr: { "fill-opacity": 0.32 } }, { attr: { "fill-opacity": 0.55 }, duration: 0.35, yoyo: true, repeat: 1, immediateRender: false }, at(3, 0.75));
+// L4 空闲指针
+IN("#me-f1", at(4, 0.08), 0.6);
+IN("#me-t1", at(4, 0.2), 0.6);
+// L5 零槽
+IN("#me-f2", at(5, 0.08), 0.6);
+IN("#me-t2", at(5, 0.25), 0.6);
+IN("#me-arr", at(5, 0.6), 0.6, { y: 20 }, { y: 0 });
+// L6 动态区
+IN("#me-f3", at(6, 0.05), 0.8, { x: -40 }, { x: 0 });
+IN("#me-t3", at(6, 0.2), 0.6);
+OUT("#me-word", at(6, 0.1), 0.4);
+
+
+      tl.to("#me-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["memory"] = tl;
+    })();
+  </script>
+</template>

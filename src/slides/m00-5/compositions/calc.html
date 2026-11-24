@@ -1,0 +1,178 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 calc，id 前缀 ca- -->
+  <div id="root" data-composition-id="calc" data-duration="65.81" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ca-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ca-all">
+        <text id="ca-title" class="h" x="120" y="140" font-size="52" font-weight="700" fill="#e8e6df">算一算：DEX 这一跳</text>
+        <text id="ca-ex" class="h" x="1820" y="140" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+        <g id="ca-poolg">
+          <g id="ca-pool" class="h">
+            <rect x="120" y="260" width="600" height="640" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="150" y="312" font-size="32" font-weight="700" fill="#58C4DD">DEX 池子</text>
+            <line x1="180" y1="700" x2="690" y2="700" stroke="#6b6f7a" stroke-width="2"/>
+            <line x1="180" y1="350" x2="180" y2="700" stroke="#6b6f7a" stroke-width="2"/>
+            <text x="196" y="366" font-size="28" fill="#8a8f99">USDC</text>
+            <text x="690" y="742" font-size="28" fill="#8a8f99" text-anchor="end">ETH</text>
+          </g>
+          <path id="ca-curve" class="dr" pathLength="1" d="M240 400 Q300 650 680 670" fill="none" stroke="#58C4DD" stroke-width="4"/>
+          <circle id="ca-dot" class="h" cx="359" cy="578" r="11" fill="#F0B90B"/>
+          <text id="ca-pr0" class="h mono" x="380" y="552" font-size="32" fill="#F0B90B">2,500</text>
+          <text id="ca-pr1" class="h mono" x="424" y="580" font-size="32" font-weight="700" fill="#F0B90B">2,502.5</text>
+          <g id="ca-coins">
+            <circle class="h" cx="210" cy="790" r="15" fill="#F0B90B"/><circle class="h" cx="250" cy="790" r="15" fill="#F0B90B"/><circle class="h" cx="290" cy="790" r="15" fill="#F0B90B"/><circle class="h" cx="330" cy="790" r="15" fill="#F0B90B"/><circle class="h" cx="370" cy="790" r="15" fill="#F0B90B"/><circle class="h" cx="410" cy="790" r="15" fill="#F0B90B"/>
+            <circle class="h" cx="210" cy="830" r="15" fill="#F0B90B"/><circle class="h" cx="250" cy="830" r="15" fill="#F0B90B"/><circle class="h" cx="290" cy="830" r="15" fill="#F0B90B"/><circle class="h" cx="330" cy="830" r="15" fill="#F0B90B"/><circle class="h" cx="370" cy="830" r="15" fill="#F0B90B"/><circle class="h" cx="410" cy="830" r="15" fill="#F0B90B"/>
+          </g>
+          <g id="ca-lp" class="h">
+            <rect x="560" y="795" width="140" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5"/>
+            <text x="630" y="833" font-size="28" fill="#e8e6df" text-anchor="middle">LP</text>
+          </g>
+          <circle id="ca-fc0" class="h" cx="450" cy="810" r="10" fill="#F0B90B"/>
+          <circle id="ca-fc1" class="h" cx="450" cy="810" r="10" fill="#F0B90B"/>
+          <circle id="ca-fc2" class="h" cx="450" cy="810" r="10" fill="#F0B90B"/>
+        </g>
+        <g id="ca-p0" class="h"><rect x="800" y="190" width="281" height="60" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="1.5"/><text x="940" y="231" font-size="28" fill="#e8e6df" text-anchor="middle">投入 1,000 USDC</text></g>
+        <g id="ca-p1" class="h"><rect x="1101" y="190" width="264" height="60" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="1.5"/><text x="1233" y="231" font-size="28" fill="#e8e6df" text-anchor="middle">ETH 价格 2,500</text></g>
+        <g id="ca-p2" class="h"><rect x="1385" y="190" width="208" height="60" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="1.5"/><text x="1489" y="231" font-size="28" fill="#e8e6df" text-anchor="middle">手续费 0.3%</text></g>
+        <g id="ca-p3" class="h"><rect x="800" y="266" width="236" height="60" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="1.5"/><text x="918" y="307" font-size="28" fill="#e8e6df" text-anchor="middle">价格影响 0.1%</text></g>
+        <g id="ca-p4" class="h"><rect x="1056" y="266" width="258" height="60" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="1.5"/><text x="1185" y="307" font-size="28" fill="#e8e6df" text-anchor="middle">L2 交易费 $0.02</text></g>
+        <g id="ca-eqs">
+          <text id="ca-e0" class="h mono" x="800" y="430" font-size="40" fill="#e8e6df">1,000 × 0.3% = <tspan fill="#F0B90B" font-weight="700">3 USDC</tspan></text>
+          <text id="ca-a0" class="h" x="1340" y="428" font-size="28" fill="#8a8f99">归流动性提供者</text>
+          <text id="ca-e1" class="h mono" x="800" y="510" font-size="40" fill="#e8e6df">1,000 − 3 = <tspan fill="#F0B90B" font-weight="700">997 USDC</tspan></text>
+          <text id="ca-a1" class="h" x="1320" y="508" font-size="28" fill="#8a8f99">真正投进去</text>
+          <text id="ca-e2" class="h mono" x="800" y="590" font-size="40" fill="#e8e6df">2,500 × (1 + 0.1%) ≈ <tspan fill="#F0B90B" font-weight="700">2,502.5</tspan></text>
+          <text id="ca-a2" class="h" x="1500" y="588" font-size="28" fill="#8a8f99">成交均价</text>
+          <text id="ca-e3" class="h mono" x="800" y="670" font-size="40" fill="#e8e6df">997 ÷ 2,502.5 ≈ <tspan fill="#58C4DD" font-weight="700">0.3984 ETH</tspan></text>
+          <rect id="ca-hl" class="h" x="1170" y="624" width="268" height="64" rx="10" fill="none" stroke="#58C4DD" stroke-width="3"/>
+        </g>
+        <g id="ca-cmp">
+          <text id="ca-it" class="h mono" x="920" y="400" font-size="32" fill="#e8e6df">1,000 ÷ 2,500 = <tspan fill="#83C167" font-weight="700">0.4 ETH</tspan></text>
+          <text id="ca-zoom" class="h" x="1720" y="400" font-size="28" fill="#6b6f7a" text-anchor="end">放大显示</text>
+          <text id="ca-il" class="h" x="800" y="451" font-size="28" fill="#e8e6df">理想</text>
+          <rect id="ca-ib" class="h" x="920" y="420" width="800" height="40" rx="6" fill="#83C167"/>
+          <text id="ca-at" class="h mono" x="920" y="520" font-size="32" font-weight="700" fill="#58C4DD">0.3984 ETH</text>
+          <text id="ca-al" class="h" x="800" y="571" font-size="28" fill="#e8e6df">实得</text>
+          <rect id="ca-ab" class="h" x="920" y="540" width="672" height="40" rx="6" fill="#58C4DD"/>
+          <rect id="ca-db" class="h" x="1592" y="540" width="128" height="40" rx="6" fill="#FC6255"/>
+          <text id="ca-dl" class="h mono" x="1720" y="520" font-size="30" font-weight="700" fill="#FC6255" text-anchor="end">≈ 0.0016 ETH ≈ $4</text>
+          <text id="ca-bt" class="h" x="800" y="726" font-size="28" fill="#8a8f99">这 $4 去哪了</text>
+          <rect id="ca-b0" class="h" x="1100" y="690" width="465" height="50" rx="4" fill="#F0B90B"/>
+          <text id="ca-b0l" class="h" x="1332" y="792" font-size="28" fill="#F0B90B" text-anchor="middle">手续费 $3</text>
+          <rect id="ca-b1" class="h" x="1565" y="690" width="152" height="50" rx="4" fill="#FF9F43"/>
+          <text id="ca-b1l" class="h" x="1641" y="792" font-size="28" fill="#FF9F43" text-anchor="middle">价格影响 ≈ $1</text>
+          <rect id="ca-b2" class="h" x="1718" y="682" width="3" height="66" fill="#58C4DD"/>
+          <text id="ca-b2l" class="h" x="1760" y="664" font-size="28" fill="#58C4DD" text-anchor="end">Gas $0.02</text>
+        </g>
+        <g id="ca-gas">
+          <line id="ca-ax" class="h" x1="900" y1="860" x2="1640" y2="860" stroke="#6b6f7a" stroke-width="2"/>
+          <rect id="ca-l2b" class="h" x="980" y="855" width="120" height="4" fill="#58C4DD"/>
+          <text id="ca-l2l" class="h" x="1040" y="910" font-size="28" fill="#58C4DD" text-anchor="middle">L2 · $0.02</text>
+          <rect id="ca-l1b" class="h" x="1340" y="480" width="140" height="380" fill="#FF9F43"/>
+          <rect id="ca-l1d" class="h" x="1340" y="300" width="140" height="180" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8"/>
+          <text id="ca-l1l" class="h" x="1410" y="910" font-size="28" fill="#FF9F43" text-anchor="middle">L1 Gas · 数美元 ~ 数十美元</text>
+          <text id="ca-l1n" class="h" x="1500" y="400" font-size="28" fill="#FF9F43">视拥堵而定</text>
+        </g>
+        <text id="ca-big" class="h" x="430" y="610" font-size="72" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#58C4DD">L2</tspan> 存在的意义</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+const PULSE = (s, o, t) => tl.fromTo(s, { scale: 1 }, { scale: 1.08, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t);
+// L0 参数
+IN("#ca-title", at(0, 0), 0.6, { y: 10 }, { y: 0 });
+IN("#ca-ex", at(0, 0.03), 0.5);
+IN("#ca-pool", at(0, 0.06), 0.7);
+DRAW("#ca-curve", at(0, 0.1), 1.0);
+IN("#ca-coins circle", at(0, 0.14), 0.4, { scale: 0.3, transformOrigin: "50% 50%" }, { scale: 1, stagger: 0.04 });
+IN("#ca-dot, #ca-pr0", at(0, 0.22), 0.5);
+IN("#ca-lp", at(0, 0.26), 0.5);
+IN("#ca-p0", at(0, 0.3), 0.5, { y: 12 }, { y: 0 });
+IN("#ca-p1", at(0, 0.45), 0.5, { y: 12 }, { y: 0 });
+IN("#ca-p2", at(0, 0.6), 0.5, { y: 12 }, { y: 0 });
+IN("#ca-p3", at(0, 0.74), 0.5, { y: 12 }, { y: 0 });
+IN("#ca-p4", at(0, 0.87), 0.5, { y: 12 }, { y: 0 });
+// L1 手续费
+PULSE("#ca-p2", "1489 220", at(1, 0.04));
+IN("#ca-e0", at(1, 0.1), 0.5, { x: -16 }, { x: 0 });
+[0, 1, 2].forEach(k => {
+  const t = at(1, 0.42) + k * 0.18;
+  IN(`#ca-fc${k}`, t, 0.15);
+  tl.to(`#ca-fc${k}`, { attr: { cx: 600 + k * 30, cy: 772 }, duration: 0.7, ease: "power2.inOut" }, t + 0.05);
+});
+IN("#ca-a0", at(1, 0.5), 0.5);
+tl.to("#ca-e0, #ca-a0", { opacity: 0.45, duration: 0.4 }, at(1, 0.7));
+IN("#ca-e1", at(1, 0.72), 0.5, { x: -16 }, { x: 0 });
+IN("#ca-a1", at(1, 0.84), 0.5);
+// L2 价格影响
+PULSE("#ca-p3", "918 296", at(2, 0.08));
+tl.to("#ca-dot", { attr: { cx: 403, cy: 605 }, duration: 0.9, ease: "power2.inOut" }, at(2, 0.2));
+OUT("#ca-pr0", at(2, 0.2), 0.3);
+IN("#ca-pr1", at(2, 0.3), 0.4);
+tl.to("#ca-e1, #ca-a1", { opacity: 0.45, duration: 0.4 }, at(2, 0.55));
+IN("#ca-e2", at(2, 0.58), 0.5, { x: -16 }, { x: 0 });
+IN("#ca-a2", at(2, 0.85), 0.5);
+// L3 结果
+tl.to("#ca-e2, #ca-a2", { opacity: 0.45, duration: 0.4 }, at(3, 0.05));
+IN("#ca-e3", at(3, 0.1), 0.5, { x: -16 }, { x: 0 });
+IN("#ca-hl", at(3, 0.62), 0.4, { scale: 1.08, svgOrigin: "1304 656" }, { scale: 1, svgOrigin: "1304 656" });
+// L4 对比
+OUT("#ca-eqs", at(4, 0), 0.4);
+IN("#ca-it, #ca-il", at(4, 0.04), 0.5);
+IN("#ca-ib", at(4, 0.06), 0.1);
+tl.fromTo("#ca-ib", { attr: { width: 0 } }, { attr: { width: 800 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(4, 0.06));
+IN("#ca-zoom", at(4, 0.14), 0.5);
+IN("#ca-at, #ca-al", at(4, 0.24), 0.5);
+IN("#ca-ab", at(4, 0.26), 0.1);
+tl.fromTo("#ca-ab", { attr: { width: 0 } }, { attr: { width: 672 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(4, 0.26));
+IN("#ca-db", at(4, 0.4), 0.4, { scaleX: 0, svgOrigin: "1592 560" }, { scaleX: 1, svgOrigin: "1592 560" });
+IN("#ca-dl", at(4, 0.44), 0.5);
+IN("#ca-bt", at(4, 0.58), 0.5);
+IN("#ca-b0", at(4, 0.62), 0.5, { scaleX: 0, svgOrigin: "1100 715" }, { scaleX: 1, svgOrigin: "1100 715" });
+IN("#ca-b0l", at(4, 0.64), 0.4);
+IN("#ca-b1", at(4, 0.78), 0.5, { scaleX: 0, svgOrigin: "1565 715" }, { scaleX: 1, svgOrigin: "1565 715" });
+IN("#ca-b1l", at(4, 0.8), 0.4);
+IN("#ca-b2, #ca-b2l", at(4, 0.92), 0.4);
+// L5 L1 对比
+OUT("#ca-cmp, #ca-poolg", at(5, 0), 0.4);
+IN("#ca-ax", at(5, 0.04), 0.4);
+IN("#ca-l2b, #ca-l2l", at(5, 0.07), 0.5);
+IN("#ca-l1b", at(5, 0.18), 0.1);
+tl.fromTo("#ca-l1b", { attr: { y: 860, height: 0 } }, { attr: { y: 480, height: 380 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(5, 0.18));
+IN("#ca-l1l", at(5, 0.22), 0.5);
+IN("#ca-l1d", at(5, 0.4), 0.5);
+IN("#ca-l1n", at(5, 0.46), 0.5);
+IN("#ca-big", at(5, 0.74), 0.7, { scale: 0.85, svgOrigin: "430 590" }, { scale: 1, svgOrigin: "430 590" });
+
+      tl.to("#ca-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["calc"] = tl;
+    })();
+  </script>
+</template>

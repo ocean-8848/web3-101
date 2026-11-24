@@ -1,0 +1,370 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 deploy，id 前缀 de- -->
+  <div id="root" data-composition-id="deploy" data-duration="59.97" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="de-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="de-all">
+        <!-- L0 部署图：三区 -->
+        <g id="de-dia">
+          <g id="de-z1" class="h">
+            <rect x="80" y="220" width="320" height="600" rx="14" fill="none" stroke="#2a2f3a" stroke-width="2" />
+            <text x="104" y="268" font-size="28" fill="#8a8f99">链上</text>
+          </g>
+          <g id="de-rpc" class="h">
+            <rect x="110" y="320" width="260" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <circle cx="150" cy="370" r="14" fill="#8a8f99" />
+            <text x="180" y="381" font-size="30" fill="#e8e6df">主 RPC</text>
+            <rect x="110" y="460" width="260" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <circle cx="150" cy="510" r="14" fill="#8a8f99" />
+            <text x="180" y="521" font-size="30" fill="#e8e6df">备 RPC</text>
+          </g>
+          <g id="de-z2" class="h">
+            <rect x="460" y="220" width="720" height="600" rx="14" fill="none" stroke="#2a2f3a" stroke-width="2" />
+            <text x="484" y="268" font-size="28" fill="#8a8f99">进程 <tspan class="mono">depsvc</tspan></text>
+          </g>
+          <g id="de-sc" class="h">
+            <rect x="500" y="300" width="640" height="110" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="530" y="367" font-size="32" fill="#58C4DD">Scanner</text>
+            <text x="700" y="366" font-size="30" fill="#F0B90B">单活</text>
+            <g fill="none" stroke="#F0B90B" stroke-width="4">
+              <path d="M1066 344 L1066 334 Q1066 318 1082 318 Q1098 318 1098 334 L1098 344" />
+            </g>
+            <rect x="1058" y="344" width="48" height="40" rx="6" fill="#F0B90B" />
+          </g>
+          <g id="de-ab" class="h">
+            <rect x="500" y="450" width="640" height="110" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+            <text class="mono" x="530" y="517" font-size="32" fill="#58C4DD">AddressBook</text>
+          </g>
+          <g id="de-rl" class="h">
+            <rect x="500" y="600" width="640" height="110" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+            <text class="mono" x="530" y="667" font-size="32" fill="#58C4DD">Relay</text>
+          </g>
+          <g id="de-stateless" class="h">
+            <rect x="500" y="734" width="170" height="56" rx="28" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2" />
+            <text x="585" y="773" font-size="30" fill="#83C167" text-anchor="middle">无状态</text>
+          </g>
+          <g id="de-z3" class="h">
+            <rect x="1240" y="220" width="600" height="600" rx="14" fill="none" stroke="#2a2f3a" stroke-width="2" />
+            <text x="1264" y="268" font-size="28" fill="#8a8f99">数据层</text>
+          </g>
+          <g id="de-pg" class="h">
+            <rect x="1270" y="300" width="540" height="290" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1300" y="356" font-size="32" fill="#58C4DD">PostgreSQL</text>
+            <text class="mono" x="1300" y="428" font-size="28" fill="#8a8f99">blocks · cursors</text>
+            <text class="mono" x="1300" y="478" font-size="28" fill="#8a8f99">deposits · outbox</text>
+            <text class="mono" x="1300" y="528" font-size="28" fill="#8a8f99">ledger_entries</text>
+          </g>
+          <g id="de-kf" class="h">
+            <rect x="1270" y="630" width="540" height="160" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2" />
+            <text x="1300" y="690" font-size="32" fill="#B48EF0">Kafka</text>
+            <text class="mono" x="1300" y="746" font-size="28" fill="#8a8f99">deposit.events</text>
+          </g>
+          <path id="de-a1" class="dr h" pathLength="1" d="M372 370 L494 352" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#de-arr)" />
+          <path id="de-a1b" class="dr h" pathLength="1" d="M372 510 L494 386" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#de-arr)" />
+          <path id="de-a2" class="dr h" pathLength="1" d="M1142 355 L1264 355" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#de-arr)" />
+          <path id="de-a3" class="h" d="M1268 505 L1148 505" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" fill="none" marker-end="url(#de-arr)" />
+          <path id="de-a4" class="h" d="M1268 570 L1148 640" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" fill="none" marker-end="url(#de-arr)" />
+          <path id="de-a5" class="dr h" pathLength="1" d="M1142 680 L1264 708" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#de-arr)" />
+        </g>
+
+        <!-- L1/L2 代码面板 -->
+        <g id="de-panel" class="h">
+          <rect id="de-pr" x="820" y="220" width="1020" height="370" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <line x1="820" y1="270" x2="1840" y2="270" stroke="#2a2f3a" stroke-width="2" />
+        </g>
+        <text id="de-t1" class="h mono" x="850" y="256" font-size="28" fill="#58C4DD">Dockerfile</text>
+        <text id="de-t2" class="h mono" x="850" y="256" font-size="28" fill="#58C4DD">config.yaml</text>
+        <rect id="de-hl" class="h" x="822" y="283" width="1016" height="123" fill="#58C4DD" fill-opacity="0.15" />
+        <rect id="de-hlb" class="h" x="822" y="283" width="6" height="123" fill="#58C4DD" />
+        <g id="de-dock" class="h" font-size="28" fill="#e8e6df">
+          <text class="mono" x="852" y="310">FROM golang:1.25 AS build</text>
+          <text class="mono" x="852" y="351">RUN CGO_ENABLED=0 go build -trimpath \</text>
+          <text class="mono" x="852" y="392">    -o /out/depsvc ./cmd/depsvc</text>
+          <text class="mono" x="852" y="433">FROM gcr.io/distroless/static-debian12:nonroot</text>
+          <text class="mono" x="852" y="474">COPY --from=build /out/depsvc /depsvc</text>
+          <text class="mono" x="852" y="515">USER nonroot</text>
+          <text class="mono" x="852" y="556">ENTRYPOINT ["/depsvc"]</text>
+        </g>
+        <g id="de-cfg" class="h" font-size="28" fill="#e8e6df">
+          <text class="mono" x="852" y="310">chain:</text>
+          <text class="mono" x="852" y="351">  rpc_primary<tspan class="de-env">_env</tspan>: RPC_URL</text>
+          <text class="mono" x="852" y="392">  rpc_backup<tspan class="de-env">_env</tspan>: RPC_BACKUP_URL</text>
+          <text class="mono" x="852" y="433">  poll_interval: 3s</text>
+          <text class="mono" x="852" y="474">  max_reorg_depth: 64</text>
+          <text class="mono" x="852" y="515">kafka:</text>
+          <text class="mono" x="852" y="556">  brokers<tspan class="de-env">_env</tspan>: KAFKA_BROKERS</text>
+          <text class="mono" x="852" y="597">webhook:</text>
+          <text class="mono" x="852" y="638">  secret<tspan class="de-env">_env</tspan>: WEBHOOK_SECRET</text>
+        </g>
+
+        <!-- L1 镜像缩小 -->
+        <rect id="de-img" class="h" x="100" y="240" width="660" height="560" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <text id="de-imgl" class="h mono" x="130" y="292" font-size="28" fill="#8a8f99">golang:1.25</text>
+        <text id="de-imgc" class="h" x="430" y="530" font-size="32" fill="#e8e6df" text-anchor="middle">编译器 · 源码 · 依赖</text>
+        <g id="de-bin" class="h">
+          <path d="M398 546 L448 546 L466 564 L466 628 L398 628 Z" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="432" y="600" font-size="28" fill="#58C4DD" text-anchor="middle">01</text>
+          <text class="mono" x="430" y="692" font-size="30" fill="#e8e6df" text-anchor="middle">depsvc</text>
+        </g>
+        <text id="de-binl" class="h mono" x="430" y="790" font-size="28" fill="#83C167" text-anchor="middle">distroless · nonroot</text>
+
+        <!-- L2 密钥注入 -->
+        <g id="de-safe" class="h">
+          <rect x="130" y="260" width="200" height="180" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <circle cx="230" cy="350" r="40" fill="none" stroke="#F0B90B" stroke-width="3" />
+          <path d="M230 318 L230 338 M230 362 L230 382 M198 350 L218 350 M242 350 L262 350" stroke="#F0B90B" stroke-width="3" />
+          <text x="130" y="492" font-size="28" fill="#e8e6df">Vault / K8s Secret</text>
+        </g>
+        <g id="de-cal" class="h">
+          <rect x="470" y="290" width="70" height="66" rx="8" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <path d="M470 312 L540 312 M488 282 L488 298 M522 282 L522 298" stroke="#e8e6df" stroke-width="3" />
+          <text x="560" y="336" font-size="30" fill="#e8e6df">每季度轮换</text>
+        </g>
+        <g id="de-envbox" class="h">
+          <rect x="100" y="560" width="660" height="300" rx="14" fill="#161a22" stroke="#2a2f3a" stroke-width="2" />
+          <text x="130" y="608" font-size="28" fill="#8a8f99">环境变量</text>
+        </g>
+        <text id="de-e1" class="h mono" x="200" y="668" font-size="28" fill="#F0B90B">RPC_URL</text>
+        <text id="de-e2" class="h mono" x="200" y="716" font-size="28" fill="#F0B90B">RPC_BACKUP_URL</text>
+        <text id="de-e3" class="h mono" x="200" y="764" font-size="28" fill="#F0B90B">KAFKA_BROKERS</text>
+        <text id="de-e4" class="h mono" x="200" y="812" font-size="28" fill="#F0B90B">WEBHOOK_SECRET</text>
+        <g id="de-k1" class="h"><circle cx="0" cy="0" r="9" fill="none" stroke="#F0B90B" stroke-width="3" /><path d="M9 0 L32 0 M24 0 L24 8 M30 0 L30 8" stroke="#F0B90B" stroke-width="3" /></g>
+        <g id="de-k2" class="h"><circle cx="0" cy="0" r="9" fill="none" stroke="#F0B90B" stroke-width="3" /><path d="M9 0 L32 0 M24 0 L24 8 M30 0 L30 8" stroke="#F0B90B" stroke-width="3" /></g>
+        <g id="de-k3" class="h"><circle cx="0" cy="0" r="9" fill="none" stroke="#F0B90B" stroke-width="3" /><path d="M9 0 L32 0 M24 0 L24 8 M30 0 L30 8" stroke="#F0B90B" stroke-width="3" /></g>
+        <g id="de-k4" class="h"><circle cx="0" cy="0" r="9" fill="none" stroke="#F0B90B" stroke-width="3" /><path d="M9 0 L32 0 M24 0 L24 8 M30 0 L30 8" stroke="#F0B90B" stroke-width="3" /></g>
+
+        <!-- L3 三级环境台阶 -->
+        <g id="de-s1" class="h">
+          <rect x="160" y="640" width="460" height="120" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="190" y="692" font-size="34" font-weight="700" fill="#e8e6df">dev</text>
+          <text x="190" y="740" font-size="28" fill="#8a8f99">anvil 本地链</text>
+          <path d="M345 556 L345 616 A45 12 0 0 0 435 616 L435 556" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" />
+          <ellipse cx="390" cy="556" rx="45" ry="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        </g>
+        <text id="de-s1l" class="h" x="160" y="604" font-size="28" fill="#8a8f99">独立数据库</text>
+        <g id="de-s2" class="h">
+          <rect x="700" y="540" width="460" height="220" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="730" y="592" font-size="34" font-weight="700" fill="#e8e6df">staging</text>
+          <text x="730" y="640" font-size="28" fill="#8a8f99">Sepolia 测试网</text>
+          <path d="M885 456 L885 516 A45 12 0 0 0 975 516 L975 456" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" />
+          <ellipse cx="930" cy="456" rx="45" ry="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        </g>
+        <g id="de-s3" class="h">
+          <rect x="1240" y="440" width="460" height="320" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="1270" y="492" font-size="34" font-weight="700" fill="#e8e6df">prod</text>
+          <text x="1270" y="540" font-size="28" fill="#8a8f99">主网</text>
+          <path d="M1425 356 L1425 416 A45 12 0 0 0 1515 416 L1515 356" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" />
+          <ellipse cx="1470" cy="356" rx="45" ry="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        </g>
+        <text id="de-ci" class="h" x="160" y="836" font-size="28" fill="#8a8f99">CI：<tspan class="mono">gofmt · vet · lint · test · -race · </tspan>集成</text>
+        <g id="de-mg1" class="h">
+          <rect x="160" y="890" width="170" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <text x="245" y="933" font-size="30" fill="#e8e6df" text-anchor="middle">先迁移</text>
+        </g>
+        <path id="de-mga" class="dr h" pathLength="1" d="M336 922 L424 922" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#de-arr)" />
+        <g id="de-mg2" class="h">
+          <rect x="436" y="890" width="170" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <text x="521" y="933" font-size="30" fill="#e8e6df" text-anchor="middle">后发布</text>
+        </g>
+        <g id="de-nodel" class="h">
+          <circle cx="1040" cy="270" r="24" fill="none" stroke="#FC6255" stroke-width="4" />
+          <path d="M1023 287 L1057 253" stroke="#FC6255" stroke-width="4" />
+          <text class="mono" x="1084" y="280" font-size="28" fill="#e8e6df">deposits / ledger_entries</text>
+          <text x="1540" y="280" font-size="28" fill="#FC6255">禁止 <tspan class="mono">DELETE</tspan></text>
+        </g>
+
+        <!-- L4–L6 指标面板 -->
+        <rect id="de-mp" class="h" x="200" y="220" width="1520" height="780" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        <g id="de-m1" class="h">
+          <text class="mono" x="240" y="282" font-size="32" fill="#58C4DD">deposit_head_lag_blocks</text>
+          <text x="1680" y="282" font-size="28" fill="#8a8f99" text-anchor="end">链头 − 游标</text>
+          <path d="M300 340 L300 900 L1660 900" fill="none" stroke="#6b6f7a" stroke-width="2" />
+          <text class="mono" x="282" y="910" font-size="28" fill="#6b6f7a" text-anchor="end">0</text>
+        </g>
+        <path id="de-line" class="dr h" pathLength="1" fill="none" stroke="#58C4DD" stroke-width="4" stroke-linejoin="round"
+          d="M300 874 L400 865 L500 883 L600 857 L700 865 L760 796 L820 770 L900 779 L980 761 L1040 787 L1100 640 L1160 397 L1220 553 L1270 848 L1350 865 L1450 874 L1550 865 L1660 874" />
+        <g id="de-p2" class="h">
+          <path d="M300 813 L1660 813" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="12 8" />
+          <text class="mono" x="282" y="823" font-size="28" fill="#FF9F43" text-anchor="end">10</text>
+          <text x="1650" y="797" font-size="28" fill="#FF9F43" text-anchor="end"><tspan class="mono">P2</tspan> · 持续 2 分钟</text>
+        </g>
+        <g id="de-p1" class="h">
+          <path d="M300 467 L1660 467" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="12 8" />
+          <text class="mono" x="282" y="477" font-size="28" fill="#FC6255" text-anchor="end">50</text>
+          <text x="1650" y="451" font-size="28" fill="#FC6255" text-anchor="end"><tspan class="mono">P1</tspan> · 最高级</text>
+        </g>
+        <g id="de-m2" class="h">
+          <text class="mono" x="240" y="282" font-size="32" fill="#58C4DD">deposit_reverted_total</text>
+          <text x="1680" y="282" font-size="28" fill="#8a8f99" text-anchor="end">入账后撤销</text>
+        </g>
+        <text id="de-c0" class="h mono" x="960" y="640" font-size="220" font-weight="700" fill="#e8e6df" text-anchor="middle">0</text>
+        <text id="de-c1" class="h mono" x="960" y="640" font-size="220" font-weight="700" fill="#FC6255" text-anchor="middle">1</text>
+        <g id="de-phone" class="h">
+          <path d="M1290 500 Q1282 520 1296 548 Q1312 576 1336 586 L1352 566 L1332 552 L1322 562 Q1306 550 1300 530 L1312 522 L1304 500 Z" fill="#FC6255" />
+          <text x="1380" y="556" font-size="40" fill="#FC6255"><tspan class="mono">P1</tspan> · 立即电话</text>
+        </g>
+        <g id="de-rec" class="h">
+          <text x="960" y="840" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan class="mono">reconcile_diff_total &gt; 0</tspan><tspan fill="#FC6255"> → P1</tspan></text>
+          <text x="960" y="900" font-size="28" fill="#8a8f99" text-anchor="middle">每日对账差异</text>
+        </g>
+        <g id="de-g1" class="h">
+          <rect x="240" y="270" width="700" height="130" rx="12" fill="#0f1117" stroke="#2a2f3a" stroke-width="2" />
+          <text class="mono" x="270" y="326" font-size="30" fill="#e8e6df">outbox_unsent</text>
+          <text x="270" y="376" font-size="28" fill="#8a8f99">消息积压 · <tspan class="mono" fill="#FF9F43">P2</tspan></text>
+        </g>
+        <g id="de-g2" class="h">
+          <rect x="980" y="270" width="700" height="130" rx="12" fill="#0f1117" stroke="#2a2f3a" stroke-width="2" />
+          <text class="mono" x="1010" y="326" font-size="30" fill="#e8e6df">deposit_reorg_depth ≥ 3</text>
+          <text x="1010" y="376" font-size="28" fill="#8a8f99">重组深度 · <tspan class="mono" fill="#FF9F43">P2</tspan></text>
+        </g>
+        <g id="de-g3" class="h">
+          <rect x="240" y="440" width="700" height="130" rx="12" fill="#0f1117" stroke="#2a2f3a" stroke-width="2" />
+          <text class="mono" x="270" y="496" font-size="30" fill="#e8e6df">rpc_errors_total</text>
+          <text x="270" y="546" font-size="28" fill="#8a8f99"><tspan class="mono">RPC</tspan> 错误率 · <tspan class="mono" fill="#FF9F43">P2</tspan> · 自动切换</text>
+        </g>
+        <g id="de-sw" class="h">
+          <circle id="de-sw1" cx="760" cy="505" r="28" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="760" y="515" font-size="28" fill="#e8e6df" text-anchor="middle">主</text>
+          <circle id="de-sw2" cx="890" cy="505" r="28" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text x="890" y="515" font-size="28" fill="#e8e6df" text-anchor="middle">备</text>
+        </g>
+        <path id="de-swa" class="dr h" pathLength="1" d="M792 505 L852 505" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#de-arr)" />
+        <g id="de-g4" class="h">
+          <rect x="980" y="440" width="700" height="130" rx="12" fill="#0f1117" stroke="#2a2f3a" stroke-width="2" />
+          <text class="mono" x="1010" y="496" font-size="30" fill="#e8e6df">address_pool_free &lt; 1 万</text>
+          <text x="1010" y="546" font-size="28" fill="#8a8f99">空闲地址 · <tspan class="mono">P3</tspan></text>
+        </g>
+        <g id="de-g5" class="h">
+          <rect x="240" y="610" width="1440" height="100" rx="12" fill="#0f1117" stroke="#2a2f3a" stroke-width="2" />
+          <text x="270" y="671" font-size="28" fill="#8a8f99">检测延迟 · 入账延迟 · 回调失败</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 部署图逐步长出
+      IN("#de-z1", at(0, 0.0), 0.6);
+      IN("#de-rpc", at(0, 0.06), 0.6);
+      IN("#de-z2", at(0, 0.16), 0.6);
+      IN("#de-sc", at(0, 0.24), 0.6);
+      IN("#de-ab", at(0, 0.32), 0.6);
+      IN("#de-rl", at(0, 0.38), 0.6);
+      IN("#de-z3", at(0, 0.46), 0.6);
+      IN("#de-pg", at(0, 0.5), 0.6);
+      IN("#de-kf", at(0, 0.56), 0.6);
+      ARROW("#de-a1", at(0, 0.6), 0.5);
+      ARROW("#de-a1b", at(0, 0.62), 0.5);
+      ARROW("#de-a2", at(0, 0.68), 0.5);
+      IN("#de-a3", at(0, 0.74), 0.5);
+      IN("#de-a4", at(0, 0.78), 0.5);
+      ARROW("#de-a5", at(0, 0.82), 0.5);
+      IN("#de-stateless", at(0, 0.88), 0.6, { y: 10 }, { y: 0 });
+
+      // L1 Dockerfile + 镜像缩小
+      OUT("#de-dia", at(1, 0) - 0.3, 0.4);
+      IN("#de-panel", at(1, 0.05), 0.6);
+      IN("#de-t1", at(1, 0.05), 0.6);
+      IN("#de-dock", at(1, 0.1), 0.6);
+      IN("#de-img", at(1, 0.08), 0.6);
+      IN("#de-imgl", at(1, 0.1), 0.6);
+      IN("#de-imgc", at(1, 0.14), 0.6);
+      IN("#de-hl", at(1, 0.16), 0.3); IN("#de-hlb", at(1, 0.16), 0.3);
+      tl.to(["#de-hl", "#de-hlb"], { attr: { y: 406, height: 164 }, duration: 0.5, ease: "power2.inOut" }, at(1, 0.45));
+      OUT("#de-imgl", at(1, 0.45), 0.3);
+      OUT("#de-imgc", at(1, 0.45), 0.3);
+      tl.to("#de-img", { attr: { x: 330, y: 510, width: 200, height: 220 }, duration: 0.9, ease: "power3.inOut" }, at(1, 0.5));
+      IN("#de-bin", at(1, 0.66), 0.5);
+      IN("#de-binl", at(1, 0.8), 0.5);
+
+      // L2 config.yaml + 密钥注入
+      OUT(["#de-img", "#de-bin", "#de-binl", "#de-dock", "#de-t1", "#de-hl", "#de-hlb"], at(2, 0) - 0.3, 0.35);
+      tl.to("#de-pr", { attr: { height: 440 }, duration: 0.5, ease: "power2.inOut" }, at(2, 0.02));
+      IN("#de-t2", at(2, 0.04), 0.5);
+      IN("#de-cfg", at(2, 0.06), 0.6);
+      tl.to(".de-env", { fill: "#F0B90B", duration: 0.5 }, at(2, 0.22));
+      IN("#de-safe", at(2, 0.28), 0.6);
+      IN("#de-envbox", at(2, 0.4), 0.5);
+      ["#de-k1", "#de-k2", "#de-k3", "#de-k4"].forEach((k, i) => {
+        const t = at(2, 0.48 + i * 0.07);
+        tl.fromTo(k, { x: 230, y: 350, opacity: 0 }, { x: 144, y: 659 + 48 * i, opacity: 1, duration: 0.6, ease: "power2.inOut" }, t);
+        IN("#de-e" + (i + 1), t + 0.45, 0.4);
+      });
+      IN("#de-cal", at(2, 0.84), 0.5);
+
+      // L3 三级环境
+      OUT(["#de-panel", "#de-t2", "#de-cfg", "#de-safe", "#de-envbox", "#de-cal", "#de-k1", "#de-k2", "#de-k3", "#de-k4", "#de-e1", "#de-e2", "#de-e3", "#de-e4"], at(3, 0) - 0.3, 0.35);
+      IN("#de-s1", at(3, 0.03), 0.6, { y: 20 }, { y: 0 });
+      IN("#de-s2", at(3, 0.09), 0.6, { y: 20 }, { y: 0 });
+      IN("#de-s3", at(3, 0.15), 0.6, { y: 20 }, { y: 0 });
+      IN("#de-s1l", at(3, 0.28), 0.5);
+      IN("#de-ci", at(3, 0.4), 0.6);
+      IN("#de-mg1", at(3, 0.5), 0.5);
+      ARROW("#de-mga", at(3, 0.56), 0.4);
+      IN("#de-mg2", at(3, 0.6), 0.5);
+      IN("#de-nodel", at(3, 0.78), 0.6);
+
+      // L4 落后块数
+      OUT(["#de-s1", "#de-s2", "#de-s3", "#de-s1l", "#de-ci", "#de-mg1", "#de-mga", "#de-mg2", "#de-nodel"], at(4, 0) - 0.3, 0.35);
+      IN("#de-mp", at(4, 0.02), 0.6);
+      IN("#de-m1", at(4, 0.06), 0.6);
+      DRAW("#de-line", at(4, 0.14), 2.6); IN("#de-line", at(4, 0.14), 0.01);
+      IN("#de-p2", at(4, 0.5), 0.5);
+      IN("#de-p1", at(4, 0.76), 0.5);
+
+      // L5 reverted 计数 → P1
+      OUT(["#de-m1", "#de-line", "#de-p2", "#de-p1"], at(5, 0) - 0.3, 0.35);
+      IN("#de-m2", at(5, 0.02), 0.5);
+      IN("#de-c0", at(5, 0.06), 0.4);
+      OUT("#de-c0", at(5, 0.22), 0.15);
+      IN("#de-c1", at(5, 0.24), 0.2, { scale: 1.3, svgOrigin: "960 560" }, { scale: 1, svgOrigin: "960 560" });
+      tl.to("#de-mp", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.28));
+      IN("#de-phone", at(5, 0.4), 0.5);
+      tl.fromTo("#de-phone", { x: 0 }, { x: 6, duration: 0.08, ease: "none", yoyo: true, repeat: 5, immediateRender: false }, at(5, 0.48));
+      IN("#de-rec", at(5, 0.68), 0.6);
+
+      // L6 其余指标
+      OUT(["#de-m2", "#de-c1", "#de-phone", "#de-rec"], at(6, 0) - 0.3, 0.35);
+      tl.to("#de-mp", { stroke: "#58C4DD", duration: 0.4 }, at(6, 0) - 0.1);
+      IN("#de-g1", at(6, 0.04), 0.5, { y: 12 }, { y: 0 });
+      IN("#de-g2", at(6, 0.2), 0.5, { y: 12 }, { y: 0 });
+      IN("#de-g3", at(6, 0.36), 0.5, { y: 12 }, { y: 0 });
+      IN("#de-sw", at(6, 0.42), 0.4);
+      tl.to("#de-sw1", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.52));
+      ARROW("#de-swa", at(6, 0.55), 0.4);
+      tl.to("#de-sw2", { stroke: "#83C167", duration: 0.3 }, at(6, 0.6));
+      IN("#de-g4", at(6, 0.66), 0.5);
+      IN("#de-g5", at(6, 0.7), 0.5);
+
+
+      tl.to("#de-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["deploy"] = tl;
+    })();
+  </script>
+</template>

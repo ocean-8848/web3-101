@@ -1,0 +1,188 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 bits，id 前缀 bi- -->
+  <div id="root" data-composition-id="bits" data-duration="62.92" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="bi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="bi-all">
+        <defs><clipPath id="bi-hcp"><rect id="bi-hcr" x="390" y="640" width="0" height="60"/></clipPath></defs>
+        <!-- bits 格 -->
+        <g id="bi-box" class="h">
+          <rect x="760" y="220" width="400" height="80" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+        </g>
+        <text id="bi-bt" class="h mono" x="960" y="274" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">bits</text>
+        <line id="bi-div" class="dr" x1="860" y1="220" x2="860" y2="300" stroke="#FF9F43" stroke-width="3" pathLength="1"/>
+        <text id="bi-ev" class="h mono" x="810" y="273" font-size="38" font-weight="700" fill="#FF9F43" text-anchor="middle">1d</text>
+        <text id="bi-ev2" class="h mono" x="810" y="273" font-size="38" font-weight="700" fill="#FF9F43" text-anchor="middle">1c</text>
+        <text id="bi-cv" class="h mono" x="1010" y="273" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">00ffff</text>
+        <text id="bi-4b" class="h" x="1190" y="272" font-size="30" fill="#8a8f99">4 字节</text>
+        <text id="bi-l1" class="h" x="810" y="348" font-size="30" fill="#FF9F43" text-anchor="middle">指数</text>
+        <text id="bi-l2" class="h" x="1010" y="348" font-size="30" fill="#58C4DD" text-anchor="middle">系数</text>
+        <text id="bi-gen" class="h" x="735" y="272" font-size="30" fill="#8a8f99" text-anchor="end">创世块</text>
+        <text id="bi-ex" class="h" x="735" y="272" font-size="30" fill="#8a8f99" text-anchor="end">示例</text>
+        <text id="bi-hx" class="h mono" x="745" y="348" font-size="30" fill="#FF9F43" text-anchor="end">0x1d = <tspan id="bi-hxn">0</tspan></text>
+        <text id="bi-hx2" class="h mono" x="745" y="348" font-size="30" fill="#FF9F43" text-anchor="end">0x1c = 28</text>
+        <!-- 256 位目标条 -->
+        <g id="bi-barg">
+          <rect id="bi-bar" class="h" x="160" y="400" width="1600" height="44" rx="6" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5"/>
+          <text id="bi-barl" class="h" x="160" y="494" font-size="30" fill="#58C4DD">目标值 · 256 位</text>
+          <path id="bi-ar" class="dr h" d="M960 392 L960 314" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#bi-arr)" pathLength="1"/>
+          <text id="bi-arl" class="h" x="985" y="364" font-size="28" fill="#FF9F43">压缩成 4 字节</text>
+        </g>
+        <!-- 公式与代入 -->
+        <g id="bi-mid">
+          <text id="bi-f1" class="h" x="960" y="470" font-size="48" fill="#e8e6df" text-anchor="middle">目标 = <tspan fill="#58C4DD">系数</tspan> × 256<tspan dy="-22" font-size="32"><tspan fill="#FF9F43">指数</tspan> − 3</tspan></text>
+          <text id="bi-f2" class="h" x="960" y="566" font-size="48" fill="#e8e6df" text-anchor="middle">目标 = <tspan fill="#58C4DD">0xffff</tspan> × 256<tspan dy="-22" font-size="32" fill="#FF9F43">26</tspan></text>
+          <g clip-path="url(#bi-hcp)">
+            <text id="bi-h0" class="h mono" x="402" y="682" font-size="28" fill="#FF9F43" textLength="134.4" lengthAdjust="spacing">00000000</text>
+            <text id="bi-h1" class="h mono" x="556" y="682" font-size="28" fill="#58C4DD" textLength="67.2" lengthAdjust="spacing">ffff</text>
+            <text id="bi-h2" class="h mono" x="643" y="682" font-size="28" fill="#8a8f99" textLength="873.6" lengthAdjust="spacing">0000000000000000000000000000000000000000000000000000</text>
+          </g>
+          <rect id="bi-hf" class="h" x="390" y="648" width="158" height="46" rx="6" fill="none" stroke="#FF9F43" stroke-width="3"/>
+          <polygon id="bi-exp" class="h" points="390,698 548,698 1508,752 412,752" fill="#FF9F43" fill-opacity="0.12"/>
+          <g id="bi-grid">
+          <rect class="bi-q" x="416" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="450" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="484" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="518" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="552" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="586" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="620" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="654" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="688" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="722" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="756" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="790" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="824" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="858" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="892" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="926" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="960" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="994" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1028" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1062" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1096" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1130" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1164" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1198" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1232" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1266" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1300" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1334" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1368" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1402" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1436" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          <rect class="bi-q" x="1470" y="756" width="28" height="28" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" opacity="0"/>
+          </g>
+          <text id="bi-q32" class="h" x="416" y="846" font-size="34" fill="#FF9F43">前 32 位全是 0</text>
+          <text id="bi-q43" class="h" x="1504" y="846" font-size="40" fill="#e8e6df" text-anchor="end">平均 2<tspan dy="-18" font-size="28">32</tspan><tspan dy="18"> ≈ 43 亿次</tspan></text>
+        </g>
+        <!-- 难度定义 -->
+        <text id="bi-d1" class="h" x="960" y="560" font-size="52" fill="#e8e6df" text-anchor="middle">难度 = 创世目标 ÷ 当前目标</text>
+        <text id="bi-d2" class="h" x="960" y="660" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">创世块难度 = 1</text>
+        <!-- 练习 -->
+        <text id="bi-pl" class="h" x="560" y="450" font-size="30" fill="#8a8f99" text-anchor="middle">创世块</text>
+        <text id="bi-pr" class="h" x="1360" y="450" font-size="30" fill="#8a8f99" text-anchor="middle">示例</text>
+        <text id="bi-pa" class="h mono" x="560" y="540" font-size="44" fill="#e8e6df" text-anchor="middle">0xffff × 256<tspan dy="-20" font-size="30" fill="#FF9F43">26</tspan></text>
+        <text id="bi-pb" class="h mono" x="1360" y="540" font-size="44" fill="#e8e6df" text-anchor="middle">0xffff × 256<tspan dy="-20" font-size="30" fill="#FF9F43">25</tspan></text>
+        <path id="bi-ar2" class="dr h" d="M790 525 L1140 525" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#bi-arr)" pathLength="1"/>
+        <text id="bi-arl2" class="h" x="965" y="494" font-size="30" fill="#FF9F43" text-anchor="middle">目标小 256 倍</text>
+        <text id="bi-pd" class="h" x="960" y="690" font-size="60" font-weight="700" fill="#83C167" text-anchor="middle">难度 = <tspan id="bi-pdn">1</tspan></text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="bi-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">难度目标 <tspan font-size="28" font-weight="400" fill="#8a8f99">Target / bits</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">区块哈希必须小于的数</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+/*ANIM*/
+const O = (x, y) => ({ svgOrigin: `${x} ${y}` });
+// L0 bits 格 + 256 位条
+IN("#bi-box, #bi-bt", at(0, 0.05), 0.6, { scale: 0.85, ...O(960, 260) }, { scale: 1, ...O(960, 260) });
+IN("#bi-term", at(0, 0.3), 0.5);
+IN("#bi-bar", at(0, 0.3), 0.2);
+tl.fromTo("#bi-bar", { attr: { width: 0 } }, { attr: { width: 1600 }, duration: 1.2, ease: "power2.out", immediateRender: false }, at(0, 0.3));
+IN("#bi-barl", at(0, 0.45), 0.5);
+ARROW("#bi-ar", at(0, 0.62), 0.6);
+IN("#bi-arl", at(0, 0.7), 0.5);
+IN("#bi-4b", at(0, 0.85), 0.5);
+// L1 拆成 1 + 3 字节，公式
+OUT("#bi-barg > *", at(1, 0), 0.4);
+OUT("#bi-bt", at(1, 0.05), 0.3);
+DRAW("#bi-div", at(1, 0.12), 0.5);
+IN("#bi-l1", at(1, 0.18), 0.5, { y: -10 }, { y: 0 });
+IN("#bi-l2", at(1, 0.32), 0.5, { y: -10 }, { y: 0 });
+IN("#bi-f1", at(1, 0.55), 0.7, { y: 20 }, { y: 0 });
+OUT("#bi-term", at(1, 0.8), 0.4);
+// L2 代入创世块 bits
+IN("#bi-gen", at(2, 0.08), 0.5);
+IN("#bi-ev", at(2, 0.2), 0.5, { scale: 0.6, ...O(810, 260) }, { scale: 1, ...O(810, 260) });
+IN("#bi-cv", at(2, 0.3), 0.5, { scale: 0.6, ...O(1010, 260) }, { scale: 1, ...O(1010, 260) });
+IN("#bi-hx", at(2, 0.42), 0.4);
+COUNT("#bi-hxn", 0, 29, at(2, 0.45), 1.2);
+tl.fromTo("#bi-cv", { scale: 1, ...O(1010, 260) }, { scale: 1.2, ...O(1010, 260), duration: 0.35, yoyo: true, repeat: 1, immediateRender: false }, at(2, 0.8));
+// L3 代入公式，64 位十六进制
+IN("#bi-f2", at(3, 0.03), 0.7, { y: 20 }, { y: 0 });
+tl.fromTo("#bi-hcr", { attr: { width: 0 } }, { attr: { width: 1140 }, duration: 4.6, ease: "none", immediateRender: false }, at(3, 0.16));
+IN("#bi-h0", at(3, 0.16), 0.5);
+IN("#bi-h1", at(3, 0.36), 0.5);
+IN("#bi-h2", at(3, 0.5), 0.5);
+IN("#bi-hf", at(3, 0.62), 0.5, { scale: 1.2, ...O(469, 671) }, { scale: 1, ...O(469, 671) });
+// L4 8 个十六进制 0 = 32 位
+IN("#bi-exp", at(4, 0.04), 0.6);
+tl.fromTo(".bi-q", { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.04 }, at(4, 0.08));
+IN("#bi-q32", at(4, 0.3), 0.5);
+IN("#bi-q43", at(4, 0.62), 0.6, { x: 20 }, { x: 0 });
+tl.to(".bi-q", { fillOpacity: 0.7, duration: 0.25, stagger: 0.02, yoyo: true, repeat: 1 }, at(4, 0.75));
+// L5 难度定义
+OUT("#bi-mid", at(5, 0), 0.4);
+IN("#bi-d1", at(5, 0.1), 0.7, { y: 20 }, { y: 0 });
+IN("#bi-d2", at(5, 0.6), 0.6, { scale: 0.8, ...O(960, 645) }, { scale: 1, ...O(960, 645) });
+// L6 练习 0x1c00ffff
+OUT("#bi-d1, #bi-d2", at(6, 0), 0.4);
+OUT("#bi-ev, #bi-gen, #bi-hx", at(6, 0.08), 0.3);
+IN("#bi-ev2", at(6, 0.12), 0.4, { scale: 0.6, ...O(810, 260) }, { scale: 1, ...O(810, 260) });
+IN("#bi-ex", at(6, 0.12), 0.4);
+IN("#bi-hx2", at(6, 0.2), 0.4);
+IN("#bi-pl, #bi-pa", at(6, 0.36), 0.5);
+IN("#bi-pr, #bi-pb", at(6, 0.46), 0.5);
+ARROW("#bi-ar2", at(6, 0.56), 0.6);
+IN("#bi-arl2", at(6, 0.6), 0.5);
+IN("#bi-pd", at(6, 0.74), 0.6, { scale: 0.8, ...O(960, 670) }, { scale: 1, ...O(960, 670) });
+COUNT("#bi-pdn", 1, 256, at(6, 0.76), 1.2);
+/*ENDANIM*/
+
+      tl.to("#bi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#bi-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["bits"] = tl;
+    })();
+  </script>
+</template>

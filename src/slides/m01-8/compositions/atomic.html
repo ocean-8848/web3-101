@@ -1,0 +1,166 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 atomic，id 前缀 at- -->
+  <div id="root" data-composition-id="atomic" data-duration="33.45" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="at-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="at-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="at-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="at-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="at-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+      </defs>
+      <g id="at-all">
+        <text id="at-q" class="h" x="960" y="240" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">为什么区块、事件、游标要在同一个事务里？</text>
+        <g id="at-s1">
+          <path id="at-ax" class="dr" pathLength="1" d="M200 520 H1720" stroke="#8a8f99" stroke-width="3" fill="none"/>
+          <text id="at-axl" class="h" x="1720" y="566" font-size="28" fill="#8a8f99" text-anchor="end">时间</text>
+          <g id="at-k0" class="h"><rect class="kb" x="340" y="380" width="160" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" stroke-dasharray="10 6"/><text x="420" y="431" font-size="32" fill="#e8e6df" text-anchor="middle">区块</text></g>
+          <g id="at-k1" class="h"><rect class="kb" x="820" y="380" width="160" height="80" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="3" stroke-dasharray="10 6"/><text x="900" y="431" font-size="32" fill="#e8e6df" text-anchor="middle">事件</text></g>
+          <g id="at-k2" class="h"><path class="kb" d="M1300 380 H1460 V460 L1380 442 L1300 460 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3" stroke-dasharray="10 6"/><text x="1380" y="428" font-size="32" fill="#58C4DD" text-anchor="middle">游标</text></g>
+          <line id="at-t0" class="h" x1="420" y1="504" x2="420" y2="536" stroke="#83C167" stroke-width="5"/>
+          <line id="at-t1" class="h" x1="900" y1="504" x2="900" y2="536" stroke="#83C167" stroke-width="5"/>
+          <path id="at-z" class="h" d="M1158 460 L1132 524 L1148 524 L1138 580 L1170 508 L1154 508 L1168 460 Z" fill="#FC6255"/>
+          <text id="at-zl" class="h" x="1190" y="602" font-size="30" font-weight="700" fill="#FC6255">崩溃</text>
+        </g>
+        <line id="at-sep" class="h" x1="960" y1="320" x2="960" y2="840" stroke="#3a3f4b" stroke-width="2"/>
+        <g id="at-left" class="h">
+          <text x="240" y="350" font-size="30" fill="#e8e6df">事件已写 · 游标未动</text>
+          <rect x="240" y="520" width="150" height="70" rx="8" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="315" y="565" font-size="28" fill="#8a8f99" text-anchor="middle">1,005</text>
+          <rect x="400" y="520" width="150" height="70" rx="8" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="475" y="565" font-size="28" fill="#8a8f99" text-anchor="middle">1,006</text>
+          <rect x="560" y="520" width="150" height="70" rx="8" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="635" y="565" font-size="28" fill="#8a8f99" text-anchor="middle">1,007</text>
+          <g><path d="M255 420 H375 V490 L315 476 L255 490 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="315" y="460" font-size="28" fill="#58C4DD" text-anchor="middle">游标</text></g>
+          <rect x="410" y="620" width="130" height="50" rx="8" fill="#F0B90B"/><text x="475" y="655" font-size="28" fill="#0f1117" text-anchor="middle">事件</text>
+        </g>
+        <text id="at-lr" class="h" x="240" y="800" font-size="30" fill="#83C167">重启后：从 1,006 再处理一遍</text>
+        <g id="at-le2" class="h"><rect x="410" y="690" width="130" height="50" rx="8" fill="#F0B90B" stroke="#FC6255" stroke-width="4"/><text x="475" y="725" font-size="28" fill="#0f1117" text-anchor="middle">事件</text></g>
+        <text id="at-ldup" class="h" x="560" y="726" font-size="30" font-weight="700" fill="#FC6255">重复</text>
+        <g id="at-right" class="h">
+          <text x="1060" y="350" font-size="30" fill="#e8e6df">游标已动 · 事件未写</text>
+          <rect x="1060" y="520" width="150" height="70" rx="8" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1135" y="565" font-size="28" fill="#8a8f99" text-anchor="middle">1,005</text>
+          <rect x="1220" y="520" width="150" height="70" rx="8" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1295" y="565" font-size="28" fill="#8a8f99" text-anchor="middle">1,006</text>
+          <rect x="1380" y="520" width="150" height="70" rx="8" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1455" y="565" font-size="28" fill="#8a8f99" text-anchor="middle">1,007</text>
+          <rect x="1230" y="620" width="130" height="50" rx="8" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="8 6"/>
+        </g>
+        <g id="at-rc" class="h"><path d="M1235 420 H1355 V490 L1295 476 L1235 490 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1295" y="460" font-size="28" fill="#58C4DD" text-anchor="middle">游标</text></g>
+        <text id="at-rr" class="h" x="1060" y="800" font-size="30" fill="#83C167">重启后：从 1,007 继续</text>
+        <g id="at-re" class="h"><rect x="1390" y="620" width="130" height="50" rx="8" fill="#F0B90B"/><text x="1455" y="655" font-size="28" fill="#0f1117" text-anchor="middle">事件</text></g>
+        <text id="at-rmiss" class="h" x="1250" y="726" font-size="30" font-weight="700" fill="#FC6255">漏数据</text>
+        <g id="at-tx">
+          <rect id="at-txr" class="h" x="540" y="400" width="840" height="200" rx="18" fill="none" stroke="#83C167" stroke-width="3" stroke-dasharray="14 9"/>
+          <text id="at-txl" class="h" x="560" y="648" font-size="30" fill="#83C167">同一个事务</text>
+          <g id="at-m"><g id="at-mi" class="h">
+            <rect class="mb" x="580" y="440" width="220" height="120" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="690" y="511" font-size="32" fill="#e8e6df" text-anchor="middle">区块</text>
+            <rect class="mb" x="850" y="440" width="220" height="120" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text x="960" y="511" font-size="32" fill="#e8e6df" text-anchor="middle">事件</text>
+            <path class="mb" d="M1120 440 H1340 V560 L1230 536 L1120 560 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1230" y="506" font-size="32" fill="#58C4DD" text-anchor="middle">游标</text>
+          </g></g>
+          <path id="at-z2" class="h" d="M1458 440 L1432 504 L1448 504 L1438 560 L1470 488 L1454 488 L1468 440 Z" fill="#FC6255"/>
+          <text id="at-ok" class="h" x="960" y="730" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">要么三样全成功</text>
+          <text id="at-no" class="h" x="960" y="730" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">要么全不发生</text>
+        </g>
+        <g id="at-s5">
+          <g id="at-term" class="h">
+            <rect x="260" y="340" width="640" height="260" rx="12" fill="#0b0d12" stroke="#3a3f4b" stroke-width="2"/>
+            <rect x="261" y="341" width="638" height="40" rx="11" fill="#1d212b"/>
+            <circle cx="290" cy="361" r="7" fill="#FC6255"/><circle cx="314" cy="361" r="7" fill="#F0B90B"/><circle cx="338" cy="361" r="7" fill="#83C167"/>
+          </g>
+          <text id="at-tl0" class="h mono" x="290" y="440" font-size="30" fill="#e8e6df">$ kill -9 4242</text>
+          <text id="at-tl1" class="h mono" x="290" y="500" font-size="30" fill="#e8e6df">$ ./indexer</text>
+          <text id="at-tl2" class="h mono" x="290" y="556" font-size="28" fill="#83C167">resumed at 1,006</text>
+          <g id="at-proc" class="h"><rect id="at-procr" x="1220" y="330" width="100" height="160" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1270" y="420" font-size="32" fill="#e8e6df" text-anchor="middle">进程</text></g>
+          <g id="at-tb">
+            <g id="at-r0" class="h"><rect x="560" y="640" width="800" height="64" rx="10" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="600" y="683" font-size="30" fill="#e8e6df">区块表</text><text class="mono" x="900" y="683" font-size="30" fill="#58C4DD">1,006</text><path class="ck" d="M1276 672 L1290 686 L1316 656" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+            <g id="at-r1" class="h"><rect x="560" y="720" width="800" height="64" rx="10" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="600" y="763" font-size="30" fill="#e8e6df">事件表</text><text class="mono" x="900" y="763" font-size="30" fill="#58C4DD">1,006</text><path class="ck" d="M1276 752 L1290 766 L1316 736" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+            <g id="at-r2" class="h"><rect x="560" y="800" width="800" height="64" rx="10" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="600" y="843" font-size="30" fill="#e8e6df">游标</text><text class="mono" x="900" y="843" font-size="30" fill="#58C4DD">1,006</text><path class="ck" d="M1276 832 L1290 846 L1316 816" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+          </g>
+        </g>
+
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 问句 + 三样东西分开排着
+      IN("#at-q", at(0, 0.02), 0.6, { y: 16 }, { y: 0 });
+      DRAW("#at-ax", at(0, 0.3), 0.8);
+      IN("#at-axl", at(0, 0.4), 0.4);
+      IN("#at-k0", at(0, 0.45), 0.4, { y: -16 }, { y: 0 });
+      IN("#at-k1", at(0, 0.55), 0.4, { y: -16 }, { y: 0 });
+      IN("#at-k2", at(0, 0.65), 0.4, { y: -16 }, { y: 0 });
+      // L1 分开提交，中途崩溃
+      tl.to("#at-k0 .kb", { strokeDasharray: "1000 0", duration: 0.3 }, at(1, 0.08));
+      IN("#at-t0", at(1, 0.08), 0.3, { scale: 0.3, svgOrigin: "420 520" }, { scale: 1, svgOrigin: "420 520" });
+      tl.to("#at-k1 .kb", { strokeDasharray: "1000 0", duration: 0.3 }, at(1, 0.3));
+      IN("#at-t1", at(1, 0.3), 0.3, { scale: 0.3, svgOrigin: "900 520" }, { scale: 1, svgOrigin: "900 520" });
+      IN("#at-z", at(1, 0.55), 0.2, { scale: 1.6, svgOrigin: "1150 520" }, { scale: 1, svgOrigin: "1150 520" });
+      IN("#at-zl", at(1, 0.6), 0.3);
+      tl.to("#at-k2", { opacity: 0.4, duration: 0.3 }, at(1, 0.65));
+      // L2 左：事件写了、游标没动 → 重复
+      OUT("#at-s1", at(2, 0), 0.4);
+      tl.to("#at-q", { opacity: 0.6, duration: 0.4 }, at(2, 0));
+      IN("#at-sep", at(2, 0.05), 0.4);
+      IN("#at-left", at(2, 0.08), 0.5, { x: -20 }, { x: 0 });
+      IN("#at-lr", at(2, 0.4), 0.4);
+      IN("#at-le2", at(2, 0.62), 0.4, { y: -20 }, { y: 0 });
+      IN("#at-ldup", at(2, 0.72), 0.3, { scale: 1.3, svgOrigin: "590 716" }, { scale: 1, svgOrigin: "590 716" });
+      // L3 右：游标动了、事件没写 → 漏数据
+      IN("#at-right, #at-rc", at(3, 0.04), 0.5, { x: 20 }, { x: 0 });
+      IN("#at-rr", at(3, 0.42), 0.4);
+      tl.to("#at-rc", { x: 160, duration: 0.6, ease: "power2.inOut" }, at(3, 0.48));
+      IN("#at-re", at(3, 0.6), 0.4, { y: -16 }, { y: 0 });
+      IN("#at-rmiss", at(3, 0.72), 0.3, { scale: 1.3, svgOrigin: "1295 716" }, { scale: 1, svgOrigin: "1295 716" });
+      // L4 同一个事务：要么全成，要么全不发生
+      OUT("#at-sep, #at-left, #at-lr, #at-le2, #at-ldup, #at-right, #at-rc, #at-rr, #at-re, #at-rmiss", at(4, 0), 0.4);
+      tl.to("#at-q", { opacity: 1, duration: 0.4 }, at(4, 0));
+      IN("#at-mi", at(4, 0.08), 0.5, { scale: 0.9, svgOrigin: "960 500" }, { scale: 1, svgOrigin: "960 500" });
+      IN("#at-txr", at(4, 0.14), 0.5, { scale: 1.06, svgOrigin: "960 500" }, { scale: 1, svgOrigin: "960 500" });
+      IN("#at-txl", at(4, 0.18), 0.4);
+      tl.to("#at-mi .mb", { stroke: "#83C167", strokeWidth: 5, duration: 0.3 }, at(4, 0.3));
+      IN("#at-ok", at(4, 0.32), 0.4);
+      OUT("#at-ok", at(4, 0.56), 0.25);
+      tl.to("#at-mi .mb", { stroke: "#8a8f99", strokeWidth: 3, duration: 0.3 }, at(4, 0.56));
+      IN("#at-z2", at(4, 0.6), 0.2, { scale: 1.6, svgOrigin: "1450 500" }, { scale: 1, svgOrigin: "1450 500" });
+      tl.to("#at-mi", { opacity: 0.3, duration: 0.5 }, at(4, 0.64));
+      IN("#at-no", at(4, 0.66), 0.4);
+      // L5 kill -9 验证
+      OUT("#at-tx", at(5, 0), 0.4);
+      IN("#at-term", at(5, 0.04), 0.4);
+      IN("#at-proc", at(5, 0.06), 0.4);
+      IN("#at-tl0", at(5, 0.14), 0.3, { x: -10 }, { x: 0 });
+      tl.to("#at-proc", { rotation: 90, svgOrigin: "1320 490", duration: 0.5, ease: "power2.in" }, at(5, 0.22));
+      tl.to("#at-procr", { stroke: "#FC6255", duration: 0.2 }, at(5, 0.22));
+      IN("#at-tl1", at(5, 0.4), 0.3, { x: -10 }, { x: 0 });
+      tl.to("#at-proc", { rotation: 0, svgOrigin: "1320 490", duration: 0.5, ease: "back.out(1.6)" }, at(5, 0.44));
+      tl.to("#at-procr", { stroke: "#58C4DD", duration: 0.2 }, at(5, 0.44));
+      IN("#at-tl2", at(5, 0.52), 0.3);
+      IN("#at-r0", at(5, 0.6), 0.35, { y: 12 }, { y: 0 });
+      IN("#at-r1", at(5, 0.66), 0.35, { y: 12 }, { y: 0 });
+      IN("#at-r2", at(5, 0.72), 0.35, { y: 12 }, { y: 0 });
+
+
+      tl.to("#at-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["atomic"] = tl;
+    })();
+  </script>
+</template>

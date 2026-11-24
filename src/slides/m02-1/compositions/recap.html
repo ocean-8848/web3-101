@@ -1,0 +1,229 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 re- -->
+  <div id="root" data-composition-id="recap" data-duration="62.12" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <!-- 三个问题 -->
+        <g id="re-qs">
+          <g id="re-q0" class="h"><rect id="re-qr0" x="300" y="180" width="360" height="90" rx="45" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" /><text x="480" y="239" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">放在哪里？</text></g>
+          <g id="re-q1" class="h"><rect id="re-qr1" x="780" y="180" width="360" height="90" rx="45" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" /><text x="960" y="239" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">怎么存？</text></g>
+          <g id="re-q2" class="h"><rect id="re-qr2" x="1260" y="180" width="360" height="90" rx="45" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" /><text x="1440" y="239" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">多少钱？</text></g>
+        </g>
+        <!-- L0 回答卡 -->
+        <g id="re-p0">
+          <g id="re-card" class="h">
+            <rect x="560" y="360" width="800" height="400" rx="20" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3" />
+            <text x="960" y="448" font-size="56" font-weight="700" fill="#58C4DD" text-anchor="middle">链上字节码</text>
+          </g>
+          <text id="re-c1" class="h" x="960" y="540" font-size="34" fill="#e8e6df" text-anchor="middle">地址 · <tspan fill="#F0B90B">余额</tspan> · <tspan fill="#FF9F43">存储</tspan></text>
+          <text id="re-c2" class="h" x="960" y="620" font-size="32" fill="#83C167" text-anchor="middle">只被交易触发</text>
+          <text id="re-c3" class="h" x="960" y="700" font-size="30" fill="#8a8f99" text-anchor="middle">不能主动访问链外</text>
+        </g>
+        <!-- L1 四个数据区 -->
+        <g id="re-p1">
+          <text id="re-evm" class="h" x="960" y="330" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan class="mono" fill="#58C4DD">EVM</tspan> · 256 位栈机器</text>
+          <g id="re-z0" class="h"><rect x="460" y="380" width="440" height="200" rx="16" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text x="680" y="460" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">栈</text><text x="680" y="530" font-size="32" fill="#e8e6df" text-anchor="middle">算</text></g>
+          <g id="re-z1" class="h"><rect x="1020" y="380" width="440" height="200" rx="16" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text x="1240" y="460" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">内存</text><text x="1240" y="530" font-size="32" fill="#e8e6df" text-anchor="middle">暂存</text></g>
+          <g id="re-z2" class="h"><rect x="1020" y="640" width="440" height="200" rx="16" fill="#FF9F4322" stroke="#FF9F43" stroke-width="3" /><text x="1240" y="720" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">存储</text><text x="1240" y="790" font-size="32" fill="#e8e6df" text-anchor="middle">永久 · 最贵</text></g>
+          <g id="re-z3" class="h"><rect x="460" y="640" width="440" height="200" rx="16" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="680" y="720" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">calldata</text><text x="680" y="790" font-size="32" fill="#e8e6df" text-anchor="middle">只读</text></g>
+        </g>
+        <!-- L2 部署与地址 -->
+        <g id="re-p2">
+          <g id="re-cr" class="h"><rect id="re-crr" x="360" y="380" width="420" height="120" rx="14" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="10 8" /><text x="570" y="452" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan class="mono" fill="#58C4DD">creation</tspan> 代码</text></g>
+          <path id="re-cra" class="dr h" pathLength="1" d="M786 440 H1132" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-cral" class="h" x="960" y="414" font-size="28" fill="#8a8f99" text-anchor="middle">部署时执行</text>
+          <g id="re-rt" class="h"><rect x="1140" y="380" width="420" height="120" rx="14" fill="#58C4DD44" stroke="#58C4DD" stroke-width="3" /><text x="1350" y="452" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan class="mono" fill="#58C4DD">runtime</tspan> 代码</text></g>
+          <text id="re-rtl" class="h" x="1350" y="550" font-size="28" fill="#8a8f99" text-anchor="middle">保存上链</text>
+          <g id="re-b0" class="h"><rect x="360" y="660" width="500" height="100" rx="50" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" /><text x="610" y="722" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan class="mono" font-weight="700" fill="#B48EF0">CREATE</tspan> · <tspan class="mono">nonce</tspan></text></g>
+          <g id="re-b1" class="h"><rect x="920" y="660" width="640" height="100" rx="50" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" /><text x="1240" y="722" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan class="mono" font-weight="700" fill="#B48EF0">CREATE2</tspan> · <tspan class="mono">salt</tspan> + <tspan class="mono">initcode</tspan> 哈希</text></g>
+        </g>
+        <!-- L3 原子 + Gas 照付 + 升级权限 -->
+        <g id="re-p3">
+          <g id="re-tank" class="h">
+            <rect x="400" y="360" width="140" height="480" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="470" y="890" font-size="28" fill="#8a8f99" text-anchor="middle">Gas</text>
+          </g>
+          <rect id="re-gold" class="h" x="410" y="370" width="120" height="460" rx="8" fill="#F0B90B" />
+          <rect id="re-used" class="h" x="410" y="370" width="120" height="0" rx="8" fill="#6b6f7a" />
+          <g id="re-stb" class="h">
+            <rect x="640" y="400" width="400" height="130" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          </g>
+          <text id="re-stt" class="h" x="840" y="480" font-size="32" fill="#e8e6df" text-anchor="middle">状态修改</text>
+          <path id="re-stx" class="dr h" pathLength="1" d="M660 420 L1020 510 M1020 420 L660 510" stroke="#FC6255" stroke-width="5" fill="none" />
+          <text id="re-t1" class="h" x="840" y="600" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">出错 → 全部撤销</text>
+          <text id="re-t2" class="h" x="580" y="730" font-size="32" font-weight="700" fill="#F0B90B">用掉的 Gas 照付</text>
+          <g id="re-up" class="h">
+            <rect x="1200" y="420" width="460" height="300" rx="18" fill="#83C16718" stroke="#83C167" stroke-width="3" />
+            <text x="1430" y="510" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">升级靠代理</text>
+            <text x="1430" y="600" font-size="32" fill="#83C167" text-anchor="middle">多签 + 时间锁</text>
+            <text x="1430" y="660" font-size="28" fill="#8a8f99" text-anchor="middle">管住升级权限</text>
+          </g>
+        </g>
+        <!-- L4 误区 -->
+        <g id="re-p4">
+          <text id="re-mt" class="h" x="960" y="250" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">几个误区</text>
+          <g id="re-m0" class="h"><text x="240" y="420" font-size="34" fill="#FC6255">✕ 合约会自动定时运行</text></g>
+          <path id="re-s0" class="dr h" pathLength="1" d="M286 408 H594" stroke="#FC6255" stroke-width="3" fill="none" />
+          <path id="re-a0" class="dr h" pathLength="1" d="M680 408 H790" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-f0" class="h" x="840" y="420" font-size="34" fill="#83C167">✓ 只被交易触发</text>
+
+          <g id="re-m1" class="h"><text x="240" y="580" font-size="34" fill="#FC6255">✕ <tspan class="mono">private</tspan> 变量看不到</text></g>
+          <path id="re-s1" class="dr h" pathLength="1" d="M286 568 H600" stroke="#FC6255" stroke-width="3" fill="none" />
+          <path id="re-a1" class="dr h" pathLength="1" d="M680 568 H790" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-f1" class="h" x="840" y="580" font-size="34" fill="#83C167">✓ 链上数据都能被读出</text>
+
+          <g id="re-m2" class="h"><text x="240" y="420" font-size="34" fill="#FC6255">✕ 失败不收费</text></g>
+          <path id="re-s2" class="dr h" pathLength="1" d="M286 408 H458" stroke="#FC6255" stroke-width="3" fill="none" />
+          <path id="re-a2" class="dr h" pathLength="1" d="M680 408 H790" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-f2" class="h" x="840" y="420" font-size="34" fill="#83C167">✓ 上链后失败照样收费</text>
+
+          <g id="re-m3" class="h"><text x="240" y="580" font-size="34" fill="#FC6255">✕ 合约绝对不能改</text></g>
+          <path id="re-s3" class="dr h" pathLength="1" d="M286 568 H526" stroke="#FC6255" stroke-width="3" fill="none" />
+          <path id="re-a3" class="dr h" pathLength="1" d="M680 568 H790" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-f3" class="h" x="840" y="580" font-size="34" fill="#83C167">✓ 代理可换逻辑 · 先查谁有升级权限</text>
+
+          <g id="re-m4" class="h"><text x="240" y="740" font-size="34" fill="#FC6255">✕ <tspan class="mono">Gas</tspan> 越高执行越快</text></g>
+          <path id="re-s4" class="dr h" pathLength="1" d="M286 728 H576" stroke="#FC6255" stroke-width="3" fill="none" />
+          <path id="re-a4" class="dr h" pathLength="1" d="M680 728 H790" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-f4" class="h" x="840" y="740" font-size="34" fill="#83C167">✓ 只影响打包先后</text>
+        </g>
+        <!-- L5 浏览器 -->
+        <g id="re-p5">
+          <g id="re-win" class="h">
+            <rect x="260" y="200" width="1400" height="760" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <path d="M260 254 H1660" stroke="#6b6f7a" stroke-width="2" />
+            <circle cx="296" cy="227" r="9" fill="#6b6f7a" /><circle cx="326" cy="227" r="9" fill="#6b6f7a" /><circle cx="356" cy="227" r="9" fill="#6b6f7a" />
+            <text data-layout-ignore x="400" y="235" font-size="22" fill="#6b6f7a">测试网区块浏览器 · 一笔代币转账</text>
+          </g>
+          <g id="re-w0" class="h">
+            <text class="mono" x="310" y="330" font-size="28" fill="#8a8f99">Input Data</text>
+            <rect id="re-hl0" x="302" y="360" width="216" height="48" rx="6" fill="#F0B90B33" stroke="#F0B90B" stroke-width="2" />
+            <text class="mono" x="310" y="395" font-size="30" fill="#F0B90B">0xa9059cbb</text><text class="mono" x="532" y="395" font-size="30" fill="#6b6f7a">000000000000000000000000…</text>
+          </g>
+          <g id="re-w1" class="h">
+            <text class="mono" x="310" y="500" font-size="28" fill="#8a8f99">Gas Limit &amp; Usage</text>
+            <rect x="304" y="530" width="300" height="56" rx="8" fill="#0f1117" stroke="#F0B90B" stroke-width="2" />
+            <text class="mono" x="324" y="568" font-size="30" fill="#F0B90B">gasUsed</text>
+            <text x="640" y="568" font-size="30" fill="#e8e6df">预期 3 万 – 6 万</text>
+          </g>
+          <text id="re-w1b" class="h" x="1000" y="568" font-size="30" fill="#8a8f99">今天算的 ≈ <tspan class="mono" fill="#F0B90B">51,428</tspan></text>
+          <g id="re-w2" class="h">
+            <text class="mono" x="310" y="680" font-size="28" fill="#8a8f99">Deployed Bytecode</text>
+            <rect x="302" y="710" width="216" height="48" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2" />
+            <text class="mono" x="310" y="745" font-size="30" fill="#58C4DD">6080604052</text><text class="mono" x="532" y="745" font-size="30" fill="#6b6f7a">…</text>
+          </g>
+          <text id="re-w3" class="h" x="1620" y="910" font-size="28" fill="#8a8f99" text-anchor="end"><tspan class="mono">Vyper</tspan> 合约例外 · 也可在 <tspan class="mono">Remix</tspan> 复现 <tspan class="mono">owner</tspan> 被改写</text>
+        </g>
+        <!-- L6 下一集 -->
+        <g id="re-next" class="h">
+          <text x="960" y="470" font-size="40" fill="#8a8f99" text-anchor="middle">下一集</text>
+          <text x="960" y="570" font-size="60" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan class="mono" fill="#58C4DD">Solidity</tspan> 基础：类型、函数与第一个合约</text>
+        </g>
+      </g>
+      <rect id="re-black" class="h" x="0" y="0" width="1920" height="1080" fill="#000" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const HL = (k, t) => {
+        [0, 1, 2].forEach(j => tl.to("#re-qr" + j, { attr: { stroke: j === k ? "#FF9F43" : "#6b6f7a", "stroke-width": j === k ? 4 : 2.5 }, duration: 0.3 }, t));
+        [0, 1, 2].forEach(j => tl.to("#re-q" + j, { opacity: j === k || k < 0 ? 1 : 0.45, duration: 0.3 }, t));
+      };
+
+      // L0 三问 → 第一问的回答
+      IN(["#re-q0", "#re-q1", "#re-q2"], at(0, 0.02), 0.5, { y: -10 }, { y: 0 });
+      HL(0, at(0, 0.1));
+      IN("#re-card", at(0, 0.16), 0.6, { scale: 0.94, svgOrigin: "960 560" }, { scale: 1, svgOrigin: "960 560" });
+      IN("#re-c1", at(0, 0.36), 0.5);
+      IN("#re-c2", at(0, 0.56), 0.5);
+      IN("#re-c3", at(0, 0.76), 0.5);
+
+      // L1 第二问：四个数据区
+      OUT("#re-p0", at(1, 0), 0.4);
+      HL(1, at(1, 0.02));
+      IN("#re-evm", at(1, 0.06), 0.5);
+      IN("#re-z0", at(1, 0.3), 0.5, { scale: 0.9, svgOrigin: "680 480" }, { scale: 1, svgOrigin: "680 480" });
+      IN("#re-z1", at(1, 0.44), 0.5, { scale: 0.9, svgOrigin: "1240 480" }, { scale: 1, svgOrigin: "1240 480" });
+      IN("#re-z2", at(1, 0.58), 0.5, { scale: 0.9, svgOrigin: "1240 740" }, { scale: 1, svgOrigin: "1240 740" });
+      IN("#re-z3", at(1, 0.8), 0.5, { scale: 0.9, svgOrigin: "680 740" }, { scale: 1, svgOrigin: "680 740" });
+
+      // L2 部署与地址
+      OUT("#re-p1", at(2, 0), 0.4);
+      HL(-1, at(2, 0));
+      IN("#re-cr", at(2, 0.04), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#re-cra", at(2, 0.14), 0.6);
+      IN("#re-cral", at(2, 0.14), 0.4);
+      IN("#re-rt", at(2, 0.3), 0.5, { x: 16 }, { x: 0 });
+      IN("#re-rtl", at(2, 0.34), 0.4);
+      tl.to("#re-cr", { opacity: 0.35, duration: 0.5 }, at(2, 0.4));
+      IN("#re-b0", at(2, 0.5), 0.5, { y: 12 }, { y: 0 });
+      IN("#re-b1", at(2, 0.72), 0.5, { y: 12 }, { y: 0 });
+
+      // L3 第三问：原子 + Gas 照付 + 升级权限
+      OUT("#re-p2", at(3, 0), 0.4);
+      HL(2, at(3, 0.02));
+      IN(["#re-tank", "#re-gold"], at(3, 0.04), 0.5);
+      IN("#re-used", at(3, 0.04), 0.1);
+      IN(["#re-stb", "#re-stt"], at(3, 0.08), 0.5);
+      OUT("#re-stt", at(3, 0.22), 0.3);
+      tl.to("#re-used", { attr: { height: 240 }, duration: 1.4, ease: "none" }, at(3, 0.1));
+      DRAW("#re-stx", at(3, 0.27), 0.4); IN("#re-stx", at(3, 0.27), 0.1);
+      IN("#re-t1", at(3, 0.28), 0.4);
+      IN("#re-t2", at(3, 0.42), 0.4);
+      tl.fromTo("#re-used", { attr: { fill: "#6b6f7a" } }, { attr: { fill: "#8a8f99" }, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(3, 0.44));
+      IN("#re-up", at(3, 0.64), 0.6, { x: 16 }, { x: 0 });
+
+      // L4 误区：前两条，收起，后三条
+      OUT(["#re-p3", "#re-qs"], at(4, 0), 0.4);
+      IN("#re-mt", at(4, 0.02), 0.5);
+      const MY = (k, f) => {
+        const t = at(4, f);
+        IN("#re-m" + k, t, 0.4);
+        DRAW("#re-s" + k, t + 0.35, 0.4); IN("#re-s" + k, t + 0.35, 0.1);
+        ARROW("#re-a" + k, t + 0.55, 0.4);
+        IN("#re-f" + k, t + 0.7, 0.4, { x: -10 }, { x: 0 });
+      };
+      MY(0, 0.03); MY(1, 0.12);
+      OUT(["#re-m0", "#re-s0", "#re-a0", "#re-f0", "#re-m1", "#re-s1", "#re-a1", "#re-f1"], at(4, 0.37), 0.4);
+      MY(2, 0.41); MY(3, 0.55); MY(4, 0.76);
+
+      // L5 浏览器里对一对
+      OUT("#re-p4", at(5, 0), 0.4);
+      IN("#re-win", at(5, 0.04), 0.5, { y: 12 }, { y: 0 });
+      IN("#re-w0", at(5, 0.12), 0.4);
+      tl.fromTo("#re-hl0", { attr: { "stroke-width": 2 } }, { attr: { "stroke-width": 5 }, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(5, 0.2));
+      IN("#re-w1", at(5, 0.34), 0.4);
+      IN("#re-w1b", at(5, 0.46), 0.4);
+      IN("#re-w2", at(5, 0.55), 0.4);
+      IN("#re-w3", at(5, 0.64), 0.4);
+
+      // L6 下一集 → 淡到黑
+      OUT("#re-p5", at(6, 0), 0.4);
+      IN("#re-next", at(6, 0.1), 0.6, { y: 14 }, { y: 0 });
+      tl.to("#re-all", { opacity: 0, duration: 0.8, ease: "power2.in" }, C.d - 1.3);
+      tl.to("#re-black", { opacity: 1, duration: 0.8, ease: "power2.in" }, C.d - 1.3);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

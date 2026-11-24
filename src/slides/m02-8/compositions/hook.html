@@ -1,0 +1,239 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="42.65" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ho-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="ho-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+        <marker id="ho-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <!-- L0–L1 合约盒 -->
+        <g id="ho-p1">
+          <text id="ho-prev" class="h" x="560" y="396" font-size="28" fill="#8a8f99" text-anchor="end">上一类漏洞</text>
+          <g id="ho-c" class="h">
+            <g id="ho-cs">
+              <rect x="160" y="420" width="400" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+              <rect id="ho-bad" x="176" y="508" width="368" height="40" rx="6" fill="#FC6255" fill-opacity="0.22" />
+              <rect id="ho-badb" x="168" y="508" width="6" height="40" fill="#FC6255" />
+              <text class="mono" x="190" y="478" font-size="36" fill="#e8e6df" xml:space="preserve">withdraw(a) {</text>
+              <text class="mono" x="190" y="540" font-size="36" fill="#e8e6df" xml:space="preserve">  send(a);</text>
+              <text class="mono" x="190" y="596" font-size="36" fill="#e8e6df" xml:space="preserve">  bal -= a;</text>
+            </g>
+          </g>
+          <text id="ho-wrong" class="h" x="360" y="680" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">函数写错了</text>
+          <text id="ho-ok" class="h" x="960" y="700" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">代码没写错</text>
+          <g id="ho-push" fill="none" stroke="#FF9F43" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#ho-arrO)">
+            <path id="ho-pa0" class="h" d="M600 300 L780 440" />
+            <path id="ho-pa1" class="h" d="M1320 300 L1140 440" />
+            <path id="ho-pa2" class="h" d="M600 800 L780 650" />
+            <path id="ho-pa3" class="h" d="M1320 800 L1140 650" />
+          </g>
+          <text id="ho-pushl" class="h" x="960" y="232" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">外部世界被推了一把</text>
+        </g>
+        <!-- L2–L4 当铺比喻 -->
+        <g id="ho-ana">
+          <g id="ho-stall" class="h">
+            <rect x="200" y="420" width="360" height="280" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <rect x="200" y="420" width="360" height="70" rx="12" fill="#8a8f99" fill-opacity="0.25" />
+            <text x="380" y="468" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">金价</text>
+          </g>
+          <text id="ho-px" class="h mono" x="380" y="620" font-size="76" font-weight="700" fill="#e8e6df" text-anchor="middle">100</text>
+          <g id="ho-pawn" class="h">
+            <path d="M1220 380 L1440 318 L1660 380 Z" fill="#B48EF0" fill-opacity="0.18" stroke="#B48EF0" stroke-width="3" stroke-linejoin="round" />
+            <rect x="1240" y="380" width="400" height="340" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text x="1440" y="440" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">当铺</text>
+          </g>
+          <g id="ho-led" class="h">
+            <rect x="1290" y="476" width="300" height="176" rx="10" fill="#0f1117" stroke="#8a8f99" stroke-width="1.5" />
+            <text x="1440" y="545" font-size="34" fill="#e8e6df" text-anchor="middle">估价 × 2</text>
+            <text x="1440" y="614" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">✓ 没算错</text>
+          </g>
+          <line id="ho-rd" class="h" x1="580" y1="560" x2="1214" y2="560" stroke="#FF9F43" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#ho-arrO)" />
+          <text id="ho-rdl" class="h" x="900" y="534" font-size="30" fill="#FF9F43" text-anchor="middle">读报价</text>
+          <text id="ho-rdl2" class="h" x="900" y="534" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">信错了报价来源</text>
+          <g id="ho-man" class="h">
+            <circle cx="130" cy="760" r="22" fill="#FC6255" />
+            <path d="M130 784 L130 840 M98 806 L162 806 M130 840 L110 882 M130 840 L150 882" stroke="#FC6255" stroke-width="7" stroke-linecap="round" fill="none" />
+            <rect id="ho-bar" class="h" x="150" y="792" width="44" height="22" rx="3" fill="#F0B90B" />
+          </g>
+          <g id="ho-bags" class="h" fill="#F0B90B">
+            <circle cx="1180" cy="826" r="28" /><path d="M1168 798 L1180 786 L1192 798 Z" />
+            <circle cx="1250" cy="826" r="28" /><path d="M1238 798 L1250 786 L1262 798 Z" />
+          </g>
+          <text id="ho-ex" class="h" x="1860" y="1010" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+          <!-- L4 闪电贷 -->
+          <g id="ho-cash" class="h">
+            <circle cx="300" cy="812" r="40" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <path d="M286 774 L300 760 L314 774" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <text x="360" y="822" font-size="28" fill="#8a8f99">真金白银</text>
+          </g>
+          <path id="ho-cashx" class="h" d="M268 780 L332 844 M332 780 L268 844" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+          <rect id="ho-tx" class="h" x="220" y="762" width="450" height="154" rx="12" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+          <text id="ho-txl" class="h" x="690" y="850" font-size="28" fill="#58C4DD">同一笔交易</text>
+          <path id="ho-boom" class="dr h" pathLength="1" d="M335 805 A48 48 0 1 0 330 878" fill="none" stroke="#F0B90B" stroke-width="6" stroke-linecap="round" marker-end="url(#ho-arrG)" />
+          <text id="ho-booml" class="h" x="370" y="850" font-size="30" font-weight="700" fill="#F0B90B">闪电贷：借出 → 归还</text>
+          <g id="ho-tk" class="h">
+            <rect x="985" y="668" width="210" height="48" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="2" />
+            <text x="1090" y="702" font-size="28" fill="#F0B90B" text-anchor="middle">手续费 + Gas</text>
+          </g>
+          <text id="ho-lim" class="h" x="960" y="1000" font-size="28" fill="#8a8f99" text-anchor="middle">比喻不成立处：链上不要本金</text>
+        </g>
+        <!-- L5 五条线 -->
+        <g id="ho-fl">
+          <g id="ho-fls">
+            <g id="ho-pbox" class="h">
+              <rect x="360" y="420" width="240" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" vector-effect="non-scaling-stroke" />
+            </g>
+            <text id="ho-pboxl" class="h" x="480" y="534" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">协议</text>
+            <g fill="none" stroke="#6b6f7a" stroke-width="4">
+              <line id="ho-l0" class="dr" pathLength="1" x1="600" y1="520" x2="1300" y2="220" vector-effect="non-scaling-stroke" />
+              <line id="ho-l1" class="dr" pathLength="1" x1="600" y1="520" x2="1300" y2="370" vector-effect="non-scaling-stroke" />
+              <line id="ho-l2" class="dr" pathLength="1" x1="600" y1="520" x2="1300" y2="520" vector-effect="non-scaling-stroke" />
+              <line id="ho-l3" class="dr" pathLength="1" x1="600" y1="520" x2="1300" y2="670" vector-effect="non-scaling-stroke" />
+              <line id="ho-l4" class="dr" pathLength="1" x1="600" y1="520" x2="1300" y2="820" vector-effect="non-scaling-stroke" />
+            </g>
+            <g fill="#161a22" stroke="#6b6f7a" stroke-width="3">
+              <circle id="ho-c0" class="h" cx="1360" cy="220" r="40" vector-effect="non-scaling-stroke" />
+              <circle id="ho-c1" class="h" cx="1360" cy="370" r="40" vector-effect="non-scaling-stroke" />
+              <circle id="ho-c2" class="h" cx="1360" cy="520" r="40" vector-effect="non-scaling-stroke" />
+              <circle id="ho-c3" class="h" cx="1360" cy="670" r="40" vector-effect="non-scaling-stroke" />
+              <circle id="ho-c4" class="h" cx="1360" cy="820" r="40" vector-effect="non-scaling-stroke" />
+            </g>
+            <g id="ho-icons" fill="none" stroke="#e8e6df" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path id="ho-i0" class="h" d="M1338 234 L1352 216 L1364 226 L1382 202" />
+              <path id="ho-i1" class="h" d="M1336 360 h10 v20 h-10 z M1352 360 h10 v20 h-10 z M1368 370 h14 M1376 363 l7 7 l-7 7" />
+              <path id="ho-i2" class="h" d="M1342 538 L1374 506 L1382 514 L1350 546 Z M1340 548 L1342 538" />
+              <path id="ho-i3" class="h" d="M1342 660 h30 l-8 -8 M1378 680 h-30 l8 8" />
+              <path id="ho-i4" class="h" d="M1338 810 h44 v26 h-44 z M1350 810 v-14 h20 v14" />
+            </g>
+            <g font-size="36" fill="#e8e6df">
+              <text id="ho-t0" class="h" x="1430" y="233">价格</text>
+              <text id="ho-t1" class="h" x="1430" y="383">交易顺序</text>
+              <text id="ho-t2" class="h" x="1430" y="533">签名</text>
+              <text id="ho-t3" class="h" x="1430" y="683">升级权限</text>
+              <text id="ho-t4" class="h" x="1430" y="833">投票权</text>
+            </g>
+            <g id="ho-sh" class="h">
+              <path d="M420 690 L470 708 L470 760 Q470 800 420 820 Q370 800 370 760 L370 708 Z" fill="#B48EF0" fill-opacity="0.14" stroke="#B48EF0" stroke-width="3" />
+              <path d="M560 690 L610 708 L610 760 Q610 800 560 820 Q510 800 510 760 L510 708 Z" fill="#B48EF0" fill-opacity="0.14" stroke="#B48EF0" stroke-width="3" />
+            </g>
+            <g id="ho-shl" class="h" font-size="28" font-weight="700" fill="#B48EF0" text-anchor="middle">
+              <text x="420" y="866">审计</text>
+              <text x="560" y="866">应急</text>
+            </g>
+          </g>
+        </g>
+      </g>
+      <!-- 术语卡（本场景不用） -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 一个函数写错了
+      IN("#ho-c", at(0, 0.05), 0.6, { y: 20 }, { y: 0 });
+      IN("#ho-prev", at(0, 0.2), 0.5);
+      IN("#ho-wrong", at(0, 0.55), 0.5);
+      tl.fromTo("#ho-bad", { fillOpacity: 0.22 }, { fillOpacity: 0.45, duration: 0.3, yoyo: true, repeat: 3, immediateRender: false }, at(0, 0.6));
+      // L1 代码没写错，外部世界被推
+      OUT("#ho-prev, #ho-wrong", at(1, 0), 0.3);
+      tl.to("#ho-c", { x: 600, y: 20, duration: 0.9, ease: "power2.inOut" }, at(1, 0.06));
+      tl.to("#ho-cs", { scale: 0.8, svgOrigin: "360 520", duration: 0.9, ease: "power2.inOut" }, at(1, 0.06));
+      tl.to("#ho-bad, #ho-badb", { opacity: 0, duration: 0.4 }, at(1, 0.1));
+      IN("#ho-ok", at(1, 0.24), 0.5);
+      ["#ho-pa0", "#ho-pa1", "#ho-pa2", "#ho-pa3"].forEach((s, i) => {
+        const dx = i % 2 ? 40 : -40, dy = i < 2 ? -30 : 30;
+        IN(s, at(1, 0.5 + i * 0.05), 0.5, { x: dx, y: dy }, { x: 0, y: 0 });
+      });
+      IN("#ho-pushl", at(1, 0.6), 0.5);
+      tl.to("#ho-c", { x: 612, duration: 0.08, yoyo: true, repeat: 5, ease: "none" }, at(1, 0.82));
+      // L2 当铺比喻
+      OUT("#ho-p1", at(2, 0), 0.4);
+      IN("#ho-stall", at(2, 0.04), 0.6, { y: 20 }, { y: 0 });
+      IN("#ho-px", at(2, 0.06), 0.6);
+      IN("#ho-pawn", at(2, 0.1), 0.6, { y: 20 }, { y: 0 });
+      IN("#ho-ex", at(2, 0.14), 0.4);
+      IN("#ho-rd", at(2, 0.2), 0.5, { x: -30 }, { x: 0 });
+      IN("#ho-rdl", at(2, 0.24), 0.4);
+      IN("#ho-man", at(2, 0.36), 0.4);
+      tl.to("#ho-man", { x: 46, duration: 0.4, ease: "power2.out" }, at(2, 0.4));
+      tl.to("#ho-stall", { x: 10, duration: 0.1, yoyo: true, repeat: 3 }, at(2, 0.44));
+      tl.to("#ho-px", { fill: "#FC6255", duration: 0.2 }, at(2, 0.44));
+      COUNT("#ho-px", 100, 200, at(2, 0.44), 0.8);
+      IN("#ho-bar", at(2, 0.55), 0.3);
+      tl.to("#ho-man", { x: 960, duration: 1.4, ease: "power1.inOut" }, at(2, 0.58));
+      IN("#ho-bags", at(2, 0.76), 0.5, { y: -30 }, { y: 0 });
+      OUT("#ho-bar", at(2, 0.76), 0.3);
+      tl.to("#ho-px", { fill: "#e8e6df", duration: 0.3 }, at(2, 0.88));
+      COUNT("#ho-px", 200, 100, at(2, 0.88), 0.7);
+      // L3 没算错，信错了来源
+      IN("#ho-led", at(3, 0.05), 0.5);
+      OUT("#ho-rdl", at(3, 0.45), 0.25);
+      tl.to("#ho-rd", { stroke: "#FC6255", attr: { "marker-end": "url(#ho-arrR)" }, duration: 0.2 }, at(3, 0.45));
+      IN("#ho-rdl2", at(3, 0.55), 0.35);
+      tl.to("#ho-rd", { opacity: 0.25, duration: 0.15, yoyo: true, repeat: 5, ease: "none" }, at(3, 0.6));
+      // L4 比喻的局限：闪电贷
+      IN("#ho-cash", at(4, 0.08), 0.5);
+      IN("#ho-cashx", at(4, 0.3), 0.3, { scale: 1.4, svgOrigin: "300 812" }, { scale: 1, svgOrigin: "300 812" });
+      OUT("#ho-cash, #ho-cashx", at(4, 0.4), 0.35);
+      IN("#ho-tx", at(4, 0.48), 0.5);
+      ARROW("#ho-boom", at(4, 0.5), 0.9);
+      IN("#ho-booml", at(4, 0.55), 0.5);
+      IN("#ho-txl", at(4, 0.62), 0.5);
+      IN("#ho-tk", at(4, 0.82), 0.5, { y: 14 }, { y: 0 });
+      IN("#ho-lim", at(4, 0.74), 0.5);
+      // L5 五条线
+      OUT("#ho-ana", at(5, 0), 0.4);
+      IN("#ho-pbox, #ho-pboxl", at(5, 0.02), 0.5);
+      for (let i = 0; i < 5; i++) {
+        const t = at(5, 0.04 + i * 0.075);
+        DRAW(`#ho-l${i}`, t, 0.5);
+        IN(`#ho-c${i}, #ho-i${i}`, t + 0.35, 0.3);
+        IN(`#ho-t${i}`, t + 0.4, 0.3, { x: -12 }, { x: 0 });
+        tl.to(`#ho-l${i}, #ho-c${i}`, { stroke: "#FF9F43", duration: 0.4 }, t + 0.9);
+      }
+      IN("#ho-sh", at(5, 0.5), 0.5, { y: 16 }, { y: 0 });
+      IN("#ho-shl", at(5, 0.54), 0.5);
+      // 缩成右上角缩略图
+      const ts = at(5, 0.86);
+      OUT("#ho-pboxl, #ho-icons, #ho-t0, #ho-t1, #ho-t2, #ho-t3, #ho-t4, #ho-sh, #ho-shl", ts, 0.3);
+      tl.to("#ho-c0, #ho-c1, #ho-c2, #ho-c3, #ho-c4", { fill: "#FF9F43", duration: 0.3 }, ts);
+      tl.to("#ho-fls", { scale: 0.14, svgOrigin: "860 520", duration: 0.9, ease: "power2.inOut" }, ts + 0.3);
+      tl.to("#ho-fl", { x: 860, y: -417, duration: 0.9, ease: "power2.inOut" }, ts + 0.3);
+      tl.to("#ho-l0, #ho-l1, #ho-l2, #ho-l3, #ho-l4", { strokeWidth: 3, duration: 0.3 }, ts + 0.3);
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

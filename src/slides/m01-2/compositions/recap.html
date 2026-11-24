@@ -1,0 +1,229 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 rp- -->
+  <div id="root" data-composition-id="recap" data-duration="72.32" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="rp-all">
+        <!-- L0 钩子问题 -->
+        <g id="rp-qm">
+          <g id="rp-qs">
+            <g id="rp-q" class="h">
+              <text x="960" y="490" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">只有区块头，</text>
+              <text x="960" y="574" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#FF9F43">怎么确认</tspan>这笔交易在里面？</text>
+            </g>
+          </g>
+        </g>
+
+        <!-- L1 答案 -->
+        <g id="rp-phone" class="h">
+          <rect x="260" y="380" width="220" height="440" rx="30" fill="#161a22" stroke="#8a8f99" stroke-width="3.5" />
+          <rect x="282" y="420" width="176" height="360" rx="8" fill="none" stroke="#3a3f4b" stroke-width="2" />
+        </g>
+        <g id="rp-chain" class="h">
+          <text x="1440" y="440" font-size="30" fill="#58C4DD" text-anchor="middle">区块头链</text>
+          <rect x="1180" y="480" width="80" height="120" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect x="1290" y="480" width="80" height="120" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect id="rp-hb" x="1400" y="480" width="80" height="120" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect x="1510" y="480" width="80" height="120" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect x="1620" y="480" width="80" height="120" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <path d="M1260 540 H1290 M1370 540 H1400 M1480 540 H1510 M1590 540 H1620" stroke="#58C4DD" stroke-width="3" />
+        </g>
+        <g id="rp-sibm">
+          <g id="rp-sib" class="h">
+            <rect x="900" y="470" width="40" height="40" rx="6" fill="#83C167" />
+            <rect x="950" y="470" width="40" height="40" rx="6" fill="#83C167" />
+            <rect x="1000" y="470" width="40" height="40" rx="6" fill="#83C167" />
+          </g>
+        </g>
+        <path id="rp-pa" class="dr h" pathLength="1" d="M370 522 L370 586" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#rp-arr)" />
+        <g id="rp-cr" class="h">
+          <rect id="rp-crr" x="300" y="594" width="140" height="56" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="370" y="632" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">根</text>
+        </g>
+        <path id="rp-cmp" class="dr h" pathLength="1" d="M446 622 Q900 700 1436 606" stroke="#83C167" stroke-width="3" stroke-dasharray="1" fill="none" />
+        <path id="rp-ok" class="h" d="M340 720 L362 744 L402 700" fill="none" stroke="#83C167" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+        <text id="rp-why" class="h" x="960" y="900" font-size="36" fill="#e8e6df" text-anchor="middle">根写在<tspan fill="#58C4DD">有工作量的区块头</tspan>里</text>
+
+        <!-- L2 三件事 -->
+        <g id="rp-k1" class="h">
+          <path d="M370 310 L330 360 M370 310 L410 360" stroke="#58C4DD" stroke-width="3" /><circle cx="370" cy="310" r="12" fill="#58C4DD" /><circle cx="330" cy="364" r="10" fill="#58C4DD" /><circle cx="410" cy="364" r="10" fill="#58C4DD" />
+          <text x="500" y="356" font-size="44" font-weight="700" fill="#58C4DD">建树</text>
+          <text x="640" y="354" font-size="34" fill="#e8e6df">两两哈希，直到一个根</text>
+        </g>
+        <g id="rp-k2" class="h">
+          <rect x="316" y="512" width="30" height="30" rx="5" fill="#83C167" /><rect x="356" y="512" width="30" height="30" rx="5" fill="#83C167" /><rect x="396" y="512" width="30" height="30" rx="5" fill="#83C167" />
+          <text x="500" y="546" font-size="44" font-weight="700" fill="#83C167">证明</text>
+          <text x="640" y="544" font-size="34" fill="#e8e6df">路上的兄弟，个数 <tspan class="mono">⌈log₂ n⌉</tspan></text>
+        </g>
+        <g id="rp-k3" class="h">
+          <circle cx="335" cy="720" r="14" fill="none" stroke="#F0B90B" stroke-width="3" /><circle cx="375" cy="720" r="14" fill="none" stroke="#F0B90B" stroke-width="3" />
+          <circle cx="335" cy="760" r="14" fill="none" stroke="#F0B90B" stroke-width="3" /><circle cx="375" cy="760" r="14" fill="none" stroke="#F0B90B" stroke-width="3" />
+          <text x="500" y="756" font-size="44" font-weight="700" fill="#F0B90B">应用</text>
+          <text x="640" y="754" font-size="34" fill="#e8e6df">SPV · 以太坊状态 · 空投 · 储备金</text>
+        </g>
+
+        <!-- L3 误区① -->
+        <text id="rp-m1" class="h" x="260" y="260" font-size="34" font-weight="700" fill="#FF9F43">误区 ①</text>
+        <text id="rp-w1" class="h" x="960" y="380" font-size="44" fill="#FC6255" text-anchor="middle">默克尔证明能证明“不在树里”</text>
+        <line id="rp-s1" class="dr h" pathLength="1" x1="640" y1="366" x2="1280" y2="366" stroke="#FC6255" stroke-width="5" />
+        <text id="rp-r1" class="h" x="960" y="480" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">普通证明只能证“在”</text>
+        <g id="rp-srt" class="h">
+          <rect x="500" y="620" width="120" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="560" y="672" font-size="32" fill="#58C4DD" text-anchor="middle">02</text>
+          <rect id="rp-n3" x="700" y="620" width="120" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="760" y="672" font-size="32" fill="#58C4DD" text-anchor="middle">03</text>
+          <rect x="900" y="620" width="120" height="80" rx="10" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="8 6" /><text class="mono" x="960" y="672" font-size="32" fill="#FF9F43" text-anchor="middle">05?</text>
+          <rect id="rp-n7" x="1100" y="620" width="120" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1160" y="672" font-size="32" fill="#58C4DD" text-anchor="middle">07</text>
+          <rect x="1300" y="620" width="120" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1360" y="672" font-size="32" fill="#58C4DD" text-anchor="middle">09</text>
+        </g>
+        <path id="rp-clamp" class="dr h" pathLength="1" d="M700 720 Q700 760 740 760 L1180 760 Q1220 760 1220 720" stroke="#83C167" stroke-width="4" fill="none" />
+        <text id="rp-r1b" class="h" x="960" y="850" font-size="32" fill="#83C167" text-anchor="middle">证不存在：排序树 · 稀疏默克尔树</text>
+
+        <!-- L4 误区② -->
+        <text id="rp-m2" class="h" x="260" y="260" font-size="34" font-weight="700" fill="#FF9F43">误区 ②</text>
+        <text id="rp-w2" class="h" x="960" y="380" font-size="44" fill="#FC6255" text-anchor="middle">轻节点相信给它数据的节点</text>
+        <line id="rp-s2" class="dr h" pathLength="1" x1="690" y1="366" x2="1230" y2="366" stroke="#FC6255" stroke-width="5" />
+        <text id="rp-r2" class="h" x="960" y="480" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">相信有工作量的区块头链</text>
+        <g id="rp-net" class="h">
+          <rect x="420" y="580" width="130" height="230" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <line x1="560" y1="695" x2="1190" y2="615" stroke="#8a8f99" stroke-width="2.5" />
+          <line x1="560" y1="695" x2="1190" y2="695" stroke="#8a8f99" stroke-width="2.5" />
+          <line x1="560" y1="695" x2="1190" y2="775" stroke="#8a8f99" stroke-width="2.5" />
+          <rect x="1200" y="585" width="160" height="60" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <rect x="1200" y="665" width="160" height="60" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <rect x="1200" y="745" width="160" height="60" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="1280" y="625" font-size="28" fill="#FF9F43" text-anchor="middle">全节点</text>
+          <text x="1280" y="705" font-size="28" fill="#FF9F43" text-anchor="middle">全节点</text>
+          <text x="1280" y="785" font-size="28" fill="#FF9F43" text-anchor="middle">全节点</text>
+        </g>
+        <text id="rp-hide" class="h" x="960" y="900" font-size="32" fill="#FF9F43" text-anchor="middle">防伪造，防不住隐瞒 → 连多个节点</text>
+
+        <!-- L5 误区③ -->
+        <text id="rp-m3" class="h" x="260" y="260" font-size="34" font-weight="700" fill="#FF9F43">误区 ③</text>
+        <text id="rp-w3" class="h" x="960" y="380" font-size="44" fill="#FC6255" text-anchor="middle">叶子编码随便写</text>
+        <line id="rp-s3" class="dr h" pathLength="1" x1="790" y1="366" x2="1130" y2="366" stroke="#FC6255" stroke-width="5" />
+        <text id="rp-r3" class="h" x="960" y="480" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">链下与合约逐字节一致</text>
+        <g id="rp-c1" class="h">
+          <rect x="520" y="600" width="400" height="110" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <path d="M560 656 L578 674 L610 638" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="640" y="668" font-size="34" fill="#e8e6df">记录已领取</text>
+        </g>
+        <g id="rp-c2" class="h">
+          <rect x="1000" y="600" width="400" height="110" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <path d="M1040 656 L1058 674 L1090 638" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          <text x="1120" y="668" font-size="34" fill="#e8e6df">双重哈希</text>
+        </g>
+
+        <!-- L6 谁来出下一个块 -->
+        <g id="rp-hc">
+          <rect class="h rp-blk" x="380" y="460" width="150" height="130" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect class="h rp-blk" x="580" y="460" width="150" height="130" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect class="h rp-blk" x="780" y="460" width="150" height="130" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect class="h rp-blk" x="980" y="460" width="150" height="130" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <rect class="h rp-blk" x="1180" y="460" width="150" height="130" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+        </g>
+        <path id="rp-lk" class="h" d="M530 525 H580 M730 525 H780 M930 525 H980 M1130 525 H1180 M1330 525 H1380" stroke="#58C4DD" stroke-width="3" />
+        <g id="rp-nx" class="h">
+          <rect x="1380" y="460" width="150" height="130" rx="10" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="10 8" />
+          <text x="1455" y="548" font-size="64" font-weight="700" fill="#FF9F43" text-anchor="middle">?</text>
+        </g>
+        <text id="rp-who" class="h" x="960" y="730" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">谁来出下一个块？</text>
+
+        <!-- L7 下一集 -->
+        <text id="rp-next" class="h" x="960" y="520" font-size="72" font-weight="700" fill="#e8e6df" text-anchor="middle">下一集 · <tspan fill="#58C4DD">共识机制</tspan></text>
+        <text id="rp-sub" class="h" x="960" y="610" font-size="34" fill="#8a8f99" text-anchor="middle">陌生人如何对下一个区块达成一致</text>
+      </g>
+      <rect id="rp-black" x="0" y="0" width="1920" height="1080" fill="#000000" opacity="0" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const STRIKE = (s, t) => { tl.set(s, { opacity: 1 }, t); DRAW(s, t, 0.5); };
+
+      // L0 钩子问题回到中央
+      IN("#rp-q", at(0, 0.05), 0.7, { scale: 0.92, svgOrigin: "960 530" }, { scale: 1, svgOrigin: "960 530" });
+      // L1 答案：问题上移，手机拿到兄弟 → 算根 → 对比
+      tl.to("#rp-qs", { scale: 0.6, svgOrigin: "960 530", duration: 0.8, ease: "power2.inOut" }, at(1, 0.02));
+      tl.to("#rp-qm", { y: -280, duration: 0.8, ease: "power2.inOut" }, at(1, 0.02));
+      IN("#rp-phone", at(1, 0.1), 0.5);
+      IN("#rp-chain", at(1, 0.14), 0.5, { x: 20 }, { x: 0 });
+      IN("#rp-sib", at(1, 0.2), 0.4);
+      tl.to("#rp-sibm", { x: -590, y: 2, duration: 0.9, ease: "power2.inOut" }, at(1, 0.24));
+      ARROW("#rp-pa", at(1, 0.36), 0.4);
+      IN("#rp-cr", at(1, 0.4), 0.4);
+      tl.set("#rp-cmp", { opacity: 1 }, at(1, 0.48));
+      DRAW("#rp-cmp", at(1, 0.48), 0.8);
+      tl.to("#rp-hb, #rp-crr", { stroke: "#83C167", duration: 0.3 }, at(1, 0.56));
+      IN("#rp-ok", at(1, 0.58), 0.4, { scale: 0.5, svgOrigin: "370 722" }, { scale: 1, svgOrigin: "370 722" });
+      IN("#rp-why", at(1, 0.66), 0.5);
+      // L2 三件事
+      OUT("#rp-qm, #rp-phone, #rp-chain, #rp-sibm, #rp-pa, #rp-cr, #rp-cmp, #rp-ok, #rp-why", at(2, 0), 0.4);
+      IN("#rp-k1", at(2, 0.06), 0.5, { x: -20 }, { x: 0 });
+      IN("#rp-k2", at(2, 0.33), 0.5, { x: -20 }, { x: 0 });
+      IN("#rp-k3", at(2, 0.66), 0.5, { x: -20 }, { x: 0 });
+      // L3 误区①
+      OUT("#rp-k1, #rp-k2, #rp-k3", at(3, 0), 0.4);
+      IN("#rp-m1", at(3, 0.04), 0.4);
+      IN("#rp-w1", at(3, 0.08), 0.5);
+      STRIKE("#rp-s1", at(3, 0.2));
+      IN("#rp-r1", at(3, 0.26), 0.5);
+      IN("#rp-srt", at(3, 0.46), 0.5, { y: 16 }, { y: 0 });
+      tl.to("#rp-n3, #rp-n7", { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, at(3, 0.6));
+      STRIKE("#rp-clamp", at(3, 0.62));
+      IN("#rp-r1b", at(3, 0.78), 0.5);
+      // L4 误区②
+      OUT("#rp-m1, #rp-w1, #rp-s1, #rp-r1, #rp-srt, #rp-clamp, #rp-r1b", at(4, 0), 0.4);
+      IN("#rp-m2", at(4, 0.04), 0.4);
+      IN("#rp-w2", at(4, 0.08), 0.5);
+      STRIKE("#rp-s2", at(4, 0.2));
+      IN("#rp-r2", at(4, 0.3), 0.5);
+      IN("#rp-net", at(4, 0.56), 0.6);
+      IN("#rp-hide", at(4, 0.7), 0.5);
+      // L5 误区③
+      OUT("#rp-m2, #rp-w2, #rp-s2, #rp-r2, #rp-net, #rp-hide", at(5, 0), 0.4);
+      IN("#rp-m3", at(5, 0.04), 0.4);
+      IN("#rp-w3", at(5, 0.08), 0.5);
+      STRIKE("#rp-s3", at(5, 0.2));
+      IN("#rp-r3", at(5, 0.28), 0.5);
+      IN("#rp-c1", at(5, 0.62), 0.5, { y: 16 }, { y: 0 });
+      IN("#rp-c2", at(5, 0.74), 0.5, { y: 16 }, { y: 0 });
+      // L6 区块头是谁出的？
+      OUT("#rp-m3, #rp-w3, #rp-s3, #rp-r3, #rp-c1, #rp-c2", at(6, 0), 0.4);
+      IN(".rp-blk", at(6, 0.06), 0.4, { x: -20 }, { x: 0, stagger: 0.15 });
+      IN("#rp-lk", at(6, 0.2), 0.4);
+      IN("#rp-nx", at(6, 0.32), 0.4);
+      tl.to("#rp-nx", { opacity: 0.3, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, at(6, 0.45));
+      IN("#rp-who", at(6, 0.5), 0.5);
+      // L7 下一集 · 共识机制，然后淡到黑
+      OUT("#rp-hc, #rp-lk, #rp-nx, #rp-who", at(7, 0), 0.4);
+      IN("#rp-next", at(7, 0.08), 0.7, { scale: 0.92, svgOrigin: "960 500" }, { scale: 1, svgOrigin: "960 500" });
+      IN("#rp-sub", at(7, 0.3), 0.6);
+
+      tl.to("#rp-all", { opacity: 0, duration: 0.6, ease: "power2.in" }, C.d - 1.1);
+      tl.to("#rp-black", { opacity: 1, duration: 0.6, ease: "power2.in" }, C.d - 1.1);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

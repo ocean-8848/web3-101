@@ -1,0 +1,284 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 nonce，id 前缀 no- -->
+  <div id="root" data-composition-id="nonce" data-duration="88.96" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="no-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="no-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="no-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="no-all">
+        <!-- L0 骰子 k + 生死线 -->
+        <g id="no-p0">
+          <g id="no-dice" class="h">
+            <rect x="880" y="440" width="160" height="160" rx="26" fill="#161a22" stroke="#FF9F43" stroke-width="4" />
+            <text class="mono" x="960" y="548" font-size="88" font-weight="700" fill="#FF9F43" text-anchor="middle">k</text>
+          </g>
+          <circle id="no-ring" class="h" cx="960" cy="520" r="180" fill="none" stroke="#FC6255" stroke-width="4" stroke-dasharray="18 12" />
+          <text id="no-life" class="h" x="960" y="776" font-size="44" font-weight="700" fill="#FC6255" text-anchor="middle">生死线</text>
+        </g>
+
+        <!-- L1 ECDSA 公式 -->
+        <g id="no-p1">
+          <text id="no-f1" class="h mono" x="960" y="400" font-size="54" fill="#e8e6df" text-anchor="middle">r = (<tspan fill="#FF9F43">k</tspan> × <tspan fill="#58C4DD">G</tspan>).x</text>
+          <text id="no-f2" class="h mono" x="960" y="510" font-size="54" fill="#e8e6df" text-anchor="middle">s = <tspan id="no-fk" fill="#FF9F43">k⁻¹</tspan> × (<tspan fill="#58C4DD">z</tspan> + r × <tspan id="no-fd" fill="#FC6255">d</tspan>) mod n</text>
+        </g>
+
+        <!-- L2–L4 同 k 两次签名 -->
+        <g id="no-p2">
+          <g id="no-c1" class="h">
+            <rect x="140" y="400" width="560" height="120" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="180" y="474" font-size="34" fill="#e8e6df">消息 1 →</text>
+            <text class="mono" x="400" y="476" font-size="40" fill="#F0B90B">(<tspan id="no-r1">r</tspan>, s₁)</text>
+          </g>
+          <g id="no-c2" class="h">
+            <rect x="140" y="590" width="560" height="120" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="180" y="664" font-size="34" fill="#e8e6df">消息 2 →</text>
+            <text class="mono" x="400" y="666" font-size="40" fill="#F0B90B">(<tspan id="no-r2">r</tspan>, s₂)</text>
+          </g>
+          <line id="no-rl" class="dr" pathLength="1" x1="436" y1="530" x2="436" y2="580" stroke="#FF9F43" stroke-width="5" />
+          <text id="no-twice" class="h" x="730" y="567" font-size="32" font-weight="700" fill="#FF9F43">k 用了两次</text>
+          <text id="no-eqs" class="h" x="140" y="790" font-size="32" fill="#8a8f99">两个方程 · 两个未知数 <tspan class="mono" fill="#FF9F43">k</tspan>, <tspan class="mono" fill="#FC6255">d</tspan></text>
+
+          <text id="no-d1" class="h mono" x="1000" y="470" font-size="42" fill="#e8e6df"><tspan fill="#FF9F43">k</tspan> = (<tspan fill="#58C4DD">z₁</tspan> − <tspan fill="#58C4DD">z₂</tspan>) / (s₁ − s₂)</text>
+          <circle id="no-dglow" class="h" cx="1013" cy="566" r="30" fill="#FC6255" fill-opacity="0.22" />
+          <text id="no-d2" class="h mono" x="1000" y="580" font-size="42" fill="#e8e6df"><tspan id="no-dd" fill="#FC6255">d</tspan> = (s₁ × <tspan fill="#FF9F43">k</tspan> − <tspan fill="#58C4DD">z₁</tspan>) / r</text>
+                    <text id="no-any" class="h" x="1000" y="690" font-size="38" font-weight="700" fill="#FC6255">可签任何交易</text>
+
+          <g id="no-pred">
+            <g id="no-pd" class="h">
+              <rect x="1000" y="750" width="80" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+              <text x="1040" y="805" font-size="48" font-weight="700" fill="#FF9F43" text-anchor="middle">?</text>
+            </g>
+            <text id="no-pt1" class="h" x="1110" y="803" font-size="32" fill="#FF9F43">不能重复，还要猜不到</text>
+            <text id="no-pt2" class="h" x="1000" y="900" font-size="30" fill="#FC6255"><tspan class="mono">k</tspan> 被预测 → 一条签名就能解出 <tspan class="mono">d</tspan></text>
+          </g>
+
+          <g id="no-chain" class="h">
+            <g fill="#161a22" stroke="#58C4DD" stroke-width="2.5">
+              <rect x="140" y="850" width="100" height="70" rx="10" />
+              <rect x="270" y="850" width="100" height="70" rx="10" />
+              <rect x="400" y="850" width="100" height="70" rx="10" />
+              <rect x="530" y="850" width="100" height="70" rx="10" />
+              <rect x="660" y="850" width="100" height="70" rx="10" />
+              <rect x="790" y="850" width="100" height="70" rx="10" />
+            </g>
+            <g stroke="#58C4DD" stroke-width="2.5">
+              <line x1="240" y1="885" x2="270" y2="885" /><line x1="370" y1="885" x2="400" y2="885" />
+              <line x1="500" y1="885" x2="530" y2="885" /><line x1="630" y1="885" x2="660" y2="885" />
+              <line x1="760" y1="885" x2="790" y2="885" />
+            </g>
+          </g>
+          <rect id="no-b1" class="h" x="270" y="850" width="100" height="70" rx="10" fill="none" stroke="#F0B90B" stroke-width="4" />
+          <rect id="no-b2" class="h" x="660" y="850" width="100" height="70" rx="10" fill="none" stroke="#F0B90B" stroke-width="4" />
+          <path id="no-u1" class="dr h" pathLength="1" d="M320 840 L320 724" fill="none" stroke="#58C4DD" stroke-width="3" stroke-dasharray="1" marker-end="url(#no-arrb)" />
+          <path id="no-u2" class="dr h" pathLength="1" d="M710 840 L600 724" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#no-arrb)" />
+          <text id="no-pub" class="h" x="930" y="897" font-size="34" font-weight="700" fill="#58C4DD">公开可得</text>
+        </g>
+
+        <!-- L5 PS3 -->
+        <g id="no-p3">
+          <g id="no-ps" class="h">
+            <rect x="200" y="420" width="500" height="190" rx="34" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <line x1="260" y1="490" x2="640" y2="490" stroke="#8a8f99" stroke-width="3" />
+            <circle cx="630" cy="560" r="10" fill="#8a8f99" />
+            <rect x="250" y="630" width="400" height="16" rx="8" fill="#8a8f99" opacity="0.5" />
+          </g>
+          <text id="no-fwl" class="h" x="860" y="390" font-size="30" fill="#B48EF0" text-anchor="middle">固件签名私钥</text>
+          <g id="no-key" class="h">
+            <circle id="no-keyc" cx="800" cy="520" r="34" fill="none" stroke="#B48EF0" stroke-width="6" />
+            <path id="no-keys" d="M834 520 L940 520 M910 520 L910 548 M930 520 L930 540" fill="none" stroke="#B48EF0" stroke-width="6" stroke-linecap="round" />
+          </g>
+          <text id="no-psl" class="h" x="200" y="740" font-size="32" fill="#e8e6df">2010 年底 · <tspan class="mono">fail0verflow</tspan> · <tspan class="mono">27C3</tspan></text>
+          <text id="no-same" class="h mono" x="200" y="820" font-size="30" fill="#FF9F43">k = k = k …</text>
+        </g>
+
+        <!-- L6 安卓 SecureRandom -->
+        <g id="no-p4">
+          <g id="no-ph" class="h">
+            <rect x="1220" y="300" width="280" height="420" rx="34" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <line x1="1320" y1="330" x2="1400" y2="330" stroke="#8a8f99" stroke-width="4" stroke-linecap="round" />
+            <text class="mono" x="1360" y="520" font-size="28" fill="#58C4DD" text-anchor="middle">SecureRandom</text>
+          </g>
+          <g id="no-k1" class="h">
+            <rect x="1560" y="340" width="100" height="100" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3.5" />
+            <text class="mono" x="1610" y="408" font-size="56" font-weight="700" fill="#FF9F43" text-anchor="middle">k</text>
+          </g>
+          <g id="no-k2" class="h">
+            <rect x="1560" y="480" width="100" height="100" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3.5" />
+            <text class="mono" x="1610" y="548" font-size="56" font-weight="700" fill="#FF9F43" text-anchor="middle">k</text>
+          </g>
+          <text id="no-samek" class="h" x="1690" y="476" font-size="30" fill="#FF9F43">同一个</text>
+          <text id="no-anl" class="h" x="1360" y="800" font-size="32" fill="#e8e6df" text-anchor="middle">2013 年 8 月 · 安卓</text>
+          <g id="no-coins">
+            <circle id="no-co0" class="h" cx="1500" cy="690" r="14" fill="#F0B90B" />
+            <circle id="no-co1" class="h" cx="1500" cy="690" r="14" fill="#F0B90B" />
+            <circle id="no-co2" class="h" cx="1500" cy="690" r="14" fill="#F0B90B" />
+          </g>
+          <text id="no-stolen" class="h" x="1580" y="680" font-size="32" font-weight="700" fill="#FC6255">资金被盗</text>
+        </g>
+
+        <!-- L7 RFC 6979 -->
+        <g id="no-p5">
+          <text id="no-in1" class="h" x="560" y="414" font-size="34" fill="#FC6255" text-anchor="end">私钥 <tspan class="mono">d</tspan></text>
+          <text id="no-in2" class="h" x="560" y="514" font-size="34" fill="#58C4DD" text-anchor="end">消息哈希 <tspan class="mono">z</tspan></text>
+          <path id="no-a1" class="dr h" pathLength="1" d="M580 402 L750 440" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#no-arr)" />
+          <path id="no-a2" class="dr h" pathLength="1" d="M580 502 L750 470" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#no-arr)" />
+          <g id="no-mach" class="h">
+            <rect x="770" y="380" width="380" height="150" rx="20" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="960" y="470" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">RFC 6979</text>
+          </g>
+          <path id="no-a3" class="dr h" pathLength="1" d="M1160 455 L1290 455" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#no-arrg)" />
+          <text id="no-kout" class="h mono" x="1320" y="474" font-size="56" font-weight="700" fill="#83C167">k</text>
+          <text id="no-r1t" class="h" x="960" y="620" font-size="32" fill="#e8e6df" text-anchor="middle">同一消息 → 同一个 <tspan class="mono" fill="#83C167">k</tspan></text>
+          <text id="no-r2t" class="h" x="960" y="680" font-size="32" fill="#e8e6df" text-anchor="middle">不同消息 → 不同的 <tspan class="mono" fill="#83C167">k</tspan></text>
+          <g id="no-libs" class="h">
+            <g fill="none" stroke="#83C167" stroke-width="2.5">
+              <rect x="430" y="760" width="250" height="64" rx="32" />
+              <rect x="710" y="760" width="270" height="64" rx="32" />
+              <rect x="1010" y="760" width="140" height="64" rx="32" />
+              <rect x="1180" y="760" width="170" height="64" rx="32" />
+            </g>
+            <g class="mono" font-size="28" fill="#83C167" text-anchor="middle">
+              <text class="mono" x="555" y="802">go-ethereum</text>
+              <text class="mono" x="845" y="802">libsecp256k1</text>
+              <text class="mono" x="1080" y="802">viem</text>
+              <text class="mono" x="1265" y="802">ethers</text>
+            </g>
+          </g>
+          <text id="no-diy" class="h" x="1560" y="802" font-size="32" fill="#e8e6df" text-anchor="middle" font-style="italic">自制签名算法</text>
+          <line id="no-diyx" class="dr" pathLength="1" x1="1450" y1="791" x2="1670" y2="791" stroke="#FC6255" stroke-width="5" />
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="no-term" class="h">
+        <rect x="70" y="56" width="580" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">ECDSA <tspan font-size="28" font-weight="400" fill="#8a8f99">Elliptic Curve DSA</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">基于椭圆曲线的数字签名算法</text>
+      </g>
+      <g id="no-term2" class="h">
+        <rect x="70" y="56" width="580" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">RFC 6979 <tspan font-size="28" font-weight="400" fill="#8a8f99">Deterministic k</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">由私钥和消息确定性生成 k</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 骰子 k → 生死线
+      IN("#no-dice", at(0, 0.02), 0.6, { scale: 0.4, svgOrigin: "960 520" }, { scale: 1, svgOrigin: "960 520" });
+      tl.to("#no-dice", { rotation: 360, svgOrigin: "960 520", duration: 0.9, ease: "power2.out" }, at(0, 0.12));
+      IN("#no-ring", at(0, 0.45), 0.6, { scale: 1.3, svgOrigin: "960 520" }, { scale: 1, svgOrigin: "960 520" });
+      IN("#no-life", at(0, 0.6), 0.5);
+      // L1 公式
+      OUT("#no-p0", at(1, 0), 0.4);
+      IN("#no-term", at(1, 0.03), 0.5);
+      IN("#no-f1", at(1, 0.12), 0.6, { y: 20 }, { y: 0 });
+      IN("#no-f2", at(1, 0.42), 0.6, { y: 20 }, { y: 0 });
+      tl.to("#no-fk", { fill: "#ffd08a", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.55));
+      tl.to("#no-fd", { fill: "#ffb3ab", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.85));
+      // L2 同一个 k 两次
+      OUT("#no-term", at(2, 0), 0.4);
+      tl.to("#no-p1", { y: -150, scale: 0.7, svgOrigin: "960 400", duration: 0.7, ease: "power2.inOut" }, at(2, 0.04));
+      IN("#no-c1", at(2, 0.12), 0.5, { x: -30 }, { x: 0 });
+      IN("#no-c2", at(2, 0.24), 0.5, { x: -30 }, { x: 0 });
+      tl.to("#no-r1, #no-r2", { fill: "#FF9F43", duration: 0.3 }, at(2, 0.4));
+      DRAW("#no-rl", at(2, 0.44), 0.4);
+      IN("#no-twice", at(2, 0.5), 0.5, { x: -12 }, { x: 0 });
+      IN("#no-eqs", at(2, 0.72), 0.5);
+      // L3 联立解 k、d
+      IN("#no-d1", at(3, 0.08), 0.6, { x: 20 }, { x: 0 });
+      IN("#no-d2", at(3, 0.46), 0.6, { x: 20 }, { x: 0 });
+      IN("#no-dglow", at(3, 0.62), 0.3, { scale: 0.4, svgOrigin: "1013 566" }, { scale: 1, svgOrigin: "1013 566" });
+      tl.to("#no-dd", { fill: "#ff8a80", duration: 0.25, yoyo: true, repeat: 3 }, at(3, 0.62));
+      IN("#no-any", at(3, 0.8), 0.5, { y: 12 }, { y: 0 });
+      // L4 k 还必须不可预测
+      IN("#no-pd", at(4, 0.04), 0.5, { scale: 0.5, svgOrigin: "1040 790" }, { scale: 1, svgOrigin: "1040 790" });
+      tl.to("#no-pd", { rotation: 20, svgOrigin: "1040 790", duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(4, 0.12));
+      IN("#no-pt1", at(4, 0.14), 0.5, { x: -12 }, { x: 0 });
+      IN("#no-pt2", at(4, 0.55), 0.5, { y: 12 }, { y: 0 });
+      tl.to("#no-dd", { fill: "#ff8a80", duration: 0.25, yoyo: true, repeat: 3 }, at(4, 0.8));
+      // L5 公开可得
+      OUT("#no-pred", at(5, 0), 0.3);
+      OUT("#no-eqs", at(5, 0), 0.3);
+      IN("#no-chain", at(5, 0.05), 0.5, { y: 20 }, { y: 0 });
+      IN("#no-b1, #no-b2", at(5, 0.3), 0.3);
+      ARROW("#no-u1", at(5, 0.38), 0.5);
+      ARROW("#no-u2", at(5, 0.45), 0.5);
+      IN("#no-pub", at(5, 0.6), 0.5);
+      // L6 PS3
+      OUT("#no-p1, #no-p2", at(6, 0), 0.5);
+      IN("#no-ps", at(6, 0.08), 0.6, { scale: 0.9, svgOrigin: "450 515" }, { scale: 1, svgOrigin: "450 515" });
+      IN("#no-psl", at(6, 0.2), 0.5);
+      IN("#no-key", at(6, 0.38), 0.5, { x: -60 }, { x: 0 });
+      IN("#no-fwl", at(6, 0.42), 0.5);
+      IN("#no-same", at(6, 0.55), 0.5);
+      tl.to("#no-key", { x: 40, y: -40, duration: 0.6, ease: "back.out(2)" }, at(6, 0.78));
+      tl.to("#no-keyc, #no-keys", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.8));
+      tl.to("#no-fwl", { fill: "#FC6255", duration: 0.3 }, at(6, 0.8));
+      // L7 安卓
+      IN("#no-ph", at(7, 0.05), 0.6, { y: 30 }, { y: 0 });
+      IN("#no-anl", at(7, 0.15), 0.5);
+      IN("#no-k1", at(7, 0.35), 0.4, { scale: 0.5, svgOrigin: "1610 390" }, { scale: 1, svgOrigin: "1610 390" });
+      IN("#no-k2", at(7, 0.45), 0.4, { scale: 0.5, svgOrigin: "1610 530" }, { scale: 1, svgOrigin: "1610 530" });
+      IN("#no-samek", at(7, 0.52), 0.4);
+      [0, 1, 2].forEach(i => {
+        const t = at(7, 0.68) + i * 0.35;
+        tl.fromTo(`#no-co${i}`, { opacity: 0, x: 0, y: 0 }, { opacity: 1, duration: 0.15 }, t);
+        tl.to(`#no-co${i}`, { x: 260, y: 190, duration: 1.0, ease: "power1.in" }, t);
+        tl.to(`#no-co${i}`, { opacity: 0, duration: 0.3 }, t + 0.8);
+      });
+      IN("#no-stolen", at(7, 0.72), 0.4);
+      // L8 RFC 6979
+      OUT("#no-p3, #no-p4", at(8, 0), 0.5);
+      IN("#no-term2", at(8, 0.03), 0.5);
+      IN("#no-mach", at(8, 0.06), 0.6, { scale: 0.9, svgOrigin: "960 455" }, { scale: 1, svgOrigin: "960 455" });
+      IN("#no-in1", at(8, 0.12), 0.4); ARROW("#no-a1", at(8, 0.14), 0.4);
+      IN("#no-in2", at(8, 0.17), 0.4); ARROW("#no-a2", at(8, 0.19), 0.4);
+      ARROW("#no-a3", at(8, 0.23), 0.4);
+      IN("#no-kout", at(8, 0.26), 0.4, { scale: 0.5, svgOrigin: "1336 455" }, { scale: 1, svgOrigin: "1336 455" });
+      IN("#no-r1t", at(8, 0.3), 0.5);
+      IN("#no-r2t", at(8, 0.36), 0.5);
+      OUT("#no-term2", at(8, 0.4), 0.4);
+      IN("#no-libs", at(8, 0.62), 0.6, { y: 16 }, { y: 0 });
+      IN("#no-diy", at(8, 0.52), 0.5);
+      DRAW("#no-diyx", at(8, 0.56), 0.4);
+      tl.to("#no-diy", { fill: "#6b6f7a", duration: 0.4 }, at(8, 0.58));
+      tl.to("#no-kout", { scale: 1.3, svgOrigin: "1336 455", duration: 0.5 }, at(8, 0.68));
+      tl.to("#no-mach rect", { strokeWidth: 6, fill: "#1b2a1c", duration: 0.5 }, at(8, 0.74));
+      tl.to("#no-r1t, #no-r2t", { fill: "#83C167", duration: 0.5 }, at(8, 0.8));
+      tl.to("#no-libs", { y: -10, duration: 0.6, ease: "sine.inOut" }, at(8, 0.87));
+
+      tl.to("#no-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#no-term, #no-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["nonce"] = tl;
+    })();
+  </script>
+</template>

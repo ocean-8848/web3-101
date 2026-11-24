@@ -1,0 +1,144 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 prod，id 前缀 pr- -->
+  <div id="root" data-composition-id="prod" data-duration="57.48" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pr-all">
+        <!-- 大清单 -->
+        <g id="pr-big">
+          <g id="pr-panel" class="h">
+            <rect x="200" y="220" width="1520" height="760" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="260" y="290" font-size="44" font-weight="700" fill="#e8e6df">上线前检查</text>
+            <rect x="260" y="335" width="40" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <rect x="260" y="455" width="40" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <rect x="260" y="575" width="40" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <rect x="260" y="695" width="40" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <rect x="260" y="815" width="40" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" />
+          </g>
+          <path id="pr-k1" class="dr" pathLength="1" d="M268 355 L278 366 L294 342" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <path id="pr-k2" class="dr" pathLength="1" d="M268 475 L278 486 L294 462" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <path id="pr-k3" class="dr" pathLength="1" d="M268 595 L278 606 L294 582" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <path id="pr-k4" class="dr" pathLength="1" d="M268 715 L278 726 L294 702" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <path id="pr-k5" class="dr" pathLength="1" d="M268 835 L278 846 L294 822" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <g id="pr-i1" class="h">
+            <text x="330" y="366" font-size="32" fill="#e8e6df">金额状态全程 <tspan class="mono" fill="#58C4DD">string / bigint</tspan></text>
+            <text id="pr-s1" x="330" y="408" font-size="28" fill="#8a8f99">lint · 代码审查：禁止 <tspan class="mono" fill="#FC6255">Number()</tspan> / <tspan class="mono" fill="#FC6255">parseFloat</tspan></text>
+          </g>
+          <g id="pr-i2" class="h">
+            <text x="330" y="486" font-size="32" fill="#e8e6df"><tspan fill="#FF9F43">decimals</tspan> 按 (chainId, address) 从链上读</text>
+            <g id="pr-s2"><text x="330" y="528" font-size="28" fill="#8a8f99">单元测试覆盖</text>
+            <rect x="520" y="502" width="60" height="36" rx="18" fill="none" stroke="#FF9F43" stroke-width="2" /><text class="mono" x="550" y="530" font-size="28" fill="#FF9F43" text-anchor="middle">6</text>
+            <rect x="596" y="502" width="60" height="36" rx="18" fill="none" stroke="#FF9F43" stroke-width="2" /><text class="mono" x="626" y="530" font-size="28" fill="#FF9F43" text-anchor="middle">8</text>
+            <rect x="672" y="502" width="72" height="36" rx="18" fill="none" stroke="#FF9F43" stroke-width="2" /><text class="mono" x="708" y="530" font-size="28" fill="#FF9F43" text-anchor="middle">18</text></g>
+          </g>
+          <g id="pr-i3" class="h">
+            <text x="330" y="606" font-size="32" fill="#e8e6df">输入框小数位 ≤ <tspan fill="#FF9F43">decimals</tspan></text>
+            <text id="pr-s3" x="330" y="648" font-size="28" fill="#8a8f99">E2E 测试：USDC 输入 7 位小数 → 拒绝</text>
+          </g>
+          <g id="pr-e2e" class="h">
+            <rect x="1180" y="560" width="300" height="64" rx="10" fill="#0f1117" stroke="#FC6255" stroke-width="3" />
+            <text class="mono" x="1205" y="603" font-size="30" fill="#e8e6df">1.1234567</text>
+            <text x="1500" y="603" font-size="30" font-weight="700" fill="#FC6255">✕ 拒绝</text>
+          </g>
+          <g id="pr-i4" class="h">
+            <text x="330" y="726" font-size="32" fill="#e8e6df">舍入方向按场景区分</text>
+            <text id="pr-s4" x="330" y="768" font-size="28" fill="#8a8f99">快照测试：余额 <tspan fill="#83C167">↓</tspan> · 支付 <tspan fill="#83C167">↑</tspan></text>
+          </g>
+          <g id="pr-i5" class="h">
+            <text x="330" y="846" font-size="32" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">bigint</tspan> 序列化统一封装</text>
+            <text id="pr-s5" x="330" y="888" font-size="28" fill="#8a8f99">接口层测试：包含带 bigint 的对象</text>
+          </g>
+        </g>
+
+        <!-- 缩小版清单 -->
+        <g id="pr-mini" class="h">
+          <rect x="80" y="260" width="680" height="640" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="120" y="330" font-size="36" font-weight="700" fill="#e8e6df">上线前检查</text>
+          <text x="120" y="430" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan>  全程 string / bigint</text>
+          <text x="120" y="530" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan>  decimals 从链上读</text>
+          <text x="120" y="630" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan>  小数位 ≤ decimals</text>
+          <text x="120" y="730" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan>  舍入按场景区分</text>
+          <text x="120" y="830" font-size="30" fill="#e8e6df"><tspan fill="#83C167">✓</tspan>  bigint 序列化统一</text>
+        </g>
+
+        <!-- 浏览器控制台 -->
+        <g id="pr-con" class="h">
+          <rect x="840" y="260" width="960" height="640" rx="14" fill="#05070b" stroke="#8a8f99" stroke-width="2" />
+          <line x1="840" y1="310" x2="1800" y2="310" stroke="#3a3f4a" stroke-width="2" />
+          <circle cx="872" cy="285" r="8" fill="#FC6255" /><circle cx="898" cy="285" r="8" fill="#F0B90B" /><circle cx="924" cy="285" r="8" fill="#83C167" />
+          <text data-layout-ignore="true" x="955" y="293" font-size="22" fill="#6b6f7a">Console</text>
+        </g>
+        <g class="mono">
+          <text id="pr-q1" class="h" x="880" y="370" font-size="28" fill="#e8e6df">&gt; 0.1 + 0.2</text>
+          <text id="pr-a1" class="h" x="880" y="412" font-size="28" fill="#FC6255">0.30000000000000004</text>
+          <text id="pr-q2" class="h" x="880" y="472" font-size="28" fill="#e8e6df">&gt; Number("12345678901234567890")</text>
+          <text id="pr-a2" class="h" x="880" y="514" font-size="28" fill="#FC6255">12345678901234567000</text>
+          <text id="pr-q3" class="h" x="880" y="574" font-size="28" fill="#e8e6df">&gt; 7n / 2n</text>
+          <text id="pr-a3" class="h" x="880" y="616" font-size="28" fill="#58C4DD">3n</text>
+          <text id="pr-q4" class="h" x="880" y="676" font-size="28" fill="#e8e6df">&gt; 11n * 3n * 10n ** 5n</text>
+          <text id="pr-a4" class="h" x="880" y="718" font-size="28" font-weight="700" fill="#83C167">3300000n</text>
+          <text id="pr-q5" class="h" x="880" y="790" font-size="28" fill="#6b6f7a">&gt; 1.1 * 3</text>
+          <text id="pr-a5" class="h" x="880" y="832" font-size="28" fill="#FC6255">3.3000000000000003</text>
+        </g>
+        <text id="pr-note" class="h" x="1060" y="718" font-size="28" fill="#83C167">= 3.3 USDC 的精确链上整数</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const ROW = (i, t, t2) => { IN(`#pr-i${i}`, t, 0.6, { x: -20 }, { x: 0 }); IN(`#pr-s${i}`, t2, 0.5); DRAW(`#pr-k${i}`, t2 + 0.4, 0.4); };
+
+      // L0 清单面板
+      IN("#pr-panel", at(0, 0.1), 0.8, { y: 20 }, { y: 0 });
+      // L1–L4 逐条打勾
+      ROW(1, at(1, 0.05), at(1, 0.45));
+      ROW(2, at(2, 0.05), at(2, 0.5));
+      ROW(3, at(3, 0.05), at(3, 0.4));
+      IN("#pr-e2e", at(3, 0.55), 0.5);
+      ROW(4, at(4, 0.05), at(4, 0.22));
+      ROW(5, at(4, 0.55), at(4, 0.75));
+      // L5 清单收到左侧，右侧控制台
+      OUT("#pr-big", at(5, 0.0), 0.4);
+      IN("#pr-mini", at(5, 0.04), 0.6, { x: 40 }, { x: 0 });
+      IN("#pr-con", at(5, 0.08), 0.6);
+      IN("#pr-q1", at(5, 0.15), 0.3);
+      IN("#pr-a1", at(5, 0.28), 0.4);
+      IN("#pr-q2", at(5, 0.42), 0.3);
+      IN("#pr-a2", at(5, 0.6), 0.4);
+      IN("#pr-q3", at(5, 0.8), 0.3);
+      IN("#pr-a3", at(5, 0.9), 0.4);
+      // L6 11n * 3n * 10n ** 5n
+      IN("#pr-q4", at(6, 0.05), 0.3);
+      IN("#pr-a4", at(6, 0.45), 0.4);
+      IN("#pr-note", at(6, 0.6));
+      IN("#pr-q5", at(6, 0.8), 0.3);
+      IN("#pr-a5", at(6, 0.86), 0.4);
+
+      tl.to("#pr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["prod"] = tl;
+    })();
+  </script>
+</template>

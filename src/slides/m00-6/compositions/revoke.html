@@ -1,0 +1,184 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 revoke，id 前缀 re- -->
+  <div id="root" data-composition-id="revoke" data-duration="50.66" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <g id="re-ph1">
+          <g id="re-led" class="h">
+            <rect x="660" y="380" width="600" height="180" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="690" y="430" font-size="32" fill="#58C4DD">allowance</text>
+            <text x="690" y="482" font-size="32" fill="#e8e6df">对方 →</text>
+            <text id="re-inf" x="800" y="482" font-size="32" fill="#FC6255">无限</text>
+            <text id="re-zero" class="h mono" x="800" y="482" font-size="32" fill="#83C167">0</text>
+            <rect id="re-frm" x="690" y="506" width="540" height="30" rx="5" fill="none" stroke="#58C4DD" stroke-width="2" />
+            <rect id="re-bar" x="692" y="508" width="536" height="26" rx="4" fill="#F0B90B" />
+            <text id="re-ok" class="h" x="1300" y="545" font-size="48" font-weight="700" fill="#83C167" text-anchor="middle">✓</text>
+          </g>
+          <g id="re-tool" class="h">
+            <rect x="1080" y="240" width="760" height="460" rx="16" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="1110" y="292" font-size="32" font-weight="700" fill="#83C167">授权检查工具</text>
+            <line x1="1100" y1="370" x2="1820" y2="370" stroke="#83C167" stroke-width="1.5" opacity="0.4" />
+          </g>
+          <g id="re-ev">
+            <rect class="h" x="1110" y="318" width="22" height="22" rx="4" fill="#58C4DD" />
+            <rect class="h" x="1144" y="318" width="22" height="22" rx="4" fill="#58C4DD" />
+            <rect class="h" x="1178" y="318" width="22" height="22" rx="4" fill="#58C4DD" />
+            <rect class="h" x="1212" y="318" width="22" height="22" rx="4" fill="#58C4DD" />
+            <rect class="h" x="1246" y="318" width="22" height="22" rx="4" fill="#58C4DD" />
+          </g>
+          <text id="re-evl" class="h" x="1290" y="340" font-size="28" fill="#58C4DD"><tspan class="mono">Approval</tspan> 事件 · 当前额度</text>
+          <rect id="re-sel" class="h" x="1096" y="474" width="728" height="54" rx="10" fill="#1d2a1d" stroke="#83C167" stroke-width="2.5" />
+          <g id="re-l1" class="h"><text x="1110" y="430" font-size="30" fill="#e8e6df">协议 A</text><text class="mono" x="1810" y="430" font-size="30" fill="#F0B90B" text-anchor="end">500 USDC</text></g>
+          <g id="re-l2" class="h"><text x="1110" y="511" font-size="30" fill="#e8e6df">协议 B</text></g>
+          <text id="re-unl" class="h mono" x="1810" y="511" font-size="30" fill="#FC6255" text-anchor="end">Unlimited</text>
+          <text id="re-l2z" class="h mono" x="1810" y="511" font-size="30" fill="#83C167" text-anchor="end">0</text>
+          <g id="re-l3" class="h"><text x="1110" y="592" font-size="30" fill="#e8e6df">协议 C</text><text class="mono" x="1810" y="592" font-size="30" fill="#F0B90B" text-anchor="end">50 USDC</text></g>
+          <path id="re-tx" class="dr h" pathLength="1" d="M1072 470 L838 470" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#re-arr)" />
+          <g id="re-pill" class="h">
+            <rect x="250" y="600" width="390" height="56" rx="28" fill="none" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="445" y="638" font-size="30" fill="#83C167" text-anchor="middle">approve(spender, 0)</text>
+          </g>
+          <g id="re-gas" class="h">
+            <circle cx="266" cy="709" r="14" fill="#F0B90B" />
+            <text x="294" y="720" font-size="30" fill="#e8e6df">这也是一笔交易，要 Gas</text>
+          </g>
+          <g id="re-code" class="h">
+            <rect x="980" y="260" width="860" height="440" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="re-hl" x="990" y="299" width="840" height="164" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+            <text class="mono" font-size="28" fill="#e8e6df" style="font-variant-ligatures: none">
+              <tspan x="1010" y="330">const a = await pub.readContract({</tspan>
+              <tspan x="1044" y="371">address: USDC, abi: erc20Abi,</tspan>
+              <tspan x="1044" y="412">functionName: 'allowance',</tspan>
+              <tspan x="1044" y="453">args: [owner, spender] });</tspan>
+              <tspan x="1010" y="494">if (a === 0n) return;</tspan>
+              <tspan x="1010" y="535">await wallet.writeContract({</tspan>
+              <tspan x="1044" y="576">address: USDC, abi: erc20Abi,</tspan>
+              <tspan x="1044" y="617">functionName: 'approve',</tspan>
+              <tspan x="1044" y="658">args: [spender, 0n] });</tspan>
+            </text>
+          </g>
+          <text id="re-c1" class="h" x="1000" y="770" font-size="32" fill="#58C4DD">① 先查授权额度</text>
+          <text id="re-c2" class="h" x="1000" y="770" font-size="32" fill="#83C167">② 已经是 0 就结束</text>
+          <text id="re-c3" class="h" x="1000" y="770" font-size="32" fill="#83C167">③ 发交易，额度改成 0</text>
+        </g>
+        <g id="re-ph2">
+          <g id="re-paper" class="h">
+            <rect x="740" y="370" width="320" height="220" rx="10" fill="#2a2214" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+            <text x="900" y="430" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle"><tspan class="mono">Permit</tspan> 签名</text>
+            <line x1="780" y1="480" x2="1020" y2="480" stroke="#FF9F43" stroke-width="2" opacity="0.6" />
+            <line x1="780" y1="520" x2="980" y2="520" stroke="#FF9F43" stroke-width="2" opacity="0.6" />
+            <line x1="780" y1="560" x2="1000" y2="560" stroke="#FF9F43" stroke-width="2" opacity="0.6" />
+          </g>
+          <g id="re-btn" class="h">
+            <rect id="re-btnb" x="1300" y="450" width="260" height="60" rx="30" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1430" y="490" font-size="30" fill="#83C167" text-anchor="middle">approve(0)</text>
+          </g>
+          <text id="re-x" class="h" x="1230" y="432" font-size="48" font-weight="700" fill="#FC6255" text-anchor="middle">✕</text>
+          <text id="re-nope" class="h" x="960" y="676" font-size="32" fill="#FC6255" text-anchor="middle">它还没上链，撤不掉</text>
+          <g id="re-o1" class="h"><rect x="520" y="730" width="400" height="64" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="720" y="773" font-size="30" fill="#e8e6df" text-anchor="middle">等 <tspan class="mono">deadline</tspan> 过期</text></g>
+          <g id="re-o2" class="h"><rect x="1000" y="730" width="400" height="64" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="1200" y="773" font-size="30" fill="#e8e6df" text-anchor="middle">合约支持时调作废函数</text></g>
+          <text id="re-best" class="h" x="960" y="900" font-size="52" font-weight="700" fill="#83C167" text-anchor="middle">对 <tspan class="mono">Permit</tspan> 最好的防御：不签</text>
+        </g>
+        <g id="re-ph3">
+          <g id="re-cal" class="h">
+            <rect x="560" y="390" width="180" height="170" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <rect x="560" y="390" width="180" height="44" rx="14" fill="#83C167" />
+            <line x1="600" y1="376" x2="600" y2="404" stroke="#e8e6df" stroke-width="5" stroke-linecap="round" />
+            <line x1="700" y1="376" x2="700" y2="404" stroke="#e8e6df" stroke-width="5" stroke-linecap="round" />
+            <text class="mono" x="650" y="520" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">1</text>
+            <text x="650" y="620" font-size="34" fill="#83C167" text-anchor="middle">每月一次</text>
+          </g>
+          <g id="re-keep" class="h">
+            <rect x="880" y="380" width="560" height="220" rx="16" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="910" y="430" font-size="30" fill="#8a8f99">只留正在用的协议</text>
+            <text x="910" y="500" font-size="32" fill="#e8e6df">协议 A</text>
+            <text x="1400" y="500" font-size="36" font-weight="700" fill="#83C167" text-anchor="end">✓</text>
+            <text x="910" y="566" font-size="32" fill="#e8e6df">协议 C</text>
+            <text x="1400" y="566" font-size="36" font-weight="700" fill="#83C167" text-anchor="end">✓</text>
+          </g>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 额度改成零的对象
+      IN("#re-led", at(0, 0.05), 0.6, { scale: 0.95, svgOrigin: "960 470" }, { scale: 1, svgOrigin: "960 470" });
+      tl.fromTo("#re-bar", { attr: { width: 0 } }, { attr: { width: 536 }, duration: 0.9, ease: "power2.out", immediateRender: false }, at(0, 0.2));
+      tl.to("#re-bar", { opacity: 0.5, duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.7));
+      // L1 授权检查工具
+      tl.to("#re-led", { x: -440, duration: 0.8, ease: "power2.inOut" }, at(1, 0.0));
+      IN("#re-tool", at(1, 0.08), 0.7, { x: 200 }, { x: 0 });
+      tl.fromTo("#re-ev rect", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.15 }, at(1, 0.35));
+      IN("#re-evl", at(1, 0.45), 0.5);
+      IN("#re-l1", at(1, 0.65), 0.4); IN("#re-l2", at(1, 0.72), 0.4); IN("#re-unl", at(1, 0.72), 0.4); IN("#re-l3", at(1, 0.79), 0.4);
+      // L2 撤销交易
+      IN("#re-sel", at(2, 0.05), 0.3);
+      ARROW("#re-tx", at(2, 0.18), 0.5);
+      IN("#re-pill", at(2, 0.25), 0.4);
+      tl.to("#re-bar", { attr: { width: 0 }, duration: 0.8, ease: "power2.in" }, at(2, 0.35));
+      OUT("#re-inf", at(2, 0.4), 0.2); IN("#re-zero", at(2, 0.4) + 0.25, 0.3);
+      OUT("#re-unl", at(2, 0.4), 0.2); IN("#re-l2z", at(2, 0.4) + 0.25, 0.3);
+      tl.to("#re-frm", { stroke: "#83C167", duration: 0.3 }, at(2, 0.48));
+      IN("#re-ok", at(2, 0.5), 0.4, { scale: 0.5, svgOrigin: "1300 528" }, { scale: 1, svgOrigin: "1300 528" });
+      IN("#re-gas", at(2, 0.66), 0.5);
+      // L3 代码
+      OUT(["#re-tool", "#re-ev", "#re-evl", "#re-sel", "#re-l1", "#re-l2", "#re-l2z", "#re-l3", "#re-tx", "#re-pill", "#re-gas"], at(3, 0), 0.4);
+      IN("#re-code", at(3, 0) + 0.4, 0.5);
+      IN("#re-c1", at(3, 0.12), 0.4);
+      OUT("#re-c1", at(3, 0.42), 0.25);
+      tl.to("#re-hl", { attr: { y: 463, height: 41 }, duration: 0.4 }, at(3, 0.44));
+      IN("#re-c2", at(3, 0.42) + 0.25, 0.35);
+      OUT("#re-c2", at(3, 0.78), 0.25);
+      tl.to("#re-hl", { attr: { y: 504, height: 164 }, duration: 0.4 }, at(3, 0.8));
+      IN("#re-c3", at(3, 0.78) + 0.25, 0.35);
+      // L4 Permit 撤不掉
+      OUT(["#re-code", "#re-c3", "#re-led"], at(4, 0.05), 0.3);
+      IN("#re-paper", at(4, 0.12), 0.5, { y: 20 }, { y: 0 });
+      IN("#re-btn", at(4, 0.3), 0.4);
+      tl.to("#re-btn", { x: -200, duration: 0.5, ease: "power2.in" }, at(4, 0.42));
+      tl.to("#re-btn", { x: -160, duration: 0.3, ease: "power2.out" }, at(4, 0.42) + 0.5);
+      tl.to("#re-btnb", { stroke: "#FC6255", duration: 0.2 }, at(4, 0.42) + 0.5);
+      IN("#re-x", at(4, 0.42) + 0.6, 0.3, { scale: 0.4, svgOrigin: "1230 415" }, { scale: 1, svgOrigin: "1230 415" });
+      IN("#re-nope", at(4, 0.7), 0.5);
+      // L5 只能等过期 / 作废；最好不签
+      IN("#re-o1", at(5, 0.05), 0.5, { y: 15 }, { y: 0 });
+      IN("#re-o2", at(5, 0.3), 0.5, { y: 15 }, { y: 0 });
+      IN("#re-best", at(5, 0.7), 0.6, { y: 20 }, { y: 0 });
+      // L6 每月一次
+      OUT("#re-ph2", at(6, 0), 0.4);
+      IN("#re-cal", at(6, 0.1), 0.5, { y: 20 }, { y: 0 });
+      IN("#re-keep", at(6, 0.4), 0.5, { x: 30 }, { x: 0 });
+
+      tl.to("#re-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["revoke"] = tl;
+    })();
+  </script>
+</template>

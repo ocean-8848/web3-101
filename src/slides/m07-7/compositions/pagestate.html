@@ -1,0 +1,110 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pagestate，id 前缀 pa- -->
+  <div id="root" data-composition-id="pagestate" data-duration="59.98" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pa-all">
+        <g id="pa-l2" class="h"><rect x="840" y="330" width="240" height="240" rx="20" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3" /><path d="M840 350 L880 300 L1120 300 L1080 350 M1080 350 L1120 300 L1120 520 L1080 570" fill="none" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round" /><text class="mono" x="960" y="478" font-size="80" font-weight="700" fill="#58C4DD" text-anchor="middle">L2</text></g>
+        <g id="pa-nm" class="h"><rect x="680" y="630" width="260" height="64" rx="32" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="810" y="672" font-size="30" fill="#e8e6df" text-anchor="middle">OP Stack</text><rect x="980" y="630" width="260" height="64" rx="32" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="1110" y="672" font-size="30" fill="#e8e6df" text-anchor="middle">Arbitrum</text></g>
+        <g id="pa-tot" class="h"><path d="M360 455 L360 440 L1560 440 L1560 455" fill="none" stroke="#e8e6df" stroke-width="2.5" /><text x="960" y="418" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">总费用</text></g>
+        <rect id="pa-ex" x="360" y="480" width="0" height="80" rx="8" fill="#F0B90B" fill-opacity="0.85" />
+        <rect id="pa-da" x="1124" y="480" width="0" height="80" rx="8" fill="#FF9F43" fill-opacity="0.85" />
+        <text id="pa-exl" class="h" x="740" y="615" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">L2 执行费</text>
+        <text id="pa-dal" class="h" x="1342" y="615" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">L1 数据费</text>
+        <g id="pa-ru" class="h"><rect x="360" y="680" width="760" height="44" rx="4" fill="#3a3f4a" /><line x1="360" y1="690" x2="360" y2="722" stroke="#e8e6df" stroke-width="2" /><line x1="436" y1="690" x2="436" y2="712" stroke="#e8e6df" stroke-width="2" /><line x1="512" y1="690" x2="512" y2="712" stroke="#e8e6df" stroke-width="2" /><line x1="588" y1="690" x2="588" y2="712" stroke="#e8e6df" stroke-width="2" /><line x1="664" y1="690" x2="664" y2="712" stroke="#e8e6df" stroke-width="2" /><line x1="740" y1="690" x2="740" y2="722" stroke="#e8e6df" stroke-width="2" /><line x1="816" y1="690" x2="816" y2="712" stroke="#e8e6df" stroke-width="2" /><line x1="892" y1="690" x2="892" y2="712" stroke="#e8e6df" stroke-width="2" /><line x1="968" y1="690" x2="968" y2="712" stroke="#e8e6df" stroke-width="2" /><line x1="1044" y1="690" x2="1044" y2="712" stroke="#e8e6df" stroke-width="2" /><line x1="1120" y1="690" x2="1120" y2="722" stroke="#e8e6df" stroke-width="2" /><text x="360" y="780" font-size="30" fill="#8a8f99">Gas 量 × 单价</text></g>
+        <path id="pa-gap" class="dr" pathLength="1" d="M1124 702 L1560 702" stroke="#FC6255" stroke-width="4" stroke-dasharray="1" fill="none" />
+        <text id="pa-lo" class="h" x="1342" y="780" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">低估</text>
+        <g id="pa-est" class="h"><text class="mono" x="360" y="880" font-size="30" fill="#58C4DD">estimateTotalFee</text><text x="680" y="880" font-size="28" fill="#8a8f99">OP Stack 扩展方法</text></g>
+        <g id="pa-p0" class="h"><rect x="160" y="230" width="520" height="300" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="184" y="278" font-size="30" font-weight="700" fill="#e8e6df">加载中</text><line x1="350" y1="306" x2="350" y2="510" stroke="#3a3f4a" stroke-width="2" /></g>
+        <g id="pa-p1" class="h"><rect x="700" y="230" width="520" height="300" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="724" y="278" font-size="30" font-weight="700" fill="#e8e6df">未连接钱包</text><line x1="890" y1="306" x2="890" y2="510" stroke="#3a3f4a" stroke-width="2" /></g>
+        <g id="pa-p2" class="h"><rect x="1240" y="230" width="520" height="300" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="1264" y="278" font-size="30" font-weight="700" fill="#e8e6df">空数据</text><line x1="1430" y1="306" x2="1430" y2="510" stroke="#3a3f4a" stroke-width="2" /></g>
+        <g id="pa-p3" class="h"><rect x="430" y="600" width="520" height="300" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="454" y="648" font-size="30" font-weight="700" fill="#e8e6df">出错</text><line x1="620" y1="676" x2="620" y2="880" stroke="#3a3f4a" stroke-width="2" /></g>
+        <g id="pa-p4" class="h"><rect x="970" y="600" width="520" height="300" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="994" y="648" font-size="30" font-weight="700" fill="#e8e6df">部分失败</text></g>
+        <g id="pa-w0" class="h"><text class="mono" x="255" y="450" font-size="80" font-weight="700" fill="#FC6255" text-anchor="middle">0</text><g><path d="M318.4 321.4 L331.6 334.6 M331.6 321.4 L318.4 334.6" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /></g></g>
+        <g id="pa-g0" class="h"><rect class="pa-sk" x="375" y="330" width="270" height="28" rx="8" fill="#4a505c" /><rect class="pa-sk" x="375" y="380" width="200" height="28" rx="8" fill="#4a505c" /><rect class="pa-sk" x="375" y="430" width="240" height="28" rx="8" fill="#4a505c" /></g>
+        <g id="pa-w1" class="h"><rect x="728" y="350" width="140" height="150" rx="8" fill="none" stroke="#FC6255" stroke-width="2" stroke-dasharray="8 8" /><text x="798" y="436" font-size="28" fill="#FC6255" text-anchor="middle">空白</text><g><path d="M858.4 321.4 L871.6 334.6 M871.6 321.4 L858.4 334.6" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /></g></g>
+        <g id="pa-g1" class="h"><rect x="915" y="326" width="250" height="22" rx="6" fill="#4a505c" /><rect x="915" y="362" width="180" height="22" rx="6" fill="#4a505c" /><rect x="912" y="416" width="270" height="64" rx="12" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="2.5" /><text x="1047" y="458" font-size="28" fill="#83C167" text-anchor="middle">连接钱包查看仓位</text></g>
+        <g id="pa-w2" class="h"><text x="1338" y="436" font-size="28" fill="#8a8f99" text-anchor="middle">暂无数据</text><g><path d="M1398.4 321.4 L1411.6 334.6 M1411.6 321.4 L1398.4 334.6" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /></g></g>
+        <g id="pa-g2" class="h"><text x="1452" y="380" font-size="28" fill="#e8e6df">你还没有交易记录</text><rect x="1452" y="416" width="150" height="64" rx="12" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="2.5" /><text x="1527" y="458" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">去兑换</text></g>
+        <g id="pa-w3" class="h"><rect x="454" y="728" width="150" height="10" rx="3" fill="#FC6255" fill-opacity="0.7" /><rect x="454" y="752" width="120" height="10" rx="3" fill="#FC6255" fill-opacity="0.7" /><rect x="454" y="776" width="140" height="10" rx="3" fill="#FC6255" fill-opacity="0.7" /><rect x="454" y="800" width="100" height="10" rx="3" fill="#FC6255" fill-opacity="0.7" /><rect x="454" y="824" width="135" height="10" rx="3" fill="#FC6255" fill-opacity="0.7" /><rect x="454" y="848" width="110" height="10" rx="3" fill="#FC6255" fill-opacity="0.7" /><g><path d="M588.4 691.4 L601.6 704.6 M601.6 691.4 L588.4 704.6" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /></g></g>
+        <g id="pa-g3" class="h"><text x="642" y="730" font-size="30" fill="#e8e6df">请求失败</text><rect x="642" y="766" width="120" height="60" rx="12" fill="#FF9F43" fill-opacity="0.18" stroke="#FF9F43" stroke-width="2.5" /><text x="702" y="806" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">重试</text><text x="786" y="806" font-size="28" fill="#8a8f99">详情 ▸</text></g>
+        <g id="pa-i0" class="h"><path d="M1002.8 700 L1010.8 708.8 L1026.8 690.4" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><rect x="1050" y="689" width="300" height="22" rx="6" fill="#4a505c" fill-opacity="1" /></g>
+        <g id="pa-i1" class="h"><path d="M1002.8 748 L1010.8 756.8 L1026.8 738.4" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><rect x="1050" y="737" width="260" height="22" rx="6" fill="#4a505c" fill-opacity="1" /></g>
+        <g id="pa-i2" class="h"><g><path d="M1006.8 788.8 L1021.2 803.2 M1021.2 788.8 L1006.8 803.2" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /></g><rect x="1050" y="785" width="300" height="22" rx="6" fill="#FC6255" fill-opacity="0.6" /><text x="1390" y="806" font-size="28" font-weight="700" fill="#FC6255">失败</text></g>
+        <g id="pa-i3" class="h"><path d="M1002.8 844 L1010.8 852.8 L1026.8 834.4" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><rect x="1050" y="833" width="240" height="22" rx="6" fill="#4a505c" fill-opacity="1" /></g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="pa-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">L1 数据费 <tspan font-size="28" font-weight="400" fill="#8a8f99">L1 Data Fee</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">Rollup 把数据发布到 L1 的成本</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // L0 L2 区块
+      IN("#pa-l2", at(0, 0.05), 0.6, { scale: 0.8, svgOrigin: "980 440" }, { scale: 1, svgOrigin: "980 440" });
+      IN("#pa-nm", at(0, 0.5), 0.5, { y: 16 }, { y: 0 });
+      // L1 总费用 = 执行费 + 数据费
+      OUT(["#pa-l2", "#pa-nm"], at(1, 0.0), 0.4);
+      IN("#pa-term", at(1, 0.05), 0.5);
+      tl.fromTo("#pa-ex", { attr: { width: 0 } }, { attr: { width: 760 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(1, 0.15));
+      IN("#pa-exl", at(1, 0.22), 0.4);
+      tl.fromTo("#pa-da", { attr: { width: 0 } }, { attr: { width: 436 }, duration: 0.7, ease: "power2.out", immediateRender: false }, at(1, 0.38));
+      IN("#pa-dal", at(1, 0.45), 0.4);
+      IN("#pa-tot", at(1, 0.6), 0.5);
+      OUT("#pa-term", at(1, 0.97), 0.4);
+      // L2 只量执行费 → 低估
+      IN("#pa-ru", at(2, 0.05), 0.5, { y: 16 }, { y: 0 });
+      DRAW("#pa-gap", at(2, 0.22), 0.6); IN("#pa-lo", at(2, 0.28), 0.4);
+      IN("#pa-est", at(2, 0.55), 0.5, { x: -16 }, { x: 0 });
+      // L3 页面状态：加载中
+      OUT(["#pa-tot", "#pa-ex", "#pa-da", "#pa-exl", "#pa-dal", "#pa-ru", "#pa-gap", "#pa-lo", "#pa-est"], at(3, 0.0), 0.4);
+      const PANE = (k, t) => IN(`#pa-p${k}`, t, 0.5, { y: 16 }, { y: 0 });
+      const DIM = (k, t) => tl.to(`#pa-w${k}`, { opacity: 0.35, duration: 0.4 }, t);
+      PANE(0, at(3, 0.25)); IN("#pa-w0", at(3, 0.42), 0.4); IN("#pa-g0", at(3, 0.7), 0.5); DIM(0, at(3, 0.72));
+      tl.to(".pa-sk", { opacity: 0.45, duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, at(3, 0.8));
+      // L4 未连接
+      PANE(1, at(4, 0.02)); IN("#pa-w1", at(4, 0.12), 0.4); IN("#pa-g1", at(4, 0.5), 0.5); DIM(1, at(4, 0.55));
+      // L5 空数据
+      PANE(2, at(5, 0.02)); IN("#pa-w2", at(5, 0.22), 0.4); IN("#pa-g2", at(5, 0.55), 0.5); DIM(2, at(5, 0.6));
+      // L6 错误 + 部分失败
+      PANE(3, at(6, 0.02)); IN("#pa-w3", at(6, 0.06), 0.4); IN("#pa-g3", at(6, 0.2), 0.5); DIM(3, at(6, 0.28));
+      PANE(4, at(6, 0.52));
+      [0, 1, 2, 3].forEach(i => IN(`#pa-i${i}`, at(6, 0.6 + i * 0.06), 0.3, { x: -12 }, { x: 0 }));
+      tl.to("#pa-i2", { scale: 1.06, svgOrigin: "1230 796", duration: 0.25, yoyo: true, repeat: 1 }, at(6, 0.86));
+
+
+      tl.to("#pa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#pa-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["pagestate"] = tl;
+    })();
+  </script>
+</template>

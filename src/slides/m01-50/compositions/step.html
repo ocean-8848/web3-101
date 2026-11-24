@@ -1,0 +1,188 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 step，id 前缀 st- -->
+  <div id="root" data-composition-id="step" data-duration="56.13" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="st-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="st-all">
+        <g id="st-pf" class="h"><rect id="st-pf-bg" x="800" y="220" width="1060" height="572" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/><line x1="800" y1="272" x2="1860" y2="272" stroke="#2a2f3a" stroke-width="2"/><text id="st-pf-t" class="mono" x="826" y="256" font-size="28" fill="#58C4DD">Scanner.Step</text><text x="1836" y="256" font-size="28" fill="#6b6f7a" text-anchor="end">错误处理已省略</text></g>
+<g id="st-pf-hl" class="h"><rect x="808" y="292" width="1044" height="40" rx="4" fill="#58C4DD" fill-opacity="0.15"/><rect x="808" y="292" width="6" height="40" fill="#58C4DD"/></g>
+<g id="st-code" class="h"><text id="st-code-0" class="mono" x="826.0" y="320" font-size="28" fill="#e8e6df" style="white-space:pre">cur, curHash, _ := s.Store.Cursor(ctx)</text><text id="st-code-1" class="mono" x="826.0" y="360" font-size="28" fill="#e8e6df" style="white-space:pre">head, _ := s.Chain.BlockNumber(ctx)</text><text id="st-code-2" class="mono" x="826.0" y="400" font-size="28" fill="#e8e6df" style="white-space:pre">if cur &gt;= head { return false, nil }</text><text id="st-code-3" class="mono" x="826.0" y="440" font-size="28" fill="#e8e6df" style="white-space:pre">hdr, _ := s.Chain.HeaderByNumber(ctx, cur+1)</text><text id="st-code-4" class="mono" x="826.0" y="480" font-size="28" fill="#e8e6df" style="white-space:pre">if hdr.ParentHash != curHash {</text><text id="st-code-5" class="mono" x="895.2" y="520" font-size="28" fill="#e8e6df" style="white-space:pre">anc, err := s.findAncestor(ctx, cur)</text><text id="st-code-6" class="mono" x="895.2" y="560" font-size="28" fill="#e8e6df" style="white-space:pre">s.Store.Rollback(ctx, anc); return true, nil</text><text id="st-code-7" class="mono" x="826.0" y="600" font-size="28" fill="#e8e6df" style="white-space:pre">}</text><text id="st-code-8" class="mono" x="826.0" y="640" font-size="28" fill="#e8e6df" style="white-space:pre">deps, _ := s.collect(ctx, hdr)</text><text id="st-code-9" class="mono" x="826.0" y="680" font-size="28" fill="#e8e6df" style="white-space:pre">s.Store.SaveBlock(ctx, hdr, deps)</text><text id="st-code-10" class="mono" x="826.0" y="720" font-size="28" fill="#e8e6df" style="white-space:pre">s.Store.ConfirmUpTo(ctx, head)</text><text id="st-code-11" class="mono" x="826.0" y="760" font-size="28" fill="#e8e6df" style="white-space:pre">return true, nil</text></g>
+<text id="st-n2" class="h" x="1650" y="400" font-size="28" fill="#8a8f99">追上了 → 休眠</text>
+<text id="st-n4" class="h" x="1650" y="480" font-size="28" fill="#FC6255">① 重组</text>
+<text id="st-n5" class="h" x="1650" y="520" font-size="28" fill="#FF9F43">超深 → 停推进</text>
+<text id="st-n8" class="h" x="1650" y="640" font-size="28" fill="#58C4DD">② 收集</text>
+<text id="st-n9" class="h" x="1650" y="680" font-size="28" fill="#58C4DD">③ 同事务落库</text>
+<text id="st-n10" class="h" x="1650" y="720" font-size="28" fill="#83C167">④ 达标入账</text>
+<g id="st-left">
+<g id="st-k0" class="h"><rect id="st-kr0" x="260" y="820" width="220" height="86" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="st-kt0" class="mono" x="370" y="874" font-size="30" fill="#58C4DD" text-anchor="middle">cur−2</text></g>
+<g id="st-k1" class="h"><rect id="st-kr1" x="260" y="700" width="220" height="86" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="st-kt1" class="mono" x="370" y="754" font-size="30" fill="#58C4DD" text-anchor="middle">cur−1</text></g>
+<g id="st-k2" class="h"><rect id="st-kr2" x="260" y="580" width="220" height="86" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="st-kt2" class="mono" x="370" y="634" font-size="30" fill="#58C4DD" text-anchor="middle">cur</text></g>
+<g id="st-lk" class="h"><line x1="370" y1="786" x2="370" y2="820" stroke="#8a8f99" stroke-width="3"/><line x1="370" y1="666" x2="370" y2="700" stroke="#8a8f99" stroke-width="3"/></g>
+<g id="st-nx" class="h"><line x1="370" y1="546" x2="370" y2="580" stroke="#8a8f99" stroke-width="3" stroke-dasharray="6 5"/><rect id="st-nxr" x="260" y="460" width="220" height="86" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" stroke-dasharray="10 7"/><text class="mono" x="370" y="514" font-size="30" fill="#58C4DD" text-anchor="middle">cur+1</text></g>
+<g id="st-ptr" class="h"><path d="M200 603 L240 623 L200 643 Z" fill="#58C4DD"/></g>
+<g id="st-cc" class="h"><rect x="510" y="600" width="260" height="66" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="640" y="643" font-size="28" fill="#58C4DD" text-anchor="middle">cur · 0x9a3f…</text></g>
+<g id="st-flag" class="h"><line x1="300" y1="270" x2="300" y2="366" stroke="#8a8f99" stroke-width="3"/><path d="M300 272 L350 286 L300 300 Z" fill="#8a8f99"/>
+<text x="366" y="300" font-size="28" fill="#8a8f99">链头 <tspan class="mono">head</tspan></text></g>
+<path id="st-brk" class="h" d="M150 300 L130 300 L130 623 L150 623" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<g id="st-moon" class="h"><path d="M590 490 A30 30 0 1 0 625 530 A24 24 0 1 1 590 490 Z" fill="#F0B90B" fill-opacity="0.8"/>
+<text class="mono" x="640" y="530" font-size="30" fill="#F0B90B">sleep</text></g>
+<g id="st-pc" class="h"><rect x="510" y="460" width="260" height="66" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="640" y="503" font-size="28" fill="#58C4DD" text-anchor="middle">parent <tspan id="st-ph" fill="#58C4DD">0x9a3f…</tspan></text></g>
+<text id="st-eq" class="h" x="610" y="576" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">=</text>
+<text id="st-ne" class="h" x="610" y="576" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">≠</text>
+<text id="st-ph2" class="h mono" x="701" y="503" font-size="28" fill="#FC6255" text-anchor="middle">0x51c0…</text>
+<text id="st-rg" class="h" x="660" y="577" font-size="30" font-weight="700" fill="#FC6255">重组</text>
+<text id="st-anc" class="h" x="510" y="875" font-size="30" fill="#83C167">共同祖先</text>
+<g id="st-dep" class="h"><line x1="120" y1="950" x2="520" y2="950" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 6"/><text x="540" y="960" font-size="28" fill="#FC6255">最大深度 <tspan class="mono">64</tspan></text></g>
+<text id="st-err" class="h mono" x="120" y="640" font-size="30" font-weight="700" fill="#FC6255">ErrReorgTooDeep</text>
+<g id="st-bell" class="h"><path d="M150 690 Q150 666 172 662 Q194 666 194 690 L194 712 L204 724 L140 724 L150 712 Z" fill="none" stroke="#FF9F43" stroke-width="3"/><circle cx="172" cy="732" r="6" fill="#FF9F43"/>
+<text x="226" y="722" font-size="30" fill="#FF9F43">停，等人工</text></g>
+</g>
+<g id="st-tx" class="h"><rect id="st-txr" x="880" y="830" width="940" height="160" rx="16" fill="#58C4DD" fill-opacity="0.06" stroke="#58C4DD" stroke-width="3"/><text x="900" y="818" font-size="28" fill="#58C4DD">一个事务</text></g>
+<g id="st-i0" class="h"><rect x="910" y="870" width="210" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="1015" y="921" font-size="28" fill="#58C4DD" text-anchor="middle">区块 <tspan class="mono">cur+1</tspan></text></g>
+<g id="st-i1" class="h"><rect x="1150" y="870" width="190" height="80" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="1245" y="921" font-size="28" fill="#F0B90B" text-anchor="middle">充值记录</text></g>
+<g id="st-i2" class="h"><rect x="1370" y="870" width="190" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="1465" y="921" font-size="28" fill="#58C4DD" text-anchor="middle">新游标</text></g>
+<g id="st-cm" class="h"><rect x="1610" y="872" width="180" height="76" rx="8" fill="none" stroke="#83C167" stroke-width="4"/><text class="mono" x="1700" y="923" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">COMMIT</text></g>
+<g id="st-s0" class="h"><rect id="st-sr0" x="140" y="260" width="260" height="70" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="270" y="305" font-size="30" fill="#58C4DD" text-anchor="middle">读游标</text></g>
+<g id="st-s1" class="h"><rect id="st-sr1" x="140" y="370" width="260" height="70" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="270" y="415" font-size="30" fill="#e8e6df" text-anchor="middle">① 比哈希</text></g>
+<line id="st-sl1" class="h" x1="270" y1="340" x2="270" y2="370" stroke="#8a8f99" stroke-width="2.5"/>
+<g id="st-s2" class="h"><rect id="st-sr2" x="140" y="480" width="260" height="70" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="270" y="525" font-size="30" fill="#e8e6df" text-anchor="middle">② 收集</text></g>
+<line id="st-sl2" class="h" x1="270" y1="450" x2="270" y2="480" stroke="#8a8f99" stroke-width="2.5"/>
+<g id="st-s3" class="h"><rect id="st-sr3" x="140" y="590" width="260" height="70" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="270" y="635" font-size="30" fill="#e8e6df" text-anchor="middle">③ 落库</text></g>
+<line id="st-sl3" class="h" x1="270" y1="560" x2="270" y2="590" stroke="#8a8f99" stroke-width="2.5"/>
+<g id="st-s4" class="h"><rect id="st-sr4" x="140" y="700" width="260" height="70" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="270" y="745" font-size="30" fill="#e8e6df" text-anchor="middle">④ 入账</text></g>
+<line id="st-sl4" class="h" x1="270" y1="670" x2="270" y2="700" stroke="#8a8f99" stroke-width="2.5"/>
+<g id="st-sx" class="h"><path d="M420 575 L460 615 M460 575 L420 615" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/></g>
+<path id="st-loop" class="dr h" pathLength="1" d="M480 595 C640 595 640 295 412 295" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#st-arr)"/>
+<text id="st-msg1" class="h" x="880" y="870" font-size="32" fill="#83C167">下一轮从游标重来</text>
+<text id="st-msg2" class="h" x="880" y="930" font-size="32" fill="#83C167">每步是事务，可安全重来</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0
+IN("#st-pf", at(0, 0.05), 0.5);
+IN("#st-code", at(0, 0.1), 0.6);
+IN("#st-k0, #st-k1, #st-k2, #st-lk", at(0, 0.3), 0.5, { y: 20 }, { y: 0 });
+IN("#st-ptr", at(0, 0.5), 0.4, { x: -20 }, { x: 0 });
+IN("#st-nx", at(0, 0.7), 0.5);
+// L1 读游标 + 链头
+tl.to("#st-pf-hl rect",{attr:{y:292,height:40},duration:0.01,ease:"power2.inOut"},at(1, 0.02));
+IN("#st-pf-hl", at(1, 0.04), 0.3);
+IN("#st-cc", at(1, 0.15), 0.5, { x: -20 }, { x: 0 });
+tl.to("#st-pf-hl rect",{attr:{y:332,height:40},duration:0.35,ease:"power2.inOut"},at(1, 0.6));
+IN("#st-flag", at(1, 0.66), 0.5, { y: -20 }, { y: 0 });
+IN("#st-brk", at(1, 0.8), 0.5);
+// L2 追上了 → 休眠
+tl.to("#st-pf-hl rect",{attr:{y:372,height:40},duration:0.35,ease:"power2.inOut"},at(2, 0.02));
+IN("#st-n2", at(2, 0.06), 0.4);
+OUT("#st-nx", at(2, 0.1), 0.3);
+tl.to("#st-flag", { y: 205, duration: 0.8, ease: "power2.inOut" }, at(2, 0.18));
+tl.to("#st-brk", { attr: { d: "M150 505 L130 505 L130 623 L150 623" }, duration: 0.8, ease: "power2.inOut" }, at(2, 0.18));
+IN("#st-moon", at(2, 0.42), 0.5);
+OUT("#st-moon", at(2, 0.9), 0.3);
+tl.to("#st-flag", { y: 0, duration: 0.5, ease: "power2.inOut" }, at(2, 0.92));
+tl.to("#st-brk", { attr: { d: "M150 300 L130 300 L130 623 L150 623" }, duration: 0.5, ease: "power2.inOut" }, at(2, 0.92));
+// L3 读下一块头，比较父哈希
+tl.to("#st-pf-hl rect",{attr:{y:412,height:40},duration:0.35,ease:"power2.inOut"},at(3, 0.02));
+IN("#st-nx", at(3, 0.05), 0.4);
+tl.to("#st-nxr", { strokeDasharray: "none", duration: 0.01 }, at(3, 0.12));
+IN("#st-pc", at(3, 0.22), 0.5, { x: -20 }, { x: 0 });
+tl.to("#st-pf-hl rect",{attr:{y:452,height:40},duration:0.35,ease:"power2.inOut"},at(3, 0.32));
+IN("#st-eq", at(3, 0.4), 0.3, { scale: 0.5, svgOrigin: "610 564" }, { scale: 1, svgOrigin: "610 564" });
+OUT("#st-eq", at(3, 0.62), 0.25);
+OUT("#st-ph", at(3, 0.62), 0.25);
+IN("#st-ph2", at(3, 0.66), 0.3);
+tl.to("#st-pc rect", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.66));
+IN("#st-ne", at(3, 0.7), 0.3, { scale: 0.5, svgOrigin: "610 564" }, { scale: 1, svgOrigin: "610 564" });
+IN("#st-rg", at(3, 0.76), 0.4);
+IN("#st-n4", at(3, 0.8), 0.4);
+// L4 回溯找祖先 → 回滚；超深 → 停
+tl.to("#st-pf-hl rect",{attr:{y:492,height:80},duration:0.35,ease:"power2.inOut"},at(4, 0.02));
+OUT("#st-pc, #st-ne, #st-rg, #st-ph2, #st-cc, #st-flag, #st-brk, #st-nx", at(4, 0.02), 0.4);
+tl.to("#st-kr2", { stroke: "#FC6255", duration: 0.3 }, at(4, 0.1));
+tl.to("#st-ptr", { y: 120, duration: 0.5, ease: "power2.inOut" }, at(4, 0.14));
+tl.to("#st-kr1", { stroke: "#FC6255", duration: 0.3 }, at(4, 0.2));
+tl.to("#st-ptr", { y: 240, duration: 0.5, ease: "power2.inOut" }, at(4, 0.24));
+tl.to("#st-kr0", { stroke: "#83C167", fill: "#1b2a1d", duration: 0.3 }, at(4, 0.3));
+IN("#st-anc", at(4, 0.32), 0.4);
+tl.to("#st-k1, #st-k2, #st-lk", { opacity: 0, y: -30, duration: 0.6 }, at(4, 0.4));
+IN("#st-n5", at(4, 0.5), 0.4);
+IN("#st-dep", at(4, 0.58), 0.5);
+OUT("#st-anc", at(4, 0.6), 0.3);
+tl.to("#st-ptr path", { fill: "#FC6255", duration: 0.2 }, at(4, 0.66));
+tl.to("#st-ptr", { y: 360, duration: 0.6, ease: "power2.in" }, at(4, 0.64));
+IN("#st-err", at(4, 0.72), 0.4, { x: -20 }, { x: 0 });
+IN("#st-bell", at(4, 0.8), 0.4);
+tl.to("#st-bell path", { rotation: 12, svgOrigin: "172 662", duration: 0.12, yoyo: true, repeat: 5 }, at(4, 0.84));
+// L5 收集 + 同一事务落库
+tl.to("#st-pf-hl rect",{attr:{y:612,height:40},duration:0.35,ease:"power2.inOut"},at(5, 0.02));
+OUT("#st-err, #st-bell, #st-dep", at(5, 0), 0.35);
+tl.set("#st-ptr path", { fill: "#58C4DD" }, at(5, 0.05));
+tl.to("#st-ptr", { y: 0, duration: 0.5 }, at(5, 0.05));
+tl.set("#st-kr0", { stroke: "#58C4DD", fill: "#161a22" }, at(5, 0.05));
+tl.set("#st-kr1, #st-kr2", { stroke: "#58C4DD" }, at(5, 0.05));
+tl.to("#st-k1, #st-k2, #st-lk", { opacity: 1, y: 0, duration: 0.5 }, at(5, 0.06));
+IN("#st-nx", at(5, 0.1), 0.4);
+IN("#st-n8", at(5, 0.1), 0.4);
+tl.to("#st-pf-hl rect",{attr:{y:652,height:40},duration:0.35,ease:"power2.inOut"},at(5, 0.45));
+IN("#st-n9", at(5, 0.47), 0.4);
+IN("#st-tx", at(5, 0.5), 0.5);
+IN("#st-i0", at(5, 0.58), 0.5, { x: -420, y: -380 }, { x: 0, y: 0 });
+IN("#st-i1", at(5, 0.64), 0.5, { x: -500, y: -200 }, { x: 0, y: 0 });
+IN("#st-i2", at(5, 0.7), 0.5, { x: -700, y: -300 }, { x: 0, y: 0 });
+tl.to("#st-ptr", { y: -120, duration: 0.5 }, at(5, 0.72));
+IN("#st-cm", at(5, 0.84), 0.3, { scale: 1.6, svgOrigin: "1700 910" }, { scale: 1, svgOrigin: "1700 910" });
+tl.to("#st-txr", { stroke: "#83C167", duration: 0.3 }, at(5, 0.86));
+// L6 达标入账；任一步出错 → 从游标重来
+tl.to("#st-pf-hl rect",{attr:{y:692,height:40},duration:0.35,ease:"power2.inOut"},at(6, 0.02));
+IN("#st-n10", at(6, 0.04), 0.4);
+OUT("#st-left, #st-tx, #st-i0, #st-i1, #st-i2, #st-cm", at(6, 0.18), 0.5);
+IN("#st-s0", at(6, 0.24) + 0.00, 0.4, { y: 15 }, { y: 0 });
+IN("#st-s1", at(6, 0.24) + 0.18, 0.4, { y: 15 }, { y: 0 });
+IN("#st-sl1", at(6, 0.24) + 0.18, 0.3);
+IN("#st-s2", at(6, 0.24) + 0.36, 0.4, { y: 15 }, { y: 0 });
+IN("#st-sl2", at(6, 0.24) + 0.36, 0.3);
+IN("#st-s3", at(6, 0.24) + 0.54, 0.4, { y: 15 }, { y: 0 });
+IN("#st-sl3", at(6, 0.24) + 0.54, 0.3);
+IN("#st-s4", at(6, 0.24) + 0.72, 0.4, { y: 15 }, { y: 0 });
+IN("#st-sl4", at(6, 0.24) + 0.72, 0.3);
+IN("#st-sx", at(6, 0.4), 0.3);
+tl.to("#st-sr3", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.4));
+ARROW("#st-loop", at(6, 0.46), 0.8);
+tl.to("#st-sr0", { fillOpacity: 1, fill: "#1b2a1d", duration: 0.3 }, at(6, 0.52));
+IN("#st-msg1", at(6, 0.5), 0.5);
+IN("#st-msg2", at(6, 0.72), 0.5);
+
+
+      tl.to("#st-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      
+      window.__timelines["step"] = tl;
+    })();
+  </script>
+</template>

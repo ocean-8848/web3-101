@@ -1,0 +1,164 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 rp- -->
+  <div id="root" data-composition-id="recap" data-duration="73.25" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="rp-all">
+        <defs><marker id="rp-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker></defs>
+<g id="rp-v" class="h"><rect x="820" y="240" width="280" height="480" rx="18" fill="none" stroke="#58C4DD" stroke-width="3"/>
+<rect x="900" y="280" width="120" height="400" rx="6" fill="none" stroke="#2a2f3a" stroke-width="2"/>
+<text class="mono" x="884" y="300" font-size="28" fill="#8a8f99" text-anchor="end">11</text>
+<text class="mono" x="884" y="690" font-size="28" fill="#8a8f99" text-anchor="end">0</text></g>
+<rect id="rp-vb" class="h" x="900" y="680" width="120" height="0" rx="6" fill="#F0B90B"/>
+<text id="rp-vn" class="h mono" x="960" y="780" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle"><tspan id="rp-vnv">0</tspan> ETH</text>
+<g id="rp-atk" class="h"><rect x="541" y="546" width="38" height="38" rx="6" fill="#FC6255"/><path d="M534 630 L534 596 Q534 590 540 590 L580 590 Q586 590 586 596 L586 630 Z" fill="#FC6255"/></g>
+<g id="rp-lock"><g id="rp-lk" class="h"><path d="M547.0 364.0 V352.0 A13.0 13.0 0 0 1 573.0 352.0 V364.0" fill="none" stroke="#8a8f99" stroke-width="6.0"/><rect x="535" y="362.0" width="50.0" height="40.0" rx="6.0" fill="#8a8f99"/><circle cx="560.0" cy="380.0" r="5.0" fill="#0f1117"/></g></g>
+<g id="rp-lkok" class="h"><path d="M598 380 L607.3 389.8 L626 370.2" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+<text id="rp-lkl" class="h" x="560" y="480" font-size="30" fill="#83C167" text-anchor="middle">没有破解</text>
+<text id="rp-big" class="h" x="960" y="910" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">作者没想到的<tspan fill="#FF9F43">顺序</tspan>或<tspan fill="#FC6255">调用者</tspan></text>
+<rect id="rp-card" class="h" x="160" y="220" width="1600" height="780" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+<g id="rp-r0" class="h"><rect x="200" y="270" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<text x="264" y="300" font-size="32" fill="#e8e6df">外部调用放在状态更新之后（<tspan class="mono">CEI</tspan>）</text></g>
+<path id="rp-c0" class="dr" pathLength="1" d="M207 288 L216 298 L232 276" stroke="#83C167" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text id="rp-t0" class="h" x="1200" y="300" font-size="28" fill="#8fb8d0"><tspan class="mono">Slither reentrancy-*</tspan></text>
+<g id="rp-r1" class="h"><rect x="200" y="370" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<text x="264" y="400" font-size="32" fill="#e8e6df">资金函数加 <tspan class="mono" fill="#83C167">nonReentrant</tspan></text></g>
+<path id="rp-c1" class="dr" pathLength="1" d="M207 388 L216 398 L232 376" stroke="#83C167" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="rp-r2" class="h"><rect x="200" y="470" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<text x="264" y="500" font-size="32" fill="#e8e6df"><tspan class="mono">initializer + _disableInitializers</tspan></text></g>
+<path id="rp-c2" class="dr" pathLength="1" d="M207 488 L216 498 L232 476" stroke="#83C167" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text id="rp-t2" class="h" x="1200" y="500" font-size="28" fill="#8fb8d0">Foundry：二次初始化须 revert</text>
+<g id="rp-r3" class="h"><rect x="200" y="570" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<text x="264" y="600" font-size="32" fill="#e8e6df">只用 <tspan class="mono">msg.sender</tspan> · 角色最小化 · 参数上限 · 多签 / 时间锁</text></g>
+<path id="rp-c3" class="dr" pathLength="1" d="M207 588 L216 598 L232 576" stroke="#83C167" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="rp-r4" class="h"><rect x="200" y="670" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<text x="264" y="700" font-size="32" fill="#e8e6df">先乘后除 · 统一小数位 · 舍入对协议有利</text></g>
+<path id="rp-c4" class="dr" pathLength="1" d="M207 688 L216 698 L232 676" stroke="#83C167" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text id="rp-t4" class="h" x="1200" y="700" font-size="28" fill="#8fb8d0">模糊测试：1 wei / 极大值</text>
+<g id="rp-r5" class="h"><rect x="200" y="770" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<text x="264" y="800" font-size="32" fill="#e8e6df">代币转账用 <tspan class="mono" fill="#83C167">SafeERC20</tspan></text></g>
+<path id="rp-c5" class="dr" pathLength="1" d="M207 788 L216 798 L232 776" stroke="#83C167" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text id="rp-t5" class="h" x="1200" y="800" font-size="28" fill="#8fb8d0">USDT 主网分叉</text>
+<g id="rp-r6" class="h"><rect x="200" y="870" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<text x="264" y="900" font-size="32" fill="#e8e6df">分钱用 <tspan class="mono">pull</tspan>，不写无界循环</text></g>
+<path id="rp-c6" class="dr" pathLength="1" d="M207 888 L216 898 L232 876" stroke="#83C167" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text id="rp-t6" class="h" x="1200" y="900" font-size="28" fill="#8fb8d0">N = 10,000 Gas 压测</text>
+<g id="rp-mA" class="h"><rect x="100" y="300" width="820" height="500" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+<text x="140" y="370" font-size="30" font-weight="700" fill="#FF9F43">误区</text>
+<text id="rp-myA" x="140" y="460" font-size="40" fill="#e8e6df">0.8 以后没有整数问题</text></g>
+<line id="rp-sA" class="dr" pathLength="1" x1="134" y1="446" x2="538" y2="446" stroke="#FC6255" stroke-width="4"/>
+<path id="rp-aA" class="dr h" pathLength="1" d="M160 500 V580" stroke="#83C167" stroke-width="4" marker-end="url(#rp-arrg)" fill="none"/>
+<text id="rp-trA0" class="h" x="140" y="650" font-size="34" fill="#83C167">unchecked / 强转 / 截断 / 单位</text>
+<g id="rp-mB" class="h"><rect x="1000" y="300" width="820" height="500" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+<text x="1040" y="370" font-size="30" font-weight="700" fill="#FF9F43">误区</text>
+<text id="rp-myB" x="1040" y="460" font-size="40" fill="#e8e6df">用了锁就不管顺序</text></g>
+<line id="rp-sB" class="dr" pathLength="1" x1="1034" y1="446" x2="1366" y2="446" stroke="#FC6255" stroke-width="4"/>
+<path id="rp-aB" class="dr h" pathLength="1" d="M1060 500 V580" stroke="#83C167" stroke-width="4" marker-end="url(#rp-arrg)" fill="none"/>
+<text id="rp-trB0" class="h" x="1040" y="650" font-size="34" fill="#83C167">锁只护本合约</text>
+<text id="rp-trB1" class="h" x="1040" y="714" font-size="34" fill="#83C167">CEI + 锁一起用</text>
+<g id="rp-mC" class="h"><rect x="100" y="300" width="820" height="500" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+<text x="140" y="370" font-size="30" font-weight="700" fill="#FF9F43">误区</text>
+<text id="rp-myC" x="140" y="460" font-size="40" fill="#e8e6df">transfer 2300 Gas 最安全</text></g>
+<line id="rp-sC" class="dr" pathLength="1" x1="134" y1="446" x2="590" y2="446" stroke="#FC6255" stroke-width="4"/>
+<path id="rp-aC" class="dr h" pathLength="1" d="M160 500 V580" stroke="#83C167" stroke-width="4" marker-end="url(#rp-arrg)" fill="none"/>
+<text id="rp-trC0" class="h" x="140" y="650" font-size="34" fill="#83C167">多签收不了</text>
+<text id="rp-trC1" class="h" x="140" y="714" font-size="34" fill="#83C167">Gas 成本变化会失效</text>
+<text id="rp-trC2" class="h" x="140" y="778" font-size="34" fill="#83C167">用 call + 检查 + 防重入</text>
+<g id="rp-mD" class="h"><rect x="1000" y="300" width="820" height="500" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+<text x="1040" y="370" font-size="30" font-weight="700" fill="#FF9F43">误区</text>
+<text id="rp-myD" x="1040" y="460" font-size="40" fill="#e8e6df">审计过就没漏洞</text></g>
+<line id="rp-sD" class="dr" pathLength="1" x1="1034" y1="446" x2="1326" y2="446" stroke="#FC6255" stroke-width="4"/>
+<path id="rp-aD" class="dr h" pathLength="1" d="M1060 500 V580" stroke="#83C167" stroke-width="4" marker-end="url(#rp-arrg)" fill="none"/>
+<text id="rp-trD0" class="h" x="1040" y="650" font-size="34" fill="#83C167">审计是抽样</text>
+<text id="rp-trD1" class="h" x="1040" y="714" font-size="34" fill="#83C167">升级 / 集成 / 参数</text>
+<text id="rp-trD2" class="h" x="1040" y="778" font-size="34" fill="#83C167">都会带来新风险</text>
+<text id="rp-next" class="h" x="960" y="500" font-size="72" font-weight="700" fill="#e8e6df" text-anchor="middle">下一集 · 合约安全 II</text>
+<text id="rp-nsub" class="h" x="960" y="600" font-size="34" fill="#8a8f99" text-anchor="middle">预言机 · 闪电贷 · MEV · 签名 · 升级 · 治理 · 审计</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="rp-term" class="h"></g>
+<rect id="rp-black" x="0" y="0" width="1920" height="1080" fill="#000" opacity="0"/>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+const HL = (p, n, idx, t, dim = 0.6) => { for (let i = 0; i < n; i++) { tl.to(`#${p}-l${i}`, { opacity: idx.includes(i) ? 1 : dim, duration: 0.3 }, t); tl.to(`#${p}-hl${i}`, { opacity: idx.includes(i) ? 1 : 0, duration: 0.3 }, t); } };
+const MOVE = (s, t, v, d = 0.7, e = "power2.inOut") => tl.to(s, { ...v, duration: d, ease: e }, t);
+
+// L0 rewind vault
+IN("#rp-v", at(0, 0.02), 0.5);
+IN("#rp-vb, #rp-vn", at(0, 0.05), 0.3);
+tl.fromTo("#rp-vb", { attr: { y: 680, height: 0 } }, { attr: { y: 280, height: 400 }, duration: 1.6, ease: "power2.inOut", immediateRender: false }, at(0, 0.08));
+COUNT("#rp-vnv", 0, 11, at(0, 0.08), 1.6);
+IN("#rp-atk", at(0, 0.3), 0.4);
+IN("#rp-lk", at(0, 0.36), 0.4);
+IN("#rp-lkok, #rp-lkl", at(0, 0.44), 0.4);
+IN("#rp-big", at(0, 0.62), 0.6, { y: 20 }, { y: 0 });
+// L1 checklist part 1
+OUT("#rp-v, #rp-vb, #rp-vn, #rp-atk, #rp-lk, #rp-lkok, #rp-lkl, #rp-big", at(1, 0), 0.4);
+IN("#rp-card", at(1, 0.02), 0.5);
+const ROW = (i, t, tc) => { IN(`#rp-r${i}`, t, 0.4, { x: -20 }, { x: 0 }); DRAW(`#rp-c${i}`, tc, 0.4); };
+ROW(0, at(1, 0.06), at(1, 0.16));
+ROW(1, at(1, 0.23), at(1, 0.33));
+ROW(2, at(1, 0.39), at(1, 0.47));
+ROW(3, at(1, 0.51), at(1, 0.66));
+tl.to("#rp-c0, #rp-c1, #rp-c2, #rp-c3", { stroke: "#a8e08f", duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.86));
+// L2 checklist part 2
+ROW(4, at(2, 0.02), at(2, 0.3));
+ROW(5, at(2, 0.42), at(2, 0.6));
+ROW(6, at(2, 0.7), at(2, 0.9));
+// L3 tool tags
+[[0, 0.12], [2, 0.3], [5, 0.45], [4, 0.62], [6, 0.82]].forEach(([i, f]) => IN(`#rp-t${i}`, at(3, f), 0.4, { x: 20 }, { x: 0 }));
+// L4 myths A B
+OUT("#rp-card, #rp-r0, #rp-r1, #rp-r2, #rp-r3, #rp-r4, #rp-r5, #rp-r6, #rp-c0, #rp-c1, #rp-c2, #rp-c3, #rp-c4, #rp-c5, #rp-c6, #rp-t0, #rp-t2, #rp-t4, #rp-t5, #rp-t6", at(4, 0), 0.4);
+const MYTH = (k, f0, fs, ft) => {
+  IN(`#rp-m${k}`, at(4 + (k > "B" ? 1 : 0), f0), 0.5, { y: 20 }, { y: 0 });
+  DRAW(`#rp-s${k}`, at(4 + (k > "B" ? 1 : 0), fs), 0.4);
+  tl.to(`#rp-my${k}`, { fill: "#6b6f7a", duration: 0.3 }, at(4 + (k > "B" ? 1 : 0), fs));
+  ARROW(`#rp-a${k}`, at(4 + (k > "B" ? 1 : 0), fs) + 0.3, 0.4);
+  ft.forEach((f, j) => IN(`#rp-tr${k}${j}`, at(4 + (k > "B" ? 1 : 0), f), 0.4));
+};
+MYTH("A", 0.12, 0.22, [0.3]);
+MYTH("B", 0.42, 0.52, [0.6, 0.78]);
+// L5 myths C D
+OUT("#rp-mA, #rp-sA, #rp-aA, #rp-trA0, #rp-mB, #rp-sB, #rp-aB, #rp-trB0, #rp-trB1", at(5, 0), 0.4);
+MYTH("C", 0.03, 0.12, [0.2, 0.3, 0.4]);
+MYTH("D", 0.5, 0.58, [0.66, 0.78, 0.88]);
+// L6 next episode
+OUT("#rp-mC, #rp-sC, #rp-aC, #rp-trC0, #rp-trC1, #rp-trC2, #rp-mD, #rp-sD, #rp-aD, #rp-trD0, #rp-trD1, #rp-trD2", at(6, 0), 0.4);
+IN("#rp-next", at(6, 0.06), 0.7, { scale: 0.9, svgOrigin: "960 480" }, { scale: 1, svgOrigin: "960 480" });
+IN("#rp-nsub", at(6, 0.25), 0.6);
+
+
+      tl.to("#rp-black", { opacity: 1, duration: 0.6, ease: "power2.in" }, C.d - 1.1);
+      tl.to("#rp-all", { opacity: 0, duration: 0.6, ease: "power2.in" }, C.d - 1.1);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

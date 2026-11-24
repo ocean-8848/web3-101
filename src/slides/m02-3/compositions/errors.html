@@ -1,0 +1,249 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 errors，id 前缀 er- -->
+  <div id="root" data-composition-id="errors" data-duration="63.31" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="er-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+      </defs>
+      <g id="er-all">
+        <!-- 报警铃 -->
+        <g id="er-bell" class="h">
+          <g id="er-bellR">
+            <circle cx="960" cy="122" r="8" fill="#FC6255" />
+            <path d="M918 206 Q918 132 960 128 Q1002 132 1002 206 L1016 220 L904 220 Z" fill="#FC6255" />
+            <circle cx="960" cy="232" r="10" fill="#FC6255" />
+          </g>
+        </g>
+        <!-- 四个槽 -->
+        <rect id="er-s1" class="h" x="76" y="300" width="430" height="500" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" stroke-dasharray="12 10" />
+        <rect id="er-s2" class="h" x="522" y="300" width="430" height="500" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" stroke-dasharray="12 10" />
+        <rect id="er-s3" class="h" x="968" y="300" width="430" height="500" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" stroke-dasharray="12 10" />
+        <rect id="er-s4" class="h" x="1414" y="300" width="430" height="500" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" stroke-dasharray="12 10" />
+        <g id="er-nums" class="h" font-size="28" text-anchor="middle">
+          <circle cx="114" cy="340" r="22" fill="none" stroke="#6b6f7a" stroke-width="2" /><text x="114" y="350" fill="#8a8f99">1</text>
+          <circle cx="560" cy="340" r="22" fill="none" stroke="#6b6f7a" stroke-width="2" /><text x="560" y="350" fill="#8a8f99">2</text>
+          <circle cx="1006" cy="340" r="22" fill="none" stroke="#6b6f7a" stroke-width="2" /><text x="1006" y="350" fill="#8a8f99">3</text>
+          <circle cx="1452" cy="340" r="22" fill="none" stroke="#6b6f7a" stroke-width="2" /><text x="1452" y="350" fill="#8a8f99">4</text>
+        </g>
+        <!-- 槽 1：require + 字符串 -->
+        <g id="er-k1">
+          <text id="er-c1" class="h mono" x="100" y="420" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">require</tspan>(cond, <tspan fill="#F0B90B">"msg"</tspan>)</text>
+          <g id="er-bc" class="h">
+            <text x="100" y="520" font-size="28" fill="#8a8f99">字节码</text>
+            <rect x="100" y="545" width="160" height="48" rx="6" fill="#1b2a33" stroke="#58C4DD" stroke-width="2" />
+          </g>
+          <rect id="er-bcg" x="262" y="545" width="0" height="48" rx="6" fill="#F0B90B" />
+          <text id="er-bcm" class="h mono" x="362" y="579" font-size="28" fill="#0f1117" text-anchor="middle">"msg"</text>
+          <text id="er-cost" class="h" x="100" y="660" font-size="30" fill="#F0B90B">部署更贵 · 回滚更贵</text>
+        </g>
+        <!-- 槽 2：if + revert 自定义错误（推荐） -->
+        <g id="er-k2">
+          <g id="er-tag" class="h">
+            <rect x="852" y="318" width="84" height="44" rx="10" fill="#83C167" />
+            <text x="894" y="350" font-size="28" fill="#0f1117" text-anchor="middle">推荐</text>
+          </g>
+          <g id="er-c2" class="h">
+            <text class="mono" x="546" y="420" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">if</tspan> (!cond)</text>
+            <text class="mono" x="577" y="458" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">revert MyError</tspan>(a, b);</text>
+          </g>
+          <text id="er-rdl" class="h" x="546" y="530" font-size="28" fill="#8a8f99">回滚数据</text>
+          <g id="er-rd1" class="h">
+            <rect x="546" y="555" width="170" height="64" rx="8" fill="#1b2a33" stroke="#58C4DD" stroke-width="2" />
+            <text x="631" y="597" font-size="28" fill="#58C4DD" text-anchor="middle">选择器</text>
+          </g>
+          <g id="er-rd2" class="h">
+            <rect x="728" y="555" width="80" height="64" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text class="mono" x="768" y="597" font-size="28" fill="#e8e6df" text-anchor="middle">a</text>
+          </g>
+          <g id="er-rd3" class="h">
+            <rect x="820" y="555" width="80" height="64" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text class="mono" x="860" y="597" font-size="28" fill="#e8e6df" text-anchor="middle">b</text>
+          </g>
+          <text id="er-4b" class="h" x="631" y="664" font-size="28" fill="#8a8f99" text-anchor="middle">4 字节</text>
+          <text id="er-best" class="h" x="546" y="740" font-size="30" fill="#83C167">最省 · 带参数</text>
+        </g>
+        <!-- 槽 3：require + 自定义错误 -->
+        <g id="er-k3">
+          <g id="er-c3" class="h">
+            <text class="mono" x="992" y="420" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">require</tspan>(cond,</text>
+            <text class="mono" x="1023" y="458" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">MyError</tspan>(a))</text>
+          </g>
+          <line id="er-tline" class="dr" pathLength="1" x1="1018" y1="540" x2="1018" y2="780" stroke="#2a3040" stroke-width="4" />
+          <g id="er-v1" class="h">
+            <circle cx="1018" cy="560" r="12" fill="#FF9F43" />
+            <text class="mono" x="1050" y="570" font-size="28" fill="#e8e6df">0.8.26</text>
+            <text x="1050" y="614" font-size="28" fill="#FF9F43">仅 via-IR</text>
+          </g>
+          <g id="er-v2" class="h">
+            <circle cx="1018" cy="700" r="12" fill="#83C167" />
+            <text class="mono" x="1050" y="710" font-size="28" fill="#e8e6df">0.8.27</text>
+            <text x="1050" y="754" font-size="28" fill="#83C167">默认管线也支持</text>
+          </g>
+        </g>
+        <!-- 槽 4：assert -->
+        <g id="er-k4">
+          <text id="er-c4" class="h mono" x="1438" y="420" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">assert</tspan>(cond)</text>
+          <g id="er-pn" class="h">
+            <rect x="1438" y="510" width="250" height="70" rx="10" fill="#2a1618" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="1563" y="555" font-size="28" fill="#FC6255" text-anchor="middle">Panic(0x01)</text>
+          </g>
+          <g id="er-pnt" class="h" font-size="28">
+            <text x="1438" y="660" fill="#8a8f99">只查内部不变量</text>
+            <text x="1438" y="706" fill="#8a8f99">0.8 起退还剩余 Gas</text>
+          </g>
+        </g>
+        <!-- 小图标一排 -->
+        <g id="er-chips" class="h" font-size="28" text-anchor="middle">
+          <text class="mono" x="240" y="254" fill="#e8e6df">require "msg"</text>
+          <text class="mono" x="560" y="254" fill="#83C167">revert Err()</text>
+          <text class="mono" x="880" y="254" fill="#e8e6df">require(c, Err)</text>
+          <text class="mono" x="1200" y="254" fill="#e8e6df">assert()</text>
+        </g>
+        <!-- try / catch 面板 -->
+        <g id="er-panel" class="h">
+          <rect x="90" y="310" width="960" height="410" rx="14" fill="#161a22" stroke="#2a3040" stroke-width="2" />
+        </g>
+        <g id="er-hl" class="h">
+          <rect x="92" y="332" width="956" height="38" fill="#58C4DD" fill-opacity="0.18" />
+          <rect x="92" y="332" width="6" height="38" fill="#58C4DD" />
+        </g>
+        <g id="er-code" font-size="28">
+          <g class="er-ln h"><text class="mono" x="140" y="360" fill="#6b6f7a" text-anchor="end">1</text><text class="mono" x="160" y="360" fill="#e8e6df"><tspan fill="#58C4DD">try</tspan> feed.latestPrice() <tspan fill="#58C4DD">returns</tspan> (<tspan fill="#58C4DD">uint256</tspan> p) {</text></g>
+          <g class="er-ln h"><text class="mono" x="140" y="400" fill="#6b6f7a" text-anchor="end">2</text><text class="mono" x="222" y="400" fill="#e8e6df">price = p;</text></g>
+          <g class="er-ln h"><text class="mono" x="140" y="440" fill="#6b6f7a" text-anchor="end">3</text><text class="mono" x="160" y="440" fill="#e8e6df">} <tspan fill="#58C4DD">catch</tspan> <tspan fill="#FC6255">Error</tspan>(<tspan fill="#58C4DD">string memory</tspan> reason) {</text></g>
+          <g class="er-ln h"><text class="mono" x="140" y="480" fill="#6b6f7a" text-anchor="end">4</text><text class="mono" x="222" y="480" fill="#e8e6df"><tspan fill="#58C4DD">emit</tspan> FeedFailed(reason);</text></g>
+          <g class="er-ln h"><text class="mono" x="140" y="520" fill="#6b6f7a" text-anchor="end">5</text><text class="mono" x="160" y="520" fill="#e8e6df">} <tspan fill="#58C4DD">catch</tspan> <tspan fill="#FC6255">Panic</tspan>(<tspan fill="#58C4DD">uint256</tspan> code) {</text></g>
+          <g class="er-ln h"><text class="mono" x="140" y="560" fill="#6b6f7a" text-anchor="end">6</text><text class="mono" x="222" y="560" fill="#e8e6df"><tspan fill="#58C4DD">emit</tspan> FeedPanic(code);</text></g>
+          <g class="er-ln h"><text class="mono" x="140" y="600" fill="#6b6f7a" text-anchor="end">7</text><text class="mono" x="160" y="600" fill="#e8e6df">} <tspan fill="#58C4DD">catch</tspan> (<tspan fill="#58C4DD">bytes memory</tspan> data) {</text></g>
+          <g class="er-ln h"><text class="mono" x="140" y="640" fill="#6b6f7a" text-anchor="end">8</text><text class="mono" x="222" y="640" fill="#e8e6df"><tspan fill="#58C4DD">emit</tspan> FeedRaw(data);</text></g>
+          <g class="er-ln h"><text class="mono" x="140" y="680" fill="#6b6f7a" text-anchor="end">9</text><text class="mono" x="160" y="680" fill="#e8e6df">}</text></g>
+        </g>
+        <!-- 调用外部合约 -->
+        <g id="er-me" class="h">
+          <rect x="90" y="780" width="200" height="70" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="190" y="825" font-size="28" fill="#e8e6df" text-anchor="middle">本合约</text>
+        </g>
+        <path id="er-call" class="dr h" pathLength="1" d="M302 815 L546 815" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#er-arr)" />
+        <text id="er-calll" class="h mono" x="425" y="796" font-size="28" fill="#58C4DD" text-anchor="middle">latestPrice()</text>
+        <g id="er-feed" class="h">
+          <rect x="560" y="780" width="180" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="650" y="825" font-size="28" fill="#e8e6df" text-anchor="middle">feed</text>
+        </g>
+        <!-- 接住的盒子 -->
+        <g id="er-b1o"><g id="er-b1" class="h">
+          <rect x="1090" y="402" width="760" height="56" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <text class="mono" x="1110" y="440" font-size="28" fill="#F0B90B">Error(string)</text>
+          <text class="mono" x="1350" y="440" font-size="28" fill="#e8e6df">← require, revert("msg")</text>
+        </g></g>
+        <g id="er-b2o"><g id="er-b2" class="h">
+          <rect x="1090" y="482" width="760" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+          <text class="mono" x="1110" y="520" font-size="28" fill="#FC6255">Panic(uint256)</text>
+          <text x="1370" y="520" font-size="28" fill="#e8e6df"><tspan class="mono">← assert</tspan>、溢出</text>
+        </g></g>
+        <g id="er-b3o"><g id="er-b3" class="h">
+          <rect x="1090" y="562" width="760" height="56" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="1110" y="600" font-size="28" fill="#58C4DD">bytes</text>
+          <text x="1220" y="600" font-size="28" fill="#e8e6df"><tspan class="mono">←</tspan> 自定义错误等</text>
+        </g></g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="er-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Panic <tspan font-size="28" font-weight="400" fill="#8a8f99">恐慌错误</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">编译器插入的检查失败时抛出，带错误码</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const RING = (t, n = 5) => tl.fromTo("#er-bellR", { rotation: -14 }, { rotation: 14, duration: 0.09, repeat: n, yoyo: true, ease: "sine.inOut", svgOrigin: "960 122", immediateRender: false }, t)
+        .to("#er-bellR", { rotation: 0, duration: 0.1, svgOrigin: "960 122" }, t + 0.09 * (n + 1));
+      const SOLID = (s, t, c = "#8a8f99") => tl.to(s, { attr: { "stroke-dasharray": "none" }, stroke: c, duration: 0.3 }, t);
+
+      // L0 报警铃 + 四个空槽
+      IN("#er-bell", at(0, 0), 0.6, { scale: 0.6, svgOrigin: "960 175" }, { scale: 1, svgOrigin: "960 175" });
+      RING(at(0, 0.15));
+      tl.fromTo(["#er-s1", "#er-s2", "#er-s3", "#er-s4"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power3.out" }, at(0, 0.45));
+      IN("#er-nums", at(0, 0.7), 0.5);
+
+      // L1 require + 字符串
+      SOLID("#er-s1", at(1, 0));
+      IN("#er-c1", at(1, 0.05));
+      IN("#er-bc", at(1, 0.3), 0.5);
+      tl.fromTo("#er-bcg", { attr: { width: 0 } }, { attr: { width: 200 }, duration: 1.0, ease: "power2.out" }, at(1, 0.45));
+      IN("#er-bcm", at(1, 0.6), 0.4);
+      IN("#er-cost", at(1, 0.75));
+
+      // L2 if + revert 自定义错误
+      SOLID("#er-s2", at(2, 0), "#83C167");
+      IN("#er-tag", at(2, 0.05), 0.5);
+      IN("#er-c2", at(2, 0.1));
+      IN("#er-rdl", at(2, 0.42), 0.5);
+      IN("#er-rd1", at(2, 0.47), 0.5, { y: -20 }, { y: 0 });
+      IN("#er-rd2", at(2, 0.55), 0.5, { y: -20 }, { y: 0 });
+      IN("#er-rd3", at(2, 0.6), 0.5, { y: -20 }, { y: 0 });
+      IN("#er-4b", at(2, 0.66), 0.5);
+      IN("#er-best", at(2, 0.8));
+
+      // L3 require + 自定义错误，版本时间轴
+      SOLID("#er-s3", at(3, 0));
+      IN("#er-c3", at(3, 0.05));
+      DRAW("#er-tline", at(3, 0.35), 0.8);
+      IN("#er-v1", at(3, 0.42), 0.6, { x: -20 }, { x: 0 });
+      IN("#er-v2", at(3, 0.74), 0.6, { x: -20 }, { x: 0 });
+
+      // L4 assert → Panic
+      SOLID("#er-s4", at(4, 0));
+      IN("#er-c4", at(4, 0.05));
+      IN("#er-pn", at(4, 0.42), 0.5, { scale: 0.7, svgOrigin: "1563 545" }, { scale: 1, svgOrigin: "1563 545", ease: "back.out(2)" });
+      RING(at(4, 0.42), 3);
+      IN("#er-term", at(4, 0.45), 0.5);
+      IN("#er-pnt", at(4, 0.66));
+
+      // L5 四槽缩成一排小图标；try/catch 面板
+      OUT(["#er-k1 > *", "#er-k2 > *", "#er-k3 > *", "#er-k4 > *", "#er-nums", "#er-bell"], at(5, 0), 0.35);
+      [1, 2, 3, 4].forEach((k, i) => tl.to(`#er-s${k}`, { attr: { x: 90 + i * 320, y: 215, width: 300, height: 58, rx: 12 }, duration: 0.8, ease: "power3.inOut" }, at(5, 0.06)));
+      IN("#er-chips", at(5, 0.22), 0.5);
+      IN("#er-panel", at(5, 0.3), 0.5);
+      tl.fromTo("#er-code .er-ln", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.06 }, at(5, 0.34));
+      IN("#er-hl", at(5, 0.62), 0.4);
+      IN("#er-me", at(5, 0.55), 0.5);
+      ARROW("#er-call", at(5, 0.66), 0.6);
+      IN("#er-calll", at(5, 0.72), 0.4);
+      IN("#er-feed", at(5, 0.78), 0.5);
+      OUT("#er-term", at(5, 0.85), 0.4);
+
+      // L6 三个 catch 分支依次接住
+      const HL = (row, t) => tl.to("#er-hl", { y: (row - 1) * 40, duration: 0.45, ease: "power2.inOut" }, t);
+      HL(3, at(6, 0.02)); IN("#er-b1", at(6, 0.08), 0.6, { y: -40 }, { y: 0, ease: "bounce.out" });
+      HL(5, at(6, 0.36)); IN("#er-b2", at(6, 0.42), 0.6, { y: -40 }, { y: 0, ease: "bounce.out" });
+      HL(7, at(6, 0.68)); IN("#er-b3", at(6, 0.74), 0.6, { y: -40 }, { y: 0, ease: "bounce.out" });
+
+      tl.to("#er-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#er-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["errors"] = tl;
+    })();
+  </script>
+</template>

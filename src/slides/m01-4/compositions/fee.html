@@ -1,0 +1,169 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 fee，id 前缀 fe- -->
+  <div id="root" data-composition-id="fee" data-duration="62.54" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fe-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="fe-all">
+        <g id="fe-main">
+          <text id="fe-fm" class="h" x="960" y="300" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">实际单价 = min( <tspan fill="#FF9F43">maxFee</tspan> , <tspan fill="#FC6255">baseFee</tspan> + <tspan fill="#F0B90B">tip</tspan> )</text>
+          <line id="fe-base" class="h" x1="320" y1="900" x2="560" y2="900" stroke="#8a8f99" stroke-width="3"/>
+          <rect id="fe-cap" class="h" x="380" y="480" width="120" height="420" rx="4" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="10 8"/>
+          <rect id="fe-red" x="380" y="900" width="120" height="0" fill="#FC6255"/>
+          <rect id="fe-gold" x="380" y="900" width="120" height="0" fill="#F0B90B"/>
+          <rect id="fe-goldh" x="380" y="900" width="120" height="0" fill="#F0B90B"/>
+          <line id="fe-ceil" class="h" x1="350" y1="540" x2="520" y2="540" stroke="#FF9F43" stroke-width="5"/>
+          <g id="fe-lr" class="h">
+            <text x="540" y="842" font-size="30" fill="#FC6255">baseFee → 销毁</text>
+            <path d="M808 846 C790 828 800 816 812 800 C814 814 826 818 826 832 C826 842 818 848 808 846 Z" fill="#FC6255"/>
+          </g>
+          <text id="fe-lg" class="h" x="540" y="756" font-size="30" fill="#F0B90B">tip → 出块者</text>
+          <text id="fe-nr" class="h" x="540" y="842" font-size="30" fill="#FC6255">销毁 210,000 gwei</text>
+          <text id="fe-ng" class="h" x="540" y="756" font-size="30" fill="#F0B90B">出块者 42,000 gwei</text>
+          <text id="fe-nc" class="h" x="540" y="500" font-size="30" fill="#FF9F43">上限 630,000 gwei</text>
+          <text id="fe-gap" class="h" x="540" y="622" font-size="30" fill="#8a8f99">差额 · 不扣</text>
+          <text id="fe-6c" class="h" x="540" y="548" font-size="30" fill="#FF9F43">maxFee 45</text>
+          <text id="fe-6g" class="h" x="540" y="602" font-size="30" fill="#F0B90B">tip 只剩 5</text>
+          <text id="fe-6r" class="h" x="540" y="760" font-size="30" fill="#FC6255">baseFee 40</text>
+          <g id="fe-pc" class="h">
+            <rect x="1120" y="370" width="680" height="275" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="1150" y="415" font-size="28" fill="#8a8f99">示例 · 单位 gwei</text>
+          </g>
+          <text id="fe-p0" class="h mono" x="1150" y="470" font-size="32" fill="#e8e6df">gasUsed  21,000</text>
+          <text id="fe-p1" class="h mono" x="1150" y="520" font-size="32" fill="#FC6255">baseFee</text>
+          <text id="fe-p2" class="h mono" x="1150" y="570" font-size="32" fill="#F0B90B">tip</text>
+          <text id="fe-p3" class="h mono" x="1150" y="620" font-size="32" fill="#FF9F43">maxFee</text>
+          <text id="fe-v1a" class="h mono" x="1323" y="520" font-size="32" fill="#FC6255">10</text>
+          <text id="fe-v2a" class="h mono" x="1323" y="570" font-size="32" fill="#F0B90B">2</text>
+          <text id="fe-v3a" class="h mono" x="1323" y="620" font-size="32" fill="#FF9F43">30</text>
+          <text id="fe-v1b" class="h mono" x="1323" y="520" font-size="32" font-weight="700" fill="#FC6255">40</text>
+          <text id="fe-v2b" class="h mono" x="1323" y="570" font-size="32" font-weight="700" fill="#F0B90B">10</text>
+          <text id="fe-v3b" class="h mono" x="1323" y="620" font-size="32" font-weight="700" fill="#FF9F43">45</text>
+          <g id="fe-calc">
+            <text id="fe-c0" class="h mono" x="1120" y="722" font-size="34" fill="#e8e6df">min(30, 10 + 2) = <tspan font-weight="700" fill="#58C4DD">12 gwei</tspan></text>
+            <text id="fe-c1" class="h mono" x="1120" y="792" font-size="34" fill="#e8e6df">21,000 × 12 = 252,000 gwei</text>
+            <text id="fe-c2" class="h mono" x="1120" y="858" font-size="38" font-weight="700" fill="#F0B90B">= 0.000252 ETH</text>
+          </g>
+          <g id="fe-chk">
+            <text id="fe-k0" class="h" x="1120" y="742" font-size="36" fill="#e8e6df">余额 ≥ <tspan fill="#F0B90B">value</tspan> + gas × <tspan fill="#FF9F43">maxFee</tspan></text>
+            <g id="fe-txw" class="h"><g id="fe-tx">
+              <rect id="fe-txr" x="1150" y="852" width="160" height="60" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+              <text x="1230" y="893" font-size="30" fill="#e8e6df" text-anchor="middle">交易</text>
+            </g></g>
+            <g id="fe-node" class="h">
+              <circle cx="1720" cy="882" r="46" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+              <text x="1720" y="893" font-size="28" fill="#8a8f99" text-anchor="middle">节点</text>
+            </g>
+            <g id="fe-rej" class="h">
+              <path d="M1380 945 L1406 971 M1406 945 L1380 971" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+              <text x="1420" y="970" font-size="32" font-weight="700" fill="#FC6255">拒收</text>
+            </g>
+          </g>
+          <text id="fe-c6" class="h mono" x="1120" y="742" font-size="34" fill="#e8e6df">min(45, 40 + 10) = <tspan font-weight="700" fill="#FF9F43">45</tspan></text>
+        </g>
+        <text id="fe-end" class="h" x="960" y="560" font-size="72" font-weight="700" fill="#FF9F43" text-anchor="middle">maxFee = 上限，不是单价</text>
+
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="fe-term" class="h">
+        <rect x="70" y="56" width="540" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">小费 <tspan font-size="28" font-weight="400" fill="#8a8f99">Priority Fee</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">付给出块者的每 Gas 费用</text>
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// bar helper: set segment [y0 bottom, h]
+const SEG = (s, y, h, t, d = 0.8) => tl.to(s, { attr: { y, height: h }, duration: d, ease: "power2.out" }, t);
+const SWAPV = (k, t) => { OUT(`#fe-v${k}a`, t, 0.2); IN(`#fe-v${k}b`, t + 0.25, 0.3); };
+// L0 formula + term
+IN("#fe-fm", at(0, 0.05), 0.8, { y: 16 }, { y: 0 });
+IN("#fe-term", at(0, 0.7), 0.5);
+// L1 price bar: red base (burn) + gold tip (proposer)   scale 14 px / gwei
+IN("#fe-base", at(1, 0.0), 0.3);
+SEG("#fe-red", 760, 140, at(1, 0.05));
+IN("#fe-lr", at(1, 0.15), 0.5);
+SEG("#fe-gold", 732, 28, at(1, 0.55), 0.5);
+IN("#fe-lg", at(1, 0.6), 0.5);
+OUT("#fe-term", at(2, 0.0), 0.4);
+// L2 parameter card
+IN("#fe-pc", at(2, 0.05), 0.5);
+IN("#fe-p0", at(2, 0.3), 0.4, { x: -12 }, { x: 0 });
+IN("#fe-p1, #fe-v1a", at(2, 0.5), 0.4, { x: -12 }, { x: 0 });
+IN("#fe-p2, #fe-v2a", at(2, 0.7), 0.4, { x: -12 }, { x: 0 });
+IN("#fe-p3, #fe-v3a", at(2, 0.88), 0.4, { x: -12 }, { x: 0 });
+// L3 substitute
+IN("#fe-c0", at(3, 0.08), 0.5, { x: -16 }, { x: 0 });
+IN("#fe-c1", at(3, 0.45), 0.5, { x: -16 }, { x: 0 });
+IN("#fe-c2", at(3, 0.8), 0.5, { x: -16 }, { x: 0 });
+// L4 split amounts + cap box
+OUT("#fe-lr, #fe-lg", at(4, 0.0), 0.3);
+IN("#fe-nr", at(4, 0.08), 0.4);
+IN("#fe-ng", at(4, 0.3), 0.4);
+IN("#fe-cap", at(4, 0.55), 0.6);
+IN("#fe-nc", at(4, 0.6), 0.4);
+IN("#fe-gap", at(4, 0.82), 0.4);
+// L5 balance check, node rejects
+OUT("#fe-calc", at(5, 0.0), 0.35);
+IN("#fe-k0", at(5, 0.08) + 0.3, 0.5);
+IN("#fe-node", at(5, 0.5), 0.4);
+IN("#fe-txw", at(5, 0.55), 0.3);
+tl.to("#fe-tx", { x: 300, duration: 0.5, ease: "power2.in" }, at(5, 0.6));
+tl.to("#fe-txr", { stroke: "#FC6255", duration: 0.15 }, at(5, 0.6) + 0.5);
+tl.to("#fe-tx", { x: 40, duration: 0.6, ease: "back.out(2)" }, at(5, 0.6) + 0.52);
+IN("#fe-rej", at(5, 0.6) + 0.6, 0.3);
+// L6 cap binds: baseFee 40, tip 10, maxFee 45   scale 8 px / gwei
+tl.to("#fe-chk", { opacity: 0, duration: 0.35 }, at(6, 0.0));
+OUT("#fe-nr, #fe-ng, #fe-nc, #fe-gap, #fe-cap", at(6, 0.0), 0.35);
+tl.to("#fe-p0", { opacity: 0.35, duration: 0.3 }, at(6, 0.05));
+SWAPV(1, at(6, 0.1));
+SWAPV(2, at(6, 0.2));
+SWAPV(3, at(6, 0.3));
+SEG("#fe-red", 580, 320, at(6, 0.12), 0.8);
+SEG("#fe-gold", 540, 40, at(6, 0.22), 0.6);
+SEG("#fe-goldh", 500, 40, at(6, 0.22), 0.6);
+IN("#fe-6r", at(6, 0.2), 0.4);
+IN("#fe-c6", at(6, 0.5), 0.5, { x: -16 }, { x: 0 });
+IN("#fe-ceil", at(6, 0.68), 0.3, { scaleX: 0, svgOrigin: "440 540" }, { scaleX: 1, svgOrigin: "440 540" });
+IN("#fe-6c", at(6, 0.7), 0.4);
+tl.to("#fe-goldh", { fill: "#3a3d45", duration: 0.4 }, at(6, 0.8));
+IN("#fe-6g", at(6, 0.84), 0.4);
+// L7 takeaway
+tl.to("#fe-main", { opacity: 0, duration: 0.5 }, at(7, 0.0));
+IN("#fe-end", at(7, 0.12), 0.7, { scale: 0.85, svgOrigin: "960 540" }, { scale: 1, svgOrigin: "960 540" });
+
+      /*ENDANIM*/
+
+      tl.to("#fe-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#fe-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["fee"] = tl;
+    })();
+  </script>
+</template>

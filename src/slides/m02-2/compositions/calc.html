@@ -1,0 +1,130 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 calc，id 前缀 ca- -->
+  <div id="root" data-composition-id="calc" data-duration="43.86" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ca-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ca-all">
+        <text id="ca-ex" class="h" x="80" y="100" font-size="28" fill="#8a8f99">示例</text>
+        <g id="ca-fm" class="h">
+          <rect x="560" y="150" width="800" height="170" rx="16" fill="#161a22" stroke="#2a2f3a" stroke-width="2.5"/>
+          <text class="mono" x="960" y="222" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#F0B90B">fee</tspan> = amount × <tspan fill="#FF9F43">0.3%</tspan></text>
+        </g>
+        <text id="ca-amt" class="h mono" x="960" y="290" font-size="36" fill="#F0B90B" text-anchor="middle">amount = 1234 wei</text>
+        <g id="ca-up" class="h">
+          <rect id="ca-upr" x="120" y="350" width="1060" height="240" rx="16" fill="none" stroke="#83C167" stroke-width="2.5"/>
+          <text x="150" y="395" font-size="30" font-weight="700" fill="#83C167">先乘后除</text>
+        </g>
+        <text id="ca-u1" class="h mono" x="150" y="465" font-size="34" fill="#e8e6df">1234 × 30 = 37020</text>
+        <path id="ca-ua1" class="dr h" pathLength="1" d="M522 453 L568 453" stroke="#8a8f99" stroke-width="3" marker-end="url(#ca-arr)"/>
+        <text id="ca-u2" class="h mono" x="590" y="465" font-size="34" fill="#e8e6df">/ 10000 = 3</text>
+        <text id="ca-uf" class="h mono" x="814.4" y="465" font-size="34" fill="#e8e6df">.702</text>
+        <line id="ca-uk" class="dr" pathLength="1" x1="815" y1="420" x2="815" y2="482" stroke="#FC6255" stroke-width="4"/>
+        <path id="ca-ua2" class="dr h" pathLength="1" d="M838 453 L880 453" stroke="#8a8f99" stroke-width="3" marker-end="url(#ca-arr)"/>
+        <text id="ca-ur" class="h mono" x="898" y="467" font-size="40" font-weight="700" fill="#83C167">3 wei</text>
+        <g id="ca-cap" class="h">
+          <rect x="150" y="500" width="1000" height="22" rx="4" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <rect x="150" y="500" width="5" height="22" fill="#58C4DD"/>
+        </g>
+        <line id="ca-capl" class="h" x1="1150" y1="490" x2="1150" y2="532" stroke="#FF9F43" stroke-width="4" stroke-dasharray="6 5"/>
+        <text id="ca-capt" class="h" x="150" y="568" font-size="28" fill="#FF9F43">乘积不能溢出</text>
+        <g id="ca-capm" class="h"><text class="mono" x="1086" y="568" font-size="28" fill="#FF9F43" text-anchor="end">uint256</text><text x="1150" y="568" font-size="28" fill="#FF9F43" text-anchor="end">上限</text></g>
+        <g id="ca-dn" class="h">
+          <rect id="ca-dnr" x="120" y="620" width="1060" height="200" rx="16" fill="none" stroke="#FC6255" stroke-width="2.5"/>
+          <text x="150" y="665" font-size="30" font-weight="700" fill="#FC6255">先除后乘</text>
+        </g>
+        <text id="ca-d1" class="h mono" x="150" y="735" font-size="34" fill="#e8e6df">1234 / 10000 = 0</text>
+        <text id="ca-df" class="h mono" x="476.4" y="735" font-size="34" fill="#e8e6df">.1234</text>
+        <line id="ca-dk" class="dr" pathLength="1" x1="477" y1="690" x2="477" y2="752" stroke="#FC6255" stroke-width="4"/>
+        <path id="ca-da1" class="dr h" pathLength="1" d="M500 723 L548 723" stroke="#8a8f99" stroke-width="3" marker-end="url(#ca-arr)"/>
+        <text id="ca-d2" class="h mono" x="562" y="735" font-size="34" font-weight="700" fill="#FC6255">0 × 30 = 0</text>
+        <g id="ca-coin" class="h"><path id="ca-cp0" d="M880 722 L914 722 A34 34 0 0 1 880 756 Z" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><path id="ca-cp1" d="M880 722 L880 756 A34 34 0 0 1 846 722 Z" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><path id="ca-cp2" d="M880 722 L846 722 A34 34 0 0 1 880 688 Z" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><path id="ca-cp3" d="M880 722 L880 688 A34 34 0 0 1 914 722 Z" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/></g>
+        <g id="ca-pn" class="h">
+          <rect x="1230" y="350" width="610" height="470" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+          <line x1="1230" y1="386" x2="1840" y2="386" stroke="#2a2f3a" stroke-width="2"/>
+          <text class="mono" x="1256" y="377" font-size="24" fill="#58C4DD" data-layout-ignore>fee</text>
+        </g>
+        <g id="ca-hl" class="h">
+          <rect x="1232" y="609" width="606" height="42" fill="rgba(131,193,103,.14)"/>
+          <rect x="1232" y="609" width="6" height="42" fill="#83C167"/>
+        </g>
+        <text id="ca-k0" class="h mono" x="1255" y="460" font-size="28" fill="#e8e6df">amount / 10000 * 30</text><g id="ca-m0" class="h"><path d="M1604 439 L1626 461 M1626 439 L1604 461" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><text x="1650" y="460" font-size="28" fill="#FC6255">丢精度</text></g><text id="ca-k1" class="h mono" x="1255" y="550" font-size="28" fill="#e8e6df">amount * 0.003</text><g id="ca-m1" class="h"><path d="M1604 529 L1626 551 M1626 529 L1604 551" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><text x="1650" y="550" font-size="28" fill="#FC6255">编译不过</text></g><text id="ca-k2" class="h mono" x="1255" y="640" font-size="28" fill="#e8e6df">amount * 30 / 10000</text><g id="ca-m2" class="h"><path d="M1602 630 L1612 641 L1630 618" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="1650" y="640" font-size="28" fill="#83C167">先乘后除</text></g><text id="ca-k3" class="h mono" x="1255" y="730" font-size="28" fill="#e8e6df">amount / 333</text><g id="ca-m3" class="h"><path d="M1604 709 L1626 731 M1626 709 L1604 731" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><text x="1650" y="730" font-size="28" fill="#FC6255">近似值</text></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 setup
+IN("#ca-ex", at(0, 0.0), 0.4);
+IN("#ca-fm", at(0, 0.05), 0.6, { y: -15 }, { y: 0 });
+IN("#ca-amt", at(0, 0.62), 0.5);
+// L1 multiply first
+IN("#ca-up", at(1, 0.0), 0.5);
+IN("#ca-u1", at(1, 0.06), 0.5, { x: -15 }, { x: 0 });
+ARROW("#ca-ua1", at(1, 0.3), 0.4);
+IN("#ca-u2, #ca-uf", at(1, 0.36), 0.5, { x: -15 }, { x: 0 });
+DRAW("#ca-uk", at(1, 0.6), 0.25);
+tl.to("#ca-uf", { y: 70, opacity: 0, fill: "#6b6f7a", duration: 0.8, ease: "power2.in" }, at(1, 0.64));
+OUT("#ca-uk", at(1, 0.72), 0.3);
+ARROW("#ca-ua2", at(1, 0.76), 0.4);
+IN("#ca-ur", at(1, 0.8), 0.5, { scale: 0.7, svgOrigin: "958 455" }, { scale: 1, svgOrigin: "952 455" });
+// L2 divide first
+IN("#ca-dn", at(2, 0.0), 0.5);
+IN("#ca-d1, #ca-df", at(2, 0.08), 0.5, { x: -15 }, { x: 0 });
+DRAW("#ca-dk", at(2, 0.34), 0.25);
+tl.to("#ca-df", { y: 60, opacity: 0, fill: "#6b6f7a", duration: 0.8, ease: "power2.in" }, at(2, 0.38));
+OUT("#ca-dk", at(2, 0.46), 0.3);
+ARROW("#ca-da1", at(2, 0.5), 0.4);
+IN("#ca-d2", at(2, 0.56), 0.5, { x: -15 }, { x: 0 });
+IN("#ca-coin", at(2, 0.6), 0.4);
+const ts = at(2, 0.82);
+[[22, 20], [-22, 20], [-22, -20], [22, -20]].forEach(([dx, dy], i) => {
+  tl.to(`#ca-cp${i}`, { x: dx * 2.2, y: dy * 2.2 + 30, opacity: 0, duration: 0.9, ease: "power2.out" }, ts);
+});
+// L3 code options
+IN("#ca-pn", at(3, 0.0), 0.5, { x: 30 }, { x: 0 });
+[0, 1, 2, 3].forEach(i => IN(`#ca-k${i}`, at(3, 0.03 + i * 0.03), 0.4));
+IN("#ca-m0", at(3, 0.16), 0.3);
+IN("#ca-hl", at(3, 0.24), 0.4);
+IN("#ca-m2", at(3, 0.26), 0.3);
+tl.to("#ca-k2", { fill: "#83C167", duration: 0.3 }, at(3, 0.26));
+IN("#ca-m1", at(3, 0.55), 0.3);
+IN("#ca-m3", at(3, 0.8), 0.3);
+// L4 overflow headroom
+IN("#ca-cap", at(4, 0.05), 0.5);
+IN("#ca-capl", at(4, 0.16), 0.4);
+IN("#ca-capm", at(4, 0.2), 0.4);
+IN("#ca-capt", at(4, 0.4), 0.4);
+tl.to("#ca-u1", { fill: "#F0B90B", duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.5));
+      /*ENDANIM*/
+
+      tl.to("#ca-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["calc"] = tl;
+    })();
+  </script>
+</template>

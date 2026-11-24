@@ -1,0 +1,179 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ido，id 前缀 io- -->
+  <div id="root" data-composition-id="ido" data-duration="44.88" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="io-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="io-all">
+        <!-- 顶部参数牌 -->
+        <g id="io-p1" class="h">
+          <rect x="360" y="90" width="460" height="84" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="590" y="145" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">硬顶 100,000 USDC</text>
+        </g>
+        <g id="io-p2" class="h">
+          <rect x="1000" y="90" width="460" height="84" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="1230" y="145" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">价格 0.05 USDC / 枚</text>
+        </g>
+        <text id="io-ex" class="h" x="1500" y="145" font-size="28" fill="#6b6f7a">示例</text>
+
+        <!-- 硬顶容器 -->
+        <g id="io-box">
+          <rect id="io-gold" x="764" y="900" width="392" height="0" fill="#F0B90B" opacity="0.55"/>
+          <rect id="io-green" x="764" y="900" width="392" height="0" fill="#83C167" opacity="0.8"/>
+          <path id="io-cup" class="dr" pathLength="1" d="M760 300 V900 H1160 V300" fill="none" stroke="#8a8f99" stroke-width="5" stroke-linejoin="round"/>
+          <line id="io-cap" class="h" x1="740" y1="330" x2="1180" y2="330" stroke="#e8e6df" stroke-width="3" stroke-dasharray="12 8"/>
+          <text id="io-capl" class="h" x="722" y="342" font-size="30" fill="#e8e6df" text-anchor="end">硬顶</text>
+          <text id="io-pct" class="h" x="960" y="848" font-size="52" font-weight="700" fill="#0f1117" text-anchor="middle">25%</text>
+        </g>
+        <!-- 溢出 -->
+        <path id="io-flow" class="dr" pathLength="1" d="M1150 322 Q1222 318 1226 420 L1232 876" fill="none" stroke="#F0B90B" stroke-width="14" stroke-linecap="round"/>
+        <ellipse id="io-pud" class="h" cx="1300" cy="892" rx="130" ry="16" fill="#F0B90B" opacity="0.6"/>
+        <g id="io-cnt" class="h">
+          <text id="io-cntv" class="mono" x="1450" y="520" font-size="64" font-weight="700" fill="#F0B90B" text-anchor="middle">0</text>
+          <text x="1450" y="580" font-size="32" fill="#e8e6df" text-anchor="middle">USDC 认购</text>
+        </g>
+        <text id="io-x4" class="h" x="1450" y="690" font-size="72" font-weight="700" fill="#F0B90B" text-anchor="middle">× 4</text>
+
+        <!-- 算式 -->
+        <text id="io-f1" class="mono h" x="100" y="470" font-size="40" fill="#e8e6df">100,000 / 400,000 = <tspan fill="#83C167" font-weight="700">25%</tspan></text>
+        <g id="io-f2" class="h">
+          <text class="mono" x="100" y="640" font-size="40" fill="#e8e6df">250 / 0.05 = <tspan fill="#F0B90B" font-weight="700">5,000</tspan></text>
+          <text x="560" y="640" font-size="40" font-weight="700" fill="#F0B90B">枚</text>
+        </g>
+
+        <!-- 用户 1000 USDC -->
+        <g id="io-ublk" class="h">
+          <rect id="io-ug" x="1260" y="380" width="100" height="90" fill="#F0B90B" opacity="0.7"/>
+          <rect id="io-ur" x="1360" y="380" width="300" height="90" fill="#F0B90B" opacity="0.7"/>
+          <rect x="1260" y="380" width="400" height="90" rx="6" fill="none" stroke="#F0B90B" stroke-width="3"/>
+          <text id="io-ut" x="1460" y="438" font-size="36" font-weight="700" fill="#0f1117" text-anchor="middle">1,000 USDC</text>
+          <text id="io-u250" class="h" x="1310" y="438" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">250</text>
+          <text id="io-u750" class="h" x="1510" y="438" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">750</text>
+        </g>
+        <text id="io-ul" class="h" x="1460" y="350" font-size="30" fill="#8a8f99" text-anchor="middle">某用户认购</text>
+        <text id="io-l250" class="h" x="1310" y="520" font-size="30" fill="#83C167" text-anchor="middle">成交</text>
+        <text id="io-l750" class="h" x="1510" y="520" font-size="30" fill="#8a8f99" text-anchor="middle">退回</text>
+        <path id="io-back" class="dr h" pathLength="1" d="M1600 540 V742" fill="none" stroke="#8a8f99" stroke-width="4" marker-end="url(#io-arr)"/>
+        <g id="io-wal" class="h">
+          <rect x="1400" y="760" width="240" height="140" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="4"/>
+          <path d="M1640 805 H1612 A25 25 0 0 0 1612 855 H1640" fill="none" stroke="#8a8f99" stroke-width="4"/>
+        </g>
+        <text id="io-wl" class="h" x="1520" y="948" font-size="30" fill="#8a8f99" text-anchor="middle">用户钱包</text>
+        <g id="io-coins">
+          <circle id="io-c1" class="h" cx="1460" cy="580" r="16" fill="#F0B90B"/>
+          <circle id="io-c2" class="h" cx="1500" cy="600" r="16" fill="#F0B90B"/>
+          <circle id="io-c3" class="h" cx="1540" cy="580" r="16" fill="#F0B90B"/>
+        </g>
+        <text id="io-wv" class="h" x="1505" y="842" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">5,000 枚</text>
+
+        <!-- L5 发售合约风险 -->
+        <g id="io-sale" class="h">
+          <rect x="660" y="330" width="600" height="360" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="960" y="405" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">发售合约</text>
+        </g>
+        <g id="io-pill1" class="h">
+          <rect id="io-pill1r" x="760" y="460" width="400" height="70" rx="35" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.5"/>
+          <text id="io-pill1t" x="960" y="507" font-size="32" fill="#F0B90B" text-anchor="middle">用户的稳定币</text>
+        </g>
+        <g id="io-pill2" class="h">
+          <rect x="760" y="575" width="400" height="70" rx="35" fill="#F0B90B22" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="960" y="622" font-size="32" fill="#F0B90B" text-anchor="middle">锁仓代币</text>
+        </g>
+        <g id="io-w1" class="h">
+          <circle cx="660" cy="470" r="16" fill="#FF9F43"/>
+          <text x="626" y="458" font-size="32" fill="#FF9F43" text-anchor="end">管理员改价</text>
+          <text x="626" y="502" font-size="32" fill="#FF9F43" text-anchor="end">改白名单</text>
+        </g>
+        <g id="io-w2" class="h">
+          <circle cx="1260" cy="440" r="16" fill="#FF9F43"/>
+          <text x="1294" y="452" font-size="32" fill="#FF9F43">合约可升级</text>
+        </g>
+        <g id="io-w3" class="h">
+          <circle cx="1260" cy="610" r="16" fill="#FF9F43"/>
+          <text x="1294" y="622" font-size="32" fill="#FF9F43">owner 可提走锁仓</text>
+        </g>
+        <text id="io-big" class="h" x="960" y="850" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle">看合约，不看白皮书</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const fmtK = v => Math.round(v).toLocaleString("en-US");
+
+      // L0 参数牌 + 容器
+      IN("#io-p1", at(0, 0.05), 0.6, { y: -16 }, { y: 0 });
+      DRAW("#io-cup", at(0, 0.3), 0.9);
+      IN("#io-cap", at(0, 0.42), 0.4); IN("#io-capl", at(0, 0.45), 0.4);
+      IN("#io-p2", at(0, 0.6), 0.6, { y: -16 }, { y: 0 });
+      IN("#io-ex", at(0, 0.75), 0.4);
+      // L1 倒入 + 溢出
+      tl.to("#io-gold", { attr: { y: 334, height: 566 }, duration: 1.4, ease: "power1.in" }, at(1, 0.02));
+      IN("#io-cnt", at(1, 0.05), 0.4);
+      COUNT("#io-cntv", 0, 400000, at(1, 0.05), 2.6, fmtK);
+      DRAW("#io-flow", at(1, 0.38), 0.6);
+      IN("#io-pud", at(1, 0.5), 0.5, { attr: { rx: 20 } }, { attr: { rx: 130 } });
+      IN("#io-x4", at(1, 0.78), 0.5, { y: 14 }, { y: 0 });
+      // L2 分配比例
+      IN("#io-f1", at(2, 0.08), 0.6, { x: -20 }, { x: 0 });
+      tl.to("#io-gold", { opacity: 0.15, duration: 0.6 }, at(2, 0.5));
+      tl.to("#io-green", { attr: { y: 757.5, height: 142.5 }, duration: 0.9, ease: "power2.out" }, at(2, 0.55));
+      IN("#io-pct", at(2, 0.75), 0.4);
+      // L3 单个用户 1000 USDC
+      OUT("#io-flow", at(3, 0), 0.4); OUT("#io-pud", at(3, 0), 0.4); OUT("#io-cnt", at(3, 0), 0.4); OUT("#io-x4", at(3, 0), 0.4);
+      IN("#io-ul", at(3, 0.08), 0.5);
+      IN("#io-ublk", at(3, 0.1), 0.6, { y: -20 }, { y: 0 });
+      OUT("#io-ut", at(3, 0.36), 0.3);
+      tl.to("#io-ug", { fill: "#83C167", opacity: 0.9, duration: 0.5 }, at(3, 0.4));
+      tl.to("#io-ur", { fill: "#8a8f99", opacity: 0.7, duration: 0.5 }, at(3, 0.4));
+      IN("#io-u250", at(3, 0.45), 0.4); IN("#io-l250", at(3, 0.47), 0.4);
+      IN("#io-u750", at(3, 0.6), 0.4); IN("#io-l750", at(3, 0.62), 0.4);
+      IN("#io-wal", at(3, 0.66), 0.5); IN("#io-wl", at(3, 0.68), 0.5);
+      ARROW("#io-back", at(3, 0.74), 0.6);
+      // L4 代币数量
+      IN("#io-f2", at(4, 0.05), 0.6, { x: -20 }, { x: 0 });
+      ["#io-c1", "#io-c2", "#io-c3"].forEach((c, i) => {
+        IN(c, at(4, 0.45) + i * 0.12, 0.2);
+        tl.to(c, { y: 230, duration: 0.55, ease: "power2.in" }, at(4, 0.45) + i * 0.12 + 0.1);
+        tl.to(c, { opacity: 0, duration: 0.15 }, at(4, 0.45) + i * 0.12 + 0.6);
+      });
+      IN("#io-wv", at(4, 0.72), 0.4, { y: -10 }, { y: 0 });
+      // L5 风险
+      OUT("#io-box", at(5, 0), 0.5); OUT("#io-cup", at(5, 0), 0.5);
+      ["#io-cap", "#io-capl", "#io-f1", "#io-f2", "#io-ublk", "#io-ul", "#io-l250", "#io-l750", "#io-back", "#io-wal", "#io-wl", "#io-wv", "#io-ex"].forEach(s => OUT(s, at(5, 0), 0.5));
+      IN("#io-sale", at(5, 0.04), 0.7, { y: 20 }, { y: 0 });
+      IN("#io-pill1", at(5, 0.08), 0.5); IN("#io-pill2", at(5, 0.1), 0.5);
+      IN("#io-w1", at(5, 0.16), 0.5, { x: 0 }, { x: 0 });
+      tl.to("#io-pill1r", { stroke: "#FC6255", fill: "#FC625522", duration: 0.4 }, at(5, 0.36));
+      tl.to("#io-pill1t", { fill: "#FC6255", duration: 0.4 }, at(5, 0.36));
+      IN("#io-w2", at(5, 0.5), 0.5, { x: 0 }, { x: 0 });
+      IN("#io-w3", at(5, 0.68), 0.5, { x: 0 }, { x: 0 });
+      IN("#io-big", at(5, 0.86), 0.7, { y: 16 }, { y: 0 });
+
+      tl.to("#io-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["ido"] = tl;
+    })();
+  </script>
+</template>

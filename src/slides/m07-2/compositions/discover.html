@@ -1,0 +1,214 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 discover，id 前缀 di- -->
+  <div id="root" data-composition-id="discover" data-duration="72.99" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="di-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="di-all">
+        <!-- L0–L1：抢牌子 -->
+        <g id="di-p1">
+          <g id="di-web" class="h"><rect x="760" y="560" width="400" height="300" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="960" y="612" font-size="30" fill="#58C4DD" text-anchor="middle">网页</text></g>
+          <g id="di-wb" class="h"><rect x="840" y="700" width="240" height="90" rx="45" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="960" y="756" font-size="30" fill="#e8e6df" text-anchor="middle">Rabby</text></g>
+          <g id="di-pl" class="h"><rect x="780" y="420" width="360" height="80" rx="10" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" /><text class="mono" x="960" y="472" font-size="34" fill="#e8e6df" text-anchor="middle">window.ethereum</text></g>
+          <g id="di-mm" class="h"><rect id="di-mmr" x="260" y="290" width="200" height="100" rx="16" fill="#2a1f12" stroke="#FF9F43" stroke-width="3" /><text x="360" y="350" font-size="30" fill="#FF9F43" text-anchor="middle">MetaMask</text></g>
+          <g id="di-rb" class="h"><rect x="1460" y="290" width="200" height="100" rx="16" fill="#2a1f12" stroke="#FF9F43" stroke-width="3" /><text x="1560" y="350" font-size="30" fill="#FF9F43" text-anchor="middle">Rabby</text></g>
+          <text id="di-ov" class="h" x="660" y="445" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">被覆盖</text>
+          <text id="di-h1" class="h" x="520" y="625" font-size="30" fill="#FF9F43" text-anchor="middle">举手 ↑</text>
+          <text id="di-h2" class="h" x="1400" y="625" font-size="30" fill="#FF9F43" text-anchor="middle">举手 ↑</text>
+        </g>
+
+        <!-- L2–L3：时序泳道 -->
+        <g id="di-p2">
+          <g id="di-lh" class="h">
+            <text x="400" y="250" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">网页</text>
+            <text x="1000" y="250" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">MetaMask</text>
+            <text x="1500" y="250" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">Rabby</text>
+          </g>
+          <path id="di-ln1" class="dr" pathLength="1" d="M400 275 L400 1000" stroke="#6b6f7a" stroke-width="2" fill="none" />
+          <path id="di-ln2" class="dr" pathLength="1" d="M1000 275 L1000 1000" stroke="#6b6f7a" stroke-width="2" fill="none" />
+          <path id="di-ln3" class="dr" pathLength="1" d="M1500 275 L1500 1000" stroke="#6b6f7a" stroke-width="2" fill="none" />
+          <g id="di-s1" class="h"><rect x="250" y="300" width="300" height="70" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="400" y="346" font-size="30" fill="#58C4DD" text-anchor="middle">① 先监听报到</text></g>
+          <circle id="di-rp1" class="h" cx="400" cy="490" r="20" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <circle id="di-rp2" class="h" cx="400" cy="490" r="20" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <text id="di-s2l" class="mono h" x="700" y="455" font-size="28" fill="#58C4DD" text-anchor="middle">② requestProvider</text>
+          <path id="di-s2a" class="dr h" pathLength="1" d="M410 480 L988 480" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#di-arr)" />
+          <path id="di-s2b" class="dr h" pathLength="1" d="M410 500 L1488 500" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#di-arr)" />
+          <text id="di-s3l" class="mono h" x="700" y="600" font-size="28" fill="#FF9F43" text-anchor="middle">③ announce {info, provider}</text>
+          <path id="di-s3a" class="dr h" pathLength="1" d="M990 625 L412 625" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#di-arr)" />
+          <text id="di-s3m" class="mono h" x="1250" y="682" font-size="28" fill="#FF9F43" text-anchor="middle">announce</text>
+          <path id="di-s3b" class="dr h" pathLength="1" d="M1490 705 L412 705" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#di-arr)" />
+          <text id="di-late" class="h" x="1520" y="800" font-size="30" fill="#FF9F43">晚加载</text>
+          <text id="di-s4l" class="h" x="1250" y="822" font-size="28" fill="#FF9F43" text-anchor="middle">主动报到</text>
+          <path id="di-s4" class="dr h" pathLength="1" d="M1490 845 L412 845" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#di-arr)" />
+          <text id="di-ord" class="h" x="700" y="935" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">先后顺序不影响</text>
+        </g>
+
+        <!-- L4–L5：info、去重、代码、手机 -->
+        <g id="di-p4">
+          <g id="di-info" class="h">
+            <rect x="120" y="250" width="600" height="320" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text class="mono" x="150" y="302" font-size="30" font-weight="700" fill="#FF9F43">info</text>
+            <text class="mono" x="150" y="362" font-size="28" fill="#e8e6df">uuid: …</text>
+            <text class="mono" x="150" y="414" font-size="28" fill="#e8e6df">name: MetaMask</text>
+            <text class="mono" x="150" y="466" font-size="28" fill="#e8e6df">icon: data:image/…</text>
+            <rect id="di-rdh" x="136" y="490" width="568" height="52" rx="8" fill="#1b2a33" />
+            <text class="mono" x="150" y="526" font-size="28" fill="#58C4DD">rdns: io.metamask</text>
+          </g>
+          <g id="di-map" class="h">
+            <rect x="790" y="250" width="480" height="320" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="820" y="302" font-size="30" fill="#58C4DD">按 rdns 去重</text>
+          </g>
+          <text id="di-m1" class="mono h" x="820" y="372" font-size="28" fill="#e8e6df">io.metamask</text>
+          <text id="di-m2" class="mono h" x="820" y="442" font-size="28" fill="#e8e6df">io.metamask</text>
+          <text id="di-m3" class="mono h" x="820" y="512" font-size="28" fill="#e8e6df">… Rabby</text>
+          <g id="di-lb1" class="h"><rect x="1360" y="270" width="380" height="80" rx="40" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="1550" y="321" font-size="30" fill="#e8e6df" text-anchor="middle">MetaMask</text></g>
+          <g id="di-lb2" class="h"><rect x="1360" y="390" width="380" height="80" rx="40" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="1550" y="441" font-size="30" fill="#e8e6df" text-anchor="middle">Rabby</text></g>
+          <g id="di-code" class="h">
+            <rect x="120" y="640" width="1120" height="230" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text class="mono" x="150" y="705" font-size="28" fill="#e8e6df">addEventListener('eip6963:announceProvider', e =&gt;</text>
+            <text class="mono" x="150" y="766" font-size="28" fill="#e8e6df">  found.set(e.detail.info.rdns, e.detail))</text>
+            <text class="mono" x="150" y="836" font-size="28" fill="#e8e6df">dispatchEvent(new Event('eip6963:requestProvider'))</text>
+          </g>
+          <text id="di-only" class="h" x="1520" y="585" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">只适用于浏览器扩展</text>
+          <g id="di-ph" class="h"><rect x="1400" y="620" width="240" height="380" rx="30" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="1520" y="940" font-size="28" fill="#8a8f99" text-anchor="middle">独立钱包 App</text></g>
+          <path id="di-px1" class="dr" pathLength="1" d="M1465 690 L1575 800" stroke="#8a8f99" stroke-width="8" stroke-linecap="round" fill="none" />
+          <path id="di-px2" class="dr" pathLength="1" d="M1575 690 L1465 800" stroke="#8a8f99" stroke-width="8" stroke-linecap="round" fill="none" />
+        </g>
+
+        <!-- L6：icon 安全渲染 -->
+        <g id="di-p6">
+          <g id="di-ic" class="h"><rect x="860" y="260" width="200" height="130" rx="16" fill="#2a1f12" stroke="#FF9F43" stroke-width="3" /><text class="mono" x="960" y="337" font-size="30" fill="#FF9F43" text-anchor="middle">icon</text></g>
+          <path id="di-ia" class="dr h" pathLength="1" d="M900 400 L640 548" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#di-arr)" />
+          <path id="di-ib" class="dr h" pathLength="1" d="M1020 400 L1280 548" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#di-arr)" />
+          <g id="di-img" class="h"><rect x="250" y="560" width="600" height="200" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" /><text class="mono" x="550" y="640" font-size="30" fill="#e8e6df" text-anchor="middle">&lt;img src={icon}&gt;</text><text x="550" y="715" font-size="30" fill="#83C167" text-anchor="middle">✓ 只当图片地址</text></g>
+          <g id="di-html" class="h"><rect x="1070" y="560" width="600" height="200" rx="16" fill="#2a1416" stroke="#FC6255" stroke-width="3" /><text class="mono" x="1340" y="640" font-size="30" fill="#e8e6df" text-anchor="middle">innerHTML = icon</text></g>
+          <g id="di-bug" class="h">
+            <circle cx="1612" cy="608" r="16" fill="#FC6255" />
+            <path d="M1594 598 L1584 590 M1594 610 L1582 610 M1594 622 L1584 630 M1630 598 L1640 590 M1630 610 L1642 610 M1630 622 L1640 630" stroke="#FC6255" stroke-width="3" fill="none" />
+          </g>
+          <text id="di-atk" class="h" x="1370" y="715" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 注入攻击</text>
+        </g>
+
+        <!-- L7：wagmi injected() -->
+        <g id="di-p7">
+          <g id="di-wg" class="h"><rect x="800" y="240" width="320" height="90" rx="45" fill="#1b2a33" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="960" y="300" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">wagmi</text></g>
+          <g id="di-inj" class="h"><rect x="740" y="370" width="440" height="80" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><text class="mono" x="960" y="423" font-size="34" fill="#B48EF0" text-anchor="middle">injected()</text></g>
+          <path id="di-ja" class="dr h" pathLength="1" d="M960 456 L960 528" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#di-arr)" />
+          <g id="di-jb1" class="h"><rect x="770" y="540" width="380" height="80" rx="40" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="960" y="591" font-size="30" fill="#e8e6df" text-anchor="middle">MetaMask</text></g>
+          <g id="di-jb2" class="h"><rect x="770" y="650" width="380" height="80" rx="40" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="960" y="701" font-size="30" fill="#e8e6df" text-anchor="middle">Rabby</text></g>
+          <text id="di-def" class="h" x="960" y="830" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">✓ 默认已实现</text>
+        </g>
+      </g>
+      <!-- 术语卡 -->
+      <g id="di-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">EIP-6963 <tspan font-size="28" font-weight="400" fill="#8a8f99">多注入提供者发现</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">用事件广播发现多个扩展钱包</text>
+      </g>
+      <g id="di-term2" class="h">
+        <rect x="70" y="56" width="520" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">rdns <tspan font-size="28" font-weight="400" fill="#8a8f99">Reverse DNS</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">反向域名形式的钱包标识</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0：两个扩展抢 window.ethereum
+      IN("#di-web", at(0, 0.02)); IN("#di-pl", at(0, 0.1));
+      IN("#di-mm", at(0, 0.2), 0.5);
+      tl.to("#di-mm", { x: 600, duration: 0.9, ease: "power2.inOut" }, at(0, 0.27));
+      IN("#di-rb", at(0, 0.45), 0.5);
+      tl.to("#di-rb", { x: -600, duration: 0.9, ease: "power2.inOut" }, at(0, 0.52));
+      tl.to("#di-mm", { x: 300, duration: 0.5, ease: "power2.out" }, at(0, 0.52) + 0.6);
+      tl.to("#di-mmr", { attr: { stroke: "#FC6255" }, duration: 0.2 }, at(0, 0.52) + 0.6);
+      tl.to("#di-mm", { opacity: 0.35, duration: 0.4 }, at(0, 0.52) + 1.1);
+      IN("#di-ov", at(0, 0.52) + 0.8, 0.4);
+      IN("#di-wb", at(0, 0.8), 0.5, { y: 10 }, { y: 0 });
+
+      // L1：EIP-6963，各自举手
+      IN("#di-term", at(1, 0), 0.5);
+      OUT(["#di-pl", "#di-ov", "#di-wb"], at(1, 0.08));
+      tl.to("#di-mmr", { attr: { stroke: "#FF9F43" }, duration: 0.3 }, at(1, 0.15));
+      tl.to("#di-mm", { x: 160, y: 360, opacity: 1, duration: 0.9, ease: "power2.inOut" }, at(1, 0.15));
+      tl.to("#di-rb", { x: -160, y: 360, duration: 0.9, ease: "power2.inOut" }, at(1, 0.15));
+      IN("#di-h1", at(1, 0.35), 0.5, { y: 10 }, { y: 0 }); IN("#di-h2", at(1, 0.42), 0.5, { y: 10 }, { y: 0 });
+      tl.to(["#di-h1", "#di-h2"], { y: -12, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(1, 0.6));
+      OUT("#di-term", at(1, 0) + 7.5, 0.4);
+
+      // L2：泳道时序
+      OUT("#di-p1", at(2, 0), 0.4);
+      IN("#di-lh", at(2, 0.03)); DRAW("#di-ln1", at(2, 0.03)); DRAW("#di-ln2", at(2, 0.05)); DRAW("#di-ln3", at(2, 0.07));
+      IN("#di-s1", at(2, 0.12));
+      [["#di-rp1", 0.36], ["#di-rp2", 0.42]].forEach(([s, f]) => {
+        tl.fromTo(s, { opacity: 0.9, attr: { r: 20 } }, { opacity: 0, attr: { r: 110 }, duration: 1.2, ease: "power1.out", immediateRender: false }, at(2, f));
+      });
+      IN("#di-s2l", at(2, 0.34)); ARROW("#di-s2a", at(2, 0.38)); ARROW("#di-s2b", at(2, 0.42), 0.8);
+      IN("#di-s3l", at(2, 0.62)); ARROW("#di-s3a", at(2, 0.64));
+      IN("#di-s3m", at(2, 0.76)); ARROW("#di-s3b", at(2, 0.78), 0.8);
+
+      // L3：晚加载也主动报到
+      IN("#di-late", at(3, 0.08));
+      IN("#di-s4l", at(3, 0.25)); ARROW("#di-s4", at(3, 0.28), 0.8);
+      IN("#di-ord", at(3, 0.62));
+
+      // L4：rdns，去重，代码
+      OUT("#di-p2", at(4, 0), 0.4);
+      IN("#di-term2", at(4, 0.03), 0.5);
+      IN("#di-info", at(4, 0.08), 0.6, { scale: 0.85, svgOrigin: "420 410" }, { scale: 1, svgOrigin: "420 410" });
+      tl.fromTo("#di-rdh", { attr: { fill: "#1b2a33" } }, { attr: { fill: "#24465a" }, duration: 0.4, yoyo: true, repeat: 1, immediateRender: false }, at(4, 0.2));
+      IN("#di-map", at(4, 0.28));
+      IN("#di-m1", at(4, 0.32), 0.4); IN("#di-m2", at(4, 0.36), 0.4); IN("#di-m3", at(4, 0.4), 0.4);
+      tl.to("#di-m2", { attr: { fill: "#6b6f7a" }, duration: 0.3 }, at(4, 0.48));
+      OUT("#di-m2", at(4, 0.52), 0.5);
+      tl.to("#di-m3", { y: -70, duration: 0.5, ease: "power2.inOut" }, at(4, 0.56));
+      IN("#di-lb1", at(4, 0.6), 0.5, { x: -20 }, { x: 0 }); IN("#di-lb2", at(4, 0.64), 0.5, { x: -20 }, { x: 0 });
+      IN("#di-code", at(4, 0.72));
+      OUT("#di-term2", at(4, 0.03) + 7.5, 0.4);
+
+      // L5：只适用于浏览器扩展
+      IN("#di-ph", at(5, 0.05));
+      DRAW("#di-px1", at(5, 0.3), 0.3); DRAW("#di-px2", at(5, 0.36), 0.3);
+      IN("#di-only", at(5, 0.5));
+
+      // L6：icon 只当图片地址
+      OUT("#di-p4", at(6, 0), 0.4);
+      IN("#di-ic", at(6, 0.05));
+      ARROW("#di-ia", at(6, 0.18)); IN("#di-img", at(6, 0.24));
+      ARROW("#di-ib", at(6, 0.45)); IN("#di-html", at(6, 0.5));
+      IN("#di-bug", at(6, 0.62), 0.4);
+      tl.to("#di-bug", { x: -8, duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, at(6, 0.66));
+      IN("#di-atk", at(6, 0.72), 0.5);
+
+      // L7：wagmi injected()
+      OUT("#di-p6", at(7, 0), 0.4);
+      IN("#di-wg", at(7, 0.06));
+      IN("#di-inj", at(7, 0.16));
+      ARROW("#di-ja", at(7, 0.26));
+      IN("#di-jb1", at(7, 0.33), 0.5, { y: -15 }, { y: 0 }); IN("#di-jb2", at(7, 0.43), 0.5, { y: -15 }, { y: 0 });
+      IN("#di-def", at(7, 0.6));
+
+      tl.to("#di-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["discover"] = tl;
+    })();
+  </script>
+</template>

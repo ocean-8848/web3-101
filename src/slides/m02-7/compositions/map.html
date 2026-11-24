@@ -1,0 +1,169 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 map，id 前缀 ma- -->
+  <div id="root" data-composition-id="map" data-duration="56.5" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ma-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ma-all">
+        <defs><marker id="ma-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker><marker id="ma-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker><marker id="ma-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker><marker id="ma-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker><marker id="ma-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker><marker id="ma-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker><marker id="ma-my" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker></defs>
+        <text id="ma-big" class="h" x="960" y="480" font-size="64" fill="#e8e6df" text-anchor="middle" font-weight="700">漏洞 = 作者没想到的</text>
+        <path id="ma-br0" class="dr" pathLength="1" d="M920 512 L780 588" stroke="#FF9F43" stroke-width="3" fill="none" />
+        <path id="ma-br1" class="dr" pathLength="1" d="M1000 512 L1140 588" stroke="#FC6255" stroke-width="3" fill="none" />
+        <text id="ma-b0" class="h" x="760" y="646" font-size="44" fill="#FF9F43" text-anchor="middle" font-weight="700">执行顺序</text>
+        <text id="ma-b1" class="h" x="1160" y="646" font-size="44" fill="#FC6255" text-anchor="middle" font-weight="700">调用者</text>
+        <text id="ma-title" class="h" x="960" y="246" font-size="44" text-anchor="middle" font-weight="700"><tspan fill="#e8e6df">漏洞 = 作者没想到的 </tspan><tspan fill="#FF9F43">执行顺序</tspan><tspan fill="#8a8f99"> / </tspan><tspan fill="#FC6255">调用者</tspan></text>
+        <g id="ma-th" class="h"><text x="210" y="300" font-size="28" fill="#8a8f99" font-weight="700">类别</text><text x="530" y="300" font-size="28" fill="#8a8f99" font-weight="700">SWC 编号</text><text x="880" y="300" font-size="28" fill="#8a8f99" font-weight="700">根因一句话</text><path d="M160 320 L1390 320" stroke="#3a3f4a" stroke-width="2" /></g>
+        <g id="ma-r0" class="h"><text x="210" y="372" font-size="28" fill="#e8e6df">重入</text><text x="880" y="372" font-size="28" fill="#e8e6df">外部调用发生在状态更新之前</text></g>
+        <text id="ma-n0" class="h mono" x="530" y="372" font-size="28" fill="#58C4DD">107</text>
+        <path id="ma-ck0" class="dr h" pathLength="1" d="M168 360 L178 370 L196 348" stroke="#83C167" stroke-width="4" fill="none" />
+        <g id="ma-r1" class="h"><text x="210" y="430" font-size="28" fill="#e8e6df">访问控制</text><text x="880" y="430" font-size="28" fill="#e8e6df">敏感函数没限制调用者，或用错身份判断</text></g>
+        <text id="ma-n1" class="h mono" x="530" y="430" font-size="28" fill="#58C4DD">105 / 106 / 115</text>
+        <path id="ma-ck1" class="dr h" pathLength="1" d="M168 418 L178 428 L196 406" stroke="#83C167" stroke-width="4" fill="none" />
+        <g id="ma-r2" class="h"><text x="210" y="488" font-size="28" fill="#e8e6df">整数与精度</text><text x="880" y="488" font-size="28" fill="#e8e6df">溢出、截断、单位不一致</text></g>
+        <text id="ma-n2" class="h mono" x="530" y="488" font-size="28" fill="#58C4DD">101</text>
+        <path id="ma-ck2" class="dr h" pathLength="1" d="M168 476 L178 486 L196 464" stroke="#83C167" stroke-width="4" fill="none" />
+        <g id="ma-r3" class="h"><text x="210" y="546" font-size="28" fill="#e8e6df">未检查返回值</text><text x="880" y="546" font-size="28" fill="#e8e6df">低级调用失败了，代码却当作成功</text></g>
+        <text id="ma-n3" class="h mono" x="530" y="546" font-size="28" fill="#58C4DD">104</text>
+        <path id="ma-ck3" class="dr h" pathLength="1" d="M168 534 L178 544 L196 522" stroke="#83C167" stroke-width="4" fill="none" />
+        <g id="ma-r4" class="h"><text x="210" y="604" font-size="28" fill="#e8e6df">拒绝服务</text><text x="880" y="604" font-size="28" fill="#e8e6df">一个失败或一个超长循环卡住全体</text></g>
+        <text id="ma-n4" class="h mono" x="530" y="604" font-size="28" fill="#58C4DD">113 / 128</text>
+        <path id="ma-ck4" class="dr h" pathLength="1" d="M168 592 L178 602 L196 580" stroke="#83C167" stroke-width="4" fill="none" />
+        <g id="ma-r5" class="h"><text x="210" y="662" font-size="28" fill="#e8e6df">交易顺序依赖 / MEV</text><text x="880" y="662" font-size="28" fill="#e8e6df">结果取决于谁先上链</text></g>
+        <text id="ma-n5" class="h mono" x="530" y="662" font-size="28" fill="#58C4DD">114</text>
+        <g id="ma-r6" class="h"><text x="210" y="720" font-size="28" fill="#e8e6df">签名重放</text><text x="880" y="720" font-size="28" fill="#e8e6df">同一签名被用两次或在别的链上使用</text></g>
+        <text id="ma-n6" class="h mono" x="530" y="720" font-size="28" fill="#58C4DD">117 / 121</text>
+        <g id="ma-r7" class="h"><text x="210" y="778" font-size="28" fill="#e8e6df">预言机操纵</text><text x="880" y="778" font-size="28" fill="#e8e6df">价格来源能在一笔交易内被推动</text></g>
+        <text id="ma-n7" class="h mono" x="530" y="778" font-size="28" fill="#58C4DD">无</text>
+        <g id="ma-r8" class="h"><text x="210" y="836" font-size="28" fill="#e8e6df">代理与升级</text><text x="880" y="836" font-size="28" fill="#e8e6df">存储冲突、未初始化实现合约</text></g>
+        <text id="ma-n8" class="h mono" x="530" y="836" font-size="28" fill="#58C4DD">112</text>
+        <g id="ma-stamp" class="h"><rect x="1440" y="270" width="390" height="70" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 6" /><text x="1635" y="316" font-size="28" fill="#8a8f99" text-anchor="middle" font-weight="700">2020 后基本停更</text></g>
+        <g id="ma-tags" class="h"><rect x="1440" y="368" width="150" height="50" rx="25" fill="none" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="1515" y="402" font-size="28" fill="#8a8f99" text-anchor="middle">Slither</text><rect x="1610" y="368" width="150" height="50" rx="25" fill="none" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="1685" y="402" font-size="28" fill="#8a8f99" text-anchor="middle">Mythril</text></g>
+        <g id="ma-ow" class="h"><rect x="1490" y="470" width="360" height="370" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1670" y="522" font-size="30" fill="#FF9F43" text-anchor="middle" font-weight="700">OWASP Top 10</text></g>
+        <rect id="ma-bar0" class="h" x="1520" y="556" width="300" height="26" rx="4" fill="#FF9F43" fill-opacity="0.85" />
+        <rect id="ma-bar1" class="h" x="1520" y="600" width="250" height="26" rx="4" fill="#FF9F43" fill-opacity="0.75" />
+        <rect id="ma-bar2" class="h" x="1520" y="644" width="205" height="26" rx="4" fill="#FF9F43" fill-opacity="0.65" />
+        <rect id="ma-bar3" class="h" x="1520" y="688" width="165" height="26" rx="4" fill="#FF9F43" fill-opacity="0.55" />
+        <rect id="ma-bar4" class="h" x="1520" y="732" width="125" height="26" rx="4" fill="#FF9F43" fill-opacity="0.45" />
+        <rect id="ma-bar5" class="h" x="1520" y="776" width="90" height="26" rx="4" fill="#FF9F43" fill-opacity="0.35" />
+        <text id="ma-eq" class="h" x="1440" y="690" font-size="60" fill="#83C167" text-anchor="middle" font-weight="700">≈</text>
+        <g id="ma-next" class="h"><path d="M1410 616 L1426 616 L1426 852 L1410 852" stroke="#8a8f99" stroke-width="2.5" fill="none" /><rect x="1450" y="704" width="150" height="56" rx="10" fill="none" stroke="#FF9F43" stroke-width="2.5" /><text x="1525" y="742" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="700">下一集</text></g>
+        <g id="ma-atk" class="h"><rect x="190" y="440" width="60" height="52" rx="8" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="3" /><rect x="160" y="502" width="120" height="100" rx="12" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="3" /><text x="220" y="646" font-size="30" fill="#FC6255" text-anchor="middle" font-weight="700">攻击者</text></g>
+        <g id="ma-ct" class="h"><rect x="760" y="380" width="400" height="240" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="960" y="446" font-size="36" fill="#58C4DD" text-anchor="middle" font-weight="700">你的合约</text><text x="960" y="506" font-size="28" fill="#e8e6df" text-anchor="middle">external / public 函数</text></g>
+        <g id="ma-locks" class="h"><g id="ma-lk0" class=""><path d="M887.2 562.0 L887.2 554.0 Q896.0 541.2 904.8 554.0 L904.8 562.0" fill="none" stroke="#83C167" stroke-width="2.8" /><rect x="880" y="562" width="32.0" height="27.2" rx="4.0" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="2.4" /></g><g id="ma-lk1" class=""><path d="M947.2 562.0 L947.2 554.0 Q956.0 541.2 964.8 554.0 L964.8 562.0" fill="none" stroke="#83C167" stroke-width="2.8" /><rect x="940" y="562" width="32.0" height="27.2" rx="4.0" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="2.4" /></g><g id="ma-lk2" class=""><path d="M1007.2 562.0 L1007.2 554.0 Q1016.0 541.2 1024.8 554.0 L1024.8 562.0" fill="none" stroke="#83C167" stroke-width="2.8" /><rect x="1000" y="562" width="32.0" height="27.2" rx="4.0" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="2.4" /></g></g>
+        <path id="ma-p1" class="dr h" pathLength="1" d="M292 520 L750 520" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ma-mr)" />
+        <text id="ma-p1l" class="h" x="520" y="498" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">① 调用公开函数</text>
+        <g id="ma-cb" class="h"><rect x="720" y="196" width="480" height="128" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text class="mono" x="960" y="248" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="700">receive / fallback</text><text x="960" y="298" font-size="28" fill="#e8e6df" text-anchor="middle">ERC-777 / 721 钩子</text></g>
+        <path id="ma-p2" class="dr h" pathLength="1" d="M220 432 C220 300, 420 262, 710 262" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#ma-mo)" />
+        <text id="ma-p2l" class="h" x="480" y="232" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="700">② 回调再次进入</text>
+        <path id="ma-up" class="dr h" pathLength="1" d="M920 376 L920 334" stroke="#FF9F43" stroke-width="3.5" fill="none" marker-end="url(#ma-mo)" />
+        <path id="ma-dn" class="dr h" pathLength="1" d="M1000 332 L1000 374" stroke="#FC6255" stroke-width="3.5" fill="none" marker-end="url(#ma-mr)" />
+        <g id="ma-or" class="h"><rect x="1460" y="450" width="360" height="120" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" stroke-dasharray="12 7" /><text x="1640" y="522" font-size="28" fill="#e8e6df" text-anchor="middle" font-weight="700">预言机 / DEX 池子</text></g>
+        <path id="ma-rd" class="dr h" pathLength="1" d="M1166 510 L1450 510" stroke="#58C4DD" stroke-width="3.5" fill="none" marker-end="url(#ma-mb)" />
+        <text id="ma-rdl" class="h" x="1310" y="488" font-size="28" fill="#58C4DD" text-anchor="middle">读取价格</text>
+        <path id="ma-p3" class="dr h" pathLength="1" d="M220 672 C220 900, 1640 900, 1640 580" stroke="#B48EF0" stroke-width="4" fill="none" marker-end="url(#ma-mp)" />
+        <text id="ma-p3l" class="h" x="960" y="884" font-size="28" fill="#B48EF0" text-anchor="middle" font-weight="700">③ 影响外部数据</text>
+        <g id="ma-key" class="h"><circle cx="930" cy="720" r="22" fill="none" stroke="#B48EF0" stroke-width="5" /><path d="M952 720 L1004 720 M984 720 L984 736 M998 720 L998 732" stroke="#B48EF0" stroke-width="5" fill="none" /></g>
+        <g id="ma-keyo" class="h"><circle cx="930" cy="720" r="22" fill="none" stroke="#FF9F43" stroke-width="5" /><path d="M952 720 L1004 720 M984 720 L984 736 M998 720 L998 732" stroke="#FF9F43" stroke-width="5" fill="none" /></g>
+        <text id="ma-keyl" class="h" x="1030" y="732" font-size="28" fill="#B48EF0" font-weight="700">管理员私钥</text>
+        <path id="ma-kl" class="dr" pathLength="1" d="M930 694 L930 626" stroke="#B48EF0" stroke-width="8" fill="none" />
+        <text id="ma-kll" class="h" x="954" y="668" font-size="28" fill="#B48EF0">升级 / 改参数 / 铸币</text>
+        <path id="ma-ph" class="h" d="M288 586 L900 712" stroke="#FC6255" stroke-width="3.5" stroke-dasharray="12 9" fill="none" />
+        <text id="ma-phl" class="h" x="560" y="706" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">钓鱼 / 盗私钥</text>
+        <text id="ma-corner" class="h" x="1860" y="1000" font-size="28" fill="#6b6f7a" text-anchor="end">前端 / DNS / 钓鱼签名：合约之外</text>
+        <g id="ma-g0" class="h"><rect x="704" y="180" width="512" height="160" rx="18" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="14 8" /><circle cx="704" cy="180" r="16" fill="#161a22" stroke="#FF9F43" stroke-width="4" /><path d="M715 191 L728 204" stroke="#FF9F43" stroke-width="5" /><text x="1250" y="282" font-size="40" fill="#FF9F43" text-anchor="middle" font-weight="700">？</text></g>
+        <g id="ma-g1" class="h"><rect x="1444" y="434" width="392" height="152" rx="18" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="14 8" /><circle cx="1444" cy="434" r="16" fill="#161a22" stroke="#FF9F43" stroke-width="4" /><path d="M1455 445 L1468 458" stroke="#FF9F43" stroke-width="5" /><text x="1640" y="405" font-size="40" fill="#FF9F43" text-anchor="middle" font-weight="700">？</text></g>
+        <g id="ma-g2" class="h"><rect x="892" y="686" width="298" height="64" rx="18" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="14 8" /><circle cx="892" cy="686" r="16" fill="#161a22" stroke="#FF9F43" stroke-width="4" /><path d="M903 697 L916 710" stroke="#FF9F43" stroke-width="5" /><text x="1222" y="734" font-size="40" fill="#FF9F43" text-anchor="middle" font-weight="700">？</text></g>
+        <text id="ma-q" class="h" x="960" y="968" font-size="40" fill="#FF9F43" text-anchor="middle" font-weight="700">如果对方是恶意的？</text>
+      </g>
+      <g id="ma-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">SWC <tspan font-size="28" font-weight="400" fill="#8a8f99">Weakness Classification</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">智能合约弱点分类编号表</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      // L0
+      IN("#ma-big", at(0, 0.02), 0.7, { y: 20 }, { y: 0 });
+      DRAW("#ma-br0", at(0, 0.38), 0.5); DRAW("#ma-br1", at(0, 0.5), 0.5);
+      IN("#ma-b0", at(0, 0.45), 0.5, { scale: 0.6, svgOrigin: "760 630" }, { scale: 1, svgOrigin: "760 630" });
+      IN("#ma-b1", at(0, 0.6), 0.5, { scale: 0.6, svgOrigin: "1160 630" }, { scale: 1, svgOrigin: "1160 630" });
+      ["#ma-big", "#ma-br0", "#ma-br1", "#ma-b0", "#ma-b1"].forEach(s => OUT(s, at(0, 0.86), 0.4));
+      IN("#ma-title", at(0, 0.9), 0.6, { y: 120 }, { y: 0 });
+      // L1 SWC 表
+      IN("#ma-term", at(1, 0.0), 0.5);
+      IN("#ma-th", at(1, 0.05), 0.4);
+      for (let i = 0; i < 5; i++) { IN("#ma-r" + i, at(1, 0.1 + i * 0.05), 0.4, { x: -20 }, { x: 0 }); IN("#ma-n" + i, at(1, 0.1 + i * 0.05), 0.4); }
+      tl.to("#ma-n0", { fill: "#F0B90B", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.3));
+      IN("#ma-stamp", at(1, 0.5), 0.4, { scale: 1.3, svgOrigin: "1635 305" }, { scale: 1, svgOrigin: "1635 305" });
+      IN("#ma-tags", at(1, 0.78), 0.4);
+      for (let i = 0; i < 5; i++) tl.to("#ma-n" + i, { fill: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.84));
+      // L2 OWASP
+      OUT("#ma-term", at(2, 0.0), 0.3);
+      IN("#ma-ow", at(2, 0.05), 0.5);
+      const bw = [300, 250, 205, 165, 125, 90]; for (let i = 0; i < 6; i++) IN("#ma-bar" + i, at(2, 0.2 + i * 0.05), 0.5, { attr: { width: 0 } }, { attr: { width: bw[i] } });
+      IN("#ma-eq", at(2, 0.7), 0.4);
+      // L3 五类 + 后四类下一集
+      ["#ma-stamp", "#ma-tags", "#ma-ow", "#ma-eq"].forEach(s => OUT(s, at(3, 0.0), 0.3));
+      for (let i = 0; i < 6; i++) OUT("#ma-bar" + i, at(3, 0.0), 0.3);
+      for (let i = 0; i < 5; i++) { IN("#ma-ck" + i, at(3, 0.08 + i * 0.03), 0.05); DRAW("#ma-ck" + i, at(3, 0.08 + i * 0.03), 0.3); }
+      for (let i = 5; i < 9; i++) { IN("#ma-r" + i, at(3, 0.35 + (i - 5) * 0.05), 0.4, {}, { opacity: 0.4 }); IN("#ma-n" + i, at(3, 0.35 + (i - 5) * 0.05), 0.4, {}, { opacity: 0.4 }); }
+      IN("#ma-next", at(3, 0.7), 0.4);
+      // L4 攻击面地图
+      const tab = ["#ma-title", "#ma-th", "#ma-next"]; for (let i = 0; i < 9; i++) { tab.push("#ma-r" + i, "#ma-n" + i); if (i < 5) tab.push("#ma-ck" + i); }
+      tab.forEach(s => OUT(s, at(4, 0.0), 0.35));
+      IN("#ma-atk", at(4, 0.06), 0.5); IN("#ma-ct", at(4, 0.1), 0.5); IN("#ma-locks", at(4, 0.12), 0.5);
+      ARROW("#ma-p1", at(4, 0.2), 0.6); IN("#ma-p1l", at(4, 0.24), 0.4);
+      IN("#ma-cb", at(4, 0.38), 0.5);
+      ARROW("#ma-p2", at(4, 0.44), 0.7); IN("#ma-p2l", at(4, 0.48), 0.4);
+      ARROW("#ma-up", at(4, 0.55), 0.3); ARROW("#ma-dn", at(4, 0.6), 0.3);
+      IN("#ma-or", at(4, 0.72), 0.5); ARROW("#ma-rd", at(4, 0.75), 0.4); IN("#ma-rdl", at(4, 0.77), 0.4);
+      ARROW("#ma-p3", at(4, 0.8), 0.8); IN("#ma-p3l", at(4, 0.86), 0.4);
+      // L5 管理员私钥
+      IN("#ma-key", at(5, 0.05), 0.4); IN("#ma-keyl", at(5, 0.08), 0.4);
+      DRAW("#ma-kl", at(5, 0.15), 0.4); IN("#ma-kll", at(5, 0.2), 0.4);
+      IN("#ma-ph", at(5, 0.42), 0.4, { attr: { "stroke-dashoffset": 60 } }, {}); IN("#ma-phl", at(5, 0.45), 0.4);
+      tl.set("#ma-key", { opacity: 0 }, at(5, 0.58));
+      tl.fromTo("#ma-keyo", { opacity: 1 }, { opacity: 0.35, duration: 0.25, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, at(5, 0.58));
+      tl.set("#ma-keyo", { opacity: 1 }, at(5, 0.58) + 1.6);
+      tl.to("#ma-keyl", { fill: "#FF9F43", duration: 0.3 }, at(5, 0.58));
+      for (let i = 0; i < 3; i++) OUT("#ma-lk" + i, at(5, 0.7 + i * 0.03), 0.3);
+      IN("#ma-corner", at(5, 0.82), 0.5);
+      // L6 放大镜
+      IN("#ma-g0", at(6, 0.08), 0.4); IN("#ma-g1", at(6, 0.22), 0.4); IN("#ma-g2", at(6, 0.36), 0.4);
+      IN("#ma-q", at(6, 0.6), 0.5, { y: 20 }, { y: 0 });
+
+
+      tl.to("#ma-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ma-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["map"] = tl;
+    })();
+  </script>
+</template>

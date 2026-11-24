@@ -1,0 +1,145 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 re- -->
+  <div id="root" data-composition-id="recap" data-duration="61.16" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <g id="re-g0a">
+        <g id="re-shell" class="h"><rect x="760" y="360" width="400" height="360" rx="18" fill="none" stroke="#F0B90B" stroke-width="5"/><text x="960" y="336" font-size="30" fill="#F0B90B" text-anchor="middle">地址 · 数据</text></g>
+        <g id="re-core1" class="h"><rect x="820" y="440" width="280" height="200" rx="12" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3"/><text x="960" y="552" font-size="32" fill="#58C4DD" text-anchor="middle">V1 代码</text></g>
+        <g id="re-core2" class="h"><rect id="re-c2r" x="820" y="440" width="280" height="200" rx="12" fill="#FF9F4322" stroke="#FF9F43" stroke-width="3"/><text id="re-c2t" x="960" y="552" font-size="32" fill="#FF9F43" text-anchor="middle">V2 代码</text></g>
+        </g>
+        <g id="re-g0b">
+        <g id="re-user" class="h"><g id="re-pu"><circle cx="260" cy="518" r="18" fill="#8a8f99"/><path d="M228 572 Q260 532 292 572 Z" fill="#8a8f99"/></g><text x="260" y="640" font-size="28" fill="#8a8f99" text-anchor="middle">用户</text></g>
+        <path id="re-ua" class="dr h" pathLength="1" d="M300 540 L514 540" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-arr)"/>
+        <g id="re-px" class="h"><rect id="re-pxr" x="520" y="400" width="360" height="280" rx="16" fill="#F0B90B10" stroke="#F0B90B" stroke-width="4"/><text class="mono" x="700" y="520" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle">Proxy</text><text x="700" y="584" font-size="30" fill="#e8e6df" text-anchor="middle">存数据</text></g>
+        <path id="re-da" class="dr h" pathLength="1" d="M884 540 L1254 540" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#re-arr)"/>
+        <text id="re-dl" class="h mono" x="1070" y="512" font-size="30" fill="#58C4DD" text-anchor="middle">delegatecall</text>
+        <g id="re-im" class="h"><rect id="re-imr" x="1260" y="400" width="360" height="280" rx="16" fill="#58C4DD10" stroke="#58C4DD" stroke-width="4"/><text class="mono" x="1440" y="520" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">Impl</text><text x="1440" y="584" font-size="30" fill="#e8e6df" text-anchor="middle">提供代码</text></g>
+        </g>
+        <g id="re-g1">
+        <g id="re-q0" class="h"><rect x="240" y="260" width="700" height="220" rx="16" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5"/><text x="280" y="340" font-size="32" fill="#e8e6df">单体协议</text><text x="280" y="420" font-size="48" font-weight="700" fill="#58C4DD">→ <tspan class="mono">UUPS</tspan></text></g>
+        <g id="re-q1" class="h"><rect x="980" y="260" width="700" height="220" rx="16" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5"/><text x="1020" y="340" font-size="32" fill="#e8e6df">多实例统一升级</text><text x="1020" y="420" font-size="48" font-weight="700" fill="#B48EF0">→ 信标代理</text></g>
+        <g id="re-q2" class="h"><rect x="240" y="540" width="700" height="220" rx="16" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5"/><text x="280" y="620" font-size="32" fill="#e8e6df">超大型协议</text><text x="280" y="700" font-size="48" font-weight="700" fill="#F0B90B">→ 钻石</text></g>
+        <g id="re-q3" class="h"><rect x="980" y="540" width="700" height="220" rx="16" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5"/><text x="1020" y="620" font-size="32" fill="#e8e6df">大量不需升级的副本</text><text x="1020" y="700" font-size="48" font-weight="700" fill="#58C4DD">→ 最小代理</text></g>
+        </g>
+        <g id="re-g2">
+        <g id="re-bd1" class="h"><rect x="360" y="340" width="1200" height="140" rx="24" fill="#83C16714" stroke="#83C167" stroke-width="3"/><text class="mono" x="400" y="425" font-size="44" font-weight="700" fill="#83C167">EIP-1967</text></g>
+        <text id="re-bd1t" class="h" x="700" y="423" font-size="34" fill="#e8e6df">代理 ↔ 实现 槽位不碰撞</text>
+        <g id="re-bd2" class="h"><rect x="360" y="560" width="1200" height="140" rx="24" fill="#83C16714" stroke="#83C167" stroke-width="3"/><text class="mono" x="400" y="645" font-size="44" font-weight="700" fill="#83C167">ERC-7201</text></g>
+        <text id="re-bd2t" class="h" x="700" y="643" font-size="34" fill="#e8e6df">多版本 / 多继承 布局不冲突</text>
+        </g>
+        <g id="re-g3">
+        <text id="re-c2h" class="h mono" x="560" y="330" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">CREATE2</text>
+        <g id="re-ch" class="h"><rect x="300" y="400" width="200" height="160" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5"/><text x="400" y="450" font-size="30" fill="#e8e6df" text-anchor="middle">链 A</text><rect x="350" y="475" width="100" height="60" rx="8" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5"/><rect x="620" y="400" width="200" height="160" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5"/><text x="720" y="450" font-size="30" fill="#e8e6df" text-anchor="middle">链 B</text><rect x="670" y="475" width="100" height="60" rx="8" fill="#58C4DD22" stroke="#58C4DD" stroke-width="2.5"/></g>
+        <text id="re-eq" class="h" x="560" y="500" font-size="56" font-weight="700" fill="#83C167" text-anchor="middle">=</text>
+        <text id="re-c2d" class="h" x="560" y="640" font-size="30" fill="#8a8f99" text-anchor="middle">提前算出 · 多链同址</text>
+        <text id="re-p2h" class="h mono" x="1360" y="330" font-size="44" font-weight="700" fill="#B48EF0" text-anchor="middle">Permit2</text>
+        <g id="re-p2" class="h"><rect x="1240" y="400" width="240" height="160" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="1360" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">一次授权</text></g>
+        <text id="re-p2d" class="h" x="1360" y="640" font-size="30" fill="#8a8f99" text-anchor="middle">统一授权 · 兼容旧代币</text>
+        </g>
+        <g id="re-g4">
+        <text id="re-ml0" class="h" x="200" y="300" font-size="34" fill="#FC6255">constructor 初始化代理</text>
+        <path id="re-ms0" class="dr" pathLength="1" d="M190 288 L570 288" stroke="#FC6255" stroke-width="4" fill="none"/>
+        <text id="re-ma0" class="h" x="900" y="300" font-size="34" fill="#8a8f99" text-anchor="middle">→</text>
+        <text id="re-mr0" class="h" x="980" y="300" font-size="34" font-weight="700" fill="#83C167">用 <tspan class="mono">initialize()</tspan></text>
+        <text id="re-ml1" class="h" x="200" y="430" font-size="34" fill="#FC6255">不删旧变量就安全</text>
+        <path id="re-ms1" class="dr" pathLength="1" d="M190 418 L482 418" stroke="#FC6255" stroke-width="4" fill="none"/>
+        <text id="re-ma1" class="h" x="900" y="430" font-size="34" fill="#8a8f99" text-anchor="middle">→</text>
+        <text id="re-mr1" class="h" x="980" y="430" font-size="34" font-weight="700" fill="#83C167">只在末尾追加</text>
+        <text id="re-ml2" class="h" x="200" y="560" font-size="34" fill="#FC6255">最小代理能升级</text>
+        <path id="re-ms2" class="dr" pathLength="1" d="M190 548 L448 548" stroke="#FC6255" stroke-width="4" fill="none"/>
+        <text id="re-ma2" class="h" x="900" y="560" font-size="34" fill="#8a8f99" text-anchor="middle">→</text>
+        <text id="re-mr2" class="h" x="980" y="560" font-size="34" font-weight="700" fill="#83C167">Clone 不可升级</text>
+        <text id="re-ml3" class="h" x="200" y="690" font-size="34" fill="#FC6255">钻石人人都该用</text>
+        <path id="re-ms3" class="dr" pathLength="1" d="M190 678 L448 678" stroke="#FC6255" stroke-width="4" fill="none"/>
+        <text id="re-ma3" class="h" x="900" y="690" font-size="34" fill="#8a8f99" text-anchor="middle">→</text>
+        <text id="re-mr3" class="h" x="980" y="690" font-size="34" font-weight="700" fill="#83C167">没超上限 → UUPS</text>
+        </g>
+        <g id="re-g5">
+        <g id="re-lock" class="h"><path d="M525 500 L525 465 Q525 425 560 425 Q595 425 595 465 L595 500" fill="none" stroke="#83C167" stroke-width="6"/><rect x="505" y="500" width="110" height="90" rx="10" fill="#83C16733" stroke="#83C167" stroke-width="4"/><circle cx="560" cy="540" r="10" fill="#83C167"/></g>
+        <text id="re-lockl" class="h" x="560" y="660" font-size="32" fill="#e8e6df" text-anchor="middle">锁住初始化</text>
+        <g id="re-diff" class="h"><rect x="880" y="430" width="70" height="150" rx="6" fill="none" stroke="#58C4DD" stroke-width="3"/><rect x="970" y="430" width="70" height="150" rx="6" fill="none" stroke="#58C4DD" stroke-width="3"/><rect x="892" y="450" width="46" height="10" fill="#58C4DD"/><rect x="982" y="450" width="46" height="10" fill="#58C4DD"/><rect x="892" y="480" width="46" height="10" fill="#58C4DD"/><rect x="982" y="480" width="46" height="10" fill="#58C4DD"/><rect x="892" y="510" width="46" height="10" fill="#58C4DD"/><rect x="982" y="510" width="46" height="10" fill="#58C4DD"/><rect x="892" y="540" width="46" height="10" fill="#58C4DD"/><rect x="982" y="540" width="46" height="10" fill="#58C4DD"/><path d="M945 610 L958 622 L980 596" stroke="#83C167" stroke-width="6" fill="none"/></g>
+        <text id="re-diffl" class="h" x="960" y="660" font-size="32" fill="#e8e6df" text-anchor="middle">比对存储布局</text>
+        <g id="re-safe" class="h"><rect x="1270" y="440" width="110" height="140" rx="10" fill="none" stroke="#B48EF0" stroke-width="4"/><circle cx="1325" cy="510" r="28" fill="none" stroke="#B48EF0" stroke-width="4"/><path d="M1410 440 L1460 440 L1435 510 L1460 580 L1410 580 L1435 510 Z" fill="none" stroke="#B48EF0" stroke-width="4"/></g>
+        <text id="re-safel" class="h" x="1365" y="660" font-size="32" fill="#e8e6df" text-anchor="middle">多签 + 时间锁</text>
+        </g>
+        <text id="re-next" class="h" x="960" y="560" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">下一集 · 团队级 <tspan class="mono">OpSec</tspan> 与安全战时室</text>
+      </g>
+      <rect id="re-black" x="0" y="0" width="1920" height="1080" fill="#000" opacity="0"/>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const SHAKE = (s, t) => tl.fromTo(s, { x: 0 }, { x: 8, duration: 0.05, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, t);
+
+      // L0
+      IN("#re-shell", at(0, 0.02)); IN("#re-core1", at(0, 0.06));
+      tl.to("#re-core1", { x: 700, opacity: 0, duration: 0.7, ease: "power2.in" }, at(0, 0.16));
+      IN("#re-core2", at(0, 0.22), 0.7, { x: -700 }, { x: 0 });
+      tl.to("#re-c2r", { attr: { stroke: "#58C4DD" }, duration: 0.5 }, at(0, 0.32));
+      tl.to("#re-c2t", { attr: { fill: "#58C4DD" }, duration: 0.5 }, at(0, 0.32));
+      OUT("#re-g0a", at(0, 0.44), 0.4);
+      IN("#re-user", at(0, 0.5)); ARROW("#re-ua", at(0, 0.54));
+      IN("#re-px", at(0, 0.58)); ARROW("#re-da", at(0, 0.66)); IN("#re-dl", at(0, 0.68));
+      IN("#re-im", at(0, 0.72));
+      tl.to(["#re-pxr", "#re-imr"], { attr: { "stroke-width": 8 }, duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.86));
+      // L1
+      OUT("#re-g0b", at(1, 0.0), 0.35);
+      IN("#re-q0", at(1, 0.05)); IN("#re-q1", at(1, 0.3)); IN("#re-q2", at(1, 0.55)); IN("#re-q3", at(1, 0.78));
+      // L2
+      OUT("#re-g1", at(2, 0.0), 0.35);
+      IN("#re-bd1", at(2, 0.05)); IN("#re-bd1t", at(2, 0.14));
+      IN("#re-bd2", at(2, 0.45)); IN("#re-bd2t", at(2, 0.54));
+      // L3
+      OUT("#re-g2", at(3, 0.0), 0.35);
+      IN("#re-c2h", at(3, 0.04)); IN("#re-ch", at(3, 0.1)); IN("#re-eq", at(3, 0.22)); IN("#re-c2d", at(3, 0.3));
+      IN("#re-p2h", at(3, 0.5)); IN("#re-p2", at(3, 0.56)); IN("#re-p2d", at(3, 0.66));
+      // L4
+      OUT("#re-g3", at(4, 0.0), 0.35);
+      for (let i = 0; i < 4; i++) {
+        const b = 0.04 + i * 0.22;
+        IN("#re-ml" + i, at(4, b)); DRAW("#re-ms" + i, at(4, b + 0.06), 0.4);
+        IN("#re-ma" + i, at(4, b + 0.1)); IN("#re-mr" + i, at(4, b + 0.11));
+      }
+      // L5
+      OUT("#re-g4", at(5, 0.0), 0.35);
+      IN("#re-lock", at(5, 0.05)); IN("#re-lockl", at(5, 0.1));
+      IN("#re-diff", at(5, 0.35)); IN("#re-diffl", at(5, 0.4));
+      IN("#re-safe", at(5, 0.62)); IN("#re-safel", at(5, 0.67));
+      // L6
+      OUT("#re-g5", at(6, 0.0), 0.35);
+      IN("#re-next", at(6, 0.05), 0.7, { y: 20 }, { y: 0 });
+
+
+      tl.to("#re-all", { opacity: 0, duration: 0.7, ease: "power2.in" }, C.d - 1.2);
+      tl.to("#re-black", { opacity: 1, duration: 0.7, ease: "power2.in" }, C.d - 1.2);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>
