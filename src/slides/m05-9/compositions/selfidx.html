@@ -1,0 +1,195 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 selfidx，id 前缀 se- -->
+  <div id="root" data-composition-id="selfidx" data-duration="50.32" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="se-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="se-all">
+        
+<text id="se-title" class="h" x="120" y="150" font-size="56" font-weight="700" fill="#58C4DD">自建索引器</text>
+<g id="se-ex" class="h">
+  <rect x="760" y="420" width="400" height="300" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+  <text x="960" y="490" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">交易所</text>
+  <rect x="860" y="560" width="200" height="110" rx="10" fill="none" stroke="#F0B90B" stroke-width="3"/>
+  <text x="960" y="628" font-size="32" fill="#F0B90B" text-anchor="middle">充值</text>
+</g>
+<circle id="se-coin0" class="h" cx="420" cy="615" r="34" fill="#F0B90B"/><circle id="se-coin1" class="h" cx="420" cy="615" r="34" fill="#F0B90B"/><circle id="se-coin2" class="h" cx="420" cy="615" r="34" fill="#F0B90B"/>
+<text id="se-h1" class="h" x="120" y="260" font-size="40" font-weight="700" fill="#e8e6df">① 分段回填历史</text>
+<text id="se-h2" class="h" x="120" y="260" font-size="40" font-weight="700" fill="#e8e6df">② 订阅新区块 · 存哈希</text>
+<text id="se-h3" class="h" x="120" y="260" font-size="40" font-weight="700" fill="#e8e6df">③ 父哈希对不上 → 回滚</text>
+<text id="se-h4" class="h" x="120" y="260" font-size="40" font-weight="700" fill="#e8e6df">④ 唯一键防重复入账</text>
+<text id="se-h5" class="h" x="120" y="260" font-size="40" font-weight="700" fill="#e8e6df">⑤ 达到确认数才入账</text>
+<g id="se-tl" class="h">
+  <line x1="200" y1="560" x2="1720" y2="560" stroke="#8a8f99" stroke-width="3"/>
+  <rect id="se-sg0" x="204" y="536" width="244" height="48" rx="6" fill="#58C4DD" opacity="0.12"/><rect id="se-sg1" x="456" y="536" width="244" height="48" rx="6" fill="#58C4DD" opacity="0.12"/><rect id="se-sg2" x="708" y="536" width="244" height="48" rx="6" fill="#58C4DD" opacity="0.12"/><rect id="se-sg3" x="960" y="536" width="244" height="48" rx="6" fill="#58C4DD" opacity="0.12"/><rect id="se-sg4" x="1212" y="536" width="244" height="48" rx="6" fill="#58C4DD" opacity="0.12"/><rect id="se-sg5" x="1464" y="536" width="244" height="48" rx="6" fill="#58C4DD" opacity="0.12"/>
+  <line x1="200" y1="526" x2="200" y2="594" stroke="#e8e6df" stroke-width="3"/><line x1="452" y1="526" x2="452" y2="594" stroke="#e8e6df" stroke-width="3"/><line x1="704" y1="526" x2="704" y2="594" stroke="#e8e6df" stroke-width="3"/><line x1="956" y1="526" x2="956" y2="594" stroke="#e8e6df" stroke-width="3"/><line x1="1208" y1="526" x2="1208" y2="594" stroke="#e8e6df" stroke-width="3"/><line x1="1460" y1="526" x2="1460" y2="594" stroke="#e8e6df" stroke-width="3"/><line x1="1712" y1="526" x2="1712" y2="594" stroke="#e8e6df" stroke-width="3"/>
+  <text class="mono" x="200" y="670" font-size="30" fill="#58C4DD">eth_getLogs(fromBlock, toBlock)</text>
+</g>
+<g id="se-ch">
+<g id="se-b0" class="h"><rect id="se-b0r" x="260" y="520" width="160" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="se-b0t" class="mono" x="340" y="670" font-size="28" fill="#58C4DD" text-anchor="middle">h=a…</text></g><g id="se-b1" class="h"><rect id="se-b1r" x="480" y="520" width="160" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="se-b1t" class="mono" x="560" y="670" font-size="28" fill="#58C4DD" text-anchor="middle">h=b…</text></g><g id="se-b2" class="h"><rect id="se-b2r" x="700" y="520" width="160" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="se-b2t" class="mono" x="780" y="670" font-size="28" fill="#58C4DD" text-anchor="middle">h=c…</text></g><g id="se-b3" class="h"><rect id="se-b3r" x="920" y="520" width="160" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="se-b3t" class="mono" x="1000" y="670" font-size="28" fill="#58C4DD" text-anchor="middle">h=d…</text></g><g id="se-b4" class="h"><rect id="se-b4r" x="1140" y="520" width="160" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="se-b4t" class="mono" x="1220" y="670" font-size="28" fill="#58C4DD" text-anchor="middle">h=e…</text></g>
+<g id="se-bx" class="h"><rect id="se-bxr" x="1360" y="520" width="160" height="100" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text id="se-bxt" class="mono" x="1440" y="670" font-size="28" fill="#FC6255" text-anchor="middle">parent=z…</text></g>
+<g id="se-bp" class="h"><rect id="se-bpr" x="920" y="520" width="160" height="100" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/><text id="se-bpt" class="mono" x="1000" y="670" font-size="28" fill="#83C167" text-anchor="middle">h=p…</text></g><g id="se-bq" class="h"><rect id="se-bqr" x="1140" y="520" width="160" height="100" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/><text id="se-bqt" class="mono" x="1220" y="670" font-size="28" fill="#83C167" text-anchor="middle">h=q…</text></g>
+<path id="se-cur" class="h" d="M1220 470 L1204 444 L1236 444 Z" fill="#FF9F43"/>
+<text id="se-mis" class="h" x="1440" y="430" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">父哈希对不上</text>
+</g>
+<g id="se-tb" class="h">
+  <rect x="200" y="400" width="760" height="340" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+  <text x="230" y="456" font-size="30" fill="#8a8f99">入账表 · 唯一键</text>
+  <text class="mono" x="230" y="510" font-size="30" fill="#58C4DD">(txHash, logIndex)</text>
+  <line x1="220" y1="536" x2="940" y2="536" stroke="#8a8f99" stroke-width="1.5"/>
+  <rect id="se-row" x="226" y="560" width="708" height="60" rx="8" fill="#58C4DD" fill-opacity="0"/>
+</g>
+<g id="se-e1" class="h"><rect x="400" y="830" width="300" height="64" rx="10" fill="#2b4a57" stroke="#58C4DD" stroke-width="2.5"/><text x="550" y="873" font-size="30" fill="#e8e6df" text-anchor="middle">同一事件</text></g>
+<g id="se-e2" class="h"><rect x="400" y="830" width="300" height="64" rx="10" fill="#2b4a57" stroke="#58C4DD" stroke-width="2.5"/><text x="550" y="873" font-size="30" fill="#e8e6df" text-anchor="middle">同一事件</text></g>
+<text id="se-x" class="h" x="740" y="880" font-size="56" font-weight="700" fill="#FC6255">✕</text>
+<g id="se-bal" class="h"><text x="1220" y="500" font-size="34" font-weight="700" fill="#F0B90B">余额</text><circle cx="1260" cy="620" r="30" fill="none" stroke="#F0B90B" stroke-width="4"/><circle cx="1340" cy="620" r="30" fill="none" stroke="#F0B90B" stroke-width="4"/><circle cx="1420" cy="620" r="30" fill="none" stroke="#F0B90B" stroke-width="4"/>
+  <circle id="se-c4" cx="1500" cy="620" r="30" fill="none" stroke="#F0B90B" stroke-width="4" opacity="0"/></g>
+<text id="se-same" class="h" x="1220" y="740" font-size="30" fill="#F0B90B">余额不变</text>
+<g id="se-cf">
+  <g id="se-card" class="h"><rect id="se-cardr" x="300" y="460" width="360" height="120" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text id="se-cardt" x="480" y="532" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">充值记录</text></g>
+  <g id="se-dots" class="h"><text x="300" y="690" font-size="30" fill="#8a8f99">确认数</text>
+  <circle id="se-d0" cx="430" cy="680" r="16" fill="none" stroke="#83C167" stroke-width="3"/><circle id="se-d1" cx="478" cy="680" r="16" fill="none" stroke="#83C167" stroke-width="3"/><circle id="se-d2" cx="526" cy="680" r="16" fill="none" stroke="#83C167" stroke-width="3"/><circle id="se-d3" cx="574" cy="680" r="16" fill="none" stroke="#83C167" stroke-width="3"/><circle id="se-d4" cx="622" cy="680" r="16" fill="none" stroke="#83C167" stroke-width="3"/><circle id="se-d5" cx="670" cy="680" r="16" fill="none" stroke="#83C167" stroke-width="3"/>
+  <text x="720" y="692" class="mono" font-size="30" fill="#83C167">N</text></g>
+  <path id="se-ca" class="dr h" pathLength="1" d="M660 520 L1112 520" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#se-arr)"/>
+  <g id="se-led" class="h"><rect x="1120" y="440" width="360" height="160" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text x="1300" y="535" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle">入账</text></g>
+</g>
+<g id="se-ix" class="h"><rect x="160" y="510" width="300" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="310" y="572" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">索引器</text></g>
+<g id="se-pl">
+  <path id="se-p1" class="dr h" pathLength="1" d="M460 560 L692 560" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#se-arr)"/>
+  <g id="se-kf" class="h"><rect x="700" y="510" width="300" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="850" y="572" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">Kafka</text></g>
+  <circle id="se-m0" class="h" cx="480" cy="560" r="9" fill="#58C4DD"/><circle id="se-m1" class="h" cx="480" cy="560" r="9" fill="#58C4DD"/><circle id="se-m2" class="h" cx="480" cy="560" r="9" fill="#58C4DD"/><circle id="se-m3" class="h" cx="480" cy="560" r="9" fill="#58C4DD"/>
+  <path id="se-p2" class="dr h" pathLength="1" d="M1000 560 L1232 560" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#se-arr)"/>
+  <g id="se-ck" class="h"><rect x="1240" y="490" width="520" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+    <rect x="1270" y="560" width="18" height="50" fill="#58C4DD"/><rect x="1296" y="530" width="18" height="80" fill="#58C4DD"/><rect x="1322" y="545" width="18" height="65" fill="#58C4DD"/>
+    <text x="1370" y="574" font-size="32" font-weight="700" fill="#e8e6df">ClickHouse / BigQuery</text></g>
+</g>
+<g id="se-fk">
+  <path id="se-u" class="dr h" pathLength="1" d="M460 540 Q560 380 632 380" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#se-arr)"/>
+  <g id="se-pg" class="h"><rect x="640" y="330" width="340" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="810" y="392" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">PostgreSQL</text></g>
+  <text id="se-ut" class="h" x="1020" y="392" font-size="32" fill="#83C167">在线业务 · 强一致 · 可回滚</text>
+  <path id="se-dn" class="dr h" pathLength="1" d="M460 580 Q560 740 632 740" stroke="#58C4DD" stroke-width="3.5" fill="none" marker-end="url(#se-arr)"/>
+  <g id="se-cs" class="h"><rect x="640" y="690" width="340" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="810" y="752" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">列式仓库</text></g>
+  <text id="se-dt" class="h" x="1020" y="752" font-size="32" fill="#58C4DD">分析 · 大批量聚合</text>
+  <path id="se-sep" class="dr" pathLength="1" d="M620 560 L1420 560" stroke="#FF9F43" stroke-width="4" fill="none" stroke-dasharray="1"/>
+  <text id="se-sept" class="h" x="1450" y="572" font-size="34" font-weight="700" fill="#FF9F43">不要混用</text>
+</g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+IN("#se-title", at(0, 0.03), 0.6, { x: -20 }, { x: 0 });
+IN("#se-ex", at(0, 0.15), 0.6, { scale: 0.9, svgOrigin: "960 570" }, { scale: 1, svgOrigin: "960 570" });
+for (let i = 0; i < 3; i++) {
+  IN("#se-coin" + i, at(0, 0.3 + i * 0.15), 0.2);
+  tl.to("#se-coin" + i, { attr: { cx: 960 }, duration: 0.8, ease: "power2.in" }, at(0, 0.3 + i * 0.15));
+  tl.to("#se-coin" + i, { opacity: 0, duration: 0.15 }, at(0, 0.3 + i * 0.15) + 0.8);
+  tl.to("#se-ex", { scale: 1.06, svgOrigin: "960 570", duration: 0.15, yoyo: true, repeat: 1 }, at(0, 0.3 + i * 0.15) + 0.8);
+}
+tl.to("#se-ex rect:nth-of-type(2)", { fill: "#3a3010", duration: 0.4 }, at(0, 0.62));
+tl.to("#se-title", { fill: "#e8e6df", duration: 0.4, yoyo: true, repeat: 1 }, at(0, 0.85));
+// L1 segmented backfill
+OUT("#se-ex", at(1, 0), 0.3);
+IN("#se-h1", at(1, 0.02), 0.4);
+IN("#se-tl", at(1, 0.1), 0.4);
+for (let i = 0; i < 6; i++) tl.to(`#se-sg${i}`, { opacity: 0.85, duration: 0.25 }, at(1, 0.25 + i * 0.11));
+// L2 new blocks + hashes
+OUT("#se-h1, #se-tl", at(2, 0), 0.3);
+IN("#se-h2", at(2, 0.1), 0.4);
+for (let i = 0; i < 4; i++) IN(`#se-b${i}`, at(2, 0.08 + i * 0.06), 0.3);
+IN("#se-b4", at(2, 0.4), 0.6, { x: 500 }, { x: 0 });
+tl.fromTo("#se-b4t", { fill: "#e8e6df" }, { fill: "#58C4DD", duration: 0.5, immediateRender: false }, at(2, 0.7));
+IN("#se-cur", at(2, 0.75), 0.3);
+// L3 reorg
+OUT("#se-h2", at(3, 0), 0.3);
+IN("#se-h3", at(3, 0.07), 0.4);
+IN("#se-bx", at(3, 0.05), 0.5, { x: 400 }, { x: 0 });
+IN("#se-mis", at(3, 0.2), 0.3);
+tl.to("#se-bxr", { fill: "#4a1d1d", duration: 0.15, yoyo: true, repeat: 3 }, at(3, 0.2));
+tl.to("#se-cur", { x: -440, duration: 0.6, ease: "power2.inOut" }, at(3, 0.4));
+tl.to("#se-b3r, #se-b4r, #se-bxr", { stroke: "#8a8f99", duration: 0.3 }, at(3, 0.45));
+tl.to("#se-b3t, #se-b4t, #se-bxt", { fill: "#8a8f99", duration: 0.3 }, at(3, 0.45));
+OUT("#se-b3, #se-b4, #se-bx, #se-mis", at(3, 0.6), 0.3);
+IN("#se-bp", at(3, 0.7), 0.4, { y: -40 }, { y: 0 });
+IN("#se-bq", at(3, 0.8), 0.4, { y: -40 }, { y: 0 });
+tl.to("#se-cur", { x: 0, duration: 0.5, ease: "power2.inOut" }, at(3, 0.85));
+// L4 unique key
+OUT("#se-h3, #se-ch", at(4, 0), 0.3);
+IN("#se-h4", at(4, 0.07), 0.4);
+IN("#se-tb", at(4, 0.08), 0.5);
+IN("#se-bal", at(4, 0.12), 0.5);
+IN("#se-e1", at(4, 0.25), 0.3);
+tl.to("#se-e1", { y: -270, duration: 0.6, ease: "power2.inOut" }, at(4, 0.3));
+tl.to("#se-e1", { opacity: 0, duration: 0.2 }, at(4, 0.3) + 0.6);
+tl.to("#se-row", { fillOpacity: 0.35, duration: 0.3 }, at(4, 0.3) + 0.6);
+tl.to("#se-c4", { opacity: 1, duration: 0.3 }, at(4, 0.3) + 0.7);
+IN("#se-e2", at(4, 0.58), 0.3);
+tl.to("#se-e2", { y: -120, duration: 0.4, ease: "power2.in" }, at(4, 0.62));
+tl.to("#se-e2", { y: -60, duration: 0.3, ease: "power2.out" }, at(4, 0.62) + 0.4);
+IN("#se-x", at(4, 0.62) + 0.4, 0.2);
+IN("#se-same", at(4, 0.75), 0.4);
+// L5 confirmations
+OUT("#se-h4, #se-tb, #se-bal, #se-x, #se-same, #se-e2", at(5, 0), 0.3);
+IN("#se-h5", at(5, 0.07), 0.4);
+IN("#se-card", at(5, 0.08), 0.4);
+IN("#se-dots", at(5, 0.12), 0.4);
+for (let i = 0; i < 6; i++) tl.to(`#se-d${i}`, { fill: "#83C167", duration: 0.15 }, at(5, 0.22 + i * 0.07));
+tl.to("#se-cardr", { stroke: "#83C167", duration: 0.3 }, at(5, 0.66));
+tl.to("#se-cardt", { fill: "#83C167", duration: 0.3 }, at(5, 0.66));
+IN("#se-led", at(5, 0.6), 0.4);
+ARROW("#se-ca", at(5, 0.72), 0.4);
+// L6 pipeline
+OUT("#se-h5, #se-cf", at(6, 0), 0.3);
+IN("#se-ix", at(6, 0.06), 0.4);
+ARROW("#se-p1", at(6, 0.15), 0.4);
+IN("#se-kf", at(6, 0.2), 0.4);
+for (let i = 0; i < 4; i++) {
+  IN(`#se-m${i}`, at(6, 0.35 + i * 0.1), 0.1);
+  tl.to(`#se-m${i}`, { attr: { cx: 690 }, duration: 0.5, ease: "none" }, at(6, 0.35 + i * 0.1));
+  tl.to(`#se-m${i}`, { opacity: 0, duration: 0.1 }, at(6, 0.35 + i * 0.1) + 0.5);
+}
+ARROW("#se-p2", at(6, 0.6), 0.4);
+IN("#se-ck", at(6, 0.65), 0.5, { x: -20 }, { x: 0 });
+// L7 fork
+OUT("#se-pl", at(7, 0), 0.4);
+ARROW("#se-u", at(7, 0.05), 0.5);
+IN("#se-pg", at(7, 0.1), 0.4);
+IN("#se-ut", at(7, 0.18), 0.5);
+ARROW("#se-dn", at(7, 0.35), 0.5);
+IN("#se-cs", at(7, 0.4), 0.4);
+IN("#se-dt", at(7, 0.48), 0.5);
+DRAW("#se-sep", at(7, 0.7), 0.6);
+IN("#se-sept", at(7, 0.75), 0.4);
+
+
+      tl.to("#se-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["selfidx"] = tl;
+    })();
+  </script>
+</template>

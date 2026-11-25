@@ -8,7 +8,7 @@
     #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
   </style>
   <!-- 场景 report，id 前缀 rt- -->
-  <div id="root" data-composition-id="report" data-duration="97.25" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="report" data-duration="99.33" data-width="1920" data-height="1080">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="rt-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -52,8 +52,8 @@
 
           <!-- 行 1 读长度 -->
           <text id="rt-r1i" class="h" x="520" y="340" font-size="28" fill="#e8e6df">读 <tspan class="mono">stakes.length</tspan></text>
-          <text id="rt-r1n" class="h" x="830" y="340" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">冷 2,100</tspan> + 10 × <tspan fill="#FF9F43">热 100</tspan> = <tspan fill="#F0B90B" font-weight="700">3,100</tspan></text>
-          <text id="rt-r1o" class="h" x="1420" y="340" font-size="28" fill="#e8e6df">1 次冷读：<tspan fill="#F0B90B" font-weight="700">2,100</tspan></text>
+          <text id="rt-r1n" class="h" x="830" y="340" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">冷 2,100</tspan> + 20 × <tspan fill="#FF9F43">热 100</tspan> = <tspan fill="#F0B90B" font-weight="700">4,100</tspan></text>
+          <text id="rt-r1o" class="h" x="1420" y="340" font-size="28" fill="#e8e6df"><tspan fill="#FC6255">2,100</tspan> + 10 × <tspan fill="#FF9F43">100</tspan> = <tspan fill="#F0B90B" font-weight="700">3,100</tspan></text>
           <g id="rt-m1n"></g><g id="rt-m1o"></g>
           <!-- 行 2 读元素（两版相同） -->
           <rect id="rt-r2box" class="h" x="504" y="383" width="1332" height="84" rx="8" fill="#FC625514" stroke="#FC6255" stroke-width="2.5" />
@@ -90,10 +90,10 @@
           </g>
           <rect id="rt-bn" x="660" y="770" width="0" height="44" rx="6" fill="#FC6255" />
           <rect id="rt-bo" x="660" y="840" width="0" height="44" rx="6" fill="#83C167" />
-          <rect id="rt-bd" class="h" x="1489" y="770" width="171" height="44" fill="#F0B90B" />
-          <text id="rt-vn" class="h mono" x="1648" y="803" font-size="30" font-weight="700" fill="#0f1117" text-anchor="end">33,900</text>
-          <text id="rt-vo" class="h mono" x="1477" y="873" font-size="30" font-weight="700" fill="#0f1117" text-anchor="end">28,100</text>
-          <text id="rt-vd" class="h" x="1504" y="874" font-size="32" font-weight="700" fill="#F0B90B">省 5,800 ≈ 17%</text>
+          <rect id="rt-bd" class="h" x="1494" y="770" width="166" height="44" fill="#F0B90B" />
+          <text id="rt-vn" class="h mono" x="1648" y="803" font-size="30" font-weight="700" fill="#0f1117" text-anchor="end">34,900</text>
+          <text id="rt-vo" class="h mono" x="1482" y="873" font-size="30" font-weight="700" fill="#0f1117" text-anchor="end">29,100</text>
+          <text id="rt-vd" class="h" x="1509" y="874" font-size="32" font-weight="700" fill="#F0B90B">省 5,800 ≈ 17%</text>
           <text id="rt-note" class="h" x="540" y="944" font-size="28" fill="#8a8f99">循环与溢出检查指令另有节省</text>
         </g>
 
@@ -221,8 +221,8 @@
       ICE("#rt-lenice", 232, 306, 13);
       FIRE("#rt-lenfire", 266, 306, 15);
       ICE("#rt-rateice", 232, 550, 13);
-      MARKS("#rt-m1n", 830, 356, [R, ...Array(10).fill(O)]);
-      MARKS("#rt-m1o", 1420, 356, [R]);
+      MARKS("#rt-m1n", 830, 356, [R, ...Array(20).fill(O)]);
+      MARKS("#rt-m1o", 1420, 356, [R, ...Array(10).fill(O)]);
       MARKS("#rt-m2", 974, 446, Array(10).fill(R));
       MARKS("#rt-m3n", 830, 536, [R, ...Array(9).fill(O)]);
       MARKS("#rt-m4n", 830, 626, [R, ...Array(9).fill(O)]);
@@ -255,10 +255,10 @@
       IN("#rt-r1i", at(1, 0.02), 0.5);
       IN("#rt-lenice", at(1, 0.12), 0.3);
       IN("#rt-r1n", at(1, 0.15), 0.5);
-      SHOWM("#rt-m1n", at(1, 0.25));
+      SHOWM("#rt-m1n", at(1, 0.22), 0.03);
       IN("#rt-lenfire", at(1, 0.3), 0.3);
-      IN("#rt-r1o", at(1, 0.68), 0.5);
-      SHOWM("#rt-m1o", at(1, 0.75));
+      IN("#rt-r1o", at(1, 0.6), 0.5);
+      SHOWM("#rt-m1o", at(1, 0.68));
       // L2 读 10 个元素：大头
       IN("#rt-r2i", at(2, 0.02), 0.5);
       for (let i = 0; i < 10; i++) {
@@ -298,7 +298,7 @@
       IN("#rt-sum", at(5, 0.02), 0.4);
       tl.fromTo("#rt-bn", { attr: { width: 0 } }, { attr: { width: 1000 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(5, 0.05));
       IN("#rt-vn", at(5, 0.12), 0.4);
-      tl.fromTo("#rt-bo", { attr: { width: 0 } }, { attr: { width: 829 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(5, 0.2));
+      tl.fromTo("#rt-bo", { attr: { width: 0 } }, { attr: { width: 834 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(5, 0.2));
       IN("#rt-vo", at(5, 0.27), 0.4);
       IN("#rt-bd", at(5, 0.4), 0.4);
       IN("#rt-vd", at(5, 0.45), 0.5);

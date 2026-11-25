@@ -10,7 +10,7 @@ ${meta([
   '拆解排序器（Sequencer）的商业收支模型、自定义 Gas 代币与安全委员会逃生舱治理清单。'
 ], '前置：<a href="#m05-4">M04.4 扩容路线</a>、<a href="#m05-5">M04.5 Rollup 深入</a>、<a href="#m05-6">M04.6 节点运维与 RPC</a>')}
 ${beginner(`<p><strong>应用链（Appchain / L3）</strong>：专门为某一个协议或生态（如永续合约交易所、链游、社交网络）单独启动的一条定制 Rollup 链，独享区块空间，不再和全网其他项目抢 Gas。</p>
-<p><strong>RaaS（Rollup-as-a-Service）</strong>：类似 Web2 里的云托管数据库（AWS RDS），像 Conduit、Caldera、Gelato 这类平台提供“一键发一条 L2/L3”并代管排序器、区块浏览器和监控运维。</p>
+<p><strong>RaaS（Rollup-as-a-Service）</strong>：类似 Web2 里的云托管数据库（AWS RDS），像 Conduit、Caldera、Gelato 这类平台提供“一键发一条 L2/L3”并代管排序器、区块浏览器和监控运维（各家产品线变化快，以官网为准）。</p>
 <p><strong>DA 层（Data Availability Layer）</strong>：存放 Rollup 压缩后交易批次的地方。把数据发到以太坊主网 Blob 最安全但较贵；发到 Celestia / EigenDA / AnyTrust 委员会极便宜，但安全等级降为 Validium / Optimium。</p>`)}
 
 <h2>1. 一句话理解</h2>
@@ -24,7 +24,7 @@ ${art('一图看懂：模块化应用链（L2 / L3）的四层技术栈拼装', 
   S.box(25, 182, 610, 56, { k: 'ok', icon: 'server', t: '周边基础设施栈（往往比发链本身更贵更耗时）', s: '高可用 RPC · Blockscout 浏览器 · 索引器 · 跨链桥/Intent · 预言机喂价 · 稳定币流动性' }),
   S.arrow(170, 78, 170, 94), S.arrow(490, 78, 490, 94),
   S.arrow(170, 164, 170, 180), S.arrow(490, 164, 490, 180),
-  S.text(330, 292, '架构铁律：发链 1 小时，养生态 1 年；只有在高频定制或手续费捕获刚需下才自建应用链', { size: 13, anchor: 'middle', mw: 630 })
+  S.text(330, 292, '架构铁律：跑通测试网只要几十分钟，养生态要 1 年；只有在高频定制或手续费捕获刚需下才自建应用链', { size: 13, anchor: 'middle', mw: 630 })
 ], [
   ['flow', '现代模块化 Rollup 把执行、结算、DA 拆成可自由组合的乐高，但周边配套基础设施仍决定真实可用性。'],
   ['key', '用 Ethereum Blob 是纯 Rollup（继承 L1 安全性）；换成外部 DA 或 AnyTrust 委员会就变成 Optimium/Validium，需向用户明示安全降级。'],
@@ -32,12 +32,20 @@ ${art('一图看懂：模块化应用链（L2 / L3）的四层技术栈拼装', 
 ], '四层模块化应用链结构：顶部为执行层，中间并列结算层与数据可用性层，底部为周边基础设施栈', 'm05-72')}
 
 <h2>2. 三大 Rollup 框架与 RaaS 选型对比</h2>
-${tbl(['维度', 'OP Stack（Superchain）', 'Arbitrum Orbit', 'ZK Stack（Elastic Chain）'], [
-  ['<strong>证明体系</strong>', '乐观证明（Cannon 故障证明），支持向 ZK 演进', '乐观证明（BOLD 无许可交互式防欺诈）', '原生 ZK 有效性证明（快速最终性）'],
-  ['<strong>自定义 Gas 币</strong>', '支持定制 ERC-20 作为原生 Gas 币', '原生成熟支持（广泛用于 L3 游戏/DeFi 链）', '原生支持自定义基础代币与原生账户抽象'],
+${tbl(['维度', 'OP Stack（Superchain）', 'Arbitrum Orbit', 'ZK Stack（Elastic Network）'], [
+  ['<strong>证明体系</strong>', '乐观证明（Cannon 故障证明），在向 ZK 证明演进；故障证明是否无许可因链而异', '乐观证明。BoLD 交互式挑战协议 2025 年 2 月在 Arbitrum One 启用；Orbit 链要自己升级节点和合约才启用，也可以保持许可验证', '原生 ZK 有效性证明（快速最终性）'],
+  ['<strong>自定义 Gas 币</strong>', '旧版 Custom Gas Token 已弃用并从代码库移除；Upgrade 18 引入重新设计的 CGT v2（op-contracts/v6.0.0），在创世时配置，暂只支持 18 位小数代币', '原生成熟支持（广泛用于 L3 游戏/DeFi 链）', '原生支持自定义基础代币与原生账户抽象'],
   ['<strong>DA 可选性</strong>', 'Ethereum Blob / Celestia / EigenDA', 'Ethereum Blob / AnyTrust DAC（极低成本）/ Celestia', 'Ethereum Blob（Rollup）或 Validium 模式'],
-  ['<strong>生态互操作</strong>', '接入 Superchain 共享收益与原生互操作标准', 'Arbitrum 生态 Stylus（支持 Rust/C++ 写合约）', 'Elastic Chain 共享桥与原生跨链消息']
+  ['<strong>生态互操作</strong>', '加入 Superchain 要按 Law of Chains 向 Optimism Collective 分成（总收入 2.5% 与链上净利润 15% 取高者），换取共享升级、治理与原生互操作', 'Arbitrum 生态 Stylus（支持 Rust/C++ 写合约）', 'Elastic Network 共享桥、ZK Gateway 与原生跨链消息']
 ])}
+${call('info', `<p><strong>这张表的功能细节变化很快。</strong>以下是截至 2026 年 11 月查到的情况，选型前以各框架官方文档和 L2BEAT 上具体链的评级为准：</p>
+<ul>
+<li>OP Stack 自定义 Gas 币：旧设计（2024 年的 beta 功能）已弃用，用旧设计的链要协调硬分叉才能迁到 CGT v2（docs.optimism.io/op-stack/features/custom-gas-token）。</li>
+<li>Arbitrum BoLD：各 Arbitrum 链按自己的节奏启用；启用 BoLD 不等于开放无许可验证（docs.arbitrum.io，BoLD for Arbitrum chains）。</li>
+<li>ZK Stack 的链网络最早叫 Hyperchains，2024 年改称 Elastic Chain，现在官方文档称 Elastic Network（docs.zksync.io）。</li>
+<li>RaaS：Conduit、Caldera、Gelato 等服务商的产品线和收费常有调整，签约前看官网最新说明。</li>
+<li>DA 价格：Pectra（2025 年 5 月）和 Fusaka（2025 年 12 月）先后提高了 blob 容量，Fusaka 的 EIP-7918 还给 blob 基础费设了与执行层 base fee 挂钩的下限。以太坊 Blob 与外部 DA 的价差因此变化，不要沿用旧文章的“差几十倍”结论，要用实时数据重算。</li>
+</ul>`)}
 
 <h2>3. 排序器经济与收支账本（算一算）</h2>
 <p>运营一条应用链就像经营一条收费公路：收入是用户在 L2/L3 支付的全部优先费与基础费（外加可能的 MEV 排序收入），支出则是 L1 结算验证费、DA 存证费以及 RaaS/节点运维固定成本。</p>
@@ -77,7 +85,7 @@ ${checklist([
   '能列出应用链上线前必须验收的强制包含、Batcher 余额监控与 L1 治理权限清单。'
 ])}
 ${mistakes([
-  ['用 RaaS 一键发链只要 15 分钟，所以运营一条链的成本很低', '启动测试网只需 15 分钟，但主网持续运行的固定开销（托管、RPC、索引、浏览器、预言机赞助、流动性激励）每月动辄数万美元。'],
+  ['用 RaaS 一键发链只要几十分钟，所以运营一条链的成本很低', '跑通测试网可能只要几十分钟，但主网持续运行的固定开销（托管、RPC、索引、浏览器、预言机赞助、流动性激励）每月动辄数万美元。'],
   ['只要用了 OP Stack 框架，发出来的链就自动继承了以太坊 100% 的安全性', '如果把 DA 换成外部委员会、或把 L1 桥升级权留给项目方单签且没开故障证明，它的实际安全等级远低于以太坊。'],
   ['把自己的协议代币设成应用链的原生 Gas 币，币价就会大涨', '强迫新用户先去买一种陌生小币才能付 Gas，会极大抬高入金门槛；如果真要自定义 Gas 币，必须配合 Paymaster 支持 USDC 抵扣或免 Gas 体验。']
 ])}
@@ -110,14 +118,14 @@ ${meta([
   '解释 DVT（分布式验证者技术，SSV / Obol）如何把单台验证者拆成 3/4 门限集群，同时兼顾高可用与零双签。',
   '梳理 MEV-Boost 中继接入与 EigenLayer AVS（主动验证服务）运营商节点的额外风控与罚没边界。'
 ], '前置：<a href="#m05-3">M04.3 PoS 深入</a>、<a href="#m05-6">M04.6 节点运维与 RPC</a>、<a href="#m02-63">M05.4 流动性质押与再质押</a>')}
-${beginner(`<p><strong>双签罚没（Double Signing / Slashing）</strong>：如果同一个验证者公钥在同一个 Slot 里对两个不同的区块投了票，以太坊协议会判定你在作恶，直接没收部分质押 ETH 并强制踢出网络——而 99% 的真实罚没并不是黑客作恶，而是运维不小心把同一把密钥同时跑在了两台服务器上！</p>
+${beginner(`<p><strong>双签罚没（Double Signing / Slashing）</strong>：如果同一个验证者公钥在同一个 Slot 里对两个不同的区块投了票，以太坊协议会判定你在作恶，直接没收部分质押 ETH 并强制踢出网络——而绝大多数真实罚没并不是黑客作恶，而是运维不小心把同一把密钥同时跑在了两台服务器上！</p>
 <p><strong>Web3Signer</strong>：Consensys 开源的机构级远程签名服务，把验证者 BLS 私钥隔离在加密密钥库里，并在签每一个区块前强制查一次防双签数据库。</p>
 <p><strong>DVT（Distributed Validator Technology）</strong>：把一个 32 ETH 验证者的私钥用门限签名拆给 4 台独立运行的机器（如 3-of-4）；挂掉 1 台照常出块不漏收益，也没有任何一台机器能单方面双签。</p>`)}
 
 <h2>1. 一句话理解</h2>
 ${one('传统 Web2 运维靠“多机双活”保证高可用，但以太坊验证者绝对禁止“把同一把私钥同时跑在两台机器上”（立刻触发双签罚没）；机构级质押运维的全部精髓，就是用 Web3Signer 防双签数据库和 DVT 门限集群，在“高可用不离线”与“绝不双签”之间走出安全通路。')}
 ${call('analogy', `<p>普通网站做高可用像派两个保安同时拿同一把门禁卡值班，一个打盹另一个顶上；但以太坊 PoS 规则像严格的金融双人核验：同一张身份证同一秒在两处打卡会被当场拉黑没收保证金！DVT 就像把印章切成 4 份分给 4 个不同机房的保安，每次盖章只要任意 3 个人通过内部共识拼出签名即可——一个人请假不影响业务，也绝不会出现两份互相矛盾的盖章。</p>
-<p>比喻的局限：DVT 引入了集群内部网络通信（如 QBFT 共识），会略微增加签名延迟并需要支付网络运营费（如 SSV 代币费用）。</p>`)}
+<p>比喻的局限：DVT 引入了集群内部网络通信（如 QBFT 共识），会略微增加签名延迟，并要向运营者和网络付费。以 SSV 为例：截至 2026 年 11 月，官方文档写明运营者费用以 ETH 计价，早先注册的运营者和旧集群仍可能按 SSV 代币收费，正在迁移到 ETH 计价；收费规则以 docs.ssv.network 为准。</p>`)}
 ${art('一图看懂：机构级验证者防双签架构（Web3Signer + DVT 门限集群）', 660, 320, [
   S.zone(15, 18, 300, 240, { t: '模式 A：单机构远程签名（Web3Signer）', k: 'info' }),
   S.box(28, 48, 274, 52, { k: 'info', icon: 'server', t: '验证者客户端 VC（无私钥）', s: 'Lighthouse / Prysm / Teku 仅做调度' }),
@@ -146,14 +154,15 @@ ${tbl(['部署模式', '高可用容错', '双签风险控制', '客户端多样
 ])}
 
 <h2>3. MEV-Boost 中继接入与客户端多样性</h2>
-<p>机构验证者要获得具备竞争力的出块收益，几乎都会接入 <strong>MEV-Boost</strong>（见 <a href="#m05-7">M04.7 MEV</a>），同时连接多家独立中继（如 Flashbots、Ultra Sound、bloXroute、Titan Relay）以比价出最高收益区块：</p>
+<p>机构验证者要获得具备竞争力的出块收益，几乎都会接入 <strong>MEV-Boost</strong>（见 <a href="#m05-7">M04.7 MEV</a>），同时连接多家独立中继以比价出最高收益区块。中继举例（示例，截至 2026 年 11 月）：Flashbots、Ultra Sound、bloXroute、Titan Relay。中继会上线、下线或改变过滤策略，接入前以 mevboost.pics 等公开看板和各中继官网的最新信息为准：</p>
 <ul>
 <li><strong>本地回退机制（min-bid / fallback）</strong>：当所有外部 Relay 超时、或出价低于设定的最低门槛时，验证者客户端必须无缝回退到本地执行客户端自建区块，绝不能因为 Relay 故障而丢块。</li>
-<li><strong>客户端多样性（Client Diversity）</strong>：以太坊 PoS 规定，如果超过 66% 的质押运行同一个有 Bug 的客户端并敲定了错误链，这些验证者会面临最高 100% 质押的<strong>关联罚没（Correlation Penalty）</strong>。机构生产标准是混跑少数派客户端（如 Teku + Nethermind / Besu / Reth），绝不把全部验证者押在占比最高的单一组合上。</li>
+<li><strong>客户端多样性（Client Diversity）</strong>：如果超过 2/3 的质押运行同一个有 Bug 的客户端，并把错误的链敲定（finalize），这些验证者就被困在错误的链上。之后有两种结局：① 投票切回正确链，就会和自己之前在错误链上的投票冲突，构成可罚没的冲突投票；同时被罚没的人很多，<strong>相关性惩罚（Correlation Penalty）</strong>会随之放大，最坏情况是损失全部质押。② 留在错误链上不动，在正确链上就算离线，持续遭受<strong>不活跃泄漏（Inactivity Leak）</strong>，余额一直被扣。少数派客户端的 Bug 则无法敲定错误链，损失小得多。机构生产标准是混跑少数派客户端（如 Teku + Nethermind / Besu / Reth），绝不把全部验证者押在占比最高的单一组合上。</li>
 </ul>
 
 <h2>4. EigenLayer AVS 运营商节点：收益与风险叠加</h2>
-<p>除了跑以太坊原生验证者，越来越多机构同时注册为 <strong>EigenLayer / Symbiotic Operator</strong>，为数据可用性（EigenDA）、预言机、跨链桥等 <strong>AVS（Actively Validated Services，主动验证服务）</strong>提供安全背书。再质押者、运营者、AVS 三个角色和委托、提款延迟的机制见 <a href="#m02-63">M05.4 流动性质押与再质押</a>第 6 节（后面会讲）；本节只讲运营者一侧的节点部署与罚没隔离：</p>
+<p>除了跑以太坊原生验证者，越来越多机构同时注册为 <strong>EigenLayer / Symbiotic Operator</strong>，为数据可用性（EigenDA）、预言机、跨链桥等 <strong>AVS（Actively Validated Services，主动验证服务）</strong>提供安全背书。再质押者、运营者、AVS 三个角色和委托、提款延迟的机制见 <a href="#m02-63">M05.4 流动性质押与再质押</a>第 6 节（后面会讲）；本节只讲运营者一侧的节点部署与罚没隔离。</p>
+<p>先确认现状：EigenLayer 的罚没功能与运营者集合（Operator Sets）已于 2025 年 4 月 17 日在以太坊主网上线（以 EigenLayer 官方文档为准）。罚没不会自动作用到老的 AVS 上：AVS 要建立 Operator Set 并写明罚没条件，运营者主动加入、为它分配质押份额后，这部分份额才可能被罚没。提款排队后要等 14 天，让 AVS 有时间执行罚没。</p>
 ${mm('再质押运营商（Operator）接入多 AVS 的运行与罚没隔离', `
 flowchart LR
   S["质押者 / LST<br/>委托 ETH 质押权"] --> OP["机构 Operator 节点"]
@@ -167,7 +176,7 @@ flowchart LR
 
 <h2>5. 质押运维生产清单</h2>
 ${tbl(['检查项', '为什么', '怎么验证'], [
-  ['<strong>密钥迁移严格执行 EIP-3076 导出 + 冷静期</strong>', '历史上绝大多数双签事故均发生在机房迁移或扩容误操作', '先停旧机并撤销签名权限，导出 slashing protection JSON 导入新机，等满 2 个 epoch（~13 分钟）再启动'],
+  ['<strong>密钥迁移严格执行 EIP-3076 导出 + 冷静期</strong>', '历史上大部分双签事故发生在机房迁移或扩容误操作', '先停旧机并撤销签名权限，导出 slashing protection JSON 导入新机，等满 2 个 epoch（~13 分钟）再启动'],
   ['<strong>提款凭证（Withdrawal Credentials）冷存储隔离</strong>', '验证者签名密钥在线运行，但提款地址（0x01/0x02）必须指向硬件冷钱包或多签', '上线前核对 deposit_data.json 中的 withdrawal_credentials 指向机构冷金库'],
   ['<strong>全链路指标告警（出块率、证明率、Sync 状态）</strong>', '执行层不同步或磁盘写满会导致连续漏签被扣分', '监控 Beaconcha.in / Prometheus：连续 2 个 epoch 漏签立即触发值班电话告警'],
   ['<strong>禁用未经审计的 AVS 共享罚没池</strong>', '防范新 AVS 代码缺陷引发级联罚没', '审核 AVS 罚没条件与可罚上限，优先采用独立 Operator Set 隔离风险']
@@ -198,7 +207,7 @@ ${quiz([
   { q: '为什么以太坊验证者运维中，绝对禁止把同一份 keystore 私钥同时加载到两台独立运行的验证者客户端上做“双活热备”？', o: ['以太坊网络不支持两台服务器同时联网', '两台客户端可能在同一 Slot 签出冲突的区块或投票，直接触发双签罚没（Slashing）并被强制逐出网络', '会导致 Gas 费变成两倍', '会清空提款地址里的冷钱包余额'], a: 1, why: '同一验证者在同一 Slot 签出两个不同对象即构成协议级作恶（Equivocation），会立刻被举报罚没。' },
   { q: 'DVT（分布式验证者技术，如 SSV / Obol）如何同时解决“单机宕机漏签”和“双活触发双签”的矛盾？', o: ['取消验证者私钥改为账号密码登录', '把单个验证者私钥拆成门限分片（如 3-of-4）交给多台节点，节点间先达成内部共识再聚合出唯一签名，挂 1 台照常出块且单节点无法双签', '让所有节点轮流把完整私钥通过邮件发给下一台机器', '关闭以太坊的罚没规则'], a: 1, why: '门限 BLS 签名结合内部 BFT 共识保证了单点故障容错与密码学级防双签。' },
   { q: '当需要把正在运行的验证者从旧服务器安全迁移到新服务器时，最规范的防双签操作顺序是？', o: ['先启动新服务器确认出块正常，再关闭旧服务器', '先彻底停止并删除旧服务器签名进程，导出 EIP-3076 防双签历史记录导入新服务器，等待至少 2 个 epoch 后再启动新服务器', '直接拷贝磁盘快照同时开机', '把私钥发到公共区块浏览器验证'], a: 1, why: '彻底停旧机 + 迁移 EIP-3076 防双签数据库 + 冷静等待 epoch，是杜绝迁移双签的行业标准 SOP。' },
-  { q: '为什么以太坊基金会和大型质押协议反复强调验证者必须采用“少数派客户端（Client Diversity）”？', o: ['少数派客户端的界面更美观', '若占比超过 2/3 的主流客户端爆发共识 Bug 敲定错误链，所有运行该客户端的验证者可能面临最高 100% 质押的关联罚没', '主流客户端不支持 MEV-Boost', '少数派客户端不需要质押 32 ETH'], a: 1, why: '以太坊的关联罚没机制惩罚群体性同步作恶或同步故障，运行占比低于 33% 的客户端能极大降低极端罚没风险。' }
+  { q: '为什么以太坊基金会和大型质押协议反复强调验证者必须采用“少数派客户端（Client Diversity）”？', o: ['少数派客户端的界面更美观', '若占比超过 2/3 的主流客户端爆发共识 Bug 敲定错误链，运行该客户端的验证者会被困在错误链上：切回正确链要冲突投票而被罚没（相关性惩罚放大，最坏损失全部质押），留在原链则持续遭受不活跃泄漏', '主流客户端不支持 MEV-Boost', '少数派客户端不需要质押 32 ETH'], a: 1, why: '被困在错误链上的验证者，只有投票切回正确链时才会因冲突投票被罚没，且同时被罚的人多，相关性惩罚会放大到最坏损失全部质押；留在原链则持续遭受不活跃泄漏。运行占比低于 1/3 的客户端出 Bug 时无法敲定错误链，能大幅降低这种极端风险。' }
 ])}
 ${terms([
   ['双签罚没', 'Double Signing / Slashing', '验证者在同一 Slot 对冲突区块或检查点重复签名而触发的质押金没收与强制退出惩罚。'],

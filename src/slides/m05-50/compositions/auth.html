@@ -1,0 +1,250 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 auth，id 前缀 au- -->
+  <div id="root" data-composition-id="auth" data-duration="69.16" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="au-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="au-all">
+        <g id="au-gates">
+          <path id="au-pipe" class="dr" pathLength="1" d="M120 275 L1800 275" stroke="#F0B90B" stroke-opacity="0.5" stroke-width="4" fill="none" />
+          <g id="au-g1" class="h"><rect x="300" y="225" width="300" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <circle cx="372" cy="275" r="15" fill="none" stroke="#FF9F43" stroke-width="4" /><path d="M387 275 L420 275 M410 275 L410 290 M420 275 L420 288" stroke="#FF9F43" stroke-width="4" fill="none" />
+            <text x="450" y="288" font-size="36" fill="#e8e6df">鉴权</text></g>
+          <g id="au-g2" class="h"><rect x="810" y="225" width="300" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <path d="M862 255 L922 255 L914 298 L870 298 Z" fill="none" stroke="#F0B90B" stroke-width="4" /><circle cx="892" cy="278" r="7" fill="#F0B90B" />
+            <text x="960" y="288" font-size="36" fill="#e8e6df">限流</text></g>
+          <g id="au-g3" class="h"><rect x="1320" y="225" width="300" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <path d="M1370 300 L1370 285 M1388 300 L1388 268 M1406 300 L1406 252" stroke="#F0B90B" stroke-width="8" fill="none" />
+            <text x="1470" y="288" font-size="36" fill="#e8e6df">计量</text></g>
+          <rect id="au-g1h" class="h" x="300" y="225" width="300" height="100" rx="14" fill="none" stroke="#F0B90B" stroke-width="4" />
+          <rect id="au-g2h" class="h" x="810" y="225" width="300" height="100" rx="14" fill="none" stroke="#F0B90B" stroke-width="4" />
+          <rect id="au-g3h" class="h" x="1320" y="225" width="300" height="100" rx="14" fill="none" stroke="#F0B90B" stroke-width="4" />
+          <rect id="au-req" class="h" x="80" y="257" width="36" height="36" rx="6" fill="#F0B90B" />
+        </g>
+        <g id="au-k1">
+          <g id="au-hdr" class="h"><rect x="140" y="400" width="480" height="80" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text class="mono" x="165" y="452" font-size="30" fill="#FF9F43">X-Api-Key: a1b2…</text></g>
+          <path id="au-a1" class="dr h" pathLength="1" d="M630 440 L738 440" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#au-arr)" />
+          <g id="au-sha" class="h"><rect x="750" y="400" width="240" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="870" y="452" font-size="30" fill="#58C4DD" text-anchor="middle">SHA-256</text></g>
+          <path id="au-a2" class="dr h" pathLength="1" d="M1000 440 L1108 440" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#au-arr)" />
+          <g id="au-hash" class="h"><rect x="1120" y="400" width="300" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1270" y="452" font-size="30" fill="#58C4DD" text-anchor="middle">9f2c…e41a</text></g>
+          <path id="au-a3" class="dr h" pathLength="1" d="M1270 490 L1270 578" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#au-arr)" />
+          <g id="au-lc" class="h"><rect x="1080" y="590" width="380" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1270" y="646" font-size="30" fill="#e8e6df" text-anchor="middle">本地缓存 · 60 s</text></g>
+          <path id="au-a4" class="dr h" pathLength="1" d="M1270 690 L1270 786" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#au-arr)" />
+          <text id="au-miss" class="h" x="1292" y="752" font-size="30" fill="#FF9F43">未命中</text>
+          <g id="au-db" class="h">
+            <path d="M1080 812 L1080 950 A190 22 0 0 0 1460 950 L1460 812" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <ellipse cx="1270" cy="812" rx="190" ry="22" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1270" y="882" font-size="30" fill="#58C4DD" text-anchor="middle">PostgreSQL</text>
+            <text class="mono" x="1270" y="932" font-size="28" fill="#e8e6df" text-anchor="middle">key_hash: 9f2c…</text></g>
+          <text id="au-only" class="h" x="1040" y="910" font-size="30" fill="#8a8f99" text-anchor="end">库里只存哈希</text>
+        </g>
+        <g id="au-k2">
+          <g id="au-bkA" class="h">
+            <rect id="au-lvA" x="232" y="620" width="156" height="190" fill="#F0B90B" fill-opacity="0.25" />
+            <path d="M200 560 L420 560 L395 820 L225 820 Z" fill="none" stroke="#F0B90B" stroke-width="3" />
+            <text x="310" y="875" font-size="30" fill="#8a8f99" text-anchor="middle">实例 1</text></g>
+          <circle id="au-tk1" class="h" cx="290" cy="440" r="12" fill="#F0B90B" />
+          <circle id="au-tk2" class="h" cx="330" cy="440" r="12" fill="#F0B90B" />
+          <circle id="au-tk3" class="h" cx="310" cy="440" r="12" fill="#F0B90B" />
+          <text id="au-f1" class="h" x="560" y="500" font-size="40" fill="#e8e6df">每实例速率 = RPS ÷ 实例数</text>
+          <text id="au-f2" class="h" x="560" y="590" font-size="40" fill="#e8e6df">突发 = 2 × 份额 + 1</text>
+          <text id="au-v1" class="h" x="560" y="720" font-size="44" fill="#F0B90B">50 ÷ 2 = 25 /s</text>
+          <text id="au-v2" class="h" x="560" y="810" font-size="44" fill="#F0B90B">2 × 25 + 1 = 51</text>
+          <text id="au-cA" class="h" x="310" y="735" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">51</text>
+          <g id="au-bkB" class="h">
+            <rect x="1512" y="620" width="156" height="190" fill="#F0B90B" fill-opacity="0.25" />
+            <path d="M1480 560 L1700 560 L1675 820 L1505 820 Z" fill="none" stroke="#F0B90B" stroke-width="3" />
+            <text x="1590" y="875" font-size="30" fill="#8a8f99" text-anchor="middle">实例 2</text>
+            <text x="1590" y="735" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">51</text></g>
+          <text id="au-ex1" class="h" x="1800" y="1000" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+        </g>
+        <g id="au-k4">
+          <rect id="au-rj" class="h" x="640" y="652" width="36" height="36" rx="6" fill="#F0B90B" />
+          <text id="au-rl1" class="h mono" x="560" y="525" font-size="28" fill="#FC6255">rate limit exceeded</text>
+          <text id="au-rl2" class="h mono" x="560" y="570" font-size="28" fill="#FC6255">Retry-After: 1</text>
+          <g id="au-rd" class="h"><rect x="760" y="640" width="440" height="120" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="790" y="690" font-size="32" fill="#58C4DD">Redis</text>
+            <text class="mono" x="790" y="738" font-size="28" fill="#e8e6df">q:{id}:{day}</text>
+            <text x="1230" y="710" font-size="30" fill="#8a8f99">当日配额</text>
+            <rect x="760" y="810" width="740" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="2" /></g>
+          <rect id="au-qf" class="h" x="762" y="812" width="0" height="36" rx="6" fill="#F0B90B" />
+          <text id="au-qx" class="h mono" x="760" y="910" font-size="28" fill="#FC6255">daily quota exceeded</text>
+        </g>
+        <g id="au-k5">
+          <rect id="au-w1" class="h" x="460" y="844" width="200" height="36" rx="6" fill="#F0B90B" fill-opacity="0.85" />
+          <rect id="au-w2" class="h" x="860" y="760" width="200" height="120" rx="6" fill="#F0B90B" fill-opacity="0.85" />
+          <rect id="au-w3" class="h" x="1260" y="520" width="200" height="360" rx="6" fill="#F0B90B" fill-opacity="0.85" />
+          <text id="au-n1" class="h" x="560" y="820" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">1</text>
+          <text id="au-n2" class="h" x="960" y="736" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">5</text>
+          <text id="au-n3" class="h" x="1360" y="496" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">20</text>
+          <text id="au-m1" class="h" x="560" y="935" font-size="32" fill="#e8e6df" text-anchor="middle">查区块号</text>
+          <text id="au-m2" class="h" x="960" y="935" font-size="32" fill="#e8e6df" text-anchor="middle">只读调用</text>
+          <text id="au-m3" class="h" x="1360" y="935" font-size="32" fill="#e8e6df" text-anchor="middle">查日志</text>
+          <text id="au-cu" class="h" x="1560" y="700" font-size="40" fill="#F0B90B">CU</text>
+          <text id="au-ex2" class="h" x="1800" y="1000" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+        </g>
+        <g id="au-k6">
+          <g id="au-env" class="h"><rect x="200" y="430" width="360" height="260" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <path d="M200 430 L380 560 L560 430" fill="none" stroke="#F0B90B" stroke-width="3" />
+            <text x="380" y="760" font-size="36" fill="#F0B90B" text-anchor="middle">1000 条</text></g>
+          <path id="au-e1" class="dr h" pathLength="1" d="M580 520 L735 520" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#au-arr)" />
+          <text id="au-r1" class="h" x="760" y="533" font-size="36" fill="#e8e6df">整批只算 1 次</text>
+          <text id="au-x1" class="h" x="1060" y="535" font-size="48" font-weight="700" fill="#FC6255">✕</text>
+          <text id="au-x1t" class="h" x="1130" y="533" font-size="36" fill="#FC6255">绕过限流</text>
+          <path id="au-e2" class="dr h" pathLength="1" d="M580 640 L735 700" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#au-arr)" />
+          <text id="au-r2" class="h" x="760" y="713" font-size="36" fill="#e8e6df">逐条计</text>
+          <text id="au-r2n" class="h mono" x="900" y="715" font-size="44" fill="#F0B90B">0</text>
+          <text id="au-x2" class="h" x="1060" y="715" font-size="48" font-weight="700" fill="#83C167">✓</text>
+        </g>
+        <g id="au-k7">
+          <text id="au-bt" class="h" x="200" y="378" font-size="30" fill="#8a8f99">批量 100 条</text>
+          <g id="au-grid" class="h"></g>
+          <path id="au-e3" class="dr h" pathLength="1" d="M650 610 L855 610" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#au-arr)" />
+          <g id="au-bkC" class="h">
+            <rect x="932" y="520" width="176" height="222" fill="#F0B90B" fill-opacity="0.25" />
+            <path d="M900 470 L1140 470 L1112 750 L928 750 Z" fill="none" stroke="#F0B90B" stroke-width="3" />
+            <text x="1020" y="645" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">51</text></g>
+          <text id="au-ok" class="h" x="1260" y="560" font-size="40" fill="#83C167">≈ 51 通过</text>
+          <text id="au-no" class="h" x="1260" y="660" font-size="40" fill="#FC6255">≈ 49 拒绝</text>
+          <text id="au-nt" class="h" x="200" y="900" font-size="28" fill="#6b6f7a">忽略处理期间补充的令牌</text>
+        </g>
+
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="au-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">计算单位 CU <tspan font-size="28" font-weight="400" fill="#8a8f99">Compute Unit</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">按方法开销加权的计量单位</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const MV = (s, t, v, d = 0.6) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      { const g = document.querySelector("#au-grid");
+        for (let i = 0; i < 100; i++) { const r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+          r.setAttribute("id", "au-c" + i); r.setAttribute("x", 200 + (i % 10) * 42); r.setAttribute("y", 400 + Math.floor(i / 10) * 42);
+          r.setAttribute("width", 34); r.setAttribute("height", 34); r.setAttribute("rx", 5); r.setAttribute("fill", "#6b6f7a"); g.appendChild(r); } }
+      const cells = [...Array(100).keys()].map(i => "#au-c" + i);
+
+      // L0 三道闸门
+      DRAW("#au-pipe", at(0, 0), 0.8);
+      ["#au-g1", "#au-g2", "#au-g3"].forEach((s, i) => IN(s, at(0, 0.1 + i * 0.12), 0.5, { y: 20 }, { y: 0 }));
+      IN("#au-req", at(0, 0.5), 0.3);
+      MV("#au-req", at(0, 0.55), { x: 170 }, 0.8);
+      IN("#au-g1h", at(0, 0.8), 0.4);
+
+      // L1 Key → SHA-256 → 本地缓存 → PostgreSQL
+      IN("#au-hdr", at(1, 0.02), 0.5, { x: -30 }, { x: 0 });
+      ARROW("#au-a1", at(1, 0.12));
+      IN("#au-sha", at(1, 0.16), 0.5);
+      ARROW("#au-a2", at(1, 0.27));
+      IN("#au-hash", at(1, 0.31), 0.5);
+      IN("#au-only", at(1, 0.42), 0.5);
+      ARROW("#au-a3", at(1, 0.58));
+      IN("#au-lc", at(1, 0.62), 0.5);
+      ARROW("#au-a4", at(1, 0.72));
+      IN("#au-miss", at(1, 0.74), 0.4);
+      IN("#au-db", at(1, 0.8), 0.5);
+      tl.to("#au-lc rect", { stroke: "#83C167", duration: 0.4 }, at(1, 0.93));
+
+      // L2 令牌桶 + 公式
+      OUT("#au-k1", at(2, 0), 0.4);
+      OUT("#au-g1h", at(2, 0), 0.3); IN("#au-g2h", at(2, 0.02), 0.4);
+      MV("#au-req", at(2, 0), { x: 680 }, 0.7);
+      IN("#au-bkA", at(2, 0.08), 0.5);
+      [["#au-tk1", 0.15], ["#au-tk2", 0.3], ["#au-tk3", 0.5], ["#au-tk1", 0.7], ["#au-tk2", 0.85]].forEach(([s, f]) => {
+        tl.fromTo(s, { opacity: 1, attr: { cy: 440 } }, { attr: { cy: 650 }, duration: 0.7, ease: "power2.in", immediateRender: false }, at(2, f));
+        tl.to(s, { opacity: 0, duration: 0.2 }, at(2, f) + 0.6);
+      });
+      IN("#au-f1", at(2, 0.35), 0.6);
+      IN("#au-f2", at(2, 0.68), 0.6);
+
+      // L3 代入：50 RPS / 2 实例
+      IN("#au-ex1", at(3, 0.05), 0.4);
+      IN("#au-v1", at(3, 0.3), 0.6, { x: -20 }, { x: 0 });
+      IN("#au-bkB", at(3, 0.45), 0.6);
+      IN("#au-v2", at(3, 0.62), 0.6, { x: -20 }, { x: 0 });
+      IN("#au-cA", at(3, 0.75), 0.5);
+
+      // L4 超限 + 日配额
+      OUT(["#au-f1", "#au-f2", "#au-v1", "#au-v2", "#au-bkB", "#au-ex1", "#au-cA"], at(4, 0), 0.4);
+      tl.to("#au-lvA", { attr: { y: 808, height: 2 }, duration: 0.8, ease: "power2.in" }, at(4, 0.03));
+      IN("#au-rj", at(4, 0.12), 0.3);
+      MV("#au-rj", at(4, 0.15), { x: -200 }, 0.5);
+      tl.to("#au-rj", { x: 0, fill: "#FC6255", duration: 0.5, ease: "back.out(2)" }, at(4, 0.15) + 0.5);
+      IN("#au-rl1", at(4, 0.27), 0.4); IN("#au-rl2", at(4, 0.33), 0.4);
+      IN("#au-rd", at(4, 0.55), 0.5);
+      IN("#au-qf", at(4, 0.62), 0.1);
+      tl.to("#au-qf", { attr: { width: 736 }, duration: 1.6, ease: "power1.in" }, at(4, 0.63));
+      tl.to("#au-qf", { fill: "#FC6255", duration: 0.3 }, at(4, 0.63) + 1.4);
+      IN("#au-qx", at(4, 0.88), 0.4);
+
+      // L5 计算单位 CU
+      OUT(["#au-k2", "#au-k4"], at(5, 0), 0.4);
+      OUT("#au-g2h", at(5, 0), 0.3); IN("#au-g3h", at(5, 0.02), 0.4);
+      MV("#au-req", at(5, 0), { x: 1190 }, 0.7);
+      IN("#au-term", at(5, 0.08), 0.5);
+      OUT("#au-term", at(6, 0) - 1.2, 0.4);
+      [["#au-w1", "#au-n1", "#au-m1"], ["#au-w2", "#au-n2", "#au-m2"], ["#au-w3", "#au-n3", "#au-m3"]].forEach(([w, n, m], i) => {
+        const t = at(5, 0.45 + i * 0.15);
+        IN(m, t, 0.4); IN(w, t + 0.1, 0.5, { scaleY: 0, svgOrigin: "960 880" }, { scaleY: 1, svgOrigin: "960 880" }); IN(n, t + 0.4, 0.4);
+      });
+      IN("#au-cu", at(5, 0.25), 0.5);
+      IN("#au-ex2", at(5, 0.5), 0.4);
+
+      // L6 批量逐条计
+      OUT("#au-k5", at(6, 0), 0.4);
+      IN("#au-env", at(6, 0.05), 0.6, { y: 20 }, { y: 0 });
+      ARROW("#au-e1", at(6, 0.4)); IN("#au-r1", at(6, 0.43), 0.5);
+      IN("#au-x1", at(6, 0.62), 0.3, { scale: 1.6, svgOrigin: "1080 520" }, { scale: 1, svgOrigin: "1080 520" }); IN("#au-x1t", at(6, 0.65), 0.4);
+      ARROW("#au-e2", at(6, 0.74)); IN("#au-r2", at(6, 0.76), 0.4); IN("#au-r2n", at(6, 0.78), 0.3);
+      COUNT("#au-r2n", 0, 1000, at(6, 0.8), 1.3);
+      IN("#au-x2", at(6, 0.95), 0.3);
+
+      // L7 100 条进 51 容量的桶
+      OUT("#au-k6", at(7, 0), 0.4);
+      IN("#au-g2h", at(7, 0.02), 0.4);
+      IN("#au-bt", at(7, 0.05), 0.4); IN("#au-grid", at(7, 0.06), 0.6);
+      ARROW("#au-e3", at(7, 0.2)); IN("#au-bkC", at(7, 0.22), 0.5);
+      tl.to(cells.slice(0, 51), { fill: "#83C167", duration: 0.2, stagger: 0.03 }, at(7, 0.32));
+      IN("#au-ok", at(7, 0.5), 0.4);
+      tl.to(cells.slice(51), { fill: "#FC6255", duration: 0.2, stagger: 0.025 }, at(7, 0.56));
+      IN("#au-no", at(7, 0.72), 0.4);
+      IN("#au-nt", at(7, 0.82), 0.4);
+
+
+      tl.to("#au-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#au-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["auth"] = tl;
+    })();
+  </script>
+</template>

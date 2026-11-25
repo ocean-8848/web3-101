@@ -1,0 +1,267 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tests，id 前缀 te- -->
+  <div id="root" data-composition-id="tests" data-duration="90.58" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="te-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="te-all">
+        <g id="te-pyr"></g>
+        <g id="te-tags"></g>
+        <g id="te-k1">
+          <rect id="te-tbl" class="h" x="140" y="330" width="1420" height="470" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <g id="te-r1" class="h"><text class="mono" x="200" y="410" font-size="34" fill="#e8e6df">admin_peers</text><path d="M780 398 L880 398" stroke="#8a8f99" stroke-width="3" marker-end="url(#te-arr)" /><text class="mono" x="920" y="410" font-size="34" fill="#FC6255">ClassDenied</text></g>
+          <g id="te-r2" class="h"><text x="200" y="520" font-size="34" fill="#e8e6df">链头 − 10</text><path d="M780 508 L880 508" stroke="#8a8f99" stroke-width="3" marker-end="url(#te-arr)" /><text x="920" y="520" font-size="34" fill="#FF9F43">不缓存</text></g>
+          <g id="te-r3" class="h"><text x="200" y="630" font-size="34" fill="#e8e6df">链头 − 100</text><path d="M780 618 L880 618" stroke="#8a8f99" stroke-width="3" marker-end="url(#te-arr)" /><text x="920" y="630" font-size="34" fill="#83C167">24 h</text></g>
+          <g id="te-r4" class="h"><text class="mono" x="200" y="740" font-size="34" fill="#e8e6df">already known</text><path d="M780 728 L880 728" stroke="#8a8f99" stroke-width="3" marker-end="url(#te-arr)" /><text x="920" y="740" font-size="34" fill="#F0B90B">返回交易哈希</text></g>
+          <text id="te-v1" class="h" x="1440" y="412" font-size="40" fill="#83C167">✓</text>
+          <text id="te-v2" class="h" x="1440" y="522" font-size="40" fill="#83C167">✓</text>
+          <text id="te-v3" class="h" x="1440" y="632" font-size="40" fill="#83C167">✓</text>
+          <text id="te-v4" class="h" x="1440" y="742" font-size="40" fill="#83C167">✓</text>
+        </g>
+        <g id="te-k2">
+          <g id="te-cl" class="h"><rect x="140" y="500" width="260" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="270" y="562" font-size="32" fill="#e8e6df" text-anchor="middle">客户端</text></g>
+          <path id="te-ca" class="dr h" pathLength="1" d="M410 550 L588 550" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#te-arr)" />
+          <g id="te-gw" class="h"><rect x="600" y="470" width="300" height="160" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="750" y="563" font-size="36" fill="#e8e6df" text-anchor="middle">网关</text></g>
+          <path id="te-f1" class="dr h" pathLength="1" d="M910 540 L1288 355" stroke="#8a8f99" stroke-width="2.5" fill="none" />
+          <path id="te-f2" class="dr h" pathLength="1" d="M910 550 L1288 550" stroke="#8a8f99" stroke-width="2.5" fill="none" />
+          <path id="te-f3" class="dr h" pathLength="1" d="M910 560 L1288 745" stroke="#8a8f99" stroke-width="2.5" fill="none" />
+          <g id="te-uo" class="h"><rect x="1300" y="300" width="420" height="100" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="1510" y="362" font-size="32" fill="#FF9F43" text-anchor="middle">假上游：延迟 2 s</text></g>
+          <g id="te-ur" class="h"><rect x="1300" y="500" width="420" height="100" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text x="1510" y="562" font-size="32" fill="#FC6255" text-anchor="middle">假上游：返回 500</text></g>
+          <g id="te-ug" class="h"><rect x="1300" y="700" width="420" height="100" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1510" y="762" font-size="32" fill="#83C167" text-anchor="middle">假上游：正常</text></g>
+          <circle id="te-q1" class="h" cx="420" cy="550" r="13" fill="#F0B90B" />
+          <circle id="te-q2" class="h" cx="420" cy="550" r="13" fill="#F0B90B" />
+          <circle id="te-q3" class="h" cx="420" cy="550" r="13" fill="#F0B90B" />
+          <g id="te-xu" class="h"><text class="mono" x="600" y="900" font-size="30" fill="#83C167">X-Upstream:</text><text x="820" y="900" font-size="30" fill="#83C167">正常的那个 · 全部成功</text></g>
+        </g>
+        <g id="te-k3">
+          <g id="te-s1" class="h"><rect x="140" y="330" width="260" height="90" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text x="270" y="387" font-size="32" fill="#F0B90B" text-anchor="middle">发交易</text></g>
+          <g id="te-s2" class="h"><rect x="140" y="540" width="260" height="90" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text x="270" y="597" font-size="32" fill="#F0B90B" text-anchor="middle">查回执</text></g>
+          <g id="te-sa" class="h"><rect x="600" y="430" width="260" height="100" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" /><text x="730" y="492" font-size="32" fill="#B48EF0" text-anchor="middle">服务商 A</text></g>
+          <path id="te-sl1" class="dr h" pathLength="1" d="M410 380 L588 462" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#te-arr)" />
+          <path id="te-sl2" class="dr h" pathLength="1" d="M410 585 L588 500" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#te-arr)" />
+          <g id="te-sc" class="h"><text x="140" y="760" font-size="32" fill="#8a8f99">同一上游</text><text class="mono" x="300" y="762" font-size="44" fill="#83C167"><tspan id="te-scn">0</tspan> / 100</text></g>
+          <text id="te-bq" class="h" x="1000" y="305" font-size="28" fill="#8a8f99">请求 100 条</text>
+          <text id="te-bs" class="h" x="1460" y="305" font-size="28" fill="#8a8f99">响应</text>
+          <g id="te-gq"></g><g id="te-gs"></g><g id="te-gl"></g>
+          <text id="te-b97" class="h" x="1000" y="710" font-size="36" fill="#83C167">97 条正常 ✓</text>
+          <g id="te-b3" class="h"><text x="1000" y="780" font-size="36" fill="#FC6255">3 条报错</text><text class="mono" x="1170" y="780" font-size="32" fill="#FC6255">-32601</text></g>
+          <text id="te-bo" class="h" x="1000" y="850" font-size="30" fill="#8a8f99">顺序、编号一一对应</text>
+        </g>
+        <g id="te-k4">
+          <g id="te-bytes" class="mono"></g>
+          <g id="te-gw2" class="h"><rect x="860" y="420" width="200" height="200" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="960" y="532" font-size="36" fill="#e8e6df" text-anchor="middle">网关</text></g>
+          <g id="te-sh" class="h"><path d="M960 280 L1005 296 L1000 340 Q990 370 960 388 Q930 370 920 340 L915 296 Z" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="4" />
+            <text x="1030" y="345" font-size="32" fill="#83C167">不崩溃</text></g>
+          <text id="te-url" class="h mono" x="1160" y="720" font-size="28" fill="#FC6255">https://eth.provider-a.io/v3/…</text>
+          <g id="te-mz"></g>
+          <text id="te-nl" class="h" x="1160" y="800" font-size="32" fill="#83C167">不泄露上游地址</text>
+        </g>
+        <g id="te-k8">
+          <g id="te-a1" class="h"><rect x="140" y="330" width="960" height="80" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="180" y="381" font-size="32" fill="#e8e6df">不带 Key</text></g>
+          <g id="te-ax1" class="h"><text x="1000" y="382" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 拒绝</text></g>
+          <g id="te-a2" class="h"><rect x="140" y="426" width="960" height="80" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="180" y="477" font-size="32" fill="#e8e6df">Key 错误</text></g>
+          <g id="te-ax2" class="h"><text x="1000" y="478" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 拒绝</text></g>
+          <g id="te-a3" class="h"><rect x="140" y="522" width="960" height="80" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="180" y="573" font-size="32" fill="#e8e6df">超出配额</text></g>
+          <g id="te-ax3" class="h"><text x="1000" y="574" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 拒绝</text></g>
+          <g id="te-a4" class="h"><rect x="140" y="618" width="960" height="80" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="180" y="669" font-size="32" fill="#e8e6df">没授权调 debug_*</text></g>
+          <g id="te-ax4" class="h"><text x="1000" y="670" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 拒绝</text></g>
+          <g id="te-a5" class="h"><rect x="140" y="714" width="960" height="80" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="180" y="765" font-size="32" fill="#e8e6df">Key 写在网址里</text></g>
+          <g id="te-ax5" class="h"><text x="1000" y="766" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 拒绝</text></g>
+          <g id="te-lg" class="h"><rect x="1180" y="330" width="600" height="272" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="1210" y="380" font-size="28" fill="#8a8f99">访问日志</text>
+            <text class="mono" x="1210" y="450" font-size="28" fill="#e8e6df">401 key=</text>
+            <text id="te-lgk" class="mono" x="1354" y="450" font-size="28" fill="#FC6255">sk_9f3a7c</text>
+            <text id="te-lgm" class="h mono" x="1354" y="450" font-size="28" fill="#83C167">****</text></g>
+          <text id="te-lgok" class="h" x="1210" y="560" font-size="32" fill="#83C167">日志里无明文 Key ✓</text>
+        </g>
+        <g id="te-k5">
+          <text id="te-k6t" class="h mono" x="380" y="245" font-size="30" fill="#F0B90B">k6 · load.js</text>
+          <rect id="te-kp" class="h" x="140" y="300" width="920" height="280" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <rect id="te-kh1" class="h" x="144" y="361" width="912" height="38" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="te-kh2" class="h" x="144" y="481" width="912" height="78" fill="#58C4DD" fill-opacity="0.15" />
+          <g id="te-kc" class="h mono"></g>
+          <text id="te-kx" class="h" x="1060" y="620" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+          <g id="te-pie" class="h"></g>
+          <text id="te-pc" class="h" x="1450" y="720" font-size="30" fill="#8a8f99" text-anchor="middle">方法比例 = 生产日志</text>
+          <text id="te-ok1" class="h" x="140" y="720" font-size="34" fill="#83C167">P99 达标 ✓</text>
+          <text id="te-ok2" class="h" x="140" y="790" font-size="34" fill="#83C167">错误率 &lt; 0.1% ✓</text>
+        </g>
+        <g id="te-k6">
+          <path id="te-ax" class="dr h" pathLength="1" d="M200 330 L200 860 L1700 860" stroke="#8a8f99" stroke-width="2.5" fill="none" />
+          <text id="te-axl" class="h" x="214" y="312" font-size="28" fill="#8a8f99">错误率</text>
+          <path id="te-th" class="h" d="M200 520 L1700 520" stroke="#FC6255" stroke-width="3" stroke-dasharray="14 10" fill="none" />
+          <text id="te-thl" class="h" x="1715" y="530" font-size="30" fill="#FC6255">1%</text>
+          <path id="te-m1" class="h" d="M500 340 L500 860" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 8" />
+          <path id="te-m2" class="h" d="M900 340 L900 860" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 8" />
+          <path id="te-m3" class="h" d="M1300 340 L1300 860" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 8" />
+          <text id="te-e1" class="h" x="500" y="300" font-size="30" fill="#FC6255" text-anchor="middle">关自建节点</text>
+          <text id="te-e2" class="h" x="900" y="300" font-size="30" fill="#FF9F43" text-anchor="middle">A +500 ms</text>
+          <text id="te-e3" class="h" x="1300" y="300" font-size="30" fill="#FF9F43" text-anchor="middle">重启 Redis</text>
+          <path id="te-cA" class="dr" pathLength="1" d="M200 830 L500 830 L520 640 L560 760 L620 820 L900 830" stroke="#58C4DD" stroke-width="4" fill="none" />
+          <path id="te-cB" class="dr" pathLength="1" d="M900 830 L920 610 L980 780 L1040 826 L1300 828" stroke="#58C4DD" stroke-width="4" fill="none" />
+          <path id="te-cC" class="dr" pathLength="1" d="M1300 828 L1320 590 L1380 760 L1450 826 L1700 830" stroke="#58C4DD" stroke-width="4" fill="none" />
+          <text id="te-rec" class="h" x="1480" y="700" font-size="32" fill="#83C167">30 s 内回落</text>
+        </g>
+        <g id="te-k7">
+          <g id="te-k6b" class="h"><rect x="200" y="380" width="280" height="100" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text x="340" y="442" font-size="32" fill="#F0B90B" text-anchor="middle">k6 压测</text></g>
+          <g id="te-pv" class="h"><rect x="1320" y="300" width="340" height="120" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" /><text x="1490" y="372" font-size="32" fill="#B48EF0" text-anchor="middle">服务商</text></g>
+          <path id="te-pa" class="dr h" pathLength="1" d="M490 418 L1305 362" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#te-arr)" />
+          <g id="te-no" class="h"><circle cx="980" cy="384" r="56" fill="#0f1117" stroke="#FC6255" stroke-width="8" /><path d="M942 346 L1018 422" stroke="#FC6255" stroke-width="8" />
+            <text x="980" y="490" font-size="32" fill="#FC6255" text-anchor="middle">别直接压测</text></g>
+          <g id="te-rp" class="h"><rect x="1320" y="580" width="340" height="120" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <rect x="1350" y="615" width="90" height="50" rx="6" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1374" cy="640" r="10" fill="none" stroke="#8a8f99" stroke-width="3" /><circle cx="1416" cy="640" r="10" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <text x="1460" y="652" font-size="32" fill="#e8e6df">回放上游</text></g>
+          <path id="te-ra" class="dr h" pathLength="1" d="M490 450 L1305 640" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#te-arr)" />
+          <g id="te-sn" class="h"><rect x="1320" y="820" width="340" height="100" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1490" y="882" font-size="32" fill="#83C167" text-anchor="middle">自建节点</text></g>
+          <path id="te-na" class="dr h" pathLength="1" d="M490 470 L1305 865" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#te-arr)" />
+          <text id="te-nal" class="h" x="900" y="745" font-size="30" fill="#83C167">仍直连</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const MV = (s, t, v, d = 0.6) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, parent, attrs, txt) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (txt != null) e.textContent = txt; document.querySelector(parent).appendChild(e); return e; };
+      // 金字塔
+      const names = ["单元", "集成", "模糊", "压测", "故障注入"], hw = y => 140 + 0.7 * (y - 300);
+      names.forEach((n, i) => { const b = 900 - i * 120, t = b - 120, tt = t + 3, bb = b - 3;
+        const g = mk("g", "#te-pyr", { id: "te-y" + i, class: "h" });
+        const col = i === 4 ? "#FF9F43" : "#58C4DD";
+        const p = document.createElementNS(NS, "path"); p.setAttribute("d", `M${960 - hw(tt)} ${tt} L${960 + hw(tt)} ${tt} L${960 + hw(bb)} ${bb} L${960 - hw(bb)} ${bb} Z`);
+        p.setAttribute("fill", col); p.setAttribute("fill-opacity", i === 4 ? 0.3 : 0.12 + i * 0.08); p.setAttribute("stroke", col); p.setAttribute("stroke-width", 2.5); g.appendChild(p);
+        const tx = document.createElementNS(NS, "text"); tx.setAttribute("x", 960); tx.setAttribute("y", b - 48); tx.setAttribute("font-size", 34); tx.setAttribute("fill", "#e8e6df"); tx.setAttribute("text-anchor", "middle"); tx.textContent = n; g.appendChild(tx); });
+      const tags = [["单元测试", "#58C4DD"], ["集成测试", "#58C4DD"], ["模糊测试", "#58C4DD"], ["压测", "#58C4DD"], ["故障注入", "#FF9F43"], ["安全测试", "#FC6255"]];
+      tags.forEach(([n, c], i) => { const g = mk("g", "#te-tags", { id: "te-tg" + i, class: "h" });
+        const r = document.createElementNS(NS, "rect"); [["x", 140], ["y", 200], ["width", 200], ["height", 64], ["rx", 32], ["fill", "#161a22"], ["stroke", c], ["stroke-width", 2.5]].forEach(([k, v]) => r.setAttribute(k, v)); g.appendChild(r);
+        const tx = document.createElementNS(NS, "text"); [["x", 240], ["y", 243], ["font-size", 32], ["fill", c], ["text-anchor", "middle"]].forEach(([k, v]) => tx.setAttribute(k, v)); tx.textContent = n; g.appendChild(tx); });
+      // 批量网格
+      const bad = [12, 47, 83];
+      for (let i = 0; i < 100; i++) { const x = (i % 10) * 30, y = 330 + Math.floor(i / 10) * 30, f = bad.includes(i) ? "#FC6255" : "#83C167";
+        mk("rect", "#te-gq", { id: "te-q" + "c" + i, x: 1000 + x, y, width: 24, height: 24, rx: 4, fill: "#F0B90B", opacity: 0 });
+        mk("rect", "#te-gs", { id: "te-sc" + i, x: 1460 + x, y, width: 24, height: 24, rx: 4, fill: f, opacity: 0 }); }
+      for (let r = 0; r < 10; r++) mk("path", "#te-gl", { id: "te-gl" + r, class: "dr", pathLength: 1, d: `M1300 ${342 + r * 30} L1454 ${342 + r * 30}`, stroke: "#8a8f99", "stroke-width": 2, fill: "none" });
+      // 模糊字节
+      ['{"jsonrpc":[[[', '\\x00\\xff\\x7b\\x22', '{"id":-1e999,', ']]]}"method":'].forEach((s, i) => mk("text", "#te-bytes", { id: "te-by" + i, class: "h", x: 140, y: 440 + i * 60, "font-size": 28, fill: "#8a8f99", style: "white-space: pre" }, s));
+      for (let r = 0; r < 2; r++) for (let c = 0; c < 13; c++) mk("rect", "#te-mz", { x: 1158 + c * 40, y: 690 + r * 22, width: 40, height: 22, fill: (r + c) % 2 ? "#3a3f4a" : "#2a2e37" });
+      // k6 代码
+      ["executor: 'constant-arrival-rate',", "rate: 3000, timeUnit: '1s',", "duration: '10m',", "thresholds: {", "  http_req_failed: ['rate<0.001'],", "  http_req_duration: ['p(99)<150'],"]
+        .forEach((s, i) => mk("text", "#te-kc", { x: 170, y: 350 + i * 40, "font-size": 28, fill: "#e8e6df", style: "white-space: pre" }, s));
+      // 饼图（示意比例）
+      { let a0 = -Math.PI / 2; [[0.42, "#58C4DD"], [0.24, "#3d8aa0"], [0.16, "#F0B90B"], [0.11, "#8a8f99"], [0.07, "#B48EF0"]].forEach(([p, c], i) => {
+          const a1 = a0 + p * 2 * Math.PI, cx = 1450, cy = 470, R = 170, lg = p > 0.5 ? 1 : 0;
+          mk("path", "#te-pie", { id: "te-pi" + i, d: `M${cx} ${cy} L${cx + R * Math.cos(a0)} ${cy + R * Math.sin(a0)} A${R} ${R} 0 ${lg} 1 ${cx + R * Math.cos(a1)} ${cy + R * Math.sin(a1)} Z`, fill: c, stroke: "#0f1117", "stroke-width": 3 }); a0 = a1; }); }
+      const qc = [...Array(100).keys()].map(i => "#te-qc" + i), sc = [...Array(100).keys()].map(i => "#te-sc" + i), gl = [...Array(10).keys()].map(i => "#te-gl" + i);
+
+      // L0 测试金字塔
+      [0, 1, 2, 3, 4].forEach(i => IN("#te-y" + i, at(0, 0.05 + i * 0.13), 0.45, { y: 30 }, { y: 0 }));
+
+      // L1 单元测试：表驱动
+      tl.to("#te-y0 path", { fillOpacity: 0.5, duration: 0.3 }, at(1, 0));
+      OUT("#te-pyr", at(1, 0.05), 0.4);
+      IN("#te-tg0", at(1, 0.09), 0.4);
+      IN("#te-tbl", at(1, 0.1), 0.4);
+      [["#te-r1", "#te-v1", 0.13], ["#te-r2", "#te-v2", 0.38], ["#te-r3", "#te-v3", 0.52], ["#te-r4", "#te-v4", 0.72]].forEach(([r, v, f]) => { IN(r, at(1, f), 0.5, { x: -20 }, { x: 0 }); IN(v, at(1, f) + 1.0, 0.3); });
+
+      // L2 集成测试：三个假上游
+      OUT(["#te-k1", "#te-tg0"], at(2, 0), 0.35);
+      IN("#te-tg1", at(2, 0.04), 0.4);
+      IN("#te-cl", at(2, 0.05), 0.4); ARROW("#te-ca", at(2, 0.08)); IN("#te-gw", at(2, 0.1), 0.4);
+      ARROW("#te-f1", at(2, 0.14), 0.5); ARROW("#te-f2", at(2, 0.16), 0.5); ARROW("#te-f3", at(2, 0.18), 0.5);
+      IN("#te-uo", at(2, 0.2), 0.4); IN("#te-ur", at(2, 0.3), 0.4); IN("#te-ug", at(2, 0.4), 0.4);
+      const hop = (s, t, pts, d = 0.5) => pts.forEach((p, k) => tl.to(s, { attr: { cx: p[0], cy: p[1] }, duration: d, ease: "power1.inOut" }, t + k * d));
+      IN("#te-q1", at(2, 0.5), 0.2); hop("#te-q1", at(2, 0.5), [[750, 550], [1290, 355]]);
+      tl.to("#te-q1", { fill: "#FF9F43", duration: 0.3 }, at(2, 0.5) + 1.0); OUT("#te-q1", at(2, 0.5) + 1.6, 0.3);
+      IN("#te-q2", at(2, 0.58), 0.2); hop("#te-q2", at(2, 0.58), [[750, 550], [1290, 550]]);
+      tl.to("#te-q2", { fill: "#FC6255", duration: 0.2 }, at(2, 0.58) + 1.0); OUT("#te-q2", at(2, 0.58) + 1.3, 0.3);
+      IN("#te-q3", at(2, 0.68), 0.2); hop("#te-q3", at(2, 0.68), [[750, 550], [1290, 745], [750, 550], [420, 550]]);
+      tl.to("#te-q3", { fill: "#83C167", duration: 0.2 }, at(2, 0.68) + 1.0);
+      IN("#te-xu", at(2, 0.85), 0.5);
+
+      // L3 粘滞 + 批量
+      OUT(["#te-k2", "#te-q3"], at(3, 0), 0.35);
+      IN("#te-s1", at(3, 0.04), 0.4); ARROW("#te-sl1", at(3, 0.08)); IN("#te-sa", at(3, 0.1), 0.4);
+      IN("#te-s2", at(3, 0.14), 0.4); ARROW("#te-sl2", at(3, 0.18));
+      IN("#te-sc", at(3, 0.22), 0.4); COUNT("#te-scn", 0, 100, at(3, 0.24), 2);
+      IN(["#te-bq", "#te-bs"], at(3, 0.42), 0.4);
+      tl.to(qc, { opacity: 1, duration: 0.15, stagger: 0.008 }, at(3, 0.44));
+      tl.to(gl, { strokeDashoffset: 0, duration: 0.3, stagger: 0.08 }, at(3, 0.56));
+      tl.to(sc, { opacity: 1, duration: 0.15, stagger: 0.008 }, at(3, 0.6));
+      IN("#te-b97", at(3, 0.72), 0.4); IN("#te-b3", at(3, 0.78), 0.4); IN("#te-bo", at(3, 0.88), 0.4);
+
+      // L4 模糊测试
+      OUT(["#te-k3", "#te-tg1"], at(4, 0), 0.35);
+      IN("#te-tg2", at(4, 0.06), 0.4);
+      IN("#te-gw2", at(4, 0.05), 0.4);
+      [0, 1, 2, 3].forEach(i => { IN("#te-by" + i, at(4, 0.08 + i * 0.05), 0.3); tl.to("#te-by" + i, { x: 420, opacity: 0, duration: 1.0, ease: "power1.in" }, at(4, 0.12 + i * 0.05)); });
+      IN("#te-sh", at(4, 0.52), 0.4, { scale: 0.6, svgOrigin: "960 330" }, { scale: 1, svgOrigin: "960 330" });
+      IN("#te-url", at(4, 0.62), 0.3);
+      IN("#te-mz", at(4, 0.72), 0.3);
+      IN("#te-nl", at(4, 0.8), 0.3);
+
+      // L5 安全测试：五种情况全部拒绝，日志无明文 Key
+      OUT(["#te-k4", "#te-tg2"], at(5, 0), 0.35);
+      IN("#te-tg5", at(5, 0.04), 0.4);
+      [[1, 0.06], [2, 0.16], [3, 0.24], [4, 0.33], [5, 0.48]].forEach(([i, f]) => { IN("#te-a" + i, at(5, f), 0.4, { x: -20 }, { x: 0 }); IN("#te-ax" + i, at(5, 0.62) + (i - 1) * 0.12, 0.25, { scale: 1.5, svgOrigin: `1000 ${274 + i * 96}` }, { scale: 1, svgOrigin: `1000 ${274 + i * 96}` }); });
+      IN("#te-lg", at(5, 0.78), 0.4);
+      tl.to("#te-lgk", { opacity: 0, duration: 0.3 }, at(5, 0.86)); IN("#te-lgm", at(5, 0.86), 0.3);
+      IN("#te-lgok", at(5, 0.92), 0.3);
+
+      // L6 k6 压测
+      OUT(["#te-k8", "#te-tg5"], at(6, 0), 0.35);
+      IN("#te-tg3", at(6, 0.04), 0.4);
+      IN(["#te-k6t", "#te-kp"], at(6, 0.05), 0.4); IN("#te-kc", at(6, 0.08), 0.5); IN("#te-kx", at(6, 0.1), 0.4);
+      IN("#te-kh1", at(6, 0.14), 0.4);
+      IN("#te-pie", at(6, 0.32), 0.6, { rotation: -60, svgOrigin: "1450 470" }, { rotation: 0, svgOrigin: "1450 470" }); IN("#te-pc", at(6, 0.38), 0.4);
+      IN("#te-kh2", at(6, 0.6), 0.4);
+      IN("#te-ok1", at(6, 0.66), 0.4); IN("#te-ok2", at(6, 0.84), 0.4);
+
+      // L7 故障注入
+      OUT(["#te-k5", "#te-tg3"], at(7, 0), 0.35);
+      IN("#te-tg4", at(7, 0.04), 0.4);
+      ARROW("#te-ax", at(7, 0.04), 0.6); IN("#te-axl", at(7, 0.06), 0.4);
+      IN(["#te-th", "#te-thl"], at(7, 0.1), 0.4);
+      IN(["#te-m1", "#te-e1"], at(7, 0.18), 0.3); DRAW("#te-cA", at(7, 0.14), 1.4);
+      IN(["#te-m2", "#te-e2"], at(7, 0.36), 0.3); DRAW("#te-cB", at(7, 0.38), 1.2);
+      IN(["#te-m3", "#te-e3"], at(7, 0.52), 0.3); DRAW("#te-cC", at(7, 0.54), 1.4);
+      IN("#te-rec", at(7, 0.8), 0.4);
+
+      // L8 不要直接压测服务商
+      OUT(["#te-k6", "#te-tg4"], at(8, 0), 0.35);
+      IN("#te-k6b", at(8, 0.04), 0.4); IN("#te-pv", at(8, 0.06), 0.4);
+      ARROW("#te-pa", at(8, 0.1)); IN("#te-no", at(8, 0.2), 0.4, { scale: 1.5, svgOrigin: "980 384" }, { scale: 1, svgOrigin: "980 384" });
+      IN("#te-rp", at(8, 0.55), 0.4); ARROW("#te-ra", at(8, 0.55));
+      IN("#te-sn", at(8, 0.8), 0.4); ARROW("#te-na", at(8, 0.8)); IN("#te-nal", at(8, 0.85), 0.3);
+
+
+      tl.to("#te-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tests"] = tl;
+    })();
+  </script>
+</template>

@@ -263,7 +263,7 @@ ${art('一图看懂：gw 包里 8 个部件，Forward 是总指挥', 660, 352, [
   S.arrow(570, 260, 570, 204, { k: 'info', dash: 1 }),
   S.route([[476, 290], [490, 290], [490, 172], [502, 172]], { k: 'info', dash: 1 })
 ], [
-  ['flow', '一个请求的顺序：Auth 鉴权限流，Classify 判断方法类别，Forward 调用 Router.Pick 取候选上游，逐个尝试，成功后由 TTL 决定结果缓存多久。'],
+  ['flow', '一个请求的顺序：Auth 鉴权限流，Classify 判断方法类别，Authorize（§8.7）按 Key 检查方法权限（debug_* 默认拒绝），Forward 调用 Router.Pick 取候选上游，逐个尝试，成功后由 TTL 决定结果缓存多久。'],
   ['key', 'Forward 是总指挥：它决定重试几次、什么错误换上游、写请求怎样保证幂等。其他部件只回答一个小问题。'],
   ['fail', 'Upstream 的健康分（Score）由落后块数、错误率、延迟和熔断器状态合成；熔断中的上游 Score 为 -1，Pick 直接跳过。'],
   ['limit', 'HealthLoop 和 CheckConsistency 在后台协程里运行，只写状态；它们出问题不会拖慢转发，但会让健康表变旧。']
@@ -272,10 +272,10 @@ ${art('一图看懂：gw 包里 8 个部件，Forward 是总指挥', 660, 352, [
 <p>网关先把每个方法分成几类。分类决定它去哪个上游、能不能缓存、能不能重试。</p>
 ${tbl(['类别', '方法举例', '路由', '缓存', '重试'], [
   ['写', 'eth_sendRawTransaction', '写优先上游（自建 / 私有池），再异步广播', '不缓存', '只在“确定没送达”时换上游；已知交易错误视为成功'],
-  ['按哈希读', 'eth_getTransactionByHash、eth_getBlockByHash', '任意健康上游；有粘滞先走粘滞', '结果非 null 时长缓存', '可以'],
+  ['按哈希读', 'eth_getTransactionByHash、eth_getTransactionReceipt、eth_getBlockByHash', '任意健康上游；有粘滞先走粘滞', '区块：结果非 null 时长缓存；交易与回执：所在区块 ≤ 链头 − 64 时才长缓存', '可以'],
   ['按区块号读', 'eth_getBlockByNumber(0x…)、eth_getLogs(固定范围)', '任意健康上游', '区块号 ≤ 链头 − 64 时长缓存', '可以'],
   ['latest 读', 'eth_blockNumber、eth_call(latest)、eth_getBalance(latest)', '健康分最高的上游', '1–2 秒短缓存', '可以'],
-  ['重型', 'debug_traceTransaction、eth_getLogs(大范围)', '归档/追踪能力上游', '可长缓存（已最终确定）', '可以，限并发'],
+  ['重型', 'debug_*、trace_*（默认拒绝，只对授权的 Key 开放）、eth_getLogs(大范围)', '归档/追踪能力上游', '确认所在区块足够深后才长缓存；本篇代码不缓存', '可以，限并发'],
   ['禁止', 'admin_*、personal_*、miner_*、engine_*', '直接拒绝', '—', '—']
 ])}
 ${code('GO', `
@@ -304,7 +304,8 @@ var exact = map[string]Class{
 	"debug_traceTransaction":    ClassHeavy,
 }
 
-// Classify 按方法名分类；未知方法默认按 latest 读处理
+// Classify 按方法名分类；其他未知方法默认按 latest 读处理。
+// 分类只回答“这是哪类方法”；这个 Key 能不能调用，由 8.7 的 Authorize 判断
 func Classify(method string) Class {
 	for _, p := range []string{"admin_", "personal_", "miner_", "engine_"} {
 		if strings.HasPrefix(method, p) {
@@ -314,7 +315,15 @@ func Classify(method string) Class {
 	if c, ok := exact[method]; ok {
 		return c
 	}
+	if isDebug(method) {
+		return ClassHeavy // 未列出的调试/追踪方法也按重型处理，权限默认拒绝
+	}
 	return ClassLatest
+}
+
+// isDebug 判断调试/追踪方法：默认拒绝，只对明确授权的 Key 开放
+func isDebug(method string) bool {
+	return strings.HasPrefix(method, "debug_") || strings.HasPrefix(method, "trace_")
 }
 `)}
 
@@ -432,9 +441,10 @@ func HealthLoop(ctx context.Context, ups []*Upstream, every time.Duration, maxLa
 	}
 }
 
-// Score 健康分：越高越好。落后、错误率、延迟都会扣分
+// Score 健康分：越高越好。落后、错误率、延迟都会扣分。
+// Score 只读，不改任何状态：同样的输入总得到同样的分数，便于单元测试和排序
 func (u *Upstream) Score() float64 {
-	if !u.Breaker.Allow() {
+	if !u.Breaker.Ready() {
 		return -1
 	}
 	s := float64(u.Weight)
@@ -474,7 +484,14 @@ type Breaker struct {
 	onChange  func(from, to state, reason string)
 }
 
-// Allow 判断是否可以向该上游发请求
+// Ready 只读判断：闭合、半开，或断开但冷却已过，都返回 true。不改状态，供 Score 使用
+func (b *Breaker) Ready() bool {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	return b.st != open || time.Since(b.openedAt) >= b.cooldown
+}
+
+// Allow 在真正发请求前调用：冷却已过就把断开转为半开（有副作用，只在 Forward 里调用）
 func (b *Breaker) Allow() bool {
 	b.mu.Lock()
 	defer b.mu.Unlock()
@@ -557,12 +574,14 @@ func (r *Router) Pick(ctx context.Context, cls Class, stickyKey string) []*Upstr
 		pool = r.All
 	}
 	cands := make([]*Upstream, 0, len(pool))
+	score := make(map[*Upstream]float64, len(pool)) // 先取一次快照，排序时分数不会变
 	for _, u := range pool {
-		if u.Score() >= 0 { // 熔断中的上游 Score 为 -1
+		if s := u.Score(); s >= 0 { // 熔断中的上游 Score 为 -1
+			score[u] = s
 			cands = append(cands, u)
 		}
 	}
-	sort.Slice(cands, func(i, j int) bool { return cands[i].Score() > cands[j].Score() })
+	sort.Slice(cands, func(i, j int) bool { return score[cands[i]] > score[cands[j]] })
 
 	// 粘滞：同一 txHash 或同一发送地址，优先使用上次的上游
 	if stickyKey != "" {
@@ -614,6 +633,9 @@ func (g *Gateway) Forward(ctx context.Context, req rpcReq, cls Class, stickyKey 
 	var lastErr error
 	for i := 0; i < len(cands) && i < maxTry; i++ {
 		u := cands[i]
+		// 状态转换只在真正发请求时做：冷却已过就从断开转为半开。
+		// Pick 已用 Ready 过滤；全部熔断时的兜底候选仍会被尝试
+		_ = u.Breaker.Allow()
 		c, cancel := context.WithTimeout(ctx, g.timeoutFor(cls)) // 例如 latest 3 秒，heavy 30 秒
 		t0 := time.Now()
 		resp, err := u.Call(c, req)
@@ -655,11 +677,28 @@ ${call('warn', `<p><strong>不要重试业务错误。</strong><code>execution r
 <p><strong>写请求超时不等于失败。</strong>上游可能已经收到并广播了交易，只是响应丢了。网关应返回交易哈希（由签名交易的 RLP 字节计算 keccak256 得到），让客户端用回执查询确认结果，而不是让客户端重新签一笔新 nonce 的交易。</p>`)}
 
 <h3>8.6 缓存：按“会不会变”分级</h3>
-<p>缓存规则只有一条：<strong>只有确定不会变的数据才能长缓存。</strong>链头附近的区块可能因重组被替换，所以“按区块号”的结果只有在足够深（例如链头 − 64，约 2 个 epoch，此时通常已最终确定）时才长缓存。</p>
+<p>缓存规则只有一条：<strong>只有确定不会变的数据才能长缓存。</strong>链头附近的区块可能因重组被替换，所以“按区块号”的结果只有在足够深（例如链头 − 64，约 2 个 epoch，此时通常已最终确定）时才长缓存。按哈希读也一样要看深度：区块哈希唯一确定区块内容，可以直接长缓存；但交易和回执不行。一笔交易被重组掉后，可能被打包进另一个区块，回执里的区块号、日志甚至成功或失败都会变。所以交易和回执要先看它所在的区块够不够深，再决定是否长缓存。</p>
 ${code('GO', `
 package gw
 
-import "time"
+import (
+	"encoding/json"
+	"strconv"
+	"strings"
+	"time"
+)
+
+// resultBlockNumber 从交易或回执结果中取出 blockNumber；pending 交易的 blockNumber 为 null
+func resultBlockNumber(raw json.RawMessage) (uint64, bool) {
+	var v struct {
+		BlockNumber *string \`json:"blockNumber"\`
+	}
+	if json.Unmarshal(raw, &v) != nil || v.BlockNumber == nil {
+		return 0, false
+	}
+	n, err := strconv.ParseUint(strings.TrimPrefix(*v.BlockNumber, "0x"), 16, 64)
+	return n, err == nil
+}
 
 // TTL 根据方法、参数和当前链头决定缓存时间；0 表示不缓存
 func (g *Gateway) TTL(req rpcReq, cls Class, resp *rpcResp) time.Duration {
@@ -669,7 +708,15 @@ func (g *Gateway) TTL(req rpcReq, cls Class, resp *rpcResp) time.Duration {
 	head := globalHead.Load()
 	switch cls {
 	case ClassByHash:
-		return 24 * time.Hour // 哈希唯一对应内容；被重组掉的交易会返回 null，上面已排除
+		if req.Method == "eth_getBlockByHash" {
+			return 24 * time.Hour // 区块哈希唯一确定区块内容，重组不会改变它
+		}
+		// 交易和回执：被重组掉的交易可能被打包进另一个区块，
+		// blockNumber、blockHash、日志和执行状态都会变。所以也要按所在区块的深度判断
+		if n, ok := resultBlockNumber(resp.Result); ok && n+64 <= head {
+			return 24 * time.Hour
+		}
+		return 0 // pending 或仍在重组窗口内：不缓存
 	case ClassByNumber:
 		n, tag := blockParam(req) // 解析 "0x1234" 或 "latest"/"safe"/"finalized"
 		if tag != "" {
@@ -685,7 +732,9 @@ func (g *Gateway) TTL(req rpcReq, cls Class, resp *rpcResp) time.Duration {
 		}
 		return 1500 * time.Millisecond // 小于一个 slot（12 秒），保证新鲜
 	case ClassHeavy:
-		return 24 * time.Hour
+		// trace 结果同样随交易所在区块变化。要长缓存，先查回执确认区块足够深，做法同上。
+		// 这里为简单起见不缓存
+		return 0
 	}
 	return 0
 }
@@ -756,8 +805,24 @@ func (g *Gateway) Auth(next http.Handler) http.Handler {
 			writeRPCError(w, nil, -32005, "daily quota exceeded")
 			return
 		}
+		// 这里只认 Key；方法级权限要等解析出请求体后，由 Authorize 逐条检查
 		next.ServeHTTP(w, r.WithContext(withKey(r.Context(), k)))
 	})
+}
+
+// Authorize 检查这个 Key 能否调用该方法。在 Classify 之后、Forward 之前调用；
+// 批量请求的每条子请求都要单独检查。返回 nil 表示放行
+func Authorize(k *KeyInfo, method string, cls Class) *rpcErr {
+	switch {
+	case cls == ClassDenied:
+		return &rpcErr{Code: -32601, Message: "method not allowed"} // 任何 Key 都不放行
+	case cls == ClassWrite && !k.AllowWrite:
+		return &rpcErr{Code: -32601, Message: "write not allowed for this key"}
+	case isDebug(method) && !k.Extra[method]:
+		// 调试/追踪方法默认拒绝：只有 Extra（对应 api_keys.allow_methods）里明确列出的才放行
+		return &rpcErr{Code: -32601, Message: "method not allowed for this key"}
+	}
+	return nil
 }
 
 // Meter 在请求完成后累加计算单位；每分钟由后台任务刷入 usage_daily
@@ -770,7 +835,7 @@ func (g *Gateway) Meter(k *KeyInfo, method string, hit bool, failed bool) {
 <p>计量按“计算单位（CU）”而不是请求数，因为 <code>eth_getLogs</code> 一次可能比 <code>eth_blockNumber</code> 贵几十倍。批量请求按其中每条子请求分别计量和限流，否则攻击者可以把 1,000 条请求塞进一个批量里绕过限流。</p>
 
 <h3>8.8 响应一致性校验</h3>
-<p>服务商也会出错：返回过期数据、错误的分叉、甚至被劫持的结果。网关用两种手段发现它们：</p>
+<p>服务商也会出错：返回过期数据、错误的分叉、甚至被劫持的结果。网关用三种手段发现它们：</p>
 ${steps([
   '<strong>链头哈希比对（后台）</strong>：健康检查每 10 秒取各上游在同一高度（全局链头 − 2）的区块哈希。哈希不一致的上游计入 <code>rpcgw_consistency_mismatch_total</code>，连续 3 次不一致就熔断并告警。',
   '<strong>抽样双读（在线）</strong>：对 1% 的长缓存候选请求（例如 eth_getBlockByNumber 深度区块），同时请求两个上游，比较结果哈希。不一致时不写缓存，记录事件。',
@@ -850,8 +915,10 @@ upstreams:
 
 <h2>9. 测试策略</h2>
 ${tbl(['层级', '测试用例（示例）', '通过标准'], [
-  ['单元', 'Classify：admin_peers 返回 ClassDenied；eth_getLogs 返回 ClassByNumber', '表驱动测试全部通过'],
-  ['单元', 'TTL：区块号 = 链头 − 10 返回 0；链头 − 100 返回 24h；结果 null 返回 0', '同上'],
+  ['单元', 'Classify：admin_peers 返回 ClassDenied；eth_getLogs 返回 ClassByNumber；debug_traceCall 返回 ClassHeavy', '表驱动测试全部通过'],
+  ['单元', 'Authorize：Extra 为空的 Key 调 debug_traceTransaction 返回 -32601；Extra 含该方法的 Key 放行；AllowWrite=false 的 Key 发交易被拒', '同上'],
+  ['单元', 'TTL：区块号 = 链头 − 10 返回 0；链头 − 100 返回 24h；结果 null 返回 0；回执所在区块 = 链头 − 10 返回 0，链头 − 100 返回 24h', '同上'],
+  ['单元', 'Score：同一状态连续调用 100 次结果相同，熔断器状态不变', '同上'],
   ['单元', '熔断器：19 次失败不断开；20 次中 11 次失败断开；冷却后半开；半开失败回到断开', '状态序列与预期一致'],
   ['单元', '写请求遇到 already known 返回交易哈希而非错误', '同上'],
   ['集成', '用 httptest 起 3 个假上游，一个延迟 2 秒、一个返回 500、一个正常', '所有请求成功，X-Upstream 均为正常上游'],
@@ -1078,7 +1145,7 @@ ${call('info', `<p>作品集展示建议：一页架构图 + 一张 Grafana 截�
 
 ${mistakes([
   ['用 Nginx 轮询多个节点就是高可用', 'Nginx 不懂 JSON-RPC，不知道节点落后多少块，也不能做方法级路由和缓存。落后节点会让用户看到“交易消失”。'],
-  ['所有请求失败都可以换上游重试', '只有网络错误和节点侧错误才重试。execution reverted、nonce too low 是确定结果，重试只会放大流量。'],
+  ['所有请求失败都可以换上游重试', '只有网络错误、超时、HTTP 5xx/429 和节点侧错误（如 header not found）才换上游重试。execution reverted、nonce too low 是确定结果，重试只会放大流量。'],
   ['按区块号的查询都可以长缓存', '链头附近的区块可能被重组替换。只有深度足够（例如链头 − 64 以下，或已最终确定）才长缓存。'],
   ['写请求超时就是失败，让用户重新发', '交易可能已被广播。应返回交易哈希并查询回执；重签新交易可能导致重复支付。'],
   ['服务商返回的数据一定正确', '服务商也会落后、分叉或出错。需要多上游比对链头哈希，长缓存只接受可信结果。']
@@ -1087,7 +1154,7 @@ ${recap([
   '网关 = 鉴权限流 → 方法分类 → 缓存 → 路由 → 熔断重试 → 上游；健康检查独立运行，转发路径只读健康表。',
   '健康分由落后块数、错误率、延迟组成；熔断器有闭合、断开、半开三态，并设最少请求数防误判。',
   '写请求走可信上游、粘滞会话、已知交易视为成功；业务错误不重试。',
-  '缓存按“会不会变”分级：哈希类长缓存、深度区块长缓存、latest 短缓存、null 与错误不缓存。',
+  '缓存按“会不会变”分级：区块哈希查询与深度区块长缓存；交易和回执按所在区块深度判断；latest 短缓存；null 与错误不缓存。',
   '限流按 Key 和计算单位，批量请求逐条计量；指标、面板、告警与压测共同证明验收标准。'
 ])}
 ${quiz([

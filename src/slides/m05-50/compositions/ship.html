@@ -1,0 +1,191 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ship，id 前缀 sh- -->
+  <div id="root" data-composition-id="ship" data-duration="77.97" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sh-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sh-all">
+        <g id="sh-board">
+          <rect id="sh-bd" class="h" x="120" y="220" width="840" height="780" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text id="sh-bt" class="h" x="160" y="285" font-size="40" font-weight="700" fill="#e8e6df">安全清单</text>
+          <g id="sh-items"></g>
+        </g>
+        <g id="sh-i1">
+          <g id="sh-ap" class="h"><rect x="1040" y="300" width="300" height="70" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1190" y="346" font-size="30" fill="#F0B90B" text-anchor="middle">admin_addPeer</text></g>
+          <rect id="sh-wall" class="h" x="1500" y="260" width="20" height="160" rx="4" fill="#FC6255" />
+          <text id="sh-wl" class="h" x="1540" y="350" font-size="30" fill="#FC6255">方法黑名单</text>
+          <g id="sh-nd" class="h"><rect x="1060" y="560" width="700" height="220" rx="16" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="1090" y="615" font-size="32" fill="#83C167">自建节点只开放</text>
+            <rect x="1100" y="660" width="160" height="70" rx="10" fill="none" stroke="#83C167" stroke-width="2" /><text class="mono" x="1180" y="706" font-size="30" fill="#83C167" text-anchor="middle">eth</text>
+            <rect x="1320" y="660" width="160" height="70" rx="10" fill="none" stroke="#83C167" stroke-width="2" /><text class="mono" x="1400" y="706" font-size="30" fill="#83C167" text-anchor="middle">net</text>
+            <rect x="1540" y="660" width="160" height="70" rx="10" fill="none" stroke="#83C167" stroke-width="2" /><text class="mono" x="1620" y="706" font-size="30" fill="#83C167" text-anchor="middle">web3</text></g>
+        </g>
+        <g id="sh-i2">
+          <text id="sh-gl" class="h mono" x="1040" y="310" font-size="30" fill="#F0B90B">eth_getLogs</text>
+          <g id="sh-ru" class="h"><rect x="1040" y="340" width="720" height="44" rx="6" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <path d="M1100 340 L1100 362 M1160 340 L1160 362 M1220 340 L1220 362 M1280 340 L1280 362 M1340 340 L1340 362 M1400 340 L1400 372 M1460 340 L1460 362 M1520 340 L1520 362 M1580 340 L1580 362 M1640 340 L1640 362 M1700 340 L1700 362" stroke="#8a8f99" stroke-width="2" /></g>
+          <rect id="sh-rf" class="h" x="1042" y="342" width="356" height="40" fill="#58C4DD" fill-opacity="0.35" />
+          <path id="sh-cut" class="h" d="M1400 325 L1400 400" stroke="#FC6255" stroke-width="5" />
+          <text id="sh-cl" class="h" x="1400" y="445" font-size="30" fill="#FC6255" text-anchor="middle">≤ 2000 块（示例）</text>
+          <g id="sh-hp" class="h"><rect x="1040" y="520" width="340" height="150" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1210" y="582" font-size="30" fill="#e8e6df" text-anchor="middle">重型方法</text><text x="1210" y="630" font-size="28" fill="#8a8f99" text-anchor="middle">独立并发池 + 超时</text></g>
+          <g id="sh-np" class="h"><rect x="1420" y="520" width="340" height="150" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="1590" y="605" font-size="30" fill="#8a8f99" text-anchor="middle">普通请求</text></g>
+          <g id="sh-bx" class="h"><rect x="1040" y="740" width="340" height="170" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <path d="M1040 740 L1210 830 L1380 740" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="1210" y="890" font-size="30" fill="#F0B90B" text-anchor="middle">≤ 100 条</text></g>
+          <text id="sh-bm" class="h" x="1420" y="835" font-size="32" fill="#83C167">逐条计量</text>
+        </g>
+        <g id="sh-i3">
+          <text id="sh-x1" class="h" x="1040" y="322" font-size="40" font-weight="700" fill="#FC6255">✕</text>
+          <text id="sh-uq" class="h mono" x="1090" y="320" font-size="30" fill="#FC6255">/rpc?key=a1b2</text>
+          <path id="sh-ua" class="dr h" pathLength="1" d="M1350 310 L1440 310" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#sh-arr)" />
+          <text id="sh-uh" class="h mono" x="1460" y="320" font-size="30" fill="#83C167">X-Api-Key</text>
+          <text id="sh-fe" class="h" x="1040" y="420" font-size="30" fill="#e8e6df">前端 Key：低额度 + 来源白名单</text>
+          <g id="sh-fk" class="h"><rect x="1040" y="560" width="220" height="90" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text x="1150" y="616" font-size="30" fill="#FC6255" text-anchor="middle">假上游</text></g>
+          <path id="sh-fa" class="dr h" pathLength="1" d="M1270 605 L1380 605" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#sh-arr)" />
+          <g id="sh-sd" class="h"><path d="M1440 555 L1490 572 L1485 620 Q1475 652 1440 670 Q1405 652 1395 620 L1390 572 Z" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="4" />
+            <text x="1440" y="720" font-size="28" fill="#83C167" text-anchor="middle">一致性比对</text></g>
+          <g id="sh-lc" class="h"><rect x="1560" y="560" width="220" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1670" y="616" font-size="30" fill="#58C4DD" text-anchor="middle">长缓存</text></g>
+          <g id="sh-br" class="h"><path d="M1060 880 L1140 800 M1130 790 L1160 820" stroke="#FF9F43" stroke-width="6" fill="none" /><path d="M1040 870 L1080 910 L1050 930 L1020 900 Z" fill="#FF9F43" />
+            <text x="1190" y="880" font-size="30" fill="#FF9F43">按前缀清缓存</text></g>
+        </g>
+        <g id="sh-i4">
+          <g id="sh-tx" class="h"><rect x="1040" y="270" width="240" height="80" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text x="1160" y="321" font-size="30" fill="#F0B90B" text-anchor="middle">敏感交易</text></g>
+          <path id="sh-ta" class="dr h" pathLength="1" d="M1290 310 L1430 310" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#sh-arr)" />
+          <g id="sh-pp" class="h"><rect x="1440" y="270" width="320" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1600" y="321" font-size="30" fill="#58C4DD" text-anchor="middle">私有交易池</text></g>
+          <circle id="sh-bc" class="h" cx="1100" cy="560" r="16" fill="#F0B90B" />
+          <path id="sh-b1" class="dr h" pathLength="1" d="M1120 555 L1420 475" stroke="#F0B90B" stroke-width="3" fill="none" />
+          <path id="sh-b2" class="dr h" pathLength="1" d="M1120 560 L1420 560" stroke="#F0B90B" stroke-width="3" fill="none" />
+          <path id="sh-b3" class="dr h" pathLength="1" d="M1120 565 L1420 645" stroke="#F0B90B" stroke-width="3" fill="none" />
+          <g id="sh-m1" class="h"><rect x="1430" y="440" width="200" height="66" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2" /><text x="1530" y="483" font-size="28" fill="#B48EF0" text-anchor="middle">服务商 A</text></g>
+          <g id="sh-m2" class="h"><rect x="1430" y="527" width="200" height="66" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2" /><text x="1530" y="570" font-size="28" fill="#B48EF0" text-anchor="middle">服务商 B</text></g>
+          <g id="sh-m3" class="h"><rect x="1430" y="614" width="200" height="66" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2" /><text x="1530" y="657" font-size="28" fill="#83C167" text-anchor="middle">自建节点</text></g>
+          <text id="sh-m3l" class="h" x="1650" y="657" font-size="28" fill="#83C167">兜底</text>
+          <g id="sh-lk" class="h"><rect x="1050" y="810" width="70" height="56" rx="8" fill="#FF9F43" /><path d="M1062 810 L1062 790 A23 23 0 0 1 1108 790 L1108 810" fill="none" stroke="#FF9F43" stroke-width="6" />
+            <text class="mono" x="1150" y="850" font-size="30" fill="#FF9F43">127.0.0.1 / mTLS</text></g>
+        </g>
+        <g id="sh-k5">
+          <g id="sh-wk"></g>
+          <text id="sh-ex" class="h" x="1790" y="340" font-size="28" fill="#6b6f7a" text-anchor="end">示例节奏</text>
+        </g>
+        <g id="sh-k6"></g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const MV = (s, t, v, d = 0.6) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, parent, attrs, txt) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (txt != null) e.textContent = txt; (typeof parent === "string" ? document.querySelector(parent) : parent).appendChild(e); return e; };
+      const items = ["管理接口暴露", "资源耗尽", "批量绕过限流", "Key 泄露", "缓存投毒", "窥探抢跑", "上游审查", "内网横向"];
+      items.forEach((n, i) => { const y = 360 + i * 80, g = mk("g", "#sh-items", { id: "sh-it" + i, class: "h" });
+        mk("rect", g, { x: 160, y: y - 30, width: 36, height: 36, rx: 6, fill: "none", stroke: "#8a8f99", "stroke-width": 2.5 });
+        mk("text", g, { id: "sh-tt" + i, x: 220, y, "font-size": 34, fill: "#e8e6df" }, n);
+        mk("text", "#sh-items", { id: "sh-ck" + i, class: "h", x: 880, y: y + 2, "font-size": 34, "font-weight": 700, fill: "#83C167" }, "✓"); });
+      const weeks = [["单上游转发", ""], ["多上游", "健康 · 熔断"], ["读写分离", "重试"], ["两级缓存", "重组保护"], ["鉴权 · 限流", "计量 · 监控"], ["压测 · 演练", "灰度上线"]];
+      weeks.forEach(([a, b], i) => { const x = 130 + i * 280, g = mk("g", "#sh-wk", { id: "sh-w" + i, class: "h" });
+        mk("rect", g, { id: "sh-wr" + i, x, y: 400, width: 260, height: 220, rx: 14, fill: "#161a22", stroke: "#58C4DD", "stroke-width": 2.5 });
+        mk("text", g, { class: "mono", x: x + 130, y: 458, "font-size": 34, fill: "#58C4DD", "text-anchor": "middle" }, "W" + (i + 1));
+        mk("text", g, { x: x + 130, y: b ? 530 : 548, "font-size": 30, fill: "#e8e6df", "text-anchor": "middle" }, a);
+        if (b) mk("text", g, { x: x + 130, y: 575, "font-size": 28, fill: "#8a8f99", "text-anchor": "middle" }, b);
+        const f = mk("g", g, {});
+        mk("path", f, { d: `M${x + 70} 690 L${x + 70} 650 L${x + 100} 660 L${x + 70} 670`, stroke: "#83C167", "stroke-width": 3, fill: "#83C167" });
+        mk("text", f, { x: x + 110, y: 690, "font-size": 28, fill: "#83C167" }, "可演示"); });
+      const ext = [["多链", "L2 重组深度不同"], ["订阅重连", "断线自动重订"], ["getLogs 切段", "大范围并发查"], ["分布式追踪", "全链路可见"], ["成本权重", "按价格调权重"]];
+      ext.forEach(([a, b], i) => { const x = 130 + i * 335, g = mk("g", "#sh-k6", { id: "sh-e" + i, class: "h" });
+        mk("rect", g, { x, y: 790, width: 320, height: 130, rx: 14, fill: "#161a22", stroke: "#B48EF0", "stroke-width": 2 });
+        mk("text", g, { x: x + 160, y: 843, "font-size": 30, "font-weight": 700, fill: "#e8e6df", "text-anchor": "middle" }, a);
+        mk("text", g, { x: x + 160, y: 890, "font-size": 28, fill: "#8a8f99", "text-anchor": "middle" }, b);
+        mk("path", "#sh-k6", { id: "sh-el" + i, class: "dr", pathLength: 1, d: `M1690 610 L${x + 160} 782`, stroke: "#B48EF0", "stroke-width": 2.5, fill: "none" }); });
+      const hiItem = (i, t) => tl.to("#sh-tt" + i, { fill: "#FF9F43", duration: 0.3 }, t);
+      const doneItem = (i, t) => { tl.to("#sh-tt" + i, { fill: "#e8e6df", duration: 0.3 }, t); IN("#sh-ck" + i, t, 0.3); };
+
+      // L0 清单板
+      IN(["#sh-bd", "#sh-bt"], at(0, 0.05), 0.5);
+      IN(items.map((_, i) => "#sh-it" + i), at(0, 0.2), 0.3, { x: -15 }, { x: 0, stagger: 0.12 });
+
+      // L1 管理接口暴露
+      hiItem(0, at(1, 0));
+      IN("#sh-ap", at(1, 0.05), 0.4); IN("#sh-wall", at(1, 0.1), 0.3); IN("#sh-wl", at(1, 0.14), 0.3);
+      MV("#sh-ap", at(1, 0.2), { x: 150 }, 0.5);
+      tl.to("#sh-ap", { x: 0, duration: 0.5, ease: "back.out(2)" }, at(1, 0.2) + 0.5);
+      tl.to("#sh-ap rect", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.2) + 0.5);
+      IN("#sh-nd", at(1, 0.5), 0.5);
+      doneItem(0, at(1, 0.92));
+
+      // L2 资源耗尽 + 批量绕过限流
+      OUT("#sh-i1", at(2, 0), 0.35);
+      hiItem(1, at(2, 0));
+      IN("#sh-gl", at(2, 0.04), 0.4); IN("#sh-ru", at(2, 0.06), 0.4);
+      IN("#sh-rf", at(2, 0.12), 0.1); tl.fromTo("#sh-rf", { attr: { width: 0 } }, { attr: { width: 716 }, duration: 0.9, immediateRender: false }, at(2, 0.12));
+      IN(["#sh-cut", "#sh-cl"], at(2, 0.2), 0.3); tl.to("#sh-rf", { attr: { width: 356 }, duration: 0.4 }, at(2, 0.22));
+      IN("#sh-hp", at(2, 0.34), 0.4); IN("#sh-np", at(2, 0.38), 0.4);
+      doneItem(1, at(2, 0.5)); hiItem(2, at(2, 0.52));
+      IN("#sh-bx", at(2, 0.6), 0.4); IN("#sh-bm", at(2, 0.78), 0.4);
+      doneItem(2, at(2, 0.95));
+
+      // L3 Key 泄露 + 缓存投毒
+      OUT("#sh-i2", at(3, 0), 0.35);
+      hiItem(3, at(3, 0));
+      IN(["#sh-x1", "#sh-uq"], at(3, 0.05), 0.4); ARROW("#sh-ua", at(3, 0.14)); IN("#sh-uh", at(3, 0.18), 0.4);
+      IN("#sh-fe", at(3, 0.3), 0.4);
+      doneItem(3, at(3, 0.48)); hiItem(4, at(3, 0.5));
+      IN("#sh-fk", at(3, 0.52), 0.4); ARROW("#sh-fa", at(3, 0.58)); IN("#sh-sd", at(3, 0.6), 0.4); IN("#sh-lc", at(3, 0.64), 0.4);
+      tl.to("#sh-fa", { opacity: 0.3, duration: 0.3 }, at(3, 0.72));
+      IN("#sh-br", at(3, 0.8), 0.4);
+      doneItem(4, at(3, 0.96));
+
+      // L4 窥探抢跑 / 上游审查 / 内网横向
+      OUT("#sh-i3", at(4, 0), 0.35);
+      hiItem(5, at(4, 0));
+      IN("#sh-tx", at(4, 0.04), 0.4); ARROW("#sh-ta", at(4, 0.1)); IN("#sh-pp", at(4, 0.14), 0.4);
+      doneItem(5, at(4, 0.3)); hiItem(6, at(4, 0.32));
+      IN("#sh-bc", at(4, 0.34), 0.3); DRAW("#sh-b1", at(4, 0.38), 0.5); DRAW("#sh-b2", at(4, 0.38), 0.5); DRAW("#sh-b3", at(4, 0.38), 0.5);
+      IN(["#sh-b1", "#sh-b2", "#sh-b3"], at(4, 0.38), 0.05);
+      IN(["#sh-m1", "#sh-m2", "#sh-m3"], at(4, 0.42), 0.3, {}, { stagger: 0.1 }); IN("#sh-m3l", at(4, 0.55), 0.3);
+      doneItem(6, at(4, 0.66)); hiItem(7, at(4, 0.68));
+      IN("#sh-lk", at(4, 0.72), 0.4);
+      doneItem(7, at(4, 0.95));
+
+      // L5 6 周里程碑
+      OUT(["#sh-board", "#sh-i4"], at(5, 0), 0.45);
+      IN("#sh-ex", at(5, 0.06), 0.4);
+      [0, 1, 2, 3, 4, 5].forEach(i => { const t = at(5, 0.06 + i * 0.14);
+        IN("#sh-w" + i, t, 0.4, { y: 20 }, { y: 0 }); tl.to("#sh-wr" + i, { stroke: "#83C167", duration: 0.3 }, t + 0.8); });
+
+      // L6 扩展方向
+      MV(["#sh-wk", "#sh-ex"], at(6, 0), { y: -120 }, 0.7);
+      [0, 1, 2, 3, 4].forEach(i => { const t = at(6, 0.08 + i * 0.16); DRAW("#sh-el" + i, t, 0.5); IN("#sh-e" + i, t + 0.3, 0.4); });
+
+
+      tl.to("#sh-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["ship"] = tl;
+    })();
+  </script>
+</template>

@@ -8,7 +8,7 @@
     #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
   </style>
   <!-- 场景 querykey，id 前缀 qu- -->
-  <div id="root" data-composition-id="querykey" data-duration="69.27" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="querykey" data-duration="76.11" data-width="1920" data-height="1080">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="qu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -67,7 +67,7 @@
 
         <!-- 卡 1 staleTime -->
         <g id="qu-c1" class="h">
-          <rect x="1000" y="80" width="800" height="390" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <rect x="1000" y="80" width="800" height="400" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
           <text x="1030" y="140" font-size="34" fill="#58C4DD" class="mono">staleTime</text>
           <text x="1240" y="140" font-size="28" fill="#8a8f99">多久算新鲜</text>
         </g>
@@ -88,8 +88,11 @@
           <rect x="1230" y="414" width="270" height="14" rx="7" fill="#2a2f3a" />
           <rect id="qu-fc" x="1230" y="414" width="0" height="14" rx="7" fill="#83C167" />
           <rect id="qu-blk" x="1530" y="408" width="26" height="26" rx="4" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2.5" />
-          <text x="1770" y="430" text-anchor="end" font-size="30" fill="#F0B90B" class="mono">0</text>
+          <text id="qu-vc1" x="1770" y="430" text-anchor="end" font-size="30" fill="#F0B90B" class="mono">15 s</text>
         </g>
+        <text id="qu-vc0" class="h" x="1230" y="462" font-size="28" fill="#8a8f99">CDN 对齐</text>
+        <g id="qu-vc2" class="h"><text x="1770" y="430" text-anchor="end" font-size="30" fill="#F0B90B" class="mono">0</text>
+          <text x="1770" y="462" text-anchor="end" font-size="28" fill="#8a8f99">直读链上池子</text></g>
 
         <!-- 卡 2 gcTime -->
         <g id="qu-c2" class="h">
@@ -211,15 +214,19 @@
       IN("#qu-va", at(2, 0.75), 0.5, { x: 20 }, { x: 0 });
       tl.to("#qu-ra rect", { opacity: 0.55, duration: 0.4, yoyo: true, repeat: 3 }, at(2, 0.82));
 
-      // L3 余额 10 s + 失效；价格 0 + 新区块
+      // L3 余额 10 s + 失效；价格走 CDN 对齐 15 s，直读池子才 0 + 新区块
       IN("#qu-rb", at(3, 0.02), 0.4);
-      tl.to("#qu-fb", { attr: { width: 230 }, duration: 2.2, ease: "none" }, at(3, 0.06));
-      IN("#qu-inv", at(3, 0.42), 0.3, { scale: 0.6, svgOrigin: "1543 330" }, { scale: 1, svgOrigin: "1543 330" });
-      tl.to("#qu-fb", { attr: { width: 0 }, duration: 0.3, ease: "power2.in" }, at(3, 0.44));
-      tl.to("#qu-fb", { attr: { width: 90 }, duration: 1.6, ease: "none" }, at(3, 0.52));
-      OUT("#qu-inv", at(3, 0.66), 0.3);
-      IN("#qu-rc", at(3, 0.6), 0.4);
-      [0.7, 0.8, 0.9].forEach(f => {
+      tl.to("#qu-fb", { attr: { width: 230 }, duration: 2.2, ease: "none" }, at(3, 0.04));
+      IN("#qu-inv", at(3, 0.22), 0.3, { scale: 0.6, svgOrigin: "1543 330" }, { scale: 1, svgOrigin: "1543 330" });
+      tl.to("#qu-fb", { attr: { width: 0 }, duration: 0.3, ease: "power2.in" }, at(3, 0.24));
+      tl.to("#qu-fb", { attr: { width: 90 }, duration: 1.6, ease: "none" }, at(3, 0.28));
+      OUT("#qu-inv", at(3, 0.36), 0.3);
+      IN("#qu-rc", at(3, 0.32), 0.4);
+      tl.to("#qu-fc", { attr: { width: 270 }, duration: 2.4, ease: "none" }, at(3, 0.36));
+      IN("#qu-vc0", at(3, 0.42), 0.4);
+      OUT(["#qu-vc1", "#qu-vc0"], at(3, 0.68), 0.3);
+      IN("#qu-vc2", at(3, 0.7), 0.4);
+      [0.78, 0.86, 0.94].forEach(f => {
         tl.to("#qu-blk", { fill: "#58C4DD", duration: 0.12, yoyo: true, repeat: 1 }, at(3, f));
         tl.fromTo("#qu-fc", { attr: { width: 270 }, opacity: 1 }, { attr: { width: 270 }, opacity: 0, duration: 0.4, immediateRender: false }, at(3, f));
       });
@@ -256,7 +263,7 @@
       IN("#qu-r0", at(5, 0.9), 0.4, { scale: 0.6, svgOrigin: "1560 820" }, { scale: 1, svgOrigin: "1560 820" });
 
       // L6 误区
-      OUT(["#qu-left", "#qu-c1", "#qu-ra", "#qu-rb", "#qu-rc", "#qu-va", "#qu-inv", "#qu-c4", "#qu-p2", "#qu-keep", "#qu-c5", "#qu-rt0", "#qu-rt1", "#qu-r2", "#qu-r0"], at(6, 0), 0.4);
+      OUT(["#qu-left", "#qu-c1", "#qu-ra", "#qu-rb", "#qu-rc", "#qu-vc0", "#qu-vc2", "#qu-va", "#qu-inv", "#qu-c4", "#qu-p2", "#qu-keep", "#qu-c5", "#qu-rt0", "#qu-rt1", "#qu-r2", "#qu-r0"], at(6, 0), 0.4);
       IN("#qu-myth", at(6, 0.06), 0.5, { scale: 0.95, svgOrigin: "960 540" }, { scale: 1, svgOrigin: "960 540" });
       DRAW("#qu-strike", at(6, 0.3), 0.5);
       IN("#qu-wrong", at(6, 0.4), 0.5);

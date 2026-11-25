@@ -81,7 +81,7 @@
     "接下来是模式 B 的核心：密钥放在哪里。手机上的存储大致分三层。",
     "最底层是普通存储：React Native 的 AsyncStorage、Android 的 SharedPreferences、iOS 的 UserDefaults。它们基本是明文文件，备份或越狱后就能直接读出来。",
     "这一层严禁存放任何密钥，只放主题、语言这类不敏感的缓存。",
-    "中间一层是 iOS Keychain 和 Android 的 EncryptedSharedPreferences。它们绑定了系统加密和生物识别的访问策略，可以存加密过的分片，或者临时会话密钥。",
+    "中间一层是 iOS Keychain，和 Android 的 Keystore 加密加 DataStore。它们绑定了系统加密和生物识别的访问策略，可以存加密过的分片，或者临时会话密钥。",
     "最上层是硬件安全芯片：iPhone 上的 Secure Enclave，旗舰 Android 手机上的 StrongBox。它们独立于主处理器，锁在里面的密钥，连系统内核和越狱脚本也没法明文导出。只要创建密钥时设了生物识别的访问策略，每次使用都要过面容或指纹。",
     "这一层推荐直接在芯片里生成 P-256 的 Passkey，或者生成一把包装密钥，专门用来加密钱包主密钥。私钥不出芯片，每签一次，触发一次生物识别。"
    ]

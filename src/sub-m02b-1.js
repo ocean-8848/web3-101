@@ -451,12 +451,11 @@ flowchart TB
 ${code('SOLIDITY', `
 import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
-// 安全读取 Chainlink 价格：检查正数、新鲜度、轮次
+// 安全读取 Chainlink 价格：检查正数和新鲜度（answeredInRound 已被官方标为弃用，不再用它判断）
 function getPrice(AggregatorV3Interface feed, uint256 maxDelay) internal view returns (uint256) {
-    (uint80 roundId, int256 answer, , uint256 updatedAt, uint80 answeredInRound) = feed.latestRoundData();
+    (, int256 answer, , uint256 updatedAt, ) = feed.latestRoundData();
     require(answer > 0, "bad price");
     require(updatedAt != 0 && block.timestamp - updatedAt <= maxDelay, "stale price"); // 例如心跳 3600 秒 + 余量
-    require(answeredInRound >= roundId, "stale round");
     return uint256(answer); // 注意：USD 价格源通常为 8 位小数，用 feed.decimals() 读取
 }
 // L2 上还要检查 Sequencer Uptime Feed：排序器宕机刚恢复时，暂停清算一段宽限期。
@@ -745,7 +744,7 @@ ${quiz([
   { q: 'UUPS 代理相比 Transparent 代理，最需要额外注意的风险是？', o: ['新实现合约如果没有升级函数，代理将永远无法再升级', '管理员无法调用业务函数', '每次调用多一次管理员判断，Gas 更高', '不支持 delegatecall'], a: 0, why: 'UUPS 的升级逻辑在实现合约中，升级到不含 upgradeToAndCall 的版本会“砖化”。B、C 是 Transparent 的特征；D 错误，所有代理都基于 delegatecall。' },
   { q: '哪一项最能防御“闪电贷借票”式治理攻击？', o: ['提高提案门槛到 1% 代币', '按提案创建时区块的快照计算投票权', '把投票期缩短到 1 小时', '允许紧急提案立即执行'], a: 1, why: '快照让提案创建后借来的代币没有投票权。A 门槛可以被闪电贷满足；C 和 D 反而缩短了社区反应时间。' }
 ])}
-${checklist(["能用恒定乘积公式算出把池子即时价格推到目标值所需的投入量。", "能写出检查 answer 大于 0、updatedAt 新鲜度和 answeredInRound 的 Chainlink 价格读取函数。", "能用 EIP712、Nonces 和 ECDSA.recover 写出带 deadline、不可重放的签名校验。", "能在升级前比对新旧存储布局，并在实现合约构造函数中调用 _disableInitializers。", "在 Foundry 项目里用 Slither 扫描过 VulnerableVault，看到 reentrancy-eth 告警，并在改成 CEI 后确认它消失。"])}
+${checklist(["能用恒定乘积公式算出把池子即时价格推到目标值所需的投入量。", "能写出检查 answer 大于 0 和 updatedAt 新鲜度的 Chainlink 价格读取函数（L2 上再加排序器宽限期）。", "能用 EIP712、Nonces 和 ECDSA.recover 写出带 deadline、不可重放的签名校验。", "能在升级前比对新旧存储布局，并在实现合约构造函数中调用 _disableInitializers。", "在 Foundry 项目里用 Slither 扫描过 VulnerableVault，看到 reentrancy-eth 告警，并在改成 CEI 后确认它消失。"])}
 ${terms([
   ['时间加权平均价格', 'TWAP', '一段时间内价格按秒加权的平均值，抗单笔操纵'],
   ['价格操纵', 'Price Manipulation', '通过大额交易临时改变协议所读价格以获利'],

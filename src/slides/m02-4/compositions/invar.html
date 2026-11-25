@@ -8,7 +8,7 @@
     #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
   </style>
   <!-- 场景 invar，id 前缀 in- -->
-  <div id="root" data-composition-id="invar" data-duration="71.75" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="invar" data-duration="77.91" data-width="1920" data-height="1080">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="in-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -47,7 +47,7 @@
 <rect x="1196" y="470" width="44" height="58" rx="5" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><line x1="1204" y1="490" x2="1232" y2="490" stroke="#58C4DD" stroke-width="2"/><rect x="1242" y="470" width="44" height="58" rx="5" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><line x1="1250" y1="490" x2="1278" y2="490" stroke="#58C4DD" stroke-width="2"/><rect x="1288" y="470" width="44" height="58" rx="5" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><line x1="1296" y1="490" x2="1324" y2="490" stroke="#58C4DD" stroke-width="2"/>
 </g>
 <circle cx="960" cy="380" r="12" fill="#e8e6df"/>
-<text id="in-eq" opacity="0" x="960" y="330" font-size="64" font-weight="700" fill="#83C167" text-anchor="middle">=</text>
+<text id="in-eq" opacity="0" x="960" y="330" font-size="64" font-weight="700" fill="#83C167" text-anchor="middle">≥</text>
 <text id="in-neq" x="960" y="330" font-size="64" font-weight="700" fill="#FC6255" text-anchor="middle" opacity="0">≠</text>
 </g></g>
 <text id="in-bl1" class="h" x="660" y="620" font-size="30" fill="#F0B90B" text-anchor="middle">合约里的 ETH</text>
@@ -86,14 +86,14 @@
 <rect x="70" y="604" width="4" height="416" fill="#58C4DD"/>
 <text class="mono" x="98" y="628" font-size="22" fill="#8a8f99" data-layout-ignore="true">test/Invariant.t.sol</text>
 <rect id="in-c-hl" data-lh="38" x="82" y="653.0" width="996" height="38" rx="6" fill="#58C4DD" fill-opacity="0.15" opacity="0"/>
-<text id="in-c-l0" class="mono" x="106.0" y="680" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> setUp() <tspan fill="#58C4DD">public</tspan> {</text>
-<text id="in-c-l1" class="mono" x="168.4" y="718" font-size="28" fill="#e8e6df">vault = <tspan fill="#58C4DD">new</tspan> Vault(<tspan fill="#58C4DD">address</tspan>(this), <tspan fill="#F0B90B">5</tspan> <tspan fill="#58C4DD">ether</tspan>);</text>
-<text id="in-c-l2" class="mono" x="168.4" y="756" font-size="28" fill="#e8e6df">handler = <tspan fill="#58C4DD">new</tspan> Handler(vault);</text>
-<text id="in-c-l3" class="mono" x="168.4" y="794" font-size="28" fill="#e8e6df">targetContract(<tspan fill="#58C4DD">address</tspan>(handler));</text>
+<text id="in-c-l0" class="mono" x="106.0" y="680" font-size="28" fill="#e8e6df">targetContract(<tspan fill="#58C4DD">address</tspan>(handler));  <tspan fill="#8a8f99">// setUp <tspan style="font-family:NotoSC">中</tspan></tspan></text>
+<text id="in-c-l1" class="mono" x="106.0" y="718" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> invariant_Solvent() <tspan fill="#58C4DD">public</tspan> <tspan fill="#58C4DD">view</tspan> {</text>
+<text id="in-c-l2" class="mono" x="168.4" y="756" font-size="28" fill="#8a8f99">// sum = <tspan style="font-family:NotoSC">三个用户</tspan> balanceOf <tspan style="font-family:NotoSC">之和</tspan></text>
+<text id="in-c-l3" class="mono" x="168.4" y="794" font-size="28" fill="#e8e6df">assertGe(<tspan fill="#58C4DD">address</tspan>(vault).balance, sum);</text>
 <text id="in-c-l4" class="mono" x="106.0" y="832" font-size="28" fill="#e8e6df">}</text>
-<text id="in-c-l5" class="mono" x="106.0" y="870" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> invariant_Solvent() <tspan fill="#58C4DD">public</tspan> <tspan fill="#58C4DD">view</tspan> {</text>
+<text id="in-c-l5" class="mono" x="106.0" y="870" font-size="28" fill="#e8e6df"><tspan fill="#58C4DD">function</tspan> invariant_MatchesGhost() <tspan fill="#58C4DD">public</tspan> <tspan fill="#58C4DD">view</tspan> {</text>
 <text id="in-c-l6" class="mono" x="168.4" y="908" font-size="28" fill="#e8e6df">assertEq(<tspan fill="#58C4DD">address</tspan>(vault).balance,</text>
-<text id="in-c-l7" class="mono" x="230.8" y="946" font-size="28" fill="#e8e6df">handler.ghostDeposited() - handler.ghostWithdrawn());</text>
+<text id="in-c-l7" class="mono" x="168.4" y="946" font-size="28" fill="#e8e6df">handler.ghostDeposited() - handler.ghostWithdrawn());</text>
 <text id="in-c-l8" class="mono" x="106.0" y="984" font-size="28" fill="#e8e6df">}</text>
 </g>
 <g id="in-sq">
@@ -217,7 +217,7 @@ IN("#in-gh", at(3, 0.08), 0.8, { y: -12 }, { y: 0 });
 tl.to("#in-gh", { y: -6, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 5 }, at(3, 0.22));
 // L4 code + seq
 IN("#in-c", at(4, 0.02), 0.6);
-HL("in-c", 3, 3, at(4, 0.08), 9);
+HL("in-c", 0, 0, at(4, 0.08), 9);
 IN("#in-q0", at(4, 0.16) + 0.00, 0.3, { x: 20 }, { x: 0 });
 tl.to("#in-q0 rect", { attr: { stroke: "#58C4DD" }, fill: "#1d2a33", duration: 0.25 }, at(4, 0.16) + 0.00 + 0.5);
 tl.to("#in-btn0 rect", { attr: { "stroke-width": 5 }, duration: 0.2, yoyo: true, repeat: 1 }, at(4, 0.16) + 0.00 + 0.55);
@@ -242,7 +242,9 @@ tl.to("#in-btn1 rect", { attr: { "stroke-width": 5 }, duration: 0.2, yoyo: true,
 tl.to("#in-q3", { opacity: 0.35, duration: 0.3 }, at(4, 0.16) + 5.10 + 0.95);
 tl.fromTo("#in-bchk", { opacity: 0, strokeDashoffset: 1 }, { opacity: 1, strokeDashoffset: 0, duration: 0.35, immediateRender: false }, at(4, 0.16) + 5.10 + 1.0);
 tl.to("#in-bchk", { opacity: 0, duration: 0.25 }, at(4, 0.16) + 5.10 + 1.5);
-HL("in-c", 5, 8, at(4, 0.5), 9);
+HL("in-c", 1, 4, at(4, 0.4), 9);
+HL("in-c", 5, 8, at(4, 0.68), 9);
+tl.to("#in-gh", { y: -8, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, at(4, 0.8));
 // L5
 OUT("#in-sq", at(5, 0), 0.4);
 IN("#in-f1", at(5, 0.08), 0.5);

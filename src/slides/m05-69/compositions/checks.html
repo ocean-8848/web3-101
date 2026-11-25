@@ -1,0 +1,146 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 checks，id 前缀 cs- -->
+  <div id="root" data-composition-id="checks" data-duration="72.28" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="cs-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="cs-all">
+        <g id="cs-feed" class="h"><rect x="100" y="480" width="200" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="200" y="552" font-size="32" fill="#58C4DD" text-anchor="middle" font-weight="700">Feed</text></g>
+<g id="cs-pipe" class="h"><line x1="300" y1="510" x2="1640" y2="510" stroke="#8a8f99" stroke-width="3"/><line x1="300" y1="570" x2="1640" y2="570" stroke="#8a8f99" stroke-width="3"/></g>
+<rect id="cs-g0" class="h" x="580" y="450" width="40" height="180" rx="6" fill="#161a22" fill-opacity="0.6" stroke="#8a8f99" stroke-width="3.5"/>
+<text id="cs-n0" class="h" x="600" y="420" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="700">1 价格 > 0</text>
+<path id="cs-x0" class="h" d="M584 524 L616 556 M616 524 L584 556" stroke="#FC6255" stroke-width="7" stroke-linecap="round" fill="none"/>
+<rect id="cs-g1" class="h" x="950" y="450" width="40" height="180" rx="6" fill="#161a22" fill-opacity="0.6" stroke="#8a8f99" stroke-width="3.5"/>
+<text id="cs-n1" class="h" x="970" y="420" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="700">2 新鲜度</text>
+<path id="cs-x1" class="h" d="M954 524 L986 556 M986 524 L954 556" stroke="#FC6255" stroke-width="7" stroke-linecap="round" fill="none"/>
+<rect id="cs-g2" class="h" x="1320" y="450" width="40" height="180" rx="6" fill="#161a22" fill-opacity="0.6" stroke="#8a8f99" stroke-width="3.5"/>
+<text id="cs-n2" class="h" x="1340" y="420" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="700">3 上下限</text>
+<g id="cs-end" class="h"><rect x="1640" y="480" width="220" height="120" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1750" y="552" font-size="32" fill="#83C167" text-anchor="middle" font-weight="700">可用价格</text></g>
+<circle id="cs-dot" class="h" cx="320" cy="540" r="14" fill="#F0B90B"/>
+<g id="cs-t0" class="h"><rect x="310" y="518" width="80" height="44" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="350" y="551" font-size="30" fill="#F0B90B" text-anchor="middle" font-weight="700">0</text></g>
+<g id="cs-t1" class="h"><rect x="310" y="518" width="80" height="44" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="350" y="551" font-size="30" fill="#F0B90B" text-anchor="middle" font-weight="700">−5</text></g>
+<text id="cs-m1" class="h mono" x="380" y="740" font-size="28" fill="#58C4DD">answer &lt;= 0 → revert</text>
+<circle id="cs-p2" class="h" cx="320" cy="540" r="14" fill="#F0B90B"/>
+<text id="cs-tl" class="h" x="560" y="740" font-size="28" fill="#8a8f99">距上次更新</text>
+<text id="cs-tm" class="h mono" x="560" y="806" font-size="48" fill="#F0B90B" font-weight="700">0 s</text>
+<text id="cs-tlim" class="h" x="560" y="856" font-size="28" fill="#8a8f99">上限 3600 秒 · 示例</text>
+<text id="cs-u0" class="h mono" x="1000" y="806" font-size="28" fill="#8a8f99">updatedAt == 0</text>
+<path id="cs-u0x" class="h" d="M1258 782 L1286 810 M1286 782 L1258 810" stroke="#FC6255" stroke-width="7" stroke-linecap="round" fill="none"/>
+<g id="cs-dep" class="h"><text class="mono" x="940" y="800" font-size="34" fill="#8a8f99" text-anchor="end">answeredInRound</text><line id="cs-dst" x1="610" y1="789" x2="950" y2="789" stroke="#FC6255" stroke-width="4" stroke-linecap="round"/><rect x="980" y="764" width="130" height="52" rx="10" fill="#2a1618" stroke="#FC6255" stroke-width="2.5"/><text x="1045" y="800" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">已弃用</text></g>
+<text id="cs-only" class="h" x="860" y="876" font-size="30" fill="#83C167" text-anchor="middle" font-weight="700">只看更新时间 + 心跳</text>
+<line id="cs-floor" class="h" x1="900" y1="952" x2="1500" y2="952" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8"/>
+<text id="cs-fl" class="h mono" x="1520" y="960" font-size="28" fill="#8a8f99">minAnswer</text>
+<path id="cs-pp" class="dr" pathLength="1" d="M900 720 C980 730 1040 800 1100 900 L1140 940 L1500 940" fill="none" stroke="#F0B90B" stroke-width="5" stroke-linecap="round"/>
+<path id="cs-real" class="dr" pathLength="1" d="M1140 940 L1300 1025" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="1"/>
+<text id="cs-luna" class="h" x="1260" y="830" font-size="30" fill="#FC6255" font-weight="700">LUNA 事件</text>
+<g id="cs-pause" class="h"><circle id="cs-pc" cx="1760" cy="790" r="40" fill="none" stroke="#8a8f99" stroke-width="3"/><rect class="cs-pb" x="1745" y="772" width="10" height="36" rx="2" fill="#8a8f99"/><rect class="cs-pb" x="1765" y="772" width="10" height="36" rx="2" fill="#8a8f99"/></g>
+<text id="cs-pl2" class="h" x="1760" y="872" font-size="28" fill="#8a8f99" text-anchor="middle" font-weight="700">暂停借贷</text>
+<g id="cs-note" class="h"><rect x="300" y="850" width="560" height="180" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="580" y="900" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="700">多数新价格源未启用</text><text id="cs-nb" x="580" y="952" font-size="28" fill="#e8e6df" text-anchor="middle">自己设业务区间</text></g>
+<text id="cs-off2" class="h" x="580" y="1004" font-size="28" fill="#8a8f99" text-anchor="middle">以官方文档为准</text>
+<path id="cs-by" class="dr" pathLength="1" d="M200 474 L200 330 L1750 330 L1750 474" fill="none" stroke="#8a8f99" stroke-width="4"/>
+<text id="cs-b1" class="h" x="700" y="308" font-size="28" fill="#e8e6df">只读</text>
+<text id="cs-b2" class="h mono" x="764" y="308" font-size="28" fill="#58C4DD">latestAnswer</text>
+<text id="cs-b3" class="h" x="1100" y="308" font-size="34" fill="#FC6255" font-weight="700">误区</text>
+<path id="cs-byx" class="h" d="M1402 312 L1438 348 M1438 312 L1402 348" stroke="#FC6255" stroke-width="7" stroke-linecap="round" fill="none"/>
+<path id="cs-byx2" class="h" d="M482 312 L518 348 M518 312 L482 348" stroke="#FC6255" stroke-width="7" stroke-linecap="round" fill="none"/>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+IN("#cs-feed", at(0, 0.0), 0.5);
+IN("#cs-pipe", at(0, 0.08), 0.5);
+[0,1,2].forEach(i => { IN(`#cs-g${i}`, at(0, 0.15 + i * 0.08), 0.4, { y: -20 }, { y: 0 }); IN(`#cs-n${i}`, at(0, 0.18 + i * 0.08), 0.4); });
+IN("#cs-end", at(0, 0.5), 0.5);
+IN("#cs-dot", at(0, 0.6), 0.2);
+tl.to("#cs-dot", { attr: { cx: 1620 }, duration: 1.4, ease: "power1.inOut" }, at(0, 0.62));
+tl.to("#cs-dot", { opacity: 0, duration: 0.3 }, at(0, 0.62) + 1.4);
+// L1 gate 1
+tl.to("#cs-g0", { stroke: "#58C4DD", duration: 0.3 }, at(1, 0.0));
+IN("#cs-t0", at(1, 0.08), 0.3);
+tl.to("#cs-t0", { x: 190, duration: 0.6, ease: "power2.in" }, at(1, 0.1));
+IN("#cs-x0", at(1, 0.22), 0.25, { scale: 1.6, svgOrigin: "600 540" }, { scale: 1, svgOrigin: "600 540" });
+tl.to("#cs-t0", { x: 130, opacity: 0, duration: 0.5 }, at(1, 0.32));
+OUT("#cs-x0", at(1, 0.4), 0.2);
+IN("#cs-t1", at(1, 0.45), 0.3);
+tl.to("#cs-t1", { x: 190, duration: 0.6, ease: "power2.in" }, at(1, 0.47));
+IN("#cs-x0", at(1, 0.59), 0.25, { scale: 1.6, svgOrigin: "600 540" }, { scale: 1, svgOrigin: "600 540" });
+tl.to("#cs-t1", { x: 130, opacity: 0, duration: 0.5 }, at(1, 0.7));
+IN("#cs-m1", at(1, 0.6), 0.5);
+tl.to("#cs-g0", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.62));
+// L2 freshness
+OUT("#cs-m1", at(2, 0.0), 0.3);
+tl.to("#cs-g1", { stroke: "#58C4DD", duration: 0.3 }, at(2, 0.0));
+IN("#cs-p2", at(2, 0.04), 0.3);
+tl.to("#cs-p2", { attr: { cx: 920 }, duration: 0.9, ease: "power2.out" }, at(2, 0.05));
+IN("#cs-tl, #cs-tm", at(2, 0.1), 0.4);
+COUNT("#cs-tm", 0, 3600, at(2, 0.15), 3.2, v => Math.round(v) + " s");
+tl.to("#cs-p2", { fill: "#6b6f7a", opacity: 0.5, duration: 2.5 }, at(2, 0.15));
+IN("#cs-x1", at(2, 0.45), 0.25, { scale: 1.6, svgOrigin: "970 540" }, { scale: 1, svgOrigin: "970 540" });
+tl.to("#cs-g1", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.45));
+IN("#cs-u0", at(2, 0.5), 0.4);
+IN("#cs-u0x", at(2, 0.56), 0.25);
+IN("#cs-tlim", at(2, 0.75), 0.4);
+// L3 deprecated round check (not a gate)
+OUT("#cs-tl, #cs-tm, #cs-tlim, #cs-u0, #cs-u0x, #cs-p2", at(3, 0.0), 0.3);
+IN("#cs-dep", at(3, 0.12), 0.5, { y: 14 }, { y: 0 });
+tl.fromTo("#cs-dst", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.out", svgOrigin: "610 789" }, at(3, 0.42));
+IN("#cs-only", at(3, 0.72), 0.4);
+tl.to("#cs-g1", { stroke: "#83C167", duration: 0.3 }, at(3, 0.72));
+// L4 bounds
+OUT("#cs-dep, #cs-only", at(4, 0.0), 0.3);
+tl.to("#cs-g1", { stroke: "#FC6255", duration: 0.3 }, at(4, 0.0));
+tl.to("#cs-g2", { stroke: "#FF9F43", duration: 0.3 }, at(4, 0.02));
+IN("#cs-floor, #cs-fl", at(4, 0.08), 0.4);
+DRAW("#cs-pp", at(4, 0.18), 2.0);
+DRAW("#cs-real", at(4, 0.32), 0.8);
+IN("#cs-luna", at(4, 0.42), 0.4);
+tl.to("#cs-floor", { stroke: "#FF9F43", duration: 0.3, yoyo: true, repeat: 3 }, at(4, 0.5));
+IN("#cs-pause, #cs-pl2", at(4, 0.66), 0.4);
+tl.to("#cs-pc", { stroke: "#FF9F43", fill: "#FF9F43", fillOpacity: 0.15, duration: 0.3 }, at(4, 0.8));
+tl.to("#cs-pause .cs-pb", { fill: "#FF9F43", duration: 0.3 }, at(4, 0.8));
+tl.to("#cs-pl2", { fill: "#FF9F43", duration: 0.3 }, at(4, 0.8));
+// L5 min/max mostly disabled on new feeds
+tl.to("#cs-floor, #cs-fl", { opacity: 0.3, duration: 0.5 }, at(5, 0.03));
+IN("#cs-note", at(5, 0.1), 0.5, { y: 16 }, { y: 0 });
+tl.to("#cs-nb", { fill: "#83C167", duration: 0.4 }, at(5, 0.62));
+IN("#cs-off2", at(5, 0.85), 0.4);
+// L6 the shortcut myth
+DRAW("#cs-by", at(6, 0.02), 0.9);
+IN("#cs-b1, #cs-b2", at(6, 0.12), 0.4);
+tl.to("#cs-by", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.45));
+IN("#cs-byx", at(6, 0.48), 0.25, { scale: 1.6, svgOrigin: "1420 330" }, { scale: 1, svgOrigin: "1420 330" });
+IN("#cs-byx2", at(6, 0.52), 0.25, { scale: 1.6, svgOrigin: "500 330" }, { scale: 1, svgOrigin: "500 330" });
+IN("#cs-b3", at(6, 0.55), 0.4, { scale: 1.3, svgOrigin: "1134 300" }, { scale: 1, svgOrigin: "1134 300" });
+
+
+      tl.to("#cs-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["checks"] = tl;
+    })();
+  </script>
+</template>

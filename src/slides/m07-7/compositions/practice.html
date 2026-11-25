@@ -8,7 +8,7 @@
     #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
   </style>
   <!-- 场景 practice，id 前缀 pr- -->
-  <div id="root" data-composition-id="practice" data-duration="29.38" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="practice" data-duration="31.43" data-width="1920" data-height="1080">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="pr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -28,7 +28,7 @@
         <rect id="pr-f4" class="h" x="360" y="820" width="1200" height="120" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
         <g id="pr-nb4" class="h"><circle cx="420" cy="880" r="26" fill="none" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="420" y="890" font-size="28" font-weight="700" fill="#8a8f99" text-anchor="middle">5</text></g>
         <g id="pr-k0" class="h"><rect x="480" y="276" width="64" height="48" rx="8" fill="#B48EF0" fill-opacity="0.25" stroke="#B48EF0" stroke-width="2.5" /><rect x="522" y="290" width="22" height="20" rx="4" fill="#B48EF0" /><text class="mono" x="570" y="311" font-size="30" font-weight="700" fill="#B48EF0">MetaMask</text><text x="760" y="311" font-size="30" fill="#8a8f99">→</text><text class="mono" x="806" y="311" font-size="30" fill="#e8e6df">Sepolia</text></g>
-        <g id="pr-tg" class="h"><text x="1080" y="311" font-size="30" fill="#e8e6df">自定义 nonce</text><rect id="pr-tgb" x="1410" y="282" width="80" height="36" rx="18" fill="#3a3f4a" /><circle id="pr-tgk" cx="1428" cy="300" r="14" fill="#e8e6df" /></g>
+        <g id="pr-tg" class="h"><text x="1000" y="311" font-size="30" fill="#8a8f99">用“加速”按钮 · 不用手动设 nonce</text></g>
         <g id="pr-k1" class="h"><text x="480" y="456" font-size="30" fill="#e8e6df">转给自己</text><text class="mono" x="612" y="456" font-size="30" fill="#F0B90B">0.001 ETH</text><text x="800" y="456" font-size="30" fill="#F0B90B">· 小费很低</text></g>
         <g id="pr-pd" class="h"><circle cx="1250" cy="445" r="20" fill="none" stroke="#FF9F43" stroke-width="3" /><path d="M1250 433 L1250 445 L1260 451" fill="none" stroke="#FF9F43" stroke-width="3" stroke-linecap="round" /><text x="1286" y="456" font-size="30" font-weight="700" fill="#FF9F43">待处理</text></g>
         <g id="pr-k2" class="h"><text x="480" y="601" font-size="30" fill="#e8e6df">活动列表</text><text x="620" y="601" font-size="30" fill="#8a8f99">→</text></g>
@@ -63,9 +63,7 @@
       const LIT = (k, t, col) => { tl.to(`#pr-f${k}`, { stroke: col, duration: 0.4 }, t); tl.to(`#pr-nb${k} circle`, { stroke: col, duration: 0.4 }, t); tl.to(`#pr-nb${k} text`, { fill: col, duration: 0.4 }, t); };
       // L1
       LIT(0, at(1, 0.02), "#B48EF0"); IN("#pr-k0", at(1, 0.08), 0.5, { x: -20 }, { x: 0 });
-      IN("#pr-tg", at(1, 0.5), 0.5);
-      tl.to("#pr-tgk", { attr: { cx: 1472 }, duration: 0.4, ease: "power2.inOut" }, at(1, 0.8));
-      tl.to("#pr-tgb", { fill: "#83C167", duration: 0.4 }, at(1, 0.8));
+      IN("#pr-tg", at(1, 0.4), 0.5);
       // L2
       LIT(1, at(2, 0.02), "#FF9F43"); IN("#pr-k1", at(2, 0.06), 0.5, { x: -20 }, { x: 0 });
       IN("#pr-pd", at(2, 0.35), 0.5);

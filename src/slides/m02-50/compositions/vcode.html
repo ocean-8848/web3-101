@@ -10,7 +10,7 @@
     #root .n { fill: #F0B90B; }
   </style>
   <!-- 场景 vcode，id 前缀 vc- -->
-  <div id="root" data-composition-id="vcode" data-duration="66.6" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="vcode" data-duration="74.91" data-width="1920" data-height="1080">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="vc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -99,7 +99,9 @@
           <text x="1470" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">总量不变</text>
           <path d="M1550 550 L1565 565 L1592 532" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
         </g>
-        <text id="vc-qt" class="h" x="1500" y="670" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">只和时间有关</text>
+        <text id="vc-qt" class="h" x="1500" y="650" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">领取先后不影响可领额度</text>
+        <text id="vc-qw1" class="h" x="1500" y="740" font-size="30" fill="#FF9F43" text-anchor="middle">有人额外转入代币 → 总量变大</text>
+        <text id="vc-qw2" class="h" x="1500" y="800" font-size="30" fill="#e8e6df" text-anchor="middle">要严格固定：部署时写成 <tspan class="mono" fill="#58C4DD">immutable</tspan></text>
 
         <!-- L4 VestingWallet -->
         <text id="vc-oz" class="mono h" x="960" y="420" font-size="48" font-weight="700" fill="#58C4DD" text-anchor="middle">OpenZeppelin VestingWallet</text>
@@ -186,14 +188,17 @@
       ["#vc-s1", "#vc-s2", "#vc-s3", "#vc-a1", "#vc-a2"].forEach(s => OUT(s, at(3, 0), 0.4));
       HL([2], at(3, 0.04));
       IN("#vc-q", at(3, 0.1), 0.6);
-      [0.3, 0.42, 0.54].forEach((f, k) => {
+      [0.16, 0.22, 0.28].forEach((f, k) => {
         tl.to("#vc-qg", { attr: { width: 520 - 130 * (k + 1) }, duration: 0.5, ease: "power2.inOut" }, at(3, f));
         tl.to("#vc-qr", { attr: { x: 1760 - 130 * (k + 1), width: 130 * (k + 1) }, duration: 0.5, ease: "power2.inOut" }, at(3, f));
       });
-      IN("#vc-qok", at(3, 0.62), 0.5);
-      IN("#vc-qt", at(3, 0.78), 0.6, { y: 12 }, { y: 0 });
+      IN("#vc-qok", at(3, 0.34), 0.5);
+      IN("#vc-qt", at(3, 0.48), 0.6, { y: 12 }, { y: 0 });
+      IN("#vc-qw1", at(3, 0.66), 0.5, { y: 12 }, { y: 0 });
+      tl.to("#vc-qok path", { stroke: "#FF9F43", duration: 0.3 }, at(3, 0.68));
+      IN("#vc-qw2", at(3, 0.82), 0.5, { y: 12 }, { y: 0 });
       // L4 VestingWallet + 审查要点
-      ["#vc-panel", "#vc-q", "#vc-qok", "#vc-qt"].forEach(s => OUT(s, at(4, 0), 0.5));
+      ["#vc-panel", "#vc-q", "#vc-qok", "#vc-qt", "#vc-qw1", "#vc-qw2"].forEach(s => OUT(s, at(4, 0), 0.5));
       IN("#vc-oz", at(4, 0.06), 0.7, { y: 14 }, { y: 0 });
       IN("#vc-ozs", at(4, 0.3), 0.5);
       IN("#vc-bd1", at(4, 0.68), 0.5, { scale: 0.8, svgOrigin: "720 642" }, { scale: 1, svgOrigin: "720 642" });

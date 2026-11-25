@@ -40,7 +40,7 @@ ${art('一图看懂：Push 推模式 vs Pull 拉模式预言机数据流', 660, 
 <h2>2. Push、Pull 与链上 TWAP 工程对比</h2>
 ${tbl(['维度', 'Push 模式（Chainlink 等）', 'Pull 模式（Pyth / RedStone）', '链上 TWAP（Uniswap V3 等）'], [
   ['<strong>更新频率</strong>', '偏差 0.1%–1% 或心跳 1h–24h', '亚秒级链下签发，按需上链', '随区块时间加权平滑更新'],
-  ['<strong>Gas 谁承担</strong>', '预言机网络 / 协议赞助', '发起交易的用户或清算机器人', '读取方付少量历史观测槽 Gas'],
+  ['<strong>Gas 谁承担</strong>', '预言机网络 / 协议赞助', '发起交易的用户或清算机器人；除 Gas 外可能还要付更新费（如 Pyth 先调 <code>getUpdateFee</code>，再随 <code>updatePriceFeeds</code> 附上 ETH），费用规则以各家文档为准', '读取方付少量历史观测槽 Gas'],
   ['<strong>接口侵入性</strong>', '极低（只读 <code>view</code> 函数）', '需改写入口函数接收 <code>bytes[] updateData</code>', '只读，无需额外参数'],
   ['<strong>典型风险</strong>', '网络拥堵时喂价滞后、L2 排序器宕机后陈旧报价', '用户可挑对自己最有利的近期有效签名（需严格限制过期秒数）', '低流动性池子易被多块操纵；剧烈暴跌时滞后严重'],
   ['<strong>最佳场景</strong>', '主流资产借贷、抵押稳定币', '永续合约、期权、高频衍生品与长尾币', '作为主预言机的熔断校验辅助源']
@@ -64,44 +64,62 @@ contract SafeOracleConsumer {
     AggregatorV3Interface public immutable sequencerFeed; // L2 排序器状态源
     uint256 public constant MAX_STALENESS = 3600;         // 心跳上限（示例：1 小时）
     uint256 public constant GRACE_PERIOD = 3600;          // 排序器恢复后宽限期（示例：1 小时）
+    // 业务合理区间（自己的熔断器）。多数 Chainlink 价格源已不再使用聚合器的 minAnswer/maxAnswer，
+    // 不能指望它们兜底，所以在自己的合约里设上下限
+    int256 public immutable minPrice;
+    int256 public immutable maxPrice;
 
     error SequencerDown();
+    error SequencerFeedNotReady();
     error GracePeriodNotOver();
     error InvalidPrice();
     error StalePrice();
+    error PriceOutOfRange();
 
-    constructor(address _priceFeed, address _sequencerFeed) {
+    constructor(address _priceFeed, address _sequencerFeed, int256 _minPrice, int256 _maxPrice) {
         priceFeed = AggregatorV3Interface(_priceFeed);
         sequencerFeed = AggregatorV3Interface(_sequencerFeed);
+        minPrice = _minPrice;
+        maxPrice = _maxPrice;
     }
 
     function getSafePrice() external view returns (uint256) {
         // 1. 检查 L2 排序器是否在线且已过宽限期
         if (address(sequencerFeed) != address(0)) {
             (, int256 seqStatus, uint256 startedAt,,) = sequencerFeed.latestRoundData();
+            // startedAt == 0：状态源还没初始化（官方文档说明只在 Arbitrum 上可能出现）。
+            // 不拦住的话，下面 block.timestamp - 0 会远大于宽限期，检查被直接绕过
+            if (startedAt == 0) revert SequencerFeedNotReady();
             if (seqStatus != 0) revert SequencerDown(); // 0 = 在线, 1 = 宕机
             if (block.timestamp - startedAt <= GRACE_PERIOD) revert GracePeriodNotOver();
         }
         // 2. 读取价格并做完整防御校验
-        (uint80 roundId, int256 answer,, uint256 updatedAt, uint80 answeredInRound) = priceFeed.latestRoundData();
+        // answeredInRound 在官方接口文档中已标为 Deprecated，不再拿它判断过期
+        (, int256 answer,, uint256 updatedAt,) = priceFeed.latestRoundData();
         if (answer <= 0) revert InvalidPrice();
         if (updatedAt == 0 || block.timestamp - updatedAt > MAX_STALENESS) revert StalePrice();
-        if (answeredInRound < roundId) revert StalePrice();
+        if (answer < minPrice || answer > maxPrice) revert PriceOutOfRange(); // 触发后暂停业务、人工介入
         return uint256(answer);
     }
 }
 `)}
+${call('info', `<p><strong>两处常见旧写法要更新（截至 2026 年 11 月，以 Chainlink 官方文档为准）。</strong>① 很多旧教程用 <code>answeredInRound &lt; roundId</code> 判断过期。官方 API 文档已把 <code>answeredInRound</code> 标为 Deprecated，判断过期要看 <code>updatedAt</code> 与心跳。② 很多旧教程让你比对聚合器的 <code>minAnswer</code>/<code>maxAnswer</code>（LUNA 事件里价格卡在 minAnswer 下限）。官方文档说明这组值在多数价格源上已不再使用。接入前先查你用的价格源是否还设了上下限；没有就像上面一样，在自己的合约里设业务合理区间。来源：docs.chain.link/data-feeds/api-reference、docs.chain.link/data-feeds/l2-sequencer-feeds。</p>`)}
 <p>用下面的交互实验调整价格波动、偏差阈值与 L2 排序器恢复时间，观察不同参数下何时会出现套利窗口。</p>
 ${lab('oracle')}
 
 <h2>4. VRF 可验证随机数与 OEV 预言机价值捕获</h2>
 <ul>
 <li><strong>VRF（Verifiable Random Function）</strong>：区块链是确定性状态机，绝不能用 <code>block.timestamp</code> 或 <code>blockhash</code> 生成抽奖或盲盒随机数（验证者可操纵或挑区块）。VRF 采用“请求-回调”两笔交易：合约发请求 → 链下节点用私钥对种子算出随机数与密码学证明 → 链上验证合约验真后再回调业务合约。完整的 VRF 时序图与消费者合约代码见 <a href="#m05-9">M04.10 数据基础设施</a> §5.1。</li>
-<li><strong>OEV（Oracle Extractable Value）</strong>：MEV 的重要子类（见 <a href="#m05-7">M04.7 MEV</a>）。当抵押品下跌触发借贷清算时，谁先打包到预言机更新交易之后，谁就赚走 5%–10% 的清算奖金。传统模式下这笔钱大部分流向了区块构建者和验证者；现代 OEV 方案（如 API3 OEV Network、Chainlink SVR / Flashbots 协作拍卖）让清算搜索者为“优先更新价格并执行清算的权利”公开竞拍，并将大部分拍卖收入返还给借贷协议本身。</li>
+<li><strong>OEV（Oracle Extractable Value）</strong>：MEV 的重要子类（见 <a href="#m05-7">M04.7 MEV</a>）。当抵押品下跌触发借贷清算时，谁先打包到预言机更新交易之后，谁就赚走 5%–10% 的清算奖金。传统模式下这笔钱大部分流向了区块构建者和验证者。OEV 方案让清算搜索者为“紧跟价格更新执行清算的权利”竞拍，再把大部分拍卖收入返还给借贷协议。例如 Chainlink SVR（Smart Value Recapture）2024 年 12 月推出，2025 年 3 月起在 Aave 以太坊主网启用；API3 等预言机也有自己的 OEV 拍卖方案。这类产品的名称、架构和分成比例变化很快，截至 2026 年 11 月的情况以各家官方文档为准。</li>
 </ul>
 
 <h2>5. 链下自动化：去中心化 Keeper 与防抢跑</h2>
 <p>借贷清算、收益金库定时复投（Harvest）、限价单触发都需要外部账号发交易。生产环境有三种常见做法：</p>
+<ol>
+<li><strong>自建机器人</strong>：团队自己跑脚本监听条件并发交易。完全可控，但要自己做多活、RPC 备份和 Gas 管理，单点宕机就会漏执行。</li>
+<li><strong>去中心化 Keeper 网络</strong>：合约暴露 <code>checkUpkeep</code> / <code>performUpkeep</code>，由 Chainlink Automation、Gelato 这类网络的节点模拟和执行（下图）。</li>
+<li><strong>无许可激励</strong>：函数对任何人开放，执行者拿奖励（例如清算奖金、复投分成）。搜索者会互相竞争，但奖励要覆盖 Gas，且要防抢跑。</li>
+</ol>
 ${mm('去中心化 Keeper / Automation 执行流程', `
 flowchart LR
   C["目标协议合约<br/>暴露 checkUpkeep 视图"] -->|"链下节点每块模拟"| K["Keeper 网络<br/>Chainlink Automation / Gelato"]
@@ -117,7 +135,8 @@ flowchart LR
 <h2>6. 生产环境清单</h2>
 ${tbl(['检查项', '为什么', '怎么验证'], [
   ['校验 <code>answer > 0</code>、<code>updatedAt</code> 与心跳超时', '防止预言机停更或返回异常零值导致误清算', '在 Foundry 中用 <code>vm.warp</code> 快进超时，确认合约 revert'],
-  ['配置价格上下限熔断（Min/Max Answer）', 'Chainlink 底层聚合器有历史硬上下限，极端暴跌时报价可能卡死在 minAnswer（如 LUNA 事件）', '比对聚合器 <code>minAnswer</code> 与业务合理区间，触发边界即暂停借贷'],
+  ['在自己的合约里设价格合理区间（自定义熔断）', '旧聚合器的 minAnswer 下限曾让报价卡死（LUNA 事件）；而多数价格源现在已不再使用 minAnswer/maxAnswer，不能指望它们兜底', '先查所用价格源是否设了上下限；单测：mock 价格超出 minPrice/maxPrice 时必须 revert 并暂停借贷'],
+  ['L2 排序器状态源未初始化（startedAt == 0）时拒绝', '否则宽限期检查被绕过', '单测：mock startedAt = 0，确认 revert'],
   ['L2 接入 Sequencer Uptime Feed + 宽限期', '避免排序器恢复瞬间用户来不及补仓而被抢清算', '模拟 sequencerFeed 返回 1 或刚恢复 60 秒，验证清算被拒绝'],
   ['主备预言机或偏差熔断（如 Push + TWAP）', '单源故障或被操纵时自动进入保护模式', '设定主备偏差超过 3%–5% 自动告警并暂停大额借出']
 ])}
@@ -128,18 +147,18 @@ ${exercises([
 ])}
 ${checklist([
   '能说出 Push、Pull 与 TWAP 三类预言机的核心取舍与适用协议类型。',
-  '能手写出包含 5 项防御校验与 L2 排序器宽限期的安全读价函数。',
+  '能手写出安全读价函数：排序器状态源已初始化、排序器在线、宽限期已过、价格大于 0、未过期、在业务合理区间内。',
   '能解释为什么链上不能用区块哈希做抽奖，以及 VRF 的两阶段回调流程。',
   '能为自动化任务设计链下 check + 链上二次复核的 Keeper 接口。'
 ])}
 ${mistakes([
-  ['只要用了 Chainlink，直接读 latestAnswer() 就绝对安全', '必须同时检查 updatedAt 新鲜度、answer > 0、L2 排序器状态，以及底层 minAnswer/maxAnswer 边界熔断。'],
+  ['只要用了 Chainlink，直接读 latestAnswer() 就绝对安全', '必须用 latestRoundData() 同时检查 updatedAt 新鲜度、answer > 0、L2 排序器状态，并在自己的合约里设业务合理区间（多数价格源已不再使用 minAnswer/maxAnswer）。'],
   ['Pull 预言机因为链下签发，所以比 Push 不安全', 'Pull 预言机同样由多节点门限签名或聚合签名背书并在链上验签，安全边界取决于验证者集合与价格过期窗口，而不是推拉形态。'],
   ['Keeper 脚本跑在自己一台云服务器上就够了', '单点服务器宕机、RPC 断线或 Gas 估算偏低都会导致清算延迟引发穿仓；核心任务应采用去中心化 Keeper 网络或自建多活备份。']
 ])}
 ${recap([
   'Push 适合低频稳健借贷，Pull 适合高频衍生品与长尾资产，TWAP 适合做交叉校验辅助源。',
-  '安全接入预言机必备：非负校验、心跳新鲜度、min/max 边界检查与 L2 排序器宽限期。',
+  '安全接入预言机必备：非负校验、心跳新鲜度、自设的业务合理区间与 L2 排序器宽限期；不再依赖已弃用的 answeredInRound。',
   'VRF 提供可验证链上随机性；OEV 通过拍卖清算优先权把原本流失的 MEV 返还给协议。',
   '去中心化 Keeper 解决链上自触发难题，且 performUpkeep 必须在链上复核全部安全条件。'
 ])}

@@ -612,7 +612,7 @@ ${call('info', '<p>具体的 <code>specVersion</code>、<code>apiVersion</code> 
 
 <h2>4. 分析：数据仓库与 SQL</h2>
 <p><strong>Dune</strong> 这类平台把全链数据解码成 SQL 表，你可以直接写 SQL 做分析并生成仪表盘。表通常分三类：原始表（如 <code>ethereum.transactions</code>）、按 ABI 解码的事件表（如 <code>erc20_ethereum.evt_Transfer</code>）、社区维护的抽象表（如 <code>dex.trades</code>）。</p>
-${code('BASH', `
+${code('SQL', `
 -- Dune SQL 示例：过去 7 天每天的 USDC 转账笔数与总额（USDC 6 位小数）
 SELECT
   date_trunc('day', evt_block_time) AS day,
@@ -665,7 +665,7 @@ sequenceDiagram
 `, [
   ['flow', '请求和结果在两笔不同的交易里：先请求，过几个区块后由协议回调结果。'],
   ['fail', '回调里如果 revert 或用光 callbackGasLimit，这次随机数的交付就失败了。回调要尽量短，只存结果。'],
-  ['risk', '请求之后、结果回来之前，用户不能还能“取消、转移、改选”。否则用户可以等看到结果再决定，随机数就失去意义。'],
+  ['risk', '请求之后、结果回来之前，用户不能再“取消、转移、改选”。否则用户可以等看到结果再决定，随机数就失去意义。'],
   ['key', '请求确认数越多，越能抵御区块重组带来的操纵，但等待时间越长。']
 ])}
 ${code('SOLIDITY', `

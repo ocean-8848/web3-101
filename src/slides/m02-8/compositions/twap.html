@@ -8,7 +8,7 @@
     #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
   </style>
   <!-- 场景 twap，id 前缀 tw- -->
-  <div id="root" data-composition-id="twap" data-duration="72.8" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="twap" data-duration="71.73" data-width="1920" data-height="1080">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="tw-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
@@ -111,32 +111,29 @@
         </g>
         <g id="tw-code">
           <g id="tw-cp" class="h">
-            <rect x="360" y="230" width="1200" height="490" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <rect x="360" y="230" width="1200" height="414" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
             <text x="1536" y="270" font-size="28" font-weight="700" fill="#83C167" text-anchor="end">修复后</text>
           </g>
-          <rect id="tw-hl" class="h" x="374" y="478" width="1172" height="40" rx="4" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="tw-hl" class="h" x="374" y="440" width="1172" height="40" rx="4" fill="#58C4DD" fill-opacity="0.15" />
           <g id="tw-gb" class="h" fill="#83C167">
-            <rect x="366" y="483" width="6" height="34" /><rect x="366" y="521" width="6" height="72" /><rect x="366" y="597" width="6" height="34" />
+            <rect x="366" y="445" width="6" height="34" /><rect x="366" y="483" width="6" height="72" />
           </g>
           <g id="tw-src" class="h" font-size="28" fill="#e8e6df">
             <text class="mono" x="396" y="316" xml:space="preserve">function getPrice(AggregatorV3Interface feed, uint256 maxDelay)</text>
             <text class="mono" x="396" y="354" xml:space="preserve">    internal view returns (uint256)</text>
             <text class="mono" x="396" y="392" xml:space="preserve">{</text>
-            <text class="mono" x="396" y="430" xml:space="preserve">    (uint80 roundId, int256 answer, , uint256 updatedAt,</text>
-            <text class="mono" x="396" y="468" xml:space="preserve">     uint80 answeredInRound) = feed.latestRoundData();</text>
-            <text class="mono" x="396" y="506" xml:space="preserve">    require(answer &gt; 0, "bad price");</text>
-            <text class="mono" x="396" y="544" xml:space="preserve">    require(updatedAt != 0 &amp;&amp;</text>
-            <text class="mono" x="396" y="582" xml:space="preserve">        block.timestamp - updatedAt &lt;= maxDelay, "stale price");</text>
-            <text class="mono" x="396" y="620" xml:space="preserve">    require(answeredInRound &gt;= roundId, "stale round");</text>
-            <text class="mono" x="396" y="658" xml:space="preserve">    return uint256(answer);</text>
-            <text class="mono" x="396" y="696" xml:space="preserve">}</text>
+            <text class="mono" x="396" y="430" xml:space="preserve">    (, int256 answer,, uint256 updatedAt,) = feed.latestRoundData();</text>
+            <text class="mono" x="396" y="468" xml:space="preserve">    require(answer &gt; 0, "bad price");</text>
+            <text class="mono" x="396" y="506" xml:space="preserve">    require(updatedAt != 0 &amp;&amp;</text>
+            <text class="mono" x="396" y="544" xml:space="preserve">        block.timestamp - updatedAt &lt;= maxDelay, "stale price");</text>
+            <text class="mono" x="396" y="582" xml:space="preserve">    return uint256(answer);</text>
+            <text class="mono" x="396" y="620" xml:space="preserve">}</text>
           </g>
           <g font-size="30" font-weight="700" fill="#83C167">
-            <text id="tw-c0" class="h" x="1590" y="516">✓ 正数</text>
-            <text id="tw-c1" class="h" x="1590" y="572">✓ 够新</text>
-            <text id="tw-c2" class="h" x="1590" y="630">✓ 轮次</text>
+            <text id="tw-c0" class="h" x="1590" y="478">✓ 正数</text>
+            <text id="tw-c1" class="h" x="1590" y="534">✓ 够新</text>
           </g>
-          <text id="tw-dec" class="h" x="380" y="772" font-size="28" fill="#8a8f99">USD 价格源通常为 8 位小数，用 <tspan class="mono">decimals()</tspan> 读取</text>
+          <text id="tw-dec" class="h" x="380" y="696" font-size="28" fill="#8a8f99">USD 价格源通常为 8 位小数，用 <tspan class="mono">decimals()</tspan> 读取</text>
         </g>
         <g id="tw-seq" class="h">
           <rect x="1480" y="280" width="96" height="56" rx="8" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
@@ -250,7 +247,7 @@
       IN("#tw-lag", at(3, 0.8), 0.5);
       DRAW("#tw-real", at(3, 0.82), 0.6);
       DRAW("#tw-tw", at(3, 0.86), 1.0);
-      // L4 Chainlink 三项检查
+      // L4 Chainlink 两项检查
       OUT("#tw-lim", at(4, 0), 0.4);
       IN("#tw-vul", at(4, 0.04), 0.5, { y: -10 }, { y: 0 });
       IN("#tw-cp, #tw-src", at(4, 0.12), 0.6);
@@ -258,10 +255,8 @@
       IN("#tw-hl", at(4, 0.52), 0.3);
       IN("#tw-gb", at(4, 0.52), 0.3);
       IN("#tw-c0", at(4, 0.56), 0.3, { x: -10 }, { x: 0 });
-      tl.to("#tw-hl", { attr: { y: 516, height: 78 }, duration: 0.4, ease: "power2.inOut" }, at(4, 0.7));
-      IN("#tw-c1", at(4, 0.72), 0.3, { x: -10 }, { x: 0 });
-      tl.to("#tw-hl", { attr: { y: 594, height: 40 }, duration: 0.4, ease: "power2.inOut" }, at(4, 0.86));
-      IN("#tw-c2", at(4, 0.88), 0.3, { x: -10 }, { x: 0 });
+      tl.to("#tw-hl", { attr: { y: 478, height: 78 }, duration: 0.4, ease: "power2.inOut" }, at(4, 0.76));
+      IN("#tw-c1", at(4, 0.8), 0.3, { x: -10 }, { x: 0 });
       // L5 L2 排序器宽限期
       OUT("#tw-vul, #tw-hl", at(5, 0), 0.3);
       tl.to("#tw-code", { x: -300, duration: 0.7, ease: "power2.inOut" }, at(5, 0.02));

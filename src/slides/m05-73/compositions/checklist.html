@@ -1,0 +1,75 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 checklist，id 前缀 ch- -->
+  <div id="root" data-composition-id="checklist" data-duration="44.07" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ch-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ch-all">
+
+        <text id="ch-title" class="h" x="960" y="205" font-size="52" fill="#e8e6df" text-anchor="middle" font-weight="700" >生产检查清单</text>
+        <g id="ch-c1" class="h"><rect id="ch-cb1" x="300" y="270" width="1400" height="150" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><circle id="ch-cc1" cx="375" cy="345" r="32" fill="none" stroke="#8a8f99" stroke-width="3"/><text id="ch-ct1" class="" x="440" y="357" font-size="34" fill="#e8e6df" text-anchor="start" >密钥迁移：停旧 → 撤权 → EIP-3076 → 等 2 epoch</text></g><path id="ch-k1" class="dr" pathLength="1" d="M357 345 L368.9 358.6 L392.7 329.7" fill="none" stroke="#83C167" stroke-width="5.95" stroke-linecap="round" stroke-linejoin="round"/><g id="ch-c2" class="h"><rect id="ch-cb2" x="300" y="445" width="1400" height="150" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><circle id="ch-cc2" cx="375" cy="520" r="32" fill="none" stroke="#8a8f99" stroke-width="3"/><text id="ch-ct2" class="" x="440" y="532" font-size="34" fill="#e8e6df" text-anchor="start" >提款凭证 → 冷金库</text></g><path id="ch-k2" class="dr" pathLength="1" d="M357 520 L368.9 533.6 L392.7 504.7" fill="none" stroke="#83C167" stroke-width="5.95" stroke-linecap="round" stroke-linejoin="round"/><g id="ch-c3" class="h"><rect id="ch-cb3" x="300" y="620" width="1400" height="150" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><circle id="ch-cc3" cx="375" cy="695" r="32" fill="none" stroke="#8a8f99" stroke-width="3"/><text id="ch-ct3" class="" x="440" y="682" font-size="34" fill="#e8e6df" text-anchor="start" >告警：出块率 / 证明率 / 同步状态</text></g><path id="ch-k3" class="dr" pathLength="1" d="M357 695 L368.9 708.6 L392.7 679.7" fill="none" stroke="#83C167" stroke-width="5.95" stroke-linecap="round" stroke-linejoin="round"/><g id="ch-c4" class="h"><rect id="ch-cb4" x="300" y="795" width="1400" height="150" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><circle id="ch-cc4" cx="375" cy="870" r="32" fill="none" stroke="#8a8f99" stroke-width="3"/><text id="ch-ct4" class="" x="440" y="882" font-size="34" fill="#e8e6df" text-anchor="start" >AVS：审核罚没条件与上限 · 独立 Operator Set</text></g><path id="ch-k4" class="dr" pathLength="1" d="M357 870 L368.9 883.6 L392.7 854.7" fill="none" stroke="#83C167" stroke-width="5.95" stroke-linecap="round" stroke-linejoin="round"/>
+        <text id="ch-c3b" class="h" x="440" y="740" font-size="30" fill="#FF9F43" text-anchor="start" >连续 2 epoch 漏签 → 电话叫值班</text>
+        <g id="ch-ph"><g id="ch-phi" class="h">
+          <path d="M1490 650 Q1480 660 1490 690 Q1505 730 1540 745 Q1560 752 1568 742 L1576 728 Q1578 720 1570 716 L1552 706 Q1544 702 1538 710 L1532 718 Q1516 712 1506 692 Q1500 680 1506 676 L1514 670 Q1520 664 1516 656 L1506 640 Q1500 634 1492 642 Z" fill="#8a8f99"/>
+        </g></g>
+        <g id="ch-ring" class="h"><path d="M1590 660 Q1604 680 1594 702 M1608 646 Q1630 680 1612 716" stroke="#FF9F43" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+const LIGHT = (k, t, col = "#83C167") => {
+  tl.to(`#ch-cc${k}`, { stroke: col, fill: "rgba(131,193,103,0.15)", duration: 0.3 }, t);
+  tl.set(`#ch-k${k}`, { opacity: 1 }, t); DRAW(`#ch-k${k}`, t, 0.4);
+};
+IN("#ch-title", at(0, 0.1), 0.6, { y: -16 }, { y: 0 });
+IN("#ch-c1", at(1, 0.05), 0.5, { x: -30 }, { x: 0 });
+tl.to("#ch-ct1", { fill: "#58C4DD", duration: 0.4 }, at(1, 0.45));
+LIGHT(1, at(1, 0.8));
+IN("#ch-c2", at(2, 0.05), 0.5, { x: -30 }, { x: 0 });
+tl.to("#ch-ct2", { fill: "#F0B90B", duration: 0.4 }, at(2, 0.4));
+LIGHT(2, at(2, 0.75));
+IN("#ch-c3", at(3, 0.05), 0.5, { x: -30 }, { x: 0 });
+IN("#ch-phi", at(3, 0.35), 0.4);
+IN("#ch-c3b", at(3, 0.62), 0.5);
+tl.to("#ch-phi path", { fill: "#FF9F43", duration: 0.2 }, at(3, 0.66));
+IN("#ch-ring", at(3, 0.66), 0.2);
+tl.to("#ch-phi", { rotation: 12, svgOrigin: "1528 694", duration: 0.08, yoyo: true, repeat: 11, ease: "none" }, at(3, 0.68));
+tl.to("#ch-ring", { opacity: 0.2, duration: 0.15, yoyo: true, repeat: 5 }, at(3, 0.68));
+LIGHT(3, at(3, 0.9));
+IN("#ch-c4", at(4, 0.05), 0.5, { x: -30 }, { x: 0 });
+tl.to("#ch-ct4", { fill: "#FF9F43", duration: 0.4 }, at(4, 0.38));
+tl.to("#ch-cb4", { stroke: "#83C167", duration: 0.5 }, at(4, 0.72));
+LIGHT(4, at(4, 0.75));
+
+
+      tl.to("#ch-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["checklist"] = tl;
+    })();
+  </script>
+</template>

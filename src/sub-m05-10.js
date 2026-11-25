@@ -7,7 +7,7 @@ ${meta([
   '对比传统“锁仓-铸造跨链桥”与“跨链意图（Intent + Solver）”在速度、信任假设与资金碎片化上的代际差异。',
   '拆解 ERC-7683 跨链意图标准如何统一不同协议与做市商（Filler/Solver）的订单格式与结算接口。',
   '掌握 Circle CCTP（原生销毁-铸造）在 USDC 跨链清算中的核心角色与工程接法。',
-  '理解 L2 集群互操作架构（OP Superchain、Polygon AggLayer、ZK Elastic Chain）与“统一余额”链抽象实现原理。'
+  '理解 L2 集群互操作架构（OP Superchain、Polygon AggLayer、ZK Elastic Network）与“统一余额”链抽象实现原理。'
 ], '前置：<a href="#m05-8">M06.12 跨链桥</a>、<a href="#m04-74">M10.4 意图交易与 Solver</a>、<a href="#m05-5">M04.5 Rollup 深入</a>', ['xintent'])}
 ${beginner(`<p><strong>链抽象（Chain Abstraction）</strong>：让用户彻底忘掉“我的 USDC 在 Arbitrum 还是 Base、有没有准备目标链的 ETH 当 Gas”——界面上只看到一个统一总余额，点一下“购买”或“存款”，底层自动把跨链、换币和付 Gas 全部搞定。</p>
 <p><strong>跨链 Solver / Filler</strong>：在多条链上都提前备有流动性的专业做市商。用户想从 A 链转钱到 B 链，Solver 先用自己在 B 链的现钱在 2 秒内垫付给用户，事后再慢悠悠通过底层消息桥回 A 链领回本金加一点小费。</p>

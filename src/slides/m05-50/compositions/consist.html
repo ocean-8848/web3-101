@@ -1,0 +1,218 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 consist，id 前缀 co- -->
+  <div id="root" data-composition-id="consist" data-duration="68.18" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="co-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="co-all">
+        <g id="co-k0">
+          <g id="co-p1" class="h"><rect x="260" y="300" width="360" height="120" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="440" y="373" font-size="34" fill="#B48EF0" text-anchor="middle">服务商 A</text></g>
+          <g id="co-p2" class="h"><rect x="780" y="300" width="360" height="120" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="960" y="373" font-size="34" fill="#B48EF0" text-anchor="middle">服务商 B</text></g>
+          <g id="co-p3" class="h"><rect x="1300" y="300" width="360" height="120" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="1480" y="373" font-size="34" fill="#B48EF0" text-anchor="middle">服务商 C</text></g>
+          <g id="co-i1" class="h"><circle cx="440" cy="530" r="48" fill="none" stroke="#FF9F43" stroke-width="5" />
+            <path d="M440 530 L440 498 M440 530 L464 544" stroke="#FF9F43" stroke-width="5" fill="none" />
+            <text x="440" y="650" font-size="32" fill="#FF9F43" text-anchor="middle">过期数据</text></g>
+          <g id="co-i2" class="h"><path d="M960 585 L960 535 L925 485 M960 535 L995 485" stroke="#FC6255" stroke-width="6" fill="none" />
+            <circle cx="925" cy="482" r="9" fill="#FC6255" /><circle cx="995" cy="482" r="9" fill="#FC6255" /><circle cx="960" cy="588" r="9" fill="#FC6255" />
+            <text x="960" y="650" font-size="32" fill="#FC6255" text-anchor="middle">错误分叉</text></g>
+          <g id="co-i3" class="h"><rect x="1440" y="520" width="80" height="64" rx="8" fill="none" stroke="#FC6255" stroke-width="5" />
+            <path d="M1455 520 L1455 498 A25 25 0 0 1 1500 486" stroke="#FC6255" stroke-width="5" fill="none" />
+            <path d="M1474 524 L1486 548 L1472 560 L1484 582" stroke="#FC6255" stroke-width="3" fill="none" />
+            <text x="1480" y="650" font-size="32" fill="#FC6255" text-anchor="middle">被劫持</text></g>
+          <g id="co-gw" class="h"><rect x="760" y="780" width="400" height="110" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="960" y="848" font-size="34" fill="#e8e6df" text-anchor="middle">网关</text></g>
+          <g id="co-n3" class="h"><circle cx="1260" cy="835" r="26" fill="none" stroke="#83C167" stroke-width="3" /><text x="1260" y="846" font-size="30" fill="#83C167" text-anchor="middle">1</text>
+            <circle cx="1330" cy="835" r="26" fill="none" stroke="#83C167" stroke-width="3" /><text x="1330" y="846" font-size="30" fill="#83C167" text-anchor="middle">2</text>
+            <circle cx="1400" cy="835" r="26" fill="none" stroke="#83C167" stroke-width="3" /><text x="1400" y="846" font-size="30" fill="#83C167" text-anchor="middle">3</text></g>
+        </g>
+        <g id="co-k1">
+          <g id="co-clk" class="h"><circle cx="190" cy="370" r="42" fill="none" stroke="#8a8f99" stroke-width="4" />
+            <path d="M190 370 L190 340 M190 370 L212 382" stroke="#8a8f99" stroke-width="4" fill="none" />
+            <text x="190" y="460" font-size="30" fill="#8a8f99" text-anchor="middle">每 10 秒</text></g>
+          <g id="co-chain"></g>
+          <text id="co-head" class="h" x="1615" y="305" font-size="30" fill="#58C4DD" text-anchor="middle">链头</text>
+          <g id="co-pin" class="h"><path d="M1315 286 L1315 450" stroke="#58C4DD" stroke-width="4" /><circle cx="1315" cy="280" r="9" fill="#58C4DD" />
+            <text x="1315" y="255" font-size="30" fill="#58C4DD" text-anchor="middle">链头 − 2</text></g>
+          <text id="co-u1" class="h" x="360" y="572" font-size="32" fill="#83C167">自建节点</text>
+          <text id="co-u2" class="h" x="360" y="692" font-size="32" fill="#B48EF0">服务商 A</text>
+          <text id="co-u3" class="h" x="360" y="812" font-size="32" fill="#B48EF0">服务商 B</text>
+          <path id="co-l1" class="dr h" pathLength="1" d="M580 560 L860 560" stroke="#58C4DD" stroke-opacity="0.6" stroke-width="2.5" fill="none" marker-end="url(#co-arr)" />
+          <path id="co-l2" class="dr h" pathLength="1" d="M580 680 L860 680" stroke="#58C4DD" stroke-opacity="0.6" stroke-width="2.5" fill="none" marker-end="url(#co-arr)" />
+          <path id="co-l3" class="dr h" pathLength="1" d="M580 800 L860 800" stroke="#58C4DD" stroke-opacity="0.6" stroke-width="2.5" fill="none" marker-end="url(#co-arr)" />
+          <rect id="co-h1" class="h" x="880" y="520" width="280" height="76" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect id="co-h2" class="h" x="880" y="640" width="280" height="76" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect id="co-h3" class="h" x="880" y="760" width="280" height="76" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text id="co-t1" class="h mono" x="1020" y="569" font-size="32" fill="#e8e6df" text-anchor="middle">0x7a3f…</text>
+          <text id="co-t2" class="h mono" x="1020" y="689" font-size="32" fill="#e8e6df" text-anchor="middle">0x7a3f…</text>
+          <text id="co-t3" class="h mono" x="1020" y="809" font-size="32" fill="#e8e6df" text-anchor="middle">0x91c0…</text>
+          <text id="co-x1" class="h mono" x="1020" y="572" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">X</text>
+          <text id="co-x2" class="h mono" x="1020" y="692" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">X</text>
+          <text id="co-x3" class="h mono" x="1020" y="812" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">Y</text>
+          <text id="co-maj" class="h" x="1220" y="632" font-size="32" fill="#83C167">多数派 ✓</text>
+          <text id="co-cnt" class="h" x="1220" y="811" font-size="32" fill="#FC6255">不一致 ×<tspan id="co-cn">1</tspan></text>
+          <g id="co-brk" class="h"><circle cx="1560" cy="800" r="34" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="4" />
+            <path d="M1540 800 L1554 800 M1568 790 L1582 800" stroke="#FC6255" stroke-width="4" fill="none" />
+            <path d="M1660 815 L1660 795 A22 22 0 0 1 1704 795 L1704 815 L1712 822 L1652 822 Z" fill="#FF9F43" />
+            <circle cx="1682" cy="830" r="6" fill="#FF9F43" />
+            <text x="1430" y="905" font-size="30" fill="#FC6255">熔断 + 告警</text></g>
+          <text id="co-win" class="h" x="1220" y="572" font-size="32" fill="#83C167">以 X 为准</text>
+          <g id="co-wave" class="h"><path d="M1430 800 Q1455 770 1480 800 T1530 800 T1580 800 T1630 800" fill="none" stroke="#FF9F43" stroke-width="4" />
+            <text x="1430" y="880" font-size="30" fill="#FF9F43">传播延迟，先不熔断</text></g>
+        </g>
+        <g id="co-k4">
+          <g id="co-dots"></g>
+          <text id="co-pct" class="h" x="140" y="740" font-size="40" fill="#F0B90B">1%</text>
+          <path id="co-s1" class="dr h" pathLength="1" d="M520 470 L740 360" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#co-arr)" />
+          <path id="co-s2" class="dr h" pathLength="1" d="M520 490 L740 600" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#co-arr)" />
+          <g id="co-ua" class="h"><rect x="760" y="300" width="300" height="100" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="910" y="362" font-size="32" fill="#B48EF0" text-anchor="middle">服务商 A</text></g>
+          <g id="co-ub" class="h"><rect x="760" y="560" width="300" height="100" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="910" y="622" font-size="32" fill="#83C167" text-anchor="middle">自建节点</text></g>
+          <text id="co-ra" class="h mono" x="1100" y="361" font-size="32" fill="#58C4DD">0x7a3f…</text>
+          <text id="co-rb" class="h mono" x="1100" y="621" font-size="32" fill="#58C4DD">0x91c0…</text>
+          <text id="co-ne" class="h" x="1160" y="505" font-size="64" font-weight="700" fill="#FF9F43">≠</text>
+          <g id="co-gate" class="h"><rect x="1460" y="300" width="340" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1630" y="383" font-size="34" fill="#58C4DD" text-anchor="middle">写长缓存</text></g>
+          <g id="co-gx" class="h"><rect x="1460" y="460" width="340" height="12" rx="6" fill="#FC6255" />
+            <text x="1630" y="530" font-size="32" fill="#FC6255" text-anchor="middle">✕ 不写</text></g>
+          <g id="co-ev" class="h"><rect x="1460" y="600" width="340" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="1630" y="657" font-size="30" fill="#8a8f99" text-anchor="middle">记一条事件</text></g>
+        </g>
+        <g id="co-k5">
+          <text id="co-door" class="h" x="1460" y="290" font-size="34" fill="#FF9F43" text-anchor="middle">错一次 = 服务 24 小时</text>
+          <g id="co-store" class="h"><rect x="1180" y="330" width="560" height="520" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1460" y="810" font-size="36" fill="#58C4DD" text-anchor="middle">长缓存</text>
+            <path d="M1180 470 L1180 330 M1180 860 L1180 470" stroke="#0f1117" stroke-width="0" /></g>
+          <path id="co-bar" class="h" d="M1100 480 L1100 840" stroke="#FC6255" stroke-width="10" stroke-linecap="round" />
+          <g id="co-c1" class="h"><rect x="200" y="370" width="460" height="90" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="430" y="427" font-size="30" fill="#83C167" text-anchor="middle">熔断闭合 · 近期无不一致</text></g>
+          <g id="co-c2" class="h"><rect x="200" y="540" width="460" height="90" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="430" y="597" font-size="30" fill="#FF9F43" text-anchor="middle">熔断半开</text></g>
+          <g id="co-c3" class="h"><rect x="200" y="710" width="460" height="90" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text x="430" y="767" font-size="30" fill="#FC6255" text-anchor="middle">近期有不一致</text></g>
+          <text id="co-z2" class="h" x="960" y="600" font-size="44" font-weight="700" fill="#FC6255">✕</text>
+          <text id="co-z3" class="h" x="960" y="770" font-size="44" font-weight="700" fill="#FC6255">✕</text>
+        </g>
+        <g id="co-k6">
+          <text id="co-cap" class="h" x="300" y="245" font-size="28" fill="#6b6f7a">config.yaml（节选）</text>
+          <g id="co-panel" class="h"><rect x="300" y="270" width="760" height="470" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g>
+          <rect id="co-hl1" class="h" x="304" y="285" width="752" height="38" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="co-hl2" class="h" x="304" y="665" width="752" height="38" fill="#58C4DD" fill-opacity="0.15" />
+          <g id="co-code" class="h mono"></g>
+          <text id="co-nt2" class="h" x="1110" y="696" font-size="32" fill="#FF9F43">密钥走环境变量</text>
+          <text id="co-nt1" class="h" x="1110" y="316" font-size="32" fill="#83C167">只听内网</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const MV = (s, t, v, d = 0.6) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, parent, attrs, txt) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (txt != null) e.textContent = txt; document.querySelector(parent).appendChild(e); return e; };
+      for (let i = 0; i < 9; i++) mk("rect", "#co-chain", { id: "co-b" + i, class: "h", x: 360 + i * 150, y: 330, width: 110, height: 80, rx: 8, fill: "#161a22", stroke: "#58C4DD", "stroke-width": 2.5 });
+      for (let i = 0; i < 8; i++) mk("path", "#co-chain", { id: "co-j" + i, class: "h", d: `M${470 + i * 150} 370 L${510 + i * 150} 370`, stroke: "#58C4DD", "stroke-width": 3 });
+      for (let i = 0; i < 100; i++) mk("circle", "#co-dots", { id: "co-d" + i, cx: 160 + (i % 10) * 36, cy: 320 + Math.floor(i / 10) * 36, r: 10, fill: i === 47 ? "#F0B90B" : "#6b6f7a" });
+      const code = ['admin_listen: "127.0.0.1:9100"', 'health:', '  interval: 2s', '  max_head_lag: 3', '  consistency_interval: 10s', 'breaker:', '  cooldown: 30s', 'cache:', '  reorg_depth: 64', 'upstreams:', '  - url: "${PROVIDER_A_URL}"'];
+      code.forEach((s, i) => mk("text", "#co-code", { x: 330, y: 314 + i * 38, "font-size": 28, fill: i === 0 ? "#83C167" : i === 10 ? "#FF9F43" : "#e8e6df", style: "white-space: pre" }, s));
+      const blocks = [...Array(9).keys()].map(i => "#co-b" + i), joins = [...Array(8).keys()].map(i => "#co-j" + i);
+
+      // L0 三种出错 + 三招
+      ["#co-p1", "#co-p2", "#co-p3"].forEach((s, i) => IN(s, at(0, 0.02 + i * 0.06), 0.5, { y: -20 }, { y: 0 }));
+      ["#co-i1", "#co-i2", "#co-i3"].forEach((s, i) => IN(s, at(0, 0.22 + i * 0.13), 0.5, { scale: 0.6, svgOrigin: `${440 + i * 520} 540` }, { scale: 1, svgOrigin: `${440 + i * 520} 540` }));
+      IN("#co-gw", at(0, 0.7), 0.5);
+      IN("#co-n3", at(0, 0.8), 0.5);
+
+      // L1 每 10 秒，链头 − 2 取样
+      OUT("#co-k0", at(1, 0), 0.4);
+      IN("#co-clk", at(1, 0.05), 0.5);
+      tl.fromTo("#co-clk path", { rotation: 0, svgOrigin: "190 370" }, { rotation: 360, svgOrigin: "190 370", duration: 2, ease: "none", immediateRender: false }, at(1, 0.1));
+      IN(blocks, at(1, 0.1), 0.3, {}, { stagger: 0.08 }); IN(joins, at(1, 0.14), 0.3, {}, { stagger: 0.08 });
+      IN("#co-head", at(1, 0.28), 0.4);
+      IN("#co-pin", at(1, 0.42), 0.5, { y: -30 }, { y: 0 });
+      IN(["#co-u1", "#co-u2", "#co-u3"], at(1, 0.6), 0.4, {}, { stagger: 0.15 });
+      ["#co-l1", "#co-l2", "#co-l3"].forEach((s, i) => ARROW(s, at(1, 0.68 + i * 0.04)));
+      IN(["#co-h1", "#co-h2", "#co-h3"], at(1, 0.78), 0.4, {}, { stagger: 0.1 });
+      IN(["#co-t1", "#co-t2", "#co-t3"], at(1, 0.8), 0.4, {}, { stagger: 0.1 });
+
+      // L2 投票：多数派 / 少数派计数
+      tl.to(["#co-h1", "#co-h2"], { stroke: "#83C167", duration: 0.4 }, at(2, 0.05));
+      tl.to("#co-h3", { stroke: "#FC6255", duration: 0.4 }, at(2, 0.12));
+      IN("#co-maj", at(2, 0.15), 0.4);
+      IN("#co-cnt", at(2, 0.35), 0.4);
+      COUNT("#co-cn", 1, 3, at(2, 0.45), 1.8);
+      IN("#co-brk", at(2, 0.78), 0.5, { scale: 0.6, svgOrigin: "1560 800" }, { scale: 1, svgOrigin: "1560 800" });
+      tl.fromTo("#co-brk path:nth-of-type(2)", { rotation: -12, svgOrigin: "1682 795" }, { rotation: 12, svgOrigin: "1682 795", duration: 0.15, yoyo: true, repeat: 5, immediateRender: false }, at(2, 0.85));
+
+      // L3 例子：X, X, Y
+      OUT(["#co-brk", "#co-maj", "#co-t1", "#co-t2", "#co-t3"], at(3, 0), 0.35);
+      COUNT("#co-cn", 3, 1, at(3, 0.05), 0.3);
+      IN(["#co-x1", "#co-x2", "#co-x3"], at(3, 0.08), 0.4, {}, { stagger: 0.25 });
+      IN("#co-win", at(3, 0.35), 0.4);
+      IN("#co-wave", at(3, 0.65), 0.5);
+      tl.fromTo("#co-wave path", { x: 0 }, { x: 30, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, at(3, 0.7));
+
+      // L4 在线抽样 1%
+      OUT("#co-k1", at(4, 0), 0.4);
+      IN("#co-dots", at(4, 0.04), 0.5);
+      IN("#co-pct", at(4, 0.12), 0.4);
+      tl.to("#co-d47", { attr: { r: 16 }, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.14));
+      ARROW("#co-s1", at(4, 0.24)); ARROW("#co-s2", at(4, 0.26));
+      IN("#co-ua", at(4, 0.3), 0.4); IN("#co-ub", at(4, 0.32), 0.4);
+      IN("#co-ra", at(4, 0.45), 0.4); IN("#co-rb", at(4, 0.5), 0.4);
+      IN("#co-ne", at(4, 0.6), 0.4, { scale: 1.6, svgOrigin: "1180 485" }, { scale: 1, svgOrigin: "1180 485" });
+      IN("#co-gate", at(4, 0.68), 0.4);
+      IN("#co-gx", at(4, 0.76), 0.4);
+      IN("#co-ev", at(4, 0.86), 0.4);
+
+      // L5 写缓存前的检票口
+      OUT("#co-k4", at(5, 0), 0.4);
+      IN("#co-store", at(5, 0.04), 0.5);
+      IN("#co-door", at(5, 0.12), 0.5);
+      IN("#co-bar", at(5, 0.2), 0.4);
+      IN(["#co-c1", "#co-c2", "#co-c3"], at(5, 0.3), 0.4, { x: -30 }, { x: 0, stagger: 0.12 });
+      MV("#co-c1", at(5, 0.55), { x: 1020 }, 1.2);
+      MV(["#co-c2", "#co-c3"], at(5, 0.68), { x: 200 }, 0.6);
+      tl.to(["#co-c2", "#co-c3"], { x: 170, duration: 0.3, ease: "back.out(3)" }, at(5, 0.68) + 0.6);
+      IN(["#co-z2", "#co-z3"], at(5, 0.78), 0.3);
+
+      // L6 配置文件
+      OUT("#co-k5", at(6, 0), 0.4);
+      IN("#co-cap", at(6, 0.04), 0.4); IN("#co-panel", at(6, 0.05), 0.5); IN("#co-code", at(6, 0.1), 0.6);
+      IN("#co-hl2", at(6, 0.4), 0.4); IN("#co-nt2", at(6, 0.42), 0.4);
+      IN("#co-hl1", at(6, 0.78), 0.4); IN("#co-nt1", at(6, 0.8), 0.4);
+
+
+      tl.to("#co-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["consist"] = tl;
+    })();
+  </script>
+</template>

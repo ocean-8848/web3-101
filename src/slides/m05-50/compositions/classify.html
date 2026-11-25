@@ -1,0 +1,196 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 classify，id 前缀 cl- -->
+  <div id="root" data-composition-id="classify" data-duration="64.85" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="cl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="cl-all">
+
+<text id="cl-ttl" class="h mono" x="960" y="150" font-size="48" fill="#58C4DD" text-anchor="middle">Classify(method)</text>
+<text id="cl-t0" class="h" x="560" y="228" font-size="32" fill="#F0B90B" text-anchor="middle">去哪个上游</text>
+<text id="cl-t1" class="h" x="960" y="228" font-size="32" fill="#F0B90B" text-anchor="middle">能不能缓存</text>
+<text id="cl-t2" class="h" x="1360" y="228" font-size="32" fill="#F0B90B" text-anchor="middle">能不能重试</text>
+<text id="cl-h0" class="h" x="146" y="330" font-size="28" fill="#8a8f99">类别</text>
+<g id="cl-hx" class="h">
+<text x="300" y="330" font-size="28" fill="#8a8f99">方法举例</text>
+<text x="740" y="330" font-size="28" fill="#8a8f99">路由</text>
+<text x="980" y="330" font-size="28" fill="#8a8f99">缓存</text>
+<text x="1260" y="330" font-size="28" fill="#8a8f99">重试</text></g>
+<rect id="cl-r0" class="h" x="120" y="352" width="1440" height="92" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<rect id="cl-k0" class="h" x="120" y="352" width="10" height="92" rx="4" fill="#F0B90B"/>
+<text id="cl-n0" class="h" x="146" y="409" font-size="28" font-weight="700" fill="#F0B90B">写</text>
+<g id="cl-x0" class="h">
+<text id="cl-m0a" class="mono" x="300" y="409" font-size="28" fill="#e8e6df">eth_sendRawTransaction</text>
+<text x="740" y="409" font-size="28" fill="#e8e6df">写优先上游</text>
+<text x="980" y="409" font-size="28" fill="#e8e6df">不缓存</text>
+<text x="1260" y="409" font-size="28" fill="#e8e6df">只在确定没送达时换</text>
+</g>
+<rect id="cl-r1" class="h" x="120" y="452" width="1440" height="92" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<rect id="cl-k1" class="h" x="120" y="452" width="10" height="92" rx="4" fill="#58C4DD"/>
+<text id="cl-n1" class="h" x="146" y="509" font-size="28" font-weight="700" fill="#58C4DD">按哈希读</text>
+<g id="cl-x1" class="h">
+<text id="cl-m1a" class="mono" x="300" y="509" font-size="28" fill="#e8e6df">eth_getTransactionByHash</text>
+<text x="740" y="509" font-size="28" fill="#e8e6df">任意健康</text>
+<text x="980" y="492" font-size="28" fill="#e8e6df">区块 非 null 长缓存</text>
+<text x="980" y="530" font-size="28" fill="#e8e6df">交易/回执 看深度</text>
+<text x="1260" y="509" font-size="28" fill="#e8e6df">可以</text>
+</g>
+<rect id="cl-r2" class="h" x="120" y="552" width="1440" height="92" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<rect id="cl-k2" class="h" x="120" y="552" width="10" height="92" rx="4" fill="#58C4DD"/>
+<text id="cl-n2" class="h" x="146" y="609" font-size="28" font-weight="700" fill="#58C4DD">按区块号读</text>
+<g id="cl-x2" class="h">
+<text class="mono" x="300" y="592" font-size="28" fill="#e8e6df">eth_getLogs</text>
+<text x="300" y="630" font-size="28" fill="#8a8f99">固定范围</text>
+<text x="740" y="609" font-size="28" fill="#e8e6df">任意健康</text>
+<text x="980" y="609" font-size="28" fill="#e8e6df">≤ 链头−64 长缓存</text>
+<text x="1260" y="609" font-size="28" fill="#e8e6df">可以</text>
+</g>
+<rect id="cl-r3" class="h" x="120" y="652" width="1440" height="92" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<rect id="cl-k3" class="h" x="120" y="652" width="10" height="92" rx="4" fill="#58C4DD"/>
+<text id="cl-n3" class="h" x="146" y="709" font-size="28" font-weight="700" fill="#58C4DD">latest 读</text>
+<g id="cl-x3" class="h">
+<text id="cl-m3a" class="mono" x="300" y="692" font-size="28" fill="#e8e6df" xml:space="preserve">eth_blockNumber</text>
+<text id="cl-m3b" class="mono" x="300" y="730" font-size="28" fill="#e8e6df" xml:space="preserve">eth_call(latest)</text>
+<text x="740" y="709" font-size="28" fill="#e8e6df">健康分最高</text>
+<text x="980" y="709" font-size="28" fill="#e8e6df">1–2 秒</text>
+<text x="1260" y="709" font-size="28" fill="#e8e6df">可以</text>
+</g>
+<rect id="cl-r4" class="h" x="120" y="752" width="1440" height="92" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<rect id="cl-k4" class="h" x="120" y="752" width="10" height="92" rx="4" fill="#58C4DD"/>
+<text id="cl-n4" class="h" x="146" y="809" font-size="28" font-weight="700" fill="#58C4DD">重型</text>
+<g id="cl-x4" class="h">
+<text id="cl-m4a" class="mono" x="300" y="809" font-size="28" fill="#e8e6df">debug_traceTransaction</text>
+<text x="740" y="809" font-size="28" fill="#e8e6df">归档·追踪上游</text>
+<text x="980" y="809" font-size="28" fill="#e8e6df">不缓存（本篇代码）</text>
+<g id="cl-lock"><rect x="1262" y="789" width="20" height="16" rx="3" fill="#FF9F43"/><path d="M1266 789 v-6 a6 6 0 0 1 12 0 v6" stroke="#FF9F43" stroke-width="3" fill="none"/></g>
+<text x="1294" y="809" font-size="28" fill="#FF9F43">限并发</text>
+</g>
+<g id="cl-dbg" class="h">
+<rect id="cl-dbgr" x="1576" y="752" width="328" height="92" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+<g><rect x="1596" y="770" width="20" height="16" rx="3" fill="#FC6255"/><path d="M1600 770 v-6 a6 6 0 0 1 12 0 v6" stroke="#FC6255" stroke-width="3" fill="none"/></g>
+<text x="1628" y="787" font-size="28" fill="#FC6255">默认拒绝</text>
+<text x="1596" y="829" font-size="28" fill="#83C167">授权 Key 可用</text>
+</g>
+<rect id="cl-r5" class="h" x="120" y="852" width="1440" height="92" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<rect id="cl-k5" class="h" x="120" y="852" width="10" height="92" rx="4" fill="#FC6255"/>
+<text id="cl-n5" class="h" x="146" y="909" font-size="28" font-weight="700" fill="#FC6255">禁止</text>
+<g id="cl-x5" class="h">
+<text id="cl-m5a" class="mono" x="300" y="892" font-size="28" fill="#e8e6df" xml:space="preserve">admin_*  personal_*</text>
+<text id="cl-m5b" class="mono" x="300" y="930" font-size="28" fill="#e8e6df" xml:space="preserve">miner_*  engine_*</text>
+<text x="740" y="909" font-size="28" fill="#FC6255">直接拒绝</text>
+<text id="cl-xa" class="h" x="1000" y="913" font-size="40" font-weight="700" fill="#FC6255">✕</text>
+<text id="cl-xb" class="h" x="1270" y="913" font-size="40" font-weight="700" fill="#FC6255">✕</text>
+</g>
+<rect id="cl-cell" class="h" x="730" y="352" width="240" height="92" rx="10" fill="#F0B90B" fill-opacity="0.16"/>
+<g id="cl-cp" class="h">
+<rect x="700" y="300" width="1100" height="496" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+<rect id="cl-hl" class="h" x="708" y="320" width="1084" height="38" rx="6" fill="#58C4DD" fill-opacity="0.15"/>
+<text class="mono" x="740" y="357" font-size="28" fill="#6b6f7a" text-anchor="end">1</text>
+<text id="cl-cl0" class="mono" x="760" y="357" font-size="28" fill="#e8e6df" xml:space="preserve">func Classify(method string) Class {</text>
+<text class="mono" x="740" y="395" font-size="28" fill="#6b6f7a" text-anchor="end">2</text>
+<text id="cl-cl1" class="mono" x="760" y="395" font-size="28" fill="#e8e6df" xml:space="preserve">  for _, p := range []string{"admin_",</text>
+<text class="mono" x="740" y="433" font-size="28" fill="#6b6f7a" text-anchor="end">3</text>
+<text id="cl-cl2" class="mono" x="760" y="433" font-size="28" fill="#e8e6df" xml:space="preserve">      "personal_", "miner_", "engine_"} {</text>
+<text class="mono" x="740" y="471" font-size="28" fill="#6b6f7a" text-anchor="end">4</text>
+<text id="cl-cl3" class="mono" x="760" y="471" font-size="28" fill="#e8e6df" xml:space="preserve">    if strings.HasPrefix(method, p) {</text>
+<text class="mono" x="740" y="509" font-size="28" fill="#6b6f7a" text-anchor="end">5</text>
+<text id="cl-cl4" class="mono" x="760" y="509" font-size="28" fill="#e8e6df" xml:space="preserve">      return ClassDenied</text>
+<text class="mono" x="740" y="547" font-size="28" fill="#6b6f7a" text-anchor="end">6</text>
+<text id="cl-cl5" class="mono" x="760" y="547" font-size="28" fill="#e8e6df" xml:space="preserve">    }</text>
+<text class="mono" x="740" y="585" font-size="28" fill="#6b6f7a" text-anchor="end">7</text>
+<text id="cl-cl6" class="mono" x="760" y="585" font-size="28" fill="#e8e6df" xml:space="preserve">  }</text>
+<text class="mono" x="740" y="623" font-size="28" fill="#6b6f7a" text-anchor="end">8</text>
+<text id="cl-cl7" class="mono" x="760" y="623" font-size="28" fill="#e8e6df" xml:space="preserve">  if c, ok := exact[method]; ok {</text>
+<text class="mono" x="740" y="661" font-size="28" fill="#6b6f7a" text-anchor="end">9</text>
+<text id="cl-cl8" class="mono" x="760" y="661" font-size="28" fill="#e8e6df" xml:space="preserve">    return c</text>
+<text class="mono" x="740" y="699" font-size="28" fill="#6b6f7a" text-anchor="end">10</text>
+<text id="cl-cl9" class="mono" x="760" y="699" font-size="28" fill="#e8e6df" xml:space="preserve">  }</text>
+<text class="mono" x="740" y="737" font-size="28" fill="#6b6f7a" text-anchor="end">11</text>
+<text id="cl-cl10" class="mono" x="760" y="737" font-size="28" fill="#e8e6df" xml:space="preserve">  return ClassLatest</text>
+<text id="cl-nt10" x="1776" y="737" font-size="28" fill="#FF9F43" text-anchor="end">未知方法</text>
+<text class="mono" x="740" y="775" font-size="28" fill="#6b6f7a" text-anchor="end">12</text>
+<text id="cl-cl11" class="mono" x="760" y="775" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+</g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+IN("#cl-ttl", at(0, 0.05), 0.6);
+IN("#cl-t0", at(0, 0.42), 0.5, { y: -15 }, { y: 0 });
+IN("#cl-t1", at(0, 0.62), 0.5, { y: -15 }, { y: 0 });
+IN("#cl-t2", at(0, 0.82), 0.5, { y: -15 }, { y: 0 });
+// L1 table frame + write row
+IN("#cl-h0, #cl-hx", at(1, 0.02), 0.5);
+for (let i = 0; i < 6; i++) IN("#cl-r" + i, at(1, 0.05) + i * 0.08, 0.4);
+const ROW = (i, t) => { IN("#cl-k" + i, t, 0.3); IN("#cl-n" + i, t, 0.4, { x: -15 }, { x: 0 }); IN("#cl-x" + i, t + 0.2, 0.5); tl.to("#cl-r" + i, { stroke: "#3d4352", duration: 0.3 }, t); };
+const CX = { r: [730, 240], c: [970, 280], t: [1250, 300] };
+const CELL = (i, n, k, col, t) => { tl.set("#cl-cell", { attr: { x: CX[k][0], width: CX[k][1], y: 352 + i * 100, height: 92 + (n - 1) * 100 }, fill: col }, t); tl.fromTo("#cl-cell", { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, t); tl.to("#cl-cell", { opacity: 0, duration: 0.3 }, t + 1.6); };
+ROW(0, at(1, 0.3));
+CELL(0, 1, "r", "#F0B90B", at(1, 0.55)); CELL(0, 1, "c", "#F0B90B", at(1, 0.8));
+CELL(1, 2, "r", "#58C4DD", at(2, 0.82));
+CELL(3, 1, "r", "#58C4DD", at(3, 0.5)); CELL(3, 1, "c", "#58C4DD", at(3, 0.78));
+CELL(4, 1, "r", "#58C4DD", at(4, 0.45)); CELL(4, 1, "t", "#FF9F43", at(4, 0.75));
+ROW(1, at(2, 0.05)); ROW(2, at(2, 0.42));
+ROW(3, at(3, 0.05));
+ROW(4, at(4, 0.05));
+tl.fromTo("#cl-lock", { scale: 1 }, { scale: 1.3, svgOrigin: "1272 795", duration: 0.25, yoyo: true, repeat: 1, immediateRender: false }, at(4, 0.8));
+// L5 debug 类：默认拒绝，授权 Key 可用
+tl.to("#cl-m4a", { fill: "#FF9F43", duration: 0.3 }, at(5, 0.05));
+tl.to("#cl-r4", { stroke: "#FF9F43", duration: 0.3 }, at(5, 0.05));
+IN("#cl-dbg", at(5, 0.3), 0.5, { x: 20 }, { x: 0 });
+tl.fromTo("#cl-dbgr", { strokeWidth: 2.5 }, { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(5, 0.72));
+ROW(5, at(6, 0.05));
+tl.to("#cl-r4", { stroke: "#3d4352", duration: 0.3 }, at(6, 0.05));
+tl.to("#cl-r5", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.3));
+tl.to("#cl-m5a, #cl-m5b", { fill: "#FC6255", duration: 0.2, yoyo: true, repeat: 3 }, at(6, 0.35));
+IN("#cl-xa, #cl-xb", at(6, 0.6), 0.2, { scale: 1.6, svgOrigin: "1150 950" }, { scale: 1, svgOrigin: "1150 950" });
+tl.to("#cl-m5a, #cl-m5b", { fill: "#FC6255", duration: 0.3 }, at(6, 0.7));
+// L7 collapse table to category list; code panel
+OUT("#cl-ttl, #cl-t0, #cl-t1, #cl-t2, #cl-hx", at(7, 0), 0.4);
+for (let i = 0; i < 6; i++) OUT("#cl-x" + i, at(7, 0), 0.4);
+OUT("#cl-dbg", at(7, 0), 0.4);
+tl.to("#cl-r0, #cl-r1, #cl-r2, #cl-r3, #cl-r4, #cl-r5", { attr: { width: 300 }, duration: 0.7, ease: "power2.inOut" }, at(7, 0.06));
+IN("#cl-cp", at(7, 0.1), 0.6, { x: 30 }, { x: 0 });
+tl.set("#cl-hl", { attr: { y: 368, height: 228 }, fill: "#FC6255" }, at(7, 0.2)); IN("#cl-hl", at(7, 0.2), 0.3);
+tl.to("#cl-r5", { strokeWidth: 4, duration: 0.3 }, at(7, 0.2));
+tl.set("#cl-hl", { attr: { y: 596, height: 114 }, fill: "#58C4DD" }, at(7, 0.5)); 
+tl.to("#cl-r5", { strokeWidth: 2, duration: 0.3 }, at(7, 0.5));
+tl.to("#cl-r0, #cl-r1, #cl-r2, #cl-r3, #cl-r4", { stroke: "#58C4DD", duration: 0.3 }, at(7, 0.5));
+tl.set("#cl-hl", { attr: { y: 710, height: 38 }, fill: "#FF9F43" }, at(7, 0.75)); 
+tl.to("#cl-r0, #cl-r1, #cl-r2, #cl-r4", { stroke: "#3d4352", duration: 0.3 }, at(7, 0.75));
+tl.to("#cl-r3", { stroke: "#FF9F43", strokeWidth: 4, duration: 0.3 }, at(7, 0.75));
+tl.fromTo("#cl-nt10", { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: true }, at(7, 0.78));
+
+
+      tl.to("#cl-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["classify"] = tl;
+    })();
+  </script>
+</template>

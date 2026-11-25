@@ -1,0 +1,182 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 prod，id 前缀 pr- -->
+  <div id="root" data-composition-id="prod" data-duration="52.21" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pr-all">
+        <g id="pr-list">
+          <text id="pr-title" class="h" x="120" y="200" font-size="44" font-weight="700" fill="#e8e6df">生产检查清单</text>
+          <rect id="pr-panel" class="h" x="120" y="236" width="1060" height="704" rx="18" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/>
+          <rect id="pr-bx0" class="h" x="170" y="276" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <text id="pr-t0" class="h" x="250" y="311" font-size="32" fill="#e8e6df">重组处理 · 可从链上重建</text>
+          <path id="pr-k0" class="dr" pathLength="1" d="M180 300 L192 312 L210 286" stroke="#83C167" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <rect id="pr-bx1" class="h" x="170" y="386" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <text id="pr-t1" class="h" x="250" y="421" font-size="32" fill="#e8e6df">资金只用已确认数据</text>
+          <path id="pr-k1" class="dr" pathLength="1" d="M180 410 L192 422 L210 396" stroke="#83C167" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <rect id="pr-bx2" class="h" x="170" y="496" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <text id="pr-t2" class="h" x="250" y="531" font-size="32" fill="#e8e6df">预言机：过期 / 非零 / 置信区间</text>
+          <path id="pr-k2" class="dr" pathLength="1" d="M180 520 L192 532 L210 506" stroke="#83C167" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <rect id="pr-bx3" class="h" x="170" y="606" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <text id="pr-t3" class="h" x="250" y="641" font-size="32" fill="#e8e6df">关键价格：备用源 + 熔断</text>
+          <path id="pr-k3" class="dr" pathLength="1" d="M180 630 L192 642 L210 616" stroke="#83C167" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <rect id="pr-bx4" class="h" x="170" y="716" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <text id="pr-t4" class="h" x="250" y="751" font-size="32" fill="#e8e6df">ipfs:// + 多处固定 + 网关巡检</text>
+          <path id="pr-k4" class="dr" pathLength="1" d="M180 740 L192 752 L210 726" stroke="#83C167" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <rect id="pr-bx5" class="h" x="170" y="826" width="48" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <text id="pr-t5" class="h" x="250" y="861" font-size="32" fill="#e8e6df">索引延迟监控</text>
+          <path id="pr-k5" class="dr" pathLength="1" d="M180 850 L192 862 L210 836" stroke="#83C167" stroke-width="7" fill="none" stroke-linecap="round"/>
+        </g>
+        <g id="pr-v1" class="h">
+          <rect x="1260" y="380" width="240" height="100" rx="14" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          <text x="1380" y="442" font-size="32" fill="#58C4DD" text-anchor="middle">重建库</text>
+          <text x="1560" y="448" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">=</text>
+          <rect x="1620" y="380" width="240" height="100" rx="14" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          <text x="1740" y="442" font-size="32" fill="#58C4DD" text-anchor="middle">线上库</text>
+          <text x="1560" y="560" font-size="30" fill="#83C167" text-anchor="middle">删库重建后比对一致</text>
+        </g>
+        <g id="pr-v2" class="h">
+          <text x="1240" y="400" font-size="30" fill="#e8e6df">入账查询</text>
+          <rect x="1240" y="430" width="600" height="90" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+          <text class="mono" x="1270" y="487" font-size="30" fill="#83C167">AND confirmations &gt;= N</text>
+        </g>
+        <g id="pr-v3" class="h">
+          <rect id="pr-src1" x="1260" y="360" width="280" height="90" rx="14" fill="none" stroke="#F0B90B" stroke-width="3"/>
+          <text x="1400" y="417" font-size="32" fill="#F0B90B" text-anchor="middle">主价格源</text>
+          <rect x="1260" y="560" width="280" height="90" rx="14" fill="none" stroke="#83C167" stroke-width="3"/>
+          <text x="1400" y="617" font-size="32" fill="#83C167" text-anchor="middle">备用源</text>
+          <rect x="1640" y="460" width="200" height="90" rx="14" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          <text x="1740" y="517" font-size="32" fill="#58C4DD" text-anchor="middle">合约</text>
+        </g>
+        <path id="pr-l1" d="M1544 405 L1636 490" stroke="#F0B90B" stroke-width="3" opacity="0"/>
+        <path id="pr-l1x" class="h" d="M1570 420 L1600 450 M1600 420 L1570 450" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/>
+        <path id="pr-l2" class="dr h" pathLength="1" d="M1544 605 L1636 520" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#pr-arr)"/>
+        <text id="pr-fuse" class="h" x="1550" y="720" font-size="30" fill="#FF9F43" text-anchor="middle">异常时熔断 / 切换</text>
+        <g id="pr-v4" class="h">
+          <circle cx="1340" cy="460" r="50" fill="none" stroke="#B48EF0" stroke-width="3"/>
+          <circle cx="1550" cy="460" r="50" fill="none" stroke="#B48EF0" stroke-width="3"/>
+          <circle cx="1760" cy="460" r="50" fill="none" stroke="#B48EF0" stroke-width="3"/>
+          <text x="1550" y="580" font-size="30" fill="#B48EF0" text-anchor="middle">几个网关都能访问</text>
+        </g>
+        <path id="pr-g1" class="dr" pathLength="1" d="M1320 460 L1335 476 L1362 444" stroke="#83C167" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path id="pr-g2" class="dr" pathLength="1" d="M1530 460 L1545 476 L1572 444" stroke="#83C167" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path id="pr-g3" class="dr" pathLength="1" d="M1740 460 L1755 476 L1782 444" stroke="#83C167" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <g id="pr-v5" class="h">
+          <text class="mono" x="1240" y="330" font-size="28" fill="#58C4DD">indexer_head_lag_blocks</text>
+          <line x1="1260" y1="380" x2="1260" y2="720" stroke="#3a3f4a" stroke-width="2"/>
+          <line x1="1260" y1="720" x2="1840" y2="720" stroke="#3a3f4a" stroke-width="2"/>
+          <line x1="1260" y1="480" x2="1840" y2="480" stroke="#FC6255" stroke-width="2" stroke-dasharray="10 8"/>
+          <text x="1270" y="460" font-size="28" fill="#FC6255">10（示例）</text>
+        </g>
+        <path id="pr-lag" class="dr" pathLength="1" d="M1270 690 L1340 670 L1410 680 L1480 640 L1550 650 L1620 600 L1690 540 L1760 450 L1830 410" stroke="#FF9F43" stroke-width="4" fill="none"/>
+        <g id="pr-bell" class="h">
+          <path d="M1760 300 Q1760 256 1800 256 Q1840 256 1840 300 L1846 320 L1754 320 Z" fill="none" stroke="#8a8f99" stroke-width="4"/>
+          <circle cx="1800" cy="330" r="7" fill="#8a8f99"/>
+        </g>
+        <g id="pr-try">
+          <text id="pr-tt" class="h" x="200" y="290" font-size="44" font-weight="700" fill="#FF9F43">动手试</text>
+          <g id="pr-c1" class="h">
+            <rect x="200" y="340" width="700" height="360" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="240" y="410" font-size="36" font-weight="700" fill="#58C4DD">The Graph Explorer</text>
+            <text x="240" y="490" font-size="32" fill="#e8e6df">打开一个 Uniswap 子图</text>
+            <text x="240" y="560" font-size="32" fill="#e8e6df">查锁仓量最高的三个池子</text>
+          </g>
+          <g id="pr-c2" class="h">
+            <rect x="1020" y="340" width="700" height="360" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="1060" y="410" font-size="36" font-weight="700" fill="#58C4DD">区块浏览器</text>
+            <text x="1060" y="490" font-size="32" fill="#e8e6df">读知名 NFT 的 <tspan class="mono">tokenURI(1)</tspan></text>
+            <text x="1060" y="560" font-size="32" fill="#e8e6df">指向 IPFS、Arweave</text>
+            <text x="1060" y="620" font-size="32" fill="#e8e6df">还是普通服务器？</text>
+          </g>
+        </g>
+
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const ROW = (i, t) => { IN("#pr-t" + i, t, 0.5, { x: -16 }, { x: 0 }); };
+      const TICK = (i, t) => { DRAW("#pr-k" + i, t, 0.4); tl.to("#pr-bx" + i, { stroke: "#83C167", duration: 0.3 }, t); };
+      // L0 清单 + 6 个空框
+      IN("#pr-title", at(0, 0.02), 0.5);
+      IN("#pr-panel", at(0, 0.1), 0.5);
+      tl.fromTo("#pr-bx0, #pr-bx1, #pr-bx2, #pr-bx3, #pr-bx4, #pr-bx5", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.12 }, at(0, 0.3));
+      // L1 重组 + 可重建
+      ROW(0, at(1, 0.03));
+      IN("#pr-v1", at(1, 0.4), 0.5, { x: 30 }, { x: 0 });
+      TICK(0, at(1, 0.8));
+      // L2 已确认数据
+      OUT("#pr-v1", at(2, 0), 0.3);
+      ROW(1, at(2, 0.04));
+      IN("#pr-v2", at(2, 0.42), 0.5, { x: 30 }, { x: 0 });
+      TICK(1, at(2, 0.82));
+      // L3 预言机读取 + 备用源熔断
+      OUT("#pr-v2", at(3, 0), 0.3);
+      ROW(2, at(3, 0.04));
+      TICK(2, at(3, 0.4));
+      ROW(3, at(3, 0.5));
+      IN("#pr-v3", at(3, 0.5), 0.4);
+      tl.to("#pr-l1", { opacity: 1, duration: 0.2 }, at(3, 0.55));
+      tl.to("#pr-src1", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.68));
+      IN("#pr-l1x", at(3, 0.68), 0.2);
+      tl.to("#pr-l1", { opacity: 0.25, duration: 0.3 }, at(3, 0.7));
+      ARROW("#pr-l2", at(3, 0.74), 0.4);
+      IN("#pr-fuse", at(3, 0.76), 0.4);
+      TICK(3, at(3, 0.88));
+      // L4 NFT 元数据
+      OUT("#pr-v3, #pr-l1, #pr-l1x, #pr-l2, #pr-fuse", at(4, 0), 0.3);
+      ROW(4, at(4, 0.04));
+      IN("#pr-v4", at(4, 0.4), 0.4);
+      DRAW("#pr-g1", at(4, 0.55), 0.3); DRAW("#pr-g2", at(4, 0.62), 0.3); DRAW("#pr-g3", at(4, 0.69), 0.3);
+      TICK(4, at(4, 0.86));
+      // L5 延迟监控
+      OUT("#pr-v4, #pr-g1, #pr-g2, #pr-g3", at(5, 0), 0.3);
+      ROW(5, at(5, 0.04));
+      IN("#pr-v5", at(5, 0.12), 0.4);
+      IN("#pr-bell", at(5, 0.16), 0.4);
+      DRAW("#pr-lag", at(5, 0.24), 1.6);
+      tl.to("#pr-bell path", { stroke: "#FC6255", duration: 0.2 }, at(5, 0.24) + 1.3);
+      tl.to("#pr-bell circle", { fill: "#FC6255", duration: 0.2 }, at(5, 0.24) + 1.3);
+      tl.to("#pr-bell", { rotation: 12, svgOrigin: "1800 256", duration: 0.1, yoyo: true, repeat: 5 }, at(5, 0.24) + 1.4);
+      TICK(5, at(5, 0.86));
+      // L6 动手试
+      OUT("#pr-list, #pr-v5, #pr-lag, #pr-bell", at(6, 0), 0.5);
+      IN("#pr-tt", at(6, 0.04), 0.4);
+      IN("#pr-c1", at(6, 0.08), 0.5, { y: 20 }, { y: 0 });
+      tl.fromTo("#pr-c1 text:nth-of-type(2), #pr-c1 text:nth-of-type(3)", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 1.2, immediateRender: false }, at(6, 0.16));
+      tl.to("#pr-c1 rect", { stroke: "#83C167", duration: 0.5 }, at(6, 0.34));
+      IN("#pr-c2", at(6, 0.48), 0.5, { y: 20 }, { y: 0 });
+      tl.fromTo("#pr-c2 text:nth-of-type(2), #pr-c2 text:nth-of-type(3), #pr-c2 text:nth-of-type(4)", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 1.4, immediateRender: false }, at(6, 0.56));
+      tl.to("#pr-c2 rect", { stroke: "#83C167", duration: 0.5 }, at(6, 0.9));
+
+
+      tl.to("#pr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["prod"] = tl;
+    })();
+  </script>
+</template>

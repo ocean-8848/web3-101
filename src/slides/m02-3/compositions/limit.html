@@ -8,7 +8,7 @@
     #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
   </style>
   <!-- 场景 limit，id 前缀 lt- -->
-  <div id="root" data-composition-id="limit" data-duration="103.06" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="limit" data-duration="114.04" data-width="1920" data-height="1080">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="lt-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -18,7 +18,7 @@
       <g id="lt-all">
 
         <!-- L0 面板 C -->
-        <rect id="lt-pc" class="h" x="80" y="222" width="1770" height="520" rx="14" fill="#161a22" stroke="#2a3040" stroke-width="2" />
+        <rect id="lt-pc" class="h" x="80" y="222" width="1770" height="560" rx="14" fill="#161a22" stroke="#2a3040" stroke-width="2" />
         <rect id="lt-hl" class="h" x="86" y="242" width="1758" height="40" fill="#58C4DD" fill-opacity="0.18" />
         <rect id="lt-hlb" class="h" x="86" y="242" width="6" height="40" fill="#58C4DD" />
 <g id="lt-L1" class="h"><text class="mono" x="110" y="272" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre"><tspan fill="#58C4DD">function</tspan> withdraw(<tspan fill="#58C4DD">uint256</tspan> amount) <tspan fill="#58C4DD">external</tspan> <tspan fill="#FF9F43">nonReentrant</tspan> <tspan fill="#FF9F43">whenNotPaused</tspan> {</text></g>
@@ -27,15 +27,20 @@
 <g id="lt-L4" class="h"><text class="mono" x="110" y="392" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  <tspan fill="#58C4DD">uint256</tspan> today = block.timestamp / 1 days;</text></g>
 <g id="lt-L5" class="h"><text class="mono" x="110" y="432" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  <tspan fill="#58C4DD">if</tspan> (dayIndex[msg.sender] != today) { dayIndex[msg.sender] = today; withdrawnToday[msg.sender] = 0; }</text></g>
 <g id="lt-L6" class="h"><text class="mono" x="110" y="472" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  <tspan fill="#58C4DD">uint256</tspan> used = withdrawnToday[msg.sender];</text></g>
-<g id="lt-L7" class="h"><text class="mono" x="110" y="512" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  <tspan fill="#58C4DD">if</tspan> (used + amount &gt; dailyLimit) <tspan fill="#FC6255">revert</tspan> <tspan fill="#FC6255">OverDailyLimit</tspan>(dailyLimit - used, amount);</text></g>
-<g id="lt-L8" class="h"><text class="mono" x="110" y="552" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  balanceOf[msg.sender] = bal - amount;</text></g>
-<g id="lt-L9" class="h"><text class="mono" x="110" y="592" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  withdrawnToday[msg.sender] = used + amount;</text></g>
-<g id="lt-L10" class="h"><text class="mono" x="110" y="632" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  (<tspan fill="#58C4DD">bool</tspan> ok, ) = <tspan fill="#58C4DD">payable</tspan>(msg.sender).call{value: amount}(<tspan fill="#F0B90B">""</tspan>);</text></g>
-<g id="lt-L11" class="h"><text class="mono" x="110" y="672" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  <tspan fill="#58C4DD">if</tspan> (!ok) <tspan fill="#FC6255">revert</tspan> <tspan fill="#FC6255">TransferFailed</tspan>();</text></g>
-<g id="lt-L12" class="h"><text class="mono" x="110" y="712" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">}</text></g>
+<g id="lt-L7" class="h"><text class="mono" x="110" y="512" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  <tspan fill="#58C4DD">uint256</tspan> remaining = used &gt;= dailyLimit ? 0 : dailyLimit - used;</text></g>
+<g id="lt-L8" class="h"><text class="mono" x="110" y="552" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  <tspan fill="#58C4DD">if</tspan> (used + amount &gt; dailyLimit) <tspan fill="#FC6255">revert</tspan> <tspan fill="#FC6255">OverDailyLimit</tspan>(remaining, amount);</text></g>
+<g id="lt-L9" class="h"><text class="mono" x="110" y="592" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  balanceOf[msg.sender] = bal - amount;</text></g>
+<g id="lt-L10" class="h"><text class="mono" x="110" y="632" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  withdrawnToday[msg.sender] = used + amount;</text></g>
+<g id="lt-L11" class="h"><text class="mono" x="110" y="672" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  (<tspan fill="#58C4DD">bool</tspan> ok, ) = <tspan fill="#58C4DD">payable</tspan>(msg.sender).call{value: amount}(<tspan fill="#F0B90B">""</tspan>);</text></g>
+<g id="lt-L12" class="h"><text class="mono" x="110" y="712" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">  <tspan fill="#58C4DD">if</tspan> (!ok) <tspan fill="#FC6255">revert</tspan> <tspan fill="#FC6255">TransferFailed</tspan>();</text></g>
+<g id="lt-L13" class="h"><text class="mono" x="110" y="752" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">}</text></g>
         <g id="lt-cal0" class="h"><rect x="300" y="800" width="200" height="170" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><rect x="300" y="800" width="200" height="44" rx="12" fill="#58C4DD" /><rect x="300" y="830" width="200" height="14" fill="#58C4DD" /><line x1="350" y1="788" x2="350" y2="814" stroke="#e8e6df" stroke-width="5" stroke-linecap="round" /><line x1="450" y1="788" x2="450" y2="814" stroke="#e8e6df" stroke-width="5" stroke-linecap="round" /><text x="400" y="926" font-size="34" fill="#e8e6df" text-anchor="middle">第 N 天</text></g>
         <text id="lt-ts0" class="h mono" x="540" y="912" font-size="30" fill="#58C4DD">block.timestamp / 1 days</text>
         <text id="lt-zero0" class="h mono" x="1100" y="912" font-size="30" fill="#58C4DD">withdrawnToday = <tspan fill="#F0B90B">0</tspan></text>
+        <g id="lt-under">
+          <text x="110" y="852" font-size="32" fill="#e8e6df"><tspan id="lt-ua" opacity="0"><tspan class="mono" fill="#FF9F43">dailyLimit</tspan> 被改低到 <tspan class="mono" fill="#F0B90B">used</tspan> 以下</tspan><tspan id="lt-ub" opacity="0"> → 直接相减会下溢 </tspan><tspan id="lt-uc" opacity="0" class="mono" fill="#FC6255">Panic(0x11)</tspan></text>
+          <text id="lt-ud" class="h" x="110" y="920" font-size="32" fill="#e8e6df">先判断：<tspan class="mono" fill="#F0B90B">used ≥ dailyLimit</tspan> 时剩余记 <tspan class="mono" fill="#83C167">0</tspan></text>
+        </g>
         <!-- L1 算一算 -->
         <g id="lt-card" class="h">
           <rect x="90" y="220" width="640" height="400" rx="16" fill="#161a22" stroke="#2a3040" stroke-width="2" />
@@ -200,7 +205,7 @@
       const FL = (s, t) => tl.to(s, { stroke: "#e8e6df", duration: 0.15, yoyo: true, repeat: 1 }, t);
       // L0 withdraw 逐段讲
       IN("#lt-pc", at(0, 0.0), 0.5);
-      for (let k = 1; k <= 12; k++) IN(`#lt-L${k}`, at(0, 0.01) + (k - 1) * 0.1, 0.3, { x: -12 }, { x: 0 });
+      for (let k = 1; k <= 13; k++) IN(`#lt-L${k}`, at(0, 0.01) + (k - 1) * 0.1, 0.3, { x: -12 }, { x: 0 });
       IN("#lt-hl, #lt-hlb", at(0, 0.1), 0.3);
       HL(2, 2, at(0, 0.24));
       HL(4, 1, at(0, 0.36));
@@ -208,104 +213,112 @@
       IN("#lt-ts0", at(0, 0.42), 0.4);
       HL(5, 1, at(0, 0.5));
       IN("#lt-zero0", at(0, 0.53), 0.4, { x: -20 }, { x: 0 });
-      HL(6, 2, at(0, 0.63));
-      HL(8, 2, at(0, 0.8));
-      HL(10, 2, at(0, 0.9));
-      // L1 算一算
-      OUT("#lt-pc, #lt-hl, #lt-hlb, #lt-cal0, #lt-ts0, #lt-zero0" + Array.from({ length: 12 }, (_, i) => `, #lt-L${i + 1}`).join(""), at(1, 0.0), 0.4);
-      IN("#lt-card", at(1, 0.04), 0.5);
-      IN("#lt-c1", at(1, 0.22), 0.4, { x: -16 }, { x: 0 });
-      IN("#lt-c2", at(1, 0.42), 0.4, { x: -16 }, { x: 0 });
-      IN("#lt-bob", at(1, 0.44), 0.4);
-      IN("#lt-bal", at(1, 0.46), 0.6, { attr: { width: 0 } }, { attr: { width: 400 } });
-      IN("#lt-ball", at(1, 0.5), 0.4);
-      IN("#lt-c3", at(1, 0.64), 0.4, { x: -16 }, { x: 0 });
-      IN("#lt-c4", at(1, 0.84), 0.4, { x: -16 }, { x: 0 });
-      // L2 两道检查 + 日限额刻度条
-      IN("#lt-k1", at(2, 0.02), 0.4);
-      DRAW("#lt-ok1", at(2, 0.2), 0.4); tl.set("#lt-ok1", { opacity: 1 }, at(2, 0.2));
-      IN("#lt-k2", at(2, 0.4), 0.4);
-      IN("#lt-bbg, #lt-tick", at(2, 0.45), 0.4);
-      IN("#lt-bu", at(2, 0.52), 0.5, { attr: { width: 0 } }, { attr: { width: 450 } });
-      IN("#lt-lu", at(2, 0.56), 0.3);
-      IN("#lt-br", at(2, 0.64), 0.5, { attr: { width: 0 } }, { attr: { width: 450 } });
-      IN("#lt-lr", at(2, 0.68), 0.3);
-      IN("#lt-x2", at(2, 0.8), 0.3, { scale: 1.4, svgOrigin: "1490 400" }, { scale: 1, svgOrigin: "1490 400" });
-      // L3 回滚数据 + 前端提示
-      IN("#lt-bub", at(3, 0.04), 0.5, { y: 14 }, { y: 0 });
-      IN("#lt-ph", at(3, 0.6), 0.5, { y: 14 }, { y: 0 });
-      // L4 第二天：计数清零
-      OUT("#lt-k1, #lt-ok1, #lt-k2, #lt-x2, #lt-bub, #lt-ph, #lt-br, #lt-lr, #lt-lu", at(4, 0.0), 0.4);
-      IN("#lt-cal, #lt-dN", at(4, 0.06), 0.4);
-      IN("#lt-ts", at(4, 0.1), 0.4);
-      OUT("#lt-dN", at(4, 0.28), 0.25);
-      IN("#lt-dN1", at(4, 0.3), 0.3, { y: -16 }, { y: 0 });
-      COUNT("#lt-used", 3, 0, at(4, 0.42), 0.8);
-      tl.to("#lt-bu", { attr: { width: 0 }, duration: 0.8, ease: "power2.inOut" }, at(4, 0.42));
-      IN("#lt-bgr", at(4, 0.6), 0.5, { attr: { width: 0 } }, { attr: { width: 750 } });
-      IN("#lt-lg", at(4, 0.7), 0.4);
-      // L5 边界：Carol 已用 1 + 申请 3 = 4，刚好等于上限，通过
-      OUT("#lt-card, #lt-c1, #lt-c2, #lt-c3, #lt-c4, #lt-bob, #lt-bal, #lt-ball, #lt-cal, #lt-dN1, #lt-ts, #lt-bbg, #lt-bgr, #lt-bu, #lt-tick, #lt-lg", at(5, 0.0), 0.4);
-      IN("#lt-qcard", at(5, 0.0) + 0.45, 0.5);
-      IN("#lt-q1", at(5, 0.12), 0.4, { x: -16 }, { x: 0 });
-      IN("#lt-q2", at(5, 0.26), 0.4, { x: -16 }, { x: 0 });
-      IN("#lt-q3", at(5, 0.4), 0.4, { x: -16 }, { x: 0 });
-      IN("#lt-q4", at(5, 0.52), 0.4, { x: -16 }, { x: 0 });
-      IN("#lt-qbg, #lt-qtick", at(5, 0.14), 0.4);
-      IN("#lt-qbu", at(5, 0.42), 0.5, { attr: { width: 0 } }, { attr: { width: 150 } });
-      IN("#lt-qlu", at(5, 0.44), 0.3);
-      IN("#lt-qk1", at(5, 0.56), 0.4);
-      DRAW("#lt-qok1", at(5, 0.6), 0.4); tl.set("#lt-qok1", { opacity: 1 }, at(5, 0.6));
-      IN("#lt-qbr", at(5, 0.64), 0.6, { attr: { width: 0 } }, { attr: { width: 450 } });
-      IN("#lt-qlr", at(5, 0.68), 0.3);
-      IN("#lt-qk2", at(5, 0.7), 0.4);
-      tl.to("#lt-qtick line", { stroke: "#83C167", duration: 0.2, yoyo: true, repeat: 1 }, at(5, 0.78));
-      IN("#lt-qeq", at(5, 0.84), 0.4, { x: -12 }, { x: 0 });
-      DRAW("#lt-qok2", at(5, 0.9), 0.4); tl.set("#lt-qok2", { opacity: 1 }, at(5, 0.9));
-      // L6 条件是“大于”才回滚；再取 1：4 + 1 = 5 > 4，回滚，剩余 0
-      OUT("#lt-qk1, #lt-qok1", at(6, 0.0), 0.4);
-      IN("#lt-qcond", at(6, 0.0) + 0.45, 0.4);
-      tl.to("#lt-qgt", { fill: "#e8e6df", duration: 0.2, yoyo: true, repeat: 3 }, at(6, 0.14));
-      COUNT("#lt-qbal", 6, 3, at(6, 0.38), 0.6);
-      COUNT("#lt-qused", 1, 4, at(6, 0.38), 0.6);
-      COUNT("#lt-qreq", 3, 1, at(6, 0.4), 0.6);
-      OUT("#lt-qk2, #lt-qeq, #lt-qok2, #lt-qlu, #lt-qlr", at(6, 0.38), 0.4);
-      tl.to("#lt-qbr", { fill: "#F0B90B", duration: 0.4 }, at(6, 0.4));
-      IN("#lt-qlu4", at(6, 0.38) + 0.45, 0.3);
-      IN("#lt-qbx", at(6, 0.46), 0.5, { attr: { width: 0 } }, { attr: { width: 150 } });
-      IN("#lt-qlx", at(6, 0.5), 0.3);
-      IN("#lt-qk3", at(6, 0.56), 0.4);
-      IN("#lt-qx3", at(6, 0.66), 0.3, { scale: 1.4, svgOrigin: "1490 400" }, { scale: 1, svgOrigin: "1490 400" });
-      IN("#lt-qbub", at(6, 0.76), 0.5, { y: 14 }, { y: 0 });
-      // L7 设计题：谁都没法设置限额
-      OUT("#lt-qcard, #lt-q1, #lt-q2, #lt-q3, #lt-q4, #lt-qcond, #lt-qk3, #lt-qx3, #lt-qbg, #lt-qbu, #lt-qbr, #lt-qbx, #lt-qtick, #lt-qlu4, #lt-qlx, #lt-qbub", at(7, 0.0), 0.4);
-      IN("#lt-s1", at(7, 0.06), 0.4); IN("#lt-h1", at(7, 0.1), 0.4); DRAW("#lt-ck1", at(7, 0.14), 0.3); tl.set("#lt-ck1", { opacity: 1 }, at(7, 0.14));
-      IN("#lt-s2", at(7, 0.18), 0.4); IN("#lt-h2", at(7, 0.22), 0.4); DRAW("#lt-ck2", at(7, 0.26), 0.3); tl.set("#lt-ck2", { opacity: 1 }, at(7, 0.26));
-      IN("#lt-s3", at(7, 0.3), 0.4); IN("#lt-h3e", at(7, 0.34), 0.4);
-      tl.to("#lt-s3r", { stroke: "#FF9F43", duration: 0.3 }, at(7, 0.34));
-      IN("#lt-door, #lt-dr", at(7, 0.46), 0.4);
-      tl.fromTo("#lt-crowd", { opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 0.8, ease: "power1.out" }, at(7, 0.52));
-      tl.to("#lt-cw", { keyframes: [{ x: -110, duration: 0.4, ease: "power2.in" }, { x: 20, duration: 0.4, ease: "power2.out" }] }, at(7, 0.68));
-      tl.to("#lt-dr", { fill: "#FC6255", duration: 0.15, yoyo: true, repeat: 1 }, at(7, 0.68) + 0.4);
-      // L8 多签把 TREASURER 授予资金管理员
-      OUT("#lt-crowd", at(8, 0.0), 0.4);
-      tl.to("#lt-s1 rect", { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1 }, at(8, 0.1));
-      IN("#lt-badgew", at(8, 0.16), 0.4, { y: -40 }, { y: 0 });
-      IN("#lt-grant", at(8, 0.24), 0.4);
-      tl.to("#lt-badge", { x: 1080, duration: 1.4, ease: "power2.inOut" }, at(8, 0.32));
-      OUT("#lt-h3e", at(8, 0.32) + 1.2, 0.3);
-      IN("#lt-h3", at(8, 0.32) + 1.3, 0.4);
-      tl.to("#lt-s3r", { stroke: "#83C167", duration: 0.4 }, at(8, 0.32) + 1.4);
-      tl.to("#lt-dr", { fill: "#83C167", duration: 0.4 }, at(8, 0.7));
-      tl.to("#lt-dr", { attr: { height: 20, y: 880 }, duration: 0.6, ease: "power2.inOut" }, at(8, 0.76));
-      // L9 Remix 里亲手试
-      OUT("#lt-s1, #lt-s2, #lt-s3, #lt-h1, #lt-h2, #lt-h3, #lt-ck1, #lt-ck2, #lt-door, #lt-dr, #lt-badgew, #lt-grant", at(9, 0.0), 0.4);
-      IN("#lt-rx, #lt-acA", at(9, 0.04), 0.5);
-      FL("#lt-bt1", at(9, 0.16)); IN("#lt-o1", at(9, 0.18), 0.3);
-      FL("#lt-bt2", at(9, 0.3)); IN("#lt-o2", at(9, 0.32), 0.3);
-      FL("#lt-bt2", at(9, 0.44)); IN("#lt-o3", at(9, 0.46), 0.3);
-      OUT("#lt-acA", at(9, 0.62), 0.2); IN("#lt-acB", at(9, 0.64), 0.3);
-      FL("#lt-bt3", at(9, 0.74)); IN("#lt-o4", at(9, 0.76), 0.3);
+      HL(6, 3, at(0, 0.63));
+      HL(9, 2, at(0, 0.8));
+      HL(11, 2, at(0, 0.9));
+      // L1 下调上限时的下溢边界
+      OUT("#lt-cal0, #lt-ts0, #lt-zero0", at(1, 0.0), 0.4);
+      HL(7, 1, at(1, 0.05));
+      IN("#lt-ua", at(1, 0.0) + 0.45, 0.5);
+      IN("#lt-ub", at(1, 0.3), 0.4);
+      IN("#lt-uc", at(1, 0.44), 0.4);
+      IN("#lt-ud", at(1, 0.62), 0.5, { y: 14 }, { y: 0 });
+      tl.to("#lt-hl", { attr: { "fill-opacity": 0.4 }, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.84));
+      // L2 算一算
+      OUT("#lt-pc, #lt-hl, #lt-hlb, #lt-under" + Array.from({ length: 13 }, (_, i) => `, #lt-L${i + 1}`).join(""), at(2, 0.0), 0.4);
+      IN("#lt-card", at(2, 0.0) + 0.42, 0.5);
+      IN("#lt-c1", at(2, 0.22), 0.4, { x: -16 }, { x: 0 });
+      IN("#lt-c2", at(2, 0.42), 0.4, { x: -16 }, { x: 0 });
+      IN("#lt-bob", at(2, 0.44), 0.4);
+      IN("#lt-bal", at(2, 0.46), 0.6, { attr: { width: 0 } }, { attr: { width: 400 } });
+      IN("#lt-ball", at(2, 0.5), 0.4);
+      IN("#lt-c3", at(2, 0.64), 0.4, { x: -16 }, { x: 0 });
+      IN("#lt-c4", at(2, 0.84), 0.4, { x: -16 }, { x: 0 });
+      // L3 两道检查 + 日限额刻度条
+      IN("#lt-k1", at(3, 0.02), 0.4);
+      DRAW("#lt-ok1", at(3, 0.2), 0.4); tl.set("#lt-ok1", { opacity: 1 }, at(3, 0.2));
+      IN("#lt-k2", at(3, 0.4), 0.4);
+      IN("#lt-bbg, #lt-tick", at(3, 0.45), 0.4);
+      IN("#lt-bu", at(3, 0.52), 0.5, { attr: { width: 0 } }, { attr: { width: 450 } });
+      IN("#lt-lu", at(3, 0.56), 0.3);
+      IN("#lt-br", at(3, 0.64), 0.5, { attr: { width: 0 } }, { attr: { width: 450 } });
+      IN("#lt-lr", at(3, 0.68), 0.3);
+      IN("#lt-x2", at(3, 0.8), 0.3, { scale: 1.4, svgOrigin: "1490 400" }, { scale: 1, svgOrigin: "1490 400" });
+      // L4 回滚数据 + 前端提示
+      IN("#lt-bub", at(4, 0.04), 0.5, { y: 14 }, { y: 0 });
+      IN("#lt-ph", at(4, 0.6), 0.5, { y: 14 }, { y: 0 });
+      // L5 第二天：计数清零
+      OUT("#lt-k1, #lt-ok1, #lt-k2, #lt-x2, #lt-bub, #lt-ph, #lt-br, #lt-lr, #lt-lu", at(5, 0.0), 0.4);
+      IN("#lt-cal, #lt-dN", at(5, 0.06), 0.4);
+      IN("#lt-ts", at(5, 0.1), 0.4);
+      OUT("#lt-dN", at(5, 0.28), 0.25);
+      IN("#lt-dN1", at(5, 0.3), 0.3, { y: -16 }, { y: 0 });
+      COUNT("#lt-used", 3, 0, at(5, 0.42), 0.8);
+      tl.to("#lt-bu", { attr: { width: 0 }, duration: 0.8, ease: "power2.inOut" }, at(5, 0.42));
+      IN("#lt-bgr", at(5, 0.6), 0.5, { attr: { width: 0 } }, { attr: { width: 750 } });
+      IN("#lt-lg", at(5, 0.7), 0.4);
+      // L6 边界：Carol 已用 1 + 申请 3 = 4，刚好等于上限，通过
+      OUT("#lt-card, #lt-c1, #lt-c2, #lt-c3, #lt-c4, #lt-bob, #lt-bal, #lt-ball, #lt-cal, #lt-dN1, #lt-ts, #lt-bbg, #lt-bgr, #lt-bu, #lt-tick, #lt-lg", at(6, 0.0), 0.4);
+      IN("#lt-qcard", at(6, 0.0) + 0.45, 0.5);
+      IN("#lt-q1", at(6, 0.12), 0.4, { x: -16 }, { x: 0 });
+      IN("#lt-q2", at(6, 0.26), 0.4, { x: -16 }, { x: 0 });
+      IN("#lt-q3", at(6, 0.4), 0.4, { x: -16 }, { x: 0 });
+      IN("#lt-q4", at(6, 0.52), 0.4, { x: -16 }, { x: 0 });
+      IN("#lt-qbg, #lt-qtick", at(6, 0.14), 0.4);
+      IN("#lt-qbu", at(6, 0.42), 0.5, { attr: { width: 0 } }, { attr: { width: 150 } });
+      IN("#lt-qlu", at(6, 0.44), 0.3);
+      IN("#lt-qk1", at(6, 0.56), 0.4);
+      DRAW("#lt-qok1", at(6, 0.6), 0.4); tl.set("#lt-qok1", { opacity: 1 }, at(6, 0.6));
+      IN("#lt-qbr", at(6, 0.64), 0.6, { attr: { width: 0 } }, { attr: { width: 450 } });
+      IN("#lt-qlr", at(6, 0.68), 0.3);
+      IN("#lt-qk2", at(6, 0.7), 0.4);
+      tl.to("#lt-qtick line", { stroke: "#83C167", duration: 0.2, yoyo: true, repeat: 1 }, at(6, 0.78));
+      IN("#lt-qeq", at(6, 0.84), 0.4, { x: -12 }, { x: 0 });
+      DRAW("#lt-qok2", at(6, 0.9), 0.4); tl.set("#lt-qok2", { opacity: 1 }, at(6, 0.9));
+      // L7 条件是“大于”才回滚；再取 1：4 + 1 = 5 > 4，回滚，剩余 0
+      OUT("#lt-qk1, #lt-qok1", at(7, 0.0), 0.4);
+      IN("#lt-qcond", at(7, 0.0) + 0.45, 0.4);
+      tl.to("#lt-qgt", { fill: "#e8e6df", duration: 0.2, yoyo: true, repeat: 3 }, at(7, 0.14));
+      COUNT("#lt-qbal", 6, 3, at(7, 0.38), 0.6);
+      COUNT("#lt-qused", 1, 4, at(7, 0.38), 0.6);
+      COUNT("#lt-qreq", 3, 1, at(7, 0.4), 0.6);
+      OUT("#lt-qk2, #lt-qeq, #lt-qok2, #lt-qlu, #lt-qlr", at(7, 0.38), 0.4);
+      tl.to("#lt-qbr", { fill: "#F0B90B", duration: 0.4 }, at(7, 0.4));
+      IN("#lt-qlu4", at(7, 0.38) + 0.45, 0.3);
+      IN("#lt-qbx", at(7, 0.46), 0.5, { attr: { width: 0 } }, { attr: { width: 150 } });
+      IN("#lt-qlx", at(7, 0.5), 0.3);
+      IN("#lt-qk3", at(7, 0.56), 0.4);
+      IN("#lt-qx3", at(7, 0.66), 0.3, { scale: 1.4, svgOrigin: "1490 400" }, { scale: 1, svgOrigin: "1490 400" });
+      IN("#lt-qbub", at(7, 0.76), 0.5, { y: 14 }, { y: 0 });
+      // L8 设计题：谁都没法设置限额
+      OUT("#lt-qcard, #lt-q1, #lt-q2, #lt-q3, #lt-q4, #lt-qcond, #lt-qk3, #lt-qx3, #lt-qbg, #lt-qbu, #lt-qbr, #lt-qbx, #lt-qtick, #lt-qlu4, #lt-qlx, #lt-qbub", at(8, 0.0), 0.4);
+      IN("#lt-s1", at(8, 0.06), 0.4); IN("#lt-h1", at(8, 0.1), 0.4); DRAW("#lt-ck1", at(8, 0.14), 0.3); tl.set("#lt-ck1", { opacity: 1 }, at(8, 0.14));
+      IN("#lt-s2", at(8, 0.18), 0.4); IN("#lt-h2", at(8, 0.22), 0.4); DRAW("#lt-ck2", at(8, 0.26), 0.3); tl.set("#lt-ck2", { opacity: 1 }, at(8, 0.26));
+      IN("#lt-s3", at(8, 0.3), 0.4); IN("#lt-h3e", at(8, 0.34), 0.4);
+      tl.to("#lt-s3r", { stroke: "#FF9F43", duration: 0.3 }, at(8, 0.34));
+      IN("#lt-door, #lt-dr", at(8, 0.46), 0.4);
+      tl.fromTo("#lt-crowd", { opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 0.8, ease: "power1.out" }, at(8, 0.52));
+      tl.to("#lt-cw", { keyframes: [{ x: -110, duration: 0.4, ease: "power2.in" }, { x: 20, duration: 0.4, ease: "power2.out" }] }, at(8, 0.68));
+      tl.to("#lt-dr", { fill: "#FC6255", duration: 0.15, yoyo: true, repeat: 1 }, at(8, 0.68) + 0.4);
+      // L9 多签把 TREASURER 授予资金管理员
+      OUT("#lt-crowd", at(9, 0.0), 0.4);
+      tl.to("#lt-s1 rect", { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1 }, at(9, 0.1));
+      IN("#lt-badgew", at(9, 0.16), 0.4, { y: -40 }, { y: 0 });
+      IN("#lt-grant", at(9, 0.24), 0.4);
+      tl.to("#lt-badge", { x: 1080, duration: 1.4, ease: "power2.inOut" }, at(9, 0.32));
+      OUT("#lt-h3e", at(9, 0.32) + 1.2, 0.3);
+      IN("#lt-h3", at(9, 0.32) + 1.3, 0.4);
+      tl.to("#lt-s3r", { stroke: "#83C167", duration: 0.4 }, at(9, 0.32) + 1.4);
+      tl.to("#lt-dr", { fill: "#83C167", duration: 0.4 }, at(9, 0.7));
+      tl.to("#lt-dr", { attr: { height: 20, y: 880 }, duration: 0.6, ease: "power2.inOut" }, at(9, 0.76));
+      // L10 Remix 里亲手试
+      OUT("#lt-s1, #lt-s2, #lt-s3, #lt-h1, #lt-h2, #lt-h3, #lt-ck1, #lt-ck2, #lt-door, #lt-dr, #lt-badgew, #lt-grant", at(10, 0.0), 0.4);
+      IN("#lt-rx, #lt-acA", at(10, 0.04), 0.5);
+      FL("#lt-bt1", at(10, 0.16)); IN("#lt-o1", at(10, 0.18), 0.3);
+      FL("#lt-bt2", at(10, 0.3)); IN("#lt-o2", at(10, 0.32), 0.3);
+      FL("#lt-bt2", at(10, 0.44)); IN("#lt-o3", at(10, 0.46), 0.3);
+      OUT("#lt-acA", at(10, 0.62), 0.2); IN("#lt-acB", at(10, 0.64), 0.3);
+      FL("#lt-bt3", at(10, 0.74)); IN("#lt-o4", at(10, 0.76), 0.3);
 
       tl.to("#lt-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
       window.__timelines["limit"] = tl;
