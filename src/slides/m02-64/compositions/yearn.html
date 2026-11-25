@@ -1,0 +1,210 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 yearn，id 前缀 ye- -->
+  <div id="root" data-composition-id="yearn" data-duration="53.06" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ye-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ye-all">
+        <text id="ye-title" class="h" x="960" y="160" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle">Yearn v3<tspan fill="#8a8f99" font-weight="400">（示例 · 以官方为准）</tspan></text>
+        <text id="ye-title2" class="h" x="1860" y="100" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="end">Yearn v3<tspan fill="#8a8f99" font-weight="400">（示例 · 以官方为准）</tspan></text>
+        <!-- L1/L2 structure -->
+        <g id="ye-struct">
+          <g id="ye-vault" class="h">
+            <rect x="660" y="260" width="600" height="100" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text x="960" y="323" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">分配者金库</text>
+          </g>
+          <g id="ye-s2" class="h">
+            <rect x="820" y="560" width="280" height="150" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text x="960" y="618" font-size="36" fill="#58C4DD" text-anchor="middle">策略 B</text>
+            <rect x="874" y="644" width="172" height="46" rx="23" fill="none" stroke="#58C4DD" stroke-width="2"/>
+            <text class="mono" x="960" y="677" font-size="28" fill="#58C4DD" text-anchor="middle">ERC-4626</text>
+          </g>
+          <g id="ye-s1" class="h">
+            <rect x="480" y="560" width="280" height="150" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text x="620" y="618" font-size="36" fill="#58C4DD" text-anchor="middle">策略 A</text>
+            <rect x="534" y="644" width="172" height="46" rx="23" fill="none" stroke="#58C4DD" stroke-width="2"/>
+            <text class="mono" x="620" y="677" font-size="28" fill="#58C4DD" text-anchor="middle">ERC-4626</text>
+          </g>
+          <g id="ye-s3" class="h">
+            <rect x="1160" y="560" width="280" height="150" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text x="1300" y="618" font-size="36" fill="#58C4DD" text-anchor="middle">策略 C</text>
+            <rect x="1214" y="644" width="172" height="46" rx="23" fill="none" stroke="#58C4DD" stroke-width="2"/>
+            <text class="mono" x="1300" y="677" font-size="28" fill="#58C4DD" text-anchor="middle">ERC-4626</text>
+          </g>
+          <path id="ye-a2" class="dr h" pathLength="1" d="M960 362 L960 550" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ye-arr)"/>
+          <path id="ye-a1" class="dr h" pathLength="1" d="M860 362 L650 550" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ye-arr)"/>
+          <path id="ye-a3" class="dr h" pathLength="1" d="M1060 362 L1270 550" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ye-arr)"/>
+          <g id="ye-person" class="h">
+            <circle cx="200" cy="600" r="26" fill="none" stroke="#8a8f99" stroke-width="4"/>
+            <path d="M156 690 Q156 640 200 640 Q244 640 244 690" fill="none" stroke="#8a8f99" stroke-width="4"/>
+            <text x="200" y="750" font-size="30" fill="#8a8f99" text-anchor="middle">个人直接存</text>
+          </g>
+          <path id="ye-ap" class="dr h" pathLength="1" d="M270 640 L808 640" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ye-arr)"/>
+          <g id="ye-da" class="h">
+            <rect x="1500" y="260" width="340" height="100" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+            <text x="1670" y="321" font-size="32" fill="#B48EF0" text-anchor="middle">Debt Allocator</text>
+            <path d="M1500 310 L1266 310" stroke="#B48EF0" stroke-width="2.5" stroke-dasharray="8 6" fill="none"/>
+            <text x="1670" y="410" font-size="28" fill="#B48EF0" text-anchor="middle">债务分配合约</text>
+          </g>
+          <g id="ye-bars" class="h">
+            <rect x="480" y="760" width="280" height="26" rx="6" fill="#2a2f3a"/>
+            <rect x="820" y="760" width="280" height="26" rx="6" fill="#2a2f3a"/>
+            <rect x="1160" y="760" width="280" height="26" rx="6" fill="#2a2f3a"/>
+            <rect id="ye-b1" x="480" y="760" width="112" height="26" rx="6" fill="#F0B90B"/>
+            <rect id="ye-b2" x="820" y="760" width="98" height="26" rx="6" fill="#F0B90B"/>
+            <rect id="ye-b3" x="1160" y="760" width="70" height="26" rx="6" fill="#F0B90B"/>
+            <text class="mono" x="620" y="836" font-size="30" fill="#F0B90B" text-anchor="middle"><tspan id="ye-p1">40</tspan>%</text>
+            <text class="mono" x="960" y="836" font-size="30" fill="#F0B90B" text-anchor="middle"><tspan id="ye-p2">35</tspan>%</text>
+            <text class="mono" x="1300" y="836" font-size="30" fill="#F0B90B" text-anchor="middle"><tspan id="ye-p3">25</tspan>%</text>
+          </g>
+        </g>
+        <!-- L3/L4 profit unlocking -->
+        <g id="ye-rep" class="h">
+          <rect x="240" y="270" width="260" height="80" rx="12" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3"/>
+          <text x="370" y="322" font-size="32" fill="#F0B90B" text-anchor="middle">报告：利润</text>
+        </g>
+        <rect id="ye-d1" class="h" x="520" y="290" width="40" height="40" rx="6" fill="#F0B90B"/>
+        <rect id="ye-d2" class="h" x="520" y="290" width="40" height="40" rx="6" fill="#F0B90B"/>
+        <rect id="ye-d3" class="h" x="520" y="290" width="40" height="40" rx="6" fill="#F0B90B"/>
+        <rect id="ye-d4" class="h" x="520" y="290" width="40" height="40" rx="6" fill="#F0B90B"/>
+        <rect id="ye-d5" class="h" x="520" y="290" width="40" height="40" rx="6" fill="#F0B90B"/>
+        <g id="ye-axes" class="h">
+          <path d="M360 900 L1560 900 M360 900 L360 470" stroke="#8a8f99" stroke-width="3" fill="none"/>
+          <text x="1580" y="910" font-size="28" fill="#8a8f99">时间</text>
+          <text x="380" y="480" font-size="28" fill="#8a8f99">份额价格</text>
+          <line x1="700" y1="560" x2="700" y2="900" stroke="#6b6f7a" stroke-width="2" stroke-dasharray="6 6"/>
+          <text x="700" y="944" font-size="28" fill="#6b6f7a" text-anchor="middle">报告</text>
+        </g>
+        <path id="ye-ramp" class="dr" pathLength="1" d="M360 820 L700 820 L1300 620 L1500 620" stroke="#F0B90B" stroke-width="5" fill="none"/>
+        <path id="ye-step" class="dr" pathLength="1" d="M360 820 L700 820 L700 620 L1500 620" stroke="#e8e6df" stroke-width="5" fill="none"/>
+        <g id="ye-spec" class="h">
+          <circle cx="690" cy="820" r="10" fill="#FC6255"/>
+          <circle cx="712" cy="620" r="10" fill="#FC6255"/>
+          <line x1="660" y1="816" x2="660" y2="624" stroke="#FC6255" stroke-width="6"/>
+          <text x="640" y="730" font-size="32" fill="#FC6255" text-anchor="end">投机者拿走利润</text>
+          <text x="740" y="600" font-size="28" fill="#FC6255">报告后取出</text>
+          <text x="680" y="866" font-size="28" fill="#FC6255" text-anchor="end">报告前存入</text>
+        </g>
+        <g id="ye-small" class="h">
+          <line x1="760" y1="820" x2="760" y2="800" stroke="#FC6255" stroke-width="6"/>
+          <text x="790" y="866" font-size="30" fill="#FC6255">只拿到一点点</text>
+        </g>
+        <!-- L5 fee tree -->
+        <g id="ye-root" class="h">
+          <rect x="790" y="270" width="340" height="100" rx="14" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="3"/>
+          <text x="960" y="334" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle">利润 100</text>
+        </g>
+        <path id="ye-l1" class="dr" pathLength="1" d="M960 370 L960 500" stroke="#F0B90B" stroke-width="3" fill="none"/>
+        <text id="ye-t20" class="h mono" x="990" y="448" font-size="30" fill="#F0B90B">20%</text>
+        <g id="ye-fee" class="h">
+          <rect x="790" y="500" width="340" height="90" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3"/>
+          <text x="960" y="558" font-size="38" fill="#F0B90B" text-anchor="middle">业绩费 20</text>
+        </g>
+        <path id="ye-l2" class="dr" pathLength="1" d="M960 590 L700 740" stroke="#B48EF0" stroke-width="3" fill="none"/>
+        <path id="ye-l3" class="dr" pathLength="1" d="M960 590 L1220 740" stroke="#B48EF0" stroke-width="3" fill="none"/>
+        <text id="ye-t10" class="h mono" x="1140" y="652" font-size="30" fill="#B48EF0">10%</text>
+        <g id="ye-recv" class="h">
+          <rect x="520" y="740" width="360" height="90" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+          <text x="700" y="797" font-size="34" fill="#B48EF0" text-anchor="middle">费用接收方 <tspan fill="#F0B90B">18</tspan></text>
+        </g>
+        <g id="ye-tre" class="h">
+          <rect x="1040" y="740" width="360" height="90" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+          <text x="1220" y="797" font-size="34" fill="#B48EF0" text-anchor="middle">协议国库 <tspan fill="#F0B90B">2</tspan></text>
+        </g>
+        <text id="ye-note" class="h" x="1860" y="1000" font-size="30" fill="#8a8f99" text-anchor="end">费率因金库而异</text>
+      </g>
+      <g id="ye-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">利润释放 <tspan font-size="28" font-weight="400" fill="#8a8f99">Profit unlocking</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">已确认利润逐步计入份额价格</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 title
+      IN("#ye-title", at(0, 0.05), 0.8, { y: 20 }, { y: 0 });
+      // L1 move title to top-right corner, strategy + two entrances
+      OUT("#ye-title", at(1, 0), 0.35);
+      IN("#ye-title2", at(1, 0.06), 0.5);
+      IN("#ye-s2", at(1, 0.1), 0.7, { scale: 0.9, svgOrigin: "960 635" }, { scale: 1, svgOrigin: "960 635" });
+      IN("#ye-person", at(1, 0.45), 0.6);
+      ARROW("#ye-ap", at(1, 0.5), 0.7);
+      IN("#ye-vault", at(1, 0.7), 0.6);
+      ARROW("#ye-a2", at(1, 0.78), 0.6);
+      // L2 allocator vault feeds three strategies; Debt Allocator tunes bars
+      OUT("#ye-person, #ye-ap", at(2, 0), 0.4);
+      IN("#ye-s1, #ye-s3", at(2, 0.1), 0.6);
+      ARROW("#ye-a1", at(2, 0.15), 0.6); ARROW("#ye-a3", at(2, 0.15), 0.6);
+      IN("#ye-bars", at(2, 0.3), 0.5);
+      IN("#ye-da", at(2, 0.45), 0.6, { x: 30 }, { x: 0 });
+      const tb = at(2, 0.65);
+      tl.to("#ye-b1", { attr: { width: 84 }, duration: 1.2, ease: "power2.inOut" }, tb);
+      tl.to("#ye-b2", { attr: { width: 126 }, duration: 1.2, ease: "power2.inOut" }, tb);
+      COUNT("#ye-p1", 40, 30, tb, 1.2); COUNT("#ye-p2", 35, 45, tb, 1.2);
+      // L3 report → profit unlock gradually
+      OUT("#ye-s1, #ye-s2, #ye-s3, #ye-a1, #ye-a2, #ye-a3, #ye-bars, #ye-da", at(3, 0), 0.4);
+      IN("#ye-term", at(3, 0.05), 0.5);
+      IN("#ye-rep", at(3, 0.1), 0.5);
+      IN("#ye-axes", at(3, 0.15), 0.5);
+      tl.fromTo("#ye-ramp", { strokeDashoffset: 1 }, { strokeDashoffset: 0.6, duration: 0.6, ease: "power2.out" }, at(3, 0.2));
+      ["#ye-d1", "#ye-d2", "#ye-d3", "#ye-d4", "#ye-d5"].forEach((s, k) => {
+        const t0 = at(3, 0.35) + k * 0.9;
+        IN(s, t0, 0.2);
+        tl.to(s, { attr: { x: 940, y: 300 }, duration: 0.7, ease: "power2.in" }, t0 + 0.15);
+        tl.to(s, { opacity: 0, duration: 0.15 }, t0 + 0.8);
+        tl.to("#ye-ramp", { strokeDashoffset: 0.6 - (k + 1) * 0.12, duration: 0.8, ease: "none" }, t0 + 0.1);
+      });
+      OUT("#ye-rep", at(3, 0.95), 0.3);
+      // L4 instant step vs ramp
+      OUT("#ye-term", at(4, 0), 0.4);
+      tl.to("#ye-ramp", { opacity: 0, duration: 0.3 }, at(4, 0.02));
+      DRAW("#ye-step", at(4, 0.08), 0.7);
+      IN("#ye-spec", at(4, 0.25), 0.6);
+      OUT("#ye-spec, #ye-step", at(4, 0.68), 0.35);
+      tl.to("#ye-ramp", { opacity: 1, duration: 0.4 }, at(4, 0.74));
+      IN("#ye-small", at(4, 0.8), 0.4);
+      // L5 fee tree
+      OUT("#ye-axes, #ye-ramp, #ye-small, #ye-vault", at(5, 0), 0.4);
+      IN("#ye-root", at(5, 0.08), 0.6, { y: -20 }, { y: 0 });
+      DRAW("#ye-l1", at(5, 0.22), 0.5);
+      IN("#ye-t20", at(5, 0.25), 0.4);
+      IN("#ye-fee", at(5, 0.3), 0.5);
+      DRAW("#ye-l2", at(5, 0.5), 0.5); DRAW("#ye-l3", at(5, 0.5), 0.5);
+      IN("#ye-t10", at(5, 0.4), 0.4);
+      IN("#ye-recv", at(5, 0.7), 0.5);
+      IN("#ye-tre", at(5, 0.85), 0.5);
+      // L6 note
+      IN("#ye-note", at(6, 0.05), 0.5);
+
+
+      tl.to("#ye-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ye-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["yearn"] = tl;
+    })();
+  </script>
+</template>

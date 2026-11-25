@@ -1,0 +1,177 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hwm，id 前缀 hw- -->
+  <div id="root" data-composition-id="hwm" data-duration="64.49" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="hw-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="hw-all">
+        <!-- L0/L1 intuition -->
+        <path id="hw-saw" class="dr" pathLength="1" d="M300 700 L550 480 L800 700 L1050 480 L1300 620 L1550 420" stroke="#F0B90B" stroke-width="5" fill="none" stroke-linejoin="round"/>
+        <g id="hw-dup">
+          <rect id="hw-r1" class="h" x="310" y="470" width="230" height="240" rx="10" fill="#FC6255" fill-opacity="0.08" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 6"/>
+          <text id="hw-r1l" class="h" x="425" y="450" font-size="30" fill="#FC6255" text-anchor="middle">收费</text>
+          <rect id="hw-r2" class="h" x="810" y="470" width="230" height="240" rx="10" fill="#FC6255" fill-opacity="0.08" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 6"/>
+          <text id="hw-r2l" class="h" x="925" y="450" font-size="30" fill="#FC6255" text-anchor="middle">收费</text>
+          <text id="hw-q" class="h" x="960" y="860" font-size="44" font-weight="700" fill="#FC6255" text-anchor="middle">重复收费？</text>
+        </g>
+        <g id="hw-int">
+          <line id="hw-hl0" class="dr" pathLength="1" x1="300" y1="480" x2="1600" y2="480" stroke="#83C167" stroke-width="4"/>
+          <text id="hw-hl0l" class="h" x="1620" y="490" font-size="30" fill="#83C167">高水位线</text>
+          <path id="hw-sh" class="h" d="M1475 480 L1550 420 L1550 480 Z" fill="#F0B90B" fill-opacity="0.75"/>
+          <text id="hw-shl" class="h" x="1585" y="395" font-size="28" fill="#F0B90B">只这部分收费</text>
+        </g>
+        <!-- L2+ chart -->
+        <g id="hw-chart">
+          <g id="hw-axes" class="h">
+            <path d="M300 880 L1500 880 M300 880 L300 320" stroke="#8a8f99" stroke-width="3" fill="none"/>
+            <text class="mono" x="285" y="830" font-size="28" fill="#8a8f99" text-anchor="end">1.00</text>
+            <text class="mono" x="285" y="670" font-size="28" fill="#8a8f99" text-anchor="end">1.05</text>
+            <text class="mono" x="285" y="510" font-size="28" fill="#8a8f99" text-anchor="end">1.10</text>
+            <text class="mono" x="285" y="350" font-size="28" fill="#8a8f99" text-anchor="end">1.15</text>
+            <text x="600" y="925" font-size="28" fill="#8a8f99" text-anchor="middle">报告 1</text>
+            <text x="850" y="925" font-size="28" fill="#8a8f99" text-anchor="middle">报告 2</text>
+            <text x="1100" y="925" font-size="28" fill="#8a8f99" text-anchor="middle">报告 3</text>
+            <text x="1350" y="925" font-size="28" fill="#8a8f99" text-anchor="middle">报告 4</text>
+          </g>
+          <text id="hw-fee" class="h" x="1860" y="130" font-size="32" fill="#F0B90B" text-anchor="end">业绩费 20%<tspan fill="#8a8f99">（示例）</tspan></text>
+          <line id="hw-wl" class="h" x1="350" y1="820" x2="1500" y2="820" stroke="#83C167" stroke-width="4"/>
+          <text id="hw-w0" class="h" x="1520" y="830" font-size="28" fill="#83C167">高水位 1.00</text>
+          <text id="hw-w1" class="h" x="1520" y="574" font-size="28" fill="#83C167">高水位 1.08</text>
+          <text id="hw-w2" class="h" x="1520" y="472" font-size="28" fill="#83C167">高水位 1.112</text>
+          <circle id="hw-p0" class="h" cx="350" cy="820" r="9" fill="#F0B90B"/>
+          <path id="hw-s1" class="dr" pathLength="1" d="M350 820 L600 500" stroke="#F0B90B" stroke-width="5" fill="none"/>
+          <circle id="hw-p1" class="h" cx="600" cy="500" r="9" fill="#F0B90B"/>
+          <line id="hw-b1" class="h" x1="622" y1="818" x2="622" y2="502" stroke="#F0B90B" stroke-width="7" stroke-opacity="0.8"/>
+          <text id="hw-b1l" class="h" x="640" y="670" font-size="30" fill="#F0B90B">超出 0.10</text>
+          <path id="hw-d1" class="dr" pathLength="1" d="M600 500 L600 564" stroke="#F0B90B" stroke-width="3" fill="none"/>
+          <text id="hw-n1" class="h" x="625" y="545" font-size="28" fill="#F0B90B">净价 1.08</text>
+          <path id="hw-s2" class="dr" pathLength="1" d="M600 564 L850 724" stroke="#F0B90B" stroke-width="5" fill="none"/>
+          <circle id="hw-p2" class="h" cx="850" cy="724" r="10" fill="#FC6255"/>
+          <text id="hw-p2l" class="h" x="850" y="775" font-size="30" fill="#FC6255" text-anchor="middle">不收</text>
+          <path id="hw-s3" class="dr" pathLength="1" d="M850 724 L1100 596" stroke="#F0B90B" stroke-width="5" fill="none"/>
+          <circle id="hw-p3" class="h" cx="1100" cy="596" r="10" fill="#8a8f99"/>
+          <text id="hw-p3l" class="h" x="1120" y="640" font-size="30" fill="#8a8f99">&lt; 1.08 不收</text>
+          <path id="hw-s4" class="dr" pathLength="1" d="M1100 596 L1350 436" stroke="#F0B90B" stroke-width="5" fill="none"/>
+          <circle id="hw-p4" class="h" cx="1350" cy="436" r="9" fill="#F0B90B"/>
+          <line id="hw-b2" class="h" x1="1372" y1="562" x2="1372" y2="438" stroke="#F0B90B" stroke-width="7" stroke-opacity="0.8"/>
+          <text id="hw-b2l" class="h" x="1390" y="510" font-size="30" fill="#F0B90B">超出 0.04</text>
+          <path id="hw-d2" class="dr" pathLength="1" d="M1350 436 L1350 462" stroke="#F0B90B" stroke-width="3" fill="none"/>
+          <text id="hw-n2" class="h" x="1375" y="425" font-size="28" fill="#F0B90B">净价 1.112</text>
+          <text id="hw-c1" class="h mono" x="960" y="250" font-size="40" fill="#F0B90B" text-anchor="middle">0.10 × 20% = 0.02</text>
+          <g id="hw-ghost" class="h">
+            <text x="960" y="250" font-size="36" fill="#8a8f99" text-anchor="middle">无水位线：0.04 × 20% = 0.008</text>
+          </g>
+          <line id="hw-gx" class="dr h" pathLength="1" x1="700" y1="238" x2="1220" y2="238" stroke="#FC6255" stroke-width="4"/>
+          <text id="hw-c3" class="h mono" x="960" y="250" font-size="40" fill="#F0B90B" text-anchor="middle">0.04 × 20% = 0.008</text>
+          <g id="hw-old" class="h">
+            <circle cx="430" cy="398" r="16" fill="none" stroke="#83C167" stroke-width="4"/>
+            <path d="M430 414 L430 444 M410 428 L450 428 M430 444 L414 460 M430 444 L446 460" stroke="#83C167" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M478 392 L500 400 L500 418 Q500 432 478 440 Q456 432 456 418 L456 400 Z" fill="#83C167" fill-opacity="0.3" stroke="#83C167" stroke-width="3"/>
+            <text x="516" y="428" font-size="30" fill="#83C167">老用户</text>
+          </g>
+          <g id="hw-new" class="h">
+            <circle cx="850" cy="756" r="14" fill="none" stroke="#e8e6df" stroke-width="4"/>
+            <path d="M850 770 L850 796 M834 782 L866 782 M850 796 L838 812 M850 796 L862 812" stroke="#e8e6df" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <text x="885" y="800" font-size="30" fill="#e8e6df">新用户 · <tspan fill="#83C167">暂不收费</tspan></text>
+          </g>
+          <text id="hw-note" class="h" x="1860" y="1010" font-size="28" fill="#8a8f99" text-anchor="end">实现方式因金库而异</text>
+        </g>
+      </g>
+      <g id="hw-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">高水位线 <tspan font-size="28" font-weight="400" fill="#8a8f99">High-water mark</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">只对创出新高的部分收费</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 sawtooth, same rise charged twice
+      DRAW("#hw-saw", at(0, 0.02), 1.4);
+      IN("#hw-r1, #hw-r1l", at(0, 0.3), 0.4);
+      IN("#hw-r2, #hw-r2l", at(0, 0.5), 0.4);
+      IN("#hw-q", at(0, 0.7), 0.5);
+      // L1 high-water line
+      OUT("#hw-dup", at(1, 0), 0.4);
+      IN("#hw-term", at(1, 0.15), 0.5);
+      DRAW("#hw-hl0", at(1, 0.2), 0.8);
+      IN("#hw-hl0l", at(1, 0.35), 0.4);
+      IN("#hw-sh", at(1, 0.65), 0.5);
+      IN("#hw-shl", at(1, 0.7), 0.4);
+      // L2 axes + start
+      OUT("#hw-saw, #hw-int", at(2, 0), 0.4);
+      IN("#hw-axes", at(2, 0.08), 0.5);
+      IN("#hw-fee", at(2, 0.25), 0.5);
+      IN("#hw-p0", at(2, 0.5), 0.3);
+      IN("#hw-wl", at(2, 0.7), 0.4); IN("#hw-w0", at(2, 0.72), 0.4);
+      OUT("#hw-term", at(2, 0.3), 0.4);
+      // L3 report 1
+      DRAW("#hw-s1", at(3, 0.05), 0.8); IN("#hw-p1", at(3, 0.12), 0.3);
+      IN("#hw-b1, #hw-b1l", at(3, 0.22), 0.4);
+      IN("#hw-c1", at(3, 0.38), 0.5);
+      OUT("#hw-b1, #hw-b1l", at(3, 0.62), 0.3);
+      tl.to("#hw-p1", { attr: { cy: 564 }, duration: 0.5, ease: "power2.in" }, at(3, 0.66));
+      DRAW("#hw-d1", at(3, 0.66), 0.5);
+      IN("#hw-n1", at(3, 0.72), 0.4);
+      OUT("#hw-w0", at(3, 0.84), 0.2);
+      tl.to("#hw-wl", { attr: { y1: 564, y2: 564 }, duration: 0.7, ease: "power2.inOut" }, at(3, 0.84));
+      IN("#hw-w1", at(3, 0.84) + 0.6, 0.3);
+      // L4 report 2 & 3: below line, no fee; ghost fee crossed out
+      OUT("#hw-n1, #hw-c1", at(4, 0), 0.3);
+      DRAW("#hw-s2", at(4, 0.03), 0.7); IN("#hw-p2", at(4, 0.08), 0.3);
+      IN("#hw-p2l", at(4, 0.12), 0.4);
+      DRAW("#hw-s3", at(4, 0.36), 0.7); IN("#hw-p3", at(4, 0.41), 0.3);
+      IN("#hw-p3l", at(4, 0.45), 0.4);
+      IN("#hw-ghost", at(4, 0.6), 0.5);
+      IN("#hw-gx", at(4, 0.8), 0.2); DRAW("#hw-gx", at(4, 0.8), 0.4);
+      tl.fromTo("#hw-ghost", { scale: 1.12, svgOrigin: "960 238" }, { scale: 1, svgOrigin: "960 238", duration: 0.6, ease: "back.out(2)", immediateRender: false }, at(4, 0.88));
+      tl.to("#hw-ghost text", { fill: "#6b6f7a", duration: 0.5 }, at(4, 0.88));
+      // L5 report 4
+      OUT("#hw-ghost, #hw-gx, #hw-p3l", at(5, 0), 0.3);
+      DRAW("#hw-s4", at(5, 0.04), 0.7); IN("#hw-p4", at(5, 0.12), 0.3);
+      IN("#hw-b2, #hw-b2l", at(5, 0.2), 0.4);
+      IN("#hw-c3", at(5, 0.35), 0.5);
+      OUT("#hw-b2, #hw-b2l", at(5, 0.6), 0.3);
+      tl.to("#hw-p4", { attr: { cy: 462 }, duration: 0.4, ease: "power2.in" }, at(5, 0.64));
+      DRAW("#hw-d2", at(5, 0.64), 0.4);
+      IN("#hw-n2", at(5, 0.68), 0.4);
+      OUT("#hw-w1", at(5, 0.78), 0.2);
+      tl.to("#hw-wl", { attr: { y1: 462, y2: 462 }, duration: 0.6, ease: "power2.inOut" }, at(5, 0.78));
+      IN("#hw-w2", at(5, 0.78) + 0.5, 0.3);
+      // L6 old vs new users
+      OUT("#hw-c3, #hw-p2l, #hw-n2", at(6, 0), 0.3);
+      IN("#hw-old", at(6, 0.05), 0.5, { y: -15 }, { y: 0 });
+      IN("#hw-new", at(6, 0.4), 0.5, { y: 15 }, { y: 0 });
+      IN("#hw-note", at(6, 0.75), 0.5);
+
+
+      tl.to("#hw-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#hw-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["hwm"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,181 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pool，id 前缀 po- -->
+  <div id="root" data-composition-id="pool" data-duration="50.42" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="po-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="po-all">
+
+        <defs><clipPath id="po-clip"><path d="M782 430 L782 690 A178 40 0 0 0 1138 690 L1138 430 Z" /></clipPath></defs>
+        <g id="po-pool" class="h">
+          <g id="po-cyl" >
+          <path d="M780 430 L780 690 A180 40 0 0 0 1140 690 L1140 430" fill="#161a22" stroke="#58C4DD" stroke-width="4" />
+          <ellipse cx="960" cy="430" rx="180" ry="40" fill="#1b2230" stroke="#58C4DD" stroke-width="4" />
+        </g>
+          <rect id="po-water" clip-path="url(#po-clip)" x="780" y="612" width="360" height="120" fill="#F0B90B" opacity="0.55" />
+          <ellipse cx="960" cy="430" rx="180" ry="40" fill="none" stroke="#58C4DD" stroke-width="4" />
+          <text x="960" y="790" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">资金池</text>
+        </g>
+        <g id="po-dep" class="h">
+          <circle cx="300" cy="500" r="30" fill="none" stroke="#8a8f99" stroke-width="4" />
+          <path d="M252 610 Q300 520 348 610 Z" fill="none" stroke="#8a8f99" stroke-width="4" />
+          <text x="300" y="660" font-size="32" fill="#e8e6df" text-anchor="middle">存款人</text>
+        </g>
+        <g id="po-bor" class="h">
+          <circle cx="1620" cy="500" r="30" fill="none" stroke="#8a8f99" stroke-width="4" />
+          <path d="M1572 610 Q1620 520 1668 610 Z" fill="none" stroke="#8a8f99" stroke-width="4" />
+          <text x="1620" y="660" font-size="32" fill="#e8e6df" text-anchor="middle">借款人</text>
+        </g>
+        <path id="po-a-dep" class="dr h" pathLength="1" d="M370 545 L770 545" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#po-arr)" />
+        <text id="po-l-dep" class="h" x="570" y="525" font-size="28" fill="#F0B90B" text-anchor="middle">USDC</text>
+        <g id="po-rcpt" class="h">
+          <rect x="660" y="580" width="110" height="50" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="715" y="615" font-size="28" fill="#58C4DD" text-anchor="middle">凭证</text>
+        </g>
+        <g id="po-vault" class="h">
+          <rect id="po-vbox" x="1230" y="600" width="160" height="100" rx="10" fill="#1d1a10" stroke="#F0B90B" stroke-width="4" />
+          <text x="1310" y="662" font-size="28" fill="#F0B90B" text-anchor="middle">抵押品</text>
+        </g>
+        <g id="po-ethc" class="h">
+          <circle cx="1560" cy="560" r="22" fill="#2a2410" stroke="#F0B90B" stroke-width="4" />
+        </g>
+        <path id="po-a-bor" class="dr h" pathLength="1" d="M1150 470 L1570 470" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#po-arr)" />
+        <text id="po-l-bor" class="h" x="1360" y="450" font-size="28" fill="#F0B90B" text-anchor="middle">USDC</text>
+        <g id="po-bars" class="h">
+          <text x="1275" y="748" font-size="28" fill="#F0B90B" text-anchor="middle">抵押</text>
+          <text x="1355" y="788" font-size="28" fill="#e8e6df" text-anchor="middle">借款</text>
+          <rect id="po-b1" x="1250" y="762" width="50" height="200" fill="#F0B90B" />
+          <rect id="po-b2" x="1330" y="802" width="50" height="160" fill="none" stroke="#F0B90B" stroke-width="3" />
+          <text x="1275" y="1000" font-size="28" fill="#F0B90B" text-anchor="middle">100</text>
+          <text x="1355" y="1000" font-size="28" fill="#F0B90B" text-anchor="middle">80</text>
+          <text x="1420" y="962" font-size="28" fill="#6b6f7a">示例</text>
+        </g>
+        <path id="po-i1" class="dr h" pathLength="1" d="M1600 440 Q1300 320 1000 382" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#po-arr)" />
+        <path id="po-i2" class="dr h" pathLength="1" d="M920 382 Q620 320 330 445" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#po-arr)" />
+        <text id="po-l-int" class="h" x="960" y="310" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">利息</text>
+        <g id="po-scale" class="h">
+          <path d="M752 430 L752 690" stroke="#8a8f99" stroke-width="3" />
+          <path d="M742 430 L752 430 M742 560 L752 560 M742 690 L752 690" stroke="#8a8f99" stroke-width="3" />
+          <text x="725" y="470" font-size="32" fill="#e8e6df" text-anchor="end">利用率 U</text>
+          <text id="po-u" x="725" y="560" font-size="56" font-weight="700" fill="#F0B90B" text-anchor="end">30%</text>
+        </g>
+        <g id="po-thermo" class="h">
+          <rect x="400" y="430" width="40" height="270" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <circle cx="420" cy="725" r="32" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <circle id="po-bulb" cx="420" cy="725" r="22" fill="#58C4DD" />
+          <rect id="po-merc" x="410" y="620" width="20" height="100" fill="#58C4DD" />
+          <text x="420" y="810" font-size="28" fill="#e8e6df" text-anchor="middle">借款利率</text>
+        </g>
+        <g id="po-apr" class="h">
+          <rect x="1340" y="850" width="480" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <text x="1370" y="893" font-size="30" fill="#58C4DD"><tspan font-weight="700">APR</tspan>  单利年化</text>
+        </g>
+        <g id="po-apy" class="h">
+          <rect x="1340" y="934" width="480" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <text x="1370" y="977" font-size="30" fill="#58C4DD"><tspan font-weight="700">APY</tspan>  含复利</text>
+        </g>
+        <g id="po-orc" class="h">
+          <rect id="po-orect" x="1170" y="230" width="280" height="70" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text id="po-otext" x="1310" y="276" font-size="28" fill="#FF9F43" text-anchor="middle">预言机 ETH/USD</text>
+        </g>
+        <path id="po-oline" class="dr" pathLength="1" d="M1310 302 L1310 596" stroke="#FF9F43" stroke-width="3" fill="none" />
+        <text id="po-wrong" class="h" x="1310" y="770" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">价格错 → 清算错</text>
+        <g id="po-term2" class="h">
+          <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">利用率 <tspan font-size="28" font-weight="400" fill="#8a8f99">Utilization</tspan></text>
+          <text x="100" y="160" font-size="28" fill="#e8e6df">已借出 ÷ 池子总额</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="po-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">超额抵押 <tspan font-size="28" font-weight="400" fill="#8a8f99">Over-collateralization</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">借款价值低于抵押品价值</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // L0 资金池
+      IN("#po-pool", at(0, 0.05), 0.8, { scale: 0.85, svgOrigin: "960 560" }, { scale: 1, svgOrigin: "960 560" });
+      // L1 存款人 / 借款人
+      IN("#po-dep", at(1, 0.0), 0.5);
+      ARROW("#po-a-dep", at(1, 0.06), 0.7);
+      IN("#po-l-dep", at(1, 0.12), 0.4);
+      IN("#po-rcpt", at(1, 0.3), 0.3);
+      tl.fromTo("#po-rcpt", { x: 0 }, { x: -290, duration: 0.9, ease: "power2.inOut", immediateRender: false }, at(1, 0.3));
+      IN("#po-bor", at(1, 0.48), 0.5);
+      IN("#po-vault", at(1, 0.55), 0.4);
+      IN("#po-ethc", at(1, 0.58), 0.3);
+      tl.to("#po-ethc", { x: -250, y: 90, duration: 0.8, ease: "power2.inOut" }, at(1, 0.6));
+      tl.to("#po-ethc", { opacity: 0, duration: 0.2 }, at(1, 0.6) + 0.8);
+      tl.to("#po-vbox", { fill: "#3a3010", duration: 0.3 }, at(1, 0.6) + 0.8);
+      ARROW("#po-a-bor", at(1, 0.8), 0.7);
+      IN("#po-l-bor", at(1, 0.86), 0.4);
+      // L2 超额抵押
+      IN("#po-term", at(2, 0.0), 0.5);
+      IN("#po-bars", at(2, 0.25), 0.4);
+      tl.from("#po-b1", { attr: { y: 962, height: 0 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(2, 0.3));
+      tl.from("#po-b2", { attr: { y: 962, height: 0 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(2, 0.45));
+      tl.to("#po-bars", { opacity: 0.35, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.8));
+      tl.to("#po-b1", { fill: "#ffd24a", duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.55));
+      OUT("#po-term", at(3, 0.15), 0.4);
+      // L3 利息流
+      ARROW("#po-i1", at(3, 0.05), 0.8);
+      IN("#po-l-int", at(3, 0.2), 0.4);
+      ARROW("#po-i2", at(3, 0.5), 0.8);
+      // L4 利用率：清掉两侧，只留借款人、抵押品
+      OUT("#po-dep, #po-a-dep, #po-l-dep, #po-rcpt, #po-bars, #po-i1, #po-i2, #po-l-int, #po-a-bor, #po-l-bor", at(4, 0.0), 0.4);
+      IN("#po-term2", at(4, 0.08), 0.5);
+      IN("#po-scale", at(4, 0.1), 0.5);
+      IN("#po-thermo", at(4, 0.25), 0.5);
+      tl.to("#po-water", { attr: { y: 469, height: 260 }, duration: 3.2, ease: "power1.inOut" }, at(4, 0.3));
+      COUNT("#po-u", 30, 85, at(4, 0.3), 3.2, v => Math.round(v) + "%");
+      tl.to("#po-merc", { attr: { y: 450, height: 270 }, fill: "#FC6255", duration: 3.2, ease: "power1.inOut" }, at(4, 0.3));
+      tl.to("#po-bulb", { fill: "#FC6255", duration: 3.2, ease: "power1.inOut" }, at(4, 0.3));
+      OUT("#po-term2", at(5, 0.4), 0.4);
+      // L5 APR / APY
+      IN("#po-apr", at(5, 0.05), 0.5, { x: 30 }, { x: 0 });
+      IN("#po-apy", at(5, 0.45), 0.5, { x: 30 }, { x: 0 });
+      // L6 预言机
+      IN("#po-orc", at(6, 0.02), 0.5, { y: -20 }, { y: 0 });
+      DRAW("#po-oline", at(6, 0.12), 0.6);
+      tl.to("#po-orect", { stroke: "#FC6255", fill: "#2a1616", duration: 0.15, yoyo: true, repeat: 3 }, at(6, 0.42));
+      tl.to("#po-orect", { stroke: "#FC6255", duration: 0.2 }, at(6, 0.42) + 0.65);
+      tl.to("#po-otext, #po-oline", { fill: "#FC6255", stroke: "#FC6255", duration: 0.2 }, at(6, 0.42) + 0.65);
+      tl.to("#po-vbox", { stroke: "#FC6255", duration: 0.4 }, at(6, 0.5));
+      IN("#po-wrong", at(6, 0.58), 0.5);
+      tl.to("#po-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+
+
+      tl.to("#po-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#po-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["pool"] = tl;
+    })();
+  </script>
+</template>

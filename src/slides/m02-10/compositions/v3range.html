@@ -1,0 +1,173 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 v3range，id 前缀 ve- -->
+  <div id="root" data-composition-id="v3range" data-duration="69.71" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ve-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ve-all">
+        <g id="ve-axg">
+          <line id="ve-ax" class="h" x1="160" y1="700" x2="1760" y2="700" stroke="#8a8f99" stroke-width="3"/>
+          <rect id="ve-band" class="h" x="608" y="630" width="405" height="70" fill="#83C167" fill-opacity="0.3" stroke="#83C167" stroke-width="2"/>
+          <text id="ve-l1" class="h mono" x="608" y="745" font-size="28" fill="#8a8f99" text-anchor="middle" xml:space="preserve">2,700</text>
+          <text id="ve-l2" class="h mono" x="1013" y="745" font-size="28" fill="#8a8f99" text-anchor="middle" xml:space="preserve">3,333</text>
+          <text id="ve-l3" class="h mono" x="1440" y="745" font-size="28" fill="#FF9F43" text-anchor="middle" xml:space="preserve">4,000</text>
+          <g id="ve-ptr" class="h"><path d="M786 600 L814 600 L800 622 Z" fill="#e8e6df"/><text x="800" y="588" font-size="28" fill="#e8e6df" text-anchor="middle">价格</text></g>
+          <path id="ve-drag" class="dr h" pathLength="1" d="M800 785 L470 785" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#ve-arr)"/>
+          <text id="ve-dragl" class="h" x="640" y="835" font-size="30" fill="#FF9F43" text-anchor="middle">再平衡</text>
+          <text id="ve-q" class="h" x="160" y="150" font-size="40" fill="#e8e6df">区间 [2,700, 3,333]，ETH 涨到 4,000？</text>
+          <text id="ve-ans" class="h" x="160" y="210" font-size="36" fill="#FF9F43">全是 USDC，不赚费</text>
+          <g id="ve-liq" class="h"><text x="1500" y="562" font-size="32" fill="#8a8f99">清算？</text><path d="M1612 538 L1640 566 M1640 538 L1612 566" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/></g>
+        </g>
+        <g id="ve-card" class="h"><g id="ve-cardin">
+          <rect x="560" y="230" width="800" height="250" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+          <text x="600" y="292" font-size="32" fill="#e8e6df">仓位</text>
+          <rect id="ve-be" x="600" y="320" width="360" height="60" fill="#F0B90B"/>
+          <rect id="ve-bu" x="960" y="320" width="360" height="60" fill="none" stroke="#F0B90B" stroke-width="3"/>
+          <text x="600" y="440" font-size="30" fill="#F0B90B">ETH <tspan id="ve-pe">50</tspan>%</text>
+          <text x="1320" y="440" font-size="30" fill="#F0B90B" text-anchor="end">USDC <tspan id="ve-pu">50</tspan>%</text>
+        </g></g>
+        <text id="ve-on" class="h" x="1320" y="292" font-size="30" fill="#83C167" text-anchor="end">赚手续费</text>
+        <text id="ve-off" class="h" x="1320" y="292" font-size="30" fill="#8a8f99" text-anchor="end">不赚费</text>
+        <text id="ve-f0" class="h" x="1400" y="440" font-size="28" fill="#F0B90B">+手续费</text>
+        <text id="ve-f1" class="h" x="1400" y="440" font-size="28" fill="#F0B90B">+手续费</text>
+        <g id="ve-nft" class="h"><g id="ve-nftin">
+          <rect x="560" y="230" width="800" height="250" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="600" y="295" font-size="34" fill="#e8e6df" font-weight="700">仓位 NFT</text>
+          <text class="mono" x="1320" y="295" font-size="28" fill="#8a8f99" text-anchor="end" xml:space="preserve">ERC-721</text>
+          <text x="600" y="360" font-size="32" fill="#e8e6df">区间 2,700 – 3,333</text>
+          <rect id="ve-btn" x="600" y="392" width="360" height="62" rx="31" fill="#F0B90B" fill-opacity="0" stroke="#F0B90B" stroke-width="3"/>
+          <text x="780" y="434" font-size="30" fill="#F0B90B" text-anchor="middle">手续费：待领取</text>
+        </g></g>
+        <text id="ve-claim" class="h" x="1400" y="380" font-size="30" fill="#F0B90B">手动领取</text>
+        <circle id="ve-coin" class="h" cx="960" cy="423" r="16" fill="#F0B90B"/>
+        <g id="ve-cmp" class="h">
+          <line x1="160" y1="470" x2="1760" y2="470" stroke="#8a8f99" stroke-width="3"/>
+          <line x1="160" y1="850" x2="1760" y2="850" stroke="#8a8f99" stroke-width="3"/>
+          <text x="160" y="430" font-size="30" fill="#e8e6df">窄区间</text>
+          <text x="160" y="810" font-size="30" fill="#e8e6df">宽区间</text>
+          <rect id="ve-na" x="880" y="320" width="160" height="150" fill="#83C167" fill-opacity="0.4" stroke="#83C167" stroke-width="2"/>
+          <rect id="ve-wa" x="400" y="790" width="1120" height="60" fill="#83C167" fill-opacity="0.3" stroke="#83C167" stroke-width="2"/>
+          <path id="ve-pa" d="M946 290 L974 290 L960 312 Z" fill="#e8e6df"/>
+          <path id="ve-pb" d="M946 760 L974 760 L960 782 Z" fill="#e8e6df"/>
+        </g>
+        <text id="ve-nred" class="h" x="960" y="535" font-size="30" fill="#FC6255" text-anchor="middle">出区间 · IL 放大 · 频繁再平衡 Gas</text>
+        <text id="ve-wok" class="h" x="960" y="915" font-size="30" fill="#83C167" text-anchor="middle">一直在区间内</text>
+        <g id="ve-pie" class="h"><path d="M520 560 L693.2 460.0 A200 200 0 1 1 520.0 360.0 Z" fill="#F0B90B" fill-opacity="0.85"/><path d="M520 560 L520.0 360.0 A200 200 0 0 1 693.2 460.0 Z" fill="#8a8f99" fill-opacity="0.6"/></g>
+        <text id="ve-piel" class="h" x="520" y="840" font-size="30" fill="#F0B90B" text-anchor="middle">专业做市 · 自动化金库</text>
+        <text id="ve-piel2" class="h" x="740" y="382" font-size="30" fill="#8a8f99">普通 LP</text>
+        <g id="ve-bot" class="h"><line x1="800" y1="540" x2="800" y2="560" stroke="#F0B90B" stroke-width="3"/><circle cx="800" cy="536" r="5" fill="#F0B90B"/><rect x="760" y="560" width="80" height="60" rx="10" fill="none" stroke="#F0B90B" stroke-width="3"/><circle cx="785" cy="588" r="6" fill="#F0B90B"/><circle cx="815" cy="588" r="6" fill="#F0B90B"/></g>
+        <g id="ve-rul" class="h"><line x1="1000" y1="640" x2="1800" y2="640" stroke="#8a8f99" stroke-width="3"/><line id="ve-t0" x1="1040" y1="608" x2="1040" y2="640" stroke="#58C4DD" stroke-width="4"/><line id="ve-t1" x1="1120" y1="608" x2="1120" y2="640" stroke="#58C4DD" stroke-width="4"/><line id="ve-t2" x1="1200" y1="608" x2="1200" y2="640" stroke="#58C4DD" stroke-width="4"/><line id="ve-t3" x1="1280" y1="608" x2="1280" y2="640" stroke="#58C4DD" stroke-width="4"/><line id="ve-t4" x1="1360" y1="608" x2="1360" y2="640" stroke="#58C4DD" stroke-width="4"/><line id="ve-t5" x1="1440" y1="608" x2="1440" y2="640" stroke="#58C4DD" stroke-width="4"/><line id="ve-t6" x1="1520" y1="608" x2="1520" y2="640" stroke="#58C4DD" stroke-width="4"/><line id="ve-t7" x1="1600" y1="608" x2="1600" y2="640" stroke="#58C4DD" stroke-width="4"/><line id="ve-t8" x1="1680" y1="608" x2="1680" y2="640" stroke="#58C4DD" stroke-width="4"/><line id="ve-t9" x1="1760" y1="608" x2="1760" y2="640" stroke="#58C4DD" stroke-width="4"/></g>
+        <path id="ve-ord" class="dr" pathLength="1" d="M1000 575 L1790 575" stroke="#F0B90B" stroke-width="10" stroke-linecap="round" fill="none"/>
+        <text id="ve-cnt" class="h" x="1040" y="720" font-size="30" fill="#e8e6df">跨越 tick：<tspan id="ve-cn" class="mono">0</tspan></text>
+        <text id="ve-gasl" class="h mono" x="1040" y="800" font-size="30" fill="#FC6255" xml:space="preserve">Gas</text>
+        <rect id="ve-gas" class="h" x="1120" y="776" width="0" height="32" rx="6" fill="#FC6255"/>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const EB = (e, t, d) => {
+        tl.to("#ve-be", { attr: { width: 720 * e }, duration: d, ease: "none" }, t);
+        tl.to("#ve-bu", { attr: { x: 600 + 720 * e, width: 720 * (1 - e) }, duration: d, ease: "none" }, t);
+      };
+      const PCT = (a, b, t, d) => { COUNT("#ve-pe", a, b, t, d); COUNT("#ve-pu", 100 - a, 100 - b, t, d); };
+      const POP = (s, t) => {
+        tl.fromTo(s, { opacity: 0, attr: { y: 440 } }, { opacity: 1, attr: { y: 400 }, duration: 0.4, immediateRender: false }, t);
+        tl.to(s, { opacity: 0, attr: { y: 360 }, duration: 0.5 }, t + 0.6);
+      };
+      const PX = (x, t, d, ease = "power1.inOut") => tl.to("#ve-ptr", { x, duration: d, ease }, t);
+      const ON = (t) => { OUT("#ve-off", t, 0.2); IN("#ve-on", t + 0.2, 0.3); tl.to("#ve-band", { attr: { fill: "#83C167", stroke: "#83C167" }, duration: 0.3 }, t); };
+      const OFF = (t) => { OUT("#ve-on", t, 0.2); IN("#ve-off", t + 0.2, 0.3); tl.to("#ve-band", { attr: { fill: "#8a8f99", stroke: "#8a8f99" }, duration: 0.3 }, t); };
+      // L0
+      IN("#ve-ax", at(0, 0), 0.4); IN("#ve-band", at(0, 0.08), 0.5); IN("#ve-l1, #ve-l2", at(0, 0.12), 0.4);
+      IN("#ve-ptr", at(0, 0.2), 0.4);
+      IN("#ve-card", at(0, 0.32), 0.5);
+      IN("#ve-on", at(0, 0.7), 0.4);
+      POP("#ve-f0", at(0, 0.72)); POP("#ve-f1", at(0, 0.9));
+      // L1 price rises through the range
+      PX(213, at(1, 0.1), 4.5); EB(0, at(1, 0.1), 4.5); PCT(50, 0, at(1, 0.1), 4.5);
+      POP("#ve-f0", at(1, 0.15)); POP("#ve-f1", at(1, 0.32));
+      PX(400, at(1, 0.66), 0.8);
+      OFF(at(1, 0.68));
+      // L2 price falls through the range, then rebalance
+      PX(213, at(2, 0.0), 0.6);
+      ON(at(2, 0.05));
+      PX(-192, at(2, 0.08), 1.6); EB(1, at(2, 0.08), 1.6); PCT(0, 100, at(2, 0.08), 1.6);
+      OFF(at(2, 0.28));
+      PX(-350, at(2, 0.28), 0.6);
+      OUT("#ve-l1, #ve-l2", at(2, 0.55), 0.3);
+      ARROW("#ve-drag", at(2, 0.6), 0.6); IN("#ve-dragl", at(2, 0.62), 0.4);
+      tl.to("#ve-band", { attr: { x: 248 }, duration: 0.9, ease: "power2.inOut" }, at(2, 0.66));
+      ON(at(2, 0.74)); EB(0.5, at(2, 0.74), 0.6); PCT(100, 50, at(2, 0.74), 0.6);
+      // L3 quiz: rises to 4,000
+      OUT("#ve-drag, #ve-dragl", at(3, 0), 0.3);
+      tl.to("#ve-band", { attr: { x: 608 }, duration: 0.6, ease: "power2.inOut" }, at(3, 0));
+      PX(0, at(3, 0), 0.6);
+      IN("#ve-l1, #ve-l2", at(3, 0.06), 0.4);
+      IN("#ve-q", at(3, 0.04), 0.5);
+      IN("#ve-l3", at(3, 0.24), 0.4);
+      PX(640, at(3, 0.3), 1.6); EB(0, at(3, 0.3), 0.8); PCT(50, 0, at(3, 0.3), 0.8);
+      OFF(at(3, 0.34));
+      IN("#ve-ans", at(3, 0.44), 0.5);
+      IN("#ve-liq", at(3, 0.72), 0.5);
+      // L4 NFT
+      OUT("#ve-ax, #ve-band, #ve-l1, #ve-l2, #ve-l3, #ve-ptr, #ve-q, #ve-ans, #ve-liq, #ve-off, #ve-on", at(4, 0), 0.4);
+      tl.to("#ve-cardin", { scaleX: 0, svgOrigin: "960 355", duration: 0.35, ease: "power2.in" }, at(4, 0.1));
+      tl.set("#ve-card", { opacity: 0 }, at(4, 0.1) + 0.36);
+      tl.fromTo("#ve-nft", { opacity: 0 }, { opacity: 1, duration: 0.01 }, at(4, 0.1) + 0.36);
+      tl.fromTo("#ve-nftin", { scaleX: 0, svgOrigin: "960 355" }, { scaleX: 1, svgOrigin: "960 355", duration: 0.35, ease: "power2.out", immediateRender: false }, at(4, 0.1) + 0.36);
+      tl.to("#ve-btn", { attr: { "fill-opacity": 0.3 }, duration: 0.3, yoyo: true, repeat: 3 }, at(4, 0.72));
+      IN("#ve-claim", at(4, 0.4), 0.4);
+      tl.fromTo("#ve-coin", { opacity: 0, attr: { cx: 960, cy: 423 } }, { opacity: 1, attr: { cx: 1500, cy: 423 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(4, 0.74));
+      // L5 narrow vs wide
+      OUT("#ve-nft, #ve-claim, #ve-coin", at(5, 0), 0.4);
+      IN("#ve-cmp", at(5, 0.04), 0.6);
+      tl.to("#ve-pa, #ve-pb", { x: 120, duration: 0.8, ease: "power1.inOut" }, at(5, 0.18));
+      tl.to("#ve-pa, #ve-pb", { x: 300, duration: 1.0, ease: "power1.inOut" }, at(5, 0.3));
+      tl.to("#ve-na", { attr: { fill: "#FC6255", stroke: "#FC6255" }, duration: 0.3 }, at(5, 0.36));
+      IN("#ve-nred", at(5, 0.5), 0.5);
+      IN("#ve-wok", at(5, 0.78), 0.5);
+      // L6 professional LPs + gas per tick
+      OUT("#ve-cmp, #ve-nred, #ve-wok", at(6, 0), 0.4);
+      IN("#ve-pie", at(6, 0.06), 0.7, { scale: 0.85, svgOrigin: "520 560" }, { scale: 1, svgOrigin: "520 560" });
+      IN("#ve-piel", at(6, 0.18), 0.5); IN("#ve-bot", at(6, 0.2), 0.5); IN("#ve-piel2", at(6, 0.26), 0.5);
+      IN("#ve-rul", at(6, 0.56), 0.5);
+      IN("#ve-cnt, #ve-gasl, #ve-gas", at(6, 0.6), 0.4);
+      const t0 = at(6, 0.64), dd = 2.6;
+      tl.set("#ve-ord", { opacity: 1 }, t0); DRAW("#ve-ord", t0, dd);
+      for (let k = 0; k < 10; k++) {
+        const tk = t0 + dd * (40 + 80 * k) / 790;
+        tl.to(`#ve-t${k}`, { attr: { stroke: "#FF9F43" }, duration: 0.12 }, tk);
+      }
+      tl.to("#ve-gas", { attr: { width: 600 }, duration: dd, ease: "none" }, t0);
+      COUNT("#ve-cn", 0, 10, t0, dd, v => Math.floor(v));
+
+      tl.to("#ve-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["v3range"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,174 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 modes，id 前缀 mo- -->
+  <div id="root" data-composition-id="modes" data-duration="74.32" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="mo-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="mo-all">
+        <defs><clipPath id="mo-cap"><rect x="990" y="486" width="380" height="334"/></clipPath></defs>
+        <g id="mo-cages">
+          <g id="mo-k1" class="h"><rect class="cg" x="70" y="360" width="380" height="460" rx="20" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="14 8"/><text x="260" y="878" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">隔离模式</text></g>
+          <g id="mo-k2" class="h"><rect id="mo-k2r" class="cg" x="530" y="360" width="380" height="460" rx="20" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="14 8"/><text x="720" y="878" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">E-mode</text></g>
+          <g id="mo-k3" class="h"><rect class="cg" x="990" y="360" width="380" height="460" rx="20" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="14 8"/><text x="1180" y="878" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">存借上限</text></g>
+          <g id="mo-k4" class="h"><rect class="cg" x="1450" y="360" width="380" height="460" rx="20" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="14 8"/><text x="1640" y="878" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">多预言机</text></g>
+          <!-- 笼 1 -->
+          <g id="mo-c1" class="h">
+            <rect x="170" y="400" width="180" height="180" rx="14" fill="none" stroke="#FC6255" stroke-width="2" opacity="0.6"/>
+            <circle cx="260" cy="490" r="56" fill="#161a22" stroke="#FC6255" stroke-width="5"/>
+            <text x="260" y="500" font-size="28" fill="#FC6255" text-anchor="middle">新资产</text>
+          </g>
+          <line id="mo-c1l" class="dr" pathLength="1" x1="260" y1="582" x2="260" y2="700" stroke="#F0B90B" stroke-width="3"/>
+          <text id="mo-c1lt" class="h" x="280" y="650" font-size="28" fill="#F0B90B">限额</text>
+          <g id="mo-c1u" class="h"><circle cx="260" cy="746" r="46" fill="#F0B90B"/><text class="mono" x="260" y="756" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">USDC</text></g>
+          <text id="mo-cost1" class="h" x="260" y="930" font-size="30" fill="#FF9F43" text-anchor="middle">资金效率低</text>
+          <!-- 笼 2 -->
+          <g id="mo-c2" class="h">
+            <text x="720" y="420" font-size="28" fill="#8a8f99" text-anchor="middle">ETH 衍生品</text>
+            <circle id="mo-e1" cx="620" cy="500" r="34" fill="#F0B90B"/>
+            <circle id="mo-e2" cx="690" cy="500" r="34" fill="#F0B90B"/>
+            <circle id="mo-e3" cx="760" cy="500" r="34" fill="#F0B90B"/>
+            <circle id="mo-e4" cx="830" cy="500" r="34" fill="#F0B90B"/>
+            <rect x="570" y="700" width="300" height="30" rx="6" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          </g>
+          <rect id="mo-ltv" class="h" x="572" y="702" width="0" height="26" rx="5" fill="#58C4DD"/>
+          <text id="mo-ltvt" class="h" x="720" y="676" font-size="30" fill="#58C4DD" text-anchor="middle">LTV 93%（示例）</text>
+          <text id="mo-cost2" class="h" x="720" y="930" font-size="30" fill="#FF9F43" text-anchor="middle">只能借同类</text>
+          <!-- 笼 3 -->
+          <g id="mo-c3" class="h">
+            <rect x="1060" y="760" width="60" height="0" id="mo-exp" fill="#F0B90B"/>
+            <text x="1090" y="800" font-size="28" fill="#F0B90B" text-anchor="middle">敞口</text>
+          </g>
+          <line id="mo-lid" class="dr" pathLength="1" x1="1020" y1="480" x2="1340" y2="480" stroke="#e8e6df" stroke-width="8" stroke-linecap="round"/>
+          <text id="mo-lidt" class="h" x="1180" y="452" font-size="28" fill="#e8e6df" text-anchor="middle">上限</text>
+          <g clip-path="url(#mo-cap)"><circle id="mo-boom" class="h" cx="1240" cy="560" r="10" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="4"/></g>
+          <text id="mo-cost3" class="h" x="1180" y="930" font-size="30" fill="#FF9F43" text-anchor="middle">大户受限</text>
+          <!-- 笼 4 -->
+          <g id="mo-c4" class="h">
+            <circle cx="1530" cy="440" r="22" fill="#FF9F43"/><circle cx="1640" cy="440" r="22" fill="#FF9F43"/><circle cx="1750" cy="440" r="22" fill="#FF9F43"/>
+          </g>
+          <path id="mo-c4l" class="dr" pathLength="1" d="M1530 464 L1610 566 M1640 464 L1640 562 M1750 464 L1670 566" stroke="#FF9F43" stroke-width="3" fill="none"/>
+          <g id="mo-c4a" class="h"><rect x="1580" y="568" width="120" height="56" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1640" y="606" font-size="28" fill="#FF9F43" text-anchor="middle">汇总</text></g>
+          <path id="mo-hb" class="dr" pathLength="1" d="M1480 720 L1540 720 L1560 680 L1580 760 L1600 700 L1615 720 L1680 720 L1700 680 L1720 760 L1740 700 L1755 720 L1800 720" stroke="#83C167" stroke-width="3" fill="none"/>
+          <text id="mo-cost4" class="h" x="1640" y="930" font-size="30" fill="#FF9F43" text-anchor="middle">稍有延迟</text>
+        </g>
+        <!-- 闪电贷 -->
+        <g id="mo-fl" class="h">
+          <path d="M320 400 L320 380 L1600 380 L1600 400" stroke="#8a8f99" stroke-width="3" fill="none"/>
+          <text x="960" y="356" font-size="32" fill="#8a8f99" text-anchor="middle">同一笔交易</text>
+          <line x1="300" y1="480" x2="1620" y2="480" stroke="#58C4DD" stroke-width="4"/>
+        </g>
+        <g id="mo-f1" class="h"><circle cx="400" cy="480" r="14" fill="#58C4DD"/><text x="400" y="540" font-size="34" fill="#e8e6df" text-anchor="middle">借出</text></g>
+        <g id="mo-f2" class="h"><circle cx="960" cy="480" r="14" fill="#58C4DD"/><text x="960" y="540" font-size="34" fill="#e8e6df" text-anchor="middle">使用</text></g>
+        <g id="mo-f3" class="h"><circle cx="1520" cy="480" r="14" fill="#58C4DD"/><text x="1520" y="540" font-size="34" fill="#e8e6df" text-anchor="middle">归还 + 手续费</text></g>
+        <g id="mo-u1" class="h"><rect x="390" y="620" width="200" height="64" rx="32" fill="none" stroke="#83C167" stroke-width="3"/><text x="490" y="663" font-size="30" fill="#83C167" text-anchor="middle">清算</text></g>
+        <g id="mo-u2" class="h"><rect x="630" y="620" width="200" height="64" rx="32" fill="none" stroke="#83C167" stroke-width="3"/><text x="730" y="663" font-size="30" fill="#83C167" text-anchor="middle">套利</text></g>
+        <g id="mo-u3" class="h"><rect x="870" y="620" width="240" height="64" rx="32" fill="none" stroke="#83C167" stroke-width="3"/><text x="990" y="663" font-size="30" fill="#83C167" text-anchor="middle">换抵押品</text></g>
+        <g id="mo-u4" class="h"><rect x="1150" y="620" width="220" height="64" rx="32" fill="none" stroke="#83C167" stroke-width="3"/><text x="1260" y="663" font-size="30" fill="#83C167" text-anchor="middle">再融资</text></g>
+        <path id="mo-ra" class="dr h" pathLength="1" d="M960 800 L1840 800" stroke="#FC6255" stroke-width="5" fill="none" marker-end="url(#mo-arr)"/>
+        <text id="mo-rat" class="h" x="1840" y="770" font-size="30" fill="#FC6255" text-anchor="end">操纵价格 → 攻击别的协议</text>
+        <!-- 下一集 -->
+        <text id="mo-col" class="h" x="960" y="380" font-size="32" fill="#8a8f99" text-anchor="middle">抵押品</text>
+        <g id="mo-st" class="h"><circle cx="960" cy="520" r="90" fill="#F0B90B"/><text class="mono" x="960" y="534" font-size="40" font-weight="700" fill="#0f1117" text-anchor="middle">stETH</text></g>
+        <text id="mo-qm" class="h" x="1090" y="470" font-size="80" font-weight="700" fill="#FF9F43">?</text>
+        <text id="mo-next" class="h" x="960" y="720" font-size="40" fill="#e8e6df" text-anchor="middle">下一集</text>
+      </g>
+      <g id="mo-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">隔离模式 <tspan font-size="28" font-weight="400" fill="#8a8f99">Isolation Mode</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">高风险资产单独关、限额借</text>
+      </g>
+      <g id="mo-term2" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">高效模式 <tspan font-size="28" font-weight="400" fill="#8a8f99">E-mode</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">同类资产之间给更高 LTV</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 四个笼子
+      ["#mo-k1", "#mo-k2", "#mo-k3", "#mo-k4"].forEach((s, i) => IN(s, at(0, 0.1 + i * 0.15), 0.5, { y: 20 }, { y: 0 }));
+      const LIT = (k, t) => { tl.to(`#mo-k${k} .cg`, { stroke: "#e8e6df", duration: 0.4 }, t); if (k > 1) tl.to(`#mo-k${k - 1} .cg`, { stroke: "#8a8f99", duration: 0.4 }, t); };
+      // L1 隔离
+      LIT(1, at(1, 0.02));
+      IN("#mo-term", at(1, 0.05), 0.5);
+      IN("#mo-c1", at(1, 0.1), 0.5, { scale: 0.7, svgOrigin: "260 490" }, { scale: 1, svgOrigin: "260 490" });
+      DRAW("#mo-c1l", at(1, 0.35), 0.6); IN("#mo-c1lt", at(1, 0.38), 0.4);
+      IN("#mo-c1u", at(1, 0.42), 0.4);
+      IN("#mo-cost1", at(1, 0.75), 0.5);
+      OUT("#mo-term", at(1, 0.8), 0.4);
+      // L2 E-mode
+      LIT(2, at(2, 0.02));
+      IN("#mo-term2", at(2, 0.05), 0.5);
+      IN("#mo-c2", at(2, 0.1), 0.5);
+      tl.to("#mo-e1", { attr: { cx: 650 }, duration: 0.6 }, at(2, 0.18));
+      tl.to("#mo-e4", { attr: { cx: 800 }, duration: 0.6 }, at(2, 0.18));
+      IN("#mo-ltv, #mo-ltvt", at(2, 0.3), 0.3);
+      tl.to("#mo-ltv", { attr: { width: 276 }, duration: 1.0, ease: "power2.out" }, at(2, 0.3));
+      IN("#mo-cost2", at(2, 0.5), 0.5);
+      OUT("#mo-term2", at(2, 0.55), 0.4);
+      tl.to("#mo-e3", { fill: "#FC6255", duration: 0.3 }, at(2, 0.72));
+      tl.to("#mo-e3", { attr: { cy: 520 }, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.72));
+      tl.to("#mo-e1, #mo-e2, #mo-e4", { fill: "#FC6255", duration: 0.5, stagger: 0.12 }, at(2, 0.8));
+      tl.to("#mo-k2r", { stroke: "#FC6255", duration: 0.4 }, at(2, 0.85));
+      tl.to("#mo-ltv", { fill: "#FC6255", duration: 0.4 }, at(2, 0.85));
+      // L3 上限
+      LIT(3, at(3, 0.02));
+      IN("#mo-c3", at(3, 0.06), 0.4);
+      tl.to("#mo-exp", { attr: { y: 492, height: 268 }, duration: 1.4, ease: "power2.out" }, at(3, 0.08));
+      DRAW("#mo-lid", at(3, 0.2), 0.5); IN("#mo-lidt", at(3, 0.22), 0.4);
+      IN("#mo-boom", at(3, 0.45), 0.2);
+      tl.to("#mo-boom", { attr: { r: 140 }, duration: 1.2, ease: "power3.out" }, at(3, 0.45));
+      IN("#mo-cost3", at(3, 0.72), 0.5);
+      // L4 多预言机
+      LIT(4, at(4, 0.02));
+      IN("#mo-c4", at(4, 0.06), 0.4);
+      DRAW("#mo-c4l", at(4, 0.15), 0.6);
+      IN("#mo-c4a", at(4, 0.3), 0.4);
+      DRAW("#mo-hb", at(4, 0.45), 1.4);
+      IN("#mo-cost4", at(4, 0.7), 0.5);
+      tl.to("#mo-k4 .cg", { stroke: "#8a8f99", duration: 0.4 }, at(4, 0.95));
+      // L5 闪电贷
+      OUT("#mo-cages", at(5, 0), 0.5);
+      IN("#mo-fl", at(5, 0.04), 0.5);
+      IN("#mo-f1", at(5, 0.08), 0.4); IN("#mo-f2", at(5, 0.13), 0.4); IN("#mo-f3", at(5, 0.18), 0.4);
+      ["#mo-u1", "#mo-u2", "#mo-u3", "#mo-u4"].forEach((s, i) => IN(s, at(5, 0.32 + i * 0.07), 0.4, { y: -12 }, { y: 0 }));
+      ARROW("#mo-ra", at(5, 0.7), 0.8); IN("#mo-rat", at(5, 0.74), 0.5);
+      tl.to("#mo-u1, #mo-u2, #mo-u3, #mo-u4", { y: -10, duration: 0.25, yoyo: true, repeat: 1, stagger: 0.2 }, at(5, 0.88));
+      // L6 stETH
+      OUT("#mo-fl, #mo-f1, #mo-f2, #mo-f3, #mo-u1, #mo-u2, #mo-u3, #mo-u4, #mo-ra, #mo-rat", at(6, 0), 0.4);
+      IN("#mo-col", at(6, 0.08), 0.4);
+      IN("#mo-st", at(6, 0.1), 0.6, { scale: 0.6, svgOrigin: "960 520" }, { scale: 1, svgOrigin: "960 520" });
+      IN("#mo-qm", at(6, 0.3), 0.4);
+      IN("#mo-next", at(6, 0.45), 0.4);
+
+      tl.to("#mo-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#mo-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["modes"] = tl;
+    })();
+  </script>
+</template>

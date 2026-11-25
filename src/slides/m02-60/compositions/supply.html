@@ -1,0 +1,137 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 supply，id 前缀 su- -->
+  <div id="root" data-composition-id="supply" data-duration="65.09" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="su-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="su-all">
+
+        <g id="su-col0" class="h"><rect x="120" y="220" width="520" height="740" rx="16" fill="none" stroke="#2a2f3a" stroke-width="2"/>
+          <rect x="120" y="220" width="520" height="72" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="380" y="270" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">固定上限</text>
+          <path d="M160 330 V560 H600" fill="none" stroke="#3a3f4a" stroke-width="2"/></g>
+        <g id="su-col1" class="h"><rect x="700" y="220" width="520" height="740" rx="16" fill="none" stroke="#2a2f3a" stroke-width="2"/>
+          <rect x="700" y="220" width="520" height="72" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+          <text x="960" y="270" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">持续通胀</text>
+          <path d="M740 330 V560 H1180" fill="none" stroke="#3a3f4a" stroke-width="2"/></g>
+        <g id="su-col2" class="h"><rect x="1280" y="220" width="520" height="740" rx="16" fill="none" stroke="#2a2f3a" stroke-width="2"/>
+          <rect x="1280" y="220" width="520" height="72" rx="16" fill="#161a22" stroke="#83C167" stroke-width="2.5"/>
+          <text x="1540" y="270" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">燃烧抵消</text>
+          <path d="M1320 330 V560 H1760" fill="none" stroke="#3a3f4a" stroke-width="2"/></g>
+        
+        <line id="su-cap" class="h" x1="160" y1="362" x2="600" y2="362" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="10 7"/>
+        <text id="su-capl" class="h" x="600" y="346" font-size="28" fill="#58C4DD" text-anchor="end">≈ 2100 万上限</text>
+        <path id="su-c0" class="dr h" pathLength="1" d="M160 560 C 250 430, 360 385, 600 372" stroke="#58C4DD" stroke-width="4" fill="none"/>
+        <rect id="su-rb0" class="h" x="170" y="630" width="96" height="120" fill="#F0B90B" fill-opacity="0.8"/><rect id="su-rb1" class="h" x="275" y="690" width="96" height="60" fill="#F0B90B" fill-opacity="0.8"/><rect id="su-rb2" class="h" x="380" y="720" width="96" height="30" fill="#F0B90B" fill-opacity="0.8"/><rect id="su-rb3" class="h" x="485" y="735" width="96" height="15" fill="#F0B90B" fill-opacity="0.8"/>
+        <text id="su-half" class="h" x="380" y="800" font-size="28" fill="#e8e6df" text-anchor="middle">每 210,000 块减半</text>
+        <text id="su-sec" class="h" x="380" y="890" font-size="28" fill="#FF9F43" text-anchor="middle">长期安全预算 → 只靠手续费</text>
+        <path id="su-c1" class="dr h" pathLength="1" d="M740 545 C 880 520, 1020 450, 1180 340" stroke="#FF9F43" stroke-width="4" fill="none"/>
+        <g id="su-coin" class="h"><circle cx="800" cy="600" r="14" fill="#F0B90B"/><circle cx="960" cy="600" r="14" fill="#F0B90B"/><circle cx="1120" cy="600" r="14" fill="#F0B90B"/></g>
+        <text id="su-rc0" class="h" x="800" y="762" font-size="28" fill="#e8e6df" text-anchor="middle">质押者</text>
+        <text id="su-rc1" class="h" x="960" y="762" font-size="28" fill="#e8e6df" text-anchor="middle">验证者</text>
+        <text id="su-rc2" class="h" x="1120" y="762" font-size="28" fill="#e8e6df" text-anchor="middle">LP</text>
+        <g id="su-knob" class="h">
+          <g id="su-knobi"><circle cx="790" cy="360" r="26" fill="none" stroke="#FF9F43" stroke-width="3"/><line x1="790" y1="360" x2="790" y2="338" stroke="#FF9F43" stroke-width="4" stroke-linecap="round"/></g>
+          <text x="830" y="370" font-size="28" fill="#FF9F43">治理可调</text>
+        </g>
+        <text id="su-who" class="h" x="960" y="190" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">谁为新币买单？</text>
+        <g id="su-sell" class="h">
+          <path class="dr" pathLength="1" d="M800 780 L860 850" stroke="#FC6255" stroke-width="3" fill="none"/>
+          <path class="dr" pathLength="1" d="M960 780 L960 850" stroke="#FC6255" stroke-width="3" fill="none"/>
+          <path class="dr" pathLength="1" d="M1120 780 L1060 850" stroke="#FC6255" stroke-width="3" fill="none"/>
+        </g>
+        <text id="su-selll" class="h" x="960" y="905" font-size="28" fill="#FC6255" text-anchor="middle">挖矿后卖出 → 市场</text>
+        <path id="su-c2" class="dr h" pathLength="1" d="M1320 540 C 1430 440, 1540 400, 1620 410 S 1720 470 1760 500" stroke="#83C167" stroke-width="4" fill="none"/>
+        <g id="su-burn">
+          <g id="su-tx" class="h"><rect x="1400" y="596" width="280" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+            <text x="1540" y="638" font-size="28" fill="#e8e6df" text-anchor="middle">一笔交易的费用</text></g>
+          <g id="su-bf" class="h"><text x="1320" y="738" font-size="30" fill="#e8e6df">基础费</text>
+            <path d="M1430 728 H1490" stroke="#e8e6df" stroke-width="3" marker-end="url(#su-arr)"/>
+            <path d="M1522 742 C1506 730 1510 714 1518 704 C1520 714 1526 716 1530 708 C1536 716 1544 728 1536 742 Z" fill="#FC6255"/>
+            <text x="1556" y="738" font-size="30" font-weight="700" fill="#FC6255">销毁</text></g>
+          <g id="su-tip" class="h"><text x="1320" y="808" font-size="30" fill="#e8e6df">小费</text>
+            <path d="M1430 798 H1490" stroke="#e8e6df" stroke-width="3" marker-end="url(#su-arr)"/>
+            <text x="1508" y="808" font-size="30" fill="#F0B90B">出块者</text></g>
+          <text id="su-eq" class="h" x="1540" y="890" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">净供应 = 发行 − 燃烧</text>
+        </g>
+        <g id="su-def">
+          <text id="su-ne" class="h" x="1540" y="650" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">通缩 ≠ 涨价</text>
+          <text id="su-dl" class="h" x="1320" y="752" font-size="28" fill="#e8e6df">需求</text>
+          <rect id="su-db" class="h" x="1400" y="726" width="340" height="34" rx="6" fill="#F0B90B"/>
+          <text id="su-pl" class="h" x="1320" y="872" font-size="28" fill="#e8e6df">价格</text>
+          <path id="su-pa" class="dr h" pathLength="1" d="M1410 820 L1560 900" stroke="#FC6255" stroke-width="5" fill="none" marker-end="url(#su-arr)"/>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+IN("#su-col0", at(0, 0.15), 0.5, { y: 20 }, { y: 0 });
+IN("#su-col1", at(0, 0.42), 0.5, { y: 20 }, { y: 0 });
+IN("#su-col2", at(0, 0.7), 0.5, { y: 20 }, { y: 0 });
+// L1 fixed cap
+for (let i = 0; i < 4; i++) IN(`#su-rb${i}`, at(1, 0.12) + i * 0.35, 0.4, { y: 10 }, { y: 0 });
+IN("#su-half", at(1, 0.4), 0.5);
+IN("#su-c0", at(1, 0.68), 0.2); DRAW("#su-c0", at(1, 0.68), 1.4);
+IN("#su-cap, #su-capl", at(1, 0.82), 0.5);
+// L2 security budget
+IN("#su-sec", at(2, 0.4), 0.5);
+// L3 inflation
+IN("#su-c1", at(3, 0.08), 0.2); DRAW("#su-c1", at(3, 0.08), 1.6);
+IN("#su-coin", at(3, 0.42), 0.2);
+tl.fromTo("#su-coin", { y: -30 }, { y: 60, duration: 0.8, ease: "power2.in", immediateRender: false }, at(3, 0.42));
+IN("#su-rc0, #su-rc1, #su-rc2", at(3, 0.45), 0.4, {}, { stagger: 0.25 });
+tl.fromTo("#su-coin", { y: -30, opacity: 0 }, { y: 60, opacity: 1, duration: 0.8, ease: "power2.in", immediateRender: false }, at(3, 0.62));
+IN("#su-knob", at(3, 0.82), 0.4);
+tl.fromTo("#su-knobi", { rotation: -60, svgOrigin: "790 360" }, { rotation: 60, svgOrigin: "790 360", duration: 1.2, ease: "power1.inOut", immediateRender: false }, at(3, 0.85));
+// L4 burn
+IN("#su-tx", at(4, 0.18), 0.5, { y: -10 }, { y: 0 });
+IN("#su-bf", at(4, 0.32), 0.5, { x: -15 }, { x: 0 });
+IN("#su-tip", at(4, 0.48), 0.5, { x: -15 }, { x: 0 });
+IN("#su-eq", at(4, 0.65), 0.5);
+IN("#su-c2", at(4, 0.82), 0.2); DRAW("#su-c2", at(4, 0.82), 1.4);
+// L5 who pays
+IN("#su-who", at(5, 0.15), 0.5, { y: 10 }, { y: 0 });
+IN("#su-sell", at(5, 0.6), 0.1); DRAW("#su-sell .dr", at(5, 0.6), 0.7);
+IN("#su-selll", at(5, 0.7), 0.5);
+// L6 deflation != price up
+tl.to("#su-burn", { opacity: 0, duration: 0.4 }, at(6, 0.0));
+IN("#su-ne", at(6, 0.1), 0.5);
+IN("#su-dl, #su-db", at(6, 0.4), 0.4);
+tl.to("#su-db", { attr: { width: 110 }, duration: 1.0, ease: "power2.inOut" }, at(6, 0.48));
+IN("#su-pl", at(6, 0.6), 0.4);
+ARROW("#su-pa", at(6, 0.66), 0.6);
+
+
+      tl.to("#su-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["supply"] = tl;
+    })();
+  </script>
+</template>

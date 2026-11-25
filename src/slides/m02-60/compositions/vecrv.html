@@ -1,0 +1,186 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 vecrv，id 前缀 ve- -->
+  <div id="root" data-composition-id="vecrv" data-duration="69.18" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ve-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+
+        <marker id="ve-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ve-all">
+        <g id="ve-intro">
+          <g id="ve-coin" class="h"><circle cx="660" cy="600" r="70" fill="none" stroke="#F0B90B" stroke-width="4" />
+            <text class="mono" x="660" y="611" font-size="32" fill="#F0B90B" text-anchor="middle">CRV</text></g>
+          <path id="ve-ia1" class="dr h" d="M740 600 L858 600" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ve-arr)" pathLength="1" />
+          <g id="ve-lock" class="h"><path d="M934 596 L934 574 A26 26 0 0 1 986 574 L986 596" fill="none" stroke="#FF9F43" stroke-width="4" /><rect x="922" y="596" width="76" height="56" rx="8" fill="none" stroke="#FF9F43" stroke-width="4" /></g>
+          <path id="ve-ia2" class="dr h" d="M1040 600 L1158 600" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ve-arr)" pathLength="1" />
+          <g id="ve-vec" class="h"><circle cx="1260" cy="600" r="80" fill="#B48EF0" fill-opacity="0.15" stroke="#B48EF0" stroke-width="4" />
+            <text class="mono" x="1260" y="611" font-size="30" fill="#B48EF0" text-anchor="middle">veCRV</text></g>
+        </g>
+        <text id="ve-f" class="h" x="960" y="290" font-size="46" fill="#e8e6df" text-anchor="middle"><tspan fill="#B48EF0">veCRV</tspan> = CRV × 剩余年数 ÷ 4</text>
+        <g id="ve-chart">
+          <line id="ve-ax" class="dr" x1="400" y1="860" x2="1560" y2="860" stroke="#8a8f99" stroke-width="3" pathLength="1" />
+          <line id="ve-ay" class="dr" x1="400" y1="860" x2="400" y2="452" stroke="#8a8f99" stroke-width="3" pathLength="1" />
+          <g id="ve-tk" class="h"><text x="400" y="905" font-size="28" fill="#8a8f99" text-anchor="middle">0</text><text x="680" y="905" font-size="28" fill="#8a8f99" text-anchor="middle">1</text><text x="960" y="905" font-size="28" fill="#8a8f99" text-anchor="middle">2</text><text x="1240" y="905" font-size="28" fill="#8a8f99" text-anchor="middle">3</text><text x="1520" y="905" font-size="28" fill="#8a8f99" text-anchor="middle">4</text>
+            <text x="1600" y="870" font-size="28" fill="#8a8f99">剩余年数</text>
+            <text x="1600" y="905" font-size="28" fill="#8a8f99">1 周 – 4 年</text></g>
+          <line id="ve-ln" class="dr" x1="400" y1="860" x2="1520" y2="460" stroke="#B48EF0" stroke-width="3" stroke-dasharray="1" pathLength="1" />
+          <text id="ve-lnt" class="h" x="1010" y="702" font-size="28" fill="#B48EF0">随时间线性衰减</text>
+          <text id="ve-ca" class="h" x="160" y="385" font-size="30" fill="#e8e6df">Alice：1000 × 4 ÷ 4 = 1000</text>
+          <text id="ve-cb" class="h" x="160" y="435" font-size="30" fill="#e8e6df">Bob：1000 × 1 ÷ 4 = 250</text>
+          <rect id="ve-ba" class="h" x="1480" y="460" width="80" height="400" fill="#B48EF0" />
+          <text id="ve-bat" class="h" x="1520" y="440" font-size="28" fill="#B48EF0" text-anchor="middle">Alice · <tspan id="ve-bav">1000</tspan></text>
+          <rect id="ve-bb" class="h" x="640" y="760" width="80" height="100" fill="#B48EF0" fill-opacity="0.6" />
+          <text id="ve-bbt" class="h" x="735" y="835" font-size="28" fill="#B48EF0">Bob · 250</text>
+          <text id="ve-q" class="h" x="680" y="738" text-anchor="middle" font-size="34" font-weight="700" fill="#FF9F43">1/4</text>
+          <g id="ve-ren" class="h">
+            <rect id="ve-renr" x="1620" y="500" width="180" height="64" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="1710" y="543" font-size="30" fill="#FF9F43" text-anchor="middle">续期</text>
+          </g>
+        </g>
+        <g id="ve-hold" class="h">
+          <circle cx="520" cy="640" r="90" fill="#B48EF0" fill-opacity="0.15" stroke="#B48EF0" stroke-width="4" />
+          <text class="mono" x="520" y="651" font-size="32" fill="#B48EF0" text-anchor="middle">veCRV</text>
+          <text x="520" y="770" font-size="28" fill="#8a8f99" text-anchor="middle">持有人</text>
+        </g>
+        <path id="ve-l1" class="dr h" d="M605 600 L892 425" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#ve-arr)" pathLength="1" />
+        <g id="ve-p1" class="h"><rect x="900" y="390" width="200" height="64" rx="32" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <text x="1000" y="433" font-size="30" fill="#F0B90B" text-anchor="middle">分手续费</text></g>
+        <path id="ve-l2" class="dr h" d="M612 640 L892 640" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ve-arr)" pathLength="1" />
+        <g id="ve-p2" class="h"><rect x="900" y="608" width="200" height="64" rx="32" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1000" y="651" font-size="30" fill="#58C4DD" text-anchor="middle">加速奖励</text></g>
+        <path id="ve-l3" class="dr h" d="M605 680 L892 855" stroke="#B48EF0" stroke-width="3" fill="none" marker-end="url(#ve-arr)" pathLength="1" />
+        <g id="ve-p3" class="h"><rect x="900" y="828" width="200" height="64" rx="32" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+          <text x="1000" y="871" font-size="30" fill="#B48EF0" text-anchor="middle">投票</text></g>
+        <text id="ve-em" class="h" x="1250" y="752" font-size="28" fill="#F0B90B" text-anchor="middle">排放</text>
+        <path id="ve-e0" class="dr" d="M1102 860 L1472 735" stroke="#F0B90B" stroke-width="2.5" fill="none" pathLength="1" />
+        <g id="ve-pool0" class="h"><rect x="1480" y="700" width="220" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="1590" y="745" font-size="28" fill="#e8e6df" text-anchor="middle">池子 A</text></g>
+        <path id="ve-e1" class="dr" d="M1102 860 L1472 825" stroke="#F0B90B" stroke-width="2.5" fill="none" pathLength="1" />
+        <g id="ve-pool1" class="h"><rect x="1480" y="790" width="220" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="1590" y="835" font-size="28" fill="#e8e6df" text-anchor="middle">池子 B</text></g>
+        <path id="ve-e2" class="dr" d="M1102 860 L1472 915" stroke="#F0B90B" stroke-width="2.5" fill="none" pathLength="1" />
+        <g id="ve-pool2" class="h"><rect x="1480" y="880" width="220" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="1590" y="925" font-size="28" fill="#e8e6df" text-anchor="middle">池子 C</text></g>
+        <text id="ve-good" class="h" x="520" y="850" font-size="34" fill="#83C167" text-anchor="middle">奖励长期承诺</text>
+        <text id="ve-bad1" class="h" x="900" y="430" font-size="34" fill="#FC6255">锁 4 年不能卖</text>
+        <text id="ve-bad2" class="h" x="900" y="500" font-size="34" fill="#FC6255">贿选市场：排放给出价最高者</text>
+        <g id="ve-bag" class="h">
+          <path d="M1574 580 L1606 580 L1598 594 Q1630 606 1630 630 Q1630 652 1590 652 Q1550 652 1550 630 Q1550 606 1582 594 Z" fill="#F0B90B" />
+          <text x="1590" y="640" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">$</text>
+        </g>
+        <path id="ve-bga" class="dr h" d="M1590 656 L1590 692" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#ve-arr)" pathLength="1" />
+        <text id="ve-avg" class="h" x="160" y="1000" font-size="28" fill="#6b6f7a">平均剩余锁仓年数 ≈ totalSupply ÷ supply × 4</text>
+        <g id="ve-gov">
+          <g id="ve-tg" class="h">
+            <rect x="830" y="370" width="120" height="60" rx="30" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+            <text x="980" y="412" font-size="34" fill="#FF9F43">治理投票</text>
+          </g>
+          <circle id="ve-knob" class="h" cx="920" cy="400" r="22" fill="#FF9F43" />
+          <g id="ve-ic0" class="h ve-ic"><path d="M534 624 L586 656 L586 624 L534 656 Z" fill="none" stroke="#F0B90B" stroke-width="3" /><line x1="560" y1="640" x2="560" y2="610" stroke="#F0B90B" stroke-width="3" /><line x1="546" y1="610" x2="574" y2="610" stroke="#F0B90B" stroke-width="4" /><text x="560" y="730" font-size="30" fill="#e8e6df" text-anchor="middle">手续费开关</text></g>
+          <g id="ve-ic1" class="h ve-ic"><path d="M960 656 Q936 650 944 626 Q952 612 962 600 Q966 620 976 622 Q986 648 960 656 Z" fill="#FC6255" fill-opacity="0.85" /><text x="960" y="730" font-size="30" fill="#e8e6df" text-anchor="middle">回购燃烧</text></g>
+          <g id="ve-ic2" class="h ve-ic"><path d="M1334 626 L1334 604 A26 26 0 0 1 1386 604 L1386 626" fill="none" stroke="#B48EF0" stroke-width="4" /><rect x="1322" y="626" width="76" height="56" rx="8" fill="none" stroke="#B48EF0" stroke-width="4" /><text x="1360" y="730" font-size="30" fill="#e8e6df" text-anchor="middle">ve 锁仓</text></g>
+          <text id="ve-law" class="h" x="960" y="870" font-size="48" font-weight="700" fill="#FF9F43" text-anchor="middle">不是法律权利</text>
+        </g>
+
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ve-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">投票托管 <tspan font-size="28" font-weight="400" fill="#8a8f99">Vote-escrow</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">锁得越久，票越多，不可转让</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 术语卡 + CRV → 锁 → veCRV
+      IN("#ve-term", at(0, 0.0), 0.5);
+      OUT("#ve-term", at(0, 0.0) + 7.5, 0.4);
+      IN("#ve-coin", at(0, 0.15), 0.5);
+      ARROW("#ve-ia1", at(0, 0.3), 0.4);
+      IN("#ve-lock", at(0, 0.38), 0.5, { y: -20 }, { y: 0 });
+      ARROW("#ve-ia2", at(0, 0.55), 0.4);
+      IN("#ve-vec", at(0, 0.62), 0.5, { scale: 0.7, svgOrigin: "1260 600" }, { scale: 1, svgOrigin: "1260 600" });
+      // L1 公式 + 坐标
+      OUT("#ve-intro", at(1, 0), 0.4);
+      IN("#ve-f", at(1, 0.08), 0.6);
+      DRAW("#ve-ax", at(1, 0.4), 0.6);
+      DRAW("#ve-ay", at(1, 0.4), 0.6);
+      IN("#ve-tk", at(1, 0.5), 0.5);
+      DRAW("#ve-ln", at(1, 0.7), 0.9);
+      IN("#ve-lnt", at(1, 0.8), 0.5);
+      // L2 Alice / Bob
+      IN("#ve-ca", at(2, 0.05), 0.5);
+      IN("#ve-ba", at(2, 0.2), 0.7, { attr: { y: 860, height: 0 } }, { attr: { y: 460, height: 400 } });
+      IN("#ve-bat", at(2, 0.3), 0.4);
+      IN("#ve-cb", at(2, 0.4), 0.5);
+      IN("#ve-bb", at(2, 0.55), 0.6, { attr: { y: 860, height: 0 } }, { attr: { y: 760, height: 100 } });
+      IN("#ve-bbt", at(2, 0.6), 0.4);
+      IN("#ve-q", at(2, 0.8), 0.4, { scale: 1.6, svgOrigin: "680 726" }, { scale: 1, svgOrigin: "680 726" });
+      // L3 两年后衰减到 500，续期回 1000
+      tl.to("#ve-ba", { attr: { x: 920, y: 660, height: 200 }, duration: 1.6, ease: "power1.inOut" }, at(3, 0.05));
+      tl.to("#ve-bat", { attr: { x: 960, y: 600 }, duration: 1.6, ease: "power1.inOut" }, at(3, 0.05));
+      COUNT("#ve-bav", 1000, 500, at(3, 0.05), 1.6);
+      IN("#ve-ren", at(3, 0.5), 0.4);
+      tl.to("#ve-renr", { fill: "#FF9F43", fillOpacity: 0.35, duration: 0.2, yoyo: true, repeat: 1 }, at(3, 0.68));
+      tl.to("#ve-ba", { attr: { x: 1480, y: 460, height: 400 }, duration: 0.7, ease: "back.out(1.4)" }, at(3, 0.74));
+      tl.to("#ve-bat", { attr: { x: 1520, y: 440 }, duration: 0.7, ease: "back.out(1.4)" }, at(3, 0.74));
+      COUNT("#ve-bav", 500, 1000, at(3, 0.74), 0.7);
+      OUT("#ve-lnt", at(3, 0), 0.3);
+      // L4 三项权利 → 排放流向池子
+      OUT("#ve-chart", at(4, 0), 0.4);
+      IN("#ve-hold", at(4, 0) + 0.45, 0.5);
+      ARROW("#ve-l1", at(4, 0.15), 0.4); IN("#ve-p1", at(4, 0.2), 0.4);
+      ARROW("#ve-l2", at(4, 0.3), 0.4); IN("#ve-p2", at(4, 0.35), 0.4);
+      ARROW("#ve-l3", at(4, 0.48), 0.4); IN("#ve-p3", at(4, 0.53), 0.4);
+      DRAW("#ve-e0, #ve-e1, #ve-e2", at(4, 0.68), 0.6);
+      IN("#ve-pool0, #ve-pool1, #ve-pool2", at(4, 0.72), 0.5);
+      IN("#ve-em", at(4, 0.78), 0.4);
+      // L5 长期承诺 vs 代价
+      OUT("#ve-l1, #ve-p1, #ve-l2, #ve-p2", at(5, 0), 0.4);
+      IN("#ve-good", at(5, 0.08), 0.5);
+      IN("#ve-bad1", at(5, 0.45), 0.5);
+      IN("#ve-bad2", at(5, 0.65), 0.5);
+      IN("#ve-bag", at(5, 0.72), 0.5, { y: -20 }, { y: 0 });
+      ARROW("#ve-bga", at(5, 0.78), 0.3);
+      tl.to("#ve-e0", { strokeWidth: 7, duration: 0.4 }, at(5, 0.82));
+      tl.to("#ve-e1, #ve-e2", { strokeOpacity: 0.3, duration: 0.4 }, at(5, 0.82));
+      IN("#ve-avg", at(5, 0.85), 0.5);
+      // L6 治理可关
+      OUT("#ve-f, #ve-hold, #ve-l3, #ve-p3, #ve-em, #ve-e0, #ve-e1, #ve-e2, #ve-pool0, #ve-pool1, #ve-pool2, #ve-good, #ve-bad1, #ve-bad2, #ve-bag, #ve-bga, #ve-avg", at(6, 0), 0.4);
+      IN("#ve-tg, #ve-knob", at(6, 0) + 0.45, 0.5);
+      IN("#ve-ic0", at(6, 0.12), 0.4); IN("#ve-ic1", at(6, 0.2), 0.4); IN("#ve-ic2", at(6, 0.28), 0.4);
+      tl.to("#ve-knob", { attr: { cx: 860 }, fill: "#8a8f99", duration: 0.4 }, at(6, 0.45));
+      tl.to(".ve-ic", { opacity: 0.3, duration: 0.5 }, at(6, 0.5));
+      IN("#ve-law", at(6, 0.62), 0.5);
+
+
+      tl.to("#ve-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ve-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["vecrv"] = tl;
+    })();
+  </script>
+</template>

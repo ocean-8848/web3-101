@@ -1,0 +1,201 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 liquidate，id 前缀 li- -->
+  <div id="root" data-composition-id="liquidate" data-duration="74.96" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="li-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="li-all">
+        <g id="li-g" class="h">
+          <rect id="li-gr" x="460" y="560" width="333" height="28" fill="#FC6255"/>
+          <rect x="793" y="560" width="667" height="28" fill="#83C167"/>
+          <line x1="793" y1="540" x2="793" y2="608" stroke="#e8e6df" stroke-width="3"/>
+          <text x="793" y="652" font-size="32" fill="#e8e6df" text-anchor="middle">1</text>
+          <text x="600" y="652" font-size="30" fill="#FC6255" text-anchor="middle">可清算</text>
+          <text x="1130" y="652" font-size="30" fill="#83C167" text-anchor="middle">安全</text>
+          <text x="960" y="420" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">ETH 跌到 <tspan fill="#FC6255">2,020</tspan></text>
+        </g>
+        <g id="li-gk" class="h">
+          <path id="li-gp" d="M1196 518 L1220 518 L1208 544 z" fill="#e8e6df"/>
+          <text id="li-gv" class="mono" x="1208" y="504" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">1.485</text>
+        </g>
+        <!-- 时序图 -->
+        <g id="li-lanes" class="h">
+          <text x="200" y="340" font-size="32" font-weight="700" fill="#FF9F43">预言机</text>
+          <text x="200" y="470" font-size="32" font-weight="700" fill="#58C4DD">借贷合约</text>
+          <text x="200" y="600" font-size="32" font-weight="700" fill="#8a8f99">清算机器人</text>
+          <text x="200" y="730" font-size="32" font-weight="700" fill="#8a8f99">借款人</text>
+          <line x1="400" y1="330" x2="1720" y2="330" stroke="#FF9F43" stroke-width="2" opacity="0.6"/>
+          <line x1="400" y1="460" x2="1720" y2="460" stroke="#58C4DD" stroke-width="2" opacity="0.6"/>
+          <line x1="400" y1="590" x2="1720" y2="590" stroke="#8a8f99" stroke-width="2" opacity="0.6"/>
+          <line x1="400" y1="720" x2="1720" y2="720" stroke="#8a8f99" stroke-width="2" opacity="0.6"/>
+        </g>
+        <path id="li-m1" class="dr h" pathLength="1" d="M480 334 L480 452" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#li-arr)"/>
+        <text id="li-m1t" class="h" x="500" y="408" font-size="28" fill="#FF9F43">推送新价格</text>
+        <g id="li-bots" class="h">
+          <g id="li-bot1"><rect x="700" y="566" width="56" height="44" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><circle cx="717" cy="586" r="5" fill="#e8e6df"/><circle cx="739" cy="586" r="5" fill="#e8e6df"/></g>
+          <g id="li-bot2"><rect x="780" y="566" width="56" height="44" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><circle cx="797" cy="586" r="5" fill="#e8e6df"/><circle cx="819" cy="586" r="5" fill="#e8e6df"/></g>
+          <g id="li-bot3"><rect x="860" y="566" width="56" height="44" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><circle cx="877" cy="586" r="5" fill="#e8e6df"/><circle cx="899" cy="586" r="5" fill="#e8e6df"/></g>
+        </g>
+        <path id="li-poll" class="dr h" pathLength="1" d="M720 560 C720 500 900 500 900 556" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#li-arr)"/>
+        <text id="li-pollt" class="h" x="940" y="540" font-size="28" fill="#8a8f99">轮询 HF</text>
+        <path id="li-m2" class="dr h" pathLength="1" d="M1060 586 L1060 468" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#li-arr)"/>
+        <text id="li-m2t" class="h" x="1080" y="538" font-size="28" fill="#e8e6df">清算(借款人, 2,500 USDC, 要 ETH)</text>
+        <g id="li-c1" class="h">
+          <rect x="1080" y="370" width="32" height="32" rx="6" fill="none" stroke="#83C167" stroke-width="3"/>
+          <text x="1126" y="398" font-size="30" fill="#e8e6df">HF &lt; 1</text>
+        </g>
+        <path id="li-c1k" class="dr" pathLength="1" d="M1086 386 L1094 396 L1108 374" stroke="#83C167" stroke-width="4" fill="none"/>
+        <g id="li-c2" class="h">
+          <rect x="1290" y="370" width="32" height="32" rx="6" fill="none" stroke="#83C167" stroke-width="3"/>
+          <text x="1336" y="398" font-size="30" fill="#e8e6df">≤ close factor</text>
+        </g>
+        <path id="li-c2k" class="dr" pathLength="1" d="M1296 386 L1304 396 L1318 374" stroke="#83C167" stroke-width="4" fill="none"/>
+        <!-- 借款人抵押条：3 ETH = 600 px -->
+        <g id="li-col" class="h">
+          <rect x="1100" y="744" width="340" height="40" fill="#F0B90B"/>
+        </g>
+        <g id="li-cut" class="h">
+          <rect x="1440" y="744" width="248" height="40" fill="#F0B90B"/>
+          <rect x="1688" y="744" width="12" height="40" fill="#FC6255"/>
+        </g>
+        <text id="li-c3" class="h" x="1080" y="774" font-size="28" fill="#F0B90B" text-anchor="end">3 ETH</text>
+        <text id="li-cutt" class="h" x="1700" y="830" font-size="28" fill="#FC6255" text-anchor="end">借款人损失 5%</text>
+        <text id="li-calc" class="h mono" x="200" y="890" font-size="40" fill="#e8e6df">2,500 × 1.05 ÷ 2,020 ≈ <tspan fill="#F0B90B" font-weight="700">1.30 ETH</tspan></text>
+        <text id="li-rem" class="h" x="1100" y="830" font-size="28" fill="#F0B90B">≈ 1.70 ETH</text>
+        <g id="li-post" class="h">
+          <text x="200" y="860" font-size="30" fill="#8a8f99">清算后：债务 2,500 · 抵押 ≈ 1.70 ETH</text>
+          <text class="mono" x="200" y="930" font-size="40" fill="#e8e6df">1.70 × 2,020 × 0.825 ÷ 2,500 ≈ <tspan fill="#83C167" font-weight="700">1.13</tspan></text>
+        </g>
+        <!-- 迷你 HF 表 -->
+        <g id="li-mg" class="h">
+          <text x="1280" y="262" font-size="30" fill="#e8e6df" text-anchor="end">HF</text>
+          <rect x="1300" y="244" width="140" height="16" fill="#FC6255"/>
+          <rect x="1440" y="244" width="280" height="16" fill="#83C167"/>
+          <line x1="1440" y1="236" x2="1440" y2="268" stroke="#e8e6df" stroke-width="3"/>
+          <path id="li-mp" d="M1428 222 L1452 222 L1440 240 z" fill="#e8e6df"/>
+          <text id="li-mv" class="mono" x="1440" y="210" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">0.9999</text>
+        </g>
+        <!-- 仓位条：只缩一半 -->
+        <g id="li-half" class="h">
+          <text x="420" y="452" font-size="32" fill="#e8e6df" text-anchor="end">债务</text>
+          <rect x="440" y="420" width="1000" height="44" rx="6" fill="none" stroke="#F0B90B" stroke-width="2" stroke-dasharray="8 6" opacity="0.6"/>
+          <rect id="li-hd" x="440" y="420" width="1000" height="44" rx="6" fill="#F0B90B"/>
+          <text x="420" y="592" font-size="32" fill="#e8e6df" text-anchor="end">抵押</text>
+          <rect x="440" y="560" width="1000" height="44" rx="6" fill="none" stroke="#F0B90B" stroke-width="2" stroke-dasharray="8 6" opacity="0.6"/>
+          <rect id="li-hc" x="440" y="560" width="1000" height="44" rx="6" fill="#F0B90B" fill-opacity="0.6"/>
+        </g>
+        <text id="li-hdv" class="h mono" x="1470" y="454" font-size="34" fill="#F0B90B">5,000 → 2,500</text>
+        <text id="li-hcv" class="h mono" x="1470" y="594" font-size="34" fill="#F0B90B">3 → 1.70 ETH</text>
+        <text id="li-nc" class="h" x="960" y="740" font-size="48" font-weight="700" fill="#FF9F43" text-anchor="middle">通常不清空，只推回安全线</text>
+        <text id="li-nc2" class="h" x="960" y="810" font-size="32" fill="#8a8f99" text-anchor="middle">跌得太深时，有的协议允许一次清算全部债务</text>
+        <!-- 天平 -->
+        <g id="li-scale" class="h">
+          <text x="960" y="330" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">清算奖励</text>
+          <path d="M960 420 L920 760 L1000 760 z" fill="#8a8f99" opacity="0.5"/>
+          <g id="li-beam">
+            <line x1="560" y1="420" x2="1360" y2="420" stroke="#e8e6df" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="960" cy="420" r="12" fill="#e8e6df"/>
+            <path d="M560 420 L500 560 M560 420 L620 560 M480 560 L640 560" stroke="#8a8f99" stroke-width="3" fill="none"/>
+            <path d="M1360 420 L1300 560 M1360 420 L1420 560 M1280 560 L1440 560" stroke="#8a8f99" stroke-width="3" fill="none"/>
+          </g>
+        </g>
+        <text id="li-sl" class="h" x="560" y="840" font-size="34" fill="#FC6255" text-anchor="middle">奖励太低 → 没人清算</text>
+        <text id="li-sr" class="h" x="1360" y="840" font-size="34" fill="#FC6255" text-anchor="middle">奖励太高 → 借款人损失大</text>
+      </g>
+      <g id="li-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">清算 <tspan font-size="28" font-weight="400" fill="#8a8f99">Liquidation</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">代偿债务，折价拿走抵押品</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const GX = h => 460 + (h - 0.6) * 1000 / 1.2;
+      const gk = { h: 1.485 };
+      const gp = document.querySelector("#li-gp"), gv = document.querySelector("#li-gv");
+      const gpaint = () => { const x = GX(gk.h); gp.setAttribute("d", `M${x - 12} 518 L${x + 12} 518 L${x} 544 z`); gv.setAttribute("x", x); gv.textContent = gk.h < 1 ? gk.h.toFixed(4) : gk.h.toFixed(2); gv.setAttribute("fill", gk.h < 1 ? "#FC6255" : "#83C167"); };
+      gpaint();
+      // L0 HF 落到 0.9999（3 × 2,020 × 0.825 ÷ 5,000）
+      IN("#li-g", at(0, 0.02), 0.5); IN("#li-gk", at(0, 0.05), 0.4);
+      tl.to(gk, { h: 0.9999, duration: 2.0, ease: "power2.in", onUpdate: gpaint }, at(0, 0.2));
+      tl.to("#li-gr", { opacity: 0.3, duration: 0.25, yoyo: true, repeat: 3 }, at(0, 0.65));
+      // L1 时序图
+      OUT("#li-g, #li-gk", at(1, 0), 0.4);
+      IN("#li-lanes", at(1, 0.06), 0.6);
+      IN("#li-mg", at(1, 0.1), 0.5);
+      ARROW("#li-m1", at(1, 0.22), 0.6); IN("#li-m1t", at(1, 0.26), 0.4);
+      IN("#li-bots", at(1, 0.45), 0.5, { y: 20 }, { y: 0 });
+      ARROW("#li-poll", at(1, 0.55), 0.7); IN("#li-pollt", at(1, 0.6), 0.4);
+      tl.to("#li-bot1", { x: 12, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, at(1, 0.7));
+      tl.to("#li-bot3", { x: -12, duration: 0.35, yoyo: true, repeat: 5, ease: "sine.inOut" }, at(1, 0.72));
+      // L2 调用清算 + 两项检查
+      IN("#li-term", at(2, 0.0), 0.5);
+      tl.to("#li-bot2 rect", { stroke: "#e8e6df", duration: 0.3 }, at(2, 0.02));
+      ARROW("#li-m2", at(2, 0.05), 0.6); IN("#li-m2t", at(2, 0.1), 0.5);
+      IN("#li-c1", at(2, 0.5), 0.4); DRAW("#li-c1k", at(2, 0.6), 0.4);
+      IN("#li-c2", at(2, 0.72), 0.4); DRAW("#li-c2k", at(2, 0.82), 0.4);
+      OUT("#li-term", at(2, 0.62), 0.4);
+      // L3 算一算 1.30 ETH
+      IN("#li-col, #li-cut, #li-c3", at(3, 0.02), 0.5);
+      IN("#li-calc", at(3, 0.15), 0.6);
+      tl.to("#li-bot2", { y: 12, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.3));
+      tl.to("#li-col", { opacity: 0.5, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.42));
+      tl.to("#li-cut", { y: -150, duration: 1.0, ease: "power2.inOut" }, at(3, 0.55));
+      IN("#li-cutt", at(3, 0.8), 0.4);
+      // L4 清算后
+      OUT("#li-calc, #li-cutt", at(4, 0.0), 0.35);
+      OUT("#li-cut", at(4, 0.02), 0.4);
+      IN("#li-rem", at(4, 0.1), 0.4);
+      IN("#li-post", at(4, 0.15), 0.6);
+      const mk = { h: 0.9999 };
+      const mp = document.querySelector("#li-mp"), mv = document.querySelector("#li-mv");
+      const MX = h => 1300 + (h - 0.8) * 700 / 1;
+      tl.to(mk, { h: 1.13, duration: 1.4, ease: "power2.out", onUpdate: () => { const x = MX(mk.h); mp.setAttribute("d", `M${x - 12} 222 L${x + 12} 222 L${x} 240 z`); mv.setAttribute("x", x); mv.textContent = mk.h < 1 ? mk.h.toFixed(4) : mk.h.toFixed(2); mv.setAttribute("fill", mk.h < 1 ? "#FC6255" : "#83C167"); } }, at(4, 0.6));
+      // L5 只缩一半
+      OUT("#li-lanes, #li-m1, #li-m1t, #li-bots, #li-poll, #li-pollt, #li-m2, #li-m2t, #li-c1, #li-c1k, #li-c2, #li-c2k, #li-col, #li-c3, #li-rem, #li-post, #li-mg", at(5, 0), 0.4);
+      IN("#li-half", at(5, 0.08), 0.5);
+      tl.to("#li-hd", { attr: { width: 500 }, duration: 1.0, ease: "power2.inOut" }, at(5, 0.2));
+      tl.to("#li-hc", { attr: { width: 567 }, duration: 1.0, ease: "power2.inOut" }, at(5, 0.2));
+      IN("#li-hdv, #li-hcv", at(5, 0.3), 0.4);
+      IN("#li-nc", at(5, 0.4), 0.5);
+      IN("#li-nc2", at(5, 0.75), 0.5);
+      // L6 天平
+      OUT("#li-half, #li-hdv, #li-hcv, #li-nc, #li-nc2", at(6, 0), 0.4);
+      IN("#li-scale", at(6, 0.06), 0.6);
+      tl.to("#li-beam", { rotation: -8, svgOrigin: "960 420", duration: 0.8, ease: "power2.inOut" }, at(6, 0.2));
+      IN("#li-sl", at(6, 0.25), 0.5);
+      tl.to("#li-beam", { rotation: 8, svgOrigin: "960 420", duration: 1.0, ease: "power2.inOut" }, at(6, 0.5));
+      IN("#li-sr", at(6, 0.55), 0.5);
+      tl.to("#li-beam", { rotation: 0, svgOrigin: "960 420", duration: 0.9, ease: "power2.inOut" }, at(6, 0.85));
+
+      tl.to("#li-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#li-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["liquidate"] = tl;
+    })();
+  </script>
+</template>

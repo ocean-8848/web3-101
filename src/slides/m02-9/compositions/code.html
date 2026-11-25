@@ -1,0 +1,150 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 code，id 前缀 co- -->
+  <div id="root" data-composition-id="code" data-duration="59.26" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="co-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+
+      </defs>
+      <g id="co-all">
+
+        <g id="co-panel" class="h">
+          <rect x="100" y="280" width="980" height="500" rx="16" fill="#161a22" stroke="#4a4f5a" stroke-width="2"/>
+          <rect id="co-hl" x="112" y="303" width="956" height="164" rx="6" fill="#58C4DD" opacity="0"/>
+          <g class="mono" font-size="28" fill="#e8e6df">
+<text x="130" y="330" xml:space="preserve">function toTokenUnits(address token, uint256 usd18)</text>
+<text x="130" y="371" xml:space="preserve">    view returns (uint256) {</text>
+<text x="130" y="412" xml:space="preserve">    uint8 d = IERC20Metadata(token).decimals();</text>
+<text x="130" y="453" xml:space="preserve">    return usd18 / 10 ** (18 - d);</text>
+<text x="130" y="494" xml:space="preserve">}</text>
+<text x="130" y="535" xml:space="preserve">function claim(address token) external {</text>
+<text x="130" y="576" xml:space="preserve">    uint256 amt = owed[token][msg.sender];</text>
+<text x="130" y="617" xml:space="preserve">    owed[token][msg.sender] = 0;</text>
+<text x="130" y="658" xml:space="preserve">    IERC20(token).safeTransfer(msg.sender, amt);</text>
+<text x="130" y="699" xml:space="preserve">}</text>
+<text x="130" y="740" xml:space="preserve">IERC20(token).forceApprove(router, amt);</text>
+          </g>
+        </g>
+        <text id="co-ann1" class="h mono" x="1140" y="360" font-size="32" fill="#58C4DD">USDC: d = 6</text>
+        <text id="co-ann2" class="h mono" x="1380" y="360" font-size="32" fill="#F0B90B">→ ÷ 10^12</text>
+        <text id="co-title" class="h" x="100" y="230" font-size="40" font-weight="700" fill="#e8e6df">分发稳定币的合约 · 三个关键点</text>
+        <g id="co-calc">
+          <text id="co-q0" class="h mono" x="1140" y="440" font-size="30" fill="#F0B90B">1,234,567,800,000,000,000</text>
+          <text id="co-q1" class="h mono" x="1140" y="500" font-size="30" fill="#e8e6df">÷ 10^12</text>
+          <text id="co-q2" class="h mono" x="1140" y="560" font-size="30" fill="#e8e6df">= 1,234,567.8</text>
+          <text id="co-q3" class="h mono" x="1140" y="630" font-size="36" font-weight="700" fill="#F0B90B">→ 1,234,567</text>
+          <text id="co-q4" class="h" x="1140" y="700" font-size="30" fill="#FF9F43">0.8 零头留在协议（有意）</text>
+        </g>
+        <g id="co-tbl">
+          <text id="co-th" class="h mono" x="1150" y="360" font-size="30" fill="#58C4DD">owed[token][user]</text>
+          <text id="co-thx" class="h" x="1840" y="360" font-size="28" fill="#8a8f99" text-anchor="end">示例</text>
+          <g id="co-tr0" class="h"><rect x="1140" y="400" width="680" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1170" y="443" font-size="30" fill="#e8e6df">0x1a…</text></g>
+          <g id="co-tr1" class="h"><rect x="1140" y="480" width="680" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1170" y="523" font-size="30" fill="#e8e6df">msg.sender</text></g>
+          <g id="co-tr2" class="h"><rect x="1140" y="560" width="680" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1170" y="603" font-size="30" fill="#e8e6df">0x3c…</text></g>
+          <text id="co-n0" class="h mono" x="1790" y="443" font-size="30" fill="#F0B90B" text-anchor="end">100</text>
+          <text id="co-n1" class="h mono" x="1790" y="523" font-size="30" fill="#F0B90B" text-anchor="end">250</text>
+          <text id="co-n2" class="h mono" x="1790" y="603" font-size="30" fill="#F0B90B" text-anchor="end">80</text>
+          <text id="co-tl" class="h" x="1140" y="700" font-size="30" fill="#83C167">用户自己来领 · 先清零再转账</text>
+        </g>
+        <g id="co-cmp">
+          <text id="co-ch1" class="h" x="1290" y="390" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">循环推送</text>
+          <text id="co-ch2" class="h" x="1670" y="390" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">拉取模式</text>
+          <g id="co-u0" class="h"><rect x="1140" y="420" width="300" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1160" y="458" font-size="28" fill="#e8e6df">0x1a…</text></g><g id="co-u1" class="h"><rect x="1140" y="492" width="300" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1160" y="530" font-size="28" fill="#e8e6df">0x2b…</text></g><g id="co-u2" class="h"><rect x="1140" y="564" width="300" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1160" y="602" font-size="28" fill="#e8e6df">0x3c…</text><g fill="none" stroke="#B48EF0" stroke-width="3"><rect x="1330" y="582" width="26" height="20" rx="3"/><path d="M1336 582 v-6 a7 7 0 0 1 14 0 v6"/></g></g><g id="co-u3" class="h"><rect x="1140" y="636" width="300" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1160" y="674" font-size="28" fill="#e8e6df">0x4d…</text></g><g id="co-u4" class="h"><rect x="1140" y="708" width="300" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1160" y="746" font-size="28" fill="#e8e6df">0x5e…</text></g><g id="co-v0" class="h"><rect x="1520" y="420" width="300" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1540" y="458" font-size="28" fill="#e8e6df">0x1a…</text></g><g id="co-v1" class="h"><rect x="1520" y="492" width="300" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1540" y="530" font-size="28" fill="#e8e6df">0x2b…</text></g><g id="co-v2" class="h"><rect x="1520" y="564" width="300" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1540" y="602" font-size="28" fill="#e8e6df">0x3c…</text><g fill="none" stroke="#B48EF0" stroke-width="3"><rect x="1710" y="582" width="26" height="20" rx="3"/><path d="M1716 582 v-6 a7 7 0 0 1 14 0 v6"/></g></g><g id="co-v3" class="h"><rect x="1520" y="636" width="300" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1540" y="674" font-size="28" fill="#e8e6df">0x4d…</text></g><g id="co-v4" class="h"><rect x="1520" y="708" width="300" height="56" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1540" y="746" font-size="28" fill="#e8e6df">0x5e…</text></g><path id="co-um0" class="h" d="M1400 438 l20 20 M1420 438 l-20 20" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><path id="co-um1" class="h" d="M1400 510 l20 20 M1420 510 l-20 20" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><path id="co-um2" class="h" d="M1400 582 l20 20 M1420 582 l-20 20" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><path id="co-um3" class="h" d="M1400 654 l20 20 M1420 654 l-20 20" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><path id="co-um4" class="h" d="M1400 726 l20 20 M1420 726 l-20 20" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><path id="co-vm0" class="h" d="M1780 448 l10 10 l18 -20" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/><path id="co-vm1" class="h" d="M1780 520 l10 10 l18 -20" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/><path id="co-vm2" class="h" d="M1780 582 l20 20 M1800 582 l-20 20" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><path id="co-vm3" class="h" d="M1780 664 l10 10 l18 -20" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/><path id="co-vm4" class="h" d="M1780 736 l10 10 l18 -20" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </g>
+        <g id="co-fa">
+          <text id="co-fa1" class="h mono" x="1140" y="520" font-size="40" font-weight="700" fill="#58C4DD">forceApprove</text>
+          <text id="co-fa2" class="h" x="1140" y="590" font-size="30" fill="#e8e6df">兼容 USDT 的授权规则</text>
+        </g>
+        <g id="co-scan" class="h">
+          <rect x="360" y="220" width="1200" height="720" rx="18" fill="#161a22" stroke="#4a4f5a" stroke-width="2"/>
+          <text x="400" y="280" font-size="30" font-weight="700" fill="#e8e6df">区块浏览器 · USDC 合约</text>
+          <rect x="400" y="310" width="300" height="56" rx="10" fill="#1e2a33" stroke="#58C4DD" stroke-width="2.5"/>
+          <text class="mono" x="550" y="348" font-size="28" fill="#58C4DD" text-anchor="middle">Read as Proxy</text>
+        </g>
+        <g id="co-s1" class="h"><text class="mono" x="420" y="440" font-size="32" fill="#e8e6df">decimals()</text><text class="mono" x="1100" y="440" font-size="32" font-weight="700" fill="#58C4DD">→ 6</text></g>
+        <g id="co-s2" class="h"><text class="mono" x="420" y="510" font-size="32" fill="#e8e6df">isBlacklisted(addr)</text><text class="mono" x="1100" y="510" font-size="32" font-weight="700" fill="#83C167">→ false</text></g>
+        <g id="co-s3" class="h">
+          <line x1="400" y1="560" x2="1520" y2="560" stroke="#4a4f5a" stroke-width="2"/>
+          <text class="mono" x="420" y="620" font-size="32" font-weight="700" fill="#B48EF0">Events: Blacklisted</text>
+        </g>
+        <text id="co-e0" class="h mono" x="460" y="690" font-size="30" fill="#e8e6df">Blacklisted(0x••••••••)</text>
+        <text id="co-e1" class="h mono" x="460" y="750" font-size="30" fill="#e8e6df">Blacklisted(0x••••••••)</text>
+        <text id="co-e2" class="h mono" x="460" y="810" font-size="30" fill="#e8e6df">Blacklisted(0x••••••••)</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const Y0 = 330, LH = 41;
+      const HL = (a, n, t) => tl.to("#co-hl", { attr: { y: Y0 - 27 + a * LH, height: n * LH }, opacity: 0.15, duration: 0.45, ease: "power2.inOut" }, t);
+      IN("#co-panel", at(0, 0), 0.7, { y: 20 }, { y: 0 });
+      IN("#co-title", at(0, 0.45));
+      // L1 toTokenUnits
+      HL(0, 4, at(1, 0.02));
+      IN("#co-ann1", at(1, 0.3));
+      IN("#co-ann2", at(1, 0.68));
+      tl.to("#co-hl", { attr: { y: Y0 - 27 + 2 * LH, height: 2 * LH }, duration: 0.4 }, at(1, 0.6));
+      // L2 算一算
+      IN("#co-q0", at(2, 0.0)); IN("#co-q1", at(2, 0.2)); IN("#co-q2", at(2, 0.32));
+      IN("#co-q3", at(2, 0.45), 0.6, { x: -20 }, { x: 0 });
+      IN("#co-q4", at(2, 0.7));
+      // L3 claim
+      OUT("#co-calc", at(3, 0), 0.35); OUT("#co-ann1", at(3, 0), 0.35); OUT("#co-ann2", at(3, 0), 0.35);
+      HL(5, 5, at(3, 0.02));
+      IN("#co-th", at(3, 0.1)); IN("#co-thx", at(3, 0.1));
+      IN("#co-tr0", at(3, 0.14)); IN("#co-tr1", at(3, 0.18)); IN("#co-tr2", at(3, 0.22));
+      IN("#co-n0", at(3, 0.14)); IN("#co-n1", at(3, 0.18)); IN("#co-n2", at(3, 0.22));
+      tl.to("#co-hl", { attr: { y: Y0 - 27 + 7 * LH, height: LH }, duration: 0.4 }, at(3, 0.5));
+      COUNT("#co-n1", 250, 0, at(3, 0.52), 0.6);
+      tl.to("#co-hl", { attr: { y: Y0 - 27 + 8 * LH, height: LH }, duration: 0.4 }, at(3, 0.72));
+      IN("#co-tl", at(3, 0.74));
+      // L4 push vs pull
+      OUT("#co-tbl", at(4, 0), 0.35);
+      IN("#co-ch1", at(4, 0.06)); IN("#co-ch2", at(4, 0.06));
+      for (let i = 0; i < 5; i++) { IN(`#co-u${i}`, at(4, 0.1) + i * 0.08, 0.4); IN(`#co-v${i}`, at(4, 0.1) + i * 0.08, 0.4); }
+      for (let i = 0; i < 5; i++) IN(`#co-um${i}`, at(4, 0.45) + Math.abs(i - 2) * 0.12, 0.3);
+      for (let i = 0; i < 5; i++) IN(`#co-vm${i}`, at(4, 0.72) + i * 0.06, 0.3);
+      // L5 forceApprove
+      OUT("#co-cmp", at(5, 0), 0.3);
+      HL(10, 1, at(5, 0.02));
+      IN("#co-fa1", at(5, 0.15)); IN("#co-fa2", at(5, 0.4));
+      // L6 区块浏览器
+      OUT("#co-panel", at(6, 0), 0.4); OUT("#co-title", at(6, 0), 0.4); OUT("#co-fa", at(6, 0), 0.4);
+      IN("#co-scan", at(6, 0.05), 0.6, { y: 20 }, { y: 0 });
+      IN("#co-s1", at(6, 0.18));
+      IN("#co-s2", at(6, 0.4));
+      IN("#co-s3", at(6, 0.55));
+      IN("#co-e0", at(6, 0.62)); IN("#co-e1", at(6, 0.68)); IN("#co-e2", at(6, 0.74));
+
+
+      tl.to("#co-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["code"] = tl;
+    })();
+  </script>
+</template>

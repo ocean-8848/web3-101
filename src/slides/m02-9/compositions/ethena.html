@@ -1,0 +1,148 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ethena，id 前缀 et- -->
+  <div id="root" data-composition-id="ethena" data-duration="46.5" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="et-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+
+        <marker id="et-arb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="et-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="et-arg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="et-aro" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+      </defs>
+      <g id="et-all">
+
+        <g id="et-plate" class="h">
+          <rect x="680" y="200" width="560" height="100" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="960" y="267" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#F0B90B">USDe</tspan> · 合成稳定币</text>
+        </g>
+        <g id="et-eth" class="h"><circle cx="420" cy="520" r="70" fill="#F0B90B"/><text class="mono" x="420" y="532" font-size="34" font-weight="700" fill="#0f1117" text-anchor="middle">ETH</text></g>
+        <path id="et-f1" class="dr h" d="M495 520 L812 520" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#et-arg)" pathLength="1"/>
+        <text id="et-f1l" class="h" x="655" y="496" font-size="28" fill="#e8e6df" text-anchor="middle">存入</text>
+        <g id="et-pro" class="h"><rect x="820" y="450" width="280" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="960" y="532" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">协议</text></g>
+        <path id="et-f2" class="dr h" d="M1105 520 L1392 520" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#et-arb)" pathLength="1"/>
+        <text id="et-f2l" class="h" x="1250" y="496" font-size="28" fill="#e8e6df" text-anchor="middle">等值空单</text>
+        <g id="et-ex" class="h" fill="none" stroke="#B48EF0" stroke-width="4">
+          <path d="M1400 430 L1500 385 L1600 430 Z"/><rect x="1410" y="430" width="180" height="160"/>
+          <text x="1500" y="642" font-size="30" font-weight="700" fill="#B48EF0" stroke="none" text-anchor="middle">交易所</text>
+        </g>
+        <path id="et-short" class="dr h" d="M1500 452 L1500 572" stroke="#FC6255" stroke-width="8" fill="none" marker-end="url(#et-arr-r)" pathLength="1"/>
+        <g id="et-warn" class="h"><polygon points="1655,360 1695,428 1615,428" fill="#FF9F43"/><text x="1655" y="420" font-size="40" font-weight="900" fill="#0f1117" text-anchor="middle">!</text></g>
+
+        <g id="et-bars">
+          <text id="et-tag" class="h mono" x="1300" y="824" font-size="34" font-weight="700" fill="#F0B90B">ETH +10%</text>
+          <g id="et-b0" class="h"><text x="470" y="746" font-size="30" fill="#e8e6df" text-anchor="end">现货</text></g>
+          <g id="et-b1" class="h"><text x="470" y="826" font-size="30" fill="#e8e6df" text-anchor="end">空单</text></g>
+          <g id="et-b2" class="h"><text x="470" y="906" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="end">总价值</text></g>
+          <rect id="et-r0" class="h" x="500" y="718" width="500" height="36" rx="6" fill="#8a8f99"/>
+          <rect id="et-r1" class="h" x="500" y="798" width="500" height="36" rx="6" fill="#8a8f99"/>
+          <rect id="et-r2" class="h" x="500" y="878" width="500" height="36" rx="6" fill="#F0B90B"/>
+          <text id="et-v0" class="h mono" x="1090" y="747" font-size="32" font-weight="700" fill="#83C167">+10%</text>
+          <text id="et-v1" class="h mono" x="1090" y="827" font-size="32" font-weight="700" fill="#FC6255">-10%</text>
+          <text id="et-v2" class="h" x="1090" y="907" font-size="32" font-weight="700" fill="#e8e6df">不变</text>
+        </g>
+        <g id="et-y">
+          <text id="et-ys" class="h" x="560" y="752" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">质押收益</text>
+          <text id="et-yf" class="h" x="1360" y="752" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">资金费率</text>
+          <text id="et-yd" class="h" x="1360" y="797" font-size="28" fill="#FF9F43" text-anchor="middle">多头 → 空头</text>
+          <path id="et-c1" class="dr h" d="M560 778 Q600 905 850 920" stroke="#F0B90B" stroke-width="5" fill="none" marker-end="url(#et-arg)" pathLength="1"/>
+          <path id="et-c2" class="dr h" d="M1360 818 Q1320 905 1070 920" stroke="#FF9F43" stroke-width="5" fill="none" marker-end="url(#et-aro)" pathLength="1"/>
+          <g id="et-pool" class="h"><rect x="860" y="885" width="200" height="72" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="960" y="932" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">收益</text></g>
+        </g>
+        <g id="et-r">
+          <text id="et-h1" class="h" x="960" y="740" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">风险 1 · 资金费率长期为负</text>
+          <text id="et-h1d" class="h" x="960" y="800" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">空头 → 多头</text>
+          <text id="et-rl" class="h" x="540" y="896" font-size="30" fill="#e8e6df" text-anchor="end">储备</text>
+          <rect id="et-res" class="h" x="560" y="868" width="800" height="36" rx="6" fill="#F0B90B"/>
+        </g>
+        <g id="et-q">
+          <text id="et-h2" class="h" x="960" y="740" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">风险 2 · 交易所对手方与托管</text>
+          <text id="et-h3" class="h" x="960" y="815" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">风险 3 · 两边难以同时平仓</text>
+          <g id="et-k1" class="h"><rect x="600" y="852" width="280" height="80" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="740" y="903" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">平现货</text></g>
+          <g id="et-k2" class="h"><rect x="1040" y="852" width="280" height="80" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1170" y="903" font-size="32" font-weight="700" fill="#8a8f99" text-anchor="middle">平空单</text></g>
+          <path id="et-kx" class="h" d="M1262 872 L1298 912 M1298 872 L1262 912" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="et-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Delta 中性 <tspan font-size="28" font-weight="400" fill="#8a8f99">Delta Neutral</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">多空相互抵消，涨跌不影响总价值</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      IN("#et-plate", at(0, 0), 0.7, { y: 20 }, { y: 0 });
+      // L1
+      IN("#et-eth", at(1, 0));
+      ARROW("#et-f1", at(1, 0.15)); IN("#et-f1l", at(1, 0.15));
+      IN("#et-pro", at(1, 0.28));
+      ARROW("#et-f2", at(1, 0.48)); IN("#et-f2l", at(1, 0.48));
+      IN("#et-ex", at(1, 0.55));
+      ARROW("#et-short", at(1, 0.72));
+      // L2 delta 中性
+      IN("#et-term", at(2, 0.0), 0.5);
+      IN("#et-b0", at(2, 0.08)); IN("#et-r0", at(2, 0.08));
+      IN("#et-b1", at(2, 0.12)); IN("#et-r1", at(2, 0.12));
+      IN("#et-b2", at(2, 0.16)); IN("#et-r2", at(2, 0.16));
+      IN("#et-tag", at(2, 0.28));
+      tl.to("#et-r0", { attr: { width: 550 }, fill: "#83C167", duration: 0.8 }, at(2, 0.38));
+      IN("#et-v0", at(2, 0.4));
+      tl.to("#et-r1", { attr: { width: 450 }, fill: "#FC6255", duration: 0.8 }, at(2, 0.55));
+      IN("#et-v1", at(2, 0.57));
+      tl.fromTo("#et-r2", { attr: { height: 36, y: 878 } }, { attr: { height: 42, y: 875 }, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(2, 0.72));
+      IN("#et-v2", at(2, 0.74));
+      OUT("#et-term", at(2, 0.95));
+      // L3 收益来源
+      OUT("#et-bars", at(3, 0), 0.4);
+      IN("#et-ys", at(3, 0.08)); DRAW("#et-c1", at(3, 0.15)); tl.set("#et-c1", { opacity: 1 }, at(3, 0.15));
+      IN("#et-pool", at(3, 0.25));
+      IN("#et-yf", at(3, 0.45)); IN("#et-yd", at(3, 0.55));
+      DRAW("#et-c2", at(3, 0.6)); tl.set("#et-c2", { opacity: 1 }, at(3, 0.6));
+      // L4 风险 1
+      OUT("#et-y", at(4, 0), 0.4);
+      IN("#et-h1", at(4, 0.06));
+      IN("#et-h1d", at(4, 0.25));
+      IN("#et-rl", at(4, 0.35)); IN("#et-res", at(4, 0.35));
+      tl.to("#et-res", { attr: { width: 480 }, fill: "#FC6255", duration: 3.0, ease: "power1.inOut" }, at(4, 0.45));
+      // L5 风险 2、3
+      OUT("#et-r", at(5, 0), 0.4);
+      IN("#et-warn", at(5, 0.05), 0.5, { scale: 0.4, svgOrigin: "1655 400" }, { scale: 1, svgOrigin: "1655 400" });
+      IN("#et-h2", at(5, 0.08));
+      IN("#et-h3", at(5, 0.4));
+      IN("#et-k1", at(5, 0.5)); IN("#et-k2", at(5, 0.55));
+      IN("#et-kx", at(5, 0.7), 0.3);
+      tl.to("#et-k2", { x: 6, duration: 0.08, yoyo: true, repeat: 5 }, at(5, 0.74));
+
+
+      tl.to("#et-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#et-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["ethena"] = tl;
+    })();
+  </script>
+</template>

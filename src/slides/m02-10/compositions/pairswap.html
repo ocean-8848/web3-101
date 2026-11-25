@@ -1,0 +1,159 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pairswap，id 前缀 pa- -->
+  <div id="root" data-composition-id="pairswap" data-duration="60.62" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pa-all">
+        <g id="pa-code" class="h">
+          <rect x="100" y="230" width="900" height="440" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <rect id="pa-hl" class="h" x="104" y="352" width="892" height="82" rx="6" fill="#58C4DD" fill-opacity="0.15"/>
+<text class="mono" x="190" y="300" font-size="28" fill="#e8e6df" xml:space="preserve">function swap(out0, out1, to, data)</text>
+<text class="mono" x="190" y="341" font-size="28" fill="#e8e6df" xml:space="preserve">    external lock {</text>
+<text class="mono" x="190" y="382" font-size="28" fill="#e8e6df" xml:space="preserve">  if (out0 &gt; 0) _transfer(to, out0);</text>
+<text class="mono" x="190" y="423" font-size="28" fill="#e8e6df" xml:space="preserve">  if (data.length &gt; 0) to.uniswapV2Call(..);</text>
+<text class="mono" x="190" y="464" font-size="28" fill="#e8e6df" xml:space="preserve">  bal0 = balanceOf(this); bal1 = ...;</text>
+<text class="mono" x="190" y="505" font-size="28" fill="#e8e6df" xml:space="preserve">  in0 = bal0 - (reserve0 - out0);</text>
+<text class="mono" x="190" y="546" font-size="28" fill="#e8e6df" xml:space="preserve">  require(adj0*adj1 &gt;= r0*r1*1000**2, "K");</text>
+<text class="mono" x="190" y="587" font-size="28" fill="#e8e6df" xml:space="preserve">  _update(bal0, bal1);</text>
+<text class="mono" x="190" y="628" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+          <rect id="pa-lock" class="h" x="400" y="312" width="84" height="38" rx="6" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          <text id="pa-lockl" class="h" x="565" y="341" font-size="28" fill="#58C4DD">重入锁</text>
+        </g>
+<g id="pa-s1" class="h"><rect x="112" y="352" width="8" height="82" rx="4" fill="#58C4DD"/>
+<circle cx="150" cy="393" r="20" fill="none" stroke="#58C4DD" stroke-width="3"/><text x="150" y="403" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">1</text></g>
+<g id="pa-s2" class="h"><rect x="112" y="434" width="8" height="82" rx="4" fill="#F0B90B"/>
+<circle cx="150" cy="475" r="20" fill="none" stroke="#F0B90B" stroke-width="3"/><text x="150" y="485" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">2</text></g>
+<g id="pa-s3" class="h"><rect x="112" y="516" width="8" height="82" rx="4" fill="#83C167"/>
+<circle cx="150" cy="557" r="20" fill="none" stroke="#83C167" stroke-width="3"/><text x="150" y="567" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">3</text></g>
+        <g id="pa-pair" class="h"><rect x="1080" y="300" width="300" height="160" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1230" y="395" font-size="36" fill="#58C4DD" text-anchor="middle" xml:space="preserve">Pair</text></g>
+        <g id="pa-to" class="h"><rect x="1560" y="300" width="260" height="160" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1690" y="393" font-size="32" fill="#e8e6df" text-anchor="middle">to 合约</text></g>
+        <path id="pa-a1" class="dr h" pathLength="1" d="M1390 350 L1548 350" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#pa-arr)"/>
+        <text id="pa-a1l" class="h" x="1470" y="325" font-size="28" fill="#F0B90B" text-anchor="middle">先转出</text>
+        <circle id="pa-coin" class="h" cx="1230" cy="430" r="18" fill="#F0B90B"/>
+        <path id="pa-cb" class="dr h" pathLength="1" d="M1690 470 Q1470 570 1240 472" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#pa-arr)"/>
+        <text id="pa-cbl" class="h mono" x="1470" y="575" font-size="28" fill="#58C4DD" text-anchor="middle" xml:space="preserve">uniswapV2Call()</text>
+        <text id="pa-bal" class="h mono" x="1230" y="545" font-size="30" fill="#58C4DD" text-anchor="middle" xml:space="preserve">balanceOf(this)</text>
+        <text id="pa-eq" class="h" x="1080" y="640" font-size="34" fill="#e8e6df">余额 − 原储备 = <tspan fill="#F0B90B">转入量</tspan></text>
+        <text id="pa-who" class="h" x="1080" y="720" font-size="30" fill="#8a8f99">谁转进来的？不关心</text>
+        <text id="pa-k1" class="h" x="1080" y="600" font-size="40" fill="#e8e6df">扣费后  k′ ≥ k</text>
+        <text id="pa-k1c" class="h" x="1420" y="602" font-size="48" fill="#83C167">✓</text>
+        <text id="pa-k2" class="h" x="1080" y="720" font-size="40" fill="#FC6255">k′ &lt; k</text>
+        <g id="pa-k2b" class="h"><rect x="1240" y="680" width="80" height="54" rx="8" fill="none" stroke="#FC6255" stroke-width="3"/><text class="mono" x="1280" y="718" font-size="28" fill="#FC6255" text-anchor="middle" xml:space="preserve">"K"</text></g>
+        <text id="pa-k2c" class="h" x="1350" y="720" font-size="34" fill="#FC6255">整笔回滚</text>
+        <line id="pa-tl" class="dr" pathLength="1" x1="1110" y1="530" x2="1110" y2="800" stroke="#8a8f99" stroke-width="3"/>
+<g id="pa-n0" class="h"><circle cx="1110" cy="530" r="10" fill="#F0B90B"/><text x="1150" y="541" font-size="32" fill="#F0B90B">借出代币</text></g>
+<g id="pa-n1" class="h"><circle cx="1110" cy="620" r="10" fill="#e8e6df"/><text x="1150" y="631" font-size="32" fill="#e8e6df">回调里用掉</text></g>
+<g id="pa-n2" class="h"><circle cx="1110" cy="710" r="10" fill="#e8e6df"/><text x="1150" y="721" font-size="32" fill="#e8e6df">结束前还回</text></g>
+<g id="pa-n3" class="h"><circle cx="1110" cy="800" r="10" fill="#83C167"/><text x="1150" y="811" font-size="32" fill="#83C167">检查 k  ✓</text></g>
+        <g id="pa-br" class="h"><path d="M1430 520 L1450 520 L1450 810 L1430 810" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1475" y="676" font-size="30" fill="#8a8f99">同一笔交易</text></g>
+        <g id="pa-warn" class="h"><rect x="1060" y="230" width="780" height="520" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1100" y="295" font-size="34" fill="#FF9F43" font-weight="700">绕过 Router 的合约自己要做</text></g>
+        <text id="pa-wsub" class="h" x="1100" y="352" font-size="28" fill="#FC6255">直接调 Pair：没有下限和截止保护</text>
+<g id="pa-w0" class="h"><rect x="1100" y="410" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/><text x="1160" y="440" font-size="32" fill="#e8e6df">读储备，算预期输出</text></g>
+<path id="pa-c0" class="dr" pathLength="1" d="M1104 426 l12 12 l22 -26" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="pa-w1" class="h"><rect x="1100" y="490" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/><text x="1160" y="520" font-size="32" fill="#e8e6df">不低于下限</text></g>
+<path id="pa-c1" class="dr" pathLength="1" d="M1104 506 l12 12 l22 -26" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="pa-w2" class="h"><rect x="1100" y="570" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/><text x="1160" y="600" font-size="32" fill="#e8e6df">检查截止时间</text></g>
+<path id="pa-c2" class="dr" pathLength="1" d="M1104 586 l12 12 l22 -26" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="pa-w3" class="h"><rect x="1100" y="650" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="2.5"/><text x="1160" y="680" font-size="32" fill="#e8e6df">防重入</text></g>
+<path id="pa-c3" class="dr" pathLength="1" d="M1104 666 l12 12 l22 -26" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <g id="pa-ax" class="h"><line x1="160" y1="700" x2="1760" y2="700" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="160" y="748" font-size="30" fill="#8a8f99" text-anchor="middle" xml:space="preserve">0</text><text x="1760" y="750" font-size="38" fill="#8a8f99" text-anchor="middle">∞</text><text x="960" y="790" font-size="30" fill="#8a8f99" text-anchor="middle">价格</text></g>
+        <rect id="pa-band" class="h" x="160" y="620" width="1600" height="70" fill="#58C4DD" fill-opacity="0.35"/>
+        <text id="pa-bandl" class="h" x="160" y="592" font-size="30" fill="#58C4DD">V2 流动性</text>
+        <rect id="pa-cur" class="h" x="720" y="620" width="160" height="70" fill="#58C4DD"/>
+        <g id="pa-ptr" class="h"><path d="M786 594 L814 594 L800 614 Z" fill="#e8e6df"/><text x="800" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">当前价格</text></g>
+        <text id="pa-low" class="h" x="960" y="900" font-size="48" fill="#FC6255" text-anchor="middle" font-weight="700">资本效率低</text>
+      </g>
+      <!-- 术语卡 -->
+      <g id="pa-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">闪电兑换 <tspan font-size="28" font-weight="400" fill="#8a8f99">Flash Swap</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">同一笔交易内先取币、后付清</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const HL = (y, h, t) => tl.to("#pa-hl", { attr: { y, height: h }, duration: 0.4, ease: "power2.inOut" }, t);
+      // L0
+      IN("#pa-code", at(0, 0.0), 0.6);
+      IN("#pa-s1", at(0, 0.35), 0.4); IN("#pa-s2", at(0, 0.55), 0.4); IN("#pa-s3", at(0, 0.75), 0.4);
+      // L1 step 1
+      IN("#pa-hl", at(1, 0.0), 0.3);
+      IN("#pa-pair", at(1, 0.08)); IN("#pa-to", at(1, 0.16));
+      IN("#pa-coin", at(1, 0.26), 0.3);
+      ARROW("#pa-a1", at(1, 0.3)); IN("#pa-a1l", at(1, 0.33), 0.4);
+      tl.to("#pa-coin", { attr: { cx: 1690 }, duration: 0.9, ease: "power2.inOut" }, at(1, 0.36));
+      ARROW("#pa-cb", at(1, 0.66), 0.8); IN("#pa-cbl", at(1, 0.74), 0.4);
+      // L2 step 2
+      OUT("#pa-to, #pa-a1, #pa-a1l, #pa-coin, #pa-cb, #pa-cbl", at(2, 0), 0.4);
+      HL(434, 82, at(2, 0.02));
+      IN("#pa-bal", at(2, 0.18), 0.5, { y: 10 }, { y: 0 });
+      IN("#pa-eq", at(2, 0.42), 0.5);
+      IN("#pa-who", at(2, 0.72), 0.5);
+      // L3 step 3
+      OUT("#pa-bal, #pa-eq, #pa-who", at(3, 0), 0.4);
+      HL(516, 82, at(3, 0.02));
+      IN("#pa-k1", at(3, 0.32), 0.5);
+      IN("#pa-k1c", at(3, 0.5), 0.4, { scale: 0.5, svgOrigin: "1440 585" }, { scale: 1, svgOrigin: "1440 585" });
+      IN("#pa-k2", at(3, 0.72), 0.4);
+      IN("#pa-k2b", at(3, 0.8), 0.3);
+      IN("#pa-k2c", at(3, 0.84), 0.4);
+      tl.to("#pa-pair rect", { stroke: "#FC6255", duration: 0.2 }, at(3, 0.82));
+      tl.to("#pa-pair rect", { stroke: "#58C4DD", duration: 0.4 }, at(3, 0.98));
+      // L4 flash swap
+      OUT("#pa-k1, #pa-k1c, #pa-k2, #pa-k2b, #pa-k2c", at(4, 0), 0.4);
+      IN("#pa-term", at(4, 0.1), 0.5);
+      DRAW("#pa-tl", at(4, 0.16), 2.0);
+      IN("#pa-n0", at(4, 0.16), 0.4); IN("#pa-n1", at(4, 0.27), 0.4); IN("#pa-n2", at(4, 0.4), 0.4);
+      IN("#pa-br", at(4, 0.46), 0.5); IN("#pa-n3", at(4, 0.56), 0.4);
+      OUT("#pa-term", at(4, 0.74), 0.4);
+      HL(311, 41, at(4, 0.8));
+      IN("#pa-lock", at(4, 0.8), 0.3);
+      tl.to("#pa-lock", { opacity: 0.2, duration: 0.25, yoyo: true, repeat: 3 }, at(4, 0.84));
+      IN("#pa-lockl", at(4, 0.84), 0.4);
+      // L5 integration trap
+      OUT("#pa-pair, #pa-tl, #pa-n0, #pa-n1, #pa-n2, #pa-n3, #pa-br, #pa-lock, #pa-lockl, #pa-hl", at(5, 0), 0.4);
+      IN("#pa-warn", at(5, 0.06), 0.6);
+      IN("#pa-wsub", at(5, 0.18), 0.5);
+      IN("#pa-w0", at(5, 0.4), 0.4); IN("#pa-w1", at(5, 0.46), 0.4); IN("#pa-w2", at(5, 0.52), 0.4); IN("#pa-w3", at(5, 0.58), 0.4);
+      DRAW("#pa-c0", at(5, 0.62), 0.4); DRAW("#pa-c1", at(5, 0.72), 0.4); DRAW("#pa-c2", at(5, 0.82), 0.4); DRAW("#pa-c3", at(5, 0.92), 0.4);
+      // L6 capital efficiency
+      OUT("#pa-code, #pa-s1, #pa-s2, #pa-s3, #pa-warn, #pa-wsub, #pa-w0, #pa-w1, #pa-w2, #pa-w3, #pa-c0, #pa-c1, #pa-c2, #pa-c3", at(6, 0), 0.4);
+      IN("#pa-ax", at(6, 0.06), 0.5);
+      IN("#pa-band", at(6, 0.12), 0.8, { attr: { width: 0 } }, { attr: { width: 1600 } });
+      IN("#pa-bandl", at(6, 0.2), 0.5);
+      IN("#pa-ptr", at(6, 0.45), 0.4); IN("#pa-cur", at(6, 0.48), 0.4);
+      tl.to("#pa-band", { attr: { fill: "#8a8f99" }, fillOpacity: 0.22, duration: 0.6 }, at(6, 0.55));
+      IN("#pa-low", at(6, 0.78), 0.5, { y: 12 }, { y: 0 });
+
+      tl.to("#pa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#pa-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["pairswap"] = tl;
+    })();
+  </script>
+</template>

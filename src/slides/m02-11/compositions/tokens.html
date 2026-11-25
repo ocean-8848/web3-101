@@ -1,0 +1,138 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tokens，id 前缀 to- -->
+  <div id="root" data-composition-id="tokens" data-duration="53.8" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="to-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="to-all">
+
+        <path id="to-div" class="dr" pathLength="1" d="M960 200 L960 850" stroke="#6b6f7a" stroke-width="2" fill="none" />
+        <g id="to-lt" class="h">
+          <text x="510" y="260" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">汇率增长型</text>
+          <text x="510" y="310" font-size="28" fill="#8a8f99" text-anchor="middle">Compound V2 · cToken</text>
+        </g>
+        <g id="to-rt" class="h">
+          <text x="1410" y="260" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">余额增长型</text>
+          <text x="1410" y="310" font-size="28" fill="#8a8f99" text-anchor="middle">Aave · aToken</text>
+        </g>
+        <g id="to-lw" class="h">
+          <rect x="160" y="360" width="360" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="340" y="424" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">100 cUSDC</text>
+        </g>
+        <text id="to-rate" class="h mono" x="160" y="560" font-size="32" fill="#e8e6df">1 cUSDC → <tspan id="to-rv" fill="#58C4DD">0.0200</tspan> USDC</text>
+        <path id="to-ra" class="dr h" pathLength="1" d="M530 410 L640 410" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#to-arr)" />
+        <g id="to-stack" class="h">
+          <rect id="to-sbar" x="660" y="410" width="200" height="60" rx="6" fill="#F0B90B" opacity="0.8" />
+          <text id="to-sv" class="mono" x="760" y="510" font-size="30" fill="#F0B90B" text-anchor="middle">2.00 USDC</text>
+        </g>
+        <g id="to-fc" class="h">
+          <rect x="140" y="640" width="740" height="180" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="180" y="712" font-size="34" fill="#58C4DD">(现金 + <tspan id="to-tb">总借款</tspan> − 储备)</text>
+          <text x="180" y="784" font-size="34" fill="#58C4DD">÷ cToken 总量</text>
+          <text id="to-up" class="h" x="840" y="750" font-size="56" font-weight="700" fill="#F0B90B" text-anchor="end">↑</text>
+        </g>
+        <g id="to-rw" class="h">
+          <rect x="1060" y="360" width="440" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="1090" y="424" font-size="40" font-weight="700" fill="#58C4DD">aUSDC <tspan id="to-av">1,000.00</tspan></text>
+        </g>
+        <g id="to-lock" class="h">
+          <rect x="1064" y="530" width="34" height="28" rx="4" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <path d="M1071 530 L1071 520 A10 10 0 0 1 1091 520 L1091 530" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <text class="mono" x="1120" y="556" font-size="30" fill="#e8e6df">1 aUSDC = 1 USDC</text>
+        </g>
+        <g id="to-idx" class="h">
+          <circle cx="960" cy="940" r="46" fill="#161a22" stroke="#58C4DD" stroke-width="4" />
+          <text x="960" y="950" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">指数</text>
+        </g>
+        <path id="to-l1" class="dr" pathLength="1" d="M510 826 L910 925" stroke="#58C4DD" stroke-width="3" fill="none" />
+        <path id="to-l2" class="dr" pathLength="1" d="M1410 600 L1004 916" stroke="#58C4DD" stroke-width="3" fill="none" />
+        <text id="to-n1" class="h" x="140" y="920" font-size="30" fill="#58C4DD">利息藏在汇率里</text>
+        <text id="to-n2" class="h" x="1460" y="900" font-size="30" fill="#58C4DD">利息写进余额里</text>
+        <g id="to-quiz" class="h">
+          <rect x="1030" y="340" width="780" height="420" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="1070" y="410" font-size="36" font-weight="700" fill="#e8e6df">cToken 怎么体现利息？</text>
+          <rect id="to-o1" x="1070" y="460" width="700" height="100" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+          <text id="to-o1t" x="1110" y="522" font-size="34" fill="#e8e6df">数量变多</text>
+          <path id="to-x1" class="dr" pathLength="1" d="M1100 510 L1260 510" stroke="#FC6255" stroke-width="5" fill="none" />
+          <text id="to-x1m" class="h" x="1730" y="524" font-size="40" font-weight="700" fill="#FC6255" text-anchor="end">✕</text>
+          <rect id="to-o2" x="1070" y="600" width="700" height="100" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+          <text x="1110" y="662" font-size="34" fill="#e8e6df">每个能换回更多</text>
+          <text id="to-c2m" class="h" x="1730" y="664" font-size="40" font-weight="700" fill="#83C167" text-anchor="end">✓</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const AV = v => "1,000." + String(Math.round(v)).padStart(2, "0");
+      // L0 两栏
+      DRAW("#to-div", at(0, 0.05), 0.8);
+      IN("#to-lt", at(0, 0.25), 0.6, { y: 20 }, { y: 0 });
+      IN("#to-rt", at(0, 0.55), 0.6, { y: 20 }, { y: 0 });
+      // L1 cToken：数量不变，汇率上升
+      IN("#to-lw", at(1, 0.12), 0.5);
+      IN("#to-rate", at(1, 0.4), 0.5);
+      ARROW("#to-ra", at(1, 0.55), 0.4);
+      IN("#to-stack", at(1, 0.58), 0.4);
+      COUNT("#to-rv", 0.02, 0.0205, at(1, 0.7), 3.0, v => v.toFixed(4));
+      COUNT("#to-sv", 2.0, 2.05, at(1, 0.7), 3.0, v => v.toFixed(2) + " USDC");
+      tl.to("#to-sbar", { attr: { y: 395, height: 75 }, duration: 3.0, ease: "power2.out" }, at(1, 0.7));
+      // L2 汇率公式
+      IN("#to-fc", at(2, 0.05), 0.6, { y: 20 }, { y: 0 });
+      tl.to("#to-tb", { fill: "#F0B90B", attr: { "font-size": 42 }, duration: 0.6, ease: "back.out(2)" }, at(2, 0.5));
+      IN("#to-up", at(2, 0.6), 0.4, { y: 20 }, { y: 0 });
+      COUNT("#to-rv", 0.0205, 0.021, at(2, 0.62), 2.5, v => v.toFixed(4));
+      COUNT("#to-sv", 2.05, 2.1, at(2, 0.62), 2.5, v => v.toFixed(2) + " USDC");
+      tl.to("#to-sbar", { attr: { y: 380, height: 90 }, duration: 2.5, ease: "power2.out" }, at(2, 0.62));
+      // L3 aToken：余额自增
+      IN("#to-rw", at(3, 0.05), 0.5);
+      COUNT("#to-av", 0, 37, at(3, 0.2), 6.0, AV);
+      IN("#to-lock", at(3, 0.45), 0.5);
+      // L4 两栏都接到同一个指数
+      IN("#to-idx", at(4, 0.0), 0.5, { scale: 0.6, svgOrigin: "960 940" }, { scale: 1, svgOrigin: "960 940" });
+      DRAW("#to-l1", at(4, 0.12), 0.6);
+      DRAW("#to-l2", at(4, 0.12), 0.6);
+      IN("#to-n1", at(4, 0.35), 0.5);
+      IN("#to-n2", at(4, 0.6), 0.5);
+      // L5 测验
+      OUT("#to-rt, #to-rw, #to-lock, #to-idx, #to-l1, #to-l2, #to-n1, #to-n2, #to-fc, #to-div", at(5, 0.0), 0.4);
+      IN("#to-quiz", at(5, 0.08), 0.5);
+      tl.to("#to-x1", { strokeDashoffset: 0, duration: 0.5 }, at(5, 0.42));
+      tl.to("#to-o1", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.42));
+      tl.to("#to-o1t", { fill: "#6b6f7a", duration: 0.3 }, at(5, 0.45));
+      IN("#to-x1m", at(5, 0.45), 0.3);
+      tl.to("#to-o2", { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, at(5, 0.7));
+      IN("#to-c2m", at(5, 0.72), 0.4, { scale: 0.5, svgOrigin: "1710 650" }, { scale: 1, svgOrigin: "1710 650" });
+      tl.to("#to-rate", { fill: "#83C167", duration: 0.4 }, at(5, 0.75));
+
+
+      tl.to("#to-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tokens"] = tl;
+    })();
+  </script>
+</template>

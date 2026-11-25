@@ -1,0 +1,187 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 health，id 前缀 he- -->
+  <div id="root" data-composition-id="health" data-duration="61.52" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="he-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="he-all">
+        <text id="he-f" class="h" x="960" y="430" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">HF = Σ(<tspan fill="#F0B90B">抵押价值</tspan> × <tspan fill="#FF9F43">清算阈值</tspan>) ÷ <tspan fill="#F0B90B">总债务</tspan></text>
+        <g id="he-g" class="h">
+          <rect x="460" y="590" width="333" height="24" fill="#FC6255"/>
+          <rect x="793" y="590" width="667" height="24" fill="#83C167"/>
+          <line x1="793" y1="572" x2="793" y2="632" stroke="#e8e6df" stroke-width="3"/>
+          <text x="793" y="676" font-size="32" fill="#e8e6df" text-anchor="middle">1</text>
+          <text x="620" y="676" font-size="30" fill="#FC6255" text-anchor="middle">可清算</text>
+          <text x="1130" y="676" font-size="30" fill="#83C167" text-anchor="middle">安全</text>
+        </g>
+        <path id="he-gp" class="h" d="M1196 560 L1220 560 L1208 584 z" fill="#e8e6df"/>
+        <!-- 一图看懂 -->
+        <g id="he-b1" class="h">
+          <rect x="120" y="200" width="440" height="110" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3"/>
+          <text x="340" y="246" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">抵押 3 ETH</text>
+          <text x="340" y="290" font-size="28" fill="#8a8f99" text-anchor="middle">ETH 3,000 · 阈值 82.5%</text>
+        </g>
+        <g id="he-b2" class="h">
+          <rect x="740" y="200" width="440" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="960" y="268" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">资金池</text>
+        </g>
+        <g id="he-b3" class="h">
+          <rect id="he-b3r" x="1360" y="200" width="440" height="110" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3"/>
+          <text id="he-d5" x="1580" y="268" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">借出 5,000 USDC</text>
+          <text id="he-d7" x="1580" y="268" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle" opacity="0">借出 7,500 USDC</text>
+        </g>
+        <path id="he-a1" class="dr h" pathLength="1" d="M360 316 L600 354" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#he-arr)"/>
+        <path id="he-a2" class="dr h" pathLength="1" d="M960 316 L960 352" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#he-arr)"/>
+        <path id="he-a3" class="dr h" pathLength="1" d="M1560 316 L1320 354" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#he-arr)"/>
+        <g id="he-mid" class="h">
+          <rect x="560" y="362" width="800" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+          <text class="mono" x="960" y="426" font-size="40" fill="#e8e6df" text-anchor="middle">9,000 × 0.825 ÷ 5,000 = <tspan id="he-hfv" fill="#83C167" font-weight="700">1.485</tspan></text>
+        </g>
+        <g id="he-red">
+          <g id="he-redb" class="h">
+            <rect x="120" y="540" width="440" height="100" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+            <text x="200" y="603" font-size="36" font-weight="700" fill="#FC6255">清算价</text>
+          </g>
+          <text id="he-lp1" class="h" x="330" y="603" font-size="36" font-weight="700" fill="#FC6255">≈ 2,020</text>
+          <text id="he-lp2" class="h" x="330" y="603" font-size="36" font-weight="700" fill="#FC6255">≈ 3,030</text>
+        </g>
+        <g id="he-grn" class="h">
+          <rect x="1360" y="540" width="440" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+          <text x="1580" y="603" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">ETH 3,000</text>
+        </g>
+        <path id="he-drop" class="dr h" pathLength="1" d="M1346 590 L578 590" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#he-arr)"/>
+        <text id="he-dropt" class="h" x="960" y="566" font-size="30" fill="#FC6255" text-anchor="middle">价格下跌 约 −33%</text>
+        <g id="he-dv1">
+          <text id="he-s1" class="h mono" x="404" y="740" font-size="40" fill="#e8e6df">5,000 ÷ (3 × 0.825)</text>
+          <text id="he-s2" class="h mono" x="884" y="740" font-size="40" fill="#e8e6df">= 5,000 ÷ 2.475</text>
+          <text id="he-s3" class="h mono" x="1292" y="740" font-size="40" font-weight="700" fill="#FC6255">≈ 2,020</text>
+        </g>
+        <g id="he-dv2">
+          <text id="he-t1" class="h mono" x="404" y="740" font-size="40" fill="#e8e6df">7,500 ÷ (3 × 0.825)</text>
+          <text id="he-t2" class="h mono" x="884" y="740" font-size="40" fill="#e8e6df">= 7,500 ÷ 2.475</text>
+          <text id="he-t3" class="h mono" x="1292" y="740" font-size="40" font-weight="700" fill="#FC6255">≈ 3,030</text>
+        </g>
+        <!-- 价格滑块 + HF 小表 -->
+        <g id="he-sl" class="h">
+          <text x="400" y="902" font-size="30" fill="#FF9F43" text-anchor="end">ETH 价格</text>
+          <line x1="420" y1="892" x2="1120" y2="892" stroke="#8a8f99" stroke-width="6" stroke-linecap="round"/>
+          <text x="1240" y="902" font-size="30" fill="#e8e6df" text-anchor="end">HF</text>
+          <rect x="1260" y="884" width="167" height="16" fill="#FC6255"/>
+          <rect x="1427" y="884" width="373" height="16" fill="#83C167"/>
+          <line x1="1427" y1="874" x2="1427" y2="910" stroke="#e8e6df" stroke-width="3"/>
+          <text x="1427" y="946" font-size="28" fill="#e8e6df" text-anchor="middle">1</text>
+        </g>
+        <g id="he-kn" class="h">
+          <circle id="he-knc" cx="980" cy="892" r="16" fill="#FF9F43"/>
+          <text id="he-knv" class="mono" x="980" y="860" font-size="30" fill="#FF9F43" text-anchor="middle">3,000</text>
+          <path id="he-hp" d="M1646 866 L1670 866 L1658 882 z" fill="#e8e6df"/>
+          <text id="he-hv" class="mono" x="1658" y="856" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">1.485</text>
+        </g>
+      </g>
+      <g id="he-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">健康因子 <tspan font-size="28" font-weight="400" fill="#8a8f99">Health Factor</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">低于 1 就可以被清算</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // 价格 p、债务 d → 滑块 x 与 HF 指针 x
+      const PX = p => 420 + (p - 1800) * 700 / 1500;
+      const HX = h => 1260 + (Math.min(Math.max(h, 0.6), 1.8) - 0.6) * 540 / 1.2;
+      const st = { p: 3000, d: 5000 };
+      const kn = document.querySelector("#he-knc"), knv = document.querySelector("#he-knv");
+      const hp = document.querySelector("#he-hp"), hv = document.querySelector("#he-hv");
+      const paint = () => {
+        const x = PX(st.p), h = st.p * 3 * 0.825 / st.d, hx = HX(h);
+        kn.setAttribute("cx", x); knv.setAttribute("x", x);
+        knv.textContent = Math.round(st.p).toLocaleString("en-US");
+        hp.setAttribute("d", `M${hx - 12} 866 L${hx + 12} 866 L${hx} 882 z`);
+        hv.setAttribute("x", hx); hv.textContent = h.toFixed(st.dig || 3);
+        hv.setAttribute("fill", h < 1 ? "#FC6255" : "#83C167");
+      };
+      const MOVE = (to, t, d = 1.2, ease = "power2.inOut") => tl.to(st, { ...to, duration: d, ease, onUpdate: paint }, t);
+      // L0 公式 + 刻度表
+      IN("#he-f", at(0, 0.05), 0.7, { y: 20 }, { y: 0 });
+      IN("#he-term", at(0, 0.12), 0.5);
+      IN("#he-g", at(0, 0.5), 0.6);
+      IN("#he-gp", at(0, 0.55), 0.3);
+      tl.fromTo("#he-gp", { x: 0 }, { x: -440, duration: 1.2, ease: "power2.inOut", immediateRender: false }, at(0, 0.7));
+      tl.to("#he-gp", { x: 0, duration: 1.0, ease: "power2.inOut" }, at(0, 0.84));
+      OUT("#he-term", at(0, 0.97), 0.4);
+      // L1 一图看懂
+      OUT("#he-f, #he-g, #he-gp", at(1, 0), 0.4);
+      IN("#he-b1", at(1, 0.08), 0.6, { y: -20 }, { y: 0 });
+      IN("#he-b2", at(1, 0.3), 0.6, { y: -20 }, { y: 0 });
+      IN("#he-b3", at(1, 0.55), 0.6, { y: -20 }, { y: 0 });
+      // L2 汇入中框
+      ARROW("#he-a1", at(2, 0.02)); ARROW("#he-a2", at(2, 0.06)); ARROW("#he-a3", at(2, 0.1));
+      IN("#he-mid", at(2, 0.3), 0.6, { scale: 0.9, svgOrigin: "960 412" }, { scale: 1, svgOrigin: "960 412" });
+      COUNT("#he-hfv", 0, 1.485, at(2, 0.4), 1.6, v => v.toFixed(3));
+      tl.to("#he-b1, #he-b3", { y: -8, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.6));
+      tl.to("#he-mid", { y: -10, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.85));
+      // L3 清算价
+      IN("#he-grn", at(3, 0.02), 0.5);
+      IN("#he-redb", at(3, 0.06), 0.5);
+      IN("#he-s1", at(3, 0.1), 0.5);
+      IN("#he-s2", at(3, 0.2), 0.5);
+      IN("#he-s3", at(3, 0.3), 0.5, { scale: 1.3, svgOrigin: "1376 728" }, { scale: 1, svgOrigin: "1376 728" });
+      IN("#he-lp1", at(3, 0.34), 0.5);
+      ARROW("#he-drop", at(3, 0.5), 0.9); IN("#he-dropt", at(3, 0.56), 0.5);
+      IN("#he-sl", at(3, 0.62), 0.5); IN("#he-kn", at(3, 0.62), 0.5);
+      MOVE({ p: 2020 }, at(3, 0.7), 3.0);
+      // L4 借到 7,500
+      OUT("#he-d5", at(4, 0.02), 0.3);
+      tl.to("#he-d7", { opacity: 1, duration: 0.4 }, at(4, 0.07));
+      tl.to("#he-b3r", { stroke: "#FC6255", duration: 0.4 }, at(4, 0.07));
+      OUT("#he-mid, #he-a1, #he-a2, #he-a3", at(4, 0.04), 0.4);
+      OUT("#he-s1, #he-s2, #he-s3, #he-drop, #he-dropt, #he-lp1", at(4, 0.1), 0.4);
+      MOVE({ p: 3000 }, at(4, 0.1), 1.0);
+      MOVE({ d: 7500 }, at(4, 0.2), 1.2);
+      IN("#he-t1", at(4, 0.2), 0.5);
+      IN("#he-t2", at(4, 0.3), 0.5);
+      IN("#he-t3", at(4, 0.42), 0.5, { scale: 1.3, svgOrigin: "1376 728" }, { scale: 1, svgOrigin: "1376 728" });
+      IN("#he-lp2", at(4, 0.46), 0.4);
+      tl.to("#he-red", { x: 780, duration: 1.2, ease: "power3.inOut" }, at(4, 0.55));
+      tl.to("#he-grn rect", { stroke: "#FC6255", duration: 0.3, yoyo: true, repeat: 3 }, at(4, 0.7));
+      // L5 回到 5,000，价格抖动
+      OUT("#he-t1, #he-t2, #he-t3, #he-lp2", at(5, 0.0), 0.35);
+      tl.to("#he-d7", { opacity: 0, duration: 0.3 }, at(5, 0.0));
+      tl.to("#he-d5", { opacity: 1, duration: 0.4 }, at(5, 0.06));
+      tl.to("#he-b3r", { stroke: "#F0B90B", duration: 0.4 }, at(5, 0.06));
+      tl.to("#he-red", { x: 0, duration: 1.0, ease: "power3.inOut" }, at(5, 0.08));
+      IN("#he-lp1", at(5, 0.25), 0.4);
+      MOVE({ d: 5000 }, at(5, 0.05), 0.9);
+      [3080, 2930, 3120, 2890, 3050, 2960, 3010].forEach((p, i) => MOVE({ p }, at(5, 0.25) + i * 0.55, 0.5, "sine.inOut"));
+
+      tl.to("#he-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#he-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["health"] = tl;
+    })();
+  </script>
+</template>

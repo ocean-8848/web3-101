@@ -1,0 +1,171 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 split，id 前缀 sp- -->
+  <div id="root" data-composition-id="split" data-duration="47.22" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sp-all">
+        <g id="sp-flow">
+          <g id="sp-asset" class="h">
+            <rect x="100" y="420" width="260" height="160" rx="16" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3"/>
+            <text x="230" y="512" font-size="38" font-weight="700" fill="#F0B90B" text-anchor="middle">生息资产</text>
+          </g>
+          <g id="sp-ex1" class="h">
+            <rect x="100" y="612" width="260" height="56" rx="28" fill="none" stroke="#F0B90B" stroke-width="2"/>
+            <text class="mono" x="230" y="650" font-size="28" fill="#F0B90B" text-anchor="middle">wstETH</text>
+          </g>
+          <g id="sp-ex2" class="h">
+            <rect x="100" y="690" width="260" height="56" rx="28" fill="none" stroke="#58C4DD" stroke-width="2"/>
+            <text x="230" y="728" font-size="28" fill="#58C4DD" text-anchor="middle">金库份额</text>
+          </g>
+          <text id="sp-exn" class="h" x="100" y="800" font-size="28" fill="#6b6f7a">质押收据，前面讲过</text>
+          <path id="sp-a1" class="dr h" pathLength="1" d="M368 500 L432 500" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#sp-arr)"/>
+          <g id="sp-sy" class="h">
+            <rect x="440" y="410" width="210" height="180" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="4"/>
+            <text x="545" y="490" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">SY</text>
+            <text x="545" y="540" font-size="30" fill="#58C4DD" text-anchor="middle">统一包装</text>
+          </g>
+          <path id="sp-a2" class="dr h" pathLength="1" d="M658 500 L712 500" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#sp-arr)"/>
+          <g id="sp-gearbox" class="h">
+            <rect x="720" y="400" width="280" height="200" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text x="860" y="572" font-size="30" fill="#e8e6df" text-anchor="middle">按到期日拆分</text>
+          </g>
+          <g id="sp-gear" class="h">
+            <path d="M860 432 L868 446 L884 442 L884 458 L898 466 L888 478 L898 490 L884 498 L884 514 L868 510 L860 524 L852 510 L836 514 L836 498 L822 490 L832 478 L822 466 L836 458 L836 442 L852 446 Z" fill="none" stroke="#e8e6df" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="860" cy="478" r="12" fill="none" stroke="#e8e6df" stroke-width="3"/>
+          </g>
+          <path id="sp-a3" class="dr h" pathLength="1" d="M1006 470 L1092 340" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#sp-arr)"/>
+          <path id="sp-a4" class="dr h" pathLength="1" d="M1006 530 L1092 660" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#sp-arr)"/>
+          <g id="sp-pt" class="h">
+            <rect x="1100" y="260" width="700" height="150" rx="16" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="3"/>
+            <text x="1140" y="324" font-size="40" font-weight="700" fill="#83C167">PT <tspan font-size="34" font-weight="400">本金代币</tspan></text>
+            <text x="1140" y="378" font-size="30" fill="#e8e6df">到期 1:1 换回底层资产</text>
+          </g>
+          <g id="sp-yt" class="h">
+            <rect x="1100" y="590" width="700" height="150" rx="16" fill="#FF9F43" fill-opacity="0.12" stroke="#FF9F43" stroke-width="3"/>
+            <text x="1140" y="654" font-size="40" font-weight="700" fill="#FF9F43">YT <tspan font-size="34" font-weight="400">收益代币</tspan></text>
+            <text x="1140" y="708" font-size="30" fill="#e8e6df">到期前领取全部收益</text>
+          </g>
+          <text id="sp-eq" class="h" x="960" y="850" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#83C167">1 PT</tspan> + <tspan fill="#FF9F43">1 YT</tspan> = <tspan fill="#F0B90B">1 份生息资产</tspan></text>
+          <rect id="sp-bp" class="h" x="640" y="900" width="0" height="30" fill="#83C167"/>
+          <rect id="sp-by" class="h" x="1180" y="900" width="0" height="30" fill="#FF9F43"/>
+          <rect id="sp-bg" class="h" x="640" y="950" width="600" height="30" fill="#F0B90B"/>
+          <text id="sp-bl" class="h" x="1280" y="952" font-size="28" fill="#8a8f99">价格之和 ≈ 底层价值</text>
+        </g>
+        <!-- L4/L5 bond analogy -->
+        <g id="sp-bond">
+          <g id="sp-left" class="h">
+            <g id="sp-lin">
+              <rect x="560" y="300" width="500" height="260" rx="10" fill="#1b2029" stroke="#e8e6df" stroke-width="3"/>
+              <text id="sp-lt" class="h" x="810" y="410" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">本金券</text>
+              <text id="sp-ld" class="h" x="810" y="470" font-size="30" fill="#e8e6df" text-anchor="middle">到期兑付面值</text>
+              <text id="sp-ld2" class="h" x="810" y="520" font-size="28" fill="#8a8f99" text-anchor="middle">今天打折买</text>
+            </g>
+          </g>
+          <g id="sp-right" class="h">
+            <rect x="1060" y="300" width="300" height="260" rx="10" fill="#1b2029" stroke="#e8e6df" stroke-width="3"/>
+            <text id="sp-rt" class="h" x="1210" y="410" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">利息券</text>
+            <text id="sp-rd" class="h" x="1210" y="470" font-size="30" fill="#e8e6df" text-anchor="middle">到期前的</text>
+            <text id="sp-rd2" class="h" x="1210" y="512" font-size="30" fill="#e8e6df" text-anchor="middle">全部利息</text>
+          </g>
+          <text id="sp-btitle" class="h" x="810" y="445" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">附息债券</text>
+          <line id="sp-cut" class="dr" pathLength="1" x1="1060" y1="280" x2="1060" y2="580" stroke="#e8e6df" stroke-width="3" stroke-dasharray="0.03 0.02"/>
+          <g id="sp-law" class="h">
+            <path d="M560 708 L578 726 L610 690" stroke="#83C167" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="630" y="722" font-size="34" fill="#e8e6df">债券违约 → <tspan fill="#83C167">法律追索</tspan></text>
+          </g>
+          <g id="sp-nolaw" class="h">
+            <path d="M562 778 L602 818 M602 778 L562 818" stroke="#FC6255" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <text x="630" y="810" font-size="34" fill="#e8e6df">合约被攻击 → <tspan fill="#FC6255">无追索</tspan></text>
+          </g>
+        </g>
+      </g>
+      <g id="sp-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">本金代币 <tspan font-size="28" font-weight="400" fill="#8a8f99">PT</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">到期 1:1 换回底层资产</text>
+      </g>
+      <g id="sp-term2" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">收益代币 <tspan font-size="28" font-weight="400" fill="#8a8f99">YT</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">到期前享有全部收益</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 yield-bearing asset + examples
+      IN("#sp-asset", at(0, 0.05), 0.6, { scale: 0.9, svgOrigin: "230 500" }, { scale: 1, svgOrigin: "230 500" });
+      IN("#sp-ex1", at(0, 0.3), 0.5);
+      IN("#sp-exn", at(0, 0.4), 0.5);
+      IN("#sp-ex2", at(0, 0.7), 0.5);
+      // L1 SY wrapper → split by maturity
+      ARROW("#sp-a1", at(1, 0.1), 0.5);
+      IN("#sp-sy", at(1, 0.18), 0.6);
+      ARROW("#sp-a2", at(1, 0.55), 0.5);
+      IN("#sp-gearbox", at(1, 0.62), 0.5);
+      IN("#sp-gear", at(1, 0.62), 0.5);
+      tl.fromTo("#sp-gear", { rotation: 0, svgOrigin: "860 478" }, { rotation: 120, svgOrigin: "860 478", duration: 3, ease: "power1.inOut", immediateRender: false }, at(1, 0.7));
+      // L2 PT and YT
+      ARROW("#sp-a3", at(2, 0.03), 0.5);
+      IN("#sp-pt", at(2, 0.08), 0.6, { x: -20 }, { x: 0 });
+      IN("#sp-term", at(2, 0.1), 0.5);
+      OUT("#sp-term", at(2, 0.48), 0.3);
+      ARROW("#sp-a4", at(2, 0.5), 0.5);
+      IN("#sp-yt", at(2, 0.55), 0.6, { x: -20 }, { x: 0 });
+      IN("#sp-term2", at(2, 0.55), 0.5);
+      OUT("#sp-term2", at(3, 0.65), 0.4);
+      // L3 1 PT + 1 YT = 1
+      IN("#sp-eq", at(3, 0.03), 0.6, { y: 15 }, { y: 0 });
+      IN("#sp-bp, #sp-by", at(3, 0.45), 0.2);
+      tl.to("#sp-bp", { attr: { width: 540 }, duration: 0.8, ease: "power2.out" }, at(3, 0.45));
+      tl.to("#sp-by", { attr: { width: 60 }, duration: 0.6, ease: "power2.out" }, at(3, 0.5));
+      IN("#sp-bg", at(3, 0.65), 0.5);
+      IN("#sp-bl", at(3, 0.7), 0.5);
+      // L4 bond cut apart
+      OUT("#sp-flow", at(4, 0), 0.45);
+      IN("#sp-left, #sp-right", at(4, 0.06), 0.5);
+      IN("#sp-btitle", at(4, 0.08), 0.5);
+      DRAW("#sp-cut", at(4, 0.22), 0.6);
+      OUT("#sp-btitle", at(4, 0.3), 0.3);
+      tl.to("#sp-left", { x: -60, duration: 0.7, ease: "power2.inOut" }, at(4, 0.36));
+      tl.to("#sp-right", { x: 60, duration: 0.7, ease: "power2.inOut" }, at(4, 0.36));
+      OUT("#sp-cut", at(4, 0.36), 0.3);
+      IN("#sp-lt, #sp-ld", at(4, 0.45), 0.5);
+      IN("#sp-ld2", at(4, 0.58), 0.5);
+      IN("#sp-rt, #sp-rd, #sp-rd2", at(4, 0.75), 0.5);
+      // L5 where the analogy breaks
+      IN("#sp-law", at(5, 0.1), 0.5);
+      IN("#sp-nolaw", at(5, 0.5), 0.5);
+
+
+      tl.to("#sp-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#sp-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["split"] = tl;
+    })();
+  </script>
+</template>

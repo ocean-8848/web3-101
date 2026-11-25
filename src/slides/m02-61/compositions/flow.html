@@ -1,0 +1,214 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 flow，id 前缀 fl- -->
+  <div id="root" data-composition-id="flow" data-duration="76.6" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+
+        <marker id="fl-aB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="fl-aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="fl-aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="fl-aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="fl-aN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="fl-aP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker>
+        <marker id="fl-aY" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="fl-all">
+        <g id="fl-seq">
+          <g id="fl-chain">
+            <text id="fl-old" class="h" x="160" y="150" font-size="28" fill="#6b6f7a">前面讲过</text>
+            <text id="fl-s0" class="h mono" x="280" y="220" font-size="30" fill="#8a8f99" text-anchor="middle">Pending</text>
+            <text id="fl-s1" class="h mono" x="600" y="220" font-size="30" fill="#8a8f99" text-anchor="middle">Active</text>
+            <text id="fl-s2" class="h mono" x="960" y="220" font-size="30" fill="#8a8f99" text-anchor="middle">Succeeded</text>
+            <text id="fl-s3" class="h mono" x="1320" y="220" font-size="30" fill="#8a8f99" text-anchor="middle">Queued</text>
+            <text id="fl-s4" class="h mono" x="1640" y="220" font-size="30" fill="#8a8f99" text-anchor="middle">Executed</text>
+            <text id="fl-r0" class="h" x="440" y="218" font-size="30" fill="#6b6f7a" text-anchor="middle">→</text>
+            <text id="fl-r1" class="h" x="780" y="218" font-size="30" fill="#6b6f7a" text-anchor="middle">→</text>
+            <text id="fl-r2" class="h" x="1140" y="218" font-size="30" fill="#6b6f7a" text-anchor="middle">→</text>
+            <text id="fl-r3" class="h" x="1480" y="218" font-size="30" fill="#6b6f7a" text-anchor="middle">→</text>
+          </g>
+          <g id="fl-lanes" class="h">
+            <text x="200" y="290" font-size="32" fill="#e8e6df" text-anchor="middle">提案人</text>
+            <text x="600" y="290" font-size="32" fill="#58C4DD" text-anchor="middle">Governor</text>
+            <text x="1000" y="290" font-size="32" fill="#F0B90B" text-anchor="middle">投票人</text>
+            <text x="1400" y="290" font-size="32" fill="#FF9F43" text-anchor="middle">时间锁</text>
+            <text x="1760" y="290" font-size="32" fill="#83C167" text-anchor="middle">目标合约</text>
+            <line x1="200" y1="310" x2="200" y2="1000" stroke="#3a3f4a" stroke-width="2"/>
+            <line x1="600" y1="310" x2="600" y2="1000" stroke="#3a3f4a" stroke-width="2"/>
+            <line x1="1000" y1="310" x2="1000" y2="1000" stroke="#3a3f4a" stroke-width="2"/>
+            <line x1="1400" y1="310" x2="1400" y2="1000" stroke="#3a3f4a" stroke-width="2"/>
+            <line x1="1760" y1="310" x2="1760" y2="1000" stroke="#3a3f4a" stroke-width="2"/>
+          </g>
+          <path id="fl-p" class="dr h" pathLength="1" d="M210 370 L588 370" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#fl-aB)"/>
+          <text id="fl-pl" class="h mono" x="400" y="352" font-size="28" fill="#58C4DD" text-anchor="middle">propose</text>
+          <text id="fl-pa" class="h" x="400" y="412" font-size="28" fill="#e8e6df" text-anchor="middle">目标·金额·数据·描述</text>
+          <rect id="fl-vd" class="h" x="594" y="425" width="12" height="60" fill="#FF9F43"/>
+          <text id="fl-vdl" class="h mono" x="622" y="465" font-size="28" fill="#FF9F43">votingDelay</text>
+          <path id="fl-v" class="dr h" pathLength="1" d="M990 520 L612 520" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#fl-aG)"/>
+          <text id="fl-vl" class="h mono" x="800" y="502" font-size="28" fill="#F0B90B" text-anchor="middle">castVote</text>
+          <g id="fl-b0" class="h"><rect x="620" y="545" width="110" height="50" rx="25" fill="#161a22" stroke="#FC6255" stroke-width="2"/><text x="675" y="580" font-size="28" fill="#FC6255" text-anchor="middle">0 反对</text></g>
+          <g id="fl-b1" class="h"><rect x="745" y="545" width="110" height="50" rx="25" fill="#161a22" stroke="#83C167" stroke-width="2"/><text x="800" y="580" font-size="28" fill="#83C167" text-anchor="middle">1 赞成</text></g>
+          <g id="fl-b2" class="h"><rect x="870" y="545" width="110" height="50" rx="25" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="925" y="580" font-size="28" fill="#8a8f99" text-anchor="middle">2 弃权</text></g>
+          <rect id="fl-vp" class="h" x="594" y="615" width="12" height="70" fill="#F0B90B"/>
+          <text id="fl-vpl" class="h mono" x="622" y="662" font-size="28" fill="#F0B90B">votingPeriod</text>
+          <path id="fl-q" class="dr h" pathLength="1" d="M210 730 L588 730" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#fl-aB)"/>
+          <text id="fl-ql" class="h mono" x="400" y="712" font-size="28" fill="#58C4DD" text-anchor="middle">queue</text>
+          <path id="fl-sb" class="dr h" pathLength="1" d="M610 770 L1388 770" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#fl-aO)"/>
+          <text id="fl-sbl" class="h mono" x="1200" y="752" font-size="28" fill="#FF9F43" text-anchor="middle">scheduleBatch</text>
+          <rect id="fl-md" class="h" x="1394" y="790" width="12" height="60" fill="#FF9F43"/>
+          <text id="fl-mdl" class="h mono" x="1420" y="832" font-size="28" fill="#FF9F43">minDelay</text>
+          <path id="fl-e" class="dr h" pathLength="1" d="M210 890 L588 890" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#fl-aB)"/>
+          <text id="fl-el" class="h mono" x="400" y="872" font-size="28" fill="#58C4DD" text-anchor="middle">execute</text>
+          <path id="fl-eb" class="dr h" pathLength="1" d="M610 930 L1388 930" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#fl-aO)"/>
+          <text id="fl-ebl" class="h mono" x="1200" y="912" font-size="28" fill="#FF9F43" text-anchor="middle">executeBatch</text>
+          <path id="fl-c" class="dr h" pathLength="1" d="M1410 975 L1748 975" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#fl-aN)"/>
+          <text id="fl-cl" class="h" x="1580" y="957" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan class="mono">msg.sender =</tspan> <tspan fill="#FF9F43">时间锁</tspan></text>
+        </g>
+        <g id="fl-hash">
+          <g id="fl-k0" class="h"><rect id="fl-kr0" x="160" y="300" width="440" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="185" y="350" font-size="28" fill="#e8e6df">目标 <tspan class="mono" fill="#58C4DD">targets</tspan></text></g>
+          <g id="fl-k1" class="h"><rect id="fl-kr1" x="160" y="410" width="440" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="185" y="460" font-size="28" fill="#e8e6df">金额 <tspan class="mono" fill="#58C4DD">values</tspan></text></g>
+          <g id="fl-k2" class="h"><rect id="fl-kr2" x="160" y="520" width="440" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="185" y="570" font-size="28" fill="#e8e6df">数据 <tspan class="mono" fill="#58C4DD">calldatas</tspan></text></g>
+          <g id="fl-k3" class="h"><rect id="fl-kr3" x="160" y="630" width="440" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="185" y="680" font-size="28" fill="#e8e6df">描述哈希 <tspan class="mono" fill="#58C4DD">descriptionHash</tspan></text></g>
+          <g id="fl-fan" class="h">
+            <path d="M606 340 Q700 340 756 450 M606 450 Q700 450 756 485 M606 560 Q700 560 756 525 M606 670 Q700 670 756 560" stroke="#58C4DD" stroke-width="2.5" fill="none"/>
+            <path d="M760 400 L1000 470 L1000 540 L760 610 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text class="mono" x="860" y="515" font-size="28" fill="#58C4DD" text-anchor="middle">keccak256</text>
+          </g>
+          <path id="fl-ha" class="dr h" pathLength="1" d="M1006 505 L1130 505" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#fl-aB)"/>
+          <g id="fl-id" class="h">
+            <rect x="1140" y="440" width="360" height="130" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text x="1320" y="492" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">提案 ID</text>
+          </g>
+          <text id="fl-h0" class="h mono" x="1320" y="545" font-size="30" fill="#58C4DD" text-anchor="middle">0x3f9a…c41e</text>
+          <text id="fl-h1" class="h mono" x="1320" y="545" font-size="30" fill="#FC6255" text-anchor="middle">0x91d0…7b2a</text>
+          <path id="fl-sa" class="dr h" pathLength="1" d="M1320 576 L1320 632" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#fl-aY)"/>
+          <g id="fl-st" class="h">
+            <rect x="1140" y="640" width="620" height="120" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text x="1170" y="690" font-size="30" fill="#e8e6df">链上存储：只有 ID</text>
+            <text x="1170" y="738" font-size="28" fill="#8a8f99">参数本身不存</text>
+          </g>
+          <text id="fl-back" class="h" x="160" y="790" font-size="30" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">queue / execute</tspan> 原样传回这 4 项</text>
+          <g id="fl-desc" class="h">
+            <rect x="160" y="830" width="600" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/>
+            <text x="190" y="882" font-size="30" fill="#e8e6df">说明文字…… <tspan fill="#FC6255">+ 1 个字符</tspan></text>
+          </g>
+          <text id="fl-ex" class="h mono" x="1140" y="852" font-size="30" fill="#58C4DD">execute(…)</text>
+          <path id="fl-exa" class="dr h" pathLength="1" d="M1350 842 L1540 842" stroke="#58C4DD" stroke-width="3" fill="none"/>
+          <path id="fl-exx" class="h" d="M1556 822 L1596 862 M1596 822 L1556 862" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/>
+          <text id="fl-rb" class="h" x="1616" y="855" font-size="34" font-weight="700" fill="#FC6255">回滚</text>
+          <text id="fl-keep" class="h" x="960" y="1000" font-size="32" fill="#83C167" text-anchor="middle">前端 / 脚本：保存提案原文</text>
+        </g>
+        <g id="fl-test">
+          <text id="fl-tt" class="h" x="160" y="300" font-size="40" font-weight="700" fill="#e8e6df">Foundry 测试</text>
+          <g id="fl-t0" class="h"><rect id="fl-tr0" x="660" y="250" width="600" height="64" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/><text class="mono" x="960" y="293" font-size="30" fill="#e8e6df" text-anchor="middle">delegate(self)</text><text x="1300" y="293" font-size="28" fill="#8a8f99">委托给自己</text></g>
+          <g id="fl-t1" class="h"><rect id="fl-tr1" x="660" y="350" width="600" height="64" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/><text class="mono" x="960" y="393" font-size="30" fill="#e8e6df" text-anchor="middle">propose(…)</text><text x="1300" y="393" font-size="28" fill="#8a8f99">提案</text></g>
+          <g id="fl-t2" class="h"><rect id="fl-tr2" x="660" y="450" width="600" height="64" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/><text class="mono" x="960" y="493" font-size="30" fill="#e8e6df" text-anchor="middle">castVote(id, 1)</text><text x="1300" y="493" font-size="28" fill="#8a8f99">投票</text></g>
+          <g id="fl-t3" class="h"><rect id="fl-tr3" x="660" y="550" width="600" height="64" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/><text class="mono" x="960" y="593" font-size="30" fill="#e8e6df" text-anchor="middle">queue(…)</text><text x="1300" y="593" font-size="28" fill="#8a8f99">排队</text></g>
+          <g id="fl-t4" class="h"><rect id="fl-tr4" x="660" y="650" width="600" height="64" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/><text class="mono" x="960" y="693" font-size="30" fill="#FF9F43" text-anchor="middle">vm.warp(+2 days)</text><text x="1300" y="693" font-size="28" fill="#8a8f99">时间往后拨 2 天</text></g>
+          <g id="fl-t5" class="h"><rect id="fl-tr5" x="660" y="750" width="600" height="64" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/><text class="mono" x="960" y="793" font-size="30" fill="#e8e6df" text-anchor="middle">execute(…)</text><text x="1300" y="793" font-size="28" fill="#8a8f99">执行</text></g>
+          <g id="fl-t6" class="h"><rect id="fl-tr6" x="660" y="850" width="600" height="64" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/><text class="mono" x="960" y="893" font-size="30" fill="#e8e6df" text-anchor="middle">assertEq(balance)</text><text x="1300" y="893" font-size="28" fill="#83C167">资助对象收到代币 ✓</text></g>
+        </g>
+        <g id="fl-cons" class="h">
+          <rect x="360" y="360" width="1200" height="380" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+          <line x1="360" y1="404" x2="1560" y2="404" stroke="#6b6f7a" stroke-width="1.5"/>
+          <circle cx="392" cy="382" r="7" fill="#6b6f7a"/><circle cx="416" cy="382" r="7" fill="#6b6f7a"/><circle cx="440" cy="382" r="7" fill="#6b6f7a"/>
+          <text class="mono" x="960" y="390" font-size="20" fill="#6b6f7a" text-anchor="middle" data-layout-ignore="">forge test</text>
+          <text class="mono" x="400" y="480" font-size="30" fill="#e8e6df">renounceRole(ADMIN, deployer);</text>
+          <text class="mono" x="400" y="570" font-size="30" fill="#58C4DD">&gt; hasRole(ADMIN, deployer)</text>
+        </g>
+        <line id="fl-strk" class="dr h" pathLength="1" x1="396" y1="470" x2="946" y2="470" stroke="#FC6255" stroke-width="4"/>
+        <text id="fl-f" class="h mono" x="400" y="650" font-size="34" font-weight="700" fill="#83C167">false</text>
+        <text id="fl-tru" class="h mono" x="400" y="650" font-size="34" font-weight="700" fill="#FC6255">true</text>
+        <text id="fl-aud" class="h" x="1600" y="655" font-size="34" font-weight="700" fill="#FF9F43">审计要指出</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 state chain
+      IN("#fl-old", at(0, 0.02), 0.5);
+      [0, 1, 2, 3, 4].forEach(i => { IN(`#fl-s${i}`, at(0, 0.08 + i * 0.1), 0.4); if (i < 4) IN(`#fl-r${i}`, at(0, 0.13 + i * 0.1), 0.3); });
+      [0, 1, 2, 3, 4].forEach(i => { tl.to(`#fl-s${i}`, { fill: "#e8e6df", duration: 0.3 }, at(0, 0.62 + i * 0.05)); tl.to(`#fl-s${i}`, { fill: "#8a8f99", duration: 0.3 }, at(0, 0.67 + i * 0.05)); });
+      IN("#fl-lanes", at(0, 0.88), 0.6);
+      // L1 propose + delay
+      ARROW("#fl-p", at(1, 0.05), 0.6);
+      IN("#fl-pl", at(1, 0.08), 0.4);
+      IN("#fl-pa", at(1, 0.3), 0.5);
+      tl.to("#fl-s0", { fill: "#58C4DD", duration: 0.3 }, at(1, 0.1));
+      IN("#fl-vd", at(1, 0.7), 0.4, { scaleY: 0, svgOrigin: "600 425" }, { scaleY: 1, svgOrigin: "600 425" });
+      IN("#fl-vdl", at(1, 0.72), 0.4);
+      // L2 vote
+      tl.to("#fl-s0", { fill: "#8a8f99", duration: 0.3 }, at(2, 0.02)); tl.to("#fl-s1", { fill: "#58C4DD", duration: 0.3 }, at(2, 0.02));
+      ARROW("#fl-v", at(2, 0.04), 0.6);
+      IN("#fl-vl", at(2, 0.08), 0.4);
+      IN("#fl-b0", at(2, 0.3), 0.3); IN("#fl-b1", at(2, 0.42), 0.3); IN("#fl-b2", at(2, 0.54), 0.3);
+      IN("#fl-vp", at(2, 0.7), 0.4, { scaleY: 0, svgOrigin: "600 615" }, { scaleY: 1, svgOrigin: "600 615" });
+      IN("#fl-vpl", at(2, 0.72), 0.4);
+      tl.to("#fl-s1", { fill: "#8a8f99", duration: 0.3 }, at(2, 0.85)); tl.to("#fl-s2", { fill: "#83C167", duration: 0.3 }, at(2, 0.85));
+      // L3 queue / execute
+      tl.to("#fl-s2", { fill: "#8a8f99", duration: 0.3 }, at(3, 0.05)); tl.to("#fl-s3", { fill: "#FF9F43", duration: 0.3 }, at(3, 0.05));
+      ARROW("#fl-q", at(3, 0.02), 0.4); IN("#fl-ql", at(3, 0.04), 0.3);
+      ARROW("#fl-sb", at(3, 0.14), 0.6); IN("#fl-sbl", at(3, 0.18), 0.4);
+      IN("#fl-md", at(3, 0.32), 0.4, { scaleY: 0, svgOrigin: "1400 790" }, { scaleY: 1, svgOrigin: "1400 790" }); IN("#fl-mdl", at(3, 0.34), 0.4);
+      ARROW("#fl-e", at(3, 0.5), 0.4); IN("#fl-el", at(3, 0.52), 0.3);
+      ARROW("#fl-eb", at(3, 0.6), 0.6); IN("#fl-ebl", at(3, 0.63), 0.4);
+      tl.to("#fl-s3", { fill: "#8a8f99", duration: 0.3 }, at(3, 0.75)); tl.to("#fl-s4", { fill: "#83C167", duration: 0.3 }, at(3, 0.75));
+      ARROW("#fl-c", at(3, 0.76), 0.5); IN("#fl-cl", at(3, 0.8), 0.4);
+      // L4 proposal id = hash of params
+      tl.to("#fl-seq", { opacity: 0, scale: 0.6, svgOrigin: "960 200", duration: 0.7, ease: "power2.in" }, at(4, 0));
+      [0, 1, 2, 3].forEach(i => IN(`#fl-k${i}`, at(4, 0.1 + i * 0.04), 0.4, { x: -20 }, { x: 0 }));
+      IN("#fl-fan", at(4, 0.28), 0.5);
+      ARROW("#fl-ha", at(4, 0.34), 0.4);
+      IN("#fl-id", at(4, 0.36), 0.4); IN("#fl-h0", at(4, 0.38), 0.4);
+      ARROW("#fl-sa", at(4, 0.46), 0.3); IN("#fl-st", at(4, 0.48), 0.4);
+      [0, 1, 2, 3].forEach(i => tl.to(`#fl-kr${i}`, { stroke: "#6b6f7a", duration: 0.4 }, at(4, 0.52)));
+      IN("#fl-back", at(4, 0.66), 0.5);
+      tl.to("#fl-kr3", { stroke: "#58C4DD", duration: 0.4 }, at(4, 0.9));
+      // L5 one char off -> revert
+      IN("#fl-desc", at(5, 0.04), 0.5, { y: 16 }, { y: 0 });
+      tl.to("#fl-kr3", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.2));
+      OUT("#fl-h0", at(5, 0.24), 0.25); IN("#fl-h1", at(5, 0.3), 0.3);
+      IN("#fl-ex", at(5, 0.38), 0.4); DRAW("#fl-exa", at(5, 0.42), 0.4); tl.set("#fl-exa", { opacity: 1 }, at(5, 0.42));
+      IN("#fl-exx", at(5, 0.5), 0.2, { scale: 0.5, svgOrigin: "1576 842" }, { scale: 1, svgOrigin: "1576 842" }); IN("#fl-rb", at(5, 0.52), 0.3);
+      IN("#fl-keep", at(5, 0.72), 0.5);
+      // L6 Foundry test
+      OUT("#fl-hash", at(6, 0), 0.4);
+      IN("#fl-tt", at(6, 0.04), 0.4);
+      [0.06, 0.24, 0.32, 0.4, 0.56, 0.7, 0.8].forEach((f, i) => { IN(`#fl-t${i}`, at(6, f), 0.4, { y: 14 }, { y: 0 }); tl.to(`#fl-tr${i}`, { stroke: i === 6 ? "#83C167" : "#58C4DD", duration: 0.3 }, at(6, f) + 0.2); });
+      // L7 terminal
+      OUT("#fl-test", at(7, 0), 0.4);
+      IN("#fl-cons", at(7, 0.06), 0.5);
+      IN("#fl-f", at(7, 0.14), 0.3);
+      IN("#fl-strk", at(7, 0.3), 0.01); DRAW("#fl-strk", at(7, 0.3), 0.4);
+      OUT("#fl-f", at(7, 0.42), 0.2); IN("#fl-tru", at(7, 0.47), 0.3, { scale: 1.3, svgOrigin: "440 640" }, { scale: 1, svgOrigin: "440 640" });
+      IN("#fl-aud", at(7, 0.7), 0.5, { x: 20 }, { x: 0 });
+
+      tl.to("#fl-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["flow"] = tl;
+    })();
+  </script>
+</template>

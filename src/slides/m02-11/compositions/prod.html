@@ -1,0 +1,125 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 prod，id 前缀 pr- -->
+  <div id="root" data-composition-id="prod" data-duration="54.6" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pr-all">
+        <g id="pr-panel" class="h">
+          <rect x="300" y="190" width="1320" height="760" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <text x="360" y="262" font-size="40" font-weight="700" fill="#e8e6df">上线 / 审查清单</text>
+        </g>
+        <text id="pr-sum" class="h" x="360" y="370" font-size="30" fill="#6b6f7a">已查：一 累计利息 · 二 价格检查</text>
+        <g id="pr-i1" class="h">
+          <circle cx="380" cy="352" r="22" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <path id="pr-ck1" class="dr" pathLength="1" d="M369 352 L377 361 L392 342" stroke="#83C167" stroke-width="5" fill="none"/>
+          <text x="430" y="364" font-size="36" font-weight="700" fill="#e8e6df">一　先累计利息，再交互</text>
+          <text id="pr-sub1" class="h" x="430" y="408" font-size="28" fill="#8a8f99">单元测试：跨区块余额 = 手算</text>
+          <g id="pr-ic1"><rect x="1478" y="318" width="34" height="84" rx="14" fill="none" stroke="#58C4DD" stroke-width="3"/><rect id="pr-tube" x="1482" y="362" width="26" height="40" rx="10" fill="#58C4DD"/><line x1="1470" y1="318" x2="1520" y2="318" stroke="#58C4DD" stroke-width="4"/></g>
+        </g>
+        <g id="pr-i2" class="h">
+          <circle cx="380" cy="477" r="22" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <path id="pr-ck2" class="dr" pathLength="1" d="M369 477 L377 486 L392 467" stroke="#83C167" stroke-width="5" fill="none"/>
+          <text x="430" y="489" font-size="36" font-weight="700" fill="#e8e6df">二　价格新鲜度 + 排序器状态</text>
+          <text id="pr-sub2" class="h" x="430" y="533" font-size="28" fill="#8a8f99">分叉测试：过期价格 → 拒绝清算</text>
+          <g id="pr-ic2"><path d="M1495 455 L1495 515 M1495 485 Q1495 455 1535 465" stroke="#FF9F43" stroke-width="5" fill="none"/><circle cx="1495" cy="455" r="9" fill="#FF9F43"/><circle cx="1495" cy="515" r="9" fill="#FF9F43"/><circle cx="1535" cy="465" r="9" fill="#FC6255"/></g>
+        </g>
+        <g id="pr-i3" class="h">
+          <circle cx="380" cy="602" r="22" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <path id="pr-ck3" class="dr" pathLength="1" d="M369 602 L377 611 L392 592" stroke="#83C167" stroke-width="5" fill="none"/>
+          <text x="430" y="614" font-size="36" font-weight="700" fill="#e8e6df">三　每资产参数 + 时间锁</text>
+          <text id="pr-sub3" class="h" x="430" y="658" font-size="28" fill="#8a8f99">LTV · 清算阈值 · 罚金 · 上限</text>
+          <g id="pr-ic3"><path d="M1478 596 L1478 580 A22 22 0 0 1 1522 580 L1522 596" stroke="#B48EF0" stroke-width="5" fill="none"/><rect x="1466" y="596" width="68" height="50" rx="8" fill="#B48EF0"/></g>
+        </g>
+        <g id="pr-i4" class="h">
+          <circle cx="380" cy="727" r="22" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <path id="pr-ck4" class="dr" pathLength="1" d="M369 727 L377 736 L392 717" stroke="#83C167" stroke-width="5" fill="none"/>
+          <text x="430" y="739" font-size="36" font-weight="700" fill="#e8e6df">四　利率参数有硬边界</text>
+          <text id="pr-sub4" class="h" x="430" y="783" font-size="28" fill="#8a8f99">治理也调不出离谱的值</text>
+          <g id="pr-ic4"><line x1="1440" y1="751" x2="1580" y2="751" stroke="#8a8f99" stroke-width="4"/><rect x="1436" y="729" width="8" height="44" fill="#e8e6df"/><rect x="1576" y="729" width="8" height="44" fill="#e8e6df"/><circle id="pr-knob" cx="1500" cy="751" r="13" fill="#58C4DD"/></g>
+        </g>
+        <g id="pr-i5" class="h">
+          <circle cx="380" cy="727" r="22" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <path id="pr-ck5" class="dr" pathLength="1" d="M369 727 L377 736 L392 717" stroke="#83C167" stroke-width="5" fill="none"/>
+          <text x="430" y="739" font-size="36" font-weight="700" fill="#e8e6df">五　坏账路径：储备 → 存款人</text>
+          <text id="pr-sub5" class="h" x="430" y="783" font-size="28" fill="#8a8f99">压测验证</text>
+          <g id="pr-ic5"><path d="M1450 751 A60 60 0 0 1 1570 751" stroke="#8a8f99" stroke-width="6" fill="none"/><path d="M1540 699 A60 60 0 0 1 1570 751" stroke="#FC6255" stroke-width="6" fill="none"/><line id="pr-needle" x1="1510" y1="751" x2="1510" y2="695" stroke="#e8e6df" stroke-width="5" stroke-linecap="round"/></g>
+        </g>
+        <g id="pr-i6" class="h">
+          <circle cx="380" cy="852" r="22" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <path id="pr-ck6" class="dr" pathLength="1" d="M369 852 L377 861 L392 842" stroke="#83C167" stroke-width="5" fill="none"/>
+          <text x="430" y="864" font-size="36" font-weight="700" fill="#e8e6df">六　清算奖励覆盖 Gas</text>
+          <text id="pr-sub6" class="h" x="430" y="908" font-size="28" fill="#8a8f99">坏账出现前就有人来清算</text>
+          <g id="pr-ic6"><rect x="1440" y="831" width="70" height="58" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><circle cx="1462" cy="854" r="6" fill="#e8e6df"/><circle cx="1488" cy="854" r="6" fill="#e8e6df"/><circle cx="1556" cy="860" r="24" fill="#F0B90B"/></g>
+        </g>
+      </g>
+      <g id="pr-term" class="h"></g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const ALL = [1, 2, 3, 4, 5, 6].map(i => "#pr-i" + i);
+      const FOCUS = (k, t) => { if (k > 1) tl.to(ALL[k - 2], { opacity: 0.35, duration: 0.4 }, t); };
+      const ITEM = (k, t, sub) => {
+        FOCUS(k, t);
+        IN("#pr-i" + k, t + 0.1, 0.5, { x: -20 }, { x: 0 });
+        tl.fromTo("#pr-sub" + k, { opacity: 0 }, { opacity: 1, duration: 0.5, immediateRender: false }, t + 0.1 + (sub - t) * 0.35);
+        DRAW("#pr-ck" + k, sub, 0.4);
+      };
+      // L0 面板
+      IN("#pr-panel", at(0, 0.05), 0.6);
+      // L1 累计利息
+      ITEM(1, at(1, 0.02), at(1, 0.85));
+      tl.fromTo("#pr-tube", { attr: { y: 402, height: 0 } }, { attr: { y: 362, height: 40 }, duration: 1.2, ease: "power2.inOut", immediateRender: false }, at(1, 0.5));
+      tl.to("#pr-i1 circle", { fill: "#83C167", fillOpacity: 0.2, duration: 0.4 }, at(1, 0.88));
+      // L2 价格新鲜度
+      ITEM(2, at(2, 0.02), at(2, 0.85));
+      tl.fromTo("#pr-ic2", { opacity: 0.3 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 3, immediateRender: false }, at(2, 0.55));
+      // L3 参数 + 时间锁
+      ITEM(3, at(3, 0.02), at(3, 0.8));
+      tl.to("#pr-ic3", { y: -6, duration: 0.2, yoyo: true, repeat: 3 }, at(3, 0.5));
+      // L4 硬边界：滑块撞挡板
+      ITEM(4, at(4, 0.02), at(4, 0.85));
+      tl.to("#pr-knob", { attr: { cx: 1566 }, duration: 0.6, ease: "power2.in" }, at(4, 0.3));
+      tl.to("#pr-knob", { attr: { cx: 1520 }, duration: 0.4, ease: "back.out(3)" }, at(4, 0.3) + 0.6);
+      tl.to("#pr-knob", { attr: { cx: 1454 }, duration: 0.6, ease: "power2.in" }, at(4, 0.3) + 1.1);
+      tl.to("#pr-knob", { attr: { cx: 1500 }, duration: 0.4, ease: "back.out(3)" }, at(4, 0.3) + 1.7);
+      // L5 折叠前两项，五、六
+      OUT("#pr-i1, #pr-i2", at(5, 0), 0.4);
+      tl.to("#pr-i3, #pr-i4", { y: -125, duration: 0.6, ease: "power2.inOut" }, at(5, 0.03));
+      IN("#pr-sum", at(5, 0.06), 0.5);
+      ITEM(5, at(5, 0.08), at(5, 0.45));
+      tl.to("#pr-needle", { rotation: 70, svgOrigin: "1510 751", duration: 1.2, ease: "power2.inOut" }, at(5, 0.25));
+      ITEM(6, at(5, 0.55), at(5, 0.92));
+      tl.to("#pr-ic6", { x: 10, duration: 0.3, yoyo: true, repeat: 3 }, at(5, 0.75));
+
+      tl.to("#pr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#pr-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["prod"] = tl;
+    })();
+  </script>
+</template>

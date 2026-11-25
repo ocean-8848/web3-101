@@ -1,0 +1,191 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 rounding，id 前缀 ro- -->
+  <div id="root" data-composition-id="rounding" data-duration="64.41" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ro-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ro-all">
+                <g id="ro-grid">
+          <g id="ro-gs">
+            <text id="ro-h0" class="h" x="690" y="272" font-size="34" fill="#F0B90B" text-anchor="middle">按资产</text>
+            <text id="ro-h1" class="h" x="1390" y="272" font-size="34" fill="#58C4DD" text-anchor="middle">按份额</text>
+            <text id="ro-r0" class="h" x="280" y="448" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">存</text>
+            <text id="ro-r1" class="h" x="280" y="768" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">取</text>
+            <g id="ro-dep" class="h">
+              <rect x="360" y="300" width="660" height="260" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+              <text class="mono" x="690" y="390" font-size="46" font-weight="700" fill="#58C4DD" text-anchor="middle">deposit</text>
+              <text x="690" y="445" font-size="32" fill="#8a8f99" text-anchor="middle">（指定资产）</text>
+              <text id="ro-depa" class="h" x="690" y="515" font-size="36" fill="#e8e6df" text-anchor="middle">份额 <tspan fill='#58C4DD'>↓</tspan> 用户少拿</text>
+            </g>
+            <g id="ro-min" class="h">
+              <rect x="1060" y="300" width="660" height="260" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+              <text class="mono" x="1390" y="390" font-size="46" font-weight="700" fill="#58C4DD" text-anchor="middle">mint</text>
+              <text x="1390" y="445" font-size="32" fill="#8a8f99" text-anchor="middle">（指定份额）</text>
+              <text id="ro-mina" class="h" x="1390" y="515" font-size="36" fill="#e8e6df" text-anchor="middle">资产 <tspan fill='#FF9F43'>↑</tspan> 用户多付</text>
+            </g>
+            <g id="ro-wit" class="h">
+              <rect x="360" y="620" width="660" height="260" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+              <text class="mono" x="690" y="710" font-size="46" font-weight="700" fill="#58C4DD" text-anchor="middle">withdraw</text>
+              <text x="690" y="765" font-size="32" fill="#8a8f99" text-anchor="middle">（指定资产）</text>
+              <text id="ro-wita" class="h" x="690" y="835" font-size="36" fill="#e8e6df" text-anchor="middle">份额 <tspan fill='#FF9F43'>↑</tspan> 用户多销</text>
+            </g>
+            <g id="ro-red" class="h">
+              <rect x="1060" y="620" width="660" height="260" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+              <text class="mono" x="1390" y="710" font-size="46" font-weight="700" fill="#58C4DD" text-anchor="middle">redeem</text>
+              <text x="1390" y="765" font-size="32" fill="#8a8f99" text-anchor="middle">（指定份额）</text>
+              <text id="ro-reda" class="h" x="1390" y="835" font-size="36" fill="#e8e6df" text-anchor="middle">资产 <tspan fill='#58C4DD'>↓</tspan> 用户少拿</text>
+            </g>
+          </g>
+        </g>
+        <g id="ro-mini" class="h">
+          <rect x="120" y="230" width="290" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="265" y="312" font-size="32" fill="#e8e6df" text-anchor="middle">deposit <tspan fill='#58C4DD'>↓</tspan></text><rect x="430" y="230" width="290" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="575" y="312" font-size="32" fill="#e8e6df" text-anchor="middle">mint <tspan fill='#FF9F43'>↑</tspan></text><rect x="120" y="390" width="290" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="265" y="472" font-size="32" fill="#e8e6df" text-anchor="middle">withdraw <tspan fill='#FF9F43'>↑</tspan></text><rect x="430" y="390" width="290" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="575" y="472" font-size="32" fill="#e8e6df" text-anchor="middle">redeem <tspan fill='#58C4DD'>↓</tspan></text>
+        </g>
+        <g id="ro-div">
+          <text id="ro-dv" class="h mono" x="560" y="480" font-size="72" font-weight="700" fill="#e8e6df">100 ÷ 1.05 = 95</text>
+          <text id="ro-frag" class="h mono" x="1208" y="480" font-size="72" font-weight="700" fill="#e8e6df">.238…</text>
+          <text id="ro-who" class="h" x="1640" y="380" font-size="44" font-weight="700" fill="#FF9F43">归谁？</text>
+          <g id="ro-vic" class="h">
+            <rect x="1540" y="560" width="220" height="150" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="4"/>
+            <text x="1650" y="648" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">金库</text>
+          </g>
+          <text id="ro-rule" class="h" x="960" y="820" font-size="52" font-weight="700" fill="#83C167" text-anchor="middle">取整永远对金库有利</text>
+        </g>
+        <g id="ro-calc">
+          <text id="ro-k0" class="h" x="860" y="300" font-size="40" fill="#e8e6df">存入 <tspan fill="#F0B90B">100</tspan></text>
+          <text id="ro-k1" class="h" x="860" y="380" font-size="40" fill="#e8e6df">100 ÷ 1.05 = 95.2</text>
+          <text id="ro-k2" class="h" x="860" y="460" font-size="40" fill="#e8e6df">向下取整 → <tspan fill="#58C4DD" font-weight="700">95 份</tspan></text>
+          <text id="ro-k3" class="h" x="860" y="600" font-size="40" fill="#e8e6df">赎回 <tspan fill="#58C4DD">95 份</tspan></text>
+          <text id="ro-k4" class="h" x="860" y="680" font-size="40" fill="#e8e6df">95 × 1.05 = 99.75</text>
+          <text id="ro-k5" class="h" x="860" y="760" font-size="40" fill="#e8e6df">向下取整 → <tspan fill="#F0B90B" font-weight="700">99</tspan></text>
+          <text id="ro-kx" class="h" x="860" y="860" font-size="28" fill="#6b6f7a">示例：份额价格 1.05，按最小单位</text>
+        </g>
+        <g id="ro-big">
+          <text id="ro-b0" class="h" x="960" y="520" font-size="128" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#F0B90B">100</tspan> → <tspan fill="#F0B90B">99</tspan></text>
+          <text id="ro-b1" class="h" x="960" y="680" font-size="56" font-weight="700" fill="#83C167" text-anchor="middle">这是设计，不是 bug</text>
+        </g>
+        <g id="ro-ring">
+          <g id="ro-rv" class="h">
+            <rect x="860" y="490" width="200" height="140" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="4"/>
+            <text x="960" y="573" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">金库</text>
+          </g>
+          <g id="ro-pp" class="h">
+            <circle cx="1230" cy="560" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="4"/>
+            <circle cx="1151" cy="737" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="4"/>
+            <circle cx="960" cy="810" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="4"/>
+            <circle cx="769" cy="737" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="4"/>
+            <circle cx="690" cy="560" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="4"/>
+            <circle cx="769" cy="383" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="4"/>
+            <circle cx="960" cy="310" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="4"/>
+            <circle cx="1151" cy="383" r="24" fill="#161a22" stroke="#8a8f99" stroke-width="4"/>
+          </g>
+          <text id="ro-ppl" class="h" x="960" y="245" font-size="32" fill="#8a8f99" text-anchor="middle">其他存款人</text>
+          <text id="ro-if" class="h" x="150" y="575" font-size="38" font-weight="700" fill="#FF9F43">若取整偏向用户</text>
+          <g id="ro-ex" class="h">
+            <circle cx="1620" cy="530" r="34" fill="none" stroke="#FC6255" stroke-width="4"/>
+            <path d="M1562 625 Q1620 565 1678 625" fill="none" stroke="#FC6255" stroke-width="4"/>
+            <text x="1620" y="690" font-size="32" fill="#FC6255" text-anchor="middle">反复存取</text>
+          </g>
+          <circle id="ro-z0" class="h" cx="1230" cy="560" r="10" fill="#FC6255"/>
+          <circle id="ro-z1" class="h" cx="1151" cy="737" r="10" fill="#FC6255"/>
+          <circle id="ro-z2" class="h" cx="1151" cy="383" r="10" fill="#FC6255"/>
+          <g id="ro-x" class="h"><path d="M1560 470 L1680 590 M1680 470 L1560 590" stroke="#FC6255" stroke-width="10" stroke-linecap="round"/></g>
+          <g id="ro-sh" class="h">
+            <path d="M1620 460 L1700 490 L1700 560 Q1700 630 1620 670 Q1540 630 1540 560 L1540 490 Z" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="5"/>
+            <path d="M1585 560 L1612 590 L1660 530" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round"/>
+          </g>
+          <text id="ro-prot" class="h" x="960" y="960" font-size="46" font-weight="700" fill="#83C167" text-anchor="middle">偏向金库 → 保护其他人</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 grid: deposit / mint
+IN("#ro-h0, #ro-h1", at(0, 0.02), 0.5);
+IN("#ro-r0, #ro-r1", at(0, 0.08), 0.5);
+IN("#ro-dep", at(0, 0.3), 0.5, { y: 15 }, { y: 0 });
+IN("#ro-min", at(0, 0.7), 0.5, { y: 15 }, { y: 0 });
+// L1 withdraw / redeem
+IN("#ro-wit", at(1, 0.05), 0.5, { y: 15 }, { y: 0 });
+IN("#ro-red", at(1, 0.5), 0.5, { y: 15 }, { y: 0 });
+// L2 the remainder
+OUT("#ro-gs", at(2, 0), 0.4);
+IN("#ro-dv, #ro-frag", at(2, 0.08), 0.5);
+tl.to("#ro-frag", { attr: { x: 1300, y: 380 }, fill: "#FC6255", duration: 0.7, ease: "power2.out" }, at(2, 0.25));
+IN("#ro-who", at(2, 0.33), 0.4);
+IN("#ro-vic", at(2, 0.5), 0.5, { scale: 0.8, svgOrigin: "1650 635" }, { scale: 1, svgOrigin: "1650 635" });
+OUT("#ro-who", at(2, 0.55), 0.3);
+tl.to("#ro-frag", { attr: { x: 1600, y: 650, "font-size": 24 }, opacity: 0, duration: 0.7, ease: "power2.in" }, at(2, 0.58));
+tl.to("#ro-vic rect", { stroke: "#83C167", duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.68));
+IN("#ro-rule", at(2, 0.72), 0.6, { y: 15 }, { y: 0 });
+// L3 four directions
+OUT("#ro-div", at(3, 0), 0.4);
+tl.to("#ro-gs", { opacity: 1, duration: 0.5 }, at(3, 0.03));
+IN("#ro-depa", at(3, 0.08), 0.5, { y: 10 }, { y: 0 });
+IN("#ro-mina", at(3, 0.28), 0.5, { y: 10 }, { y: 0 });
+IN("#ro-wita", at(3, 0.5), 0.5, { y: 10 }, { y: 0 });
+IN("#ro-reda", at(3, 0.74), 0.5, { y: 10 }, { y: 0 });
+// L4 grid shrinks into a mini grid, worked example on the right
+tl.to("#ro-gs", { scale: 0.4, svgOrigin: "67 230", opacity: 0, duration: 0.8, ease: "power2.inOut" }, at(4, 0));
+IN("#ro-mini", at(4, 0) + 0.5, 0.5);
+IN("#ro-k0", at(4, 0.14), 0.4);
+IN("#ro-k1", at(4, 0.22), 0.5);
+IN("#ro-k2", at(4, 0.36), 0.5);
+IN("#ro-k3", at(4, 0.5), 0.4);
+IN("#ro-k4", at(4, 0.64), 0.5);
+IN("#ro-k5", at(4, 0.8), 0.5);
+IN("#ro-kx", at(4, 0.2), 0.4);
+// L5 100 -> 99
+OUT("#ro-calc, #ro-mini", at(5, 0), 0.4);
+IN("#ro-b0", at(5, 0.1), 0.6, { scale: 0.85, svgOrigin: "960 480" }, { scale: 1, svgOrigin: "960 480" });
+IN("#ro-b1", at(5, 0.5), 0.5, { y: 15 }, { y: 0 });
+// L6 the counterfactual
+OUT("#ro-big", at(6, 0), 0.4);
+IN("#ro-rv", at(6, 0.04), 0.5);
+IN("#ro-pp", at(6, 0.06), 0.6, { scale: 0.85, svgOrigin: "960 560" }, { scale: 1, svgOrigin: "960 560" });
+IN("#ro-ppl", at(6, 0.08), 0.4);
+IN("#ro-if", at(6, 0.1), 0.5);
+IN("#ro-ex", at(6, 0.14), 0.5);
+[["#ro-z0", 0.2], ["#ro-z1", 0.31], ["#ro-z2", 0.42]].forEach(([s, f]) => {
+  const t = at(6, f);
+  tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, t);
+  tl.to(s, { attr: { cx: 1020, cy: 560 }, duration: 0.45, ease: "power1.in" }, t + 0.1);
+  tl.to(s, { attr: { cx: 1580, cy: 540 }, duration: 0.55, ease: "power1.out" }, t + 0.55);
+  tl.to(s, { opacity: 0, duration: 0.15 }, t + 1.05);
+});
+IN("#ro-x", at(6, 0.56), 0.3, { scale: 0.5, svgOrigin: "1620 530" }, { scale: 1, svgOrigin: "1620 530" });
+OUT("#ro-ex, #ro-x, #ro-if", at(6, 0.64), 0.4);
+IN("#ro-sh", at(6, 0.7), 0.5, { scale: 0.6, svgOrigin: "1620 565" }, { scale: 1, svgOrigin: "1620 565", ease: "back.out(1.8)" });
+IN("#ro-prot", at(6, 0.74), 0.6, { y: 15 }, { y: 0 });
+
+      tl.to("#ro-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["rounding"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,177 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 depeg，id 前缀 de- -->
+  <div id="root" data-composition-id="depeg" data-duration="75.38" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="de-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="de-all">
+
+        <g id="de-ax" class="h">
+          <path d="M200 320 L960 320" stroke="#58C4DD" stroke-width="3" stroke-dasharray="12 8"/>
+          <text x="200" y="300" font-size="28" fill="#58C4DD">池内汇率 <tspan class="mono">1.00</tspan></text>
+        </g>
+        <path id="de-gap" class="h" d="M520 320 C600 320 640 440 720 450 L960 455 L960 320 Z" fill="#FC6255" opacity="0.25"/>
+        <path id="de-mkt" class="dr" pathLength="1" d="M200 320 L520 320 C600 320 640 440 720 450 L960 455" fill="none" stroke="#F0B90B" stroke-width="5"/>
+        <text id="de-ml" class="h" x="975" y="466" font-size="28" fill="#F0B90B">市场价</text>
+        <text id="de-gl" class="h" x="820" y="400" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">折价</text>
+        <g id="de-bars" class="h">
+          <line x1="1260" y1="520" x2="1620" y2="520" stroke="#6b6f7a" stroke-width="2"/>
+          <text x="1340" y="565" font-size="28" fill="#8a8f99" text-anchor="middle">卖盘</text>
+          <text x="1540" y="565" font-size="28" fill="#8a8f99" text-anchor="middle">买盘</text>
+        </g>
+        <rect id="de-sb" class="h" x="1300" y="370" width="80" height="150" rx="4" fill="#8a8f99"/>
+        <rect id="de-bb" class="h" x="1500" y="370" width="80" height="150" rx="4" fill="#8a8f99"/>
+        <g id="de-ppl" class="h"><circle cx="170" cy="668" r="13" fill="none" stroke="#8a8f99" stroke-width="3"/><path d="M150 708 C 150 682, 190 682, 190 708" fill="none" stroke="#8a8f99" stroke-width="3"/><circle cx="250" cy="668" r="13" fill="none" stroke="#8a8f99" stroke-width="3"/><path d="M230 708 C 230 682, 270 682, 270 708" fill="none" stroke="#8a8f99" stroke-width="3"/><circle cx="330" cy="668" r="13" fill="none" stroke="#8a8f99" stroke-width="3"/><path d="M310 708 C 310 682, 350 682, 350 708" fill="none" stroke="#8a8f99" stroke-width="3"/><circle cx="170" cy="748" r="13" fill="none" stroke="#8a8f99" stroke-width="3"/><path d="M150 788 C 150 762, 190 762, 190 788" fill="none" stroke="#8a8f99" stroke-width="3"/><circle cx="250" cy="748" r="13" fill="none" stroke="#8a8f99" stroke-width="3"/><path d="M230 788 C 230 762, 270 762, 270 788" fill="none" stroke="#8a8f99" stroke-width="3"/><circle cx="330" cy="748" r="13" fill="none" stroke="#8a8f99" stroke-width="3"/><path d="M310 788 C 310 762, 350 762, 350 788" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="250" y="870" font-size="30" fill="#FF9F43" text-anchor="middle">恐慌</text></g>
+        <path id="de-sell" class="dr h" pathLength="1" d="M420 720 L600 720" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <text id="de-sellt" class="h" x="510" y="700" font-size="28" fill="#8a8f99" text-anchor="middle">卖出</text>
+        <g id="de-fk" class="h">
+          <rect x="620" y="680" width="420" height="100" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+          <text x="830" y="742" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">能否按汇率取回？</text>
+        </g>
+        <path id="de-gp" class="dr h" pathLength="1" d="M1045 720 L1172 720" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <g id="de-gbx" class="h">
+          <rect x="1180" y="650" width="640" height="140" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/>
+          <text x="1500" y="702" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">可以，队列短</text>
+          <text x="1500" y="757" font-size="28" fill="#e8e6df" text-anchor="middle">套利：买入折价 <tspan class="mono">LST</tspan> → 排队取回 <tspan class="mono">ETH</tspan></text>
+        </g>
+        <path id="de-rp" class="dr h" pathLength="1" d="M830 784 L830 852" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <g id="de-rbx" class="h">
+          <rect x="620" y="860" width="560" height="130" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/>
+          <text x="900" y="908" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">不能 / 队列很长</text>
+          <text x="900" y="960" font-size="28" fill="#8a8f99" text-anchor="middle">极端行情：天或周的量级</text>
+        </g>
+        <g id="de-hgm"><g id="de-hg" class="h"><path d="M1230 880 H1290 L1260 925 L1290 970 H1230 L1260 925 Z" fill="none" stroke="#FF9F43" stroke-width="4"/></g></g>
+        <g id="de-k1" class="h">
+          <rect x="200" y="230" width="700" height="370" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+          <text class="mono" x="230" y="290" font-size="36" font-weight="700" fill="#F0B90B">2022-06 stETH</text>
+        </g>
+        <g id="de-k1b" class="h"><rect x="680" y="256" width="196" height="44" rx="10" fill="none" stroke="#FF9F43" stroke-width="2"/>
+          <text x="778" y="288" font-size="28" fill="#FF9F43" text-anchor="middle">当时不能取回</text></g>
+        <text id="de-k1a" class="h mono" x="250" y="362" font-size="28" fill="#8a8f99">≈0.98</text>
+        <text id="de-k1c" class="h mono" x="860" y="515" font-size="28" fill="#FC6255" text-anchor="end">≈0.94</text>
+        <text id="de-k1d" class="h" x="230" y="572" font-size="30" fill="#e8e6df"><tspan fill="#FC6255">折价约 6%</tspan>，此前约 2%</text>
+        <path id="de-k1l" class="dr" pathLength="1" d="M250 380 L420 384 L560 398 L640 450 L860 470" fill="none" stroke="#F0B90B" stroke-width="4"/>
+        <g id="de-k2" class="h">
+          <rect x="1020" y="230" width="700" height="370" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+          <text class="mono" x="1050" y="290" font-size="36" font-weight="700" fill="#F0B90B">2024-04 ezETH</text>
+        </g>
+        <text id="de-k2a" class="h" x="1360" y="525" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">约 −18%</text>
+        <text id="de-k2b" class="h" x="1050" y="575" font-size="28" fill="#FF9F43">空投第一季结束 · 不开放取回</text>
+        <path id="de-k2l" class="dr" pathLength="1" d="M1060 360 L1300 362 L1360 480 L1400 380 L1680 366" fill="none" stroke="#F0B90B" stroke-width="4"/>
+        <g id="de-n0" class="h"><rect x="420" y="700" width="180" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="510.0" y="746" font-size="30" fill="#FC6255" text-anchor="middle">折价</text></g>
+<g id="de-n1" class="h"><rect x="1300" y="700" width="260" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1430.0" y="746" font-size="30" fill="#FC6255" text-anchor="middle">抵押品贬值</text></g>
+<g id="de-n2" class="h"><rect x="1330" y="880" width="200" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1430.0" y="926" font-size="30" fill="#FC6255" text-anchor="middle">清算</text></g>
+<g id="de-n3" class="h"><rect x="360" y="880" width="280" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="500.0" y="926" font-size="30" fill="#FC6255" text-anchor="middle">卖出更多 LST</text></g>
+
+        <path id="de-e0" class="dr h" pathLength="1" d="M606 735 L1292 735" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <path id="de-e1" class="dr h" pathLength="1" d="M1430 774 L1430 872" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <path id="de-e2" class="dr h" pathLength="1" d="M1324 915 L648 915" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <path id="de-e3" class="dr h" pathLength="1" d="M510 876 L510 778" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#de-arr)"/>
+        <text id="de-est" class="h" x="960" y="836" font-size="28" fill="#8a8f99" text-anchor="middle"><tspan class="mono">Morpho</tspan>、<tspan class="mono">Gearbox</tspan> 等 · 数千万美元量级（估算）</text>
+        <circle id="de-dot" class="h" cx="606" cy="735" r="11" fill="#FC6255"/>
+
+      </g>
+      <g id="de-term" class="h">
+        <rect x="70" y="56" width="520" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">折价 <tspan font-size="28" font-weight="400" fill="#8a8f99">Depeg</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">市场价低于对应价值</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const NAR = "M200 320 L520 320 C600 320 640 440 720 450 L960 375";
+      const NARG = "M520 320 C600 320 640 440 720 450 L960 375 L960 320 Z";
+      // L0 折价
+      IN("#de-ax", at(0, 0.02));
+      DRAW("#de-mkt", at(0, 0.12), 1.4);
+      IN("#de-ml", at(0, 0.4));
+      IN("#de-gap", at(0, 0.5), 0.6, {}, { opacity: 0.25 });
+      IN("#de-gl", at(0, 0.58));
+      IN("#de-term", at(0, 0.62), 0.5);
+      // L1 恐慌卖压
+      IN("#de-ppl", at(1, 0.02));
+      IN("#de-bars,#de-sb,#de-bb", at(1, 0.1));
+      tl.to("#de-ppl", { x: 30, duration: 0.6, ease: "power2.inOut" }, at(1, 0.3));
+      ARROW("#de-sell", at(1, 0.35), 0.5); IN("#de-sellt", at(1, 0.4));
+      tl.to("#de-sb", { attr: { y: 270, height: 250 }, duration: 0.8, ease: "power2.out" }, at(1, 0.5));
+      tl.to("#de-gap", { opacity: 0.4, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.7));
+      // L2 能取回 → 套利修复
+      OUT("#de-term", at(2, 0), 0.3);
+      IN("#de-fk", at(2, 0.04));
+      ARROW("#de-gp", at(2, 0.18), 0.4); IN("#de-gbx", at(2, 0.22));
+      tl.to("#de-bb", { attr: { y: 290, height: 230 }, fill: "#83C167", duration: 1.0, ease: "power2.out" }, at(2, 0.55));
+      tl.to("#de-mkt", { attr: { d: NAR }, duration: 1.4, ease: "power2.inOut" }, at(2, 0.62));
+      tl.to("#de-gap", { attr: { d: NARG }, duration: 1.4, ease: "power2.inOut" }, at(2, 0.62));
+      tl.to("#de-ml", { attr: { y: 386 }, duration: 1.4, ease: "power2.inOut" }, at(2, 0.62));
+      // L3 不能取回 → 折价持续
+      ARROW("#de-rp", at(3, 0.05), 0.4); IN("#de-rbx", at(3, 0.1));
+      IN("#de-hg", at(3, 0.3));
+      tl.fromTo("#de-hg", { scale: 1, svgOrigin: "1260 925" }, { scale: 1.35, svgOrigin: "1260 925", duration: 0.8, immediateRender: false }, at(3, 0.35));
+      tl.to("#de-bb", { attr: { y: 370, height: 150 }, fill: "#8a8f99", duration: 0.8 }, at(3, 0.45));
+      tl.to("#de-mkt", { attr: { d: "M200 320 L520 320 C600 320 640 440 720 450 L960 455" }, duration: 1.0 }, at(3, 0.45));
+      tl.to("#de-gap", { attr: { d: "M520 320 C600 320 640 440 720 450 L960 455 L960 320 Z" }, duration: 1.0 }, at(3, 0.45));
+      tl.to("#de-ml", { attr: { y: 466 }, duration: 1.0 }, at(3, 0.45));
+      // L4 2022 stETH
+      OUT("#de-ax,#de-gap,#de-mkt,#de-ml,#de-gl,#de-bars,#de-sb,#de-bb,#de-ppl,#de-sell,#de-sellt,#de-fk,#de-gp,#de-gbx,#de-rp,#de-rbx,#de-hg", at(4, 0));
+      IN("#de-k1", at(4, 0.03));
+      IN("#de-k1b", at(4, 0.16), 0.5, { x: 15 }, { x: 0 });
+      IN("#de-k1a", at(4, 0.28));
+      DRAW("#de-k1l", at(4, 0.3), 2.4);
+      IN("#de-k1c", at(4, 0.46));
+      IN("#de-k1d", at(4, 0.56));
+      tl.to("#de-k1l", { stroke: "#FC6255", duration: 0.25, yoyo: true, repeat: 3 }, at(4, 0.82));
+      // L5 2024 ezETH
+      IN("#de-k2", at(5, 0.03));
+      IN("#de-k2b", at(5, 0.3), 0.5, { y: 12 }, { y: 0 });
+      DRAW("#de-k2l", at(5, 0.45), 1.6);
+      IN("#de-k2a", at(5, 0.62), 0.5, { y: 12 }, { y: 0 });
+      tl.to("#de-k2l", { stroke: "#FC6255", duration: 0.25, yoyo: true, repeat: 3 }, at(5, 0.85));
+      // L6 清算正反馈环
+      IN("#de-n0", at(6, 0.02));
+      ARROW("#de-e0", at(6, 0.07), 0.5); IN("#de-n1", at(6, 0.1));
+      ARROW("#de-e1", at(6, 0.17), 0.4); IN("#de-n2", at(6, 0.2));
+      ARROW("#de-e2", at(6, 0.3), 0.5); IN("#de-n3", at(6, 0.33));
+      ARROW("#de-e3", at(6, 0.4), 0.4);
+      IN("#de-est", at(6, 0.6));
+      IN("#de-dot", at(6, 0.45), 0.2);
+      const segs = [[[606, 735], [1292, 735], 1.0], [[1430, 774], [1430, 872], 0.4], [[1324, 915], [648, 915], 1.0], [[510, 876], [510, 778], 0.4]];
+      let t = at(6, 0.47);
+      [0, 1].forEach(() => segs.forEach(s => {
+        tl.set("#de-dot", { attr: { cx: s[0][0], cy: s[0][1] } }, t);
+        tl.to("#de-dot", { attr: { cx: s[1][0], cy: s[1][1] }, duration: s[2], ease: "none" }, t); t += s[2] + 0.1;
+      }));
+      OUT("#de-dot", t, 0.3);
+
+
+      tl.to("#de-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#de-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["depeg"] = tl;
+    })();
+  </script>
+</template>

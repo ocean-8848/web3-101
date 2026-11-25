@@ -1,0 +1,107 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="39.35" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <g id="ho-card" class="h">
+          <rect id="ho-cardr" x="660" y="260" width="600" height="500" rx="22" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text x="960" y="330" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">某借贷协议（示例）</text>
+        </g>
+        <g id="ho-b0" class="h"><rect id="ho-b0r" x="720" y="370" width="480" height="80" rx="40" fill="none" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="960" y="423" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">TVL $10 亿</text></g>
+        <line id="ho-d0" class="h" x1="1204" y1="410" x2="1356" y2="410" stroke="#FF9F43" stroke-width="3" stroke-dasharray="10 8"/>
+        <g id="ho-q0" class="h"><rect x="1360" y="370" width="400" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+          <text x="1560" y="422" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">8% 从哪来？</text></g>
+        <g id="ho-b1" class="h"><rect id="ho-b1r" x="720" y="490" width="480" height="80" rx="40" fill="none" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="960" y="543" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">存款年化 8%</text></g>
+        <line id="ho-d1" class="h" x1="1204" y1="530" x2="1356" y2="530" stroke="#FF9F43" stroke-width="3" stroke-dasharray="10 8"/>
+        <g id="ho-q1" class="h"><rect x="1360" y="490" width="400" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+          <text x="1560" y="542" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">谁能改合约？</text></g>
+        <g id="ho-b2" class="h"><rect id="ho-b2r" x="720" y="610" width="480" height="80" rx="40" fill="none" stroke="#83C167" stroke-width="2.5"/>
+          <text x="960" y="663" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">✓ 已审计</text></g>
+        <line id="ho-d2" class="h" x1="1204" y1="650" x2="1356" y2="650" stroke="#FF9F43" stroke-width="3" stroke-dasharray="10 8"/>
+        <g id="ho-q2" class="h"><rect x="1360" y="610" width="400" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+          <text x="1560" y="662" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">依赖谁？</text></g>
+        <text id="ho-ex" class="h" x="1240" y="742" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+        <text id="ho-tag" class="h" x="960" y="210" font-size="30" fill="#8a8f99" text-anchor="middle">选修 · DeFi 研究 / 投研 / 治理</text>
+        <g id="ho-mag" class="h"><circle cx="560" cy="410" r="38" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="6"/>
+          <line x1="534" y1="437" x2="500" y2="475" stroke="#58C4DD" stroke-width="9" stroke-linecap="round"/></g>
+        <g id="ho-ban" class="h"><rect x="600" y="830" width="720" height="96" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+          <text x="960" y="893" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">研究方法，不是投资建议</text></g>
+      </g>
+      <g id="ho-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">尽调 <tspan font-size="28" font-weight="400" fill="#8a8f99">Due diligence</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">投入前系统核实事实和风险</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+/*ANIM*/
+
+IN("#ho-card", at(0, 0.02), 0.7, { scale: 0.95, svgOrigin: "960 510" }, { scale: 1, svgOrigin: "960 510" });
+IN("#ho-b0", at(0, 0.14), 0.5, { scale: 0.8, svgOrigin: "960 410" }, { scale: 1, svgOrigin: "960 410" });
+IN("#ho-b1", at(0, 0.32), 0.5, { scale: 0.8, svgOrigin: "960 530" }, { scale: 1, svgOrigin: "960 530" });
+IN("#ho-b2", at(0, 0.56), 0.5, { scale: 0.8, svgOrigin: "960 650" }, { scale: 1, svgOrigin: "960 650" });
+IN("#ho-ex", at(0, 0.7), 0.5);
+tl.to("#ho-cardr", { stroke: "#83C167", duration: 0.5 }, at(0, 0.85));
+tl.to("#ho-cardr", { stroke: "#8a8f99", duration: 0.4 }, at(1, 0));
+[0, 1, 2].forEach((i) => {
+  const t = at(1, 0.3 + i * 0.24);
+  IN(`#ho-d${i}`, t, 0.4, { attr: { x2: 1204 } }, { attr: { x2: 1356 } });
+  IN(`#ho-q${i}`, t + 0.3, 0.5, { x: -20 }, { x: 0 });
+});
+IN("#ho-tag", at(2, 0.1), 0.6, { y: -10 }, { y: 0 });
+tl.to("#ho-q0, #ho-q1, #ho-q2", { opacity: 0.55, duration: 0.5 }, at(2, 0.6));
+// L3 magnifier sweeps the badges
+IN("#ho-mag", at(3, 0.04), 0.5);
+IN("#ho-term", at(3, 0.3), 0.5);
+tl.fromTo("#ho-mag", { y: 0 }, { y: 240, duration: 5.6, ease: "sine.inOut", immediateRender: false }, at(3, 0.1));
+tl.to("#ho-q0, #ho-q1, #ho-q2", { opacity: 1, duration: 0.4 }, at(3, 0.1));
+[0, 1, 2].forEach((i) => {
+  const t = at(3, 0.1) + 0.3 + i * 2.5;
+  tl.to(`#ho-b${i}r`, { strokeWidth: 6, duration: 0.3 }, t);
+  tl.to(`#ho-b${i}r`, { strokeWidth: 2.5, duration: 0.4 }, t + 1.2);
+});
+OUT("#ho-term", at(4, 0.0), 0.4);
+OUT("#ho-mag", at(4, 0.0), 0.4);
+// L4 disclaimer
+IN("#ho-ban", at(4, 0.1), 0.6, { scale: 0.9, svgOrigin: "960 878" }, { scale: 1, svgOrigin: "960 878" });
+tl.to("#ho-ex", { fill: "#FF9F43", duration: 0.4 }, at(4, 0.55));
+tl.to("#ho-cardr", { stroke: "#FF9F43", duration: 0.4 }, at(4, 0.55));
+
+/*ENDANIM*/
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ho-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

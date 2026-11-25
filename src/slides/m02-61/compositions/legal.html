@@ -1,0 +1,103 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 legal，id 前缀 le- -->
+  <div id="root" data-composition-id="legal" data-duration="37.99" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="le-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="le-all">
+
+        <g id="le-a">
+          <path id="le-map" class="h dr" pathLength="1" d="M240 360 L330 300 L520 290 L700 310 L860 300 L1010 330 L1080 400 L1050 470 L1090 540 L1030 620 L960 700 L900 760 L860 700 L760 690 L640 730 L520 720 L420 680 L330 610 L270 520 Z" fill="#161a22" fill-opacity="0" stroke="#8a8f99" stroke-width="3" stroke-linejoin="round"/>
+          <g id="le-p1" class="h"><path d="M500 450 L484 416 A20 20 0 1 1 516 416 Z" fill="#FF9F43"/><circle cx="500" cy="406" r="8" fill="#0f1117"/></g>
+          <g id="le-p2" class="h"><path d="M930 580 L914 546 A20 20 0 1 1 946 546 Z" fill="#FC6255"/><circle cx="930" cy="536" r="8" fill="#0f1117"/></g>
+          <path id="le-l1" class="h dr" pathLength="1" d="M520 400 L1176 360" stroke="#6b6f7a" stroke-width="2"/>
+          <g id="le-c1" class="h">
+            <rect x="1180" y="220" width="660" height="290" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+            <text x="1220" y="292" font-size="36" font-weight="700" fill="#FF9F43">怀俄明州 · 2021</text>
+          </g>
+          <text id="le-llc" class="h" x="1220" y="372" font-size="34" fill="#e8e6df">DAO → 有限责任公司</text>
+          <text id="le-eff" class="h" x="1220" y="452" font-size="30" fill="#83C167"><tspan class="mono">2021-07-01</tspan> 生效</text>
+          <text id="le-sf" class="h mono" x="1800" y="452" font-size="28" fill="#6b6f7a" text-anchor="end">SF0038</text>
+          <path id="le-l2" class="h dr" pathLength="1" d="M950 540 L1176 660" stroke="#6b6f7a" stroke-width="2"/>
+          <g id="le-gav" class="h">
+            <rect x="770" y="590" width="90" height="34" rx="6" fill="none" stroke="#8a8f99" stroke-width="4"/>
+            <line x1="815" y1="624" x2="815" y2="676" stroke="#8a8f99" stroke-width="6" stroke-linecap="round"/>
+          </g>
+          <g id="le-c2" class="h">
+            <rect x="1180" y="580" width="660" height="390" rx="18" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+            <text x="1220" y="648" font-size="32" font-weight="700" fill="#e8e6df">CFTC v. Ooki DAO · <tspan class="mono">2023-06</tspan></text>
+            <text x="1220" y="704" font-size="28" fill="#8a8f99">缺席判决</text>
+          </g>
+          <text id="le-r1" class="h" x="1220" y="778" font-size="30" fill="#FC6255">可被起诉的非法人社团</text>
+          <text id="le-r2" class="h" x="1220" y="846" font-size="30" fill="#FC6255">约 $64 万罚款</text>
+          <text id="le-r3" class="h" x="1220" y="914" font-size="30" fill="#FC6255">关闭网站</text>
+        </g>
+        <g id="le-b">
+          <text id="le-big" class="h" x="960" y="500" font-size="72" font-weight="700" fill="#FF9F43" text-anchor="middle">没有公司实体 ≠ 没有法律责任</text>
+          <text id="le-mem" class="h" x="960" y="610" font-size="34" fill="#e8e6df" text-anchor="middle">参与投票的成员，可能被视为社团成员</text>
+          <text id="le-nla" class="h" x="960" y="990" font-size="28" fill="#6b6f7a" text-anchor="middle">非法律建议 · 设立实体前请咨询当地律师</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+// L0 map + two pins
+IN("#le-map", at(0, 0.02), 0.2); DRAW("#le-map", at(0, 0.02), 1.4);
+tl.to("#le-map", { fillOpacity: 1, duration: 0.6 }, at(0, 0.4));
+IN("#le-p1", at(0, 0.6), 0.4, { y: -30 }, { y: 0 });
+IN("#le-p2", at(0, 0.75), 0.4, { y: -30 }, { y: 0 });
+// L1 Wyoming
+tl.to("#le-p1", { scale: 1.25, svgOrigin: "500 450", duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.02));
+ARROW("#le-l1", at(1, 0.05), 0.5);
+IN("#le-c1", at(1, 0.1), 0.5, { x: 20 }, { x: 0 });
+IN("#le-llc", at(1, 0.38), 0.5);
+IN("#le-eff", at(1, 0.68), 0.5);
+IN("#le-sf", at(1, 0.8), 0.5);
+// L2 Ooki DAO
+tl.to("#le-p2", { scale: 1.25, svgOrigin: "930 580", duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.02));
+ARROW("#le-l2", at(2, 0.05), 0.5);
+IN("#le-c2", at(2, 0.1), 0.5, { x: 20 }, { x: 0 });
+IN("#le-gav", at(2, 0.2), 0.3);
+tl.fromTo("#le-gav", { rotation: -25, svgOrigin: "815 676" }, { rotation: 0, svgOrigin: "815 676", duration: 0.35, ease: "power3.in", immediateRender: false }, at(2, 0.22));
+IN("#le-r1", at(2, 0.38), 0.5);
+IN("#le-r2", at(2, 0.64), 0.5);
+IN("#le-r3", at(2, 0.84), 0.5);
+// L3 conclusion
+OUT("#le-a", at(3, 0), 0.5);
+IN("#le-big", at(3, 0.06), 0.7, { scale: 0.9, svgOrigin: "960 475" }, { scale: 1, svgOrigin: "960 475" });
+IN("#le-mem", at(3, 0.32), 0.6);
+IN("#le-nla", at(3, 0.7), 0.6);
+
+
+      tl.to("#le-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["legal"] = tl;
+    })();
+  </script>
+</template>

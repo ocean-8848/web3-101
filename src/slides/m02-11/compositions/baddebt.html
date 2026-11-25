@@ -1,0 +1,190 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 baddebt，id 前缀 ba- -->
+  <div id="root" data-composition-id="baddebt" data-duration="65.56" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ba-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ba-all">
+        <g id="ba-bars" class="h">
+          <rect id="ba-col" x="800" y="300" width="140" height="540" rx="6" fill="#F0B90B"/>
+          <rect x="980" y="440" width="140" height="400" rx="6" fill="none" stroke="#F0B90B" stroke-width="4"/>
+          <line x1="760" y1="840" x2="1160" y2="840" stroke="#8a8f99" stroke-width="2"/>
+          <text x="870" y="890" font-size="32" fill="#F0B90B" text-anchor="middle">抵押品</text>
+          <text x="1050" y="890" font-size="32" fill="#F0B90B" text-anchor="middle">债务</text>
+        </g>
+        <rect id="ba-gap" class="h" x="982" y="442" width="136" height="118" fill="#FC6255"/>
+        <text id="ba-gapt" class="h" x="1050" y="412" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">坏账</text>
+        <g id="ba-s1" class="h"><rect x="240" y="300" width="340" height="90" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="410" y="358" font-size="34" fill="#FC6255" text-anchor="middle">价格跳空</text></g>
+        <g id="ba-s2" class="h"><rect x="1340" y="300" width="340" height="90" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="1510" y="358" font-size="34" fill="#FC6255" text-anchor="middle">清算不及时</text></g>
+        <g id="ba-s3" class="h"><rect x="240" y="640" width="340" height="90" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="410" y="698" font-size="34" fill="#FC6255" text-anchor="middle">预言机出错</text></g>
+        <g id="ba-s4" class="h"><rect x="1340" y="640" width="340" height="90" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="1510" y="698" font-size="34" fill="#FC6255" text-anchor="middle">没人接盘</text></g>
+        <path id="ba-p1" class="dr h" pathLength="1" d="M590 370 L770 470" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ba-arr)"/>
+        <path id="ba-p2" class="dr h" pathLength="1" d="M1330 370 L1134 470" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ba-arr)"/>
+        <path id="ba-p3" class="dr h" pathLength="1" d="M590 670 L770 560" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ba-arr)"/>
+        <path id="ba-p4" class="dr h" pathLength="1" d="M1330 670 L1134 560" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ba-arr)"/>
+        <!-- 2020-03-12 -->
+        <text id="ba-date" class="h" x="960" y="270" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">2020-03-12 · MakerDAO</text>
+        <g id="ba-chart" class="h">
+          <text x="200" y="370" font-size="30" fill="#FF9F43">ETH 价格</text>
+          <line x1="200" y1="820" x2="900" y2="820" stroke="#8a8f99" stroke-width="2"/>
+          <line x1="200" y1="400" x2="200" y2="820" stroke="#8a8f99" stroke-width="2"/>
+        </g>
+        <path id="ba-pl" class="dr" pathLength="1" d="M210 470 L300 480 L380 465 L460 490 L520 485 L560 760 L640 740 L720 780 L800 770 L880 790" stroke="#FF9F43" stroke-width="4" fill="none"/>
+        <g id="ba-gas" class="h">
+          <text x="1100" y="420" font-size="30" fill="#e8e6df">Gas</text>
+          <rect x="1100" y="450" width="600" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+        </g>
+        <rect id="ba-gasf" class="h" x="1104" y="454" width="60" height="32" rx="6" fill="#83C167"/>
+        <g id="ba-bot" class="h">
+          <rect x="1300" y="620" width="120" height="96" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="4"/>
+          <circle cx="1338" cy="662" r="9" fill="#e8e6df"/><circle cx="1382" cy="662" r="9" fill="#e8e6df"/>
+          <line x1="1340" y1="690" x2="1380" y2="690" stroke="#e8e6df" stroke-width="4"/>
+        </g>
+        <path id="ba-botx" class="h" d="M1450 630 L1520 700 M1520 630 L1450 700" stroke="#FC6255" stroke-width="8" stroke-linecap="round"/>
+        <text id="ba-bott" class="h" x="1560" y="680" font-size="32" fill="#FC6255">来不及</text>
+        <!-- 吸收顺序 -->
+        <g id="ba-hole" class="h">
+          <rect x="200" y="480" width="240" height="150" rx="12" fill="#FC6255"/>
+          <text x="320" y="568" font-size="40" font-weight="700" fill="#0f1117" text-anchor="middle">坏账</text>
+        </g>
+        <g id="ba-jar" class="h">
+          <rect x="700" y="420" width="240" height="280" rx="24" fill="none" stroke="#B48EF0" stroke-width="4"/>
+          <rect x="740" y="400" width="160" height="26" rx="6" fill="#B48EF0"/>
+          <text x="820" y="760" font-size="34" fill="#B48EF0" text-anchor="middle">协议储备</text>
+        </g>
+        <rect id="ba-jf" x="706" y="694" width="228" height="0" rx="16" fill="#FC6255" opacity="0.85"/>
+        <path id="ba-ar1" class="dr h" pathLength="1" d="M450 555 L688 555" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ba-arr)"/>
+        <path id="ba-ar2" class="dr h" pathLength="1" d="M952 555 L1170 555" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ba-arr)"/>
+        <g id="ba-deps" class="h">
+          <circle cx="1260" cy="500" r="26" fill="#8a8f99"/><path d="M1220 590 Q1260 530 1300 590" fill="#8a8f99"/>
+          <circle cx="1400" cy="500" r="26" fill="#8a8f99"/><path d="M1360 590 Q1400 530 1440 590" fill="#8a8f99"/>
+          <circle cx="1540" cy="500" r="26" fill="#8a8f99"/><path d="M1500 590 Q1540 530 1580 590" fill="#8a8f99"/>
+          <text x="1400" y="650" font-size="32" fill="#e8e6df" text-anchor="middle">存款人</text>
+        </g>
+        <text id="ba-rate" class="h mono" x="1400" y="760" font-size="34" fill="#e8e6df" text-anchor="middle">1 cUSDC → <tspan id="ba-rv" fill="#FC6255">0.0210</tspan></text>
+        <text id="ba-rex" class="h" x="1400" y="820" font-size="28" fill="#6b6f7a" text-anchor="middle">示例</text>
+        <!-- 机器人流程环 -->
+        <g id="ba-loop" class="h">
+          <ellipse cx="960" cy="600" rx="500" ry="250" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8"/>
+          <text x="960" y="616" font-size="48" font-weight="700" fill="#F0B90B" text-anchor="middle">奖励</text>
+          <text x="1700" y="300" font-size="30" fill="#8a8f99" text-anchor="end">清算机器人</text>
+        </g>
+        <g id="ba-n1" class="h"><rect class="nb" x="850" y="318" width="220" height="64" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="960" y="361" font-size="30" fill="#e8e6df" text-anchor="middle">订阅价格</text></g>
+        <g id="ba-n2" class="h"><rect class="nb" x="1300" y="495" width="250" height="64" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1425" y="538" font-size="30" fill="#e8e6df" text-anchor="middle">预算清算价</text></g>
+        <g id="ba-n3" class="h"><rect class="nb" x="1110" y="770" width="250" height="64" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1235" y="813" font-size="30" fill="#e8e6df" text-anchor="middle">闪电贷借入</text></g>
+        <g id="ba-n4" class="h"><rect class="nb" x="440" y="770" width="330" height="64" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="605" y="813" font-size="30" fill="#e8e6df" text-anchor="middle">清算并卖出抵押品</text></g>
+        <g id="ba-n5" class="h"><rect class="nb" x="370" y="495" width="250" height="64" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="495" y="538" font-size="30" fill="#e8e6df" text-anchor="middle">归还闪电贷</text></g>
+        <!-- 赛道 -->
+        <g id="ba-race" class="h">
+          <text x="960" y="380" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">Gas 出价 · 延迟</text>
+          <line x1="300" y1="520" x2="1620" y2="520" stroke="#8a8f99" stroke-width="2" opacity="0.5"/>
+          <line x1="300" y1="640" x2="1620" y2="640" stroke="#8a8f99" stroke-width="2" opacity="0.5"/>
+          <line x1="300" y1="760" x2="1620" y2="760" stroke="#8a8f99" stroke-width="2" opacity="0.5"/>
+          <line x1="1560" y1="430" x2="1560" y2="800" stroke="#e8e6df" stroke-width="4" stroke-dasharray="12 8"/>
+        </g>
+        <g id="ba-r1" class="h"><rect x="320" y="530" width="80" height="60" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><circle cx="345" cy="558" r="6" fill="#e8e6df"/><circle cx="375" cy="558" r="6" fill="#e8e6df"/></g>
+        <g id="ba-r2" class="h"><rect x="320" y="650" width="80" height="60" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><circle cx="345" cy="678" r="6" fill="#e8e6df"/><circle cx="375" cy="678" r="6" fill="#e8e6df"/></g>
+        <g id="ba-r3" class="h"><rect x="320" y="770" width="80" height="60" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><circle cx="345" cy="798" r="6" fill="#e8e6df"/><circle cx="375" cy="798" r="6" fill="#e8e6df"/></g>
+        <!-- 预言机牌 -->
+        <g id="ba-or" class="h">
+          <rect x="660" y="380" width="600" height="120" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="4"/>
+          <text x="960" y="456" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">预言机 ETH/USD</text>
+        </g>
+        <g id="ba-k1" class="h"><path d="M520 630 L540 652 L576 608" stroke="#83C167" stroke-width="6" fill="none"/><text x="596" y="644" font-size="34" fill="#e8e6df">价格未过期</text></g>
+        <g id="ba-k2" class="h"><path d="M1030 630 L1050 652 L1086 608" stroke="#83C167" stroke-width="6" fill="none"/><text x="1106" y="644" font-size="34" fill="#e8e6df">L2 排序器在线</text></g>
+        <text id="ba-prev" class="h" x="960" y="780" font-size="30" fill="#8a8f99" text-anchor="middle">前面讲过</text>
+      </g>
+      <g id="ba-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">坏账 <tspan font-size="28" font-weight="400" fill="#8a8f99">Bad Debt</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">抵押品不足以覆盖债务的缺口</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 抵押品掉到债务以下
+      IN("#ba-bars", at(0, 0.02), 0.6);
+      tl.to("#ba-col", { attr: { y: 560, height: 280 }, duration: 1.4, ease: "power3.in" }, at(0, 0.25));
+      IN("#ba-gap", at(0, 0.55), 0.4); IN("#ba-gapt", at(0, 0.6), 0.4);
+      IN("#ba-term", at(0, 0.5), 0.5);
+      OUT("#ba-term", at(1, 0.6), 0.4);
+      // L1 四个来源
+      ["#ba-s1", "#ba-s2", "#ba-s3", "#ba-s4"].forEach((s, i) => { const o = (i % 2 ? "1510 " : "410 ") + (i < 2 ? 345 : 685); IN(s, at(1, 0.08 + i * 0.2), 0.5, { scale: 0.85, svgOrigin: o }, { scale: 1, svgOrigin: o }); ARROW("#ba-p" + (i + 1), at(1, 0.12 + i * 0.2), 0.5); });
+      // L2 2020-03-12
+      OUT("#ba-bars, #ba-gap, #ba-gapt, #ba-s1, #ba-s2, #ba-s3, #ba-s4, #ba-p1, #ba-p2, #ba-p3, #ba-p4", at(2, 0), 0.4);
+      IN("#ba-date", at(2, 0.06), 0.5);
+      IN("#ba-chart", at(2, 0.12), 0.4);
+      DRAW("#ba-pl", at(2, 0.16), 1.6);
+      IN("#ba-gas, #ba-gasf", at(2, 0.3), 0.4);
+      tl.to("#ba-gasf", { attr: { width: 592 }, fill: "#FC6255", duration: 1.4, ease: "power3.in" }, at(2, 0.36));
+      IN("#ba-bot", at(2, 0.5), 0.4);
+      tl.to("#ba-bot", { x: 8, duration: 0.08, yoyo: true, repeat: 7 }, at(2, 0.62));
+      IN("#ba-botx", at(2, 0.66), 0.3); IN("#ba-bott", at(2, 0.7), 0.4);
+      // L3 储备 → 存款人
+      OUT("#ba-date, #ba-chart, #ba-pl, #ba-gas, #ba-gasf, #ba-bot, #ba-botx, #ba-bott", at(3, 0), 0.4);
+      IN("#ba-hole", at(3, 0.06), 0.5);
+      IN("#ba-jar", at(3, 0.12), 0.5);
+      ARROW("#ba-ar1", at(3, 0.2), 0.6);
+      tl.fromTo("#ba-jf", { attr: { y: 694, height: 0 } }, { attr: { y: 426, height: 268 }, duration: 1.4, ease: "power2.inOut", immediateRender: false }, at(3, 0.25));
+      tl.to("#ba-hole", { opacity: 0.5, duration: 1.0 }, at(3, 0.3));
+      ARROW("#ba-ar2", at(3, 0.55), 0.6);
+      IN("#ba-deps", at(3, 0.6), 0.5);
+      IN("#ba-rate, #ba-rex", at(3, 0.7), 0.4);
+      COUNT("#ba-rv", 0.021, 0.0203, at(3, 0.78), 1.2, v => v.toFixed(4));
+      // L4 机器人流程环
+      OUT("#ba-hole, #ba-jar, #ba-jf, #ba-ar1, #ba-ar2, #ba-deps, #ba-rate, #ba-rex", at(4, 0), 0.4);
+      IN("#ba-loop", at(4, 0.04), 0.6);
+      ["#ba-n1", "#ba-n2", "#ba-n3", "#ba-n4", "#ba-n5"].forEach((s, i) => {
+        const t = at(4, 0.08 + i * 0.17);
+        IN(s, t, 0.4);
+        tl.to(s + " rect", { stroke: "#58C4DD", strokeWidth: 5, duration: 0.3 }, t + 0.1);
+        if (i > 0) tl.to(["#ba-n1", "#ba-n2", "#ba-n3", "#ba-n4", "#ba-n5"][i - 1] + " rect", { stroke: "#8a8f99", strokeWidth: 3, duration: 0.3 }, t + 0.1);
+      });
+      tl.to("#ba-n5 rect", { stroke: "#8a8f99", strokeWidth: 3, duration: 0.3 }, at(4, 0.94));
+      // L5 赛道
+      OUT("#ba-loop, #ba-n1, #ba-n2, #ba-n3, #ba-n4, #ba-n5", at(5, 0), 0.4);
+      IN("#ba-race, #ba-r1, #ba-r2, #ba-r3", at(5, 0.1), 0.4);
+      tl.to("#ba-r1", { x: 1150, duration: 2.6, ease: "power1.in" }, at(5, 0.15));
+      tl.to("#ba-r2", { x: 1060, duration: 2.6, ease: "power1.in" }, at(5, 0.15));
+      tl.to("#ba-r3", { x: 900, duration: 2.6, ease: "power1.in" }, at(5, 0.15));
+      tl.to("#ba-r1 rect", { stroke: "#83C167", strokeWidth: 5, duration: 0.3 }, at(5, 0.15) + 2.6);
+      // L6 预言机两项检查
+      OUT("#ba-race, #ba-r1, #ba-r2, #ba-r3", at(6, 0), 0.4);
+      IN("#ba-or", at(6, 0.06), 0.5);
+      IN("#ba-k1", at(6, 0.3), 0.5, { x: -15 }, { x: 0 });
+      IN("#ba-k2", at(6, 0.55), 0.5, { x: -15 }, { x: 0 });
+      IN("#ba-prev", at(6, 0.12), 0.5);
+      tl.to("#ba-or rect", { fill: "#2a2016", duration: 0.5, yoyo: true, repeat: 1 }, at(6, 0.75));
+      tl.to("#ba-k1, #ba-k2", { y: -10, duration: 0.3, yoyo: true, repeat: 1, stagger: 0.3 }, at(6, 0.85));
+
+      tl.to("#ba-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ba-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["baddebt"] = tl;
+    })();
+  </script>
+</template>

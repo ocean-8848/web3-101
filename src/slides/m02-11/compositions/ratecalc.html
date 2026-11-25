@@ -1,0 +1,144 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ratecalc，id 前缀 ra- -->
+  <div id="root" data-composition-id="ratecalc" data-duration="63.32" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ra-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ra-all">
+
+        <g id="ra-p0" class="h"><rect x="120" y="206" width="159" height="64" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+          <text x="200" y="249" font-size="32" fill="#e8e6df" text-anchor="middle">base 0</text></g><g id="ra-p1" class="h"><rect x="301" y="206" width="216" height="64" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+          <text x="409" y="249" font-size="32" fill="#e8e6df" text-anchor="middle">slope1 4%</text></g><g id="ra-p2" class="h"><rect x="539" y="206" width="236" height="64" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+          <text x="657" y="249" font-size="32" fill="#e8e6df" text-anchor="middle">slope2 75%</text></g><g id="ra-p3" class="h"><rect x="797" y="206" width="159" height="64" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+          <text x="876" y="249" font-size="32" fill="#e8e6df" text-anchor="middle">U* 80%</text></g><g id="ra-p4" class="h"><rect x="978" y="206" width="184" height="64" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+          <text x="1070" y="249" font-size="32" fill="#e8e6df" text-anchor="middle">储备 10%</text></g><text id="ra-ex" class="h" x="1190" y="249" font-size="28" fill="#FF9F43">示例</text>
+        <g id="ra-axes" class="h">
+          <path d="M1000 380 L1000 900 L1800 900" stroke="#8a8f99" stroke-width="3" fill="none" />
+          <text x="1020" y="392" font-size="28" fill="#e8e6df">借款利率</text>
+          <text x="1000" y="942" font-size="28" fill="#8a8f99" text-anchor="middle">0</text>
+          <text x="1624" y="942" font-size="28" fill="#FF9F43" text-anchor="middle">80%</text>
+          <text x="1780" y="942" font-size="28" fill="#8a8f99" text-anchor="middle">100%</text>
+          <path d="M1624 900 L1624 430" stroke="#FF9F43" stroke-width="2" stroke-dasharray="10 8" fill="none" />
+        </g>
+        <path id="ra-cv" class="dr" pathLength="1" d="M1000 900 L1624 876 L1780 426" stroke="#58C4DD" stroke-width="5" fill="none" />
+        <g id="ra-p90" class="h">
+          <circle cx="1702" cy="651" r="12" fill="#FC6255" />
+          <text class="mono" x="1735" y="647" font-size="32" font-weight="700" fill="#FC6255">41.5%</text>
+          <text x="1702" y="980" font-size="28" fill="#FC6255" text-anchor="middle">90%</text>
+        </g>
+        <g id="ra-d90" class="h">
+          <circle cx="1702" cy="698" r="10" fill="#83C167" />
+          <text class="mono" x="1735" y="712" font-size="28" fill="#83C167">33.6%</text>
+        </g>
+        <g id="ra-p70" class="h">
+          <circle cx="1546" cy="879" r="11" fill="#58C4DD" />
+          <text class="mono" x="1546" y="848" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">3.5%</text>
+          <text x="1546" y="980" font-size="28" fill="#58C4DD" text-anchor="middle">70%</text>
+        </g>
+        <path id="ra-jump" class="dr h" pathLength="1" d="M1478 842 Q1470 640 1676 645" stroke="#FC6255" stroke-width="5" fill="none" marker-end="url(#ra-arr)" />
+        <text id="ra-jl" class="h" x="1040" y="500" font-size="36" font-weight="700" fill="#FC6255">70% → 90%：3.5% → 41.5%</text>
+        <text id="ra-h" class="h" x="120" y="380" font-size="32" fill="#FC6255">U = 90%，已过拐点</text>
+        <text id="ra-a1" class="h" x="120" y="452" font-size="36" fill="#e8e6df">借款 = 4% + 75% × 0.1 ÷ 0.2</text>
+        <text id="ra-a2" class="h" x="120" y="524" font-size="36" fill="#e8e6df">= 4% + 37.5%</text>
+        <text id="ra-a3" class="h" x="120" y="612" font-size="64" font-weight="700" fill="#FC6255">= 41.5%</text>
+        <text id="ra-a4" class="h" x="120" y="692" font-size="36" fill="#83C167">存款 = 41.5% × 0.9 × 0.9 ≈ 33.6%</text>
+        <text id="ra-b1" class="h" x="120" y="800" font-size="34" fill="#58C4DD">U = 70%：4% × 70/80 = 3.5%</text>
+        <text id="ra-b2" class="h" x="120" y="866" font-size="34" fill="#83C167">存款 = 3.5% × 0.7 × 0.9 ≈ 2.2%</text>
+        <defs><clipPath id="ra-clip"><path d="M300 420 L300 760 A170 34 0 0 0 640 760 L640 420 Z" /></clipPath></defs>
+        <g id="ra-pool" class="h">
+          <g id="ra-cyl" >
+          <path d="M300 420 L300 760 A170 34 0 0 0 640 760 L640 420" fill="#161a22" stroke="#58C4DD" stroke-width="4" />
+          <ellipse cx="470" cy="420" rx="170" ry="34" fill="#1b2230" stroke="#58C4DD" stroke-width="4" />
+        </g>
+          <rect id="ra-free" clip-path="url(#ra-clip)" x="298" y="386" width="344" height="68" fill="#83C167" opacity="0.35" />
+          <rect id="ra-water" clip-path="url(#ra-clip)" x="298" y="454" width="344" height="360" fill="#F0B90B" opacity="0.55" />
+          <ellipse cx="470" cy="420" rx="170" ry="34" fill="none" stroke="#58C4DD" stroke-width="4" />
+          <path d="M300 488 L640 488" stroke="#FF9F43" stroke-width="3" stroke-dasharray="10 8" />
+          <text x="288" y="498" font-size="28" fill="#FF9F43" text-anchor="end">拐点 80%</text>
+        </g>
+        <text id="ra-left" class="h" x="470" y="362" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">只剩 10% 可提取</text>
+        <text id="ra-safe" class="h" x="470" y="362" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">回到拐点下方</text>
+        <g id="ra-tag" class="h">
+          <rect x="680" y="520" width="220" height="70" rx="12" fill="#2a1616" stroke="#FC6255" stroke-width="3" />
+          <text class="mono" x="790" y="567" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">41.5%</text>
+        </g>
+        <path id="ra-r1" class="dr h" pathLength="1" d="M400 960 L400 806" stroke="#F0B90B" stroke-width="5" fill="none" marker-end="url(#ra-arr)" />
+        <path id="ra-r2" class="dr h" pathLength="1" d="M540 960 L540 806" stroke="#83C167" stroke-width="5" fill="none" marker-end="url(#ra-arr)" />
+        <text id="ra-r1l" class="h" x="385" y="906" font-size="30" fill="#F0B90B" text-anchor="end">还款</text>
+        <text id="ra-r2l" class="h" x="555" y="906" font-size="30" fill="#83C167">新存款</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // L0 参数卡 + 坐标系
+      [0, 1, 2, 3, 4].forEach(i => IN(`#ra-p${i}`, at(0, 0.08 + i * 0.16), 0.4, { y: -16 }, { y: 0 }));
+      IN("#ra-ex", at(0, 0.85), 0.4);
+      IN("#ra-axes", at(0, 0.3), 0.6);
+      DRAW("#ra-cv", at(0, 0.55), 1.4);
+      // L1 U=90% 借款利率
+      IN("#ra-p90", at(1, 0.03), 0.4, { scale: 0.4, svgOrigin: "1702 651" }, { scale: 1, svgOrigin: "1702 651" });
+      IN("#ra-h", at(1, 0.06), 0.4);
+      IN("#ra-a1", at(1, 0.3), 0.5);
+      IN("#ra-a2", at(1, 0.66), 0.5);
+      IN("#ra-a3", at(1, 0.86), 0.5, { scale: 0.7, svgOrigin: "120 590" }, { scale: 1, svgOrigin: "120 590" });
+      // L2 存款利率
+      IN("#ra-a4", at(2, 0.08), 0.5);
+      IN("#ra-d90", at(2, 0.5), 0.4);
+      // L3 U=70%
+      OUT("#ra-a1, #ra-a2", at(3, 0.0), 0.4);
+      IN("#ra-p70", at(3, 0.05), 0.4, { scale: 0.4, svgOrigin: "1546 879" }, { scale: 1, svgOrigin: "1546 879" });
+      IN("#ra-b1", at(3, 0.15), 0.5);
+      IN("#ra-b2", at(3, 0.6), 0.5);
+      tl.to("#ra-p70 circle", { attr: { r: 17 }, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.4));
+      tl.to("#ra-b2", { attr: { "font-size": 38 }, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.8));
+      tl.to("#ra-d90 circle", { attr: { r: 15 }, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.95));
+      // L4 跳跃
+      ARROW("#ra-jump", at(4, 0.05), 0.9);
+      IN("#ra-jl", at(4, 0.3), 0.6);
+      tl.to("#ra-p90 circle", { attr: { r: 18 }, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.7));
+      // L5 陡增保护提款能力
+      OUT("#ra-h, #ra-a3, #ra-a4, #ra-b1, #ra-b2", at(5, 0.0), 0.4);
+      IN("#ra-pool", at(5, 0.06), 0.6);
+      IN("#ra-left", at(5, 0.12), 0.5);
+      IN("#ra-tag", at(5, 0.3), 0.5, { scale: 0.6, svgOrigin: "790 555" }, { scale: 1, svgOrigin: "790 555" });
+      ARROW("#ra-r1", at(5, 0.4), 0.6);
+      IN("#ra-r1l", at(5, 0.42), 0.4);
+      ARROW("#ra-r2", at(5, 0.52), 0.6);
+      IN("#ra-r2l", at(5, 0.54), 0.4);
+      OUT("#ra-left", at(5, 0.6), 0.3);
+      tl.to("#ra-free", { opacity: 0, duration: 0.4 }, at(5, 0.6));
+      tl.to("#ra-water", { attr: { y: 505 }, duration: 2.0, ease: "power2.inOut" }, at(5, 0.62));
+      IN("#ra-safe", at(5, 0.8), 0.5);
+
+
+      tl.to("#ra-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["ratecalc"] = tl;
+    })();
+  </script>
+</template>

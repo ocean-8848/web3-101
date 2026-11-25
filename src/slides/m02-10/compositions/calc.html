@@ -1,0 +1,145 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 calc，id 前缀 ca- -->
+  <div id="root" data-composition-id="calc" data-duration="71.06" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ca-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ca-all">
+                <g id="ca-pool" class="h">
+          <rect id="ca-card" x="120" y="240" width="500" height="380" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="596" y="282" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+          <polygon  points="165.0,302.0 179.0,322.0 165.0,342.0 151.0,322.0" fill="#F0B90B"/>
+          <text id="ca-eth" class="mono" x="200" y="336" font-size="40" font-weight="700" fill="#F0B90B">1,000</text>
+          <text class="mono" x="340" y="336" font-size="32" fill="#F0B90B">ETH</text>
+          <g ><circle cx="165.0" cy="402.0" r="17.0" fill="#0f1117" stroke="#F0B90B" stroke-width="4"/><circle cx="165.0" cy="402.0" r="8.5" fill="none" stroke="#F0B90B" stroke-width="2"/></g>
+          <text id="ca-usdc" class="mono" x="200" y="416" font-size="40" font-weight="700" fill="#F0B90B">3,000,000</text>
+          <text class="mono" x="436" y="416" font-size="32" fill="#F0B90B">USDC</text>
+          <text id="ca-pxl0" x="150" y="494" font-size="30" fill="#8a8f99">即时价</text>
+          <text id="ca-pxl1" class="h" x="150" y="494" font-size="30" fill="#8a8f99">新价 ≈</text>
+          <text id="ca-px" class="mono" x="260" y="494" font-size="40" fill="#e8e6df">3,000</text>
+          <line x1="150" y1="524" x2="590" y2="524" stroke="#3a3f4a" stroke-width="2"/>
+          <text id="ca-in" x="150" y="578" font-size="30" fill="#e8e6df">卖出 <tspan fill="#F0B90B">10 ETH</tspan>，f = 0.3%</text>
+        </g>
+        <g id="ca-rows">
+          <text id="ca-r1" class="mono h" x="700" y="320" font-size="40" fill="#e8e6df">γΔx = 0.997 × 10 = <tspan fill="#F0B90B">9.97</tspan></text>
+          <text id="ca-r2" class="mono h" x="700" y="410" font-size="40" fill="#e8e6df">Δy = 3,000,000 × 9.97 / 1,009.97</text>
+          <text id="ca-r2b" class="mono h" x="790" y="480" font-size="44" font-weight="700" fill="#F0B90B">≈ 29,615 USDC</text>
+          <g id="ca-r3" class="h">
+            <text x="700" y="580" font-size="36" fill="#e8e6df">均价</text>
+            <text class="mono" x="790" y="580" font-size="40" fill="#e8e6df">≈ 2,961.5</text>
+          </g>
+          <rect id="ca-bf" class="h" x="700" y="620" width="120" height="48" fill="#F0B90B"/>
+          <rect id="ca-bp" class="h" x="820" y="620" width="394" height="48" fill="#FF9F43"/>
+          <text id="ca-bt" class="mono h" x="1240" y="657" font-size="36" font-weight="700" fill="#FC6255">−1.28%</text>
+          <text id="ca-bfl" class="h" x="700" y="720" font-size="30" fill="#F0B90B">手续费 0.3%</text>
+          <text id="ca-bpl" class="h" x="900" y="720" font-size="30" fill="#FF9F43">价格影响 ≈ 0.99%</text>
+        </g>
+        <text id="ca-k" class="mono h" x="700" y="320" font-size="40" fill="#e8e6df">k : 3.0×10⁹ → <tspan fill="#83C167">≈ 3.00009×10⁹</tspan></text>
+        <text id="ca-kd" class="h" x="700" y="410" font-size="40" fill="#83C167">+ ≈ 9 万 = 手续费</text>
+        <g id="ca-sl" class="h">
+          <text x="700" y="530" font-size="30" fill="#8a8f99">卖出量</text>
+          <line x1="700" y1="566" x2="1700" y2="566" stroke="#3a3f4a" stroke-width="8" stroke-linecap="round"/>
+          <line id="ca-slf" x1="700" y1="566" x2="710" y2="566" stroke="#F0B90B" stroke-width="8" stroke-linecap="round"/>
+          <circle id="ca-knob" cx="710" cy="566" r="16" fill="#F0B90B"/>
+          <text class="mono" x="1700" y="616" font-size="28" fill="#6b6f7a" text-anchor="end">1,000</text>
+          <text id="ca-slv" class="mono" x="840" y="530" font-size="34" fill="#F0B90B">10 ETH</text>
+        </g>
+        <text id="ca-30" class="mono h" x="1000" y="616" font-size="28" fill="#F0B90B" text-anchor="middle">30%</text>
+        <text id="ca-imp" class="mono h" x="700" y="700" font-size="44" font-weight="700" fill="#FC6255">300 / 1,300 ≈ 23%</text>
+        <g id="ca-tag" class="h">
+          <rect x="1190" y="660" width="150" height="56" rx="12" fill="none" stroke="#FC6255" stroke-width="3"/>
+          <text class="mono" x="1265" y="700" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">&gt; 20%</text>
+        </g>
+        <!-- quiz -->
+        <g id="ca-q" class="h">
+          <rect x="360" y="250" width="1200" height="560" rx="22" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+          <rect x="400" y="282" width="110" height="50" rx="25" fill="none" stroke="#FF9F43" stroke-width="2.5"/>
+          <text x="455" y="318" font-size="30" fill="#FF9F43" text-anchor="middle">小测</text>
+          <text class="mono" x="960" y="410" font-size="42" fill="#F0B90B" text-anchor="middle">100 ETH / 300,000 USDC</text>
+          <text x="960" y="482" font-size="36" fill="#e8e6df" text-anchor="middle">卖出 100 ETH（不计费）</text>
+        </g>
+        <circle id="ca-ring" class="h" pathLength="1" cx="1480" cy="320" r="34" fill="none" stroke="#FF9F43" stroke-width="5"/>
+        <text id="ca-qa" class="mono h" x="960" y="610" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">300,000 × 100 / 200 = 150,000</text>
+        <text id="ca-qb" class="h" x="960" y="710" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">价格影响 50%</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const fmt = v => Math.round(v).toLocaleString("en-US");
+      // L0 pool card
+      IN("#ca-pool", at(0, 0.03), 0.7, { x: -20 }, { x: 0 });
+      tl.fromTo("#ca-in", { opacity: 0 }, { opacity: 1, duration: 0.5 }, at(0, 0.62));
+      // L1
+      IN("#ca-r1", at(1, 0.08), 0.5, { x: 16 }, { x: 0 });
+      // L2
+      tl.to("#ca-r1", { opacity: 0.45, duration: 0.4 }, at(2, 0.0));
+      IN("#ca-r2", at(2, 0.05), 0.5, { x: 16 }, { x: 0 });
+      IN("#ca-r2b", at(2, 0.62), 0.5, { scale: 0.8, svgOrigin: "940 465" }, { scale: 1, svgOrigin: "940 465" });
+      // L3 average price + split bar
+      tl.to("#ca-r2, #ca-r2b", { opacity: 0.45, duration: 0.4 }, at(3, 0.0));
+      IN("#ca-r3", at(3, 0.05), 0.5, { x: 16 }, { x: 0 });
+      IN("#ca-bf, #ca-bp", at(3, 0.3), 0.2);
+      tl.fromTo("#ca-bf", { attr: { width: 0 } }, { attr: { width: 120 }, duration: 0.4, immediateRender: false }, at(3, 0.3));
+      tl.fromTo("#ca-bp", { attr: { width: 0 } }, { attr: { width: 394 }, duration: 0.8, immediateRender: false }, at(3, 0.3) + 0.4);
+      IN("#ca-bt", at(3, 0.42), 0.4);
+      IN("#ca-bfl", at(3, 0.55), 0.4);
+      IN("#ca-bpl", at(3, 0.78), 0.4);
+      // L4 pool after trade
+      tl.to("#ca-card", { stroke: "#83C167", duration: 0.3 }, at(4, 0.05));
+      COUNT("#ca-eth", 1000, 1010, at(4, 0.1), 1.0, fmt);
+      COUNT("#ca-usdc", 3000000, 2970385, at(4, 0.35), 1.2, fmt);
+      OUT("#ca-pxl0", at(4, 0.65), 0.2); IN("#ca-pxl1", at(4, 0.68), 0.3);
+      COUNT("#ca-px", 3000, 2941, at(4, 0.68), 1.0, fmt);
+      tl.to("#ca-card", { stroke: "#58C4DD", duration: 0.4 }, at(4, 0.95));
+      // L5 k grows by the fee
+      OUT("#ca-rows", at(5, 0.0), 0.4);
+      IN("#ca-k", at(5, 0.08), 0.5, { x: 16 }, { x: 0 });
+      IN("#ca-kd", at(5, 0.55), 0.5, { y: 12 }, { y: 0 });
+      // L6 slider 10 -> 300
+      IN("#ca-sl", at(6, 0.02), 0.4);
+      const V = { v: 10 }, knob = document.querySelector("#ca-knob"), slf = document.querySelector("#ca-slf"), slv = document.querySelector("#ca-slv");
+      const su = () => { knob.setAttribute("cx", 700 + V.v); slf.setAttribute("x2", 700 + V.v); slv.textContent = Math.round(V.v) + " ETH"; };
+      tl.fromTo(V, { v: 10 }, { v: 300, duration: 1.4, ease: "power2.inOut", immediateRender: false, onUpdate: su }, at(6, 0.12));
+      IN("#ca-30", at(6, 0.12) + 1.4, 0.3);
+      IN("#ca-imp", at(6, 0.55), 0.4, { scale: 0.8, svgOrigin: "900 685" }, { scale: 1, svgOrigin: "900 685" });
+      IN("#ca-tag", at(6, 0.72), 0.4);
+      // L7 extreme quiz
+      OUT("#ca-pool, #ca-k, #ca-kd, #ca-sl, #ca-30, #ca-imp, #ca-tag", at(7, 0.0), 0.4);
+      IN("#ca-q", at(7, 0.05), 0.6, { scale: 0.95, svgOrigin: "960 530" }, { scale: 1, svgOrigin: "960 530" });
+      IN("#ca-ring", at(7, 0.2), 0.3);
+      tl.fromTo("#ca-ring", { strokeDasharray: 1, strokeDashoffset: 0 }, { strokeDasharray: 1, strokeDashoffset: 1, duration: 3.0, ease: "none", immediateRender: false }, at(7, 0.22));
+      OUT("#ca-ring", at(7, 0.5), 0.3);
+      IN("#ca-qa", at(7, 0.5), 0.5, { y: 14 }, { y: 0 });
+      IN("#ca-qb", at(7, 0.8), 0.5, { scale: 0.8, svgOrigin: "960 695" }, { scale: 1, svgOrigin: "960 695" });
+
+
+      tl.to("#ca-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["calc"] = tl;
+    })();
+  </script>
+</template>

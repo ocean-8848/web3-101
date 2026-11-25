@@ -1,0 +1,147 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 params，id 前缀 pa- -->
+  <div id="root" data-composition-id="params" data-duration="50.24" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pa-all">
+        <g id="pa-q" class="h">
+          <rect x="610" y="450" width="700" height="130" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+          <text x="960" y="530" font-size="48" font-weight="700" fill="#FF9F43" text-anchor="middle">③ 何时、由谁处理？</text>
+        </g>
+        <g id="pa-tab" class="h">
+          <rect x="300" y="250" width="1320" height="650" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <line x1="300" y1="350" x2="1620" y2="350" stroke="#8a8f99" stroke-width="2"/>
+          <line x1="300" y1="460" x2="1620" y2="460" stroke="#8a8f99" stroke-width="1" opacity="0.4"/>
+          <line x1="300" y1="570" x2="1620" y2="570" stroke="#8a8f99" stroke-width="1" opacity="0.4"/>
+          <line x1="300" y1="680" x2="1620" y2="680" stroke="#8a8f99" stroke-width="1" opacity="0.4"/>
+          <line x1="300" y1="790" x2="1620" y2="790" stroke="#8a8f99" stroke-width="1" opacity="0.4"/>
+          <text x="340" y="312" font-size="32" font-weight="700" fill="#8a8f99">参数</text>
+          <text x="760" y="312" font-size="32" font-weight="700" fill="#8a8f99">含义</text>
+          <text x="1300" y="312" font-size="32" font-weight="700" fill="#8a8f99">示例值</text>
+          <rect id="pa-hl" x="304" y="352" width="1312" height="106" fill="#FF9F43" opacity="0"/>
+          <g id="pa-r1" class="h">
+            <text x="340" y="417" font-size="32" font-weight="700" fill="#FF9F43">LTV 抵押因子</text>
+            <text x="760" y="417" font-size="30" fill="#e8e6df">最多能借的比例</text>
+            <text x="1300" y="417" font-size="32" fill="#e8e6df">ETH 80%</text>
+          </g>
+          <g id="pa-r2" class="h">
+            <text x="340" y="527" font-size="32" font-weight="700" fill="#FF9F43">清算阈值</text>
+            <text x="760" y="527" font-size="30" fill="#e8e6df">跌破可被清算</text>
+            <text x="1300" y="527" font-size="32" fill="#e8e6df">ETH 82.5%</text>
+          </g>
+          <g id="pa-r3" class="h">
+            <text x="340" y="637" font-size="32" font-weight="700" fill="#FF9F43">清算奖励</text>
+            <text x="760" y="637" font-size="30" fill="#e8e6df">折价买抵押品</text>
+            <text x="1300" y="637" font-size="32" fill="#e8e6df">5%–10%</text>
+          </g>
+          <g id="pa-r4" class="h">
+            <text x="340" y="747" font-size="32" font-weight="700" fill="#FF9F43">close factor</text>
+            <text x="760" y="747" font-size="30" fill="#e8e6df">单次最多偿付</text>
+            <text x="1300" y="747" font-size="32" fill="#e8e6df">50%</text>
+          </g>
+          <g id="pa-r5" class="h">
+            <text x="340" y="857" font-size="32" font-weight="700" fill="#B48EF0">储备金率</text>
+            <text x="760" y="857" font-size="30" fill="#e8e6df">利息进储备的比例</text>
+            <text x="1300" y="857" font-size="32" fill="#B48EF0">10%–20%</text>
+          </g>
+        </g>
+        <text id="pa-note" class="h" x="1620" y="950" font-size="28" fill="#FF9F43" text-anchor="end">示例，以官方为准</text>
+        <g id="pa-rule" class="h">
+          <rect id="pa-bar" x="880" y="260" width="90" height="640" rx="8" fill="#F0B90B" fill-opacity="0.22" stroke="#F0B90B" stroke-width="3"/>
+          <text x="860" y="280" font-size="28" fill="#8a8f99" text-anchor="end">90%</text>
+          <text x="860" y="900" font-size="28" fill="#8a8f99" text-anchor="end">70%</text>
+          <text x="925" y="960" font-size="30" fill="#F0B90B" text-anchor="middle">抵押品价值</text>
+        </g>
+        <line id="pa-lb" class="dr" pathLength="1" x1="830" y1="580" x2="1020" y2="580" stroke="#58C4DD" stroke-width="5"/>
+        <text id="pa-lbt" class="h" x="1044" y="591" font-size="32" fill="#58C4DD">LTV 80% · 能借到这里</text>
+        <line id="pa-lr" class="dr" pathLength="1" x1="830" y1="500" x2="1020" y2="500" stroke="#FC6255" stroke-width="5"/>
+        <text id="pa-lrt" class="h" x="1044" y="511" font-size="32" fill="#FC6255">清算阈值 82.5% · 清算从这里开始</text>
+        <path id="pa-br" class="dr" pathLength="1" d="M800 504 Q780 504 780 524 L780 556 Q780 576 800 576" fill="none" stroke="#FF9F43" stroke-width="3"/>
+        <text id="pa-mix" class="h" x="760" y="554" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="end">别混</text>
+      </g>
+      <g id="pa-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">清算阈值 <tspan font-size="28" font-weight="400" fill="#8a8f99">Liquidation Threshold</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">抵押品价值跌破这个比例可被清算</text>
+      </g>
+      <g id="pa-term2" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">清算系数 <tspan font-size="28" font-weight="400" fill="#8a8f99">Close Factor</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">单次清算最多偿付的债务比例</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const HL = (row, t) => tl.to("#pa-hl", { attr: { y: 352 + (row - 1) * 110 }, opacity: 0.12, duration: 0.4, ease: "power2.out" }, t);
+      // L0 问题卡 ③ → 表格
+      IN("#pa-q", at(0, 0.02), 0.6, { scale: 0.8, svgOrigin: "960 515" }, { scale: 1, svgOrigin: "960 515" });
+      tl.to("#pa-q rect", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.2));
+      OUT("#pa-q", at(0, 0.45), 0.4);
+      IN("#pa-tab", at(0, 0.55), 0.7);
+      IN("#pa-note", at(0, 0.75), 0.5);
+      // L1 LTV
+      HL(1, at(1, 0.05));
+      IN("#pa-r1", at(1, 0.1), 0.6, { x: -20 }, { x: 0 });
+      tl.fromTo("#pa-r1 text:nth-child(3)", { fill: "#e8e6df" }, { fill: "#F0B90B", duration: 0.4, immediateRender: false }, at(1, 0.75));
+      tl.to("#pa-r1", { x: 12, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.45));
+      // L2 清算阈值
+      HL(2, at(2, 0.02));
+      IN("#pa-r2", at(2, 0.06), 0.6, { x: -20 }, { x: 0 });
+      IN("#pa-term", at(2, 0.1), 0.5);
+      tl.fromTo("#pa-r2 text:nth-child(3)", { fill: "#e8e6df" }, { fill: "#F0B90B", duration: 0.4, immediateRender: false }, at(2, 0.6));
+      OUT("#pa-term", at(2, 0.95), 0.4);
+      // L3 表格让位 → 竖尺
+      OUT("#pa-tab, #pa-note", at(3, 0), 0.4);
+      IN("#pa-rule", at(3, 0.08), 0.5);
+      DRAW("#pa-lb", at(3, 0.15), 0.5); IN("#pa-lbt", at(3, 0.2), 0.4);
+      DRAW("#pa-lr", at(3, 0.4), 0.5); IN("#pa-lrt", at(3, 0.45), 0.4);
+      DRAW("#pa-br", at(3, 0.7), 0.4); IN("#pa-mix", at(3, 0.72), 0.4, { scale: 1.3, svgOrigin: "720 540" }, { scale: 1, svgOrigin: "720 540" });
+      OUT("#pa-rule, #pa-lb, #pa-lbt, #pa-lr, #pa-lrt, #pa-br, #pa-mix", at(3, 0.96), 0.35);
+      // L4 清算奖励
+      IN("#pa-tab, #pa-note", at(4, 0.02), 0.5);
+      HL(3, at(4, 0.1));
+      IN("#pa-r3", at(4, 0.15), 0.6, { x: -20 }, { x: 0 });
+      tl.fromTo("#pa-r3 text:nth-child(3)", { fill: "#e8e6df" }, { fill: "#F0B90B", duration: 0.4, immediateRender: false }, at(4, 0.7));
+      // L5 close factor + 储备金率
+      HL(4, at(5, 0.02));
+      IN("#pa-r4", at(5, 0.05), 0.6, { x: -20 }, { x: 0 });
+      IN("#pa-term2", at(5, 0.06), 0.5);
+      OUT("#pa-term2", at(5, 0.72), 0.4);
+      tl.to("#pa-r4", { x: 12, duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.35));
+      HL(5, at(5, 0.6));
+      IN("#pa-r5", at(5, 0.62), 0.6, { x: -20 }, { x: 0 });
+      tl.to("#pa-r5 text:nth-child(3)", { fill: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.85));
+      tl.to("#pa-hl", { opacity: 0, duration: 0.5 }, at(5, 0.95));
+
+      tl.to("#pa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#pa-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["params"] = tl;
+    })();
+  </script>
+</template>
