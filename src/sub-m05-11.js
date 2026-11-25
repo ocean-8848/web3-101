@@ -1,8 +1,8 @@
 /* ---------- M04 以太坊与基础设施（11）：m05-72 应用链与模块化 Rollup 部署 & m05-73 机构级质押运维 ---------- */
 (() => {
 CUR = 'm05-72';
-addCh({ id: 'm05-72', nav: '应用链与 Rollup 部署实务', title: 'M04.14 应用链与模块化 Rollup 部署实务：OP Stack、Orbit、DA 选型与排序器经济', desc: '何时发独立应用链、OP Stack/Arbitrum Orbit/ZK Stack 与 RaaS 选型、DA 层成本对比、自定义 Gas 币与排序器收支模型', html: `
-<h1>M04.14 应用链与模块化 Rollup 部署实务：OP Stack、Orbit、DA 选型与排序器经济</h1>
+addCh({ id: 'm05-72', nav: '应用链与 Rollup 部署实务', title: 'M04.12 应用链与模块化 Rollup 部署实务：OP Stack、Orbit、DA 选型与排序器经济', desc: '何时发独立应用链、OP Stack/Arbitrum Orbit/ZK Stack 与 RaaS 选型、DA 层成本对比、自定义 Gas 币与排序器收支模型', html: `
+<h1>M04.12 应用链与模块化 Rollup 部署实务：OP Stack、Orbit、DA 选型与排序器经济</h1>
 ${meta([
   '用业务量、定制需求和流动性碎片化代价判断：项目该直接部署在通用 L2，还是发一条独立应用链（Appchain / L3）。',
   '对比 OP Stack、Arbitrum Orbit、ZK Stack 三大主流 Rollup 框架与 RaaS（Conduit/Caldera）托管选型。',
@@ -63,11 +63,11 @@ ${tbl(['检查项', '为什么', '怎么验证'], [
   ['<strong>强制包含（Forced Inclusion）通道可用</strong>', '若排序器宕机或审查用户，用户必须能直接在 L1 发起提款逃生', '在测试网关闭排序器，演练通过 L1 OptimismPortal/DelayedInbox 强行包含一笔交易'],
   ['<strong>Batcher / Proposer L1 余额告警</strong>', 'L1 Gas 余额耗尽会导致批次停更、提款冻结', '配置 Prometheus 告警：余额低于 7 天预估消耗即自动报警'],
   ['<strong>升级权限分离（安全委员会 + 时间锁）</strong>', 'L2BEAT 评级的核心指标，单签可升级桥等同于随时可卷款跑路', '确认 L1 代理管理员为 Timelock + 独立多签，而非 RaaS 运营商单签'],
-  ['<strong>原生资产与跨链 Solver 提前打通</strong>', '没有原生 USDC 和秒级跨链入口，用户根本进不来', '上线前对接 Circle CCTP 或 ERC-7683 Solver（见 <a href="#m05-71">M05.12 跨链意图与链抽象</a>）']
+  ['<strong>原生资产与跨链 Solver 提前打通</strong>', '没有原生 USDC 和秒级跨链入口，用户根本进不来', '上线前对接 Circle CCTP 或 ERC-7683 Solver（见 <a href="#m05-71">M06.13 跨链意图与链抽象</a>）']
 ])}
 
 ${exercises([
-  ['一款日活 1,500 人的普通借贷协议，团队想发一条自己的 L3 应用链，理由是“这样用户 Gas 更便宜”。作为架构师，你会怎么反驳或给出替代方案？', '<p>现有通用 L2（Base / Arbitrum / Optimism）单笔交易费已低至 $0.001–$0.01，完全不是瓶颈。日活 1,500 人的项目发 L3 不仅每月倒贴数千到上万美元运维与预言机成本，还会丧失通用 L2 上现成的原生 USDC、WETH、wstETH 流动性和可组合性。更优解是直接部署在主流 L2，并用 Paymaster（<a href="#m06-5">M09.8</a>）替新用户赞助 Gas。</p>'],
+  ['一款日活 1,500 人的普通借贷协议，团队想发一条自己的 L3 应用链，理由是“这样用户 Gas 更便宜”。作为架构师，你会怎么反驳或给出替代方案？', '<p>现有通用 L2（Base / Arbitrum / Optimism）单笔交易费已低至 $0.001–$0.01，完全不是瓶颈。日活 1,500 人的项目发 L3 不仅每月倒贴数千到上万美元运维与预言机成本，还会丧失通用 L2 上现成的原生 USDC、WETH、wstETH 流动性和可组合性。更优解是直接部署在主流 L2，并用 Paymaster（<a href="#m06-5">M08.8</a>）替新用户赞助 Gas。</p>'],
   ['如果一款高频全链游戏每天产生 500 万笔微操作（每笔价值不到 1 美分），应该把 DA 放在以太坊 Blob 还是 AnyTrust / Celestia？代价是什么？', '<p>应选择 AnyTrust DAC 或 Celestia/EigenDA 等低成本外部 DA，否则 500 万笔交易的数据费会让游戏无法承受。代价是安全假设从“纯以太坊 Rollup”降级为“依赖外部 DA 验证者集或数据委员会诚实”，需将高价值 NFT/资金结算锚定回更安全的结算层。</p>']
 ])}
 ${checklist([
@@ -102,14 +102,14 @@ ${terms([
 ` });
 
 CUR = 'm05-73';
-addCh({ id: 'm05-73', nav: '机构级质押运维与 DVT', title: 'M04.15 机构级质押运维：Web3Signer 防双签、DVT 分布式验证者与 AVS 节点', desc: '从个人质押到机构级 Staking 运维：远程签名器 Web3Signer 与防双签数据库、SSV/Obol 分布式验证者 DVT、MEV-Boost 与 EigenLayer AVS 节点架构', html: `
-<h1>M04.15 机构级质押运维：Web3Signer 防双签、DVT 分布式验证者与 AVS 节点</h1>
+addCh({ id: 'm05-73', nav: '机构级质押运维与 DVT', title: 'M04.13 机构级质押运维：Web3Signer 防双签、DVT 分布式验证者与 AVS 节点', desc: '从个人质押到机构级 Staking 运维：远程签名器 Web3Signer 与防双签数据库、SSV/Obol 分布式验证者 DVT、MEV-Boost 与 EigenLayer AVS 节点架构', html: `
+<h1>M04.13 机构级质押运维：Web3Signer 防双签、DVT 分布式验证者与 AVS 节点</h1>
 ${meta([
   '理解机构质押商最怕的两大事故——离线扣分（漏签）与双签罚没（Slashing）——以及为什么“简单做主备双活”会直接触发双签灭顶之灾。',
   '掌握 Web3Signer 远程签名器 + Slashing Protection DB 的生产架构，实现“验证者客户端无私钥”。',
   '解释 DVT（分布式验证者技术，SSV / Obol）如何把单台验证者拆成 3/4 门限集群，同时兼顾高可用与零双签。',
   '梳理 MEV-Boost 中继接入与 EigenLayer AVS（主动验证服务）运营商节点的额外风控与罚没边界。'
-], '前置：<a href="#m05-3">M04.3 PoS 深入</a>、<a href="#m05-6">M04.6 节点运维与 RPC</a>、<a href="#m02-63">M08.4 流动性质押与再质押</a>')}
+], '前置：<a href="#m05-3">M04.3 PoS 深入</a>、<a href="#m05-6">M04.6 节点运维与 RPC</a>、<a href="#m02-63">M05.4 流动性质押与再质押</a>')}
 ${beginner(`<p><strong>双签罚没（Double Signing / Slashing）</strong>：如果同一个验证者公钥在同一个 Slot 里对两个不同的区块投了票，以太坊协议会判定你在作恶，直接没收部分质押 ETH 并强制踢出网络——而 99% 的真实罚没并不是黑客作恶，而是运维不小心把同一把密钥同时跑在了两台服务器上！</p>
 <p><strong>Web3Signer</strong>：Consensys 开源的机构级远程签名服务，把验证者 BLS 私钥隔离在加密密钥库里，并在签每一个区块前强制查一次防双签数据库。</p>
 <p><strong>DVT（Distributed Validator Technology）</strong>：把一个 32 ETH 验证者的私钥用门限签名拆给 4 台独立运行的机器（如 3-of-4）；挂掉 1 台照常出块不漏收益，也没有任何一台机器能单方面双签。</p>`)}
@@ -153,7 +153,7 @@ ${tbl(['部署模式', '高可用容错', '双签风险控制', '客户端多样
 </ul>
 
 <h2>4. EigenLayer AVS 运营商节点：收益与风险叠加</h2>
-<p>除了跑以太坊原生验证者，越来越多机构同时注册为 <strong>EigenLayer / Symbiotic Operator</strong>，为数据可用性（EigenDA）、预言机、跨链桥等 <strong>AVS（Actively Validated Services，主动验证服务）</strong>提供安全背书：</p>
+<p>除了跑以太坊原生验证者，越来越多机构同时注册为 <strong>EigenLayer / Symbiotic Operator</strong>，为数据可用性（EigenDA）、预言机、跨链桥等 <strong>AVS（Actively Validated Services，主动验证服务）</strong>提供安全背书。再质押者、运营者、AVS 三个角色和委托、提款延迟的机制见 <a href="#m02-63">M05.4 流动性质押与再质押</a>第 6 节（后面会讲）；本节只讲运营者一侧的节点部署与罚没隔离：</p>
 ${mm('再质押运营商（Operator）接入多 AVS 的运行与罚没隔离', `
 flowchart LR
   S["质押者 / LST<br/>委托 ETH 质押权"] --> OP["机构 Operator 节点"]

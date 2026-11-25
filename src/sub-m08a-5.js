@@ -216,7 +216,7 @@ ${call('info', `<p><strong>非托管怎样保证</strong>：① 资产在用户�
 
 <h2>5. 抵押品、结算与方案对比</h2>
 <h3>5.1 USDC 抵押品</h3>
-<p>Polymarket 长期用 Polygon 上的桥接版 USDC（USDC.e）作为抵押品；2026 年 4 月宣布以自有抵押代币 Polymarket USD（pUSD，按 1:1 由 USDC 支持）取代 USDC.e。${cite('Cointelegraph：Polymarket 以 USDC 支持的新代币取代 USDC.e', 'https://cointelegraph.com/news/polymarket-replace-usdce-usdc-backed-token-exchange-upgrade')}这意味着系统依赖 Circle 的 USDC 发行与冻结能力，在使用桥接资产期间还依赖跨链桥的安全性。稳定币风险见 <a href="#m02-9">M08.1 稳定币</a>。</p>
+<p>Polymarket 长期用 Polygon 上的桥接版 USDC（USDC.e）作为抵押品；2026 年 4 月宣布以自有抵押代币 Polymarket USD（pUSD，按 1:1 由 USDC 支持）取代 USDC.e。${cite('Cointelegraph：Polymarket 以 USDC 支持的新代币取代 USDC.e', 'https://cointelegraph.com/news/polymarket-replace-usdce-usdc-backed-token-exchange-upgrade')}这意味着系统依赖 Circle 的 USDC 发行与冻结能力，在使用桥接资产期间还依赖跨链桥的安全性。稳定币风险见 <a href="#m02-9">M05.1 稳定币</a>。</p>
 <h3>5.2 UMA 适配器结算</h3>
 ${steps(['<strong>初始化</strong>：适配器的 initialize 接收问题描述（ancillaryData）、奖励、提议保证金、挑战期，计算 questionId，并调用 CTF 的 prepareCondition（oracle = 适配器自己）。', '<strong>请求</strong>：适配器向 UMA 乐观预言机发起 YES_OR_NO_QUERY 类型的请求。', '<strong>提议与挑战</strong>：流程见 <a href="#m08-4">M11.4</a>。第一次争议会重置请求；第二次争议升级到 DVM 投票。', '<strong>结算</strong>：任何人调用适配器的 resolve，适配器读取结果并转换：YES → [1, 0]，NO → [0, 1]，50-50 → [1, 1]，再调用 reportPayouts。', '<strong>赎回</strong>：用户调用 CTF 的 redeemPositions 领取 USDC。'])}
 <h3>5.3 与纯链上 AMM 预测市场对比</h3>

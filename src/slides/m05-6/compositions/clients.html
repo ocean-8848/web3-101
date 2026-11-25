@@ -1,0 +1,155 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 clients，id 前缀 cl- -->
+  <div id="root" data-composition-id="clients" data-duration="48.78" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="cl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="cl-all">
+        <g id="cl-box" class="h">
+          <rect x="460" y="260" width="1000" height="640" rx="24" fill="#161a22" stroke="#58C4DD" stroke-width="3.5"/>
+        </g>
+        <text id="cl-title" class="h" x="960" y="590" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">自建节点</text>
+        <text id="cl-merge" class="h" x="960" y="232" font-size="30" fill="#8a8f99" text-anchor="middle">合并之后</text>
+        <path id="cl-split" class="dr" pathLength="1" d="M960 290 L960 700" stroke="#58C4DD" stroke-width="2.5" stroke-opacity="0.6" fill="none"/>
+        <g id="cl-lh" class="h">
+          <circle cx="535" cy="360" r="22" fill="none" stroke="#58C4DD" stroke-width="10" stroke-dasharray="8.6 8.6"/>
+          <circle cx="535" cy="360" r="12" fill="none" stroke="#58C4DD" stroke-width="4"/>
+          <text x="580" y="373" font-size="38" font-weight="700" fill="#58C4DD">执行客户端</text>
+        </g>
+        <g id="cl-rh" class="h">
+          <g id="cl-beacon" fill="none" stroke="#8fd3e8" stroke-width="4" stroke-linecap="round">
+            <path d="M1022 390 L1035 340 L1048 390 Z"/>
+            <path d="M1016 336 Q1008 326 1016 316 M1054 336 Q1062 326 1054 316"/>
+            <circle cx="1035" cy="330" r="4" fill="#8fd3e8"/>
+          </g>
+          <text id="cl-rt" x="1080" y="373" font-size="38" font-weight="700" fill="#8fd3e8">共识客户端</text>
+        </g>
+        <g class="mono" font-size="30" fill="#e8e6df">
+          <text id="cl-e0" class="h" x="520" y="455">Geth</text>
+          <text id="cl-e1" class="h" x="520" y="500">Nethermind</text>
+          <text id="cl-e2" class="h" x="520" y="545">Besu</text>
+          <text id="cl-e3" class="h" x="520" y="590">Erigon</text>
+          <text id="cl-e4" class="h" x="520" y="635">Reth</text>
+          <text id="cl-c0" class="h" x="1020" y="455">Lighthouse</text>
+          <text id="cl-c1" class="h" x="1020" y="500">Prysm</text>
+          <text id="cl-c2" class="h" x="1020" y="545">Teku</text>
+          <text id="cl-c3" class="h" x="1020" y="590">Nimbus</text>
+          <text id="cl-c4" class="h" x="1020" y="635">Lodestar</text>
+        </g>
+        <g font-size="28" fill="#58C4DD">
+          <text id="cl-er0" class="h" x="760" y="455">执行交易</text>
+          <text id="cl-er1" class="h" x="760" y="515">维护状态</text>
+          <text id="cl-er2" class="h" x="760" y="575">JSON-RPC</text>
+          <text id="cl-cr0" class="h" x="1240" y="455" fill="#8fd3e8">PoS 共识</text>
+          <text id="cl-cr1" class="h" x="1240" y="515" fill="#8fd3e8">跟踪信标链</text>
+          <text id="cl-cr2" class="h" x="1240" y="575" fill="#8fd3e8">驱动执行层</text>
+        </g>
+        <text id="cl-elab" class="h mono" x="960" y="758" font-size="30" fill="#FF9F43" text-anchor="middle">Engine API · 8551</text>
+        <path id="cl-eng" class="dr h" pathLength="1" d="M790 795 L1130 795" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#cl-arr)" marker-start="url(#cl-arr)"/>
+        <g id="cl-key" class="h" fill="none" stroke="#FF9F43" stroke-width="4">
+          <circle cx="940" cy="795" r="13" fill="#0f1117"/>
+          <path d="M953 795 L985 795 M975 795 L975 807 M985 795 L985 805"/>
+        </g>
+        <text id="cl-jwt" class="h mono" x="960" y="855" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">JWT</text>
+        <g id="cl-prog" class="h">
+          <text x="520" y="530" font-size="30" fill="#e8e6df">跟进最新块</text>
+          <rect x="520" y="560" width="380" height="18" rx="9" fill="#2a2f3a"/>
+          <rect id="cl-progf" x="520" y="560" width="0" height="18" rx="9" fill="#58C4DD"/>
+        </g>
+        <path id="cl-x" class="dr" pathLength="1" d="M1140 450 L1280 590 M1280 450 L1140 590" stroke="#FC6255" stroke-width="10" stroke-linecap="round" fill="none"/>
+        <text id="cl-only" class="h" x="960" y="975" font-size="44" font-weight="700" fill="#FC6255" text-anchor="middle">只跑 Geth = 同步不上</text>
+        <path id="cl-ul" class="dr" pathLength="1" d="M750 998 L1170 998" stroke="#FC6255" stroke-width="4" fill="none"/>
+
+      </g>
+      <g id="cl-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">执行客户端 <tspan font-size="28" font-weight="400" fill="#8a8f99">Execution Client</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">执行交易、维护状态、提供 RPC</text>
+      </g>
+      <g id="cl-term2" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">共识客户端 <tspan font-size="28" font-weight="400" fill="#8a8f99">Consensus Client</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">运行 PoS 共识并驱动执行客户端</text>
+      </g>
+      <g id="cl-term3" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">JWT 密钥 <tspan font-size="28" font-weight="400" fill="#8a8f99">JWT Secret</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">两个客户端认证用的共享密钥</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+// L0 node box
+IN("#cl-box", at(0, 0.05), 0.8, { scale: 0.6, svgOrigin: "960 580" }, { scale: 1, svgOrigin: "960 580" });
+IN("#cl-title", at(0, 0.3), 0.6);
+// L1 split into two programs
+OUT("#cl-title", at(1, 0), 0.35);
+IN("#cl-merge", at(1, 0.05), 0.5);
+DRAW("#cl-split", at(1, 0.15), 0.6);
+IN("#cl-lh", at(1, 0.35), 0.5, { x: -20 }, { x: 0 });
+IN("#cl-rh", at(1, 0.55), 0.5, { x: 20 }, { x: 0 });
+// L2 execution clients
+IN("#cl-term", at(2, 0.05), 0.5);
+IN("#cl-er0", at(2, 0.2), 0.4); IN("#cl-er1", at(2, 0.3), 0.4); IN("#cl-er2", at(2, 0.42), 0.4);
+[0, 1, 2, 3, 4].forEach(i => IN(`#cl-e${i}`, at(2, 0.6 + i * 0.08), 0.35, { x: -12 }, { x: 0 }));
+// L3 consensus clients
+OUT("#cl-term", at(3, 0), 0.3);
+IN("#cl-term2", at(3, 0) + 0.35, 0.5);
+IN("#cl-cr0", at(3, 0.15), 0.4); IN("#cl-cr1", at(3, 0.27), 0.4); IN("#cl-cr2", at(3, 0.42), 0.4);
+[0, 1, 2, 3, 4].forEach(i => IN(`#cl-c${i}`, at(3, 0.6 + i * 0.07), 0.35, { x: -12 }, { x: 0 }));
+// L4 engine API + JWT
+OUT("#cl-term2", at(4, 0), 0.3);
+ARROW("#cl-eng", at(4, 0.05), 0.7);
+IN("#cl-elab", at(4, 0.2), 0.5);
+IN("#cl-term3", at(4, 0.55), 0.5);
+IN("#cl-key", at(4, 0.6), 0.4, { scale: 0.5, svgOrigin: "960 795" }, { scale: 1, svgOrigin: "960 795" });
+IN("#cl-jwt", at(4, 0.68), 0.4);
+// L5 only Geth: fails
+OUT("#cl-term3", at(5, 0.35), 0.4);
+OUT("#cl-e1, #cl-e2, #cl-e3, #cl-e4, #cl-er0, #cl-er1, #cl-er2", at(5, 0), 0.35);
+OUT("#cl-c0, #cl-c1, #cl-c2, #cl-c3, #cl-c4, #cl-cr0, #cl-cr1, #cl-cr2", at(5, 0), 0.35);
+tl.to("#cl-e0", { fill: "#58C4DD", duration: 0.3 }, at(5, 0.02));
+tl.to("#cl-beacon", { stroke: "#6b6f7a", duration: 0.3 }, at(5, 0.05));
+tl.to("#cl-rt", { fill: "#6b6f7a", duration: 0.3 }, at(5, 0.05));
+DRAW("#cl-x", at(5, 0.1), 0.4);
+tl.to("#cl-eng, #cl-key, #cl-elab, #cl-jwt", { opacity: 0.25, duration: 0.3 }, at(5, 0.1));
+IN("#cl-prog", at(5, 0.12), 0.4);
+tl.fromTo("#cl-progf", { attr: { width: 0 } }, { attr: { width: 150 }, duration: 0.9, ease: "power2.out", immediateRender: false }, at(5, 0.18));
+tl.to("#cl-progf", { fill: "#FC6255", duration: 0.3 }, at(5, 0.18) + 0.95);
+IN("#cl-only", at(5, 0.4), 0.5, { y: 10 }, { y: 0 });
+DRAW("#cl-ul", at(5, 0.55), 0.5);
+tl.to("#cl-x", { strokeWidth: 14, duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.8));
+tl.to("#cl-progf", { opacity: 0.3, duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.9));
+
+
+      tl.to("#cl-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#cl-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["clients"] = tl;
+    })();
+  </script>
+</template>

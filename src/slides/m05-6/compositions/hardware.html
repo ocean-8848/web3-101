@@ -1,0 +1,137 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hardware，id 前缀 ha- -->
+  <div id="root" data-composition-id="hardware" data-duration="60.42" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ha-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ha-all">
+        <text id="ha-ex" class="h" x="1800" y="240" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+        <g id="ha-box" class="h">
+          <rect x="160" y="290" width="560" height="530" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3.5"/>
+          <text x="440" y="345" font-size="32" fill="#8a8f99" text-anchor="middle">服务器</text>
+        </g>
+        <g id="ha-cpu" class="h"><rect x="200" y="380" width="220" height="140" rx="12" fill="#1d3440" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="310" y="435" font-size="30" fill="#58C4DD" text-anchor="middle">CPU</text><text x="310" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">4–8 核</text></g>
+        <g id="ha-ram" class="h"><rect x="460" y="380" width="220" height="140" rx="12" fill="#1d3440" stroke="#58C4DD" stroke-width="2.5"/><text x="570" y="435" font-size="30" fill="#58C4DD" text-anchor="middle">内存</text><text x="570" y="492" font-size="32" fill="#e8e6df" text-anchor="middle">32 GB</text></g>
+        <text id="ha-16" class="h" x="570" y="565" font-size="28" fill="#FF9F43" text-anchor="middle">16 GB：吃紧</text>
+        <g id="ha-ssd" class="h"><rect id="ha-ssdr" x="200" y="610" width="480" height="100" rx="12" fill="#1d3440" stroke="#58C4DD" stroke-width="2.5"/><text x="440" y="672" font-size="32" fill="#e8e6df" text-anchor="middle">NVMe 固态盘</text></g>
+        <path id="ha-cab" class="dr" pathLength="1" d="M440 820 L440 870" stroke="#8a8f99" stroke-width="5" fill="none"/>
+        <text id="ha-net" class="h" x="440" y="920" font-size="32" fill="#e8e6df" text-anchor="middle">≥ 25 Mbps · 月流量约 1–2 TB</text>
+        <g id="ha-calc">
+          <text id="ha-f1" class="h" x="880" y="320" font-size="36" fill="#e8e6df">执行 1.5 TB + 共识 0.2 TB = <tspan fill="#58C4DD" font-weight="700">1.7 TB</tspan></text>
+          <text id="ha-f2" class="h" x="880" y="390" font-size="36" fill="#e8e6df">15 GB × 52 周 = <tspan fill="#F0B90B" font-weight="700">780 GB</tspan></text>
+          <text id="ha-f3" class="h" x="880" y="460" font-size="36" fill="#e8e6df">1.7 TB + 0.78 TB ≈ <tspan font-weight="700">2.48 TB</tspan></text>
+          <text id="ha-f4" class="h" x="880" y="530" font-size="36" fill="#e8e6df">2.48 ÷ 0.7 ≈ <tspan fill="#83C167" font-weight="700">3.5 TB</tspan></text>
+          <rect id="ha-cap" class="h" x="900" y="580" width="900" height="50" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <rect id="ha-s1" x="900" y="580" width="0" height="50" fill="#58C4DD"/>
+          <rect id="ha-s2" x="1237" y="580" width="0" height="50" fill="#9ad8ea"/>
+          <rect id="ha-s3" x="1282" y="580" width="0" height="50" fill="#F0B90B"/>
+          <rect id="ha-s4" class="h" x="1460" y="582" width="236" height="46" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 7"/>
+          <text id="ha-l1" class="h" x="1091" y="680" font-size="28" fill="#58C4DD" text-anchor="middle">1.7 TB</text>
+          <text id="ha-l3" class="h" x="1370" y="680" font-size="28" fill="#F0B90B" text-anchor="middle">+0.78 TB</text>
+          <text id="ha-l4" class="h" x="1578" y="680" font-size="28" fill="#8a8f99" text-anchor="middle">30% 空闲</text>
+          <g id="ha-rul" class="h">
+            <line x1="900" y1="780" x2="1800" y2="780" stroke="#8a8f99" stroke-width="3"/>
+            <g stroke="#8a8f99" stroke-width="3"><line x1="1350" y1="770" x2="1350" y2="792"/><line x1="1462" y1="770" x2="1462" y2="792"/><line x1="1687" y1="770" x2="1687" y2="792"/><line x1="1800" y1="770" x2="1800" y2="792"/></g>
+            <g class="mono" font-size="28" fill="#8a8f99" text-anchor="middle"><text x="1350" y="830">2</text><text x="1462" y="830">2.5</text><text x="1687" y="830">3.5</text><text x="1800" y="830">4 TB</text></g>
+          </g>
+          <path id="ha-mk" class="h" d="M1675 752 L1699 752 L1687 768 Z" fill="#FF9F43"/>
+          <path id="ha-up" class="dr h" pathLength="1" d="M1690 745 Q1745 700 1795 750" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#ha-arr)"/>
+          <g id="ha-4tb" class="h"><rect x="1560" y="880" width="280" height="74" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3.5"/><text x="1700" y="930" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">4 TB NVMe</text></g>
+        </g>
+        <g id="ha-io">
+          <text id="ha-iot" class="h" x="1330" y="330" font-size="30" fill="#8a8f99" text-anchor="middle">随机读写</text>
+          <text id="ha-lag" class="h" x="870" y="400" font-size="36" font-weight="700" fill="#FC6255">节点落后 <tspan id="ha-lagn">0</tspan> 块</text>
+          <path id="ha-need" class="dr" pathLength="1" d="M860 520 L1810 520" stroke="#FC6255" stroke-width="3" fill="none"/>
+          <text id="ha-needl" class="h" x="870" y="500" font-size="30" fill="#FC6255">跟上新块所需</text>
+          <rect id="ha-c0" x="930" y="850" width="60" height="0" fill="#FC6255"/>
+          <rect id="ha-c1" x="1190" y="850" width="60" height="0" fill="#FC6255"/>
+          <rect id="ha-c2" x="1450" y="850" width="60" height="0" fill="#FC6255"/>
+          <rect id="ha-c3" x="1710" y="850" width="60" height="0" fill="#83C167"/>
+          <g id="ha-dk0" class="h"><rect x="880" y="860" width="160" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="960" y="975" font-size="30" fill="#FC6255" text-anchor="middle">机械硬盘</text></g>
+          <g id="ha-dk1" class="h"><rect x="1140" y="860" width="160" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="1220" y="975" font-size="30" fill="#FC6255" text-anchor="middle">低端 SATA</text></g>
+          <g id="ha-dk2" class="h"><rect x="1400" y="860" width="160" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="1480" y="975" font-size="30" fill="#FC6255" text-anchor="middle">普通云盘</text></g>
+          <g id="ha-dk3" class="h"><rect x="1660" y="860" width="160" height="56" rx="10" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1740" y="975" font-size="30" fill="#83C167" text-anchor="middle">本地 NVMe</text></g>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+// L0 server + example tag
+IN("#ha-box", at(0, 0.05), 0.7, { y: 20 }, { y: 0 });
+IN("#ha-ex", at(0, 0.6), 0.5);
+// L1 CPU / RAM
+IN("#ha-cpu", at(1, 0.05), 0.5, { scale: 0.9, svgOrigin: "310 450" }, { scale: 1, svgOrigin: "310 450" });
+IN("#ha-ram", at(1, 0.3), 0.5, { scale: 0.9, svgOrigin: "570 450" }, { scale: 1, svgOrigin: "570 450" });
+IN("#ha-16", at(1, 0.62), 0.5);
+// L2 disk: 1.5 + 0.2
+IN("#ha-ssd", at(2, 0.02), 0.5);
+IN("#ha-cap", at(2, 0.1), 0.4);
+const GROW = (s, w, t, d = 0.7) => tl.fromTo(s, { attr: { width: 0 } }, { attr: { width: w }, duration: d, ease: "power2.out", immediateRender: false }, t);
+GROW("#ha-s1", 337, at(2, 0.15));
+GROW("#ha-s2", 45, at(2, 0.5), 0.4);
+IN("#ha-f1", at(2, 0.3), 0.5);
+IN("#ha-l1", at(2, 0.8), 0.4);
+// L3 one year growth
+IN("#ha-f2", at(3, 0.1), 0.5);
+GROW("#ha-s3", 176, at(3, 0.55));
+IN("#ha-l3", at(3, 0.6), 0.4);
+IN("#ha-f3", at(3, 0.75), 0.5);
+// L4 30% free -> 3.5 -> 4 TB
+IN("#ha-s4", at(4, 0.08), 0.5);
+IN("#ha-l4", at(4, 0.12), 0.4);
+IN("#ha-f4", at(4, 0.35), 0.5);
+IN("#ha-rul", at(4, 0.55), 0.5);
+IN("#ha-mk", at(4, 0.62), 0.3, { y: -15 }, { y: 0 });
+ARROW("#ha-up", at(4, 0.72), 0.5);
+IN("#ha-4tb", at(4, 0.8), 0.5, { scale: 0.85, svgOrigin: "1700 917" }, { scale: 1, svgOrigin: "1700 917" });
+tl.to("#ha-ssdr", { stroke: "#83C167", duration: 0.4 }, at(4, 0.85));
+// L5 bandwidth
+DRAW("#ha-cab", at(5, 0.05), 0.4);
+IN("#ha-net", at(5, 0.2), 0.5);
+// L6 random IO
+OUT("#ha-calc", at(6, 0), 0.4);
+const RISE = (s, h, t, d = 1.0) => tl.fromTo(s, { attr: { y: 850, height: 0 } }, { attr: { y: 850 - h, height: h }, duration: d, ease: "power2.out", immediateRender: false }, t);
+IN("#ha-iot", at(6, 0.04), 0.4);
+DRAW("#ha-need", at(6, 0.05), 0.6);
+IN("#ha-needl", at(6, 0.1), 0.4);
+IN("#ha-dk0", at(6, 0.12), 0.4); RISE("#ha-c0", 90, at(6, 0.14));
+IN("#ha-dk1", at(6, 0.2), 0.4); RISE("#ha-c1", 170, at(6, 0.22));
+IN("#ha-dk2", at(6, 0.3), 0.4); RISE("#ha-c2", 220, at(6, 0.32));
+IN("#ha-lag", at(6, 0.4), 0.4);
+COUNT("#ha-lagn", 0, 300, at(6, 0.42), 5, v => Math.round(v));
+tl.to("#ha-ssdr", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.42));
+IN("#ha-dk3", at(6, 0.7), 0.4); RISE("#ha-c3", 440, at(6, 0.72));
+tl.to("#ha-ssdr", { stroke: "#83C167", duration: 0.3 }, at(6, 0.85));
+
+
+      tl.to("#ha-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hardware"] = tl;
+    })();
+  </script>
+</template>

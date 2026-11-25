@@ -8,7 +8,7 @@ ${meta([
   '落地 Safe 多签交易的独立验真（Clear Signing + 独立仿真比对）SOP，彻底阻断类似 Bybit/Radiant 的前端篡改攻击。',
   '在智能合约中设计“无需等待时间锁的紧急暂停（Guardian）+ 延迟生效的参数变更（Timelock）”双层熔断与限流架构。',
   '建立标准化安全战时室（War Room）SOP：黄金 15 分钟止损、白帽协作（SEAL 911）、链上谈判与事后透明复盘。'
-], '前置：<a href="#m00-6">M00.6 安全第一课</a>、<a href="#m02-62">M02.10 审计方法与安全工具链</a>、<a href="#m03-4">M09.4 多签钱包</a>', ['blindsign'])}
+], '前置：<a href="#m00-6">M00.6 安全第一课</a>、<a href="#m02-62">M02.10 审计方法与安全工具链</a>、<a href="#m03-4">M08.4 多签钱包</a>', ['blindsign'])}
 ${beginner(`<p><strong>OpSec（Operational Security，运营安全）</strong>：代码审计 100% 没漏洞，协议依然可能因为员工电脑中毒、多签签了被篡改的前端界面、或者私钥放在云文档里被盗而一夜归零。OpSec 管的就是“人、设备、流程与权限”。</p>
 <p><strong>盲签（Blind Signing）</strong>：硬件钱包屏幕上只显示一串看不懂的十六进制哈希（如 <code>0x9f3a...</code>），签名人仅凭网页前端显示“转账 10 ETH”就按下确认键——一旦网页或浏览器插件被劫持，实际签出的可能是“把多签控制权移交给黑客”。</p>
 <p><strong>战时室（War Room）</strong>：发生链上黑客攻击或严重漏洞告警时，团队按预案在几分钟内拉起的应急指挥机制，明确谁负责按暂停键、谁负责链上追踪、谁负责对外公告。</p>`)}
@@ -45,7 +45,7 @@ ${lab('blindsign')}
 <h2>3. 合约级安全气囊：熔断器、速率限制与分级权限</h2>
 <p>一旦发生未知零日漏洞攻击，如果还要等 48 小时 Timelock 才能响应，资金早就被搬空了。生产级 DeFi 协议必须区分<strong>“急刹车权”</strong>与<strong>“改方向盘权”</strong>：</p>
 ${tbl(['权限角色', '持有主体', '允许执行的操作', '延迟要求'], [
-  ['<strong>Guardian / Pauser（急停哨兵）</strong>', '2/3 应急多签或自动化监控机器人（如 Hypernative / Forta 触发）', '仅能调用 <code>pause()</code> 暂停借款/提现/铸造，绝无资金划转与升级权', '<strong>0 延迟（秒级生效）</strong>'],
+  ['<strong>Guardian / Pauser（急停哨兵）</strong>', '低门限应急多签（例如 1/3，任意 1 人即可暂停）或自动化监控机器人（如 Hypernative / Forta 触发）', '仅能调用 <code>pause()</code> 暂停借款/提现/铸造，绝无资金划转与升级权', '<strong>0 延迟（秒级生效）</strong>'],
   ['<strong>Rate Limiter（链上速率熔断）</strong>', '合约内置自动逻辑', '例如任意 1 小时内净流出超过池子 TVL 的 10% 时，合约自动锁定提现', '<strong>自动实时触发</strong>'],
   ['<strong>Timelock Admin（核心治理）</strong>', '4/7 多签 + 48–72 小时时间锁', '升级合约、修改费率、更换预言机、解除长期暂停、提取协议金库', '<strong>48–72 小时公示期</strong>']
 ])}

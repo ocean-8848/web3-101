@@ -45,6 +45,7 @@ ${tbl(['维度', 'Push 模式（Chainlink 等）', 'Pull 模式（Pyth / RedSton
   ['<strong>典型风险</strong>', '网络拥堵时喂价滞后、L2 排序器宕机后陈旧报价', '用户可挑对自己最有利的近期有效签名（需严格限制过期秒数）', '低流动性池子易被多块操纵；剧烈暴跌时滞后严重'],
   ['<strong>最佳场景</strong>', '主流资产借贷、抵押稳定币', '永续合约、期权、高频衍生品与长尾币', '作为主预言机的熔断校验辅助源']
 ])}
+<p>应用见：用即时价格当预言机被闪电贷操纵的攻击推演见 <a href="#m02-8">M02.9 合约安全 II</a>；借贷清算如何依赖喂价见 <a href="#m02-11">M05.3 借贷协议深入</a>；“谁来宣布比赛结果”这类非价格数据的乐观预言机结算见 <a href="#m08-4">M11.4 结算与预言机</a>。</p>
 
 <h2>3. 生产级价格校验与 L2 排序器宕机防线</h2>
 <p>在 Arbitrum、Optimism、Base 等 Rollup 上（见 <a href="#m05-5">M04.5 Rollup 深入</a>），如果排序器（Sequencer）宕机 2 小时后突然恢复，恢复瞬间链上价格仍停留在 2 小时前，普通用户还没来得及补仓，机器人就能瞬间以旧价发起清算或无风险套利。因此 L2 协议<strong>必须接入 Sequencer Uptime Feed 并设置恢复后的宽限期（如 3,600 秒）</strong>。</p>
@@ -95,7 +96,7 @@ ${lab('oracle')}
 
 <h2>4. VRF 可验证随机数与 OEV 预言机价值捕获</h2>
 <ul>
-<li><strong>VRF（Verifiable Random Function）</strong>：区块链是确定性状态机，绝不能用 <code>block.timestamp</code> 或 <code>blockhash</code> 生成抽奖或盲盒随机数（验证者可操纵或挑区块）。VRF 采用“请求-回调”两笔交易：合约发请求 → 链下节点用私钥对种子算出随机数与密码学证明 → 链上验证合约验真后再回调业务合约。</li>
+<li><strong>VRF（Verifiable Random Function）</strong>：区块链是确定性状态机，绝不能用 <code>block.timestamp</code> 或 <code>blockhash</code> 生成抽奖或盲盒随机数（验证者可操纵或挑区块）。VRF 采用“请求-回调”两笔交易：合约发请求 → 链下节点用私钥对种子算出随机数与密码学证明 → 链上验证合约验真后再回调业务合约。完整的 VRF 时序图与消费者合约代码见 <a href="#m05-9">M04.10 数据基础设施</a> §5.1。</li>
 <li><strong>OEV（Oracle Extractable Value）</strong>：MEV 的重要子类（见 <a href="#m05-7">M04.7 MEV</a>）。当抵押品下跌触发借贷清算时，谁先打包到预言机更新交易之后，谁就赚走 5%–10% 的清算奖金。传统模式下这笔钱大部分流向了区块构建者和验证者；现代 OEV 方案（如 API3 OEV Network、Chainlink SVR / Flashbots 协作拍卖）让清算搜索者为“优先更新价格并执行清算的权利”公开竞拍，并将大部分拍卖收入返还给借贷协议本身。</li>
 </ul>
 
@@ -159,14 +160,14 @@ ${terms([
 ` });
 
 CUR = 'm05-70';
-addCh({ id: 'm05-70', nav: 'Solana 生产级工程', title: 'M05.3 Solana 生产级工程：CU、优先费、ALT、Token-2022 与 Jito MEV', desc: '计算单元与优先费策略、地址查找表 ALT、Token-2022 扩展、Jito Bundles、Yellowstone gRPC 索引与多语言后端对照', html: `
-<h1>M05.3 Solana 生产级工程：CU、优先费、ALT、Token-2022 与 Jito MEV</h1>
+addCh({ id: 'm05-70', nav: 'Solana 生产级工程', title: 'M06.8 Solana 生产级工程：CU、优先费、ALT、Token-2022 与 Jito MEV', desc: '计算单元与优先费策略、地址查找表 ALT、Token-2022 扩展、Jito Bundles、Yellowstone gRPC 索引与多语言后端对照', html: `
+<h1>M06.8 Solana 生产级工程：CU、优先费、ALT、Token-2022 与 Jito MEV</h1>
 ${meta([
   '精确计算并设置 Solana 交易的 Compute Unit（CU）上限与微灯优先费，避免交易在拥堵期丢单或白交高费。',
   '用版本化交易与地址查找表（ALT）突破单笔交易 1,232 字节与账户数量上限。',
   '掌握 Token-2022 的核心扩展（转账费、转账钩子、保密转账）与接入风险。',
   '理解 Jito Bundles 原子捆绑、Yellowstone gRPC 流式索引，并在 Go / Rust / TypeScript 间做好 Web3 后端技术选型。'
-], '前置：<a href="#m05-11">M05.1 Solana 概念</a>、<a href="#m05-12">M05.2 Solana 动手</a>、<a href="#m01-8">M01.8 索引器工程</a>')}
+], '前置：<a href="#m05-11">M06.6 Solana 概念</a>、<a href="#m05-12">M06.7 Solana 动手</a>、<a href="#m01-8">M01.8 索引器工程</a>')}
 ${beginner(`<p><strong>计算单元（Compute Unit，CU）</strong>：Solana 上的“计算量刻度”，类似以太坊的 Gas，但按固定单笔上限与局部热点费用市场计费。</p>
 <p><strong>地址查找表（Address Lookup Table，ALT）</strong>：把常用的 32 字节公钥提前存进一张链上表里，发交易时只需写 1 字节的下标，大幅压缩交易体积。</p>
 <p><strong>Jito Bundle</strong>：把最多 5 笔交易打包成一个原子组合，附带小费发给运行 Jito 客户端的验证者，要么全部按顺序上链，要么全部不上链。</p>`)}
@@ -241,7 +242,7 @@ flowchart LR
 ])}
 
 <h2>6. 多语言 Web3 后端生态对照（Go / Rust / TypeScript）</h2>
-<p>本手册 M01 与 M10 的后端实战以 Go 为主，但在多链生产团队中，Go、Rust、TypeScript 各有明显主场，建议按团队场景选型：</p>
+<p>本手册 M01 与 M09 的后端实战以 Go 为主，但在多链生产团队中，Go、Rust、TypeScript 各有明显主场，建议按团队场景选型：</p>
 ${tbl(['语言', '核心 Web3 生态库', '核心优势', '最适合的 Web3 后端场景'], [
   ['<strong>Go</strong>', '<code>go-ethereum</code>、<code>cosmos-sdk</code>、<code>solana-go</code>', '并发模型简单、部署单二进制、与交易所/托管/微服务体系天然契合', 'CEX 撮合与账本、多链托管钱包、EVM 索引器与充提监听、RPC 网关'],
   ['<strong>Rust</strong>', '<code>Alloy</code>（新一代 EVM 库）、<code>Reth</code>、<code>Anchor</code> / <code>solana-sdk</code>、<code>Sui</code>', '零 GC 抖动、内存安全、与 Solana/Reth/ZK 证明器同语言零跨界成本', '高频 MEV 搜索者、Solana/Move 链上程序与高性能索引器、ZK Prover 与自研客户端'],

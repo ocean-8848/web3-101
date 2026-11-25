@@ -127,7 +127,12 @@ try feed.latestPrice() returns (uint256 p) {
 ${code('SOLIDITY', `
 for (uint256 i = 0; i < n; ) {
     // ... 循环体
-    unchecked { ++i; }   // i < n 已保证不会溢出；0.8.22 起编译器会自动对这种简单循环计数器省略检查
+    unchecked { ++i; }   // i < n 已保证不会溢出，手动跳过检查
+}
+
+// 0.8.22 起，写在 for 头部的简单计数器（i < n 且 ++i）由编译器自动省略溢出检查，不必再手写 unchecked：
+for (uint256 i = 0; i < n; ++i) {
+    // ... 循环体
 }
 `)}
 ${call('warn', '<p>unchecked 只用于你能证明不会溢出的地方，例如循环计数器、已经比较过大小的减法。不要在余额、价格计算里使用。省下的约 30–40 Gas 远不值得一次漏洞。</p>')}
@@ -146,7 +151,9 @@ flowchart TB
   FN -->|"是"| REV
   FN -->|"否"| RUN["执行该函数"]
   M -->|"否"| FB2{"有 fallback()？"}
-  FB2 -->|"有"| FALL
+  FB2 -->|"有"| FBP{"带 ETH 且 fallback 非 payable？"}
+  FBP -->|"是"| REV
+  FBP -->|"否"| FALL
   FB2 -->|"无"| REV
 `, [
   ['flow', '纯转账（data 为空）走 receive；data 不匹配任何函数走 fallback。代理合约就是用 fallback 转发所有调用。'],
@@ -256,7 +263,11 @@ contract Vault is AccessControl, Pausable, ReentrancyGuard {
             withdrawnToday[msg.sender] = 0;
         }
         uint256 used = withdrawnToday[msg.sender];
-        if (used + amount > dailyLimit) revert OverDailyLimit(dailyLimit - used, amount);
+        if (used + amount > dailyLimit) {
+            // dailyLimit 可能被下调到低于 used：此时直接相减会下溢触发 Panic(0x11)，所以先判断
+            uint256 remaining = used >= dailyLimit ? 0 : dailyLimit - used;
+            revert OverDailyLimit(remaining, amount);
+        }
 
         // Effects：先改账
         balanceOf[msg.sender] = bal - amount;
@@ -529,7 +540,7 @@ function testFuzz_WithdrawNeverExceedsBalance(uint256 dep, uint256 amt) public {
 }
 `)}
 <h3>4.2 不变量测试</h3>
-<p>不变量（Invariant）是“无论按什么顺序调用什么函数，都必须成立”的性质。例如：合约 ETH 余额 ≥ 所有用户 balanceOf 之和。forge 会随机组合调用 Handler 合约的函数，每轮之后检查不变量。</p>
+<p>不变量（Invariant）是“无论按什么顺序调用什么函数，都必须成立”的性质。例如：合约 ETH 余额 ≥ 所有用户 balanceOf 之和（偿付能力）。forge 会随机组合调用 Handler 合约的函数，每轮之后检查不变量。下面的代码检查两条：<code>invariant_Solvent</code> 就是这条偿付能力；<code>invariant_MatchesGhost</code> 用测试侧的“幽灵变量”记一本账，要求合约余额恰好等于“存入总额 − 提取总额”，能发现多转、少转 ETH 的 bug。</p>
 ${code('SOLIDITY', `
 // test/VaultInvariant.t.sol
 contract Handler is Test {
@@ -567,7 +578,14 @@ contract VaultInvariantTest is Test {
         handler = new Handler(vault);
         targetContract(address(handler));   // 只随机调用 Handler 的函数
     }
+    // 不变量 1（正文定义的偿付能力）：合约 ETH 余额 ≥ 所有用户 balanceOf 之和
     function invariant_Solvent() public view {
+        uint256 sum;
+        for (uint256 i; i < 3; i++) sum += vault.balanceOf(handler.actors(i));
+        assertGe(address(vault).balance, sum);
+    }
+    // 不变量 2（记账对得上）：合约 ETH 余额 == 测试侧幽灵账（存入总额 − 提取总额）
+    function invariant_MatchesGhost() public view {
         assertEq(address(vault).balance, handler.ghostDeposited() - handler.ghostWithdrawn());
     }
 }

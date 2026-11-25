@@ -1,0 +1,260 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 goals，id 前缀 go- -->
+  <div id="root" data-composition-id="goals" data-duration="99.46" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="go-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="go-all">
+        <text id="go-tt" class="h" x="960" y="150" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">验收标准（示例）</text>
+<text id="go-bd" class="h" x="1840" y="150" font-size="30" fill="#B48EF0" text-anchor="end">rpcgw + 节点监控</text>
+<g id="go-tab">
+<path id="go-hl" class="dr" d="M100 296 H1440" stroke="#3a3f4a" stroke-width="2" fill="none" pathLength="1"/>
+<g id="go-rh" class="h"><text x="125" y="270" font-size="28" font-weight="700" fill="#8a8f99">类别</text><text x="290" y="270" font-size="28" font-weight="700" fill="#8a8f99">标准</text><text x="1090" y="270" font-size="28" font-weight="700" fill="#8a8f99">怎么验证</text></g>
+<g id="go-r1" class="h"><rect id="go-r1b" x="100" y="302" width="1340" height="74" rx="8" fill="#161a22" stroke="#161a22" stroke-width="2.5"/><text x="125" y="350" font-size="28" font-weight="700" fill="#e8e6df">功能</text><text x="290" y="350" font-size="28" fill="#e8e6df">HTTP JSON-RPC（含批量）+ WebSocket 订阅</text><text id="go-r1v" x="1090" y="350" font-size="28" fill="#8a8f99">集成测试 · 批量 100 条</text></g>
+<g id="go-r2" class="h"><rect id="go-r2b" x="100" y="382" width="1340" height="74" rx="8" fill="#161a22" stroke="#161a22" stroke-width="2.5"/><text x="125" y="430" font-size="28" font-weight="700" fill="#e8e6df">功能</text><text x="290" y="430" font-size="28" fill="#e8e6df">3 个上游：自建 Geth+Lighthouse + 2 家服务商</text><text id="go-r2v" x="1090" y="430" font-size="28" fill="#8a8f99">配置加载 · 3 个上游</text></g>
+<g id="go-r3" class="h"><rect id="go-r3b" x="100" y="462" width="1340" height="74" rx="8" fill="#161a22" stroke="#161a22" stroke-width="2.5"/><text x="125" y="510" font-size="28" font-weight="700" fill="#e8e6df">可用性</text><text x="290" y="510" font-size="28" fill="#e8e6df">任一上游宕机，可用性 ≥ <tspan fill="#83C167">99.95%</tspan>（月）</text><text id="go-r3v" x="1090" y="510" font-size="28" fill="#8a8f99">故障注入 · 关自建节点</text></g>
+<g id="go-r4" class="h"><rect id="go-r4b" x="100" y="542" width="1340" height="74" rx="8" fill="#161a22" stroke="#161a22" stroke-width="2.5"/><text x="125" y="590" font-size="28" font-weight="700" fill="#e8e6df">延迟</text><text x="290" y="590" font-size="28" fill="#e8e6df">缓存命中 P99 ≤ 5 ms；<tspan id="go-r4m">未命中 ≤ 上游 P99 + 10 ms</tspan></text><text id="go-r4v" x="1090" y="590" font-size="28" fill="#8a8f99">k6 压测报告</text></g>
+<g id="go-r5" class="h"><rect id="go-r5b" x="100" y="622" width="1340" height="74" rx="8" fill="#161a22" stroke="#161a22" stroke-width="2.5"/><text x="125" y="670" font-size="28" font-weight="700" fill="#e8e6df">吞吐</text><text x="290" y="670" font-size="28" fill="#e8e6df">单实例 ≥ 3,000 RPS（读，50% 命中）</text><text id="go-r5v" x="1090" y="670" font-size="28" fill="#8a8f99">k6 恒定到达率 10 分钟</text></g>
+<g id="go-r6" class="h"><rect id="go-r6b" x="100" y="702" width="1340" height="74" rx="8" fill="#161a22" stroke="#161a22" stroke-width="2.5"/><text x="125" y="750" font-size="28" font-weight="700" fill="#e8e6df">正确性</text><text x="290" y="750" font-size="28" fill="#e8e6df">latest 落后链头 ≤ 3 块</text><text id="go-r6v" x="1090" y="750" font-size="28" fill="#8a8f99">对比 3 个上游区块号</text></g>
+<g id="go-r7" class="h"><rect id="go-r7b" x="100" y="782" width="1340" height="74" rx="8" fill="#161a22" stroke="#161a22" stroke-width="2.5"/><text x="125" y="830" font-size="28" font-weight="700" fill="#e8e6df">安全</text><text x="290" y="830" font-size="28" fill="#e8e6df">拒绝 admin_*/personal_*；<tspan id="go-r7d">debug_* 需授权</tspan>；按 Key 限流</text><text id="go-r7v" x="1090" y="830" font-size="28" fill="#8a8f99">安全测试用例清单</text></g>
+<g id="go-r8" class="h"><rect id="go-r8b" x="100" y="862" width="1340" height="74" rx="8" fill="#161a22" stroke="#161a22" stroke-width="2.5"/><text x="125" y="910" font-size="28" font-weight="700" fill="#e8e6df">成本</text><text x="290" y="910" font-size="28" fill="#e8e6df">服务商请求量比直连 <tspan fill="#F0B90B">↓ ≥ 40%</tspan></text><text id="go-r8v" x="1090" y="910" font-size="28" fill="#8a8f99">Grafana 上游请求量面板</text></g>
+</g>
+<g id="go-bars">
+<rect class="go-bar" x="370" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="382" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="394" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="406" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="418" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="430" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="442" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="454" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="466" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="478" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="490" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="502" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="514" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="526" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="538" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="550" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="562" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="574" y="790.0" width="8" height="30.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="586" y="789.9" width="8" height="30.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="598" y="789.9" width="8" height="30.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="610" y="789.9" width="8" height="30.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="622" y="789.9" width="8" height="30.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="634" y="789.8" width="8" height="30.2" fill="#6b6f7a"/>
+<rect class="go-bar" x="646" y="789.8" width="8" height="30.2" fill="#6b6f7a"/>
+<rect class="go-bar" x="658" y="789.7" width="8" height="30.3" fill="#6b6f7a"/>
+<rect class="go-bar" x="670" y="789.7" width="8" height="30.3" fill="#6b6f7a"/>
+<rect class="go-bar" x="682" y="789.6" width="8" height="30.4" fill="#6b6f7a"/>
+<rect class="go-bar" x="694" y="789.5" width="8" height="30.5" fill="#6b6f7a"/>
+<rect class="go-bar" x="706" y="789.4" width="8" height="30.6" fill="#6b6f7a"/>
+<rect class="go-bar" x="718" y="789.3" width="8" height="30.7" fill="#6b6f7a"/>
+<rect class="go-bar" x="730" y="789.2" width="8" height="30.8" fill="#6b6f7a"/>
+<rect class="go-bar" x="742" y="789.0" width="8" height="31.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="754" y="788.8" width="8" height="31.2" fill="#6b6f7a"/>
+<rect class="go-bar" x="766" y="788.6" width="8" height="31.4" fill="#6b6f7a"/>
+<rect class="go-bar" x="778" y="788.4" width="8" height="31.6" fill="#6b6f7a"/>
+<rect class="go-bar" x="790" y="788.2" width="8" height="31.8" fill="#6b6f7a"/>
+<rect class="go-bar" x="802" y="787.9" width="8" height="32.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="814" y="787.6" width="8" height="32.4" fill="#6b6f7a"/>
+<rect class="go-bar" x="826" y="787.3" width="8" height="32.7" fill="#6b6f7a"/>
+<rect class="go-bar" x="838" y="786.9" width="8" height="33.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="850" y="786.4" width="8" height="33.6" fill="#6b6f7a"/>
+<rect class="go-bar" x="862" y="786.0" width="8" height="34.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="874" y="785.5" width="8" height="34.5" fill="#6b6f7a"/>
+<rect class="go-bar" x="886" y="784.9" width="8" height="35.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="898" y="784.3" width="8" height="35.7" fill="#6b6f7a"/>
+<rect class="go-bar" x="910" y="783.6" width="8" height="36.4" fill="#6b6f7a"/>
+<rect class="go-bar" x="922" y="782.9" width="8" height="37.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="934" y="782.0" width="8" height="38.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="946" y="781.2" width="8" height="38.8" fill="#6b6f7a"/>
+<rect class="go-bar" x="958" y="780.2" width="8" height="39.8" fill="#6b6f7a"/>
+<rect class="go-bar" x="970" y="779.2" width="8" height="40.8" fill="#6b6f7a"/>
+<rect class="go-bar" x="982" y="778.0" width="8" height="42.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="994" y="776.8" width="8" height="43.2" fill="#6b6f7a"/>
+<rect class="go-bar" x="1006" y="775.5" width="8" height="44.5" fill="#6b6f7a"/>
+<rect class="go-bar" x="1018" y="774.1" width="8" height="45.9" fill="#6b6f7a"/>
+<rect class="go-bar" x="1030" y="772.5" width="8" height="47.5" fill="#6b6f7a"/>
+<rect class="go-bar" x="1042" y="770.9" width="8" height="49.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="1054" y="769.1" width="8" height="50.9" fill="#6b6f7a"/>
+<rect class="go-bar" x="1066" y="767.2" width="8" height="52.8" fill="#6b6f7a"/>
+<rect class="go-bar" x="1078" y="765.2" width="8" height="54.8" fill="#6b6f7a"/>
+<rect class="go-bar" x="1090" y="763.0" width="8" height="57.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="1102" y="760.7" width="8" height="59.3" fill="#6b6f7a"/>
+<rect class="go-bar" x="1114" y="758.2" width="8" height="61.8" fill="#6b6f7a"/>
+<rect class="go-bar" x="1126" y="755.6" width="8" height="64.4" fill="#6b6f7a"/>
+<rect class="go-bar" x="1138" y="752.7" width="8" height="67.3" fill="#6b6f7a"/>
+<rect class="go-bar" x="1150" y="749.7" width="8" height="70.3" fill="#6b6f7a"/>
+<rect class="go-bar" x="1162" y="746.5" width="8" height="73.5" fill="#6b6f7a"/>
+<rect class="go-bar" x="1174" y="743.1" width="8" height="76.9" fill="#6b6f7a"/>
+<rect class="go-bar" x="1186" y="739.5" width="8" height="80.5" fill="#6b6f7a"/>
+<rect class="go-bar" x="1198" y="735.7" width="8" height="84.3" fill="#6b6f7a"/>
+<rect class="go-bar" x="1210" y="731.7" width="8" height="88.3" fill="#6b6f7a"/>
+<rect class="go-bar" x="1222" y="727.4" width="8" height="92.6" fill="#6b6f7a"/>
+<rect class="go-bar" x="1234" y="722.9" width="8" height="97.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="1246" y="718.1" width="8" height="101.9" fill="#6b6f7a"/>
+<rect class="go-bar" x="1258" y="713.0" width="8" height="107.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="1270" y="707.7" width="8" height="112.3" fill="#6b6f7a"/>
+<rect class="go-bar" x="1282" y="702.0" width="8" height="118.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="1294" y="696.1" width="8" height="123.9" fill="#6b6f7a"/>
+<rect class="go-bar" x="1306" y="689.8" width="8" height="130.2" fill="#6b6f7a"/>
+<rect class="go-bar" x="1318" y="683.2" width="8" height="136.8" fill="#6b6f7a"/>
+<rect class="go-bar" x="1330" y="676.3" width="8" height="143.7" fill="#6b6f7a"/>
+<rect class="go-bar" x="1342" y="669.0" width="8" height="151.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="1354" y="661.4" width="8" height="158.6" fill="#6b6f7a"/>
+<rect class="go-bar" x="1366" y="653.3" width="8" height="166.7" fill="#6b6f7a"/>
+<rect class="go-bar" x="1378" y="644.9" width="8" height="175.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="1390" y="636.0" width="8" height="184.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="1402" y="626.8" width="8" height="193.2" fill="#6b6f7a"/>
+<rect class="go-bar" x="1414" y="617.0" width="8" height="203.0" fill="#6b6f7a"/>
+<rect class="go-bar" x="1426" y="606.9" width="8" height="213.1" fill="#6b6f7a"/>
+<rect class="go-bar" x="1438" y="596.2" width="8" height="223.8" fill="#6b6f7a"/>
+<rect class="go-bar" x="1450" y="585.1" width="8" height="234.9" fill="#6b6f7a"/>
+<rect class="go-bar" x="1462" y="573.5" width="8" height="246.5" fill="#6b6f7a"/>
+<rect class="go-bar" x="1474" y="561.3" width="8" height="258.7" fill="#6b6f7a"/>
+<rect class="go-bar" x="1486" y="548.6" width="8" height="271.4" fill="#6b6f7a"/>
+<rect class="go-bar" x="1498" y="535.3" width="8" height="284.7" fill="#6b6f7a"/>
+<rect class="go-bar" x="1510" y="521.5" width="8" height="298.5" fill="#6b6f7a"/>
+<rect class="go-bar" x="1522" y="507.1" width="8" height="312.9" fill="#6b6f7a"/>
+<rect class="go-bar" x="1534" y="492.0" width="8" height="328.0" fill="#6b6f7a"/>
+<rect class="go-bar" id="go-b98" x="1546" y="476.3" width="8" height="343.7" fill="#6b6f7a"/>
+<rect class="go-bar" x="1558" y="460.0" width="8" height="360.0" fill="#6b6f7a"/>
+<text id="go-p99" class="h" x="1550" y="428" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">P99</text>
+<text id="go-ax" class="h" x="960" y="874" font-size="28" fill="#8a8f99" text-anchor="middle">所有请求按耗时从快到慢排序 →</text>
+</g>
+<g id="go-side">
+  <g id="go-sn" class="h"><rect id="go-snr" x="1500" y="330" width="320" height="90" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/><text id="go-snt" x="1660" y="386" font-size="30" fill="#e8e6df" text-anchor="middle">自建节点</text></g>
+  <g id="go-wr" class="h"><path d="M1610 520 L1690 460" stroke="#FC6255" stroke-width="12" stroke-linecap="round"/><path d="M1683 452 a20 20 0 1 1 18 22 l-8 -8 z" fill="none" stroke="#FC6255" stroke-width="6" stroke-linejoin="round"/></g>
+  <g id="go-gg" class="h"><path d="M1540 720 A120 120 0 0 1 1780 720" stroke="#2a2e38" stroke-width="14" fill="none"/><path d="M1540 720 A120 120 0 0 1 1568 643" stroke="#83C167" stroke-width="14" fill="none"/>
+  <line id="go-nd" x1="1660" y1="720" x2="1562" y2="720" stroke="#e8e6df" stroke-width="5" stroke-linecap="round"/><circle cx="1660" cy="720" r="9" fill="#e8e6df"/>
+  <text x="1660" y="780" font-size="28" fill="#83C167" text-anchor="middle">错误率 ≤ 0.05%</text></g>
+</g>
+<g id="go-calc">
+<text id="go-sum" class="h" x="120" y="300" font-size="40" fill="#e8e6df">可用性 ≥ <tspan fill="#83C167">99.95%</tspan>（月）</text>
+<text id="go-k1" class="h mono" x="640.0" y="480" font-size="56" fill="#e8e6df">30</text>
+<text id="go-k2" class="h mono" x="740.8" y="480" font-size="56" fill="#e8e6df">× 24</text>
+<text id="go-k3" class="h mono" x="908.8" y="480" font-size="56" fill="#e8e6df">× 60</text>
+<text id="go-k4" class="h mono" x="1076.8" y="480" font-size="56" fill="#e8e6df">= 43,200</text>
+<text id="go-k4u" class="h" x="1370" y="478" font-size="48" fill="#e8e6df">分钟</text>
+<text id="go-s1" class="h" x="673.6" y="540" font-size="28" fill="#8a8f99" text-anchor="middle">天</text>
+<text id="go-s2" class="h" x="841.6" y="540" font-size="28" fill="#8a8f99" text-anchor="middle">小时</text>
+<text id="go-s3" class="h" x="1009.6" y="540" font-size="28" fill="#8a8f99" text-anchor="middle">分钟</text>
+<text id="go-m1" class="h mono" x="640.0" y="650" font-size="56" fill="#e8e6df">43,200</text>
+<text id="go-m2" class="h mono" x="875.2" y="650" font-size="56" fill="#e8e6df">× 0.0005</text>
+<text id="go-m3" class="h mono" x="1177.6" y="650" font-size="56" fill="#e8e6df">=</text>
+<text id="go-m4" class="h mono" x="1244.8000000000002" y="650" font-size="56" font-weight="700" fill="#F0B90B">21.6</text>
+<text id="go-m4u" class="h" x="1410" y="648" font-size="48" fill="#F0B90B">分钟</text>
+<rect id="go-tb" class="h" x="640" y="760" width="1000" height="30" rx="6" fill="#2a2e38"/>
+<rect id="go-tr" class="h" x="1610" y="760" width="30" height="30" fill="#FC6255"/>
+<text id="go-tl1" class="h" x="640" y="836" font-size="28" fill="#8a8f99">30 天</text>
+<text id="go-tl2" class="h" x="1640" y="836" font-size="28" fill="#FC6255" text-anchor="end">21.6 分钟（放大示意）</text>
+<text id="go-fin" class="h" x="1140" y="950" font-size="40" fill="#83C167" text-anchor="middle">只能靠多上游 + 自动切换</text>
+</g>
+<g id="go-term" class="h">
+<rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+<text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">P99 延迟</text>
+<text x="100" y="160" font-size="28" fill="#e8e6df">第 99% 位置的耗时</text>
+</g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      gsap.set("#go-bars .go-bar", { opacity: 0 });
+// L0
+IN("#go-tt", at(0, 0.05), 0.6);
+IN("#go-rh", at(0, 0.3), 0.5);
+IN("#go-bd", at(0, 0.62), 0.5, { x: 20 }, { x: 0 });
+DRAW("#go-hl", at(0, 0.78), 1.2);
+// L1 function rows
+IN("#go-r1", at(1, 0.04), 0.5, { x: -20 }, { x: 0 });
+IN("#go-r2", at(1, 0.6), 0.5, { x: -20 }, { x: 0 });
+tl.to("#go-r1v", { fill: "#e8e6df", duration: 0.4 }, at(1, 0.35));
+tl.to("#go-r2v", { fill: "#e8e6df", duration: 0.4 }, at(1, 0.86));
+tl.to("#go-r3v", { fill: "#e8e6df", duration: 0.4 }, at(2, 0.55));
+// L2 availability + fault injection
+IN("#go-r3", at(2, 0.05), 0.5, { x: -20 }, { x: 0 });
+tl.to("#go-r3b", { stroke: "#83C167", duration: 0.4 }, at(2, 0.3));
+IN("#go-sn", at(2, 0.6), 0.5);
+IN("#go-wr", at(2, 0.66), 0.4);
+tl.fromTo("#go-wr", { rotation: 0 }, { rotation: -25, svgOrigin: "1650 490", duration: 0.25, repeat: 1, yoyo: true, immediateRender: false }, at(2, 0.7));
+tl.to("#go-snr", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.74));
+tl.to("#go-snt", { fill: "#6b6f7a", duration: 0.3 }, at(2, 0.74));
+IN("#go-gg", at(2, 0.8), 0.5);
+tl.fromTo("#go-nd", { rotation: 0 }, { rotation: 22, svgOrigin: "1660 720", duration: 0.8, ease: "back.out(2)", immediateRender: false }, at(2, 0.84));
+// L3 P99
+OUT("#go-side", at(3, 0), 0.4);
+IN("#go-term", at(3, 0.02), 0.5);
+OUT("#go-tab", at(3, 0.12), 0.4);
+tl.to("#go-bars .go-bar", { opacity: 1, duration: 0.3, stagger: 0.012 }, at(3, 0.22));
+tl.to("#go-b98", { fill: "#FF9F43", duration: 0.3 }, at(3, 0.58));
+IN("#go-p99", at(3, 0.6), 0.4, { y: 10 }, { y: 0 });
+IN("#go-ax", at(3, 0.35), 0.5);
+OUT("#go-term", at(3, 0.6), 0.4);
+OUT("#go-bars", at(3, 0.84), 0.4);
+tl.to("#go-tab", { opacity: 1, duration: 0.4 }, at(3, 0.88));
+IN("#go-r4", at(3, 0.92), 0.5, { x: -20 }, { x: 0 });
+// L4 cache miss: gateway overhead <= 10 ms
+tl.to("#go-r4b", { stroke: "#FF9F43", duration: 0.4 }, at(4, 0.05));
+tl.to("#go-r4m", { fill: "#FF9F43", duration: 0.4 }, at(4, 0.1));
+tl.fromTo("#go-r4", { x: 0 }, { x: 12, duration: 0.2, repeat: 1, yoyo: true, immediateRender: false }, at(4, 0.7));
+tl.to("#go-r4v", { fill: "#e8e6df", duration: 0.4 }, at(4, 0.75));
+// L5 throughput, correctness
+tl.to("#go-r4b", { stroke: "#161a22", duration: 0.4 }, at(5, 0.0));
+IN("#go-r5", at(5, 0.05), 0.5, { x: -20 }, { x: 0 });
+IN("#go-r6", at(5, 0.55), 0.5, { x: -20 }, { x: 0 });
+// L6 security, cost
+IN("#go-r7", at(6, 0.05), 0.5, { x: -20 }, { x: 0 });
+tl.to("#go-r7b", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.08));
+tl.to("#go-r7d", { fill: "#83C167", duration: 0.4 }, at(6, 0.22));
+tl.to("#go-r7b", { stroke: "#161a22", duration: 0.3 }, at(6, 0.5));
+IN("#go-r8", at(6, 0.58), 0.5, { x: -20 }, { x: 0 });
+// L7 calc
+OUT("#go-tab, #go-tt, #go-bd", at(7, 0), 0.4);
+IN("#go-sum", at(7, 0.08), 0.5);
+IN("#go-k1, #go-s1", at(7, 0.36), 0.4);
+IN("#go-k2, #go-s2", at(7, 0.48), 0.4);
+IN("#go-k3, #go-s3", at(7, 0.6), 0.4);
+IN("#go-k4, #go-k4u", at(7, 0.78), 0.5);
+// L8
+IN("#go-m1", at(8, 0.12), 0.4);
+IN("#go-m2", at(8, 0.18), 0.4);
+IN("#go-m3, #go-m4, #go-m4u", at(8, 0.26), 0.5);
+tl.fromTo("#go-m4", { scale: 1 }, { scale: 1.3, svgOrigin: "1312 632", duration: 0.35, repeat: 1, yoyo: true, immediateRender: false }, at(8, 0.32));
+IN("#go-tb, #go-tl1", at(8, 0.45), 0.4);
+tl.fromTo("#go-tb", { attr: { width: 0 } }, { attr: { width: 1000 }, duration: 0.9, ease: "power2.out", immediateRender: false }, at(8, 0.45));
+IN("#go-tr, #go-tl2", at(8, 0.55), 0.4);
+IN("#go-fin", at(8, 0.82), 0.5, { y: 12 }, { y: 0 });
+
+
+      tl.to("#go-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#go-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["goals"] = tl;
+    })();
+  </script>
+</template>

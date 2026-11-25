@@ -1,14 +1,14 @@
-/* ---------- M09 钱包（5）：m03-60 嵌入式钱包与 Passkey ---------- */
+/* ---------- M08 钱包（5）：m03-60 嵌入式钱包与 Passkey ---------- */
 (() => {
 CUR = 'm03-60';
-addCh({ id: 'm03-60', nav: '嵌入式钱包与 Passkey', title: 'M09.12 嵌入式钱包与 Passkey：WebAuthn、RIP-7212 与无助记词体验', desc: 'Privy/Turnkey 嵌入式钱包的 Shamir 分片与 TEE 架构、Passkey/WebAuthn 与 RIP-7212 P-256 链上验签、账号恢复与托管边界', html: `
-<h1>M09.12 嵌入式钱包与 Passkey：WebAuthn、RIP-7212 与无助记词体验</h1>
+addCh({ id: 'm03-60', nav: '嵌入式钱包与 Passkey', title: 'M08.12 嵌入式钱包与 Passkey：WebAuthn、RIP-7212 与无助记词体验', desc: 'Privy/Turnkey 嵌入式钱包的 Shamir 分片与 TEE 架构、Passkey/WebAuthn 与 RIP-7212 P-256 链上验签、账号恢复与托管边界', html: `
+<h1>M08.12 嵌入式钱包与 Passkey：WebAuthn、RIP-7212 与无助记词体验</h1>
 ${meta([
   '拆解嵌入式钱包（Embedded Wallet）消除“安装插件 + 抄 12 个助记词”门槛的两条技术路线：Shamir/MPC 分片 vs TEE 隔离执行。',
   '理解 Passkey（WebAuthn / FIDO2）为何使用 secp256r1（P-256）曲线，以及 RIP-7212 预编译合约如何把链上验签 Gas 压低百倍。',
   '对比 Privy、Turnkey、Dynamic 等主流方案的信任边界、导出私钥能力与防厂商锁定策略。',
   '为 C 端消费级 DApp 设计兼具“Web2 登录丝滑体验”与“自托管安全底线”的账号恢复与会话方案。'
-], '前置：<a href="#m03-1">M09.1 钱包分类全景</a>、<a href="#m03-5">M09.5 MPC 与门限签名</a>、<a href="#m06-5">M09.8 账户抽象深入</a>')}
+], '前置：<a href="#m03-1">M08.1 钱包分类全景</a>、<a href="#m03-5">M08.5 MPC 与门限签名</a>、<a href="#m06-5">M08.8 账户抽象深入</a>')}
 ${beginner(`<p><strong>嵌入式钱包（Embedded Wallet）</strong>：直接内嵌在 App 或网页里的钱包。用户用邮箱、手机号、Google 账号或 FaceID 一键登录，后台在几秒内静默生成链上地址，全程不弹 MetaMask 插件也不逼用户抄助记词。</p>
 <p><strong>Passkey（通行密钥）</strong>：苹果、谷歌、微软联合推广的无密码标准（基于 WebAuthn/FIDO2），私钥生成并锁死在手机安全芯片（Secure Enclave）里，靠指纹或面容解锁签名。</p>
 <p><strong>RIP-7212</strong>：以太坊 L2 广泛采纳的 Rollup 改进提案，在预编译地址 <code>0x100</code> 提供原生 P-256（secp256r1）曲线验签，让智能合约钱包能极低成本直接验证手机 Passkey 签名。</p>`)}
@@ -44,11 +44,8 @@ ${tbl(['维度', 'Shamir / MPC 分片嵌入式钱包', 'TEE 硬件飞地签名�
 ])}
 
 <h2>3. 为什么 RIP-7212 是 Passkey 钱包的分水岭？</h2>
-<p>以太坊和比特币原生使用 <strong>secp256k1</strong> 曲线（见 <a href="#m00-3">M00.3 公钥、私钥与数字签名</a>），而全球数十亿部 iPhone/Android 手机的硬件安全芯片（Secure Enclave / StrongBox）与浏览器 WebAuthn 标准只原生支持 NIST <strong>secp256r1（P-256）</strong>曲线。</p>
-<ul>
-<li><strong>RIP-7212 之前</strong>：要在以太坊合约里验证一个手机 Passkey 签名，必须用纯 Solidity 写椭圆曲线大数运算，单次验签消耗超过 <strong>200,000–330,000 Gas</strong>，主网体验昂贵到不可用。</li>
-<li><strong>RIP-7212 之后</strong>：在预编译地址 <code>0x0000000000000000000000000000000000000100</code> 直接用底层客户端（Go/Rust）执行 P-256 验签，Gas 骤降到约 <strong>3,450 Gas</strong>（降幅近百倍），Base、Optimism、Arbitrum、Polygon、zkSync 等主流 L2 已率先支持，让“刷 FaceID 直接发交易”真正大规模可用。</li>
-</ul>
+${recall('<p>以太坊用 <strong>secp256k1</strong> 曲线（见 <a href="#m00-3">M00.3</a>），手机安全芯片与 WebAuthn 只原生支持 <strong>secp256r1（P-256）</strong>，所以 Passkey 只能做智能账户的签名者。纯 Solidity 验一次 P-256 签名要 20–30 万 Gas；RIP-7212 在预编译地址 <code>0x100</code> 提供 <code>P256VERIFY</code>，约 3,450 Gas，多条主流 L2 已支持（以太坊侧对应 EIP-7951）。WebAuthn 签名在 <code>validateUserOp</code> 里怎样逐项校验（challenge、authenticatorData 标志）以及设备丢失的恢复设计，见 <a href="#m06-5">M08.8 账户抽象深入</a>第 6 节。</p>')}
+<p>本节只看它对产品选型的意义：有了低成本链上验签，“刷 FaceID 直接发交易”的纯链上 Passkey 钱包才真正可用，这正是上表第三列方案成立的前提。</p>
 
 ${mm('Passkey + RIP-7212 智能合约钱包验签流程', `
 sequenceDiagram
@@ -79,7 +76,7 @@ ${tbl(['检查项', '为什么', '怎么落地'], [
 
 ${exercises([
   ['某面向全球消费级用户的游戏 DApp 计划部署在 Solana 和 Base 两条链上，希望新用户 10 秒内用 Google 账号注册并领到第一个链上道具。应该选纯 Passkey 智能合约钱包，还是基于分片/TEE 的嵌入式钱包？', '<p>优先选基于分片或 TEE 的嵌入式钱包（再配合 Base 侧的 Gas 赞助 Paymaster）。因为纯 Passkey 智能合约钱包依赖 EVM 账户抽象与 RIP-7212，无法直接覆盖 Solana 的 Ed25519 账户体系；而分片/TEE 方案可一套登录态同时派生 EVM 与 Solana 地址。</p>'],
-  ['为什么说「把嵌入式钱包的恢复密码直接明文存在项目方自己的数据库里」是极度危险的设计？', '<p>这会让原本的非托管/半托管架构退化为事实上的中心化托管钱包：一旦项目方数据库被拖库或内部员工作恶，所有用户钱包会被一锅端，同时还可能触发严格的 VASP 托管牌照合规义务（见 <a href="#m11-1">M07 合规与监管</a>）。</p>']
+  ['为什么说「把嵌入式钱包的恢复密码直接明文存在项目方自己的数据库里」是极度危险的设计？', '<p>这会让原本的非托管/半托管架构退化为事实上的中心化托管钱包：一旦项目方数据库被拖库或内部员工作恶，所有用户钱包会被一锅端，同时还可能触发严格的 VASP 托管牌照合规义务（见 <a href="#m11-1">M12.1 合规全景</a>）。</p>']
 ])}
 ${checklist([
   '能清晰区分 Shamir/MPC 分片、TEE 飞地与纯链上 Passkey 三种无助记词钱包的底层机制。',

@@ -1,9 +1,9 @@
-/* ---------- M13 Web3 应用赛道（1）：总览 m09 · m09-1 身份 · m09-2 社交 · m09-3 存储与 DePIN ---------- */
+/* ---------- M14 Web3 应用赛道（1）：总览 m09 · m09-1 身份 · m09-2 社交 · m09-3 存储与 DePIN ---------- */
 (() => {
 CUR = 'm09';
-addCh({ id: 'm09', nav: '更多应用赛道', title: 'M13 更多应用赛道：身份、社交、存储、RWA 与游戏', html: `
-<h1>M13 更多应用赛道：身份、社交、存储、RWA 与游戏</h1>
-${meta(['说出六个应用赛道（身份、社交、存储与 DePIN、RWA 与支付、游戏、NFT 市场与 Memecoin）各自要解决的问题，以及它们依赖哪些基础设施。', '为一个应用想法判断：哪些数据必须上链，哪些放链下，信任落在谁身上。', '按本模块的顺序，做出一个“链上凭证与声誉”DApp，并能讲清它用到的每一块积木。'], '<a href="#m02">M02 智能合约开发</a>、<a href="#m13">M08 DeFi 协议</a>、<a href="#m07">M03 Web3 大前端</a>')}
+addCh({ id: 'm09', nav: '更多应用赛道', title: 'M14 更多应用赛道：身份、社交、存储、RWA 与游戏', html: `
+<h1>M14 更多应用赛道：身份、社交、存储、RWA 与游戏</h1>
+${meta(['说出六个应用赛道（身份、社交、存储与 DePIN、RWA 与支付、游戏、NFT 市场与 Memecoin）各自要解决的问题，以及它们依赖哪些基础设施。', '为一个应用想法判断：哪些数据必须上链，哪些放链下，信任落在谁身上。', '按本模块的顺序，做出一个“链上凭证与声誉”DApp，并能讲清它用到的每一块积木。'], '<a href="#m02">M02 智能合约开发</a>、<a href="#m13">M05 DeFi 协议</a>、<a href="#m07">M03 Web3 大前端</a>')}
 
 <h2>1. 一句话理解</h2>
 ${one('学完合约（M02）和前端（M03），你已经会“造零件”。本模块回答下一个问题：这些零件能拼出什么产品？我们看六个赛道，每个赛道都拆成三层：用户看到什么、协议怎么设计、底下依赖哪些链和服务。')}
@@ -13,30 +13,30 @@ ${call('analogy', `<p>公链和基础设施像一座城市的道路、水和电�
 <h2>2. 本模块讲什么，不讲什么</h2>
 <p>手册里已经有三个模块专门讲金融类应用。本模块<strong>不重复</strong>它们，只在需要时链接：</p>
 ${tbl(['主题', '在哪里讲', '本模块怎么处理'], [
-  ['ERC-20、NFT、稳定币、AMM、借贷', '<a href="#m02">M02 智能合约开发</a>、<a href="#m13">M08 DeFi 协议</a>（例如 <a href="#m02-50">M02.6 NFT 与代币发行</a>、<a href="#m02-9">M08.1 稳定币</a>）', '直接使用，不再解释原理'],
-  ['中心化与去中心化交易所', '<a href="#m04">M10 交易所：CEX 与 DEX</a>', '只在 RWA 二级流动性处引用'],
+  ['ERC-20、NFT、稳定币、AMM、借贷', '<a href="#m02">M02 智能合约开发</a>、<a href="#m13">M05 DeFi 协议</a>（例如 <a href="#m02-50">M02.6 NFT 与代币发行</a>、<a href="#m02-9">M05.1 稳定币</a>）', '直接使用，不再解释原理'],
+  ['中心化与去中心化交易所', '<a href="#m04">M09 中心化交易所</a>、<a href="#m15">M10 去中心化交易所</a>', '只在 RWA 二级流动性处引用'],
   ['预测市场、永续合约', '<a href="#m08">M11 预测市场与衍生品</a>', '不涉及'],
-  ['Agent 支付、账户抽象', '<a href="#m06-7">M12.6 Agent 支付</a>、<a href="#m06-5">M09.8 账户抽象深入</a>', '支付与游戏的免 Gas 体验处引用'],
-  ['零知识证明', '<a href="#m10-1">M06.1 零知识证明直觉</a>', '身份的隐私方案处引用']
+  ['Agent 支付、账户抽象', '<a href="#m06-7">M13.6 Agent 支付</a>、<a href="#m06-5">M08.8 账户抽象深入</a>', '支付与游戏的免 Gas 体验处引用'],
+  ['零知识证明', '<a href="#m10-1">M07.1 零知识证明直觉</a>', '身份的隐私方案处引用']
 ])}
 
 <h2>3. 一张图：赛道和它们依赖的基础设施</h2>
 ${mm('六个应用赛道依赖哪些基础设施', `
 flowchart LR
   subgraph APP["应用赛道（本模块）"]
-    ID["M13.1 身份<br/>ENS · DID · EAS"]
-    SO["M13.2 社交<br/>Farcaster · Lens"]
-    ST["M13.3 存储与 DePIN<br/>IPFS · Filecoin · Helium"]
-    RWA["M13.4 RWA 与支付<br/>代币化国债 · 稳定币"]
-    GM["M13.5 游戏<br/>资产 · 状态 · 经济"]
-    NF["M13.6 NFT 市场与 Memecoin<br/>Seaport · 版税 · 联合曲线"]
+    ID["M14.1 身份<br/>ENS · DID · EAS"]
+    SO["M14.2 社交<br/>Farcaster · Lens"]
+    ST["M14.3 存储与 DePIN<br/>IPFS · Filecoin · Helium"]
+    RWA["M14.4 RWA 与支付<br/>代币化国债 · 稳定币"]
+    GM["M14.5 游戏<br/>资产 · 状态 · 经济"]
+    NF["M14.6 NFT 市场与 Memecoin<br/>Seaport · 版税 · 联合曲线"]
   end
   subgraph INF["已学过的基础设施"]
     SIG["签名与登录<br/>M03.6"]
     TOK["代币与 NFT 标准<br/>M02.5 · M02.6"]
     L2["L2 与数据可用性<br/>M04.4 · M04.5"]
     OR["预言机与索引<br/>M04.10"]
-    AA["账户抽象<br/>M09.8"]
+    AA["账户抽象<br/>M08.8"]
   end
   ID --> SIG
   ID --> TOK
@@ -57,25 +57,25 @@ flowchart LR
   ['risk', '每个赛道都有一个“链下信任点”：ENS 链下名字依赖网关，社交数据依赖链下网络，RWA 依赖托管人和法律文件，DePIN 依赖硬件的真实性。设计时先找出它。']
 ])}
 ${tbl(['赛道', '核心问题', '代表协议（示例）', '上链的是什么', '文章'], [
-  ['身份', '“这个地址是谁、别人怎样为它作证”', 'ENS、W3C DID/VC、EAS、World ID', '名字记录、证明（attestation）或它的哈希', '<a href="#m09-1">M13.1</a>'],
-  ['社交', '“我的关注关系和帖子能不能带走”', 'Farcaster、Lens', '账户、密钥、存储租金；帖子多在链下网络', '<a href="#m09-2">M13.2</a>'],
-  ['存储与 DePIN', '“大文件放哪里；怎样用代币激励真实硬件”', 'IPFS、Filecoin、Arweave、Helium、Render', '存储证明、奖励结算；文件本身在链下', '<a href="#m09-3">M13.3</a>'],
-  ['RWA 与支付', '“现实资产怎样上链，谁能持有；商户怎样收稳定币”', '代币化国债基金、稳定币收款', '份额代币、白名单、转账记录', '<a href="#m09-4">M13.4</a>'],
-  ['游戏', '“哪些游戏状态值得上链，经济怎样不崩”', '链上资产游戏、全链游戏', '资产所有权，部分或全部游戏状态', '<a href="#m09-5">M13.5</a>'],
-  ['NFT 市场与发行', '“NFT 怎样撮合成交，版税能不能强制；Meme 币怎样发行、怎样防被割”', 'Seaport、Blur、联合曲线发射台', '签名订单、版税设置、曲线池', '<a href="#m09-7">M13.6</a>']
+  ['身份', '“这个地址是谁、别人怎样为它作证”', 'ENS、W3C DID/VC、EAS、World ID', '名字记录、证明（attestation）或它的哈希', '<a href="#m09-1">M14.1</a>'],
+  ['社交', '“我的关注关系和帖子能不能带走”', 'Farcaster、Lens', '账户、密钥、存储租金；帖子多在链下网络', '<a href="#m09-2">M14.2</a>'],
+  ['存储与 DePIN', '“大文件放哪里；怎样用代币激励真实硬件”', 'IPFS、Filecoin、Arweave、Helium、Render', '存储证明、奖励结算；文件本身在链下', '<a href="#m09-3">M14.3</a>'],
+  ['RWA 与支付', '“现实资产怎样上链，谁能持有；商户怎样收稳定币”', '代币化国债基金、稳定币收款', '份额代币、白名单、转账记录', '<a href="#m09-4">M14.4</a>'],
+  ['游戏', '“哪些游戏状态值得上链，经济怎样不崩”', '链上资产游戏、全链游戏', '资产所有权，部分或全部游戏状态', '<a href="#m09-5">M14.5</a>'],
+  ['NFT 市场与发行', '“NFT 怎样撮合成交，版税能不能强制；Meme 币怎样发行、怎样防被割”', 'Seaport、Blur、联合曲线发射台', '签名订单、版税设置、曲线池', '<a href="#m09-7">M14.6</a>']
 ])}
 
 <h2>4. 阅读顺序与文章关系</h2>
 ${steps([
-  '<a href="#m09-1">M13.1 链上身份</a>：ENS 解析、DID 与可验证凭证、EAS 证明、灵魂绑定代币、人格证明。后面每篇都会用到“地址 + 名字 + 证明”。',
-  '<a href="#m09-2">M13.2 链上社交</a>：用 Farcaster 和 Lens 看“账户上链、内容在链下网络”的混合架构，以及 2026 年两个协议的治理变化。',
-  '<a href="#m09-3">M13.3 去中心化存储与 DePIN</a>：内容寻址、Filecoin 与 Arweave 的保证、数据可用性和长期存储的区别、DePIN 的单位经济。',
-  '<a href="#m09-4">M13.4 RWA 与链上支付</a>：许可型代币、代币化国债、稳定币收款与结算。',
-  '<a href="#m09-5">M13.5 GameFi 与链上游戏</a>：资产上链、全链游戏、游戏经济与常见崩盘方式。',
-  '<a href="#m09-7">M13.6 NFT 市场、版税与 Memecoin 发行</a>：签名订单和 Seaport、版税之争、联合曲线发射台，以及买币前的检查清单。',
-  '<a href="#m09-6">M13.7 ★ 实战：链上凭证与声誉 DApp</a>：用 EAS 签发凭证，用 ENS 显示身份，把证明元数据放到 IPFS，再做一个声誉分查询前端。'
+  '<a href="#m09-1">M14.1 链上身份</a>：ENS 解析、DID 与可验证凭证、EAS 证明、灵魂绑定代币、人格证明。后面每篇都会用到“地址 + 名字 + 证明”。',
+  '<a href="#m09-2">M14.2 链上社交</a>：用 Farcaster 和 Lens 看“账户上链、内容在链下网络”的混合架构，以及 2026 年两个协议的治理变化。',
+  '<a href="#m09-3">M14.3 去中心化存储与 DePIN</a>：内容寻址、Filecoin 与 Arweave 的保证、数据可用性和长期存储的区别、DePIN 的单位经济。',
+  '<a href="#m09-4">M14.4 RWA 与链上支付</a>：许可型代币、代币化国债、稳定币收款与结算。',
+  '<a href="#m09-5">M14.5 GameFi 与链上游戏</a>：资产上链、全链游戏、游戏经济与常见崩盘方式。',
+  '<a href="#m09-7">M14.6 NFT 市场、版税与 Memecoin 发行</a>：签名订单和 Seaport、版税之争、联合曲线发射台，以及买币前的检查清单。',
+  '<a href="#m09-6">M14.7 ★ 实战：链上凭证与声誉 DApp</a>：用 EAS 签发凭证，用 ENS 显示身份，把证明元数据放到 IPFS，再做一个声誉分查询前端。'
 ])}
-${call('info', '<p>M13.1–M13.3 可以按顺序读；M13.4、M13.5、M13.6 相互独立，可以按兴趣先读其中一篇。动手做 M13.7 之前，至少读完 M13.1 和 M13.3。</p>')}
+${call('info', '<p>M14.1–M14.3 可以按顺序读；M14.4、M14.5、M14.6 相互独立，可以按兴趣先读其中一篇。动手做 M14.7 之前，至少读完 M14.1 和 M14.3。</p>')}
 
 <h2>5. 学完能做什么</h2>
 <ul>
@@ -90,8 +90,8 @@ ${call('info', '<p>M13.1–M13.3 可以按顺序读；M13.4、M13.5、M13.6 相�
 ` });
 
 CUR = 'm09-1';
-addCh({ id: 'm09-1', nav: '链上身份', title: 'M13.1 链上身份：ENS、DID、可验证凭证与 EAS', desc: '名字怎样解析到地址，别人怎样为你作证，以及人格证明的隐私代价', html: `
-<h1>M13.1 链上身份：ENS、DID、可验证凭证与 EAS</h1>
+addCh({ id: 'm09-1', nav: '链上身份', title: 'M14.1 链上身份：ENS、DID、可验证凭证与 EAS', desc: '名字怎样解析到地址，别人怎样为你作证，以及人格证明的隐私代价', html: `
+<h1>M14.1 链上身份：ENS、DID、可验证凭证与 EAS</h1>
 ${meta(['画出 ENS 从名字到地址的解析流程（namehash → 注册表 → 解析器，含 CCIP-Read 链下名字），并正确实现“主名称”的双向校验。', '区分 DID、可验证凭证（VC）、EAS 证明和灵魂绑定代币（SBT）四种身份积木，并为一个场景选型。', '用 EAS SDK 注册 schema、签发链上和链下证明；说出 World ID、Human Passport 这类人格证明的隐私代价。'], '<a href="#m07-6">M03.6 签名与登录</a>、<a href="#m02-50">M02.6 NFT 与代币发行</a>')}
 ${beginner(`<p><strong>解析（Resolve）</strong>：把人能读的名字换成机器要用的数据，例如把 <code>vitalik.eth</code> 换成一个地址。</p>
 <p><strong>声明 / 证明（Claim / Attestation）</strong>：某人用签名说“关于某主体，某件事为真”，例如“这个地址完成了课程 A”。</p>
@@ -123,7 +123,7 @@ ${art('一图看懂：地址是根，名字、证明、徽章、真人证明都�
 <h2>2. 身份积木全景</h2>
 ${recall('<p>“用钱包签名登录网站”（Sign-In with Ethereum，SIWE，ERC-4361）以及 EIP-1271 合约钱包验签，已经在 <a href="#m07-6">M03.6 签名与登录</a> 完整讲过。本篇不重复登录流程，只讲登录之后“这个地址是谁、有哪些证明”。</p>')}
 ${layers('链上身份的五层积木', [
-  { name: '根：密钥与账户', sub: 'EOA 或智能合约账户', chips: ['私钥', '多签', '社交恢复（M09.8）'], kind: 'l1' },
+  { name: '根：密钥与账户', sub: 'EOA 或智能合约账户', chips: ['私钥', '多签', '社交恢复（M08.8）'], kind: 'l1' },
   { name: '名字', sub: '人能读的标识符', chips: ['ENS 名字', '子名称', '反向记录'] },
   { name: '声明与凭证', sub: '别人为你作证', chips: ['W3C VC', 'EAS 证明', 'SBT（ERC-5192）'], kind: 'key' },
   { name: '人格证明', sub: '是不是一个独立真人', chips: ['World ID', 'Human Passport'], kind: 'risk' },
@@ -234,7 +234,7 @@ eas.connect(signer)
 
 const schema = process.env.SCHEMA_UID! // 已注册的 'string course, uint8 grade'
 const data = new SchemaEncoder('string course, uint8 grade').encodeData([
-  { name: 'course', value: 'Web3 101 M13', type: 'string' },
+  { name: 'course', value: 'Web3 101 M14', type: 'string' },
   { name: 'grade', value: 90, type: 'uint8' },
 ])
 const recipient = '0x1111111111111111111111111111111111111111'
@@ -300,14 +300,14 @@ contract CourseBadge is ERC721, Ownable, IERC5192 {
 <h2>7. 人格证明：抗女巫的代价</h2>
 <p><strong>人格证明（Proof of Personhood）</strong>要回答“这个账户背后是不是一个独立的真人”。它用于空投、一人一票、反机器人。两类代表方案：</p>
 ${tbl(['方案', '怎么证明', '抗女巫强度', '隐私与排除代价'], [
-  ['World ID（World / Tools for Humanity）', '专用设备 Orb 扫描虹膜，生成唯一性凭证；应用侧用零知识证明（见 <a href="#m10-1">M06.1</a>）证明“我是已验证的人”，不暴露是谁', '强：一个人只能注册一次', '采集生物特征。多国监管机构已暂停或叫停：例如肯尼亚高等法院在 2025 年 5 月裁定其须在 7 天内删除在当地收集的生物特征数据' + cite('Decrypt：肯尼亚法院命令删除生物特征数据（2025-05-06）', 'https://decrypt.co/318029/kenyan-court-orders-sam-altmans-crypto-project-delete-bi-user-data') + '；需要到线下 Orb 网点'],
+  ['World ID（World / Tools for Humanity）', '专用设备 Orb 扫描虹膜，生成唯一性凭证；应用侧用零知识证明（见 <a href="#m10-1">M07.1</a>）证明“我是已验证的人”，不暴露是谁', '强：一个人只能注册一次', '采集生物特征。多国监管机构已暂停或叫停：例如肯尼亚高等法院在 2025 年 5 月裁定其须在 7 天内删除在当地收集的生物特征数据' + cite('Decrypt：肯尼亚法院命令删除生物特征数据（2025-05-06）', 'https://decrypt.co/318029/kenyan-court-orders-sam-altmans-crypto-project-delete-bi-user-data') + '；需要到线下 Orb 网点'],
   ['Human Passport（原 Gitcoin Passport）', '收集多种“戳记”（stamps）：社交账号、链上历史、手机号、证件或生物特征等，按权重算出一个分数', '中：分数可被刷，但成本随戳记数量上升', '把多个账号关联到一个地址，有关联暴露风险；没有这些账号的人分数低。2025 年 2 月被 Holonym 收购并改名' + cite('Biometric Update：Holonym 收购 Gitcoin Passport（2025-02）', 'https://www.biometricupdate.com/202502/holonym-acquires-gitcoin-passport-in-proof-of-personhood-expansion')]
 ])}
 <p>World 自称截至 2026 年 4 月已在 160 个国家验证超过 1,800 万人；同一报道列出了巴西、西班牙、葡萄牙、香港、德国、印度尼西亚、菲律宾、泰国等地的叫停或限制措施${cite('Rest of World：World 的合作与各国监管（2026-04-27）', 'https://restofworld.org/2026/sam-altman-worldcoin-zoom-tinder-partnerships/')}。工程上的结论：</p>
 ${steps([
   '先问“错放一个机器人的损失有多大”：小额活动用行为评分即可，一人一票的治理才值得用强人格证明。',
   '只接收“是否通过”的结果或零知识证明，不保存生物特征和原始证件；并提供替代路径，避免排除没有 Orb 网点或社交账号的人。',
-  '上线前做合规评估（见 <a href="#m11-2">M07.2 KYC、AML 与制裁筛查</a>）。本文不构成法律意见。'
+  '上线前做合规评估（见 <a href="#m11-2">M12.2 KYC、AML 与制裁筛查</a>）。本文不构成法律意见。'
 ])}
 
 ${tryit(`<p><strong>动手练习：</strong>解析一个 ENS 名字，再在测试网签发一条证明。</p>
@@ -321,7 +321,7 @@ ${steps([
 
 ${exercises([
   ['一个 DApp 用 <code>getEnsName</code> 拿到名字就直接显示，没有再做正向解析。攻击者能怎样利用？', '<p>攻击者把自己地址的反向记录设成一个知名名字（例如某交易所的名字）。DApp 在排行榜、聊天或收款页上把攻击者地址显示成这个知名名字，诱导用户转账或信任。修复：显示前正向解析候选名字，结果等于原地址才显示；不一致就显示地址。</p>'],
-  ['你要给“完成 M13 课程”的学员发证明。合约要据此开放一个高级频道的门票领取。选 EAS 链上证明、EAS 链下证明还是 SBT？写出理由。', '<p>选 <strong>EAS 链上证明</strong>（或 SBT）。门票合约要在链上读取证明来判断资格，链下证明合约读不到。EAS 链上证明比 SBT 多了过期、撤销和 refUID，且可以用 resolver 限制只有学院多签能签发。为保护隐私，数据里只写课程编号和“通过”，不写分数明细和姓名。</p>'],
+  ['你要给“完成 M14 课程”的学员发证明。合约要据此开放一个高级频道的门票领取。选 EAS 链上证明、EAS 链下证明还是 SBT？写出理由。', '<p>选 <strong>EAS 链上证明</strong>（或 SBT）。门票合约要在链上读取证明来判断资格，链下证明合约读不到。EAS 链上证明比 SBT 多了过期、撤销和 refUID，且可以用 resolver 限制只有学院多签能签发。为保护隐私，数据里只写课程编号和“通过”，不写分数明细和姓名。</p>'],
   ['为什么说 SBT 的“不可转让”同时是优点和缺点？给出一个补救设计。', '<p>优点：证明不能被买卖，地址的声誉不能直接出售。缺点：私钥丢失或想换钱包时，证明也跟着丢。补救：签发者保留 burn 权限，用户用新地址重新验证后，签发者销毁旧 SBT 并补发到新地址；或把 SBT 发给可恢复的智能账户，而不是 EOA。</p>']
 ])}
 ${checklist([
@@ -365,9 +365,9 @@ ${terms([
 ` });
 
 CUR = 'm09-2';
-addCh({ id: 'm09-2', nav: '链上社交', title: 'M13.2 链上社交：Farcaster、Lens 与社交图谱', desc: '账户上链、内容放链下网络：社交图谱怎样归用户所有，以及垃圾号与变现', html: `
-<h1>M13.2 链上社交：Farcaster、Lens 与社交图谱</h1>
-${meta(['画出 Farcaster 的混合架构：OP Mainnet 上的 IdRegistry、KeyRegistry、StorageRegistry，加上链下的 Snapchain 网络，并说清每类操作放在哪一层。', '对比 Farcaster 与 Lens（Lens Chain + v3 原语）在数据存放、账户模型和扩展方式上的差别，并解释 2026 年两个协议易主对“用户拥有数据”的意义。', '用 Snapchain HTTP API 读取 cast，写出最小 Mini App 的接入步骤，并为一个社交应用设计防垃圾号和变现方案。'], '<a href="#m09-1">M13.1 链上身份</a>、<a href="#m07-2">M03.2 连接钱包</a>')}
+addCh({ id: 'm09-2', nav: '链上社交', title: 'M14.2 链上社交：Farcaster、Lens 与社交图谱', desc: '账户上链、内容放链下网络：社交图谱怎样归用户所有，以及垃圾号与变现', html: `
+<h1>M14.2 链上社交：Farcaster、Lens 与社交图谱</h1>
+${meta(['画出 Farcaster 的混合架构：OP Mainnet 上的 IdRegistry、KeyRegistry、StorageRegistry，加上链下的 Snapchain 网络，并说清每类操作放在哪一层。', '对比 Farcaster 与 Lens（Lens Chain + v3 原语）在数据存放、账户模型和扩展方式上的差别，并解释 2026 年两个协议易主对“用户拥有数据”的意义。', '用 Snapchain HTTP API 读取 cast，写出最小 Mini App 的接入步骤，并为一个社交应用设计防垃圾号和变现方案。'], '<a href="#m09-1">M14.1 链上身份</a>、<a href="#m07-2">M03.2 连接钱包</a>')}
 ${beginner(`<p><strong>社交图谱（Social graph）</strong>：谁关注了谁、谁和谁互动过的关系网。</p>
 <p><strong>客户端（Client）</strong>：用户实际打开的 App。同一个协议可以有很多个客户端，就像同一个邮件协议有很多邮箱 App。</p>
 <p><strong>fid</strong>：Farcaster ID，每个 Farcaster 账户的唯一编号，记录在链上合约里。</p>
@@ -455,7 +455,7 @@ sequenceDiagram
 `, [
   ['flow', '钱包只签一次授权。之后客户端每次发帖都不打扰钱包，体验接近传统 App。'],
   ['risk', '授权界面要清楚显示“哪个客户端、能做什么”。用户给了恶意客户端密钥，它可以持续以用户名义发帖，直到密钥被删除。'],
-  ['key', '这和 <a href="#m06-5">M09.8 账户抽象深入</a> 里会话密钥的思路相同：用一次高权限签名，换一把低权限、可撤销的日常密钥。']
+  ['key', '这和 <a href="#m06-5">M08.8 账户抽象深入</a> 里会话密钥的思路相同：用一次高权限签名，换一把低权限、可撤销的日常密钥。']
 ])}
 
 <h3>Mini Apps：在信息流里运行的网页应用</h3>
@@ -491,11 +491,11 @@ ${call('info', '<p>这是“用户拥有社交图谱”的一次真实检验：<
 <h2>5. 垃圾号、女巫与变现</h2>
 ${tbl(['问题', '常见手段', '代价'], [
   ['批量注册垃圾号', '注册和存储要付费（Farcaster 的存储租金）；新账户限流', '提高了真人用户的门槛'],
-  ['机器人刷互动', '账户质量分（看互动网络、账户年龄）；要求人格证明（见 <a href="#m09-1">M13.1</a>）', '分数不透明，可能误伤新用户；人格证明有隐私代价'],
+  ['机器人刷互动', '账户质量分（看互动网络、账户年龄）；要求人格证明（见 <a href="#m09-1">M14.1</a>）', '分数不透明，可能误伤新用户；人格证明有隐私代价'],
   ['刷空投和激励', '奖励按“被高质量账户互动”加权，而不是按发帖数量', '规则越复杂，越难解释给用户'],
   ['违法与骚扰内容', '协议层不删数据，由每个客户端做内容审核和屏蔽', '同一条内容在不同客户端可见性不同']
 ])}
-<p>变现方式主要有：打赏和付费订阅（创作者直接收代币或稳定币）、付费频道或门槛群组（Lens 的规则合约很适合）、Mini App 内的交易和支付、以及创作者代币发行。代币发行要先读 <a href="#m02-60">M08.6 代币经济设计</a>：发币不是收入，只是把未来收入预支给市场。</p>
+<p>变现方式主要有：打赏和付费订阅（创作者直接收代币或稳定币）、付费频道或门槛群组（Lens 的规则合约很适合）、Mini App 内的交易和支付、以及创作者代币发行。代币发行要先读 <a href="#m02-60">M05.6 代币经济设计</a>：发币不是收入，只是把未来收入预支给市场。</p>
 
 ${tryit(`<p><strong>动手练习：</strong>读取一个账户最近的 cast，并把时间戳转换成日期。</p>
 ${steps([
@@ -508,7 +508,7 @@ ${steps([
 ${exq([['（示例）Snapchain 返回 <code>data.timestamp = 150000000</code>。这条 cast 大约发在哪一年？', '<p>150,000,000 + 1,609,459,200 = 1,759,459,200（Unix 秒）。1,759,459,200 ÷ 31,557,600（每年秒数）≈ 55.75 年，从 1970 年算起约为 2025 年 10 月。</p>']])}
 
 ${exercises([
-  ['你的客户端想做“只有关注我超过 30 天的人才能领取空投”。在 Farcaster 和 Lens 上分别怎么实现？', '<p><strong>Farcaster</strong>：关注关系在链下，合约读不到。做法是后端从 Snapchain 读取 LinkAdd 消息和时间，生成名单，再用 Merkle 根或 EAS 证明上链（见 <a href="#m09-1">M13.1</a>），合约按证明发放。<strong>Lens</strong>：关注关系在 Lens Chain 的 Graph 原语里，可以在规则合约或领取合约里直接查询；“超过 30 天”需要读取关注时间，或由规则在关注时记录。</p>'],
+  ['你的客户端想做“只有关注我超过 30 天的人才能领取空投”。在 Farcaster 和 Lens 上分别怎么实现？', '<p><strong>Farcaster</strong>：关注关系在链下，合约读不到。做法是后端从 Snapchain 读取 LinkAdd 消息和时间，生成名单，再用 Merkle 根或 EAS 证明上链（见 <a href="#m09-1">M14.1</a>），合约按证明发放。<strong>Lens</strong>：关注关系在 Lens Chain 的 Graph 原语里，可以在规则合约或领取合约里直接查询；“超过 30 天”需要读取关注时间，或由规则在关注时记录。</p>'],
   ['用户报告“我的账号在发奇怪的帖子”，但钱包没有签过任何交易。最可能的原因是什么？怎样止损？', '<p>最可能是某个客户端持有的应用密钥泄露，或用户授权了恶意客户端。止损：用托管地址在 KeyRegistry 删除这把应用密钥，删除后用它签的新消息不再被网络接受。之后检查所有已授权的密钥，只保留在用的客户端。托管地址本身没有泄露，账户 fid 不受影响。</p>'],
   ['某社交协议的主 App 修改了社区规则。哪些东西能跟着你走，哪些不能？', '<p>能带走：链上账户（fid 或 Lens 账户）、用户名、关注关系和网络里保存的帖子，以及授权给其他客户端的能力。带不走：主 App 自己的推荐算法、私信（若存在中心化服务器）、App 内的积分、以及已被裁剪的旧数据。前提是有其他可用的客户端和数据服务。</p>']
 ])}
@@ -553,8 +553,8 @@ ${terms([
 ` });
 
 CUR = 'm09-3';
-addCh({ id: 'm09-3', nav: '去中心化存储与 DePIN', title: 'M13.3 去中心化存储与 DePIN', desc: '内容寻址、Filecoin 与 Arweave 各保证什么，以及用代币激励真实硬件的单位经济', html: `
-<h1>M13.3 去中心化存储与 DePIN</h1>
+addCh({ id: 'm09-3', nav: '去中心化存储与 DePIN', title: 'M14.3 去中心化存储与 DePIN', desc: '内容寻址、Filecoin 与 Arweave 各保证什么，以及用代币激励真实硬件的单位经济', html: `
+<h1>M14.3 去中心化存储与 DePIN</h1>
 ${meta(['用内容寻址解释 CID 的结构和 pin 的作用，并说清 Filecoin（存储交易、PoRep / PoSt、PDP）和 Arweave（一次付费 + 捐赠基金）各保证什么、不保证什么。', '区分数据可用性和长期存储，为 Rollup 数据、NFT 元数据、前端文件和证明文件选对存储层。', '画出 DePIN 的激励飞轮，用“需求收入 ÷ 代币排放”和硬件回本周期判断一个项目的需求是否真实。'], '<a href="#m05-9">M04.10 数据基础设施</a>、<a href="#m05-4">M04.4 扩容路线</a>', ['cid'])}
 ${beginner(`<p><strong>内容寻址（Content addressing）</strong>：用内容的哈希当地址。内容变了，地址就变。对比“位置寻址”：URL 指向某台服务器上的某个路径，服务器可以随时换掉内容。</p>
 <p><strong>固定（Pin）</strong>：让一个 IPFS 节点长期保存某份内容，不被垃圾回收清掉。</p>
@@ -585,7 +585,7 @@ ${art('一图看懂：CID 只证明“是那份”，有没有人存要靠另外
 ], '文件算出 CID，取回时重算哈希校验；下方三种保管方式分别是 pin 节点、Filecoin 有期限合约和 Arweave 一次付费永久存储。', 'm09-3')}
 
 <h2>2. 内容寻址：CID 和 pin</h2>
-${recall('<p>IPFS、Arweave、Filecoin 的一张对比表，以及 NFT 元数据“tokenURI → JSON → 图片”的引用链和发布步骤，在 <a href="#m05-9">M04.10 数据基础设施</a> 第 6 节讲过。本篇讲它们背后的机制，以及 M04.10 没有展开的保证边界和 DePIN。</p>')}
+${recall('<p>NFT 元数据“tokenURI → JSON → 图片”的引用链和发布步骤，在 <a href="#m05-9">M04.10 数据基础设施</a> 第 6 节讲过（那里对 IPFS、Arweave、Filecoin 只各给了一句话）。本篇是去中心化存储的主讲：CID 与 pin、Filecoin 与 Arweave 的机制和保证边界，以及 DePIN。</p>')}
 <p>IPFS 的 <strong>CID（内容标识符）</strong>由四部分组成：multibase（字符串编码，只在文本形式里出现）、版本号、multicodec（内容该怎样解释）、multihash（哈希算法 + 摘要，默认 sha2-256）。46 个字符、以 <code>Qm</code> 开头的是 CIDv0；CIDv1 默认用 base32，常见前缀 <code>bafy…</code> 或 <code>bafk…</code>${cite('IPFS 文档：Content addressing and CIDs', 'https://docs.ipfs.tech/concepts/content-addressing/')}。</p>
 ${call('info', '<p>同一个文件<strong>不一定</strong>得到同一个 CID。分块大小、DAG 结构、编解码器、CID 版本和哈希算法任何一项不同，CID 都不同' + cite('IPFS 文档：Content addressing and CIDs', 'https://docs.ipfs.tech/concepts/content-addressing/') + '。所以“本地算出的 CID 和链上记录的对不上”时，先检查上传参数，不要急着认定被篡改。</p>')}
 ${mm('一个文件从上传到被验证地取回', `
@@ -674,7 +674,7 @@ ${steps([
 ${tbl(['项目', '硬件供给', '工作证明（防作弊）', '需求方怎样付费'], [
   ['Filecoin', '硬盘', 'PoRep、PoSt、PDP', '按存储交易付 FIL，或通过服务商付费'],
   ['Helium', '无线热点（LoRaWAN、移动网络）', '覆盖证明（Proof of Coverage）和经验证的数据流量', '燃烧 HNT 换取 Data Credit（DC）；1 DC 固定为 0.00001 美元，DC 不可转让' + cite('Helium 文档：Data Credit', 'https://docs.helium.com/tokens/data-credit/')],
-  ['Render', 'GPU', '渲染任务完成后的日志与结算', '按法币或等值 RENDER 付费，完成后燃烧 RENDER；节点按递减排放表每个 epoch 领奖励' + cite('Render Network：Burn Mint Equilibrium', 'https://know.rendernetwork.com/basics/burn-mint-equilibrium') + '（算力类 DePIN 与 AI 的关系见 <a href="#m06-60">M12.8 AI × Crypto 全景</a>）']
+  ['Render', 'GPU', '渲染任务完成后的日志与结算', '按法币或等值 RENDER 付费，完成后燃烧 RENDER；节点按递减排放表每个 epoch 领奖励' + cite('Render Network：Burn Mint Equilibrium', 'https://know.rendernetwork.com/basics/burn-mint-equilibrium') + '（算力类 DePIN 与 AI 的关系见 <a href="#m06-60">M13.8 AI × Crypto 全景</a>）']
 ])}
 ${mm('DePIN 的激励飞轮与断点', `
 flowchart LR
@@ -705,7 +705,7 @@ ${call('warn', '<p>购买 DePIN 硬件“挖矿”之前，按上面的方法算
 ${tbl(['尽调问题', '为什么问', '去哪里看'], [
   ['需求方是谁，付了多少钱', '区分真实需求和刷量', '链上燃烧 / 支付合约、项目季度报告、第三方研究'],
   ['工作证明能不能伪造', '虚假供给会稀释真实供给方', '协议文档、审计报告、历史作弊事件'],
-  ['排放表和解锁计划', '决定未来卖压', '代币经济文档（见 <a href="#m02-60">M08.6 代币经济设计</a>）'],
+  ['排放表和解锁计划', '决定未来卖压', '代币经济文档（见 <a href="#m02-60">M05.6 代币经济设计</a>）'],
   ['不用代币，服务是否有竞争力', '补贴结束后用户会不会走', '对比同类中心化服务的价格和质量']
 ])}
 

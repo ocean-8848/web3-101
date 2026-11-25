@@ -8,7 +8,7 @@
     #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
   </style>
   <!-- 场景 map，id 前缀 ma- -->
-  <div id="root" data-composition-id="map" data-duration="45.67" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="map" data-duration="47.33" data-width="1920" data-height="1080">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="ma-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -27,9 +27,9 @@
         <!-- 上带：以太坊与扩容 -->
         <rect id="ma-b1" class="dr h" pathLength="1" x="80" y="160" width="1760" height="455" rx="20" fill="none" stroke="#58C4DD" stroke-width="2.5" />
         <text id="ma-b1t" class="h" x="110" y="208" font-size="32" font-weight="700" fill="#58C4DD">以太坊与扩容</text>
-        <!-- 下带：链上数据、取证与自动化 -->
+        <!-- 下带：链上数据与自动化 -->
         <rect id="ma-b2" class="dr h" pathLength="1" x="80" y="683" width="1760" height="237" rx="20" fill="none" stroke="#9ADCEB" stroke-width="2.5" />
-        <text id="ma-b2t" class="h" x="110" y="731" font-size="32" font-weight="700" fill="#9ADCEB">链上数据、取证与自动化</text>
+        <text id="ma-b2t" class="h" x="110" y="731" font-size="32" font-weight="700" fill="#9ADCEB">链上数据与自动化</text>
 
         <!-- 分组标签 -->
         <text id="ma-gr" class="h" x="110" y="296" font-size="32" font-weight="700" fill="#83C167">必修</text>
@@ -69,17 +69,19 @@
         <!-- 下带：数据 -->
         <g id="ma-d0" class="h"><rect x="220" y="767" width="220" height="56" rx="28" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="330" y="805" font-size="28" fill="#e8e6df" text-anchor="middle">数据基础设施</text></g>
         <path id="ma-da0" class="dr h" pathLength="1" d="M444 795 L486 795" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#ma-arrS)" />
-        <g id="ma-d1" class="h"><rect x="490" y="767" width="200" height="56" rx="28" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="590" y="805" font-size="28" fill="#e8e6df" text-anchor="middle">Dune 与 SQL</text></g>
-        <path id="ma-da1" class="dr h" pathLength="1" d="M694 795 L736 795" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#ma-arrS)" />
-        <g id="ma-d2" class="h"><rect x="740" y="767" width="170" height="56" rx="28" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="825" y="805" font-size="28" fill="#e8e6df" text-anchor="middle">链上取证</text></g>
+        <g id="ma-d1" class="h"><rect x="490" y="767" width="440" height="56" rx="28" fill="#161a22" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6" /><text x="710" y="805" font-size="28" fill="#8a8f99" text-anchor="middle">Dune 与取证 → 合规部分</text></g>
         <g id="ma-o7" class="h"><rect x="220" y="845" width="310" height="56" rx="28" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="375" y="883" font-size="28" fill="#e8e6df" text-anchor="middle">预言机与链下自动化</text></g>
         <text id="ma-pb2" class="h" x="1110" y="883" font-size="28" fill="#FF9F43">DeFi · 交易所 · 链上自动化</text>
-        <text id="ma-pc" class="h" x="1110" y="805" font-size="28" fill="#FF9F43">数据分析 · 风控 · 合规 · 交易所</text>
+        <text id="ma-pc" class="h" x="1110" y="805" font-size="28" fill="#FF9F43">数据分析 · 风控 · 交易所</text>
 
         <!-- 两带之间的读图小字 -->
         <text id="ma-flow" class="h" x="960" y="660" font-size="28" fill="#8a8f99" text-anchor="middle">上：共识 → 执行 → 扩容 → 节点 → 排序；下：链外数据进合约，日志变图谱</text>
 
         <!-- 出口 -->
+        <g id="ma-x0" class="h">
+          <text x="1000" y="982" font-size="28" fill="#8a8f99">DeFi</text>
+          <path d="M1080 972 L1140 972" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#ma-arrS)" />
+        </g>
         <g id="ma-x1" class="h">
           <text x="1170" y="982" font-size="28" fill="#8a8f99">非 EVM 与跨链</text>
           <path d="M1370 972 L1430 972" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#ma-arrS)" />
@@ -142,14 +144,15 @@
       // L4：下带 + 人群 + 读图小字
       tl.to("#ma-o6, #ma-o7, #ma-pb, #ma-pb2", { opacity: 0.4, duration: 0.4 }, at(4, 0));
       POP("#ma-d0", at(4, 0.04));
-      ARROW("#ma-da0", at(4, 0.16), 0.25); POP("#ma-d1", at(4, 0.19));
-      ARROW("#ma-da1", at(4, 0.3), 0.25); POP("#ma-d2", at(4, 0.33));
+      ARROW("#ma-da0", at(4, 0.16), 0.25); POP("#ma-d1", at(4, 0.55));
+      
       IN("#ma-pc", at(4, 0.55), 0.6, { x: -20 }, { x: 0 });
       IN("#ma-flow", at(4, 0.8), 0.6);
 
       // L5：出口
       tl.to("#ma-o0, #ma-o1, #ma-o2, #ma-o3, #ma-o4, #ma-o5, #ma-pa, #ma-o6, #ma-o7, #ma-pb, #ma-pb2", { opacity: 1, duration: 0.4 }, at(5, 0));
-      IN("#ma-x1", at(5, 0.08), 0.5, { x: -20 }, { x: 0 });
+      IN("#ma-x0", at(5, 0.02), 0.5, { x: -20 }, { x: 0 });
+      IN("#ma-x1", at(5, 0.2), 0.5, { x: -20 }, { x: 0 });
       IN("#ma-x2", at(5, 0.5), 0.5, { x: -20 }, { x: 0 });
 
       tl.to("#ma-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);

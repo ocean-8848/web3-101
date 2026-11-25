@@ -8,15 +8,15 @@ ${meta([
   '掌握 WalletConnect v2（Reown AppKit）在 iOS/Android 上的 Universal Link 深度链接、会话恢复与断线重连设计。',
   '理解 Solana Mobile Stack（MWA）在安卓本地进程间通信（IPC）上的低延迟签名优势。',
   '落实移动端私钥/分片的硬件安全区（Secure Enclave / StrongBox）存储规范，避开 App Store 与 Google Play 的加密审核拒审红线。'
-], '前置：<a href="#m07-2">M03.2 连接钱包</a>、<a href="#m07-8">M03.8 前端安全</a>、<a href="#m03-60">M09.12 嵌入式钱包与 Passkey</a>')}
+], '前置：<a href="#m07-2">M03.2 连接钱包</a>、<a href="#m07-8">M03.8 前端安全</a>、<a href="#m03-60">M08.12 嵌入式钱包与 Passkey</a>')}
 ${beginner(`<p><strong>深度链接（Deep Link / Universal Link）</strong>：在手机上点一下 App 里的“去钱包签名”，自动拉起 MetaMask 或 Phantom App 并跳到确认弹窗的技术通道。</p>
 <p><strong>MWA（Mobile Wallet Adapter）</strong>：Solana 移动端推出的本地协议。它不需要经过远端中继服务器，而是通过手机本地 WebSocket 直接在 DApp 和钱包 App 之间高速传交易签名。</p>
-<p><strong>Secure Enclave / StrongBox</strong>：iPhone 与旗舰 Android 手机主板上的独立安全芯片。锁在这里的密钥连操作系统内核和越狱脚本也无法直接明文导出，每次使用必须过面容或指纹。</p>`)}
+<p><strong>Secure Enclave / StrongBox</strong>：iPhone 与旗舰 Android 手机主板上的独立安全芯片。锁在这里的密钥连操作系统内核和越狱脚本也无法直接明文导出。如果创建密钥时设置了生物识别访问策略，之后每次使用都要过面容或指纹（这是开发者选的策略，不是芯片强制）。</p>`)}
 
 <h2>1. 一句话理解</h2>
 ${one('桌面端 Web3 是“同一个浏览器里插个插件”，移动端 Web3 是“两个互相隔离的沙盒 App 反复来回跳转”；做好移动端 DApp 核心攻克三件事：跨 App 拉起与后台断线恢复、硬件安全芯片存密钥，以及不踩苹果/谷歌应用商店的抽成与合规红线。')}
 ${call('analogy', `<p>桌面端连钱包像在同一张办公桌上把报销单递给旁边的财务盖章；移动端连外部钱包像你得先坐电梯去 5 楼财务室（Deep Link 跳钱包 App），盖完章再坐电梯回 3 楼（切回 DApp）——如果中途电梯停电（系统杀后台回收了 WebSocket），你回来时发现刚才的表单状态全丢了。</p>
-<p>比喻的局限：这也是为什么新一代消费级移动 DApp 越来越多地采用“内嵌钱包 + FaceID Passkey”（见 <a href="#m03-60">M09.12</a>），直接在自家 App 里一步搞定签名，彻底省掉跨 App 跳转。</p>`)}
+<p>比喻的局限：这也是为什么新一代消费级移动 DApp 越来越多地采用“内嵌钱包 + FaceID Passkey”（见 <a href="#m03-60">M08.12</a>），直接在自家 App 里一步搞定签名，彻底省掉跨 App 跳转。</p>`)}
 ${art('一图看懂：移动端原生 App 连接外部钱包 vs 内置嵌入式钱包', 660, 320, [
   S.zone(15, 18, 305, 240, { t: '模式 A：外链钱包（WalletConnect v2 / MWA）', k: 'info' }),
   S.box(28, 52, 278, 52, { k: 'info', icon: 'phone', t: '原生 DApp（iOS / Android / RN）', s: '发签名请求 → 触发 Universal Link 拉起钱包' }),
@@ -26,7 +26,7 @@ ${art('一图看懂：移动端原生 App 连接外部钱包 vs 内置嵌入式�
   S.zone(340, 18, 305, 240, { t: '模式 B：内置自托管 / 嵌入式钱包', k: 'ok' }),
   S.box(354, 52, 278, 52, { k: 'ok', icon: 'phone', t: 'App 内直接弹窗（零跳出）', s: '类似 Apple Pay 的原生底部签名抽屉' }),
   S.box(354, 124, 278, 52, { k: 'key', icon: 'lock', t: 'iOS Keychain / Android Keystore', s: '受 Secure Enclave / StrongBox 硬件保护' }),
-  S.box(354, 196, 278, 50, { k: 'info', icon: 'shield', t: 'FaceID / 指纹解锁直接签名上链', s: '无中继延迟，转化率提升 3–5 倍' }),
+  S.box(354, 196, 278, 50, { k: 'info', icon: 'shield', t: 'FaceID / 指纹解锁直接签名上链', s: '无中继延迟，少一次跨 App 跳转' }),
   S.arrow(493, 106, 493, 122), S.arrow(493, 178, 493, 194),
   S.text(330, 294, '工程选型：面向加密老手保留 WC v2 / MWA；面向大众消费级 App 优先内置安全芯片/嵌入式钱包', { size: 13, anchor: 'middle', mw: 630 })
 ], [
@@ -44,7 +44,7 @@ sequenceDiagram
   participant W as 外部钱包 App
   D->>R: 加密发送 eth_sendTransaction 请求
   D->>W: 打开 Universal Link 拉起钱包前台
-  Note over D: iOS 约 30 秒后挂起 DApp 后台网络
+  Note over D: iOS 进后台几秒内挂起 DApp，申请后台任务最多延长到约 30 秒
   W->>R: 收到请求并展示签名弹窗
   W->>R: 用户确认后回传签名结果
   W->>D: 用户手动或自动切回 DApp
@@ -60,7 +60,7 @@ sequenceDiagram
 <h2>3. 移动端密钥存储安全规范</h2>
 ${tbl(['存储位置', '安全等级', '是否允许存放私钥/助记词/分片', '工程实践'], [
   ['<strong>AsyncStorage / SharedPreferences / UserDefaults</strong>', '极低（明文文件，备份或越狱直接可读）', '<strong>严禁存放任何密钥</strong>', '只存主题、语言、非敏感缓存'],
-  ['<strong>iOS Keychain / Android EncryptedSharedPreferences</strong>', '高（绑定系统加密与生物识别访问策略）', '允许存加密分片或临时会话密钥', '必须设 <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code>，禁止同步到未加密 iCloud 备份'],
+  ['<strong>iOS Keychain / Android Keystore 加密 + DataStore</strong>', '高（绑定系统加密与生物识别访问策略）', '允许存加密分片或临时会话密钥', 'iOS：设 <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code>（不随备份迁移到其他设备），并保持 <code>kSecAttrSynchronizable</code> 为 false（不进 iCloud 钥匙串同步）。Android：Jetpack 的 EncryptedSharedPreferences（security-crypto）已于 2025 年弃用，新项目改用 Keystore 密钥自行加密后存入 DataStore'],
   ['<strong>Secure Enclave（iOS）/ StrongBox（Android）</strong>', '<strong>最高（硬件隔离芯片，私钥不出芯片）</strong>', '推荐直接生成 P-256 Passkey 或加密主密钥的包装密钥', '配合 FaceID / BiometricPrompt 触发单次硬件签名']
 ])}
 

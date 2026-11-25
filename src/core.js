@@ -7,37 +7,45 @@ let CUR = null; // chapter id while chapter files load (for terms)
 
 /* Article ids are stable (links and saved progress keep working); the displayed order and numbering come from these maps.
    MOD_DISPLAY: internal module id -> displayed module number.  SUB_DISPLAY: article id -> displayed article number. */
-/* 2026-11 Plan C restructure: part 1 公共基础 M00-M07 (M04 以太坊与基础设施, M05 多链与跨链 m14, M06 零知识与隐私 m10, M07 合规 m11), part 2 应用领域 M08-M13, part 3 毕业项目 M14. */
-const MOD_DISPLAY = { m00: 0, m01: 1, m02: 2, m07: 3, m05: 4, m14: 5, m10: 6, m11: 7, m13: 8, m03: 9, m04: 10, m08: 11, m06: 12, m09: 13, m12: 14 };
+/* 2026-11 Plan D: part 1 公共基础 M00-M07 (M04 以太坊与基础设施 m05, M05 DeFi m13, M06 多链与跨链 m14, M07 零知识与隐私 m10),
+   part 2 应用领域 M08-M14 (M08 钱包 m03, M09 CEX m04, M10 DEX m15, M11 衍生品 m08, M12 合规、风控与链上数据 m11, M13 Agent m06, M14 更多赛道 m09), part 3 毕业项目 M15 (m12). */
+const MOD_DISPLAY = { m00: 0, m01: 1, m02: 2, m07: 3, m05: 4, m13: 5, m14: 6, m10: 7, m03: 8, m04: 9, m15: 10, m08: 11, m11: 12, m06: 13, m09: 14, m12: 15 };
 const MOD_OF = { 'm02-9': 'm13', 'm02-10': 'm13', 'm02-11': 'm13', 'm02-60': 'm13', 'm02-61': 'm13', 'm02-12': 'm13', 'm02-63': 'm13', 'm02-64': 'm13', 'm02-65': 'm13', 'm02-68': 'm13', 'm02-70': 'm13',
   'm06-5': 'm03',
-  'm05-11': 'm14', 'm05-12': 'm14', 'm05-70': 'm14', 'm05-60': 'm14', 'm05-61': 'm14', 'm05-62': 'm14', 'm05-63': 'm14', 'm05-64': 'm14', 'm05-65': 'm14', 'm05-68': 'm14', 'm05-8': 'm14', 'm05-71': 'm14' };
+  'm05-11': 'm14', 'm05-12': 'm14', 'm05-70': 'm14', 'm05-60': 'm14', 'm05-61': 'm14', 'm05-62': 'm14', 'm05-63': 'm14', 'm05-64': 'm14', 'm05-65': 'm14', 'm05-68': 'm14', 'm05-8': 'm14', 'm05-71': 'm14', 'm05-75': 'm14',
+  'm04-71': 'm15', 'm04-72': 'm15', 'm04-73': 'm15', 'm04-74': 'm15', 'm04-75': 'm15', 'm04-76': 'm15', 'm04-77': 'm15', 'm04-78': 'm15',
+  'm05-66': 'm11', 'm05-67': 'm11' };
 /* old ids that are no longer pages: the hash is redirected */
 const ALIAS = {};
 /* parts of the book, by displayed module number */
-const BOOK_PARTS = [{ name: '第一部分 · 公共基础', from: 0, to: 7 }, { name: '第二部分 · 应用领域', from: 8, to: 13 }, { name: '第三部分 · 毕业项目', from: 14, to: 14 }];
+const BOOK_PARTS = [{ name: '第一部分 · 公共基础', from: 0, to: 7 }, { name: '第二部分 · 应用领域', from: 8, to: 14 }, { name: '第三部分 · 毕业项目', from: 15, to: 15 }];
 const isFoundation = c => c.modNo <= 7;
 /* section headings inside a module: shown before the given article in the nav and in the overview cards */
-const PART = { 'm04-70': '开篇：总对照', 'm04-1': 'CEX 篇', 'm04-71': 'DEX 篇',
-  'm05-1': '以太坊与扩容', 'm05-9': '链上数据、取证与自动化',
-  'm05-11': '非 EVM 主流公链', 'm05-8': '跨链与链抽象' };
+const PART = { 'm04-70': '开篇：CEX 与 DEX 总对照', 'm04-1': '中心化交易所',
+  'm05-1': '以太坊与扩容', 'm05-9': '链上数据与自动化', 'm05-72': '深入基础设施',
+  'm02-9': 'DeFi 核心原语', 'm02-63': '收益、质押与协议设计', 'm02-12': '实战与协议运营',
+  'm05-60': '比特币', 'm05-75': 'Solana 与 Rust', 'm05-64': '其他主流公链', 'm05-8': '跨链与链抽象',
+  'm11-1': '合规规则与流程', 'm05-66': '链上数据与取证', 'm11-4': '法域、税务与实战' };
 const SUB_DISPLAY = {
   'm01-50': 10,
   /* contracts M02 */
   'm02-50': 6, 'm02-6': 7, 'm02-7': 8, 'm02-8': 9, 'm02-62': 10, 'm02-66': 11, 'm02-67': 12, 'm02-69': 13,
-  /* DeFi M08 (module m13) */
+  /* DeFi M05 (module m13) */
   'm02-9': 1, 'm02-10': 2, 'm02-11': 3, 'm02-63': 4, 'm02-64': 5, 'm02-60': 6, 'm02-61': 7, 'm02-65': 8, 'm02-12': 9, 'm02-68': 10, 'm02-70': 11,
   /* frontend M03 */
   'm07-50': 11, 'm07-60': 12,
   /* wallet M09: account abstraction (internal m06-5) sits between gas strategy and the enterprise design */
   'm06-5': 8, 'm03-8': 9, 'm03-9': 10, 'm03-50': 11, 'm03-60': 12,
-  /* exchange module M10 (internal m04): overview, CEX part 2-12, DEX part 13-20 */
+  /* CEX module M09 (internal m04): CEX vs DEX overview 1, CEX 2-12 */
   'm04-70': 1, 'm04-1': 2, 'm04-2': 3, 'm04-3': 4, 'm04-4': 5, 'm04-5': 6, 'm04-6': 7, 'm04-7': 8, 'm04-8': 9, 'm04-9': 10, 'm04-10': 11, 'm04-50': 12,
-  'm04-71': 13, 'm04-72': 14, 'm04-73': 15, 'm04-74': 16, 'm04-75': 17, 'm04-76': 18, 'm04-77': 19, 'm04-78': 20,
-  /* Ethereum & infrastructure M04 (module m05): Ethereum & scaling 1-9, data & automation 10-13, deep infra 14-16 */
-  'm05-10': 8, 'm05-50': 9, 'm05-9': 10, 'm05-69': 11, 'm05-66': 12, 'm05-67': 13, 'm05-72': 14, 'm05-73': 15, 'm05-74': 16,
-  /* Multi-chain & cross-chain M05 (module m14): non-EVM 1-10, cross-chain & abstraction 11-12 */
-  'm05-11': 1, 'm05-12': 2, 'm05-70': 3, 'm05-60': 4, 'm05-61': 5, 'm05-62': 6, 'm05-63': 7, 'm05-64': 8, 'm05-65': 9, 'm05-68': 10, 'm05-8': 11, 'm05-71': 12,
+  /* DEX module M10 (internal m15, articles keep their m04-7x ids) */
+  'm04-71': 1, 'm04-72': 2, 'm04-73': 3, 'm04-74': 4, 'm04-75': 5, 'm04-76': 6, 'm04-77': 7, 'm04-78': 8,
+  /* Ethereum & infrastructure M04 (module m05): Ethereum & scaling 1-9, data & automation 10-11, deep infra 12-14 */
+  'm05-10': 8, 'm05-50': 9, 'm05-9': 10, 'm05-69': 11, 'm05-72': 12, 'm05-73': 13, 'm05-74': 14,
+  /* compliance, risk & on-chain data M12 (module m11): rules 1-3, data & forensics 4-5, jurisdictions, tax & project 6-8 */
+  'm11-1': 1, 'm11-2': 2, 'm11-3': 3, 'm05-66': 4, 'm05-67': 5, 'm11-4': 6, 'm11-5': 7, 'm11-6': 8,
+  /* Multi-chain & cross-chain M06 (module m14): Bitcoin 1-4, Rust + Solana 5-8, other chains 9-11, cross-chain 12-13 */
+  'm05-60': 1, 'm05-61': 2, 'm05-62': 3, 'm05-63': 4, 'm05-75': 5, 'm05-11': 6, 'm05-12': 7, 'm05-70': 8, 'm05-64': 9, 'm05-65': 10, 'm05-68': 11, 'm05-8': 12, 'm05-71': 13,
   /* ZK & privacy M06 (module m10): 1-7 */
   'm10-1': 1, 'm10-2': 2, 'm10-3': 3, 'm10-4': 4, 'm10-5': 5, 'm10-6': 6, 'm10-7': 7,
   /* agent M12: account abstraction moved out; AI x crypto overview added before the project */
@@ -60,8 +68,12 @@ const OPTIONAL = (() => {
   put(['m05-11', 'm05-12', 'm05-60', 'm05-61', 'm05-62', 'm05-63', 'm05-64', 'm05-65', 'm05-70'], '多链钱包 / 交易所 / Solana 工程 / 协议研究');
   put(['m05-68'], '多链钱包 / 交易所 / 稳定币支付（USDT 大量在 Tron 上流转）');
   put(['m05-8', 'm05-71'], '跨链产品 / 钱包 / 链抽象 / 交易所 / 安全');
-  put(['m05-9', 'm05-66', 'm05-67'], '数据分析 / 风控 / 合规 / 交易所');
-  put(['m11-2', 'm11-3', 'm11-4', 'm11-5', 'm11-6'], '托管钱包 / 交易所 / 支付 / RWA');
+  put(['m05-9'], '数据分析 / 风控 / 交易所 / 基础设施');
+  put(['m05-75'], 'Solana 工程 / 多链钱包 / 协议研究（Rust 是 Solana 程序的主力语言）');
+  put(['m02-63', 'm02-64'], 'DeFi / 质押与收益产品 / 协议研究');
+  put(['m02-60', 'm02-61', 'm02-65'], 'DeFi / 协议研究 / 投研与治理');
+  put(['m02-12'], 'DeFi 合约开发 / 安全审计');
+  put(['m02-68', 'm02-70'], 'DeFi 协议运营 / 增长 / 风控与司库');
   return o;
 })();
 function addCh(c) {
@@ -367,12 +379,12 @@ function minutesOf(c) {
 /* tracks: internal ids. 'm02-*' = whole module, 'm01-1..5' = internal article numbers 1 to 5 */
 const TRACKS = [
   { id: 'contract', name: '合约开发', who: '想写、测、审智能合约', must: ['m00-*', 'm01-1..5', 'm02-*', 'm07-1..6', 'm05-2', 'm05-5', 'm05-7', 'm05-8', 'm05-69', 'm05-71', 'm04-70', 'm04-71', 'm04-72', 'm04-74', 'm02-60..62', 'm02-64', 'm02-66..68', 'm09-1', 'm09-4', 'm10-1..3', 'm12-*'] },
-  { id: 'backend', name: '后端与钱包', who: 'Go/Rust/TS 后端，做索引、充提、签名与出入金服务', must: ['m00-*', 'm01-*', 'm02-1..5', 'm02-7', 'm02-67', 'm03-*', 'm05-1', 'm05-2', 'm05-6', 'm05-9', 'm05-10', 'm05-50', 'm05-60', 'm05-61', 'm05-68', 'm05-67', 'm05-70', 'm09-8', 'm11-1', 'm11-2', 'm12-*'] },
+  { id: 'backend', name: '后端与钱包', who: 'Go/Rust/TS 后端，做索引、充提、签名与出入金服务', must: ['m00-*', 'm01-*', 'm02-1..5', 'm02-7', 'm02-67', 'm03-*', 'm05-1', 'm05-2', 'm05-6', 'm05-9', 'm05-10', 'm05-50', 'm05-60', 'm05-61', 'm05-68', 'm05-67', 'm05-70', 'm05-75', 'm09-8', 'm11-1', 'm11-2', 'm12-*'] },
   { id: 'cex', name: '交易所', who: '做 CEX 撮合与账本、期权做市，或 DEX 报价与路由', must: ['m00-*', 'm01-*', 'm02-1', 'm02-5', 'm02-10', 'm03-1..8', 'm04-*', 'm05-6', 'm05-7', 'm05-70', 'm08-6..9', 'm08-60', 'm08-61', 'm05-60', 'm05-68', 'm05-67', 'm09-8', 'm11-1..3', 'm11-6', 'm12-*'] },
   { id: 'frontend', name: '前端', who: '做 DApp 界面、嵌入式钱包连接、链抽象交易体验', must: ['m00-*', 'm01-1..5', 'm02-1..6', 'm02-50', 'm02-7', 'm02-10', 'm03-60', 'm05-71', 'm07-*', 'm04-70', 'm04-71', 'm04-72', 'm09-*', 'm12-*'] },
   { id: 'agent', name: 'Agent', who: '让 AI 代理安全地读写链', must: ['m00-*', 'm01-1..5', 'm02-1..5', 'm02-7', 'm07-1..6', 'm03-1..3', 'm03-60', 'm05-71', 'm06-*', 'm06-60', 'm09-4', 'm12-*'] },
   { id: 'data', name: '研究与数据', who: '做链上数据分析、资金追踪、风控与行业研究', must: ['m00-*', 'm01-1..5', 'm02-1', 'm02-5', 'm02-9..11', 'm02-60', 'm02-63', 'm02-65', 'm02-68', 'm05-1', 'm05-2', 'm05-7', 'm05-8', 'm05-9', 'm05-60', 'm05-66', 'm05-67', 'm04-70', 'm04-71', 'm08-60', 'm08-61', 'm11-*', 'm12-1', 'm12-5'] },
-  { id: 'protocol', name: '协议与密码学', who: '研究共识、比特币、Solana、零知识证明与跨链互操作', must: ['m00-*', 'm01-1..5', 'm02-1..5', 'm05-1..5', 'm05-11', 'm05-60..65', 'm05-69..71', 'm05-8', 'm10-*', 'm12-1', 'm12-5'] }
+  { id: 'protocol', name: '协议与密码学', who: '研究共识、比特币、Solana、零知识证明与跨链互操作', must: ['m00-*', 'm01-1..5', 'm02-1..5', 'm05-1..5', 'm05-11', 'm05-60..65', 'm05-69..71', 'm05-8', 'm05-75', 'm10-*', 'm12-1', 'm12-5'] }
 ];
 function trackHas(t, c) {
   if (!c.mod) return false;

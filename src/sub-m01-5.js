@@ -3,7 +3,7 @@
 CUR = 'm01-9';
 addCh({ id: 'm01-9', nav: '实战·设计：充值入账服务', title: 'M01.9 实战·设计：链上充值监听与入账服务（Go）', desc: '项目目标、需求拆解、系统架构、技术选型、数据模型与接口设计', html: `
 <h1>M01.9 实战·设计：链上充值监听与入账服务（Go）</h1>
-${meta(['独立设计一个支持 ETH 与 ERC-20（USDT/USDC）的充值服务：地址池、扫块、事件解析、重组处理、确认数。', '用 PostgreSQL + 事务性发件箱实现幂等入账，并通过 Kafka 和 HTTP 回调可靠通知业务方。', '写出包含模拟重组的测试，完成 Docker 部署、监控告警和安全清单，按 6 周里程碑交付。'], '<a href="#m01-8">M01.8 索引器工程</a>、<a href="#m01-7">M01.7 用 go-ethereum 读链</a>、<a href="#m01-4">M01.4 交易全解</a>', ['reorg'])}
+${meta(['独立设计一个支持 ETH 与 ERC-20（USDT/USDC）的充值服务：地址池、扫块、事件解析、重组处理、确认数。', '用 PostgreSQL + 事务性发件箱实现幂等入账，并通过 Kafka 和 HTTP 回调可靠通知业务方。', '规划实现阶段的工作：模拟重组测试、Docker 部署、监控告警、安全清单和 6 周里程碑（具体内容在下一篇 <a href="#m01-50">M01.10 实战·实现</a>）。'], '<a href="#m01-8">M01.8 索引器工程</a>、<a href="#m01-7">M01.7 用 go-ethereum 读链</a>、<a href="#m01-4">M01.4 交易全解</a>', ['reorg'])}
 ${beginner(`<p><strong>充值（Deposit）</strong>：用户把链上资产转进平台分配给他的地址，平台识别后给他的平台账户加余额。</p>
 <p><strong>入账（Credit）</strong>：在平台内部账本上给用户记一笔增加。入账之后用户就能交易或提币，所以入账必须“只发生一次、而且链上真的到账”。</p>
 <p><strong>地址池（Address Pool）</strong>：预先生成好的一批充值地址，用户注册或首次充值时分配一个。</p>
@@ -58,13 +58,13 @@ ${tbl(['类别', '验收标准（示例数字）', '验证方式'], [
 ${tbl(['角色', '用户故事', '验收要点'], [
   ['用户', '我想拿到一个固定的充值地址，转账后能在 App 里看到“确认中 3/12”。', 'GET /v1/deposits 返回确认进度'],
   ['用户', '我转了 USDT，到账后马上能交易。', '确认数达标后 10 秒内余额可用'],
-  ['业务后端（账户服务）', '我要订阅“已入账”“已撤销”事件，按 deposit_id 去重处理。', 'Kafka 事件含唯一 deposit_id，至少一次投递'],
+  ['业务后端（账户服务）', '我要订阅“已入账”“已撤销”事件，按 deposit_id + 事件类型去重处理。', 'Kafka 事件含唯一 deposit_id，至少一次投递'],
   ['外部商户（不接 Kafka）', '我要 HTTP 回调，并能验证回调真的来自平台。', 'X-Signature HMAC 校验；失败按退避重试 24 小时'],
   ['运维', '我要知道扫块是否落后、RPC 是否异常、有没有重组。', 'Grafana 面板 + 告警规则'],
   ['财务', '我要每天核对“链上收到的”和“账本入账的”是否一致。', '每日对账报表，差异为 0'],
   ['风控', '大额充值要等最终确定；入账后被撤销要立刻冻结用户。', '金额分档确认；deposit.reverted 事件触发冻结']
 ])}
-<p><strong>不在本期范围</strong>：归集（把充值地址里的钱转到热钱包）、提币、多链（BTC、Tron、L2）。这些在 <a href="#m03-8">M09.9 企业钱包系统设计</a> 和 <a href="#m04-6">M10.7 充值提币与冷热钱包</a> 中展开。设计时为它们留好接口。</p>
+<p><strong>不在本期范围</strong>：归集（把充值地址里的钱转到热钱包）、提币、多链（BTC、Tron、L2）。这些在 <a href="#m03-8">M08.9 企业钱包系统设计</a> 和 <a href="#m04-6">M09.7 充值提币与冷热钱包</a> 中展开。设计时为它们留好接口。</p>
 
 <h2>4. 系统架构、调用链与状态机</h2>
 ${mm('充值服务架构（上）：发现与确认', `
@@ -116,7 +116,7 @@ flowchart LR
 `, [
   ['flow', 'Confirmer 在同一数据库里把达标的充值改为 credited，同时写账本和 outbox；Relay 把 outbox 投递到 Kafka，Webhook Worker 回调商户。'],
   ['key', '所有状态变化都先落库，再由 outbox 异步通知。数据库是唯一事实来源，消息系统宕机不会丢事件。'],
-  ['fail', 'Relay 发送 Kafka 成功但标记 sent_at 前崩溃：消息会再发一次（至少一次语义），消费方必须按 deposit_id 去重。']
+  ['fail', 'Relay 发送 Kafka 成功但标记 sent_at 前崩溃：消息会再发一次（至少一次语义），消费方必须按 deposit_id + type 去重（只按 deposit_id 会把后来的 reverted 事件当成重复丢掉）。']
 ])}
 ${mm('一笔 USDT 充值的完整调用链', `
 sequenceDiagram
@@ -140,10 +140,10 @@ sequenceDiagram
   RL->>DB: 读取未发送 outbox（SKIP LOCKED）
   RL->>K: 发送 deposit.credited
   RL->>DB: 标记 sent_at
-  K-->>AC: 消费事件，按 deposit_id 去重后加余额
+  K-->>AC: 消费事件，按 deposit_id + type 去重后加余额
 `, [
   ['flow', '从链上打包到账户服务加余额，经过 3 个数据库事务：发现（pending）、入账（credited + ledger + outbox）、投递标记。'],
-  ['key', '每一步都可以安全重试：发现靠部分唯一索引去重，入账靠 ledger (deposit_id, kind) 唯一约束，投递靠消费方按 deposit_id 去重。'],
+  ['key', '每一步都可以安全重试：发现靠部分唯一索引去重，入账靠 ledger (deposit_id, kind) 唯一约束，投递靠消费方按 deposit_id + type 去重。'],
   ['fail', 'Relay 发送 Kafka 成功但标记 sent_at 前崩溃：消息会再发一次。这是“至少一次”语义，消费方必须幂等。'],
   ['limit', 'Kafka 只保证同一分区内有序。用 tx_hash 作为消息键，同一笔充值的 credited 与 reverted 进入同一分区，顺序不乱。']
 ])}
@@ -309,7 +309,7 @@ WHERE id = (
 RETURNING address;
 -- 同一用户的两个并发请求：第二个会违反 uq_addr_user，捕获唯一约束错误后重新执行第一条 SELECT
 `)}
-<p>地址由钱包系统离线生成：用扩展公钥（xpub）按 BIP-32 派生 <code>m/44'/60'/0'/0/i</code>，只把地址和序号 i 导入地址池。私钥永远不进入充值服务。派生原理见 <a href="#m03-2">M09.2 助记词与 HD 钱包</a>。</p>
+<p>地址由钱包系统离线生成：用扩展公钥（xpub）按 BIP-32 派生 <code>m/44'/60'/0'/0/i</code>，只把地址和序号 i 导入地址池。私钥永远不进入充值服务。派生原理见 <a href="#m03-2">M08.2 助记词与 HD 钱包</a>。</p>
 
 <h2>7. 接口设计</h2>
 <h3>7.1 REST API</h3>
@@ -347,7 +347,7 @@ ${steps([
 
 ${recap([
   '目标：链上真到账的钱恰好入账一次；用具体数字定义延迟、吞吐、可用性和正确性验收标准。',
-  '架构：地址池 + Scanner（顺序扫块、按 blockHash 拉日志、找共同祖先回滚）+ Confirmer（金额分档、多源校验）+ outbox 通知。',
+  '架构：地址池 + Scanner（顺序扫块、按 blockHash 拉日志；发现父哈希对不上时，按 <a href="#m01-8">M01.8</a> 的算法向回找共同祖先，删除其后的区块并把相关充值标记 orphaned / reverted）+ Confirmer（金额分档、多源校验）+ outbox 通知。',
   '数据：deposits 部分唯一索引防重复且允许重组后重新记录；ledger (deposit_id, kind) 唯一保证最多一次入账和一次冲正。'
 ])}
 ${quiz([
@@ -692,7 +692,7 @@ RETURNING id, status, user_id, token, amount::text, tx_hash\`, s.ChainID, int64(
 `)}
 <h3>8.6 Outbox Relay 与回调签名</h3>
 ${code('GO', `
-// Relay 把 outbox 里未发送的消息发到 Kafka。至少一次投递：消费方按 deposit_id 去重。
+// Relay 把 outbox 里未发送的消息发到 Kafka。至少一次投递：消费方按 deposit_id + type 去重。
 func (r *Relay) Once(ctx context.Context) (int, error) {
 	sent := 0
 	err := pgx.BeginFunc(ctx, r.DB, func(tx pgx.Tx) error {
@@ -969,7 +969,7 @@ ${tbl(['威胁', '攻击方式', '影响', '防护'], [
   ['RPC 欺骗', '被入侵或出错的 RPC 返回伪造区块或日志', '错误入账', '多源区块哈希校验；自建节点做最终裁决'],
   ['失败交易', 'ETH 转账 status = 0，但交易 value 字段不为 0', '错误入账', '检查回执 status 和 blockHash'],
   ['地址投毒', '0 金额或微小金额转账，地址前后几位模仿用户常用地址', '用户误把钱转给攻击者', '0 金额忽略；min_deposit 过滤粉尘；前端完整展示地址'],
-  ['回调伪造与重放', '冒充平台向商户发回调，或重发旧回调', '商户错误加款', 'HMAC 签名 + 时间戳 5 分钟窗口；商户按 deposit_id 去重'],
+  ['回调伪造与重放', '冒充平台向商户发回调，或重发旧回调', '商户错误加款', 'HMAC 签名 + 时间戳 5 分钟窗口；商户按 deposit_id + type 去重'],
   ['重复入账', '重扫、重启、消息重复', '多加余额', '部分唯一索引 + ledger (deposit_id, kind) 唯一 + 消费方幂等'],
   ['内部人员篡改', '直接改数据库余额或状态', '资金损失', '账本只追加不删除；最小权限；审计日志；每日对账'],
   ['密钥泄露', 'RPC key、回调密钥、数据库密码泄露', '被冒充或数据被改', 'KMS 管理、轮换、只读副本给分析用'],
@@ -1002,11 +1002,11 @@ flowchart LR
 ])}
 <h3>扩展方向</h3>
 ${steps([
-  '<strong>多链</strong>：抽象 ChainAdapter 接口（扫块、解析、最终性判断），接入 BTC（UTXO 模型）、Tron、Solana、L2（以 L1 批次最终性为准）；Tron 的账户与费用模型见 <a href="#m05-68">M05.10 Tron 与 TON</a>。',
-  '<strong>归集</strong>：充值入账后，把地址里的钱汇总到热钱包；ERC-20 归集需要先给地址补 gas，或使用 EIP-7702 / 合约钱包方案。见 <a href="#m03-8">M09.9</a>。',
+  '<strong>多链</strong>：抽象 ChainAdapter 接口（扫块、解析、最终性判断），接入 BTC（UTXO 模型）、Tron、Solana、L2（以 L1 批次最终性为准）；Tron 的账户与费用模型见 <a href="#m05-68">M06.11 Tron 与 TON</a>。',
+  '<strong>归集</strong>：充值入账后，把地址里的钱汇总到热钱包；ERC-20 归集需要先给地址补 gas，或使用 EIP-7702 / 合约钱包方案。见 <a href="#m03-8">M08.9</a>。',
   '<strong>内部转账识别</strong>：接入 trace 节点，用 callTracer 识别合约内部转 ETH。',
   '<strong>风控</strong>：对接链上地址风险评分（制裁名单、混币器来源），高风险充值进入人工审核。',
-  '<strong>储备金证明</strong>：用充值记录与地址余额生成默克尔求和树，见 <a href="#m01-2">M01.2</a> 和 <a href="#m04-8">M10.9</a>。'
+  '<strong>储备金证明</strong>：用充值记录与地址余额生成默克尔求和树，见 <a href="#m01-2">M01.2</a> 和 <a href="#m04-8">M09.9</a>。'
 ])}
 <h3>面试与作品集要点</h3>
 ${steps([
@@ -1034,14 +1034,14 @@ ${mistakes([
 ])}
 ${recap([
   '目标：链上真到账的钱恰好入账一次；用具体数字定义延迟、吞吐、可用性和正确性验收标准。',
-  '架构：地址池 + Scanner（顺序扫块、按 blockHash 拉日志、找共同祖先回滚）+ Confirmer（金额分档、多源校验）+ outbox 通知。',
+  '架构：地址池 + Scanner（顺序扫块、按 blockHash 拉日志、找共同祖先回滚；每轮末尾调用 Store.ConfirmUpTo，按金额分档把达标充值改为 credited）+ outbox 通知。设计篇里的 Confirmer 角色，在本实现中合并进了 Scanner.Step 与 Store.ConfirmUpTo，没有单独的组件。',
   '数据：deposits 部分唯一索引防重复且允许重组后重新记录；ledger (deposit_id, kind) 唯一保证最多一次入账和一次冲正。',
   '识别规则：合约白名单、3 个 topic、金额大于 0、ETH 回执 status = 1；合约内部转 ETH 需要 trace 或对账兜底。',
   '工程：咨询锁单活、Docker distroless、密钥来自 KMS、Prometheus 指标与分级告警、每日对账。',
   '测试：假链模拟入账前与入账后重组，PostgreSQL 集成测试，anvil 快照回滚，模糊与故障注入。'
 ])}
 ${quiz([
-  { q: 'Relay 把消息写入 Kafka 成功后、更新 sent_at 前进程崩溃。结果是什么？', o: ['消息丢失', '数据库损坏', '消息会被再发一次，消费方需要按 deposit_id 去重', 'Kafka 自动去重，不会重复'], a: 2, why: '事务回滚，sent_at 仍为空，下次 Relay 会重发。这是至少一次语义，所以消费方必须幂等。' },
+  { q: 'Relay 把消息写入 Kafka 成功后、更新 sent_at 前进程崩溃。结果是什么？', o: ['消息丢失', '数据库损坏', '消息会被再发一次，消费方需要按 deposit_id + type 去重', 'Kafka 自动去重，不会重复'], a: 2, why: '事务回滚，sent_at 仍为空，下次 Relay 会重发。这是至少一次语义，所以消费方必须幂等。' },
   { q: '用户从某交易所提币，给充值地址转了 1 ETH，但服务没识别到。最可能的原因是什么？', o: ['这是合约内部调用转出的 ETH，交易的 to 不是充值地址', 'ETH 需要 64 个确认', '地址簿没刷新', 'RPC 节点限流'], a: 0, why: '很多交易所和合约钱包通过合约批量转账，ETH 来自内部调用。只扫描交易 to 字段识别不到，需要 trace 或余额对账兜底。' },
   { q: '某笔 USDT 充值已 credited，随后发生了比确认阈值更深的重组，交易消失。系统应该怎么做？', o: ['什么都不做', '删除充值记录和账本流水', '把游标拨回 0 重新扫描', '标记 reverted，写入负数冲正流水，发出 deposit.reverted 事件并触发冻结与告警'], a: 3, why: '账本只追加不删除。冲正流水保留审计线索，撤销事件通知账户服务和风控，同时 P1 告警进入事故流程。' }
 ])}

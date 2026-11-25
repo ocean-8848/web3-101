@@ -1,8 +1,8 @@
-/* ---------- M13 更多应用赛道（3）：m09-7 NFT 市场、版税与 Memecoin 发行 ---------- */
+/* ---------- M14 更多应用赛道（3）：m09-7 NFT 市场、版税与 Memecoin 发行 ---------- */
 (() => {
 CUR = 'm09-7';
-addCh({ id: 'm09-7', nav: 'NFT 市场与 Memecoin', title: 'M13.6 NFT 市场、版税与 Memecoin 发行：签名订单、联合曲线与防坑清单', desc: 'NFT 订单怎样签名与成交，版税为什么收不到，联合曲线发币怎样运作，买币前怎样自查', html: `
-<h1>M13.6 NFT 市场、版税与 Memecoin 发行：签名订单、联合曲线与防坑清单</h1>
+addCh({ id: 'm09-7', nav: 'NFT 市场与 Memecoin', title: 'M14.6 NFT 市场、版税与 Memecoin 发行：签名订单、联合曲线与防坑清单', desc: 'NFT 订单怎样签名与成交，版税为什么收不到，联合曲线发币怎样运作，买币前怎样自查', html: `
+<h1>M14.6 NFT 市场、版税与 Memecoin 发行：签名订单、联合曲线与防坑清单</h1>
 ${meta(['说出 Seaport 订单的主要字段（offerer、zone、offer、consideration、orderType 等），解释“链下签名、链上成交”和聚合器、出价池的作用，并用 SQL 找出可疑的对敲交易。', '解释 ERC-2981 为什么只是“查询接口”，讲清运营商过滤、可选版税、ERC-721C 等链上强制方案的时间线与局限，并读出一个真实合集的版税设置。', '用恒定乘积公式算出联合曲线发币的买入量、毕业市值和创作者清仓的价格冲击，并按清单检查一个新代币的权限、税率、流动性和持仓。'], '前置：<a href="#m02-50">M02.6 NFT 与代币发行</a>、<a href="#m07-6">M03.6 签名与登录</a>、<a href="#m02-5">M02.5 ERC-20 与授权</a>', ['bondcurve'])}
 ${beginner(`<p><strong>订单簿（Order book）</strong>：把想买的价格和想卖的价格排成两列的清单。NFT 市场的订单簿通常存在平台自己的服务器上，而不是链上。</p>
 <p><strong>版税（Royalty）</strong>：NFT 每次二级市场转手时，按成交价抽一部分给创作者，例如 5%。</p>
@@ -76,7 +76,7 @@ ${call('warn', '<p>订单签名的危险在 <code>consideration</code>：它写�
 <p><strong>聚合器</strong>把多个市场的订单簿合到一个界面，用户一次扫货，交易路由到各市场的合约。Blur 是典型：它的<strong>出价池（Bid Pool）</strong>用积分奖励挂在地板价附近、且持续时间长的集合出价，让买盘变厚${tag('待核实')}（出价池规则的官方文档本次未能访问，以上按多篇二级资料归纳）。2023 年 5 月 Blur 又上线点对点 NFT 借贷 Blend${cite('Blockworks：Blur 推出 Blend', 'https://blockworks.co/news/blur-nft-lending')}。</p>
 ${call('info', '<p>时间敏感：据 The Block 2026-10-12 报道，Blur 宣布将在 2026 年 11 月关闭前端，Blend 在 2026-11-12 停止撮合新贷款；链上市场协议继续运行；Blur 的月成交量从 2023 年 3 月约 14.3 亿美元的峰值降到 2026 年 3 月不足 700 万美元' + cite('The Block：Blur 将关闭前端', 'https://www.theblock.co/post/418363/blur-nft-marketplace-shutting-down-frontend-blend') + '。这个例子说明：靠代币激励养出来的交易量，激励一停就会消失。</p>')}
 <p><strong>对敲（Wash trading）</strong>是自己卖给自己，制造虚假成交量。动机有两种：抬高“地板价”和“成交记录”，或者刷市场的代币奖励。学术研究（以太坊 NFT 市场，截至 2022 年 1 月）发现 5.66% 的合集存在对敲，估计虚假成交额约 34.1 亿美元；利用奖励计划的对敲更赚钱，在 LooksRare 上平均每次成功操作获利约 105.5 万美元，而靠转卖抬价的对敲约一半亏钱${cite('La Morgia 等：A Game of NFTs（arXiv:2212.01225）', 'https://arxiv.org/abs/2212.01225')}。</p>
-<p>最朴素的检测是找“来回倒手”：同一枚 NFT，A 卖给 B，不久 B 又卖给 A。下面是 Dune 上的写法（<code>nft.trades</code> 的列名以 Dune 当前的 schema 为准，使用前先在数据浏览器里确认；Dune 与 SQL 见 <a href="#m05-66">M04.12 Dune 与链上 SQL</a>）：</p>
+<p>最朴素的检测是找“来回倒手”：同一枚 NFT，A 卖给 B，不久 B 又卖给 A。下面是 Dune 上的写法（<code>nft.trades</code> 的列名以 Dune 当前的 schema 为准，使用前先在数据浏览器里确认；Dune 与 SQL 见 <a href="#m05-66">M12.4 Dune 与链上 SQL</a>）：</p>
 ${code('SQL', `
 -- 7 天内同一枚 NFT 在两个地址之间来回成交
 SELECT a.nft_contract_address, a.token_id, a.seller AS addr1, a.buyer AS addr2,
@@ -93,7 +93,7 @@ JOIN nft.trades b
 WHERE a.block_time > now() - interval '30' day
 LIMIT 100
 `)}
-<p>这只能抓到最简单的两方互刷。更隐蔽的做法是多地址成环，或由同一个资金来源（见 <a href="#m05-67">M04.13 链上取证</a>）给买方充值。常用的补充信号：买卖双方的 Gas 资金来自同一地址；成交价远高于同合集的其他成交；同一钱包反复在同一合集同一价位成交；奖励期结束后成交量骤降。</p>
+<p>这只能抓到最简单的两方互刷。更隐蔽的做法是多地址成环，或由同一个资金来源（见 <a href="#m05-67">M12.5 链上取证</a>）给买方充值。常用的补充信号：买卖双方的 Gas 资金来自同一地址；成交价远高于同合集的其他成交；同一钱包反复在同一合集同一价位成交；奖励期结束后成交量骤降。</p>
 
 <h2>3. 版税：一个“建议”怎样变成了“可选”</h2>
 <p><strong>ERC-2981</strong>只定义一个查询函数：<code>royaltyInfo(tokenId, salePrice)</code> 返回 <code>(receiver, royaltyAmount)</code>。规范说明版税支付是“自愿”的，因为 <code>transferFrom</code> 并不总意味着发生了一次销售；支持该标准的市场“应该”实现转账版税的方法，没有实现的市场则不会付${cite('EIP-2981：NFT Royalty Standard', 'https://eips.ethereum.org/EIPS/eip-2981')}。也就是说，<strong>合约能告诉你该付多少，但没有任何机制拦着你不付</strong>。接口检测用 ERC-165：<code>supportsInterface(0x2a55205a)</code>。</p>
@@ -191,7 +191,7 @@ flowchart TD
 ])}
 
 <h2>6. 合规一段话</h2>
-<p>是否构成证券、发币者与平台有哪些义务，随法域和事实而不同。美国 SEC 公司融资部的工作人员在 2025-02-27 发布声明，认为其所描述的那类 meme coin 交易不涉及证券的发售与销售；该声明只代表员工意见，不是委员会规则，不覆盖带有承诺、用 meme 名义包装的证券，也不排除其他机构按欺诈追责${cite('SEC 公司融资部工作人员声明：Meme Coins', 'https://www.sec.gov/newsroom/speeches-statements/staff-statement-meme-coins')}。合规的基本框架见 <a href="#m11-1">M07.1 合规全景</a>，不同法域的差别见 <a href="#m11-4">M07.4 主要法域</a>。以上不是法律意见；你打算在产品里提供发币或交易功能时，应当找当地律师。</p>
+<p>是否构成证券、发币者与平台有哪些义务，随法域和事实而不同。美国 SEC 公司融资部的工作人员在 2025-02-27 发布声明，认为其所描述的那类 meme coin 交易不涉及证券的发售与销售；该声明只代表员工意见，不是委员会规则，不覆盖带有承诺、用 meme 名义包装的证券，也不排除其他机构按欺诈追责${cite('SEC 公司融资部工作人员声明：Meme Coins', 'https://www.sec.gov/newsroom/speeches-statements/staff-statement-meme-coins')}。合规的基本框架见 <a href="#m11-1">M12.1 合规全景</a>，不同法域的差别见 <a href="#m11-4">M12.6 主要法域</a>。以上不是法律意见；你打算在产品里提供发币或交易功能时，应当找当地律师。</p>
 
 ${tryit(`<p><strong>两个小时：查一个真实合集的版税，再解剖一个新代币。</strong></p>
 ${steps([

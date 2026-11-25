@@ -1,9 +1,9 @@
-/* ---------- M13 Web3 应用赛道（2）：m09-4 RWA 与支付 · m09-5 GameFi · m09-6 ★ 实战 ---------- */
+/* ---------- M14 Web3 应用赛道（2）：m09-4 RWA 与支付 · m09-5 GameFi · m09-6 ★ 实战 ---------- */
 (() => {
 CUR = 'm09-4';
-addCh({ id: 'm09-4', nav: 'RWA 与链上支付', title: 'M13.4 RWA 与链上支付：代币化国债、许可型代币与稳定币收款', desc: '现实资产怎样变成链上代币，谁能持有；商户怎样用稳定币收款和跨境结算', html: `
-<h1>M13.4 RWA 与链上支付：代币化国债、许可型代币与稳定币收款</h1>
-${meta(['画出一只代币化国债基金从链下资产、SPV / 基金、过户代理到链上代币的四层结构，并说清代币持有人真正拥有的是什么。', '说清 ERC-3643 的身份登记、合规模块和强制转账，写出一个带白名单检查的转账钩子，并用 NAV / 储备金预言机约束铸造。', '设计一条稳定币商户收款链路：发票、EIP-3009 签名授权、代付 Gas、到账确认，并比较跨境结算和出入金的成本结构。'], '前置：<a href="#m02-9">M08.1 稳定币</a>、<a href="#m02-5">M02.5 ERC-20 与授权</a>、<a href="#m09-1">M13.1 链上身份</a>')}
+addCh({ id: 'm09-4', nav: 'RWA 与链上支付', title: 'M14.4 RWA 与链上支付：代币化国债、许可型代币与稳定币收款', desc: '现实资产怎样变成链上代币，谁能持有；商户怎样用稳定币收款和跨境结算', html: `
+<h1>M14.4 RWA 与链上支付：代币化国债、许可型代币与稳定币收款</h1>
+${meta(['画出一只代币化国债基金从链下资产、SPV / 基金、过户代理到链上代币的四层结构，并说清代币持有人真正拥有的是什么。', '说清 ERC-3643 的身份登记、合规模块和强制转账，写出一个带白名单检查的转账钩子，并用 NAV / 储备金预言机约束铸造。', '设计一条稳定币商户收款链路：发票、EIP-3009 签名授权、代付 Gas、到账确认，并比较跨境结算和出入金的成本结构。'], '前置：<a href="#m02-9">M05.1 稳定币</a>、<a href="#m02-5">M02.5 ERC-20 与授权</a>、<a href="#m09-1">M14.1 链上身份</a>')}
 ${beginner(`<p><strong>RWA（现实世界资产，Real-World Assets）</strong>：在链下真实存在的资产，例如美国国债、货币基金份额、贷款、房产、黄金。把它们的所有权或收益权记成链上代币，叫<strong>代币化（Tokenization）</strong>。</p>
 <p><strong>SPV（特殊目的载体，Special Purpose Vehicle）</strong>：为了持有一类资产而专门设立的公司或信托。它和发起机构在法律上隔离，发起机构破产时，SPV 里的资产不被拿去还债。</p>
 <p><strong>NAV（资产净值，Net Asset Value）</strong>：基金总资产减去负债，再除以份额数，得到每一份值多少钱。</p>
@@ -126,7 +126,7 @@ ${tbl(['数据', '回答什么问题', '用在哪里'], [
   ['储备金证明（Proof of Reserve，PoR）', '托管的资产是否 ≥ 已发行代币', '铸造前检查；储备不足时暂停铸造并告警'],
   ['AUM（管理资产规模）', '基金总规模', '风险敞口统计、协议上限']
 ])}
-<p>Chainlink 把这类数据归入 SmartData：PoR 数据源的读法和价格数据源相同，但答案的单位可能是盎司或代币数量；NAV 通过 NAVLink 提供${cite('Chainlink 文档：SmartData', 'https://docs.chain.link/data-feeds/smartdata')}。官方文档的 Secure Mint 策略建议：每次铸造前读取 PoR，确保铸造后的总供应量不超过储备，并让“过期阈值”匹配数据源的心跳间隔${cite('Chainlink 文档：SecureMintPolicy', 'https://docs.chain.link/ace/reference/policy-library/secure-mint-policy')}。CEX 用默克尔树证明储备的做法见 <a href="#m04-8">M10.9 风控对账与储备金证明</a>。</p>
+<p>Chainlink 把这类数据归入 SmartData：PoR 数据源的读法和价格数据源相同，但答案的单位可能是盎司或代币数量；NAV 通过 NAVLink 提供${cite('Chainlink 文档：SmartData', 'https://docs.chain.link/data-feeds/smartdata')}。官方文档的 Secure Mint 策略建议：每次铸造前读取 PoR，确保铸造后的总供应量不超过储备，并让“过期阈值”匹配数据源的心跳间隔${cite('Chainlink 文档：SecureMintPolicy', 'https://docs.chain.link/ace/reference/policy-library/secure-mint-policy')}。CEX 用默克尔树证明储备的做法见 <a href="#m04-8">M09.9 风控对账与储备金证明</a>。</p>
 <p>铸造合约的检查顺序：① 调用 PoR 数据源的 <code>latestRoundData()</code>；② 答案 ≤ 0 或 <code>block.timestamp - updatedAt</code> 超过阈值，拒绝；③ 把数据源精度和代币精度统一（精度弄错会让检查形同虚设）；④ 铸造后的总供应量大于储备，拒绝并告警。读取方式与价格预言机相同，见 <a href="#m05-9">M04.10 数据基础设施</a>。</p>
 ${call('info', '<p>PoR 不是审计。Chainlink 文档提醒：链下储备数据可能来自第三方审计师、托管行，也可能来自发行方自报，自报数据风险更高；NAV 和 PoR 数据源通常只有单一数据提供方。读这类数据时，要在风控里记录“数据由谁提供”。</p>')}
 <p><strong>算一算（示例）：</strong>一只代币化基金按 NAV 认购，并按日计提收益。</p>
@@ -138,7 +138,7 @@ ${steps([
 ])}
 
 <h2>6. 链上支付：商户收款、代付 Gas 与跨境结算</h2>
-${recall('<p>稳定币的三种设计、USDC / USDT 的储备与黑名单、6 位精度和非标准返回值，见 <a href="#m02-9">M08.1 稳定币</a>。<code>approve</code> + <code>transferFrom</code> 和 EIP-2612 <code>permit</code> 见 <a href="#m02-5">M02.5 ERC-20 与授权</a>。AI Agent 用 HTTP 402 + EIP-3009 自动付费（x402）见 <a href="#m06-7">M12.6 Agent 支付</a>。本节只讲“人向商户付款”的工程设计。</p>')}
+${recall('<p>稳定币的三种设计、USDC / USDT 的储备与黑名单、6 位精度和非标准返回值，见 <a href="#m02-9">M05.1 稳定币</a>。<code>approve</code> + <code>transferFrom</code> 和 EIP-2612 <code>permit</code> 见 <a href="#m02-5">M02.5 ERC-20 与授权</a>。AI Agent 用 HTTP 402 + EIP-3009 自动付费（x402）见 <a href="#m06-7">M13.6 Agent 支付</a>。本节只讲“人向商户付款”的工程设计。</p>')}
 ${compare('三种让用户付稳定币的方式', [
   { name: 'approve + transferFrom', tag: '两笔交易', kind: 'info', points: ['用户先发 approve，再由商户合约扣款', '用户需要持有原生币付 Gas', '常见“无限授权”风险', '所有 ERC-20 都支持'] },
   { name: 'EIP-2612 permit', tag: '签名授权 + 一笔交易', kind: '', points: ['用户离线签名授权额度', '商户在同一笔交易里 permit + transferFrom', '授权和扣款分开，仍有额度残留', 'USDC 支持，USDT（以太坊）不支持'] },
@@ -147,7 +147,7 @@ ${compare('三种让用户付稳定币的方式', [
   ['flow', '三种方式最终都调用代币合约改余额，区别在于谁发交易、谁付 Gas、授权是否残留。'],
   ['key', '收款场景首选 EIP-3009：签名里写死收款方、金额和有效期，没有残留授权，用户不需要持有 ETH。'],
   ['risk', 'EIP-3009 规范指出：如果收款方是一个合约，攻击者可以从内存池抢先提交 transferWithAuthorization，让钱到了合约但合约逻辑没执行。合约收款要用 receiveWithAuthorization，它要求调用者就是收款方。' + cite('EIP-3009：Transfer With Authorization', 'https://eips.ethereum.org/EIPS/eip-3009')],
-  ['limit', '只适用于实现了这些扩展的代币。其他代币需要 Permit2 或智能账户 + Paymaster 方案（见 M09.8）。']
+  ['limit', '只适用于实现了这些扩展的代币。其他代币需要 Permit2 或智能账户 + Paymaster 方案（见 M08.8）。']
 ])}
 ${mm('稳定币商户收款：发票 → 签名 → 代付提交 → 到账', `
 sequenceDiagram
@@ -211,14 +211,14 @@ export async function signInvoice(inv: { id: string; payTo: \`0x\${string}\`; am
 }
 `)}
 <p>行业里的真实落地：Visa 在 2023-09-05 宣布把 USDC 结算扩展到 Solana，并与收单机构 Worldpay、Nuvei 试点用 USDC 向它们结算${cite('Circle / Visa 新闻稿：Visa 扩展稳定币结算', 'https://www.circle.com/pressroom/visa-expands-stablecoin-settlement-capabilities-to-merchant-acquirers')}；Stripe 在 2024 年 10 月让美国商户接受以太坊、Solana、Polygon 上的 USDC 付款，商户收到的是美元${cite('The Block：Stripe 恢复加密支付', 'https://www.theblock.co/post/320404/stripe-crypto-payments')}。按 Stripe 文档，稳定币付款以商户本地法币入账，退款以稳定币退回用户原钱包，没有银行卡那种拒付（chargeback）${cite('Stripe 文档：Stablecoin payments', 'https://docs.stripe.com/crypto/stablecoins')}。Stripe 还在 2025 年完成对稳定币基础设施公司 Bridge 的收购${cite('Stripe：完成收购 Bridge', 'https://stripe.com/newsroom/news/stripe-completes-bridge-acquisition')}。这说明一个趋势：用户和商户看到的是“美元付款”，稳定币在中间当结算层。</p>
-<p>一条跨境稳定币链路有五个环节：<strong>入金</strong>（服务商做 KYC，银行卡入金有拒付风险，所以手续费高）→ <strong>链上转账</strong>（选低费用链，确认数按金额分级）→ <strong>跨境</strong>（超过门槛的转账要按旅行规则携带双方信息，见 <a href="#m11-3">M07.3 旅行规则</a>）→ <strong>出金</strong>（需要当地持牌机构，汇率点差和到账时间是主要成本）→ <strong>对账</strong>（订单、链上 txHash、银行流水三方核对）。</p>
+<p>一条跨境稳定币链路有五个环节：<strong>入金</strong>（服务商做 KYC，银行卡入金有拒付风险，所以手续费高）→ <strong>链上转账</strong>（选低费用链，确认数按金额分级）→ <strong>跨境</strong>（超过门槛的转账要按旅行规则携带双方信息，见 <a href="#m11-3">M12.3 旅行规则</a>）→ <strong>出金</strong>（需要当地持牌机构，汇率点差和到账时间是主要成本）→ <strong>对账</strong>（订单、链上 txHash、银行流水三方核对）。</p>
 <p><strong>算一算（示例）：</strong>从 A 国向 B 国汇 1,000 美元，比较两种路径的成本结构（费率是讲解用的假设，真实数字因国家和服务商差异很大）。</p>
 ${steps([
   '传统电汇：汇款手续费 25 美元 + 汇率点差 2%（20 美元）= 45 美元，到账 2–3 个工作日。收款方得到 955 美元等值。',
   '稳定币路径：入金 1%（10 美元）→ L2 链上转账约 0.01 美元 → 出金 1%（约 9.90 美元）。合计约 19.91 美元，链上部分几秒，出金取决于当地银行。',
   '结论：省下的主要是汇率点差和中间行费用，链上 Gas 几乎可以忽略；瓶颈在两端的出入金和合规。'
 ])}
-${call('warn', '<p>链上支付和 RWA 都涉及证券法、支付牌照、反洗钱和制裁规则。本篇只介绍技术框架，不构成法律意见。上线前要由律师确认你所在法域的要求，相关框架见 <a href="#m11-2">M07.2 KYC、AML 与制裁筛查</a> 和 <a href="#m11-4">M07.4 主要法域</a>。</p>')}
+${call('warn', '<p>链上支付和 RWA 都涉及证券法、支付牌照、反洗钱和制裁规则。本篇只介绍技术框架，不构成法律意见。上线前要由律师确认你所在法域的要求，相关框架见 <a href="#m11-2">M12.2 KYC、AML 与制裁筛查</a> 和 <a href="#m11-4">M12.6 主要法域</a>。</p>')}
 
 ${tryit(`<p><strong>动手练习：</strong>在区块浏览器里观察一个许可型 RWA 代币，再读一次 USDC 的 EIP-3009 状态。</p>
 ${steps([
@@ -289,9 +289,9 @@ ${terms([
 ` });
 
 CUR = 'm09-5';
-addCh({ id: 'm09-5', nav: 'GameFi 与链上游戏', title: 'M13.5 GameFi 与链上游戏：资产上链、全链游戏、应用链与 P2E 经济', desc: '游戏里什么该上链；MUD 与 Dojo；游戏应用链与 L3；Axie 的兴衰；会话密钥与防作弊', html: `
-<h1>M13.5 GameFi 与链上游戏：资产上链、全链游戏、应用链与 P2E 经济</h1>
-${meta(['按“资产上链 / 混合 / 全链”三种架构，判断一个游戏的哪些部分应该上链，并用 Gas 数字说明为什么游戏常用应用链或 L3。', '用 MUD 写出一张表和一个 System，说清全链游戏和“自治世界”的数据模型。', '用产出与消耗（faucet / sink）复盘 Axie Infinity 的兴衰，并为链上游戏设计会话密钥、随机数和防作弊方案。'], '前置：<a href="#m02-50">M02.6 NFT 与代币发行</a>、<a href="#m06-5">M09.8 账户抽象深入</a>、<a href="#m05-4">M04.4 扩容路线</a>')}
+addCh({ id: 'm09-5', nav: 'GameFi 与链上游戏', title: 'M14.5 GameFi 与链上游戏：资产上链、全链游戏、应用链与 P2E 经济', desc: '游戏里什么该上链；MUD 与 Dojo；游戏应用链与 L3；Axie 的兴衰；会话密钥与防作弊', html: `
+<h1>M14.5 GameFi 与链上游戏：资产上链、全链游戏、应用链与 P2E 经济</h1>
+${meta(['按“资产上链 / 混合 / 全链”三种架构，判断一个游戏的哪些部分应该上链，并用 Gas 数字说明为什么游戏常用应用链或 L3。', '用 MUD 写出一张表和一个 System，说清全链游戏和“自治世界”的数据模型。', '用产出与消耗（faucet / sink）复盘 Axie Infinity 的兴衰，并为链上游戏设计会话密钥、随机数和防作弊方案。'], '前置：<a href="#m02-50">M02.6 NFT 与代币发行</a>、<a href="#m06-5">M08.8 账户抽象深入</a>、<a href="#m05-4">M04.4 扩容路线</a>')}
 ${beginner(`<p><strong>GameFi</strong>：Game + Finance，游戏里的道具、货币或收益和链上代币挂钩。</p>
 <p><strong>边玩边赚（Play-to-Earn，P2E）</strong>：玩家通过游戏行为获得可以在市场上卖钱的代币或 NFT。</p>
 <p><strong>全链游戏（Fully On-chain Game）</strong>：游戏的状态和规则都写在智能合约里，前端只是一个“看链上数据的窗口”。</p>
@@ -330,7 +330,7 @@ ${compare('三种链上游戏架构', [
 ], [
   ['flow', '从左到右，上链的部分越来越多：先是资产，再是关键操作，最后是全部规则。'],
   ['key', '判断标准：如果某个东西被游戏方单方面修改会让玩家受损（资产数量、稀有度、交易），它就值得上链。'],
-  ['limit', '链上所有数据公开。卡牌游戏的手牌、策略游戏的迷雾，必须用承诺或零知识证明隐藏（见 <a href="#m10-1">M06.1 零知识证明直觉</a>）。'],
+  ['limit', '链上所有数据公开。卡牌游戏的手牌、策略游戏的迷雾，必须用承诺或零知识证明隐藏（见 <a href="#m10-1">M07.1 零知识证明直觉</a>）。'],
   ['risk', '资产上链但逻辑在服务器上时，游戏方仍可以通过改掉落率、改数值来改变资产价值。“上链”不等于“去中心化”。']
 ])}
 ${tbl(['游戏元素', '建议位置', '理由'], [
@@ -409,7 +409,7 @@ ${layers('游戏常见的链层次', [
   { name: '游戏 L3 / 应用链', sub: '例如基于 Arbitrum Orbit、OP Stack 的专用链', chips: ['可定制 Gas 代币', '可免 Gas', '流动性被隔离', '桥接风险'], kind: 'key' }
 ], [
   ['flow', 'L3 把交易数据结算到 L2，L2 再结算到 L1。每加一层，成本更低，但安全依赖链更长。'],
-  ['risk', '应用链需要跨链桥把资产搬进搬出，桥是被攻击最多的环节。Axie 的 Ronin 桥就是例子（见下文和 <a href="#m05-8">M05.11 跨链桥</a>）。'],
+  ['risk', '应用链需要跨链桥把资产搬进搬出，桥是被攻击最多的环节。Axie 的 Ronin 桥就是例子（见下文和 <a href="#m05-8">M06.12 跨链桥</a>）。'],
   ['limit', '应用链上的资产和 DeFi 主流动性隔离：玩家想把道具卖成 USDC，需要先跨链。'],
   ['key', '选型问题不是“哪条链最快”，而是“谁来保证这条链的安全”：独立验证者集合、L2 的欺诈证明或有效性证明，还是一个中心化排序器。']
 ], ['结算', '结算'])}
@@ -432,8 +432,8 @@ flowchart LR
   ['limit', '图是简化模型。真实经济还有治理代币、市场手续费、公会分成等环节。']
 ])}
 ${cases([
-  ['Axie Infinity：P2E 的繁荣与收缩', '2021–2022', '<p>2021 年 Axie 成为 P2E 的代表，许多玩家通过“奖学金”模式借用公会的角色打金。按 The Block 的统计，Axie 的 NFT 月销售额在 2021 年 8 月超过 8.48 亿美元，2022 年 4 月只有 1,940 万美元，下降 98%；日活玩家从 2021 年 11 月的 250 万降到 2022 年 4 月的 120 万。为了抑制 SLP 通胀，Sky Mavis 鼓励玩家质押 SLP 换取 RON，并取消了每天最多可赚 75 SLP 的日常任务和冒险模式奖励，但效果有限。</p><p>启示：代币产出和消耗的平衡，比单纯的“边玩边赚”更重要；当收益来自新玩家的资金时，增长放缓就会引发价格螺旋下跌。代币经济设计见 <a href="#m02-60">M08.6 代币经济设计</a>。</p>', [['The Block：The decline of Axie Infinity', 'https://www.theblock.co/post/146915/the-decline-of-axie-infinity']]],
-  ['Ronin 桥被盗', '2022-03', '<p>Ronin 桥 9 个验证者中有 5 个私钥被攻击者控制，约 6.25 亿美元的 ETH 和 USDC 被盗。它发生在 Axie 经济收缩期间，进一步打击了玩家信心。完整复盘见 <a href="#m05-8">M05.11 跨链桥</a>。</p>', [['The Block：Ronin 侧链遭 6 亿美元攻击', 'https://www.theblock.co/post/139761/axie-infinitys-ethereum-sidechain-ronin-hit-by-600-million-exploit']]]
+  ['Axie Infinity：P2E 的繁荣与收缩', '2021–2022', '<p>2021 年 Axie 成为 P2E 的代表，许多玩家通过“奖学金”模式借用公会的角色打金。按 The Block 的统计，Axie 的 NFT 月销售额在 2021 年 8 月超过 8.48 亿美元，2022 年 4 月只有 1,940 万美元，下降 98%；日活玩家从 2021 年 11 月的 250 万降到 2022 年 4 月的 120 万。为了抑制 SLP 通胀，Sky Mavis 鼓励玩家质押 SLP 换取 RON，并取消了每天最多可赚 75 SLP 的日常任务和冒险模式奖励，但效果有限。</p><p>启示：代币产出和消耗的平衡，比单纯的“边玩边赚”更重要；当收益来自新玩家的资金时，增长放缓就会引发价格螺旋下跌。代币经济设计见 <a href="#m02-60">M05.6 代币经济设计</a>。</p>', [['The Block：The decline of Axie Infinity', 'https://www.theblock.co/post/146915/the-decline-of-axie-infinity']]],
+  ['Ronin 桥被盗', '2022-03', '<p>Ronin 桥 9 个验证者中有 5 个私钥被攻击者控制，约 6.25 亿美元的 ETH 和 USDC 被盗。它发生在 Axie 经济收缩期间，进一步打击了玩家信心。完整复盘见 <a href="#m05-8">M06.12 跨链桥</a>。</p>', [['The Block：Ronin 侧链遭 6 亿美元攻击', 'https://www.theblock.co/post/139761/axie-infinitys-ethereum-sidechain-ronin-hit-by-600-million-exploit']]]
 ], 'h3')}
 <p><strong>算一算（示例）：</strong>检查一个代币的产出和消耗是否平衡。</p>
 ${steps([
@@ -444,7 +444,7 @@ ${steps([
 ])}
 
 <h2>6. 体验与公平：会话密钥、随机数与防作弊</h2>
-${recall('<p>ERC-4337 智能账户、Paymaster 代付 Gas 和会话密钥的实现细节见 <a href="#m06-5">M09.8 账户抽象深入</a>；Chainlink VRF 的请求和回调流程见 <a href="#m05-9">M04.10 数据基础设施</a>。本节只讲它们在游戏里的用法。</p>')}
+${recall('<p>ERC-4337 智能账户、Paymaster 代付 Gas 和会话密钥的实现细节见 <a href="#m06-5">M08.8 账户抽象深入</a>；Chainlink VRF 的请求和回调流程见 <a href="#m05-9">M04.10 数据基础设施</a>。本节只讲它们在游戏里的用法。</p>')}
 ${mm('会话密钥：一次授权，后续操作不再弹钱包', `
 sequenceDiagram
   participant P as 玩家
@@ -471,7 +471,7 @@ ${tbl(['作弊方式', '为什么链上游戏容易出现', '对策'], [
   ['预测随机数', '用 block.timestamp、prevrandao 生成的“随机数”可以被出块者影响，也能被同一交易里的合约预先计算', '用 VRF；或用承诺-揭示（commit-reveal）：先提交哈希，过几个区块后揭示'],
   ['看到结果再决定', '开箱结果在同一笔交易里可见，攻击合约可以“结果不好就回滚”', '请求随机数和使用随机数分成两笔交易；禁止合约账户调用或检查调用来源'],
   ['抢跑（Front-running）', '内存池里的操作公开，别人可以抢先占位或抢资源', '用私有交易通道、批量结算，或在 L3 上用先到先服务排序（见 <a href="#m05-7">M04.7 MEV</a>）'],
-  ['机器人与多开（女巫）', '链上无法区分人和脚本，P2E 收益让脚本有利可图', '奖励与真人凭证挂钩（例如链上身份证明，见 <a href="#m09-1">M13.1 链上身份</a>），收益递减，限制单账户产出'],
+  ['机器人与多开（女巫）', '链上无法区分人和脚本，P2E 收益让脚本有利可图', '奖励与真人凭证挂钩（例如链上身份证明，见 <a href="#m09-1">M14.1 链上身份</a>），收益递减，限制单账户产出'],
   ['客户端篡改', '全链游戏的前端开源、可改', '所有规则都在合约里校验；客户端只负责显示']
 ])}
 
@@ -530,9 +530,9 @@ ${terms([
 ` });
 
 CUR = 'm09-6';
-addCh({ id: 'm09-6', nav: '★ 实战：凭证与声誉', title: 'M13.7 ★ 实战：链上凭证与声誉 DApp（EAS + ENS + 灵魂绑定徽章）', desc: '机构签发 EAS 凭证，用户用 ENS 展示声誉档案，凭证决定访问权限', html: `
-<h1>M13.7 ★ 实战：链上凭证与声誉 DApp（EAS + ENS + 灵魂绑定徽章）</h1>
-${meta(['设计一套 EAS 凭证 schema、一个校验签发方并自动发放灵魂绑定徽章的 Resolver 合约，以及一个幂等的签发服务。', '用 viem 解析 ENS 档案、用 EAS GraphQL 读取凭证，组合成声誉主页，并按凭证控制页面和合约的访问。', '为项目写出测试清单、部署与监控方案、威胁模型（含隐私与撤销），并按 5 周里程碑交付。'], '前置：<a href="#m09-1">M13.1 链上身份：ENS、DID、可验证凭证与 EAS</a>、<a href="#m02-50">M02.6 NFT 与代币发行</a>、<a href="#m07-6">M03.6 签名与登录</a>')}
+addCh({ id: 'm09-6', nav: '★ 实战：凭证与声誉', title: 'M14.7 ★ 实战：链上凭证与声誉 DApp（EAS + ENS + 灵魂绑定徽章）', desc: '机构签发 EAS 凭证，用户用 ENS 展示声誉档案，凭证决定访问权限', html: `
+<h1>M14.7 ★ 实战：链上凭证与声誉 DApp（EAS + ENS + 灵魂绑定徽章）</h1>
+${meta(['设计一套 EAS 凭证 schema、一个校验签发方并自动发放灵魂绑定徽章的 Resolver 合约，以及一个幂等的签发服务。', '用 viem 解析 ENS 档案、用 EAS GraphQL 读取凭证，组合成声誉主页，并按凭证控制页面和合约的访问。', '为项目写出测试清单、部署与监控方案、威胁模型（含隐私与撤销），并按 5 周里程碑交付。'], '前置：<a href="#m09-1">M14.1 链上身份：ENS、DID、可验证凭证与 EAS</a>、<a href="#m02-50">M02.6 NFT 与代币发行</a>、<a href="#m07-6">M03.6 签名与登录</a>')}
 ${beginner(`<p><strong>凭证 / 证明（Attestation）</strong>：某个签发方（attester）对某个对象（recipient）做出的一条带签名的声明，例如“地址 0xA 完成了 Solidity 入门课，成绩 92”。</p>
 <p><strong>EAS（以太坊证明服务，Ethereum Attestation Service）</strong>：一套开源合约，提供两件事：登记凭证格式的 SchemaRegistry，和签发、撤销凭证的 EAS 合约。</p>
 <p><strong>Schema</strong>：凭证的数据格式，例如 <code>string courseId, uint8 score</code>。每个 schema 注册后得到一个唯一的 UID。</p>
@@ -560,7 +560,7 @@ ${art('一图看懂：只有登记过的签发方能签，签完自动发一枚�
   ['fail', 'Resolver 返回 false 或回滚，凭证不会写入，徽章也不会铸造。'],
   ['limit', '凭证和徽章都公开可读，成绩姓名等隐私不要直接写进数据里。']
 ], '签发方签出一条 EAS 凭证，EAS 调用 CredResolver 做四项检查，通过后 CredBadge 给收款人铸造一枚不可转让的徽章。', 'm09-6')}
-${recall('<p>DID、可验证凭证、EAS 的基本概念和 ENS 的解析原理见 <a href="#m09-1">M13.1 链上身份</a>。ERC-721 的铸造见 <a href="#m02-50">M02.6 NFT 与代币发行</a>；“用钱包签名登录”（SIWE）见 <a href="#m07-6">M03.6 签名与登录</a>。本篇只讲把它们组装成一个可交付的项目。</p>')}
+${recall('<p>DID、可验证凭证、EAS 的基本概念和 ENS 的解析原理见 <a href="#m09-1">M14.1 链上身份</a>。ERC-721 的铸造见 <a href="#m02-50">M02.6 NFT 与代币发行</a>；“用钱包签名登录”（SIWE）见 <a href="#m07-6">M03.6 签名与登录</a>。本篇只讲把它们组装成一个可交付的项目。</p>')}
 
 <h2>1. 项目目标与验收标准</h2>
 <p>项目代号 <strong>CredBoard</strong>。部署在 Base Sepolia 测试网（EAS 在 Base 和 Base Sepolia 上是预部署合约：EAS 地址 <code>0x4200…0021</code>，SchemaRegistry 地址 <code>0x4200…0020</code>）${cite('EAS 合约仓库：部署地址', 'https://github.com/ethereum-attestation-service/eas-contracts')}；ENS 在以太坊主网（或 Sepolia）解析。</p>
@@ -675,7 +675,7 @@ ${tbl(['组件', '选型', '备选', '理由'], [
   ['前端', 'Next.js + viem + wagmi', 'Vite + React', 'viem 自带 ENS 动作（getEnsName、getEnsAvatar、getEnsText）'],
   ['索引', 'EAS 官方 GraphQL（起步）→ 自建索引', 'The Graph、Ponder', '起步零运维；关键业务要能脱离第三方（见 <a href="#m01-8">M01.8 索引器工程</a>）'],
   ['密钥', '云 KMS（secp256k1）', 'Safe 多签 + 提案', '签发频繁，KMS 能自动化并留审计；管理员权限放在 Safe 多签上'],
-  ['证据存储', '私有对象存储 + 链上加盐哈希', 'IPFS（见 <a href="#m09-3">M13.3</a>）', '证据可能含个人信息，不能公开存储']
+  ['证据存储', '私有对象存储 + 链上加盐哈希', 'IPFS（见 <a href="#m09-3">M14.3</a>）', '证据可能含个人信息，不能公开存储']
 ])}
 
 <h2>5. 数据模型</h2>
@@ -923,7 +923,7 @@ ${steps([
   '<strong>环境：</strong>local（anvil + 本地 EAS 部署）→ staging（Base Sepolia，测试 schema）→ production（Base 主网，正式 schema）。三套环境的 schema UID、合约地址、签发方地址分开配置。',
   '<strong>部署顺序：</strong>预测 Resolver 地址 → 部署 CredBadge → 部署 CredResolver（owner = Safe 多签）→ 用 SchemaRegistry 注册两条 schema → <code>setCourseSchema</code> → 部署 CredGate → Safe 提案 <code>setIssuer</code>。全部写成 forge script，地址输出到 deployments/&lt;chain&gt;.json。',
   '<strong>CI/CD：</strong>每个 PR 跑 forge test、slither、前端单测；合并到 main 部署 staging；打 tag 后人工审批部署 production。合约部署后在区块浏览器验证源码。',
-  '<strong>密钥：</strong>管理员权限只在 Safe 多签（2/3 或 3/5）；签发方私钥在 KMS，Worker 的云身份只有“签名”权限；轮换签发方时先登记新地址、再移除旧地址（旧地址保留用于撤销）。企业密钥体系见 <a href="#m03-8">M09.9 企业钱包系统设计</a>。',
+  '<strong>密钥：</strong>管理员权限只在 Safe 多签（2/3 或 3/5）；签发方私钥在 KMS，Worker 的云身份只有“签名”权限；轮换签发方时先登记新地址、再移除旧地址（旧地址保留用于撤销）。企业密钥体系见 <a href="#m03-8">M08.9 企业钱包系统设计</a>。',
   '<strong>配置：</strong>可信签发方列表以链上 isIssuer 为准，前端和 API 启动时读取并缓存 5 分钟（示例）。'
 ])}
 ${tbl(['指标', '含义', '告警阈值（示例）'], [
@@ -948,7 +948,7 @@ ${tbl(['威胁', '攻击路径', '影响', '缓解'], [
   ['女巫刷声誉', '一人多地址刷贡献积分', '声誉失真', '积分只来自可信签发方；贡献凭证需要人工审批；跨地址关联由签发方在链下 KYC 处理（如需要）'],
   ['徽章合约重入', '铸造回调到恶意接收合约', '签发流程被打断', '用 _mint 而不是 _safeMint；Resolver 不持有资金']
 ])}
-${call('warn', '<p>链上数据永久公开，撤销只是“标记无效”，原始数据仍可从历史区块读出。在 GDPR 等隐私法规下，个人数据上链可能带来合规问题（见 <a href="#m11-4">M07.4 主要法域</a>）。默认把个人信息留在链下，只把哈希或承诺上链。本篇不构成法律意见。</p>')}
+${call('warn', '<p>链上数据永久公开，撤销只是“标记无效”，原始数据仍可从历史区块读出。在 GDPR 等隐私法规下，个人数据上链可能带来合规问题（见 <a href="#m11-4">M12.6 主要法域</a>）。默认把个人信息留在链下，只把哈希或承诺上链。本篇不构成法律意见。</p>')}
 
 <h2>11. 里程碑计划（5 周）</h2>
 ${tbl(['周', '交付物', '完成标准'], [
@@ -963,9 +963,9 @@ ${tbl(['周', '交付物', '完成标准'], [
 ${tbl(['扩展方向', '做法'], [
   ['跨组织互认', '建一个“可信签发方注册表”合约，由多个组织共同治理；验证方按注册表判断'],
   ['声誉评分', '按签发方权重 × 凭证类型 × 时间衰减计算分数，链下计算，定期把 Merkle 根上链供合约读取'],
-  ['零知识出示', '用户证明“我持有某签发方的凭证且分数 ≥ 80”而不暴露地址和分数（见 <a href="#m10-7">M06.7 Merkle 成员证明</a>）'],
-  ['链上社交', '把凭证展示到 Farcaster / Lens 档案，或作为社交图谱的信任信号（见 <a href="#m09-2">M13.2 链上社交</a>）'],
-  ['空投与治理', '按凭证发放空投、计算 DAO 投票权重（见 <a href="#m02-61">M08.7 DAO 治理与运营</a>）'],
+  ['零知识出示', '用户证明“我持有某签发方的凭证且分数 ≥ 80”而不暴露地址和分数（见 <a href="#m10-7">M07.7 Merkle 成员证明</a>）'],
+  ['链上社交', '把凭证展示到 Farcaster / Lens 档案，或作为社交图谱的信任信号（见 <a href="#m09-2">M14.2 链上社交</a>）'],
+  ['空投与治理', '按凭证发放空投、计算 DAO 投票权重（见 <a href="#m02-61">M05.7 DAO 治理与运营</a>）'],
   ['多链', '同一组织在多条 L2 上签发，用索引器合并档案']
 ])}
 <p><strong>面试时讲清楚这五点：</strong></p>

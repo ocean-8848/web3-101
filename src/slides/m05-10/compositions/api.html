@@ -1,0 +1,141 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 api，id 前缀 ap- -->
+  <div id="root" data-composition-id="api" data-duration="63.08" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ap-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ap-all">
+        <text id="ap-title" class="h" x="120" y="140" font-size="56" font-weight="700" fill="#e8e6df">接口设计</text>
+        <path id="ap-trunk" class="dr" pathLength="1" d="M140 230 V720" stroke="#6b6f7a" stroke-width="3" fill="none"/>
+        <g id="ap-n1" class="h"><path d="M140 260 H168" stroke="#6b6f7a" stroke-width="3"/><text class="mono" x="180" y="272" font-size="32" font-weight="700" fill="#F0B90B">POST /v1/{chain}</text><text x="520" y="272" font-size="28" fill="#8a8f99">单个 / 批量</text></g>
+        <g id="ap-n2" class="h"><path d="M200 282 V330 H222" stroke="#6b6f7a" stroke-width="3" fill="none"/><text class="mono" x="232" y="342" font-size="30" fill="#58C4DD">/v1/{chain}/ws</text><text x="520" y="342" font-size="28" fill="#8a8f99">WebSocket</text></g>
+        <g id="ap-n3" class="h"><path d="M140 440 H168" stroke="#6b6f7a" stroke-width="3"/><text class="mono" x="180" y="452" font-size="32" fill="#83C167">/healthz</text><text x="520" y="452" font-size="28" fill="#8a8f99">存活探针</text></g>
+        <g id="ap-n4" class="h"><path d="M140 510 H168" stroke="#6b6f7a" stroke-width="3"/><text class="mono" x="180" y="522" font-size="32" fill="#83C167">/readyz</text><text x="520" y="522" font-size="28" fill="#8a8f99">就绪探针</text></g>
+        <g id="ap-n5" class="h"><path d="M140 640 H168" stroke="#6b6f7a" stroke-width="3"/><text class="mono" x="180" y="652" font-size="32" fill="#58C4DD">/metrics</text><text x="520" y="652" font-size="28" fill="#8a8f99">指标</text></g>
+        <g id="ap-n6" class="h"><path d="M140 710 H168" stroke="#6b6f7a" stroke-width="3"/><text class="mono" x="180" y="722" font-size="32" fill="#B48EF0">/admin/upstreams</text><text x="520" y="722" font-size="28" fill="#8a8f99">管理</text></g>
+        <rect id="ap-wall" class="h" x="120" y="594" width="780" height="166" rx="14" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="10 7"/>
+        <text id="ap-wallt" class="h" x="880" y="640" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="end">内网</text>
+        <g id="ap-lock" class="h">
+          <path d="M622 698 V688 Q622 672 637 672 Q652 672 652 688 V698" fill="none" stroke="#FF9F43" stroke-width="3.5"/>
+          <rect x="614" y="696" width="46" height="34" rx="6" fill="#FF9F43"/>
+          <text class="mono" x="676" y="722" font-size="28" fill="#FF9F43">mTLS</text>
+        </g>
+        <!-- R1 -->
+        <g id="ap-r1">
+          <g id="ap-one" class="h"><circle cx="1080" cy="290" r="24" fill="#F0B90B"/><text x="1080" y="360" font-size="28" fill="#e8e6df" text-anchor="middle">单个</text></g>
+          <g id="ap-many" class="h"><circle cx="1300" cy="210" r="7" fill="#F0B90B"/><circle cx="1320" cy="210" r="7" fill="#F0B90B"/><circle cx="1340" cy="210" r="7" fill="#F0B90B"/><circle cx="1360" cy="210" r="7" fill="#F0B90B"/><circle cx="1380" cy="210" r="7" fill="#F0B90B"/><circle cx="1400" cy="210" r="7" fill="#F0B90B"/><circle cx="1420" cy="210" r="7" fill="#F0B90B"/><circle cx="1440" cy="210" r="7" fill="#F0B90B"/><circle cx="1460" cy="210" r="7" fill="#F0B90B"/><circle cx="1480" cy="210" r="7" fill="#F0B90B"/><circle cx="1300" cy="230" r="7" fill="#F0B90B"/><circle cx="1320" cy="230" r="7" fill="#F0B90B"/><circle cx="1340" cy="230" r="7" fill="#F0B90B"/><circle cx="1360" cy="230" r="7" fill="#F0B90B"/><circle cx="1380" cy="230" r="7" fill="#F0B90B"/><circle cx="1400" cy="230" r="7" fill="#F0B90B"/><circle cx="1420" cy="230" r="7" fill="#F0B90B"/><circle cx="1440" cy="230" r="7" fill="#F0B90B"/><circle cx="1460" cy="230" r="7" fill="#F0B90B"/><circle cx="1480" cy="230" r="7" fill="#F0B90B"/><circle cx="1300" cy="250" r="7" fill="#F0B90B"/><circle cx="1320" cy="250" r="7" fill="#F0B90B"/><circle cx="1340" cy="250" r="7" fill="#F0B90B"/><circle cx="1360" cy="250" r="7" fill="#F0B90B"/><circle cx="1380" cy="250" r="7" fill="#F0B90B"/><circle cx="1400" cy="250" r="7" fill="#F0B90B"/><circle cx="1420" cy="250" r="7" fill="#F0B90B"/><circle cx="1440" cy="250" r="7" fill="#F0B90B"/><circle cx="1460" cy="250" r="7" fill="#F0B90B"/><circle cx="1480" cy="250" r="7" fill="#F0B90B"/><circle cx="1300" cy="270" r="7" fill="#F0B90B"/><circle cx="1320" cy="270" r="7" fill="#F0B90B"/><circle cx="1340" cy="270" r="7" fill="#F0B90B"/><circle cx="1360" cy="270" r="7" fill="#F0B90B"/><circle cx="1380" cy="270" r="7" fill="#F0B90B"/><circle cx="1400" cy="270" r="7" fill="#F0B90B"/><circle cx="1420" cy="270" r="7" fill="#F0B90B"/><circle cx="1440" cy="270" r="7" fill="#F0B90B"/><circle cx="1460" cy="270" r="7" fill="#F0B90B"/><circle cx="1480" cy="270" r="7" fill="#F0B90B"/><circle cx="1300" cy="290" r="7" fill="#F0B90B"/><circle cx="1320" cy="290" r="7" fill="#F0B90B"/><circle cx="1340" cy="290" r="7" fill="#F0B90B"/><circle cx="1360" cy="290" r="7" fill="#F0B90B"/><circle cx="1380" cy="290" r="7" fill="#F0B90B"/><circle cx="1400" cy="290" r="7" fill="#F0B90B"/><circle cx="1420" cy="290" r="7" fill="#F0B90B"/><circle cx="1440" cy="290" r="7" fill="#F0B90B"/><circle cx="1460" cy="290" r="7" fill="#F0B90B"/><circle cx="1480" cy="290" r="7" fill="#F0B90B"/><circle cx="1300" cy="310" r="7" fill="#F0B90B"/><circle cx="1320" cy="310" r="7" fill="#F0B90B"/><circle cx="1340" cy="310" r="7" fill="#F0B90B"/><circle cx="1360" cy="310" r="7" fill="#F0B90B"/><circle cx="1380" cy="310" r="7" fill="#F0B90B"/><circle cx="1400" cy="310" r="7" fill="#F0B90B"/><circle cx="1420" cy="310" r="7" fill="#F0B90B"/><circle cx="1440" cy="310" r="7" fill="#F0B90B"/><circle cx="1460" cy="310" r="7" fill="#F0B90B"/><circle cx="1480" cy="310" r="7" fill="#F0B90B"/><circle cx="1300" cy="330" r="7" fill="#F0B90B"/><circle cx="1320" cy="330" r="7" fill="#F0B90B"/><circle cx="1340" cy="330" r="7" fill="#F0B90B"/><circle cx="1360" cy="330" r="7" fill="#F0B90B"/><circle cx="1380" cy="330" r="7" fill="#F0B90B"/><circle cx="1400" cy="330" r="7" fill="#F0B90B"/><circle cx="1420" cy="330" r="7" fill="#F0B90B"/><circle cx="1440" cy="330" r="7" fill="#F0B90B"/><circle cx="1460" cy="330" r="7" fill="#F0B90B"/><circle cx="1480" cy="330" r="7" fill="#F0B90B"/><circle cx="1300" cy="350" r="7" fill="#F0B90B"/><circle cx="1320" cy="350" r="7" fill="#F0B90B"/><circle cx="1340" cy="350" r="7" fill="#F0B90B"/><circle cx="1360" cy="350" r="7" fill="#F0B90B"/><circle cx="1380" cy="350" r="7" fill="#F0B90B"/><circle cx="1400" cy="350" r="7" fill="#F0B90B"/><circle cx="1420" cy="350" r="7" fill="#F0B90B"/><circle cx="1440" cy="350" r="7" fill="#F0B90B"/><circle cx="1460" cy="350" r="7" fill="#F0B90B"/><circle cx="1480" cy="350" r="7" fill="#F0B90B"/><circle cx="1300" cy="370" r="7" fill="#F0B90B"/><circle cx="1320" cy="370" r="7" fill="#F0B90B"/><circle cx="1340" cy="370" r="7" fill="#F0B90B"/><circle cx="1360" cy="370" r="7" fill="#F0B90B"/><circle cx="1380" cy="370" r="7" fill="#F0B90B"/><circle cx="1400" cy="370" r="7" fill="#F0B90B"/><circle cx="1420" cy="370" r="7" fill="#F0B90B"/><circle cx="1440" cy="370" r="7" fill="#F0B90B"/><circle cx="1460" cy="370" r="7" fill="#F0B90B"/><circle cx="1480" cy="370" r="7" fill="#F0B90B"/><circle cx="1300" cy="390" r="7" fill="#F0B90B"/><circle cx="1320" cy="390" r="7" fill="#F0B90B"/><circle cx="1340" cy="390" r="7" fill="#F0B90B"/><circle cx="1360" cy="390" r="7" fill="#F0B90B"/><circle cx="1380" cy="390" r="7" fill="#F0B90B"/><circle cx="1400" cy="390" r="7" fill="#F0B90B"/><circle cx="1420" cy="390" r="7" fill="#F0B90B"/><circle cx="1440" cy="390" r="7" fill="#F0B90B"/><circle cx="1460" cy="390" r="7" fill="#F0B90B"/><circle cx="1480" cy="390" r="7" fill="#F0B90B"/><text x="1520" y="312" font-size="28" fill="#e8e6df">批量 · <tspan class="mono">100</tspan> 条</text></g>
+          <g id="ap-ws" class="h"><text class="mono" x="1040" y="500" font-size="28" fill="#58C4DD">newHeads / logs</text><line x1="1040" y1="570" x2="1800" y2="570" stroke="#58C4DD" stroke-width="2" stroke-dasharray="6 6"/></g>
+          <rect id="ap-q0" class="h" x="1040" y="528" width="26" height="26" rx="4" fill="#58C4DD"/><rect id="ap-q1" class="h" x="1040" y="528" width="26" height="26" rx="4" fill="#58C4DD"/><rect id="ap-q2" class="h" x="1040" y="528" width="26" height="26" rx="4" fill="#58C4DD"/><rect id="ap-q3" class="h" x="1040" y="528" width="26" height="26" rx="4" fill="#58C4DD"/><rect id="ap-q4" class="h" x="1040" y="528" width="26" height="26" rx="4" fill="#58C4DD"/>
+        </g>
+        <!-- R2 -->
+        <g id="ap-r2">
+          <g id="ap-ca" class="h"><rect x="1000" y="200" width="820" height="160" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text class="mono" x="1030" y="252" font-size="28" fill="#8a8f99">POST /v1/eth</text><text class="mono" x="1030" y="316" font-size="30" fill="#83C167">X-Api-Key: …</text><path d="M1730 290 L1755 315 L1795 262" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <g id="ap-cb" class="h"><rect x="1000" y="400" width="820" height="120" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text class="mono" x="1030" y="472" font-size="30" fill="#FC6255">POST /v1/eth?key=…</text><path d="M1735 440 L1785 490 M1785 440 L1735 490" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/></g>
+          <g id="ap-log" class="h"><rect x="1300" y="620" width="520" height="260" rx="8" fill="#e8e6df" fill-opacity="0.06" stroke="#8a8f99" stroke-width="2"/><text x="1330" y="672" font-size="30" fill="#8a8f99">访问日志</text><rect x="1330" y="800" width="440" height="10" rx="5" fill="#6b6f7a"/><rect x="1330" y="836" width="320" height="10" rx="5" fill="#6b6f7a"/></g>
+          <text id="ap-copy" class="h mono" x="1330" y="752" font-size="28" fill="#FC6255">/v1/eth?key=…</text>
+        </g>
+        <!-- R3 -->
+        <g id="ap-r3">
+          <path id="ap-hb" class="dr h" pathLength="1" d="M1000 440 H1080 L1100 400 L1125 485 L1150 420 L1165 440 H1320" stroke="#83C167" stroke-width="4" fill="none" stroke-linejoin="round"/>
+          <text id="ap-hbt" class="h" x="1360" y="452" font-size="30" fill="#e8e6df">进程活着 → <tspan class="mono" fill="#83C167">200</tspan></text>
+          <g id="ap-lamps" class="h"><circle id="ap-l0" cx="1030" cy="560" r="22" fill="#2a2f3a"/><circle id="ap-l1" cx="1100" cy="560" r="22" fill="#2a2f3a"/><circle id="ap-l2" cx="1170" cy="560" r="22" fill="#2a2f3a"/></g>
+          <text id="ap-lt" class="h" x="1230" y="572" font-size="30" fill="#e8e6df">≥ 1 个上游健康 → <tspan class="mono" fill="#83C167">200</tspan></text>
+        </g>
+        <!-- R4 -->
+        <g id="ap-r4">
+          <g id="ap-h0" class="h"><rect x="1000" y="680" width="170" height="60" rx="30" fill="none" stroke="#B48EF0" stroke-width="2.5"/><text x="1085" y="720" font-size="28" fill="#e8e6df" text-anchor="middle">看健康表</text></g>
+          <g id="ap-h1" class="h"><rect x="1200" y="680" width="130" height="60" rx="30" fill="none" stroke="#B48EF0" stroke-width="2.5"/><text x="1265" y="720" font-size="28" fill="#e8e6df" text-anchor="middle">摘除</text></g>
+          <g id="ap-h2" class="h"><rect x="1360" y="680" width="130" height="60" rx="30" fill="none" stroke="#B48EF0" stroke-width="2.5"/><text x="1425" y="720" font-size="28" fill="#e8e6df" text-anchor="middle">恢复</text></g>
+          <path id="ap-ha" class="dr h" pathLength="1" d="M900 710 H986" stroke="#B48EF0" stroke-width="3" fill="none" marker-end="url(#ap-arr)"/>
+        </g>
+        <!-- R5/R6 errors -->
+        <g id="ap-e1" class="h"><rect x="1000" y="200" width="820" height="100" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text class="mono" x="1040" y="263" font-size="34" font-weight="700" fill="#FC6255">-32600</text><text x="1210" y="263" font-size="32" fill="#e8e6df">无效请求</text></g>
+        <g id="ap-e2" class="h"><rect x="1000" y="330" width="820" height="100" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text class="mono" x="1040" y="393" font-size="34" font-weight="700" fill="#FC6255">-32601</text><text x="1210" y="393" font-size="32" fill="#e8e6df">方法不存在 / 被禁止</text></g>
+        <g id="ap-e3" class="h"><rect x="1000" y="460" width="820" height="100" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text class="mono" x="1040" y="523" font-size="34" font-weight="700" fill="#FF9F43">-32005</text><text x="1210" y="523" font-size="32" fill="#e8e6df">超出限制</text></g>
+        <text id="ap-e3n" class="h" x="1000" y="610" font-size="28" fill="#8a8f99"><tspan class="mono">EIP-1474</tspan>，非 <tspan class="mono">JSON-RPC 2.0</tspan> 标准码</text>
+        <text id="ap-xl" class="h" x="1000" y="700" font-size="28" fill="#8a8f99">响应头</text>
+        <g id="ap-xu" class="h"><rect x="1000" y="720" width="460" height="66" rx="12" fill="#1a2a33" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1026" y="765" font-size="30" fill="#58C4DD">X-Upstream: self-geth</text></g>
+        <text id="ap-xs" class="h" x="1480" y="765" font-size="28" fill="#6b6f7a">示例</text>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0
+      IN("#ap-title", at(0, 0.0), 0.5, { x: -30 }, { x: 0 });
+      DRAW("#ap-trunk", at(0, 0.2), 1.2);
+      // L1
+      IN("#ap-n1", at(1, 0.02), 0.5, { x: -20 }, { x: 0 });
+      IN("#ap-one", at(1, 0.12), 0.4, { scale: 0.3, svgOrigin: "1080 290" }, { scale: 1, svgOrigin: "1080 290" });
+      IN("#ap-many", at(1, 0.25), 0.6);
+      IN("#ap-n2", at(1, 0.55), 0.5, { x: -20 }, { x: 0 });
+      IN("#ap-ws", at(1, 0.58), 0.5);
+      for (let i = 0; i < 5; i++) { const t = at(1, 0.62) + i * 0.55; tl.fromTo(`#ap-q${i}`, { opacity: 1, attr: { x: 1040 } }, { attr: { x: 1770 }, duration: 3.0, ease: "none", immediateRender: false }, t); }
+      // L2
+      OUT("#ap-r1", at(2, 0.0), 0.4);
+      IN("#ap-ca", at(2, 0.08), 0.5, { y: 20 }, { y: 0 });
+      IN("#ap-cb", at(2, 0.3), 0.5, { y: 20 }, { y: 0 });
+      IN("#ap-log", at(2, 0.55), 0.5);
+      IN("#ap-copy", at(2, 0.62), 0.6, { x: -260, y: -280 }, { x: 0, y: 0 });
+      // L3
+      OUT("#ap-r2", at(3, 0.0), 0.4);
+      IN("#ap-n3", at(3, 0.08), 0.5, { x: -20 }, { x: 0 });
+      ARROW("#ap-hb", at(3, 0.12), 1.0); IN("#ap-hbt", at(3, 0.25), 0.4);
+      IN("#ap-n4", at(3, 0.5), 0.5, { x: -20 }, { x: 0 });
+      IN("#ap-lamps", at(3, 0.55), 0.4);
+      tl.to("#ap-l0", { fill: "#83C167", duration: 0.2 }, at(3, 0.65));
+      tl.to("#ap-l1, #ap-l2", { fill: "#FC6255", duration: 0.2 }, at(3, 0.68));
+      IN("#ap-lt", at(3, 0.75), 0.4);
+      // L4
+      OUT("#ap-r3", at(4, 0.0), 0.4);
+      IN("#ap-n5", at(4, 0.05), 0.5, { x: -20 }, { x: 0 });
+      IN("#ap-wall", at(4, 0.18), 0.5); IN("#ap-wallt", at(4, 0.2), 0.4);
+      IN("#ap-n6", at(4, 0.4), 0.5, { x: -20 }, { x: 0 });
+      ARROW("#ap-ha", at(4, 0.5), 0.4);
+      [0, 1, 2].forEach(i => IN(`#ap-h${i}`, at(4, 0.52 + i * 0.07), 0.4));
+      IN("#ap-lock", at(4, 0.8), 0.4, { y: -16 }, { y: 0 });
+      // L5
+      OUT("#ap-r4", at(5, 0.0), 0.4);
+      IN("#ap-e1", at(5, 0.15), 0.5, { x: 30 }, { x: 0 });
+      IN("#ap-e2", at(5, 0.55), 0.5, { x: 30 }, { x: 0 });
+      // L6
+      IN("#ap-e3", at(6, 0.03), 0.5, { x: 30 }, { x: 0 });
+      IN("#ap-e3n", at(6, 0.15), 0.5);
+      IN("#ap-xl", at(6, 0.68), 0.4);
+      IN("#ap-xu", at(6, 0.7), 0.5, { y: 16 }, { y: 0 });
+      IN("#ap-xs", at(6, 0.75), 0.4);
+      tl.to("#ap-xu rect", { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.85));
+      tl.to("#ap-e3 rect", { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.42));
+      tl.to("#ap-e3n", { fill: "#e8e6df", duration: 0.4 }, at(6, 0.5));
+
+
+      tl.to("#ap-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["api"] = tl;
+    })();
+  </script>
+</template>

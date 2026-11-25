@@ -3,8 +3,8 @@
 CUR = 'm07-10';
 addCh({ id: 'm07-10', nav: '实战·设计：DEX 兑换前端', title: 'M03.10 实战·设计：DEX 兑换前端（Next.js + wagmi + viem）', desc: '项目目标、需求拆解、系统架构、技术选型、数据模型与接口设计', html: `
 <h1>M03.10 实战·设计：DEX 兑换前端（Next.js + wagmi + viem）</h1>
-${meta(['独立设计一个多链 DEX 兑换前端的架构、组件树、状态机和接口。', '实现报价 hook、approve/Permit2 授权、兑换、交易追踪和错误处理的关键代码。', '制定测试（anvil 分叉 E2E）、部署（Vercel/IPFS + CSP）、监控和安全清单，并按 6 周交付。'], '本模块 <a href="#m07-1">M03.1</a> 至 <a href="#m07-9">M03.9</a>、<a href="#m02-10">M08.2 AMM 深入</a>', ['units', 'eip712', 'txlife'])}
-${beginner(`<p><strong>DEX（去中心化交易所）</strong>：用智能合约撮合兑换的交易所，例如 Uniswap。用户自己保管资产（原理见 <a href="#lab-amm">AMM 实验</a>）。</p>
+${meta(['独立设计一个多链 DEX 兑换前端的架构、组件树、状态机和接口。', '把需求写成带量化验收标准的用户故事，并给出技术选型理由与数据模型。', '说清授权路径（精确 approve 与聚合器路径上的 Permit2）和前后端分工，为下一篇的实现做好准备。'], '本模块 <a href="#m07-1">M03.1</a> 至 <a href="#m07-9">M03.9</a>、<a href="#m02-10">M05.2 AMM 深入</a>', ['units', 'eip712', 'txlife'])}
+${beginner(`<p><strong>DEX（去中心化交易所）</strong>：用智能合约撮合兑换的交易所，例如 Uniswap。用户自己保管资产（原理见 <a href="#lab-amm">AMM 实验</a>；x·y=k 公式、价格影响与 LP 收益详见 <a href="#m02-10">M05.2 AMM 深入</a>，后面会讲）。</p>
 <p><strong>报价（Quote）</strong>：在当前池子状态下，用 X 个 A 代币能换到多少个 B 代币。</p>
 <p><strong>Quoter 合约</strong>：Uniswap 提供的“只算不换”合约，模拟一次兑换并返回结果。</p>
 <p><strong>聚合器（Aggregator）</strong>：在多个 DEX 之间寻找最优路径的服务，例如 0x、1inch。</p>
@@ -51,7 +51,7 @@ ${tbl(['编号', '用户故事', '验收条件'], [
   ['US-3', '作为用户，我想搜索代币并看到余额', '按名称/符号/地址搜索；显示余额；粘贴未知地址时显示“未验证代币”警告'],
   ['US-4', '作为用户，我想输入金额后立即看到能换多少', '防抖 300 ms 后报价；显示价格、价格影响、最少收到、预估 Gas'],
   ['US-5', '作为用户，我想设置滑点', '预设 0.1%/0.5%/1%，可自定义；&gt; 5% 时红色警告；&lt; 0.05% 时提示可能失败'],
-  ['US-6', '作为用户，我想用最少的步骤完成授权', '额度不足时显示“授权”步骤；默认精确金额；支持 Permit2 签名'],
+  ['US-6', '作为用户，我想用最少的步骤完成授权', '额度不足时显示“授权”步骤；默认精确金额；走聚合器路径时支持 Permit2 签名（Uniswap 直连路径用精确 approve 给 SwapRouter02）'],
   ['US-7', '作为用户，我想看到兑换进度并在失败时知道原因', '状态 Toast + 浏览器链接；拒签不报错；revert 显示人话原因'],
   ['US-8', '作为用户，我想查看历史兑换', '列表按时间倒序、游标分页；包含待确认交易']
 ])}
@@ -105,7 +105,8 @@ sequenceDiagram
 `, [
   ['fail', '授权回执成功前就允许点“兑换”，模拟会因 allowance 不足失败。'],
   ['risk', 'approve 的 spender 必须是硬编码的 SwapRouter02 地址，不能来自 URL 或接口返回。'],
-  ['key', '只授权本次需要的精确数量，不默认无限授权。']
+  ['key', '只授权本次需要的精确数量，不默认无限授权。'],
+  ['limit', '本图是 Uniswap 直连路径。Permit2 只用在聚合器路径上（见技术选型表和下一篇 7.6）。']
 ])}
 ${mm('关键调用链（二）：兑换与确认', `
 sequenceDiagram
@@ -163,7 +164,7 @@ stateDiagram-v2
   ['limit', '这个状态机不包含跨链；跨链兑换需要 M03.7 的长时任务追踪。']
 ])}
 <p>组件树与状态归属：</p>
-${code('BASH', `
+${code('TEXT', `
 app/swap/page.tsx (服务端：读取代币列表做 SSG/ISR)
 └─ <SwapPage>                      'use client'
    ├─ <Header>  ConnectButton · NetworkSelect（useSwitchChain）
@@ -335,9 +336,11 @@ ${art('数据在哪：余额与报价在链上，历史在数据库，待处理�
 <h3>7.1 地址与配置</h3>
 ${code('TYPESCRIPT', `
 // src/constants/addresses.ts —— 硬编码 + 校验和；地址以 Uniswap 官方部署文档为准
-import { getAddress } from 'viem'
+import { getAddress, type Address } from 'viem'
 import { mainnet, base } from 'wagmi/chains'
 
+// 只列生产链。预览环境（Sepolia / Base Sepolia）要按同样结构补上 sepolia.id、baseSepolia.id 两项，
+// 测试网上的 QuoterV2、SwapRouter02、WETH 地址与主网不同，从 Uniswap 官方部署文档逐个抄录并核对
 export const UNI = {
   [mainnet.id]: {
     quoterV2: getAddress('0x61fFE014bA17989E743c5F6cB21bF9697530B21e'),
@@ -351,6 +354,11 @@ export const UNI = {
   },
 } as const
 export const PERMIT2 = getAddress('0x000000000022D473030F116dDEE9F6B43aC78BA3')
+// 聚合器交易的 to 白名单（7.6 使用）：填聚合器官方文档公布的各链合约地址，聚合器升级合约时要人工审核后再更新
+export const ALLOWED_AGG_TARGETS: Partial<Record<number, Address>> = {
+  // [mainnet.id]: getAddress('0x…'),
+  // [base.id]: getAddress('0x…'),
+}
 export const FEE_TIERS = [100, 500, 3000, 10000] as const
 `)}
 <h3>7.2 报价 hook：并行查询 4 个费率档，取最优</h3>
@@ -389,7 +397,7 @@ export function useQuote(chainId: keyof typeof UNI, tokenIn?: Token, tokenOut?: 
       const best = ok.reduce((a, b) => (b.amountOut > a.amountOut ? b : a))
       track('quote_latency_ms', performance.now() - t0, { chainId })
       return { amountIn: debounced!, amountOut: best.amountOut, fee: best.fee, gasEstimate: best.gasEstimate,
-               priceImpactBps: 0 /* 用池子现价与成交均价计算，见 7.4 */, blockNumber: block ?? 0n, at: Date.now(), source: 'v3' }
+               priceImpactBps: 0 /* 占位：再用极小额参考报价调用 7.4 的 priceImpactBps() 计算，不解析 sqrtPriceX96 */, blockNumber: block ?? 0n, at: Date.now(), source: 'v3' }
     },
   })
 }
@@ -453,7 +461,10 @@ export function useSwap(chainId: keyof typeof UNI, tokenIn: Token, tokenOut: Tok
 
     // 4. 解析实际收到数量：找 tokenOut 合约发给用户的 Transfer 日志
     const logs = parseEventLogs({ abi: erc20Abi, eventName: 'Transfer', logs: rc.logs })
-    const received = logs.find(l => isAddressEqual(l.address, tokenOut.address) && isAddressEqual(l.args.to, address!))?.args.value
+    // 输出原生 ETH 时没有 tokenOut 合约，也没有发给用户的 Transfer 日志：改为对比交易前后的 ETH 余额（需加上 Gas 费）
+    const received = tokenOut.isNative
+      ? undefined
+      : logs.find(l => isAddressEqual(l.address, tokenOut.address) && isAddressEqual(l.args.to, address!))?.args.value
     qc.invalidateQueries({ queryKey: ['balances'] })             // 刷新余额（键名按项目约定）
     return { receipt: rc, received, minOut }
   }
@@ -503,10 +514,21 @@ export function explainSwapError(err: unknown): { text: string; silent?: boolean
 <h3>7.6 Permit2 路径（经聚合器）</h3>
 <p>聚合器（以 0x Swap API v2 的 permit2 端点为例，字段以其官方文档为准）返回一份 Permit2 的 EIP-712 数据和一笔待发送的交易。前端流程：确保代币已 approve 给 Permit2 合约（一次性）→ 签 EIP-712 → 把签名附加到交易 data 末尾 → 校验 <code>to</code> 在白名单 → 发送。</p>
 ${code('TYPESCRIPT', `
-import { concat, numberToHex, size } from 'viem'
+import { concat, numberToHex, size, erc20Abi, maxUint256 } from 'viem'
+import { readContract } from '@wagmi/core'
+import { PERMIT2, ALLOWED_AGG_TARGETS } from '@/constants/addresses'
 
+// 写在 hook 内部：config、chainId、address、tokenIn、approveToken、useUnlimited、
+// signTypedDataAsync、sendTransactionAsync 都来自外层作用域（同 7.3）
 async function swapViaAggregator(q: AggQuote) {
-  if (!isAddressEqual(q.transaction.to, ALLOWED_AGG_TARGETS[chainId])) throw new Error('未知的交易目标合约')  // 白名单
+  const target = ALLOWED_AGG_TARGETS[chainId]
+  if (!target || !isAddressEqual(q.transaction.to, target)) throw new Error('未知的交易目标合约')  // 白名单
+  // 先确认代币已 approve 给 Permit2（一次性）；额度不足就先走 approve 步骤，否则链上 transferFrom 会失败
+  const toPermit2 = await readContract(config, { chainId, address: tokenIn.address, abi: erc20Abi, functionName: 'allowance', args: [address!, PERMIT2] })
+  if (toPermit2 < q.sellAmount) {
+    // 与本项目“默认精确授权”一致，只授权本次金额；用户主动选择时才授权 maxUint256（之后每次只需签名）
+    await approveToken(tokenIn.address, PERMIT2, useUnlimited ? maxUint256 : q.sellAmount)
+  }
   let data = q.transaction.data
   if (q.permit2?.eip712) {
     // 签名前把关键字段翻译成人话展示：代币、额度、spender、期限（参考 eip712 实验）
@@ -626,7 +648,7 @@ ${tbl(['周', '目标', '交付物'], [
 
 <h2>12. 扩展方向与面试/作品集要点</h2>
 ${steps(['<strong>扩展</strong>：多跳路由（exactInput + path 编码）；精确输出（exact output）；Uniswap V4 与 Universal Router；跨链兑换（意图/桥聚合）；限价单（链下签名订单）；智能账户批量调用（EIP-5792，approve + swap 一次确认）；Gas 代付。', '<strong>作品集展示</strong>：线上地址 + IPFS CID；架构图与状态机图；E2E 录屏；监控大盘截图；一页“安全设计说明”。', '<strong>面试高频问题</strong>：为什么金额不能用 number？报价过期怎么处理？minOut 怎么算、为什么能防夹子？用户加速交易后前端怎么追踪？无限授权的风险和替代方案？前端如何防供应链攻击？SSR 水合问题怎么解决？', '<strong>讲清取舍</strong>：链上 Quoter vs 聚合器、approve vs Permit2、乐观更新 vs 等回执、自建索引 vs 托管服务。'])}
-<p><strong>下一步：毕业项目</strong>。把合约、前端、后端和上线运维串成一个完整作品，见 <a href="#m12">M14 综合毕业项目</a>。</p>
+<p><strong>下一步：毕业项目</strong>。把合约、前端、后端和上线运维串成一个完整作品，见 <a href="#m12">M15 综合毕业项目</a>。</p>
 
 ${mistakes([
   ['报价显示出来就可以一直用。', '报价随区块变化。超过 15–30 秒或新区块到来要刷新，提交前必须重新报价。'],
@@ -635,9 +657,9 @@ ${mistakes([
   ['兑换成功后显示报价数量即可。', '实际成交可能与报价不同。从回执的 Transfer 日志解析实际收到数量。']
 ])}
 ${recap([
-  '验收标准要量化：报价 P95 延迟、首屏体积、revert 率、可用性、可访问性。',
+  '地址与聚合器白名单只在 constants/addresses.ts 硬编码一次，spender 和交易 to 都从这里取。',
   '架构：前端直连 RPC 完成报价与兑换，后端只做代币列表、聚合器代理、历史记录。',
-  '核心状态机由报价、余额、授权三份数据实时派生，按钮文案由状态决定。',
+  '价格影响用极小额参考报价计算（7.4），不解析 sqrtPriceX96；实际收到数量从回执的 Transfer 日志解析。',
   '报价并行查询 4 个费率档；提交前重新报价；minOut 用基点计算并写入交易；用 multicall(deadline) 加截止时间。',
   '测试用 anvil 分叉主网 + 快照回滚；部署用 Vercel + IPFS 镜像 + 严格 CSP；监控报价、模拟失败、revert、实际滑点。',
   '安全：地址硬编码、精确授权、签名前人话、聚合器目标白名单、未验证代币警告、产物哈希监控。'

@@ -1,0 +1,160 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 root，id 前缀 ro- -->
+  <div id="root" data-composition-id="cause" data-duration="53.5" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ro-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ro-all">
+
+        <g id="ro-blkg">
+          <g id="ro-blk" class="h">
+            <rect x="760" y="300" width="400" height="460" rx="16" fill="#58C4DD" fill-opacity="0.06" stroke="#58C4DD" stroke-width="3"/>
+            <text x="960" y="812" font-size="32" fill="#58C4DD" text-anchor="middle">区块</text>
+          </g>
+          <g id="ro-c0" class="h"><rect x="800" y="330" width="320" height="76" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="960" y="379" font-size="30" fill="#F0B90B" text-anchor="middle">tx A</text></g><g id="ro-c1" class="h"><rect x="800" y="440" width="320" height="76" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="960" y="489" font-size="30" fill="#F0B90B" text-anchor="middle">tx B</text></g><g id="ro-c2" class="h"><rect x="800" y="550" width="320" height="76" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="960" y="599" font-size="30" fill="#F0B90B" text-anchor="middle">tx C</text></g><g id="ro-c3" class="h"><rect x="800" y="660" width="320" height="76" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="960" y="709" font-size="30" fill="#F0B90B" text-anchor="middle">tx D</text></g>
+          <g id="ro-hand" class="h">
+            <circle cx="700" cy="368" r="22" fill="#B48EF0"/>
+            <text x="700" y="428" font-size="28" fill="#B48EF0" text-anchor="middle">出块方</text>
+          </g>
+          <text id="ro-pf" class="h" x="1220" y="470" font-size="44" font-weight="700" fill="#F0B90B">+利润</text>
+          <text id="ro-mi" class="h" x="880" y="250" font-size="36" fill="#e8e6df" text-anchor="end">Miner</text>
+          <line id="ro-mis" class="dr" pathLength="1" x1="768" y1="238" x2="884" y2="238" stroke="#FC6255" stroke-width="4"/>
+          <text id="ro-ma" class="h" x="880" y="250" font-size="36" font-weight="700" fill="#83C167" text-anchor="end">Maximal</text>
+          <text id="ro-ev" class="h" x="895" y="250" font-size="36" fill="#e8e6df">Extractable Value</text>
+          <text id="ro-pow" class="h" x="1200" y="362" font-size="28" fill="#8a8f99">PoW → PoS：矿工 → 验证者</text>
+        </g>
+        <g id="ro-kg">
+          <g id="ro-k1" class="h"><rect x="460" y="360" width="500" height="100" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text x="710" y="423" font-size="36" fill="#B48EF0" text-anchor="middle">顺序可任意安排</text></g>
+          <g id="ro-k2" class="h"><rect x="460" y="560" width="500" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="710" y="623" font-size="36" fill="#58C4DD" text-anchor="middle">DeFi 结果依赖顺序</text></g>
+          <path id="ro-ka1" class="dr h" pathLength="1" d="M970 410 L1288 492" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <path id="ro-ka2" class="dr h" pathLength="1" d="M970 610 L1288 528" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ro-arr)"/>
+          <g id="ro-k3" class="h"><rect x="1300" y="450" width="300" height="120" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text x="1450" y="532" font-size="60" font-weight="700" fill="#F0B90B" text-anchor="middle">MEV</text></g>
+        </g>
+        <g id="ro-sw">
+          <g id="ro-s1" class="h">
+            <path d="M460 490 Q500 462 540 490 Q500 518 460 490 Z" fill="none" stroke="#e8e6df" stroke-width="3"/>
+            <circle cx="500" cy="490" r="9" fill="#e8e6df"/>
+            <text x="500" y="570" font-size="32" fill="#e8e6df" text-anchor="middle">① 上链前被看到</text>
+            <rect id="ro-tr1" x="440" y="600" width="120" height="56" rx="28" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <circle id="ro-kn1" cx="468" cy="628" r="20" fill="#8a8f99"/>
+          </g>
+          <g id="ro-s2" class="h">
+            <rect x="1392" y="490" width="56" height="34" rx="12" fill="none" stroke="#e8e6df" stroke-width="3"/>
+            <path d="M1400 490 V466 M1413 490 V458 M1426 490 V460 M1439 490 V468" stroke="#e8e6df" stroke-width="3" stroke-linecap="round"/>
+            <text x="1420" y="570" font-size="32" fill="#e8e6df" text-anchor="middle">② 别人决定顺序</text>
+            <rect id="ro-tr2" x="1360" y="600" width="120" height="56" rx="28" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <circle id="ro-kn2" cx="1388" cy="628" r="20" fill="#8a8f99"/>
+          </g>
+          <text id="ro-sand" class="h" x="960" y="645" font-size="48" font-weight="700" fill="#FC6255" text-anchor="middle">三明治可行</text>
+        </g>
+        <g id="ro-mpg">
+          <g id="ro-mp" class="h">
+            <rect x="400" y="300" width="1100" height="400" rx="18" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="430" y="352" font-size="34" font-weight="700" fill="#58C4DD">内存池</text>
+          </g>
+          <text id="ro-mpl" class="h" x="950" y="270" font-size="30" fill="#8a8f99" text-anchor="middle">已广播 · 未上链 · 人人可见</text>
+          <g id="ro-q0" class="h"><rect x="450" y="560" width="160" height="70" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="530" y="606" font-size="30" fill="#F0B90B" text-anchor="middle">tx</text></g><g id="ro-q1" class="h"><rect x="650" y="560" width="160" height="70" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="730" y="606" font-size="30" fill="#F0B90B" text-anchor="middle">tx</text></g><g id="ro-q2" class="h"><rect x="850" y="560" width="160" height="70" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="930" y="606" font-size="30" fill="#F0B90B" text-anchor="middle">tx</text></g><g id="ro-q3" class="h"><rect x="1050" y="560" width="160" height="70" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="1130" y="606" font-size="30" fill="#F0B90B" text-anchor="middle">tx</text></g>
+          <g id="ro-rq" class="h"><rect x="850" y="560" width="160" height="70" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text class="mono" x="930" y="606" font-size="30" fill="#FC6255" text-anchor="middle">tx</text></g>
+          <text id="ro-fr" class="h" x="930" y="530" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">抢跑 Front-running</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ro-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">MEV <tspan font-size="28" font-weight="400" fill="#8a8f99">Maximal Extractable Value</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">通过安排交易顺序获得的额外收益</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // L0 MEV + 区块
+      IN("#ro-term", at(0, 0.05), 0.5);
+      IN("#ro-blk", at(0, 0.2), 0.6, { scale: 0.94, svgOrigin: "960 530" }, { scale: 1, svgOrigin: "960 530" });
+      ["#ro-c0", "#ro-c1", "#ro-c2", "#ro-c3"].forEach((s, i) => IN(s, at(0, 0.4) + i * 0.15, 0.4, { y: -20 }, { y: 0 }));
+      // L1 出块方换位 → 利润
+      IN("#ro-hand", at(1, 0.05), 0.5);
+      const SWAP = (a, b, ya, yb, dy, t) => {
+        tl.to("#ro-hand", { y: ya - 368, duration: 0.4, ease: "power2.inOut" }, t - 0.5);
+        tl.to(a, { keyframes: [{ x: -80, duration: 0.25 }, { y: dy, duration: 0.5 }, { x: 0, duration: 0.25 }], ease: "power2.inOut" }, t);
+        tl.to(b, { keyframes: [{ x: 80, duration: 0.25 }, { y: -dy, duration: 0.5 }, { x: 0, duration: 0.25 }], ease: "power2.inOut" }, t);
+        tl.to("#ro-hand", { y: yb - 368, duration: 0.5, ease: "power2.inOut" }, t + 0.25);
+      };
+      SWAP("#ro-c0", "#ro-c2", 368, 588, 220, at(1, 0.3));
+      IN("#ro-pf", at(1, 0.3) + 1.0, 0.4, { scale: 0.6, svgOrigin: "1280 455" }, { scale: 1, svgOrigin: "1280 455" });
+      SWAP("#ro-c1", "#ro-c3", 478, 698, 220, at(1, 0.66));
+      tl.to("#ro-pf", { scale: 1.25, svgOrigin: "1280 455", duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.66) + 1.0);
+      OUT("#ro-term", at(1, 0.6), 0.4);
+      // L2 改名
+      OUT("#ro-pf", at(2, 0.0), 0.3);
+      tl.to("#ro-hand", { y: 0, duration: 0.5 }, at(2, 0.0));
+      IN("#ro-mi, #ro-ev", at(2, 0.05), 0.5);
+      DRAW("#ro-mis", at(2, 0.3), 0.4);
+      tl.to("#ro-mi", { fill: "#FC6255", duration: 0.3 }, at(2, 0.3));
+      tl.to("#ro-mi, #ro-mis", { opacity: 0, y: -30, duration: 0.4, ease: "power2.in" }, at(2, 0.45));
+      IN("#ro-ma", at(2, 0.45) + 0.45, 0.5, { y: 20 }, { y: 0 });
+      IN("#ro-pow", at(2, 0.62), 0.6, { x: -15 }, { x: 0 });
+      // L3 根源
+      OUT("#ro-blkg", at(3, 0.0), 0.5);
+      IN("#ro-k1", at(3, 0.1), 0.5, { x: -20 }, { x: 0 });
+      IN("#ro-k2", at(3, 0.42), 0.5, { x: -20 }, { x: 0 });
+      ARROW("#ro-ka1", at(3, 0.7), 0.5); ARROW("#ro-ka2", at(3, 0.72), 0.5);
+      IN("#ro-k3", at(3, 0.8), 0.5, { scale: 0.7, svgOrigin: "1450 510" }, { scale: 1, svgOrigin: "1450 510" });
+      // L4 两个开关
+      OUT("#ro-kg", at(4, 0.0), 0.4);
+      IN("#ro-s1", at(4, 0.1), 0.5);
+      IN("#ro-s2", at(4, 0.14), 0.5);
+      const SW = (n, on, t) => {
+        const x0 = n === 1 ? 468 : 1388;
+        tl.to(`#ro-tr${n}`, { attr: { fill: on ? "#FF9F43" : "#161a22", stroke: on ? "#FF9F43" : "#8a8f99" }, duration: 0.25 }, t);
+        tl.to(`#ro-kn${n}`, { attr: { cx: on ? x0 + 64 : x0, fill: on ? "#e8e6df" : "#8a8f99" }, duration: 0.25, ease: "power2.out" }, t);
+      };
+      SW(1, true, at(4, 0.32));
+      SW(2, true, at(4, 0.62));
+      IN("#ro-sand", at(4, 0.68), 0.4, { scale: 0.8, svgOrigin: "960 630" }, { scale: 1, svgOrigin: "960 630" });
+      SW(1, false, at(4, 0.78)); OUT("#ro-sand", at(4, 0.78) + 0.15, 0.2);
+      SW(1, true, at(4, 0.86)); IN("#ro-sand", at(4, 0.86) + 0.2, 0.25);
+      SW(2, false, at(4, 0.94)); OUT("#ro-sand", at(4, 0.94) + 0.15, 0.2);
+      // L5 内存池
+      OUT("#ro-sw", at(5, 0.0), 0.4);
+      IN("#ro-mp", at(5, 0.08), 0.6);
+      IN("#ro-mpl", at(5, 0.25), 0.5);
+      ["#ro-q0", "#ro-q1", "#ro-q2", "#ro-q3"].forEach((s, i) => IN(s, at(5, 0.4) + i * 0.6, 0.5, { y: -120 }, { y: 0, ease: "bounce.out" }));
+      tl.to("#ro-mp rect", { attr: { "fill-opacity": 0.2 }, duration: 0.4, yoyo: true, repeat: 1 }, at(5, 0.82));
+      // L6 抢跑
+      tl.to("#ro-q2, #ro-q3", { x: 200, duration: 0.6, ease: "power2.inOut" }, at(6, 0.12));
+      IN("#ro-rq", at(6, 0.25), 0.7, { x: 560, y: -330 }, { x: 0, y: 0, ease: "power3.inOut" });
+      IN("#ro-fr", at(6, 0.45), 0.5, { y: 10 }, { y: 0 });
+
+
+      tl.to("#ro-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ro-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["cause"] = tl;
+    })();
+  </script>
+</template>

@@ -32,7 +32,7 @@ ${art('一图看懂：离 L1 越远，交易越便宜，要多信任的东西越
   ['flow', '从左到右，执行和数据逐步离开 L1，吞吐上升，L1 能替用户兜底的部分变少。'],
   ['key', '以太坊走 Rollup 中心路线：L1 提供更多更便宜的 blob 数据空间，执行交给 Rollup。'],
   ['risk', 'Validium 和侧链出事时，L1 无法帮用户找回资金。'],
-  ['limit', 'TPS 是示例估算（区块 Gas 上限 3,600 万；每块 6 个 blob），真实数字以链上为准。']
+  ['limit', 'TPS 是示例估算，用的是 2025 年 5 月 Pectra 升级时的参数（区块 Gas 上限 3,600 万；每块目标 6 个 blob）。之后 Gas 上限和 blob 目标都上调过，真实数字以链上为准。']
 ], '四种扩容方案按离 L1 的距离排列：L1 直接交易、Rollup、Validium、侧链，越往右越便宜但信任假设越多', 'm05-4')}
 
 <h2>2. 为什么不能简单地“加大区块”</h2>
@@ -40,13 +40,14 @@ ${art('一图看懂：离 L1 越远，交易越便宜，要多信任的东西越
 ${call('info', `<p>2017 年比特币社区发生过“区块大小之争”。主张加大区块的一方分叉出了比特币现金（BCH）。比特币主链选择保持小区块，把扩容交给链下方案（闪电网络）。这场争论的核心正是“节点成本 vs 吞吐量”。</p>`)}
 <p><strong>算一算（示例）：以太坊 L1 的理论上限</strong></p>
 ${steps([
-  '假设区块 Gas 上限为 3,600 万（示例值，以太坊在 2025 年逐步上调过 Gas 上限，具体以链上为准）。',
+  '假设区块 Gas 上限为 3,600 万（示例值，这是 2025 年上半年的值；之后验证者投票把它上调到 4,500 万，2025 年 11 月再到 6,000 万，并可能继续上调，当前值以链上为准）。',
   '一笔最简单的 ETH 转账消耗 21,000 Gas。',
   '每个区块最多容纳：36,000,000 ÷ 21,000 ≈ 1,714 笔转账。',
   '出块间隔 12 秒：1,714 ÷ 12 ≈ <strong>143 TPS</strong>。',
   '真实交易（代币转账、DEX 兑换）消耗 5 万到 20 万 Gas，实际 TPS 只有十几到几十。'
 ])}
-<p>对比：如果把交易数据交给 Rollup，用 blob 发布。假设每个区块的 blob 目标数是 6 个（示例，Pectra 升级后的目标值），每个 blob 128 KB，每笔压缩后的 L2 交易 40 字节：6 × 131,072 ÷ 40 ≈ 19,660 笔 / 12 秒 ≈ <strong>1,638 TPS</strong>。数据带宽，而不是执行能力，成为新的上限。</p>
+<p>对比：如果把交易数据交给 Rollup，用 blob 发布。假设每个区块的 blob 目标数是 6 个（示例，2025 年 5 月 Pectra 升级时的目标值），每个 blob 128 KB，每笔压缩后的 L2 交易 40 字节：6 × 131,072 ÷ 40 ≈ 19,660 笔 / 12 秒 ≈ <strong>1,638 TPS</strong>。数据带宽，而不是执行能力，成为新的上限。</p>
+${call('info', `<p><strong>参数还在继续上调（截至 2026 年 11 月）</strong>：2025 年 12 月 Fusaka 升级引入 PeerDAS，随后两次“只改 blob 参数”的 BPO 分叉把每块 blob 目标/上限从 6/9 提到 10/15（2025 年 12 月），再提到 14/21（2026 年 1 月）。按 14 个 blob 重算上面的例子：14 × 131,072 ÷ 40 ÷ 12 ≈ 3,823 TPS。后续数值以以太坊官方公告为准。${cite('Ethereum Foundation Blog：Fusaka Mainnet Announcement', 'https://blog.ethereum.org/2025/11/06/fusaka-mainnet-announcement')}</p>`)}
 
 <h2>3. 链上扩容与链下扩容全景</h2>
 ${mm('扩容方案分类图', `
@@ -71,7 +72,7 @@ flowchart TB
   ['risk', '侧链和 Validium 的数据或安全不完全依赖 L1。它们出事时，L1 无法帮用户找回资金。']
 ])}
 <p>下面逐个说明。</p>
-<p><strong>状态通道（State Channel）</strong>：两方先在 L1 锁定资金，然后在链下来回交换签名过的余额更新，最后只把最终余额提交到 L1。比特币闪电网络（Lightning Network）就是支付通道网络。优点是即时、几乎免费；缺点是需要双方在线、资金要提前锁定、只适合固定参与者（通道、HTLC 与多跳路由见 <a href="#m05-62">M05.6 闪电网络</a>）。</p>
+<p><strong>状态通道（State Channel）</strong>：两方先在 L1 锁定资金，然后在链下来回交换签名过的余额更新，最后只把最终余额提交到 L1。比特币闪电网络（Lightning Network）就是支付通道网络。优点是即时、几乎免费；缺点是需要双方在线、资金要提前锁定、只适合固定参与者（通道、HTLC 与多跳路由见 <a href="#m05-62">M06.3 闪电网络</a>）。</p>
 <p><strong>侧链（Sidechain）</strong>：一条独立运行的区块链，有自己的验证者和共识，通过桥和 L1 互通。例如 Polygon PoS 最初就定位为以太坊侧链。侧链的安全完全取决于它自己的验证者，与 L1 无关。</p>
 <p><strong>Plasma</strong>：2017 年提出。运营者只把每个区块的状态承诺（默克尔根）发布到 L1，交易数据留在链下。用户发现作恶时，用“退出游戏”把资金撤回 L1。问题在于：如果运营者扣留数据，用户就无法证明自己的余额，只能大规模抢先退出。Plasma 难以支持通用智能合约，后来被 Rollup 取代。</p>
 <p><strong>Rollup</strong>：把交易数据完整发布到 L1，并用欺诈证明或有效性证明保证结果正确。任何人都能用 L1 上的数据重建 L2 状态。细节见 <a href="#m05-5">M04.5 Rollup 深入</a>。</p>
@@ -140,7 +141,7 @@ ${call('warn', `<p>表格描述的是“设计目标”。很多 L2 目前仍有
 
 <h2>6. 工程视角：如何评估和接入一个扩容方案</h2>
 ${steps([
-  '确认 DA：数据发布在以太坊 blob、calldata，还是外部 DA？在区块浏览器上找批次提交交易验证。',
+  '确认 DA：数据发布在以太坊 blob、calldata，还是外部 DA？在区块浏览器上找批次提交交易验证。还在用 calldata 的方案要注意：Pectra 的 EIP-7623 给数据量大的交易设了下限，每个零字节 10 Gas、非零字节 40 Gas（原来是 4 和 16），成本明显高于 blob。',
   '确认证明系统：欺诈证明是否已上线、是否无需许可（任何人都能挑战）？ZK 证明是否已在 L1 验证？',
   '确认升级权限：合约由谁升级？是否有时间锁？安全委员会成员和阈值是多少？',
   '确认退出路径：排序器宕机时，用户能否通过 L1 强制包含交易并提款？要等多久？',
@@ -187,10 +188,10 @@ ${recap([
 ${quiz([
   { q: '一条链把 ZK 有效性证明提交到以太坊，但交易数据交给一个 7 人委员会保存。它属于哪一类？', o: ['ZK Rollup', '侧链', 'Validium', '状态通道'], a: 2, why: '证明在 L1 验证、数据放链下委员会（DAC），这就是 Validium。ZK Rollup 要求数据发布在 L1；侧链有独立共识；状态通道只在参与方之间交换签名。' },
   { q: '在乐观 Rollup 中，如果运营者扣留交易数据，最直接的后果是什么？', o: ['验证者无法发起欺诈证明，错误状态可能生效', 'L1 会自动回滚 L2', 'ZK 证明失效', '用户的私钥泄露'], a: 0, why: '欺诈证明需要原始数据来重放执行。没有数据，没人能证明错误。L1 不会自动回滚；乐观 Rollup 没有 ZK 证明；数据扣留与私钥无关。' },
-  { q: '假设区块 Gas 上限 3,000 万、出块 12 秒，只做 21,000 Gas 的转账，L1 的 TPS 约是多少？', o: ['约 12', '约 1,428', '约 2,500', '约 119'], a: 3, why: '30,000,000 ÷ 21,000 ≈ 1,428 笔每块，÷ 12 秒 ≈ 119 TPS。1,428 是每块笔数，不是每秒。' },
+  { q: '假设区块 Gas 上限 3,000 万（2025 年初以前的历史值）、出块 12 秒，只做 21,000 Gas 的转账，L1 的 TPS 约是多少？', o: ['约 12', '约 1,428', '约 2,500', '约 119'], a: 3, why: '30,000,000 ÷ 21,000 ≈ 1,428 笔每块，÷ 12 秒 ≈ 119 TPS。1,428 是每块笔数，不是每秒。' },
   { q: '数据可用性采样（DAS）让轻节点做什么？', o: ['下载全部区块数据并执行', '随机抽查少量数据片段，以高概率确认数据完整可得', '验证 ZK 证明', '替代共识投票'], a: 1, why: 'DAS 基于纠删码：抽查片段都成功，就能以极高概率确认数据可恢复，不需要下载全部数据。它不执行交易、不验证证明、也不替代共识。' }
 ])}
-${exercises([["计算题（示例）：假设区块 Gas 上限为 4,500 万，出块 12 秒，只做 21,000 Gas 的转账，L1 的 TPS 约是多少？如果交给 Rollup，每个区块 6 个 blob、每笔压缩后的 L2 交易 100 字节，TPS 约是多少？", "<p>L1：45,000,000 ÷ 21,000 ≈ 2,142 笔每块，÷ 12 秒 ≈ <strong>178 TPS</strong>。</p><p>Rollup：6 × 131,072 = 786,432 字节，÷ 100 ≈ 7,864 笔每块，÷ 12 秒 ≈ <strong>655 TPS</strong>。</p><p>交易压缩得越小，Rollup 的上限越高。这时数据带宽，而不是执行能力，成为上限。</p>"], ["思考题：一条链把状态根和证明结算到以太坊，但交易数据放在一个外部 DA 层。它能说自己“完全继承以太坊安全”吗？为什么？", "<p>不能。模块化堆栈的安全取决于最弱的一层。数据不在以太坊上，它在分类上属于 Validium 类，而不是 Rollup。</p><p>外部 DA 层宕机或扣留数据时，用户无法计算自己的余额证明，可能无法提款。所以它的安全上限等于外部 DA 层的安全。</p>"], ["计算题（示例）：数据用纠删码扩展成 2 倍后，一个轻节点随机抽查 20 个片段且全部成功。攻击者扣留了足以让数据不可恢复的片段，这种情况下 20 次全成功的概率最多是多少？", "<p>要让数据不可恢复，攻击者必须扣留超过 50% 的片段。所以每次抽中可得片段的概率不超过 1/2。</p><p>20 次全部成功的概率不超过 (1/2)^20 = 1/1,048,576，约<strong>百万分之一</strong>。抽查次数越多，这个概率下降得越快。</p>"]])}
+${exercises([["计算题（示例）：假设区块 Gas 上限为 4,500 万（2025 年下半年的历史值），出块 12 秒，只做 21,000 Gas 的转账，L1 的 TPS 约是多少？如果交给 Rollup，每个区块 6 个 blob（Pectra 时的目标值）、每笔压缩后的 L2 交易 100 字节，TPS 约是多少？", "<p>L1：45,000,000 ÷ 21,000 ≈ 2,142 笔每块，÷ 12 秒 ≈ <strong>178 TPS</strong>。</p><p>Rollup：6 × 131,072 = 786,432 字节，÷ 100 ≈ 7,864 笔每块，÷ 12 秒 ≈ <strong>655 TPS</strong>。</p><p>交易压缩得越小，Rollup 的上限越高。这时数据带宽，而不是执行能力，成为上限。</p>"], ["思考题：一条链把状态根和证明结算到以太坊，但交易数据放在一个外部 DA 层。它能说自己“完全继承以太坊安全”吗？为什么？", "<p>不能。模块化堆栈的安全取决于最弱的一层。数据不在以太坊上，它在分类上属于 Validium 类，而不是 Rollup。</p><p>外部 DA 层宕机或扣留数据时，用户无法计算自己的余额证明，可能无法提款。所以它的安全上限等于外部 DA 层的安全。</p>"], ["计算题（示例）：数据用纠删码扩展成 2 倍后，一个轻节点随机抽查 20 个片段且全部成功。攻击者扣留了足以让数据不可恢复的片段，这种情况下 20 次全成功的概率最多是多少？", "<p>要让数据不可恢复，攻击者必须扣留超过 50% 的片段。所以每次抽中可得片段的概率不超过 1/2。</p><p>20 次全部成功的概率不超过 (1/2)^20 = 1/1,048,576，约<strong>百万分之一</strong>。抽查次数越多，这个概率下降得越快。</p>"]])}
 ${checklist(["能区分状态通道、侧链、Plasma、Rollup、Validium、Optimium 的数据位置和正确性保证。", "能解释数据被扣留时，乐观方案和 Validium 分别会出什么问题。", "能用执行、结算、共识、DA 四层模型拆解一条 L2 或 L3 的安全假设。", "能用 Gas 上限和 blob 参数估算 L1 与 Rollup 的理论 TPS。", "做过用 eth_getBlockByNumber 读取 blobGasUsed，并算出区块里的 blob 数量。"])}
 ${terms([
   ['可扩展性', 'Scalability', '系统在不明显降低去中心化与安全的前提下处理更多交易的能力'],
@@ -248,8 +249,8 @@ sequenceDiagram
   end
 `, [
   ['flow', '用户先从排序器拿到软确认；数据进入 L1 后，交易顺序不再可改；挑战期结束后，状态根最终确定，提款可以执行。'],
-  ['key', 'L2 交易有三种“确认”：排序器软确认 → 数据在 L1 上被最终确定（约 13 分钟）→ 状态根最终确定（乐观约 7 天，ZK 在证明验证后）。'],
-  ['fail', '排序器在发布批次前宕机或作恶，软确认可能失效。交易所充值应以“数据已在 L1 最终确定”为准。'],
+  ['key', 'L2 交易有三种“确认”：排序器软确认（unsafe）→ 数据上 L1（safe；所在 L1 区块再过约 13 分钟被最终确定，L2 节点把它标为 finalized）→ 状态根最终确定（乐观约 7 天，ZK 在证明验证后）。'],
+  ['fail', '排序器在发布批次前宕机或作恶，软确认可能失效。交易所充值至少等到 safe（数据已上 L1），大额等到 finalized（数据所在 L1 区块已最终确定）。'],
   ['risk', '如果没有任何验证者在线检查，错误的状态根可以通过挑战期。乐观 Rollup 的安全假设是“至少一个诚实验证者”。']
 ])}
 ${steps([
@@ -293,7 +294,7 @@ ${tbl(['部件', '它做什么', '类比'], [
   ['证明者 Prover', '对一个批次运行电路，生成一个很小的证明（几百字节到几百 KB）', '考生交卷时附上的“自证正确”的证书'],
   ['验证合约 Verifier', '部署在 L1，用几十万 Gas 验证证明', '阅卷老师只看证书，几秒就判对错']
 ])}
-<p>关键性质：<strong>验证成本几乎不随交易数量增长</strong>。1 笔和 10,000 笔交易，验证证明的 Gas 差不多。代价是生成证明需要大量计算（GPU 集群，分钟到小时级）。代表项目：zkSync Era、Starknet、Scroll、Linea；Polygon zkEVM 曾是其中之一，但已于 2025-06 宣布在 2026 年停运 Mainnet Beta（排序器计划 2026-07-01 停止）${cite('Polygon 论坛：Sunsetting Polygon zkEVM Mainnet Beta in 2026', 'https://forum.polygon.technology/t/sunsetting-polygon-zkevm-mainnet-beta-in-2026/21020')}，详见 <a href="#m10-4">M06.4 zkEVM 与 ZK Rollup</a>。</p>
+<p>关键性质：<strong>验证成本几乎不随交易数量增长</strong>。1 笔和 10,000 笔交易，验证证明的 Gas 差不多。代价是生成证明需要大量计算（GPU 集群，分钟到小时级）。代表项目：zkSync Era、Starknet、Scroll、Linea；Polygon zkEVM 曾是其中之一，但已于 2025-06 宣布在 2026 年停运 Mainnet Beta（排序器计划 2026-07-01 停止）${cite('Polygon 论坛：Sunsetting Polygon zkEVM Mainnet Beta in 2026', 'https://forum.polygon.technology/t/sunsetting-polygon-zkevm-mainnet-beta-in-2026/21020')}，详见 <a href="#m10-4">M07.4 zkEVM 与 ZK Rollup</a>。</p>
 ${tbl(['维度', '乐观 Rollup', 'ZK Rollup'], [
   ['默认假设', '结果正确，除非被挑战', '没有证明就不接受'],
   ['安全前提', '至少一个诚实且在线的挑战者', '密码学假设 + 电路实现无漏洞'],
@@ -326,7 +327,7 @@ stateDiagram-v2
 `, [
   ['flow', 'OP Stack 提款需要用户在 L1 上发两笔交易：先“证明”，挑战期结束后再“完成”。'],
   ['fail', '用户只做了第一步就忘记第二步，资金会一直停在桥合约里。前端和后端都要提醒并跟踪状态。'],
-  ['limit', '官方桥提款慢。第三方快速桥（流动性网络）可以几分钟到账，但引入新的信任方，见 <a href="#m05-8">M05.11 跨链桥</a>。'],
+  ['limit', '官方桥提款慢。第三方快速桥（流动性网络）可以几分钟到账，但引入新的信任方，见 <a href="#m05-8">M06.12 跨链桥</a>。'],
   ['key', 'L1 → L2 的充值通常只需几分钟；L2 → L1 的提款才需要等挑战期。']
 ])}
 
@@ -346,7 +347,7 @@ const blobBaseFee = 1_000_000_000n; // 1 gwei，每 blob gas
 // 一个 blob 的费用 = 131072 blob gas × blobBaseFee，按字节分摊
 const l1DataFee = (blobBytes * blobBaseFee * txBytes) / blobBytes;
 
-console.log('L2 执行费 wei =', l2ExecFee);   // 21,000,000,000,000 wei = 0.000021 ETH
+console.log('L2 执行费 wei =', l2ExecFee);   // 21,000,000,000 wei = 0.000000021 ETH
 console.log('L1 数据费 wei =', l1DataFee);   // 40,000,000,000 wei = 0.00000004 ETH
 `)}
 <p><strong>算一算（示例，ETH = 3,000 美元）</strong></p>
@@ -354,7 +355,7 @@ ${steps([
   '一个 blob 的费用：131,072 blob gas × 1 gwei = 131,072 gwei ≈ 0.000131 ETH ≈ <strong>0.39 美元</strong>。',
   '一个 blob 能装：131,072 ÷ 40 ≈ 3,276 笔压缩交易。',
   '每笔分摊数据费：0.39 ÷ 3,276 ≈ <strong>0.00012 美元</strong>。',
-  '如果改用 calldata：40 字节 × 16 Gas = 640 Gas；按 20 gwei 计算 = 12,800 gwei ≈ 0.0000128 ETH ≈ <strong>0.038 美元</strong>，约是 blob 的 300 倍。',
+  '如果改用 calldata：2025 年 5 月 Pectra 的 EIP-7623 之后，批次提交这类数据量大的交易按“地板价”计费，每个非零字节约 40 Gas（原来是 16 Gas）。40 字节 × 40 Gas = 1,600 Gas；按 20 gwei 计算 = 32,000 gwei = 0.000032 ETH ≈ <strong>0.096 美元</strong>，约是 blob 的 800 倍（按 Pectra 之前的 16 Gas/字节算是 0.038 美元、约 300 倍）。',
   '如果批次只装了 300 笔交易，blob 仍按整块收费：0.39 ÷ 300 ≈ 0.0013 美元，单笔贵了约 10 倍。'
 ])}
 <p>先在下面的实验里观察：① 把“每批交易数”从 500 调到 10，看单笔成本如何上升；② 切换到 calldata，对比数据成本的量级；③ 把 Blob Gas 价格调高，模拟 blob 拥堵。</p>
@@ -441,7 +442,7 @@ ${mistakes([
   ['中心化排序器可以偷走用户资金。', '排序器可以宕机、审查、重排交易，但不能伪造签名；错误状态会被证明系统拒绝（前提是证明系统已上线）。']
 ])}
 ${recap([
-  'L2 交易有三层确认：软确认 → 数据上 L1（safe）→ 状态根最终确定。',
+  'L2 交易有三层确认：软确认（unsafe）→ 数据上 L1（safe，约 13 分钟后随 L1 最终确定变为 finalized）→ 状态根最终确定。',
   '乐观 Rollup 用交互式二分把争议缩到一条指令，在 L1 执行裁决；安全前提是至少一个诚实挑战者。',
   'ZK Rollup 用电路 + 证明者 + 验证合约，验证成本几乎不随交易数增长。',
   '中心化排序器可宕机和审查；强制包含是用户的逃生通道。',
@@ -493,8 +494,8 @@ ${art('一图看懂：应用通过 RPC 入口读写链，入口背后是自建�
   S.arrow(422, 52, 488, 92),
   S.arrow(422, 160, 488, 116),
   S.text(315, 232, '自建时，先选一种节点类型', { size: 12.5, b: 1, anchor: 'middle' }),
-  S.box(10, 248, 200, 56, { k: 'idle', t: '轻节点', s: '只存区块头 · 几 GB' }),
-  S.box(230, 248, 200, 56, { k: 'key', t: '全节点（裁剪）', s: '近期状态 · 约 1.5–2.5 TB' }),
+  S.box(10, 248, 200, 56, { k: 'idle', t: '轻客户端', s: '验区块头 · 按需取证明' }),
+  S.box(230, 248, 200, 56, { k: 'key', t: '全节点（裁剪）', s: '近期状态 · 约 1–2.5 TB' }),
   S.box(450, 248, 200, 56, { k: 'info', t: '归档节点', s: '全部历史状态 · 约 2–4 TB', ss: 11.5 }),
   S.line(315, 198, 315, 222, { dash: 1 }),
   S.text(330, 326, '示例：一台全节点服务器约 4 TB NVMe + 32 GB 内存，磁盘量级为 2026 年公开资料', { size: 12, dim: 1, anchor: 'middle', mw: 640 })
@@ -508,9 +509,9 @@ ${art('一图看懂：应用通过 RPC 入口读写链，入口背后是自建�
 <h2>2. 节点类型、同步模式与硬件</h2>
 <p>The Merge 之后，一个完整的以太坊节点由两个程序组成：<strong>执行客户端</strong>（Geth、Nethermind、Besu、Erigon、Reth）和<strong>共识客户端</strong>（Lighthouse、Prysm、Teku、Nimbus、Lodestar），两者通过 Engine API（默认端口 8551，用 JWT 密钥认证）通信。详见 <a href="#m05-2">M04.2</a>。</p>
 ${tbl(['节点类型', '保存什么', '能回答什么', '磁盘（示例，截至 2026 年公开资料量级）', '典型用途'], [
-  ['全节点（裁剪）', '最近状态 + 全部区块', '最新状态、近期历史状态（约最近 128 个块）', '约 1.5–2.5 TB NVMe', 'DApp 读写、充值监听、发交易'],
+  ['全节点（裁剪）', '最近状态 + 区块历史（按 EIP-4444 路线，客户端已支持裁掉合并前的旧历史）', '最新状态、近期历史状态（约最近 128 个块）', '约 1–2.5 TB NVMe（裁掉合并前历史后取下限附近；具体以所用客户端文档为准）', 'DApp 读写、充值监听、发交易'],
   ['归档节点', '每个区块的历史状态', '任意历史区块的余额、合约存储、eth_call', 'Erigon / Reth 约 2–4 TB；Geth 传统哈希模式可超过 20 TB，v1.16 起的路径模式归档约 2 TB 起（截至 2026 年公开资料）' + cite('Geth 文档：归档节点', 'https://geth.ethereum.org/docs/fundamentals/archive'), '数据分析、索引器、审计、对账'],
-  ['轻节点', '只保存区块头', '依赖其他节点提供数据和证明', '几 GB', '钱包、嵌入式设备'],
+  ['轻客户端', '跟踪信标链同步委员会签名过的区块头，不保存完整状态（Geth 旧的 LES 轻节点协议已移除，现在的轻客户端如 Helios 走这条路线）', '依赖不受信任的 RPC 提供数据，再用默克尔证明自己验证', '很小，远低于全节点', '钱包、嵌入式设备'],
   ['验证者节点', '全节点 + 验证者客户端', '同全节点', '同全节点', '参与 PoS 质押，见 <a href="#m05-3">M04.3</a>']
 ])}
 <p><strong>同步模式</strong>：</p>
@@ -548,10 +549,11 @@ flowchart LR
   ['key', 'P2P 端口要放行，否则对等节点数过低，同步缓慢且容易被孤立。']
 ])}
 ${code('YAML', `
-# docker-compose.yml —— 以太坊主网全节点（示例，版本号请换成你验证过的发布版）
+# docker-compose.yml —— 以太坊主网全节点（示例）
+# 版本号锁定在你验证过的具体发布版，写进同目录的 .env（例如 GETH_VERSION=v1.x.y），不要用 stable / latest
 services:
   geth:
-    image: ethereum/client-go:stable
+    image: ethereum/client-go:\${GETH_VERSION:?请在 .env 中设置}
     restart: unless-stopped
     command:
       - --mainnet
@@ -572,6 +574,7 @@ services:
     ports:
       - "127.0.0.1:8545:8545"
       - "127.0.0.1:8546:8546"
+      - "127.0.0.1:6060:6060"        # 指标，只给本机 Prometheus 抓取
       - "30303:30303/tcp"
       - "30303:30303/udp"
     volumes:
@@ -579,7 +582,7 @@ services:
       - /data/secrets:/secrets:ro
 
   lighthouse:
-    image: sigp/lighthouse:latest
+    image: sigp/lighthouse:\${LIGHTHOUSE_VERSION:?请在 .env 中设置}
     restart: unless-stopped
     command:
       - lighthouse
@@ -593,6 +596,8 @@ services:
       - --metrics
       - --metrics-address=0.0.0.0
     ports:
+      - "127.0.0.1:5052:5052"        # Beacon API，第 5 步的健康检查用
+      - "127.0.0.1:5054:5054"        # 指标
       - "9000:9000/tcp"
       - "9000:9000/udp"
     volumes:
@@ -638,6 +643,12 @@ ${code('YAML', `
 groups:
 - name: eth-node
   rules:
+  - alert: NodeBehindHeadWarning
+    expr: max(eth_reference_head_block) - on() eth_node_head_block{job="geth"} > 3
+    for: 2m
+    labels: { severity: warning }
+    annotations:
+      summary: "节点落后参考源超过 3 个块，持续 2 分钟"
   - alert: NodeBehindHead
     expr: max(eth_reference_head_block) - on() eth_node_head_block{job="geth"} > 10
     for: 2m
@@ -648,10 +659,14 @@ groups:
     expr: p2p_peers{job="geth"} < 10
     for: 10m
     labels: { severity: warning }
-  - alert: DiskAlmostFull
-    expr: (1 - node_filesystem_avail_bytes{mountpoint="/data"} / node_filesystem_size_bytes{mountpoint="/data"}) > 0.85
+  - alert: DiskUsageHigh
+    expr: (1 - node_filesystem_avail_bytes{mountpoint="/data"} / node_filesystem_size_bytes{mountpoint="/data"}) > 0.80
     for: 15m
     labels: { severity: warning }
+  - alert: DiskAlmostFull
+    expr: (1 - node_filesystem_avail_bytes{mountpoint="/data"} / node_filesystem_size_bytes{mountpoint="/data"}) > 0.90
+    for: 5m
+    labels: { severity: critical }
 `)}
 ${call('info', `<p>Geth 开启 --metrics 后，Prometheus 抓取路径是 /debug/metrics/prometheus；Lighthouse 的指标默认在 5054 端口 /metrics。区块高度落后需要“参考源”：可以写一个小 exporter，定时调用 2 家服务商的 eth_blockNumber 并取最大值。M04.8 实战会实现这一部分，见 <a href="#m05-10">M04.8</a>。</p>`)}
 
@@ -691,7 +706,7 @@ ${steps([
   '<strong>鉴权</strong>：在节点前放网关（Nginx、Envoy 或自研），校验 API Key 或 JWT，按 Key 记录用量。',
   '<strong>限流</strong>：按 Key 和 IP 限制 QPS；对 eth_getLogs 限制区块范围（例如每次 ≤ 2,000 块）；对 debug_traceTransaction 等重方法单独限流。',
   '<strong>请求体限制</strong>：限制批量请求条数（例如一个 batch ≤ 50 条）和请求体大小，防止单个请求拖垮节点。',
-  '<strong>不在节点里放私钥</strong>：签名放在独立的签名服务或 HSM / MPC 中（见 <a href="#m03">M09 钱包</a>），节点只负责广播。'
+  '<strong>不在节点里放私钥</strong>：签名放在独立的签名服务或 HSM / MPC 中（见 <a href="#m03">M08 钱包</a>），节点只负责广播。'
 ])}
 ${call('warn', `<p>历史上有大量暴露在公网、并解锁了账户的 Geth 节点被机器人扫描并盗走资金：2018 年 360 Netlab 报告，攻击者扫描 8545 端口，从这类节点盗走了价值超过 2,000 万美元的 ETH。${cite('BleepingComputer：配置不当的以太坊客户端被盗超 2,000 万美元', 'https://www.bleepingcomputer.com/news/security/hackers-stole-over-20-million-from-misconfigured-ethereum-clients/')}今天 Geth 已移除 personal 命名空间，但原则不变：<strong>节点不保存可用私钥，RPC 端口不对公网开放</strong>。</p>`)}
 

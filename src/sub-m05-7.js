@@ -1,9 +1,9 @@
-/* ---------- M04 公链 & 基础设施（7）：非 EVM 链与跨链 m05-64 Move 链 · m05-65 Cosmos 与 IBC ｜ 链上数据与取证 m05-66 Dune 与 SQL · m05-67 链上取证 ---------- */
+/* ---------- M06 多链生态：m05-64 Move 链 · m05-65 Cosmos 与 IBC ｜ M12 链上数据与取证：m05-66 Dune 与 SQL · m05-67 链上取证 ---------- */
 (() => {
 CUR = 'm05-64';
-addCh({ id: 'm05-64', nav: 'Move 链', title: 'M05.8 Move 链：Sui 与 Aptos', desc: '资源不能复制也不能丢：Move 的能力系统、Sui 对象模型与 Aptos 并行执行', html: `
-<h1>M05.8 Move 链：Sui 与 Aptos</h1>
-${meta(['用 copy、drop、key、store 四种能力解释 Move 为什么能在语言层面防止“凭空复制资产”和“资产丢失”。', '说清 Sui 的独占对象、共享对象、不可变对象分别走哪条执行路径，以及 PTB 为什么能把多步操作合成一笔原子交易。', '对比 Aptos 的“账户下存资源 + Block-STM 并行”与 EVM、Solana 的状态模型，并在 Sui 本地网络上发布一个 Move 模块。'], '前置：<a href="#m05-1">M04.1 公链全景</a>、<a href="#m05-11">M05.1 Solana 概念</a>、<a href="#m02-1">M02.1 智能合约与 EVM</a>')}
+addCh({ id: 'm05-64', nav: 'Move 链', title: 'M06.9 Move 链：Sui 与 Aptos', desc: '资源不能复制也不能丢：Move 的能力系统、Sui 对象模型与 Aptos 并行执行', html: `
+<h1>M06.9 Move 链：Sui 与 Aptos</h1>
+${meta(['用 copy、drop、key、store 四种能力解释 Move 为什么能在语言层面防止“凭空复制资产”和“资产丢失”。', '说清 Sui 的独占对象、共享对象、不可变对象分别走哪条执行路径，以及 PTB 为什么能把多步操作合成一笔原子交易。', '对比 Aptos 的“账户下存资源 + Block-STM 并行”与 EVM、Solana 的状态模型，并在 Sui 本地网络上发布一个 Move 模块。'], '前置：<a href="#m05-1">M04.1 公链全景</a>、<a href="#m05-11">M06.6 Solana 概念</a>、<a href="#m02-1">M02.1 智能合约与 EVM</a>')}
 ${beginner(`<p><strong>Move</strong>：一种智能合约语言，最早由 Meta（原 Facebook）的 Diem 项目设计。现在 Sui 和 Aptos 两条公链使用它的两个方言。</p>
 <p><strong>结构体（struct）</strong>：把几个字段打包成一个自定义类型，例如“一枚徽章 = 编号 + 等级”。</p>
 <p><strong>能力（ability）</strong>：写在结构体类型上的标签，规定这个类型的值能不能被复制、丢弃、存进链上。</p>
@@ -67,7 +67,7 @@ module hello::badge {
     }
 }
 `)}
-<p>“热土豆”是 Move 特有的模式：闪电贷合约把一个没有能力的凭证交给借款人，借款人在同一笔交易里不还款就拿不到 <code>finish</code> 的调用机会，凭证无法丢弃，交易无法通过校验。EVM 要靠“回调结束后检查余额”实现同样的约束（对比 <a href="#m02-11">M08.3 借贷协议深入</a> 里的闪电贷）。</p>
+<p>“热土豆”是 Move 特有的模式：闪电贷合约把一个没有能力的凭证交给借款人，借款人在同一笔交易里不还款就拿不到 <code>finish</code> 的调用机会，凭证无法丢弃，交易无法通过校验。EVM 要靠“回调结束后检查余额”实现同样的约束（对比 <a href="#m02-11">M05.3 借贷协议深入</a> 里的闪电贷）。</p>
 ${call('info', '<p>Move 的检查发生在两层：编译器检查源代码；链上的<strong>字节码校验器（bytecode verifier）</strong>在发布模块时再检查一遍。所以绕过编译器、手写字节码也不能复制一个没有 copy 能力的值。</p>')}
 
 <h2>3. Sui：一切都是对象</h2>
@@ -148,7 +148,7 @@ ${steps([
 ])}
 
 <h2>5. 四种状态模型对比</h2>
-${recall('<p>Solana 的“程序无状态、数据放账户、交易先声明账户”在 <a href="#m05-11">M05.1 Solana 概念</a> 讲过，这里只把它放进对比。</p>')}
+${recall('<p>Solana 的“程序无状态、数据放账户、交易先声明账户”在 <a href="#m05-11">M06.6 Solana 概念</a> 讲过，这里只把它放进对比。</p>')}
 ${compare('EVM、Solana、Sui、Aptos：状态放在哪里、并行从哪来', [
   { name: 'EVM', tag: '合约私有存储', kind: 'info', points: ['余额是合约 mapping 里的整数', '交易不声明读写集合', '主流实现顺序执行', '资产安全靠开发者逻辑'] },
   { name: 'Solana', tag: '账户 + 无状态程序', points: ['数据放在独立账户里', '交易提前声明要读写的账户', '运行时按账户冲突并行调度', '账户校验是安全第一课'] },
@@ -176,7 +176,7 @@ ${steps([
   '<strong>升级权限</strong>：Sui 发布包时会返回一个 <code>UpgradeCap</code>。谁持有它，谁就能升级这个包。'
 ])}
 ${cases([
-  ['Cetus：整数溢出检查写错，约 2.23 亿美元被盗', '2025-05-22', '<p>Cetus 是 Sui 上最大的集中流动性 DEX 之一。攻击者利用开源数学库 inter_mate 中 <code>checked_shlw</code> 函数的溢出检查错误：它按 256 位上限校验，而本该按 192 位校验。攻击者用极少的代币换到了巨额流动性份额，约 30 分钟内抽走约 2.23 亿美元，其中约 6,000 万美元换成 USDC 后跨到以太坊。</p><p>事后 Sui 验证者投票拒绝处理攻击者地址的交易，投票超过总质押的 33% 后，约 1.62 亿美元被“冻结”在 Sui 上；之后社区治理投票通过，把这部分资金转回。这次冻结也引发了“验证者能否审查交易”的中心化争议。</p><p>启示：Move 的资源安全不覆盖数学库；依赖的第三方库同样要审计。验证者层面的冻结是一次性的社会共识行为，不是协议保证。资金追踪与冻结的一般方法见 <a href="#m05-67">M04.13 链上取证与资金追踪</a>。</p>', [['The Block：Cetus 称开源库缺陷导致 2.23 亿美元被盗', 'https://www.theblock.co/post/355795/sui-dex-cetus-open-source-library-flaw-smart-contract-223-million-usd-exploit'], ['The Block：Sui 社区投票通过追回被冻结资金', 'https://www.theblock.co/post/356347/sui-community-passes-governance-vote-to-recover-stolen-cetus-funds-blocked-by-validators-in-223m-heist']]]
+  ['Cetus：整数溢出检查写错，约 2.23 亿美元被盗', '2025-05-22', '<p>Cetus 是 Sui 上最大的集中流动性 DEX 之一。攻击者利用开源数学库 inter_mate 中 <code>checked_shlw</code> 函数的溢出检查错误：它按 256 位上限校验，而本该按 192 位校验。攻击者用极少的代币换到了巨额流动性份额，约 30 分钟内抽走约 2.23 亿美元，其中约 6,000 万美元换成 USDC 后跨到以太坊。</p><p>事后 Sui 验证者投票拒绝处理攻击者地址的交易，投票超过总质押的 33% 后，约 1.62 亿美元被“冻结”在 Sui 上；之后社区治理投票通过，把这部分资金转回。这次冻结也引发了“验证者能否审查交易”的中心化争议。</p><p>启示：Move 的资源安全不覆盖数学库；依赖的第三方库同样要审计。验证者层面的冻结是一次性的社会共识行为，不是协议保证。资金追踪与冻结的一般方法见 <a href="#m05-67">M12.5 链上取证与资金追踪</a>。</p>', [['The Block：Cetus 称开源库缺陷导致 2.23 亿美元被盗', 'https://www.theblock.co/post/355795/sui-dex-cetus-open-source-library-flaw-smart-contract-223-million-usd-exploit'], ['The Block：Sui 社区投票通过追回被冻结资金', 'https://www.theblock.co/post/356347/sui-community-passes-governance-vote-to-recover-stolen-cetus-funds-blocked-by-validators-in-223m-heist']]]
 ], 'h3')}
 
 <h2>7. 动手：在 Sui 本地网络发布第一个模块</h2>
@@ -282,8 +282,8 @@ ${terms([
 ` });
 
 CUR = 'm05-65';
-addCh({ id: 'm05-65', nav: 'Cosmos 与 IBC', title: 'M05.9 Cosmos SDK 与 IBC', desc: '应用链怎么搭、IBC 怎样用轻客户端跨链，以及它和普通跨链桥的信任差别', html: `
-<h1>M05.9 Cosmos SDK 与 IBC</h1>
+addCh({ id: 'm05-65', nav: 'Cosmos 与 IBC', title: 'M06.10 Cosmos SDK 与 IBC', desc: '应用链怎么搭、IBC 怎样用轻客户端跨链，以及它和普通跨链桥的信任差别', html: `
+<h1>M06.10 Cosmos SDK 与 IBC</h1>
 ${meta(['说清“应用链”的取舍：为什么 dYdX 这类项目要自己做一条链，代价是什么。', '画出 CometBFT、ABCI、Cosmos SDK 模块三层结构，并说出常用模块的职责。', '按“发送 → 中继 → 证明 → 确认或超时”的顺序讲清 IBC 一个数据包的生命周期，解释 ICS-20 的托管、铸造和 ibc/ 前缀代币。'], '前置：<a href="#m01-3">M01.3 共识机制</a>、<a href="#m05-1">M04.1 公链全景</a>')}
 ${beginner(`<p><strong>应用链（app-chain）</strong>：只为一个应用服务的区块链。规则、手续费、出块参数都按这个应用定制。</p>
 <p><strong>轻客户端（light client）</strong>：不下载完整区块、只跟踪区块头和验证者签名，就能验证“某条数据确实在那条链上”的程序。</p>
@@ -412,7 +412,7 @@ hermes create channel --a-chain ibc-0 --b-chain ibc-1 \\
 `)}
 
 <h2>6. IBC 与普通跨链桥：信任从哪里来</h2>
-${recall('<p>跨链桥的四种验证模型（外部多签、乐观、轻客户端、ZK）和 Ronin、Wormhole、Nomad 三起事故，在 <a href="#m05-8">M05.11 跨链桥</a> 里详细讲过。IBC 是其中“轻客户端验证”的代表，本节只比较它和多签桥的信任差别。</p>')}
+${recall('<p>跨链桥的四种验证模型（外部多签、乐观、轻客户端、ZK）和 Ronin、Wormhole、Nomad 三起事故，在 <a href="#m05-8">M06.12 跨链桥</a> 里详细讲过。IBC 是其中“轻客户端验证”的代表，本节只比较它和多签桥的信任差别。</p>')}
 ${compare('多签桥 vs IBC：谁说了算', [
   { name: '多签 / MPC 桥', tag: '外部验证', kind: 'risk', points: ['M of N 个签名者证明“链 A 发生了某事件”', '安全 = 签名者多数诚实且私钥安全', '拿到 M 把私钥即可伪造任意提款', '接入任何链都容易，速度快'] },
   { name: 'IBC', tag: '轻客户端验证', kind: 'key', points: ['链 B 自己验证链 A 的区块头和默克尔证明', '安全 = 链 A 共识诚实 + 验证代码无漏洞', '中继者作恶只能拖延，不能伪造', '要求对方链有确定最终性，接入异构链成本高'] }
@@ -469,7 +469,7 @@ ${quiz([
 ${exercises([
   ['交易所要支持“用户从 Osmosis 把 ATOM 充值到我们的 Cosmos Hub 地址”，也支持“充值 Osmosis 上的 ATOM 凭证”。入账逻辑应该按什么字段识别资产？列出至少三条风控检查。', '<p>按完整 denom 识别：Hub 上原生 ATOM 是 <code>uatom</code>；凭证资产要用 <code>ibc/哈希</code> 并维护一张“denom → 路径 → 资产”白名单，路径可以通过链上 denom trace 查询核对。风控：① 只接受白名单内的 denom 和路径；② 等交易所在区块提交后再入账（CometBFT 链一个区块即最终，但仍要处理节点回放和查询一致性）；③ 校验 memo 或子地址与用户匹配；④ 监控对应 IBC 客户端是否接近过期、通道是否被关闭，异常时暂停该资产充提。</p>'],
   ['（算一算）你的应用链质押总价值 4,000 万美元，验证者质押均匀分布。攻击者想让链停止出块，至少要控制多少质押？想签出能骗过 IBC 轻客户端的虚假区块头呢？', '<p>停链：控制超过 1/3 的质押拒绝投票即可，约 1,333 万美元以上。签出有效的虚假区块头：需要超过 2/3 质押签名，约 2,667 万美元以上。如果这条链通过 IBC 托管了价值 1 亿美元的外部资产，攻击收益高于成本，安全不足。结论：IBC 接入的风险敞口要和对方链的质押价值匹配，可以设置单通道转账限额。</p>'],
-  ['解释为什么比特币不能直接通过经典 IBC 连接 Cosmos 链，有哪些替代方式？', '<p>经典 IBC 需要对方链有确定的最终性和可被轻客户端高效验证的状态证明。比特币是 PoW 概率最终性，没有通用的状态承诺，难以写成 IBC 轻客户端。替代方式：多签或门限签名托管桥（信任外部签名者）、由跨链网络中继的 BTC 跨链方案，或者在 ZK 证明成熟后用证明验证比特币区块头。比特币本身的结构见 <a href="#m05-60">M05.4 比特币：UTXO 与脚本</a>。</p>']
+  ['解释为什么比特币不能直接通过经典 IBC 连接 Cosmos 链，有哪些替代方式？', '<p>经典 IBC 需要对方链有确定的最终性和可被轻客户端高效验证的状态证明。比特币是 PoW 概率最终性，没有通用的状态承诺，难以写成 IBC 轻客户端。替代方式：多签或门限签名托管桥（信任外部签名者）、由跨链网络中继的 BTC 跨链方案，或者在 ZK 证明成熟后用证明验证比特币区块头。比特币本身的结构见 <a href="#m05-60">M06.1 比特币：UTXO 与脚本</a>。</p>']
 ])}
 ${checklist([
   '能解释应用链的收益与代价，并举出一个应用链案例。',
@@ -493,8 +493,8 @@ ${terms([
 ` });
 
 CUR = 'm05-66';
-addCh({ id: 'm05-66', nav: 'Dune 与链上 SQL', title: 'M04.12 链上数据分析：Dune 与 SQL', desc: '从原始日志到解码表和 Spellbook，用 DuneSQL 算日活、成交量、留存与集中度', html: `
-<h1>M04.12 链上数据分析：Dune 与 SQL</h1>
+addCh({ id: 'm05-66', nav: 'Dune 与链上 SQL', title: 'M12.4 链上数据分析：Dune 与 SQL', desc: '从原始日志到解码表和 Spellbook，用 DuneSQL 算日活、成交量、留存与集中度', html: `
+<h1>M12.4 链上数据分析：Dune 与 SQL</h1>
 ${meta(['区分原始表、解码表、精选表（Spellbook），并用 SQL 手工解码一条 ERC-20 Transfer 日志。', '用 DuneSQL 写出日活、成交量、周留存、前 10 大持有者占比四类查询。', '识别精度、刷量、重复计数、数据延迟四类常见错误，并做出一个可复现的仪表盘。'], '前置：<a href="#m05-9">M04.10 数据基础设施</a>、<a href="#m02-5">M02.5 ERC-20 与授权</a>')}
 ${beginner(`<p><strong>SQL</strong>：查询表格数据的语言。<code>SELECT</code> 选列、<code>FROM</code> 指表、<code>WHERE</code> 过滤、<code>GROUP BY</code> 分组汇总。</p>
 <p><strong>日志（log）/ 事件（event）</strong>：合约执行时写进交易回执的记录，例如 ERC-20 的 <code>Transfer(from, to, value)</code>。它不改变状态，但最适合用来做分析。</p>
@@ -646,7 +646,7 @@ ${steps([
   '用户真实的交易规模是 <strong>100 万</strong>。上面两种算法分别高估 2 倍和 3 倍。',
   '口径说明：“DEX 池子总成交量”算 200 万是对的，因为两个池子确实各成交了 100 万；“用户需求量”算 100 万才对。<strong>先定口径，再写 SQL。</strong>'
 ])}
-<p>刷量的规模可以很大。Chainalysis 2022 年对 NFT 市场的研究，把“卖给由卖方自己出资的地址”视为刷量信号，发现 262 个地址各自这样卖出超过 25 次。${cite('Blockworks：Chainalysis 关于 NFT 刷量的研究', 'https://blockworks.co/news/wash-trading-which-inflates-nft-prices-growing-area-of-concern-for-traders')} 它用的“资金来源”方法，就是下一篇讲的地址聚类；NFT 市场的刷量与版税规则见 <a href="#m09-7">M13.6 NFT 市场、版税与 Memecoin 发行</a>。</p>
+<p>刷量的规模可以很大。Chainalysis 2022 年对 NFT 市场的研究，把“卖给由卖方自己出资的地址”视为刷量信号，发现 262 个地址各自这样卖出超过 25 次。${cite('Blockworks：Chainalysis 关于 NFT 刷量的研究', 'https://blockworks.co/news/wash-trading-which-inflates-nft-prices-growing-area-of-concern-for-traders')} 它用的“资金来源”方法，就是下一篇讲的地址聚类；NFT 市场的刷量与版税规则见 <a href="#m09-7">M14.6 NFT 市场、版税与 Memecoin 发行</a>。</p>
 
 <h2>6. 仪表盘与替代平台</h2>
 ${steps2('做一个可复现的仪表盘', [
@@ -723,9 +723,9 @@ ${terms([
 ` });
 
 CUR = 'm05-67';
-addCh({ id: 'm05-67', nav: '链上取证', title: 'M04.13 链上取证与资金追踪', desc: '地址聚类、穿越 DEX 与跨链桥、标签与工具、冻结窗口，以及取证的边界', html: `
-<h1>M04.13 链上取证与资金追踪</h1>
-${meta(['说出三条经典地址聚类启发式（共同输入、找零识别、充值地址复用），并为每一跳追踪给出置信度。', '按“DEX 兑换、跨链桥、混币器、交易所”四类节点，说明资金穿过它们时用什么证据继续追。', '列出资金仍可被冻结的位置（稳定币发行方、交易所、协议暂停、验证者），并用一个真实案例说明冻结窗口为什么以小时计。'], '前置：<a href="#m05-66">M04.12 链上数据分析</a>、<a href="#m05-8">M05.11 跨链桥</a>', ['trace'])}
+addCh({ id: 'm05-67', nav: '链上取证', title: 'M12.5 链上取证与资金追踪', desc: '地址聚类、穿越 DEX 与跨链桥、标签与工具、冻结窗口，以及取证的边界', html: `
+<h1>M12.5 链上取证与资金追踪</h1>
+${meta(['说出三条经典地址聚类启发式（共同输入、找零识别、充值地址复用），并为每一跳追踪给出置信度。', '按“DEX 兑换、跨链桥、混币器、交易所”四类节点，说明资金穿过它们时用什么证据继续追。', '列出资金仍可被冻结的位置（稳定币发行方、交易所、协议暂停、验证者），并用一个真实案例说明冻结窗口为什么以小时计。'], '前置：<a href="#m05-66">M12.4 链上数据分析</a>、<a href="#m05-8">M06.12 跨链桥</a>', ['trace'])}
 ${beginner(`<p><strong>资金追踪（fund tracing）</strong>：沿着链上转账一跳一跳找出被盗或可疑资金去了哪里。</p>
 <p><strong>跳（hop）</strong>：资金从一个地址到下一个地址的一次移动。</p>
 <p><strong>聚类（clustering）</strong>：根据行为规律，推断多个地址属于同一个控制者，把它们合成一个“簇”。</p>
@@ -763,7 +763,7 @@ ${art('一图看懂：资金一跳一跳走，冻结要赶在离开之前', 660,
 ], '上排是被盗资金依次经过受害地址、攻击者、DEX、跨链桥和交易所，每一跳标出置信度。下排是可以冻结的位置：稳定币发行方和交易所，红色虚线框是混币器，会让追踪中断。', 'm05-67')}
 
 <h2>2. 聚类启发式：哪些地址属于同一个人</h2>
-${recall('<p>比特币的 UTXO 模型（输入、输出、找零）见 <a href="#m05-60">M05.4 比特币：UTXO 与脚本</a>；以太坊的账户模型和交易结构见 <a href="#m01-4">M01.4 交易全解</a>。本节只讲从这两种模型里推断“同一控制者”的方法。</p>')}
+${recall('<p>比特币的 UTXO 模型（输入、输出、找零）见 <a href="#m05-60">M06.1 比特币：UTXO 与脚本</a>；以太坊的账户模型和交易结构见 <a href="#m01-4">M01.4 交易全解</a>。本节只讲从这两种模型里推断“同一控制者”的方法。</p>')}
 ${tbl(['启发式', '适用模型', '逻辑', '常见误判', '置信度（示例）'], [
   ['共同输入所有权（common-input-ownership）', 'UTXO', '一笔交易的多个输入需要各自签名，通常由同一个钱包一起签，所以这些输入地址属于同一控制者', 'CoinJoin 等协作交易故意把多人输入放进同一笔交易', '高；遇到 CoinJoin 特征时作废'],
   ['找零识别（change detection）', 'UTXO', '支付通常有一个“付给对方”和一个“找零给自己”的输出。新出现的、只用一次的地址、或金额不是整数的输出，更可能是找零', '钱包实现不同；用户故意制造整数找零', '中'],
@@ -826,7 +826,7 @@ ${tbl(['工具', '定位'], [
   ['Breadcrumbs', '可视化的资金流图与地址调查'],
   ['MetaSleuth（BlockSec）', '多链资金流追踪与调查图' + cite('MetaSleuth', 'https://metasleuth.io/')],
   ['Chainalysis Reactor（商业）', '面向执法与合规团队的调查平台，用图谱跨多链追踪 swap、桥和混币器，并关联现实实体' + cite('Chainalysis Reactor', 'https://www.chainalysis.com/product/reactor/')],
-  ['Dune / 自建 SQL', '批量分析：例如找出所有由同一地址出资 Gas 的新地址（见 <a href="#m05-66">M04.12</a>）']
+  ['Dune / 自建 SQL', '批量分析：例如找出所有由同一地址出资 Gas 的新地址（见 <a href="#m05-66">M12.4</a>）']
 ])}
 
 <h2>6. 冻结：哪里还能拦住钱</h2>
@@ -851,11 +851,11 @@ flowchart LR
   ['fail', '通知太慢或证据不足，交易所可能来不及处理或拒绝处理。']
 ])}
 ${tbl(['冻结方', '机制', '要点'], [
-  ['USDT 发行方 Tether', '合约里的 <code>addBlackList</code> 让地址无法转出；<code>destroyBlackFunds</code> 销毁已列入黑名单地址的余额', '据 BlockSec 统计，2025 年在以太坊和 Tron 上共冻结约 12.6 亿美元 USDT，涉及 4,163 个地址' + cite('BlockSec：2025 年 USDT 黑名单统计', 'https://blocksec.com/blog/1-26-billion-frozen-usdt-blacklisting-on-ethereum-and-tron-in-2025') + '（Tron 上的冻结与 T3 联盟见 <a href="#m05-68">M05.10 Tron 与 TON</a>）'],
+  ['USDT 发行方 Tether', '合约里的 <code>addBlackList</code> 让地址无法转出；<code>destroyBlackFunds</code> 销毁已列入黑名单地址的余额', '据 BlockSec 统计，2025 年在以太坊和 Tron 上共冻结约 12.6 亿美元 USDT，涉及 4,163 个地址' + cite('BlockSec：2025 年 USDT 黑名单统计', 'https://blocksec.com/blog/1-26-billion-frozen-usdt-blacklisting-on-ethereum-and-tron-in-2025') + '（Tron 上的冻结与 T3 联盟见 <a href="#m05-68">M06.11 Tron 与 TON</a>）'],
   ['USDC 发行方 Circle', '合约里的 <code>blacklist</code> / <code>unBlacklist</code>，由 blacklister 角色调用；转账函数带 <code>notBlacklisted</code> 检查' + cite('Circle stablecoin-evm：Blacklistable.sol', 'https://github.com/circlefin/stablecoin-evm/blob/master/contracts/v1/Blacklistable.sol'), '通常依据法律要求或执法请求'],
   ['中心化交易所', '冻结充值账户、拒绝提币', '需要尽快提供交易哈希、地址和追踪链路'],
   ['协议本身', '有提款延迟期或暂停开关的协议，可以在窗口内暂停', '例如 Bybit 事件中 mETH 协议利用 8 小时提款延迟追回 15,000 枚 cmETH' + cite('The Block：mETH 追回 4,300 万美元，Tether 冻结 18.1 万 USDT', 'https://www.theblock.co/post/342840/meth-protocol-announces-43-million-recovery-from-bybit-hack-while-tether-freezes-181000')],
-  ['验证者', '验证者协调拒绝处理某些地址的交易', '极少发生且有中心化争议，例如 Sui 上的 Cetus 事件（见 <a href="#m05-64">M05.8</a>）']
+  ['验证者', '验证者协调拒绝处理某些地址的交易', '极少发生且有中心化争议，例如 Sui 上的 Cetus 事件（见 <a href="#m05-64">M06.9</a>）']
 ])}
 
 <h3>6.1 案例走读：Bybit 被盗资金的洗钱路径</h3>
@@ -872,9 +872,9 @@ ${steps([
 <h2>7. 局限、隐私与伦理</h2>
 ${steps([
   '<strong>启发式会出错。</strong>聚类是推断，不是证据。把概率写成事实，会让无辜地址被冻结或被公开指认。报告里要标置信度和反例。',
-  '<strong>隐私是正当需求。</strong>大多数使用隐私工具的人不是罪犯：工资、捐款、商业付款都不想被公开。美国财政部 2022 年制裁 Tornado Cash，2025 年 3 月 21 日又将其移出制裁名单。' + cite('美国财政部：Tornado Cash 解除制裁', 'https://home.treasury.gov/news/press-releases/sb0057') + ' 隐私协议与合规的边界见 <a href="#m10-5">M06.5 隐私协议与合规边界</a>。',
+  '<strong>隐私是正当需求。</strong>大多数使用隐私工具的人不是罪犯：工资、捐款、商业付款都不想被公开。美国财政部 2022 年制裁 Tornado Cash，2025 年 3 月 21 日又将其移出制裁名单。' + cite('美国财政部：Tornado Cash 解除制裁', 'https://home.treasury.gov/news/press-releases/sb0057') + ' 隐私协议与合规的边界见 <a href="#m10-5">M07.5 隐私协议与合规边界</a>。',
   '<strong>不要人肉公开个人身份。</strong>把地址和真实个人对应起来，属于高敏感行为。研究者应只交给执法机构或受害方的法律顾问，不在社交媒体公开。',
-  '<strong>遵守法律程序。</strong>冻结与追回通常需要法律依据。交易所的 KYC、制裁筛查与可疑交易报告见 <a href="#m11-2">M07.2 KYC、AML 与制裁筛查</a>。本篇不是法律建议。'
+  '<strong>遵守法律程序。</strong>冻结与追回通常需要法律依据。交易所的 KYC、制裁筛查与可疑交易报告见 <a href="#m11-2">M12.2 KYC、AML 与制裁筛查</a>。本篇不是法律建议。'
 ])}
 
 ${tryit(`<p><strong>动手练习：</strong>用 Etherscan 追一段真实的公开路径（只做阅读，不与任何地址交互）。</p>

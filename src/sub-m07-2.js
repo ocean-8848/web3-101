@@ -185,7 +185,7 @@ ${recap([
 ${quiz([
   { q: '用户在 USDC（6 位）输入框里输入 2.5，正确的链上整数是？', o: ['2.5', '2500000n', '2500000000000000000n', '25n'], a: 1, why: '2.5 × 10<sup>6</sup> = 2,500,000。2500000000000000000n 是按 18 位解析的结果，大了 10<sup>12</sup> 倍。' },
   { q: '<code>-7n / 2n</code> 的结果是？', o: ['-4n', '-3.5', '-3n', 'TypeError'], a: 2, why: 'bigint 除法向零截断，-3.5 截断为 -3n。不是向下取整（-4n），也不会得到小数。' },
-  { q: '用户余额是 1.2345678 USDC 的链上值（实际 6 位：1234567n），界面保留 2 位小数，应显示？', o: ['1.24', '1.23', '1.2345', '1'], a: 1, why: '余额要向下截断，显示 1.23。显示 1.24 会让用户点击“最大”时余额不足。' },
+  { q: '用户 USDC 余额的链上值是 1234567n（USDC 为 6 位小数，即 1.234567 USDC），界面保留 2 位小数，应显示？', o: ['1.24', '1.23', '1.2345', '1'], a: 1, why: '余额要向下截断，显示 1.23。显示 1.24 会让用户点击“最大”时余额不足。' },
   { q: '下面哪个写法计算“amount 乘以价格再缩放”最安全？', o: ['<code>(amount * price) / scale</code>', '<code>(amount / scale) * price</code>', '<code>Number(amount) * Number(price) / Number(scale)</code>', '<code>parseFloat(formatUnits(amount, 18)) * 3456.78</code>'], a: 0, why: '先乘后除保留精度。先除会截断小数；转成 Number 或 parseFloat 会引入浮点误差。' },
   { q: '为什么说把 USDC 按 18 位解析会“差 10<sup>12</sup> 倍”？', o: ['因为 18 − 6 = 12，链上整数多乘了 10<sup>12</sup>', '因为 USDC 有 12 位小数', '因为 gwei 是 10<sup>12</sup>', '因为浮点误差'], a: 0, why: '解析时乘的是 10<sup>18</sup> 而不是 10<sup>6</sup>，相差 10<sup>12</sup>。gwei 是 10<sup>9</sup>；这与浮点误差无关。' }
 ])}
@@ -343,12 +343,14 @@ stateDiagram-v2
 ])}
 <p><strong>Permit（EIP-2612）</strong>让用户签一条链下消息代替 approve 交易。目标合约在同一笔交易里先调用 <code>permit(owner, spender, value, deadline, v, r, s)</code>，再 <code>transferFrom</code>。用户只发一笔交易。</p>
 ${code('TYPESCRIPT', `
-import { useSignTypedData, useReadContract } from 'wagmi'
+import { useSignTypedData, useReadContract, useWriteContract } from 'wagmi'
 import { parseSignature } from 'viem'
 
+// 以下写在组件内；token、owner、vault、chainId、tokenName、permitAbi、vaultAbi 由外部传入
 // 读取 permit 所需的 nonce（每签一次 +1，防重放）
 const { data: nonce } = useReadContract({ address: token, abi: permitAbi, functionName: 'nonces', args: [owner] })
 const { signTypedDataAsync } = useSignTypedData()
+const { writeContractAsync } = useWriteContract()
 
 async function permitAndDeposit(amount: bigint) {
   const deadline = BigInt(Math.floor(Date.now() / 1000) + 20 * 60)   // 20 分钟后过期，不要设很远
@@ -381,7 +383,8 @@ ${steps(['假设 approve 约 46,000 Gas，存入操作约 120,000 Gas，带 perm
 ${code('TYPESCRIPT', `
 // src/lib/errors.ts
 import { BaseError, ContractFunctionRevertedError, UserRejectedRequestError,
-         InsufficientFundsError, EstimateGasExecutionError } from 'viem'
+         InsufficientFundsError, EstimateGasExecutionError,
+         HttpRequestError, TimeoutError, ChainMismatchError } from 'viem'
 
 const CUSTOM: Record<string, (args: readonly unknown[]) => string> = {
   ERC20InsufficientBalance: () => '代币余额不足',
@@ -392,7 +395,10 @@ const CUSTOM: Record<string, (args: readonly unknown[]) => string> = {
 export function explainError(err: unknown): string {
   if (!(err instanceof BaseError)) return '未知错误，请重试'
   if (err.walk(e => e instanceof UserRejectedRequestError)) return ''      // 4001：不提示
-  if (err.walk(e => e instanceof InsufficientFundsError)) return 'ETH 不足以支付 Gas 费'
+  if (err.walk(e => e instanceof InsufficientFundsError)) return '余额不足以支付 金额 + Gas 费'   // 原生币不一定是 ETH，可按链替换币名
+  if (err.walk(e => e instanceof ChainMismatchError)) return '请先切换到正确的网络'               // 界面同时显示切链按钮
+  if (err.walk(e => e instanceof HttpRequestError || e instanceof TimeoutError))
+    return '网络繁忙，请稍后重试'   // 切换备用 RPC 交给 transport 的 fallback([...]) 自动完成
   const rev = err.walk(e => e instanceof ContractFunctionRevertedError)
   if (rev instanceof ContractFunctionRevertedError) {
     const name = rev.data?.errorName                    // 自定义错误名（需要 ABI 里有 error 定义）
@@ -408,10 +414,10 @@ ${tbl(['错误', '常见原因', '用户文案（示例）', '前端动作'], [
   ['UserRejectedRequestError（4001）', '用户在钱包点了拒绝', '不显示，或灰字“已取消”', '恢复按钮'],
   ['ContractFunctionRevertedError + errorName', '自定义错误，例如余额不足、滑点超限', '按错误名翻译', '引导修改参数'],
   ['ContractFunctionRevertedError + reason', 'require 字符串', '“合约拒绝：…”', '展示原因'],
-  ['InsufficientFundsError', '原生币不够付 金额 + Gas', '“ETH 不足以支付 Gas 费”', '显示所需金额与跨链入口'],
+  ['InsufficientFundsError', '原生币不够付 金额 + Gas', '“余额不足以支付 金额 + Gas 费”', '显示所需金额与跨链入口'],
   ['EstimateGasExecutionError', '估算阶段执行失败', '“这笔交易很可能会失败”', '禁止提交，展示原因'],
-  ['HttpRequestError / 超时', 'RPC 故障', '“网络繁忙，请稍后重试”', '自动切换 fallback RPC'],
-  ['ChainMismatchError', '钱包链与目标链不一致', '“请切换到 Base”', '提供切链按钮']
+  ['HttpRequestError / 超时', 'RPC 故障', '“网络繁忙，请稍后重试”', '由 transport 的 fallback 自动切换备用 RPC'],
+  ['ChainMismatchError', '钱包链与目标链不一致', '“请先切换到正确的网络”（例如 Base）', '提供切链按钮']
 ])}
 ${call('info', `<p>自定义错误（<code>error InsufficientBalance(uint256 need)</code>）在 revert 数据里只有 4 字节选择器 + 参数。前端 ABI 里没有这个 error 定义，就只能看到一串十六进制。把合约的 error 定义一起放进 ABI，或用 <code>decodeErrorResult({ abi, data })</code> 手动解码。</p>`)}
 
@@ -419,12 +425,26 @@ ${call('info', `<p>自定义错误（<code>error InsufficientBalance(uint256 nee
 <p><strong>乐观更新（Optimistic Update）</strong>：交易发出后，先假设它会成功，立刻更新界面；如果最终失败，再回滚。它让界面感觉更快，但要谨慎使用。</p>
 ${code('TYPESCRIPT', `
 // 用 TanStack Query 做乐观更新：先改缓存，失败再恢复
-async function optimisticTransfer(amount: bigint, balanceKey: readonly unknown[]) {
+import { useConfig, useWriteContract } from 'wagmi'
+import { waitForTransactionReceipt } from '@wagmi/core'
+import { useQueryClient } from '@tanstack/react-query'
+
+// 以下写在组件内。request 是对“同一个 amount”模拟成功后得到的 sim.data.request，
+// 这样界面扣减的数量和链上真正发送的数量一致
+const qc = useQueryClient()
+const config = useConfig()
+const { writeContractAsync } = useWriteContract()
+
+async function optimisticTransfer(
+  amount: bigint,
+  request: Parameters<typeof writeContractAsync>[0],
+  balanceKey: readonly unknown[],
+) {
   await qc.cancelQueries({ queryKey: balanceKey })               // 防止旧请求覆盖乐观值
   const prev = qc.getQueryData<bigint>(balanceKey)
   qc.setQueryData<bigint>(balanceKey, old => (old ?? 0n) - amount)   // 立刻扣减显示
   try {
-    const hash = await writeContractAsync(sim.data!.request)
+    const hash = await writeContractAsync(request)
     const rc = await waitForTransactionReceipt(config, { hash })
     if (rc.status !== 'success') throw new Error('reverted')
   } catch (e) {
@@ -573,7 +593,7 @@ sequenceDiagram
   ['flow', 'nonce 由后端生成并保存，前端只是转交。后端验签成功后立刻作废 nonce。'],
   ['fail', '前端自己生成 nonce，后端无法判断是否重放；后端不校验域名，钓鱼站拿到的签名可以登录本站。'],
   ['key', '会话 Cookie 用 httpOnly（JS 读不到）+ Secure + SameSite=Lax，防止 XSS 偷会话和 CSRF。'],
-  ['limit', 'SIWE 只证明“控制这个地址”，不代表任何权限。权限判断（是否管理员、是否持有 NFT）要另外查；登录之后的 ENS、SBT、可验证凭证等链上身份见 <a href="#m09-1">M13.1 链上身份</a>。'],
+  ['limit', 'SIWE 只证明“控制这个地址”，不代表任何权限。权限判断（是否管理员、是否持有 NFT）要另外查；登录之后的 ENS、SBT、可验证凭证等链上身份见 <a href="#m09-1">M14.1 链上身份</a>。'],
   ['risk', '用户切换钱包账户后，前端要检测 accountsChanged 并登出，否则界面地址和会话地址不一致。']
 ])}
 ${code('TYPESCRIPT', `
@@ -593,7 +613,11 @@ export function useSiweLogin() {
       expirationTime: new Date(Date.now() + 10 * 60_000),
     })
     const signature = await signMessageAsync({ message })
-    const res = await fetch('/api/auth/verify', { method: 'POST', body: JSON.stringify({ message, signature }) })
+    const res = await fetch('/api/auth/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, signature }),
+    })
     if (!res.ok) throw new Error('登录失败')
   }
 }
@@ -609,11 +633,12 @@ export async function POST(req: Request) {
   const fields = parseSiweMessage(message)
   const ok = await client.verifySiweMessage({
     message, signature,
-    domain: 'app.example.com',                  // 校验域名
-    nonce: fields.nonce,                         // 同时校验有效期（默认用当前时间）
+    domain: 'app.example.com',                  // 校验域名；同时校验有效期（默认用当前时间）
   })                                             // 内部支持 EOA 与 ERC-1271/6492 合约钱包
+  // 注意：不要把 fields.nonce 传给 verifySiweMessage 当作“nonce 校验”——它取自被验消息本身，恒等。
+  // 防重放靠下一行：到数据库原子核销“本服务签发过、未使用、未过期”的 nonce
   if (!ok || !(await consumeNonce(fields.nonce!))) return new Response('invalid', { status: 401 })
-  const sid = await createSession(fields.address!)        // 写 sessions 表
+  const sid = await createSession(fields.address!, fields.chainId!)   // 写 sessions 表（address、chain_id 都是必填）
   return new Response('ok', { headers: { 'Set-Cookie': \`sid=\${sid}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=86400\` } })
 }
 `)}
@@ -716,7 +741,7 @@ ${tbl(['签名类型', '关键字段', '签名后对方能做什么'], [
   ['Permit2 SignatureTransfer', 'permitted{token, amount}、spender、nonce、deadline', '一次性转账，用完即失效'],
   ['Seaport 类 NFT 挂单', 'offer（你给出的 NFT）、consideration（你要收到的对价）', '任何人支付 consideration 即可拿走 NFT；对价为 0 等于白送']
 ])}
-<p>Seaport 订单的签名与成交流程见 <a href="#m09-7">M13.6 NFT 市场、版税与 Memecoin 发行</a>。</p>
+<p>Seaport 订单的签名与成交流程见 <a href="#m09-7">M14.6 NFT 市场、版税与 Memecoin 发行</a>。</p>
 <p>体验下面的实验：依次切换 4 个预置请求，对照左侧原始 JSON 和右侧“人话翻译”，找出每个请求的红旗。再把“当前网络”切到 Base，看 chainId 不匹配的提示。</p>
 ${lab('eip712')}
 <h3>算一算：无限额度到底有多大（示例）</h3>
@@ -743,7 +768,7 @@ ${tbl(['验证方式', '支持 EOA', '支持合约钱包', '需要 RPC'], [
   ['publicClient.verifyMessage / verifyTypedData', '是', '是（ERC-1271、ERC-6492）', '是'],
   ['publicClient.verifySiweMessage', '是', '是', '是，并额外校验 SIWE 字段']
 ])}
-${tryit(`<p>亲手签一条 SIWE 消息并验证：</p>${steps(['在任意网页的控制台，用 M03.2 的方法拿到地址 <code>addr</code>。', '执行 <code>await ethereum.request({ method: "personal_sign", params: ["0x" + [...new TextEncoder().encode("hello")].map(b => b.toString(16).padStart(2, "0")).join(""), addr] })</code>。', '观察钱包弹窗：它显示的是明文 hello，并提示这是签名请求，没有 Gas 费。', '把返回的 signature 复制到本地 Node 脚本，用 viem 的 <code>verifyMessage({ address: addr, message: "hello", signature })</code> 验证。预期输出 true；把 message 改成 hello2，预期 false。'])}`)}
+${tryit(`<p>亲手用 <code>personal_sign</code> 签一段文字并验证（SIWE 登录的底层就是这一步，只是消息换成了 EIP-4361 格式的登录文本）：</p>${steps(['在任意网页的控制台，用 M03.2 的方法拿到地址 <code>addr</code>。', '执行 <code>await ethereum.request({ method: "personal_sign", params: ["0x" + [...new TextEncoder().encode("hello")].map(b => b.toString(16).padStart(2, "0")).join(""), addr] })</code>。', '观察钱包弹窗：它显示的是明文 hello，并提示这是签名请求，没有 Gas 费。', '把返回的 signature 复制到本地 Node 脚本，用 viem 的 <code>verifyMessage({ address: addr, message: "hello", signature })</code> 验证。预期输出 true；把 message 改成 hello2，预期 false。'])}`)}
 
 <h2>生产环境清单</h2>
 ${tbl(['检查项', '为什么', '怎么验证'], [

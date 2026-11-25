@@ -1,0 +1,147 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="37.46" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <g id="ho-s1">
+          <g id="ho-wal" class="h"><rect x="160" y="440" width="340" height="160" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="330" y="533" font-size="36" fill="#e8e6df" text-anchor="middle">钱包后端</text></g>
+          <line id="ho-ln1" class="dr" x1="500" y1="520" x2="900" y2="520" stroke="#8a8f99" stroke-width="3" pathLength="1"/>
+          <line id="ho-ln2" class="dr" x1="900" y1="520" x2="1300" y2="520" stroke="#8a8f99" stroke-width="3" pathLength="1"/>
+          <g id="ho-prov" class="h"><g id="ho-provs"><rect id="ho-provr" x="1300" y="440" width="400" height="160" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1500" y="533" font-size="36" fill="#e8e6df" text-anchor="middle">RPC 服务商</text></g></g>
+          <g id="ho-b1" class="h"><rect x="190" y="268" width="280" height="64" rx="32" fill="#2a1717" stroke="#FC6255" stroke-width="2.5"/><text x="330" y="311" font-size="30" fill="#FC6255" text-anchor="middle">查不到余额</text></g>
+          <g id="ho-b2" class="h"><rect x="190" y="628" width="280" height="64" rx="32" fill="#2a1717" stroke="#FC6255" stroke-width="2.5"/><text x="330" y="671" font-size="30" fill="#FC6255" text-anchor="middle">交易发不出</text></g>
+          <g id="ho-b3" class="h"><rect x="190" y="738" width="280" height="64" rx="32" fill="#2a1717" stroke="#FC6255" stroke-width="2.5"/><text x="330" y="781" font-size="30" fill="#FC6255" text-anchor="middle">充值停了</text></g>
+          <g id="ho-self" class="h"><rect x="1300" y="440" width="400" height="160" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1500" y="533" font-size="36" fill="#e8e6df" text-anchor="middle">自建节点</text></g>
+          <g id="ho-bar" class="h">
+            <rect x="1300" y="640" width="400" height="16" rx="8" fill="#2a2e38"/>
+            <rect id="ho-barf" x="1300" y="640" width="0" height="16" rx="8" fill="#FF9F43"/>
+            <line x1="1700" y1="628" x2="1700" y2="668" stroke="#e8e6df" stroke-width="3"/>
+          </g>
+          <text id="ho-barl" class="h" x="1500" y="716" font-size="30" fill="#8a8f99" text-anchor="middle">落后链头 3 块（示例）</text>
+          <g id="ho-tx" class="h"><rect id="ho-txr" x="560" y="350" width="180" height="60" rx="10" fill="#1d1a10" stroke="#F0B90B" stroke-width="2.5"/><text x="650" y="391" font-size="30" fill="#F0B90B" text-anchor="middle">交易</text></g>
+          <text id="ho-txq" class="h" x="1170" y="326" font-size="32" fill="#FF9F43" text-anchor="middle">交易消失？</text>
+        </g>
+        <g id="ho-s2">
+          <g id="ho-u1" class="h"><rect id="ho-u1r" x="1300" y="240" width="400" height="120" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1500" y="312" font-size="34" fill="#e8e6df" text-anchor="middle">自建节点</text></g>
+          <g id="ho-u2" class="h"><rect id="ho-u2r" x="1300" y="460" width="400" height="120" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1500" y="532" font-size="34" fill="#e8e6df" text-anchor="middle">服务商 A</text></g>
+          <g id="ho-u3" class="h"><rect id="ho-u3r" x="1300" y="680" width="400" height="120" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1500" y="752" font-size="34" fill="#e8e6df" text-anchor="middle">服务商 B</text></g>
+          <text id="ho-q1" class="h" x="1655" y="318" font-size="48" font-weight="700" fill="#8a8f99" text-anchor="middle">?</text>
+          <text id="ho-q2" class="h" x="1655" y="538" font-size="48" font-weight="700" fill="#8a8f99" text-anchor="middle">?</text>
+          <text id="ho-big" class="h" x="650" y="542" font-size="64" font-weight="700" fill="#FF9F43" text-anchor="middle">单个节点 = 不可靠</text>
+          <g id="ho-gw" class="h"><rect x="760" y="440" width="300" height="160" rx="18" fill="#1c1729" stroke="#B48EF0" stroke-width="3.5"/><text x="910" y="534" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">RPC 网关</text></g>
+          <path id="ho-g1" class="dr" d="M1060 500 L1300 300" stroke="#B48EF0" stroke-width="3" fill="none" pathLength="1"/>
+          <path id="ho-g2" class="dr" d="M1060 520 L1300 520" stroke="#B48EF0" stroke-width="3" fill="none" pathLength="1"/>
+          <path id="ho-g3" class="dr" d="M1060 540 L1300 740" stroke="#B48EF0" stroke-width="3" fill="none" pathLength="1"/>
+          <g id="ho-w2" class="h"><rect x="160" y="440" width="340" height="160" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="330" y="533" font-size="36" fill="#e8e6df" text-anchor="middle">钱包后端</text></g>
+          <path id="ho-g0" class="dr" d="M500 520 L760 520" stroke="#8a8f99" stroke-width="3" fill="none" pathLength="1"/>
+          <text id="ho-tt" class="h" x="960" y="170" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">多个不可靠 → <tspan fill="#83C167">一个可靠</tspan></text>
+        </g>
+        <g id="ho-s3">
+          <text id="ho-dt" class="h" x="960" y="300" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle">设计课</text>
+          <g id="ho-i1" class="h">
+            <rect x="410" y="470" width="60" height="60" rx="8" fill="none" stroke="#B48EF0" stroke-width="3"/><rect x="490" y="470" width="60" height="60" rx="8" fill="none" stroke="#B48EF0" stroke-width="3"/>
+            <rect x="410" y="550" width="60" height="60" rx="8" fill="none" stroke="#B48EF0" stroke-width="3"/><rect x="490" y="550" width="60" height="60" rx="8" fill="none" stroke="#B48EF0" stroke-width="3"/>
+            <text x="480" y="690" font-size="34" fill="#e8e6df" text-anchor="middle">模块</text>
+          </g>
+          <g id="ho-i2" class="h">
+            <path d="M720 505 H860" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#ho-arr)"/>
+            <path d="M740 575 H880" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#ho-arr)"/>
+            <text x="800" y="690" font-size="34" fill="#e8e6df" text-anchor="middle">数据流</text>
+          </g>
+          <g id="ho-i3" class="h">
+            <line x1="1070" y1="580" x2="1170" y2="580" stroke="#6b6f7a" stroke-width="3"/><line x1="1070" y1="580" x2="1120" y2="495" stroke="#6b6f7a" stroke-width="3"/><line x1="1170" y1="580" x2="1120" y2="495" stroke="#6b6f7a" stroke-width="3"/>
+            <circle cx="1070" cy="580" r="26" fill="#161a22" stroke="#83C167" stroke-width="4"/><circle cx="1170" cy="580" r="26" fill="#161a22" stroke="#FC6255" stroke-width="4"/><circle cx="1120" cy="495" r="26" fill="#161a22" stroke="#FF9F43" stroke-width="4"/>
+            <text x="1120" y="690" font-size="34" fill="#e8e6df" text-anchor="middle">状态机</text>
+          </g>
+          <g id="ho-i4" class="h">
+            <rect x="1365" y="480" width="150" height="120" rx="8" fill="none" stroke="#58C4DD" stroke-width="3"/>
+            <line x1="1365" y1="520" x2="1515" y2="520" stroke="#58C4DD" stroke-width="2"/><line x1="1365" y1="560" x2="1515" y2="560" stroke="#58C4DD" stroke-width="2"/><line x1="1415" y1="480" x2="1415" y2="600" stroke="#58C4DD" stroke-width="2"/>
+            <text x="1440" y="690" font-size="34" fill="#e8e6df" text-anchor="middle">表结构</text>
+          </g>
+          <text id="ho-ac" class="h" x="960" y="840" font-size="40" fill="#83C167" text-anchor="middle">+ 验收标准</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0
+IN("#ho-wal", at(0, 0), 0.6);
+DRAW("#ho-ln1", at(0, 0.3), 0.5); DRAW("#ho-ln2", at(0, 0.45), 0.5);
+IN("#ho-prov", at(0, 0.6), 0.6, { x: 20 }, { x: 0 });
+// L1 provider down
+tl.to("#ho-provr", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.05));
+tl.to("#ho-provs", { x: 10, duration: 0.06, repeat: 7, yoyo: true, ease: "none" }, at(1, 0.08));
+tl.to("#ho-ln1", { stroke: "#FC6255", attr: { x2: 850 }, duration: 0.4 }, at(1, 0.15));
+tl.to("#ho-ln2", { stroke: "#FC6255", attr: { x1: 950 }, duration: 0.4 }, at(1, 0.15));
+IN("#ho-b1", at(1, 0.38), 0.5, { y: 12 }, { y: 0 });
+IN("#ho-b2", at(1, 0.62), 0.5, { y: 12 }, { y: 0 });
+IN("#ho-b3", at(1, 0.85), 0.5, { y: 12 }, { y: 0 });
+// L2 self node lagging, tx vanishes
+OUT("#ho-b1, #ho-b2, #ho-b3, #ho-prov", at(2, 0), 0.4);
+tl.to("#ho-ln1", { stroke: "#8a8f99", attr: { x2: 900 }, duration: 0.4 }, at(2, 0.05));
+tl.to("#ho-ln2", { stroke: "#8a8f99", attr: { x1: 900 }, duration: 0.4 }, at(2, 0.05));
+IN("#ho-self", at(2, 0.08), 0.6, { x: 20 }, { x: 0 });
+IN("#ho-bar", at(2, 0.3), 0.4);
+tl.fromTo("#ho-barf", { attr: { width: 0 } }, { attr: { width: 340 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(2, 0.32));
+IN("#ho-barl", at(2, 0.42), 0.5);
+IN("#ho-tx", at(2, 0.6), 0.3);
+tl.to("#ho-tx", { x: 520, duration: 1.0, ease: "power2.inOut" }, at(2, 0.62));
+tl.set("#ho-txr", { attr: { "stroke-dasharray": "10 8" } }, at(2, 0.8));
+tl.to("#ho-tx", { opacity: 0.2, duration: 0.6 }, at(2, 0.8));
+IN("#ho-txq", at(2, 0.82), 0.5);
+// L3 single node = unreliable
+OUT("#ho-s1", at(3, 0), 0.4);
+IN("#ho-u1", at(3, 0.08), 0.5); IN("#ho-u2", at(3, 0.18), 0.5);
+IN("#ho-q1, #ho-q2", at(3, 0.3), 0.4);
+IN("#ho-big", at(3, 0.45), 0.6, { scale: 0.9, svgOrigin: "650 520" }, { scale: 1, svgOrigin: "650 520" });
+// L4 many unreliable -> one reliable
+OUT("#ho-big, #ho-q1, #ho-q2", at(4, 0), 0.4);
+IN("#ho-u3", at(4, 0.12), 0.5, { y: 20 }, { y: 0 });
+IN("#ho-gw", at(4, 0.3), 0.6, { scale: 0.9, svgOrigin: "910 520" }, { scale: 1, svgOrigin: "910 520" });
+DRAW("#ho-g1", at(4, 0.4), 0.5); DRAW("#ho-g2", at(4, 0.45), 0.5); DRAW("#ho-g3", at(4, 0.5), 0.5);
+IN("#ho-w2", at(4, 0.55), 0.5); DRAW("#ho-g0", at(4, 0.6), 0.5);
+IN("#ho-tt", at(4, 0.72), 0.6, { y: 12 }, { y: 0 });
+tl.to("#ho-u1r, #ho-u2r, #ho-u3r", { stroke: "#83C167", duration: 0.5, stagger: 0.12 }, at(4, 0.85));
+// L5 design course
+OUT("#ho-s2", at(5, 0), 0.4);
+IN("#ho-dt", at(5, 0.06), 0.6);
+IN("#ho-i1", at(5, 0.24), 0.5, { scale: 0.8, svgOrigin: "480 540" }, { scale: 1, svgOrigin: "480 540" });
+IN("#ho-i2", at(5, 0.36), 0.5, { scale: 0.8, svgOrigin: "800 540" }, { scale: 1, svgOrigin: "800 540" });
+IN("#ho-i3", at(5, 0.48), 0.5, { scale: 0.8, svgOrigin: "1120 540" }, { scale: 1, svgOrigin: "1120 540" });
+IN("#ho-i4", at(5, 0.6), 0.5, { scale: 0.8, svgOrigin: "1440 540" }, { scale: 1, svgOrigin: "1440 540" });
+IN("#ho-ac", at(5, 0.8), 0.5, { y: 12 }, { y: 0 });
+
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

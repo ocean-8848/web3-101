@@ -1,0 +1,99 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 compare，id 前缀 co- -->
+  <div id="root" data-composition-id="compare" data-duration="64.23" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="co-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <linearGradient id="co-grad" gradientUnits="userSpaceOnUse" x1="300" y1="0" x2="1826" y2="0"><stop offset="0" stop-color="#83C167"/><stop offset="0.5" stop-color="#FF9F43"/><stop offset="1" stop-color="#FC6255"/></linearGradient>
+      </defs>
+      <g id="co-all">
+        <g id="co-tab">
+          <g id="co-h0" class="h"><ellipse cx="100" cy="358" rx="18" ry="6" fill="none" stroke="#FF9F43" stroke-width="3"/><path d="M82 358 V 384 A 18 6 0 0 0 118 384 V 358" fill="none" stroke="#FF9F43" stroke-width="3"/><text x="132" y="380" font-size="28" font-weight="700" fill="#FF9F43">数据放哪</text></g>
+          <g id="co-h1" class="h"><path d="M100 486 L120 494 V 508 Q120 524 100 532 Q80 524 80 508 V 494 Z" fill="none" stroke="#FF9F43" stroke-width="3"/><path d="M92 509 L98 516 L110 502" fill="none" stroke="#FF9F43" stroke-width="3"/><text x="132" y="515" font-size="28" font-weight="700" fill="#FF9F43">谁保证正确</text></g>
+          <g id="co-h2" class="h"><rect x="82" y="662" width="36" height="28" rx="5" fill="none" stroke="#FF9F43" stroke-width="3"/><path d="M100 640 V 672 M92 664 L100 672 L108 664" fill="none" stroke="#FF9F43" stroke-width="3"/><text x="132" y="670" font-size="28" font-weight="700" fill="#FF9F43">能否取回</text></g>
+          <g id="co-c0" class="h"><text id="co-n0" x="403" y="272" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">L1</text><rect x="300" y="310" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="403" y="380" font-size="28" fill="#58C4DD" text-anchor="middle">L1</text><rect x="300" y="445" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="403" y="515" font-size="28" fill="#e8e6df" text-anchor="middle">L1 共识</text><rect x="300" y="580" width="206" height="160" rx="12" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="3"/><text x="403" y="670" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">能</text></g>
+          <g id="co-c1" class="h"><text id="co-n1" x="625" y="272" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">状态通道</text><rect x="522" y="310" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="625" y="380" font-size="28" fill="#e8e6df" text-anchor="middle">参与方本地</text><rect x="522" y="445" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="625" y="497" font-size="28" fill="#e8e6df" text-anchor="middle">签名 +</text><text x="625" y="533" font-size="28" fill="#e8e6df" text-anchor="middle">L1 争议</text><rect x="522" y="580" width="206" height="160" rx="12" fill="#FF9F43" fill-opacity="0.12" stroke="#FF9F43" stroke-width="3"/><text x="625" y="652" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="700">能</text><text x="625" y="688" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="700">需在线监控</text></g>
+          <g id="co-c2" class="h"><text id="co-n2" x="847" y="272" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">侧链</text><rect x="744" y="310" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="847" y="380" font-size="28" fill="#e8e6df" text-anchor="middle">侧链</text><rect x="744" y="445" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="847" y="515" font-size="28" fill="#e8e6df" text-anchor="middle">侧链共识</text><rect x="744" y="580" width="206" height="160" rx="12" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="3"/><text x="847" y="652" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">不能</text><text x="847" y="688" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">依赖桥</text></g>
+          <g id="co-c3" class="h"><text id="co-n3" x="1069" y="272" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">Plasma</text><rect x="966" y="310" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="1069" y="380" font-size="28" fill="#e8e6df" text-anchor="middle">运营者</text><rect x="966" y="445" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="1069" y="497" font-size="28" fill="#e8e6df" text-anchor="middle">欺诈证明</text><text x="1069" y="533" font-size="28" fill="#e8e6df" text-anchor="middle">+ 退出</text><rect x="966" y="580" width="206" height="160" rx="12" fill="#FF9F43" fill-opacity="0.12" stroke="#FF9F43" stroke-width="3"/><text x="1069" y="652" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="700">能，但</text><text x="1069" y="688" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="700">扣留时困难</text></g>
+          <g id="co-c4" class="h"><text id="co-n4" x="1291" y="272" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">乐观 Rollup</text><rect x="1188" y="310" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="1291" y="380" font-size="28" fill="#58C4DD" text-anchor="middle">L1</text><rect x="1188" y="445" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="1291" y="497" font-size="28" fill="#e8e6df" text-anchor="middle">1 个诚实</text><text x="1291" y="533" font-size="28" fill="#e8e6df" text-anchor="middle">挑战者</text><rect x="1188" y="580" width="206" height="160" rx="12" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="3"/><text x="1291" y="634" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">能</text><text x="1291" y="670" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">强制包含</text><text x="1291" y="706" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">+ 挑战期</text></g>
+          <g id="co-c5" class="h"><text id="co-n5" x="1513" y="272" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">ZK Rollup</text><rect x="1410" y="310" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="1513" y="380" font-size="28" fill="#58C4DD" text-anchor="middle">L1</text><rect x="1410" y="445" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="1513" y="515" font-size="28" fill="#e8e6df" text-anchor="middle">数学证明</text><rect x="1410" y="580" width="206" height="160" rx="12" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="3"/><text x="1513" y="670" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">能</text></g>
+          <g id="co-c6" class="h"><text id="co-n6" x="1735" y="244" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle">Validium</text><text x="1735" y="280" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle">Optimium</text><rect x="1632" y="310" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="1735" y="362" font-size="28" fill="#e8e6df" text-anchor="middle">DAC /</text><text x="1735" y="398" font-size="28" fill="#e8e6df" text-anchor="middle">外部 DA</text><rect x="1632" y="445" width="206" height="120" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text x="1735" y="497" font-size="28" fill="#e8e6df" text-anchor="middle">有效性 /</text><text x="1735" y="533" font-size="28" fill="#e8e6df" text-anchor="middle">欺诈证明</text><rect x="1632" y="580" width="206" height="160" rx="12" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="3"/><text x="1735" y="652" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">数据被扣留</text><text x="1735" y="688" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">时不能</text></g>
+          <text id="co-zk" class="h" x="1513" y="792" font-size="28" fill="#8a8f99" text-anchor="middle">信任：密码学 + 电路无漏洞</text>
+        </g>
+        <rect id="co-hi" class="h" x="296" y="306" width="214" height="128" rx="15" fill="none" stroke="#e8e6df" stroke-width="3"/>
+        <path id="co-ar" class="dr h" pathLength="1" d="M300 860 H 1826" stroke="url(#co-grad)" stroke-width="6" fill="none" marker-end="url(#co-arr)"/>
+        <text id="co-arl" class="h" x="1069" y="925" font-size="32" fill="#e8e6df" text-anchor="middle">离 L1 越远：越便宜，信任假设越多</text>
+        <rect id="co-fr" class="h" x="286" y="200" width="1566" height="554" rx="18" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="16 10"/>
+        <g id="co-stamp" class="h">
+          <rect x="300" y="790" width="300" height="90" rx="14" fill="#FF9F43" fill-opacity="0.12" stroke="#FF9F43" stroke-width="4"/>
+          <text x="450" y="852" font-size="48" font-weight="700" fill="#FF9F43" text-anchor="middle">设计目标</text>
+        </g>
+        <g id="co-t0" class="h"><rect x="640" y="800" width="180" height="70" rx="35" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="730" y="845" font-size="28" fill="#B48EF0" text-anchor="middle">可升级合约</text></g>
+        <g id="co-t1" class="h"><rect x="840" y="800" width="180" height="70" rx="35" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="930" y="845" font-size="28" fill="#B48EF0" text-anchor="middle">安全委员会</text></g>
+        <g id="co-t2" class="h"><rect x="1040" y="800" width="208" height="70" rx="35" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="1144" y="845" font-size="28" fill="#B48EF0" text-anchor="middle">中心化排序器</text></g>
+        <g id="co-t3" class="h"><rect x="1268" y="800" width="180" height="70" rx="35" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="1358" y="845" font-size="28" fill="#B48EF0" text-anchor="middle">证明未上线</text></g>
+        <text id="co-note" class="h" x="300" y="955" font-size="30" fill="#B48EF0">欺诈证明未开放的乐观 Rollup → 实际依赖运营者诚实</text>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 三问做表头
+      ["#co-h0", "#co-h1", "#co-h2"].forEach((s, k) => IN(s, at(0, 0.05) + k * 0.3, 0.5, { x: -20 }, { x: 0 }));
+      const COL = (k, t) => IN(`#co-c${k}`, t, 0.6, { y: 30 }, { y: 0 });
+      // L1 L1 + 状态通道
+      COL(0, at(1, 0.03)); COL(1, at(1, 0.6));
+      // L2 侧链 + Plasma
+      COL(2, at(2, 0.03)); COL(3, at(2, 0.55));
+      // L3 乐观 + ZK
+      COL(4, at(3, 0.03));
+      const HI = (c, r, t) => tl.to("#co-hi", { attr: { x: 296 + c * 222, y: [306, 441, 576][r], height: r === 2 ? 168 : 128 }, duration: 0.35, ease: "power2.inOut" }, t);
+      tl.set("#co-hi", { attr: { x: 296 + 4 * 222 } }, at(3, 0.05));
+      IN("#co-hi", at(3, 0.1), 0.3); HI(4, 1, at(3, 0.22)); HI(4, 2, at(3, 0.38));
+      COL(5, at(3, 0.58)); HI(5, 1, at(3, 0.62)); HI(5, 0, at(3, 0.58));
+      IN("#co-zk", at(3, 0.8), 0.5);
+      // L4 Validium · Optimium
+      COL(6, at(4, 0.03));
+      HI(6, 0, at(4, 0.2)); HI(6, 2, at(4, 0.6));
+      OUT("#co-hi", at(5, 0), 0.3);
+      // L5 离 L1 越远
+      ARROW("#co-ar", at(5, 0.05), 1.4);
+      IN("#co-arl", at(5, 0.35), 0.6);
+      // L6 设计目标
+      OUT("#co-ar, #co-arl, #co-zk", at(6, 0), 0.4);
+      IN("#co-fr", at(6, 0.06), 0.5);
+      IN("#co-stamp", at(6, 0.1), 0.5, { scale: 1.3, svgOrigin: "450 835" }, { scale: 1, svgOrigin: "450 835", ease: "back.out(2)" });
+      ["#co-t0", "#co-t1", "#co-t2", "#co-t3"].forEach((s, k) => IN(s, at(6, 0.24) + k * 1.3, 0.4, { y: 15 }, { y: 0 }));
+      IN("#co-note", at(6, 0.7), 0.5);
+      tl.to("#co-n4", { fill: "#B48EF0", duration: 0.3 }, at(6, 0.7));
+
+
+      tl.to("#co-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["compare"] = tl;
+    })();
+  </script>
+</template>

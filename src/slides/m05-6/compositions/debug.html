@@ -1,0 +1,157 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 debug，id 前缀 dg- -->
+  <div id="root" data-composition-id="debug" data-duration="84.66" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="dg-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="dg-all">
+<!--BODY-->
+
+<g id="dg-tab" class="h">
+  <rect x="120" y="220" width="1680" height="760" rx="18" fill="none" stroke="#8a8f99" stroke-width="2"/>
+  <line x1="120" y1="300" x2="1800" y2="300" stroke="#8a8f99" stroke-width="2"/>
+  <line x1="655" y1="220" x2="655" y2="980" stroke="#3a3f4a" stroke-width="2"/>
+  <line x1="1175" y1="220" x2="1175" y2="980" stroke="#3a3f4a" stroke-width="2"/>
+  <text x="150" y="274" font-size="34" font-weight="700" fill="#FC6255">现象</text>
+  <text x="680" y="274" font-size="34" font-weight="700" fill="#FF9F43">原因</text>
+  <text x="1200" y="274" font-size="34" font-weight="700" fill="#83C167">处理</text>
+</g>
+<rect id="dg-hl" class="h" x="122" y="302" width="1676" height="108" fill="#58C4DD" fill-opacity="0.1"/>
+<g id="dg-r0">
+<text id="dg-c000" class="dgt h" x="150" y="368" font-size="30" fill="#FC6255">高度涨得很慢</text>
+<text id="dg-c010" class="dgt h" x="680" y="346" font-size="30" fill="#FF9F43">磁盘 IOPS 不够</text>
+<text id="dg-c011" class="dgt h" x="680" y="388" font-size="30" fill="#FF9F43">对等节点少 · 内存不足</text>
+<text id="dg-c020" class="dgt h" x="1200" y="346" font-size="30" fill="#83C167">iostat · 换 NVMe</text>
+<text id="dg-c021" class="dgt h" x="1200" y="388" font-size="30" fill="#83C167">放行 30303 · 加内存</text>
+</g>
+<g id="dg-r1">
+<line id="dg-sep1" class="h" x1="120" y1="412" x2="1800" y2="412" stroke="#3a3f4a" stroke-width="1.5"/>
+<text id="dg-c100" class="mono dgt h" x="150" y="480" font-size="28" fill="#FC6255">no beacon client seen</text>
+<text id="dg-c110" class="dgt h" x="680" y="458" font-size="30" fill="#FF9F43">共识客户端没起</text>
+<text id="dg-c111" class="dgt h" x="680" y="500" font-size="30" fill="#FF9F43">JWT 不一致</text>
+<text id="dg-c120" class="dgt h" x="1200" y="458" font-size="30" fill="#83C167">查 8551 · 对比 JWT</text>
+<text id="dg-c121" class="dgt h" x="1200" y="500" font-size="30" fill="#83C167">时钟同步</text>
+</g>
+<g id="dg-r2">
+<line id="dg-sep2" class="h" x1="120" y1="524" x2="1800" y2="524" stroke="#3a3f4a" stroke-width="1.5"/>
+<text id="dg-c200" class="dgt h" x="150" y="592" font-size="30" fill="#FC6255">高度卡住不动</text>
+<text id="dg-c210" class="dgt h" x="680" y="570" font-size="30" fill="#FF9F43">数据库损坏 · bug</text>
+<text id="dg-c211" class="dgt h" x="680" y="612" font-size="30" fill="#FF9F43">没升级，停在旧链</text>
+<text id="dg-c220" class="dgt h" x="1200" y="570" font-size="30" fill="#83C167">对照发布说明</text>
+<text id="dg-c221" class="dgt h" x="1200" y="612" font-size="30" fill="#83C167">从快照重新同步</text>
+</g>
+<g id="dg-r3">
+<line id="dg-sep3" class="h" x1="120" y1="636" x2="1800" y2="636" stroke="#3a3f4a" stroke-width="1.5"/>
+<text id="dg-c300" class="dgt h" x="150" y="704" font-size="30" fill="#FC6255"><tspan class="mono">eth_getLogs</tspan> 超时</text>
+<text id="dg-c310" class="dgt h" x="680" y="704" font-size="30" fill="#FF9F43">范围太大</text>
+<text id="dg-c320" class="dgt h" x="1200" y="704" font-size="30" fill="#83C167">分段查 · 用索引器</text>
+</g>
+<g id="dg-r4">
+<line id="dg-sep4" class="h" x1="120" y1="748" x2="1800" y2="748" stroke="#3a3f4a" stroke-width="1.5"/>
+<text id="dg-c400" class="dgt h" x="150" y="816" font-size="30" fill="#FC6255">验证者大量漏投</text>
+<text id="dg-c410" class="dgt h" x="680" y="816" font-size="30" fill="#FF9F43">时钟 · CPU · 网络</text>
+<text id="dg-c420" class="dgt h" x="1200" y="816" font-size="30" fill="#83C167">启用 NTP</text>
+</g>
+<g id="dg-r5">
+<line id="dg-sep5" class="h" x1="120" y1="860" x2="1800" y2="860" stroke="#3a3f4a" stroke-width="1.5"/>
+<text id="dg-c500" class="dgt h" x="150" y="928" font-size="30" fill="#FC6255">磁盘写满崩溃</text>
+<text id="dg-c510" class="dgt h" x="680" y="928" font-size="30" fill="#FF9F43">没监控增长</text>
+<text id="dg-c520" class="dgt h" x="1200" y="906" font-size="30" fill="#83C167">扩容 / 裁剪</text>
+<text id="dg-c521" class="dgt h" x="1200" y="948" font-size="30" fill="#83C167">路径模式自动裁剪</text>
+</g>
+
+<g id="dg-term" class="h">
+  <rect x="200" y="220" width="1520" height="700" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+  <line x1="200" y1="268" x2="1720" y2="268" stroke="#8a8f99" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="232" cy="244" r="8" fill="#FC6255"/><circle cx="258" cy="244" r="8" fill="#F0B90B"/><circle cx="284" cy="244" r="8" fill="#83C167"/>
+  <text x="960" y="252" font-size="20" fill="#6b6f7a" text-anchor="middle" data-layout-ignore>curl</text>
+</g>
+<text id="dg-url" class="h mono" x="250" y="330" font-size="28" fill="#6b6f7a">https://ethereum-rpc.publicnode.com</text>
+<text id="dg-m0" class="h mono" x="250" y="410" font-size="32" fill="#e8e6df">$ eth_blockNumber</text>
+<text id="dg-m1" class="h mono" x="250" y="480" font-size="32" fill="#e8e6df">$ eth_syncing</text>
+<text id="dg-m1r" class="h mono" x="900" y="480" font-size="32" fill="#83C167">→ false</text>
+<text id="dg-m2" class="h mono" x="250" y="550" font-size="32" fill="#e8e6df">$ net_peerCount</text>
+<text id="dg-ts" class="h mono" x="250" y="630" font-size="32" fill="#58C4DD">timestamp: 0x…</text>
+<path id="dg-tsa" class="dr h" pathLength="1" d="M560 619 L660 619" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#dg-arr)"/>
+<text id="dg-tsd" class="h" x="680" y="630" font-size="32" fill="#e8e6df">十进制，与现在相减</text>
+<rect id="dg-scl" class="h" x="300" y="700" width="1320" height="24" rx="12" fill="#3a3f4a"/>
+<rect id="dg-scg" class="h" x="300" y="700" width="528" height="24" rx="12" fill="#83C167" fill-opacity="0.7"/>
+<text id="dg-s0" class="h" x="300" y="770" font-size="28" fill="#8a8f99" text-anchor="middle">0</text>
+<text id="dg-s24" class="h" x="828" y="770" font-size="28" fill="#83C167" text-anchor="middle">24 秒</text>
+<text id="dg-s60" class="h" x="1620" y="770" font-size="28" fill="#8a8f99" text-anchor="middle">60 秒</text>
+<circle id="dg-mk" class="h" cx="1500" cy="712" r="18" fill="#e8e6df"/>
+<text id="dg-ap" class="h mono" x="250" y="850" font-size="32" fill="#e8e6df">$ admin_peers</text>
+<text id="dg-apr" class="h mono" x="620" y="850" font-size="32" fill="#FC6255">→ method not found</text>
+<rect id="dg-apb" class="h" x="230" y="806" width="1080" height="64" rx="10" fill="none" stroke="#83C167" stroke-width="3"/>
+<text id="dg-apok" class="h" x="1340" y="850" font-size="32" fill="#83C167">✓ 管理 API 未对外</text>
+
+<!--/BODY-->
+      </g>
+<!--TERM-->
+<!--/TERM-->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+/*ANIM*/
+
+// L0 header
+IN("#dg-tab", at(0, 0.05), 0.6);
+const ROWS = [[1, 2, 2], [1, 2, 2], [1, 2, 2], [1, 1, 1], [1, 1, 1], [1, 1, 2]];
+const DUR = [L[1][1]-L[1][0], L[2][1]-L[2][0], L[3][1]-L[3][0], (L[4][1]-L[4][0])/2, (L[4][1]-L[4][0])/2, L[5][1]-L[5][0]];
+const ROW = (i, t) => {
+  if (i > 0) tl.to(`#dg-r${i-1} .dgt`, { fill: "#6b6f7a", duration: 0.4 }, t);
+  if (i > 0) IN(`#dg-sep${i}`, t, 0.3);
+  const n = ROWS[i], span = DUR[i];
+  [0, 1, 2].forEach(c => { for (let j = 0; j < n[c]; j++) IN(`#dg-c${i}${c}${j}`, t + 0.1 + span * (c * 0.3 + j * 0.13), 0.4, { x: -12 }, { x: 0 }); });
+  if (i === 0) IN("#dg-hl", t + 0.1, 0.4); else tl.to("#dg-hl", { attr: { y: 302 + i * 112 }, duration: 0.5, ease: "power2.inOut" }, t);
+};
+ROW(0, at(1, 0.02)); ROW(1, at(2, 0.02)); ROW(2, at(3, 0.02));
+ROW(3, at(4, 0.02)); ROW(4, at(4, 0.52)); ROW(5, at(5, 0.02));
+// L6 hands-on check
+OUT("#dg-tab, #dg-hl, #dg-r0, #dg-r1, #dg-r2, #dg-r3, #dg-r4, #dg-r5", at(6, 0), 0.4);
+IN("#dg-term", at(6, 0.05), 0.5);
+IN("#dg-url", at(6, 0.1), 0.4);
+IN("#dg-m0", at(6, 0.2), 0.3); IN("#dg-m1", at(6, 0.3), 0.3); IN("#dg-m1r", at(6, 0.36), 0.3); IN("#dg-m2", at(6, 0.44), 0.3);
+IN("#dg-ts", at(6, 0.58), 0.4);
+ARROW("#dg-tsa", at(6, 0.68), 0.4); IN("#dg-tsd", at(6, 0.7), 0.4);
+IN("#dg-scl, #dg-s0, #dg-s60", at(6, 0.8), 0.3); IN("#dg-scg, #dg-s24", at(6, 0.84), 0.3);
+IN("#dg-mk", at(6, 0.86), 0.2);
+tl.to("#dg-mk", { attr: { cx: 600 }, fill: "#83C167", duration: 1.0, ease: "back.out(1.4)" }, at(6, 0.87));
+// L7 admin_peers rejected
+IN("#dg-ap", at(7, 0.05), 0.3);
+IN("#dg-apr", at(7, 0.2), 0.4, { x: -12 }, { x: 0 });
+IN("#dg-apb", at(7, 0.6), 0.4);
+IN("#dg-apok", at(7, 0.66), 0.4, { x: -12 }, { x: 0 });
+
+/*ENDANIM*/
+
+      tl.to("#dg-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["debug"] = tl;
+    })();
+  </script>
+</template>

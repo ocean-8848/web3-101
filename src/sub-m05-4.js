@@ -3,7 +3,7 @@
 CUR = 'm05-10';
 addCh({ id: 'm05-10', nav: '实战·设计：RPC 网关', title: 'M04.8 实战·设计：高可用 RPC 网关与节点监控', desc: '项目目标、需求拆解、系统架构、技术选型、数据模型与接口设计', html: `
 <h1>M04.8 实战·设计：高可用 RPC 网关与节点监控</h1>
-${meta(['设计一个多上游（自建节点 + 2 家服务商）的以太坊 JSON-RPC 网关，并写出验收标准。', '用 Go 实现健康检查、方法级路由、粘滞会话、重试与熔断、分级缓存、限流与计量。', '为网关和节点设计 Prometheus 指标、Grafana 面板、告警规则、压测与部署方案。'], '<a href="#m05-6">M04.6 节点运维与 RPC</a>、<a href="#m05-2">M04.2 以太坊架构</a>、<a href="#m01">M01 区块链基础</a>')}
+${meta(['设计一个多上游（自建节点 + 2 家服务商）的以太坊 JSON-RPC 网关，并写出验收标准。', '画出网关的请求流水线、写请求调用链和熔断器状态机，说清健康检查、方法分类、缓存与重试的设计取舍。', '完成技术选型、数据模型（API Key、用量、上游配置）与对外接口设计，为下一篇的 Go 实现、监控与压测做好准备。'], '<a href="#m05-6">M04.6 节点运维与 RPC</a>、<a href="#m05-2">M04.2 以太坊架构</a>、<a href="#m01">M01 区块链基础</a>')}
 ${beginner(`<p><strong>JSON-RPC</strong>：应用和节点“对话”的格式。应用发一个 JSON，例如 <code>{"method":"eth_blockNumber"}</code>，节点回一个 JSON 结果。</p>
 <p><strong>上游（Upstream）</strong>：网关背后真正回答问题的节点。可以是你自己跑的 Geth，也可以是 Alchemy、Infura、QuickNode 这类服务商。</p>
 <p><strong>网关（Gateway）</strong>：站在应用和上游之间的一层程序。应用只认识网关，网关决定把请求转给哪个上游。</p>
@@ -45,7 +45,7 @@ ${tbl(['类别', '验收标准（示例）', '怎么验证'], [
   ['延迟', '缓存命中 P99 ≤ 5 ms；未命中 P99 ≤ 上游 P99 + 10 ms', 'k6 压测报告'],
   ['吞吐', '单实例 ≥ 3,000 RPS（读请求，50% 缓存命中）', 'k6 恒定到达率压测 10 分钟'],
   ['正确性', '不返回落后链头超过 3 个区块的 latest 数据', '一致性测试：对比 3 个上游的 eth_blockNumber'],
-  ['安全', '管理方法（admin_*、debug_*、personal_*）一律拒绝；API Key 鉴权；按 Key 限流', '安全测试用例清单（第 9 节）'],
+  ['安全', '管理方法（admin_*、personal_*）一律拒绝；调试方法（debug_*）默认拒绝，只对明确授权的 Key 开放；API Key 鉴权；按 Key 限流', '安全测试用例清单（第 9 节）'],
   ['成本', '服务商请求量比直连减少 ≥ 40%（缓存 + 自建优先）', 'Grafana“上游请求量”面板对比']
 ])}
 
@@ -134,7 +134,7 @@ stateDiagram-v2
   state "半开：放行少量试探" as HalfOpen
   [*] --> Closed
   Closed --> Open: 窗口内错误率超过 50% 且请求数至少 20
-  Closed --> Open: 健康检查判定落后超过 5 个区块
+  Closed --> Open: 健康检查判定落后超过 3 个区块
   Open --> HalfOpen: 冷却 30 秒后
   HalfOpen --> Closed: 连续 5 次试探成功
   HalfOpen --> Open: 任一试探失败
@@ -227,7 +227,7 @@ ${tbl(['接口', '方法', '说明'], [
 
 ${recap([
   '网关 = 鉴权限流 → 方法分类 → 缓存 → 路由 → 熔断重试 → 上游；健康检查独立运行，转发路径只读健康表。',
-  '健康分由落后块数、错误率、延迟组成；熔断器有闭合、断开、半开三态，并设最少请求数防误判。'
+  '路由按“健康分”给上游排序：健康分是一个越高越好的分数，从满分起按落后块数、错误率、延迟分别扣分（具体公式见下一篇 8.2）；熔断器有闭合、断开、半开三态，并设最少请求数防误判。'
 ])}
 ${quiz([
   { q: '熔断器为什么要设置“窗口内最少请求数”（例如 20）？', o: ['减少内存占用', '防止低流量时一次失败就触发 100% 错误率而误熔断', '让熔断更快发生', '为了兼容 Prometheus'], a: 1, why: '解析：只有 1 个请求且失败时错误率是 100%。设最少请求数让统计有意义。其他选项与该设计无关。' },
@@ -815,7 +815,7 @@ admin_listen: "127.0.0.1:9100"      # /metrics 与 /admin 只在内网
 chain: ethereum
 health:
   interval: 2s
-  max_head_lag: 5                    # 落后超过 5 块熔断
+  max_head_lag: 3                    # 落后超过 3 块熔断，与“正确性”验收标准一致
   consistency_interval: 10s
 breaker:
   window: 60s
@@ -1004,7 +1004,7 @@ groups:
         for: 10m
         labels: { severity: ticket }
       - alert: UpstreamLagging
-        expr: rpcgw_upstream_head_lag_blocks > 5
+        expr: rpcgw_upstream_head_lag_blocks > 3   # 与熔断阈值一致；持续 3 分钟说明上游没能自己追上
         for: 3m
         labels: { severity: ticket }
         annotations: { summary: "上游 {{ $labels.upstream }} 落后 {{ $value }} 个区块" }

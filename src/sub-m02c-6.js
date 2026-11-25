@@ -37,7 +37,8 @@ ${code('SOLIDITY', `
 // 示例：Solady 风格的高效安全转账（兼容 USDT 等无 bool 返回值的非标准 ERC-20）
 function safeTransfer(address token, address to, uint256 amount) internal {
     assembly ("memory-safe") {
-        // 1. 临时借用 0x14 与 0x34，先备份 0x40 空闲指针的值到栈上（不污染高地址内存）
+        // 1. 下面会把调用数据写进 0x00..0x43，其中 amount 占 0x24..0x43，会覆盖 0x40 空闲指针，
+        //    所以先把空闲指针的值备份到栈上（0x80 之后的高地址内存不受影响）
         let freePtr := mload(0x40)
         // 2. 写入 transfer(address,uint256) 选择器 0xa9059cbb
         mstore(0x00, 0xa9059cbb00000000000000000000000000000000000000000000000000000000)
@@ -51,16 +52,16 @@ function safeTransfer(address token, address to, uint256 amount) internal {
             mstore(0x00, 0x90b8ec18) // TransferFailed() 自定义错误选择器
             revert(0x1c, 0x04)
         }
-        // 5. 恢复 0x40 空闲内存指针并清空临时覆盖的 0x34..0x44
+        // 5. 把备份的值写回 0x40，恢复空闲内存指针
         mstore(0x40, freePtr)
-        mstore(0x60, 0) // 确保持久零槽为 0
+        mstore(0x60, 0) // 防御性写法：本例没有写到 0x60 零槽，这里再确认它为 0
     }
 }
 `)}
 ${call('warn', '<p><strong>内联汇编四大高频坑</strong>：① 忘记掩码清理 <code>address</code> 高 12 字节脏位（<code>and(addr, 0xff...ff)</code>）；② 忘记检查算术溢出（Yul 里的 <code>add/sub/mul</code> 默认回绕不报错）；③ <code>call</code> 给无代码 EOA 地址会直接返回 <code>1</code>（必须配合 <code>extcodesize</code> 检查）；④ 写完 <code>0x40</code> 区域忘记恢复空闲指针。</p>')}
 
 <h2>3. 未开源合约字节码逆向与反编译</h2>
-<p>当安全告警提示某个未知合约刚刚从协议提走 500 万美元时，Etherscan 上只能看到一串 <code>0x6080604052...</code> 字节码。逆向分析分三步走：</p>
+<p>当安全告警提示某个未知合约刚刚从协议提走 500 万美元时，Etherscan 上只能看到一串 <code>0x6080604052...</code> 字节码。逆向分析分四步走：</p>
 ${mm('未开源链上字节码逆向分析流程', `
 flowchart LR
   B["1. 提取链上字节码<br/>cast code 0xAddr"] --> S["2. 识别函数选择器<br/>搜索 PUSH4 4字节签名"]
@@ -80,7 +81,7 @@ flowchart LR
 <h2>4. 常用 EVM 底层操作码速查</h2>
 ${tbl(['操作码', '作用', '关键工程注意点'], [
   ['<code>CALLDATALOAD</code> / <code>CALLDATASIZE</code>', '从只读交易输入读取 32 字节 / 总长度', '比 memory 便宜得多；自定义紧凑编码可省大量 Gas'],
-  ['<code>SLOAD</code> / <code>SSTORE</code>', '读写持久化合约存储槽', '冷读 2,100 Gas，0→非0 写入 20,000 Gas（EIP-2929）'],
+  ['<code>SLOAD</code> / <code>SSTORE</code>', '读写持久化合约存储槽', '冷读 2,100 Gas（EIP-2929）；0→非0 写入 20,000 Gas（EIP-2200 定价），冷槽首次写入再加 2,100 Gas'],
   ['<code>TLOAD</code> / <code>TSTORE</code>', '读写瞬态存储（EIP-1153，单笔交易结束自动清零）', '仅 ~100 Gas，现代重入锁与 Uniswap V4 闪电记账核心'],
   ['<code>RETURNDATACOPY</code>', '把外部调用返回的数据拷贝进内存', '警惕 Return Bomb：恶意目标返回超大字节导致调用方内存扩展 OOG'],
   ['<code>EXTCODESIZE</code>', '读取目标地址的字节码长度', '在合约 constructor 执行期间返回 0，绝不能用来判断“非合约”']

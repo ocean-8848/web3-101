@@ -1,0 +1,190 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 overview，id 前缀 ov- -->
+  <div id="root" data-composition-id="overview" data-duration="70.69" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ov-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ov-all">
+        <g id="ov-prov" class="h">
+          <rect x="760" y="260" width="400" height="140" rx="18" fill="#161a22" stroke="#B48EF0" stroke-width="3" stroke-dasharray="14 9"/>
+          <text x="960" y="343" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">RPC 服务商</text>
+        </g>
+        <g id="ov-node" class="h">
+          <rect id="ov-noder" x="760" y="600" width="400" height="180" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3.5"/>
+          <text x="960" y="652" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">自建节点</text>
+        </g>
+        <g id="ov-ch0" class="h"><rect x="778" y="692" width="120" height="58" rx="10" fill="#1d3440"/><text x="838" y="731" font-size="28" fill="#58C4DD" text-anchor="middle">下载区块</text></g>
+        <g id="ov-ch1" class="h"><rect x="900" y="692" width="120" height="58" rx="10" fill="#1d3440"/><text x="960" y="731" font-size="28" fill="#58C4DD" text-anchor="middle">验证交易</text></g>
+        <g id="ov-ch2" class="h"><rect x="1022" y="692" width="120" height="58" rx="10" fill="#1d3440"/><text x="1082" y="731" font-size="28" fill="#58C4DD" text-anchor="middle">保存状态</text></g>
+        <g id="ov-app" class="h">
+          <rect x="120" y="420" width="300" height="180" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="270" y="523" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">应用 / 后端</text>
+        </g>
+        <path id="ov-a1" class="dr h" pathLength="1" d="M420 560 L600 560 L600 690 L752 690" stroke="#58C4DD" stroke-width="3.5" fill="none" marker-end="url(#ov-arr)"/>
+        <path id="ov-a2" class="dr h" pathLength="1" d="M420 470 L600 470 L600 330 L752 330" stroke="#58C4DD" stroke-width="3.5" fill="none" marker-end="url(#ov-arr)"/>
+        <g id="ov-json" class="h">
+          <rect x="130" y="812" width="500" height="62" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text class="mono" x="152" y="854" font-size="28" fill="#58C4DD">{"method":"eth_getBalance"}</text>
+        </g>
+        <circle id="ov-dot" class="h" cx="420" cy="560" r="12" fill="#58C4DD"/>
+        <g id="ov-gold" class="h"><rect x="150" y="626" width="120" height="56" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="210" y="665" font-size="32" fill="#F0B90B" text-anchor="middle">余额</text></g>
+        <g id="ov-net" class="h">
+          <ellipse cx="1620" cy="510" rx="190" ry="110" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text x="1620" y="482" font-size="32" fill="#8a8f99" text-anchor="middle">以太坊网络</text>
+          <circle cx="1520" cy="560" r="11" fill="#58C4DD"/><circle cx="1640" cy="575" r="11" fill="#58C4DD"/><circle cx="1745" cy="545" r="11" fill="#58C4DD"/>
+          <circle cx="1490" cy="505" r="7" fill="#8a8f99"/><circle cx="1750" cy="490" r="7" fill="#8a8f99"/><circle cx="1580" cy="600" r="6" fill="#8a8f99"/>
+        </g>
+        <g id="ov-sync" class="h">
+          <rect x="1190" y="694" width="230" height="16" rx="8" fill="#2a2f3a"/>
+          <rect id="ov-syncf" x="1190" y="694" width="0" height="16" rx="8" fill="#58C4DD"/>
+          <text x="1305" y="668" font-size="32" fill="#58C4DD" text-anchor="middle">同步</text>
+        </g>
+        <path id="ov-peer" class="dr" pathLength="1" d="M1160 640 L1520 560 M1160 640 L1640 575 M1160 640 L1745 545" stroke="#58C4DD" stroke-width="2.5" fill="none"/>
+        <text id="ov-peerl" class="h" x="1620" y="680" font-size="30" fill="#58C4DD" text-anchor="middle">对等节点 Peer</text>
+        <text id="ov-g0" class="h" x="960" y="570" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">数据正确</text>
+        <text id="ov-g1" class="h" x="960" y="832" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">跟得上</text>
+        <text id="ov-g2" class="h" x="740" y="748" font-size="32" font-weight="700" fill="#83C167" text-anchor="end">接口安全</text>
+        <text id="ov-g3" class="h" x="1180" y="748" font-size="32" font-weight="700" fill="#83C167">能切换</text>
+        <g id="ov-lib">
+          <g id="ov-sign" class="h"><rect x="1240" y="262" width="200" height="76" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="1340" y="312" font-size="30" fill="#B48EF0" text-anchor="middle">连锁图书馆</text></g>
+          <path id="ov-sl" class="dr" pathLength="1" d="M1240 300 L1168 300" stroke="#B48EF0" stroke-width="2.5" fill="none"/>
+          <g id="ov-shelf" class="h">
+            <rect x="1480" y="700" width="170" height="130" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/>
+            <line x1="1480" y1="765" x2="1650" y2="765" stroke="#8a8f99" stroke-width="3"/>
+            <g fill="#8a8f99"><rect x="1494" y="716" width="14" height="46"/><rect x="1512" y="722" width="14" height="40"/><rect x="1530" y="712" width="14" height="50"/><rect x="1494" y="780" width="14" height="46"/><rect x="1512" y="784" width="14" height="42"/></g>
+          </g>
+          <g fill="#58C4DD"><rect id="ov-bk0" class="h" x="1548" y="716" width="14" height="46"/><rect id="ov-bk1" class="h" x="1566" y="716" width="14" height="46"/><rect id="ov-bk2" class="h" x="1584" y="716" width="14" height="46"/><rect id="ov-bk3" class="h" x="1602" y="716" width="14" height="46"/><rect id="ov-bk4" class="h" x="1530" y="780" width="14" height="46"/><rect id="ov-bk5" class="h" x="1548" y="780" width="14" height="46"/></g>
+          <text id="ov-shelfl" class="h" x="1565" y="880" font-size="30" fill="#8a8f99" text-anchor="middle">本地图书馆</text>
+          <path id="ov-shl" class="dr" pathLength="1" d="M1480 765 L1168 765" stroke="#8a8f99" stroke-width="2.5" fill="none"/>
+          <text id="ov-12" class="h" x="1565" y="930" font-size="28" fill="#58C4DD" text-anchor="middle">每 12 秒一个新块</text>
+        </g>
+        <text id="ov-lag" class="h" x="960" y="840" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">落后</text>
+        <g id="ov-rpc" class="h"><text class="mono" x="680" y="312" font-size="28" fill="#58C4DD" text-anchor="middle">RPC</text><text class="mono" x="680" y="672" font-size="28" fill="#58C4DD" text-anchor="middle">RPC</text></g>
+        <g id="ov-tog" class="h">
+          <text x="200" y="676" font-size="28" fill="#B48EF0" text-anchor="end">服务商</text>
+          <rect x="210" y="640" width="120" height="50" rx="25" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+          <circle id="ov-knob" cx="235" cy="665" r="18" fill="#B48EF0"/>
+          <text x="342" y="676" font-size="28" fill="#58C4DD">自建</text>
+          <text x="270" y="770" font-size="32" fill="#e8e6df" text-anchor="middle">对代码几乎透明</text>
+        </g>
+
+      </g>
+      <g id="ov-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">节点 <tspan font-size="28" font-weight="400" fill="#8a8f99">Node</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">运行区块链客户端、验证并保存数据的电脑</text>
+      </g>
+      <g id="ov-term2" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">JSON-RPC</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">节点对外的请求 / 响应接口</text>
+      </g>
+      <g id="ov-term3" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">对等节点 <tspan font-size="28" font-weight="400" fill="#8a8f99">Peer</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">与你直连、交换区块和交易的节点</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+// L0 node
+IN("#ov-node", at(0, 0.12), 0.7, { scale: 0.92, svgOrigin: "960 690" }, { scale: 1, svgOrigin: "960 690" });
+IN("#ov-term", at(0, 0.3), 0.5);
+IN("#ov-ch0", at(0, 0.6), 0.4, { y: 10 }, { y: 0 });
+IN("#ov-ch1", at(0, 0.75), 0.4, { y: 10 }, { y: 0 });
+IN("#ov-ch2", at(0, 0.88), 0.4, { y: 10 }, { y: 0 });
+// L1 app + JSON-RPC
+OUT("#ov-term", at(1, 0), 0.3);
+IN("#ov-term2", at(1, 0) + 0.35, 0.5);
+IN("#ov-app", at(1, 0.05), 0.6, { x: -30 }, { x: 0 });
+ARROW("#ov-a1", at(1, 0.2), 0.7);
+IN("#ov-json", at(1, 0.42), 0.5, { y: 15 }, { y: 0 });
+IN("#ov-dot", at(1, 0.58), 0.15);
+tl.to("#ov-dot", { attr: { cx: 600 }, duration: 0.35, ease: "none" }, at(1, 0.58));
+tl.to("#ov-dot", { attr: { cy: 690 }, duration: 0.3, ease: "none" }, at(1, 0.58) + 0.35);
+tl.to("#ov-dot", { attr: { cx: 750 }, duration: 0.3, ease: "none" }, at(1, 0.58) + 0.65);
+OUT("#ov-dot", at(1, 0.58) + 0.95, 0.15);
+tl.to("#ov-noder", { strokeWidth: 7, duration: 0.2, yoyo: true, repeat: 1 }, at(1, 0.58) + 0.9);
+IN("#ov-gold", at(1, 0.82), 0.5, { x: 40 }, { x: 0 });
+// L2 sync + peers
+OUT("#ov-term2", at(2, 0), 0.3);
+OUT("#ov-json, #ov-gold", at(2, 0), 0.4);
+IN("#ov-net", at(2, 0.04), 0.6);
+IN("#ov-sync", at(2, 0.1), 0.4);
+tl.fromTo("#ov-syncf", { attr: { width: 0 } }, { attr: { width: 230 }, duration: 2.6, ease: "power1.inOut", immediateRender: false }, at(2, 0.12));
+DRAW("#ov-peer", at(2, 0.6), 0.7);
+IN("#ov-peerl", at(2, 0.72), 0.5);
+IN("#ov-term3", at(2, 0.74), 0.5);
+tl.to("#ov-peer", { opacity: 0.35, duration: 0.35, yoyo: true, repeat: 5 }, at(2, 0.8));
+// L3 only entrance + four goals
+OUT("#ov-sync, #ov-peer, #ov-peerl", at(3, 0), 0.4);
+tl.to("#ov-a1", { strokeWidth: 7, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.08));
+OUT("#ov-term3", at(3, 0.5), 0.4);
+IN("#ov-g0", at(3, 0.3), 0.4, { y: 10 }, { y: 0 });
+IN("#ov-g1", at(3, 0.45), 0.4, { y: -10 }, { y: 0 });
+IN("#ov-g2", at(3, 0.6), 0.4, { x: 10 }, { x: 0 });
+IN("#ov-g3", at(3, 0.78), 0.4, { x: -10 }, { x: 0 });
+// L4 library analogy
+OUT("#ov-g0, #ov-g1, #ov-g2, #ov-g3", at(4, 0), 0.4);
+IN("#ov-shelf", at(4, 0.08), 0.6);
+IN("#ov-shelfl", at(4, 0.15), 0.5);
+DRAW("#ov-shl", at(4, 0.25), 0.6);
+IN("#ov-prov", at(4, 0.5), 0.6);
+IN("#ov-sign", at(4, 0.62), 0.5);
+DRAW("#ov-sl", at(4, 0.72), 0.4);
+// L5 books keep coming; lagging
+IN("#ov-12", at(5, 0.08), 0.5);
+[0, 1, 2, 3, 4, 5].forEach(i => IN(`#ov-bk${i}`, at(5, 0.12 + i * 0.07), 0.25, { y: -12 }, { y: 0 }));
+tl.to("#ov-shl", { stroke: "#FC6255", opacity: 0.3, duration: 0.3 }, at(5, 0.62));
+tl.to("#ov-noder", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.64));
+IN("#ov-lag", at(5, 0.66), 0.3);
+tl.to("#ov-lag", { opacity: 0.2, duration: 0.25, yoyo: true, repeat: 3 }, at(5, 0.7));
+OUT("#ov-lag", at(5, 0.92), 0.3);
+tl.to("#ov-noder", { stroke: "#58C4DD", duration: 0.3 }, at(5, 0.92));
+OUT("#ov-lib", at(5, 0.92), 0.4);
+// L6 two RPC paths + switch
+ARROW("#ov-a2", at(6, 0.04), 0.7);
+IN("#ov-rpc", at(6, 0.12), 0.4);
+IN("#ov-tog", at(6, 0.3), 0.5);
+[0.48, 0.62, 0.76, 0.9].forEach((f, i) => {
+  const right = i % 2 === 0;
+  tl.to("#ov-knob", { attr: { cx: right ? 305 : 235 }, fill: right ? "#58C4DD" : "#B48EF0", duration: 0.35, ease: "power2.inOut" }, at(6, f));
+  tl.to("#ov-a2", { opacity: right ? 0.3 : 1, duration: 0.3 }, at(6, f));
+  tl.to("#ov-a1", { opacity: right ? 1 : 0.3, duration: 0.3 }, at(6, f));
+});
+tl.to("#ov-prov rect", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.86));
+tl.to("#ov-noder", { strokeWidth: 7, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.4));
+tl.to("#ov-shelfl", { fill: "#e8e6df", duration: 0.5 }, at(4, 0.88));
+
+
+      tl.to("#ov-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ov-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["overview"] = tl;
+    })();
+  </script>
+</template>

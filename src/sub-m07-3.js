@@ -69,8 +69,9 @@ stateDiagram-v2
 ${tbl(['状态', '主文案（示例）', '按钮', '附加信息'], [
   ['可提交', '—', '“兑换”（可点）', '预估 Gas 费、最少收到'],
   ['等待签名', '“请在钱包中确认”', '禁用 + 加载动画', '提示“没看到弹窗？打开钱包扩展”'],
+  ['拒签（4001）', '不提示，或灰字“已取消”', '恢复“兑换”（可点）', '不当成错误，不上报'],
   ['待打包', '“交易已发送，通常 2–15 秒”', '禁用', 'txHash 缩写 + 区块浏览器链接'],
-  ['已替换', '“交易已加速，正在追踪新交易”', '禁用', '更新链接为新 hash，不报错'],
+  ['已替换', 'repriced：“交易已加速，正在追踪新交易”；cancelled：“操作已取消”；replaced：“交易已被替换，请核对结果”', '禁用（cancelled 后恢复可点）', '更新链接为新 hash，不报错'],
   ['已打包', '“兑换成功”', '“再来一笔”', '实际收到数量（从回执日志解析）'],
   ['已最终确定', '“已最终确定”', '—', '大额或跨链场景展示'],
   ['执行失败', '“交易失败：价格变动超过滑点”', '“重试”', '说明 Gas 已扣，链接到浏览器'],
@@ -94,8 +95,9 @@ export function useTxToast(hash?: \`0x\${string}\`, label = '交易') {
   const rc = useWaitForTransactionReceipt({
     hash,
     onReplaced: r => {                              // reason: 'replaced' | 'repriced' | 'cancelled'
-      if (r.reason === 'cancelled') toast.error(label + '已在钱包中取消', { id: hash })
-      else toast.info(label + '已加速，正在追踪新交易', { id: hash })
+      if (r.reason === 'repriced') toast.info(label + '已加速，正在追踪新交易', { id: hash })
+      else if (r.reason === 'cancelled') toast.info(label + '已在钱包中取消', { id: hash })        // 用户主动取消，不用失败样式
+      else toast.warning(label + '已被另一笔同 nonce 交易替换，请核对结果', { id: hash })    // replaced：内容已变，不能说成“加速”
     },
   })
 
@@ -110,7 +112,7 @@ export function useTxToast(hash?: \`0x\${string}\`, label = '交易') {
 <p>区块浏览器链接的地址来自 viem 链定义的 <code>blockExplorers.default.url</code>，不要手写域名拼接，避免切链后链接指向错误的浏览器。</p>
 
 <h2>4. 交易替换与取消</h2>
-<p>同一地址的交易按 <strong>nonce</strong> 顺序执行。用户在钱包点“加速”，钱包会用<strong>相同 nonce、更高费用</strong>重新签一笔交易；点“取消”，钱包发一笔相同 nonce、给自己转 0 ETH 的交易。哪一笔先被打包，另一笔就作废（nonce 原理见 <a href="#m03-6">M09.6 Nonce 管理</a>）。</p>
+<p>同一地址的交易按 <strong>nonce</strong> 顺序执行。用户在钱包点“加速”，钱包会用<strong>相同 nonce、更高费用</strong>重新签一笔交易；点“取消”，钱包发一笔相同 nonce、给自己转 0 ETH 的交易。哪一笔先被打包，另一笔就作废（nonce 原理见 <a href="#m03-6">M08.6 Nonce 管理</a>）。</p>
 ${mm('加速与取消如何替换原交易', `
 flowchart LR
   T0["原交易 A<br/>nonce 7 · 小费 1 gwei"] --> MP["内存池"]
@@ -167,7 +169,7 @@ ${tbl(['可访问性要求', '做法'], [
   ['尊重减少动画偏好', '<code>prefers-reduced-motion</code> 时关闭旋转动画'],
   ['地址可读', '缩写显示 + 完整地址的 title 与复制按钮']
 ])}
-${tryit(`<p>在测试网体验替换交易：</p>${steps(['在 MetaMask 切到 Sepolia，设置里打开“自定义 nonce”（高级设置）。', '给自己转 0.001 ETH，把小费设得很低，让它停在待处理。', '在活动列表中点击“加速”。', '在 Sepolia Etherscan 打开原交易 hash，预期看到“Replaced”或“Dropped & Replaced”提示，并指向新交易。', '思考：如果你的 DApp 只追踪原 hash，用户会看到什么？'])}`)}
+${tryit(`<p>在测试网体验替换交易：</p>${steps(['在 MetaMask 切到 Sepolia（本练习用钱包自带的“加速”按钮，不需要手动设 nonce）。', '给自己转 0.001 ETH，把小费设得很低，让它停在待处理。', '在活动列表中点击“加速”。', '在 Sepolia Etherscan 打开原交易 hash，预期看到“Replaced”或“Dropped & Replaced”提示，并指向新交易。', '思考：如果你的 DApp 只追踪原 hash，用户会看到什么？'])}`)}
 
 ${mistakes([
   ['交易“转圈圈”就够了，用户会等。', '没有阶段和预计时间，用户会重复提交或以为卡死。每个状态都要有文案和下一步。'],
@@ -233,7 +235,7 @@ ${art('一图看懂：代码到浏览器要过五道关，任何一环被换，�
   S.arrow(494, 168, 494, 106, { k: 'risk', dash: 1 }),
   S.arrow(604, 168, 604, 106, { k: 'ok', dash: 1 }),
   S.box(10, 170, 88, 66, { k: 'risk', t: '① 投毒', s: 'Ledger 2023\nConnect Kit' }),
-  S.box(120, 170, 88, 66, { k: 'risk', t: '② 入侵', s: 'Bybit 2025\nSafe 开发机' }),
+  S.box(120, 170, 88, 66, { k: 'risk', t: '② 入侵', s: 'Bybit 2025\n入口：开发机' }),
   S.box(230, 170, 88, 66, { k: 'risk', t: '③ 被替换', s: 'BadgerDAO\n2021' }),
   S.box(340, 170, 88, 66, { k: 'risk', t: '④ 劫持', s: 'Curve 2022\nBalancer' }),
   S.box(450, 170, 88, 66, { k: 'risk', t: '⑤ XSS', s: '恶意第三方\n脚本' }),
@@ -244,9 +246,8 @@ ${art('一图看懂：代码到浏览器要过五道关，任何一环被换，�
 <h2>2. 威胁模型</h2>
 ${mm('DApp 前端威胁模型', `
 flowchart TB
-  DEV["开发者电脑<br/>与 CI"] --> NPM["npm 依赖"]
+  NPM["npm 依赖"] --> DEV["开发者电脑<br/>与 CI"]
   DEV --> BUILD["构建产物 JS"]
-  NPM --> BUILD
   BUILD --> HOST["托管 S3 / Vercel / IPFS"]
   DNS["域名与 DNS"] --> HOST
   HOST --> BR["用户浏览器"]
@@ -259,7 +260,7 @@ flowchart TB
   A5["⑤ XSS 与恶意第三方脚本"] -.-> BR
   A5 -.-> TP
 `, [
-  ['flow', '代码从开发机经过依赖、构建、托管、DNS 到达浏览器，任何一环被篡改，最终在浏览器执行的都是攻击者的代码。'],
+  ['flow', '依赖先进入开发机与 CI，再经过构建、托管、DNS 到达浏览器（与上面总图的顺序一致），任何一环被篡改，最终在浏览器执行的都是攻击者的代码。'],
   ['risk', '恶意代码最常见的动作：替换交易的收款地址或 spender；弹出伪造的授权请求；替换签名内容。'],
   ['key', '防护要分层：每一环都有对应手段，没有一个手段能单独解决问题。'],
   ['limit', '钱包是最后一道防线，但用户常常不看或看不懂签名内容。']
@@ -281,6 +282,8 @@ ${code('BASH', `
 # 生成 SRI 哈希
 openssl dgst -sha384 -binary vendor.js | openssl base64 -A
 # 在 HTML 中使用（CDN 文件被篡改时浏览器拒绝执行）
+# 注意：下方 CSP 是 script-src 'self'，要从 CDN 加载就必须把 https://cdn.example.com 加进 script-src；
+# 更推荐把 vendor.js 自托管到同源，SRI 主要用于确实无法自托管的外部脚本
 # <script src="https://cdn.example.com/vendor.js"
 #         integrity="sha384-（上面输出的值）" crossorigin="anonymous"></script>
 `)}
@@ -288,7 +291,7 @@ ${code('TYPESCRIPT', `
 // next.config.ts —— 设置安全响应头（CSP 白名单按项目实际调整，示例）
 const csp = [
   "default-src 'self'",
-  "script-src 'self'",                               // 不允许内联和外部脚本；需要内联时用 nonce
+  "script-src 'self'",                               // 只允许同源脚本；需要内联时用 nonce，确需外部 CDN 时显式加域名并配 SRI
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "connect-src 'self' https://base-mainnet.g.alchemy.com https://api.example.com wss://relay.walletconnect.com wss://relay.walletconnect.org https://*.walletconnect.com",
@@ -311,7 +314,7 @@ export default {
 ${call('info', `<p>CSP 的 <code>connect-src</code> 是 DApp 的关键：即使恶意脚本混进来，它也无法把数据发往白名单之外的服务器。WalletConnect 等服务需要的域名以其官方文档为准，上线前在浏览器控制台检查有没有被 CSP 拦截的请求。</p>`)}
 
 <h2>4. 防护二：IPFS 部署、签名前解释、地址校验</h2>
-<p><strong>IPFS 部署</strong>：把构建产物上传 IPFS，得到<strong>内容标识符 CID</strong>（内容哈希）。内容变，CID 就变。把 CID 写入 ENS 域名的 contenthash，用户通过 eth.limo 等网关或支持 IPFS 的浏览器访问。任何人都能重新构建并比对 CID，确认前端没被篡改（CIDv0 与 CIDv1 的区别、为什么同一文件可能得到不同 CID，见 <a href="#m09-3">M13.3 去中心化存储与 DePIN</a>）。</p>
+<p><strong>IPFS 部署</strong>：把构建产物上传 IPFS，得到<strong>内容标识符 CID</strong>（内容哈希）。内容变，CID 就变。把 CID 写入 ENS 域名的 contenthash，用户通过 eth.limo 等网关或支持 IPFS 的浏览器访问。任何人都能重新构建并比对 CID，确认前端没被篡改（CIDv0 与 CIDv1 的区别、为什么同一文件可能得到不同 CID，见 <a href="#m09-3">M14.3 去中心化存储与 DePIN</a>）。</p>
 ${mm('签名前的交易解释流程', `
 flowchart LR
   REQ["前端构造交易<br/>to · data · value"] --> DEC["用 ABI 解码 calldata<br/>函数名 + 参数"]
@@ -373,14 +376,14 @@ ${mistakes([
 ])}
 ${recap([
   '前端威胁五类：依赖投毒、开发机/CI 入侵、托管文件替换、DNS 劫持、XSS 与恶意第三方脚本。',
-  '真实案例：2021 BadgerDAO、2023 Ledger Connect Kit、2025 Bybit（Safe 前端被注入）。',
+  '每个入口都有真实案例：① 依赖投毒——2023 Ledger Connect Kit、2025 年 9 月 npm 包劫持；② 开发机入侵——2025 Bybit（入口是 Safe 开发机，被改的是托管 JS）；③ 托管内容被替换——2021 BadgerDAO（经 Cloudflare Workers 注入脚本）；④ DNS 劫持——2022 Curve、2023 Balancer；⑤ 恶意脚本——上述事件最终都表现为浏览器里执行了攻击者的脚本。',
   '依赖：精确版本、lockfile、npm ci、禁用安装脚本、更新评审；外部脚本用 SRI；用严格 CSP 限制 connect-src。',
   '签名前解码与模拟；地址用校验和并完整比对；合约地址硬编码并校验代码哈希。',
   '发布流程：评审、CI 隔离构建、可复现、公开哈希、DNS 加固、线上哈希监控、应急预案。'
 ])}
 ${quiz([
   { q: '恶意脚本混入页面后，哪项配置最能阻止它把用户数据发到攻击者服务器？', o: ['HSTS', 'CSP 的 connect-src 白名单', 'Referrer-Policy', '把按钮颜色改成红色'], a: 1, why: 'connect-src 限制 fetch/WebSocket 等连接的目标。HSTS 强制 HTTPS，Referrer-Policy 控制来源头，都不能阻止外传。' },
-  { q: '2025 年 Bybit 事件中，攻击者主要篡改了哪一环？', o: ['以太坊共识层', 'Safe 合约代码', 'Safe{Wallet} 托管的前端 JS', 'Bybit 的 DNS'], a: 2, why: '攻击者入侵开发者电脑后，向托管在云存储上的 Safe 前端 JS 注入针对 Bybit 的恶意代码。合约本身没有漏洞。' },
+  { q: '2025 年 Bybit 事件中，攻击者主要篡改了哪一环？', o: ['以太坊共识层', 'Safe 合约代码', 'Safe{Wallet} 托管的前端 JS', 'Bybit 的 DNS'], a: 2, why: '攻击者入侵开发者电脑后，向托管在云存储上的 Safe 前端 JS 注入针对 Bybit 的恶意代码。入口是开发机（总图 ②），被篡改的是托管的 JS（总图 ③ 那一环）。合约本身没有漏洞。' },
   { q: '固定地址前 4 位和后 4 位，随机匹配的概率是？', o: ['1/65,536', '1/16,777,216', '1/4,294,967,296', '1/2<sup>160</sup>'], a: 2, why: '8 个十六进制字符，16<sup>8</sup> = 4,294,967,296。GPU 几秒钟就能碰撞出来。' },
   { q: '下面哪个做法能让第三方验证你的前端没有被篡改？', o: ['在页面写“本站安全”', '构建可复现，并公开产物哈希或 IPFS CID', '使用更复杂的混淆', '关闭开发者工具'], a: 1, why: '可复现构建 + 公开哈希让任何人都能独立比对。声明和混淆不能提供可验证的保证。' }
 ])}
@@ -443,14 +446,15 @@ flowchart LR
 ])}
 ${tbl(['参数', '含义', 'DApp 建议值（示例）'], [
   ['queryKey', '缓存的键，必须包含所有影响结果的变量', '包含 chainId、地址、合约、参数'],
-  ['staleTime', '多久内视为新鲜、不重新请求', '静态 Infinity；余额 10s；价格 0（由区块驱动）'],
+  ['staleTime', '多久内视为新鲜、不重新请求', '静态 Infinity；余额 10s；价格按上图走后端 REST 时与 CDN 的 s-maxage 对齐（例如 15s），只有直接读链上池子时才设 0、随新区块刷新'],
   ['gcTime', '不再使用的缓存保留多久（v5 名称，旧名 cacheTime）', '默认 5 分钟即可'],
   ['refetchOnWindowFocus', '切回页面时是否刷新', '余额、仓位开启；静态数据关闭'],
   ['placeholderData: keepPreviousData', '参数变化时先显示旧数据', '报价、分页列表，避免闪烁'],
   ['retry', '失败重试次数', 'RPC 读 2 次；用户拒签 0 次']
 ])}
 ${code('TYPESCRIPT', `
-// 索引服务 + TanStack Query：分页加载交易历史
+// 分页加载交易历史：后端 /api/history 代为查询索引服务（GraphQL），前端只调这个 REST 接口，
+// 结果由 TanStack Query 缓存（这样 API Key 和查询语句留在服务器，前端也方便换索引服务）
 import { useInfiniteQuery } from '@tanstack/react-query'
 
 export function useSwapHistory(address?: string, chainId?: number) {

@@ -130,7 +130,7 @@ flowchart TB
   ['limit', 'logsBloom 会误报。索引器不能只看 Bloom，还要拉取真实日志确认。']
 ])}
 <h3>3.1 区块体与 Gas 上限</h3>
-<p>以太坊区块体包含：交易列表、叔块列表（合并后永远为空）、提款列表。以太坊不按字节限制区块大小，而是按 gas 限制：区块里所有交易消耗的 gas 之和不能超过 <code>gasLimit</code>。</p>
+<p>以太坊区块体包含：交易列表、叔块列表（合并后永远为空）、提款列表。以太坊主要按 gas 限制区块，而不是按字节：区块里所有交易消耗的 gas 之和不能超过 <code>gasLimit</code>。2025 年 12 月 Fusaka 升级（EIP-7934）另加了一道 RLP 编码后约 8 MiB 的字节保护上限，正常区块远碰不到它，只用来防止异常大的区块拖垮网络。${cite('EIP-7934：RLP Execution Block Size Limit', 'https://eips.ethereum.org/EIPS/eip-7934')}</p>
 ${tbl(['对比项', '比特币', '以太坊'], [
   ['容量限制方式', '区块权重 ≤ 400 万 weight units（2017 年隔离见证后）', 'gasUsed ≤ gasLimit'],
   ['当前上限（截至 2026 年公开资料）', '约 1–4 MB，取决于交易类型', 'gasLimit 在 2025 年由验证者多次上调（3,000 万 → 3,600 万（2 月）→ 4,500 万（7 月）→ 6,000 万（11 月））' + cite('The Block：以太坊 gas limit 达到 4,500 万（2025-07）', 'https://www.theblock.co/news/ecosystems/2025-07-22-ethereum-hits-45-million-block-gas-limit-363763') + cite('The Block：以太坊 gas limit 提高到 6,000 万（2025-11）', 'https://www.theblock.co/news/ecosystems/2025-11-27-ethereum-block-gas-limit-fusaka-380687')],
@@ -175,15 +175,15 @@ ${code('JSON', `
   "transactionsRoot": "0x1a8c…",
   "receiptsRoot": "0x5e0f…",
   "logsBloom": "0x0020…（512 个十六进制字符）",
-  "gasLimit": "0x2160ec0",
+  "gasLimit": "0x1c9c380",
   "gasUsed": "0x10b0760",
   "baseFeePerGas": "0x2540be400",
-  "timestamp": "0x6720a1b3",
+  "timestamp": "0x665ba27f",
   "miner": "0x95222290dd7278aa3ddd389cc1e1d165cc4bafe5",
   "transactions": ["0x…", "0x…"]
 }
 `)}
-<p>所有数字都是十六进制。例如 <code>0x1312d00</code> = 20,000,000（高度两千万）；<code>0x2540be400</code> = 10,000,000,000 wei = 10 gwei。<a href="#m01-5">M01.5</a> 会系统讲换算。</p>
+<p>所有数字都是十六进制。例如 <code>0x1312d00</code> = 20,000,000（高度两千万）；<code>0x1c9c380</code> = 30,000,000（当时的 gasLimit 3,000 万）；<code>0x665ba27f</code> = 2024-06-01 UTC 的 Unix 时间戳；<code>0x2540be400</code> = 10,000,000,000 wei = 10 gwei。高度、gasLimit、时间戳和 miner 取自真实的 20,000,000 号区块，gasUsed 与 baseFee 是为了好算而改的示例值。<a href="#m01-5">M01.5</a> 会系统讲换算。</p>
 
 <h2>5. 在浏览器上对照真实区块</h2>
 ${tryit(`<ol>
@@ -208,7 +208,7 @@ ${mistakes([
   ['区块哈希是对整个区块（包括所有交易）做哈希。', '区块哈希只对区块头求值。交易通过区块头里的默克尔根被间接锁定。'],
   ['区块高度可以唯一标识一个区块。', '重组时同一高度会有不同区块。唯一标识是区块哈希。'],
   ['nonce 是“挖矿答案”，有固定的正确值。', 'nonce 只是一个可变计数器。任何让哈希小于目标的 nonce 都可以，同一区块可能有多个合格 nonce。'],
-  ['以太坊区块大小按字节限制。', '以太坊按 gasLimit 限制计算量，没有比特币那样的字节权重上限（另有协议层的 RLP 大小保护上限）。'],
+  ['以太坊区块大小按字节限制。', '以太坊按 gasLimit 限制计算量，没有比特币那样的字节权重上限。Fusaka（2025 年 12 月）起另有约 8 MiB 的 RLP 字节保护上限（EIP-7934），只防异常大块，平时起作用的是 gasLimit。'],
   ['baseFee 给了出块者。', 'baseFee 被销毁。出块者只得到小费（priority fee）。']
 ])}
 ${recap([
@@ -242,7 +242,7 @@ ${terms([
 CUR = 'm01-2';
 addCh({ id: 'm01-2', nav: '默克尔树与轻节点', title: 'M01.2 默克尔树与轻节点：用几个哈希证明一笔交易', desc: '亲手构建默克尔树、生成和验证证明，理解 SPV、MPT 与空投白名单。', html: `
 <h1>M01.2 默克尔树与轻节点：用几个哈希证明一笔交易</h1>
-${meta(['手工构建 4 叶和 8 叶默克尔树，处理奇数叶子。', '生成并验证默克尔证明，说出证明长度为什么是 log₂(n)。', '用 Solidity 的 MerkleProof 实现空投白名单校验，并理解 SPV 和 MPT。'], '<a href="#m01-1">M01.1 区块结构</a>', ['merkle'])}
+${meta(['手工构建 4 叶和 8 叶默克尔树，处理奇数叶子。', '生成并验证默克尔证明，说出证明长度为什么是 ⌈log₂ n⌉（以 2 为底的对数，向上取整）。', '用 Solidity 的 MerkleProof 实现空投白名单校验，并理解 SPV 和 MPT。'], '<a href="#m01-1">M01.1 区块结构</a>', ['merkle'])}
 ${beginner(`<p><strong>叶子（Leaf）</strong>：树最底层的节点。在区块里，每个叶子是一笔交易的哈希。</p>
 <p><strong>兄弟节点（Sibling）</strong>：和你一起被合并哈希的那个节点。左边节点的兄弟在右边，反之亦然。</p>
 <p><strong>证明（Proof）</strong>：从叶子走到根时需要的所有兄弟哈希。拿到它，就能自己算出根。</p>
@@ -250,7 +250,7 @@ ${beginner(`<p><strong>叶子（Leaf）</strong>：树最底层的节点。在�
 <p><strong>白名单（Allowlist）</strong>：允许领取空投或参与活动的地址列表。</p>`)}
 
 <h2>1. 一句话理解</h2>
-${one('默克尔树把 n 个数据两两哈希，压缩成 1 个 32 字节的根；要证明某个数据在里面，只需要 log₂(n) 个兄弟哈希。')}
+${one('默克尔树把 n 个数据两两哈希，压缩成 1 个 32 字节的根；要证明某个数据在里面，只需要 ⌈log₂ n⌉ 个兄弟哈希。')}
 ${call('analogy', `<p>想象一场 8 人淘汰赛。每轮两两比赛，胜者进入下一轮，最后剩下冠军（根）。你想证明“选手 3 参加了比赛”，不用拿出全部对阵表，只要拿出：第 1 轮他的对手、第 2 轮他那组对手的胜者、决赛的对手。3 个名字就够了。</p>
 <p><strong>类比的局限</strong>：淘汰赛只有一个胜者往上走；默克尔树是把两个哈希“合并”成新哈希往上走，两边的信息都被保留在结果里。</p>`)}
 ${art('一图看懂：默克尔树把一堆交易压成 1 个根，证明只需几个兄弟', 660, 335, [
@@ -358,7 +358,7 @@ sequenceDiagram
 ${steps([
   '比特币每天约 144 个区块。一年区块头 = 144 × 365 × 80 字节 ≈ 4.2 MB。',
   '假设一个区块有 4,000 笔交易。证明长度 = ⌈log₂ 4000⌉ = 12 个哈希 = 12 × 32 = 384 字节。',
-  '对比：下载整个区块约 1–2 MB。证明只有它的约 1/3000。'
+  '对比：下载整个区块约 1–2 MB。384 字节 ÷ 1,000,000 字节 ≈ 1/2,600；384 ÷ 2,000,000 ≈ 1/5,200。证明只有整个区块的几千分之一（约 1/2,600–1/5,200）。'
 ])}
 
 <h2>5. 以太坊的默克尔帕特里夏树（MPT）</h2>
@@ -382,7 +382,7 @@ flowchart TB
 `, [
   ['flow', '账户 = [nonce, balance, storageRoot, codeHash] 四个字段。合约账户的 storageRoot 指向它自己的存储树。'],
   ['key', '任何一个账户的任何一个存储槽变化，都会让 stateRoot 变化。一个 32 字节的值代表整个以太坊的状态。'],
-  ['limit', 'MPT 证明较大（每层分支节点最多 16 个哈希，约数 KB）。社区研究用 Verkle 树等结构缩小证明，截至 2026 年尚未上线主网。'],
+  ['limit', 'MPT 证明较大（每层分支节点最多 16 个哈希，约数 KB）。社区研究过用 Verkle 树缩小证明，之后方向转向只依赖哈希的二叉状态树（EIP-7864，可抗量子）。截至 2026 年 11 月，两者都没有上线主网，EIP-7864 仍是草案，进展以 eips.ethereum.org 为准。'],
   ['fail', '状态树很大，随机读写多，全节点磁盘 IO 是主要瓶颈。这也是节点需要 NVMe SSD 的原因。']
 ])}
 <p>实践中，你可以用 JSON-RPC 方法 <code>eth_getProof</code>（EIP-1186）获取某账户及其存储槽的 MPT 证明，再对照区块头的 stateRoot 验证。跨链桥和轻客户端都依赖这个能力。</p>
@@ -435,7 +435,7 @@ contract MerkleAirdrop {
 `)}
 ${call('info', `<p><strong>OpenZeppelin 的 MerkleProof 对兄弟对做排序哈希</strong>：每一步计算 Hash(min(a,b) ‖ max(a,b))。所以证明里不需要记录“左还是右”。链下必须用同样规则建树，推荐直接用 <code>@openzeppelin/merkle-tree</code> 的 <code>StandardMerkleTree.of(values, ["address", "uint256"])</code>。</p>
 <p><strong>为什么叶子要双重哈希</strong>：叶子和内部节点都是 32 字节。如果叶子只哈希一次，攻击者可能把一个内部节点（64 字节拼接的结果）伪装成叶子提交。双重哈希让叶子和内部节点的“形状”不同。</p>`)}
-<p>白名单证明会暴露你是哪片叶子；想证明“我在名单里”又不暴露是谁，见 <a href="#m10-7">M06.7 实战：成员证明</a> 和 <a href="#lab-zkmember">匿名成员证明实验</a>。</p>
+<p>白名单证明会暴露你是哪片叶子；想证明“我在名单里”又不暴露是谁，见 <a href="#m10-7">M07.7 实战：成员证明</a> 和 <a href="#lab-zkmember">匿名成员证明实验</a>。</p>
 <h3>6.2 储备金证明（Proof of Reserves）</h3>
 <p>2022 年 11 月 FTX 倒闭后，Binance、OKX 等多家交易所宣布公布基于默克尔树的储备金证明。${cite('The Block：中心化交易所争相证明储备（2022-11）', 'https://www.theblock.co/post/185873/centralized-exchanges-are-scrambling-in-attempts-to-prove-their-reserves')}基本做法：</p>
 ${steps([
@@ -445,7 +445,7 @@ ${steps([
   '交易所另外证明链上地址的控制权和总资产（例如用这些地址签名一条消息）。',
   '对比：链上资产 ≥ 默克尔树总负债 → 足额储备。'
 ])}
-${call('warn', `<p>储备金证明有明确局限：它只证明某一时刻的快照；不证明交易所没有链下负债；余额为负的账户会被藏起来（求和树需要零知识证明约束“每个叶子 ≥ 0”）。所以它是必要条件，不是充分条件。<a href="#m04-8">M10.9 风控对账与储备金证明</a>会做完整设计。</p>`)}
+${call('warn', `<p>储备金证明有明确局限：它只证明某一时刻的快照；不证明交易所没有链下负债；余额为负的账户会被藏起来（求和树需要零知识证明约束“每个叶子 ≥ 0”）。所以它是必要条件，不是充分条件。<a href="#m04-8">M09.9 风控对账与储备金证明</a>会做完整设计。</p>`)}
 ${tryit(`<ol>
 <li>在本地新建目录，运行 <code>npm i @openzeppelin/merkle-tree</code>。</li>
 <li>写一个脚本：<code>const t = StandardMerkleTree.of([["0x1111111111111111111111111111111111111111","100"],["0x2222222222222222222222222222222222222222","200"]], ["address","uint256"]); console.log(t.root); console.log(t.getProof(0));</code></li>
@@ -630,10 +630,10 @@ stateDiagram-v2
 `, [
   ['flow', '两阶段投票：第一阶段（prevote）确认“大家看到的是同一个提议”；第二阶段（precommit）确认“大家都知道大家看到了同一个提议”。'],
   ['key', '区块一旦提交就是<strong>确定最终性</strong>：协议层面不会重组。前提是恶意权重 &lt; 1/3。'],
-  ['fail', '超过 1/3 验证者离线或网络分区时，链会停止出块（宁可停，不可错）。2022 年 6 月，Cosmos 生态的 Osmosis 在发现流动性池漏洞后由验证者协调停链，恢复出块同样要等超过 2/3 权重重新上线。' + cite('CoinDesk：Osmosis 因潜在漏洞停链（2022-06-08）', 'https://www.coindesk.com/business/2022/06/08/osmosis-chain-halted-amid-possible-5m-exploit')],
+  ['fail', '超过 1/3 验证者离线或网络分区时，链会停止出块（宁可停，不可错）。另一种停链是人为的：2022 年 6 月，Cosmos 生态的 Osmosis 发现流动性池漏洞后，验证者主动协调停止出块（不是故障导致离线）。两种情况下，恢复出块都要等超过 2/3 权重重新上线投票。' + cite('CoinDesk：Osmosis 因潜在漏洞停链（2022-06-08）', 'https://www.coindesk.com/business/2022/06/08/osmosis-chain-halted-amid-possible-5m-exploit')],
   ['limit', '每轮所有验证者要互相广播投票，消息量随验证者数量平方增长，所以验证者通常控制在 100–200 个左右。' + tag('惯例')]
 ])}
-<p>即时最终性也是 Cosmos 链之间能用 IBC 互相运行轻客户端的前提，见 <a href="#m05-65">M05.9 Cosmos 与 IBC</a>。</p>
+<p>即时最终性也是 Cosmos 链之间能用 IBC 互相运行轻客户端的前提，见 <a href="#m05-65">M06.10 Cosmos 与 IBC</a>。</p>
 
 <h2>6. 概率最终性 vs 确定最终性</h2>
 ${tbl(['维度', 'PoW（比特币）', 'PoS（以太坊）', 'BFT（Tendermint/CometBFT）'], [
@@ -643,12 +643,12 @@ ${tbl(['维度', 'PoW（比特币）', 'PoS（以太坊）', 'BFT（Tendermint/C
   ['最终性', '概率性：确认越多越安全', '约 12.8 分钟后经济最终性', '1 个区块即确定（秒级）'],
   ['故障时', '继续出块，可能深度重组', '继续出块，最终性延迟', '停止出块'],
   ['作恶惩罚', '浪费电费和机器', '罚没质押', '罚没质押（取决于链的实现）'],
-  ['充值确认建议（示例）', '大额 3–6 个确认', '小额 safe，大额 finalized', '1 个区块（再加业务风控）']
+  ['充值确认建议（示例）', '小额 1–3 个确认，大额 6 个以上', '小额 safe，大额 finalized', '1 个区块（再加业务风控）']
 ])}
 ${call('warn', `<p><strong>确认数要按链、按金额配置。</strong>同样“6 个确认”，在比特币上很安全，在算力很小的 PoW 链上，按 Crypto51 用 NiceHash 租价估算，1 小时攻击成本可能只有几百美元甚至更低。${cite('Crypto51：PoW 链 51% 攻击成本估算', 'https://www.crypto51.app/')}上线新链前，先查它的共识类型、最终性和历史重组深度。</p>`)}
 ${tryit(`<ol>
 <li>打开 beaconcha.in，查看最新的 epoch。找到 “Finalized” 和 “Justified” 状态。<strong>预期</strong>：最新 finalized 的 epoch 比当前 epoch 落后约 2 个。</li>
-<li>用公开 RPC 执行 <code>curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["finalized",false],"id":1}' https://ethereum-rpc.publicnode.com</code>，记下返回的 number；再把 "finalized" 换成 "latest"。<strong>预期</strong>：两者相差约 64–96 个区块。</li>
+<li>用公开 RPC 执行 <code>curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["finalized",false],"id":1}' https://ethereum-rpc.publicnode.com</code>，记下返回的 number；再把 "finalized" 换成 "latest"。<strong>预期</strong>：两者相差约 64–96 个区块（2–3 个 epoch）。原因：finalized 指向 2 个 epoch 前那个检查点区块，latest 还多走了当前 epoch 里已过去的 0–32 个 slot。所以第 1 步看 epoch 编号是落后约 2 个，按区块数算是 64–96 个。</li>
 <li>在<a href="#lab-confirm">确认数实验</a>里，把算力设为 25%，找出成功率低于 0.1% 需要的确认数。</li>
 </ol>`)}
 
@@ -672,7 +672,7 @@ ${quiz([
   { q: '为什么 PoW 的分叉选择要比较累计工作量，而不是区块数量？', o: ['防止攻击者用低难度区块造一条更长的假链', '因为区块数量无法统计', '为了让出块更快', '为了降低手续费'], a: 0, why: '如果比较数量，攻击者可以伪造一段低难度但更长的链。比较总工作量，伪造成本等于真实算力成本。' },
   { q: 'Tendermint 在一个高度上提交区块，需要满足什么条件？', o: ['提议者签名即可', '超过一半验证者预投票', '后面再出 6 个区块', '收到超过 2/3 权重的预提交（precommit）'], a: 3, why: '两阶段投票的第二阶段需要超过 2/3 预提交，才进入 Commit。提交后即确定最终。' }
 ])}
-${exercises([["计算题（示例）：一条 BFT 链有 50 个权重相同的验证者。最多容忍几个拜占庭节点？确认一个区块至少要几票？攻击者控制 17 个验证者时会怎样？", "<p>50 ≥ 3f + 1，得 f ≤ 16。确认需要超过 2/3，即至少 34 票。攻击者有 17 个验证者，凑不齐 34 票确认坏区块。但他们拒绝投票后，诚实的 33 票也不够，链停止出块，失去活性。</p>"], ["思考题：为什么 Tendermint（CometBFT）这类链的验证者数量通常只有 100–200 个左右？", "<p>每一轮里，所有验证者要互相广播预投票和预提交。消息量随验证者数量的平方增长。验证者太多，网络开销会拖慢出块。BFT 还要求事先知道验证者集合，所以适合成员已知、数量有限的系统。</p>"], ["设计题：一家交易所要同时支持比特币、以太坊 L1 和一条 CometBFT 链的充值。请按链的最终性类型给出小额和大额的确认策略。", "<p>比特币是概率最终性：小额 1–3 个确认，大额 6 个以上。以太坊 L1 是 PoS 经济最终性：小额用 safe 或约 12 个块，大额等 finalized。CometBFT 链是确定最终性：1 个区块即可，大额再加业务风控延迟。上线前要查这条链的共识类型和历史重组深度。</p>"]])}
+${exercises([["计算题（示例）：一条 BFT 链有 50 个权重相同的验证者。最多容忍几个拜占庭节点？确认一个区块至少要几票？攻击者控制 17 个验证者时会怎样？", "<p>50 ≥ 3f + 1，得 f ≤ 16。确认需要超过 2/3，即至少 34 票。攻击者有 17 个验证者，凑不齐 34 票确认坏区块。但他们拒绝投票后，诚实的 33 票也不够，链停止出块，失去活性。</p>"], ["思考题：为什么 Tendermint（CometBFT）这类链的验证者数量通常只有 100–200 个左右？", "<p>每一轮里，所有验证者要互相广播预投票和预提交。消息量随验证者数量的平方增长。验证者太多，网络开销会拖慢出块。BFT 还要求事先知道验证者集合，所以适合成员已知、数量有限的系统。</p>"], ["设计题：一家交易所要同时支持比特币、以太坊 L1 和一条 CometBFT 链的充值。请按链的最终性类型给出小额和大额的确认策略。", "<p>比特币是概率最终性：小额 1–3 个确认，大额 6 个以上。以太坊 L1 是 PoS 经济最终性：小额用 safe，大额等 finalized。CometBFT 链是确定最终性：1 个区块即可，大额再加业务风控延迟。上线前要查这条链的共识类型和历史重组深度。</p>"]])}
 ${checklist(["能从 n ≥ 3f + 1 推出给定验证者数的容错上限和法定票数。", "能说清 PoW、PoS、BFT 在出块权、分叉选择和故障表现上的区别。", "能讲出 51% 攻击的四个步骤，以及它不能做什么。", "做过用 RPC 对比 finalized 和 latest 区块号。", "能按链的最终性类型和金额给出充值确认策略。"])}
 ${terms([
   ['拜占庭容错', 'BFT, Byzantine Fault Tolerance', '在部分节点任意作恶的情况下仍能达成一致的能力'],

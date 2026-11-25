@@ -1,0 +1,235 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 schema，id 前缀 sc- -->
+  <div id="root" data-composition-id="schema" data-duration="89.75" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sc-all">
+        <defs>
+          <marker id="sc-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker>
+          <marker id="sc-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker>
+        </defs>
+        <text id="sc-title" class="h" x="120" y="140" font-size="56" font-weight="700" fill="#e8e6df">数据模型</text>
+        <g id="sc-er">
+          <g id="sc-t0" class="h"><rect id="sc-t0r" x="1220" y="200" width="280" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1360" y="251" font-size="28" fill="#58C4DD" text-anchor="middle">api_keys</text></g>
+          <g id="sc-t1" class="h"><rect id="sc-t1r" x="1220" y="330" width="280" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1360" y="381" font-size="28" fill="#58C4DD" text-anchor="middle">usage_daily</text></g>
+          <g id="sc-t2" class="h"><rect id="sc-t2r" x="1540" y="200" width="280" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1680" y="251" font-size="28" fill="#58C4DD" text-anchor="middle">method_weights</text></g>
+          <g id="sc-t3" class="h"><rect id="sc-t3r" x="1540" y="330" width="280" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1680" y="381" font-size="28" fill="#58C4DD" text-anchor="middle">upstream_events</text></g>
+          <path id="sc-fk" class="dr h" pathLength="1" d="M1360 330 V288" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#sc-mb)"/>
+        </g>
+        <rect id="sc-panel" class="h" x="120" y="200" width="1030" height="470" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+        <rect id="sc-hl" class="h" x="132" y="0" width="1006" height="41" rx="6" fill="#58C4DD" fill-opacity="0.15"/>
+        <g id="sc-k1" class="h">
+          <text class="mono" x="150" y="262" font-size="28" fill="#e8e6df" xml:space="preserve">CREATE TABLE api_keys (</text>
+          <text class="mono" x="150" y="303" font-size="28" fill="#e8e6df" xml:space="preserve">  key_prefix    VARCHAR(12) NOT NULL,</text>
+          <text class="mono" x="150" y="344" font-size="28" fill="#e8e6df" xml:space="preserve">  key_hash      CHAR(64) NOT NULL UNIQUE,</text>
+          <text class="mono" x="150" y="385" font-size="28" fill="#e8e6df" xml:space="preserve">  team          VARCHAR(64) NOT NULL,</text>
+          <text class="mono" x="150" y="426" font-size="28" fill="#e8e6df" xml:space="preserve">  rps_limit     INT     NOT NULL DEFAULT 50,</text>
+          <text class="mono" x="150" y="467" font-size="28" fill="#e8e6df" xml:space="preserve">  daily_quota   BIGINT  NOT NULL DEFAULT 5000000,</text>
+          <text class="mono" x="150" y="508" font-size="28" fill="#e8e6df" xml:space="preserve">  allow_methods TEXT[]  NOT NULL DEFAULT &#x27;{}&#x27;,</text>
+          <text class="mono" x="150" y="549" font-size="28" fill="#e8e6df" xml:space="preserve">  allow_write   BOOLEAN NOT NULL DEFAULT FALSE,</text>
+          <text class="mono" x="150" y="590" font-size="28" fill="#e8e6df" xml:space="preserve">  status        VARCHAR(16) NOT NULL DEFAULT &#x27;active&#x27;</text>
+          <text class="mono" x="150" y="631" font-size="28" fill="#e8e6df" xml:space="preserve">);</text>
+        </g>
+        <g id="sc-k2" class="h">
+          <text class="mono" x="150" y="262" font-size="28" fill="#e8e6df" xml:space="preserve">CREATE TABLE method_weights (</text>
+          <text class="mono" x="150" y="303" font-size="28" fill="#e8e6df" xml:space="preserve">  method VARCHAR(64) PRIMARY KEY,</text>
+          <text class="mono" x="150" y="344" font-size="28" fill="#e8e6df" xml:space="preserve">  cu     INT NOT NULL</text>
+          <text class="mono" x="150" y="385" font-size="28" fill="#e8e6df" xml:space="preserve">);</text>
+        </g>
+        <g id="sc-k3" class="h">
+          <text class="mono" x="150" y="262" font-size="28" fill="#e8e6df" xml:space="preserve">CREATE TABLE usage_daily (</text>
+          <text class="mono" x="150" y="303" font-size="28" fill="#e8e6df" xml:space="preserve">  key_id BIGINT REFERENCES api_keys(id),</text>
+          <text class="mono" x="150" y="344" font-size="28" fill="#e8e6df" xml:space="preserve">  day DATE, method VARCHAR(64),</text>
+          <text class="mono" x="150" y="385" font-size="28" fill="#e8e6df" xml:space="preserve">  requests BIGINT, cu BIGINT,</text>
+          <text class="mono" x="150" y="426" font-size="28" fill="#e8e6df" xml:space="preserve">  errors BIGINT, cache_hits BIGINT,</text>
+          <text class="mono" x="150" y="467" font-size="28" fill="#e8e6df" xml:space="preserve">  PRIMARY KEY (key_id, day, method)</text>
+          <text class="mono" x="150" y="508" font-size="28" fill="#e8e6df" xml:space="preserve">);</text>
+        </g>
+        <g id="sc-k4" class="h">
+          <text x="150" y="280" font-size="28" fill="#8a8f99">缓存</text><text class="mono" x="240" y="280" font-size="28" fill="#e8e6df">c:{chain}:{hash(method+params)}</text><text id="sc-ttl0" x="800" y="280" font-size="28" fill="#e8e6df">24 h / 1–2 s</text>
+          <text x="150" y="370" font-size="28" fill="#8a8f99">限流</text><text class="mono" x="240" y="370" font-size="28" fill="#e8e6df">rl:{keyId}:{unixSec}</text><text x="800" y="370" font-size="28" fill="#e8e6df">2 s</text>
+          <text x="150" y="460" font-size="28" fill="#8a8f99">配额</text><text class="mono" x="240" y="460" font-size="28" fill="#e8e6df">q:{keyId}:{yyyymmdd}</text><text x="800" y="460" font-size="28" fill="#e8e6df">48 h</text>
+          <text x="150" y="550" font-size="28" fill="#8a8f99">粘滞</text><text class="mono" x="240" y="550" font-size="28" fill="#e8e6df">st:tx:{txHash} / st:addr:{from}</text><text x="800" y="550" font-size="28" fill="#e8e6df">120 s</text>
+          <text x="800" y="630" font-size="28" fill="#6b6f7a">TTL（示例）</text>
+        </g>
+        <rect id="sc-ttlh" class="h" x="786" y="244" width="200" height="50" rx="8" fill="none" stroke="#83C167" stroke-width="2.5"/>
+        <!-- notes under panel -->
+        <text id="sc-n1" class="h" x="120" y="740" font-size="30" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">key_prefix</tspan>：便于排查是哪把 Key</text>
+        <text id="sc-n2" class="h" x="120" y="795" font-size="30" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">key_hash</tspan>：SHA-256(明文 Key)</text>
+        <text id="sc-n3" class="h" x="120" y="740" font-size="30" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">rps_limit</tspan>：每秒请求上限</text>
+        <text id="sc-n4" class="h" x="120" y="795" font-size="30" fill="#e8e6df"><tspan class="mono" fill="#F0B90B">daily_quota</tspan>：每日 CU 上限</text>
+        <text id="sc-n5" class="h" x="120" y="850" font-size="30" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">allow_write</tspan>：是否允许发交易</text>
+        <text id="sc-n6" class="h" x="120" y="740" font-size="28" fill="#6b6f7a">节选，省略 NOT NULL / DEFAULT</text>
+        <!-- L1 hash -->
+        <g id="sc-hash">
+          <g id="sc-pk" class="h"><rect x="1420" y="480" width="200" height="60" rx="30" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="1520" y="521" font-size="28" fill="#F0B90B" text-anchor="middle">明文 Key</text></g>
+          <path id="sc-ha1" class="dr h" pathLength="1" d="M1520 548 V588" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#sc-mg)"/>
+          <g id="sc-fun" class="h"><path d="M1400 598 H1640 L1570 688 H1470 Z" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1520" y="640" font-size="28" fill="#58C4DD" text-anchor="middle">SHA-256</text></g>
+          <path id="sc-ha2" class="dr h" pathLength="1" d="M1520 694 V734" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#sc-mg)"/>
+          <g id="sc-hv" class="h"><rect x="1400" y="744" width="240" height="60" rx="10" fill="#1a2a33" stroke="#58C4DD" stroke-width="2.5"/><text x="1520" y="785" font-size="28" fill="#58C4DD" text-anchor="middle">64 位哈希</text></g>
+          <g id="sc-px" class="h"><path d="M1430 486 L1610 534 M1610 486 L1430 534" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/></g>
+          <text id="sc-pxt" class="h" x="1640" y="522" font-size="28" fill="#FC6255">丢弃</text>
+          <text id="sc-lk" class="h" x="1520" y="866" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">数据库外泄：只拿到哈希</text>
+          <text id="sc-lk2" class="h" x="1520" y="920" font-size="28" fill="#58C4DD" text-anchor="middle">请求 Key → SHA-256 → 查 <tspan class="mono">key_hash</tspan></text>
+        </g>
+        <!-- L3 bars -->
+        <g id="sc-bars">
+          <text id="sc-b0l" class="h mono" x="1220" y="540" font-size="28" fill="#e8e6df">eth_blockNumber</text>
+          <rect id="sc-b0" class="h" x="1220" y="556" width="0" height="34" rx="5" fill="#F0B90B"/><text id="sc-b0n" class="h mono" x="1262" y="584" font-size="28" fill="#F0B90B">1</text>
+          <text id="sc-b1l" class="h mono" x="1220" y="650" font-size="28" fill="#e8e6df">eth_call</text>
+          <rect id="sc-b1" class="h" x="1220" y="666" width="0" height="34" rx="5" fill="#F0B90B"/><text id="sc-b1n" class="h mono" x="1362" y="694" font-size="28" fill="#F0B90B">5</text>
+          <text id="sc-b2l" class="h mono" x="1220" y="760" font-size="28" fill="#e8e6df">eth_getLogs</text>
+          <rect id="sc-b2" class="h" x="1220" y="776" width="0" height="34" rx="5" fill="#F0B90B"/><text id="sc-b2n" class="h mono" x="1752" y="804" font-size="28" fill="#F0B90B">20</text>
+          <text id="sc-bx" class="h" x="1820" y="870" font-size="28" fill="#6b6f7a" text-anchor="end">CU · 示例</text>
+        </g>
+        <!-- L4 upsert -->
+        <g id="sc-up">
+          <g id="sc-rc" class="h"><rect x="1220" y="540" width="280" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="8 5"/><text x="1360" y="591" font-size="30" fill="#58C4DD" text-anchor="middle">Redis 计数</text></g>
+          <path id="sc-ua" class="dr h" pathLength="1" d="M1360 540 V418" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#sc-mb)"/>
+          <text id="sc-uat" class="h" x="1384" y="490" font-size="28" fill="#e8e6df">每分钟 <tspan class="mono" fill="#58C4DD">UPSERT</tspan></text>
+          <circle id="sc-p0" class="h" cx="1360" cy="530" r="9" fill="#58C4DD"/>
+          <circle id="sc-p1" class="h" cx="1360" cy="530" r="9" fill="#58C4DD"/>
+          <circle id="sc-p2" class="h" cx="1360" cy="530" r="9" fill="#58C4DD"/>
+        </g>
+        <!-- L5 events -->
+        <g id="sc-ev">
+          <g id="sc-e0" class="h"><rect x="1540" y="460" width="130" height="56" rx="28" fill="none" stroke="#FC6255" stroke-width="2.5"/><text class="mono" x="1605" y="498" font-size="28" fill="#FC6255" text-anchor="middle">open</text></g>
+          <g id="sc-e1" class="h"><rect x="1540" y="536" width="200" height="56" rx="28" fill="none" stroke="#FF9F43" stroke-width="2.5"/><text class="mono" x="1640" y="574" font-size="28" fill="#FF9F43" text-anchor="middle">half_open</text></g>
+          <g id="sc-e2" class="h"><rect x="1540" y="612" width="150" height="56" rx="28" fill="none" stroke="#83C167" stroke-width="2.5"/><text class="mono" x="1615" y="650" font-size="28" fill="#83C167" text-anchor="middle">closed</text></g>
+          <g id="sc-e3" class="h"><rect x="1540" y="688" width="130" height="56" rx="28" fill="none" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1605" y="726" font-size="28" fill="#8a8f99" text-anchor="middle">drain</text></g>
+          <text id="sc-et" class="h" x="1820" y="820" font-size="30" fill="#e8e6df" text-anchor="end">留给事故复盘</text>
+        </g>
+        <!-- L6 redis icon -->
+        <g id="sc-rd" class="h">
+          <path d="M1360 300 V460 A160 44 0 0 0 1680 460 V300" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <ellipse cx="1520" cy="300" rx="160" ry="44" fill="#1a2a33" stroke="#58C4DD" stroke-width="3"/>
+          <path d="M1360 380 A160 44 0 0 0 1680 380" fill="none" stroke="#58C4DD" stroke-width="2" opacity="0.6"/>
+          <text x="1520" y="590" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">Redis · 热数据</text>
+        </g>
+        <!-- L7 ttl bars -->
+        <rect id="sc-lg" class="h" x="120" y="720" width="0" height="40" rx="6" fill="#83C167"/>
+        <text id="sc-lgt" class="h" x="950" y="751" font-size="30" fill="#83C167">不可变数据 24 h</text>
+        <rect id="sc-lo" class="h" x="120" y="800" width="40" height="40" rx="6" fill="#FF9F43"/>
+        <text id="sc-lot" class="h" x="180" y="831" font-size="30" fill="#FF9F43"><tspan class="mono">latest</tspan> 类 1–2 s</text>
+        <text id="sc-repo" class="h" x="120" y="990" font-size="28" fill="#8a8f99">完整代码见简介仓库</text>
+
+      </g>
+      <!-- 术语卡 -->
+      <g id="sc-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">计算单位 <tspan font-size="28" font-weight="400" fill="#8a8f99">CU</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">按方法计费的权重</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const HL = (line, n, t) => { const y = 262 + line * 41 - 30; tl.to("#sc-hl", { attr: { y: y, height: 41 * n }, duration: 0.4, ease: "power2.inOut" }, t); };
+      tl.set("#sc-hl", { attr: { y: 232 } }, 0);
+      // L0
+      IN("#sc-title", at(0, 0.0), 0.5, { x: -30 }, { x: 0 });
+      ["#sc-t0", "#sc-t1", "#sc-t2", "#sc-t3"].forEach((s, i) => IN(s, at(0, 0.15 + i * 0.15), 0.45, { y: 16 }, { y: 0 }));
+      ARROW("#sc-fk", at(0, 0.8), 0.4);
+      // L1 api_keys
+      IN("#sc-panel", at(1, 0.0), 0.5);
+      IN("#sc-k1", at(1, 0.03), 0.6);
+      tl.to("#sc-t0r", { strokeWidth: 5, duration: 0.3 }, at(1, 0.03));
+      IN("#sc-hl", at(1, 0.15), 0.3); HL(1, 2, at(1, 0.15));
+      IN("#sc-n1", at(1, 0.2), 0.5); IN("#sc-n2", at(1, 0.3), 0.5);
+      IN("#sc-pk", at(1, 0.3), 0.4);
+      ARROW("#sc-ha1", at(1, 0.42), 0.3); IN("#sc-fun", at(1, 0.46), 0.4);
+      ARROW("#sc-ha2", at(1, 0.56), 0.3); IN("#sc-hv", at(1, 0.6), 0.4, { scale: 0.7, svgOrigin: "1520 774" }, { scale: 1, svgOrigin: "1520 774" });
+      IN("#sc-px", at(1, 0.75), 0.3); IN("#sc-pxt", at(1, 0.77), 0.3);
+      tl.to("#sc-pk", { opacity: 0.25, duration: 0.4 }, at(1, 0.8));
+      // L2 why hash only: leak-safe, hash then lookup
+      tl.to("#sc-hv", { scale: 1.12, svgOrigin: "1520 774", duration: 0.3, repeat: 1, yoyo: true }, at(2, 0.08));
+      IN("#sc-lk", at(2, 0.12), 0.5, { y: 12 }, { y: 0 });
+      OUT("#sc-px, #sc-pxt", at(2, 0.5), 0.3);
+      tl.to("#sc-pk", { opacity: 1, duration: 0.3 }, at(2, 0.55));
+      tl.to("#sc-fun", { scale: 1.1, svgOrigin: "1520 643", duration: 0.3, repeat: 1, yoyo: true }, at(2, 0.62));
+      IN("#sc-lk2", at(2, 0.6), 0.5, { y: 12 }, { y: 0 });
+      HL(2, 1, at(2, 0.78));
+      tl.to("#sc-t0r", { stroke: "#83C167", duration: 0.3, repeat: 1, yoyo: true }, at(2, 0.82));
+      // L3 quotas
+      HL(3, 5, at(3, 0.05));
+      OUT("#sc-n1, #sc-n2", at(3, 0.05), 0.3);
+      IN("#sc-n3", at(3, 0.25), 0.4); IN("#sc-n4", at(3, 0.45), 0.4); IN("#sc-n5", at(3, 0.7), 0.4);
+      // L4 method_weights + CU
+      OUT("#sc-title", at(4, 0.0), 0.3);
+      OUT("#sc-k1, #sc-hl, #sc-n3, #sc-n4, #sc-n5, #sc-hash", at(4, 0.0), 0.35);
+      tl.to("#sc-t0r", { strokeWidth: 2.5, duration: 0.3 }, at(4, 0.0));
+      tl.to("#sc-t2r", { strokeWidth: 5, duration: 0.3 }, at(4, 0.05));
+      IN("#sc-term", at(4, 0.06), 0.5);
+      IN("#sc-k2", at(4, 0.08), 0.5);
+      IN("#sc-hl", at(4, 0.2), 0.3); HL(2, 1, at(4, 0.2));
+      [0, 1, 2].forEach(i => IN(`#sc-b${i}l`, at(4, 0.45 + i * 0.12), 0.3));
+      [[0, 1, 1250], [1, 5, 1350], [2, 20, 1752]].forEach(([i, v, nx]) => { IN(`#sc-b${i}`, at(4, 0.5 + i * 0.12), 0.1); tl.to(`#sc-b${i}`, { attr: { width: v * 25 }, duration: 0.6, ease: "power2.out" }, at(4, 0.5 + i * 0.12)); IN(`#sc-b${i}n`, at(4, 0.56 + i * 0.12), 0.3); });
+      IN("#sc-bx", at(4, 0.88), 0.4);
+      // L5 usage_daily
+      OUT("#sc-term", at(5, 0.0), 0.4);
+      OUT("#sc-k2, #sc-hl, #sc-bars", at(5, 0.0), 0.35);
+      tl.to("#sc-t2r", { strokeWidth: 2.5, duration: 0.3 }, at(5, 0.0));
+      tl.to("#sc-t1r", { strokeWidth: 5, duration: 0.3 }, at(5, 0.05));
+      IN("#sc-k3", at(5, 0.06), 0.5);
+      IN("#sc-n6", at(5, 0.1), 0.4);
+      IN("#sc-hl", at(5, 0.12), 0.3); tl.set("#sc-hl", { attr: { y: 437, height: 41 } }, at(5, 0.08)); HL(5, 1, at(5, 0.12));
+      HL(3, 2, at(5, 0.32));
+      IN("#sc-rc", at(5, 0.6), 0.5);
+      ARROW("#sc-ua", at(5, 0.68), 0.4); IN("#sc-uat", at(5, 0.7), 0.4);
+      [0, 1, 2].forEach(i => { const t = at(5, 0.76) + i * 0.9; tl.fromTo(`#sc-p${i}`, { opacity: 1, attr: { cy: 530 } }, { opacity: 0, attr: { cy: 420 }, duration: 0.7, ease: "power1.in", immediateRender: false }, t); });
+      // L6 upstream_events
+      OUT("#sc-up, #sc-hl", at(6, 0.0), 0.35);
+      tl.to("#sc-t1r", { strokeWidth: 2.5, duration: 0.3 }, at(6, 0.0));
+      tl.to("#sc-t3r", { strokeWidth: 5, duration: 0.3 }, at(6, 0.05));
+      [0, 1, 2, 3].forEach(i => IN(`#sc-e${i}`, at(6, 0.15 + i * 0.1), 0.35, { x: -20 }, { x: 0 }));
+      IN("#sc-et", at(6, 0.65), 0.4);
+      // L7 redis keys
+      OUT("#sc-er, #sc-ev, #sc-k3, #sc-n6", at(7, 0.0), 0.4);
+      IN("#sc-rd", at(7, 0.08), 0.6, { y: 20 }, { y: 0 });
+      IN("#sc-k4", at(7, 0.1), 0.6);
+      IN("#sc-hl", at(7, 0.15), 0.3); tl.set("#sc-hl", { attr: { y: 250, height: 41 } }, at(7, 0.1));
+      tl.to("#sc-hl", { attr: { y: 250 }, duration: 0.3 }, at(7, 0.2));
+      tl.to("#sc-hl", { attr: { y: 340 }, duration: 0.4 }, at(7, 0.45));
+      tl.to("#sc-hl", { attr: { y: 430 }, duration: 0.4 }, at(7, 0.62));
+      tl.to("#sc-hl", { attr: { y: 520 }, duration: 0.4 }, at(7, 0.78));
+      // L8 ttl tiers
+      OUT("#sc-hl", at(8, 0.0), 0.3);
+      IN("#sc-ttlh", at(8, 0.03), 0.4);
+      IN("#sc-lg", at(8, 0.08), 0.1); tl.to("#sc-lg", { attr: { width: 800 }, duration: 0.9, ease: "power2.out" }, at(8, 0.08));
+      IN("#sc-lgt", at(8, 0.15), 0.4);
+      IN("#sc-lo", at(8, 0.35), 0.3, { scale: 0.3, svgOrigin: "140 820" }, { scale: 1, svgOrigin: "140 820" });
+      IN("#sc-lot", at(8, 0.38), 0.4);
+      IN("#sc-repo", at(8, 0.7), 0.5);
+
+
+      tl.to("#sc-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#sc-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["schema"] = tl;
+    })();
+  </script>
+</template>

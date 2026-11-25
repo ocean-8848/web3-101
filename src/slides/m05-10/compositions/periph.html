@@ -1,0 +1,150 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 periph，id 前缀 pe- -->
+  <div id="root" data-composition-id="periph" data-duration="47.96" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pe-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pe-all">
+        <path id="pe-lr" class="dr" d="M800 575 L446 690" stroke="#58C4DD" stroke-width="2.5" fill="none" pathLength="1"/>
+<path id="pe-lp" class="dr" d="M1120 575 L1474 690" stroke="#58C4DD" stroke-width="2.5" fill="none" pathLength="1"/>
+<path id="pe-rq1" class="dr" d="M90 520 H800" stroke="#F0B90B" stroke-width="2" fill="none" pathLength="1"/>
+<path id="pe-rq2" class="dr h" d="M1120 520 L1434 565" stroke="#F0B90B" stroke-width="2" fill="none" pathLength="1" marker-end="url(#pe-arr)"/>
+<g id="pe-gw" class="h"><rect x="800" y="430" width="320" height="180" rx="18" fill="#1c1729" stroke="#B48EF0" stroke-width="3.5"/><text class="mono" x="960" y="500" font-size="40" font-weight="700" fill="#B48EF0" text-anchor="middle">rpcgw</text></g>
+<g id="pe-rd" class="h"><path id="pe-rdb" d="M200 640 V770 A120 22 0 0 0 440 770 V640" fill="#10191d" stroke="#58C4DD" stroke-width="3"/><ellipse id="pe-rdt" cx="320" cy="640" rx="120" ry="22" fill="#10191d" stroke="#58C4DD" stroke-width="3"/><text id="pe-rdn" x="320" y="728" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">Redis</text></g>
+<text id="pe-rdl" class="h" x="320" y="840" font-size="28" fill="#58C4DD" text-anchor="middle">缓存 · 限流计数 · <tspan id="pe-st">粘滞表</tspan></text>
+<g id="pe-fl" class="h"><path d="M478 726 c-18 -14 -16 -34 2 -50 c0 14 8 16 12 10 c12 14 10 34 -14 40 z" fill="#FF9F43" opacity="0.9"/></g>
+<g id="pe-pg" class="h"><path id="pe-pgb" d="M1480 640 V770 A120 22 0 0 0 1720 770 V640" fill="#10191d" stroke="#58C4DD" stroke-width="3"/><ellipse id="pe-pgt" cx="1600" cy="640" rx="120" ry="22" fill="#10191d" stroke="#58C4DD" stroke-width="3"/><text id="pe-pgn" x="1600" y="728" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">PostgreSQL</text></g>
+<text id="pe-pgl" class="h" x="1600" y="840" font-size="28" fill="#58C4DD" text-anchor="middle">API Key · 用量</text>
+<g id="pe-sn" class="h" stroke="#58C4DD" stroke-width="3" stroke-linecap="round"><line x1="1756" y1="680" x2="1756" y2="720"/><line x1="1739" y1="690" x2="1773" y2="710"/><line x1="1739" y1="710" x2="1773" y2="690"/></g>
+<g id="pe-mon">
+<path id="pe-lpm" class="dr h" d="M960 430 V326" stroke="#58C4DD" stroke-width="2.5" fill="none" pathLength="1" marker-end="url(#pe-arr)"/>
+<g id="pe-pm" class="h"><rect x="820" y="230" width="280" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="960" y="286" font-size="30" fill="#e8e6df" text-anchor="middle">Prometheus</text></g>
+<g id="pe-ne" class="h"><rect x="1400" y="210" width="360" height="130" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1580" y="262" font-size="28" fill="#e8e6df" text-anchor="middle">node_exporter</text><text class="mono" x="1580" y="308" font-size="28" fill="#e8e6df" text-anchor="middle">Geth metrics</text></g>
+<path id="pe-lne" class="dr h" d="M1400 275 H1106" stroke="#58C4DD" stroke-width="2.5" fill="none" pathLength="1" marker-end="url(#pe-arr)"/>
+<g id="pe-gf" class="h"><rect x="100" y="230" width="520" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="130" y="286" font-size="30" fill="#e8e6df">Grafana + Alertmanager</text></g>
+<g id="pe-bell"><g id="pe-belli" class="h"><path d="M566 286 q0 -34 18 -34 q18 0 18 34 z" fill="none" stroke="#FF9F43" stroke-width="3" stroke-linejoin="round"/><line x1="560" y1="286" x2="608" y2="286" stroke="#FF9F43" stroke-width="3"/><circle cx="584" cy="293" r="4" fill="#FF9F43"/></g></g>
+<path id="pe-lgf" class="dr h" d="M820 275 H626" stroke="#58C4DD" stroke-width="2.5" fill="none" pathLength="1" marker-end="url(#pe-arr)"/>
+</g>
+<g id="pe-hc" class="h"><rect x="520" y="940" width="1300" height="70" rx="12" fill="#10191d" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="12 8"/><text x="550" y="986" font-size="30" fill="#58C4DD">健康检查器 · 每 2 秒探测</text></g>
+<g id="pe-u0" class="h"><rect id="pe-u0r" x="1440" y="380" width="380" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1630" y="436" font-size="30" fill="#e8e6df" text-anchor="middle">自建节点</text></g>
+<g id="pe-u1" class="h"><rect id="pe-u1r" x="1440" y="520" width="380" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1630" y="576" font-size="30" fill="#e8e6df" text-anchor="middle">服务商 A</text></g>
+<g id="pe-u2" class="h"><rect id="pe-u2r" x="1440" y="660" width="380" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="1630" y="716" font-size="30" fill="#e8e6df" text-anchor="middle">服务商 B</text></g>
+<g id="pe-tr" class="h" stroke="#58C4DD" stroke-width="2.5" fill="none" stroke-dasharray="8 6"><path d="M1380 940 V425"/><path d="M1380 425 H1440"/><path d="M1380 565 H1440"/><path d="M1380 705 H1440"/></g>
+<circle id="pe-p0" class="h" cx="1380" cy="940" r="10" fill="#58C4DD"/>
+<circle id="pe-p1" class="h" cx="1380" cy="940" r="10" fill="#58C4DD"/>
+<circle id="pe-p2" class="h" cx="1380" cy="940" r="10" fill="#58C4DD"/>
+<text id="pe-htt" class="h" x="820" y="684" font-size="28" fill="#58C4DD">健康表</text>
+<g id="pe-h0" class="h"><rect x="820" y="700" width="280" height="56" rx="6" fill="#161a22" stroke="#2a2e38" stroke-width="2"/><text x="840" y="738" font-size="28" fill="#e8e6df">自建节点</text><circle id="pe-hd0" cx="1070" cy="728" r="11" fill="#3a3f4a"/></g>
+<g id="pe-h1" class="h"><rect x="820" y="762" width="280" height="56" rx="6" fill="#161a22" stroke="#2a2e38" stroke-width="2"/><text x="840" y="800" font-size="28" fill="#e8e6df">服务商 A</text><circle id="pe-hd1" cx="1070" cy="790" r="11" fill="#3a3f4a"/></g>
+<g id="pe-h2" class="h"><rect x="820" y="824" width="280" height="56" rx="6" fill="#161a22" stroke="#2a2e38" stroke-width="2"/><text x="840" y="862" font-size="28" fill="#e8e6df">服务商 B</text><circle id="pe-hd2" cx="1070" cy="852" r="11" fill="#3a3f4a"/></g>
+<path id="pe-hw" class="dr h" d="M960 940 V886" stroke="#58C4DD" stroke-width="3" fill="none" pathLength="1" marker-end="url(#pe-arr)"/>
+<g id="pe-rd2" class="h"><path d="M1060 700 V618" stroke="#58C4DD" stroke-width="3" stroke-dasharray="8 6" fill="none" marker-end="url(#pe-arr)"/><text x="1078" y="668" font-size="28" fill="#58C4DD">只读</text></g>
+<text id="pe-key" class="h" x="960" y="330" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">转发不等探测</text>
+<circle id="pe-d0" class="h pe-dot" cx="90" cy="520" r="10" fill="#F0B90B"/>
+<circle id="pe-e0" class="h pe-dot" cx="1120" cy="520" r="10" fill="#F0B90B"/>
+<circle id="pe-d1" class="h pe-dot" cx="90" cy="520" r="10" fill="#F0B90B"/>
+<circle id="pe-e1" class="h pe-dot" cx="1120" cy="520" r="10" fill="#F0B90B"/>
+<circle id="pe-d2" class="h pe-dot" cx="90" cy="520" r="10" fill="#F0B90B"/>
+<circle id="pe-e2" class="h pe-dot" cx="1120" cy="520" r="10" fill="#F0B90B"/>
+<g id="pe-x" class="h"><circle cx="440" cy="622" r="22" fill="#FC6255"/><path d="M430 612 L450 632 M450 612 L430 632" stroke="#0f1117" stroke-width="4" stroke-linecap="round"/></g>
+<g id="pe-lc1" class="h"><rect x="815" y="525" width="140" height="56" rx="8" fill="#10191d" stroke="#58C4DD" stroke-width="2"/><text x="885" y="563" font-size="28" fill="#58C4DD" text-anchor="middle">本地缓存</text></g>
+<g id="pe-lc2" class="h"><rect x="965" y="525" width="140" height="56" rx="8" fill="#10191d" stroke="#58C4DD" stroke-width="2"/><text x="1035" y="563" font-size="28" fill="#58C4DD" text-anchor="middle">本地限流</text></g>
+<text id="pe-stl" class="h" x="320" y="884" font-size="28" fill="#6b6f7a" text-anchor="middle">粘滞会话失效</text>
+<text id="pe-ok" class="h" x="1280" y="478" font-size="30" fill="#83C167" text-anchor="middle">服务不中断</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const FLOW = (t, col) => {
+  for (let k = 0; k < 3; k++) {
+    const s = t + k * 0.45;
+    if (col) tl.set(`#pe-d${k}, #pe-e${k}`, { attr: { fill: col } }, s);
+    tl.fromTo(`#pe-d${k}`, { opacity: 1, x: 0 }, { x: 700, duration: 0.9, ease: "none", immediateRender: false }, s);
+    tl.set(`#pe-d${k}`, { opacity: 0 }, s + 0.9);
+    tl.fromTo(`#pe-e${k}`, { opacity: 1, x: 0, y: 0 }, { x: 306, y: 44, duration: 0.6, ease: "none", immediateRender: false }, s + 0.95);
+    tl.set(`#pe-e${k}`, { opacity: 0 }, s + 1.55);
+  }
+};
+const PULSE = (k, t) => {
+  tl.fromTo(`#pe-p${k}`, { opacity: 1, attr: { cy: 940 } }, { attr: { cy: 425 }, duration: 0.9, ease: "power1.inOut", immediateRender: false }, t);
+  tl.to(`#pe-p${k}`, { opacity: 0, duration: 0.2 }, t + 0.9);
+};
+// L0
+IN("#pe-gw", at(0, 0.05), 0.6, { scale: 0.85, svgOrigin: "960 520" }, { scale: 1, svgOrigin: "960 520" });
+// L1 Redis + PG
+IN("#pe-rd", at(1, 0.05), 0.5); DRAW("#pe-lr", at(1, 0.05), 0.5);
+IN("#pe-rdl", at(1, 0.2), 0.4);
+IN("#pe-fl", at(1, 0.3), 0.4, { y: 10 }, { y: 0 });
+IN("#pe-pg", at(1, 0.55), 0.5); DRAW("#pe-lp", at(1, 0.55), 0.5);
+IN("#pe-pgl", at(1, 0.68), 0.4);
+IN("#pe-sn", at(1, 0.76), 0.4);
+// L2 monitoring
+IN("#pe-pm", at(2, 0.03), 0.5); ARROW("#pe-lpm", at(2, 0.08), 0.4);
+IN("#pe-ne", at(2, 0.3), 0.5); ARROW("#pe-lne", at(2, 0.36), 0.5);
+IN("#pe-gf", at(2, 0.64), 0.5); ARROW("#pe-lgf", at(2, 0.66), 0.5);
+IN("#pe-belli", at(2, 0.84), 0.3);
+tl.fromTo("#pe-bell", { rotation: 0 }, { rotation: 14, svgOrigin: "584 252", duration: 0.08, repeat: 5, yoyo: true, immediateRender: false }, at(2, 0.86));
+// L3 health checker
+OUT("#pe-mon, #pe-pg, #pe-pgl, #pe-sn, #pe-lp", at(3, 0), 0.4);
+IN("#pe-hc", at(3, 0.08), 0.5);
+IN("#pe-u0", at(3, 0.14), 0.4); IN("#pe-u1", at(3, 0.18), 0.4); IN("#pe-u2", at(3, 0.22), 0.4);
+IN("#pe-tr", at(3, 0.26), 0.4);
+PULSE(0, at(3, 0.32));
+IN("#pe-htt, #pe-h0, #pe-h1, #pe-h2", at(3, 0.5), 0.4);
+ARROW("#pe-hw", at(3, 0.55), 0.3);
+tl.to("#pe-hd0", { attr: { fill: "#83C167" }, duration: 0.2 }, at(3, 0.6));
+tl.to("#pe-hd1", { attr: { fill: "#83C167" }, duration: 0.2 }, at(3, 0.66));
+tl.to("#pe-hd2", { attr: { fill: "#FC6255" }, duration: 0.2 }, at(3, 0.72));
+tl.to("#pe-u0r, #pe-u1r", { stroke: "#83C167", duration: 0.3 }, at(3, 0.66));
+tl.to("#pe-u2r", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.72));
+PULSE(1, at(3, 0.8));
+// L4 separation
+DRAW("#pe-rq1", at(4, 0.03), 0.5); ARROW("#pe-rq2", at(4, 0.08), 0.4);
+FLOW(at(4, 0.12));
+IN("#pe-rd2", at(4, 0.4), 0.4);
+PULSE(2, at(4, 0.42));
+IN("#pe-key", at(4, 0.58), 0.5, { y: 12 }, { y: 0 });
+FLOW(at(4, 0.72));
+// L5 Redis down
+OUT("#pe-key", at(5, 0), 0.3);
+tl.to("#pe-rdb, #pe-rdt", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.05));
+tl.to("#pe-lr", { stroke: "#FC6255", opacity: 0.0, duration: 0.5 }, at(5, 0.1));
+IN("#pe-x", at(5, 0.08), 0.3, { scale: 1.6, svgOrigin: "440 622" }, { scale: 1, svgOrigin: "440 622" });
+IN("#pe-lc1", at(5, 0.3), 0.4); IN("#pe-lc2", at(5, 0.36), 0.4);
+tl.to("#pe-st", { fill: "#6b6f7a", duration: 0.4 }, at(5, 0.5));
+IN("#pe-stl", at(5, 0.52), 0.4);
+FLOW(at(5, 0.66), "#83C167");
+tl.to("#pe-rq1, #pe-rq2", { stroke: "#83C167", duration: 0.4 }, at(5, 0.66));
+IN("#pe-ok", at(5, 0.72), 0.4);
+
+
+      tl.to("#pe-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["periph"] = tl;
+    })();
+  </script>
+</template>

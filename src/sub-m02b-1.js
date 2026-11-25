@@ -1,7 +1,7 @@
 /* ---------- M02 子文章（m02b-1）：合约安全 I / II ---------- */
 (() => {
 CUR = 'm02-7';
-addCh({ id: 'm02-7', nav: '合约安全 I', title: 'M02.8 合约安全 I：重入、权限、精度、外部调用与拒绝服务', desc: '六类最常见漏洞：每类给漏洞代码、攻击步骤和修复代码', html: `
+addCh({ id: 'm02-7', nav: '合约安全 I', title: 'M02.8 合约安全 I：重入、权限、精度、外部调用与拒绝服务', desc: '五类最常见漏洞（重入、访问控制、整数与精度、未检查返回值、拒绝服务）：每类给漏洞代码、攻击步骤和修复代码', html: `
 <h1>M02.8 合约安全 I：重入、权限、精度、外部调用与拒绝服务</h1>
 ${meta(['按 SWC / OWASP 清单给漏洞分类，并说出每类的根因。', '说清重入的根因，并用 CEI 和 ReentrancyGuard 两种方式修复。', '审查一段合约时，能找出权限、精度、返回值、无界循环四类问题。'], '<a href="#m02-3">M02.3 Solidity 基础 II</a>、<a href="#m02-5">M02.5 ERC-20 与授权</a>', ['reentrancy'])}
 ${beginner(`<p><strong>外部调用（External Call）</strong>：合约 A 调用合约 B 的函数，或给 B 转 ETH。调用期间，控制权交给 B，B 的代码想做什么都可以。</p>
@@ -180,7 +180,7 @@ ${lab('reentrancy')}
 
 <h2>4. 访问控制失误：谁都能按的按钮</h2>
 <h3>4.1 未保护的初始化函数</h3>
-<p>可升级合约不能用构造函数，改用 <code>initialize()</code>。如果任何人都能调用它，第一个调用者就成为 owner。2017 年 7 月，Parity 多签钱包的初始化函数可被重复调用，约 15.3 万 ETH 被盗；${cite('OpenZeppelin：On the Parity Wallet Multisig Hack', 'https://www.openzeppelin.com/news/on-the-parity-wallet-multisig-hack-405a8c12e8f7')}同年 11 月，有人对 Parity 的库合约调用初始化并执行自毁，各方估计超过 50 万 ETH 被永久冻结。${cite('OpenZeppelin：Parity Wallet Hack Reloaded', 'https://www.openzeppelin.com/news/parity-wallet-hack-reloaded')}</p>
+<p>可升级合约不能用构造函数，改用 <code>initialize()</code>。如果任何人都能调用它，第一个调用者就成为 owner。2017 年 7 月，Parity 多签钱包的初始化函数可被重复调用，约 15.3 万 ETH 被盗；${cite('OpenZeppelin：On the Parity Wallet Multisig Hack', 'https://www.openzeppelin.com/news/on-the-parity-wallet-multisig-hack-405a8c12e8f7')}同年 11 月，有人对 Parity 的库合约调用初始化并执行自毁，约 51 万 ETH 被永久冻结（Parity 事后公布的数字；各方估算口径略有出入）。${cite('OpenZeppelin：Parity Wallet Hack Reloaded', 'https://www.openzeppelin.com/news/parity-wallet-hack-reloaded')}</p>
 ${code('SOLIDITY', `
 // ❌ 任何人都能调用，并且能调用多次
 function initialize(address _owner) external {
@@ -265,7 +265,7 @@ function usdValue(address token, uint256 amount, uint256 price, uint8 priceDecim
 uint256 sharesOut = Math.mulDiv(assets, totalShares, totalAssets, Math.Rounding.Floor);
 uint256 sharesIn  = Math.mulDiv(assets, totalShares, totalAssets, Math.Rounding.Ceil);
 `)}
-${call('deep', `<p>ERC-4626 金库的“首位存款人通胀攻击”就是精度问题：攻击者先存 1 wei 拿到 1 份额，再直接转入大量资产“捐赠”给金库，让每份额极贵；下一位存款人的份额被向下取整成 0。OpenZeppelin v5 的 ERC4626 用“虚拟份额与虚拟资产偏移（decimals offset）”缓解这个问题；在自己的金库里复现并防御它，见 <a href="#m12-2">M14.2 设计：收益金库</a> 第 5 节。</p>`)}
+${call('deep', `<p>ERC-4626 金库的“首位存款人通胀攻击”就是精度问题：攻击者先存 1 wei 拿到 1 份额，再直接转入大量资产“捐赠”给金库，让每份额极贵；下一位存款人的份额被向下取整成 0。OpenZeppelin v5 的 ERC4626 用“虚拟份额与虚拟资产偏移（decimals offset）”缓解这个问题；在自己的金库里复现并防御它，见 <a href="#m12-2">M15.2 设计：收益金库</a> 第 5 节。</p>`)}
 
 <h2>6. 不安全的外部调用与拒绝服务</h2>
 <h3>6.1 不检查返回值</h3>
@@ -342,7 +342,7 @@ ${tryit(`<p>在 Remix（remix.ethereum.org）复现重入：</p>
 
 <h2>生产环境清单</h2>
 ${tbl(['检查项', '为什么', '怎么验证'], [
-  ['所有外部调用都在状态更新之后（CEI）', '防止所有形态的重入', '人工逐个标注 external 调用点；Slither 检测器 reentrancy-*'],
+  ['所有外部调用都在状态更新之后（CEI）', '防止针对本合约的重入（与 nonReentrant 配合）；只读重入要由读取你状态的协议自查', '人工逐个标注 external 调用点；Slither 检测器 reentrancy-*'],
   ['涉及资金的外部函数加 nonReentrant', 'CEI 写漏时的第二道防线', 'grep 所有 external 函数，确认修饰器'],
   ['初始化函数有 initializer，实现合约构造函数调用 _disableInitializers', '防止抢先初始化和实现合约被接管', 'Foundry 测试：第二次调用 initialize 必须 revert'],
   ['权限判断只用 msg.sender，角色最小化', '防钓鱼和单点失控', '列出权限矩阵（角色 × 函数），审查每一项'],
@@ -353,7 +353,7 @@ ${tbl(['检查项', '为什么', '怎么验证'], [
 ${mistakes([
   ['Solidity 0.8 以后就不会有整数问题了。', '0.8 只检查加减乘溢出。unchecked 块、类型强转、除法截断、精度单位错误仍然存在。'],
   ['用了 ReentrancyGuard 就不用管调用顺序。', '锁只保护本合约带修饰器的函数。只读重入攻击的是读取你状态的其他协议。CEI 和锁要一起用。'],
-  ['transfer() 只给 2300 Gas，所以最安全。', '2300 Gas 让多签和智能合约钱包无法收款，而且 Gas 价格调整可能让它失效。推荐 call + 检查返回值 + 防重入。'],
+  ['transfer() 只给 2300 Gas，所以最安全。', '2300 Gas 让多签和智能合约钱包无法收款，而且操作码的 Gas 成本一旦重新定价（例如 2019 年 EIP-1884 把 SLOAD 从 200 调到 800），原本够用的 2300 Gas 可能不再够用。推荐 call + 检查返回值 + 防重入。'],
   ['代码经过审计，就没有漏洞了。', '审计是抽样检查，覆盖审计时的代码和审计员想到的场景。上线后的升级、新集成、参数变化都会引入新风险。']
 ])}
 ${recap([
@@ -388,12 +388,12 @@ ${terms([
 CUR = 'm02-8';
 addCh({ id: 'm02-8', nav: '合约安全 II', title: 'M02.9 合约安全 II：预言机、闪电贷、MEV、签名、升级、治理与审计', desc: '协议级攻击与工程防线：从漏洞到审计、赏金和应急响应', html: `
 <h1>M02.9 合约安全 II：预言机、闪电贷、MEV、签名、升级、治理与审计</h1>
-${meta(['画出一次闪电贷价格操纵攻击的完整资金流，并给出 TWAP / Chainlink 防护代码。', '用 EIP-712 + nonce + deadline 写出不可重放的签名校验；说清三种代理模式的差别和存储冲突。', '为一个协议制定审计流程、上线安全清单和事件应急预案。'], '<a href="#m02-7">M02.8 合约安全 I</a>、<a href="#m02-10">M08.2 AMM 深入</a>（可并行阅读）')}
+${meta(['画出一次闪电贷价格操纵攻击的完整资金流，并给出 TWAP / Chainlink 防护代码。', '用 EIP-712 + nonce + deadline 写出不可重放的签名校验；说清三种代理模式的差别和存储冲突。', '为一个协议制定审计流程、上线安全清单和事件应急预案。'], '<a href="#m02-7">M02.8 合约安全 I</a>、<a href="#m02-10">M05.2 AMM 深入</a>（可并行阅读）')}
 ${beginner(`<p><strong>预言机（Oracle）</strong>：把链外数据（例如 ETH 的美元价格）写到链上，让合约读取的服务。</p>
 <p><strong>闪电贷（Flash Loan）</strong>：在同一笔交易里借出并归还的贷款，不需要抵押；交易结束前没还，整笔交易回滚。</p>
 <p><strong>内存池（Mempool）</strong>：交易广播后、上链前停留的“候车室”，所有人都能看到里面的交易。</p>
 <p><strong>代理合约（Proxy）</strong>：用户调用的地址固定不变，它把调用转发给可替换的“实现合约”，从而实现升级。</p>
-<p><strong>多签（Multisig）</strong>：需要 N 个密钥中的 M 个签名才能执行的钱包，例如 3/5。见 <a href="#m03">M09</a>。</p>`)}
+<p><strong>多签（Multisig）</strong>：需要 N 个密钥中的 M 个签名才能执行的钱包，例如 3/5。见 <a href="#m03">M08</a>。</p>`)}
 
 <h2>1. 一句话理解</h2>
 ${one('M02.8 的漏洞出在“一个函数写错了”；本篇的攻击出在“协议依赖的外部世界被操纵了”：价格、交易顺序、签名、升级权限和投票权。')}
@@ -419,7 +419,7 @@ ${art('一图看懂：协议信了能被一笔交易推动的价格，就会被�
 
 <h2>2. 预言机操纵与闪电贷</h2>
 <h3>2.1 为什么 DEX 即时价格不能当预言机</h3>
-<p>AMM 池子的即时价格（spot price）= 两种代币储备的比值，见 <a href="#m02-10">M08.2</a>。任何人只要在池子里大额交易，就能在同一笔交易中改变这个比值。</p>
+<p>AMM 池子的即时价格（spot price）= 两种代币储备的比值，见 <a href="#m02-10">M05.2</a>。任何人只要在池子里大额交易，就能在同一笔交易中改变这个比值。</p>
 <p><strong>算一算（示例）：</strong>池子有 1,000 ETH 和 3,000,000 USDC，即时价格 3,000。攻击者想把价格推到 6,000。</p>
 ${steps([
   '恒定乘积 k = 1,000 × 3,000,000 = 3×10<sup>9</sup>。目标价格 y/x = 6,000，且 x·y = k。',
@@ -461,16 +461,17 @@ function getPrice(AggregatorV3Interface feed, uint256 maxDelay) internal view re
 }
 // L2 上还要检查 Sequencer Uptime Feed：排序器宕机刚恢复时，暂停清算一段宽限期。
 `)}
+<p>本节只从攻击与审计角度看预言机。Push/Pull 两种预言机架构、L2 排序器宕机防线和 OEV，详见 <a href="#m05-69">M04.11 预言机与链下自动化工程</a>（后面会讲）。</p>
 ${tbl(['价格来源', '单笔交易可操纵', '延迟', '适用'], [
   ['DEX 即时价格', '是', '无', '只能用于展示，不能用于估值'],
-  ['DEX TWAP（例如 30 分钟）', '否；但多区块持续操纵可能', '高（价格跟随慢）', '流动性深的池子；长尾资产'],
+  ['DEX TWAP（例如 30 分钟）', '否；但多区块持续操纵可能', '高（价格跟随慢）', '流动性深的池子（长尾资产多为浅池，慎用）'],
   ['Chainlink 聚合价', '否', '按心跳与偏离阈值更新', '主流资产的借贷、清算、衍生品'],
   ['多源取中位数 + 偏离熔断', '否', '中', '大型协议的生产方案']
 ])}
 ${call('info', `<p>闪电贷本身不是漏洞。它把“需要很多本金才能做的攻击”变成“任何人都能做的攻击”。设计协议时，默认攻击者在一笔交易内拥有无限资金。</p>`)}
 
 <h2>3. 前置交易、三明治与 commit-reveal</h2>
-<p><strong>MEV</strong>（Maximal Extractable Value，最大可提取价值）：区块构建者通过插入、排序、剔除交易能获得的额外收益。<strong>前置交易（Front-running）</strong>：看到你在内存池里的交易后，抢在你前面执行。<strong>三明治攻击（Sandwich）</strong>：在你的兑换前买入、在你之后卖出，赚你推高价格的差价。逐步计算和防护方案见 <a href="#m05-7">M04.7 MEV</a>。</p>
+<p><strong>MEV</strong>（Maximal Extractable Value，最大可提取价值）：区块构建者通过插入、排序、剔除交易能获得的额外收益。<strong>前置交易（Front-running）</strong>：看到你在内存池里的交易后，抢在你前面执行。<strong>三明治攻击（Sandwich）</strong>：在你的兑换前买入、在你之后卖出，赚你推高价格的差价。逐步计算、MEV 产业链和完整防护方案详见 <a href="#m05-7">M04.7 MEV</a>（后面会讲）；本节只讲合约开发者必须写进代码的防线。</p>
 ${mm('三明治攻击的时序', `
 sequenceDiagram
   participant U as 用户
@@ -580,12 +581,12 @@ contract VaultV1u is UUPSUpgradeable, OwnableUpgradeable {
     function _authorizeUpgrade(address) internal override onlyOwner {} // owner 应为时间锁
 }
 `)}
-<p><strong>未初始化的实现合约</strong>：实现合约本身也是一个链上合约。如果它没有在构造函数里锁死初始化，攻击者可以直接对实现合约调用 <code>initialize</code> 成为它的 owner。在 UUPS 模式下，攻击者再让实现合约 delegatecall 到一个执行 <code>selfdestruct</code> 的合约，所有代理就指向一个空地址，资金被永久锁死（这是 2024 年 Cancun 升级之前的行为，之后 SELFDESTRUCT 不再删除代码，但未初始化的实现合约仍可能被恶意升级）。2021 年 9 月 OpenZeppelin 披露并修复了 UUPS 实现合约的这类问题；${cite('OpenZeppelin：UUPSUpgradeable Vulnerability Post-mortem', 'https://forum.openzeppelin.com/t/uupsupgradeable-vulnerability-post-mortem/15680')}2022 年 2 月白帽向 Wormhole 报告同类问题，Wormhole 随后支付了 1,000 万美元赏金。${cite('Immunefi：Wormhole Uninitialized Proxy Bugfix Review', 'https://immunefi.com/blog/bug-fix-reviews/wormhole-uninitialized-proxy-bugfix-review/')}</p>
+<p><strong>未初始化的实现合约</strong>：实现合约本身也是一个链上合约。如果它没有在构造函数里锁死初始化，攻击者可以直接对实现合约调用 <code>initialize</code> 成为它的 owner。在 UUPS 模式下，攻击者再让实现合约 delegatecall 到一个执行 <code>selfdestruct</code> 的合约，所有代理就指向一个空地址，资金被永久锁死（这是 2024 年 Cancun 升级之前的行为，之后 SELFDESTRUCT 不再删除代码。攻击者即使把实现合约自己“升级”掉，改的也只是实现合约自身的存储槽，不影响各代理；但在构造函数里调用 <code>_disableInitializers()</code> 锁死实现合约，仍是审计清单上的固定检查项）。2021 年 9 月 OpenZeppelin 披露并修复了 UUPS 实现合约的这类问题；${cite('OpenZeppelin：UUPSUpgradeable Vulnerability Post-mortem', 'https://forum.openzeppelin.com/t/uupsupgradeable-vulnerability-post-mortem/15680')}2022 年 2 月白帽向 Wormhole 报告同类问题，Wormhole 随后支付了 1,000 万美元赏金。${cite('Immunefi：Wormhole Uninitialized Proxy Bugfix Review', 'https://immunefi.com/blog/bug-fix-reviews/wormhole-uninitialized-proxy-bugfix-review/')}</p>
 ${call('info', `<p>工具：用 <code>@openzeppelin/upgrades-core</code>（Hardhat / Foundry 插件 openzeppelin-foundry-upgrades）在升级前自动比较新旧存储布局；用 <code>forge inspect 合约名 storageLayout</code> 查看槽位。</p>`)}
 
 ${cases([
   ['Parity 多签钱包库被“自毁”，大量资金被冻结', '2017 年 11 月',
-   '<p>Parity 的多签钱包把大部分逻辑放在一个共享的“库合约”里，每个钱包通过 delegatecall 使用它。这个库合约本身没有被初始化，任何人都可以调用初始化函数成为 owner。2017 年 11 月，一名用户这样做了，随后调用了库里的自毁函数，库代码从链上消失。依赖它的钱包全部指向一个空地址，里面的资金再也无法转出。</p><p>各来源估算的冻结金额不同，从数十万到约 100 万 ETH 不等，Parity 自己也说这些数字属于推测。启示：<strong>被 delegatecall 的实现合约必须自己锁死初始化，且不能留有自毁入口。</strong>2024 年坎昆升级的 EIP-6780 之后，<code>selfdestruct</code> 在以太坊主网不再删除已部署合约的代码（同一笔交易内创建的合约除外），这类“杀库”攻击在主网已不可行，但“未初始化的实现合约”仍是审计清单上的固定检查项。</p>',
+   '<p>Parity 的多签钱包把大部分逻辑放在一个共享的“库合约”里，每个钱包通过 delegatecall 使用它。这个库合约本身没有被初始化，任何人都可以调用初始化函数成为 owner。2017 年 11 月，一名用户这样做了，随后调用了库里的自毁函数，库代码从链上消失。依赖它的钱包全部指向一个空地址，里面的资金再也无法转出。</p><p>Parity 事后公布的冻结金额约 51 万 ETH（与 <a href="#m02-7">M02.8</a> 的数字一致；媒体报道中的估算口径略有出入）。启示：<strong>被 delegatecall 的实现合约必须自己锁死初始化，且不能留有自毁入口。</strong>2024 年坎昆升级的 EIP-6780 之后，<code>selfdestruct</code> 在以太坊主网不再删除已部署合约的代码（同一笔交易内创建的合约除外），这类“杀库”攻击在主网已不可行，但“未初始化的实现合约”仍是审计清单上的固定检查项。</p>',
    [['Parity：A Postmortem on the Parity Multi-Sig Library Self-Destruct', 'https://medium.com/paritytech/a-postmortem-on-the-parity-multi-sig-library-self-destruct-63daca3a4cf7'], ['TechCrunch：A major vulnerability has frozen hundreds of millions of dollars of ethereum', 'https://techcrunch.com/2017/11/07/a-major-vulnerability-has-frozen-hundreds-of-millions-of-dollars-of-ethereum']]]
 ], 'h3')}
 
@@ -651,7 +652,7 @@ ${tbl(['', '链上治理（Governor）', '链下投票（Snapshot）'], [
   ['防闪电贷', '用区块快照，提案后买入无效', '用快照区块的持仓，同样不受之后买入影响'],
   ['适合', '决定“合约参数、资金划拨”这类需要强制执行的事', '信号投票、低成本的社区意见征集']
 ])}
-${call('warn', '<p>新手最常见的坑：代币转进来后“投票权是 0”。<code>ERC20Votes</code> 默认不给任何人投票权，必须先 <code>delegate</code>（可以委托给自己）。很多空投用户因此“有币无票”。DAO 的提案流程、委托与金库运营见 <a href="#m02-61">M08.7 DAO 治理与运营</a>。</p>')}
+${call('warn', '<p>新手最常见的坑：代币转进来后“投票权是 0”。<code>ERC20Votes</code> 默认不给任何人投票权，必须先 <code>delegate</code>（可以委托给自己）。很多空投用户因此“有币无票”。DAO 的提案流程、委托与金库运营见 <a href="#m02-61">M05.7 DAO 治理与运营</a>。</p>')}
 ${exq([
   ['为什么“提案创建后买入的代币不能投这一票”能防闪电贷？', '<p>闪电贷借到的代币只存在于一笔交易内。投票权按“提案创建时的区块”快照计算，借入的代币在那个区块并不属于攻击者，所以借来的票数不会被记录。</p>'],
   ['时间锁（Timelock）给用户提供了什么保护？', '<p>一段可观察的窗口。恶意或错误的提案通过后，不能立刻执行；用户可以先撤资，守护者也有时间取消。没有时间锁，通过即执行，用户没有任何反应时间。</p>']
@@ -711,7 +712,7 @@ ${tryit(`<p>用 Slither 扫描一个合约：</p>
 <li>把 <a href="#m02-7">M02.8</a> 的 <code>VulnerableVault</code> 放进 <code>src/</code> 再扫描一次。</li>
 <li>预期结果：输出包含 <code>reentrancy-eth</code> 告警，指向 <code>withdraw()</code> 中 call 之后的状态写入。</li>
 <li>改成 CEI 后重新扫描，该告警消失。</li></ol>`)}
-<p>完整的审计方法、工具链（Slither 打印器、Echidna、Medusa、Halmos、Certora）和应急预案模板见 <a href="#m02-62">M02.10 审计方法与工具链</a>，ZK 电路特有的欠约束漏洞见 <a href="#m10-3">M06.3 第一个电路 Circom</a>。</p>
+<p>完整的审计方法、工具链（Slither 打印器、Echidna、Medusa、Halmos、Certora）和应急预案模板见 <a href="#m02-62">M02.10 审计方法与工具链</a>，ZK 电路特有的欠约束漏洞见 <a href="#m10-3">M07.3 第一个电路 Circom</a>。</p>
 
 <h2>生产环境清单（上线安全清单）</h2>
 ${tbl(['检查项', '为什么', '怎么验证'], [

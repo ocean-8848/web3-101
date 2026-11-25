@@ -1,9 +1,9 @@
-/* ---------- M04 零知识证明与隐私（2）：m10-5 隐私协议 · m10-6 MPC/FHE/TEE · m10-7 ★ 实战 ---------- */
+/* ---------- M07 零知识证明与隐私（2）：m10-5 隐私协议 · m10-6 MPC/FHE/TEE · m10-7 ★ 实战 ---------- */
 (() => {
 CUR = 'm10-5';
-addCh({ id: 'm10-5', nav: '隐私协议与合规', title: 'M06.5 隐私协议与合规边界：从 Zcash、Tornado Cash 到 Privacy Pools', desc: '屏蔽池、混币器、隐私池与隐身地址怎么工作，制裁与判决划出了哪些边界', html: `
-<h1>M06.5 隐私协议与合规边界：从 Zcash、Tornado Cash 到 Privacy Pools</h1>
-${meta(['用“承诺、Merkle 树、nullifier、提款证明”四个部件，讲清 Zcash 屏蔽池和 Tornado Cash 怎样切断存款与取款的链接。', '按时间线说出 Tornado Cash 从 2022 年被制裁、2024 年第五巡回法院判决、2025 年被移出制裁名单到开发者刑事案的关键节点，并说清每一步的法律范围。', '比较 Privacy Pools、Railgun、Aztec 和隐身地址（ERC-5564）的设计，判断一个隐私功能“该做”还是“不该做”。'], '前置：<a href="#m10-1">M06.1 零知识证明直觉</a>、<a href="#m10-3">M06.3 第一个电路：Circom 到链上验证</a>')}
+addCh({ id: 'm10-5', nav: '隐私协议与合规', title: 'M07.5 隐私协议与合规边界：从 Zcash、Tornado Cash 到 Privacy Pools', desc: '屏蔽池、混币器、隐私池与隐身地址怎么工作，制裁与判决划出了哪些边界', html: `
+<h1>M07.5 隐私协议与合规边界：从 Zcash、Tornado Cash 到 Privacy Pools</h1>
+${meta(['用“承诺、Merkle 树、nullifier、提款证明”四个部件，讲清 Zcash 屏蔽池和 Tornado Cash 怎样切断存款与取款的链接。', '按时间线说出 Tornado Cash 从 2022 年被制裁、2024 年第五巡回法院判决、2025 年被移出制裁名单到开发者刑事案的关键节点，并说清每一步的法律范围。', '比较 Privacy Pools、Railgun、Aztec 和隐身地址（ERC-5564）的设计，判断一个隐私功能“该做”还是“不该做”。'], '前置：<a href="#m10-1">M07.1 零知识证明直觉</a>、<a href="#m10-3">M07.3 第一个电路：Circom 到链上验证</a>')}
 ${beginner(`<p><strong>承诺（Commitment）</strong>：把一个秘密值和随机数一起哈希，得到一个公开的“封口信封”。别人看不到里面的值，你以后也不能改口。</p>
 <p><strong>Nullifier（作废标记）</strong>：从秘密派生出的一个值。花掉一笔隐私资金时公开它，合约记下来，同一笔钱就不能再花第二次。别人无法从 nullifier 反推是哪一笔存款。</p>
 <p><strong>匿名集（Anonymity set）</strong>：观察者无法区分的候选人集合。匿名集越大，越难猜出“取款的人是谁”。</p>
@@ -37,13 +37,13 @@ ${art('一图看懂：存款只公开承诺，取款只公开证明，两者之�
 ], '左侧：秘密算出承诺并放进链上的 Merkle 树；右侧：取款时用零知识证明说明知道树里某个承诺的秘密，并公开 nullifier；合约记下已用的 nullifier，防止重复取款。', 'm10-5')}
 
 <h2>2. 为什么公链需要隐私，又为什么隐私难</h2>
-${recall('<p>公链的每一笔转账都公开、永久保存，任何人都能用区块浏览器追踪资金流向。追踪方法在 <a href="#m05-67">M04.13 链上取证与资金追踪</a> 里展开；本篇反过来讲：协议怎样让追踪变难，以及法律怎样限制这种能力。</p>')}
+${recall('<p>公链的每一笔转账都公开、永久保存，任何人都能用区块浏览器追踪资金流向。追踪方法在 <a href="#m05-67">M12.5 链上取证与资金追踪</a> 里展开；本篇反过来讲：协议怎样让追踪变难，以及法律怎样限制这种能力。</p>')}
 <p>透明账本对审计有利，但对普通用户不友好：你给咖啡店付一次款，店主就能看到你的全部余额和历史。所以隐私需求是真实的。下表列出“隐私”在链上通常指哪几件事。</p>
 ${tbl(['要隐藏的内容', '例子', '典型技术'], [
   ['发送方与接收方的链接', '谁给谁转了钱', '屏蔽池、混币器（Tornado Cash）、Privacy Pools'],
   ['接收方身份', '捐款地址不暴露收款人的主地址', '隐身地址（ERC-5564）'],
-  ['金额', '工资、交易规模', 'Zcash 屏蔽交易、Railgun、Aztec、FHE 代币（见 <a href="#m10-6">M06.6</a>）'],
-  ['合约状态与逻辑输入', '投标价、投票内容', 'Aztec 私有函数、FHE、TEE（见 <a href="#m10-6">M06.6</a>）']
+  ['金额', '工资、交易规模', 'Zcash 屏蔽交易、Railgun、Aztec、FHE 代币（见 <a href="#m10-6">M07.6</a>）'],
+  ['合约状态与逻辑输入', '投标价、投票内容', 'Aztec 私有函数、FHE、TEE（见 <a href="#m10-6">M07.6</a>）']
 ])}
 <p>隐私可能在四层泄露：<strong>密码学层</strong>（电路漏洞、可信设置）、<strong>协议层</strong>（匿名集太小、非固定面额）、<strong>使用习惯层</strong>（存完马上取、取到旧地址、用同一地址付 Gas）、<strong>网络层</strong>（IP、浏览器指纹、中继日志）。零知识证明只保护第一层，最常见的去匿名化发生在后两层。用自己的旧地址付 Gas 去取款，等于在链上签名“这笔取款是我”，这就是中继（Relayer）存在的原因。</p>
 
@@ -54,7 +54,7 @@ ${steps([
   '<strong>花费</strong>：花一张票据时，钱包证明“我拥有某张已存在的票据，输入金额等于输出金额”，并公开这张票据的 nullifier。',
   '<strong>查看密钥（Viewing key）</strong>：用户可以把它交给审计方或税务顾问，让对方只读地看到自己的屏蔽交易，而不给出花钱的权限。这是“选择性披露”的早期形态。'
 ])}
-<p>Zcash 的屏蔽池有三代：Sprout、Sapling 和 Orchard。Sprout 和 Sapling 使用 Groth16 证明，需要可信设置；2022 年 5 月 31 日激活的 NU5 升级引入了 Orchard 池，它使用 Halo 2 证明系统，不再需要可信设置${cite('Electric Coin Co.：NU5 activates on mainnet, eliminating trusted setup', 'https://electriccoin.co/blog/nu5-activates-on-mainnet-eliminating-trusted-setup-and-launching-a-new-era-for-zcash')}。可信设置和 Groth16 的关系见 <a href="#m10-2">M06.2 SNARK 与 STARK</a>。</p>
+<p>Zcash 的屏蔽池有三代：Sprout、Sapling 和 Orchard。Sprout 和 Sapling 使用 Groth16 证明，需要可信设置；2022 年 5 月 31 日激活的 NU5 升级引入了 Orchard 池，它使用 Halo 2 证明系统，不再需要可信设置${cite('Electric Coin Co.：NU5 activates on mainnet, eliminating trusted setup', 'https://electriccoin.co/blog/nu5-activates-on-mainnet-eliminating-trusted-setup-and-launching-a-new-era-for-zcash')}。可信设置和 Groth16 的关系见 <a href="#m10-2">M07.2 SNARK 与 STARK</a>。</p>
 
 <h2>4. Tornado Cash：以太坊上的混币合约</h2>
 <p>Tornado Cash 是一组以太坊智能合约。和 Zcash 不同，它不是一条链，而是在公开的 EVM 上用零知识证明实现“存进去、过一段时间、从另一个地址取出来”。下面的细节来自它公开的源代码 tornado-core${cite('GitHub：tornadocash/tornado-core', 'https://github.com/tornadocash/tornado-core')}。</p>
@@ -71,19 +71,19 @@ ${steps2('Tornado Cash 的存款与取款', [
   ['risk', '合约只接受最近 30 个根。用户在根更新很快的时候生成证明，提交时根可能已经过期，需要重新生成。'],
   ['limit', '固定面额（例如 1 ETH、10 ETH）是为了防止按金额匹配。如果每个池子允许任意金额，匿名集会碎成很多小块。']
 ])}
-<p>注意：<code>recipient</code>、<code>relayer</code>、<code>fee</code>、<code>refund</code> 在电路里不参与计算，只各做一次平方约束，目的就是把它们绑进证明。<a href="#m10-7">M06.7 实战</a> 会照搬这个做法。</p>
+<p>注意：<code>recipient</code>、<code>relayer</code>、<code>fee</code>、<code>refund</code> 在电路里不参与计算，只各做一次平方约束，目的就是把它们绑进证明。<a href="#m10-7">M07.7 实战</a> 会照搬这个做法。</p>
 <p><strong>算一算（示例）：匿名集到底有多大？</strong></p>
 ${steps([
   '容量：20 层的 Merkle 树最多放 2<sup>20</sup> = 1,048,576 个承诺。容量不等于匿名集。',
   '假设某个 10 ETH 池子到你取款时一共有 2,000 笔存款，其中 1,400 笔已经取走。观察者只能把你的取款对应到“还没取走的存款”上吗？不是。nullifier 不暴露是哪一笔，所以理论上 2,000 笔都是候选。',
   '现实中观察者会用启发式规则缩小范围（示例）：你在存款后 10 分钟内取款，而这 10 分钟里只有 4 笔存款进入池子 → 候选从 2,000 缩到 4。',
   '如果取款地址又和其中一个存款地址在同一天与同一个交易所账户交互过 → 候选缩到 1。',
-  '结论：协议给的是“最多 2,000 选 1”，用户习惯可能把它降到“1 选 1”。取证方的方法见 <a href="#m05-67">M04.13 链上取证与资金追踪</a>。'
+  '结论：协议给的是“最多 2,000 选 1”，用户习惯可能把它降到“1 选 1”。取证方的方法见 <a href="#m05-67">M12.5 链上取证与资金追踪</a>。'
 ])}
-${call('warn', '<p>零知识电路本身也会出错。2019 年，安全研究者在 Tornado Cash 使用的 MiMC 哈希电路里发现一个缺陷：代码只给输出赋值，没有加约束，攻击者理论上可以伪造 Merkle 根取款。团队随后修复并迁移了合约。这类“只赋值不约束”的漏洞见 Trail of Bits 的分析' + cite('Trail of Bits：It pays to be Circomspect', 'https://blog.trailofbits.com/2022/09/15/it-pays-to-be-circomspect/') + '，<a href="#m10-7">M06.7</a> 的威胁模型会再讲。</p>')}
+${call('warn', '<p>零知识电路本身也会出错。2019 年，安全研究者在 Tornado Cash 使用的 MiMC 哈希电路里发现一个缺陷：代码只给输出赋值，没有加约束，攻击者理论上可以伪造 Merkle 根取款。团队随后修复并迁移了合约。这类“只赋值不约束”的漏洞见 Trail of Bits 的分析' + cite('Trail of Bits：It pays to be Circomspect', 'https://blog.trailofbits.com/2022/09/15/it-pays-to-be-circomspect/') + '，<a href="#m10-7">M07.7</a> 的威胁模型会再讲。</p>')}
 
 <h2>5. 制裁、判决与刑事案：一条时间线</h2>
-${call('warn', '<p><strong>本节不是法律建议。</strong>下面只描述公开的政府文件和法院判决。不同国家的规则不同；同一国家的判决也只在特定范围内有效。做任何隐私相关产品之前，先咨询有资质的律师。合规框架见 <a href="#m11-1">M07.1 合规全景</a> 和 <a href="#m11-2">M07.2 KYC、AML 与制裁筛查</a>。</p>')}
+${call('warn', '<p><strong>本节不是法律建议。</strong>下面只描述公开的政府文件和法院判决。不同国家的规则不同；同一国家的判决也只在特定范围内有效。做任何隐私相关产品之前，先咨询有资质的律师。合规框架见 <a href="#m11-1">M12.1 合规全景</a> 和 <a href="#m11-2">M12.2 KYC、AML 与制裁筛查</a>。</p>')}
 ${mm('Tornado Cash 的法律时间线（截至 2026 年公开资料）', `
 flowchart TB
   A["2022-08-08<br/>OFAC 把 Tornado Cash 列入 SDN 制裁名单"]:::risk --> B["2022 起诉 · 2023 一审<br/>Van Loon 诉财政部<br/>一审支持政府"]
@@ -105,7 +105,7 @@ flowchart TB
   <li><strong>2025 年 3 月 21 日</strong>：财政部宣布解除对 Tornado Cash 的经济制裁，同时表示仍然高度关注朝鲜的黑客与洗钱活动${cite('美国财政部：Tornado Cash Delisting（2025-03-21）', 'https://home.treasury.gov/news/press-releases/sb0057')}。</li>
   <li><strong>2025 年 8 月 6 日</strong>：纽约联邦法院的陪审团认定开发者 Roman Storm 共谋经营无牌汇款业务罪名成立，对共谋洗钱和共谋违反制裁两项罪名未能达成一致${cite('The Block：Tornado Cash creator Roman Storm found guilty on money transmitting charge', 'https://www.theblock.co/post/364948/tornado-cash-creator-roman-storm-found-guilty-on-money-transmitting-charge-but-not-guilty-on-sanctions-charge-inner-city-press')}。2026 年检方申请重审未决罪名；据 2026 年 8 月的报道，重审被延后到 2027 年 4 月${cite('Decrypt：Roman Storm’s Tornado Cash retrial pushed to April 2027', 'https://decrypt.co/376577/roman-storms-tornado-cash-retrial-pushed-to-april-2027')}。</li>
 </ul>
-<p>美国以外，欧盟的反洗钱条例（Regulation (EU) 2024/1624，AMLR）第 79 条禁止信贷机构、金融机构和加密资产服务商保有匿名账户，包括通过“增强匿名性的币种”实现匿名的账户；条例从 2027 年 7 月 10 日起适用${cite('EUR-Lex：Regulation (EU) 2024/1624', 'https://eur-lex.europa.eu/eli/reg/2024/1624/oj')}${cite('Springlex：AMLR Article 79 条文', 'https://www.springlex.eu/en/packages/aml/amlr-regulation/article-79/')}。这条规则约束的是服务商，不是个人持有者；它直接影响交易所能否上架隐私币和接收混币资金。各法域的细节见 <a href="#m11-4">M07.4 主要法域</a>。</p>
+<p>美国以外，欧盟的反洗钱条例（Regulation (EU) 2024/1624，AMLR）第 79 条禁止信贷机构、金融机构和加密资产服务商保有匿名账户，包括通过“增强匿名性的币种”实现匿名的账户；条例从 2027 年 7 月 10 日起适用${cite('EUR-Lex：Regulation (EU) 2024/1624', 'https://eur-lex.europa.eu/eli/reg/2024/1624/oj')}${cite('Springlex：AMLR Article 79 条文', 'https://www.springlex.eu/en/packages/aml/amlr-regulation/article-79/')}。这条规则约束的是服务商，不是个人持有者；它直接影响交易所能否上架隐私币和接收混币资金。各法域的细节见 <a href="#m11-4">M12.6 主要法域</a>。</p>
 
 <h2>6. 合规友好的隐私设计</h2>
 <p>Tornado Cash 的问题不是“用了零知识证明”，而是“诚实用户和黑客在同一个匿名集里，诚实用户无法证明自己和黑客无关”。2023 年起出现的新设计都在回答同一个问题：怎样在保留隐私的同时，让诚实用户能主动证明自己干净。</p>
@@ -129,7 +129,7 @@ ${steps([
 <p>0xbow 团队按这个设计做的 Privacy Pools 于 2025 年 3 月 31 日在以太坊主网上线。它的 ASP 在存款进入关联集之前审查每笔存款，也可以事后撤销已批准的存款${cite('The Block：0xbow unveils Privacy Pools', 'https://www.theblock.co/post/348959/privacy-pools-vitalik-buterin')}${cite('L2BEAT：Privacy Pools', 'https://l2beat.com/privacy/projects/privacy-pools')}。被拒绝的用户仍然可以“公开退出”：把钱原路取回到存款地址，只是不能匿名取款。</p>
 <h3>6.2 Railgun 与 Aztec</h3>
 <p>Railgun 的资金以加密票据的形式保存在合约的 Merkle 树里，每次花费都是一个 zk-SNARK 证明。它的 Private Proofs of Innocence（PPOI）是一层独立的检查：代币进入屏蔽系统时开始，证明这些代币不在列表提供方标记的数据集里，并在后续交互中一路携带${cite('Railgun 文档：Private Proofs of Innocence', 'https://docs.railgun.org/wiki/assurance/private-proofs-of-innocence')}。</p>
-<p>Aztec 是以太坊上的隐私二层网络。它的合约可以同时有公开函数和私有函数，私有函数在用户本地执行并生成证明。Aztec 于 2025 年 11 月 19 日在以太坊主网启动 Ignition Chain，第一阶段主要验证去中心化出块和治理，功能分阶段开放${cite('The Block：Aztec launches privacy-focused L2 Ignition Chain on mainnet', 'https://www.theblock.co/post/379592/aztec-launches-ignition-chain-mainnet')}。Rollup 的基本原理见 <a href="#m05-5">M04.5 Rollup 深入</a>，zkEVM 见 <a href="#m10-4">M06.4</a>。</p>
+<p>Aztec 是以太坊上的隐私二层网络。它的合约可以同时有公开函数和私有函数，私有函数在用户本地执行并生成证明。Aztec 于 2025 年 11 月 19 日在以太坊主网启动 Ignition Chain，第一阶段主要验证去中心化出块和治理，功能分阶段开放${cite('The Block：Aztec launches privacy-focused L2 Ignition Chain on mainnet', 'https://www.theblock.co/post/379592/aztec-launches-ignition-chain-mainnet')}。Rollup 的基本原理见 <a href="#m05-5">M04.5 Rollup 深入</a>，zkEVM 见 <a href="#m10-4">M07.4</a>。</p>
 <h3>6.3 隐身地址（ERC-5564）</h3>
 <p>ERC-5564 是一个已定稿（Final）的标准${cite('EIP 文档：ERC-5564 Stealth Addresses', 'https://eips.ethereum.org/EIPS/eip-5564')}。收款人公开一个<strong>隐身元地址</strong>（包含“花费公钥”和“查看公钥”），可以登记在 ERC-6538 注册表里。付款流程如下：</p>
 ${steps([
@@ -142,7 +142,7 @@ ${steps([
 
 <h2>7. 开发者的边界：该做什么，不该做什么</h2>
 ${tbl(['方向', '建议', '理由'], [
-  ['给自己的应用加选择性披露（查看密钥、证明某个属性）', '可以做，优先做', '保护用户数据，同时保留审计路径。成员证明、年龄证明、资格证明都属于这一类（见 <a href="#m10-7">M06.7 实战</a>）'],
+  ['给自己的应用加选择性披露（查看密钥、证明某个属性）', '可以做，优先做', '保护用户数据，同时保留审计路径。成员证明、年龄证明、资格证明都属于这一类（见 <a href="#m10-7">M07.7 实战</a>）'],
   ['隐身地址收款、私密投票、匿名空投', '可以做，评估滥用场景', '隐藏的是身份关联，而不是资金来源；仍要对入金做制裁筛查'],
   ['接入隐私池的合规机制（关联集、PPOI）', '可以做，写清 ASP 的规则与治理', '让诚实用户能证明清白；ASP 的标准、撤销权和数据来源要公开'],
   ['运营一个接收任意资金、任意金额的混币服务，并收取手续费', '先咨询律师，多数情况下不要做', 'Storm 案显示，运营者可能被按无牌汇款等罪名起诉；欧盟 AMLR 限制服务商处理匿名资金'],
@@ -220,9 +220,9 @@ ${terms([
 ` });
 
 CUR = 'm10-6';
-addCh({ id: 'm10-6', nav: 'MPC、FHE 与 TEE', title: 'M06.6 MPC、FHE 与 TEE：另外三种隐私计算', desc: '多方计算、全同态加密、可信执行环境各信任什么、多快、在 Web3 里用在哪', html: `
-<h1>M06.6 MPC、FHE 与 TEE：另外三种隐私计算</h1>
-${meta(['用一句话说出 MPC、FHE、TEE 各自“在谁手里计算、信任什么”，并和零知识证明做对比。', '读懂 Zama FHEVM 的架构（宿主链、协处理器、ACL、KMS、网关），写出一个加密计数器的关键代码。', '说出 TEE 在 Web3 里的用途（BuilderNet、Secret Network）和已公开的攻击（SGX.Fail、TEE.Fail），并按场景选择技术组合。'], '前置：<a href="#m10-1">M06.1 零知识证明直觉</a>、<a href="#m03-5">M09.5 MPC 与门限签名</a>')}
+addCh({ id: 'm10-6', nav: 'MPC、FHE 与 TEE', title: 'M07.6 MPC、FHE 与 TEE：另外三种隐私计算', desc: '多方计算、全同态加密、可信执行环境各信任什么、多快、在 Web3 里用在哪', html: `
+<h1>M07.6 MPC、FHE 与 TEE：另外三种隐私计算</h1>
+${meta(['用一句话说出 MPC、FHE、TEE 各自“在谁手里计算、信任什么”，并和零知识证明做对比。', '读懂 Zama FHEVM 的架构（宿主链、协处理器、ACL、KMS、网关），写出一个加密计数器的关键代码。', '说出 TEE 在 Web3 里的用途（BuilderNet、Secret Network）和已公开的攻击（SGX.Fail、TEE.Fail），并按场景选择技术组合。'], '前置：<a href="#m10-1">M07.1 零知识证明直觉</a>、<a href="#m03-5">M08.5 MPC 与门限签名</a>')}
 ${beginner(`<p><strong>隐私计算（Privacy-enhancing computation）</strong>：在不暴露原始数据的前提下，对数据做计算的一类技术的总称。</p>
 <p><strong>多方安全计算（MPC, Multi-Party Computation）</strong>：几方各持一部分秘密，一起算出结果，任何一方都看不到别人的输入。</p>
 <p><strong>全同态加密（FHE, Fully Homomorphic Encryption）</strong>：一种加密方式，可以直接在密文上做加法和乘法，解密后得到的结果和在明文上计算一样。</p>
@@ -278,7 +278,7 @@ ${art('一图看懂：四种隐私计算，区别在“谁能看到明文、你�
 <p>一句话区分：<strong>ZK</strong> 解决“验证”，证明者知道全部数据，验证者什么都不知道；<strong>MPC</strong>、<strong>FHE</strong>、<strong>TEE</strong> 解决“在私有数据上计算”，分别信任“参与方不合谋”“数学与解密密钥保管方”“芯片厂商与物理安全”。TEE 是唯一一个在计算时数据以明文存在的方案。它们经常组合使用：用 MPC 保管 FHE 的解密密钥，用 TEE 跑 MPC 节点，用 ZK 证明计算正确。第 6 节给出完整对比表。</p>
 
 <h2>3. MPC：钱包之外还能做什么</h2>
-${recall('<p>MPC 在钱包里的用法——秘密分享、分布式密钥生成（DKG）、门限 ECDSA 签名、密钥刷新——在 <a href="#m03-5">M09.5 MPC 与门限签名</a> 里已经完整讲过，企业钱包里的部署见 <a href="#m03-8">M09.9 企业钱包系统设计</a>。本节只讲 MPC 作为“通用隐私计算”的一面。</p>')}
+${recall('<p>MPC 在钱包里的用法——秘密分享、分布式密钥生成（DKG）、门限 ECDSA 签名、密钥刷新——在 <a href="#m03-5">M08.5 MPC 与门限签名</a> 里已经完整讲过，企业钱包里的部署见 <a href="#m03-8">M08.9 企业钱包系统设计</a>。本节只讲 MPC 作为“通用隐私计算”的一面。</p>')}
 <p>MPC 有两大类构造：一类基于<strong>秘密分享</strong>，把每个输入拆成多份，各方在分片上做运算；另一类基于<strong>混淆电路（Garbled circuits）</strong>，一方把函数加密成一张“查表电路”，另一方在不知道表内容的情况下求值。门限签名就是第一类的一个特例：要计算的函数是“签名”。</p>
 <p><strong>算一算（示例）：三方用加法秘密分享算平均工资。</strong>为了好算，用模 1000 的整数（单位：百元）。</p>
 ${steps([
@@ -288,7 +288,7 @@ ${steps([
   '三人公开各自的部分和：410 + 40 + 910 = 1360 ≡ 360（mod 1000）。总工资 = 360，平均 = 120。三人都没看到别人的工资。',
   '代价：每个输入都要发给其他两方，通信量随参与方数量增长；乘法比加法难得多，需要额外的交互轮次。'
 ])}
-<p>Web3 里 MPC 的用途：钱包与托管（最成熟）、FHE 网络的门限解密（见下一节 Zama KMS）、跨链桥和预言机的门限签名委员会。它的信任假设始终是“不超过门限数量的节点合谋”；如果节点由同一家公司运营，这个假设就变弱了。桥的委员会被攻破的案例见 <a href="#m05-8">M05.11 跨链桥</a>。</p>
+<p>Web3 里 MPC 的用途：钱包与托管（最成熟）、FHE 网络的门限解密（见下一节 Zama KMS）、跨链桥和预言机的门限签名委员会。它的信任假设始终是“不超过门限数量的节点合谋”；如果节点由同一家公司运营，这个假设就变弱了。桥的委员会被攻破的案例见 <a href="#m05-8">M06.12 跨链桥</a>。</p>
 
 <h2>4. FHE：在密文上运行智能合约</h2>
 <p>FHE 的密文里带有“噪声”。每做一次运算，噪声都会增长；噪声太大，解密就会出错。<strong>自举（Bootstrapping）</strong>是一种在不解密的情况下“清洗”噪声的操作，它让无限次运算成为可能，也是 FHE 慢的主要原因。</p>
@@ -348,12 +348,12 @@ ${steps2('TEE 远程证明的信任链', [
   ['risk', '整条链的根是芯片厂商的密钥。厂商密钥或某颗芯片的证明密钥泄露，攻击者就能伪造“真 TEE”的报告。'],
   ['fail', '厂商发布安全更新后，旧固件的报告应当被拒绝。应用要跟踪 TCB（可信计算基）状态，否则仍会接受有漏洞的节点。']
 ])}
-<p>TEE 在可验证 AI 推理中的用法见 <a href="#m06-60">M12.8 AI × Crypto 全景</a> 第 4 节。</p>
+<p>TEE 在可验证 AI 推理中的用法见 <a href="#m06-60">M13.8 AI × Crypto 全景</a> 第 4 节。</p>
 <h3>5.1 Web3 里的 TEE</h3>
 <ul>
   <li><strong>私有订单流与区块构建。</strong>Flashbots 在 2022 年提出 SUAVE，目标是一个加密的、去中心化的内存池和区块构建网络${cite('Flashbots：The Future of MEV is SUAVE', 'https://writings.flashbots.net/the-future-of-mev-is-suave')}。2024 年 11 月 18 日，Flashbots、Beaverbuild 和 Nethermind 联合推出 BuilderNet：每个运营者在 TEE 里运行区块构建实例，订单流提供方在发送加密订单流之前验证这些实例${cite('BuilderNet：Introducing BuilderNet', 'https://buildernet.org/blog/introducing-buildernet')}。MEV 的背景见 <a href="#m05-7">M04.7 MEV</a>。</li>
   <li><strong>机密智能合约。</strong>Secret Network 用 SGX 运行加密状态的合约，网络的“共识种子”是所有私密交易的主密钥。</li>
-  <li><strong>托管与密钥服务。</strong>MPC 节点放在 TEE 里（见 <a href="#m03-5">M09.5</a> 的部署图），FHE 的 KMS 节点也放在 Nitro Enclave 里。这里 TEE 是“第二道防线”，不是唯一防线。</li>
+  <li><strong>托管与密钥服务。</strong>MPC 节点放在 TEE 里（见 <a href="#m03-5">M08.5</a> 的部署图），FHE 的 KMS 节点也放在 Nitro Enclave 里。这里 TEE 是“第二道防线”，不是唯一防线。</li>
 </ul>
 <h3>5.2 已公开的 TEE 攻击</h3>
 ${cases([
@@ -416,7 +416,7 @@ ${mistakes([
 ])}
 ${recap([
   'ZK 解决“证明”，MPC、FHE、TEE 解决“在私有数据上计算”；真实系统常常组合使用。',
-  'MPC 信任“不超过门限数量的参与方合谋”，钱包是它最成熟的用途，详见 M09.5。',
+  'MPC 信任“不超过门限数量的参与方合谋”，钱包是它最成熟的用途，详见 M08.5。',
   'FHE 在密文上计算，最大问题是性能和解密密钥保管；Zama 用门限 MPC 的 KMS 保管密钥，并用 ACL 管理解密权。',
   'TEE 接近原生速度，但信任芯片厂商和物理安全；SGX.Fail 和 TEE.Fail 都提取出了关键密钥。',
   '选型先看“证明还是计算”，再看参与方是否固定、性能要求；选 TEE 时默认加 MPC 或 ZK 的第二道防线。'
@@ -441,9 +441,9 @@ ${terms([
 ` });
 
 CUR = 'm10-7';
-addCh({ id: 'm10-7', nav: '★ 实战：成员证明', title: 'M06.7 ★ 实战：Merkle 成员证明（匿名领取 / 投票）', desc: '身份承诺 + Poseidon Merkle 组 + nullifier，从电路、合约、浏览器证明到中继', html: `
-<h1>M06.7 ★ 实战：Merkle 成员证明（匿名领取 / 投票）</h1>
-${meta(['设计并实现一个 Semaphore 式的匿名领取 / 投票系统：身份承诺、Poseidon Merkle 组、nullifier、Circom 电路、Solidity 验证与领取合约、浏览器端 snarkjs 证明、Gas 中继。', '按威胁模型逐条防御：证明被抢跑、nullifier 复用、根历史窗口、电路欠约束、可信设置、域溢出、匿名集过小。', '写出测试清单和 4–6 周的里程碑，并知道生产环境什么时候应该直接用 Semaphore V4。'], '前置：<a href="#m10-3">M06.3 第一个电路：Circom 到链上验证</a>、<a href="#m10-5">M06.5 隐私协议与合规边界</a>、<a href="#m01-2">M01.2 默克尔树与轻节点</a>', ['zkmember'])}
+addCh({ id: 'm10-7', nav: '★ 实战：成员证明', title: 'M07.7 ★ 实战：Merkle 成员证明（匿名领取 / 投票）', desc: '身份承诺 + Poseidon Merkle 组 + nullifier，从电路、合约、浏览器证明到中继', html: `
+<h1>M07.7 ★ 实战：Merkle 成员证明（匿名领取 / 投票）</h1>
+${meta(['设计并实现一个 Semaphore 式的匿名领取 / 投票系统：身份承诺、Poseidon Merkle 组、nullifier、Circom 电路、Solidity 验证与领取合约、浏览器端 snarkjs 证明、Gas 中继。', '按威胁模型逐条防御：证明被抢跑、nullifier 复用、根历史窗口、电路欠约束、可信设置、域溢出、匿名集过小。', '写出测试清单和 4–6 周的里程碑，并知道生产环境什么时候应该直接用 Semaphore V4。'], '前置：<a href="#m10-3">M07.3 第一个电路：Circom 到链上验证</a>、<a href="#m10-5">M07.5 隐私协议与合规边界</a>、<a href="#m01-2">M01.2 默克尔树与轻节点</a>', ['zkmember'])}
 ${beginner(`<p><strong>身份承诺（Identity commitment）</strong>：成员的秘密 secret 的哈希。它可以公开放进组里，别人不能从它反推 secret。</p>
 <p><strong>组（Group）</strong>：所有身份承诺作为叶子组成的一棵 Merkle 树。链上只需要记住它的根。</p>
 <p><strong>scope（作用域）</strong>：一次活动的标识，例如“空投第 1 轮”或“提案 42”。同一个人在同一个 scope 里只能行动一次。</p>
@@ -590,7 +590,7 @@ ${steps([
 
 <h2>6. 技术选型</h2>
 ${tbl(['组件', '选型', '备选', '理由'], [
-  ['电路语言', 'Circom 2', 'Noir、Halo2', '与 snarkjs、circomlib 生态配套；M06.3 已学过'],
+  ['电路语言', 'Circom 2', 'Noir、Halo2', '与 snarkjs、circomlib 生态配套；M07.3 已学过'],
   ['证明系统', 'Groth16（snarkjs）', 'PLONK、fflonk', '证明最小、链上验证最便宜；代价是每个电路要做一次 phase 2 可信设置'],
   ['哈希', 'Poseidon（circomlib + poseidon-lite）', 'MiMC、SHA-256', '电路里约束最少；链下 JS 和电路必须用同一实现和同一参数'],
   ['组结构', '固定深度 20 的 Merkle 树，空叶子为 0', 'LeanIMT（Semaphore V4）', '固定深度最容易理解和测试；LeanIMT 深度可变、链上插入更省'],
@@ -871,7 +871,7 @@ ${steps([
   '<strong>模拟：</strong>用 <code>exportSolidityCallData</code> 得到 a、b、c，调用 <code>simulateContract</code> 模拟 claim，确认不会回滚。',
   '<strong>发送：</strong><code>writeContract(request)</code> 返回交易哈希，任务状态改为 sent；索引器看到 Claimed 事件后改为 used。'
 ])}
-<p>中继的 Gas 由项目方（空投方）承担，所以用户不需要任何 ETH。若要让用户付中继费，就把 <code>relayer</code> 和 <code>fee</code> 也作为公开输入绑进电路，和 Tornado Cash 一样。中继的私钥管理和 Nonce 处理见 <a href="#m03-6">M09.6 Nonce 管理</a>。</p>
+<p>中继的 Gas 由项目方（空投方）承担，所以用户不需要任何 ETH。若要让用户付中继费，就把 <code>relayer</code> 和 <code>fee</code> 也作为公开输入绑进电路，和 Tornado Cash 一样。中继的私钥管理和 Nonce 处理见 <a href="#m03-6">M08.6 Nonce 管理</a>。</p>
 <h3>9.6 生产选项：Semaphore V4</h3>
 <p>本项目的结构和 Semaphore 一致。Semaphore V4 规范里，身份承诺是 Poseidon(公钥 x, 公钥 y)（公钥在 Baby Jubjub 曲线上），nullifier = Poseidon(scope, secret)，组是用 Poseidon 的 LeanIMT 树；电路的公开输入是 message 和 scope，输出是 merkleRoot 和 nullifier${cite('Semaphore V4 规范（zkspecs）', 'https://github.com/zkspecs/zkspecs/blob/main/specs/3-semaphore-v4/README.md')}。链上合约提供 <code>createGroup</code>、<code>addMember</code>、<code>addMembers</code>、<code>validateProof(groupId, proof)</code>，并内置“根已过期”“nullifier 重复使用”等检查，组可以设置旧根的有效期${cite('Semaphore 源码：ISemaphore.sol', 'https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/interfaces/ISemaphore.sol')}。</p>
 <p>对应的 SDK 用法是：<code>new Identity()</code> 生成身份，<code>new Group([commitment, …])</code> 建组，<code>generateProof(identity, group, message, scope)</code> 生成证明，<code>verifyProof(proof)</code> 链下验证；链上调用 <code>semaphore.validateProof(groupId, proof)</code>。包名是 <code>@semaphore-protocol/identity</code>、<code>/group</code>、<code>/proof</code>，截至 2026 年 npm 上为 4.x 版本。</p>
@@ -893,7 +893,7 @@ ${tbl(['层级', '用例', '工具'], [
 ${steps([
   '<strong>环境：</strong>本地 anvil → Sepolia → 主网或 L2（L2 上验证更便宜）。',
   '<strong>CI/CD：</strong>每次提交运行电路编译、circomspect、Foundry 测试、Slither。电路有任何改动，都必须重新做 phase 2 可信设置并重新部署验证合约。把 zkey 的哈希写进仓库，前端加载时校验。',
-  '<strong>密钥：</strong>管理员用多签（见 <a href="#m03-4">M09.4 多签钱包</a>）；中继热钱包只放够几天用的 Gas，余额低于阈值告警并由冷钱包补充。',
+  '<strong>密钥：</strong>管理员用多签（见 <a href="#m03-4">M08.4 多签钱包</a>）；中继热钱包只放够几天用的 Gas，余额低于阈值告警并由冷钱包补充。',
   '<strong>监控指标（示例）：</strong><code>relay_requests_total{status}</code>、<code>relay_proof_invalid_ratio</code>（> 20% 告警，可能是攻击或前端 bug）、<code>relay_wallet_balance_eth</code>（低于 0.2 ETH 告警）、<code>claim_tx_revert_ratio</code>（> 5% 告警）、<code>root_age_seconds</code>（接近 ROOT_TTL 告警）。',
   '<strong>日志策略：</strong>网关层不记录 IP 与请求体；应用日志只记 nullifier 前 8 位和状态。把日志策略写进隐私说明并对外公开。'
 ])}
@@ -912,7 +912,7 @@ ${tbl(['威胁', '攻击方式', '防御', '验证方法'], [
   ['网络层去匿名', '中继或 RPC 记录 IP 与 recipient', '日志策略；允许用户自建中继或直接提交；建议使用隐私网络', '日志审计'],
   ['secret 泄露', 'XSS、恶意浏览器扩展读取本地存储', 'CSP、依赖锁定、secret 加密存储与备份提示', '前端安全扫描']
 ])}
-${call('warn', '<p><strong>合规边界：</strong>本项目隐藏的是“组内哪一个成员在行动”，不是资金来源；奖励由项目方发放，不汇集第三方资金，所以不属于混币服务。上线前仍要对收款地址做制裁筛查，并确认你所在法域对空投和投票的要求。见 <a href="#m10-5">M06.5 隐私协议与合规边界</a> 和 <a href="#m11-2">M07.2 KYC、AML 与制裁筛查</a>。本书内容不是法律建议。</p>')}
+${call('warn', '<p><strong>合规边界：</strong>本项目隐藏的是“组内哪一个成员在行动”，不是资金来源；奖励由项目方发放，不汇集第三方资金，所以不属于混币服务。上线前仍要对收款地址做制裁筛查，并确认你所在法域对空投和投票的要求。见 <a href="#m10-5">M07.5 隐私协议与合规边界</a> 和 <a href="#m11-2">M12.2 KYC、AML 与制裁筛查</a>。本书内容不是法律建议。</p>')}
 
 <h2>13. 里程碑计划（5 周示例）</h2>
 ${tbl(['周', '目标', '交付物'], [
@@ -926,8 +926,8 @@ ${tbl(['周', '目标', '交付物'], [
 
 <h2>14. 扩展方向与作品集要点</h2>
 <ul>
-  <li><strong>与凭证结合：</strong>成员资格来自链上凭证或 EAS 证明（见 <a href="#m09-1">M13.1 链上身份</a>），实现“持有凭证的人匿名投票”。</li>
-  <li><strong>关联集：</strong>参考 <a href="#m10-5">M06.5</a> 的 Privacy Pools，在成员证明之外再证明“我也在某个子集里”。</li>
+  <li><strong>与凭证结合：</strong>成员资格来自链上凭证或 EAS 证明（见 <a href="#m09-1">M14.1 链上身份</a>），实现“持有凭证的人匿名投票”。</li>
+  <li><strong>关联集：</strong>参考 <a href="#m10-5">M07.5</a> 的 Privacy Pools，在成员证明之外再证明“我也在某个子集里”。</li>
   <li><strong>反女巫：</strong>成员证明只保证“一个承诺一次”。一个人有多个承诺就能多领，所以入组环节要有独立的身份或凭证检查。</li>
   <li><strong>面试要点：</strong>能讲清为什么 nullifier 要包含 scope、为什么 recipient 要绑进证明、根历史窗口的权衡、你做了哪些负面测试来防欠约束。</li>
 </ul>

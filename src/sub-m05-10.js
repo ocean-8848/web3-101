@@ -1,14 +1,14 @@
-/* ---------- M04 公链（10）：m05-71 跨链意图与链抽象 ---------- */
+/* ---------- M06 多链与跨链（10）：m05-71 跨链意图与链抽象 ---------- */
 (() => {
 CUR = 'm05-71';
-addCh({ id: 'm05-71', nav: '跨链意图与链抽象', title: 'M05.12 跨链意图与链抽象：ERC-7683、CCTP、Solver 与 L2 互操作', desc: '从传统跨链桥到跨链意图网络、ERC-7683 订单标准、Circle CCTP 原生稳定币跨链、Across/Relay 垫资机制与 Superchain/AggLayer 互操作', html: `
-<h1>M05.12 跨链意图与链抽象：ERC-7683、CCTP、Solver 与 L2 互操作</h1>
+addCh({ id: 'm05-71', nav: '跨链意图与链抽象', title: 'M06.13 跨链意图与链抽象：ERC-7683、CCTP、Solver 与 L2 互操作', desc: '从传统跨链桥到跨链意图网络、ERC-7683 订单标准、Circle CCTP 原生稳定币跨链、Across/Relay 垫资机制与 Superchain/AggLayer 互操作', html: `
+<h1>M06.13 跨链意图与链抽象：ERC-7683、CCTP、Solver 与 L2 互操作</h1>
 ${meta([
   '对比传统“锁仓-铸造跨链桥”与“跨链意图（Intent + Solver）”在速度、信任假设与资金碎片化上的代际差异。',
   '拆解 ERC-7683 跨链意图标准如何统一不同协议与做市商（Filler/Solver）的订单格式与结算接口。',
   '掌握 Circle CCTP（原生销毁-铸造）在 USDC 跨链清算中的核心角色与工程接法。',
   '理解 L2 集群互操作架构（OP Superchain、Polygon AggLayer、ZK Elastic Chain）与“统一余额”链抽象实现原理。'
-], '前置：<a href="#m05-8">M05.11 跨链桥</a>、<a href="#m04-74">M10.16 意图交易与 Solver</a>、<a href="#m05-5">M04.5 Rollup 深入</a>', ['xintent'])}
+], '前置：<a href="#m05-8">M06.12 跨链桥</a>、<a href="#m04-74">M10.4 意图交易与 Solver</a>、<a href="#m05-5">M04.5 Rollup 深入</a>', ['xintent'])}
 ${beginner(`<p><strong>链抽象（Chain Abstraction）</strong>：让用户彻底忘掉“我的 USDC 在 Arbitrum 还是 Base、有没有准备目标链的 ETH 当 Gas”——界面上只看到一个统一总余额，点一下“购买”或“存款”，底层自动把跨链、换币和付 Gas 全部搞定。</p>
 <p><strong>跨链 Solver / Filler</strong>：在多条链上都提前备有流动性的专业做市商。用户想从 A 链转钱到 B 链，Solver 先用自己在 B 链的现钱在 2 秒内垫付给用户，事后再慢悠悠通过底层消息桥回 A 链领回本金加一点小费。</p>
 <p><strong>CCTP（Cross-Chain Transfer Protocol）</strong>：Circle 官方推出的原生 USDC 跨链协议——在源链真正销毁 USDC，拿 Circle 签名证明去目标链 1:1 铸造官方原生 USDC，彻底告别“包装版桥接 USDC”。</p>`)}
@@ -57,7 +57,7 @@ ${steps([
   '<strong>获取证明</strong>：Circle 的链下证明服务（Iris Attestation API）确认源链区块最终性后，签发一条加密证明（Attestation）。',
   '<strong>目标链铸造</strong>：任意中继者在目标链调用 <code>MessageTransmitter.receiveMessage()</code>，验签后直接铸造等量原生 USDC 给收款人。'
 ])}
-<p>把 <strong>嵌入式钱包（<a href="#m03-60">M09.12</a>）+ 账户抽象 Paymaster（<a href="#m06-5">M09.8</a>）+ ERC-7683 跨链意图</strong> 拼在一起，就能在 DApp 里实现真正的“链抽象统一余额”：例如用户在 Arbitrum 有 60 USDC、在 Optimism 有 50 USDC，想在 Base 买一个 100 USDC 的商品——钱包前端把两笔源链授权打包成一笔跨链意图，Solver 在 Base 垫付 100 USDC 并代付 Gas，用户只需刷一次 FaceID，2 秒内完成购买。</p>
+<p>把 <strong>嵌入式钱包（<a href="#m03-60">M08.12</a>）+ 账户抽象 Paymaster（<a href="#m06-5">M08.8</a>）+ ERC-7683 跨链意图</strong> 拼在一起，就能在 DApp 里实现真正的“链抽象统一余额”：例如用户在 Arbitrum 有 60 USDC、在 Optimism 有 50 USDC，想在 Base 买一个 100 USDC 的商品——钱包前端把两笔源链授权打包成一笔跨链意图，Solver 在 Base 垫付 100 USDC 并代付 Gas，用户只需刷一次 FaceID，2 秒内完成购买。</p>
 
 ${mm('Circle CCTP 原生稳定币跨链销毁-铸造时序', `
 sequenceDiagram

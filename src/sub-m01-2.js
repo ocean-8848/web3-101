@@ -1,9 +1,9 @@
 /* ---------- M01 子文章（2/5）：交易全解、节点与 JSON-RPC ---------- */
 (() => {
 CUR = 'm01-4';
-addCh({ id: 'm01-4', nav: '交易全解', title: 'M01.4 交易全解：字段、编码、签名、交易池与回执', desc: '逐字段拆解以太坊四类交易，逐字节解码一笔 ERC-20 转账。', html: `
+addCh({ id: 'm01-4', nav: '交易全解', title: 'M01.4 交易全解：字段、编码、签名、交易池与回执', desc: '逐字段拆解以太坊五类交易（type 0–4），逐字节解码一笔 ERC-20 转账。', html: `
 <h1>M01.4 交易全解：字段、编码、签名、交易池与回执</h1>
-${meta(['说出 legacy、type 1、type 2、type 3 交易的字段差别，并计算 EIP-1559 实际手续费。', '理解 RLP 编码、交易签名和 EIP-155 防重放。', '读懂交易回执和事件日志，逐字节解码一笔 ERC-20 转账的 input data。'], '<a href="#m01-1">M01.1 区块结构</a>、<a href="#m00-3">M00.3 公钥私钥与数字签名</a>', ['txlife', 'eip1559'])}
+${meta(['说出 legacy（type 0）到 type 4 五种交易的字段差别，并计算 EIP-1559 实际手续费。', '理解 RLP 编码、交易签名和 EIP-155 防重放。', '读懂交易回执和事件日志，逐字节解码一笔 ERC-20 转账的 input data。'], '<a href="#m01-1">M01.1 区块结构</a>、<a href="#m00-3">M00.3 公钥私钥与数字签名</a>', ['txlife', 'eip1559'])}
 ${beginner(`<p><strong>交易（Transaction）</strong>：由私钥签名的一条指令，例如“从我的账户转 1 ETH 给 Bob”或“调用某合约的某函数”。</p>
 <p><strong>wei / gwei</strong>：ETH 的最小单位是 wei。1 ETH = 10<sup>18</sup> wei；1 gwei = 10<sup>9</sup> wei。手续费单价通常用 gwei 表示。</p>
 <p><strong>交易池（Mempool）</strong>：节点内存里“已收到、还没打包”的交易集合。</p>
@@ -17,14 +17,14 @@ ${call('analogy', `<p>交易像一张银行支票。nonce 是支票编号（每�
 <p><strong>类比的局限</strong>：支票签了可以撤回；交易一旦被打包就无法撤回。在打包前，你只能用同一编号、更高手续费的新交易“顶替”它。</p>`)}
 <figure class="mmd fig-html fk-artfig" data-art="m01-4"><div class="mmd-title"><span>一图看懂：一笔交易从字段到广播</span></div><div class="fig-body"><svg class="fk-art" viewBox="0 0 760 225" role="img" aria-label="交易字段经编码、哈希、签名后成为原始交易"><g transform="translate(20,40)"><rect x="0" y="0" width="110" height="130" rx="10" fill="var(--info-soft)" stroke="var(--info)" stroke-width="1.5"/><path d="M80 0 v22 h30" fill="none" stroke="var(--info)"/><text x="14" y="30" font-size="14" text-anchor="start" fill="var(--ink)" font-weight="700">交易字段</text><text x="14" y="54" font-size="11" text-anchor="start" fill="var(--ink-2)" font-family="ui-monospace,Menlo,monospace">chainId 1</text><text x="14" y="71" font-size="11" text-anchor="start" fill="var(--ink-2)" font-family="ui-monospace,Menlo,monospace">nonce 7</text><text x="14" y="88" font-size="11" text-anchor="start" fill="var(--ink-2)" font-family="ui-monospace,Menlo,monospace">to 0xAb…</text><text x="14" y="105" font-size="11" text-anchor="start" fill="var(--ink-2)" font-family="ui-monospace,Menlo,monospace">value 1 ETH</text><text x="14" y="122" font-size="11" text-anchor="start" fill="var(--ink-2)" font-family="ui-monospace,Menlo,monospace">data 0x</text></g><line x1="136" y1="105" x2="186" y2="105" stroke="var(--ink-2)" stroke-width="2"/><path d="M186.0 105.0 L178.8 108.5 L178.8 101.5 z" fill="var(--ink-2)"/><g transform="translate(192,55)"><path d="M0 0 h120 l-40 60 v40 h-40 v-40z" fill="var(--tint)" stroke="var(--ink-2)" stroke-width="1.5"/><text x="60" y="26" font-size="13" text-anchor="middle" fill="var(--ink)" font-weight="700">RLP + Keccak</text><text x="60" y="88" font-size="11" text-anchor="middle" fill="var(--ink-2)">32 字节</text></g><line x1="318" y1="105" x2="368" y2="105" stroke="var(--ink-2)" stroke-width="2"/><path d="M368.0 105.0 L360.8 108.5 L360.8 101.5 z" fill="var(--ink-2)"/><g transform="translate(372,50)"><rect x="0" y="0" width="130" height="110" rx="12" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><g fill="none" stroke="var(--risk)" stroke-width="3"><circle cx="26" cy="40" r="9"/><path d="M35 40 h26 v8 M47 40 v6"/></g><text x="65" y="80" font-size="13" text-anchor="middle" fill="var(--ink)" font-weight="700">私钥签名</text><text x="65" y="98" font-size="11" text-anchor="middle" fill="var(--ink-2)">yParity · r · s</text></g><line x1="508" y1="105" x2="558" y2="105" stroke="var(--ink-2)" stroke-width="2"/><path d="M558.0 105.0 L550.8 108.5 L550.8 101.5 z" fill="var(--ink-2)"/><g transform="translate(562,60)"><rect x="0" y="0" width="120" height="86" rx="8" fill="var(--ok-soft)" stroke="var(--ok)" stroke-width="1.5"/><path d="M0 8 l60 40 l60 -40" fill="none" stroke="var(--ok)" stroke-width="2"/><text x="60" y="76" font-size="11" text-anchor="middle" fill="var(--ink)" font-family="ui-monospace,Menlo,monospace">0x02f8…</text></g><path d="M686 103 q40 0 52 -40" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-dasharray="5 4"/><line x1="733" y1="70" x2="738" y2="62" stroke="var(--ink-2)" stroke-width="2"/><path d="M738.0 62.0 L737.1 70.0 L731.2 66.3 z" fill="var(--ink-2)"/><text x="712" y="44" font-size="12" text-anchor="middle" fill="var(--ink-2)">广播</text><text x="380" y="205" font-size="12.5" text-anchor="middle" fill="var(--ink-2)">私钥只在红色这一步出现；签好的交易（绿色信封）可以交给任何节点广播</text></svg></div><figcaption><div class="cap">读图要点</div><ul class="notes"><li><span class="chip flow">数据流</span><span>字段 → RLP 编码并加类型字节 → 哈希得到签名对象 → 私钥签名 → 组装成原始交易 → 广播。</span></li><li><span class="chip key">关键</span><span>交易哈希在签名完成时就确定了，不需要等上链。</span></li><li><span class="chip risk">风险</span><span>签好的原始交易谁拿到都能广播，所以“签了但没发”的交易也要当成已经公开。</span></li></ul></figcaption></figure>
 
-<h2>2. 四种交易类型与字段</h2>
+<h2>2. 五种交易类型与字段</h2>
 <p>2021 年起，以太坊用 <strong>EIP-2718 类型化交易信封</strong>：交易 = 1 个类型字节 + 该类型的编码内容。旧交易没有类型字节，称为 legacy（类型 0）。</p>
 ${tbl(['类型', '引入', '核心变化', '典型用途'], [
   ['0 legacy', '创世起', '单一 gasPrice；EIP-155 后把 chainId 编进 v', '老钱包、部分 L2'],
   ['1 EIP-2930', '2021 柏林升级', '增加 accessList（预声明要访问的地址和存储槽）', '少量需要降低冷访问成本的调用'],
   ['2 EIP-1559', '2021 伦敦升级', 'gasPrice 拆成 maxFeePerGas 与 maxPriorityFeePerGas', '当前主流，钱包默认'],
   ['3 EIP-4844', '2024 Dencun 升级', '携带 blob 数据（每个 128 KB），增加 maxFeePerBlobGas、blobVersionedHashes', 'Rollup 向 L1 发布数据'],
-  ['4 EIP-7702', '2025 Pectra 升级', '增加 authorizationList，让普通账户设置代码委托（持续有效，直到被替换或清除）', '账户抽象，见 <a href="#m06-5">M09.8</a>']
+  ['4 EIP-7702', '2025 Pectra 升级', '增加 authorizationList，让普通账户设置代码委托（持续有效，直到被替换或清除）', '账户抽象，见 <a href="#m06-5">M08.8</a>']
 ])}
 <h3>2.1 字段逐一讲解（以 type 2 为主）</h3>
 ${tbl(['字段', '类型', '含义', '常见坑'], [
@@ -36,7 +36,7 @@ ${tbl(['字段', '类型', '含义', '常见坑'], [
   ['<code>to</code>', '20 字节地址或空', '接收方。为空表示创建合约', '地址写错，资产无法找回'],
   ['<code>value</code>', 'wei', '附带转账的 ETH 数量', '转 ERC-20 时 value 通常为 0'],
   ['<code>data</code>（input）', '字节', '调用合约时的函数选择器 + 参数；创建合约时是字节码', '普通转账为空 <code>0x</code>'],
-  ['<code>accessList</code>', '列表', '预声明访问的地址和存储槽（type 1/2/3 都有）', '一般留空'],
+  ['<code>accessList</code>', '列表', '预声明访问的地址和存储槽（type 1/2/3/4 都有）', '一般留空'],
   ['<code>v</code>/<code>yParity</code>, <code>r</code>, <code>s</code>', '签名', 'ECDSA 签名的三个部分；r、s 各 32 字节', '由钱包生成，不要手动改']
 ])}
 <h3>2.2 EIP-1559 的实际费用</h3>
@@ -164,7 +164,7 @@ ${code('JSON', `
   "removed": false
 }
 `)}
-<p><strong>算一算（示例：calldata 的 gas）</strong>：EIP-2028 规定 calldata 每个零字节 4 gas、非零字节 16 gas。上面 68 字节中，零字节 = 12 + 29 = 41 个，非零字节 = 4 + 20 + 3 = 27 个。calldata 成本 = 41 × 4 + 27 × 16 = 164 + 432 = 596 gas。再加基础成本 21,000 和合约执行成本，一笔 ERC-20 转账通常消耗 4–6.5 万 gas。</p>
+<p><strong>算一算（示例：calldata 的 gas）</strong>：EIP-2028 规定 calldata 每个零字节 4 gas、非零字节 16 gas。上面 68 字节中，零字节 = 12（参数 1 的左侧补 0）+ 28（参数 2 的左侧补 0）+ 1（amount 末尾的 <code>00</code>）= 41 个，非零字节 = 4 + 20 + 3 = 27 个。calldata 成本 = 41 × 4 + 27 × 16 = 164 + 432 = 596 gas。再加基础成本 21,000 和合约执行成本，一笔 ERC-20 转账通常消耗 4–6.5 万 gas。</p>
 ${call('warn', `<p><strong>三个会丢钱的识别错误</strong>：① 只看 tx.to == 你的地址来识别 USDT 充值——错，ERC-20 的 tx.to 是代币合约，收款人在日志里。② 不检查日志的 <code>address</code>——攻击者可以部署假的“USDT”合约，发出一模一样的 Transfer 事件。必须用合约地址白名单。③ 不检查 receipt.status——失败交易不产生日志，但 ETH 直接转账失败时 value 也不会到账。</p>`)}
 ${tryit(`<ol>
 <li>在 etherscan.io 打开 USDT 合约 <code>0xdAC17F958D2ee523a2206206994597C13D831ec7</code>，点开任意一笔 Method 为 “Transfer” 的交易。</li>
@@ -188,7 +188,7 @@ ${recap([
   '回执 status 必须检查；Transfer 日志 topics[0] 是事件签名，topics[1]、topics[2] 是 from、to，data 是金额。'
 ])}
 ${quiz([
-  { q: 'baseFee = 40 gwei，你设置 maxFee = 45 gwei、maxPriorityFee = 10 gwei。实际每 gas 支付多少？', o: ['50 gwei', '45 gwei', '40 gwei', '10 gwei'], a: 1, why: 'min(45, 40 + 10) = 45。小费实际只得到 5 gwei。如果设置成 50，可能因为 maxFee 被截断而得不到期望的小费。' },
+  { q: 'baseFee = 40 gwei，你设置 maxFee = 45 gwei、maxPriorityFee = 10 gwei。实际每 gas 支付多少？', o: ['50 gwei', '45 gwei', '40 gwei', '10 gwei'], a: 1, why: 'min(45, 40 + 10) = 45。小费被 maxFee 截断，实际只得到 5 gwei。如果把 maxFee 设成 50，min(50, 40 + 10) = 50，10 gwei 小费就能拿满。' },
   { q: 'ERC-20 转账 input data 的前 4 字节 0xa9059cbb 是什么？', o: ['代币合约地址的前缀', '收款人地址的校验和', '函数 transfer(address,uint256) 的选择器', 'chainId 的编码'], a: 2, why: '函数选择器 = keccak256(函数签名) 的前 4 字节。后面依次是 32 字节的地址和 32 字节的金额。' },
   { q: '你的账户 nonce 当前为 5。你发出了 nonce 6 和 7 的交易，但没有发 nonce 5。会怎样？', o: ['nonce 6、7 停在 queued，直到 nonce 5 出现', '节点自动把 6 改成 5', '6 和 7 正常打包', '6、7 立即被网络拒绝并扣费'], a: 0, why: 'nonce 必须连续。有缺口时后续交易进入 queued 等待，不会被打包，也不会扣费；超过存活时间会被丢弃。' },
   { q: '识别 USDT 充值时，以下哪项检查是必须的？', o: ['tx.to 等于用户充值地址', 'tx.value 大于 0', 'logsBloom 命中即可入账', 'log.address 等于官方 USDT 合约地址，且 topics[2] 是用户地址'], a: 3, why: '必须校验发出事件的合约地址，防止假币；收款人在 topics[2]。ERC-20 转账的 tx.to 是合约、value 为 0；Bloom 会误报。' }
@@ -380,12 +380,12 @@ sequenceDiagram
 ${tbl(['标签', '含义', '可能被重组吗', '适合'], [
   ['<code>latest</code>', '节点看到的最新区块', '可能（通常 1–2 块）', '展示、预估、小额实时业务'],
   ['<code>safe</code>', '已获得多数投票、被视为安全的区块（justified）', '极少，需要大规模攻击', '中等金额入账'],
-  ['<code>finalized</code>', '已最终确定的区块，约落后 2 个 epoch', '撤销需要罚没至少 1/3 质押', '大额入账、对账、跨链'],
+  ['<code>finalized</code>', '已最终确定的区块，一般落后 latest 2–3 个 epoch（64–96 个区块）', '撤销需要罚没至少 1/3 质押', '大额入账、对账、跨链'],
   ['<code>pending</code>', '节点本地正在构建的“下一个块”', '是', '查询 nonce（含交易池中的交易）'],
   ['<code>earliest</code>', '创世块', '否', '很少使用']
 ])}
 <p><strong>算一算（示例）</strong>：一个 epoch = 32 × 12 秒 = 384 秒。finalized 一般落后 latest 约 2–3 个 epoch，即 64–96 个区块、约 12.8–19.2 分钟。</p>
-${call('warn', `<p><strong>查 nonce 要用 pending</strong>：<code>eth_getTransactionCount(addr, "pending")</code> 包含交易池里还没打包的交易；用 "latest" 会拿到已打包的数量，连续发交易时会产生重复 nonce。<a href="#m03-6">M09.6 Nonce 管理</a>详细讲。</p>`)}
+${call('warn', `<p><strong>查 nonce 要用 pending</strong>：<code>eth_getTransactionCount(addr, "pending")</code> 包含交易池里还没打包的交易；用 "latest" 会拿到已打包的数量，连续发交易时会产生重复 nonce。<a href="#m03-6">M08.6 Nonce 管理</a>详细讲。</p>`)}
 
 <h2>6. WebSocket 订阅</h2>
 ${code('BASH', `

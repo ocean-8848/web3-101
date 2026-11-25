@@ -236,7 +236,11 @@ import (
 )
 
 // fetchBlock 模拟拉块：高度 107 会失败。
+// errgroup 不会强行终止 goroutine，任务要自己检查 ctx 才能“尽快退出”。
 func fetchBlock(ctx context.Context, h uint64) (string, error) {
+	if err := ctx.Err(); err != nil {
+		return "", err // 已被取消：不再发请求，直接退出
+	}
 	if h == 107 {
 		return "", fmt.Errorf("block %d: rpc timeout", h)
 	}
@@ -252,7 +256,7 @@ func main() {
 		g.Go(func() error { // Go 1.22+：i 和 h 每次迭代都是新变量
 			s, err := fetchBlock(ctx, h)
 			if err != nil {
-				return err // 第一个错误会取消 ctx，其他 goroutine 应尽快退出
+				return err // 第一个错误会取消 ctx；之后的任务在 fetchBlock 开头看到 ctx 已取消就退出
 			}
 			hashes[i] = s // 每个 goroutine 写不同下标，不需要加锁
 			return nil
@@ -322,6 +326,7 @@ func ParseUnits(s string, decimals int) (*big.Int, error) {
 ${call('info', `<p><strong>big.Int 的三个坑</strong>：① 运算结果写进接收者：<code>z.Add(x, y)</code> 会修改 z，所以常写 <code>new(big.Int).Add(x, y)</code>。② 不要复制值：<code>a := *b</code> 会共享底层数组，用 <code>new(big.Int).Set(b)</code>。③ 比较用 <code>x.Cmp(y)</code>，不能用 <code>==</code>（那是比较指针）。数据库里用 <code>NUMERIC(78,0)</code> 存 uint256。</p>`)}
 
 <h2>7. 项目目录结构</h2>
+<p>注意：这里是一个<strong>生产级索引器项目</strong>的布局，和前面练手用的 <code>example.com/gointro</code> 是两个项目。练手项目里 units 包直接放在 <code>gointro/units/</code>，所以 main.go 导入 <code>example.com/gointro/units</code>；在下面的生产布局里，同样的包放在 <code>pkg/units/</code>，导入路径会变成 <code>&lt;模块名&gt;/pkg/units</code>。</p>
 ${code('BASH', `
 indexer/
 ├── cmd/
@@ -497,7 +502,7 @@ ${tbl(['ethclient 方法', '对应 JSON-RPC', '返回'], [
   ['<code>TransactionReceipt(ctx, hash)</code>', 'eth_getTransactionReceipt', '<code>*types.Receipt</code>；未打包返回 ethereum.NotFound'],
   ['<code>CallContract(ctx, msg, nil)</code>', 'eth_call', '<code>[]byte</code>（ABI 编码的返回值）'],
   ['<code>FilterLogs(ctx, q)</code>', 'eth_getLogs', '<code>[]types.Log</code>'],
-  ['<code>SubscribeNewHead(ctx, ch)</code>', 'eth_subscribe newHeads（只能用 WS）', '<code>ethereum.Subscription</code>']
+  ['<code>SubscribeNewHead(ctx, ch)</code>', 'eth_subscribe newHeads（只能用 WS 或 IPC，HTTP 不支持）', '<code>ethereum.Subscription</code>']
 ])}
 ${mm('读链程序的调用链', `
 sequenceDiagram
@@ -831,7 +836,7 @@ flowchart LR
 <h2>6. 订阅与断线重连</h2>
 <p><code>SubscribeNewHead</code> 和 <code>SubscribeFilterLogs</code> 只能在 WebSocket（或 IPC）连接上使用。连接会因为网络抖动、节点重启、服务商空闲超时而断开。断开时 <code>sub.Err()</code> 会收到错误。下面的函数在断开后按指数退避重连：</p>
 ${code('GO', `
-// watchHeads 订阅新区块头，断线后指数退避重连（1s, 2s, 4s … 最多约 30s）。
+// watchHeads 订阅新区块头，断线后指数退避重连（1s, 2s, 4s, 8s, 16s, 30s, 30s …，封顶 30s）。
 // onHead 只用来“唤醒”扫块循环；真正的数据仍按高度拉取，避免断线期间漏块。
 func watchHeads(ctx context.Context, wsURL string, onHead func(*types.Header)) {
 	backoff := time.Second
@@ -866,8 +871,9 @@ func watchHeads(ctx context.Context, wsURL string, onHead func(*types.Header)) {
 		case <-ctx.Done():
 			return
 		}
-		if backoff < 30*time.Second {
-			backoff *= 2
+		backoff *= 2
+		if backoff > 30*time.Second {
+			backoff = 30 * time.Second // 封顶 30s
 		}
 	}
 }

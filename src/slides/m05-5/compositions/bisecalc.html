@@ -1,0 +1,131 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 bisecalc，id 前缀 bc- -->
+  <div id="root" data-composition-id="bisecalc" data-duration="58.33" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="bc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="bc-all">
+        <g id="bc-calc">
+<text id="bc-title" class="h" x="120" y="140" font-size="52" font-weight="700" fill="#e8e6df">算一算<tspan font-size="36" fill="#8a8f99">（示例）</tspan></text>
+<text id="bc-big" class="h" x="960" y="290" font-size="88" font-weight="700" fill="#58C4DD" text-anchor="middle">20 亿步</text>
+<text id="bc-f1" class="h" x="960" y="400" font-size="40" fill="#e8e6df" text-anchor="middle">轮数 = <tspan class="mono">log</tspan><tspan class="mono" font-size="28" dy="10">2</tspan><tspan class="mono" dy="-10">(2,000,000,000) ≈ 30.9</tspan> → 向上取整 <tspan font-weight="700" fill="#58C4DD">31</tspan></text>
+<text id="bc-f2" class="h" x="960" y="485" font-size="40" fill="#e8e6df" text-anchor="middle">31 轮 × (1 + 1) 小时 = <tspan font-weight="700" fill="#F0B90B">62 小时</tspan></text>
+<g id="bc-bar" class="h">
+  <rect id="bc-barr" x="360" y="550" width="1200" height="70" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+  <text x="1560" y="665" font-size="28" fill="#8a8f99" text-anchor="end">7 天 = 168 小时</text>
+</g>
+<rect id="bc-fill" class="h" x="362" y="552" width="0" height="66" rx="8" fill="#58C4DD" fill-opacity="0.45"/>
+<text id="bc-fl" class="h" x="360" y="665" font-size="28" fill="#58C4DD">62 小时 ≈ 37%</text>
+<text id="bc-f3" class="h" x="960" y="770" font-size="32" fill="#e8e6df" text-anchor="middle">5 亿步：<tspan class="mono">2</tspan><tspan class="mono" font-size="28" dy="-14">28</tspan><tspan class="mono" dy="14"> = 268,435,456 &lt; </tspan>5 亿<tspan class="mono"> &lt; 2</tspan><tspan class="mono" font-size="28" dy="-14">29</tspan><tspan class="mono" dy="14"> = 536,870,912</tspan></text>
+<text id="bc-f3b" class="h" x="960" y="830" font-size="32" fill="#e8e6df" text-anchor="middle">→ 29 轮 → <tspan font-weight="700" fill="#F0B90B">最多约 58 小时</tspan></text>
+<g id="bc-k1" class="h"><rect x="830" y="558" width="250" height="54" rx="8" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2"/><text x="955" y="595" font-size="28" fill="#FF9F43" text-anchor="middle">多轮 L1 交易</text></g>
+<g id="bc-k2" class="h"><rect x="1096" y="558" width="170" height="54" rx="8" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2"/><text x="1181" y="595" font-size="28" fill="#FF9F43" text-anchor="middle">响应时间</text></g>
+<g id="bc-k3" class="h"><rect x="1282" y="558" width="150" height="54" rx="8" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2"/><text x="1357" y="595" font-size="28" fill="#FF9F43" text-anchor="middle">抗审查</text></g>
+</g>
+<g id="bc-gate" class="h">
+  <path d="M860 720 L860 420 Q960 340 1060 420 L1060 720" fill="none" stroke="#e8e6df" stroke-width="4"/>
+  <line x1="660" y1="720" x2="1400" y2="720" stroke="#8a8f99" stroke-width="3"/>
+</g>
+<g id="bc-leaf"><rect id="bc-leafr" class="h" x="866" y="430" width="188" height="286" rx="4" fill="#8a8f99" fill-opacity="0.25"/></g>
+<g id="bc-lock" class="h">
+  <rect id="bc-lockr" x="932" y="560" width="56" height="46" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+  <path id="bc-shk" d="M944 560 L944 546 Q960 522 976 546 L976 560" fill="none" stroke="#FC6255" stroke-width="3"/>
+</g>
+<text id="bc-wl" class="h" x="960" y="320" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">白名单</text>
+<g id="bc-in" class="h" fill="none" stroke="#B48EF0" stroke-width="3">
+  <circle cx="1120" cy="640" r="16"/><path d="M1100 700 Q1120 660 1140 700"/>
+  <circle cx="1180" cy="640" r="16"/><path d="M1160 700 Q1180 660 1200 700"/>
+  <circle cx="1240" cy="640" r="16"/><path d="M1220 700 Q1240 660 1260 700"/>
+</g>
+<g id="bc-out" class="h" fill="none" stroke="#8a8f99" stroke-width="3">
+  <g id="bc-o1"><circle cx="720" cy="640" r="16"/><path d="M700 700 Q720 660 740 700"/></g>
+  <g id="bc-o2"><circle cx="780" cy="640" r="16"/><path d="M760 700 Q780 660 800 700"/></g>
+</g>
+<text id="bc-eq" class="h" x="960" y="810" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">安全 = 信任白名单</text>
+<text id="bc-open" class="h" x="960" y="810" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">任何人都能挑战</text>
+<g id="bc-d1" class="h">
+  <circle cx="300" cy="905" r="10" fill="#83C167"/>
+  <text x="330" y="915" font-size="30" fill="#e8e6df"><tspan class="mono" font-weight="700" fill="#83C167">2024.06</tspan> OP Mainnet 无需许可故障证明</text>
+</g>
+<g id="bc-d2" class="h">
+  <circle cx="300" cy="965" r="10" fill="#83C167"/>
+  <text x="330" y="975" font-size="30" fill="#e8e6df"><tspan class="mono" font-weight="700" fill="#83C167">2025.02</tspan> Arbitrum One 启用 BoLD 争议协议</text>
+</g>
+<text id="bc-note" class="h" x="1760" y="975" font-size="28" fill="#8a8f99" text-anchor="end">参数以官方文档为准</text>
+
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      IN("#bc-title", at(0, 0.02), 0.5);
+IN("#bc-big", at(0, 0.35), 0.6, { scale: 0.7, svgOrigin: "960 260" }, { scale: 1, svgOrigin: "960 260" });
+IN("#bc-f1", at(1, 0.05), 0.6, { y: 12 }, { y: 0 });
+tl.to("#bc-big", { opacity: 0.85, duration: 0.3 }, at(1, 0.6));
+IN("#bc-f2", at(2, 0.05), 0.6, { y: 12 }, { y: 0 });
+IN("#bc-bar", at(2, 0.35), 0.5);
+IN("#bc-fill", at(2, 0.45), 0.2);
+tl.to("#bc-fill", { attr: { width: 443 }, duration: 1.0, ease: "power2.out" }, at(2, 0.45));
+IN("#bc-fl", at(2, 0.7), 0.4);
+IN("#bc-f3", at(3, 0.05), 0.6, { y: 12 }, { y: 0 });
+IN("#bc-f3b", at(3, 0.6), 0.5, { y: 12 }, { y: 0 });
+tl.to("#bc-barr", { stroke: "#FF9F43", strokeWidth: 4, duration: 0.4 }, at(4, 0.02));
+tl.to("#bc-f3, #bc-f3b", { opacity: 0.5, duration: 0.4 }, at(4, 0.02));
+IN("#bc-k1", at(4, 0.2), 0.4, { y: -16 }, { y: 0 });
+IN("#bc-k2", at(4, 0.5), 0.4, { y: -16 }, { y: 0 });
+IN("#bc-k3", at(4, 0.75), 0.4, { y: -16 }, { y: 0 });
+// L5 whitelist gate
+OUT("#bc-calc", at(5, 0), 0.5);
+IN("#bc-gate, #bc-leafr", at(5, 0.08), 0.6);
+IN("#bc-lock", at(5, 0.2), 0.4, { scale: 0.5, svgOrigin: "960 580" }, { scale: 1, svgOrigin: "960 580" });
+IN("#bc-wl", at(5, 0.25), 0.4);
+IN("#bc-in", at(5, 0.4), 0.5);
+IN("#bc-out", at(5, 0.5), 0.5, { x: -40 }, { x: 0 });
+tl.to("#bc-o1", { x: 70, duration: 0.4, ease: "power2.out", yoyo: true, repeat: 1 }, at(5, 0.62));
+IN("#bc-eq", at(5, 0.72), 0.5);
+// L6 permissionless
+tl.to("#bc-shk", { y: -14, duration: 0.3 }, at(6, 0.03));
+tl.to("#bc-lockr, #bc-shk", { stroke: "#83C167", duration: 0.3 }, at(6, 0.03));
+tl.to("#bc-wl", { opacity: 0, duration: 0.3 }, at(6, 0.03));
+tl.to("#bc-leafr", { attr: { width: 20 }, duration: 0.6, ease: "power2.inOut" }, at(6, 0.08));
+OUT("#bc-eq", at(6, 0.06), 0.3);
+IN("#bc-open", at(6, 0.06) + 0.35, 0.4);
+tl.to("#bc-out", { stroke: "#83C167", duration: 0.3 }, at(6, 0.12));
+tl.to("#bc-o1", { x: 580, duration: 0.9, ease: "power2.inOut" }, at(6, 0.14));
+tl.to("#bc-o2", { x: 580, y: 0, duration: 0.9, ease: "power2.inOut" }, at(6, 0.18));
+IN("#bc-d1", at(6, 0.3), 0.5, { x: -20 }, { x: 0 });
+IN("#bc-d2", at(6, 0.6), 0.5, { x: -20 }, { x: 0 });
+IN("#bc-note", at(6, 0.88), 0.4);
+
+
+      tl.to("#bc-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["bisecalc"] = tl;
+    })();
+  </script>
+</template>

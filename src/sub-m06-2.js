@@ -1,13 +1,13 @@
-/* ---------- M12 子文章（2/4）：m06-4 ~ m06-6 ---------- */
+/* ---------- M13 子文章（2/4）：m06-4 ~ m06-6 ---------- */
 (() => {
 CUR = 'm06-4';
-addCh({ id: 'm06-4', nav: 'Agent 写链与钱包', title: 'M12.4 Agent 写链与钱包：让 Agent 能花钱，但花不了不该花的钱', desc: '四种资产托管方案、交易模拟、人工审批、密钥隔离、重试与审计', html: `
-<h1>M12.4 Agent 写链与钱包：让 Agent 能花钱，但花不了不该花的钱</h1>
-${meta(['对比直接私钥、托管 API、MPC 钱包服务、智能账户 + 会话密钥四种方案，并为场景选型。', '写出“构造 → 模拟 → 策略 → 审批 → 签名 → 广播 → 确认”的写链流水线，并用 viem 做交易模拟。', '设计签名服务与 LLM 进程的隔离边界、失败重试规则和审计日志表。'], '前置：<a href="#m06-3">M12.3 Agent 读链</a>、<a href="#m03">M09 钱包</a>')}
+addCh({ id: 'm06-4', nav: 'Agent 写链与钱包', title: 'M13.4 Agent 写链与钱包：让 Agent 能花钱，但花不了不该花的钱', desc: '四种资产托管方案、交易模拟、人工审批、密钥隔离、重试与审计', html: `
+<h1>M13.4 Agent 写链与钱包：让 Agent 能花钱，但花不了不该花的钱</h1>
+${meta(['对比直接私钥、托管 API、MPC 钱包服务、智能账户 + 会话密钥四种方案，并为场景选型。', '写出“构造 → 模拟 → 策略 → 审批 → 签名 → 广播 → 确认”的写链流水线，并用 viem 做交易模拟。', '设计签名服务与 LLM 进程的隔离边界、失败重试规则和审计日志表。'], '前置：<a href="#m06-3">M13.3 Agent 读链</a>、<a href="#m03">M08 钱包</a>')}
 ${beginner(`<p><strong>私钥（Private Key）</strong>：一串 256 位的秘密数字。谁拿到它，谁就能签名转走地址里的全部资产。</p>
 <p><strong>托管（Custody）</strong>：由第三方替你保管私钥，你通过账号和 API 发起转账。</p>
 <p><strong>MPC（多方安全计算，Multi-Party Computation）</strong>：把一把私钥拆成几份，分给不同的服务器；签名时它们协作算出签名，但任何时刻都没有一台机器拥有完整私钥。</p>
-<p><strong>智能账户（Smart Account）</strong>：一个合约形式的钱包，可以写规则：限额、白名单、多签、临时密钥（原理见 <a href="#m06-5">M09.8 账户抽象深入</a>）。</p>
+<p><strong>智能账户（Smart Account）</strong>：一个合约形式的钱包，可以写规则：限额、白名单、多签、临时密钥（原理见 <a href="#m06-5">M08.8 账户抽象深入</a>）。</p>
 <p><strong>交易模拟（Simulation）</strong>：在不真正上链的情况下，用当前链上状态“试运行”一笔交易，看它会成功还是失败、资产怎么变。</p>
 <p><strong>Nonce</strong>：账户发出交易的序号，从 0 开始递增。同一个 nonce 只能有一笔交易上链。</p>`)}
 
@@ -315,9 +315,9 @@ ${terms([
 ` });
 
 CUR = 'm06-5';
-addCh({ id: 'm06-5', nav: '账户抽象深入', title: 'M09.8 账户抽象深入：ERC-4337、模块化账户与 EIP-7702', desc: 'UserOperation 全字段、Bundler 到 EntryPoint 调用链、会话密钥、7702 与 Paymaster', html: `
-<h1>M09.8 账户抽象深入：ERC-4337、模块化账户与 EIP-7702</h1>
-${meta(['说出 EOA 的局限，以及 ERC-4337 六个组件（UserOperation、Bundler、EntryPoint、智能账户、Paymaster、Aggregator）各自的职责。', '画出一笔 UserOperation 从签名到执行的完整调用链，解释验证与执行为什么分离。', '解释会话密钥、ERC-7579 模块、EIP-7702 委托、Paymaster 代付和社交恢复，并列出安全注意事项。'], '前置：<a href="#m06-4">M12.4 Agent 写链与钱包</a>、<a href="#m02">M02 智能合约</a>')}
+addCh({ id: 'm06-5', nav: '账户抽象深入', title: 'M08.8 账户抽象深入：ERC-4337、模块化账户与 EIP-7702', desc: 'UserOperation 全字段、Bundler 到 EntryPoint 调用链、会话密钥、7702 与 Paymaster', html: `
+<h1>M08.8 账户抽象深入：ERC-4337、模块化账户与 EIP-7702</h1>
+${meta(['说出 EOA 的局限，以及 ERC-4337 六个组件（UserOperation、Bundler、EntryPoint、智能账户、Paymaster、Aggregator）各自的职责。', '画出一笔 UserOperation 从签名到执行的完整调用链，解释验证与执行为什么分离。', '解释会话密钥、ERC-7579 模块、EIP-7702 委托、Paymaster 代付和社交恢复，并列出安全注意事项。'], '前置：<a href="#m06-4">M13.4 Agent 写链与钱包</a>、<a href="#m02">M02 智能合约</a>')}
 ${beginner(`<p><strong>EOA（外部拥有账户，Externally Owned Account）</strong>：由一把私钥控制的普通账户，例如你在 MetaMask 里创建的地址。它没有代码。</p>
 <p><strong>合约账户（Contract Account）</strong>：地址上部署了代码的账户。它不能自己发起交易，只能被调用。</p>
 <p><strong>Gas</strong>：以太坊上执行操作的计价单位。发交易要付 Gas 费，传统上必须用 ETH 付。</p>
@@ -478,7 +478,7 @@ ${steps([
 
 <h2>4. 会话密钥、模块化账户与 EIP-7702</h2>
 <h3>4.1 会话密钥与 ERC-7579 模块</h3>
-<p><strong>会话密钥（Session Key）</strong>：主人授权的一把临时密钥，附带权限：有效期、可调用的合约和函数、金额上限、调用次数。Agent 持有它；主人随时可撤销。同样的思路也用在链游（玩家不用每步弹钱包，见 <a href="#m09-5">M13.5 GameFi 与链上游戏</a>）和链上社交的应用密钥（见 <a href="#m09-2">M13.2 链上社交</a>）。</p>
+<p><strong>会话密钥（Session Key）</strong>：主人授权的一把临时密钥，附带权限：有效期、可调用的合约和函数、金额上限、调用次数。Agent 持有它；主人随时可撤销。同样的思路也用在链游（玩家不用每步弹钱包，见 <a href="#m09-5">M14.5 GameFi 与链上游戏</a>）和链上社交的应用密钥（见 <a href="#m09-2">M14.2 链上社交</a>）。</p>
 <p><strong>ERC-7579</strong> 是“模块化智能账户”的接口标准：账户核心很小，功能通过可安装的模块扩展。不同钱包厂商的模块可以互相兼容。</p>
 ${mm('ERC-7579 模块化账户：四类模块', `
 flowchart TB
@@ -543,7 +543,7 @@ ${tbl(['安全注意事项', '说明'], [
   ['tx.origin 假设失效', '7702 之后 <code>msg.sender == tx.origin</code> 不再能证明调用者是“没有代码的 EOA”，依赖它做防护的合约需要修改']
 ])}
 <h2>6. Passkey 钱包：用手机生物识别签名</h2>
-<p><strong>Passkey</strong> 是基于 WebAuthn 标准的无密码凭证：手机或电脑的安全硬件（Secure Enclave、TPM、Android Keystore）生成一对 <strong>secp256r1（也叫 P-256）</strong>密钥，私钥不出设备，每次签名都要用户用 Face ID 或指纹授权。${cite('W3C：Web Authentication Level 3', 'https://www.w3.org/TR/webauthn-3/')}以太坊 EOA 用的是 secp256k1，曲线不同，所以 passkey 不能直接当 EOA 私钥，只能做智能账户的“签名者”。ERC-4337 把 UserOperation 的 signature 字段交给账户自己解释，正是为此留的口子。${cite('ERC-4337 规范', 'https://eips.ethereum.org/EIPS/eip-4337')}</p>
+<p><strong>Passkey</strong> 是基于 WebAuthn 标准的无密码凭证：手机或电脑的安全硬件（Secure Enclave、TPM、Android Keystore）生成一对 <strong>secp256r1（也叫 P-256）</strong>密钥，私钥不出设备，每次签名都要用户用 Face ID 或指纹授权。${cite('W3C：Web Authentication Level 3', 'https://www.w3.org/TR/webauthn-3/')}以太坊 EOA 用的是 secp256k1，曲线不同，所以 passkey 不能直接当 EOA 私钥，只能做智能账户的“签名者”。ERC-4337 把 UserOperation 的 signature 字段交给账户自己解释，正是为此留的口子。${cite('ERC-4337 规范', 'https://eips.ethereum.org/EIPS/eip-4337')}本节讲合约侧怎样验签；嵌入式钱包（分片、TEE）与 Passkey 钱包的产品选型对比，见 <a href="#m03-60">M08.12 嵌入式钱包与 Passkey</a>（后面会讲）。</p>
 ${steps([
   '钱包把 <code>userOpHash</code> 作为 WebAuthn 的 challenge，请求设备签名。',
   '设备返回三样东西：authenticatorData（含域名哈希 rpIdHash 和“用户在场 / 已验证”标志）、clientDataJSON（含 challenge、origin、type）、签名 (r, s)。设备签的是 authenticatorData ‖ SHA-256(clientDataJSON)，<strong>不是</strong> userOpHash 本身。',
@@ -622,9 +622,9 @@ ${terms([
 ` });
 
 CUR = 'm06-6';
-addCh({ id: 'm06-6', nav: 'Agent 安全', title: 'M12.5 Agent 安全：提示注入、工具滥用与纵深防御', desc: 'OWASP LLM 风险、注入样例、七层防御架构、策略 DSL 与红队测试', html: `
-<h1>M12.5 Agent 安全：提示注入、工具滥用与纵深防御</h1>
-${meta(['列出 OWASP LLM Top 10 中与链上 Agent 最相关的风险，并识别直接与间接提示注入的具体样例。', '画出七层纵深防御架构，说明每层挡住什么、挡不住什么。', '设计一套策略规则 DSL 和红队测试流程，用拦截率、误拦率、损失上限评估 Agent。'], '前置：<a href="#m06-4">M12.4 Agent 写链与钱包</a>、<a href="#m06-5">M09.8 账户抽象深入</a>', ['agent', 'tooluse'])}
+addCh({ id: 'm06-6', nav: 'Agent 安全', title: 'M13.5 Agent 安全：提示注入、工具滥用与纵深防御', desc: 'OWASP LLM 风险、注入样例、七层防御架构、策略 DSL 与红队测试', html: `
+<h1>M13.5 Agent 安全：提示注入、工具滥用与纵深防御</h1>
+${meta(['列出 OWASP LLM Top 10 中与链上 Agent 最相关的风险，并识别直接与间接提示注入的具体样例。', '画出七层纵深防御架构，说明每层挡住什么、挡不住什么。', '设计一套策略规则 DSL 和红队测试流程，用拦截率、误拦率、损失上限评估 Agent。'], '前置：<a href="#m06-4">M13.4 Agent 写链与钱包</a>、<a href="#m06-5">M08.8 账户抽象深入</a>', ['agent', 'tooluse'])}
 ${beginner(`<p><strong>提示注入（Prompt Injection）</strong>：攻击者把指令藏进模型会读到的文字里，让模型做开发者或用户不想让它做的事。</p>
 <p><strong>越权（Privilege Escalation）</strong>：一个组件做了超出它本应拥有权限的事。</p>
 <p><strong>确定性（Deterministic）</strong>：同样的输入永远得到同样的输出。普通代码是确定性的，LLM 不是。</p>
@@ -704,7 +704,7 @@ flowchart LR
   ['limit', '过滤关键词（例如“忽略之前的指令”）很容易被改写、编码或换语言绕过，只能作为辅助。']
 ])}
 ${call('deep', '<p>真实案例（据公开报道）：2024 年 11 月，一个名为 Freysa 的 AI Agent 游戏把“绝不转出奖金”写在系统提示里，参与者付费发消息尝试说服它。一名参与者通过伪造“新会话”和重新定义转账函数的含义，让它转出了约 4.7 万美元（约 13.19 ETH）的奖金池。' + cite('The Block：Human player outwits Freysa AI agent', 'https://www.theblock.co/post/328747/human-player-outwits-freysa-ai-agent-in-47000-crypto-challenge') + cite('Simon Willison：Freysa 获胜消息分析', 'https://simonwillison.net/b/8335') + '教训：规则写在提示词里，最终会被语言绕过。</p>')}
-<p>下面先做 <a href="#lab-tooluse">tooluse 实验</a>（见 <a href="#m06-1">M12.1</a>）：打开“注入”开关，观察一条工具结果如何改变 Agent 的下一步。再做下面的策略实验：<strong>先</strong>关闭全部防护运行，记录损失；<strong>再</strong>逐项打开防护，观察每条规则挡住的是哪个攻击。</p>
+<p>下面先做 <a href="#lab-tooluse">tooluse 实验</a>（见 <a href="#m06-1">M13.1</a>）：打开“注入”开关，观察一条工具结果如何改变 Agent 的下一步。再做下面的策略实验：<strong>先</strong>关闭全部防护运行，记录损失；<strong>再</strong>逐项打开防护，观察每条规则挡住的是哪个攻击。</p>
 ${lab('agent')}
 
 <h2>4. 工具滥用、越权与数据泄露</h2>

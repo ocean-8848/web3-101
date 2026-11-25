@@ -77,7 +77,7 @@ flowchart LR
   ['key', 'UTXO 互相独立，天然适合并行验证；但表达复杂合约状态很不方便。'],
   ['limit', '比特币 L1 没有通用智能合约。DeFi 类应用需要侧链或二层方案。']
 ])}
-<p>比特币各部分的深入讲解：UTXO 与脚本见 <a href="#m05-60">M05.4</a>，SegWit、Taproot 与 PSBT 见 <a href="#m05-61">M05.5</a>，闪电网络见 <a href="#m05-62">M05.6 闪电网络</a>。</p>
+<p>比特币各部分的深入讲解：UTXO 与脚本见 <a href="#m05-60">M06.1</a>，SegWit、Taproot 与 PSBT 见 <a href="#m05-61">M06.2</a>，闪电网络见 <a href="#m05-62">M06.3 闪电网络</a>。</p>
 <h3>3.2 以太坊：账户、EVM 与 Rollup 中心路线</h3>
 <p>以太坊（Ethereum，2015）使用 <strong>账户模型（Account Model）</strong>：全局状态是一张“地址 → 账户”的表，每个账户有余额、nonce，合约账户还有代码和存储。交易在 <strong>EVM（Ethereum Virtual Machine，以太坊虚拟机）</strong> 中执行，主流合约语言是 Solidity。</p>
 <p>2022 年 The Merge 之后，以太坊改用权益证明（PoS），每 12 秒一个 slot，约 13 分钟（2 个 epoch）达到最终确定。以太坊的扩容策略叫 <strong>Rollup 中心路线图（Rollup-centric Roadmap）</strong>：L1 专注安全和数据可用性，日常交易在 Arbitrum、Optimism、Base 等 L2 上执行。细节见 <a href="#m05-2">M04.2 以太坊架构</a>。</p>
@@ -98,7 +98,7 @@ ${tbl(['项目', 'Aptos', 'Sui'], [
   ['共识', 'AptosBFT（BFT 家族）', 'Mysticeti（基于 DAG 的 BFT）'],
   ['最终性', '亚秒到秒级', '亚秒到秒级']
 ])}
-<p>Move 资源模型、Aptos 与 Sui 的开发细节见 <a href="#m05-64">M05.8 Move 链</a>。</p>
+<p>Move 资源模型、Aptos 与 Sui 的开发细节见 <a href="#m05-64">M06.9 Move 链</a>。</p>
 <h3>3.7 TON：分片与异步消息</h3>
 <p>TON（The Open Network）最初由 Telegram 团队设计。它有一条主链（Masterchain）和多条工作链（Workchain），工作链按负载动态拆分成分片链（Shardchain）。合约之间不能同步调用，只能互发 <strong>异步消息</strong>，类似“演员模型（Actor Model）”。开发语言有 FunC、Tact、Tolk。优势是和 Telegram 的用户入口深度集成；难点是异步编程容易写出“消息发出去但对方失败、自己没回滚”的 bug。</p>
 <h3>3.8 BNB Chain：EVM 兼容与少量验证者</h3>
@@ -187,7 +187,7 @@ ${mistakes([
 ])}
 ${recap(['不可能三角：去中心化、安全、可扩展性很难同时最大化，每条链都在取舍。', '比特币用 UTXO + 受限脚本，扩容靠闪电网络支付通道。', '以太坊用账户 + EVM，扩容走 Rollup 中心路线。', 'Solana 用 PoH 排序 + Sealevel 并行；Sui 用对象模型；Aptos 用 Block-STM。', 'Cosmos 是应用链 + IBC，Polkadot 是中继链共享安全；TON 用异步消息和动态分片。', '选链按硬约束逐步排除，并把确认规则、生态依赖写进上线清单。'])}
 ${quiz([
-  { q: '一条链把区块大小提高 10 倍，最可能直接牺牲不可能三角中的哪一项？', o: ['安全', '去中心化', '可扩展性', '三者都不受影响'], a: 1, why: '解析：大区块需要更多带宽和硬件，能运行节点的人变少，去中心化下降。可扩展性反而提高；安全不会直接下降。' },
+  { q: '一条链把区块大小提高 10 倍，最可能直接牺牲不可能三角中的哪一项？', o: ['安全', '去中心化', '可扩展性', '三者都不受影响'], a: 1, why: '解析：大区块需要更多带宽和硬件，能运行节点的人变少，去中心化下降。可扩展性反而提高。安全不是首先受损的一项，但也会间接变差：大区块传播更慢，孤块和分叉增多，节点变少也让攻击和审查更容易。' },
   { q: 'Solana 的 PoH 主要解决什么问题？', o: ['替代共识投票', '加密交易内容', '降低存储成本', '在不额外通信的情况下给交易一个可验证的全局顺序'], a: 3, why: '解析：PoH 是可验证的时钟，用来排序。共识仍由 Tower BFT 投票完成；它不负责加密和存储。' },
   { q: 'Sui 中只涉及用户自己“独占对象”的转账，为什么能更快？', o: ['因为它不需要和其他交易做全局排序，可以走快速路径', '因为它跳过了签名验证', '因为它只由一个节点处理', '因为它不收手续费'], a: 0, why: '解析：独占对象不会和别人的交易冲突，不需要共识排序。签名仍要验证，也仍由验证者集合确认并收费。' },
   { q: '一个团队全部是 Solidity 开发者，需要深度 DeFi 流动性，且用户不能接受高 Gas。最合理的首选是？', o: ['比特币 L1', 'Cosmos 新应用链', '以太坊 L2（如 Arbitrum、Base）', 'TON'], a: 2, why: '解析：L2 兼容 EVM、费用低，又能接入以太坊流动性。比特币 L1 没有通用合约；新应用链需要从零建设流动性；TON 语言栈不同。' }
@@ -306,7 +306,7 @@ ${call('warn', `<p>质押服务商和交易所集中使用同一个执行客户�
 
 <h2>4. 状态、状态树与存储</h2>
 <p>以太坊的<strong>世界状态（World State）</strong>是一个“地址 → 账户”的映射。每个账户有四个字段：</p>
-${steps(['<code>nonce</code>：外部账户已发出的交易数；合约账户已创建的合约数。', '<code>balance</code>：余额，单位 wei（1 ETH = 10^18 wei）。', '<code>storageRoot</code>：该合约存储树的根哈希。', '<code>codeHash</code>：合约代码的哈希；外部账户为空代码的哈希。'])}
+${steps(['<code>nonce</code>：外部账户已发出的交易数；合约账户从 1 开始，每创建一个合约加 1。', '<code>balance</code>：余额，单位 wei（1 ETH = 10^18 wei）。', '<code>storageRoot</code>：该合约存储树的根哈希。', '<code>codeHash</code>：合约代码的哈希；外部账户为空代码的哈希。'])}
 <p>这些数据用 <strong>默克尔帕特里夏树（MPT，Merkle Patricia Trie）</strong> 组织。树根 <code>stateRoot</code> 写进每个区块头。任何账户的任何变化都会改变 stateRoot，所以节点只要比较一个 32 字节的哈希，就能确认双方状态完全一致。</p>
 ${mm('区块头、状态树与合约存储的关系', `
 flowchart TB
@@ -467,7 +467,7 @@ ${art('一图看懂：验证者押 32 ETH，按时干活有奖励，缺席小罚
   S.box(235, 246, 190, 54, { k: 'risk', icon: 'warn', t: '签两份矛盾消息', s: '双重提议 双重投票 环绕投票', ss: 11.5 }),
   S.box(460, 46, 190, 70, { k: 'ok', t: '领奖励', s: '共识 + 执行层收入\n年化约 3%', mono: 0 }),
   S.box(460, 146, 190, 70, { k: 'warn', t: '小额惩罚', s: '约等于少拿的那份奖励\n网络正常时代价很小' }),
-  S.box(460, 246, 190, 54, { k: 'risk', t: '罚没并踢出', s: '约 36 天后强制退出', ss: 11.5 }),
+  S.box(460, 246, 190, 54, { k: 'risk', t: '罚没并踢出', s: '立即踢出，约 36 天后可提', ss: 11.5 }),
   S.arrow(202, 81, 233, 81),
   S.arrow(202, 181, 233, 181),
   S.arrow(202, 273, 233, 273),
@@ -498,7 +498,7 @@ stateDiagram-v2
   Pending --> Active: 轮到激活名额
   Active --> Exiting: 自愿退出 或 余额过低
   Active --> Slashed: 双重提议 或 双重投票 或 环绕投票
-  Slashed --> Exited: 约 36 天后强制退出
+  Slashed --> Exited: 立即强制退出 约 36 天后才可提款
   Exiting --> Exited: 轮到退出名额
   Exited --> Withdrawn: 约 27 小时后 提款扫描转出
   Withdrawn --> [*]
@@ -506,10 +506,10 @@ stateDiagram-v2
   ['flow', '存款 → 排队 → 履职 → 退出 → 提款。激活和退出都要排队，速度受“流失上限（churn limit）”控制。'],
   ['key', '排队的目的：限制验证者集合的变化速度，让攻击者无法在短时间内大量进出、绕开罚没。'],
   ['fail', '在排队期间你的 ETH 不产生奖励，也不能取回。市场剧烈波动时，退出队列可能长达数周。'],
-  ['risk', '被罚没后，验证者要等约 36 天才能退出。这期间还会叠加“相关性罚金”，同时期被罚的人越多，罚得越重。']
+  ['risk', '被罚没后，验证者立即被强制退出（进入退出队列），但要等约 36 天（8,192 个 epoch）才能提款，“约 27 小时后提款”不适用于它。这期间还会叠加“相关性罚金”，同时期被罚的人越多，罚得越重。']
 ])}
 <h3>2.1 存款与激活</h3>
-${steps(['用 staking-deposit-cli（以太坊基金会提供）或其他工具离线生成验证者密钥和存款数据 deposit_data.json。', '在存款合约 <code>0x00000000219ab540356cBB839Cbe05303d7705Fa</code> 中存入 32 ETH（通过官方 Launchpad 网页操作，避免钓鱼网站）。', '共识层读取存款事件。Pectra（EIP-6110）之后，存款直接从执行层区块中读取，等待时间从约 12 小时缩短到约十几分钟到几十分钟（主要等存款所在区块最终确定）。', '进入激活队列。Pectra 之后流失上限按 ETH 计算（示例：每个 epoch 最多激活约 256 ETH 的质押）。', '激活后，验证者开始被分配职责。'])}
+${steps(['用 ethstaker-deposit-cli（EthStaker 社区维护；以太坊基金会原来的 staking-deposit-cli 已于 2025 年 10 月归档，工具以 Launchpad 当前推荐为准）或其他工具离线生成验证者密钥和存款数据 deposit_data.json。', '在存款合约 <code>0x00000000219ab540356cBB839Cbe05303d7705Fa</code> 中存入 32 ETH（通过官方 Launchpad 网页操作，避免钓鱼网站）。', '共识层读取存款事件。Pectra（EIP-6110）之后，存款直接从执行层区块中读取，等待时间从约 12 小时缩短到约十几分钟到几十分钟（主要等存款所在区块最终确定）。', '进入激活队列。Pectra 之后流失上限按 ETH 计算（示例：每个 epoch 最多激活约 256 ETH 的质押）。', '激活后，验证者开始被分配职责。'])}
 ${call('info', `<p><strong>提款凭证（Withdrawal Credentials）</strong> 决定提款去哪里：<code>0x00</code> 是旧式 BLS 凭证（必须先转换才能提款）；<code>0x01</code> 指向一个执行层地址；<code>0x02</code>（Pectra 引入）是“复利型”，有效余额可以在 32 到 2,048 ETH 之间自动增长。凭证设定后只能升级，不能改到别的地址。生成密钥时务必核对提款地址。</p>`)}
 <h3>2.2 三项职责</h3>
 ${tbl(['职责', '频率', '内容', '奖励权重（满分 64）'], [
@@ -546,7 +546,7 @@ flowchart LR
   ['risk', '罚没不需要恶意。2021 年以来的大多数罚没事件，都来自运维失误，例如主备同时在线、同一密钥跑在两个客户端里。' + cite('Consensys：理解以太坊质押中的罚没', 'https://consensys.com/blog/understanding-slashing-in-ethereum-staking-its-importance-and-consequences')]
 ])}
 <p><strong>罚没的三部分代价</strong>（Pectra 之后的参数）：</p>
-${steps(['<strong>初始罚金</strong>：有效余额的 1/4,096。32 ETH 约 0.0078 ETH。', '<strong>相关性罚金</strong>：在罚没后第 18 天左右扣除，金额 ≈ 有效余额 × min(1, 3 × 前后 36 天内被罚没的总质押 ÷ 全网质押)。', '<strong>强制退出</strong>：约 36 天内持续扣除证明惩罚，然后被踢出，永远不能用这把密钥重新加入。'])}
+${steps(['<strong>初始罚金</strong>：有效余额的 1/4,096。32 ETH 约 0.0078 ETH。', '<strong>相关性罚金</strong>：在罚没后第 18 天左右扣除，金额 ≈ 有效余额 × min(1, 3 × 前后 36 天内被罚没的总质押 ÷ 全网质押)。', '<strong>强制退出</strong>：罚没当时立即被踢出（进入退出队列），永远不能用这把密钥重新加入；余额要到约 36 天后才可提款，在此之前持续扣除证明惩罚。'])}
 <p><strong>算一算（示例）</strong>：全网质押 3,400 万 ETH。</p>
 ${steps(['你单独因为主备双开被罚没：相关性罚金 ≈ 32 × 3 × 32 ÷ 34,000,000 ≈ 0.00009 ETH，几乎为 0。总损失主要是 36 天的离线惩罚，约 0.1 ETH。', '一家质押服务商的 34 万 ETH（1%）同时被罚：32 × 3 × 1% = 0.96 ETH，每个验证者损失约 1 ETH。', '1/3 质押同时被罚（协同攻击）：3 × 1/3 = 1，每个验证者的有效余额被全部扣光。', '结论：罚没设计惩罚的是“协同作恶”，而不是孤立事故。这也是不要把验证者集中在同一服务商、同一客户端的原因。'])}
 
@@ -591,71 +591,13 @@ ${tbl(['方式', '门槛', '你持有密钥？', '主要风险', '适合谁'], [
 ])}
 ${call('info', `<p>stETH 是“余额自动增长（rebasing）”代币：你的余额每天变多。很多 DeFi 协议无法正确处理变化的余额，所以常用 wstETH（包装后余额不变，兑换比例上升）。集成时要看清楚协议用的是哪一种。</p>`)}
 
-<h3>6.1 LST 的记账：shares 与兑换率</h3>
-<p>流动性质押代币（LST）要回答一个问题：<strong>奖励怎么分给持有人？</strong>以 Lido 的 stETH 为例，合约内部不直接记“你有多少 stETH”，而是记<strong>份额（shares）</strong>。你的 stETH 余额是用份额按当前比例换算出来的：</p>
-${one('stETH 余额 = 你的 shares × 池内 ETH 总量 ÷ 全部 shares')}
-<p>预言机每天把共识层的验证者余额汇报给合约，“池内 ETH 总量”随之变化，所有持有人的 stETH 余额同时变化（rebase）。奖励为负时（例如罚没或离线），余额也可能下降。wstETH 是为 DeFi 准备的包装版：它的数量等于 shares 的数量，<strong>余额不变，单价上升</strong>。</p>
-${mm('stETH 与 wstETH 怎么反映奖励', `
-flowchart LR
-  A["用户存入 ETH"] --> B["Lido 池：总 ETH 与总 shares"]
-  B --> C["按当前比例铸造 shares<br/>stETH 余额由 shares 换算"]
-  D["预言机每日汇报共识层余额"] --> E["池内 ETH 总量变化"]
-  E --> C
-  C -->|"wrap"| F["wstETH：数量等于 shares<br/>余额不变"]
-  F --> G["stEthPerToken 上升<br/>单个 wstETH 能换更多 stETH"]
-`, [
-  ['flow', '奖励只改变“池内 ETH 总量”，不改变 shares。stETH 余额跟着变；wstETH 余额不变，兑换率变。'],
-  ['fail', '协议把 stETH 余额当成固定数值记账，一天后余额变了，账与实际不符。用 wstETH，或每次读取最新兑换。'],
-  ['risk', '协议内的兑换率不等于市场价格。stETH 在二级市场可能折价（见上文 2022 年的例子），用它做抵押时，估值要用带折价的市场价预言机。'],
-  ['key', '处理 LST 时先问：它是 rebase（余额变）还是 wrapped（余额不变、汇率变）。']
-])}
-<p><strong>算一算（示例）：</strong>池里共有 1,000,000 shares，对应 1,000,000 ETH，即 1 share = 1 ETH。Alice 持有 100 shares，也就是 100 stETH。</p>
-${steps([
-  '一天后，奖励让池内 ETH 总量变成 1,000,100（示例，日增 0.01%），shares 总数不变。',
-  'Alice 的 stETH 余额 = 100 × 1,000,100 ÷ 1,000,000 = 100.01 stETH，凭空多了 0.01，这就是 rebase。',
-  '如果 Alice 把 100 stETH 包装成 wstETH，她得到 100 wstETH（数量等于 shares）。一天后她仍有 100 wstETH，但 stEthPerToken 变成 1.0001，价值 100 × 1.0001 = 100.01 stETH。'
-])}
-${code('SOLIDITY', `
-interface IWstETH {
-    function balanceOf(address) external view returns (uint256);
-    function stEthPerToken() external view returns (uint256);          // 每个 wstETH 对应多少 stETH，18 位精度
-}
-
-// 估算某用户持有的 wstETH 相当于多少 stETH（1 stETH 约 1 ETH 只是协议内兑换率，不是市场价）
-function wstValueInStEth(IWstETH wst, address user) external view returns (uint256) {
-    return wst.balanceOf(user) * wst.stEthPerToken() / 1e18;           // 先乘后除，保留精度
-}
-`)}
-<p>取回队列、折价、LST 作抵押品以及再质押的风险层，见 <a href="#m02-63">M08.4 流动性质押与再质押</a>。</p>
-<h3>6.2 再质押：角色、委托与提款延迟</h3>
-<p>再质押（Restaking）让同一份质押资产为多个服务提供安全。以 EigenLayer 为例，涉及三个角色：</p>
-${tbl(['角色', '做什么', '承担什么风险'], [
-  ['再质押者（Restaker）', '把原生 ETH 或 LST 存入 EigenLayer，并<strong>委托</strong>给一个运营者', '被委托的运营者作恶或失误时，委托给他的那部分资产可能被罚没'],
-  ['运营者（Operator）', '运行节点，选择为哪些 AVS 提供服务', '违反某个 AVS 的规则会被该 AVS 罚没'],
-  ['AVS（主动验证服务）', '需要“经济安全”的链下或链上服务，例如数据可用性、预言机、跨链验证', '自己制定规则、自己写罚没合约；设计不当会连累所有参与者']
-])}
-${mm('再质押的资金与权力路径', `
-flowchart TB
-  R["再质押者<br/>存入 ETH 或 LST"] --> M["EigenLayer 合约<br/>记录存款与委托"]
-  R -->|"委托（不转移托管）"| O["运营者"]
-  O -->|"选择加入"| V1["AVS 甲"]
-  O -->|"选择加入"| V2["AVS 乙"]
-  V1 -->|"违反规则"| S["罚没：扣减运营者及其委托者的质押"]
-  R -->|"提款：先排队，等待延迟期"| W["取回资产"]
-`, [
-  ['flow', '委托只转移“投票和履约的权力”，不转移资产的所有权。资产仍在 EigenLayer 的合约里。'],
-  ['risk', '风险叠加：Lido 的合约风险 + EigenLayer 的合约风险 + 运营者风险 + 每个 AVS 的罚没规则风险。'],
-  ['fail', '提款不是立即到账：需要先发起排队，等待延迟期结束，目的是让 AVS 有时间应对安全性下降。'],
-  ['limit', '具体的罚没规则、延迟期长度等参数由协议和各 AVS 决定，并会随升级变化，以官方文档为准。']
-])}
-${exq([
-  ['为什么用 wstETH 做 DeFi 抵押，通常比用 stETH 更容易集成？', '<p>stETH 的余额会每天变化，协议记下的数字会和实际不符。wstETH 的余额不变，奖励体现在兑换率上，协议只需要在需要估值时读一次兑换率。</p>'],
-  ['同一份 ETH 先质押到 Lido，再把 stETH 再质押，风险是简单相加吗？', '<p>不是简单相加，而是<strong>叠加</strong>：任何一层出问题，都可能让你损失本金；而且各层的罚没、折价、提款延迟会相互放大，在市场恐慌时尤其明显。</p>']
-])}
+<h3>6.1 LST 与再质押：先记住两件事</h3>
+<p>第一，LST 合约内部按<strong>份额（shares）</strong>记账：stETH 余额 = 你的 shares × 池内 ETH 总量 ÷ 全部 shares，奖励到账时余额自动变化；wstETH 的数量等于 shares，余额不变、兑换率上升。第二，再质押有三个角色：再质押者把 ETH 或 LST <strong>委托</strong>给运营者（只转移权力，不转移托管），运营者选择加入若干 AVS，违反任何一个 AVS 的规则都可能被罚没，提款要先排队等待延迟期。shares 的手算例子、rETH 汇率模型、取回队列与折价、LST 作抵押品和 LRT 风险层，详见 <a href="#m02-63">M05.4 流动性质押与再质押</a>（后面会讲）。</p>
 <p class="muted small">资料来源：<a href="https://docs.lido.fi/guides/lido-tokens-integration-guide/" target="_blank" rel="noopener noreferrer">Lido 代币集成指南</a>、<a href="https://docs.lido.fi/contracts/wsteth" target="_blank" rel="noopener noreferrer">Lido wstETH 文档</a>、<a href="https://docs.eigencloud.xyz/eigenlayer/restakers/concepts/overview" target="_blank" rel="noopener noreferrer">EigenLayer 再质押概览</a>。协议参数会变化，请以官方文档为准。</p>
 
 <h2>7. 验证者运维：工程实战</h2>
 ${steps(['<strong>客户端</strong>：执行层 + 共识层 + 验证者客户端；优先少数派组合。硬件示例：8 核 CPU、32 GB 内存、4 TB NVMe SSD、25 Mbps 以上稳定带宽。', '<strong>密钥分离</strong>：签名密钥在线（热），提款地址用硬件钱包或多签（冷）。助记词离线保存，永不上服务器。', '<strong>防双签</strong>：同一时刻只允许一个实例持有签名密钥；开启 doppelganger 检测（启动后先观察 2–3 个 epoch，确认网络上没有同一密钥在签名）；迁移时导出并导入 EIP-3076 格式的防罚没数据。', '<strong>远程签名器</strong>：用 Web3Signer 集中保管密钥并内置防罚没数据库，验证者客户端只发签名请求。', '<strong>分布式验证者（DVT）</strong>：Obol、SSV 等方案把一把验证者密钥拆成门限分片，由多个运营者共同签名，单机宕机不离线，单个运营者也无法双签。', '<strong>监控与告警</strong>：同步状态、对等节点数、证明命中率、错过的提议、余额变化、磁盘剩余。'])}
+<p>本节讲单个运营者的基本功。机构规模下的远程签名器（Web3Signer）、DVT 门限集群和 AVS 节点运维，见 <a href="#m05-73">M04.13 机构级质押运维</a>。</p>
 <p>验证者客户端内部的防罚没检查逻辑可以概括为下面的 Go 代码（简化示例，生产请使用客户端自带实现）：</p>
 ${code('GO', `
 package slashprot
@@ -744,7 +686,7 @@ ${tbl(['检查项', '为什么', '怎么验证'], [
 ${mistakes([
   ['为了 100% 在线，应该同时跑主备两个验证者实例。', '主备同时在线会双签被罚没。偶尔离线只损失少量奖励，远比罚没便宜。'],
   ['被罚没就会失去全部 32 ETH。', '孤立事故的罚没损失通常很小；只有大量验证者同时被罚，相关性罚金才会扣光余额。'],
-  ['质押的 ETH 随时可以取回。', '退出要排队，之后还有约 27 小时的延迟；罚没后要等约 36 天。'],
+  ['质押的 ETH 随时可以取回。', '退出要排队，之后还有约 27 小时的延迟；罚没后会立即被踢出，但要等约 36 天才能提款。'],
   ['stETH 永远等于 1 ETH。', 'stETH 在二级市场可能折价，2022 年 6 月曾折价约 6%–7%。' + cite('CoinShares：Lido stETH 脱锚分析（2022-06）', 'https://coinshares.com/corp/insights/research-data/is-the-decoupling-of-lidos-staked-eth-another-stablecoin-collapse/') + '赎回要走协议的退出队列。'],
   ['再质押是“免费”的额外收益。', '再质押给你的 ETH 增加了额外的罚没条件和合约风险。']
 ])}
@@ -757,7 +699,7 @@ ${quiz([
   { q: '为什么 Lido 等协议的质押占比被社区密切关注？', o: ['因为占比高会导致 ETH 增发', '因为单一协议超过 1/3 可阻止最终性，超过 2/3 可最终确定任意链', '因为它会让 Gas 上涨', '因为占比高会让 stETH 不能转账'], a: 1, why: '解析：质押集中会放大单点的治理与运维风险。与增发、Gas、转账功能无直接关系。' }
 ])}
 ${checklist([
-  '能用 shares 公式手算 stETH 余额在奖励前后的变化。',
+  '能写出 stETH 的 shares 记账公式，说清奖励为什么会改变余额（手算练习见 M05.4）。',
   '能解释 wstETH 为什么“余额不变、单价上升”，并说出集成时该用哪种。',
   '能说出再质押中三类角色各自承担的风险，以及风险为什么会叠加。'
 ])}

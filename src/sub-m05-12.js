@@ -1,8 +1,8 @@
 /* ---------- M04 以太坊与基础设施（12）：m05-74 P2P 网络层与以太坊前沿路线 ---------- */
 (() => {
 CUR = 'm05-74';
-addCh({ id: 'm05-74', nav: 'P2P 网络层与前沿路线', title: 'M04.16 P2P 网络层与以太坊前沿路线：devp2p、GossipSub、PeerDAS、无状态与 FOCIL', desc: '节点如何发现彼此与广播区块（devp2p/libp2p/GossipSub）、内存池淘汰策略、日蚀攻击防御，以及 PeerDAS、无状态客户端与 FOCIL 抗审查演进', html: `
-<h1>M04.16 P2P 网络层与以太坊前沿路线：devp2p、GossipSub、PeerDAS、无状态与 FOCIL</h1>
+addCh({ id: 'm05-74', nav: 'P2P 网络层与前沿路线', title: 'M04.14 P2P 网络层与以太坊前沿路线：devp2p、GossipSub、PeerDAS、无状态与 FOCIL', desc: '节点如何发现彼此与广播区块（devp2p/libp2p/GossipSub）、内存池淘汰策略、日蚀攻击防御，以及 PeerDAS、无状态客户端与 FOCIL 抗审查演进', html: `
+<h1>M04.14 P2P 网络层与以太坊前沿路线：devp2p、GossipSub、PeerDAS、无状态与 FOCIL</h1>
 ${meta([
   '说清以太坊执行层（devp2p）与共识层（libp2p / GossipSub）如何发现节点、传播交易与大区块。',
   '理解内存池（Mempool）的局部视图、淘汰规则与日蚀攻击（Eclipse Attack）等网络层安全威胁。',

@@ -111,7 +111,7 @@ ${lab('proxy')}
 <h2>4. CREATE2、最小代理（EIP-1167）与 Permit2 基础设施</h2>
 <p>除了“可升级”，生产合约工程还有三类高频底层模式，经常和代理配合出现：</p>
 <ul>
-<li><strong>CREATE2 确定性部署</strong>：普通 <code>CREATE</code> 的合约地址由 <code>(部署者地址, nonce)</code> 决定，多链部署很难拿到相同地址。<code>CREATE2</code> 使用 <code>keccak256(0xff ++ deployer ++ salt ++ keccak256(init_code))[12:]</code>，让你在合约还没上链前就能提前算出反事实地址（Counterfactual Address），广泛用于多链同址部署与智能合约钱包（见 <a href="#m06-5">M09.8 账户抽象深入</a>）。</li>
+<li><strong>CREATE2 确定性部署</strong>：普通 <code>CREATE</code> 的合约地址由 <code>(部署者地址, nonce)</code> 决定，多链部署很难拿到相同地址。<code>CREATE2</code> 使用 <code>keccak256(0xff ++ deployer ++ salt ++ keccak256(init_code))[12:]</code>，让你在合约还没上链前就能提前算出反事实地址（Counterfactual Address），广泛用于多链同址部署与智能合约钱包（见 <a href="#m06-5">M08.8 账户抽象深入</a>）。</li>
 <li><strong>EIP-1167 最小代理（Minimal Proxy / Clone）</strong>：如果工厂合约要给每个交易对或用户部署一份逻辑完全相同的不可升级副本，每次完整部署 10 KB 字节码极贵。EIP-1167 只部署一段 <strong>45 字节</strong>的极简转发字节码，硬编码把全部调用 <code>delegatecall</code> 给单一模板实现。</li>
 <li><strong>Permit2 统一授权</strong>：传统 ERC-20 要给每个新协议单独发一笔 <code>approve</code> 交易，而且旧代币（如 USDT）不支持 EIP-2612。Uniswap 开源的 <strong>Permit2</strong> 部署在多链相同地址上：用户只需对 Permit2 授权一次，此后任意协议都通过带过期时间的签名按需划扣，既兼容旧代币又支持批量撤销（详见 <a href="#m02-5">M02.5 ERC-20 与授权</a>）。</li>
 </ul>
@@ -119,13 +119,13 @@ ${call('deep', `<p><strong>算一算：工厂部署 500 个金库的 Gas 对比�
 假设单个完整金库合约部署需 1,500,000 Gas；使用 EIP-1167 Clone 只需部署 1 次模板（1,500,000 Gas）+ 500 次最小代理（每次约 45,000 Gas）。<br/>
 • 直接部署 500 次：500 × 1,500,000 = <strong>750,000,000 Gas</strong>。<br/>
 • EIP-1167 Clone：1,500,000 + 500 × 45,000 = <strong>24,000,000 Gas</strong>，节省约 <strong>96.8%</strong> 的部署成本。<br/>
-代价：每次调用 Clone 会多花一次 <code>DELEGATECALL</code> 转发开销（约 700–2,600 Gas，视冷热访问而定）。</p>`)}
+代价：每次调用 Clone 会多花一次 <code>DELEGATECALL</code> 转发开销（EIP-2929 之后，访问模板地址热访问约 100 Gas、冷访问约 2,600 Gas，另加复制 calldata 和返回数据的少量开销）。</p>`)}
 
 <h2>5. 生产环境升级清单</h2>
 ${tbl(['检查项', '为什么', '怎么验证'], [
   ['实现合约构造函数调用 <code>_disableInitializers()</code>', '防止攻击者直接初始化裸实现合约并接管权限', 'Foundry 测试直接对 impl 地址调 initialize() 必须 revert'],
   ['CI 接入存储布局兼容性检查', '人工肉眼核对极易漏看继承顺序或打包槽位变化', '运行 <code>forge inspect Contract storage-layout</code> 或 OpenZeppelin Upgrades 插件自动比对 V1/V2'],
-  ['升级权限交给「多签 + 时间锁」', '单私钥升级等同于中心化后门，一旦泄露协议归零', '检查 owner / ProxyAdmin 是否为 TimelockController，且 proposer 为 Safe 多签（见 <a href="#m03-4">M09.4 多签钱包</a>）'],
+  ['升级权限交给「多签 + 时间锁」', '单私钥升级等同于中心化后门，一旦泄露协议归零', '检查 owner / ProxyAdmin 是否为 TimelockController，且 proposer 为 Safe 多签（见 <a href="#m03-4">M08.4 多签钱包</a>）'],
   ['升级后状态冒烟与 Fork 回归测试', '验证旧用户余额、授权、未结算仓位在 V2 下读数完全一致', '在主网 Fork 上模拟执行 upgradeToAndCall 后重跑全套不变量测试'],
   ['新版本保留升级能力（UUPS）', 'UUPS 误删升级入口会导致永久不可升级', '升级前在 Fork 环境验证 V2 仍能继续升级到哑合约 V3']
 ])}

@@ -1,0 +1,168 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 sources，id 前缀 so- -->
+  <div id="root" data-composition-id="sources" data-duration="73.16" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="so-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="so-all">
+
+        <text id="so-t" class="h" x="960" y="160" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">MEV 从哪来</text>
+        <rect id="so-q1" class="dr" pathLength="1" x="160" y="210" width="790" height="335" rx="16" fill="none" stroke="#8a8f99" stroke-width="2"/><rect id="so-q2" class="dr" pathLength="1" x="970" y="210" width="790" height="335" rx="16" fill="none" stroke="#8a8f99" stroke-width="2"/><rect id="so-q3" class="dr" pathLength="1" x="160" y="565" width="790" height="335" rx="16" fill="none" stroke="#8a8f99" stroke-width="2"/><rect id="so-q4" class="dr" pathLength="1" x="970" y="565" width="790" height="335" rx="16" fill="none" stroke="#8a8f99" stroke-width="2"/>
+        <!-- 套利 -->
+        <g id="so-n1" class="h"><circle cx="192" cy="256" r="9" fill="#83C167"/><text x="214" y="268" font-size="36" font-weight="700" fill="#83C167">套利</text></g>
+        <g id="so-pools" class="h">
+          <circle cx="330" cy="385" r="62" fill="none" stroke="#58C4DD" stroke-width="2.5"/>
+          <circle cx="650" cy="385" r="62" fill="none" stroke="#58C4DD" stroke-width="2.5"/>
+          <text class="mono" x="330" y="395" font-size="28" fill="#58C4DD" text-anchor="middle">DEX A</text>
+          <text class="mono" x="650" y="395" font-size="28" fill="#58C4DD" text-anchor="middle">DEX B</text>
+        </g>
+        <text id="so-lo" class="h" x="330" y="490" font-size="28" fill="#8a8f99" text-anchor="middle">价低</text>
+        <text id="so-hi" class="h" x="650" y="490" font-size="28" fill="#8a8f99" text-anchor="middle">价高</text>
+        <circle id="so-coin" class="h" cx="380" cy="300" r="15" fill="#F0B90B"/>
+        <g id="so-ndg" class="h"><line id="so-nd" x1="650" y1="440" x2="650" y2="420" stroke="#F0B90B" stroke-width="5" stroke-linecap="round"/></g>
+        <g id="so-big" class="h"><rect x="740" y="320" width="170" height="46" rx="8" fill="#F0B90B"/><text x="825" y="353" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">大单</text></g>
+        <path id="so-tail" class="dr h" pathLength="1" d="M930 412 H735" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#so-arr)"/>
+        <text id="so-tl" class="h" x="835" y="452" font-size="28" fill="#83C167" text-anchor="middle">尾随</text>
+        <g id="so-b1" class="h"><rect x="770" y="475" width="150" height="50" rx="25" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2"/><text x="845.0" y="510" font-size="28" fill="#83C167" text-anchor="middle">中性偏好</text></g>
+        <!-- 清算 -->
+        <g id="so-n2" class="h"><circle cx="1002" cy="256" r="9" fill="#83C167"/><text x="1024" y="268" font-size="36" font-weight="700" fill="#83C167">清算</text></g>
+        <g id="so-bar" class="h">
+          <rect x="1010" y="320" width="490" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <text x="1010" y="412" font-size="28" fill="#8a8f99">抵押率</text>
+        </g>
+        <rect id="so-fill" class="h" x="1013" y="323" width="400" height="38" rx="6" fill="#58C4DD"/>
+        <g id="so-th" class="h"><line x1="1230" y1="306" x2="1230" y2="378" stroke="#FC6255" stroke-width="3"/><text x="1244" y="300" font-size="28" fill="#FC6255">阈值</text></g>
+        <g id="so-bot" class="h"><rect x="1560" y="386" width="130" height="50" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1625" y="421" font-size="28" fill="#FC6255" text-anchor="middle">机器人</text></g>
+        <text id="so-rw" class="h" x="1010" y="500" font-size="28" fill="#F0B90B">奖励（例）5%–10% 折扣</text>
+        <g id="so-b2" class="h"><rect x="1630" y="475" width="100" height="50" rx="25" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2"/><text x="1680.0" y="510" font-size="28" fill="#83C167" text-anchor="middle">必要</text></g>
+        <!-- 三明治 -->
+        <g id="so-n3" class="h"><circle cx="192" cy="611" r="9" fill="#FC6255"/><text x="214" y="623" font-size="36" font-weight="700" fill="#FC6255">三明治</text></g>
+        <g id="so-s2" class="h"><rect x="360" y="704" width="340" height="56" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="530" y="742" font-size="28" fill="#F0B90B" text-anchor="middle">你的买单</text></g>
+        <g id="so-s1" class="h"><rect x="360" y="640" width="340" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="530" y="678" font-size="28" fill="#FC6255" text-anchor="middle">机器人买</text></g>
+        <g id="so-s3" class="h"><rect x="360" y="768" width="340" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="530" y="806" font-size="28" fill="#FC6255" text-anchor="middle">机器人卖</text></g>
+        <g id="so-b3" class="h"><rect x="820" y="830" width="100" height="50" rx="25" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2"/><text x="870.0" y="865" font-size="28" fill="#FC6255" text-anchor="middle">有害</text></g>
+        <!-- JIT -->
+        <g id="so-n4" class="h"><circle cx="1002" cy="611" r="9" fill="#FC6255"/><text x="1024" y="623" font-size="36" font-weight="700" fill="#FC6255">JIT</text></g>
+        <g id="so-ax" class="h">
+          <line x1="1010" y1="790" x2="1720" y2="790" stroke="#8a8f99" stroke-width="2.5"/>
+          <text x="1720" y="770" font-size="28" fill="#8a8f99" text-anchor="end">价格区间</text>
+        </g>
+        <g id="so-jitg"><rect id="so-jit" class="h" x="1340" y="650" width="22" height="140" fill="#FC6255"/></g>
+        <path id="so-ord" class="dr h" pathLength="1" d="M1020 700 H1700" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#so-arr)"/>
+        <text id="so-ordl" class="h" x="1020" y="684" font-size="28" fill="#F0B90B">大单</text>
+        <circle id="so-f0" class="h" cx="1120" cy="735" r="9" fill="#F0B90B"/>
+        <circle id="so-f1" class="h" cx="1220" cy="735" r="9" fill="#F0B90B"/>
+        <circle id="so-f2" class="h" cx="1300" cy="735" r="9" fill="#F0B90B"/>
+        <circle id="so-f3" class="h" cx="1450" cy="735" r="9" fill="#F0B90B"/>
+        <circle id="so-f4" class="h" cx="1560" cy="735" r="9" fill="#F0B90B"/>
+        <g id="so-b4a" class="h"><rect x="1000" y="830" width="200" height="50" rx="25" fill="#8a8f99" fill-opacity="0.15" stroke="#8a8f99" stroke-width="2"/><text x="1100.0" y="865" font-size="28" fill="#8a8f99" text-anchor="middle">交易者：中性</text></g><g id="so-b4b" class="h"><rect x="1220" y="830" width="210" height="50" rx="25" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2"/><text x="1325.0" y="865" font-size="28" fill="#FC6255" text-anchor="middle">普通 LP：有害</text></g>
+        <text id="so-oth" class="h" x="1300" y="965" font-size="28" fill="#8a8f99" text-anchor="end">其他：NFT 抢铸 · 预言机尾随 · 跨域套利 · 长尾代币狙击</text>
+        <text id="so-oth2" class="h" x="1330" y="965" font-size="28" fill="#e8e6df">— 视情况</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="so-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">三明治攻击 <tspan font-size="28" font-weight="400" fill="#8a8f99">Sandwich Attack</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">在受害者前后各插一笔交易获利</text>
+      </g>
+      <g id="so-term2" class="h">
+        <rect x="70" y="56" width="630" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">JIT 流动性 <tspan font-size="28" font-weight="400" fill="#8a8f99">Just-In-Time Liquidity</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">大单前加入、成交后撤出的窄区间流动性</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // L0 四格
+      IN("#so-t", at(0, 0.02), 0.5);
+      ["#so-q1", "#so-q2", "#so-q3", "#so-q4"].forEach((s, i) => DRAW(s, at(0, 0.25) + i * 0.2, 0.7));
+      // L1 套利
+      IN("#so-n1", at(1, 0.02), 0.4);
+      IN("#so-pools", at(1, 0.06), 0.5);
+      IN("#so-lo, #so-hi", at(1, 0.14), 0.5);
+      IN("#so-coin", at(1, 0.22), 0.3);
+      tl.to("#so-coin", { keyframes: [{ x: 130, y: -20, duration: 0.6 }, { x: 260, y: 0, duration: 0.6 }], ease: "none" }, at(1, 0.25));
+      tl.to("#so-coin", { attr: { r: 24 }, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.25) + 1.2);
+      OUT("#so-coin", at(1, 0.42), 0.3);
+      IN("#so-ndg", at(1, 0.45), 0.3);
+      IN("#so-big", at(1, 0.5), 0.6, { x: 60 }, { x: 0 });
+      tl.to("#so-nd", { rotation: -55, svgOrigin: "650 440", duration: 0.6, ease: "power2.out" }, at(1, 0.55));
+      ARROW("#so-tail", at(1, 0.68), 0.6);
+      IN("#so-tl", at(1, 0.7), 0.4);
+      tl.to("#so-nd", { rotation: 0, svgOrigin: "650 440", duration: 0.6, ease: "power2.inOut" }, at(1, 0.74));
+      IN("#so-b1", at(1, 0.86), 0.5, { scale: 0.8, svgOrigin: "845 500" }, { scale: 1, svgOrigin: "845 500" });
+      // L2 清算
+      IN("#so-n2", at(2, 0.02), 0.4);
+      IN("#so-bar, #so-fill", at(2, 0.08), 0.5);
+      IN("#so-th", at(2, 0.16), 0.5);
+      tl.to("#so-fill", { attr: { width: 150 }, duration: 1.4, ease: "power1.in" }, at(2, 0.24));
+      tl.to("#so-fill", { attr: { fill: "#FC6255" }, duration: 0.3 }, at(2, 0.24) + 1.1);
+      IN("#so-bot", at(2, 0.42), 0.3);
+      tl.to("#so-bot", { x: -330, duration: 0.7, ease: "power3.in" }, at(2, 0.44));
+      IN("#so-rw", at(2, 0.55), 0.5);
+      tl.to("#so-fill", { attr: { width: 0 }, duration: 0.6 }, at(2, 0.62));
+      IN("#so-b2", at(2, 0.86), 0.5, { scale: 0.8, svgOrigin: "1680 500" }, { scale: 1, svgOrigin: "1680 500" });
+      // L3 三明治
+      IN("#so-n3", at(3, 0.0), 0.4);
+      IN("#so-term", at(3, 0.05), 0.5);
+      IN("#so-s2", at(3, 0.12), 0.5);
+      IN("#so-s1", at(3, 0.3), 0.5, { y: -40 }, { y: 0 });
+      IN("#so-s3", at(3, 0.5), 0.5, { y: 40 }, { y: 0 });
+      IN("#so-b3", at(3, 0.78), 0.5, { scale: 0.8, svgOrigin: "870 855" }, { scale: 1, svgOrigin: "870 855" });
+      OUT("#so-term", at(3, 0.93), 0.4);
+      // L4 JIT
+      IN("#so-term2", at(4, 0.04), 0.5);
+      IN("#so-n4", at(4, 0.04), 0.4);
+      IN("#so-ax", at(4, 0.12), 0.5);
+      IN("#so-jit", at(4, 0.32), 0.5, { scaleY: 0, svgOrigin: "1351 790" }, { scaleY: 1, svgOrigin: "1351 790" });
+      ARROW("#so-ord", at(4, 0.5), 1.0);
+      IN("#so-ordl", at(4, 0.5), 0.4);
+      ["#so-f0", "#so-f1", "#so-f2", "#so-f3", "#so-f4"].forEach((s, i) => {
+        const cx = [1120, 1220, 1300, 1450, 1560][i];
+        IN(s, at(4, 0.6) + i * 0.12, 0.25);
+        tl.to(s, { x: 1351 - cx, y: -15, opacity: 0, duration: 0.6, ease: "power2.in" }, at(4, 0.68) + i * 0.12);
+      });
+      tl.to("#so-jit", { scaleX: 1.6, svgOrigin: "1351 790", duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.8));
+      OUT("#so-jit", at(4, 0.92), 0.5);
+      OUT("#so-term2", at(5, 0.4), 0.4);
+      // L5 两个徽章
+      IN("#so-b4a", at(5, 0.08), 0.5, { y: 10 }, { y: 0 });
+      IN("#so-b4b", at(5, 0.52), 0.5, { y: 10 }, { y: 0 });
+      // L6 其他
+      IN("#so-oth", at(6, 0.1), 0.6);
+      IN("#so-oth2", at(6, 0.7), 0.5);
+      tl.to("#so-term2", { opacity: 0, duration: 0.01 }, C.d - 0.5);
+
+
+      tl.to("#so-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#so-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["sources"] = tl;
+    })();
+  </script>
+</template>

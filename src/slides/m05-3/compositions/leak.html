@@ -1,0 +1,213 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 leak，id 前缀 le- -->
+  <div id="root" data-composition-id="leak" data-duration="71.26" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="le-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="le-all">
+        <defs>
+          <marker id="le-arro" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker>
+          <clipPath id="le-c1"><rect id="le-c1r" x="260" y="290" width="0" height="560"/></clipPath>
+          <clipPath id="le-c2"><rect id="le-c2r" x="260" y="290" width="0" height="560"/></clipPath>
+        </defs>
+        <g id="le-p1">
+          <text id="le-fl" class="h" x="760" y="250" font-size="30" fill="#8a8f99">每个 epoch 的最终性</text>
+          <g id="le-l1" class="h"><circle id="le-lc1" cx="820" cy="320" r="26" fill="#2a2e38" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="820" y="395" font-size="28" fill="#8a8f99" text-anchor="middle">e1</text></g>
+          <g id="le-l2" class="h"><circle id="le-lc2" cx="1000" cy="320" r="26" fill="#2a2e38" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="1000" y="395" font-size="28" fill="#8a8f99" text-anchor="middle">e2</text></g>
+          <g id="le-l3" class="h"><circle id="le-lc3" cx="1180" cy="320" r="26" fill="#2a2e38" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="1180" y="395" font-size="28" fill="#8a8f99" text-anchor="middle">e3</text></g>
+          <g id="le-l4" class="h"><circle id="le-lc4" cx="1360" cy="320" r="26" fill="#2a2e38" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="1360" y="395" font-size="28" fill="#8a8f99" text-anchor="middle">e4</text></g>
+          <g id="le-l5" class="h"><circle id="le-lc5" cx="1540" cy="320" r="26" fill="#2a2e38" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="1540" y="395" font-size="28" fill="#8a8f99" text-anchor="middle">e5</text></g>
+          <text id="le-st1" class="h" x="1180" y="470" font-size="32" fill="#FF9F43" text-anchor="middle">连续 &gt; 4 epoch 未最终确定</text>
+          <text id="le-st2" class="h" x="1180" y="470" font-size="32" fill="#83C167" text-anchor="middle">在线 &gt; 2/3 → 恢复最终确定</text>
+          <g id="le-on" class="h">
+            <rect x="140" y="540" width="300" height="90" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+            <text x="290" y="597" font-size="34" fill="#83C167" text-anchor="middle">在线者</text>
+            <text id="le-on0" x="470" y="597" font-size="30" fill="#8a8f99">奖励 0 · 扣罚 0</text>
+          </g>
+          <g id="le-off" class="h">
+            <rect x="140" y="690" width="300" height="90" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+            <text x="290" y="747" font-size="34" fill="#FF9F43" text-anchor="middle">离线者</text>
+            <text x="470" y="722" font-size="28" fill="#FF9F43">不活跃分数</text>
+            <text id="le-cnt" class="mono" x="470" y="774" font-size="40" font-weight="700" fill="#FF9F43">0</text>
+          </g>
+          <g id="le-stk" class="h">
+            <rect id="le-bar" x="140" y="820" width="560" height="32" rx="6" fill="#F0B90B"/>
+            <text x="140" y="900" font-size="28" fill="#F0B90B">离线者的有效余额</text>
+          </g>
+          <g id="le-ch" class="h">
+            <line x1="1000" y1="900" x2="1720" y2="900" stroke="#8a8f99" stroke-width="2.5"/>
+            <line x1="1000" y1="900" x2="1000" y2="570" stroke="#8a8f99" stroke-width="2.5"/>
+            <text x="1000" y="548" font-size="28" fill="#8a8f99">每 epoch 扣罚</text>
+            <text x="1720" y="945" font-size="28" fill="#8a8f99" text-anchor="end">epoch →</text>
+          </g>
+          <path id="le-cv" class="dr" pathLength="1" d="M1000 898 Q1380 898 1700 590" fill="none" stroke="#FF9F43" stroke-width="5"/>
+          <text id="le-fm" class="h" x="1000" y="1000" font-size="30" fill="#FF9F43">扣罚 ∝ 分数 × 有效余额</text>
+        </g>
+        <g id="le-d1" class="h">
+          <g clip-path="url(#le-c1)">
+            <rect x="260" y="300" width="1200" height="540" fill="#FF9F43" opacity="0.85"/>
+            <path id="le-ga" d="" fill="#83C167"/>
+          </g>
+          <text x="290" y="350" font-size="32" font-weight="700" fill="#0f1117">离线 45%</text>
+          <text x="290" y="810" font-size="32" font-weight="700" fill="#0f1117">在线 <tspan id="le-onp">55</tspan>%</text>
+          <line x1="260" y1="480" x2="1470" y2="480" stroke="#e8e6df" stroke-width="3" stroke-dasharray="12 8"/>
+          <text class="mono" x="1490" y="490" font-size="30" fill="#e8e6df">2/3</text>
+          <text x="260" y="890" font-size="28" fill="#8a8f99">时间 →</text>
+          <text x="1460" y="890" font-size="28" fill="#8a8f99" text-anchor="end">示意 · 真实需数天到数周</text>
+          <text x="1660" y="560" font-size="30" fill="#8a8f99" text-anchor="middle">最终性</text>
+          <circle id="le-d1l" cx="1660" cy="640" r="40" fill="#2a2e38" stroke="#8a8f99" stroke-width="3"/>
+          <text id="le-d1t" class="h" x="1660" y="740" font-size="30" fill="#83C167" text-anchor="middle">越过 2/3</text>
+        </g>
+        <g id="le-d2" class="h">
+          <g clip-path="url(#le-c2)">
+            <rect x="260" y="300" width="1200" height="184" fill="#FC6255" opacity="0.9"/>
+            <rect x="260" y="484" width="1200" height="356" fill="#83C167"/>
+          </g>
+          <text x="290" y="405" font-size="32" font-weight="700" fill="#0f1117">作恶 34% · 不投票</text>
+          <text x="290" y="810" font-size="32" font-weight="700" fill="#0f1117">在线 66%</text>
+          <line x1="260" y1="480" x2="1470" y2="480" stroke="#e8e6df" stroke-width="3" stroke-dasharray="12 8"/>
+          <text class="mono" x="1490" y="490" font-size="30" fill="#e8e6df">2/3</text>
+          <text x="1490" y="380" font-size="28" fill="#8a8f99">离线 0</text>
+          <text x="1660" y="560" font-size="30" fill="#8a8f99" text-anchor="middle">最终性</text>
+          <circle id="le-d2l" cx="1660" cy="640" r="40" fill="#2a2e38" stroke="#8a8f99" stroke-width="3"/>
+          <text id="le-d2t" class="h" x="1660" y="740" font-size="30" fill="#FF9F43" text-anchor="middle">停止</text>
+          <text x="260" y="890" font-size="28" fill="#8a8f99">时间 →</text>
+        </g>
+        <g id="le-sp" class="h">
+          <rect x="260" y="320" width="640" height="440" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <rect x="1020" y="320" width="640" height="440" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="580" y="410" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">A 侧 50%</text>
+          <text x="1340" y="410" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">B 侧 50%</text>
+          <circle id="le-sla" cx="580" cy="520" r="36" fill="#2a2e38" stroke="#8a8f99" stroke-width="3"/>
+          <circle id="le-slb" cx="1340" cy="520" r="36" fill="#2a2e38" stroke="#8a8f99" stroke-width="3"/>
+          <path id="le-xa" class="dr h" pathLength="1" d="M640 640 Q960 560 1270 640" fill="none" stroke="#FF9F43" stroke-width="4" marker-end="url(#le-arro)"/>
+          <path id="le-xb" class="dr h" pathLength="1" d="M1280 700 Q960 780 650 700" fill="none" stroke="#FF9F43" stroke-width="4" marker-end="url(#le-arro)"/>
+          <text id="le-spt1" class="h" x="960" y="850" font-size="32" fill="#FF9F43" text-anchor="middle">各自扣掉对方的质押</text>
+          <text id="le-spt2" class="h" x="960" y="920" font-size="32" fill="#83C167" text-anchor="middle">几周后 → 各自恢复最终确定</text>
+          <text id="le-spt0" class="h" x="960" y="250" font-size="32" fill="#8a8f99" text-anchor="middle">没有泄漏：两边永远无法最终确定</text>
+        </g>
+        <g id="le-cn" class="h">
+          <rect x="300" y="380" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <line x1="390" y1="425" x2="430" y2="425" stroke="#58C4DD" stroke-width="3"/>
+          <rect x="430" y="380" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <line x1="520" y1="425" x2="560" y2="425" stroke="#58C4DD" stroke-width="3"/>
+          <rect x="560" y="380" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <line x1="650" y1="425" x2="690" y2="425" stroke="#58C4DD" stroke-width="3"/>
+          <rect x="690" y="380" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <circle cx="840" cy="425" r="30" fill="#83C167"/><path d="M826 425 L836 437 L855 412" fill="none" stroke="#0f1117" stroke-width="6" stroke-linecap="round"/>
+          <text x="300" y="345" font-size="30" fill="#8a8f99">A 链 · 已最终确定</text>
+          <rect x="1100" y="380" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <line x1="1190" y1="425" x2="1230" y2="425" stroke="#58C4DD" stroke-width="3"/>
+          <rect x="1230" y="380" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <line x1="1320" y1="425" x2="1360" y2="425" stroke="#58C4DD" stroke-width="3"/>
+          <rect x="1360" y="380" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <line x1="1450" y1="425" x2="1490" y2="425" stroke="#58C4DD" stroke-width="3"/>
+          <rect x="1490" y="380" width="90" height="90" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <circle cx="1640" cy="425" r="30" fill="#83C167"/><path d="M1626 425 L1636 437 L1655 412" fill="none" stroke="#0f1117" stroke-width="6" stroke-linecap="round"/>
+          <text x="1100" y="345" font-size="30" fill="#8a8f99">B 链 · 已最终确定</text>
+          <circle cx="880" cy="610" r="14" fill="#8a8f99"/><path d="M862 660 Q880 622 898 660 Z" fill="#8a8f99"/>
+          <circle cx="920" cy="610" r="14" fill="#8a8f99"/><path d="M902 660 Q920 622 938 660 Z" fill="#8a8f99"/>
+          <circle cx="960" cy="610" r="14" fill="#8a8f99"/><path d="M942 660 Q960 622 978 660 Z" fill="#8a8f99"/>
+          <circle cx="1000" cy="610" r="14" fill="#8a8f99"/><path d="M982 660 Q1000 622 1018 660 Z" fill="#8a8f99"/>
+          <circle cx="1040" cy="610" r="14" fill="#8a8f99"/><path d="M1022 660 Q1040 622 1058 660 Z" fill="#8a8f99"/>
+          <text x="960" y="720" font-size="34" fill="#e8e6df" text-anchor="middle">社会层</text>
+        </g>
+        <text id="le-ttl" class="h" x="960" y="880" font-size="56" font-weight="700" fill="#FF9F43" text-anchor="middle">可用性优先的代价</text>
+
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="le-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">不活跃泄漏 <tspan font-size="28" font-weight="400" fill="#8a8f99">Inactivity Leak</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">久不最终确定时，扣离线者的押金</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      (function () {
+        let d = "M260 840";
+        for (let k = 0; k <= 40; k++) { const u = k / 40, s = 55 + 25 * Math.pow(u, 1.6); d += ` L${(260 + 1200 * u).toFixed(1)} ${(840 - 5.4 * s).toFixed(1)}`; }
+        document.querySelector("#le-ga").setAttribute("d", d + " L1460 840 Z");
+      })();
+      // L0 lights
+      IN("#le-fl", at(0, 0.05), 0.5);
+      for (let i = 1; i <= 5; i++) IN(`#le-l${i}`, at(0, 0.08 + i * 0.07), 0.4);
+      IN("#le-term", at(0, 0.5), 0.5);
+      tl.to("#le-lc5", { fill: "#FF9F43", stroke: "#FF9F43", duration: 0.3 }, at(0, 0.62));
+      IN("#le-st1", at(0, 0.68), 0.5);
+      // L1 inactivity score & quadratic curve
+      IN("#le-off", at(1, 0.03), 0.5, { x: -20 }, { x: 0 });
+      IN("#le-ch", at(1, 0.12), 0.5);
+      COUNT("#le-cnt", 0, 12, at(1, 0.2), 5.5, v => String(Math.round(v)));
+      DRAW("#le-cv", at(1, 0.25), 5);
+      IN("#le-fm", at(1, 0.55), 0.5);
+      OUT("#le-term", at(1, 0.75), 0.4);
+      // L2 online not rewarded, offline stake shrinks, recovery
+      IN("#le-on", at(2, 0.02), 0.5, { x: -20 }, { x: 0 });
+      tl.fromTo("#le-on0", { fill: "#e8e6df" }, { fill: "#8a8f99", duration: 0.8, immediateRender: false }, at(2, 0.12));
+      IN("#le-stk", at(2, 0.3), 0.4);
+      tl.to("#le-bar", { attr: { width: 300 }, duration: 3, ease: "power1.in" }, at(2, 0.35));
+      OUT("#le-st1", at(2, 0.72), 0.3);
+      tl.to("#le-lc5", { fill: "#83C167", stroke: "#83C167", duration: 0.3 }, at(2, 0.76));
+      IN("#le-st2", at(2, 0.78), 0.5);
+      // L3 demo 45/55
+      OUT("#le-p1", at(3, 0), 0.5);
+      IN("#le-d1", at(3, 0.05), 0.5);
+      const r0 = at(3, 0.12), r1 = at(3, 0.9);
+      tl.fromTo("#le-c1r", { attr: { width: 0 } }, { attr: { width: 1200 }, duration: r1 - r0, ease: "none", immediateRender: false }, r0);
+      const cross = r0 + 0.622 * (r1 - r0);
+      tl.to("#le-d1l", { fill: "#83C167", stroke: "#83C167", duration: 0.3 }, cross);
+      IN("#le-d1t", cross + 0.1, 0.4);
+      // L4 34% malicious
+      OUT("#le-d1", at(4, 0), 0.4);
+      IN("#le-d2", at(4, 0.06), 0.4);
+      tl.fromTo("#le-c2r", { attr: { width: 0 } }, { attr: { width: 1200 }, duration: 3, ease: "none", immediateRender: false }, at(4, 0.12));
+      tl.to("#le-d2l", { stroke: "#FF9F43", duration: 0.3, yoyo: true, repeat: 3 }, at(4, 0.6));
+      IN("#le-d2t", at(4, 0.62), 0.4);
+      // L5 network split
+      OUT("#le-d2", at(5, 0), 0.4);
+      IN("#le-sp", at(5, 0.06), 0.6);
+      IN("#le-spt0", at(5, 0.25), 0.4);
+      ARROW("#le-xa", at(5, 0.55), 0.8);
+      ARROW("#le-xb", at(5, 0.6), 0.8);
+      IN("#le-spt1", at(5, 0.62), 0.4);
+      tl.to("#le-sla, #le-slb", { fill: "#83C167", stroke: "#83C167", duration: 0.4 }, at(5, 0.86));
+      IN("#le-spt2", at(5, 0.86), 0.4);
+      // L6 two finalized chains + social layer
+      OUT("#le-sp", at(6, 0), 0.4);
+      IN("#le-cn", at(6, 0.06), 0.6);
+      IN("#le-ttl", at(6, 0.55), 0.6, { y: 20 }, { y: 0 });
+      COUNT("#le-onp", 55, 80, at(3, 0.12), at(3, 0.9) - at(3, 0.12), v => String(Math.round(v)));
+
+
+      tl.to("#le-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#le-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["leak"] = tl;
+    })();
+  </script>
+</template>

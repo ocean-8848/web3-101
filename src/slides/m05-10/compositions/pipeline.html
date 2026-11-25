@@ -1,0 +1,131 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pipeline，id 前缀 pi- -->
+  <div id="root" data-composition-id="pipeline" data-duration="53.38" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pi-all">
+        <g id="pi-a1" class="h"><rect x="80" y="330" width="260" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="210" y="391" font-size="30" fill="#e8e6df" text-anchor="middle">钱包后端</text></g>
+        <g id="pi-a2" class="h"><rect x="80" y="510" width="260" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="210" y="571" font-size="30" fill="#e8e6df" text-anchor="middle">DApp 前端</text></g>
+        <g id="pi-a3" class="h"><rect x="80" y="690" width="260" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="210" y="751" font-size="30" fill="#e8e6df" text-anchor="middle">充值监听</text></g>
+        <path id="pi-l1" class="dr" d="M340 380 L390 520" stroke="#8a8f99" stroke-width="2.5" fill="none" pathLength="1"/>
+        <path id="pi-l2" class="dr" d="M340 560 H390" stroke="#8a8f99" stroke-width="2.5" fill="none" pathLength="1"/>
+        <path id="pi-l3" class="dr" d="M340 740 L390 600" stroke="#8a8f99" stroke-width="2.5" fill="none" pathLength="1"/>
+        <g id="pi-lb" class="h"><rect x="390" y="440" width="90" height="240" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="435" y="522" font-size="30" fill="#e8e6df" text-anchor="middle">L4</text><text x="435" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">负载</text><text x="435" y="606" font-size="30" fill="#e8e6df" text-anchor="middle">均衡</text></g>
+        <g id="pi-gw2" class="h"><rect x="545" y="245" width="660" height="680" rx="20" fill="#16131f" stroke="#B48EF0" stroke-width="3"/></g>
+        <text id="pi-gw2l" class="h" x="1205" y="968" font-size="28" fill="#B48EF0" text-anchor="end">rpcgw · 可用区 2</text>
+        <g id="pi-gw1" class="h"><rect x="520" y="220" width="660" height="680" rx="20" fill="#1c1729" stroke="#B48EF0" stroke-width="3.5"/><text x="545" y="264" font-size="30" font-weight="700" fill="#B48EF0">rpcgw · 可用区 1</text></g>
+        <path id="pi-in" class="dr h" d="M480 560 H500 V325 H541" stroke="#F0B90B" stroke-width="3" fill="none" pathLength="1" marker-end="url(#pi-arr)"/>
+        <g id="pi-c1" class="h"><rect x="545" y="285" width="610" height="80" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="575" y="337" font-size="30" fill="#FF9F43">鉴权 + 限流</text></g>
+        <circle id="pi-rj" class="h" cx="470" cy="325" r="12" fill="#FC6255"/>
+        <text id="pi-rjl" class="h" x="1130" y="337" font-size="28" fill="#FC6255" text-anchor="end">无效 Key / 超额 → 拒绝</text>
+        <path id="pi-x12" class="dr h" d="M850 365 V394" stroke="#e8e6df" stroke-width="3" fill="none" pathLength="1" marker-end="url(#pi-arr)"/>
+        <g id="pi-c2" class="h"><rect x="545" y="400" width="610" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="575" y="452" font-size="30" fill="#58C4DD">解析 + 方法白名单</text></g>
+        <g id="pi-m" class="h"><rect x="858" y="414" width="282" height="52" rx="8" fill="#1d1a10" stroke="#F0B90B" stroke-width="2"/><text class="mono" x="872" y="450" font-size="28" fill="#F0B90B">method=eth_call</text></g>
+        <path id="pi-x23" class="dr h" d="M850 480 V509" stroke="#e8e6df" stroke-width="3" fill="none" pathLength="1" marker-end="url(#pi-arr)"/>
+        <g id="pi-dm" class="h"><path d="M670 575 L850 515 L1030 575 L850 635 Z" fill="#10191d" stroke="#58C4DD" stroke-width="2.5"/><text x="850" y="586" font-size="30" fill="#58C4DD" text-anchor="middle">缓存命中？</text></g>
+        <path id="pi-hit" class="dr h" d="M670 575 H560 V712 H348" stroke="#83C167" stroke-width="3.5" fill="none" pathLength="1" marker-end="url(#pi-arr)"/>
+        <text id="pi-hitl" class="h" x="615" y="556" font-size="28" fill="#83C167" text-anchor="middle">命中</text>
+        <text id="pi-retl" class="h" x="430" y="752" font-size="28" fill="#83C167" text-anchor="middle">返回</text>
+        <path id="pi-ms" class="dr h" d="M850 635 V674" stroke="#e8e6df" stroke-width="3" fill="none" pathLength="1" marker-end="url(#pi-arr)"/>
+        <text id="pi-msl" class="h" x="872" y="664" font-size="28" fill="#8a8f99">未命中</text>
+        <g id="pi-c4" class="h"><rect x="600" y="680" width="555" height="80" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text x="877" y="731" font-size="30" fill="#e8e6df" text-anchor="middle">路由器：读写分离 · 方法级 · 粘滞</text></g>
+        <path id="pi-x45" class="dr h" d="M877 760 V784" stroke="#e8e6df" stroke-width="3" fill="none" pathLength="1" marker-end="url(#pi-arr)"/>
+        <g id="pi-c5" class="h"><rect x="600" y="790" width="555" height="80" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text x="877" y="841" font-size="30" fill="#e8e6df" text-anchor="middle">熔断 + 重试</text></g>
+        <g id="pi-u1" class="h"><rect id="pi-u1r" x="1380" y="260" width="440" height="140" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1600" y="342" font-size="34" fill="#e8e6df" text-anchor="middle">自建节点</text></g>
+        <g id="pi-u2" class="h"><rect id="pi-u2r" x="1380" y="480" width="440" height="140" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1600" y="562" font-size="34" fill="#e8e6df" text-anchor="middle">服务商 A</text></g>
+        <g id="pi-u3" class="h"><rect id="pi-u3r" x="1380" y="700" width="440" height="140" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1600" y="760" font-size="34" fill="#e8e6df" text-anchor="middle">服务商 B</text></g>
+        <text id="pi-cut" class="h" x="1600" y="810" font-size="28" fill="#FC6255" text-anchor="middle">已熔断</text>
+        <path id="pi-oB" class="dr h" d="M1155 832 L1374 790" stroke="#FC6255" stroke-width="3" fill="none" pathLength="1" marker-end="url(#pi-arr)"/>
+        <path id="pi-oA" class="dr h" d="M1155 822 L1374 570" stroke="#83C167" stroke-width="3.5" fill="none" pathLength="1" marker-end="url(#pi-arr)"/>
+        <path id="pi-oS" class="dr h" d="M1155 812 L1374 350" stroke="#8a8f99" stroke-width="5" fill="none" pathLength="1" marker-end="url(#pi-arr)"/>
+        <text id="pi-lag" class="h" x="1600" y="242" font-size="28" fill="#FC6255" text-anchor="middle">落后</text>
+        <text id="pi-note" class="h" x="1600" y="906" font-size="30" fill="#FF9F43" text-anchor="middle">只能少用，不能变快</text>
+        <text id="pi-fin" class="h" x="1600" y="962" font-size="28" fill="#8a8f99" text-anchor="middle">全网最终性延迟：无能为力</text>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 apps
+IN("#pi-a1", at(0, 0.1), 0.4, { x: -20 }, { x: 0 });
+IN("#pi-a2", at(0, 0.3), 0.4, { x: -20 }, { x: 0 });
+IN("#pi-a3", at(0, 0.5), 0.4, { x: -20 }, { x: 0 });
+// L1 LB + instances
+IN("#pi-lb", at(1, 0.08), 0.5);
+DRAW("#pi-l1", at(1, 0.12), 0.4); DRAW("#pi-l2", at(1, 0.14), 0.4); DRAW("#pi-l3", at(1, 0.16), 0.4);
+IN("#pi-gw1", at(1, 0.35), 0.6);
+IN("#pi-gw2, #pi-gw2l", at(1, 0.55), 0.6);
+tl.to("#pi-gw2", { opacity: 0.3, duration: 0.6 }, at(1, 0.9));
+OUT("#pi-gw2l", at(1, 0.9), 0.5);
+// L2 auth + rate limit
+IN("#pi-c1", at(2, 0.05), 0.5);
+ARROW("#pi-in", at(2, 0.15), 0.6);
+IN("#pi-rj", at(2, 0.4), 0.2);
+tl.fromTo("#pi-rj", { attr: { cx: 470 } }, { attr: { cx: 560 }, duration: 0.4, ease: "power2.in", immediateRender: false }, at(2, 0.42));
+tl.to("#pi-rj", { attr: { cx: 470 }, opacity: 0, duration: 0.6, ease: "power2.out" }, at(2, 0.42) + 0.4);
+IN("#pi-rjl", at(2, 0.55), 0.4);
+// L3 parse + whitelist
+OUT("#pi-rjl", at(3, 0), 0.3);
+ARROW("#pi-x12", at(3, 0.05), 0.3);
+IN("#pi-c2", at(3, 0.1), 0.5);
+IN("#pi-m", at(3, 0.45), 0.5, { scaleX: 0.2, svgOrigin: "858 440" }, { scaleX: 1, svgOrigin: "858 440" });
+// L4 cache
+ARROW("#pi-x23", at(4, 0.05), 0.3);
+IN("#pi-dm", at(4, 0.1), 0.5);
+ARROW("#pi-hit", at(4, 0.45), 0.8);
+IN("#pi-hitl", at(4, 0.45), 0.4);
+IN("#pi-retl", at(4, 0.6), 0.4);
+// L5 router -> breaker -> upstreams
+ARROW("#pi-ms", at(5, 0.02), 0.3);
+IN("#pi-msl", at(5, 0.04), 0.4);
+IN("#pi-c4", at(5, 0.1), 0.5);
+ARROW("#pi-x45", at(5, 0.36), 0.3);
+IN("#pi-c5", at(5, 0.4), 0.5);
+IN("#pi-u1", at(5, 0.5), 0.4); IN("#pi-u2", at(5, 0.54), 0.4); IN("#pi-u3", at(5, 0.58), 0.4);
+ARROW("#pi-oB", at(5, 0.66), 0.4);
+tl.to("#pi-u3r", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.7));
+tl.set("#pi-u3r", { attr: { "stroke-dasharray": "12 8" } }, at(5, 0.7));
+IN("#pi-cut", at(5, 0.72), 0.4);
+OUT("#pi-oB", at(5, 0.8), 0.3);
+ARROW("#pi-oA", at(5, 0.84), 0.5);
+// L6 limits
+ARROW("#pi-oS", at(6, 0.05), 0.5);
+IN("#pi-lag", at(6, 0.12), 0.4, { y: -10 }, { y: 0 });
+tl.to("#pi-u1r", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.12));
+tl.to("#pi-oS", { strokeWidth: 1.5, duration: 0.6 }, at(6, 0.28));
+IN("#pi-note", at(6, 0.3), 0.5);
+tl.to("#pi-u1r, #pi-u2r, #pi-u3r", { stroke: "#FF9F43", duration: 0.3 }, at(6, 0.68));
+IN("#pi-fin", at(6, 0.72), 0.5);
+
+
+      tl.to("#pi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["pipeline"] = tl;
+    })();
+  </script>
+</template>

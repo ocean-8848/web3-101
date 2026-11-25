@@ -1,14 +1,14 @@
-/* ---------- M08 DeFi 协议（5）：m02-70 DeFi 风控策展、机构信用与协议司库运维 ---------- */
+/* ---------- M05 DeFi 协议（5）：m02-70 DeFi 风控策展、机构信用与协议司库运维 ---------- */
 (() => {
 CUR = 'm02-70';
-addCh({ id: 'm02-70', nav: '风控策展、机构信用与司库', title: 'M08.11 DeFi 风控策展、机构信用与协议司库运维：Morpho 策展人、Zodiac 与链上保险', desc: '从单体大池到模块化风控策展（Morpho Blue / Risk Curators）、机构无抵押信用借贷、Safe Zodiac Roles 司库运维与链上保险边界', html: `
-<h1>M08.11 DeFi 风控策展、机构信用与协议司库运维：Morpho 策展人、Zodiac 与链上保险</h1>
+addCh({ id: 'm02-70', nav: '风控策展、机构信用与司库', title: 'M05.11 DeFi 风控策展、机构信用与协议司库运维：Morpho 策展人、Zodiac 与链上保险', desc: '从单体大池到模块化风控策展（Morpho Blue / Risk Curators）、机构无抵押信用借贷、Safe Zodiac Roles 司库运维与链上保险边界', html: `
+<h1>M05.11 DeFi 风控策展、机构信用与协议司库运维：Morpho 策展人、Zodiac 与链上保险</h1>
 ${meta([
   '理解 DeFi 借贷从“治理大池（Aave）”向“不可变核心 + 外部风控策展人（Morpho Blue + MetaMorpho）”演进的架构分工。',
   '对比超额抵押借贷与机构无抵押/半抵押链上信用协议（Maple / Clearpool）的风控、违约追偿与法律壳结构。',
   '使用 Safe + Zodiac Roles Modifier 为协议/DAO 司库设计细粒度最小权限运营体系，避免每次调仓都要惊动全部多签大老板。',
   '评估链上保险协议（Nexus Mutual 等）的承保范围、赔付投票机制与资金池容量边界。'
-], '前置：<a href="#m02-11">M08.3 借贷协议深入</a>、<a href="#m02-64">M08.5 收益金库与收益代币化</a>、<a href="#m02-61">M08.7 DAO 治理与运营</a>')}
+], '前置：<a href="#m02-11">M05.3 借贷协议深入</a>、<a href="#m02-64">M05.5 收益金库与收益代币化</a>、<a href="#m02-61">M05.7 DAO 治理与运营</a>')}
 ${beginner(`<p><strong>风险策展人（Risk Curator）</strong>：在模块化借贷协议（如 Morpho）里专门负责“选抵押品、配资金权重、设清算参数”的专业风控机构（如 Gauntlet、Steakhouse）。散户把 USDC 存进策展人管理的 ERC-4626 金库，策展人赚一点绩效费。</p>
 <p><strong>Zodiac Roles Modifier</strong>：Safe 多签的官方插件体系。它允许主多签给运营经理发一张“权限受限的白名单通行证”——比如允许运营经理在 Aave 和国债金库之间调仓生息，但绝对不能把钱转到任何外部个人地址。</p>
 <p><strong>协议司库（Protocol Treasury）</strong>：DAO 或项目方金库里存放的数千万美元自有资金。很多早期项目把 100% 司库都放成自家治理代币，熊市跌 90% 直接发不出工程师工资。</p>`)}
@@ -36,7 +36,7 @@ ${art('一图看懂：模块化借贷风控策展 + Safe Zodiac 司库最小权�
 ], '左侧展示存款人通过风控策展人进入不可变隔离借贷市场，右侧展示运营地址通过 Zodiac Roles 权限过滤器安全操作 Safe 主多签金库', 'm02-70')}
 
 <h2>2. 链上机构信用与无抵押借贷</h2>
-<p>DeFi 主流借贷要求 120%–150% 超额抵押（见 <a href="#m02-11">M08.3</a>），但做市商、支付公司和实体企业需要的是提高资本效率的<strong>低抵押或无抵押信用额度</strong>。链上信用协议（如 Maple Finance、Clearpool、Goldfinch）采用“链上透明账本 + 链下法律追索”混合架构：</p>
+<p>DeFi 主流借贷要求 120%–150% 超额抵押（见 <a href="#m02-11">M05.3</a>），但做市商、支付公司和实体企业需要的是提高资本效率的<strong>低抵押或无抵押信用额度</strong>。链上信用协议（如 Maple Finance、Clearpool、Goldfinch）采用“链上透明账本 + 链下法律追索”混合架构：</p>
 ${tbl(['维度', '超额抵押 DeFi（Aave / Morpho）', '链上机构信用协议（Maple / Clearpool）'], [
   ['<strong>借款人准入</strong>', '完全无许可，谁有抵押品谁就能借', '严格 KYB、财务审计与链下法律借款协议（Master Loan Agreement）'],
   ['<strong>风控主体</strong>', '链上自动清算引擎 + 预言机', '持牌/专业池代理（Pool Delegate）尽调授信 + 链上实时监控'],

@@ -1,0 +1,115 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 setup，id 前缀 se- -->
+  <div id="root" data-composition-id="setup" data-duration="59.97" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="se-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="se-all">
+
+        <g id="se-pool" class="h">
+          <rect x="160" y="240" width="600" height="610" rx="18" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+          <text x="190" y="292" font-size="32" fill="#8a8f99">池子</text>
+        </g>
+        <text id="se-ex" class="h" x="740" y="292" font-size="28" fill="#6b6f7a" text-anchor="end">示例 · 手续费 0</text>
+        <rect id="se-be" class="h" x="240" y="360" width="180" height="360" rx="6" fill="#58C4DD" fill-opacity="0.85"/>
+        <rect id="se-bu" class="h" x="500" y="360" width="180" height="360" rx="6" fill="#F0B90B" fill-opacity="0.85"/>
+        <g id="se-le" class="h"><text class="mono" x="330" y="765" font-size="28" fill="#58C4DD" text-anchor="middle">ETH</text><text id="se-ve" class="mono" x="330" y="805" font-size="30" fill="#58C4DD" text-anchor="middle">1,000</text></g>
+        <g id="se-lu" class="h"><text class="mono" x="590" y="765" font-size="28" fill="#F0B90B" text-anchor="middle">USDC</text><text id="se-vu" class="mono" x="590" y="805" font-size="30" fill="#F0B90B" text-anchor="middle">3,000,000</text></g>
+        <text id="se-f" class="h mono" x="460" y="922" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">x · y = k</text>
+        <text id="se-n" class="h" x="460" y="978" font-size="28" fill="#6b6f7a" text-anchor="middle">真实池子常见 0.3% 手续费</text>
+        <text id="se-r1" class="h mono" x="860" y="320" font-size="32" fill="#58C4DD">k = 3×10⁹</text>
+        <text id="se-r2" class="h" x="860" y="390" font-size="32" fill="#e8e6df">现价 <tspan class="mono" fill="#F0B90B">3,000 USDC/ETH</tspan></text>
+        <g id="se-ord" class="h">
+          <rect x="860" y="440" width="500" height="70" rx="12" fill="#F0B90B" fill-opacity="0.08" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="890" y="486" font-size="30" fill="#F0B90B">买入：30,000 USDC · 滑点 1%</text>
+        </g>
+        <text id="se-fail" class="h" x="1385" y="486" font-size="28" fill="#FF9F43">超过 → 交易失败</text>
+        <text id="se-r3" class="h mono" x="860" y="590" font-size="30" fill="#F0B90B">USDC 3,000,000 → 3,030,000</text>
+        <text id="se-r4" class="h mono" x="860" y="650" font-size="30" fill="#58C4DD">ETH = 3×10⁹ ÷ 3,030,000 = 990.0990</text>
+        <text id="se-r5" class="h" x="860" y="722" font-size="30" fill="#e8e6df">你得到 <tspan class="mono">1,000 − 990.0990 =</tspan></text>
+        <text id="se-q" class="h mono" x="1312" y="722" font-size="32" font-weight="700" fill="#F0B90B">9.9010 ETH</text>
+        <g id="se-qb" class="h">
+          <rect x="1296" y="684" width="222" height="54" rx="10" fill="none" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="1540" y="722" font-size="30" font-weight="700" fill="#F0B90B">报价</text>
+        </g>
+        <text id="se-r6" class="h mono" x="860" y="805" font-size="30" fill="#e8e6df">9.9010 × (1 − 1%) = <tspan fill="#FF9F43">9.8020 ETH</tspan></text>
+        <line id="se-ln" class="dr" pathLength="1" x1="860" y1="845" x2="1760" y2="845" stroke="#FF9F43" stroke-width="4"/>
+        <text id="se-lb" class="h mono" x="860" y="895" font-size="30" font-weight="700" fill="#FF9F43">amountOutMin = 9.8020</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="se-term" class="h">
+        <rect x="70" y="56" width="520" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">滑点容忍度 <tspan font-size="28" font-weight="400" fill="#8a8f99">Slippage</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">允许的最差成交价偏离比例</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const BAR = (s, h, t, d = 0.8) => tl.to(s, { attr: { y: 720 - h, height: h }, duration: d, ease: "power2.out" }, t);
+      const F = (n) => v => v.toLocaleString("en-US", { minimumFractionDigits: n, maximumFractionDigits: n });
+      // L0 池子
+      IN("#se-pool", at(0, 0.05), 0.6);
+      IN("#se-be, #se-bu", at(0, 0.3), 0.7, { attr: { y: 720, height: 0 } }, { attr: { y: 360, height: 360 } });
+      IN("#se-ex", at(0, 0.6), 0.5);
+      // L1 恒定乘积
+      IN("#se-f", at(1, 0.06), 0.6, { y: 15 }, { y: 0 });
+      tl.to("#se-be, #se-bu", { attr: { "fill-opacity": 1 }, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.25));
+      tl.to("#se-ex", { fill: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.45));
+      IN("#se-n", at(1, 0.62), 0.6);
+      // L2 储备与 k
+      IN("#se-le", at(2, 0.05), 0.5);
+      IN("#se-lu", at(2, 0.22), 0.5);
+      IN("#se-r1", at(2, 0.45), 0.5, { x: -15 }, { x: 0 });
+      IN("#se-r2", at(2, 0.72), 0.5, { x: -15 }, { x: 0 });
+      // L3 订单 + 滑点
+      IN("#se-ord", at(3, 0.04), 0.6, { x: 40 }, { x: 0 });
+      IN("#se-term", at(3, 0.3), 0.5);
+      tl.to("#se-ord rect", { attr: { stroke: "#FF9F43" }, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.75));
+      IN("#se-fail", at(3, 0.78), 0.5, { x: -15 }, { x: 0 });
+      OUT("#se-term", at(4, 0.22), 0.4);
+      // L4 无攻击
+      IN("#se-r3", at(4, 0.08), 0.5, { x: -15 }, { x: 0 });
+      BAR("#se-bu", 360 + 21.6, at(4, 0.12)); COUNT("#se-vu", 3000000, 3030000, at(4, 0.12), 0.8, F(0));
+      IN("#se-r4", at(4, 0.32), 0.5, { x: -15 }, { x: 0 });
+      BAR("#se-be", 360 - 21.4, at(4, 0.36)); COUNT("#se-ve", 1000, 990.099, at(4, 0.36), 0.8, F(3));
+      IN("#se-r5", at(4, 0.56), 0.5, { x: -15 }, { x: 0 });
+      IN("#se-q", at(4, 0.66), 0.5);
+      IN("#se-qb", at(4, 0.8), 0.5, { scale: 1.08, svgOrigin: "1407 711" }, { scale: 1, svgOrigin: "1407 711" });
+      // L5 最低接受量
+      IN("#se-r6", at(5, 0.08), 0.5, { x: -15 }, { x: 0 });
+      DRAW("#se-ln", at(5, 0.5), 0.7);
+      IN("#se-lb", at(5, 0.62), 0.5);
+
+
+      tl.to("#se-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#se-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["setup"] = tl;
+    })();
+  </script>
+</template>

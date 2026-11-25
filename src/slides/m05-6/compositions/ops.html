@@ -1,0 +1,228 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ops，id 前缀 op- -->
+  <div id="root" data-composition-id="ops" data-duration="60.86" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="op-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="op-all">
+<!--BODY-->
+
+<g id="op-term1" class="h">
+  <rect x="200" y="220" width="1520" height="420" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+  <line x1="200" y1="268" x2="1720" y2="268" stroke="#8a8f99" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="232" cy="244" r="8" fill="#FC6255"/><circle cx="258" cy="244" r="8" fill="#F0B90B"/><circle cx="284" cy="244" r="8" fill="#83C167"/>
+  <text x="960" y="252" font-size="20" fill="#6b6f7a" text-anchor="middle" data-layout-ignore>curl</text>
+</g>
+<text id="op-c1" class="h mono" x="250" y="350" font-size="32" fill="#e8e6df">$ eth_syncing</text>
+<text id="op-r1" class="h mono" x="900" y="350" font-size="32" fill="#83C167">→ false  ✓</text>
+<text id="op-c2" class="h mono" x="250" y="450" font-size="32" fill="#e8e6df">$ net_peerCount</text>
+<text id="op-r2" class="h mono" x="900" y="450" font-size="32" fill="#58C4DD">→ 0x32</text>
+<text id="op-r2b" class="h" x="1100" y="450" font-size="32" fill="#e8e6df">= 50 <tspan font-size="28" fill="#6b6f7a">（示例）</tspan></text>
+<text id="op-c3" class="h mono" x="250" y="550" font-size="32" fill="#e8e6df">$ /eth/v1/node/syncing</text>
+<text id="op-r3" class="h mono" x="900" y="550" font-size="32" fill="#83C167">→ ✓</text>
+
+<g id="op-files" class="h">
+  <rect x="200" y="300" width="560" height="96" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+  <text class="mono" x="236" y="360" font-size="32" fill="#e8e6df">geth.service</text>
+  <rect x="200" y="430" width="560" height="96" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+  <text class="mono" x="236" y="490" font-size="32" fill="#e8e6df">lighthouse.service</text>
+</g>
+<path id="op-farr" class="dr h" pathLength="1" d="M780 413 L930 413" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#op-arr)"/>
+<g id="op-card" class="h">
+  <rect x="960" y="240" width="840" height="400" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+  <text class="mono" x="1000" y="300" font-size="30" fill="#8a8f99">[Service]</text>
+</g>
+<rect id="op-hl" class="h" x="976" y="326" width="808" height="60" rx="8" fill="#58C4DD" fill-opacity="0.15"/>
+<text id="op-s1" class="h mono" x="1000" y="368" font-size="32" fill="#e8e6df">Restart=always</text>
+<text id="op-s2" class="h mono" x="1000" y="438" font-size="32" fill="#e8e6df">User=geth</text>
+<text id="op-s2b" class="h" x="1500" y="438" font-size="28" fill="#83C167">低权限</text>
+<text id="op-s3" class="h mono" x="1000" y="508" font-size="32" fill="#e8e6df">LimitNOFILE=65535</text>
+<text id="op-s4" class="h mono" x="1000" y="578" font-size="32" fill="#e8e6df">TimeoutStopSec=300</text>
+
+<g id="op-kill">
+  <path id="op-bolt" class="h" d="M260 700 L220 790 L262 790 L232 880 L320 770 L276 770 L306 700 Z" fill="#FC6255"/>
+  <text id="op-killt" class="h" x="350" y="805" font-size="34" fill="#FC6255">强行杀掉</text>
+  <path id="op-ka" class="dr h" pathLength="1" d="M530 793 L660 793" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#op-arr)"/>
+  <g id="op-db1w" class="h"><g id="op-db1"><ellipse cx="780" cy="740" rx="70" ry="20" fill="#161a22" stroke="#58C4DD" stroke-width="4"/><path d="M710 740 L710 840 A70 20 0 0 0 850 840 L850 740" fill="#161a22" stroke="#58C4DD" stroke-width="4"/><path d="M710 790 A70 20 0 0 0 850 790" fill="none" stroke="#58C4DD" stroke-width="3"/></g></g>
+  <path id="op-crack" class="h" d="M770 730 L800 770 L760 805 L795 850" fill="none" stroke="#FC6255" stroke-width="6" stroke-linejoin="round"/>
+  <text id="op-ok0" class="h" x="1040" y="805" font-size="34" fill="#83C167">优雅退出</text>
+  <rect id="op-pbt" class="h" x="1200" y="776" width="240" height="26" rx="13" fill="none" stroke="#83C167" stroke-width="2.5"/>
+  <rect id="op-pb" class="h" x="1200" y="776" width="0" height="26" rx="13" fill="#83C167"/>
+  <path id="op-ga" class="dr h" pathLength="1" d="M1460 793 L1560 793" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#op-arr)"/>
+  <g id="op-db2w" class="h"><g id="op-db2"><ellipse cx="1680" cy="740" rx="70" ry="20" fill="#161a22" stroke="#83C167" stroke-width="4"/><path d="M1610 740 L1610 840 A70 20 0 0 0 1750 840 L1750 740" fill="#161a22" stroke="#83C167" stroke-width="4"/><path d="M1610 790 A70 20 0 0 0 1750 790" fill="none" stroke="#83C167" stroke-width="3"/></g></g>
+  <text id="op-okv" class="h" x="1680" y="935" font-size="40" fill="#83C167" text-anchor="middle">✓</text>
+</g>
+
+<g id="op-k8s" class="h">
+  <rect x="520" y="230" width="880" height="740" rx="20" fill="none" stroke="#58C4DD" stroke-width="3"/>
+  <text class="mono" x="560" y="286" font-size="34" fill="#58C4DD">StatefulSet</text>
+</g>
+<g id="op-pod" class="h">
+  <rect x="600" y="320" width="720" height="400" rx="16" fill="#161a22" stroke="#e8e6df" stroke-width="2.5"/>
+  <text class="mono" x="630" y="368" font-size="30" fill="#e8e6df">Pod</text>
+</g>
+<g id="op-cx" class="h">
+  <rect x="660" y="400" width="260" height="200" rx="12" fill="#1d2a33" stroke="#58C4DD" stroke-width="2.5"/>
+  <circle cx="790" cy="480" r="40" fill="none" stroke="#58C4DD" stroke-width="14" stroke-dasharray="9 7"/><circle cx="790" cy="480" r="28" fill="none" stroke="#58C4DD" stroke-width="5"/><circle cx="790" cy="480" r="10" fill="#58C4DD"/>
+  <text x="790" y="580" font-size="30" fill="#e8e6df" text-anchor="middle">执行</text>
+</g>
+<g id="op-cc" class="h">
+  <rect x="1000" y="400" width="260" height="200" rx="12" fill="#1d2a33" stroke="#58C4DD" stroke-width="2.5"/>
+  <path d="M1104 532 L1120 462 L1140 462 L1156 532 Z" fill="#1d2a33" stroke="#58C4DD" stroke-width="4"/><circle cx="1130" cy="450" r="9" fill="#58C4DD"/><path d="M1104 432 A36 36 0 0 0 1104 468 M1156 432 A36 36 0 0 1 1156 468" fill="none" stroke="#58C4DD" stroke-width="4"/>
+  <text x="1130" y="580" font-size="30" fill="#e8e6df" text-anchor="middle">共识</text>
+</g>
+<g id="op-key" class="h">
+  <line x1="920" y1="500" x2="1000" y2="500" stroke="#FF9F43" stroke-width="4"/>
+  <circle cx="900" cy="660" r="16" fill="none" stroke="#FF9F43" stroke-width="5"/>
+  <path d="M916 660 L990 660 M970 660 L970 676 M985 660 L985 672" stroke="#FF9F43" stroke-width="5" fill="none"/>
+  <text class="mono" x="1010" y="671" font-size="30" fill="#FF9F43">JWT</text>
+</g>
+<line id="op-vl" class="dr h" pathLength="1" x1="960" y1="720" x2="960" y2="800" stroke="#8a8f99" stroke-width="3"/>
+<g id="op-vol" class="h">
+  <rect x="700" y="800" width="520" height="110" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+  <text x="960" y="868" font-size="32" fill="#e8e6df" text-anchor="middle">本地 NVMe 卷</text>
+</g>
+
+<g id="op-roll" class="h">
+  <rect x="200" y="280" width="1120" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+  <text x="760" y="327" font-size="30" fill="#e8e6df" text-anchor="middle">流量</text>
+</g>
+
+<g id="op-p0" class="h">
+  <rect id="op-pr0" x="200" y="470" width="300" height="230" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+  <text class="mono" x="350" y="530" font-size="30" fill="#e8e6df" text-anchor="middle">Pod 1</text>
+  <circle id="op-led0" cx="240" cy="650" r="14" fill="#6b6f7a"/>
+  <text x="268" y="660" font-size="28" fill="#8a8f99">就绪</text>
+</g>
+<text id="op-v10" class="h mono" x="350" y="595" font-size="30" fill="#8a8f99" text-anchor="middle">v1</text>
+<text id="op-up0" class="h" x="350" y="595" font-size="30" fill="#FF9F43" text-anchor="middle">升级中</text>
+<text id="op-v20" class="h mono" x="350" y="595" font-size="30" fill="#83C167" text-anchor="middle">v2</text>
+<path id="op-ta0" class="dr h" pathLength="1" d="M350 356 L350 462" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#op-arr)"/>
+
+<g id="op-p1" class="h">
+  <rect id="op-pr1" x="610" y="470" width="300" height="230" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+  <text class="mono" x="760" y="530" font-size="30" fill="#e8e6df" text-anchor="middle">Pod 2</text>
+  <circle id="op-led1" cx="650" cy="650" r="14" fill="#6b6f7a"/>
+  <text x="678" y="660" font-size="28" fill="#8a8f99">就绪</text>
+</g>
+<text id="op-v11" class="h mono" x="760" y="595" font-size="30" fill="#8a8f99" text-anchor="middle">v1</text>
+<text id="op-up1" class="h" x="760" y="595" font-size="30" fill="#FF9F43" text-anchor="middle">升级中</text>
+<text id="op-v21" class="h mono" x="760" y="595" font-size="30" fill="#83C167" text-anchor="middle">v2</text>
+<path id="op-ta1" class="dr h" pathLength="1" d="M760 356 L760 462" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#op-arr)"/>
+
+<g id="op-p2" class="h">
+  <rect id="op-pr2" x="1020" y="470" width="300" height="230" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+  <text class="mono" x="1170" y="530" font-size="30" fill="#e8e6df" text-anchor="middle">Pod 3</text>
+  <circle id="op-led2" cx="1060" cy="650" r="14" fill="#6b6f7a"/>
+  <text x="1088" y="660" font-size="28" fill="#8a8f99">就绪</text>
+</g>
+<text id="op-v12" class="h mono" x="1170" y="595" font-size="30" fill="#8a8f99" text-anchor="middle">v1</text>
+<text id="op-up2" class="h" x="1170" y="595" font-size="30" fill="#FF9F43" text-anchor="middle">升级中</text>
+<text id="op-v22" class="h mono" x="1170" y="595" font-size="30" fill="#83C167" text-anchor="middle">v2</text>
+<path id="op-ta2" class="dr h" pathLength="1" d="M1170 356 L1170 462" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#op-arr)"/>
+
+<g id="op-drift" class="h">
+  <rect x="1460" y="470" width="300" height="230" rx="14" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="12 8"/>
+  <text class="mono" x="1610" y="595" font-size="30" fill="#FC6255" text-anchor="middle">Pod</text>
+</g>
+<path id="op-dx" class="h" d="M1550 760 L1670 880 M1670 760 L1550 880" stroke="#FC6255" stroke-width="10" stroke-linecap="round"/>
+<text id="op-dxt" class="h" x="1610" y="950" font-size="32" fill="#FC6255" text-anchor="middle">随意漂移</text>
+
+<!--/BODY-->
+      </g>
+<!--TERM-->
+<!--/TERM-->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+/*ANIM*/
+
+// L0 terminal
+IN("#op-term1", at(0, 0.05), 0.6, { scale: 0.96, svgOrigin: "960 430" }, { scale: 1, svgOrigin: "960 430" });
+// L1 three checks
+IN("#op-c1", at(1, 0.0), 0.4); IN("#op-r1", at(1, 0.18), 0.4, { x: -16 }, { x: 0 });
+IN("#op-c2", at(1, 0.38), 0.4); IN("#op-r2", at(1, 0.55), 0.4, { x: -16 }, { x: 0 });
+IN("#op-r2b", at(1, 0.66), 0.5);
+IN("#op-c3", at(1, 0.82), 0.4); IN("#op-r3", at(1, 0.92), 0.4, { x: -16 }, { x: 0 });
+// L2 systemd
+OUT("#op-term1, #op-c1, #op-r1, #op-c2, #op-r2, #op-r2b, #op-c3, #op-r3", at(2, 0), 0.4);
+IN("#op-files", at(2, 0.08), 0.6, { x: -20 }, { x: 0 });
+ARROW("#op-farr", at(2, 0.18), 0.5);
+IN("#op-card", at(2, 0.22), 0.6);
+IN("#op-s1, #op-s2, #op-s3, #op-s4", at(2, 0.28), 0.5, {}, { opacity: 0.45 });
+IN("#op-hl", at(2, 0.36), 0.3);
+tl.to("#op-s1", { opacity: 1, duration: 0.3 }, at(2, 0.36));
+tl.to("#op-hl", { attr: { y: 396 }, duration: 0.4, ease: "power2.inOut" }, at(2, 0.58));
+tl.to("#op-s2", { opacity: 1, duration: 0.3 }, at(2, 0.6)); IN("#op-s2b", at(2, 0.62), 0.4);
+tl.to("#op-hl", { attr: { y: 466 }, duration: 0.4, ease: "power2.inOut" }, at(2, 0.8));
+tl.to("#op-s3", { opacity: 1, duration: 0.3 }, at(2, 0.82));
+// L3 graceful stop
+tl.to("#op-hl", { attr: { y: 536 }, duration: 0.4, ease: "power2.inOut" }, at(3, 0.0));
+tl.to("#op-s4", { opacity: 1, fill: "#83C167", duration: 0.3 }, at(3, 0.02));
+OUT("#op-files", at(3, 0.0), 0.3); OUT("#op-farr", at(3, 0.0), 0.3);
+tl.to("#op-card, #op-hl, #op-s1, #op-s2, #op-s2b, #op-s3, #op-s4", { y: -20, duration: 0.5 }, at(3, 0.02));
+IN("#op-ok0", at(3, 0.12), 0.4); IN("#op-pbt, #op-pb", at(3, 0.14), 0.3);
+tl.to("#op-pb", { attr: { width: 240 }, duration: 1.4, ease: "none" }, at(3, 0.16));
+ARROW("#op-ga", at(3, 0.16) + 1.4, 0.4); IN("#op-db2w", at(3, 0.16) + 1.6, 0.4); IN("#op-okv", at(3, 0.16) + 1.9, 0.3);
+IN("#op-bolt", at(3, 0.62), 0.15); IN("#op-killt", at(3, 0.62), 0.3);
+ARROW("#op-ka", at(3, 0.66), 0.3); IN("#op-db1w", at(3, 0.66), 0.3);
+IN("#op-crack", at(3, 0.76), 0.15);
+tl.to("#op-db1 ellipse, #op-db1 path", { stroke: "#FC6255", duration: 0.2 }, at(3, 0.76));
+// L4 Kubernetes
+OUT("#op-card, #op-hl, #op-s1, #op-s2, #op-s2b, #op-s3, #op-s4, #op-kill", at(4, 0), 0.4);
+IN("#op-k8s", at(4, 0.06), 0.6);
+IN("#op-pod", at(4, 0.3), 0.5, { scale: 0.95, svgOrigin: "960 520" }, { scale: 1, svgOrigin: "960 520" });
+IN("#op-vl", at(4, 0.2), 0.2); DRAW("#op-vl", at(4, 0.2), 0.4); IN("#op-vol", at(4, 0.24), 0.5);
+IN("#op-cx", at(4, 0.5), 0.4); IN("#op-cc", at(4, 0.6), 0.4);
+IN("#op-key", at(4, 0.82), 0.5);
+// L5 rolling upgrade
+OUT("#op-k8s, #op-pod, #op-cx, #op-cc, #op-key, #op-vl, #op-vol", at(5, 0), 0.4);
+IN("#op-roll", at(5, 0.04), 0.5);
+[0, 1, 2].forEach(i => { IN(`#op-p${i}`, at(5, 0.06 + i * 0.03), 0.4); IN(`#op-v1${i}`, at(5, 0.06 + i * 0.03), 0.4); });
+IN("#op-drift", at(5, 0.1), 0.4);
+tl.to("#op-drift", { x: 50, duration: 0.8, ease: "sine.inOut" }, at(5, 0.12));
+tl.to("#op-drift", { x: -20, duration: 0.8, ease: "sine.inOut" }, at(5, 0.12) + 0.8);
+tl.to("#op-drift", { x: 0, duration: 0.6, ease: "sine.inOut" }, at(5, 0.12) + 1.6);
+[0, 1, 2].forEach(i => {
+  const t = at(5, 0.24 + i * 0.2);
+  OUT(`#op-v1${i}`, t, 0.2); IN(`#op-up${i}`, t + 0.25, 0.3);
+  tl.to(`#op-pr${i}`, { stroke: "#FF9F43", duration: 0.3 }, t);
+  OUT(`#op-up${i}`, t + 1.4, 0.2); IN(`#op-v2${i}`, t + 1.65, 0.3);
+  tl.to(`#op-pr${i}`, { stroke: "#83C167", duration: 0.3 }, t + 1.65);
+  tl.to(`#op-led${i}`, { fill: "#83C167", duration: 0.3 }, t + 1.8);
+  ARROW(`#op-ta${i}`, t + 2.0, 0.4);
+});
+IN("#op-dx", at(5, 0.86), 0.3); IN("#op-dxt", at(5, 0.88), 0.4);
+
+/*ENDANIM*/
+
+      tl.to("#op-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["ops"] = tl;
+    })();
+  </script>
+</template>

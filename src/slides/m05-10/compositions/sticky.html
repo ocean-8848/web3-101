@@ -1,0 +1,176 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 sticky，id 前缀 sy- -->
+  <div id="root" data-composition-id="sticky" data-duration="67.47" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sy-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sy-all">
+        <defs>
+          <marker id="sy-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker>
+          <marker id="sy-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker>
+          <marker id="sy-mn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker>
+          <marker id="sy-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker>
+        </defs>
+        <text id="sy-lost" class="h" x="1820" y="130" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="end">交易消失？</text>
+        <!-- lanes -->
+        <g id="sy-ln0" class="h"><line x1="190" y1="264" x2="190" y2="1000" stroke="#8a8f99" stroke-width="2" stroke-dasharray="6 8"/><rect x="70" y="200" width="240" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="190" y="243" font-size="30" fill="#e8e6df" text-anchor="middle">钱包后端</text></g>
+        <g id="sy-ln1" class="h"><line x1="620" y1="264" x2="620" y2="1000" stroke="#B48EF0" stroke-width="2" stroke-dasharray="6 8"/><rect x="500" y="200" width="240" height="64" rx="10" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text class="mono" x="620" y="243" font-size="30" font-weight="700" fill="#B48EF0" text-anchor="middle">rpcgw</text></g>
+        <g id="sy-ln2" class="h"><line x1="980" y1="264" x2="980" y2="840" stroke="#58C4DD" stroke-width="2" stroke-dasharray="6 8"/><rect x="860" y="200" width="240" height="64" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="980" y="243" font-size="30" fill="#58C4DD" text-anchor="middle">Redis</text></g>
+        <g id="sy-ln3" class="h"><line x1="1340" y1="264" x2="1340" y2="840" stroke="#83C167" stroke-width="2" stroke-dasharray="6 8"/><rect id="sy-hA" x="1220" y="200" width="240" height="64" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1340" y="243" font-size="30" fill="#e8e6df" text-anchor="middle">服务商 A</text></g>
+        <g id="sy-ln4" class="h"><line x1="1700" y1="264" x2="1700" y2="840" stroke="#83C167" stroke-width="2" stroke-dasharray="6 8"/><rect x="1580" y="200" width="240" height="64" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1700" y="243" font-size="30" fill="#e8e6df" text-anchor="middle">自建节点</text></g>
+        <!-- round 1 -->
+        <g id="sy-r1">
+          <path id="sy-m1" class="dr h" pathLength="1" d="M190 330 H612" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#sy-mg)"/>
+          <text id="sy-m1t" class="h mono" x="405" y="314" font-size="28" fill="#F0B90B" text-anchor="middle">eth_sendRawTransaction</text>
+          <path id="sy-m1s" class="dr h" pathLength="1" d="M620 360 H700 V404 H630" stroke="#B48EF0" stroke-width="3" fill="none" marker-end="url(#sy-arr)"/>
+          <text id="sy-m1st" class="h" x="716" y="394" font-size="28" fill="#e8e6df">鉴权 · 限流 · 写类</text>
+          <path id="sy-m2" class="dr h" pathLength="1" d="M620 470 H1692" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#sy-mg)"/>
+          <text id="sy-m2t" class="h" x="1160" y="454" font-size="28" fill="#e8e6df" text-anchor="middle">写优先</text>
+          <path id="sy-m2r" class="dr h" pathLength="1" d="M1700 530 H628" stroke="#F0B90B" stroke-width="3" stroke-dasharray="10 8" fill="none" marker-end="url(#sy-mg)"/>
+          <text id="sy-m2rt" class="h mono" x="1520" y="514" font-size="28" fill="#F0B90B" text-anchor="middle">txHash</text>
+          <path id="sy-m3" class="dr h" pathLength="1" d="M620 610 H972" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#sy-mb)"/>
+          <text id="sy-m3t" class="h" x="800" y="594" font-size="28" fill="#e8e6df" text-anchor="middle">记粘滞</text>
+          <path id="sy-m4" class="dr h" pathLength="1" d="M620 760 H1332" stroke="#F0B90B" stroke-width="3" stroke-dasharray="10 8" fill="none" marker-end="url(#sy-mg)"/>
+          <text id="sy-m4t" class="h" x="1160" y="744" font-size="28" fill="#e8e6df" text-anchor="middle">异步再广播</text>
+        </g>
+        <!-- sticky card -->
+        <g id="sy-card" class="h">
+          <rect id="sy-cardr" x="995" y="560" width="330" height="140" rx="12" fill="#1a2a33" stroke="#F0B90B" stroke-width="2.5"/>
+          <text class="mono" x="1015" y="602" font-size="28" fill="#F0B90B">st:tx:{txHash}</text>
+          <text id="sy-cv" x="1015" y="642" font-size="28" fill="#83C167">→ 自建节点</text>
+          <text id="sy-ct" class="mono" x="1015" y="682" font-size="28" fill="#58C4DD">TTL 120s</text>
+        </g>
+        <!-- round 2 -->
+        <g id="sy-r2">
+          <path id="sy-n1" class="dr h" pathLength="1" d="M190 330 H612" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#sy-mg)"/>
+          <text id="sy-n1t" class="h mono" x="405" y="314" font-size="28" fill="#F0B90B" text-anchor="middle">getTransactionReceipt</text>
+          <path id="sy-n2" class="dr h" pathLength="1" d="M620 410 H972" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#sy-mb)"/>
+          <text id="sy-n2t" class="h" x="800" y="394" font-size="28" fill="#e8e6df" text-anchor="middle">查粘滞</text>
+          <path id="sy-n3" class="dr h" pathLength="1" d="M980 490 H628" stroke="#83C167" stroke-width="3" stroke-dasharray="10 8" fill="none" marker-end="url(#sy-mgr)"/>
+          <text id="sy-n3t" class="h" x="800" y="474" font-size="28" fill="#83C167" text-anchor="middle">自建节点</text>
+          <path id="sy-n4" class="dr h" pathLength="1" d="M620 760 H1692" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#sy-mg)"/>
+          <text id="sy-n4t" class="h" x="1160" y="744" font-size="28" fill="#e8e6df" text-anchor="middle">转发</text>
+          <path id="sy-n5" class="dr h" pathLength="1" d="M1700 830 H628" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" fill="none" marker-end="url(#sy-mn)"/>
+          <text id="sy-n5t" class="h mono" x="1520" y="814" font-size="28" fill="#8a8f99" text-anchor="middle">null</text>
+          <path id="sy-n6" class="dr h" pathLength="1" d="M620 900 H198" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" fill="none" marker-end="url(#sy-mn)"/>
+          <text id="sy-n6t" class="h mono" x="405" y="884" font-size="28" fill="#8a8f99" text-anchor="middle">null</text>
+          <text id="sy-n6c" class="h" x="405" y="950" font-size="28" fill="#e8e6df" text-anchor="middle">不缓存</text>
+        </g>
+        <!-- L6 -->
+        <g id="sy-r3">
+          <path id="sy-k1" class="dr h" pathLength="1" d="M1340 770 H628" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" fill="none" marker-end="url(#sy-mn)"/>
+          <g id="sy-k2o"><text id="sy-k2" class="h mono" x="1160" y="822" font-size="28" fill="#e8e6df" text-anchor="middle">already known</text></g>
+          <g id="sy-k3o"><text id="sy-k3" class="h mono" x="1160" y="870" font-size="28" fill="#e8e6df" text-anchor="middle">nonce too low</text></g>
+          <g id="sy-ctr" class="h">
+            <rect x="650" y="890" width="300" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="672" y="946" font-size="30" fill="#58C4DD">只记指标</text>
+            <text id="sy-ctrn" class="mono" x="926" y="948" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="end">0</text>
+          </g>
+        </g>
+        <!-- L7 -->
+        <g id="sy-tx" class="h">
+          <rect x="1360" y="290" width="210" height="60" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+          <text class="mono" x="1465" y="331" font-size="28" fill="#F0B90B" text-anchor="middle">signed tx</text>
+        </g>
+        <g id="sy-eye" class="h">
+          <path d="M1420 400 Q1465 362 1510 400 Q1465 438 1420 400 Z" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <circle cx="1465" cy="400" r="12" fill="#FC6255"/>
+        </g>
+        <text id="sy-eyet" class="h" x="1526" y="412" font-size="30" font-weight="700" fill="#FC6255">可能抢跑</text>
+        <path id="sy-pa" class="dr h" pathLength="1" d="M620 945 H1092" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#sy-mgr)"/>
+        <text id="sy-pat" class="h" x="850" y="928" font-size="28" fill="#e8e6df" text-anchor="middle">MEV 敏感交易</text>
+        <g id="sy-pool" class="h">
+          <rect x="1100" y="895" width="720" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+          <text x="1460" y="958" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">私有交易池</text>
+        </g>
+
+      </g>
+      <!-- 术语卡 -->
+      <g id="sy-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">粘滞会话 <tspan font-size="28" font-weight="400" fill="#8a8f99">Sticky Session</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">同一交易的请求落到同一上游</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0
+      IN("#sy-lost", at(0, 0.0), 0.8, { x: -760, y: 420 }, { x: 0, y: 0 });
+      ["#sy-ln0", "#sy-ln1", "#sy-ln2", "#sy-ln3", "#sy-ln4"].forEach((s, i) => IN(s, at(0, 0.3 + i * 0.12), 0.5, { y: 20 }, { y: 0 }));
+      // L1
+      ARROW("#sy-m1", at(1, 0.05), 0.7); IN("#sy-m1t", at(1, 0.1), 0.5);
+      ARROW("#sy-m1s", at(1, 0.45), 0.6); IN("#sy-m1st", at(1, 0.5), 0.5);
+      // L2
+      ARROW("#sy-m2", at(2, 0.05), 0.9); IN("#sy-m2t", at(2, 0.1), 0.5);
+      ARROW("#sy-m2r", at(2, 0.65), 0.9); IN("#sy-m2rt", at(2, 0.7), 0.5);
+      // L3
+      ARROW("#sy-m3", at(3, 0.05), 0.6); IN("#sy-m3t", at(3, 0.08), 0.4);
+      IN("#sy-term", at(3, 0.1), 0.5);
+      IN("#sy-card", at(3, 0.3), 0.6, { scale: 0.85, svgOrigin: "1160 630" }, { scale: 1, svgOrigin: "1160 630" });
+      tl.fromTo("#sy-cv", { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: false }, at(3, 0.5));
+      tl.fromTo("#sy-ct", { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: false }, at(3, 0.72));
+      tl.set("#sy-cv, #sy-ct", { opacity: 0 }, at(3, 0.3));
+      // L4
+      ARROW("#sy-m4", at(4, 0.1), 0.9); IN("#sy-m4t", at(4, 0.2), 0.5);
+      OUT("#sy-term", at(4, 0.9), 0.4);
+      // L5 second round
+      OUT("#sy-r1", at(5, 0.0), 0.4);
+      ARROW("#sy-n1", at(5, 0.05), 0.6); IN("#sy-n1t", at(5, 0.08), 0.4);
+      ARROW("#sy-n2", at(5, 0.25), 0.5); IN("#sy-n2t", at(5, 0.27), 0.4);
+      tl.to("#sy-cardr", { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.3));
+      ARROW("#sy-n3", at(5, 0.36), 0.5); IN("#sy-n3t", at(5, 0.38), 0.4);
+      ARROW("#sy-n4", at(5, 0.5), 0.7); IN("#sy-n4t", at(5, 0.52), 0.4);
+      ARROW("#sy-n5", at(5, 0.68), 0.7); IN("#sy-n5t", at(5, 0.7), 0.4);
+      ARROW("#sy-n6", at(5, 0.8), 0.5); IN("#sy-n6t", at(5, 0.82), 0.4);
+      IN("#sy-n6c", at(5, 0.88), 0.5, { y: 10 }, { y: 0 });
+      // L6 async broadcast replies
+      OUT("#sy-r2", at(6, 0.0), 0.4);
+      ARROW("#sy-k1", at(6, 0.05), 0.7);
+      IN("#sy-k2", at(6, 0.12), 0.4, { scale: 0.6, svgOrigin: "1160 812" }, { scale: 1, svgOrigin: "1160 812" });
+      IN("#sy-k3", at(6, 0.22), 0.4, { scale: 0.6, svgOrigin: "1160 860" }, { scale: 1, svgOrigin: "1160 860" });
+      IN("#sy-ctr", at(6, 0.45), 0.5);
+      tl.to("#sy-k2o", { x: -360, y: 110, opacity: 0, duration: 0.6, ease: "power2.in" }, at(6, 0.6));
+      tl.to("#sy-k3o", { x: -360, y: 62, opacity: 0, duration: 0.6, ease: "power2.in" }, at(6, 0.7));
+      COUNT("#sy-ctrn", 0, 1, at(6, 0.66), 0.2); COUNT("#sy-ctrn", 1, 2, at(6, 0.76), 0.2);
+      // L7 front-running risk
+      OUT("#sy-r3", at(7, 0.0), 0.4);
+      OUT("#sy-card", at(7, 0.0), 0.4);
+      tl.to("#sy-hA", { stroke: "#FC6255", duration: 0.4 }, at(7, 0.05));
+      IN("#sy-tx", at(7, 0.08), 0.5, { x: -200 }, { x: 0 });
+      IN("#sy-eye", at(7, 0.2), 0.5, { scale: 0.4, svgOrigin: "1465 400" }, { scale: 1, svgOrigin: "1465 400" });
+      IN("#sy-eyet", at(7, 0.26), 0.4);
+      ARROW("#sy-pa", at(7, 0.6), 0.6); IN("#sy-pat", at(7, 0.62), 0.4);
+      IN("#sy-pool", at(7, 0.7), 0.6, { x: 40 }, { x: 0 });
+
+
+      tl.to("#sy-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#sy-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["sticky"] = tl;
+    })();
+  </script>
+</template>
