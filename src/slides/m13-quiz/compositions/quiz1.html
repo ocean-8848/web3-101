@@ -1,0 +1,212 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz1，id 前缀 qu- -->
+  <div id="root" data-composition-id="quiz1" data-duration="54.21" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="qu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="qu-all">
+        <g id="qu-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 1 题</text>
+        </g>
+        <!-- 题干两行 36px，y 200–330 -->
+        <clipPath id="qu-qclip1"><rect id="qu-qcr1" x="60" y="200" width="0" height="60" /></clipPath>
+        <clipPath id="qu-qclip2"><rect id="qu-qcr2" x="60" y="262" width="0" height="60" /></clipPath>
+        <text id="qu-q1" class="h" x="70" y="245" font-size="36" fill="#e8e6df" clip-path="url(#qu-qclip1)">2023 年 3 月硅谷银行倒闭，<tspan fill="#F0B90B">USDC</tspan> 短暂<tspan fill="#FC6255">脱锚</tspan>。</text>
+        <text id="qu-q2" class="h" x="70" y="302" font-size="36" fill="#e8e6df" clip-path="url(#qu-qclip2)">按三类稳定币的信任模型，这类风险<tspan fill="#FF9F43">主要来自哪里</tspan>？</text>
+        <!-- 暂停图标 + 倒数圆环 -->
+        <g id="qu-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="qu-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <!-- 选项卡：x 70–1100，y0 = 380 / 515 / 650 / 785 -->
+        <g id="qu-oA" class="h">
+          <rect id="qu-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oA-dim">
+            <circle id="qu-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="qu-oA-t" x="190" y="449" font-size="32" fill="#e8e6df">预言机报价延迟</text>
+          </g>
+          <text id="qu-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255">不是源头，价格只是如实反映市场的担心</text>
+        </g>
+        <g id="qu-oB" class="h">
+          <rect id="qu-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oB-dim">
+            <circle id="qu-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="qu-oB-t" x="190" y="584" font-size="32" fill="#e8e6df">对冲头寸的资金费率转负</text>
+          </g>
+          <text id="qu-oB-n" class="h" x="190" y="612" font-size="28" fill="#FC6255">这是合成型稳定币的风险</text>
+        </g>
+        <g id="qu-oC" class="h">
+          <rect id="qu-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oC-dim">
+            <circle id="qu-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="qu-oC-t" x="190" y="719" font-size="32" fill="#e8e6df">抵押率不足导致的链上清算</text>
+          </g>
+          <text id="qu-oC-n" class="h" x="190" y="747" font-size="28" fill="#FC6255">这是超额抵押型稳定币的风险</text>
+        </g>
+        <g id="qu-oD" class="h">
+          <rect id="qu-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oD-dim">
+            <circle id="qu-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="qu-oD-t1" x="190" y="833" font-size="30" fill="#e8e6df">发行方的储备和银行通道：</text>
+            <text id="qu-oD-t2" x="190" y="875" font-size="30" fill="#e8e6df">储备存放的银行出问题，铸造赎回通道中断</text>
+          </g>
+        </g>
+
+        <!-- 右侧示意区 x 1160–1850 y 380–900 -->
+        <g id="qu-panel">
+          <g id="qu-coinM">
+            <g id="qu-coin" class="h">
+              <circle cx="1500" cy="620" r="100" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="5" />
+              <text x="1500" y="634" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle">USDC</text>
+            </g>
+          </g>
+          <g id="qu-bank" class="h">
+            <path d="M1200 432 L1260 398 L1320 432 Z" fill="none" stroke="#B48EF0" stroke-width="4" stroke-linejoin="round" />
+            <rect x="1210" y="438" width="12" height="40" fill="#B48EF0" />
+            <rect x="1238" y="438" width="12" height="40" fill="#B48EF0" />
+            <rect x="1268" y="438" width="12" height="40" fill="#B48EF0" />
+            <rect x="1298" y="438" width="12" height="40" fill="#B48EF0" />
+            <rect x="1200" y="481" width="120" height="10" rx="3" fill="#B48EF0" />
+            <text x="1345" y="458" font-size="30" fill="#B48EF0">储备银行</text>
+          </g>
+          <path id="qu-x" class="dr" pathLength="1" d="M1205 400 L1315 492 M1315 400 L1205 492" fill="none" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+          <path id="qu-a1" class="dr h" pathLength="1" d="M1260 504 V550" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#qu-arr)" />
+          <text id="qu-wire" class="h" x="1200" y="592" font-size="30" fill="#e8e6df">周末电汇关闭</text>
+          <path id="qu-a2" class="dr h" pathLength="1" d="M1260 608 V652" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#qu-arr)" />
+          <text id="qu-gate" class="h" x="1200" y="694" font-size="30" fill="#FC6255">赎回口堵住</text>
+          <g id="qu-chart" class="h">
+            <line x1="1290" y1="760" x2="1820" y2="760" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 8" />
+            <text class="mono" x="1200" y="770" font-size="28" fill="#8a8f99">$1</text>
+            <text x="1700" y="840" font-size="28" fill="#F0B90B">USDC</text>
+          </g>
+          <path id="qu-price" class="dr" pathLength="1" d="M1290 760 L1420 760 L1460 790 L1500 862 L1540 832 L1600 792 L1680 772 L1820 764" fill="none" stroke="#F0B90B" stroke-width="4" stroke-linejoin="round" />
+        </g>
+
+        <!-- L5 三类稳定币各自信任的对象 -->
+        <g id="qu-trio">
+          <g id="qu-t1" class="h">
+            <text x="400" y="460" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">法币型</text>
+            <path d="M330 560 L400 518 L470 560 Z" fill="none" stroke="#B48EF0" stroke-width="4" stroke-linejoin="round" />
+            <rect x="342" y="568" width="14" height="56" fill="#B48EF0" />
+            <rect x="376" y="568" width="14" height="56" fill="#B48EF0" />
+            <rect x="410" y="568" width="14" height="56" fill="#B48EF0" />
+            <rect x="444" y="568" width="14" height="56" fill="#B48EF0" />
+            <rect x="330" y="628" width="140" height="12" rx="3" fill="#B48EF0" />
+            <text x="400" y="710" font-size="32" fill="#B48EF0" text-anchor="middle">银行储备</text>
+          </g>
+          <g id="qu-t2" class="h">
+            <text x="960" y="460" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">超额抵押型</text>
+            <path d="M960 512 L1004 580 L960 646 L916 580 Z M916 580 L960 600 L1004 580" fill="none" stroke="#58C4DD" stroke-width="4" stroke-linejoin="round" />
+            <text x="960" y="710" font-size="32" fill="#58C4DD" text-anchor="middle">抵押品</text>
+          </g>
+          <g id="qu-t3" class="h">
+            <text x="1520" y="460" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">合成型</text>
+            <path d="M1490 640 V526 M1472 548 L1490 524 L1508 548" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M1550 524 V638 M1532 616 L1550 640 L1568 616" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="1520" y="710" font-size="32" fill="#58C4DD" text-anchor="middle">对冲头寸</text>
+          </g>
+          <text id="qu-who" class="h" x="960" y="850" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">你信任的是谁？</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // ===== 测验版式（照 EP009 quiz1）=====
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      IN("#qu-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#qu-q1", at(0, 0.03), 0.01);
+      tl.fromTo("#qu-qcr1", { attr: { width: 0 } }, { attr: { width: 1300 }, duration: 2.6, ease: "none" }, at(0, 0.05));
+      IN("#qu-q2", at(0, 0.4), 0.01);
+      tl.fromTo("#qu-qcr2", { attr: { width: 0 } }, { attr: { width: 1300 }, duration: 3.0, ease: "none" }, at(0, 0.42));
+      IN("#qu-coin", at(0, 0.12), 0.6, { scale: 0.85, svgOrigin: "1500 620" }, { scale: 1, svgOrigin: "1500 620" });
+      tl.to("#qu-coinM", { y: 50, duration: 0.5, ease: "power2.in" }, at(0, 0.36));
+      tl.to("#qu-coinM", { y: 0, duration: 0.8, ease: "power2.out" }, at(0, 0.36) + 0.6);
+      tl.to("#qu-coin", { scale: 1.08, svgOrigin: "1500 620", duration: 0.35, yoyo: true, repeat: 1 }, at(0, 0.75));
+
+      const SHOW = (k, t) => {
+        IN(`#qu-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#qu-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#qu-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.12)); SHOW("C", at(1, 0.3)); SHOW("D", at(1, 0.48));
+      tl.to("#qu-oD-t2", { fill: "#FF9F43", duration: 0.3 }, at(1, 0.68));
+      tl.to("#qu-oD-t2", { fill: "#e8e6df", duration: 0.4 }, at(1, 0.9));
+      tl.to("#qu-coin", { scale: 1.08, svgOrigin: "1500 620", duration: 0.35, yoyo: true, repeat: 1 }, at(1, 0.8));
+
+      IN("#qu-pause", at(2, 0.0), 0.3);
+      tl.fromTo("#qu-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+      OUT("#qu-pause", at(3, 0.0), 0.3);
+
+      const RIGHT = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#qu-o${k}-t`, { attr: { y: Y0[k] + 50 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#qu-o${k}-n`, t + 0.3, 0.5);
+      };
+      // L3 揭晓 D；储备银行倒闭 → 周末电汇关闭 → 赎回口堵住 → 价格下探
+      RIGHT("D", at(3, 0.04));
+      tl.to("#qu-oA-dim, #qu-oB-dim, #qu-oC-dim", { opacity: 0.6, duration: 0.4 }, at(3, 0.06));
+      OUT("#qu-coin", at(3, 0.18), 0.4);
+      IN("#qu-bank", at(3, 0.3), 0.5);
+      DRAW("#qu-x", at(3, 0.55), 0.5);
+      ARROW("#qu-a1", at(3, 0.64), 0.3);
+      IN("#qu-wire", at(3, 0.66), 0.4);
+      ARROW("#qu-a2", at(3, 0.78), 0.3);
+      IN("#qu-gate", at(3, 0.8), 0.4);
+      IN("#qu-chart", at(3, 0.86), 0.4);
+      DRAW("#qu-price", at(3, 0.88), 1.4);
+      // L4 干扰项逐个
+      WRONG("C", at(4, 0.02));
+      WRONG("B", at(4, 0.26));
+      WRONG("A", at(4, 0.5));
+      // L5 选项与链路完全淡出；三类稳定币各自信任的对象
+      OUT("#qu-oA, #qu-oB, #qu-oC, #qu-oD, #qu-panel", at(5, 0.0), 0.4);
+      IN("#qu-t1", at(5, 0.1), 0.5, { y: 20 }, { y: 0 });
+      IN("#qu-t2", at(5, 0.22), 0.5, { y: 20 }, { y: 0 });
+      IN("#qu-t3", at(5, 0.34), 0.5, { y: 20 }, { y: 0 });
+      IN("#qu-who", at(5, 0.62), 0.5, { scale: 0.9, svgOrigin: "960 835" }, { scale: 1, svgOrigin: "960 835" });
+
+      tl.to("#qu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz1"] = tl;
+    })();
+  </script>
+</template>

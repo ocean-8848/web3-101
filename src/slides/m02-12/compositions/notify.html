@@ -1,0 +1,193 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 notify，id 前缀 no- -->
+  <div id="root" data-composition-id="notify" data-duration="94.95" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="no-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="no-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+      </defs>
+      <g id="no-all">
+        <g id="no-h" class="h"><rect x="90" y="120" width="1100" height="112" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><g id="no-h-hl" opacity="0"><rect x="93" y="136" width="1094" height="39" fill="#58C4DD" opacity="0.13"/><rect x="93" y="136" width="6" height="39" fill="#58C4DD"/></g><text class="mono" x="134" y="165" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">1</text><text id="no-h-l0" class="mono" x="154" y="165" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">function notifyRewardAmount(uint256 reward) external</text><text class="mono" x="134" y="206" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">2</text><text id="no-h-l1" class="mono" x="154" y="206" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    onlyRole(REWARDS_ADMIN) updateReward(<tspan id="no-a0">address(0)</tspan>) {</text></g>
+        <path id="no-a0a" class="dr h" pathLength="1" d="M926.8000000000001 290 L926.8000000000001 244" stroke="#58C4DD" stroke-width="3" marker-end="url(#no-arr)"/>
+        <text id="no-a0l" class="h" x="926.8000000000001" y="335" font-size="32" fill="#58C4DD" text-anchor="middle">只更新全局 R</text>
+        <g id="no-R" class="h"><text class="mono" x="1520" y="215" font-size="80" fill="#58C4DD" text-anchor="middle" font-weight="700" xml:space="preserve" style="white-space:pre">R</text></g>
+        <path id="no-Rup" class="dr h" pathLength="1" d="M1600 230 L1600 150" stroke="#58C4DD" stroke-width="4" marker-end="url(#no-arr)"/>
+        <path id="no-fk" class="dr" pathLength="1" d="M640 260 L640 400 M640 400 L520 470 M640 400 L1400 400 L1400 470" fill="none" stroke="#8a8f99" stroke-width="3"/>
+        <g id="no-b1" class="h"><rect x="370" y="470" width="300" height="70" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="520.0" y="516.52" font-size="32" fill="#e8e6df" text-anchor="middle">周期已结束</text></g>
+        <g id="no-b2" class="h"><rect x="1250" y="470" width="300" height="70" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="1400.0" y="516.52" font-size="32" fill="#F0B90B" text-anchor="middle">周期未结束</text></g>
+        <text id="no-f1" class="h mono" x="520" y="640" font-size="28" fill="#58C4DD" text-anchor="middle" xml:space="preserve" style="white-space:pre">rate = reward / duration</text>
+        <text id="no-f2" class="h mono" x="1400" y="640" font-size="28" fill="#58C4DD" text-anchor="middle" xml:space="preserve" style="white-space:pre">rate = (reward + remaining × rate) / duration</text>
+        <g id="no-ob" class="h"><rect x="1060" y="720" width="340" height="40" rx="6" fill="#3a3f4a"/><rect x="1400" y="720" width="160" height="40" rx="6" fill="none" stroke="#F0B90B" stroke-width="2" stroke-dasharray="6 5"/></g>
+        <rect id="no-rem" class="h" x="1400" y="720" width="160" height="40" rx="6" fill="#F0B90B"/>
+        <text id="no-reml" class="h" x="1580" y="752" font-size="30" fill="#F0B90B">剩余</text>
+        <g id="no-nb" class="h"><rect x="1060" y="840" width="700" height="40" rx="6" fill="none" stroke="#58C4DD" stroke-width="2.5"/></g>
+        <text id="no-nbl" class="h" x="1040" y="872" font-size="30" fill="#58C4DD" text-anchor="end">新周期</text>
+        <rect id="no-new" class="h" x="1220" y="840" width="540" height="40" rx="6" fill="#F0B90B" opacity="0.45"/>
+        <text id="no-t7" class="h" x="960" y="260" font-size="34" fill="#e8e6df" text-anchor="middle">7 天 = 604,800 秒</text>
+        <rect id="no-tg" class="h" x="160" y="300" width="1143" height="60" rx="8" fill="#3a3f4a"/>
+        <text id="no-tgl" class="h" x="731" y="342" font-size="30" fill="#e8e6df" text-anchor="middle">已过 5 天</text>
+        <rect id="no-tr" class="h" x="1303" y="300" width="457" height="60" rx="8" fill="#F0B90B"/>
+        <text id="no-trl" class="h" x="1531" y="410" font-size="30" fill="#F0B90B" text-anchor="middle">剩 2 天 = 172,800 秒</text>
+        <g id="no-rt" class="h"><text x="160" y="480" font-size="32" fill="#e8e6df">当前速率</text><text class="mono" x="300" y="480" font-size="34" fill="#58C4DD" xml:space="preserve" style="white-space:pre">1</text><text x="330" y="480" font-size="32" fill="#e8e6df">个/秒</text></g>
+        <text id="no-ex" class="h" x="1760" y="480" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+        <g id="no-rn" class="h"><text x="160" y="545" font-size="32" fill="#F0B90B">续期</text><text class="mono" x="240" y="545" font-size="34" fill="#F0B90B" xml:space="preserve" style="white-space:pre">432,000</text></g>
+        <text id="no-e1" class="h mono" x="160" y="660" font-size="34" fill="#e8e6df" xml:space="preserve" style="white-space:pre">leftover = 172,800 × 1 = 172,800</text>
+        <text id="no-e2" class="h mono" x="160" y="750" font-size="34" fill="#e8e6df" xml:space="preserve" style="white-space:pre">(432,000 + 172,800) / 604,800 = 1</text>
+        <text id="no-e2u" class="h" x="880" y="750" font-size="34" fill="#83C167">个/秒</text>
+        <text id="no-e3" class="h" x="1000" y="750" font-size="34" fill="#83C167">速率不变</text>
+        <g id="no-c" class="h"><rect x="90" y="130" width="1250" height="71" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><g id="no-c-hl" opacity="0"><rect x="93" y="146" width="1244" height="39" fill="#58C4DD" opacity="0.13"/><rect x="93" y="146" width="6" height="39" fill="#58C4DD"/></g><text class="mono" x="134" y="175" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">1</text><text id="no-c-l0" class="mono" x="154" y="175" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">if (rewardRate &gt; balance / rewardsDuration) revert RewardTooHigh();</text></g>
+        <g id="no-tk" class="h"><rect id="no-tkr" x="820" y="320" width="280" height="580" rx="16" fill="none" stroke="#8a8f99" stroke-width="3"/></g>
+        <rect id="no-fill" class="h" x="823" y="697" width="274" height="200" rx="12" fill="#F0B90B" opacity="0.85"/>
+        <line id="no-th" class="dr" pathLength="1" x1="780" y1="560" x2="1140" y2="560" stroke="#58C4DD" stroke-width="3"/>
+        <text id="no-thl" class="h" x="1170" y="571" font-size="32" fill="#58C4DD">需要 ≥ 604,800</text>
+        <text id="no-tkl" class="h" x="960" y="960" font-size="32" fill="#e8e6df" text-anchor="middle">合约里的奖励代币</text>
+        <text id="no-rv" class="h mono" x="1170" y="820" font-size="34" fill="#FC6255" xml:space="preserve" style="white-space:pre">revert</text>
+        <text id="no-okk" class="h" x="1170" y="470" font-size="34" fill="#83C167">✓ 通过</text>
+        <g id="no-a1" class="h"><rect x="160" y="230" width="400" height="100" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="360.0" y="291.52" font-size="32" fill="#F0B90B" text-anchor="middle">① 转入奖励</text></g>
+        <path id="no-aa" class="dr h" pathLength="1" d="M570 280 L690 280" stroke="#e8e6df" stroke-width="3" marker-end="url(#no-arr)"/>
+        <g id="no-a2" class="h"><rect x="700" y="230" width="400" height="100" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="900.0" y="291.52" font-size="32" fill="#83C167" text-anchor="middle">② notify</text></g>
+        <text id="no-aok" class="h" x="1170" y="300" font-size="64" fill="#83C167" font-weight="700">✓</text>
+        <circle id="no-cn0" class="h" cx="70" cy="280" r="16" fill="#F0B90B"/>
+        <circle id="no-cn1" class="h" cx="110" cy="280" r="16" fill="#F0B90B"/>
+        <circle id="no-cn2" class="h" cx="150" cy="280" r="16" fill="#F0B90B"/>
+        <g id="no-b1x" class="h"><rect x="160" y="560" width="400" height="100" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="360.0" y="621.52" font-size="32" fill="#FF9F43" text-anchor="middle">① notify</text></g>
+        <path id="no-ba" class="dr h" pathLength="1" d="M570 610 L690 610" stroke="#e8e6df" stroke-width="3" marker-end="url(#no-arr)"/>
+        <g id="no-b2x" class="h"><rect x="700" y="560" width="400" height="100" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="10 7"/><text x="900" y="622" font-size="32" fill="#FC6255" text-anchor="middle">② 库存为空</text></g>
+        <path id="no-bp1" class="dr" pathLength="1" d="M1110 610 L1260 610" stroke="#FC6255" stroke-width="4"/>
+        <path id="no-bp2" class="dr" pathLength="1" d="M1320 610 L1440 610" stroke="#FC6255" stroke-width="4"/>
+        <g id="no-us" class="h"><circle cx="1510" cy="610" r="56" fill="none" stroke="#e8e6df" stroke-width="3"/><text x="1510" y="620" font-size="28" fill="#e8e6df" text-anchor="middle">用户</text></g>
+        <text id="no-usl" class="h" x="1510" y="720" font-size="32" fill="#FC6255" text-anchor="middle">后半段领不到</text>
+        <text id="no-bx" class="h" x="1640" y="628" font-size="60" fill="#FC6255" font-weight="700">✕</text>
+        <g id="no-sd" class="h"><rect x="120" y="160" width="360" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="300" y="203" font-size="28" fill="#e8e6df" text-anchor="middle" xml:space="preserve" style="white-space:pre">setRewardsDuration</text></g>
+        <text id="no-sdl" class="h" x="520" y="203" font-size="32" fill="#FF9F43">周期结束后才能改</text>
+        <g id="no-ct" class="h"><rect x="640" y="330" width="600" height="450" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="670" y="378" font-size="30" fill="#58C4DD">合约</text></g>
+        <g id="no-k1" class="h"><rect x="710" y="510" width="100" height="100" rx="8" fill="#F0B90B"/><text x="760" y="655" font-size="28" fill="#F0B90B" text-anchor="middle">质押代币</text></g>
+        <g id="no-k2" class="h"><circle cx="940" cy="560" r="50" fill="#F0B90B"/><text x="940" y="655" font-size="28" fill="#F0B90B" text-anchor="middle">奖励代币</text></g>
+        <g id="no-k3" class="h"><circle cx="1120" cy="560" r="50" fill="#6b6f7a"/><text id="no-k3l" x="1120" y="655" font-size="28" fill="#8a8f99" text-anchor="middle">误转代币</text></g>
+        <g id="no-lk" class="h"><path d="M820 470 v-30 a30 30 0 0 1 60 0 v30" fill="none" stroke="#FC6255" stroke-width="6"/><rect x="805" y="468" width="90" height="62" rx="8" fill="#FC6255"/></g>
+        <text id="no-pt" class="h mono" x="850" y="740" font-size="28" fill="#FC6255" text-anchor="middle" xml:space="preserve" style="white-space:pre">ProtectedToken</text>
+        <g id="no-ad" class="h"><rect x="1500" y="520" width="260" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="1630.0" y="571.52" font-size="32" fill="#FF9F43" text-anchor="middle">管理员</text></g>
+        <text id="no-rcl" class="h mono" x="1630" y="480" font-size="28" fill="#FF9F43" text-anchor="middle" xml:space="preserve" style="white-space:pre">recoverERC20</text>
+        <text id="no-ok3" class="h" x="1380" y="470" font-size="56" fill="#83C167" text-anchor="middle" font-weight="700">✓</text>
+        <path id="no-ra2" class="dr h" pathLength="1" d="M1490 700 L1080 700" stroke="#FC6255" stroke-width="4" marker-end="url(#no-arrR)"/>
+        <text id="no-rax" class="h" x="1040" y="718" font-size="52" fill="#FC6255" text-anchor="middle" font-weight="700">✕</text>
+        <path id="no-ax" class="dr" pathLength="1" d="M200 280 L200 820 L1720 820" fill="none" stroke="#8a8f99" stroke-width="3"/>
+        <text id="no-axR" class="h mono" x="230" y="300" font-size="40" fill="#58C4DD" font-weight="700" xml:space="preserve" style="white-space:pre">R</text>
+        <text id="no-axT" class="h" x="1720" y="870" font-size="30" fill="#8a8f99" text-anchor="end">时间</text>
+        <path id="no-r1" class="dr" pathLength="1" d="M200 820 L700 600" fill="none" stroke="#58C4DD" stroke-width="6"/>
+        <path id="no-r2" class="dr" pathLength="1" d="M700 600 L1000 600" fill="none" stroke="#A8E6FF" stroke-width="10"/>
+        <path id="no-r3" class="dr" pathLength="1" d="M1000 600 L1600 400" fill="none" stroke="#58C4DD" stroke-width="6"/>
+        <text id="no-fz" class="h" x="850" y="560" font-size="30" fill="#A8E6FF" text-anchor="middle">T = 0 · 1 小时</text>
+        <g id="no-pile" class="h"><circle cx="815" cy="760" r="22" fill="#F0B90B"/><circle cx="865" cy="760" r="22" fill="#F0B90B"/><circle cx="840" cy="722" r="22" fill="#F0B90B"/></g>
+        <text id="no-pl" class="h" x="960" y="930" font-size="34" fill="#F0B90B" text-anchor="middle">留在合约里，不会自动补发</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const Y = {"no-h": [136, 177], "no-c": [146]};
+
+const HL = (p, i, t, d = 0.35) => { tl.to("#" + p + "-hl", { opacity: 1, duration: 0.2 }, t); tl.to("#" + p + "-hl rect", { attr: { y: Y[p][i] }, duration: d, ease: "power2.inOut" }, t); };
+const COL = (s, c, t, d = 0.4) => tl.to(s, { fill: c, duration: d }, t);
+const STK = (s, c, t, d = 0.4) => tl.to(s, { stroke: c, duration: d }, t);
+
+// L0
+IN("#no-h", at(0, 0.02), 0.7, { y: 20 }, { y: 0 });
+HL("no-h", 0, at(0, 0.1));
+IN("#no-R", at(0, 0.3), 0.5);
+HL("no-h", 1, at(0, 0.5));
+COL("#no-a0", "#58C4DD", at(0, 0.7)); ARROW("#no-a0a", at(0, 0.7), 0.4); IN("#no-a0l", at(0, 0.72), 0.4);
+ARROW("#no-Rup", at(0, 0.85), 0.4);
+tl.to("#no-R", { scale: 1.15, svgOrigin: "1520 190", duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.86));
+// L1 fork
+OUT("#no-R, #no-Rup, #no-a0a, #no-a0l", at(1, 0), 0.3);
+tl.to("#no-h-hl", { opacity: 0, duration: 0.3 }, at(1, 0));
+DRAW("#no-fk", at(1, 0.04), 0.8);
+IN("#no-b1", at(1, 0.1), 0.5); IN("#no-f1", at(1, 0.22), 0.5);
+IN("#no-b2", at(1, 0.4), 0.5); IN("#no-f2", at(1, 0.55), 0.5);
+IN("#no-ob", at(1, 0.62), 0.4); IN("#no-rem", at(1, 0.64), 0.4); IN("#no-reml", at(1, 0.66), 0.4);
+IN("#no-nb", at(1, 0.74), 0.4); IN("#no-nbl", at(1, 0.74), 0.4);
+tl.to("#no-rem", { attr: { x: 1060, y: 840 }, duration: 1.0, ease: "power2.inOut" }, at(1, 0.78));
+IN("#no-new", at(1, 0.88), 0.5);
+// L2 renewal
+OUT("#no-h, #no-fk, #no-b1, #no-b2, #no-f1, #no-f2, #no-ob, #no-rem, #no-reml, #no-nb, #no-nbl, #no-new", at(2, 0), 0.4);
+IN("#no-t7", at(2, 0.08), 0.5);
+IN("#no-tg", at(2, 0.12), 0.6, { attr: { width: 0 } }, { attr: { width: 1143 } });
+IN("#no-tgl", at(2, 0.4), 0.4);
+IN("#no-rt", at(2, 0.45), 0.4); IN("#no-ex", at(2, 0.45), 0.4);
+IN("#no-tr", at(2, 0.58), 0.5); IN("#no-trl", at(2, 0.62), 0.4);
+IN("#no-rn", at(2, 0.86), 0.5, { x: -20 }, { x: 0 });
+// L3
+IN("#no-e1", at(3, 0.04), 0.5);
+tl.to("#no-tr", { opacity: 0.55, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.08));
+IN("#no-e2", at(3, 0.45), 0.5);
+IN("#no-e2u", at(3, 0.72), 0.4); IN("#no-e3", at(3, 0.8), 0.4);
+// L4 check
+OUT("#no-t7, #no-tg, #no-tgl, #no-tr, #no-trl, #no-rt, #no-ex, #no-rn, #no-e1, #no-e2, #no-e2u, #no-e3", at(4, 0), 0.4);
+IN("#no-c", at(4, 0.04), 0.6, { y: 20 }, { y: 0 });
+HL("no-c", 0, at(4, 0.08));
+IN("#no-tk", at(4, 0.3), 0.5); IN("#no-tkl", at(4, 0.3), 0.5);
+tl.set("#no-th", { opacity: 1 }, at(4, 0.4)); DRAW("#no-th", at(4, 0.4), 0.6); IN("#no-thl", at(4, 0.42), 0.4);
+IN("#no-fill", at(4, 0.55), 0.4);
+STK("#no-tkr", "#FC6255", at(4, 0.68), 0.3); IN("#no-rv", at(4, 0.68), 0.4);
+OUT("#no-rv", at(4, 0.84), 0.3);
+tl.to("#no-fill", { attr: { y: 477, height: 420 }, duration: 0.8, ease: "power2.out" }, at(4, 0.84));
+STK("#no-tkr", "#83C167", at(4, 0.92), 0.3); IN("#no-okk", at(4, 0.92), 0.4);
+// L5 order
+OUT("#no-c, #no-tk, #no-tkl, #no-th, #no-thl, #no-fill, #no-okk", at(5, 0), 0.4);
+IN("#no-a1", at(5, 0.04), 0.5);
+for (let i = 0; i < 3; i++) { IN("#no-cn" + i, at(5, 0.06), 0.3); tl.to("#no-cn" + i, { attr: { cx: 300 + i * 60 }, opacity: 0, duration: 0.7, ease: "power2.in" }, at(5, 0.1 + i * 0.03)); }
+ARROW("#no-aa", at(5, 0.18), 0.4); IN("#no-a2", at(5, 0.22), 0.5); IN("#no-aok", at(5, 0.3), 0.4);
+IN("#no-b1x", at(5, 0.45), 0.5); ARROW("#no-ba", at(5, 0.52), 0.4); IN("#no-b2x", at(5, 0.56), 0.5);
+IN("#no-us", at(5, 0.68), 0.4);
+tl.set("#no-bp1, #no-bp2", { opacity: 1 }, at(5, 0.74));
+DRAW("#no-bp1", at(5, 0.74), 0.4); DRAW("#no-bp2", at(5, 0.8), 0.3);
+IN("#no-usl", at(5, 0.84), 0.4); IN("#no-bx", at(5, 0.86), 0.3);
+// L6
+OUT("#no-a1, #no-aa, #no-a2, #no-aok, #no-b1x, #no-ba, #no-b2x, #no-bp1, #no-bp2, #no-us, #no-usl, #no-bx", at(6, 0), 0.4);
+IN("#no-sd", at(6, 0.04), 0.5); IN("#no-sdl", at(6, 0.1), 0.4);
+IN("#no-ct", at(6, 0.28), 0.5); IN("#no-k1, #no-k2", at(6, 0.32), 0.4); IN("#no-k3", at(6, 0.36), 0.4);
+IN("#no-ad", at(6, 0.4), 0.4); IN("#no-rcl", at(6, 0.42), 0.4);
+OUT("#no-k3l", at(6, 0.5), 0.2);
+tl.to("#no-k3 circle", { attr: { cx: 1380 }, duration: 0.8, ease: "power2.inOut" }, at(6, 0.5));
+IN("#no-ok3", at(6, 0.58), 0.3);
+IN("#no-lk", at(6, 0.66), 0.4, { y: -30 }, { y: 0 }); IN("#no-pt", at(6, 0.68), 0.4);
+ARROW("#no-ra2", at(6, 0.78), 0.5); IN("#no-rax", at(6, 0.86), 0.3);
+// L7
+OUT("#no-sd, #no-sdl, #no-ct, #no-k1, #no-k2, #no-k3, #no-lk, #no-pt, #no-ad, #no-rcl, #no-ok3, #no-ra2, #no-rax", at(7, 0), 0.4);
+DRAW("#no-ax", at(7, 0.05), 0.6); IN("#no-axR, #no-axT", at(7, 0.08), 0.4);
+DRAW("#no-r1", at(7, 0.15), 0.8);
+DRAW("#no-r2", at(7, 0.35), 0.8); IN("#no-fz", at(7, 0.4), 0.4);
+IN("#no-pile", at(7, 0.6), 0.5, { y: -20 }, { y: 0 }); IN("#no-pl", at(7, 0.66), 0.4);
+DRAW("#no-r3", at(7, 0.8), 0.6);
+
+
+      tl.to("#no-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["notify"] = tl;
+    })();
+  </script>
+</template>

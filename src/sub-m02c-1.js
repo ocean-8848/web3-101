@@ -406,8 +406,8 @@ ${tbl(['问题', '现象', '常见对策'], [
 <p><strong>算一算（示例）：</strong>总量 1,000,000,000，法定人数 4% = 40,000,000 票。已委托的投票权共 150,000,000，历史平均参与率 30%。</p>
 ${steps([
   '正常提案的预期票数 ≈ 150,000,000 × 30% = 45,000,000，刚刚超过法定人数。',
-  '攻击者只需要让赞成票多于反对票，并让总票数过法定人数。若反对方只有 15,000,000 票，攻击者需要 25,000,001 票赞成（同时总票数 40,000,001 达到法定人数）。',
-  '假设代币价格 0.40 美元，买 25,000,001 票约 1,000 万美元。若金库有 1 亿美元，攻击“回报率”是 10 倍。这就是“金库远大于可买票成本”时治理被收购的风险。'
+  '攻击者要同时满足两个条件：赞成票多于反对票，并且达到法定人数。按 OpenZeppelin 的 <code>GovernorCountingSimple</code>，法定人数只计赞成票和弃权票，<strong>反对票不计入</strong>。若反对方有 15,000,000 票、没人弃权，攻击者需要自己凑够全部 40,000,000 票赞成（这同时也多于反对票）。',
+  '假设代币价格 0.40 美元，买 40,000,000 票约 1,600 万美元。若金库有 1 亿美元，攻击“回报率”约 6.25 倍。这就是“金库远大于可买票成本”时治理被收购的风险。计票规则不同（例如反对票也计入法定人数）时，结果会不同，先读清楚合约用的是哪种计票模块。'
 ])}
 
 <h2>5. Snapshot 链下投票与链上执行</h2>
@@ -460,12 +460,12 @@ ${tbl(['路径', '做法', '防御'], [
   ['恶意提案代码', '提案看起来无害，执行的合约里藏着别的逻辑', '审查提案调用的每个合约是否开源、是否可变；模拟执行'],
 ])}
 ${cases([
-  ['Tornado Cash：伪装成旧提案的恶意升级', '2023-05-20', '<p>攻击者提交了一个声称与之前已通过提案相同的提案，其中多了一个函数。提案通过后，攻击者利用这个函数给自己凭空增加了 120 万票，从而控制了治理。安全研究者的分析指出，攻击者利用 selfdestruct 和 CREATE2 在同一地址重新部署了不同的代码。</p><p>启示：投票人审查的是提案的“说明”，执行的是地址上的“代码”。提案调用的合约必须开源、不可变，并在投票前完成模拟执行。</p>', [['The Block：Attacker uses malicious proposal to take over Tornado Cash governance', 'https://www.theblock.co/post/231637'], ['Halborn：Explained: The Tornado Cash Hack (May 2023)', 'https://www.halborn.com/blog/post/explained-the-tornado-cash-hack-may-2023']]],
+  ['Tornado Cash：伪装成旧提案的恶意升级', '2023-05-20', '<p>攻击者提交了一个声称与之前已通过提案相同的提案，其中多了一个函数。提案通过后，攻击者利用这个函数给自己凭空增加了 120 万票，从而控制了治理。安全研究者的分析指出，攻击者利用 selfdestruct 和 CREATE2 在同一地址重新部署了不同的代码。注意：2024 年 3 月 Cancun 升级的 EIP-6780 之后，SELFDESTRUCT 只在合约创建的同一笔交易内才删除代码，这种“销毁后原地址换代码”的手法在以太坊主网已基本失效；但可升级代理等其他换代码途径仍然存在，启示不变。</p><p>启示：投票人审查的是提案的“说明”，执行的是地址上的“代码”。提案调用的合约必须开源、不可变，并在投票前完成模拟执行。</p>', [['The Block：Attacker uses malicious proposal to take over Tornado Cash governance', 'https://www.theblock.co/post/231637'], ['Halborn：Explained: The Tornado Cash Hack (May 2023)', 'https://www.halborn.com/blog/post/explained-the-tornado-cash-hack-may-2023']]],
   ['Compound 提案 289：合法买票与金库划拨', '2024-07-28', '<p>一个被称为“Golden Boys”的群体在公开市场积累 COMP，提出把 499,000 枚 COMP（约 2,400 万美元，约占金库 5%）划给由他们设计的收益产品。提案以 682,191 票对 633,636 票通过。社区和安全研究者称之为治理攻击；之后双方达成和解，提案被撤回。</p><p>启示：买票不违反任何合约规则。防御只能靠参与率、时间锁窗口和取消机制。</p>', [['The Block：$24 million Compound proposal passed by whale over DAO objections', 'https://www.theblock.co/post/307943/24-million-compound-finance-proposal-passed-by-whale-over-dao-objections'], ['The Block：Compound reaches truce with Humpy', 'https://www.theblock.co/post/308215/compound-reaches-truce-with-crypto-whale-humpy-after-controversial-vote-to-move-24-million-in-tokens/']]]
 ], 'h3')}
 
 <h2>8. 法律外壳：简要了解</h2>
-<p>DAO 在法律上是什么，各地不同。两个例子：美国怀俄明州 2021 年通过 SF0038，允许 DAO 注册为一种有限责任公司（DAO LLC），2021 年 7 月 1 日生效。${cite('Wyoming Legislature：SF0038（2021）', 'https://www.wyoleg.gov/2021/Enroll/SF0038.pdf')}2023 年 6 月，美国 CFTC 在针对 Ooki DAO 的诉讼中获得缺席判决，法院认定该 DAO 是可被起诉的非法人社团，判处约 64 万美元罚款并要求关闭网站。${cite('CFTC 新闻稿 8715-23', 'https://www.cftc.gov/PressRoom/PressReleases/8715-23')}这说明“没有公司实体”不等于“没有法律责任”，参与投票的成员可能被视为社团成员。本节不是法律建议；设立实体前请咨询所在法域的律师。合规的系统讲解见 M12 合规、风控与链上数据模块。</p>
+<p>DAO 在法律上是什么，各地不同。几个例子：美国怀俄明州 2021 年通过 SF0038，允许 DAO 注册为一种有限责任公司（DAO LLC），2021 年 7 月 1 日生效。${cite('Wyoming Legislature：SF0038（2021）', 'https://www.wyoleg.gov/2021/Enroll/SF0038.pdf')}2024 年怀俄明州又通过 SF0050《去中心化非法人非营利社团法》（DUNA），2024 年 7 月 1 日生效，让成员不少于 100 人的 DAO 可以作为非营利社团取得法律人格，不必注册公司。${cite('Wyoming Legislature：SF0050（2024）', 'https://www.wyoleg.gov/2024/Enroll/SF0050.pdf')}2023 年 6 月，美国 CFTC 在针对 Ooki DAO 的诉讼中获得缺席判决，法院认定该 DAO 是可被起诉的非法人社团，判处约 64 万美元罚款并要求关闭网站。${cite('CFTC 新闻稿 8715-23', 'https://www.cftc.gov/PressRoom/PressReleases/8715-23')}这说明“没有公司实体”不等于“没有法律责任”，参与投票的成员可能被视为社团成员。本节不是法律建议；设立实体前请咨询所在法域的律师。合规的系统讲解见 M12 合规、风控与链上数据模块。</p>
 
 ${tryit(`<p><strong>动手练习（二选一）：</strong></p>
 <p><strong>A. 读一个真实提案。</strong></p>

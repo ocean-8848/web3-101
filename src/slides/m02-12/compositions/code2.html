@@ -1,0 +1,166 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 code2，id 前缀 c2- -->
+  <div id="root" data-composition-id="code2" data-duration="81.74" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="c2-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="c2-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+      </defs>
+      <g id="c2-all">
+        <g id="c2-s" class="h"><rect x="90" y="70" width="1270" height="358" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><g id="c2-s-hl" opacity="0"><rect x="93" y="86" width="1264" height="39" fill="#58C4DD" opacity="0.13"/><rect x="93" y="86" width="6" height="39" fill="#58C4DD"/></g><text class="mono" x="134" y="115" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">1</text><text id="c2-s-l0" class="mono" x="154" y="115" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">function stake(uint256 amount) external</text><text class="mono" x="134" y="156" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">2</text><text id="c2-s-l1" class="mono" x="154" y="156" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    <tspan id="c2-m1">nonReentrant</tspan> <tspan id="c2-m2">whenNotPaused</tspan> <tspan id="c2-m3">updateReward</tspan>(msg.sender) {</text><text class="mono" x="134" y="197" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">3</text><text id="c2-s-l2" class="mono" x="154" y="197" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    if (amount == 0) revert ZeroAmount();</text><text class="mono" x="134" y="238" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">4</text><text id="c2-s-l3" class="mono" x="154" y="238" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    totalSupply += amount;</text><text class="mono" x="134" y="279" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">5</text><text id="c2-s-l4" class="mono" x="154" y="279" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    balanceOf[msg.sender] += amount;</text><text class="mono" x="134" y="320" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">6</text><text id="c2-s-l5" class="mono" x="154" y="320" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    stakingToken.safeTransferFrom(msg.sender, address(this), amount);</text><text class="mono" x="134" y="361" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">7</text><text id="c2-s-l6" class="mono" x="154" y="361" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    emit Staked(msg.sender, amount);</text><text class="mono" x="134" y="402" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">8</text><text id="c2-s-l7" class="mono" x="154" y="402" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">}</text></g>
+        <g id="c2-sl1" class="h"><text x="1400" y="156" font-size="32" fill="#83C167">防重入</text><text x="1512" y="156" font-size="32" fill="#FF9F43">没暂停</text><text x="1624" y="156" font-size="32" fill="#58C4DD">结算</text></g>
+        <text id="c2-sl2" class="h" x="1400" y="197" font-size="32" fill="#FC6255">为零 → 回退</text>
+        <text id="c2-sl3" class="h" x="1400" y="260.5" font-size="32" fill="#58C4DD">Effects 先改账</text>
+        <text id="c2-sl4" class="h" x="1400" y="320" font-size="32" fill="#F0B90B">Interaction 最后转币</text>
+        <g id="c2-w" class="h"><rect x="90" y="470" width="1270" height="276" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><g id="c2-w-hl" opacity="0"><rect x="93" y="486" width="1264" height="39" fill="#58C4DD" opacity="0.13"/><rect x="93" y="486" width="6" height="39" fill="#58C4DD"/></g><text class="mono" x="134" y="515" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">1</text><text id="c2-w-l0" class="mono" x="154" y="515" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">function withdraw(uint256 amount) public</text><text class="mono" x="134" y="556" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">2</text><text id="c2-w-l1" class="mono" x="154" y="556" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    nonReentrant               updateReward(msg.sender) {</text><text class="mono" x="134" y="597" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">3</text><text id="c2-w-l2" class="mono" x="154" y="597" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    totalSupply -= amount;</text><text class="mono" x="134" y="638" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">4</text><text id="c2-w-l3" class="mono" x="154" y="638" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    balanceOf[msg.sender] -= amount;</text><text class="mono" x="134" y="679" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">5</text><text id="c2-w-l4" class="mono" x="154" y="679" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    stakingToken.safeTransfer(msg.sender, amount);</text><text class="mono" x="134" y="720" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">6</text><text id="c2-w-l5" class="mono" x="154" y="720" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    emit Withdrawn(msg.sender, amount);</text></g>
+        <rect id="c2-wgap" class="h" x="433.6" y="526" width="230.4" height="40" rx="6" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="8 6"/>
+        <text id="c2-wl1" class="h" x="1400" y="556" font-size="32" fill="#FF9F43">没有暂停检查</text>
+        <text id="c2-wl2" class="h" x="1400" y="638" font-size="32" fill="#FC6255">下溢自动回退</text>
+        <text id="c2-wl3" class="h" x="154" y="830" font-size="34" fill="#83C167">暂停时本金照样能取</text>
+        <g id="c2-g" class="h"><rect x="90" y="200" width="1060" height="276" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><g id="c2-g-hl" opacity="0"><rect x="93" y="216" width="1054" height="39" fill="#58C4DD" opacity="0.13"/><rect x="93" y="216" width="6" height="39" fill="#58C4DD"/></g><text class="mono" x="134" y="245" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">1</text><text id="c2-g-l0" class="mono" x="154" y="245" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">uint256 reward = rewards[msg.sender];</text><text class="mono" x="134" y="286" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">2</text><text id="c2-g-l1" class="mono" x="154" y="286" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">if (reward &gt; 0) {</text><text class="mono" x="134" y="327" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">3</text><text id="c2-g-l2" class="mono" x="154" y="327" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    rewards[msg.sender] = 0;</text><text class="mono" x="134" y="368" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">4</text><text id="c2-g-l3" class="mono" x="154" y="368" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    rewardToken.safeTransfer(msg.sender, reward);</text><text class="mono" x="134" y="409" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">5</text><text id="c2-g-l4" class="mono" x="154" y="409" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    emit RewardPaid(msg.sender, reward);</text><text class="mono" x="134" y="450" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">6</text><text id="c2-g-l5" class="mono" x="154" y="450" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">}</text></g>
+        <text id="c2-gl1" class="h" x="1200" y="327" font-size="32" fill="#58C4DD">① 先清零</text>
+        <text id="c2-gl2" class="h" x="1200" y="368" font-size="32" fill="#F0B90B">② 再转账</text>
+        <text id="c2-gl3" class="h" x="1200" y="409" font-size="32" fill="#e8e6df">③ 发事件</text>
+        <path id="c2-re" class="dr h" pathLength="1" d="M1420 358 C1700 358, 1700 235, 1440 235" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#c2-arrR)"/>
+        <text id="c2-rel" class="h" x="1700" y="306.5" font-size="32" fill="#FC6255">重入</text>
+        <g id="c2-sh" class="h"><path d="M1640 266 l28 -18 M1652 331 l30 12 M1626 300 l-20 22" stroke="#FC6255" stroke-width="4" stroke-linecap="round"/></g>
+        <g id="c2-g2" class="h"><text x="154" y="590" font-size="34" fill="#e8e6df">第二次读到</text><text class="mono" x="344" y="590" font-size="34" fill="#58C4DD" xml:space="preserve" style="white-space:pre">reward = 0</text></g>
+        <text id="c2-g3" class="h" x="154" y="660" font-size="34" fill="#83C167">没有钱可以再转</text>
+        <g id="c2-e" class="h"><rect x="90" y="200" width="900" height="194" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><g id="c2-e-hl" opacity="0"><rect x="93" y="216" width="894" height="39" fill="#58C4DD" opacity="0.13"/><rect x="93" y="216" width="6" height="39" fill="#58C4DD"/></g><text class="mono" x="134" y="245" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">1</text><text id="c2-e-l0" class="mono" x="154" y="245" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">function exit() external {</text><text class="mono" x="134" y="286" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">2</text><text id="c2-e-l1" class="mono" x="154" y="286" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    withdraw(balanceOf[msg.sender]);</text><text class="mono" x="134" y="327" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">3</text><text id="c2-e-l2" class="mono" x="154" y="327" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">    getReward();</text><text class="mono" x="134" y="368" font-size="28" fill="#5a5f6a" text-anchor="end" xml:space="preserve" style="white-space:pre">4</text><text id="c2-e-l3" class="mono" x="154" y="368" font-size="28" fill="#e8e6df" xml:space="preserve" style="white-space:pre">}</text></g>
+        <g id="c2-en" class="h"><rect x="1040" y="200" width="790" height="194" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1076" y="254" font-size="32" fill="#FC6255" font-weight="700">注意：getReward 受暂停限制</text><text id="c2-en1" x="1076" y="310" font-size="32" fill="#e8e6df">暂停期间 exit 整笔回退</text><text id="c2-en2" x="1076" y="366" font-size="32" fill="#83C167">→ 单独调用 withdraw 取本金</text></g>
+        <g id="c2-eb1" class="h"><rect x="300" y="560" width="460" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="530.0" y="621.52" font-size="32" fill="#e8e6df" text-anchor="middle">withdraw 全部本金</text></g>
+        <path id="c2-ea" class="dr h" pathLength="1" d="M770 610 L890 610" stroke="#e8e6df" stroke-width="3" marker-end="url(#c2-arr)"/>
+        <g id="c2-eb2" class="h"><rect x="900" y="560" width="460" height="100" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="1130.0" y="621.52" font-size="32" fill="#e8e6df" text-anchor="middle">getReward 领奖</text></g>
+        <text id="c2-pt" class="h" x="520" y="250" font-size="40" fill="#e8e6df" text-anchor="middle" font-weight="700">向下取整</text>
+        <path id="c2-cL" class="h" d="M520 330 A120 120 0 0 0 520 570 Z" fill="#F0B90B"/>
+        <path id="c2-cR" class="h" d="M520 330 A120 120 0 0 1 520 570 Z" fill="#F0B90B"/>
+        <line id="c2-cut" class="dr" pathLength="1" x1="520" y1="300" x2="520" y2="600" stroke="#e8e6df" stroke-width="4"/>
+        <g id="c2-ctr" class="h"><rect x="340" y="700" width="360" height="170" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="370" y="750" font-size="30" fill="#8a8f99">合约</text></g>
+        <circle id="c2-dust" class="h" cx="520" cy="600" r="9" fill="#b9bcc4"/>
+        <text id="c2-dl" class="h" x="730" y="850" font-size="30" fill="#8a8f99">尘埃留下</text>
+        <g id="c2-sc" class="h"><line x1="1400" y1="420" x2="1400" y2="820" stroke="#8a8f99" stroke-width="5"/><rect x="1300" y="820" width="200" height="14" rx="6" fill="#8a8f99"/><circle cx="1400" cy="420" r="10" fill="#e8e6df"/></g>
+        <line id="c2-beam" class="h" x1="1150" y1="420" x2="1650" y2="420" stroke="#e8e6df" stroke-width="6" stroke-linecap="round"/>
+        <g id="c2-pL" class="h"><path d="M1170 420 L1100 550 M1170 420 L1240 550" stroke="#8a8f99" stroke-width="2"/><path d="M1080 550 Q1170 600 1260 550 Z" fill="#F0B90B" opacity="0.85"/><text x="1170" y="650" font-size="32" fill="#F0B90B" text-anchor="middle">实际发放</text></g>
+        <g id="c2-pR" class="h"><path d="M1630 420 L1560 550 M1630 420 L1700 550" stroke="#8a8f99" stroke-width="2"/><path d="M1540 550 Q1630 600 1720 550 Z" fill="#e8e6df" opacity="0.85"/><text x="1630" y="650" font-size="32" fill="#e8e6df" text-anchor="middle">应发</text></g>
+        <text id="c2-pg" class="h" x="1400" y="950" font-size="40" fill="#83C167" text-anchor="middle" font-weight="700">只会少发，不会多发</text>
+        <g id="c2-fc" class="h"><g id="c2-fcb"><rect x="160" y="420" width="130" height="130" rx="10" fill="#F0B90B"/><text class="mono" x="225" y="497" font-size="34" fill="#0f1117" text-anchor="middle" font-weight="700" xml:space="preserve" style="white-space:pre">100</text></g><path id="c2-fchip" d="M262 420 L290 420 L290 448 Z" fill="#FC6255"/></g>
+        <line id="c2-gate" class="dr" pathLength="1" x1="620" y1="380" x2="620" y2="590" stroke="#FC6255" stroke-width="4" stroke-dasharray="1"/>
+        <text id="c2-gatel" class="h" x="620" y="350" font-size="32" fill="#FC6255" text-anchor="middle">转账费</text>
+        <g id="c2-ct" class="h"><rect x="1000" y="300" width="700" height="320" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="1040" y="350" font-size="30" fill="#58C4DD">合约</text><text x="1060" y="440" font-size="34" fill="#e8e6df">账本记</text><text id="c2-led" class="mono" x="1300" y="440" font-size="40" fill="#58C4DD" font-weight="700" xml:space="preserve" style="white-space:pre">100</text><text x="1060" y="540" font-size="34" fill="#e8e6df">实际到账</text><text id="c2-act" class="h mono" x="1300" y="540" font-size="40" fill="#F0B90B" font-weight="700" xml:space="preserve" style="white-space:pre">98</text></g>
+        <text id="c2-fex" class="h" x="1700" y="285" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+        <text id="c2-fbad" class="h" x="1350" y="690" font-size="40" fill="#FC6255" text-anchor="middle" font-weight="700">记账虚高</text>
+        <g id="c2-fok" class="h"><rect x="660" y="800" width="600" height="96" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="960.0" y="860.96" font-size="36" fill="#83C167" text-anchor="middle">只接受标准 ERC-20</text></g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const Y = {"c2-s": [86, 127, 168, 209, 250, 291, 332, 373], "c2-w": [486, 527, 568, 609, 650, 691], "c2-g": [216, 257, 298, 339, 380, 421], "c2-e": [216, 257, 298, 339]};
+
+const HL = (p, i, t, d = 0.35) => { tl.to("#" + p + "-hl", { opacity: 1, duration: 0.2 }, t); tl.to("#" + p + "-hl rect", { attr: { y: Y[p][i] }, duration: d, ease: "power2.inOut" }, t); };
+const COL = (s, c, t, d = 0.4) => tl.to(s, { fill: c, duration: d }, t);
+const STK = (s, c, t, d = 0.4) => tl.to(s, { stroke: c, duration: d }, t);
+
+// L0 stake
+IN("#c2-s", at(0, 0.0), 0.7, { y: 20 }, { y: 0 });
+HL("c2-s", 1, at(0, 0.12));
+COL("#c2-m1", "#83C167", at(0, 0.16)); IN("#c2-sl1 text:nth-child(1)", at(0, 0.16), 0.4);
+COL("#c2-m2", "#FF9F43", at(0, 0.24)); IN("#c2-sl1 text:nth-child(2)", at(0, 0.24), 0.4);
+COL("#c2-m3", "#58C4DD", at(0, 0.32)); IN("#c2-sl1 text:nth-child(3)", at(0, 0.32), 0.4);
+tl.set("#c2-sl1", { opacity: 1 }, at(0, 0.15));
+HL("c2-s", 2, at(0, 0.42)); IN("#c2-sl2", at(0, 0.44), 0.4);
+HL("c2-s", 3, at(0, 0.55)); HL("c2-s", 4, at(0, 0.65));
+COL("#c2-s-l3, #c2-s-l4", "#58C4DD", at(0, 0.6)); IN("#c2-sl3", at(0, 0.6), 0.4);
+HL("c2-s", 5, at(0, 0.8)); COL("#c2-s-l5", "#F0B90B", at(0, 0.82)); IN("#c2-sl4", at(0, 0.84), 0.4);
+// L1 withdraw
+tl.to("#c2-s-hl", { opacity: 0, duration: 0.3 }, at(1, 0));
+IN("#c2-w", at(1, 0.02), 0.7, { y: 20 }, { y: 0 });
+HL("c2-w", 2, at(1, 0.12)); HL("c2-w", 3, at(1, 0.2)); HL("c2-w", 4, at(1, 0.28));
+HL("c2-w", 3, at(1, 0.42)); IN("#c2-wl2", at(1, 0.45), 0.4);
+HL("c2-w", 1, at(1, 0.66)); IN("#c2-wgap", at(1, 0.68), 0.4); IN("#c2-wl1", at(1, 0.7), 0.4);
+IN("#c2-wl3", at(1, 0.86), 0.5);
+// L2 getReward
+OUT("#c2-s, #c2-w, #c2-sl1, #c2-sl2, #c2-sl3, #c2-sl4, #c2-wgap, #c2-wl1, #c2-wl2, #c2-wl3", at(2, 0), 0.4);
+IN("#c2-g", at(2, 0.04), 0.6, { y: 20 }, { y: 0 });
+HL("c2-g", 0, at(2, 0.06)); HL("c2-g", 2, at(2, 0.14)); IN("#c2-gl1", at(2, 0.15), 0.4);
+HL("c2-g", 3, at(2, 0.22)); IN("#c2-gl2", at(2, 0.23), 0.4);
+HL("c2-g", 4, at(2, 0.3)); IN("#c2-gl3", at(2, 0.31), 0.4);
+HL("c2-g", 3, at(2, 0.5));
+ARROW("#c2-re", at(2, 0.55), 0.8); IN("#c2-rel", at(2, 0.57), 0.4);
+HL("c2-g", 0, at(2, 0.66));
+IN("#c2-g2", at(2, 0.72), 0.5);
+OUT("#c2-re", at(2, 0.84), 0.2); IN("#c2-sh", at(2, 0.84), 0.2);
+IN("#c2-g3", at(2, 0.88), 0.4);
+// L3 exit
+OUT("#c2-g, #c2-gl1, #c2-gl2, #c2-gl3, #c2-rel, #c2-sh, #c2-g2, #c2-g3", at(3, 0), 0.35);
+IN("#c2-e", at(3, 0.02), 0.5, { y: 20 }, { y: 0 });
+HL("c2-e", 1, at(3, 0.09)); IN("#c2-eb1", at(3, 0.1), 0.5, { y: 20 }, { y: 0 });
+HL("c2-e", 2, at(3, 0.19)); ARROW("#c2-ea", at(3, 0.2), 0.4); IN("#c2-eb2", at(3, 0.23), 0.5, { y: 20 }, { y: 0 });
+// L3 续：暂停时 exit 回退
+tl.set("#c2-en1, #c2-en2", { opacity: 0 }, at(3, 0.3));
+IN("#c2-en", at(3, 0.37), 0.5, { x: 20 }, { x: 0 });
+STK("#c2-eb2 rect", "#FC6255", at(3, 0.4)); COL("#c2-e-l2", "#FC6255", at(3, 0.4));
+IN("#c2-en1", at(3, 0.6), 0.4);
+tl.to("#c2-ea, #c2-eb2", { opacity: 0.35, duration: 0.4 }, at(3, 0.66));
+HL("c2-e", 1, at(3, 0.82)); IN("#c2-en2", at(3, 0.84), 0.4); STK("#c2-eb1 rect", "#83C167", at(3, 0.86));
+// L4 precision
+OUT("#c2-e, #c2-eb1, #c2-ea, #c2-eb2, #c2-en", at(4, 0), 0.35);
+IN("#c2-cL, #c2-cR", at(4, 0.04), 0.5, { scale: 0.8, svgOrigin: "520 450" }, { scale: 1, svgOrigin: "520 450" });
+IN("#c2-pt", at(4, 0.06), 0.5);
+DRAW("#c2-cut", at(4, 0.1), 0.5); tl.set("#c2-cut", { opacity: 1 }, at(4, 0.1));
+tl.to("#c2-cL", { x: -30, duration: 0.5 }, at(4, 0.16)); tl.to("#c2-cR", { x: 30, duration: 0.5 }, at(4, 0.16));
+OUT("#c2-cut", at(4, 0.2), 0.3);
+IN("#c2-ctr", at(4, 0.2), 0.5);
+IN("#c2-dust", at(4, 0.24), 0.2);
+tl.fromTo("#c2-dust", { attr: { cy: 600 } }, { attr: { cy: 830 }, duration: 0.9, ease: "bounce.out", immediateRender: false }, at(4, 0.25));
+IN("#c2-dl", at(4, 0.3), 0.4);
+IN("#c2-sc, #c2-beam, #c2-pL, #c2-pR", at(4, 0.46), 0.6);
+tl.to("#c2-beam", { rotation: 6, svgOrigin: "1400 420", duration: 1.0, ease: "power2.inOut" }, at(4, 0.58));
+tl.to("#c2-pL", { y: -26, duration: 1.0, ease: "power2.inOut" }, at(4, 0.58));
+tl.to("#c2-pR", { y: 26, duration: 1.0, ease: "power2.inOut" }, at(4, 0.58));
+IN("#c2-pg", at(4, 0.7), 0.5);
+tl.to("#c2-pg", { opacity: 0.55, duration: 0.35, yoyo: true, repeat: 1 }, at(4, 0.88));
+// L5 fee-on-transfer
+OUT("#c2-cL, #c2-cR, #c2-pt, #c2-ctr, #c2-dust, #c2-dl, #c2-sc, #c2-beam, #c2-pL, #c2-pR, #c2-pg", at(5, 0), 0.4);
+IN("#c2-fc", at(5, 0.06), 0.5);
+IN("#c2-ct", at(5, 0.08), 0.5); IN("#c2-fex", at(5, 0.1), 0.4);
+tl.set("#c2-gate", { opacity: 1 }, at(5, 0.12)); DRAW("#c2-gate", at(5, 0.12), 0.4); IN("#c2-gatel", at(5, 0.14), 0.4);
+tl.to("#c2-fc", { x: 520, duration: 1.2, ease: "power1.inOut" }, at(5, 0.2));
+tl.to("#c2-fchip", { x: 20, y: 200, rotation: 60, svgOrigin: "276 434", opacity: 0, duration: 0.9, ease: "power2.in" }, at(5, 0.27));
+tl.to("#c2-fc", { x: 760, opacity: 0, duration: 0.6, ease: "power1.in" }, at(5, 0.32));
+IN("#c2-led", at(5, 0.36), 0.4);
+IN("#c2-act", at(5, 0.44), 0.4);
+IN("#c2-fbad", at(5, 0.5), 0.5, { scale: 0.85, svgOrigin: "1350 676" }, { scale: 1, svgOrigin: "1350 676" });
+tl.to("#c2-act", { opacity: 0.55, duration: 0.35, yoyo: true, repeat: 1 }, at(5, 0.63));
+IN("#c2-fok", at(5, 0.76), 0.6, { y: 20 }, { y: 0 });
+
+
+      tl.to("#c2-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["code2"] = tl;
+    })();
+  </script>
+</template>

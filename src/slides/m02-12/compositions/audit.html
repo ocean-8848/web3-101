@@ -1,0 +1,152 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 audit，id 前缀 au- -->
+  <div id="root" data-composition-id="audit" data-duration="86.44" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="au-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="au-all">
+        <g id="au-ext" class="h"><rect x="90" y="370" width="300" height="100" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="240.0" y="432.24" font-size="34" fill="#FC6255" text-anchor="middle">外部攻击者</text></g>
+        <g id="au-int" class="h"><rect x="90" y="770" width="300" height="100" rx="14" fill="#161a22" stroke="#E07AB8" stroke-width="2.5"/><text x="240.0" y="830.8" font-size="30" fill="#E07AB8" text-anchor="middle">内部 · 私钥被盗</text></g>
+        <text id="au-dh" class="h" x="1565" y="200" font-size="36" fill="#83C167" text-anchor="middle" font-weight="700">防护</text>
+        <text id="au-ah" class="h" x="680" y="200" font-size="36" fill="#FC6255" text-anchor="middle" font-weight="700">攻击路径</text>
+        <path id="au-f0" class="dr" pathLength="1" d="M390 420 C430 420, 420 260, 470 260" fill="none" stroke="#FC6255" stroke-width="3"/>
+        <text id="au-a0" class="h" x="490" y="271" font-size="32" fill="#FC6255">重入 getReward</text>
+        <path id="au-g0" class="dr h" pathLength="1" d="M960 260 L1265 260" stroke="#8a8f99" stroke-width="3" marker-end="url(#au-arr)"/>
+        <g id="au-d0" class="h"><rect x="1280" y="225" width="570" height="70" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text class="mono" x="1565.0" y="270.8" font-size="30" fill="#83C167" text-anchor="middle" xml:space="preserve" style="white-space:pre">nonReentrant + CEI</text></g>
+        <path id="au-f1" class="dr" pathLength="1" d="M390 420 C430 420, 420 370, 470 370" fill="none" stroke="#FC6255" stroke-width="3"/>
+        <text id="au-a1" class="h" x="490" y="381" font-size="32" fill="#FF9F43">周期切换前后抢跑</text>
+        <path id="au-g1" class="dr h" pathLength="1" d="M960 370 L1265 370" stroke="#8a8f99" stroke-width="3" marker-end="url(#au-arr)"/>
+        <g id="au-d1" class="h"><rect x="1280" y="335" width="570" height="70" rx="12" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="10 7"/><text x="1565" y="381" font-size="30" fill="#FF9F43" text-anchor="middle">无配对防护 · 需关注</text></g>
+        <path id="au-f2" class="dr" pathLength="1" d="M390 420 C430 420, 420 480, 470 480" fill="none" stroke="#FC6255" stroke-width="3"/>
+        <text id="au-a2" class="h" x="490" y="491" font-size="32" fill="#FC6255">非标准代币</text>
+        <path id="au-g2" class="dr h" pathLength="1" d="M960 480 L1265 480" stroke="#8a8f99" stroke-width="3" marker-end="url(#au-arr)"/>
+        <g id="au-d2" class="h"><rect x="1280" y="445" width="570" height="70" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1565.0" y="490.8" font-size="30" fill="#83C167" text-anchor="middle">部署时限定标准代币</text></g>
+        <path id="au-f3" class="dr" pathLength="1" d="M390 420 C430 420, 420 590, 470 590" fill="none" stroke="#FC6255" stroke-width="3"/>
+        <text id="au-a3" class="h" x="490" y="601" font-size="32" fill="#FC6255">极小额反复进出</text>
+        <path id="au-g3" class="dr h" pathLength="1" d="M960 590 L1265 590" stroke="#8a8f99" stroke-width="3" marker-end="url(#au-arr)"/>
+        <g id="au-d3" class="h"><rect x="1280" y="555" width="570" height="70" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1565.0" y="600.8" font-size="30" fill="#83C167" text-anchor="middle">1e18 定点 + 向下取整</text></g>
+        <path id="au-f4" class="dr" pathLength="1" d="M390 820 C430 820, 420 770, 470 770" fill="none" stroke="#E07AB8" stroke-width="3"/>
+        <text id="au-a4" class="h" x="490" y="781" font-size="32" fill="#E07AB8">速率过高 → 奖励被抽空</text>
+        <path id="au-g4" class="dr h" pathLength="1" d="M960 770 L1265 770" stroke="#8a8f99" stroke-width="3" marker-end="url(#au-arr)"/>
+        <g id="au-d4" class="h"><rect x="1280" y="735" width="570" height="70" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text x="1565.0" y="780.8" font-size="30" fill="#B48EF0" text-anchor="middle">多签 + 时间锁</text></g>
+        <path id="au-f5" class="dr" pathLength="1" d="M390 820 C430 820, 420 880, 470 880" fill="none" stroke="#E07AB8" stroke-width="3"/>
+        <text id="au-a5" class="h" x="490" y="891" font-size="32" fill="#E07AB8">recover 质押代币 → 盗本金</text>
+        <path id="au-g5" class="dr h" pathLength="1" d="M960 880 L1265 880" stroke="#8a8f99" stroke-width="3" marker-end="url(#au-arr)"/>
+        <g id="au-d5" class="h"><rect x="1280" y="845" width="570" height="70" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text class="mono" x="1565.0" y="890.8" font-size="30" fill="#83C167" text-anchor="middle" xml:space="preserve" style="white-space:pre">+ ProtectedToken</text></g>
+        <g id="au-i0" class="h"><rect x="960" y="70" width="890" height="92" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><rect id="au-cb0" x="990" y="98" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1050" y="127" font-size="30" fill="#e8e6df">资金函数 nonReentrant + CEI</text></g>
+        <path id="au-ck0" class="dr" pathLength="1" d="M996 116 L1006 126 L1022 104" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+        <g id="au-ic0" class="h"><path d="M1791 90 L1791 130 A9 9 0 0 0 1809 130 L1809 90 Z" fill="none" stroke="#83C167" stroke-width="3"/><rect x="1793" y="116" width="14" height="20" fill="#83C167" opacity="0.6"/></g>
+        <g id="au-i1" class="h"><rect x="960" y="182" width="890" height="92" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><rect id="au-cb1" x="990" y="210" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1050" y="239" font-size="30" fill="#e8e6df">updateReward 覆盖 4 个函数</text></g>
+        <path id="au-ck1" class="dr" pathLength="1" d="M996 228 L1006 238 L1022 216" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+        <g id="au-ic1" class="h"><path d="M1791 202 L1791 242 A9 9 0 0 0 1809 242 L1809 202 Z" fill="none" stroke="#83C167" stroke-width="3"/><rect x="1793" y="228" width="14" height="20" fill="#83C167" opacity="0.6"/></g>
+        <g id="au-i2" class="h"><rect x="960" y="294" width="890" height="92" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><rect id="au-cb2" x="990" y="322" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1050" y="351" font-size="30" fill="#e8e6df">两种代币为标准 ERC-20</text></g>
+        <path id="au-ck2" class="dr" pathLength="1" d="M996 340 L1006 350 L1022 328" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+        <g id="au-ic2" class="h"><rect x="1774" y="330" width="28" height="20" rx="10" fill="none" stroke="#83C167" stroke-width="3"/><rect x="1798" y="330" width="28" height="20" rx="10" fill="none" stroke="#83C167" stroke-width="3"/></g>
+        <g id="au-i3" class="h"><rect x="960" y="406" width="890" height="92" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><rect id="au-cb3" x="990" y="434" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1050" y="463" font-size="30" fill="#e8e6df">notify 余额充足校验</text></g>
+        <path id="au-ck3" class="dr" pathLength="1" d="M996 452 L1006 462 L1022 440" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+        <g id="au-ic3" class="h"><path d="M1791 426 L1791 466 A9 9 0 0 0 1809 466 L1809 426 Z" fill="none" stroke="#83C167" stroke-width="3"/><rect x="1793" y="452" width="14" height="20" fill="#83C167" opacity="0.6"/></g>
+        <g id="au-i4" class="h"><rect x="960" y="518" width="890" height="92" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><rect id="au-cb4" x="990" y="546" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1050" y="575" font-size="30" fill="#e8e6df">recover 禁两币</text></g>
+        <path id="au-ck4" class="dr" pathLength="1" d="M996 564 L1006 574 L1022 552" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+        <g id="au-ic4" class="h"><path d="M1791 538 L1791 578 A9 9 0 0 0 1809 578 L1809 538 Z" fill="none" stroke="#83C167" stroke-width="3"/><rect x="1793" y="564" width="14" height="20" fill="#83C167" opacity="0.6"/></g>
+        <g id="au-i5" class="h"><rect x="960" y="630" width="890" height="92" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><rect id="au-cb5" x="990" y="658" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1050" y="687" font-size="30" fill="#e8e6df">最高管理员多签 + 时间锁 · 守护者独立</text></g>
+        <path id="au-ck5" class="dr" pathLength="1" d="M996 676 L1006 686 L1022 664" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+        <g id="au-ic5" class="h"><rect x="1774" y="666" width="28" height="20" rx="10" fill="none" stroke="#83C167" stroke-width="3"/><rect x="1798" y="666" width="28" height="20" rx="10" fill="none" stroke="#83C167" stroke-width="3"/></g>
+        <g id="au-i6" class="h"><rect x="960" y="742" width="890" height="92" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><rect id="au-cb6" x="990" y="770" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1050" y="799" font-size="30" fill="#e8e6df">暂停不冻本金</text></g>
+        <path id="au-ck6" class="dr" pathLength="1" d="M996 788 L1006 798 L1022 776" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+        <g id="au-ic6" class="h"><path d="M1791 762 L1791 802 A9 9 0 0 0 1809 802 L1809 762 Z" fill="none" stroke="#83C167" stroke-width="3"/><rect x="1793" y="788" width="14" height="20" fill="#83C167" opacity="0.6"/></g>
+        <g id="au-i7" class="h"><rect x="960" y="854" width="890" height="92" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><rect id="au-cb7" x="990" y="882" width="36" height="36" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1050" y="911" font-size="30" fill="#e8e6df">外部审计 + 漏洞赏金</text></g>
+        <path id="au-ck7" class="dr" pathLength="1" d="M996 900 L1006 910 L1022 888" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+        <g id="au-ic7" class="h"><rect x="1774" y="890" width="28" height="20" rx="10" fill="none" stroke="#83C167" stroke-width="3"/><rect x="1798" y="890" width="28" height="20" rx="10" fill="none" stroke="#83C167" stroke-width="3"/></g>
+        <g id="au-fn0" class="h"><rect x="120" y="330" width="290" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="265.0" y="380.8" font-size="30" fill="#58C4DD" text-anchor="middle" xml:space="preserve" style="white-space:pre">stake</text></g>
+        <g id="au-fn1" class="h"><rect x="450" y="330" width="290" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="595.0" y="380.8" font-size="30" fill="#58C4DD" text-anchor="middle" xml:space="preserve" style="white-space:pre">withdraw</text></g>
+        <g id="au-fn2" class="h"><rect x="120" y="440" width="290" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="265.0" y="490.8" font-size="30" fill="#58C4DD" text-anchor="middle" xml:space="preserve" style="white-space:pre">getReward</text></g>
+        <g id="au-fn3" class="h"><rect x="450" y="440" width="290" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="595.0" y="490.8" font-size="30" fill="#58C4DD" text-anchor="middle" xml:space="preserve" style="white-space:pre">notify</text></g>
+        <g id="au-led" class="h"><rect id="au-ledr" x="120" y="600" width="620" height="110" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3"/><text class="mono" x="160" y="668" font-size="40" fill="#58C4DD" font-weight="700" xml:space="preserve" style="white-space:pre">R</text><text id="au-ledt" x="220" y="668" font-size="32" fill="#83C167">账目正确</text></g>
+        <text id="au-ledbad" class="h" x="220" y="668" font-size="32" fill="#FC6255">给错账</text>
+        <g id="au-lg" class="h"><g></g><path d="M151 834 L151 874 A9 9 0 0 0 169 874 L169 834 Z" fill="none" stroke="#83C167" stroke-width="3"/><text x="200" y="870" font-size="30" fill="#e8e6df">一个测试</text><rect x="460" y="842" width="28" height="20" rx="10" fill="none" stroke="#83C167" stroke-width="3"/><rect x="484" y="842" width="28" height="20" rx="10" fill="none" stroke="#83C167" stroke-width="3"/><text x="530" y="870" font-size="30" fill="#e8e6df">链上可查</text></g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const Y = {};
+
+const HL = (p, i, t, d = 0.35) => { tl.to("#" + p + "-hl", { opacity: 1, duration: 0.2 }, t); tl.to("#" + p + "-hl rect", { attr: { y: Y[p][i] }, duration: d, ease: "power2.inOut" }, t); };
+const COL = (s, c, t, d = 0.4) => tl.to(s, { fill: c, duration: d }, t);
+const STK = (s, c, t, d = 0.4) => tl.to(s, { stroke: c, duration: d }, t);
+
+// L0
+IN("#au-ext", at(0, 0.05), 0.5, { x: -30 }, { x: 0 });
+IN("#au-int", at(0, 0.15), 0.5, { x: -30 }, { x: 0 });
+IN("#au-ah", at(0, 0.3), 0.4); IN("#au-dh", at(0, 0.55), 0.4);
+tl.to("#au-ext rect, #au-int rect", { fill: "#2a1a1e", duration: 0.6 }, at(0, 0.8));
+// L1 external paths
+const L1 = [0.06, 0.26, 0.5, 0.73];
+for (let i = 0; i < 4; i++) {
+  DRAW("#au-f" + i, at(1, L1[i]), 0.5); IN("#au-a" + i, at(1, L1[i] + 0.01), 0.4);
+  ARROW("#au-g" + i, at(1, L1[i] + 0.08), 0.4); IN("#au-d" + i, at(1, L1[i] + 0.1), 0.4, { x: 20 }, { x: 0 });
+}
+tl.to("#au-d1", { opacity: 0.55, duration: 0.35, yoyo: true, repeat: 1 }, at(1, 0.41));
+tl.to("#au-d1", { opacity: 0.55, duration: 0.35, yoyo: true, repeat: 1 }, at(1, 0.9));
+// L2 internal
+const L2 = [0.15, 0.4];
+for (let j = 0; j < 2; j++) { const i = j + 4; DRAW("#au-f" + i, at(2, L2[j]), 0.5); IN("#au-a" + i, at(2, L2[j] + 0.01), 0.4); }
+ARROW("#au-g4", at(2, 0.66), 0.4); IN("#au-d4", at(2, 0.68), 0.4, { x: 20 }, { x: 0 });
+ARROW("#au-g5", at(2, 0.84), 0.4); IN("#au-d5", at(2, 0.86), 0.4, { x: 20 }, { x: 0 });
+// L3 checklist
+OUT("#au-ext, #au-int, #au-ah, #au-dh, #au-f0, #au-f1, #au-f2, #au-f3, #au-f4, #au-f5, #au-a0, #au-a1, #au-a2, #au-a3, #au-a4, #au-a5, #au-g0, #au-g1, #au-g2, #au-g3, #au-g4, #au-g5, #au-d0, #au-d1, #au-d2, #au-d3, #au-d4, #au-d5", at(3, 0), 0.5);
+const CHK = (i, t) => { IN("#au-i" + i, t, 0.4, { x: 30 }, { x: 0 }); };
+const TICK = (i, t) => { tl.set("#au-ck" + i, { opacity: 1 }, t); DRAW("#au-ck" + i, t, 0.3); STK("#au-cb" + i, "#83C167", t, 0.3); };
+CHK(0, at(3, 0.08)); TICK(0, at(3, 0.3));
+CHK(1, at(3, 0.42));
+for (let i = 0; i < 4; i++) IN("#au-fn" + i, at(3, 0.48) + i * 0.25, 0.4, { y: 15 }, { y: 0 });
+IN("#au-led", at(3, 0.56), 0.4);
+tl.to("#au-fn1", { x: -400, opacity: 0, duration: 0.6, ease: "power2.in" }, at(3, 0.72));
+STK("#au-ledr", "#FC6255", at(3, 0.76), 0.3); OUT("#au-ledt", at(3, 0.76), 0.2); IN("#au-ledbad", at(3, 0.78), 0.3);
+tl.to("#au-fn1", { x: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, at(3, 0.88));
+STK("#au-ledr", "#83C167", at(3, 0.92), 0.3); OUT("#au-ledbad", at(3, 0.92), 0.2); tl.to("#au-ledt", { opacity: 1, duration: 0.3 }, at(3, 0.94));
+TICK(1, at(3, 0.95));
+// L4
+CHK(2, at(4, 0.04)); TICK(2, at(4, 0.3));
+CHK(3, at(4, 0.4)); TICK(3, at(4, 0.6));
+CHK(4, at(4, 0.7)); TICK(4, at(4, 0.9));
+// L5
+CHK(5, at(5, 0.03)); TICK(5, at(5, 0.32));
+CHK(6, at(5, 0.45)); TICK(6, at(5, 0.6));
+CHK(7, at(5, 0.7)); TICK(7, at(5, 0.9));
+// L6 verification icons
+OUT("#au-fn0, #au-fn1, #au-fn2, #au-fn3, #au-led", at(6, 0), 0.4);
+IN("#au-lg", at(6, 0.08), 0.5);
+for (let i = 0; i < 8; i++) IN("#au-ic" + i, at(6, 0.2) + i * 0.3, 0.3, { x: 15 }, { x: 0 });
+
+
+      tl.to("#au-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["audit"] = tl;
+    })();
+  </script>
+</template>

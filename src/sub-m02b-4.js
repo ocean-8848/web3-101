@@ -111,7 +111,7 @@ stateDiagram-v2
   Pausd --> None: withdraw 本金（提本金不受暂停限制）
 `, [
   ['flow', '奖励只在“质押中”累积。退出后份额归零，不再累积。'],
-  ['key', '设计选择：暂停时仍允许用户提取本金（不扣押用户资产），只暂停 stake 和 getReward。这是对用户更友好的做法，也降低“暂停被当作跑路”的信任风险。'],
+  ['key', '设计选择：暂停时仍允许用户提取本金（不扣押用户资产），只暂停 stake 和 getReward。这是对用户更友好的做法，也降低“暂停被当作跑路”的信任风险。注意组合函数也要遵守这一点：exit 里的领奖一步在暂停时要跳过，否则整笔回退、本金也提不出（见第 5 节代码）。'],
   ['risk', '若把 withdraw 也暂停，用户资金会被锁，极端情况下等于冻结用户资产，需要谨慎权衡。']
 ])}
 
@@ -267,9 +267,13 @@ contract StakingRewards is ReentrancyGuard, Pausable, AccessControl {
         }
     }
 
+    // exit = 提全部本金 + 领奖励。getReward 带 whenNotPaused，如果无条件调用，
+    // 暂停期间整笔 exit 会回退，连本金也提不出；余额为 0 时 withdraw(0) 又会触发 ZeroAmount。
+    // 所以两步都按条件执行：暂停期间只提本金，奖励留在 rewards 里，恢复后再领。
     function exit() external {
-        withdraw(balanceOf[msg.sender]);
-        getReward();
+        uint256 bal = balanceOf[msg.sender];
+        if (bal > 0) withdraw(bal);
+        if (!paused()) getReward();
     }
 }
 `)}
@@ -286,7 +290,11 @@ ${code('SOLIDITY', `
             uint256 leftover = remaining * rewardRate;   // 旧周期未发完的部分滚入新周期
             rewardRate = (reward + leftover) / rewardsDuration;
         }
-        // 关键校验：合约里的奖励代币余额必须能支撑整个周期的发放，否则后期 getReward 会失败
+        // 余额校验：合约里的奖励代币余额至少要能支撑整个周期的发放。
+        // 注意这只是必要条件：balance 里还包含已经欠用户、尚未领取的奖励，
+        // 所以校验通过不等于发得出（Synthetix 原版也是如此）。要严格保证偿付，
+        // 可以维护“已承诺未发放”总额 totalOwed 并校验 balance ≥ totalOwed + 新周期发放量，
+        // 或在本函数里直接 safeTransferFrom 拉入 reward，按实际到账计算。
         uint256 balance = rewardToken.balanceOf(address(this));
         if (rewardRate > balance / rewardsDuration) revert RewardTooHigh();
 
@@ -310,7 +318,7 @@ ${code('SOLIDITY', `
         emit Recovered(token, amount);
     }
 `)}
-${call('warn', `<p>Synthetix 原版的一个历史坑：如果 rewardToken 和 stakingToken 是同一个代币，<code>recoverERC20</code> 或余额校验可能把用户本金误算进奖励池。本项目用 <code>ProtectedToken</code> 禁止救援这两种代币，并建议二者不同。另一个坑：<code>notifyRewardAmount</code> 必须在转入奖励代币之后调用，否则余额校验通过但实际没钱。</p>`)}
+${call('warn', `<p>Synthetix 原版的一个历史坑：如果 rewardToken 和 stakingToken 是同一个代币，<code>recoverERC20</code> 或余额校验可能把用户本金误算进奖励池。本项目用 <code>ProtectedToken</code> 禁止救援这两种代币，并建议二者不同。另一个坑：<code>notifyRewardAmount</code> 必须在转入奖励代币之后调用。还要知道余额校验的局限：合约余额里包括已经欠用户、还没被领取的奖励，这部分钱已经“有主”了，校验却把它也算作新周期的库存。所以校验只能挡住明显超发，不能证明偿付能力。运营上每次续期前要按“新周期发放量 + 已欠未领奖励”核对余额，合约上可以维护 <code>totalOwed</code> 或在 notify 内直接拉入奖励。</p>`)}
 
 <h2>6. 接口设计（读函数与事件）</h2>
 ${tbl(['类型', '签名', '用途'], [
@@ -475,17 +483,19 @@ flowchart LR
   TK -.->|"部署时限定标准代币"| OK2["已防护"]
   P -.->|"1e18 定点 + 向下取整"| OK3["已防护"]
   C -.->|"ProtectedToken + 多签时间锁"| OK4["已防护"]
+  N -.->|"种子质押 + 私有交易 + 监控"| W1["部分缓解（无合约层防护）"]
 `, [
   ['flow', '把每条攻击路径对到一条防护。没有对应防护的路径就是风险敞口。'],
+  ['limit', '“周期切换边界”在合约层没有专门防护：奖励按秒线性发放，抢在 notify 前质押也只能按时间和份额分到奖励，收益有限；但如果 notify 时总质押很少甚至为 0，第一个进场的人会拿走这段时间的大部分奖励。缓解办法：部署方在 notify 前放一笔种子质押；用私有交易（如 Flashbots Protect）或时间锁排期发 notify，不让交易在公开内存池里提前暴露；监控 notify 前后的大额质押和提取。'],
   ['risk', '最大单点是 DEFAULT_ADMIN_ROLE：它能设 rewardRate、救援代币。必须多签 + 时间锁，不能是单个 EOA。'],
   ['key', 'updateReward 必须覆盖每一个改变 balanceOf 或 totalSupply 的函数，漏一个，累加器就会给错账。'],
-  ['fail', 'notifyRewardAmount 的余额校验防止承诺超过库存，否则周期后段用户领不到奖励。']
+  ['fail', 'notifyRewardAmount 的余额校验防止明显超发，否则周期后段用户领不到奖励。它只是必要条件：余额里含已欠用户未领的奖励，不能证明偿付能力。']
 ])}
 ${tbl(['检查项', '为什么', '怎么验证'], [
   ['所有涉及资金的外部函数 nonReentrant + CEI', '防重入', 'Slither reentrancy 零告警 + 人工核对'],
   ['updateReward 覆盖 stake/withdraw/getReward/notify', '累加器正确性', '不变量测试通过'],
   ['stakingToken、rewardToken 为标准 ERC-20（无转账费、无 rebase）', '避免记账与实际余额不符', '部署清单核对 + 分叉测试'],
-  ['notifyRewardAmount 有余额充足性校验', '防止承诺超过库存', '单元测试：reward 过高时 revert'],
+  ['notifyRewardAmount 有余额校验，续期前另核对已欠未领奖励', '余额校验只是必要条件：余额里含已欠用户未领的奖励', '单元测试：reward 过高时 revert；不变量测试：余额 ≥ 全部应得奖励'],
   ['recoverERC20 禁止质押币和奖励币', '防盗用户本金', '测试：传入这两种代币 revert'],
   ['DEFAULT_ADMIN 为多签 + 时间锁，GUARDIAN 独立', '降低单点和内部作恶', '链上查角色持有者'],
   ['暂停不冻结用户本金', '保护用户资产与信任', '测试：暂停后 withdraw 成功'],
@@ -514,7 +524,7 @@ ${tryit(`<p>把本项目跑起来：</p>
 ${mistakes([
   ['给每个用户逐秒计息。', '用全局累加器 rewardPerToken，用户余额 × 累加器差值即应得。O(1) Gas，不遍历用户。'],
   ['updateReward 只加在 stake 上。', '任何改变 balanceOf / totalSupply 的函数都要先 updateReward，漏一个就记错账。'],
-  ['notifyRewardAmount 可以先设速率再转币。', '必须先把奖励代币转入合约，再 notify；且 notify 内要校验余额足够覆盖整个周期。'],
+  ['notifyRewardAmount 可以先设速率再转币。', '必须先把奖励代币转入合约，再 notify；notify 内要校验余额足够覆盖整个周期，并记住这个校验不扣除已欠用户未领的奖励。'],
   ['暂停时连本金一起锁住最安全。', '锁住本金等于冻结用户资产，损害信任。只暂停 stake 和 getReward，始终允许提本金。'],
   ['rewardToken 和 stakingToken 用同一个代币没关系。', '会让余额校验和救援逻辑把本金误算成奖励，是经典事故来源。禁止救援这两种代币并建议二者不同。']
 ])}
@@ -522,17 +532,17 @@ ${recap([
   '质押挖矿的核心是 rewardPerToken 累加器：维护全局“每代币累计奖励”，用户应得 = 份额 ×(累加器 − 快照)，Gas O(1)。',
   'updateReward 修饰器必须覆盖所有改变份额和领奖的函数，这是正确性的命根子。',
   '安全栈：SafeERC20 + ReentrancyGuard + CEI + Pausable（不冻本金）+ AccessControl（多签/时间锁 + 独立守护者）。',
-  'notifyRewardAmount 先转币后通知，并校验余额能覆盖整个周期；周期续期要把剩余奖励滚入。',
+  'notifyRewardAmount 先转币后通知，并校验余额能覆盖整个周期（只是必要条件，还要算上已欠未领的奖励）；周期续期要把剩余奖励滚入。',
   '工程闭环：单元 + 模糊 + 不变量 + 分叉测试、Slither、部署验证、事件索引、奖励池余额与暂停告警、多签时间锁。'
 ])}
 ${quiz([
   { q: 'rewardPerToken 累加器算法最大的好处是什么？', o: ['奖励发放更快到账', '计算每个用户奖励时不需要遍历所有用户，Gas 为 O(1)', '可以无限超发奖励', '不需要记录用户份额'], a: 1, why: '累加器把“每代币累计奖励”做成一个全局值，用户应得由份额和两个快照算出，无需遍历。它不改变到账速度，也不超发。' },
   { q: '为什么 updateReward 必须在改变用户余额之前调用？', o: ['为了节省 Gas', '把旧份额对应的历史奖励先结算冻结，份额变化后不影响已结算部分', '为了触发事件', '为了防止重入'], a: 1, why: '先按旧份额结算 (R − userR) 并更新快照，历史被正确冻结。放在余额变更之后会用新份额错误地重算整段历史。' },
   { q: '关于暂停（Pausable）的设计，本项目选择？', o: ['暂停时冻结所有操作，包括提本金', '暂停时禁止 stake 和 getReward，但允许 withdraw 本金', '只有管理员能在暂停时操作', '暂停会自动退还所有用户'], a: 1, why: '只暂停质押和领奖，始终允许用户取回本金，避免冻结用户资产带来的信任和法律风险。' },
-  { q: 'notifyRewardAmount 中“余额充足性校验”防止的是？', o: ['重入攻击', '承诺的发放总量超过合约实际持有的奖励代币，导致后期用户领不到', '整数溢出', '权限被滥用'], a: 1, why: '校验 rewardRate ≤ 余额/周期，保证整个周期都有币可发。它不针对重入、溢出或权限（那些由别的机制处理）。' },
+  { q: 'notifyRewardAmount 中“余额充足性校验”防止的是？', o: ['重入攻击', '承诺的发放总量超过合约实际持有的奖励代币，导致后期用户领不到', '整数溢出', '权限被滥用'], a: 1, why: '校验 rewardRate ≤ 余额/周期，挡住明显的超发。它是必要条件而不是充分条件：余额里还有已欠用户未领的奖励。它也不针对重入、溢出或权限（那些由别的机制处理）。' },
   { q: '为什么要禁止 recoverERC20 救援 stakingToken 和 rewardToken？', o: ['这两种代币不值钱', '否则管理员可能把用户质押的本金或奖励池当作“误转代币”取走', '它们无法转账', 'OpenZeppelin 要求这样'], a: 1, why: '救援函数本意是取回误转的无关代币。放开这两种代币等于给管理员开了盗取用户本金和奖励的后门。' }
 ])}
-${exercises([["计算题：rate = 2 token/秒（示例）。t = 0 时 Alice 质押 200；t = 20 时 Bob 质押 200。t = 30 时两人各应得多少？用累加器 R 逐步计算。", "<p>t = 0 到 20：T = 200，R 增加 2 × 20 / 200 = 0.2。Bob 进场时 userR[Bob] = 0.2，T 变为 400。</p><p>t = 20 到 30：R 增加 2 × 10 / 400 = 0.05，R = 0.25。</p><p>Alice 应得 200 × (0.25 − 0) = 50；Bob 应得 200 × (0.25 − 0.2) = 10。合计 60，等于 30 秒 × 2 token/秒。</p>"], ["计算题：rewardsDuration 为 7 天（604,800 秒）。当前 rewardRate 为 1 token/秒，周期还剩 2 天（172,800 秒）。管理员此时续期 reward = 432,000（示例）。新的 rewardRate 是多少？合约至少要持有多少奖励代币，余额校验才能通过？", "<p>旧周期剩余 leftover = 172,800 × 1 = 172,800。</p><p>新 rewardRate = (432,000 + 172,800) / 604,800 = 1 token/秒。</p><p>校验要求 rewardRate ≤ 余额 / 604,800，所以余额至少为 604,800。必须先转入奖励代币，再调用 <code>notifyRewardAmount</code>。</p>"], ["思考题：周期进行中，所有人都退出了，totalSupply 变为 0，一小时后才有人再质押。这一小时的奖励去了哪里？", "<p>totalSupply 为 0 时，<code>rewardPerToken()</code> 直接返回旧值，累加器冻结。下一次 updateReward 会把 <code>lastUpdateTime</code> 推到当前时间。</p><p>所以这一小时的奖励没有分给任何人，留在合约余额里。recoverERC20 也不能取走 rewardToken。运营要知道这部分奖励不会自动补发。</p>"]])}
+${exercises([["计算题：rate = 2 token/秒（示例）。t = 0 时 Alice 质押 200；t = 20 时 Bob 质押 200。t = 30 时两人各应得多少？用累加器 R 逐步计算。", "<p>t = 0 到 20：T = 200，R 增加 2 × 20 / 200 = 0.2。Bob 进场时 userR[Bob] = 0.2，T 变为 400。</p><p>t = 20 到 30：R 增加 2 × 10 / 400 = 0.05，R = 0.25。</p><p>Alice 应得 200 × (0.25 − 0) = 50；Bob 应得 200 × (0.25 − 0.2) = 10。合计 60，等于 30 秒 × 2 token/秒。</p>"], ["计算题：rewardsDuration 为 7 天（604,800 秒）。当前 rewardRate 为 1 token/秒，周期还剩 2 天（172,800 秒）。管理员此时续期 reward = 432,000（示例）。新的 rewardRate 是多少？合约至少要持有多少奖励代币，余额校验才能通过？", "<p>旧周期剩余 leftover = 172,800 × 1 = 172,800。</p><p>新 rewardRate = (432,000 + 172,800) / 604,800 = 1 token/秒。</p><p>校验要求 rewardRate ≤ 余额 / 604,800，所以要让校验通过，余额至少为 604,800。但余额里还包括届时已经欠用户、尚未领取的奖励，真正发得出需要余额至少为 <strong>604,800 加上届时已欠用户未领的奖励</strong>。必须先转入奖励代币，再调用 <code>notifyRewardAmount</code>。</p>"], ["思考题：周期进行中，所有人都退出了，totalSupply 变为 0，一小时后才有人再质押。这一小时的奖励去了哪里？", "<p>totalSupply 为 0 时，<code>rewardPerToken()</code> 直接返回旧值，累加器冻结。下一次 updateReward 会把 <code>lastUpdateTime</code> 推到当前时间。</p><p>所以这一小时的奖励没有分给任何人，留在合约余额里。recoverERC20 也不能取走 rewardToken。运营要知道这部分奖励不会自动补发。</p>"]])}
 ${checklist(["能用 rewardPerToken 累加器手算多名质押者在不同时间进出后的应得奖励。", "能说出 updateReward 必须覆盖的函数，并解释它为什么要在余额变化前执行。", "能写出偿付性和份额守恒两个不变量测试，并用 forge test 跑通。", "能按“先转入奖励代币、再调用 notifyRewardAmount”的顺序完成一次奖励续期。", "能为质押合约配置奖励池余额、周期结束时间、Paused 事件和角色变更的监控告警。"])}
 ${terms([
   ['质押挖矿', 'Staking Rewards / Yield Farming', '质押一种代币按时间获得另一种奖励代币的机制'],

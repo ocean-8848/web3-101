@@ -58,10 +58,10 @@ ${steps([
   '<strong>铸造</strong>：机构客户完成 KYC，把美元电汇给发行方。发行方在链上调用 <code>mint</code>，给客户地址铸造等量代币。',
   '<strong>赎回</strong>：客户把代币转给发行方，发行方销毁（burn）代币并电汇美元。普通用户通常不能直接赎回，而是在交易所卖出。',
   '<strong>套利维持锚定</strong>：币价 0.99 时，套利者在市场买入、找发行方 1 美元赎回；币价 1.01 时，套利者 1 美元铸造、在市场卖出。',
-  '<strong>储备披露</strong>：Circle 每月发布第三方鉴证报告' + cite('Circle：USDC Transparency', 'https://www.circle.com/transparency') + '；Tether 按季度发布鉴证报告' + cite('Tether：2026 年第一季度鉴证报告公告', 'https://tether.io/news/tether-posts-1-04b-q1-2026-profit-despite-highly-volatile-global-markets-reaches-all-time-highs-8-23b-reserve-buffer-and-maintains-u-s-treasury-heavy-backing/') + '。储备主要是现金和短期美国国债（以发行方最新报告为准）。',
+  '<strong>储备披露</strong>：Circle 每月发布第三方鉴证报告' + cite('Circle：USDC Transparency', 'https://www.circle.com/transparency') + '；Tether 按季度发布鉴证报告' + cite('Tether：2026 年第一季度鉴证报告公告', 'https://tether.io/news/tether-posts-1-04b-q1-2026-profit-despite-highly-volatile-global-markets-reaches-all-time-highs-8-23b-reserve-buffer-and-maintains-u-s-treasury-heavy-backing/') + '。USDC 的储备是现金和短期美国国债；Tether 的储备以美国国债和现金类资产为主，但还包括黄金、比特币、担保贷款和其他投资（截至 2026 年 9 月 30 日的鉴证报告：总资产约 1,915 亿美元，其中美国国债直接与间接持有约 1,324 亿美元）' + cite('Tether：2026 年第三季度鉴证报告公告', 'https://tether.io/news/tether-generates-1-5-billion-in-q3-net-operating-profit-as-reserve-buffer-doubles-to-almost-8-billion/') + '。储备构成会变，以发行方最新报告为准。',
   '<strong>冻结与黑名单</strong>：合约内置黑名单。被列入的地址无法转出（USDC 也无法转入）。发行方按执法要求冻结被盗资金或受制裁地址（制裁筛查见 <a href="#m11-2">M12.2 KYC、AML 与制裁筛查</a>）。'
 ])}
-${call('info', `<p>监管：欧盟 MiCA 对稳定币（ART / EMT）发行方的规定自 2024 年 6 月 30 日起适用；${cite('EBA：Asset-referenced and e-money tokens (MiCA)', 'https://www.eba.europa.eu/regulation-and-policy/asset-referenced-and-e-money-tokens-mica')}美国《GENIUS 法案》于 2025 年 7 月 18 日签署，为支付型稳定币建立联邦框架。${cite('白宫：GENIUS 法案签署说明', 'https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/')}合规要求影响哪些稳定币能在哪些地区的交易所上架，具体以最新法规为准；各法域的稳定币规则对比见 <a href="#m11-4">M12.6 主要法域</a>。</p>`)}
+${call('info', `<p>监管：欧盟 MiCA 对稳定币（ART / EMT）发行方的规定自 2024 年 6 月 30 日起适用；${cite('EBA：Asset-referenced and e-money tokens (MiCA)', 'https://www.eba.europa.eu/regulation-and-policy/asset-referenced-and-e-money-tokens-mica')}美国《GENIUS 法案》于 2025 年 7 月 18 日签署，为支付型稳定币建立联邦框架。${cite('白宫：GENIUS 法案签署说明', 'https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/')}签署不等于生效：法案在“签署后 18 个月（2027 年 1 月 18 日）”和“监管机构发布最终实施规则后 120 天”两者中较早的日期生效。监管机构没能在 2026 年 7 月的一年期限内出齐最终规则，截至 2026 年 11 月，按现有进度将在 2027 年 1 月 18 日生效。${cite('The Block：监管机构错过 GENIUS 法案一年期限', 'https://www.theblock.co/post/408843/us-regulators-miss-genius-act-deadline')}合规要求影响哪些稳定币能在哪些地区的交易所上架，具体以最新法规为准；各法域的稳定币规则对比见 <a href="#m11-4">M12.6 主要法域</a>。</p>`)}
 <h3>3.1 脱锚案例：2023 年 3 月 USDC 与硅谷银行</h3>
 ${mm('USDC 脱锚因果链（2023 年 3 月 10–13 日）', `
 flowchart LR
@@ -126,6 +126,7 @@ flowchart TB
 ])}
 <h3>5.2 Ethena 类 delta 中性设计</h3>
 <p>USDe 的思路：用户存入 ETH（或质押 ETH），协议在中心化交易所开等值的永续合约空头。ETH 涨 10%：现货赚 10%，空头亏 10%，总价值不变。这叫 <strong>delta 中性</strong>。收益来自质押收益和永续合约的<strong>资金费率</strong>（多头付给空头的费用，见 <a href="#m08">M11</a>）。风险：① 资金费率长期为负时，空头要付钱，侵蚀储备；② 头寸放在交易所，存在交易所对手方和托管风险；③ 极端行情下对冲腿和现货腿可能无法同时平仓。</p>
+<p>上面讲的是 USDe 最初的核心机制，不是它现在的全部。截至 2026 年 11 月，Ethena 文档列出的支撑资产分为几类：流动稳定币、链上超额抵押借贷、机构超额抵押借贷、代币化短期国债等 RWA，以及基差交易。永续空单的占比随资金费率高低大幅变化，资金费率低时会更多地配置稳定币等资产。铸造资产也不只有 ETH。具体构成以 Ethena 官方透明度页面为准。${cite('Ethena 文档：Backing Assets', 'https://docs.ethena.fi/backing-assets/overview')}</p>
 
 <h2>6. 稳定币在 DeFi、支付中的角色与工程集成</h2>
 <p>在 DeFi 中，稳定币是 AMM 的主要计价资产、借贷池里借款需求最大的资产、衍生品的保证金和清算单位。在支付中，稳定币用于跨境汇款、交易所之间的结算、商户收款（应用见：商户收款链路与跨境结算见 <a href="#m09-4">M14.4 RWA 与链上支付</a>；USDT 在 Tron 上的转账费用与充值监听见 <a href="#m05-68">M06.11 Tron 与 TON</a>；Agent 用 USDC 按次付费见 <a href="#m06-7">M13.6 Agent 支付</a>；一级铸造赎回、加密卡与 OTC 见 <a href="#m09-8">M14.8 法币出入金</a>）。对后端来说，稳定币就是一个 ERC-20 合约，但有几个与“普通代币”不同的坑：</p>
@@ -243,8 +244,8 @@ ${steps([
 ${steps([
   'γΔx = 0.997 × 10 = 9.97。',
   'Δy = 3,000,000 × 9.97 / (1,000 + 9.97) = 29,910,000 / 1,009.97 ≈ <strong>29,615 USDC</strong>。',
-  '成交均价 ≈ 2,961.5，比即时价 3,000 低约 1.28%。其中约 0.3% 是手续费，约 0.98% 是价格影响。',
-  '交易后池子：x = 1,010（10 个 ETH 全部进入池子），y ≈ 2,970,385。新价格 ≈ 2,941。k 从 3.0×10<sup>9</sup> 增加到约 3.0002×10<sup>9</sup>，增加的部分就是手续费。'
+  '成交均价 ≈ 2,961.5，比即时价 3,000 低约 1.28%。其中约 0.3% 是手续费；不计手续费的纯价格影响是 10 / 1,010 ≈ 0.99%。两者近似相加（0.3% + 0.99% 略大于 1.28%，因为手续费和价格影响是相乘关系，不是严格相加）。',
+  '交易后池子：x = 1,010（10 个 ETH 全部进入池子），y ≈ 2,970,385。新价格 ≈ 2,941。k 从 3.0×10<sup>9</sup> 增加到 1,010 × 2,970,385 ≈ 3.00009×10<sup>9</sup>（多出约 9 万），增加的部分就是留在池子里的手续费。'
 ])}
 <p>先在实验里重复这个例子：设置池子 1,000 ETH、卖出 10 ETH、费率 0.3%，核对成交额。然后把交易量拉到 300 ETH，观察价格影响超过 20%。</p>
 ${lab('amm')}

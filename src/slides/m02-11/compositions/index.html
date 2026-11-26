@@ -8,7 +8,7 @@
     #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
   </style>
   <!-- 场景 index，id 前缀 in- -->
-  <div id="root" data-composition-id="index" data-duration="64.56" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="index" data-duration="69.31" data-width="1920" data-height="1080">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="in-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -66,6 +66,10 @@
           <rect x="1100" y="828" width="80" height="92" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
           <rect id="in-jfill" x="1106" y="904" width="68" height="10" rx="4" fill="#B48EF0" />
           <text x="1206" y="884" font-size="28" fill="#B48EF0">协议储备</text>
+        </g>
+        <g id="in-unit" class="h">
+          <text x="1310" y="462" font-size="30" fill="#e8e6df">Compound V2：按区块</text>
+          <text x="1310" y="522" font-size="30" fill="#e8e6df">Aave：按秒</text>
         </g>
         <g id="in-gas2g" class="h">
           <text class="mono" x="660" y="712" font-size="30" fill="#8a8f99">Gas</text>
@@ -144,16 +148,17 @@
       tl.to("#in-btni", { scale: 0.9, svgOrigin: "320 705", duration: 0.15, yoyo: true, repeat: 1 }, at(5, 0.12));
       IN("#in-acc", at(5, 0.18), 0.5);
       tl.to("#in-accr", { fill: "#1b2a33", duration: 0.3 }, at(5, 0.2));
-      ARROW("#in-a1", at(5, 0.36), 0.5);
-      COUNT("#in-idx", 1.05, 1.053, at(5, 0.4), 0.8, v => v.toFixed(3));
-      ARROW("#in-a2", at(5, 0.52), 0.5);
-      IN("#in-borrow", at(5, 0.55), 0.4);
-      tl.to("#in-bbar", { attr: { width: 360 }, duration: 0.8, ease: "power2.out" }, at(5, 0.58));
-      ARROW("#in-a3", at(5, 0.7), 0.5);
-      IN("#in-jar", at(5, 0.72), 0.4);
-      tl.to("#in-jfill", { attr: { y: 888, height: 26 }, duration: 0.8, ease: "power2.out" }, at(5, 0.78));
+      ARROW("#in-a1", at(5, 0.3), 0.5);
+      COUNT("#in-idx", 1.05, 1.053, at(5, 0.38), 0.8, v => v.toFixed(3));
+      IN("#in-unit", at(5, 0.47), 0.5, { x: 30 }, { x: 0 });
+      ARROW("#in-a2", at(5, 0.76), 0.5);
+      IN("#in-borrow", at(5, 0.79), 0.4);
+      tl.to("#in-bbar", { attr: { width: 360 }, duration: 0.8, ease: "power2.out" }, at(5, 0.82));
+      ARROW("#in-a3", at(5, 0.88), 0.5);
+      IN("#in-jar", at(5, 0.9), 0.4);
+      tl.to("#in-jfill", { attr: { y: 888, height: 26 }, duration: 0.8, ease: "power2.out" }, at(5, 0.93));
       // L6 一个数换算所有账户
-      OUT("#in-btn, #in-acc, #in-a1, #in-a2, #in-a3, #in-borrow, #in-jar", at(6, 0.0), 0.4);
+      OUT("#in-btn, #in-acc, #in-a1, #in-a2, #in-a3, #in-borrow, #in-jar, #in-unit", at(6, 0.0), 0.4);
       tl.to("#in-accs", { opacity: 1, duration: 0.4 }, at(6, 0.05));
       tl.to(".in-link", { strokeDashoffset: 0, duration: 0.8, stagger: 0.05, ease: "power2.out" }, at(6, 0.08));
       tl.to(".in-acc", { fill: "#83C167", stroke: "#83C167", duration: 0.5 }, at(6, 0.3));
