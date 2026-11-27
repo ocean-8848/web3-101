@@ -1,0 +1,233 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 move，id 前缀 mo- -->
+  <div id="root" data-composition-id="move" data-duration="40.04" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="mo-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="mo-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="mo-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="mo-all">
+        <!-- Stage 1: L0-L1 Diem 分叉图 + 本集范围 -->
+        <g id="mo-s1">
+          <g id="mo-diem" class="h">
+            <rect x="460" y="280" width="380" height="96" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="650" y="340" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">Diem（Meta）</text>
+          </g>
+          <path id="mo-br1" class="dr h" pathLength="1" d="M650 378 L650 456 L420 456 L420 518" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#mo-mb)" />
+          <path id="mo-br2" class="dr h" pathLength="1" d="M650 378 L650 456 L880 456 L880 518" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#mo-mb)" />
+          <g id="mo-sui" class="h">
+            <rect x="250" y="528" width="340" height="96" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="420" y="588" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">Sui Move</text>
+          </g>
+          <g id="mo-aptos" class="h">
+            <rect x="710" y="528" width="340" height="96" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="880" y="588" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">Aptos Move</text>
+          </g>
+          <text id="mo-dial" class="h" x="650" y="694" font-size="32" fill="#8a8f99" text-anchor="middle">两个方言</text>
+
+          <!-- L1 右侧：共识划掉，留三个标签 -->
+          <g id="mo-cons" class="h">
+            <rect x="1250" y="280" width="440" height="96" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1470" y="340" font-size="32" fill="#8a8f99" text-anchor="middle">共识：前面讲过</text>
+          </g>
+          <path id="mo-consx" class="dr" pathLength="1" d="M1284 328 L1656 328" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+          <g id="mo-t1" class="h">
+            <rect x="1310" y="426" width="320" height="78" rx="39" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1470" y="477" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">语言</text>
+          </g>
+          <g id="mo-t2" class="h">
+            <rect x="1310" y="538" width="320" height="78" rx="39" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="1470" y="589" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">状态</text>
+          </g>
+          <g id="mo-t3" class="h">
+            <rect x="1310" y="650" width="320" height="78" rx="39" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="1470" y="701" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">执行</text>
+          </g>
+        </g>
+
+        <!-- Stage 2: L2 结构体徽章 -> 代码框 -->
+        <g id="mo-s2">
+          <g id="mo-badge" class="h">
+            <polygon points="450,420 560,484 560,612 450,676 340,612 340,484" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="4" />
+            <polygon points="450,446 538,496 538,600 450,650 362,600 362,496" fill="none" stroke="#F0B90B" stroke-width="1.8" opacity="0.6" />
+            <text x="450" y="562" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle">徽章</text>
+            <text class="mono" x="450" y="732" font-size="32" fill="#8a8f99" text-anchor="middle">Badge</text>
+          </g>
+          <path id="mo-b2c" class="dr h" pathLength="1" d="M590 548 L754 548" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#mo-mb)" />
+          <g id="mo-code" class="h">
+            <rect x="774" y="388" width="840" height="324" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="826" y="466" font-size="34" font-weight="700" fill="#58C4DD">struct Badge {</text>
+            <text class="mono" x="826" y="676" font-size="34" font-weight="700" fill="#58C4DD">}</text>
+          </g>
+          <g id="mo-f1" class="h">
+            <text class="mono" x="880" y="536" font-size="34" fill="#e8e6df">id,</text>
+            <text x="1280" y="536" font-size="30" fill="#8a8f99">编号</text>
+          </g>
+          <g id="mo-f2" class="h">
+            <text class="mono" x="880" y="606" font-size="34" fill="#e8e6df">level,</text>
+            <text x="1280" y="606" font-size="30" fill="#8a8f99">等级</text>
+          </g>
+        </g>
+
+        <!-- Stage 3: L3-L4 Solidity 整数 vs Move 能力插槽 -->
+        <g id="mo-s3">
+          <!-- 左：Solidity 卡片 -->
+          <g id="mo-sol" class="h">
+            <rect x="100" y="250" width="780" height="680" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="142" y="314" font-size="36" font-weight="700" fill="#e8e6df">Solidity</text>
+            <text x="316" y="314" font-size="28" fill="#8a8f99">映射表里的整数</text>
+            <rect x="138" y="346" width="704" height="68" rx="10" fill="#0f1117" stroke="#58C4DD" stroke-width="2" />
+            <text class="mono" x="490" y="391" font-size="28" fill="#58C4DD" text-anchor="middle">mapping(address =&gt; uint256)</text>
+            <rect x="370" y="454" width="240" height="90" rx="14" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="3" />
+            <text class="mono" x="490" y="514" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">100</text>
+          </g>
+          <path id="mo-oa1" class="dr h" pathLength="1" d="M404 548 L242 648" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#mo-mgy)" />
+          <g id="mo-op1" class="h">
+            <rect x="148" y="660" width="188" height="76" rx="12" fill="#F0B90B" fill-opacity="0.08" stroke="#F0B90B" stroke-width="2.5" stroke-dasharray="8 6" />
+            <text class="mono" x="242" y="710" font-size="34" fill="#F0B90B" text-anchor="middle">100</text>
+            <text x="242" y="784" font-size="30" fill="#8a8f99" text-anchor="middle">复制</text>
+          </g>
+          <path id="mo-oa2" class="dr h" pathLength="1" d="M490 548 L490 648" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#mo-mgy)" />
+          <g id="mo-op2" class="h">
+            <rect x="396" y="660" width="188" height="76" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="490" y="710" font-size="34" fill="#e8e6df" text-anchor="middle">+ 50</text>
+            <text x="490" y="784" font-size="30" fill="#8a8f99" text-anchor="middle">相加</text>
+          </g>
+          <path id="mo-oa3" class="dr h" pathLength="1" d="M576 548 L738 648" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#mo-mgy)" />
+          <g id="mo-op3" class="h">
+            <rect x="644" y="660" width="188" height="76" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="738" y="710" font-size="34" fill="#FC6255" text-anchor="middle">= 0</text>
+            <text x="738" y="784" font-size="30" fill="#8a8f99" text-anchor="middle">覆盖</text>
+          </g>
+          <text id="mo-snote" class="h" x="490" y="880" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">安全全靠开发者写对逻辑</text>
+
+          <!-- 右：Move 徽章 + 四个空插槽 -->
+          <g id="mo-mv" class="h">
+            <rect x="980" y="250" width="840" height="680" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1024" y="314" font-size="36" font-weight="700" fill="#58C4DD">Move</text>
+            <text x="1152" y="314" font-size="28" fill="#8a8f99">为类型声明许可</text>
+            <polygon points="1400,456 1492,508 1492,612 1400,664 1308,612 1308,508" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3.5" />
+            <text x="1400" y="574" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">徽章</text>
+          </g>
+          <g id="mo-sl1" class="h">
+            <line x1="1240" y1="454" x2="1320" y2="500" stroke="#8a8f99" stroke-width="2" stroke-dasharray="6 5" />
+            <rect x="1030" y="388" width="210" height="76" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="9 6" />
+            <text x="1135" y="438" font-size="30" fill="#8a8f99" text-anchor="middle">能力？</text>
+          </g>
+          <g id="mo-sl2" class="h">
+            <line x1="1560" y1="454" x2="1480" y2="500" stroke="#8a8f99" stroke-width="2" stroke-dasharray="6 5" />
+            <rect x="1560" y="388" width="210" height="76" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="9 6" />
+            <text x="1665" y="438" font-size="30" fill="#8a8f99" text-anchor="middle">能力？</text>
+          </g>
+          <g id="mo-sl3" class="h">
+            <line x1="1240" y1="670" x2="1320" y2="622" stroke="#8a8f99" stroke-width="2" stroke-dasharray="6 5" />
+            <rect x="1030" y="660" width="210" height="76" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="9 6" />
+            <text x="1135" y="710" font-size="30" fill="#8a8f99" text-anchor="middle">能力？</text>
+          </g>
+          <g id="mo-sl4" class="h">
+            <line x1="1560" y1="670" x2="1480" y2="622" stroke="#8a8f99" stroke-width="2" stroke-dasharray="6 5" />
+            <rect x="1560" y="660" width="210" height="76" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="9 6" />
+            <text x="1665" y="710" font-size="30" fill="#8a8f99" text-anchor="middle">能力？</text>
+          </g>
+          <g id="mo-rej" class="h">
+            <rect x="1110" y="818" width="580" height="72" rx="14" fill="#FC6255" fill-opacity="0.14" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1400" y="866" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">未声明的操作 → 编译器直接拒绝</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- 术语卡 0: Move -->
+      <g id="mo-term0" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Move</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">资源为核心的智能合约语言</text>
+      </g>
+      <!-- 术语卡 1: 结构体 -->
+      <g id="mo-term1" class="h">
+        <rect x="70" y="56" width="580" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">结构体 <tspan font-size="28" font-weight="400" fill="#8a8f99">Struct</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">把字段打包成自定义类型</text>
+      </g>
+      <!-- 术语卡 2: 能力 -->
+      <g id="mo-term2" class="h">
+        <rect x="70" y="56" width="540" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">能力 <tspan font-size="28" font-weight="400" fill="#8a8f99">Ability</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">类型上的许可标签</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0: Move 术语卡 + Diem 分叉到 Sui Move / Aptos Move
+      IN("#mo-term0", at(0, 0.0), 0.5, { y: -12 }, { y: 0 });
+      IN("#mo-diem", at(0, 0.08), 0.6, { y: -20 }, { y: 0 });
+      ARROW("#mo-br1", at(0, 0.42), 0.7);
+      ARROW("#mo-br2", at(0, 0.46), 0.7);
+      IN("#mo-sui", at(0, 0.62), 0.5, { y: 20 }, { y: 0 });
+      IN("#mo-aptos", at(0, 0.68), 0.5, { y: 20 }, { y: 0 });
+      IN("#mo-dial", at(0, 0.84), 0.5);
+
+      // L1: 共识划掉淡出，留 语言·状态·执行
+      IN("#mo-cons", at(1, 0.04), 0.5, { x: 20 }, { x: 0 });
+      DRAW("#mo-consx", at(1, 0.30), 0.4);
+      OUT("#mo-cons, #mo-consx", at(1, 0.48), 0.35);
+      IN("#mo-t1", at(1, 0.54), 0.45, { x: 24 }, { x: 0 });
+      IN("#mo-t2", at(1, 0.68), 0.45, { x: 24 }, { x: 0 });
+      IN("#mo-t3", at(1, 0.82), 0.45, { x: 24 }, { x: 0 });
+
+      // L2: 切换结构体术语卡，徽章展开成 struct Badge
+      OUT("#mo-s1, #mo-term0", at(2, 0.0), 0.35);
+      IN("#mo-term1", at(2, 0.08), 0.5, { y: -12 }, { y: 0 });
+      IN("#mo-badge", at(2, 0.22), 0.6, { y: 20 }, { y: 0 });
+      ARROW("#mo-b2c", at(2, 0.46), 0.5);
+      IN("#mo-code", at(2, 0.52), 0.5, { x: 24 }, { x: 0 });
+      IN("#mo-f1", at(2, 0.68), 0.45, { x: 16 }, { x: 0 });
+      IN("#mo-f2", at(2, 0.82), 0.45, { x: 16 }, { x: 0 });
+
+      // L3: Solidity 映射表整数 -> 复制、相加、覆盖
+      OUT("#mo-s2", at(3, 0.0), 0.35);
+      IN("#mo-sol", at(3, 0.07), 0.6, { x: -24 }, { x: 0 });
+      ARROW("#mo-oa1", at(3, 0.28), 0.4);
+      IN("#mo-op1", at(3, 0.34), 0.45, { y: -16 }, { y: 0 });
+      ARROW("#mo-oa2", at(3, 0.48), 0.4);
+      IN("#mo-op2", at(3, 0.54), 0.45, { y: -16 }, { y: 0 });
+      ARROW("#mo-oa3", at(3, 0.66), 0.4);
+      IN("#mo-op3", at(3, 0.72), 0.45, { y: -16 }, { y: 0 });
+      IN("#mo-snote", at(3, 0.85), 0.45, { y: 12 }, { y: 0 });
+
+      // L4: Move 徽章四空插槽 + 编译器拒绝 + 能力术语卡
+      OUT("#mo-term1", at(4, 0.0), 0.35);
+      IN("#mo-mv", at(4, 0.06), 0.6, { x: 24 }, { x: 0 });
+      ["#mo-sl1", "#mo-sl2", "#mo-sl3", "#mo-sl4"].forEach((s, i) => IN(s, at(4, 0.22 + i * 0.06), 0.4));
+      IN("#mo-rej", at(4, 0.54), 0.5, { y: 14 }, { y: 0 });
+      IN("#mo-term2", at(4, 0.74), 0.5, { y: -12 }, { y: 0 });
+
+      tl.to("#mo-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#mo-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["move"] = tl;
+    })();
+  </script>
+</template>

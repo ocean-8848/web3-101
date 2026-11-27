@@ -1,0 +1,219 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 potato，id 前缀 po- -->
+  <div id="root" data-composition-id="potato" data-duration="37.05" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="po-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="po-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="po-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+        <marker id="po-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="po-all">
+        <!-- Stage 0: L0 中央热土豆凭证卡 + 四个空能力插槽 -->
+        <g id="po-s0">
+          <g id="po-rcpt" class="h">
+            <rect x="640" y="290" width="640" height="220" rx="18" fill="#161a22" />
+            <rect x="640" y="290" width="640" height="220" rx="18" fill="#F0B90B" fill-opacity="0.16" stroke="#FC6255" stroke-width="4" />
+            <text x="688" y="354" font-size="32" font-weight="700" fill="#F0B90B">热土豆凭证</text>
+            <text class="mono" x="688" y="438" font-size="40" font-weight="700" fill="#e8e6df">Receipt { amount }</text>
+          </g>
+          <g id="po-slots" class="h">
+            <rect x="640" y="566" width="142" height="76" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" stroke-dasharray="8 6" />
+            <text class="mono" x="711" y="616" font-size="30" fill="#6b6f7a" text-anchor="middle">copy</text>
+            <rect x="806" y="566" width="142" height="76" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" stroke-dasharray="8 6" />
+            <text class="mono" x="877" y="616" font-size="30" fill="#6b6f7a" text-anchor="middle">drop</text>
+            <rect x="972" y="566" width="142" height="76" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" stroke-dasharray="8 6" />
+            <text class="mono" x="1043" y="616" font-size="30" fill="#6b6f7a" text-anchor="middle">key</text>
+            <rect x="1138" y="566" width="142" height="76" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" stroke-dasharray="8 6" />
+            <text class="mono" x="1209" y="616" font-size="30" fill="#6b6f7a" text-anchor="middle">store</text>
+          </g>
+          <g id="po-xs" class="h">
+            <line x1="658" y1="604" x2="764" y2="604" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+            <line x1="824" y1="604" x2="930" y2="604" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+            <line x1="990" y1="604" x2="1096" y2="604" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+            <line x1="1156" y1="604" x2="1262" y2="604" stroke="#FC6255" stroke-width="4" stroke-linecap="round" />
+            <text x="960" y="718" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">四种能力全无</text>
+          </g>
+        </g>
+
+        <!-- Stage 1: L1 交易时间轴 + finish() 拆开 / 失败分支 -->
+        <g id="po-s1">
+          <g id="po-tl" class="h">
+            <line id="po-axis" x1="200" y1="530" x2="1720" y2="530" stroke="#8a8f99" stroke-width="4" />
+            <circle cx="200" cy="530" r="14" fill="#58C4DD" />
+            <circle cx="1720" cy="530" r="14" fill="#58C4DD" />
+            <text x="200" y="598" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">交易开始</text>
+            <text x="1720" y="598" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">交易结束</text>
+          </g>
+          <g id="po-fin" class="h">
+            <rect x="1170" y="464" width="260" height="132" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3.5" />
+            <text class="mono" x="1300" y="524" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">finish()</text>
+            <text x="1300" y="572" font-size="28" fill="#e8e6df" text-anchor="middle">显式拆开</text>
+          </g>
+          <g id="po-chip" class="h">
+            <rect x="240" y="418" width="184" height="72" rx="12" fill="#161a22" />
+            <rect x="240" y="418" width="184" height="72" rx="12" fill="#F0B90B" fill-opacity="0.2" stroke="#FC6255" stroke-width="3" />
+            <text class="mono" x="332" y="466" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">Receipt</text>
+          </g>
+          <g id="po-frags" class="h">
+            <polygon points="1460,446 1506,432 1492,476" fill="#F0B90B" fill-opacity="0.3" stroke="#83C167" stroke-width="2.5" />
+            <polygon points="1478,480 1528,472 1510,512" fill="#F0B90B" fill-opacity="0.3" stroke="#83C167" stroke-width="2.5" />
+            <text x="1572" y="492" font-size="44" font-weight="700" fill="#83C167">✓</text>
+          </g>
+          <!-- 失败分支 -->
+          <path id="po-fbr" class="dr h" pathLength="1" d="M680 534 Q720 770 920 770 L1324 770" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#po-mr)" />
+          <text id="po-flbl" class="h" x="1030" y="736" font-size="30" fill="#FC6255" text-anchor="middle">未交给 finish()</text>
+          <g id="po-fail" class="h">
+            <rect x="1340" y="726" width="380" height="88" rx="14" fill="#FC6255" fill-opacity="0.16" stroke="#FC6255" stroke-width="3" />
+            <text x="1530" y="782" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 交易失败</text>
+          </g>
+        </g>
+
+        <!-- Stage 2: L2-L3 闪电贷借款与还款 -->
+        <g id="po-s2">
+          <g id="po-pool" class="h">
+            <rect x="160" y="320" width="350" height="220" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3.5" />
+            <text x="335" y="424" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">借贷池</text>
+            <text x="335" y="482" font-size="28" fill="#8a8f99" text-anchor="middle">闪电贷</text>
+          </g>
+          <g id="po-borr" class="h">
+            <rect x="1410" y="320" width="350" height="220" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="1585" y="444" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">借款人</text>
+          </g>
+          <path id="po-la" class="dr h" pathLength="1" d="M518 430 L1398 430" fill="none" stroke="#F0B90B" stroke-width="4" marker-end="url(#po-mg)" />
+          <!-- 移动的币 + 凭证组合 -->
+          <g id="po-bnd" class="h">
+            <rect x="556" y="290" width="130" height="46" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2" opacity="0.7" />
+            <rect x="556" y="310" width="130" height="48" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2" opacity="0.85" />
+            <rect x="556" y="330" width="130" height="58" rx="14" fill="#161a22" />
+            <rect x="556" y="330" width="130" height="58" rx="14" fill="#F0B90B" fill-opacity="0.22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="621" y="370" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">金币</text>
+            <rect x="708" y="312" width="166" height="76" rx="12" fill="#161a22" />
+            <rect x="708" y="312" width="166" height="76" rx="12" fill="#F0B90B" fill-opacity="0.2" stroke="#FC6255" stroke-width="3" />
+            <text class="mono" x="791" y="362" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">Receipt</text>
+          </g>
+
+          <!-- L3 还款函数框 -->
+          <g id="po-repay" class="h">
+            <rect id="po-rbox" x="640" y="650" width="640" height="230" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="688" y="712" font-size="36" font-weight="700" fill="#e8e6df">还款函数</text>
+            <rect x="688" y="746" width="280" height="86" rx="12" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="828" y="802" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">金额够吗？</text>
+          </g>
+          <g id="po-rok" class="h">
+            <rect x="996" y="746" width="244" height="86" rx="12" fill="#83C167" fill-opacity="0.16" stroke="#83C167" stroke-width="2.5" />
+            <text x="1118" y="802" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">✓ 拆开凭证</text>
+          </g>
+          <path id="po-ret1" class="dr h" pathLength="1" d="M1585 548 L1585 765 L1292 765" fill="none" stroke="#F0B90B" stroke-width="4" marker-end="url(#po-mg)" />
+          <path id="po-ret2" class="dr h" pathLength="1" d="M632 765 L335 765 L335 552" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#po-mgr)" />
+          <g id="po-rfail" class="h">
+            <rect x="1390" y="820" width="370" height="72" rx="14" fill="#FC6255" fill-opacity="0.14" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1575" y="868" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">不还 → 整笔失败</text>
+          </g>
+        </g>
+
+        <!-- Stage 3: L4 EVM vs Move 两栏对比 -->
+        <g id="po-s3">
+          <g id="po-evm" class="h">
+            <rect x="140" y="300" width="740" height="440" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="190" y="378" font-size="44" font-weight="700" fill="#8a8f99">EVM</text>
+            <line x1="176" y1="414" x2="844" y2="414" stroke="#8a8f99" stroke-width="2" opacity="0.45" />
+            <text x="190" y="508" font-size="38" font-weight="700" fill="#e8e6df">回调结束后检查余额</text>
+            <text x="190" y="598" font-size="30" fill="#8a8f99">借出 → 回调 → 核对余额</text>
+            <text x="190" y="676" font-size="28" fill="#6b6f7a">运行时逻辑检查</text>
+          </g>
+          <text id="po-vs" class="h" x="960" y="534" font-size="40" font-weight="700" fill="#6b6f7a" text-anchor="middle">vs</text>
+          <g id="po-mv" class="h">
+            <rect id="po-mvb" x="1040" y="300" width="740" height="440" rx="18" fill="#161a22" stroke="#83C167" stroke-width="3.5" />
+            <text x="1090" y="378" font-size="44" font-weight="700" fill="#83C167">Move</text>
+            <line x1="1076" y1="414" x2="1744" y2="414" stroke="#83C167" stroke-width="2" opacity="0.5" />
+            <text x="1090" y="508" font-size="38" font-weight="700" fill="#83C167">约束写进类型</text>
+            <text x="1090" y="598" font-size="30" fill="#e8e6df">热土豆凭证 → 必须还款拆开</text>
+            <text x="1090" y="676" font-size="28" fill="#83C167">编译器 + 校验器强制</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- 术语卡：热土豆 -->
+      <g id="po-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">热土豆 <tspan font-size="28" font-weight="400" fill="#8a8f99">Hot potato</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">没有任何能力的结构体</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0: 术语卡 + Receipt 卡 + 四空插槽划掉
+      IN("#po-term", at(0, 0.0), 0.5, { y: -12 }, { y: 0 });
+      IN("#po-rcpt", at(0, 0.14), 0.6, { y: 20 }, { y: 0 });
+      IN("#po-slots", at(0, 0.44), 0.5, { y: 16 }, { y: 0 });
+      IN("#po-xs", at(0, 0.68), 0.45);
+
+      // L1: 交易时间轴 -> 进入 finish() 拆开 / 未进入则失败
+      OUT("#po-s0", at(1, 0.0), 0.35);
+      IN("#po-tl", at(1, 0.08), 0.5);
+      IN("#po-chip", at(1, 0.18), 0.4, { y: -16 }, { y: 0 });
+      IN("#po-fin", at(1, 0.28), 0.5, { y: 16 }, { y: 0 });
+      tl.to("#po-chip", { x: 960, y: 40, duration: 1.5, ease: "power2.inOut" }, at(1, 0.34));
+      OUT("#po-chip", at(1, 0.50), 0.2);
+      IN("#po-frags", at(1, 0.52), 0.4, { x: -16 }, { x: 0 });
+      ARROW("#po-fbr", at(1, 0.68), 0.8);
+      IN("#po-flbl", at(1, 0.75), 0.4);
+      IN("#po-fail", at(1, 0.82), 0.45, { x: 20 }, { x: 0 });
+      tl.to("#po-axis", { stroke: "#FC6255", duration: 0.35 }, at(1, 0.84));
+
+      // L2: 闪电贷借出金币 + 热土豆凭证
+      OUT("#po-s1", at(2, 0.0), 0.35);
+      IN("#po-pool", at(2, 0.08), 0.5, { x: -24 }, { x: 0 });
+      IN("#po-borr", at(2, 0.16), 0.5, { x: 24 }, { x: 0 });
+      ARROW("#po-la", at(2, 0.32), 0.7);
+      IN("#po-bnd", at(2, 0.36), 0.35);
+      tl.to("#po-bnd", { x: 460, duration: 1.6, ease: "power2.inOut" }, at(2, 0.46));
+
+      // L3: 借款人送进还款函数 -> 检查金额够吗？ -> 绿 ✓
+      IN("#po-repay", at(3, 0.05), 0.5, { y: 24 }, { y: 0 });
+      ARROW("#po-ret1", at(3, 0.18), 0.7);
+      tl.to("#po-bnd", { x: 250, y: 280, opacity: 0, duration: 0.8, ease: "power2.in" }, at(3, 0.32));
+      IN("#po-rok", at(3, 0.50), 0.45, { x: -14 }, { x: 0 });
+      tl.to("#po-rbox", { stroke: "#83C167", duration: 0.35 }, at(3, 0.52));
+      ARROW("#po-ret2", at(3, 0.62), 0.7);
+      IN("#po-rfail", at(3, 0.80), 0.45, { y: 14 }, { y: 0 });
+
+      // L4: EVM vs Move 两栏对比
+      OUT("#po-s2", at(4, 0.0), 0.35);
+      IN("#po-evm", at(4, 0.10), 0.55, { x: -24 }, { x: 0 });
+      IN("#po-vs", at(4, 0.36), 0.35);
+      IN("#po-mv", at(4, 0.44), 0.55, { x: 24 }, { x: 0 });
+      tl.to("#po-mvb", { attr: { "stroke-width": 6 }, duration: 0.4, yoyo: true, repeat: 1 }, at(4, 0.74));
+
+      tl.to("#po-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#po-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["potato"] = tl;
+    })();
+  </script>
+</template>

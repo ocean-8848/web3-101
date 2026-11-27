@@ -1,0 +1,283 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 lab，id 前缀 la- -->
+  <div id="root" data-composition-id="lab" data-duration="53.39" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="la-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="la-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="la-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="la-all">
+        <!-- 顶部标题 -->
+        <text id="la-title" class="h" x="100" y="114" font-size="44" font-weight="700" fill="#e8e6df">动手实战：Sui 本地网络共享计数器</text>
+
+        <!-- 阶段 A：左终端/代码 + 右对象状态面板 (L0-L5) -->
+        <g id="la-ide">
+          <!-- 左终端窗框 -->
+          <g id="la-termWin" class="h">
+            <rect x="100" y="164" width="1020" height="780" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
+            <line x1="100" y1="228" x2="1120" y2="228" stroke="#3a3f4a" stroke-width="2" />
+            <circle cx="136" cy="196" r="9" fill="#FC6255" />
+            <circle cx="168" cy="196" r="9" fill="#F0B90B" />
+            <circle cx="200" cy="196" r="9" fill="#83C167" />
+            <text id="la-winTerm" class="mono" x="236" y="206" font-size="28" fill="#8a8f99">localnet · terminal</text>
+            <text id="la-winCode" class="mono h" x="236" y="206" font-size="28" fill="#58C4DD">sources/counter.move</text>
+          </g>
+
+          <!-- 右对象状态面板 -->
+          <g id="la-objWin" class="h">
+            <rect x="1160" y="164" width="660" height="780" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1200" y="216" font-size="34" font-weight="700" fill="#58C4DD">本地网络对象状态</text>
+            <line x1="1196" y1="240" x2="1784" y2="240" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+
+          <!-- L1 终端命令：启动 localnet + 切环境 + 领测试币 -->
+          <g id="la-cli1">
+            <text id="la-c1_0" class="mono h" x="136" y="310" font-size="28" fill="#83C167">$ sui start --with-faucet</text>
+            <text id="la-c1_1" class="mono h" x="136" y="390" font-size="28" fill="#e8e6df">$ sui client switch --env local</text>
+            <text id="la-c1_2" class="mono h" x="136" y="470" font-size="28" fill="#F0B90B">$ sui client faucet</text>
+            <text id="la-c1_3" class="mono h" x="136" y="550" font-size="28" fill="#58C4DD">$ sui client gas</text>
+            <text id="la-c1_note" class="h" x="136" y="660" font-size="30" fill="#8a8f99">已启动本地测试网络并领取 Gas 币</text>
+          </g>
+
+          <!-- L1 右面板：金色 Gas 币 -->
+          <g id="la-gasList">
+            <g id="la-gas0" class="h">
+              <rect x="1200" y="280" width="580" height="106" rx="14" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" />
+              <text class="mono" x="1236" y="328" font-size="28" font-weight="700" fill="#F0B90B">Gas Coin #1</text>
+              <text class="mono" x="1236" y="368" font-size="28" fill="#e8e6df">Owner: 0xSender</text>
+            </g>
+            <g id="la-gas1" class="h">
+              <rect x="1200" y="416" width="580" height="106" rx="14" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" />
+              <text class="mono" x="1236" y="464" font-size="28" font-weight="700" fill="#F0B90B">Gas Coin #2</text>
+              <text class="mono" x="1236" y="504" font-size="28" fill="#e8e6df">Owner: 0xSender</text>
+            </g>
+            <g id="la-gas2" class="h">
+              <rect x="1200" y="552" width="580" height="106" rx="14" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" />
+              <text class="mono" x="1236" y="600" font-size="28" font-weight="700" fill="#F0B90B">Gas Coin #3</text>
+              <text class="mono" x="1236" y="640" font-size="28" fill="#e8e6df">Owner: 0xSender</text>
+            </g>
+          </g>
+
+          <!-- L2 Move 计数器代码 (≤ 10 行，纯 ASCII mono) -->
+          <g id="la-code2" class="h">
+            <rect id="la-hl" class="h" x="118" y="256" width="984" height="50" rx="8" fill="#58C4DD" fill-opacity="0.18" />
+            <text class="mono" x="136" y="292" font-size="28" fill="#58C4DD">public struct Counter has key {</text>
+            <text class="mono" x="136" y="348" font-size="28" fill="#e8e6df">  id: UID, owner: address, value: u64</text>
+            <text class="mono" x="136" y="404" font-size="28" fill="#58C4DD">}</text>
+            <text class="mono" x="136" y="466" font-size="28" fill="#e8e6df">public fun create(ctx: &amp;mut TxContext) {</text>
+            <text class="mono" x="136" y="522" font-size="28" fill="#e8e6df">  let c = Counter { id, owner, value: 0 };</text>
+            <text class="mono" x="136" y="578" font-size="28" fill="#FF9F43">  transfer::share_object(c);</text>
+            <text class="mono" x="136" y="634" font-size="28" fill="#e8e6df">}</text>
+            <text class="mono" x="136" y="696" font-size="28" fill="#e8e6df">public fun increment(c: &amp;mut Counter) {</text>
+            <text class="mono" x="136" y="752" font-size="28" fill="#83C167">  c.value = c.value + 1;</text>
+            <text class="mono" x="136" y="808" font-size="28" fill="#e8e6df">}</text>
+            <text id="la-c2note" class="h" x="136" y="892" font-size="30" fill="#FF9F43">只有 key 能力 · share_object 变为共享对象</text>
+          </g>
+
+          <!-- L3 编译、测试、发布 -->
+          <g id="la-cli3">
+            <text id="la-c3_0" class="mono h" x="136" y="320" font-size="28" fill="#e8e6df">$ sui move build</text>
+            <text id="la-c3_1" class="mono h" x="136" y="410" font-size="28" fill="#83C167">$ sui move test</text>
+            <text id="la-c3_2" class="mono h" x="136" y="500" font-size="28" fill="#F0B90B">$ sui client publish</text>
+            <text id="la-c3_note" class="h" x="136" y="892" font-size="28" fill="#8a8f99">具体 CLI 参数以官方文档为准</text>
+          </g>
+
+          <!-- L3 右面板：Package ID + UpgradeCap -->
+          <g id="la-pubObjs">
+            <g id="la-pkgCard" class="h">
+              <rect x="1200" y="276" width="580" height="124" rx="14" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="2.5" />
+              <text class="mono" x="1236" y="328" font-size="30" font-weight="700" fill="#58C4DD">Package ID</text>
+              <text class="mono" x="1236" y="376" font-size="28" fill="#e8e6df">0x7a3f...c912</text>
+            </g>
+            <g id="la-capCard" class="h">
+              <rect x="1200" y="426" width="580" height="124" rx="14" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="2.5" />
+              <text class="mono" x="1236" y="478" font-size="30" font-weight="700" fill="#FF9F43">UpgradeCap</text>
+              <text x="1236" y="526" font-size="28" fill="#e8e6df">包升级权限对象</text>
+            </g>
+          </g>
+
+          <!-- L4 PTB 调用命令 -->
+          <g id="la-cli4">
+            <text id="la-c4_0" class="mono h" x="136" y="320" font-size="28" fill="#58C4DD">$ sui client call --function create</text>
+            <text id="la-c4_1" class="mono h" x="136" y="430" font-size="28" fill="#83C167">$ sui client ptb \</text>
+            <text id="la-c4_2" class="mono h" x="136" y="486" font-size="28" fill="#83C167">  --move-call $PKG::counter::increment \</text>
+            <text id="la-c4_3" class="mono h" x="136" y="542" font-size="28" fill="#83C167">  @$CTR</text>
+            <text id="la-c4_4" class="mono h" x="136" y="650" font-size="28" fill="#e8e6df">$ sui client object $CTR</text>
+          </g>
+
+          <!-- L4-L5 右面板：Counter 状态卡 -->
+          <g id="la-ctrCard" class="h">
+            <rect id="la-ctrRect" x="1200" y="582" width="580" height="320" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text class="mono" x="1236" y="642" font-size="34" font-weight="700" fill="#58C4DD">Counter (@CTR)</text>
+            <line x1="1236" y1="668" x2="1744" y2="668" stroke="#3a3f4a" stroke-width="2" />
+            <text id="la-ownShared" class="mono" x="1236" y="726" font-size="30" font-weight="700" fill="#FF9F43">Owner: Shared</text>
+            <text id="la-ownAddr" class="mono h" x="1236" y="726" font-size="30" font-weight="700" fill="#83C167">Owner: 0xSender</text>
+
+            <text class="mono" x="1236" y="796" font-size="30" fill="#8a8f99">value:</text>
+            <text id="la-v0" class="mono" x="1390" y="796" font-size="34" font-weight="700" fill="#e8e6df">0</text>
+            <text id="la-v1" class="mono h" x="1390" y="796" font-size="34" font-weight="700" fill="#83C167">1</text>
+
+            <text class="mono" x="1236" y="862" font-size="30" fill="#8a8f99">version:</text>
+            <text id="la-ver1" class="mono" x="1420" y="862" font-size="30" fill="#e8e6df">1</text>
+            <text id="la-ver2" class="mono h" x="1420" y="862" font-size="30" font-weight="700" fill="#58C4DD">2  (+1)</text>
+          </g>
+
+          <!-- L5 代码替换为 transfer::transfer + 别地址调用被拒 -->
+          <g id="la-diff5">
+            <g id="la-d5old" class="h">
+              <rect x="132" y="340" width="956" height="68" rx="10" fill="#FC6255" fill-opacity="0.16" />
+              <text class="mono" x="156" y="386" font-size="28" fill="#FC6255">- transfer::share_object(c);</text>
+            </g>
+            <g id="la-d5new" class="h">
+              <rect x="132" y="432" width="956" height="68" rx="10" fill="#83C167" fill-opacity="0.18" />
+              <text class="mono" x="156" y="478" font-size="28" font-weight="700" fill="#83C167">+ transfer::transfer(c, sender);</text>
+            </g>
+            <text id="la-d5note" class="h" x="156" y="576" font-size="32" fill="#83C167">改成转给自己并重新发布 → 变为独占对象</text>
+          </g>
+
+          <g id="la-denyOther" class="h">
+            <rect x="1200" y="310" width="580" height="210" rx="16" fill="#FC6255" fill-opacity="0.16" stroke="#FC6255" stroke-width="3" />
+            <text x="1490" y="394" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">其他地址调用 ✕</text>
+            <text x="1490" y="464" font-size="30" fill="#e8e6df" text-anchor="middle">非所有者签名，无法再调用</text>
+          </g>
+        </g>
+
+        <!-- 阶段 B：UpgradeCap 生产环境安全去处 (L6) -->
+        <g id="la-capSec">
+          <g id="la-capRoot" class="h">
+            <rect x="100" y="430" width="420" height="220" rx="18" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="3.5" />
+            <text class="mono" x="310" y="520" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">UpgradeCap</text>
+            <text x="310" y="586" font-size="30" fill="#e8e6df" text-anchor="middle">生产环境去处</text>
+          </g>
+
+          <path id="la-ca0" class="dr h" pathLength="1" d="M528 490 L1020 265" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#la-mgr)" />
+          <path id="la-ca1" class="dr h" pathLength="1" d="M528 528 L1020 445" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#la-mgr)" />
+          <path id="la-ca2" class="dr h" pathLength="1" d="M528 560 L1020 625" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#la-mgr)" />
+          <path id="la-ca3" class="dr h" pathLength="1" d="M528 606 L1020 825" stroke="#FC6255" stroke-width="4.5" fill="none" marker-end="url(#la-mr)" />
+
+          <g id="la-cd0" class="h">
+            <rect x="1040" y="200" width="760" height="126" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="1090" y="276" font-size="36" font-weight="700" fill="#83C167">✓  多签钱包</text>
+            <text x="1750" y="274" font-size="28" fill="#8a8f99" text-anchor="end">多人共同授权</text>
+          </g>
+          <g id="la-cd1" class="h">
+            <rect x="1040" y="378" width="760" height="126" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="1090" y="454" font-size="36" font-weight="700" fill="#83C167">✓  时间锁</text>
+            <text x="1750" y="452" font-size="28" fill="#8a8f99" text-anchor="end">升级前留出公示期</text>
+          </g>
+          <g id="la-cd2" class="h">
+            <rect x="1040" y="556" width="760" height="126" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="1090" y="632" font-size="32" font-weight="700" fill="#83C167">make_immutable</text>
+            <text x="1750" y="630" font-size="28" fill="#e8e6df" text-anchor="end">永远不可升级 ✓</text>
+          </g>
+          <g id="la-cd3" class="h">
+            <rect x="1040" y="754" width="760" height="162" rx="16" fill="#FC6255" fill-opacity="0.16" stroke="#FC6255" stroke-width="3" />
+            <text x="1090" y="822" font-size="36" font-weight="700" fill="#FC6255">✕  留在热钱包</text>
+            <text x="1090" y="882" font-size="30" fill="#e8e6df">等于把用户资金交给这一把私钥</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 标题 + 左终端 + 右对象状态面板
+      IN("#la-title", at(0, 0.04), 0.45);
+      IN("#la-termWin", at(0, 0.28), 0.5, { x: -20 }, { x: 0 });
+      IN("#la-objWin", at(0, 0.58), 0.5, { x: 20 }, { x: 0 });
+
+      // L1: localnet 4 条命令 + 右侧 Gas 币出现
+      IN("#la-c1_0", at(1, 0.06), 0.4);
+      IN("#la-c1_1", at(1, 0.28), 0.4);
+      IN("#la-c1_2", at(1, 0.46), 0.4);
+      IN("#la-c1_note", at(1, 0.48), 0.4);
+      IN("#la-c1_3", at(1, 0.68), 0.4);
+      IN("#la-gas0", at(1, 0.54), 0.4, { y: 14 }, { y: 0 });
+      IN("#la-gas1", at(1, 0.68), 0.4, { y: 14 }, { y: 0 });
+      IN("#la-gas2", at(1, 0.82), 0.4, { y: 14 }, { y: 0 });
+
+      // L2: 换成 Move 计数器代码，逐行高亮 key -> share_object -> increment
+      OUT("#la-cli1, #la-winTerm", at(2, 0.0), 0.3);
+      IN("#la-winCode, #la-code2", at(2, 0.06), 0.45);
+      IN("#la-hl", at(2, 0.14), 0.3);
+      tl.to("#la-hl", { attr: { y: 542 }, duration: 0.45, ease: "power2.inOut" }, at(2, 0.50));
+      IN("#la-c2note", at(2, 0.55), 0.45);
+      tl.to("#la-hl", { attr: { y: 716 }, duration: 0.45, ease: "power2.inOut" }, at(2, 0.78));
+
+      // L3: build / test / publish -> 右面板出现 Package ID 与 UpgradeCap
+      OUT("#la-code2, #la-winCode, #la-gasList", at(3, 0.0), 0.3);
+      IN("#la-winTerm", at(3, 0.05), 0.3);
+      IN("#la-c3_0", at(3, 0.08), 0.4);
+      IN("#la-c3_1", at(3, 0.28), 0.4);
+      IN("#la-c3_2", at(3, 0.46), 0.4);
+      IN("#la-c3_note", at(3, 0.48), 0.4);
+      IN("#la-pkgCard", at(3, 0.54), 0.45, { y: 16 }, { y: 0 });
+      IN("#la-capCard", at(3, 0.68), 0.45, { y: 16 }, { y: 0 });
+
+      // L4: create + PTB increment -> Counter 卡 Shared, value 0->1, version +1
+      OUT("#la-cli3", at(4, 0.0), 0.3);
+      IN("#la-c4_0", at(4, 0.05), 0.4);
+      IN("#la-ctrCard", at(4, 0.14), 0.5, { y: 18 }, { y: 0 });
+      IN("#la-c4_1", at(4, 0.30), 0.35);
+      IN("#la-c4_2", at(4, 0.35), 0.35);
+      IN("#la-c4_3", at(4, 0.40), 0.35);
+      IN("#la-c4_4", at(4, 0.56), 0.4);
+      OUT("#la-v0", at(4, 0.72), 0.2);
+      IN("#la-v1", at(4, 0.75), 0.35, { scale: 1.25, svgOrigin: "1400 784" }, { scale: 1, svgOrigin: "1400 784" });
+      OUT("#la-ver1", at(4, 0.84), 0.2);
+      IN("#la-ver2", at(4, 0.87), 0.35);
+
+      // L5: share_object 改为 transfer -> Owner 变地址(绿)，他址调用被拒(红)
+      OUT("#la-cli4, #la-pubObjs", at(5, 0.0), 0.3);
+      IN("#la-d5old", at(5, 0.08), 0.35);
+      IN("#la-d5new", at(5, 0.24), 0.4);
+      IN("#la-d5note", at(5, 0.36), 0.4);
+      OUT("#la-ownShared", at(5, 0.44), 0.2);
+      IN("#la-ownAddr", at(5, 0.48), 0.35);
+      tl.to("#la-ctrRect", { stroke: "#83C167", duration: 0.35 }, at(5, 0.48));
+      IN("#la-denyOther", at(5, 0.66), 0.5, { scale: 0.94, svgOrigin: "1490 415" }, { scale: 1, svgOrigin: "1490 415" });
+
+      // L6: UpgradeCap 三个安全去处 + 热钱包红线警示
+      OUT("#la-ide", at(6, 0.0), 0.35);
+      IN("#la-capRoot", at(6, 0.06), 0.5, { scale: 0.92, svgOrigin: "310 540" }, { scale: 1, svgOrigin: "310 540" });
+      ARROW("#la-ca0", at(6, 0.20), 0.45);
+      IN("#la-cd0", at(6, 0.25), 0.45, { x: 20 }, { x: 0 });
+      ARROW("#la-ca1", at(6, 0.35), 0.45);
+      IN("#la-cd1", at(6, 0.40), 0.45, { x: 20 }, { x: 0 });
+      ARROW("#la-ca2", at(6, 0.50), 0.45);
+      IN("#la-cd2", at(6, 0.55), 0.45, { x: 20 }, { x: 0 });
+      ARROW("#la-ca3", at(6, 0.62), 0.45);
+      IN("#la-cd3", at(6, 0.66), 0.5, { x: 20 }, { x: 0 });
+
+      tl.to("#la-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["lab"] = tl;
+    })();
+  </script>
+</template>

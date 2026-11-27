@@ -1,0 +1,237 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pitfalls，id 前缀 pi- -->
+  <div id="root" data-composition-id="pitfalls" data-duration="61.3" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pi-all">
+        <g id="pi-c1">
+          <rect id="pi-c1-box" class="dr" pathLength="1" x="70" y="220" width="830" height="200" rx="18" fill="none" stroke="#FC6255" stroke-width="2.5" />
+          <rect id="pi-c1-bg" class="h" x="70" y="220" width="830" height="200" rx="18" fill="#161a22" />
+          <g id="pi-c1-num" class="h">
+            <circle cx="140" cy="290" r="32" fill="#0f1117" stroke="#FC6255" stroke-width="3" />
+            <text x="140" y="301" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">1</text>
+          </g>
+          <text id="pi-c1-t" class="h" x="200" y="302" font-size="32" fill="#e8e6df">包装资产 = 原生资产</text>
+          <g id="pi-c1-x" class="h"><path d="M848 270 L884 306 M884 270 L848 306" stroke="#FC6255" stroke-width="6" stroke-linecap="round" /></g>
+          <text id="pi-c1-f" class="h" x="200" y="370" font-size="30" fill="#83C167">它是桥的欠条；核对合约地址</text>
+        </g>
+        <g id="pi-c2">
+          <rect id="pi-c2-box" class="dr" pathLength="1" x="70" y="450" width="830" height="200" rx="18" fill="none" stroke="#FC6255" stroke-width="2.5" />
+          <rect id="pi-c2-bg" class="h" x="70" y="450" width="830" height="200" rx="18" fill="#161a22" />
+          <g id="pi-c2-num" class="h">
+            <circle cx="140" cy="520" r="32" fill="#0f1117" stroke="#FC6255" stroke-width="3" />
+            <text x="140" y="531" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">2</text>
+          </g>
+          <text id="pi-c2-t" class="h" x="200" y="532" font-size="32" fill="#e8e6df">交易能查到 = 已到账</text>
+          <g id="pi-c2-x" class="h"><path d="M848 500 L884 536 M884 500 L848 536" stroke="#FC6255" stroke-width="6" stroke-linecap="round" /></g>
+          <text id="pi-c2-f" class="h" x="200" y="600" font-size="30" fill="#83C167">等最终性，再看执行结果</text>
+        </g>
+        <g id="pi-c3">
+          <rect id="pi-c3-box" class="dr" pathLength="1" x="70" y="680" width="830" height="200" rx="18" fill="none" stroke="#FC6255" stroke-width="2.5" />
+          <rect id="pi-c3-bg" class="h" x="70" y="680" width="830" height="200" rx="18" fill="#161a22" />
+          <g id="pi-c3-num" class="h">
+            <circle cx="140" cy="750" r="32" fill="#0f1117" stroke="#FC6255" stroke-width="3" />
+            <text x="140" y="761" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">3</text>
+          </g>
+          <text id="pi-c3-t" class="h" x="200" y="762" font-size="32" fill="#e8e6df">叫 L2、用 ZK、换 Move，就安全</text>
+          <g id="pi-c3-x" class="h"><path d="M848 730 L884 766 M884 730 L848 766" stroke="#FC6255" stroke-width="6" stroke-linecap="round" /></g>
+          <text id="pi-c3-f" class="h" x="200" y="830" font-size="30" fill="#83C167">看谁控制资金、看协议逻辑</text>
+        </g>
+        <!-- 误区 1：欠条与假币 -->
+        <g id="pi-d1">
+          <g id="pi-weth" class="h">
+            <g id="pi-wethi">
+              <circle cx="1200" cy="450" r="80" fill="#161a22" stroke="#F0B90B" stroke-width="4" />
+              <text x="1200" y="462" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">wETH</text>
+            </g>
+          </g>
+          <g id="pi-iou" class="h">
+            <rect x="1120" y="380" width="160" height="140" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="3" stroke-dasharray="10 6" />
+            <text x="1200" y="462" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">欠条</text>
+          </g>
+          <text id="pi-zero" class="h" x="1200" y="605" font-size="30" fill="#FC6255" text-anchor="middle">锁仓被盗 → 可能归零</text>
+          <g id="pi-fake" class="h">
+            <circle cx="1620" cy="450" r="80" fill="#161a22" stroke="#8a8f99" stroke-width="4" />
+            <text x="1620" y="462" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">USDT</text>
+          </g>
+          <g id="pi-fx" class="h"><path d="M1700 360 L1736 396 M1736 360 L1700 396" stroke="#FC6255" stroke-width="6" stroke-linecap="round" /></g>
+          <text id="pi-addr" class="h" x="1620" y="605" font-size="30" fill="#FC6255" text-anchor="middle">合约地址不符</text>
+        </g>
+        <!-- 误区 2：三种“查到” -->
+        <g id="pi-d2">
+          <text id="pi-r1" class="h" x="1000" y="334" font-size="30" fill="#e8e6df">BTC</text>
+          <g id="pi-r1a" class="h">
+            <rect x="1180" y="296" width="200" height="56" rx="28" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="1280.0" y="334" font-size="28" fill="#FF9F43" text-anchor="middle">未确认</text>
+          </g>
+
+          <text id="pi-r2" class="h" x="1000" y="484" font-size="30" fill="#e8e6df">Solana</text>
+          <g id="pi-r2a" class="h">
+            <rect x="1180" y="446" width="200" height="56" rx="28" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text class="mono" x="1280.0" y="484" font-size="28" fill="#FF9F43" text-anchor="middle">processed</text>
+          </g>
+
+          <path id="pi-r2ar" class="dr h" pathLength="1" d="M1390 474 L1452 474" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pi-arr)" />
+          <g id="pi-r2b" class="h">
+            <rect x="1462" y="446" width="200" height="56" rx="28" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="1562.0" y="484" font-size="28" fill="#83C167" text-anchor="middle">finalized</text>
+          </g>
+
+          <text id="pi-r3" class="h" x="1000" y="634" font-size="30" fill="#e8e6df">跨链消息</text>
+          <g id="pi-r3a" class="h">
+            <rect x="1180" y="596" width="200" height="56" rx="28" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="1280.0" y="634" font-size="28" fill="#FF9F43" text-anchor="middle">已到达</text>
+          </g>
+
+          <path id="pi-r3ar" class="dr h" pathLength="1" d="M1390 624 L1452 624" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pi-arr)" />
+          <g id="pi-r3b" class="h">
+            <rect x="1462" y="596" width="200" height="56" rx="28" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text x="1562.0" y="634" font-size="28" fill="#FC6255" text-anchor="middle">执行失败</text>
+          </g>
+
+        </g>
+        <!-- 误区 3：标签下的裂缝 -->
+        <g id="pi-d3">
+          <g id="pi-bd0" class="h">
+            <circle cx="1100" cy="360" r="70" fill="#161a22" stroke="#58C4DD" stroke-width="4" />
+            <text x="1100" y="373" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">L2</text>
+          </g>
+          <path id="pi-ck0" class="dr h" pathLength="1" d="M1100 440 L1086 462 L1112 484 L1090 506 L1104 526" fill="none" stroke="#FC6255" stroke-width="5" stroke-linejoin="round" />
+          <text id="pi-cl0" class="h" x="1100" y="585" font-size="30" fill="#FC6255" text-anchor="middle">谁控制被锁 BTC</text>
+          <g id="pi-bd1" class="h">
+            <circle cx="1420" cy="360" r="70" fill="#161a22" stroke="#58C4DD" stroke-width="4" />
+            <text x="1420" y="373" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">ZK</text>
+          </g>
+          <path id="pi-ck1" class="dr h" pathLength="1" d="M1420 440 L1406 462 L1432 484 L1410 506 L1424 526" fill="none" stroke="#FC6255" stroke-width="5" stroke-linejoin="round" />
+          <text id="pi-cl1" class="h" x="1420" y="585" font-size="30" fill="#FC6255" text-anchor="middle">电路漏洞</text>
+          <g id="pi-bd2" class="h">
+            <circle cx="1740" cy="360" r="70" fill="#161a22" stroke="#58C4DD" stroke-width="4" />
+            <text x="1740" y="373" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">Move</text>
+          </g>
+          <path id="pi-ck2" class="dr h" pathLength="1" d="M1740 440 L1726 462 L1752 484 L1730 506 L1744 526" fill="none" stroke="#FC6255" stroke-width="5" stroke-linejoin="round" />
+          <text id="pi-cl2" class="h" x="1740" y="585" font-size="30" fill="#FC6255" text-anchor="middle">协议逻辑</text>
+        </g>
+        <!-- L4 回到交易所 -->
+        <g id="pi-ex" class="h">
+          <path d="M860 300 L960 240 L1060 300 Z" fill="none" stroke="#B48EF0" stroke-width="4" stroke-linejoin="round" />
+          <rect x="872" y="300" width="176" height="96" fill="none" stroke="#B48EF0" stroke-width="4" />
+          <line x1="912" y1="318" x2="912" y2="380" stroke="#B48EF0" stroke-width="4" />
+          <line x1="960" y1="318" x2="960" y2="380" stroke="#B48EF0" stroke-width="4" />
+          <line x1="1008" y1="318" x2="1008" y2="380" stroke="#B48EF0" stroke-width="4" />
+          <text x="960" y="450" font-size="30" fill="#B48EF0" text-anchor="middle">交易所</text>
+        </g>
+        <path id="pi-w0" class="dr h" pathLength="1" d="M930 470 L420 538" fill="none" stroke="#FF9F43" stroke-width="3" />
+        <path id="pi-w1" class="dr h" pathLength="1" d="M960 470 L960 538" fill="none" stroke="#FF9F43" stroke-width="3" />
+        <path id="pi-w2" class="dr h" pathLength="1" d="M990 470 L1500 538" fill="none" stroke="#FF9F43" stroke-width="3" />
+        <g id="pi-k0" class="h">
+          <rect id="pi-k0-b" x="150" y="540" width="480" height="160" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text id="pi-k0-f" x="390" y="633" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">状态怎么存</text>
+          <text id="pi-k0-a" x="390" y="633" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle" opacity="0">余额存在哪种模型</text>
+        </g>
+        <g id="pi-k1" class="h">
+          <rect id="pi-k1-b" x="720" y="540" width="480" height="160" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text id="pi-k1-f" x="960" y="633" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">交易怎么执行</text>
+          <text id="pi-k1-a" x="960" y="633" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle" opacity="0">何时才算不可逆</text>
+        </g>
+        <g id="pi-k2" class="h">
+          <rect id="pi-k2-b" x="1290" y="540" width="480" height="160" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text id="pi-k2-f" x="1530" y="633" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">谁能动你的钱</text>
+          <text id="pi-k2-a" x="1530" y="633" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle" opacity="0">钱锁在谁手里</text>
+        </g>
+        <!-- L5 下一集 -->
+        <g id="pi-next" class="h">
+          <text x="960" y="470" font-size="36" fill="#8a8f99" text-anchor="middle">下一集</text>
+          <text x="960" y="575" font-size="64" font-weight="700" fill="#e8e6df" text-anchor="middle">零知识证明与隐私计算</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 三张红边空卡
+      DRAW("#pi-c1-box", at(0, 0.05), 0.7); DRAW("#pi-c2-box", at(0, 0.25), 0.7); DRAW("#pi-c3-box", at(0, 0.45), 0.7);
+      IN("#pi-c1-num, #pi-c2-num, #pi-c3-num", at(0, 0.6), 0.5);
+      const CARD = (i, t) => {
+        IN(`#pi-c${i}-bg`, t, 0.4);
+        IN(`#pi-c${i}-t`, t + 0.1, 0.5, { x: -20 }, { x: 0 });
+      };
+      const XF = (i, t, y) => {
+        IN(`#pi-c${i}-x`, t, 0.3, { scale: 1.6, svgOrigin: `866 ${y}` }, { scale: 1, svgOrigin: `866 ${y}` });
+      };
+      const DONE = (i, t) => { tl.to(`#pi-c${i}`, { opacity: 0.4, duration: 0.4 }, t); };
+      // L1 误区 1：包装资产是欠条；假 USDT
+      CARD(1, at(1, 0.0));
+      IN("#pi-weth", at(1, 0.08), 0.5);
+      XF(1, at(1, 0.2), 288);
+      tl.to("#pi-wethi", { scaleX: 0, svgOrigin: "1200 450", duration: 0.35, ease: "power2.in" }, at(1, 0.24));
+      tl.fromTo("#pi-iou", { opacity: 0, scaleX: 0, svgOrigin: "1200 450" }, { opacity: 1, scaleX: 1, svgOrigin: "1200 450", duration: 0.35, ease: "power2.out" }, at(1, 0.24) + 0.35);
+      IN("#pi-zero", at(1, 0.38), 0.5);
+      tl.to("#pi-iou", { opacity: 0.35, duration: 0.6 }, at(1, 0.5));
+      IN("#pi-fake", at(1, 0.62), 0.5);
+      IN("#pi-addr", at(1, 0.84), 0.4);
+      IN("#pi-fx", at(1, 0.86), 0.3, { scale: 1.6, svgOrigin: "1718 378" }, { scale: 1, svgOrigin: "1718 378" });
+      IN("#pi-c1-f", at(1, 0.8), 0.5);
+      // L2 误区 2：三种“查到”
+      OUT("#pi-d1", at(2, 0.0), 0.4); DONE(1, at(2, 0.0));
+      CARD(2, at(2, 0.03));
+      XF(2, at(2, 0.12), 518);
+      IN("#pi-r1", at(2, 0.2), 0.4); IN("#pi-r1a", at(2, 0.22), 0.4);
+      IN("#pi-r2", at(2, 0.36), 0.4); IN("#pi-r2a", at(2, 0.38), 0.4);
+      ARROW("#pi-r2ar", at(2, 0.5), 0.4); IN("#pi-r2b", at(2, 0.53), 0.4);
+      IN("#pi-r3", at(2, 0.68), 0.4); IN("#pi-r3a", at(2, 0.7), 0.4);
+      ARROW("#pi-r3ar", at(2, 0.8), 0.4); IN("#pi-r3b", at(2, 0.83), 0.4);
+      IN("#pi-c2-f", at(2, 0.8), 0.5);
+      // L3 误区 3：标签下的裂缝
+      OUT("#pi-d2", at(3, 0.0), 0.4); DONE(2, at(3, 0.0));
+      CARD(3, at(3, 0.03));
+      XF(3, at(3, 0.12), 748);
+      IN("#pi-bd0", at(3, 0.16), 0.4); IN("#pi-bd1", at(3, 0.2), 0.4); IN("#pi-bd2", at(3, 0.24), 0.4);
+      ARROW("#pi-ck0", at(3, 0.36), 0.5); IN("#pi-cl0", at(3, 0.4), 0.4);
+      ARROW("#pi-ck1", at(3, 0.6), 0.5); IN("#pi-cl1", at(3, 0.64), 0.4);
+      ARROW("#pi-ck2", at(3, 0.76), 0.5); IN("#pi-cl2", at(3, 0.8), 0.4);
+      IN("#pi-c3-f", at(3, 0.84), 0.5);
+      // L4 回到交易所，三个问题翻成答案
+      OUT("#pi-c1, #pi-c2, #pi-c3, #pi-d3", at(4, 0.0), 0.4);
+      IN("#pi-ex", at(4, 0.06), 0.5, { y: -10 }, { y: 0 });
+      IN("#pi-k0", at(4, 0.1), 0.4); IN("#pi-k1", at(4, 0.13), 0.4); IN("#pi-k2", at(4, 0.16), 0.4);
+      ARROW("#pi-w0", at(4, 0.12), 0.5); ARROW("#pi-w1", at(4, 0.12), 0.5); ARROW("#pi-w2", at(4, 0.12), 0.5);
+      const FLIP = (i, t) => {
+        OUT(`#pi-k${i}-f`, t, 0.25);
+        tl.fromTo(`#pi-k${i}-a`, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, t + 0.28);
+        tl.to(`#pi-k${i}-b`, { stroke: "#83C167", duration: 0.3 }, t + 0.28);
+      };
+      FLIP(0, at(4, 0.3)); FLIP(1, at(4, 0.5)); FLIP(2, at(4, 0.74));
+      // L5 下一集
+      OUT("#pi-ex, #pi-k0, #pi-k1, #pi-k2, #pi-w0, #pi-w1, #pi-w2", at(5, 0.0), 0.4);
+      IN("#pi-next", at(5, 0.15), 0.6, { y: 20 }, { y: 0 });
+
+      tl.to("#pi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["pitfalls"] = tl;
+    })();
+  </script>
+</template>

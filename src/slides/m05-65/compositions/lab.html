@@ -1,0 +1,243 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 lab，id 前缀 la- -->
+  <div id="root" data-composition-id="lab" data-duration="32.83" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="la-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="la-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="la-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="la-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <clipPath id="la-cmdclip">
+          <rect id="la-cmdrect" x="180" y="250" width="0" height="72" />
+        </clipPath>
+      </defs>
+      <g id="la-all">
+        <!-- L0-L2：Mintscan 浏览器窗口 -->
+        <g id="la-browser">
+          <g id="la-win" class="h">
+            <rect x="180" y="130" width="1560" height="790" rx="20" fill="#12151c" stroke="#8a8f99" stroke-width="2.5" />
+            <line x1="180" y1="194" x2="1740" y2="194" stroke="#3a3f4a" stroke-width="2" />
+            <circle cx="218" cy="162" r="8" fill="#3a3f4a" />
+            <circle cx="246" cy="162" r="8" fill="#3a3f4a" />
+            <circle cx="274" cy="162" r="8" fill="#3a3f4a" />
+            <text data-layout-ignore="" x="960" y="172" font-size="28" fill="#8a8f99" text-anchor="middle">Mintscan</text>
+          </g>
+
+          <!-- 浏览器内标题与链切换标签 -->
+          <g id="la-topbar" class="h">
+            <text class="mono" x="236" y="264" font-size="34" font-weight="700" fill="#58C4DD">Mintscan</text>
+            <rect id="la-tab-hub" x="520" y="218" width="290" height="62" rx="12" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2.5" />
+            <text id="la-tab-hubt" x="665" y="260" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">Cosmos Hub</text>
+
+            <rect id="la-tab-osmo" x="840" y="218" width="250" height="62" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text id="la-tab-osmot" x="965" y="260" font-size="30" fill="#8a8f99" text-anchor="middle">Osmosis</text>
+          </g>
+
+          <!-- L0 首页引导 -->
+          <g id="la-home" class="h">
+            <rect x="260" y="370" width="1400" height="190" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="960" y="452" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">追踪一笔真实 IBC 转账</text>
+            <text x="960" y="514" font-size="30" fill="#8a8f99" text-anchor="middle">筛选交易类型 · 按数据包序号跨链串联</text>
+          </g>
+
+          <!-- L1 Hub 页：MsgTransfer + 圈出三字段 -->
+          <g id="la-p1">
+            <g id="la-p1h" class="h">
+              <rect x="236" y="316" width="320" height="66" rx="12" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="3" />
+              <text class="mono" x="396" y="361" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">MsgTransfer</text>
+              <text x="596" y="360" font-size="30" fill="#e8e6df">Cosmos Hub → Osmosis</text>
+            </g>
+            <g id="la-k0" class="h">
+              <rect x="236" y="416" width="1448" height="82" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+              <text class="mono" x="280" y="468" font-size="30" fill="#58C4DD">source_channel</text>
+              <text x="1630" y="468" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="end">记下：通道</text>
+            </g>
+            <g id="la-k1" class="h">
+              <rect x="236" y="518" width="1448" height="82" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+              <text class="mono" x="280" y="570" font-size="30" fill="#58C4DD">sequence</text>
+              <text x="1630" y="570" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="end">记下：数据包序号</text>
+            </g>
+            <g id="la-k2" class="h">
+              <rect x="236" y="620" width="1448" height="82" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+              <text class="mono" x="280" y="672" font-size="30" fill="#FF9F43">timeout_timestamp</text>
+              <text x="1630" y="672" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="end">记下：超时时间</text>
+            </g>
+          </g>
+
+          <!-- L2a Osmosis 页：MsgRecvPacket -->
+          <g id="la-p2a">
+            <g id="la-p2ah" class="h">
+              <rect x="236" y="316" width="360" height="66" rx="12" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="3" />
+              <text class="mono" x="416" y="361" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">MsgRecvPacket</text>
+              <text x="636" y="360" font-size="30" fill="#e8e6df">Osmosis · 同一 <tspan class="mono">sequence</tspan></text>
+            </g>
+            <g id="la-p2sig" class="h">
+              <rect x="236" y="432" width="1448" height="190" rx="16" fill="#FF9F43" fill-opacity="0.14" stroke="#FF9F43" stroke-width="3.5" />
+              <text class="mono" x="284" y="502" font-size="30" fill="#8a8f99">signer</text>
+              <text x="480" y="504" font-size="36" font-weight="700" fill="#FF9F43">中继者地址</text>
+              <text x="480" y="576" font-size="30" fill="#e8e6df">由中继者签名提交，不是用户</text>
+            </g>
+          </g>
+
+          <!-- L2b Hub 页：MsgAcknowledgement -->
+          <g id="la-p2b">
+            <g id="la-p2bh" class="h">
+              <rect x="236" y="316" width="440" height="66" rx="12" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="3" />
+              <text class="mono" x="456" y="361" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">MsgAcknowledgement</text>
+              <text x="716" y="360" font-size="30" fill="#e8e6df">回到 Cosmos Hub</text>
+            </g>
+            <g id="la-p2ack" class="h">
+              <rect x="236" y="432" width="1448" height="190" rx="16" fill="#83C167" fill-opacity="0.14" stroke="#83C167" stroke-width="3.5" />
+              <text x="960" y="516" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">✓ 确认回执写入 · 转账闭环完成</text>
+              <text x="960" y="578" font-size="30" fill="#e8e6df" text-anchor="middle">同一个数据包在两条链上留下三笔交易</text>
+            </g>
+          </g>
+
+          <!-- 底部三格时间线：发送 → 接收 → 确认 -->
+          <g id="la-tl" class="h">
+            <rect id="la-s1" x="236" y="772" width="380" height="98" rx="14" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="3" />
+            <text x="426" y="833" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">1 · 发送（Hub）</text>
+
+            <path id="la-ta1" class="dr h" pathLength="1" d="M626 821 L754 821" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#la-mb)" />
+
+            <rect id="la-s2" x="770" y="772" width="380" height="98" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
+            <text id="la-s2t" x="960" y="833" font-size="30" fill="#6b6f7a" text-anchor="middle">2 · 接收（Osmosis）</text>
+
+            <path id="la-ta2" class="dr h" pathLength="1" d="M1160 821 L1288 821" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#la-mgr)" />
+
+            <rect id="la-s3" x="1304" y="772" width="380" height="98" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
+            <text id="la-s3t" x="1494" y="833" font-size="30" fill="#6b6f7a" text-anchor="middle">3 · 确认（Hub）</text>
+          </g>
+        </g>
+
+        <!-- L3：终端算哈希对比 + Hermes 进阶测试 -->
+        <g id="la-l3">
+          <!-- 上窗：算哈希与余额 ibc/ 对比 -->
+          <g id="la-term1" class="h">
+            <rect x="130" y="130" width="1660" height="390" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <line x1="130" y1="192" x2="1790" y2="192" stroke="#3a3f4a" stroke-width="2" />
+            <text data-layout-ignore="" x="176" y="172" font-size="28" fill="#8a8f99">Terminal · 核对币种名哈希</text>
+            <g clip-path="url(#la-cmdclip)">
+              <text class="mono" x="180" y="294" font-size="28" fill="#58C4DD">$ echo -n "transfer/channel-0/uatom" | shasum -a 256</text>
+            </g>
+            <g id="la-hashres" class="h">
+              <text class="mono" x="180" y="384" font-size="30" fill="#e8e6df">27394fb0…5eb2</text>
+              <text x="580" y="384" font-size="30" fill="#8a8f99">对照余额</text>
+              <rect x="740" y="336" width="540" height="72" rx="12" fill="#12151c" stroke="#83C167" stroke-width="2.5" />
+              <text class="mono" x="1010" y="384" font-size="30" font-weight="700" text-anchor="middle"><tspan fill="#58C4DD">ibc/</tspan><tspan fill="#F0B90B">27394FB0…5EB2</tspan></text>
+              <text x="1360" y="388" font-size="36" font-weight="700" fill="#83C167">✓ 一致</text>
+            </g>
+          </g>
+
+          <!-- 下窗：Hermes 进阶实验 -->
+          <g id="la-term2" class="h">
+            <rect x="130" y="566" width="1660" height="360" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <line x1="130" y1="628" x2="1790" y2="628" stroke="#3a3f4a" stroke-width="2" />
+            <text x="176" y="608" font-size="28" font-weight="700" fill="#FF9F43">进阶 · Hermes 本地双测试链实验</text>
+            <text class="mono" x="180" y="704" font-size="28" fill="#e8e6df">$ hermes create channel --a-chain ibc-0 --b-chain ibc-1 …</text>
+
+            <g id="la-hermes-stop" class="h">
+              <rect x="180" y="760" width="380" height="106" rx="14" fill="#FC6255" fill-opacity="0.16" stroke="#FC6255" stroke-width="3" />
+              <rect x="218" y="795" width="34" height="34" rx="5" fill="#FC6255" />
+              <text x="394" y="826" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">停掉 Hermes</text>
+            </g>
+            <path id="la-ha1" class="dr h" pathLength="1" d="M572 813 L710 813" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#la-mo)" />
+            <g id="la-hermes-to" class="h">
+              <rect x="726" y="760" width="380" height="106" rx="14" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="3" />
+              <text class="mono" x="916" y="808" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">MsgTimeout</text>
+              <text x="916" y="848" font-size="28" fill="#e8e6df" text-anchor="middle">短超时触发</text>
+            </g>
+            <path id="la-ha2" class="dr h" pathLength="1" d="M1118 813 L1256 813" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#la-mgr)" />
+            <g id="la-hermes-ref" class="h">
+              <rect x="1272" y="760" width="460" height="106" rx="14" fill="#83C167" fill-opacity="0.16" stroke="#83C167" stroke-width="3" />
+              <text x="1502" y="826" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">✓ 代币自动退回原链</text>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: Mintscan 浏览器框
+      IN("#la-win", at(0, 0.04), 0.6, { y: 16 }, { y: 0 });
+      IN("#la-topbar", at(0, 0.24), 0.5);
+      IN("#la-home", at(0, 0.48), 0.55, { y: 14 }, { y: 0 });
+
+      // L1: Hub MsgTransfer + 通道 / 序号 / 超时
+      OUT("#la-home", at(1, 0), 0.3);
+      IN("#la-p1h", at(1, 0.08), 0.45);
+      IN("#la-k0", at(1, 0.24), 0.45, { x: -16 }, { x: 0 });
+      IN("#la-k1", at(1, 0.44), 0.45, { x: -16 }, { x: 0 });
+      IN("#la-k2", at(1, 0.64), 0.45, { x: -16 }, { x: 0 });
+      IN("#la-tl", at(1, 0.78), 0.45);
+
+      // L2: Osmosis MsgRecvPacket -> Hub MsgAcknowledgement
+      OUT("#la-p1", at(2, 0), 0.3);
+      tl.to("#la-tab-hub", { fill: "#161a22", stroke: "#3a3f4a", duration: 0.25 }, at(2, 0.04));
+      tl.to("#la-tab-hubt", { fill: "#8a8f99", duration: 0.25 }, at(2, 0.04));
+      tl.to("#la-tab-osmo", { fill: "#58C4DD", fillOpacity: 0.16, stroke: "#58C4DD", duration: 0.25 }, at(2, 0.04));
+      tl.to("#la-tab-osmot", { fill: "#58C4DD", duration: 0.25 }, at(2, 0.04));
+      IN("#la-p2ah", at(2, 0.08), 0.4);
+      IN("#la-p2sig", at(2, 0.24), 0.45, { y: 12 }, { y: 0 });
+      ARROW("#la-ta1", at(2, 0.38), 0.4);
+      tl.to("#la-s2", { fill: "#58C4DD", fillOpacity: 0.16, stroke: "#58C4DD", duration: 0.3 }, at(2, 0.42));
+      tl.to("#la-s2t", { fill: "#58C4DD", duration: 0.3 }, at(2, 0.42));
+
+      OUT("#la-p2a", at(2, 0.60), 0.3);
+      tl.to("#la-tab-osmo", { fill: "#161a22", stroke: "#3a3f4a", duration: 0.25 }, at(2, 0.64));
+      tl.to("#la-tab-osmot", { fill: "#8a8f99", duration: 0.25 }, at(2, 0.64));
+      tl.to("#la-tab-hub", { fill: "#83C167", fillOpacity: 0.16, stroke: "#83C167", duration: 0.25 }, at(2, 0.64));
+      tl.to("#la-tab-hubt", { fill: "#83C167", duration: 0.25 }, at(2, 0.64));
+      IN("#la-p2bh", at(2, 0.68), 0.4);
+      IN("#la-p2ack", at(2, 0.76), 0.45);
+      ARROW("#la-ta2", at(2, 0.80), 0.4);
+      tl.to("#la-s3", { fill: "#83C167", fillOpacity: 0.16, stroke: "#83C167", duration: 0.3 }, at(2, 0.84));
+      tl.to("#la-s3t", { fill: "#83C167", duration: 0.3 }, at(2, 0.84));
+
+      // L3: 终端算哈希对比 + Hermes 超时退款
+      OUT("#la-browser", at(3, 0), 0.35);
+      IN("#la-term1", at(3, 0.06), 0.5);
+      tl.fromTo("#la-cmdrect", { attr: { width: 0 } }, { attr: { width: 1560 }, duration: 1.4, ease: "none" }, at(3, 0.10));
+      IN("#la-hashres", at(3, 0.28), 0.5, { y: 12 }, { y: 0 });
+
+      IN("#la-term2", at(3, 0.52), 0.5, { y: 16 }, { y: 0 });
+      IN("#la-hermes-stop", at(3, 0.66), 0.45);
+      ARROW("#la-ha1", at(3, 0.74), 0.35);
+      IN("#la-hermes-to", at(3, 0.78), 0.4);
+      ARROW("#la-ha2", at(3, 0.84), 0.35);
+      IN("#la-hermes-ref", at(3, 0.88), 0.45);
+
+      tl.to("#la-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["lab"] = tl;
+    })();
+  </script>
+</template>

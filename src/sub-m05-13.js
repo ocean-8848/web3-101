@@ -258,7 +258,7 @@ ${steps([
 ${tbl(['写法', '溢出时的结果', '什么时候用'], [
   ['<code>a + b</code>', '取决于编译配置：panic 或静默回绕', '链上金额计算里<strong>不要用</strong>'],
   ['<code>a.checked_add(b)</code>', '返回 <code>None</code>，你决定返回哪个错误', '<strong>默认选择</strong>：余额、份额、手续费'],
-  ['<code>a.saturating_sub(b)</code>', '停在 0 或 MAX', '只用于显示或统计；用在余额上会把“余额不足”藏成 0'],
+  ['<code>a.saturating_sub(b)</code> / <code>saturating_add</code>', '减法停在 0，加法停在 MAX', '只用于显示或统计；用在余额上会把“余额不足”藏成 0'],
   ['<code>a.wrapping_add(b)</code>', '按 2<sup>64</sup> 取模回绕', '只用于哈希、计数器回绕等明确需要模运算的场景'],
   ['<code>u64::try_from(x)</code>', '超出范围返回 <code>Err</code>', '从 <code>u128</code> / <code>i64</code> 转回 <code>u64</code>'],
   ['<code>x as u64</code>', '<strong>静默截断</strong>高位；负数变成巨大的正数', '只用于“一定不会越界”的扩宽转换，例如 <code>u32 as u64</code>']

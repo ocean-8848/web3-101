@@ -1,0 +1,356 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 sdk，id 前缀 sd- -->
+  <div id="root" data-composition-id="sdk" data-duration="58.79" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sd-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="sd-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="sd-all">
+        <!-- L0: 积木板 + 6 块模块积木 -->
+        <g id="sd-board">
+          <g id="sd-base" class="h">
+            <rect x="200" y="260" width="1520" height="620" rx="22" fill="#11222c" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="248" y="330" font-size="38" font-weight="700" fill="#58C4DD">应用层 · 模块积木</text>
+            <rect x="1556" y="290" width="116" height="54" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1614" y="328" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">Go</text>
+          </g>
+          <g id="sd-b0" class="h">
+            <rect x="256" y="388" width="440" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="296" y="458" font-size="36" font-weight="700" fill="#58C4DD">auth</text>
+            <text x="296" y="528" font-size="30" fill="#e8e6df">账户 · 序号 · 签名</text>
+          </g>
+          <g id="sd-b1" class="h">
+            <rect x="740" y="388" width="440" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="780" y="458" font-size="36" font-weight="700" fill="#F0B90B">bank</text>
+            <text x="780" y="528" font-size="30" fill="#e8e6df">多币种余额与转账</text>
+          </g>
+          <g id="sd-b2" class="h">
+            <rect x="1224" y="388" width="440" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1264" y="458" font-size="36" font-weight="700" fill="#B48EF0">staking</text>
+            <text x="1264" y="522" font-size="30" fill="#e8e6df">质押与验证者</text>
+            <text class="mono" x="1634" y="566" font-size="28" fill="#8a8f99" text-anchor="end">distribution</text>
+          </g>
+          <g id="sd-b3" class="h">
+            <rect x="256" y="632" width="440" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="296" y="702" font-size="36" font-weight="700" fill="#B48EF0">slashing</text>
+            <text x="296" y="772" font-size="30" fill="#e8e6df">作恶罚没</text>
+          </g>
+          <g id="sd-b4" class="h">
+            <rect x="740" y="632" width="440" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="780" y="702" font-size="34" font-weight="700" fill="#FF9F43">gov / upgrade</text>
+            <text x="780" y="772" font-size="30" fill="#e8e6df">链上提案与升级</text>
+          </g>
+          <g id="sd-b5" class="h">
+            <rect x="1224" y="632" width="440" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1264" y="702" font-size="36" font-weight="700" fill="#58C4DD">ibc</text>
+            <text x="1264" y="772" font-size="30" fill="#e8e6df">跨链通信</text>
+          </g>
+        </g>
+
+        <!-- L1: 单个模块切面 + 多 Msg 原子回滚 -->
+        <g id="sd-p1">
+          <g id="sd-mod" class="h">
+            <rect x="100" y="230" width="760" height="670" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="142" y="298" font-size="36" font-weight="700" fill="#58C4DD">模块内部切面</text>
+            <line x1="142" y1="326" x2="818" y2="326" stroke="#2c3240" stroke-width="2" />
+          </g>
+          <g id="sd-msg" class="h">
+            <rect x="142" y="360" width="676" height="128" rx="14" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="3" />
+            <text class="mono" x="178" y="435" font-size="36" font-weight="700" fill="#F0B90B">Msg</text>
+            <text x="310" y="435" font-size="30" fill="#e8e6df">消息类型 · 用户操作</text>
+          </g>
+          <g id="sd-kpr" class="h">
+            <rect x="142" y="520" width="676" height="128" rx="14" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="178" y="595" font-size="36" font-weight="700" fill="#58C4DD">keeper</text>
+            <text x="366" y="595" font-size="30" fill="#e8e6df">读写本模块状态</text>
+          </g>
+          <g id="sd-aux" class="h">
+            <rect x="142" y="688" width="320" height="100" rx="12" fill="#1f2533" stroke="#6b6f7a" stroke-width="2" />
+            <text x="302" y="750" font-size="28" fill="#8a8f99" text-anchor="middle">查询服务</text>
+            <rect x="498" y="688" width="320" height="100" rx="12" fill="#1f2533" stroke="#6b6f7a" stroke-width="2" />
+            <text x="658" y="750" font-size="28" fill="#8a8f99" text-anchor="middle">创世状态</text>
+          </g>
+
+          <!-- 右侧：多 Msg 原子交易 -->
+          <g id="sd-tx" class="h">
+            <rect x="940" y="230" width="880" height="670" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="982" y="298" font-size="36" font-weight="700" fill="#e8e6df">一笔交易（多条 Msg）</text>
+            <line x1="982" y1="326" x2="1778" y2="326" stroke="#2c3240" stroke-width="2" />
+          </g>
+          <g id="sd-m1" class="h">
+            <rect id="sd-m1r" x="990" y="362" width="780" height="108" rx="12" fill="#1f2533" stroke="#F0B90B" stroke-width="2.5" />
+            <text class="mono" x="1030" y="428" font-size="32" font-weight="700" fill="#F0B90B">Msg #1</text>
+            <text id="sd-m1s" class="h" x="1720" y="428" font-size="30" font-weight="700" fill="#83C167" text-anchor="end">✓ 执行</text>
+          </g>
+          <g id="sd-m2" class="h">
+            <rect id="sd-m2r" x="990" y="498" width="780" height="108" rx="12" fill="#1f2533" stroke="#F0B90B" stroke-width="2.5" />
+            <text class="mono" x="1030" y="564" font-size="32" font-weight="700" fill="#F0B90B">Msg #2</text>
+            <text id="sd-m2s" class="h" x="1720" y="564" font-size="30" font-weight="700" fill="#83C167" text-anchor="end">✓ 执行</text>
+          </g>
+          <g id="sd-m3" class="h">
+            <rect id="sd-m3r" x="990" y="634" width="780" height="108" rx="12" fill="#1f2533" stroke="#F0B90B" stroke-width="2.5" />
+            <text class="mono" x="1030" y="700" font-size="32" font-weight="700" fill="#F0B90B">Msg #3</text>
+            <text id="sd-m3s" class="h" x="1720" y="700" font-size="30" font-weight="700" fill="#FC6255" text-anchor="end">✕ 失败</text>
+          </g>
+          <g id="sd-rb" class="h">
+            <rect x="1080" y="788" width="600" height="72" rx="36" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="3" />
+            <text x="1380" y="836" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">整笔回滚 · 全部退回</text>
+          </g>
+        </g>
+
+        <!-- L2-L3: 左侧模块列表 + 右侧对照表 -->
+        <g id="sd-p2">
+          <!-- 左侧模块块 -->
+          <g id="sd-mini" class="h">
+            <text x="100" y="256" font-size="34" font-weight="700" fill="#58C4DD">常用模块</text>
+            <rect id="sd-mb0" x="100" y="294" width="660" height="102" rx="12" fill="#161a22" stroke="#3a4050" stroke-width="2.5" />
+            <text class="mono" x="136" y="356" font-size="32" font-weight="700" fill="#58C4DD">x/auth</text>
+            <text x="340" y="356" font-size="28" fill="#e8e6df">账户 · 序号 · 签名</text>
+
+            <rect id="sd-mb1" x="100" y="418" width="660" height="102" rx="12" fill="#161a22" stroke="#3a4050" stroke-width="2.5" />
+            <text class="mono" x="136" y="480" font-size="32" font-weight="700" fill="#F0B90B">x/bank</text>
+            <text x="340" y="480" font-size="28" fill="#e8e6df">多币种原生转账</text>
+
+            <rect id="sd-mb2" x="100" y="542" width="660" height="102" rx="12" fill="#161a22" stroke="#3a4050" stroke-width="2.5" />
+            <text class="mono" x="136" y="586" font-size="28" font-weight="700" fill="#B48EF0">staking / slashing</text>
+            <text class="mono" x="136" y="624" font-size="28" fill="#6b6f7a">distribution</text>
+            <text x="510" y="604" font-size="28" fill="#e8e6df">质押与罚没</text>
+
+            <rect id="sd-mb3" x="100" y="666" width="660" height="102" rx="12" fill="#161a22" stroke="#3a4050" stroke-width="2.5" />
+            <text class="mono" x="136" y="728" font-size="30" font-weight="700" fill="#FF9F43">gov / upgrade</text>
+            <text x="456" y="728" font-size="28" fill="#e8e6df">提案与自动升级</text>
+
+            <rect id="sd-mb4" x="100" y="790" width="660" height="102" rx="12" fill="#161a22" stroke="#3a4050" stroke-width="2.5" />
+            <text class="mono" x="136" y="852" font-size="32" font-weight="700" fill="#58C4DD">ibc</text>
+            <text x="340" y="852" font-size="28" fill="#e8e6df">原生跨链通信</text>
+          </g>
+
+          <!-- 右侧三列对照表 (x 830-1840) -->
+          <g id="sd-tblh" class="h">
+            <rect x="830" y="210" width="1010" height="72" rx="10" fill="#1f2533" />
+            <text x="862" y="257" font-size="30" font-weight="700" fill="#58C4DD">模块</text>
+            <text x="1110" y="257" font-size="30" font-weight="700" fill="#e8e6df">职责</text>
+            <text x="1420" y="257" font-size="30" font-weight="700" fill="#8a8f99">以太坊对应</text>
+          </g>
+          <g id="sd-tr0" class="h">
+            <rect x="830" y="294" width="1010" height="102" rx="10" fill="#161a22" stroke="#2c3240" stroke-width="2" />
+            <text class="mono" x="862" y="356" font-size="30" font-weight="700" fill="#58C4DD">auth</text>
+            <text x="1110" y="356" font-size="28" fill="#e8e6df">账户与签名</text>
+            <text x="1420" y="356" font-size="28" fill="#c9ccd3">EOA 与 nonce</text>
+          </g>
+          <g id="sd-tr1" class="h">
+            <rect x="830" y="418" width="1010" height="102" rx="10" fill="#161a22" stroke="#2c3240" stroke-width="2" />
+            <text class="mono" x="862" y="480" font-size="30" font-weight="700" fill="#F0B90B">bank</text>
+            <text x="1110" y="480" font-size="28" fill="#e8e6df">原生多币种</text>
+            <text id="sd-tr1e1" x="1420" y="460" font-size="28" fill="#c9ccd3">ERC-20：</text>
+            <text id="sd-tr1e2" x="1420" y="500" font-size="28" fill="#c9ccd3">一个代币一个合约</text>
+          </g>
+          <g id="sd-tr2" class="h">
+            <rect x="830" y="542" width="1010" height="102" rx="10" fill="#161a22" stroke="#2c3240" stroke-width="2" />
+            <text class="mono" x="862" y="584" font-size="28" font-weight="700" fill="#B48EF0">staking</text>
+            <text class="mono" x="862" y="622" font-size="28" font-weight="700" fill="#B48EF0">slashing</text>
+            <text x="1110" y="604" font-size="28" fill="#e8e6df">质押与罚没</text>
+            <text x="1420" y="604" font-size="28" fill="#c9ccd3">信标链质押罚没</text>
+          </g>
+          <g id="sd-tr3" class="h">
+            <rect x="830" y="666" width="1010" height="102" rx="10" fill="#161a22" stroke="#2c3240" stroke-width="2" />
+            <text class="mono" x="862" y="708" font-size="28" font-weight="700" fill="#FF9F43">gov</text>
+            <text class="mono" x="862" y="746" font-size="28" font-weight="700" fill="#FF9F43">upgrade</text>
+            <text x="1110" y="728" font-size="28" fill="#e8e6df">指定高度升级</text>
+            <text id="sd-tr3e" x="1420" y="728" font-size="28" fill="#c9ccd3">社区协调硬分叉</text>
+          </g>
+          <g id="sd-tr4" class="h">
+            <rect x="830" y="790" width="1010" height="102" rx="10" fill="#161a22" stroke="#2c3240" stroke-width="2" />
+            <text class="mono" x="862" y="852" font-size="30" font-weight="700" fill="#58C4DD">ibc</text>
+            <text x="1110" y="852" font-size="28" fill="#e8e6df">轻客户端跨链</text>
+            <text id="sd-tr4e" x="1420" y="852" font-size="28" fill="#c9ccd3">靠第三方桥</text>
+          </g>
+        </g>
+
+        <!-- L4: 确定性检查：三个节点算状态根 -->
+        <g id="sd-det">
+          <g id="sd-n1" class="h">
+            <rect x="120" y="260" width="500" height="370" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="370" y="330" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">节点 1</text>
+            <text x="370" y="424" font-size="28" fill="#8a8f99" text-anchor="middle">状态根</text>
+            <rect id="sd-h1b" class="h" x="180" y="456" width="380" height="96" rx="12" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2.5" />
+            <text id="sd-h1t" class="h mono" x="370" y="516" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">0x9a3f…</text>
+          </g>
+          <g id="sd-n2" class="h">
+            <rect x="710" y="260" width="500" height="370" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="960" y="330" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">节点 2</text>
+            <text x="960" y="424" font-size="28" fill="#8a8f99" text-anchor="middle">状态根</text>
+            <rect id="sd-h2b" class="h" x="770" y="456" width="380" height="96" rx="12" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2.5" />
+            <text id="sd-h2t" class="h mono" x="960" y="516" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">0x9a3f…</text>
+          </g>
+          <g id="sd-n3" class="h">
+            <rect id="sd-n3r" x="1300" y="260" width="500" height="370" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="1550" y="330" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">节点 3</text>
+            <rect id="sd-h3b" class="h" x="1360" y="456" width="380" height="96" rx="12" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="3" />
+            <text id="sd-h3t" class="h mono" x="1550" y="516" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">0x7c1e…</text>
+          </g>
+          <!-- 三个非确定性红色标签 -->
+          <g id="sd-bad0" class="h">
+            <rect x="1236" y="164" width="160" height="58" rx="10" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1316" y="204" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">浮点数</text>
+          </g>
+          <g id="sd-bad1" class="h">
+            <rect x="1426" y="164" width="190" height="58" rx="10" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1521" y="204" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">本地时间</text>
+          </g>
+          <g id="sd-bad2" class="h">
+            <rect x="1646" y="164" width="204" height="58" rx="10" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1748" y="204" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">无序 map</text>
+          </g>
+          <!-- 底部停链提示 -->
+          <g id="sd-halt" class="h">
+            <rect x="520" y="726" width="880" height="106" rx="16" fill="#FC6255" fill-opacity="0.16" stroke="#FC6255" stroke-width="3.5" />
+            <circle cx="596" cy="779" r="28" fill="#FC6255" fill-opacity="0.22" stroke="#FC6255" stroke-width="3" />
+            <line x1="586" y1="765" x2="586" y2="793" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+            <line x1="606" y1="765" x2="606" y2="793" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+            <text x="990" y="792" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">状态根不一致 → 链停止</text>
+          </g>
+        </g>
+
+        <!-- L5: keeper 权限泄露漏洞 -->
+        <g id="sd-vuln">
+          <g id="sd-vL" class="h">
+            <rect x="160" y="330" width="520" height="290" rx="20" fill="#161a22" stroke="#F0B90B" stroke-width="3.5" />
+            <text class="mono" x="420" y="420" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle">bank</text>
+            <text x="420" y="492" font-size="30" fill="#e8e6df" text-anchor="middle">持有铸币 / 转账 keeper</text>
+          </g>
+          <g id="sd-vR" class="h">
+            <rect id="sd-vRr" x="1240" y="330" width="520" height="290" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="1500" y="420" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">其他业务模块</text>
+            <text x="1500" y="492" font-size="30" fill="#8a8f99" text-anchor="middle">不该拥有铸币权</text>
+          </g>
+          <path id="sd-karr" class="dr h" pathLength="1" d="M688 475 L1228 475" fill="none" stroke="#FC6255" stroke-width="5" marker-end="url(#sd-mr)" />
+          <text id="sd-klbl" class="h" x="960" y="440" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">错误授予 keeper 权限</text>
+          <!-- 钥匙图标 -->
+          <g id="sd-key" class="h">
+            <rect x="740" y="512" width="320" height="72" rx="14" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="3" />
+            <circle cx="784" cy="548" r="14" fill="none" stroke="#F0B90B" stroke-width="4" />
+            <path d="M798 548 H832 M818 548 V560 M828 548 V560" fill="none" stroke="#F0B90B" stroke-width="4" stroke-linecap="round" />
+            <text x="954" y="560" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">铸币权限</text>
+          </g>
+          <g id="sd-warn" class="h">
+            <rect x="640" y="746" width="640" height="92" rx="16" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="3.5" />
+            <text x="960" y="806" font-size="38" font-weight="700" fill="#FC6255" text-anchor="middle">⚠ 常见高危漏洞</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- 术语卡：Cosmos SDK -->
+      <g id="sd-term" class="h">
+        <rect x="70" y="56" width="580" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Cosmos SDK</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">用 Go 写应用链的模块化框架</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 术语卡 + 积木板 + 6 块积木落下
+      IN("#sd-term", at(0, 0.04), 0.5);
+      IN("#sd-base", at(0, 0.12), 0.6, { y: 24 }, { y: 0 });
+      ["#sd-b0", "#sd-b1", "#sd-b2", "#sd-b3", "#sd-b4", "#sd-b5"].forEach((s, i) => {
+        IN(s, at(0, 0.28 + i * 0.10), 0.45, { y: -36 }, { y: 0 });
+      });
+
+      // L1: 切面 + 原子回滚
+      OUT("#sd-board", at(1, 0.0), 0.35);
+      IN("#sd-mod", at(1, 0.05), 0.55, { x: -24 }, { x: 0 });
+      IN("#sd-msg", at(1, 0.12), 0.5, { y: 14 }, { y: 0 });
+      OUT("#sd-term", at(1, 0.14), 0.4);
+      IN("#sd-kpr", at(1, 0.28), 0.5, { y: 14 }, { y: 0 });
+      IN("#sd-aux", at(1, 0.40), 0.45);
+      IN("#sd-tx", at(1, 0.50), 0.5, { x: 24 }, { x: 0 });
+      IN("#sd-m1", at(1, 0.56), 0.35);
+      IN("#sd-m2", at(1, 0.61), 0.35);
+      IN("#sd-m3", at(1, 0.66), 0.35);
+      IN("#sd-m1s", at(1, 0.70), 0.25);
+      tl.to("#sd-m1r", { stroke: "#83C167", duration: 0.25 }, at(1, 0.70));
+      IN("#sd-m2s", at(1, 0.75), 0.25);
+      tl.to("#sd-m2r", { stroke: "#83C167", duration: 0.25 }, at(1, 0.75));
+      IN("#sd-m3s", at(1, 0.81), 0.25);
+      tl.to("#sd-m3r", { stroke: "#FC6255", duration: 0.25 }, at(1, 0.81));
+      // 整笔回滚
+      tl.to("#sd-m1, #sd-m2, #sd-m3", { x: -22, duration: 0.45, ease: "power2.inOut" }, at(1, 0.88));
+      tl.to("#sd-m1r, #sd-m2r", { stroke: "#FC6255", duration: 0.35 }, at(1, 0.88));
+      IN("#sd-rb", at(1, 0.90), 0.45, { y: 14 }, { y: 0 });
+
+      // L2: 对照表前两行
+      OUT("#sd-p1", at(2, 0.0), 0.35);
+      IN("#sd-mini", at(2, 0.05), 0.5);
+      IN("#sd-tblh", at(2, 0.08), 0.45);
+      IN("#sd-tr0", at(2, 0.14), 0.5, { x: 20 }, { x: 0 });
+      tl.to("#sd-mb0", { stroke: "#58C4DD", duration: 0.35 }, at(2, 0.14));
+      IN("#sd-tr1", at(2, 0.52), 0.5, { x: 20 }, { x: 0 });
+      tl.to("#sd-mb1", { stroke: "#F0B90B", duration: 0.35 }, at(2, 0.52));
+      tl.to("#sd-tr1e1, #sd-tr1e2", { fill: "#F0B90B", duration: 0.45 }, at(2, 0.78));
+
+      // L3: 后三行
+      IN("#sd-tr2", at(3, 0.04), 0.5, { x: 20 }, { x: 0 });
+      tl.to("#sd-mb2", { stroke: "#B48EF0", duration: 0.35 }, at(3, 0.04));
+      IN("#sd-tr3", at(3, 0.30), 0.5, { x: 20 }, { x: 0 });
+      tl.to("#sd-mb3", { stroke: "#FF9F43", duration: 0.35 }, at(3, 0.30));
+      tl.to("#sd-tr3e", { fill: "#FF9F43", duration: 0.45 }, at(3, 0.54));
+      IN("#sd-tr4", at(3, 0.74), 0.5, { x: 20 }, { x: 0 });
+      tl.to("#sd-mb4", { stroke: "#58C4DD", duration: 0.35 }, at(3, 0.74));
+      tl.to("#sd-tr4e", { fill: "#58C4DD", duration: 0.4 }, at(3, 0.90));
+
+      // L4: 确定性检查
+      OUT("#sd-p2", at(4, 0.0), 0.35);
+      IN("#sd-n1", at(4, 0.06), 0.45, { y: 16 }, { y: 0 });
+      IN("#sd-n2", at(4, 0.13), 0.45, { y: 16 }, { y: 0 });
+      IN("#sd-n3", at(4, 0.20), 0.45, { y: 16 }, { y: 0 });
+      IN("#sd-h1b, #sd-h1t, #sd-h2b, #sd-h2t", at(4, 0.30), 0.45);
+      IN("#sd-bad0", at(4, 0.42), 0.35, { y: -12 }, { y: 0 });
+      IN("#sd-bad1", at(4, 0.52), 0.35, { y: -12 }, { y: 0 });
+      IN("#sd-bad2", at(4, 0.62), 0.35, { y: -12 }, { y: 0 });
+      IN("#sd-h3b, #sd-h3t", at(4, 0.72), 0.4);
+      tl.to("#sd-n3r", { stroke: "#FC6255", duration: 0.35 }, at(4, 0.72));
+      IN("#sd-halt", at(4, 0.84), 0.45, { y: 16 }, { y: 0 });
+
+      // L5: keeper 权限错误授予
+      OUT("#sd-det", at(5, 0.0), 0.35);
+      IN("#sd-vL", at(5, 0.06), 0.5, { x: -24 }, { x: 0 });
+      IN("#sd-vR", at(5, 0.14), 0.5, { x: 24 }, { x: 0 });
+      ARROW("#sd-karr", at(5, 0.28), 0.6);
+      IN("#sd-klbl", at(5, 0.32), 0.4);
+      IN("#sd-key", at(5, 0.40), 0.4);
+      tl.to("#sd-key", { x: 140, duration: 0.9, ease: "power2.inOut" }, at(5, 0.44));
+      tl.to("#sd-vRr", { stroke: "#FC6255", duration: 0.4 }, at(5, 0.62));
+      IN("#sd-warn", at(5, 0.68), 0.5, { scale: 0.92, svgOrigin: "960 792" }, { scale: 1, svgOrigin: "960 792" });
+
+      tl.to("#sd-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#sd-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["sdk"] = tl;
+    })();
+  </script>
+</template>

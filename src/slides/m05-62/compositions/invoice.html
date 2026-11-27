@@ -1,0 +1,181 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 invoice，id 前缀 in- -->
+  <div id="root" data-composition-id="invoice" data-duration="60.1" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="in-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="in-all">
+        <g id="in-qr" class="h">
+          <rect x="840" y="440" width="240" height="240" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <path d="M865 465 h60 v60 h-60 z M995 465 h60 v60 h-60 z M865 595 h60 v60 h-60 z" fill="none" stroke="#8a8f99" stroke-width="8"/>
+          <path d="M945 470 h20 v20 h-20 z M945 510 h20 v20 h-20 z M975 545 h20 v20 h-20 z M945 575 h20 v20 h-20 z M1005 575 h20 v20 h-20 z M975 615 h20 v20 h-20 z M1035 615 h20 v20 h-20 z M1005 645 h20 v20 h-20 z M885 545 h20 v20 h-20 z M1035 545 h20 v20 h-20 z" fill="#8a8f99"/>
+        </g>
+        <g id="in-strip" class="h">
+          <rect x="160" y="260" width="1600" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+        </g>
+        <g id="in-seg" class="h mono" font-size="48">
+          <text id="in-s0" x="230" y="327" fill="#e8e6df">lnbc</text>
+          <text id="in-s1" x="370" y="327" fill="#e8e6df">2500u</text>
+          <text id="in-s2" x="530" y="327" fill="#6b6f7a">1</text>
+          <text id="in-sp" x="600" y="327" fill="#e8e6df">p…</text>
+          <text id="in-ss" x="730" y="327" fill="#e8e6df">s…</text>
+          <text id="in-sd" x="860" y="327" fill="#e8e6df">d…</text>
+          <text id="in-sx" x="990" y="327" fill="#e8e6df">x…</text>
+          <text id="in-sr" x="1120" y="327" fill="#e8e6df">r…</text>
+          <text id="in-s9" x="1250" y="327" fill="#6b6f7a">…</text>
+        </g>
+        <text id="in-sig" class="h" x="1500" y="325" font-size="36" fill="#e8e6df" text-anchor="middle">签名</text>
+        <text id="in-b11" class="h" x="1760" y="226" font-size="32" fill="#58C4DD" text-anchor="end">BOLT11 · <tspan class="mono">bech32</tspan> 编码</text>
+        <g id="in-pre" class="h">
+          <path d="M290 372 V430" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="230" y="490" font-size="36" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">lnbc</tspan><tspan x="420">主网</tspan></text>
+          <text x="230" y="560" font-size="36" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">lntb</tspan><tspan x="420">测试网</tspan></text>
+          <text x="230" y="630" font-size="36" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">lnbcrt</tspan><tspan class="mono" x="420">regtest</tspan></text>
+        </g>
+        <path id="in-amt-l" class="h" d="M445 372 V420" stroke="#F0B90B" stroke-width="2.5"/>
+        <text id="in-mul" class="h mono" x="330" y="500" font-size="36" fill="#e8e6df">m = 10⁻³<tspan x="720" fill="#F0B90B">u = 10⁻⁶</tspan><tspan x="1110">n = 10⁻⁹</tspan><tspan x="1500">p = 10⁻¹²</tspan></text>
+        <text id="in-calc" class="h mono" x="960" y="620" font-size="40" fill="#e8e6df" text-anchor="middle">2500 × 10⁻⁶ BTC = 0.0025 BTC = <tspan fill="#F0B90B" font-weight="700">250,000 sat</tspan></text>
+        <text id="in-calc2" class="h mono" x="960" y="730" font-size="32" fill="#8a8f99" text-anchor="middle">lnbc1500n → 1,500 × 10⁻⁹ BTC = 150 sat</text>
+        <g id="in-cp" class="h">
+          <rect x="200" y="440" width="720" height="112" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+          <text class="mono" x="236" y="512" font-size="44" font-weight="700" fill="#58C4DD">p</text>
+          <text class="mono" x="300" y="488" font-size="30" fill="#e8e6df">payment_hash</text>
+          <text x="300" y="534" font-size="28" fill="#8a8f99">必须且只有一个</text>
+        </g>
+        <g id="in-cs" class="h">
+          <rect x="1000" y="440" width="720" height="112" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+          <text class="mono" x="1036" y="512" font-size="44" font-weight="700" fill="#58C4DD">s</text>
+          <text class="mono" x="1100" y="488" font-size="30" fill="#e8e6df">payment_secret</text>
+          <text x="1100" y="534" font-size="28" fill="#8a8f99">防中间节点探测收款人</text>
+        </g>
+        <g id="in-cd" class="h">
+          <rect x="200" y="590" width="720" height="112" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+          <text class="mono" x="226" y="662" font-size="40" font-weight="700" fill="#58C4DD">d/h</text>
+          <text x="330" y="660" font-size="32" fill="#e8e6df">描述</text>
+        </g>
+        <g id="in-cx" class="h">
+          <rect x="1000" y="590" width="720" height="112" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+          <text class="mono" x="1036" y="662" font-size="44" font-weight="700" fill="#58C4DD">x</text>
+          <text x="1100" y="638" font-size="30" fill="#e8e6df">有效期</text>
+          <text x="1100" y="684" font-size="28" fill="#FF9F43">省略时默认 <tspan class="mono">3,600 s</tspan></text>
+        </g>
+        <g id="in-cr" class="h">
+          <rect x="200" y="440" width="720" height="112" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+          <text class="mono" x="236" y="512" font-size="44" font-weight="700" fill="#58C4DD">r</text>
+          <text x="300" y="488" font-size="30" fill="#e8e6df">路由提示</text>
+          <text x="300" y="534" font-size="28" fill="#8a8f99">私有通道才需要</text>
+        </g>
+        <g id="in-sg" class="h">
+          <rect x="200" y="640" width="440" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+          <text x="420" y="702" font-size="34" fill="#e8e6df" text-anchor="middle">签名 <tspan class="mono">65</tspan> 字节</text>
+        </g>
+        <path id="in-sga" class="dr h" pathLength="1" d="M660 690 L860 690" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#in-arr)"/>
+        <g id="in-key" class="h">
+          <circle cx="920" cy="690" r="22" fill="none" stroke="#83C167" stroke-width="5"/>
+          <path d="M942 690 H1010 M990 690 v18 M1006 690 v14" stroke="#83C167" stroke-width="5" fill="none"/>
+          <text x="1040" y="702" font-size="34" fill="#83C167">恢复收款节点公钥</text>
+        </g>
+        <g id="in-paid" class="h">
+          <rect x="1420" y="400" width="240" height="96" rx="12" fill="none" stroke="#83C167" stroke-width="4"/>
+          <text x="1540" y="464" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">已付</text>
+        </g>
+        <g id="in-x" class="h"><path d="M590 562 L640 612 M640 562 L590 612" stroke="#FC6255" stroke-width="8" stroke-linecap="round"/></g>
+        <text id="in-once" class="h" x="960" y="600" font-size="38" fill="#FC6255" text-anchor="middle">同一 <tspan class="mono">payment_hash</tspan> 只能付一次</text>
+        <g id="in-hg" class="h">
+          <path d="M760 720 h60 l-30 40 l30 40 h-60 l30 -40 z" fill="none" stroke="#FF9F43" stroke-width="4" stroke-linejoin="round"/>
+          <path id="in-sand" d="M770 728 h40 l-20 28 z" fill="#FF9F43"/>
+        </g>
+        <text id="in-exp" class="h" x="850" y="774" font-size="36" fill="#FF9F43">过期作废</text>
+        <text id="in-re" class="h" x="960" y="520" font-size="38" fill="#e8e6df" text-anchor="middle">可反复使用的收款码</text>
+        <g id="in-t1" class="h"><rect x="300" y="590" width="400" height="90" rx="45" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="500" y="647" font-size="34" fill="#58C4DD" text-anchor="middle">BOLT12 offers</text></g>
+        <g id="in-t2" class="h"><rect x="760" y="590" width="400" height="90" rx="45" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="960" y="647" font-size="34" fill="#58C4DD" text-anchor="middle">LNURL</text></g>
+        <g id="in-t3" class="h"><rect x="1220" y="590" width="400" height="90" rx="45" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="1420" y="647" font-size="34" fill="#58C4DD" text-anchor="middle">Lightning Address</text></g>
+        <text id="in-sup" class="h" x="960" y="790" font-size="30" fill="#6b6f7a" text-anchor="middle">各家钱包支持程度不同</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const B = "#58C4DD", Y = "#F0B90B", W = "#e8e6df";
+// L0 QR -> strip
+IN("#in-qr", at(0, 0), 0.5);
+tl.to("#in-qr", { scaleX: 0, svgOrigin: "960 560", duration: 0.5, ease: "power2.in" }, at(0, 0.25));
+IN("#in-strip", at(0, 0.32), 0.5, { scaleX: 0, svgOrigin: "960 310" }, { scaleX: 1, svgOrigin: "960 310" });
+IN("#in-seg, #in-sig", at(0, 0.42), 0.6);
+IN("#in-b11", at(0, 0.62), 0.5);
+// L1 prefix
+tl.to("#in-s0", { fill: B, duration: 0.3 }, at(1, 0.08));
+IN("#in-pre", at(1, 0.15), 0.5, { y: -10 }, { y: 0 });
+// L2 amount
+tl.to("#in-s0", { fill: W, duration: 0.3 }, at(2, 0));
+OUT("#in-pre", at(2, 0), 0.3);
+tl.to("#in-s1", { fill: Y, duration: 0.3 }, at(2, 0.08));
+IN("#in-amt-l", at(2, 0.1), 0.3);
+IN("#in-mul", at(2, 0.22), 0.6);
+IN("#in-calc", at(2, 0.55), 0.6, { x: 20 }, { x: 0 });
+IN("#in-calc2", at(2, 0.86), 0.5);
+// L3 field chips
+tl.to("#in-s1", { fill: W, duration: 0.3 }, at(3, 0));
+OUT("#in-amt-l, #in-mul, #in-calc, #in-calc2", at(3, 0), 0.3);
+const PULL = (seg, chip, t) => { tl.to(seg, { fill: B, duration: 0.2 }, t); IN(chip, t + 0.1, 0.5, { y: -90 }, { y: 0 }); };
+PULL("#in-sp", "#in-cp", at(3, 0.06));
+PULL("#in-ss", "#in-cs", at(3, 0.3));
+PULL("#in-sd", "#in-cd", at(3, 0.66));
+PULL("#in-sx", "#in-cx", at(3, 0.78));
+// L4 route hint + signature
+tl.to("#in-sp, #in-ss, #in-sd, #in-sx", { fill: W, duration: 0.3 }, at(4, 0));
+OUT("#in-cp, #in-cs, #in-cd, #in-cx", at(4, 0), 0.3);
+PULL("#in-sr", "#in-cr", at(4, 0.06));
+tl.to("#in-sig", { fill: B, duration: 0.2 }, at(4, 0.42));
+IN("#in-sg", at(4, 0.46), 0.5, { y: -90 }, { y: 0 });
+ARROW("#in-sga", at(4, 0.62), 0.5);
+IN("#in-key", at(4, 0.7), 0.5);
+// L5 one-time
+tl.to("#in-sr, #in-sig", { fill: W, duration: 0.3 }, at(5, 0));
+OUT("#in-cr, #in-sg, #in-sga, #in-key", at(5, 0), 0.3);
+IN("#in-paid", at(5, 0.06), 0.3, { scale: 1.6, svgOrigin: "1540 448" }, { scale: 1, svgOrigin: "1540 448" });
+IN("#in-x", at(5, 0.3), 0.3);
+IN("#in-once", at(5, 0.34), 0.5);
+IN("#in-hg", at(5, 0.6), 0.4);
+tl.fromTo("#in-sand", { scaleY: 1, svgOrigin: "790 756" }, { scaleY: 0, svgOrigin: "790 756", duration: 1.2, ease: "none", immediateRender: false }, at(5, 0.62));
+IN("#in-exp", at(5, 0.8), 0.4);
+// L6 reusable alternatives
+OUT("#in-paid, #in-x, #in-once, #in-hg, #in-exp", at(6, 0), 0.3);
+tl.to("#in-strip, #in-seg, #in-sig, #in-b11", { opacity: 0.35, duration: 0.4 }, at(6, 0));
+IN("#in-re", at(6, 0.06), 0.5);
+IN("#in-t1", at(6, 0.2), 0.4, { y: 15 }, { y: 0 });
+IN("#in-t2", at(6, 0.42), 0.4, { y: 15 }, { y: 0 });
+IN("#in-t3", at(6, 0.56), 0.4, { y: 15 }, { y: 0 });
+IN("#in-sup", at(6, 0.78), 0.5);
+
+      tl.to("#in-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["invoice"] = tl;
+    })();
+  </script>
+</template>

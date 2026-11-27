@@ -1,0 +1,224 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 overflow，id 前缀 ov- -->
+  <div id="root" data-composition-id="overflow" data-duration="87.11" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ov-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ov-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="ov-all">
+        <!-- L0 debug / release -->
+        <g id="ov-cols">
+          <g id="ov-dbg" class="h">
+            <text class="mono" x="160" y="300" font-size="40" fill="#e8e6df">debug</text>
+            <line x1="700" y1="360" x2="700" y2="480" stroke="#B48EF0" stroke-width="3" stroke-dasharray="8 6" />
+            <rect x="180" y="400" width="520" height="40" fill="#F0B90B" fill-opacity="0.25" stroke="#F0B90B" stroke-width="1.5" />
+          </g>
+          <rect id="ov-db" x="180" y="400" width="0" height="40" fill="#F0B90B" />
+          <rect id="ov-dbo" x="700" y="400" width="0" height="40" fill="#FC6255" />
+          <g id="ov-boom" class="h">
+            <polygon points="800,380 812,406 840,400 822,422 842,444 814,440 800,466 788,440 760,444 778,422 760,400 788,406" fill="#FC6255" />
+            <text class="mono" x="780" y="530" font-size="34" fill="#FC6255">panic</text>
+          </g>
+          <g id="ov-rel" class="h">
+            <text class="mono" x="1040" y="300" font-size="40" fill="#e8e6df">release</text>
+            <line x1="1600" y1="360" x2="1600" y2="480" stroke="#B48EF0" stroke-width="3" stroke-dasharray="8 6" />
+            <rect x="1060" y="400" width="540" height="40" fill="#F0B90B" fill-opacity="0.25" stroke="#F0B90B" stroke-width="1.5" />
+          </g>
+          <rect id="ov-rb" x="1060" y="400" width="0" height="40" fill="#F0B90B" />
+          <rect id="ov-rbo" x="1600" y="400" width="0" height="40" fill="#FC6255" />
+          <path id="ov-wrap" class="dr h" pathLength="1" d="M1670 450 C 1720 560, 1090 580, 1072 452" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#ov-arr-r)" />
+          <text id="ov-wt" class="h" x="1360" y="610" font-size="30" fill="#FC6255" text-anchor="middle">静默回绕</text>
+          <g id="ov-tag" class="h">
+            <rect x="1270" y="262" width="220" height="52" rx="10" fill="none" stroke="#FF9F43" stroke-width="2" />
+            <text x="1380" y="298" font-size="28" fill="#FF9F43" text-anchor="middle">上链的是这个</text>
+          </g>
+          <g id="ov-gate" class="h">
+            <rect x="1608" y="370" width="22" height="100" rx="4" fill="#83C167" />
+            <text x="1650" y="300" font-size="30" fill="#83C167">✓ 报错</text>
+          </g>
+        </g>
+        <text id="ov-sol" class="h" x="160" y="690" font-size="30" fill="#8a8f99">Solidity 0.8：溢出自动回滚</text>
+        <g id="ov-toml" class="h">
+          <rect x="140" y="710" width="760" height="230" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <rect id="ov-thl" x="144" y="790" width="752" height="41" fill="#83C167" fill-opacity="0" />
+          <text class="mono" x="170" y="770" font-size="28" fill="#58C4DD">[profile.release]</text>
+          <text class="mono" x="170" y="820" font-size="28" fill="#e8e6df">overflow-checks = true</text>
+          <text class="mono" x="170" y="861" font-size="28" fill="#6b6f7a">lto = "fat"</text>
+          <text class="mono" x="170" y="902" font-size="28" fill="#6b6f7a">codegen-units = 1</text>
+        </g>
+        <text id="ov-init" class="h" x="960" y="830" font-size="30" fill="#8a8f99">anchor init 默认带</text>
+        <g id="ov-note">
+          <text id="ov-n0" class="h" x="960" y="760" font-size="30" fill="#FF9F43">只是兜底：溢出 → panic，交易失败</text>
+          <text id="ov-n1" class="h" x="960" y="820" font-size="30" fill="#FC6255">✗ 没有可读的错误码</text>
+          <text id="ov-n2" class="h" x="960" y="900" font-size="30" fill="#83C167">金额运算仍用 checked，自己返回错误</text>
+        </g>
+
+        <!-- L2–L3 算一算 -->
+        <g id="ov-calc">
+          <text id="ov-c0" class="h" x="200" y="250" font-size="30" fill="#8a8f99">SOL：9 位小数</text>
+          <text id="ov-c1" class="h mono" x="200" y="350" font-size="44" fill="#B48EF0">u64::MAX ≈ 1.84 × 10¹⁹</text>
+          <text id="ov-c2" class="h mono" x="840" y="350" font-size="44" fill="#e8e6df">÷ 10⁹</text>
+          <text id="ov-c3" class="h mono" x="200" y="450" font-size="44" fill="#F0B90B">≈ 1.84 × 10¹⁰ = 184</text>
+          <text id="ov-c3b" class="h" x="740" y="450" font-size="44" fill="#F0B90B">亿枚</text>
+          <text id="ov-c4" class="h" x="200" y="570" font-size="40" fill="#FC6255">总量 200 亿枚 × 10⁹ = 2 × 10¹⁹ &gt; 上限</text>
+          <text id="ov-c5" class="h mono" x="200" y="710" font-size="44" fill="#F0B90B">5 × 10¹² × 4,000,000</text>
+          <text id="ov-c5b" class="h mono" x="760" y="710" font-size="44" fill="#FC6255">= 2 × 10¹⁹</text>
+          <text id="ov-c6" class="h mono" x="200" y="800" font-size="30" fill="#FC6255">wrapping: 2 × 10¹⁹ − 2⁶⁴ = 1,553,255,926,290,448,384</text>
+        </g>
+
+        <!-- L4 u128 -->
+        <g id="ov-wide">
+          <text id="ov-w0" class="h" x="200" y="280" font-size="30" fill="#58C4DD">u128 上限 ≈ 3.4 × 10³⁸</text>
+          <rect id="ov-w1" class="h" x="200" y="310" width="1200" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text id="ov-w2" class="h mono" x="240" y="376" font-size="40" fill="#83C167">2 × 10¹⁹</text>
+          <text id="ov-w3" class="h" x="1430" y="376" font-size="36" fill="#83C167">✓ 放得下</text>
+          <text id="ov-w4" class="h mono" x="240" y="500" font-size="40" fill="#e8e6df">÷ 10⁶ = 2 × 10¹³</text>
+          <g id="ov-w5" class="h"><rect x="200" y="580" width="260" height="90" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" /><text class="mono" x="330" y="638" font-size="34" fill="#83C167" text-anchor="middle">try_from</text></g>
+          <path id="ov-w6" class="dr h" pathLength="1" d="M466 625 L574 625" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ov-arr)" />
+          <g id="ov-w7" class="h"><rect x="580" y="580" width="560" height="90" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" /><text class="mono" x="610" y="638" font-size="34" fill="#e8e6df">u64: 2 × 10¹³</text><text x="1100" y="640" font-size="36" fill="#83C167" text-anchor="end">✓</text></g>
+        </g>
+
+        <!-- L5–L6 写法表 -->
+        <g id="ov-tbl">
+          <g id="ov-r0" class="h"><rect x="200" y="260" width="1520" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text class="mono" x="230" y="312" font-size="32" fill="#83C167">checked_add</text><text class="mono" x="620" y="312" font-size="30" fill="#e8e6df">→ None</text><text x="1000" y="312" font-size="30" fill="#83C167">金额默认</text></g>
+          <g id="ov-r1" class="h"><rect x="200" y="360" width="1520" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text class="mono" x="230" y="412" font-size="32" fill="#FF9F43">saturating_sub</text><text x="620" y="412" font-size="30" fill="#e8e6df">→ 停在边界</text><text x="1000" y="412" font-size="30" fill="#FF9F43">只用于显示；会把余额不足藏成 0</text></g>
+          <g id="ov-r2" class="h"><rect x="200" y="460" width="1520" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text class="mono" x="230" y="512" font-size="32" fill="#FF9F43">wrapping_add</text><text x="620" y="512" font-size="30" fill="#e8e6df">→ 取模</text><text x="1000" y="512" font-size="30" fill="#FF9F43">哈希、计数器</text></g>
+          <g id="ov-r3" class="h"><rect x="200" y="560" width="1520" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text class="mono" x="230" y="612" font-size="32" fill="#83C167">try_from</text><text class="mono" x="620" y="612" font-size="30" fill="#e8e6df">→ Err</text><text x="1000" y="612" font-size="30" fill="#83C167">安全收窄</text></g>
+          <g id="ov-r4" class="h"><rect x="200" y="660" width="1520" height="80" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2" /><text class="mono" x="230" y="712" font-size="32" fill="#FC6255">x as u64</text><text x="620" y="712" font-size="30" fill="#e8e6df">→ 截断高位</text><text x="1000" y="712" font-size="30" fill="#FC6255">静默，不报错</text></g>
+        </g>
+        <g id="ov-bin">
+          <g id="ov-b0" class="h">
+            <text class="mono" x="200" y="800" font-size="28" fill="#8a8f99">2⁶⁴ + 5</text>
+          </g>
+          <g id="ov-btop" class="h">
+            <rect x="200" y="820" width="60" height="60" fill="#FC6255" fill-opacity="0.3" stroke="#FC6255" stroke-width="2" />
+            <text class="mono" x="230" y="862" font-size="30" fill="#FC6255" text-anchor="middle">1</text>
+          </g>
+          <g id="ov-brest" class="h">
+            <rect x="270" y="820" width="760" height="60" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2" />
+            <text class="mono" x="1010" y="862" font-size="30" fill="#58C4DD" text-anchor="end">000 … 000101</text>
+          </g>
+          <line id="ov-cut" class="dr h" pathLength="1" x1="265" y1="806" x2="265" y2="894" stroke="#FC6255" stroke-width="4" stroke-dasharray="1" />
+          <text id="ov-b5" class="h mono" x="1080" y="864" font-size="40" fill="#FC6255">→ 5</text>
+          <text id="ov-bn" class="h mono" x="200" y="960" font-size="28" fill="#6b6f7a">-1i64 as u64 = u64::MAX · 300 as u8 = 44</text>
+        </g>
+        <!-- BEC -->
+        <g id="ov-bec" class="h">
+          <rect x="460" y="270" width="1000" height="380" rx="18" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <text x="510" y="350" font-size="40" font-weight="700" fill="#e8e6df">2018 · BEC 代币</text>
+          <text x="510" y="430" font-size="32" fill="#FC6255">数量 × 人数 → 回绕成小数</text>
+          <text x="510" y="500" font-size="32" fill="#e8e6df">余额检查通过</text>
+          <rect x="1180" y="440" width="200" height="170" rx="12" fill="none" stroke="#F0B90B" stroke-width="4" />
+          <circle cx="1280" cy="525" r="36" fill="none" stroke="#F0B90B" stroke-width="4" />
+        </g>
+        <g id="ov-coins">
+          <circle id="ov-k0" class="h" cx="1280" cy="600" r="18" fill="#F0B90B" />
+          <circle id="ov-k1" class="h" cx="1300" cy="600" r="18" fill="#F0B90B" />
+          <circle id="ov-k2" class="h" cx="1260" cy="600" r="18" fill="#F0B90B" />
+          <circle id="ov-k3" class="h" cx="1290" cy="600" r="18" fill="#F0B90B" />
+          <circle id="ov-k4" class="h" cx="1270" cy="600" r="18" fill="#F0B90B" />
+        </g>
+        <text id="ov-rules" class="h mono" x="960" y="800" font-size="44" fill="#83C167" text-anchor="middle">checked · u128 · try_from</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const W = (s, w, t, d = 0.8, ease = "power2.out") => tl.fromTo(s, { attr: { width: 0 } }, { attr: { width: w }, duration: d, ease, immediateRender: false }, t);
+
+      // L0
+      IN("#ov-sol", at(0, 0.06), 0.5);
+      IN("#ov-dbg", at(0, 0.26), 0.5);
+      W("#ov-db", 520, at(0, 0.3), 0.9);
+      W("#ov-dbo", 50, at(0, 0.38), 0.4);
+      IN("#ov-boom", at(0, 0.42), 0.3, { scale: 0.3, svgOrigin: "800 423" }, { scale: 1, svgOrigin: "800 423" });
+      IN("#ov-rel", at(0, 0.5), 0.5);
+      W("#ov-rb", 540, at(0, 0.54), 0.9);
+      W("#ov-rbo", 60, at(0, 0.62), 0.4);
+      ARROW("#ov-wrap", at(0, 0.68), 0.8);
+      OUT("#ov-rbo", at(0, 0.72), 0.3);
+      tl.to("#ov-rb", { attr: { width: 40 }, fill: "#FC6255", duration: 0.6, ease: "power2.inOut" }, at(0, 0.72));
+      IN("#ov-wt", at(0, 0.76), 0.4);
+      IN("#ov-tag", at(0, 0.88), 0.5, { y: -10 }, { y: 0 });
+      // L1 overflow-checks
+      OUT("#ov-sol", at(1, 0), 0.3);
+      IN("#ov-toml", at(1, 0.05), 0.5, { y: 20 }, { y: 0 });
+      tl.to("#ov-thl", { attr: { "fill-opacity": 0.18 }, duration: 0.4 }, at(1, 0.25));
+      OUT("#ov-wrap, #ov-wt", at(1, 0.35), 0.3);
+      tl.to("#ov-rb", { attr: { width: 540 }, fill: "#F0B90B", duration: 0.5 }, at(1, 0.4));
+      IN("#ov-gate", at(1, 0.45), 0.4, { y: -30 }, { y: 0 });
+      IN("#ov-init", at(1, 0.65), 0.5);
+      // L2 只是兜底：panic 无错误码，仍用 checked
+      OUT("#ov-init", at(2, 0), 0.3);
+      IN("#ov-n0", at(2, 0.05), 0.5, { x: -15 }, { x: 0 });
+      IN("#ov-n1", at(2, 0.35), 0.5, { x: -15 }, { x: 0 });
+      IN("#ov-n2", at(2, 0.62), 0.5, { x: -15 }, { x: 0 });
+      // L3 算一算：184 亿枚
+      OUT("#ov-cols, #ov-toml, #ov-init, #ov-note", at(3, 0), 0.4);
+      IN("#ov-c0", at(3, 0.04), 0.4);
+      IN("#ov-c1", at(3, 0.15), 0.5);
+      IN("#ov-c2", at(3, 0.3), 0.5, { x: -20 }, { x: 0 });
+      IN("#ov-c3, #ov-c3b", at(3, 0.45), 0.5, { y: -15 }, { y: 0 });
+      IN("#ov-c4", at(3, 0.75), 0.5);
+      // L3 开头那笔
+      IN("#ov-c5", at(4, 0.05), 0.5);
+      IN("#ov-c5b", at(4, 0.55), 0.4, { x: -15 }, { x: 0 });
+      IN("#ov-c6", at(4, 0.8), 0.5);
+      // L4 u128 → try_from
+      OUT("#ov-calc", at(5, 0), 0.4);
+      IN("#ov-w0", at(5, 0.06), 0.4);
+      IN("#ov-w1", at(5, 0.06), 0.5, { scale: 0.5, svgOrigin: "200 360" }, { scale: 1, svgOrigin: "200 360" });
+      IN("#ov-w2", at(5, 0.18), 0.5, { x: -20 }, { x: 0 });
+      IN("#ov-w3", at(5, 0.28), 0.4);
+      IN("#ov-w4", at(5, 0.45), 0.5);
+      IN("#ov-w5", at(5, 0.66), 0.5);
+      ARROW("#ov-w6", at(5, 0.74), 0.4);
+      IN("#ov-w7", at(5, 0.78), 0.5);
+      // L5 写法表
+      OUT("#ov-wide", at(6, 0), 0.4);
+      IN("#ov-r0", at(6, 0.05), 0.5, { x: -20 }, { x: 0 });
+      IN("#ov-r1", at(6, 0.36), 0.5, { x: -20 }, { x: 0 });
+      IN("#ov-r2", at(6, 0.66), 0.5, { x: -20 }, { x: 0 });
+      IN("#ov-r3", at(6, 0.88), 0.5, { x: -20 }, { x: 0 });
+      // L6 as 截断 → BEC
+      IN("#ov-r4", at(7, 0.02), 0.5, { x: -20 }, { x: 0 });
+      IN("#ov-b0", at(7, 0.08), 0.4);
+      IN("#ov-btop, #ov-brest", at(7, 0.1), 0.4);
+      DRAW("#ov-cut", at(7, 0.16), 0.3); IN("#ov-cut", at(7, 0.16), 0.05);
+      tl.to("#ov-btop", { y: 80, opacity: 0, duration: 0.6, ease: "power2.in" }, at(7, 0.19));
+      IN("#ov-b5", at(7, 0.24), 0.4);
+      IN("#ov-bn", at(7, 0.26), 0.4);
+      OUT("#ov-tbl, #ov-bin", at(7, 0.5), 0.4);
+      IN("#ov-bec", at(7, 0.54), 0.6);
+      for (let i = 0; i < 5; i++) {
+        IN(`#ov-k${i}`, at(7, 0.64 + i * 0.03), 0.1);
+        tl.to(`#ov-k${i}`, { attr: { cy: 980, cx: 1180 + i * 60 }, duration: 0.8, ease: "power2.in" }, at(7, 0.64 + i * 0.03));
+      }
+      tl.to("#ov-coins", { opacity: 0, duration: 0.3 }, at(7, 0.82));
+      IN("#ov-rules", at(7, 0.85), 0.5, { y: 15 }, { y: 0 });
+
+      tl.to("#ov-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["overflow"] = tl;
+    })();
+  </script>
+</template>

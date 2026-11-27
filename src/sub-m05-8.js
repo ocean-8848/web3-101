@@ -38,7 +38,7 @@ ${art('一图看懂：同样是转 USDT，三条链各有各的“过路费”�
 ${call('info', '<p>“Tron 上的 USDT 多”和“Tron 上的交易多”是两件事。不同统计口径（按供应、按转账笔数、按转账金额、只算 USDT 还是所有稳定币）给出的份额差别很大。引用时一定写清口径和日期。</p>')}
 
 <h3>2.1 共识：27 个超级代表</h3>
-<p>Tron 用委托权益证明（DPoS）。TRX 持有者质押后获得 TRON Power（投票权），投票给 SR 候选人；得票最高的 27 个成为 SR，每 6 小时重新排名一次。每个 SR 出一个块可得 8 TRX，另有每块 128 TRX 的投票奖励分给前 127 名候选人${cite('Tron 开发者文档：Super Representatives', 'https://developers.tron.network/docs/super-representatives')}。区块间隔约 3 秒。我用 TronGrid 在 2026-11-22 取到最新块高 88,217,196 与固化块高 88,217,177，相差 19 块，约 57 秒，对应“约 2/3 的 SR 已确认”才算<strong>固化（solidified）</strong>。</p>
+<p>Tron 用委托权益证明（DPoS）。TRX 持有者质押后获得 TRON Power（投票权），投票给 SR 候选人；得票最高的 27 个成为 SR，每 6 小时重新排名一次。每个 SR 出一个块可得 8 TRX，另有每块 128 TRX 的投票奖励分给前 127 名候选人${cite('Tron 开发者文档：Super Representatives', 'https://developers.tron.network/docs/super-representatives')}。区块间隔约 3 秒。我用 TronGrid 在 2026-11-22 取到最新块高 88,217,196 与固化块高 88,217,177，相差 19 块，约 57 秒，对应“约 70%（27 个中 19 个）的 SR 已确认”才算<strong>固化（solidified）</strong>（java-tron 的 SOLIDIFIED_THRESHOLD = 70）${cite('java-tron 源码：Parameter.java', 'https://github.com/tronprotocol/java-tron/blob/master/common/src/main/java/org/tron/core/config/Parameter.java')}。</p>
 <h2>3. 资源模型：Bandwidth + Energy 取代 gas</h2>
 <p>Tron 没有“gas 价格竞价”。每笔交易消耗两种资源：</p>
 ${tbl(['资源', '付什么', '免费额度', '质押份额公式', '额度不够时烧 TRX'], [
@@ -121,7 +121,7 @@ ${tbl(['维度', 'EVM（以太坊）', 'Tron', 'TON', 'Solana'], [
   ['账户模型', '账户 + 合约存储', '账户 + 合约存储（类 EVM）', '每个账户就是一个 Actor，状态在 cell 里', '程序无状态，数据放在独立账户，见 <a href="#m05-11">M06.6</a>'],
   ['执行方式', '同步调用，整笔原子', '同步调用，整笔原子，另有 80 ms 时限', '异步消息，交易树，跨合约不原子', '并行执行，账户读写集提前声明'],
   ['费用', 'gas × 价格，EIP-1559', 'Bandwidth + Energy，质押换额度，不够烧 TRX', 'gas + 转发费 + 存储费', '基础费 + 优先费，见 M06.6'],
-  ['确认', '约 2 个 epoch 最终确定，见 <a href="#m05-3">M04.3</a>', '约 19 块（实测约 57 秒）固化', '主链块引用后最终确定，约 1 秒（官方）', '见 M06.6'],
+  ['确认', '约 2 个 epoch 最终确定，见 <a href="#m05-3">M04.3</a>', '约 70%（19/27）SR 确认后固化，约 19 块（实测约 57 秒）', '主链块引用后最终确定，约 1 秒（官方）', '见 M06.6'],
   ['代币标准', 'ERC-20，余额在合约 mapping 里', 'TRC-20（接口同 ERC-20），另有 TRC-10', 'Jetton：每人一个钱包合约', 'SPL Token：每人一个 token 账户'],
   ['典型用途', 'DeFi、NFT、L2 生态', 'USDT 支付、交易所充提', 'Telegram 小程序、游戏、支付', '高频交易、消费应用']
 ])}
@@ -239,7 +239,7 @@ ${recap([
   '充值监听：Tron 只认 USDT 合约地址并等固化；TON 追交易树并等主链确认，memo 缺失要有处理流程。'
 ])}
 ${quiz([
-  { q: '一个 Tron 账户没有任何质押，向外转一笔 TRC-20 USDT，它的手续费怎么付？', o: ['免费，Tron 不收费', 'Bandwidth 和 Energy 不够的部分烧 TRX', '必须先付一笔小费才能被打包', '手续费由收款方承担'], a: 1, why: 'Tron 按资源计费，免费 600 Bandwidth 通常不够一笔 USDT 转账，Energy 没有免费额度。缺口用 TRX 按链参数单价烧掉。没有小费竞价，也不由收款方付。' },
+  { q: '一个 Tron 账户没有任何质押，向外转一笔 TRC-20 USDT，它的手续费怎么付？', o: ['免费，Tron 不收费', 'Bandwidth 和 Energy 不够的部分烧 TRX', '必须先付一笔小费才能被打包', '手续费由收款方承担'], a: 1, why: 'Tron 按资源计费，每天免费的 600 Bandwidth 够一笔约 345 带宽的 USDT 转账，但 Energy 没有免费额度，约 6.4 万点 Energy 要靠质押、租赁或烧 TRX。缺口用 TRX 按链参数单价烧掉。没有小费竞价，也不由收款方付。' },
   { q: '为什么 Tron 充值监听要“以合约事件为准”，而不是看交易的 to 字段？', o: ['to 字段总是空的', '事件比交易更快', 'to 字段不能被查询', 'TRC-20 转账的 to 是合约地址，真实收款人在 Transfer 事件里'], a: 3, why: '调用 USDT 合约的交易，交易的 to 是合约地址，收款人和金额在 Transfer 事件的参数里。' },
   { q: '在 TON 上，transfer_notification 能证明“你确实收到了 USDT”吗？', o: ['能，它由系统生成', '能，只要金额正确', '不能单独证明，必须验证来源是你的 Jetton 钱包合约', '不能，Jetton 没有通知'], a: 2, why: '通知是普通内部消息，任何合约都可以构造；只有来源等于 Jetton Master 算出的你的 Jetton 钱包才可信。' },
   { q: '向一个尚未部署的 TON 钱包转账，用哪种地址更稳妥？', o: ['EQ 开头的可退回地址', 'UQ 开头的不可退回地址', '测试网地址', '随便哪种都一样，因为 bounce 标志不影响结果'], a: 1, why: '官方建议钱包用非可退回地址，这样即使目标尚未初始化，资金也能先记入账户。EQ 地址会让消息在目标未初始化时被退回。' }
@@ -247,7 +247,7 @@ ${quiz([
 ${terms([
   ['超级代表', 'Super Representative', 'Tron 中由 TRX 持有者投票选出的 27 个出块节点。'],
   ['Bandwidth / Energy', 'Bandwidth / Energy', 'Tron 的两种资源：Bandwidth 付交易字节，Energy 付合约执行；不够时按 sun（1 TRX = 1,000,000 sun）烧 TRX。'],
-  ['固化块', 'Solidified block', 'Tron 中已获得约 2/3 超级代表确认、可视为最终的块。'],
+  ['固化块', 'Solidified block', 'Tron 中已获得约 70%（27 个中 19 个）超级代表确认、可视为最终的块。'],
   ['Actor 模型', 'Actor model', 'TON 中每个合约只通过异步消息通信的执行模型。'],
   ['bounce', 'Bounce', 'TON 中消息处理失败时把消息退回发送方的机制。'],
   ['Cell / BoC', 'Cell / Bag of Cells', 'TON 的基本数据单元，及其序列化格式。'],

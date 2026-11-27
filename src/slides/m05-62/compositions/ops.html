@@ -1,0 +1,263 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ops，id 前缀 op- -->
+  <div id="root" data-composition-id="ops" data-duration="82.59" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="op-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="op-all">
+        <defs>
+          <marker id="op-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+          <marker id="op-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        </defs>
+        <g id="op-list">
+          <text id="op-title" class="h" x="120" y="250" font-size="48" font-weight="700" fill="#e8e6df">闪电节点运维</text>
+          <rect id="op-hl" class="h" x="110" y="318" width="700" height="64" rx="10" fill="#58C4DD" fill-opacity="0.15"/>
+          <g id="op-i1" class="h"><circle cx="150" cy="350" r="10" fill="#8a8f99"/><text x="180" y="362" font-size="34" fill="#e8e6df">路由失败</text></g>
+          <g id="op-i2" class="h"><circle cx="150" cy="440" r="10" fill="#8a8f99"/><text x="180" y="452" font-size="34" fill="#e8e6df">强制关闭遇高费率</text></g>
+          <g id="op-i3" class="h"><circle cx="150" cy="530" r="10" fill="#8a8f99"/><text x="180" y="542" font-size="34" fill="#e8e6df"><tspan class="mono">HTLC</tspan> 卡住</text></g>
+          <g id="op-i4" class="h"><circle cx="150" cy="620" r="10" fill="#8a8f99"/><text x="180" y="632" font-size="34" fill="#e8e6df">通道阻塞</text></g>
+          <g id="op-i5" class="h"><circle cx="150" cy="710" r="10" fill="#8a8f99"/><text x="180" y="722" font-size="34" fill="#e8e6df">错误恢复</text></g>
+        </g>
+        <!-- 1 route failure -->
+        <g id="op-e1" class="h"><rect x="940" y="270" width="260" height="70" rx="10" fill="none" stroke="#FC6255" stroke-width="2.5"/><text class="mono" x="1070" y="316" font-size="32" fill="#FC6255" text-anchor="middle">no route</text></g>
+        <g id="op-e2" class="h"><rect x="940" y="370" width="600" height="70" rx="10" fill="none" stroke="#FC6255" stroke-width="2.5"/><text class="mono" x="1240" y="416" font-size="32" fill="#FC6255" text-anchor="middle">temporary_channel_failure</text></g>
+        <path id="op-g1" class="dr h" pathLength="1" d="M950 560 L1060 560" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#op-arrG)"/>
+        <path id="op-g2" class="dr h" pathLength="1" d="M950 660 L1060 660" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#op-arrG)"/>
+        <path id="op-g3" class="dr h" pathLength="1" d="M950 760 L1060 760" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#op-arrG)"/>
+        <text id="op-g1l" class="h" x="1090" y="572" font-size="34" fill="#83C167">多路径付款 <tspan class="mono">MPP</tspan></text>
+        <text id="op-g2l" class="h" x="1090" y="672" font-size="34" fill="#83C167">换 <tspan class="mono">LSP</tspan></text>
+        <text id="op-g3l" class="h" x="1090" y="772" font-size="34" fill="#83C167">降低单笔金额</text>
+        <!-- 2 force close + CPFP -->
+        <g id="op-mp" class="h">
+          <rect x="920" y="260" width="400" height="360" rx="14" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8"/>
+          <text x="944" y="306" font-size="30" fill="#8a8f99">内存池</text>
+          <rect x="1420" y="260" width="380" height="360" rx="14" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          <text x="1444" y="306" font-size="30" fill="#58C4DD">区块</text>
+        </g>
+        <g id="op-par" class="h">
+          <rect x="944" y="340" width="352" height="90" rx="10" fill="#161a22" stroke="#e8e6df" stroke-width="2"/>
+          <text x="964" y="398" font-size="30" fill="#e8e6df">承诺交易</text>
+          <text x="1276" y="398" font-size="28" fill="#FF9F43" text-anchor="end">低费率</text>
+        </g>
+        <g id="op-chd" class="h">
+          <path d="M1240 430 V490" stroke="#83C167" stroke-width="3"/>
+          <rect x="944" y="490" width="352" height="90" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2"/>
+          <text x="964" y="548" font-size="30" fill="#83C167"><tspan class="mono">CPFP</tspan> 加费</text>
+        </g>
+        <text id="op-anc" class="h" x="1360" y="700" font-size="32" fill="#83C167" text-anchor="middle"><tspan class="mono">anchor</tspan> 输出 · 关闭时临时加费</text>
+        <!-- 3 stuck HTLC -->
+        <g id="op-spin" class="h">
+          <circle cx="1100" cy="400" r="70" fill="none" stroke="#2a2e38" stroke-width="10"/>
+          <path id="op-arc" d="M1100 330 A70 70 0 0 1 1170 400" fill="none" stroke="#58C4DD" stroke-width="10" stroke-linecap="round"/>
+          <text x="1100" y="530" font-size="32" fill="#e8e6df" text-anchor="middle">进行中…</text>
+        </g>
+        <g id="op-hg" class="h">
+          <path d="M1470 330 h80 l-40 70 l40 70 h-80 l40 -70 z" fill="none" stroke="#FF9F43" stroke-width="4" stroke-linejoin="round"/>
+          <path id="op-sand" d="M1482 340 h56 l-28 50 z" fill="#FF9F43"/>
+          <text x="1510" y="530" font-size="32" fill="#FF9F43" text-anchor="middle">锁到到期高度</text>
+        </g>
+        <g id="op-gauge" class="h">
+          <path d="M1210 820 A150 150 0 0 1 1510 820" fill="none" stroke="#3a3e48" stroke-width="16"/>
+          <path d="M1210 820 A150 150 0 0 1 1360 670" fill="none" stroke="#83C167" stroke-width="16"/>
+          <text x="1360" y="880" font-size="32" fill="#e8e6df" text-anchor="middle">在途 <tspan class="mono">HTLC</tspan> 数</text>
+        </g>
+        <line id="op-needle" class="h" x1="1360" y1="820" x2="1250" y2="820" stroke="#e8e6df" stroke-width="5" stroke-linecap="round"/>
+        <!-- 4 jamming -->
+        <text id="op-slt" class="h" x="940" y="290" font-size="30" fill="#8a8f99">一条通道的 <tspan class="mono">HTLC</tspan> 槽位</text>
+        <g id="op-slots" class="h">
+          <rect x="940" y="320" width="90" height="80" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <rect x="1040" y="320" width="90" height="80" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <rect x="1140" y="320" width="90" height="80" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <rect x="1240" y="320" width="90" height="80" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <rect x="1340" y="320" width="90" height="80" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <rect x="1440" y="320" width="90" height="80" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <rect x="1540" y="320" width="90" height="80" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+          <rect x="1640" y="320" width="90" height="80" rx="8" fill="none" stroke="#8a8f99" stroke-width="2"/>
+        </g>
+        <rect class="op-jb op-jbA h" x="950" y="330" width="70" height="60" rx="6" fill="#FC6255" fill-opacity="0.75"/>
+        <rect class="op-jb op-jbA h" x="1050" y="330" width="70" height="60" rx="6" fill="#FC6255" fill-opacity="0.75"/>
+        <rect class="op-jb op-jbA h" x="1150" y="330" width="70" height="60" rx="6" fill="#FC6255" fill-opacity="0.75"/>
+        <rect class="op-jb op-jbA h" x="1250" y="330" width="70" height="60" rx="6" fill="#FC6255" fill-opacity="0.75"/>
+        <rect class="op-jb h" x="1350" y="330" width="70" height="60" rx="6" fill="#FC6255" fill-opacity="0.75"/>
+        <rect class="op-jb h" x="1450" y="330" width="70" height="60" rx="6" fill="#FC6255" fill-opacity="0.75"/>
+        <rect class="op-jb h" x="1550" y="330" width="70" height="60" rx="6" fill="#FC6255" fill-opacity="0.75"/>
+        <rect class="op-jb h" x="1650" y="330" width="70" height="60" rx="6" fill="#FC6255" fill-opacity="0.75"/>
+        <g id="op-cap" class="h">
+          <line x1="1335" y1="300" x2="1335" y2="430" stroke="#83C167" stroke-width="6"/>
+          <text x="1335" y="480" font-size="32" fill="#83C167" text-anchor="middle">单通道在途上限</text>
+        </g>
+        <circle id="op-sus" class="h" cx="1060" cy="640" r="44" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+        <text id="op-susl" class="h" x="1130" y="652" font-size="32" fill="#e8e6df">可疑对手方 → 降级</text>
+        <!-- 5 wrong restore -->
+        <g id="op-db" class="h">
+          <ellipse cx="1000" cy="330" rx="60" ry="18" fill="none" stroke="#FF9F43" stroke-width="3"/>
+          <path d="M940 330 V430 A60 18 0 0 0 1060 430 V330" fill="none" stroke="#FF9F43" stroke-width="3"/>
+          <text x="1000" y="500" font-size="30" fill="#FF9F43" text-anchor="middle">昨天的快照</text>
+        </g>
+        <path id="op-a1" class="dr h" pathLength="1" d="M1080 380 L1170 380" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#op-arr)"/>
+        <g id="op-boot" class="h"><rect x="1190" y="340" width="160" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="1270" y="392" font-size="30" fill="#e8e6df" text-anchor="middle">启动</text></g>
+        <path id="op-a2" class="dr h" pathLength="1" d="M1370 380 L1460 380" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#op-arrR)"/>
+        <g id="op-oldtx" class="h"><rect x="1480" y="340" width="300" height="80" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1630" y="392" font-size="30" fill="#FC6255" text-anchor="middle">广播旧承诺</text></g>
+        <circle class="op-coin h" cx="1630" cy="440" r="14" fill="#F0B90B"/>
+        <circle class="op-coin h" cx="1600" cy="440" r="14" fill="#F0B90B"/>
+        <circle class="op-coin h" cx="1660" cy="440" r="14" fill="#F0B90B"/>
+        <text id="op-pen" class="h" x="1630" y="720" font-size="32" fill="#FC6255" text-anchor="middle">被惩罚 · 资金全失</text>
+        <g id="op-bigx" class="h"><path d="M1180 540 L1360 720 M1360 540 L1180 720" stroke="#FC6255" stroke-width="12" stroke-linecap="round"/></g>
+        <!-- 6 correct recovery -->
+        <g id="op-k1" class="h"><rect x="1000" y="260" width="640" height="84" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1320" y="314" font-size="32" fill="#e8e6df" text-anchor="middle">静态通道备份 <tspan class="mono" fill="#83C167">SCB</tspan></text></g>
+        <path id="op-k1a" class="dr h" pathLength="1" d="M1320 352 V394" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#op-arrG)"/>
+        <g id="op-k2" class="h"><rect x="1000" y="404" width="640" height="84" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1320" y="458" font-size="32" fill="#e8e6df" text-anchor="middle">请对方强制关闭通道</text></g>
+        <path id="op-k2a" class="dr h" pathLength="1" d="M1320 496 V538" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#op-arrG)"/>
+        <g id="op-k3" class="h"><rect x="1000" y="548" width="640" height="84" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1320" y="602" font-size="32" fill="#e8e6df" text-anchor="middle">资金回到链上</text></g>
+        <path id="op-k3a" class="dr h" pathLength="1" d="M1320 640 V682" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#op-arrG)"/>
+        <g id="op-k4" class="h"><rect x="1000" y="692" width="640" height="84" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1320" y="746" font-size="32" fill="#e8e6df" text-anchor="middle">再新建节点</text></g>
+        <text id="op-self" class="h" x="1320" y="860" font-size="30" fill="#8a8f99" text-anchor="middle">大额资金尽量自托管</text>
+        <!-- 7 terminal -->
+        <g id="op-term-w" class="h">
+          <rect x="900" y="250" width="900" height="500" rx="14" fill="#161a22" stroke="#3a3e48" stroke-width="2.5"/>
+          <rect x="900" y="250" width="900" height="44" rx="14" fill="#232833"/>
+          <circle cx="930" cy="272" r="7" fill="#FC6255"/><circle cx="954" cy="272" r="7" fill="#FF9F43"/><circle cx="978" cy="272" r="7" fill="#83C167"/>
+          <text data-layout-ignore="" x="1350" y="280" font-size="20" fill="#6b6f7a" text-anchor="middle">lncli</text>
+        </g>
+        <g id="op-cmd" class="mono" font-size="30" fill="#58C4DD">
+          <text class="op-cl h" x="940" y="360">$ lncli listchannels</text>
+          <text class="op-cl h" x="940" y="424">$ lncli openchannel</text>
+          <text class="op-cl h" x="940" y="488">$ lncli addinvoice</text>
+          <text class="op-cl h" x="940" y="552">$ lncli decodepayreq</text>
+          <text class="op-cl h" x="940" y="616">$ lncli queryroutes</text>
+          <text class="op-cl h" x="940" y="680">$ lncli payinvoice / closechannel</text>
+        </g>
+        <!-- 8 Polar -->
+        <text id="op-pol" class="h" x="940" y="250" font-size="34" fill="#58C4DD"><tspan class="mono">Polar</tspan> · 本地 <tspan class="mono">regtest</tspan></text>
+        <g id="op-pnet" class="h">
+          <path d="M1020 380 H1180 M1260 380 H1420 M1500 380 H1660" stroke="#8a8f99" stroke-width="6"/>
+          <circle cx="980" cy="380" r="40" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <circle cx="1220" cy="380" r="40" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <circle cx="1460" cy="380" r="40" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <circle cx="1700" cy="380" r="40" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text x="980" y="462" font-size="28" fill="#e8e6df" text-anchor="middle">Alice</text>
+          <text x="1220" y="462" font-size="28" fill="#e8e6df" text-anchor="middle">Bob</text>
+          <text x="1460" y="462" font-size="28" fill="#e8e6df" text-anchor="middle">Carol</text>
+          <text x="1700" y="462" font-size="28" fill="#e8e6df" text-anchor="middle">Dave</text>
+          <rect x="1240" y="520" width="200" height="56" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text class="mono" x="1340" y="558" font-size="28" fill="#58C4DD" text-anchor="middle">bitcoind</text>
+        </g>
+        <text id="op-st1" class="h" x="940" y="680" font-size="32" fill="#e8e6df">① 搭一个四节点网络</text>
+        <text id="op-st2" class="h" x="940" y="746" font-size="32" fill="#e8e6df">② 开三条通道</text>
+        <text id="op-st3" class="h" x="940" y="812" font-size="32" fill="#e8e6df">③ 付一张 <tspan class="mono" fill="#F0B90B">80,000 sat</tspan> 发票</text>
+        <text id="op-st4" class="h" x="940" y="878" font-size="32" fill="#e8e6df">④ 掏空 Carol → Dave，看在哪一跳失败</text>
+        <rect id="op-cd" class="h" x="1500" y="374" width="160" height="12" fill="#FC6255"/>
+        <g id="op-tcf" class="h"><rect x="1340" y="270" width="480" height="56" rx="8" fill="none" stroke="#FC6255" stroke-width="2.5"/><text class="mono" x="1580" y="308" font-size="28" fill="#FC6255" text-anchor="middle">temporary_channel_failure</text></g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const G = "#83C167", R = "#FC6255";
+const HL = (i, t) => tl.to("#op-hl", { y: (i - 1) * 90, duration: 0.4, ease: "power2.inOut" }, t);
+// L0 list
+IN("#op-title", at(0, 0.02), 0.5);
+IN("#op-i1", at(0, 0.2), 0.3); IN("#op-i2", at(0, 0.32), 0.3); IN("#op-i3", at(0, 0.44), 0.3);
+IN("#op-i4", at(0, 0.56), 0.3); IN("#op-i5", at(0, 0.68), 0.3);
+// L1 routing failure
+IN("#op-hl", at(1, 0.02), 0.4);
+IN("#op-e1", at(1, 0.1), 0.4, { x: 20 }, { x: 0 });
+IN("#op-e2", at(1, 0.28), 0.4, { x: 20 }, { x: 0 });
+ARROW("#op-g1", at(1, 0.5), 0.4); IN("#op-g1l", at(1, 0.52), 0.4);
+ARROW("#op-g2", at(1, 0.65), 0.4); IN("#op-g2l", at(1, 0.67), 0.4);
+ARROW("#op-g3", at(1, 0.8), 0.4); IN("#op-g3l", at(1, 0.82), 0.4);
+// L2 force close + CPFP
+OUT("#op-e1, #op-e2, #op-g1, #op-g2, #op-g3, #op-g1l, #op-g2l, #op-g3l", at(2, 0), 0.3);
+HL(2, at(2, 0.02));
+IN("#op-mp", at(2, 0.05), 0.5);
+IN("#op-par", at(2, 0.12), 0.5);
+tl.to("#op-par", { x: 6, duration: 0.12, yoyo: true, repeat: 5 }, at(2, 0.3));
+IN("#op-chd", at(2, 0.6), 0.5, { y: 20 }, { y: 0 });
+tl.to("#op-par, #op-chd", { x: 480, duration: 0.9, ease: "power2.inOut" }, at(2, 0.78));
+IN("#op-anc", at(2, 0.82), 0.5);
+// L3 stuck HTLC
+OUT("#op-mp, #op-par, #op-chd, #op-anc", at(3, 0), 0.3);
+HL(3, at(3, 0.02));
+IN("#op-spin", at(3, 0.05), 0.4);
+tl.to("#op-arc", { rotation: 1440, svgOrigin: "1100 400", duration: 8.5, ease: "none" }, at(3, 0.06));
+IN("#op-hg", at(3, 0.3), 0.4);
+tl.fromTo("#op-sand", { scaleY: 1, svgOrigin: "1510 390" }, { scaleY: 0.3, svgOrigin: "1510 390", duration: 5, ease: "none", immediateRender: false }, at(3, 0.32));
+IN("#op-gauge, #op-needle", at(3, 0.7), 0.4);
+tl.to("#op-needle", { rotation: 70, svgOrigin: "1360 820", duration: 1.2, ease: "power2.out" }, at(3, 0.74));
+// L4 jamming
+OUT("#op-spin, #op-hg, #op-gauge, #op-needle", at(4, 0), 0.3);
+HL(4, at(4, 0.02));
+IN("#op-slt, #op-slots", at(4, 0.05), 0.4);
+tl.fromTo(".op-jb", { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.3, immediateRender: false }, at(4, 0.14));
+tl.to(".op-jb", { opacity: 0, duration: 0.3 }, at(4, 0.55));
+IN("#op-cap", at(4, 0.58), 0.4);
+tl.fromTo(".op-jbA", { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.3, immediateRender: false }, at(4, 0.62));
+IN("#op-sus", at(4, 0.76), 0.3);
+IN("#op-susl", at(4, 0.8), 0.4);
+tl.to("#op-sus", { stroke: "#6b6f7a", opacity: 0.5, duration: 0.5 }, at(4, 0.86));
+// L5 wrong restore
+OUT("#op-slt, #op-slots, #op-cap, #op-sus, #op-susl, .op-jb", at(5, 0), 0.3);
+HL(5, at(5, 0.02));
+tl.to("#op-hl", { fill: R, duration: 0.3 }, at(5, 0.02));
+IN("#op-db", at(5, 0.06), 0.4);
+ARROW("#op-a1", at(5, 0.2), 0.4); IN("#op-boot", at(5, 0.24), 0.4);
+ARROW("#op-a2", at(5, 0.38), 0.4); IN("#op-oldtx", at(5, 0.42), 0.4);
+IN(".op-coin", at(5, 0.58), 0.2);
+tl.to(".op-coin", { y: 240, opacity: 0, duration: 0.9, stagger: 0.15, ease: "power2.in" }, at(5, 0.6));
+IN("#op-pen", at(5, 0.7), 0.4);
+IN("#op-bigx", at(5, 0.82), 0.3, { scale: 1.4, svgOrigin: "1270 630" }, { scale: 1, svgOrigin: "1270 630" });
+// L6 correct recovery
+OUT("#op-db, #op-a1, #op-boot, #op-a2, #op-oldtx, #op-pen, #op-bigx", at(6, 0), 0.3);
+tl.to("#op-hl", { fill: G, duration: 0.3 }, at(6, 0.02));
+IN("#op-k1", at(6, 0.05), 0.4);
+ARROW("#op-k1a", at(6, 0.2), 0.3); IN("#op-k2", at(6, 0.24), 0.4);
+ARROW("#op-k2a", at(6, 0.4), 0.3); IN("#op-k3", at(6, 0.44), 0.4);
+ARROW("#op-k3a", at(6, 0.58), 0.3); IN("#op-k4", at(6, 0.62), 0.4);
+IN("#op-self", at(6, 0.8), 0.5);
+// L7 lncli
+OUT("#op-k1, #op-k1a, #op-k2, #op-k2a, #op-k3, #op-k3a, #op-k4, #op-self, #op-hl", at(7, 0), 0.3);
+tl.to("#op-title, #op-i1, #op-i2, #op-i3, #op-i4, #op-i5", { opacity: 0.35, duration: 0.4 }, at(7, 0));
+IN("#op-term-w", at(7, 0.05), 0.4);
+tl.fromTo(".op-cl", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: at(7, 0.13) - at(7, 0), immediateRender: false }, at(7, 0.12));
+// L8 Polar
+OUT("#op-term-w, .op-cl", at(8, 0), 0.3);
+IN("#op-pol", at(8, 0.03), 0.4);
+IN("#op-pnet", at(8, 0.08), 0.5);
+IN("#op-st1", at(8, 0.18), 0.4);
+IN("#op-st2", at(8, 0.32), 0.4);
+IN("#op-st3", at(8, 0.48), 0.4);
+IN("#op-st4", at(8, 0.64), 0.4);
+IN("#op-cd", at(8, 0.72), 0.3);
+IN("#op-tcf", at(8, 0.82), 0.4, { y: 10 }, { y: 0 });
+
+      tl.to("#op-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["ops"] = tl;
+    })();
+  </script>
+</template>

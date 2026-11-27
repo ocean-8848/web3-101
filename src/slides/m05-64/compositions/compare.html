@@ -1,0 +1,270 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 compare，id 前缀 co- -->
+  <div id="root" data-composition-id="compare" data-duration="61.94" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="co-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="co-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="co-all">
+        <!-- 阶段 A：四列模型对比 + 殊途同归 + 迁移最常见错误 (L0-L3) -->
+        <g id="co-grid">
+          <text id="co-title" class="h" x="960" y="96" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">四种状态与并行模型</text>
+
+          <!-- 顶部两问（L3 被绿色标语替换） -->
+          <g id="co-q" class="h">
+            <rect x="520" y="126" width="380" height="58" rx="29" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="2" />
+            <text x="710" y="166" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">状态放在哪？</text>
+            <rect x="1020" y="126" width="380" height="58" rx="29" fill="#83C167" fill-opacity="0.14" stroke="#83C167" stroke-width="2" />
+            <text x="1210" y="166" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">并行从哪来？</text>
+          </g>
+
+          <!-- L3 绿色标语横贯四列上方 -->
+          <g id="co-banner" class="h">
+            <rect x="100" y="124" width="1720" height="64" rx="14" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="3" />
+            <text x="960" y="168" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">殊途同归：把状态切细</text>
+          </g>
+
+          <!-- 第 1 列：EVM -->
+          <g id="co-c0" class="h">
+            <rect x="100" y="218" width="400" height="470" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="300" y="274" font-size="38" font-weight="700" fill="#8a8f99" text-anchor="middle">EVM</text>
+            <line x1="130" y1="298" x2="470" y2="298" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+          <g id="co-c0a" class="h">
+            <text x="300" y="346" font-size="28" fill="#8a8f99" text-anchor="middle">状态</text>
+            <text x="300" y="392" font-size="30" fill="#e8e6df" text-anchor="middle">合约里的整数</text>
+            <text class="mono" x="300" y="434" font-size="28" fill="#58C4DD" text-anchor="middle">mapping</text>
+          </g>
+          <g id="co-c0b" class="h">
+            <text x="300" y="492" font-size="28" fill="#8a8f99" text-anchor="middle">并行</text>
+            <text x="300" y="538" font-size="30" fill="#8a8f99" text-anchor="middle">主流顺序执行</text>
+            <rect x="170" y="586" width="260" height="64" rx="12" fill="#8a8f99" fill-opacity="0.15" stroke="#8a8f99" stroke-width="2" />
+            <text x="300" y="629" font-size="28" font-weight="700" fill="#8a8f99" text-anchor="middle">发现：无</text>
+          </g>
+
+          <!-- 第 2 列：Solana -->
+          <g id="co-c1" class="h">
+            <rect x="540" y="218" width="400" height="470" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="740" y="274" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">Solana</text>
+            <line x1="570" y1="298" x2="910" y2="298" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+          <g id="co-c1a" class="h">
+            <text x="740" y="346" font-size="28" fill="#8a8f99" text-anchor="middle">状态</text>
+            <text x="740" y="392" font-size="30" fill="#e8e6df" text-anchor="middle">独立账户</text>
+            <text x="740" y="434" font-size="28" fill="#58C4DD" text-anchor="middle">数据与程序分离</text>
+          </g>
+          <g id="co-c1b" class="h">
+            <text x="740" y="492" font-size="28" fill="#8a8f99" text-anchor="middle">并行</text>
+            <text x="740" y="538" font-size="30" fill="#58C4DD" text-anchor="middle">提前声明账户</text>
+            <rect x="610" y="586" width="260" height="64" rx="12" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2" />
+            <text x="740" y="629" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">发现：交易</text>
+          </g>
+
+          <!-- 第 3 列：Sui -->
+          <g id="co-c2" class="h">
+            <rect x="980" y="218" width="400" height="470" rx="16" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="1180" y="274" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">Sui</text>
+            <line x1="1010" y1="298" x2="1350" y2="298" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+          <g id="co-c2a" class="h">
+            <text x="1180" y="346" font-size="28" fill="#8a8f99" text-anchor="middle">状态</text>
+            <text x="1180" y="392" font-size="30" fill="#e8e6df" text-anchor="middle">对象 + 版本</text>
+            <text x="1180" y="434" font-size="28" fill="#83C167" text-anchor="middle">独占 / 共享</text>
+          </g>
+          <g id="co-c2b" class="h">
+            <text x="1180" y="492" font-size="28" fill="#8a8f99" text-anchor="middle">并行</text>
+            <text x="1180" y="538" font-size="30" fill="#83C167" text-anchor="middle">列出对象与版本</text>
+            <rect x="1050" y="586" width="260" height="64" rx="12" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2" />
+            <text x="1180" y="629" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">发现：交易</text>
+          </g>
+
+          <!-- 第 4 列：Aptos -->
+          <g id="co-c3" class="h">
+            <rect x="1420" y="218" width="400" height="470" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="1620" y="274" font-size="38" font-weight="700" fill="#F0B90B" text-anchor="middle">Aptos</text>
+            <line x1="1450" y1="298" x2="1790" y2="298" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+          <g id="co-c3a" class="h">
+            <text x="1620" y="346" font-size="28" fill="#8a8f99" text-anchor="middle">状态</text>
+            <text x="1620" y="392" font-size="30" fill="#e8e6df" text-anchor="middle">地址下资源</text>
+            <text x="1620" y="434" font-size="28" fill="#F0B90B" text-anchor="middle">按账户分散</text>
+          </g>
+          <g id="co-c3b" class="h">
+            <text x="1620" y="492" font-size="28" fill="#8a8f99" text-anchor="middle">并行</text>
+            <text x="1620" y="538" font-size="30" fill="#F0B90B" text-anchor="middle">自动检测冲突</text>
+            <rect x="1490" y="586" width="260" height="64" rx="12" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="2" />
+            <text x="1620" y="629" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">发现：执行器</text>
+          </g>
+
+          <!-- L3 下方：全局大对象吞掉数据线（迁移最常见错误） -->
+          <g id="co-pit">
+            <g id="co-pitU" class="h">
+              <rect x="100" y="742" width="220" height="58" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+              <text x="210" y="782" font-size="28" fill="#e8e6df" text-anchor="middle">用户 A 数据</text>
+              <rect x="100" y="818" width="220" height="58" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+              <text x="210" y="858" font-size="28" fill="#e8e6df" text-anchor="middle">用户 B 数据</text>
+              <rect x="100" y="894" width="220" height="58" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+              <text x="210" y="934" font-size="28" fill="#e8e6df" text-anchor="middle">用户 C 数据</text>
+            </g>
+            <path id="co-pa0" class="dr h" pathLength="1" d="M326 771 L556 832" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#co-mr)" />
+            <path id="co-pa1" class="dr h" pathLength="1" d="M326 847 L556 847" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#co-mr)" />
+            <path id="co-pa2" class="dr h" pathLength="1" d="M326 923 L556 862" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#co-mr)" />
+            <g id="co-pitBox" class="h">
+              <rect x="570" y="756" width="490" height="184" rx="16" fill="#FC6255" fill-opacity="0.16" stroke="#FC6255" stroke-width="3" />
+              <text x="815" y="832" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">全局大对象</text>
+              <text x="815" y="896" font-size="30" fill="#e8e6df" text-anchor="middle">所有用户数据塞进一起</text>
+            </g>
+            <g id="co-pitMsg" class="h">
+              <rect x="1130" y="756" width="690" height="184" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+              <text x="1475" y="832" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">EVM 迁移最常见错误</text>
+              <text x="1475" y="896" font-size="32" fill="#FF9F43" text-anchor="middle">吞掉并行度 → 退化为串行</text>
+            </g>
+          </g>
+        </g>
+
+        <!-- 阶段 B：Sui vs Aptos 方言对比表 + 资产标准 (L4-L5) -->
+        <g id="co-dial">
+          <text id="co-dTitle" class="h" x="960" y="108" font-size="46" font-weight="700" fill="#e8e6df" text-anchor="middle">两种 Move：不同方言</text>
+
+          <!-- 左栏：Sui Move -->
+          <g id="co-suiBox" class="h">
+            <rect x="90" y="160" width="750" height="790" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="465" y="226" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">Sui Move</text>
+            <line x1="130" y1="254" x2="800" y2="254" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+          <!-- 右栏：Aptos Move -->
+          <g id="co-aptBox" class="h">
+            <rect x="1080" y="160" width="750" height="790" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1455" y="226" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">Aptos Move</text>
+            <line x1="1120" y1="254" x2="1790" y2="254" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+
+          <!-- 中间 ≠ 不能直接搬 -->
+          <g id="co-neq" class="h">
+            <text x="960" y="492" font-size="72" font-weight="700" fill="#FC6255" text-anchor="middle">≠</text>
+            <text x="960" y="556" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">不能直接搬</text>
+          </g>
+
+          <!-- 行 1：全局存储 / 状态操作 -->
+          <g id="co-apR1" class="h">
+            <text x="1130" y="314" font-size="28" fill="#8a8f99">全局存储操作</text>
+            <rect x="1130" y="334" width="650" height="114" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2" />
+            <text class="mono" x="1455" y="384" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">move_to / borrow_global</text>
+            <text x="1455" y="428" font-size="28" fill="#e8e6df" text-anchor="middle">按地址操作全局资源</text>
+          </g>
+          <g id="co-suR1" class="h">
+            <text x="140" y="314" font-size="28" fill="#8a8f99">对象操作（无全局存储操作）</text>
+            <rect x="140" y="334" width="650" height="114" rx="12" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="2" />
+            <text class="mono" x="465" y="384" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">transfer / share / freeze</text>
+            <text x="465" y="428" font-size="28" fill="#e8e6df" text-anchor="middle">用 transfer 模块管理所有权</text>
+          </g>
+
+          <!-- 行 2：交易入口 -->
+          <g id="co-apR2" class="h">
+            <text x="1130" y="520" font-size="28" fill="#8a8f99">入口函数</text>
+            <rect x="1130" y="540" width="650" height="114" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2" />
+            <text class="mono" x="1455" y="590" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">entry fun</text>
+            <text x="1455" y="634" font-size="28" fill="#e8e6df" text-anchor="middle">交易直接调用入口函数</text>
+          </g>
+          <g id="co-suR2" class="h">
+            <text x="140" y="520" font-size="28" fill="#8a8f99">入口函数</text>
+            <rect x="140" y="540" width="650" height="114" rx="12" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="2" />
+            <text class="mono" x="465" y="590" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">PTB -&gt; public fun</text>
+            <text x="465" y="634" font-size="28" fill="#e8e6df" text-anchor="middle">通过 PTB 组合调用公开函数</text>
+          </g>
+
+          <!-- 行 3：资产标准 (L5) -->
+          <g id="co-suR3" class="h">
+            <text x="140" y="726" font-size="28" fill="#8a8f99">资产标准</text>
+            <rect x="140" y="746" width="650" height="148" rx="12" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="465" y="810" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">Coin 对象 / 地址余额</text>
+            <text class="mono" x="465" y="864" font-size="28" fill="#e8e6df" text-anchor="middle">Coin&lt;T&gt;</text>
+          </g>
+          <g id="co-apR3" class="h">
+            <text x="1130" y="726" font-size="28" fill="#8a8f99">资产标准</text>
+            <rect x="1130" y="746" width="650" height="148" rx="12" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="2.5" />
+            <text class="mono" x="1455" y="808" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">Coin -&gt; Fungible Asset</text>
+            <text x="1455" y="864" font-size="28" fill="#8a8f99" text-anchor="middle">新资产多用 · 以官方为准</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 四列框架 + 顶部两问
+      IN("#co-title", at(0, 0.04), 0.45);
+      IN("#co-q", at(0, 0.28), 0.5);
+      IN("#co-c0", at(0, 0.50), 0.4, { y: 16 }, { y: 0 });
+      IN("#co-c1", at(0, 0.60), 0.4, { y: 16 }, { y: 0 });
+      IN("#co-c2", at(0, 0.70), 0.4, { y: 16 }, { y: 0 });
+      IN("#co-c3", at(0, 0.80), 0.4, { y: 16 }, { y: 0 });
+
+      // L1: EVM + Solana 内容填入
+      IN("#co-c0a", at(1, 0.06), 0.45);
+      IN("#co-c0b", at(1, 0.28), 0.45);
+      IN("#co-c1a", at(1, 0.54), 0.45);
+      IN("#co-c1b", at(1, 0.74), 0.45);
+
+      // L2: Sui + Aptos 内容填入
+      IN("#co-c2a", at(2, 0.06), 0.45);
+      IN("#co-c2b", at(2, 0.28), 0.45);
+      IN("#co-c3a", at(2, 0.52), 0.45);
+      IN("#co-c3b", at(2, 0.74), 0.45);
+
+      // L3: 绿色标语“把状态切细” + 下方“全局大对象”迁移坑
+      OUT("#co-q", at(3, 0.0), 0.25);
+      IN("#co-banner", at(3, 0.06), 0.5, { scale: 0.96, svgOrigin: "960 156" }, { scale: 1, svgOrigin: "960 156" });
+      IN("#co-pitU", at(3, 0.34), 0.45);
+      IN("#co-pitBox", at(3, 0.46), 0.5, { scale: 0.94, svgOrigin: "815 848" }, { scale: 1, svgOrigin: "815 848" });
+      ARROW("#co-pa0", at(3, 0.56), 0.45);
+      ARROW("#co-pa1", at(3, 0.59), 0.45);
+      ARROW("#co-pa2", at(3, 0.62), 0.45);
+      IN("#co-pitMsg", at(3, 0.74), 0.5, { x: 20 }, { x: 0 });
+
+      // L4: 四列淡出 -> 两栏方言对比（先讲 Aptos 再讲 Sui，按旁白顺序）
+      OUT("#co-grid", at(4, 0.0), 0.35);
+      IN("#co-dTitle", at(4, 0.04), 0.45);
+      IN("#co-suiBox, #co-aptBox", at(4, 0.08), 0.45);
+      IN("#co-apR1", at(4, 0.18), 0.5, { y: 14 }, { y: 0 });
+      IN("#co-apR2", at(4, 0.36), 0.5, { y: 14 }, { y: 0 });
+      IN("#co-suR1", at(4, 0.54), 0.5, { y: 14 }, { y: 0 });
+      IN("#co-suR2", at(4, 0.74), 0.5, { y: 14 }, { y: 0 });
+      IN("#co-neq", at(4, 0.86), 0.45, { scale: 0.85, svgOrigin: "960 510" }, { scale: 1, svgOrigin: "960 510" });
+
+      // L5: 资产标准行
+      IN("#co-suR3", at(5, 0.14), 0.5, { y: 16 }, { y: 0 });
+      IN("#co-apR3", at(5, 0.58), 0.5, { y: 16 }, { y: 0 });
+      tl.to("#co-neq", { scale: 1.08, svgOrigin: "960 510", duration: 0.35 }, at(5, 0.82));
+      tl.to("#co-neq", { scale: 1.0, svgOrigin: "960 510", duration: 0.35 }, at(5, 0.90));
+
+      tl.to("#co-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["compare"] = tl;
+    })();
+  </script>
+</template>

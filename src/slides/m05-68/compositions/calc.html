@@ -1,0 +1,206 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 calc，id 前缀 ca- -->
+  <div id="root" data-composition-id="calc" data-duration="55.83" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ca-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ca-all">
+        <!-- L0-L1 真实回执 + 算带宽烧费 -->
+        <g id="ca-s1">
+          <text id="ca-t0" class="h" x="140" y="138" font-size="46" font-weight="700" fill="#F0B90B">算一算：真实 USDT 转账</text>
+          <g id="ca-date" class="h">
+            <rect x="1480" y="92" width="300" height="60" rx="12" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="1630" y="133" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">示例 · 2026-11</text>
+          </g>
+
+          <!-- 回执卡 -->
+          <g id="ca-rcpt" class="h">
+            <rect x="140" y="196" width="1640" height="250" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="200" y="256" font-size="30" fill="#8a8f99">链上交易回执</text>
+            <g id="ca-e0" class="h">
+              <text class="mono" x="200" y="346" font-size="38" font-weight="700" fill="#F0B90B">energy_usage_total = 64,285</text>
+              <text x="200" y="406" font-size="28" fill="#F0B90B">消耗 64,285 点能量</text>
+            </g>
+            <g id="ca-b0" class="h">
+              <text class="mono" x="1080" y="346" font-size="38" font-weight="700" fill="#58C4DD">net_fee = 345,000 sun</text>
+              <text x="1080" y="406" font-size="28" fill="#58C4DD">对应 345 点带宽</text>
+            </g>
+          </g>
+
+          <!-- L1 能量质押覆盖 -->
+          <g id="ca-cov" class="h">
+            <rect x="140" y="496" width="1640" height="128" rx="18" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="200" y="574" font-size="34" font-weight="700" fill="#e8e6df">能量 64,285 点</text>
+            <rect x="520" y="536" width="600" height="48" rx="10" fill="#0f1117" stroke="#83C167" stroke-width="2" />
+            <rect id="ca-covf" x="520" y="536" width="0" height="48" rx="10" fill="#83C167" fill-opacity="0.8" />
+            <text x="1170" y="574" font-size="34" font-weight="700" fill="#83C167">质押覆盖 ✓  →  0 TRX</text>
+          </g>
+
+          <!-- L1 带宽竖式计算 -->
+          <g id="ca-bwc" class="h">
+            <rect x="140" y="668" width="1640" height="240" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="200" y="732" font-size="32" font-weight="700" fill="#58C4DD">带宽无额度 · 现场烧 TRX</text>
+            <text id="ca-bweq1" class="h" x="200" y="836" font-size="40" fill="#e8e6df"><tspan class="mono">345 × 1,000 = 345,000 sun</tspan></text>
+            <text id="ca-bweq2" class="h" x="980" y="836" font-size="46" font-weight="700" fill="#F0B90B">=  <tspan id="ca-bw-n" class="mono">0.000</tspan> TRX</text>
+          </g>
+        </g>
+
+        <!-- L2 假设能量也烧 + 两柱对比 > 18 倍 -->
+        <g id="ca-s2">
+          <g id="ca-hyp" class="h">
+            <rect x="140" y="110" width="1640" height="236" rx="20" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text x="200" y="180" font-size="34" font-weight="700" fill="#FC6255">假设：能量没有质押覆盖，也要现场烧 TRX</text>
+            <text id="ca-heq1" class="h" x="200" y="282" font-size="40" fill="#e8e6df"><tspan class="mono">64,285 × 100 = 6,428,500 sun</tspan></text>
+            <text id="ca-heq2" class="h" x="1060" y="282" font-size="48" font-weight="700" fill="#FC6255">≈  <tspan id="ca-en-n" class="mono">0.00</tspan> TRX</text>
+          </g>
+
+          <!-- 柱状对比基线 y=850 -->
+          <line id="ca-base" class="h" x1="260" y1="850" x2="1220" y2="850" stroke="#8a8f99" stroke-width="3" />
+
+          <g id="ca-bar1" class="h">
+            <rect id="ca-br1" x="390" y="850" width="220" height="0" rx="8" fill="#83C167" />
+            <text class="mono" x="500" y="794" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">0.345 TRX</text>
+            <text x="500" y="914" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">有能量额度</text>
+          </g>
+
+          <g id="ca-bar2" class="h">
+            <rect id="ca-br2" x="850" y="850" width="220" height="0" rx="8" fill="#FC6255" />
+            <text class="mono" x="960" y="454" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">≈ 6.43 TRX</text>
+            <text x="960" y="914" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">能量也烧 TRX</text>
+          </g>
+
+          <g id="ca-ratio" class="h">
+            <rect x="1280" y="540" width="480" height="220" rx="20" fill="#161a22" stroke="#FC6255" stroke-width="3.5" />
+            <text x="1520" y="618" font-size="34" fill="#e8e6df" text-anchor="middle">单笔成本差距</text>
+            <text x="1520" y="714" font-size="60" font-weight="700" fill="#FC6255" text-anchor="middle">&gt; 18 倍</text>
+          </g>
+        </g>
+
+        <!-- L3 空地址练习：6.5 + 0.345 = 6.845 TRX -->
+        <g id="ca-s3">
+          <text id="ca-t3" class="h" x="160" y="156" font-size="44" font-weight="700" fill="#e8e6df">练习：空地址转一笔 USDT（无任何额度）</text>
+
+          <rect id="ca-p3" class="h" x="160" y="220" width="1600" height="650" rx="22" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+
+          <g id="ca-row1" class="h">
+            <text x="240" y="346" font-size="38" font-weight="700" fill="#F0B90B">能量</text>
+            <text class="mono" x="420" y="346" font-size="38" fill="#e8e6df">65,000 × 100 sun</text>
+            <text class="mono" x="1060" y="346" font-size="38" fill="#8a8f99">=</text>
+            <text class="mono" x="1680" y="346" font-size="46" font-weight="700" fill="#FC6255" text-anchor="end">6.500 TRX</text>
+          </g>
+
+          <g id="ca-row2" class="h">
+            <text class="mono" x="195" y="496" font-size="42" font-weight="700" fill="#8a8f99">+</text>
+            <text x="240" y="496" font-size="38" font-weight="700" fill="#58C4DD">带宽</text>
+            <text class="mono" x="420" y="496" font-size="38" fill="#e8e6df">345 × 1,000 sun</text>
+            <text class="mono" x="1060" y="496" font-size="38" fill="#8a8f99">=</text>
+            <text class="mono" x="1680" y="496" font-size="46" font-weight="700" fill="#F0B90B" text-anchor="end">0.345 TRX</text>
+          </g>
+
+          <line id="ca-suml" class="h" x1="220" y1="586" x2="1700" y2="586" stroke="#8a8f99" stroke-width="3" />
+
+          <g id="ca-row3" class="h">
+            <text x="240" y="726" font-size="44" font-weight="700" fill="#e8e6df">合计燃烧</text>
+            <text id="ca-tot-n" class="mono" x="1480" y="732" font-size="64" font-weight="700" fill="#FC6255" text-anchor="end">6.845</text>
+            <text class="mono" x="1508" y="732" font-size="52" font-weight="700" fill="#FC6255">TRX</text>
+          </g>
+        </g>
+
+        <!-- L4 租能量分支 + 划掉误区 -->
+        <g id="ca-s4">
+          <g id="ca-rent" class="h">
+            <rect x="160" y="150" width="1600" height="270" rx="22" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="220" y="232" font-size="36" font-weight="700" fill="#58C4DD">分支：提前租到能量</text>
+            <text x="220" y="346" font-size="44" font-weight="700" fill="#F0B90B"><tspan class="mono">0.345 TRX</tspan>（带宽）  +  能量租金</text>
+          </g>
+
+          <g id="ca-ask" class="h">
+            <rect x="1220" y="246" width="470" height="120" rx="16" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="3" />
+            <text x="1455" y="320" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">划不划算？看租金</text>
+          </g>
+
+          <g id="ca-myth" class="h">
+            <rect x="160" y="510" width="1600" height="360" rx="22" fill="#161a22" stroke="#FC6255" stroke-width="3.5" />
+            <text x="960" y="636" font-size="46" font-weight="700" fill="#8a8f99" text-anchor="middle">误区：“Tron 转 USDT 不要 TRX”</text>
+            <line id="ca-strike" class="dr" pathLength="1" x1="420" y1="620" x2="1500" y2="620" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+            <text id="ca-truth" class="h" x="960" y="786" font-size="44" font-weight="700" fill="#FC6255" text-anchor="middle">事实：空地址一笔可能烧好几个 TRX</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 标题 + 真实回执读数
+      IN("#ca-t0", at(0, 0.04), 0.5, { y: -14 }, { y: 0 });
+      IN("#ca-date", at(0, 0.16), 0.5);
+      IN("#ca-rcpt", at(0, 0.30), 0.55, { y: 18 }, { y: 0 });
+      IN("#ca-e0", at(0, 0.52), 0.5, { x: -16 }, { x: 0 });
+      IN("#ca-b0", at(0, 0.76), 0.5, { x: 16 }, { x: 0 });
+
+      // L1: 能量质押覆盖 + 带宽烧 TRX 竖式
+      IN("#ca-cov", at(1, 0.06), 0.5, { y: 16 }, { y: 0 });
+      tl.fromTo("#ca-covf", { attr: { width: 0 } }, { attr: { width: 600 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(1, 0.14));
+      IN("#ca-bwc", at(1, 0.38), 0.5, { y: 16 }, { y: 0 });
+      IN("#ca-bweq1", at(1, 0.52), 0.5, { x: -16 }, { x: 0 });
+      IN("#ca-bweq2", at(1, 0.72), 0.4);
+      COUNT("#ca-bw-n", 0, 0.345, at(1, 0.74), 1.1, v => v.toFixed(3));
+
+      // L2: 假设能量也烧 + 两根柱子对比 > 18 倍
+      OUT("#ca-s1", at(2, 0.0), 0.35);
+      IN("#ca-hyp", at(2, 0.06), 0.5, { y: -16 }, { y: 0 });
+      IN("#ca-heq1", at(2, 0.20), 0.5, { x: -16 }, { x: 0 });
+      IN("#ca-heq2", at(2, 0.40), 0.4);
+      COUNT("#ca-en-n", 0, 6.43, at(2, 0.42), 1.1, v => v.toFixed(2));
+      IN("#ca-base", at(2, 0.54), 0.35);
+      IN("#ca-bar1", at(2, 0.58), 0.4);
+      tl.fromTo("#ca-br1", { attr: { y: 850, height: 0 } }, { attr: { y: 828, height: 22 }, duration: 0.6, ease: "power2.out", immediateRender: false }, at(2, 0.60));
+      IN("#ca-bar2", at(2, 0.68), 0.4);
+      tl.fromTo("#ca-br2", { attr: { y: 850, height: 0 } }, { attr: { y: 484, height: 366 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(2, 0.70));
+      IN("#ca-ratio", at(2, 0.82), 0.5, { x: 24 }, { x: 0 });
+
+      // L3: 空地址练习 6.5 + 0.345 = 6.845 TRX
+      OUT("#ca-s2", at(3, 0.0), 0.35);
+      IN("#ca-t3", at(3, 0.06), 0.5, { y: -14 }, { y: 0 });
+      IN("#ca-p3", at(3, 0.14), 0.45);
+      IN("#ca-row1", at(3, 0.28), 0.55, { x: -20 }, { x: 0 });
+      IN("#ca-row2", at(3, 0.52), 0.55, { x: -20 }, { x: 0 });
+      IN("#ca-suml", at(3, 0.70), 0.35);
+      // 合计只显示终值，旁白念到“合计”时出现
+      IN("#ca-row3", at(3, 0.78), 0.45, { scale: 0.96, transformOrigin: "50% 50%" }, { scale: 1 });
+
+      // L4: 租能量分支 + 误区划掉
+      OUT("#ca-s3", at(4, 0.0), 0.35);
+      IN("#ca-rent", at(4, 0.06), 0.55, { y: -16 }, { y: 0 });
+      IN("#ca-ask", at(4, 0.28), 0.5, { x: 20 }, { x: 0 });
+      IN("#ca-myth", at(4, 0.48), 0.55, { y: 20 }, { y: 0 });
+      DRAW("#ca-strike", at(4, 0.66), 0.6);
+      IN("#ca-truth", at(4, 0.78), 0.55, { y: 14 }, { y: 0 });
+
+      tl.to("#ca-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["calc"] = tl;
+    })();
+  </script>
+</template>

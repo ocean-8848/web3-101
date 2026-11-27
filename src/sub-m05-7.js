@@ -95,7 +95,7 @@ flowchart LR
   ['key', '两笔交易只要不碰同一个对象，就互不影响，可以同时执行。这是 Sui 并行的来源，和 Solana“提前声明账户”是同一类思想。'],
   ['fail', '热门共享对象（例如一个大池子）会成为排队点：所有碰它的交易都要经过共识，并按顺序写它。'],
   ['limit', '“独占对象走快速路径”只对简单转账、个人资产操作有利。DeFi 交易大多碰共享对象，享受不到这个好处。'],
-  ['risk', '同一个独占对象（尤其是 Gas 币）被两个并发程序同时使用，会造成版本冲突、交易失败。后端发交易要为每个并发任务准备单独的 Gas 币。']
+  ['risk', '同一个独占对象（尤其是 Gas 币）被两个并发程序同时使用，会造成版本冲突、交易失败。后端发交易要为每个并发任务准备单独的 Gas 币，或使用地址余额（address balances，SIP-58）直接扣 Gas，避免争用' + cite('Sui 文档', 'https://docs.sui.io/') + '。']
 ])}
 <h3>3.1 可编程交易块（PTB）</h3>
 <p>Sui 上每一笔用户交易都是一个<strong>可编程交易块（Programmable Transaction Block，PTB）</strong>：一串命令，前一个命令的输出可以直接作为后一个命令的输入。命令类型有 <code>SplitCoins</code>、<code>MergeCoins</code>、<code>TransferObjects</code>、<code>MoveCall</code>、<code>MakeMoveVec</code>、<code>Publish</code>、<code>Upgrade</code>。整个块是原子的：一个命令失败，全部效果都不生效。PTB 不支持循环，需要循环的逻辑要写进 Move 包。${cite('Sui 文档：Programmable Transaction Blocks', 'https://docs.sui.io/concepts/transactions/prog-txn-blocks')}</p>
@@ -163,7 +163,7 @@ ${compare('EVM、Solana、Sui、Aptos：状态放在哪里、并行从哪来', [
 ${tbl(['对照点', 'Sui Move', 'Aptos Move'], [
   ['全局存储操作', '没有 <code>move_to</code> / <code>borrow_global</code>；对象通过 <code>transfer::transfer</code>、<code>share_object</code>、<code>freeze_object</code> 改变所有权', '用 <code>move_to</code>、<code>borrow_global</code>、<code>borrow_global_mut</code>、<code>move_from</code> 操作地址下的资源'],
   ['入口函数', '交易通过 PTB 调用 public 函数', '交易调用 <code>entry</code> 函数'],
-  ['资产标准', '<code>Coin&lt;T&gt;</code> 是对象', '早期 Coin 标准；新资产多用 Fungible Asset 与 Object'],
+  ['资产标准', '<code>Coin&lt;T&gt;</code> 对象；2026 年起也可存为地址余额（SIP-58）', '早期 Coin 标准；新资产多用 Fungible Asset 与 Object'],
   ['CLI', '<code>sui move</code>、<code>sui client</code>', '<code>aptos move</code>']
 ])}
 
@@ -412,7 +412,7 @@ hermes create channel --a-chain ibc-0 --b-chain ibc-1 \\
 `)}
 
 <h2>6. IBC 与普通跨链桥：信任从哪里来</h2>
-${recall('<p>跨链桥的四种验证模型（外部多签、乐观、轻客户端、ZK）和 Ronin、Wormhole、Nomad 三起事故，在 <a href="#m05-8">M06.12 跨链桥</a> 里详细讲过。IBC 是其中“轻客户端验证”的代表，本节只比较它和多签桥的信任差别。</p>')}
+${recall('<p>跨链桥的四种验证模型（外部多签、乐观、轻客户端、ZK）和 Ronin、Wormhole、Nomad 三起事故，会在 <a href="#m05-8">M06.12 跨链桥</a> 里详细讲。IBC 是其中“轻客户端验证”的代表，本节只比较它和多签桥的信任差别。</p>')}
 ${compare('多签桥 vs IBC：谁说了算', [
   { name: '多签 / MPC 桥', tag: '外部验证', kind: 'risk', points: ['M of N 个签名者证明“链 A 发生了某事件”', '安全 = 签名者多数诚实且私钥安全', '拿到 M 把私钥即可伪造任意提款', '接入任何链都容易，速度快'] },
   { name: 'IBC', tag: '轻客户端验证', kind: 'key', points: ['链 B 自己验证链 A 的区块头和默克尔证明', '安全 = 链 A 共识诚实 + 验证代码无漏洞', '中继者作恶只能拖延，不能伪造', '要求对方链有确定最终性，接入异构链成本高'] }
@@ -430,7 +430,7 @@ ${cases([
 <h2>7. 共享安全：链间安全与网状安全（简述）</h2>
 <p>应用链最大的短板是“自己的安全自己买”。Cosmos 生态有两条补救思路：</p>
 ${tbl(['方案', '做法', '代价'], [
-  ['链间安全（Interchain Security，ICS）', '提供者链（如 Cosmos Hub）的验证者同时为消费者链出块；消费者链上作恶的证据通过 IBC 传回提供者链执行罚没。后来的“部分集合安全”（Partial Set Security）允许验证者自愿选择是否加入某条消费者链' + cite('Interchain Security 文档', 'https://cosmos.github.io/interchain-security/'), '消费者链要向提供者链的验证者付费；主权降低；验证者运维负担增加'],
+  ['链间安全（Interchain Security，ICS）', '提供者链（如 Cosmos Hub）的验证者同时为消费者链出块；消费者链上作恶的证据通过 IBC 传回提供者链执行罚没。后来的“部分集合安全”（Partial Set Security）允许验证者自愿选择是否加入某条消费者链' + cite('Interchain Security 文档', 'https://cosmos.github.io/interchain-security/'), '消费者链要向提供者链的验证者付费；主权降低；验证者运维负担增加。现状：ICS 在 Cosmos Hub 上正逐步移除——Gaia v27 起不再接纳新的消费者链，v28 计划在现有消费者链离开后移除 ICS 模块（Neutron 已于 2025 年离开），以官方治理提案为准'],
   ['网状安全（Mesh Security）' + tag('待核实'), '设想多条链互相用质押代币为对方提供安全，而不是单向“大链保小链”', '设计更复杂，截至本文资料仍以提案和实验为主，生产使用情况请以项目官方资料为准']
 ])}
 <p>以太坊生态的对应思路是“再质押”（restaking）和 L2 直接继承 L1 安全。比较这些方案时，看三个问题：谁在出块、作恶证据怎样传回、罚没的资产价值有多大。</p>

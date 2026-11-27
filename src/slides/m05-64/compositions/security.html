@@ -1,0 +1,263 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 security，id 前缀 se- -->
+  <div id="root" data-composition-id="security" data-duration="69.94" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="se-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="se-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+        <marker id="se-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="se-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" />
+        </marker>
+        <marker id="se-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="se-all">
+        <!-- 阶段 A：左侧绿盾 + 右侧四类管不到的问题 (L0-L2) -->
+        <g id="se-bound">
+          <g id="se-shield" class="h">
+            <rect x="90" y="130" width="520" height="790" rx="20" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <!-- 盾牌图标 -->
+            <path d="M350 185 L430 218 L430 292 C430 348 394 388 350 406 C306 388 270 348 270 292 L270 218 Z" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="3.5" />
+            <path d="M318 294 L342 318 L386 268" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="350" y="472" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">能力系统挡住</text>
+            <line x1="140" y1="504" x2="560" y2="504" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+          <text id="se-sh0" class="h" x="170" y="582" font-size="34" fill="#e8e6df">✓  复制资产</text>
+          <text id="se-sh1" class="h" x="170" y="672" font-size="34" fill="#e8e6df">✓  丢失资产</text>
+          <text id="se-sh2" class="h" x="170" y="762" font-size="34" fill="#e8e6df">✓  伪造类型</text>
+
+          <text id="se-rHead" class="h" x="1255" y="176" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">但这四类问题它管不到</text>
+
+          <!-- 4 个虚线空格 -->
+          <g id="se-slots" class="h">
+            <rect x="680" y="218" width="550" height="330" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" stroke-dasharray="10 8" />
+            <rect x="1280" y="218" width="550" height="330" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" stroke-dasharray="10 8" />
+            <rect x="680" y="590" width="550" height="330" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" stroke-dasharray="10 8" />
+            <rect x="1280" y="590" width="550" height="330" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" stroke-dasharray="10 8" />
+          </g>
+
+          <!-- 格 1：算术 / 精度 -->
+          <g id="se-c1" class="h">
+            <rect x="680" y="218" width="550" height="330" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text x="720" y="274" font-size="34" font-weight="700" fill="#FC6255">1. 算术 / 精度</text>
+            <rect x="740" y="314" width="430" height="104" rx="12" fill="#FC6255" fill-opacity="0.14" stroke="#FC6255" stroke-width="2" />
+            <text id="se-ovfNum" class="mono" x="955" y="382" font-size="44" font-weight="700" fill="#FC6255" text-anchor="middle">255 -&gt; 0</text>
+            <text id="se-c1n" class="h" x="955" y="486" font-size="30" fill="#e8e6df" text-anchor="middle">溢出检查写错，Move 照样执行</text>
+          </g>
+
+          <!-- 格 2：访问控制 -->
+          <g id="se-c2" class="h">
+            <rect x="1280" y="218" width="550" height="330" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="1320" y="274" font-size="34" font-weight="700" fill="#FF9F43">2. 访问控制</text>
+            <!-- 金色 AdminCap 钥匙框 -->
+            <rect x="1320" y="324" width="210" height="84" rx="12" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="2.5" />
+            <text class="mono" x="1425" y="378" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">AdminCap</text>
+            <!-- 大开的门 -->
+            <g id="se-door" class="h">
+              <rect x="1576" y="324" width="214" height="84" rx="12" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="2.5" />
+              <text x="1683" y="378" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">漏检 → 门大开</text>
+            </g>
+            <text id="se-c2n" class="h" x="1555" y="486" font-size="30" fill="#e8e6df" text-anchor="middle">忘了要求传入 = 公开管理员</text>
+          </g>
+
+          <!-- 格 3：共享对象逻辑 -->
+          <g id="se-c3" class="h">
+            <rect x="680" y="590" width="550" height="330" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="720" y="646" font-size="34" font-weight="700" fill="#FF9F43">3. 共享对象逻辑</text>
+            <rect x="970" y="692" width="210" height="96" rx="14" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="1075" y="752" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">共享金库</text>
+            <path id="se-vArr0" class="dr h" pathLength="1" d="M740 704 L956 726" stroke="#FF9F43" stroke-width="3.5" fill="none" marker-end="url(#se-mo)" />
+            <path id="se-vArr1" class="dr h" pathLength="1" d="M740 740 L956 740" stroke="#FF9F43" stroke-width="3.5" fill="none" marker-end="url(#se-mo)" />
+            <path id="se-vArr2" class="dr h" pathLength="1" d="M740 776 L956 754" stroke="#FF9F43" stroke-width="3.5" fill="none" marker-end="url(#se-mo)" />
+            <text id="se-c3n" class="h" x="955" y="862" font-size="30" fill="#e8e6df" text-anchor="middle">任何人都能引用，必须自己防御</text>
+          </g>
+
+          <!-- 格 4：升级权限 -->
+          <g id="se-c4" class="h">
+            <rect x="1280" y="590" width="550" height="330" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="1320" y="646" font-size="34" font-weight="700" fill="#FF9F43">4. 升级权限</text>
+            <rect x="1380" y="696" width="350" height="90" rx="14" fill="#FF9F43" fill-opacity="0.18" stroke="#FF9F43" stroke-width="3" />
+            <text class="mono" x="1555" y="754" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">UpgradeCap</text>
+            <text id="se-c4n" class="h" x="1555" y="862" font-size="30" fill="#e8e6df" text-anchor="middle">谁持有，谁就能升级整个包</text>
+          </g>
+        </g>
+
+        <!-- 阶段 B：真实事件 Cetus · 2025-05 (L3-L4) -->
+        <g id="se-cetus">
+          <text id="se-ceTitle" class="h" x="100" y="122" font-size="48" font-weight="700" fill="#e8e6df">真实事件：Cetus · 2025-05</text>
+          <g id="se-ceAmt" class="h">
+            <rect x="1320" y="64" width="500" height="88" rx="16" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="3" />
+            <text x="1570" y="122" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">被盗约 2.23 亿美元</text>
+          </g>
+
+          <!-- L3 开头：时间 + 链上项目两张信息卡（数学库出现前淡出） -->
+          <g id="se-ceIn1" class="h">
+            <rect x="100" y="236" width="820" height="280" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="510" y="326" font-size="32" fill="#8a8f99" text-anchor="middle">时间</text>
+            <text x="510" y="430" font-size="64" font-weight="700" fill="#F0B90B" text-anchor="middle">2025 年 5 月</text>
+          </g>
+          <g id="se-ceIn2" class="h">
+            <rect x="1000" y="236" width="820" height="280" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1410" y="326" font-size="32" fill="#8a8f99" text-anchor="middle">Sui 上的 DEX</text>
+            <text x="1410" y="430" font-size="64" font-weight="700" fill="#58C4DD" text-anchor="middle">Cetus</text>
+          </g>
+
+          <!-- 开源数学库与 192 / 256 尺子 -->
+          <g id="se-math" class="h">
+            <rect x="100" y="196" width="1720" height="360" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="148" y="256" font-size="34" font-weight="700" fill="#58C4DD">依赖的开源数学库 · 溢出检查边界</text>
+            <!-- 刻度尺底条 -->
+            <rect x="180" y="388" width="1500" height="34" rx="8" fill="#222733" stroke="#58C4DD" stroke-width="2" />
+            <text class="mono" x="180" y="472" font-size="28" fill="#8a8f99" text-anchor="middle">0</text>
+            <text class="mono" x="1220" y="472" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">192</text>
+            <text class="mono" x="1680" y="472" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">256</text>
+          </g>
+          <!-- 错放在 256 处的红线 -->
+          <g id="se-m256" class="h">
+            <line x1="1680" y1="330" x2="1680" y2="432" stroke="#FC6255" stroke-width="6" />
+            <text x="1680" y="312" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">错按 256 位判断</text>
+          </g>
+          <!-- 本该在 192 处的绿线 + 红漏洞区间 -->
+          <g id="se-m192" class="h">
+            <rect x="1220" y="388" width="460" height="34" fill="#FC6255" fill-opacity="0.35" />
+            <line x1="1220" y1="330" x2="1220" y2="432" stroke="#83C167" stroke-width="6" stroke-dasharray="10 6" />
+            <text x="1220" y="312" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">本该按 192 位拦截</text>
+            <text x="1450" y="518" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">未拦截的溢出区间</text>
+          </g>
+
+          <!-- L4 下半三段：极少代币放大 -> 验证者冻结 1.62 亿 -> 治理转回与中心化争议 -->
+          <g id="se-st1" class="h">
+            <rect x="100" y="608" width="520" height="330" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <rect x="200" y="646" width="320" height="62" rx="12" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="2" />
+            <text x="360" y="688" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">极少代币</text>
+            <path d="M335 724 L385 724 L415 796 L445 796 L360 838 L275 796 L305 796 Z" fill="#FC6255" fill-opacity="0.32" stroke="#FC6255" stroke-width="2.5" />
+            <text x="360" y="898" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">换到巨额流动性份额</text>
+          </g>
+          <path id="se-sArr1" class="dr h" pathLength="1" d="M628 773 L690 773" stroke="#B48EF0" stroke-width="4" fill="none" marker-end="url(#se-mp)" />
+
+          <g id="se-st2" class="h">
+            <rect x="700" y="608" width="520" height="330" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+            <!-- 验证者群小圆 -->
+            <circle cx="840" cy="672" r="24" fill="#B48EF0" fill-opacity="0.22" stroke="#B48EF0" stroke-width="2.5" />
+            <circle cx="960" cy="672" r="24" fill="#B48EF0" fill-opacity="0.22" stroke="#B48EF0" stroke-width="2.5" />
+            <circle cx="1080" cy="672" r="24" fill="#B48EF0" fill-opacity="0.22" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="960" y="746" font-size="30" font-weight="700" fill="#B48EF0" text-anchor="middle">验证者投票拒签攻击者</text>
+            <rect x="748" y="786" width="424" height="106" rx="14" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="960" y="851" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">约 1.62 亿美元 · 冻结</text>
+          </g>
+          <path id="se-sArr2" class="dr h" pathLength="1" d="M1228 773 L1290 773" stroke="#B48EF0" stroke-width="4" fill="none" marker-end="url(#se-mp)" />
+
+          <g id="se-st3" class="h">
+            <rect x="1300" y="608" width="520" height="330" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+            <rect x="1356" y="654" width="408" height="78" rx="12" fill="#83C167" fill-opacity="0.16" stroke="#83C167" stroke-width="2.5" />
+            <text x="1560" y="705" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">治理投票转回资金</text>
+            <circle cx="1440" cy="836" r="34" fill="#B48EF0" fill-opacity="0.22" stroke="#B48EF0" stroke-width="3" />
+            <text x="1440" y="852" font-size="42" font-weight="700" fill="#B48EF0" text-anchor="middle">?</text>
+            <text x="1620" y="848" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">中心化争议</text>
+          </g>
+        </g>
+
+        <!-- 阶段 C：两条启示卡 (L5) -->
+        <g id="se-lessons">
+          <text id="se-lesHead" class="h" x="960" y="220" font-size="48" font-weight="700" fill="#FF9F43" text-anchor="middle">核心启示</text>
+          <g id="se-les1" class="h">
+            <rect x="120" y="310" width="780" height="420" rx="20" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="510" y="458" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">依赖库也要审计</text>
+            <line x1="200" y1="504" x2="820" y2="504" stroke="#3a3f4a" stroke-width="2" />
+            <text x="510" y="590" font-size="34" fill="#e8e6df" text-anchor="middle">资源安全不覆盖数学库</text>
+          </g>
+          <g id="se-les2" class="h">
+            <rect x="1020" y="310" width="780" height="420" rx="20" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="1410" y="458" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">冻结 ≠ 协议保证</text>
+            <line x1="1100" y1="504" x2="1720" y2="504" stroke="#3a3f4a" stroke-width="2" />
+            <text x="1410" y="590" font-size="34" fill="#e8e6df" text-anchor="middle">验证者冻结是一次性社会共识</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 绿盾三项 + 右侧四个空格
+      IN("#se-shield", at(0, 0.04), 0.5);
+      IN("#se-sh0", at(0, 0.22), 0.4, { x: -16 }, { x: 0 });
+      IN("#se-sh1", at(0, 0.36), 0.4, { x: -16 }, { x: 0 });
+      IN("#se-sh2", at(0, 0.50), 0.4, { x: -16 }, { x: 0 });
+      IN("#se-rHead", at(0, 0.68), 0.45);
+      IN("#se-slots", at(0, 0.78), 0.5);
+
+      // L1: 格 1 算术/精度 + 格 2 访问控制 AdminCap
+      IN("#se-c1", at(1, 0.04), 0.5);
+      tl.to("#se-ovfNum", { scale: 1.12, svgOrigin: "955 366", duration: 0.3 }, at(1, 0.16));
+      tl.to("#se-ovfNum", { scale: 1.0, svgOrigin: "955 366", duration: 0.3 }, at(1, 0.22));
+      IN("#se-c1n", at(1, 0.26), 0.4);
+      IN("#se-c2", at(1, 0.46), 0.5);
+      IN("#se-door", at(1, 0.66), 0.45, { x: 16 }, { x: 0 });
+      IN("#se-c2n", at(1, 0.80), 0.45);
+
+      // L2: 格 3 共享对象逻辑 + 格 4 升级权限 UpgradeCap
+      IN("#se-c3", at(2, 0.04), 0.5);
+      ARROW("#se-vArr0", at(2, 0.16), 0.45);
+      ARROW("#se-vArr1", at(2, 0.20), 0.45);
+      ARROW("#se-vArr2", at(2, 0.24), 0.45);
+      IN("#se-c3n", at(2, 0.32), 0.45);
+      IN("#se-c4", at(2, 0.52), 0.5);
+      IN("#se-c4n", at(2, 0.74), 0.45);
+
+      // L3: Cetus 事件 + 2.23 亿美元 + 开源数学库 192 / 256 刻度尺
+      OUT("#se-bound", at(3, 0.0), 0.35);
+      IN("#se-ceTitle", at(3, 0.03), 0.5);
+      IN("#se-ceIn1", at(3, 0.08), 0.5, { y: 16 }, { y: 0 });
+      IN("#se-ceIn2", at(3, 0.20), 0.5, { y: 16 }, { y: 0 });
+      IN("#se-ceAmt", at(3, 0.34), 0.5, { scale: 0.92, svgOrigin: "1570 108" }, { scale: 1, svgOrigin: "1570 108" });
+      OUT("#se-ceIn1, #se-ceIn2", at(3, 0.48), 0.35);
+      IN("#se-math", at(3, 0.52), 0.5);
+      IN("#se-m256", at(3, 0.68), 0.5, { y: -12 }, { y: 0 });
+      IN("#se-m192", at(3, 0.82), 0.55, { y: -12 }, { y: 0 });
+
+      // L4: 极少代币放大 -> 验证者冻结 1.62 亿 -> 治理投票转回与中心化争议
+      IN("#se-st1", at(4, 0.06), 0.5, { y: 18 }, { y: 0 });
+      ARROW("#se-sArr1", at(4, 0.30), 0.45);
+      IN("#se-st2", at(4, 0.36), 0.5, { y: 18 }, { y: 0 });
+      ARROW("#se-sArr2", at(4, 0.64), 0.45);
+      IN("#se-st3", at(4, 0.70), 0.5, { y: 18 }, { y: 0 });
+
+      // L5: 两条启示卡
+      OUT("#se-cetus", at(5, 0.0), 0.35);
+      IN("#se-lesHead", at(5, 0.06), 0.45);
+      IN("#se-les1", at(5, 0.16), 0.55, { x: -24 }, { x: 0 });
+      IN("#se-les2", at(5, 0.54), 0.55, { x: 24 }, { x: 0 });
+
+      tl.to("#se-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["security"] = tl;
+    })();
+  </script>
+</template>

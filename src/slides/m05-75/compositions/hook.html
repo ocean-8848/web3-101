@@ -1,0 +1,170 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="47.29" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ho-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <!-- L0 仓位卡 -->
+        <g id="ho-card" class="h">
+          <rect x="560" y="260" width="800" height="300" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="600" y="340" font-size="32" fill="#F0B90B">数量 5000 枚 · 9 位小数</text>
+          <text x="1010" y="340" font-size="32" fill="#F0B90B">价格 4 · 6 位精度</text>
+        </g>
+        <g id="ho-n1" class="h">
+          <rect x="584" y="410" width="414" height="70" rx="10" fill="none" stroke="#F0B90B" stroke-width="2" />
+          <text class="mono" x="600" y="458" font-size="38" fill="#F0B90B">5_000_000_000_000</text>
+        </g>
+        <text id="ho-x" class="h" x="1014" y="458" font-size="40" fill="#e8e6df">×</text>
+        <g id="ho-n2" class="h">
+          <rect x="1056" y="410" width="236" height="70" rx="10" fill="none" stroke="#F0B90B" stroke-width="2" />
+          <text class="mono" x="1072" y="458" font-size="38" fill="#F0B90B">4_000_000</text>
+        </g>
+
+        <!-- L1 长条与刻度 -->
+        <g id="ho-chart">
+          <line id="ho-base" class="h" x1="800" y1="900" x2="1220" y2="900" stroke="#8a8f99" stroke-width="2" />
+          <rect id="ho-bar" x="860" y="900" width="200" height="0" fill="#F0B90B" />
+          <rect id="ho-over" x="860" y="348" width="200" height="0" fill="#FC6255" />
+          <rect id="ho-col" class="h" x="1160" y="348" width="26" height="552" fill="#B48EF0" fill-opacity="0.35" stroke="#B48EF0" stroke-width="2" />
+          <line id="ho-lim" class="h" x1="820" y1="348" x2="1220" y2="348" stroke="#B48EF0" stroke-width="3" stroke-dasharray="10 8" />
+          <text id="ho-limt" class="h" x="1240" y="360" font-size="32" fill="#B48EF0">u64 上限 ≈ 1.84 × 10¹⁹</text>
+          <text id="ho-prod" class="h" x="960" y="270" font-size="40" fill="#F0B90B" text-anchor="middle">2 × 10¹⁹</text>
+          <path id="ho-wrap" class="dr h" pathLength="1" d="M850 312 C 600 330, 600 880, 846 884" fill="none" stroke="#FC6255" stroke-width="5" marker-end="url(#ho-arr-r)" />
+          <text id="ho-wv" class="h mono" x="1240" y="890" font-size="36" fill="#FC6255">1,553,255,926,290,448,384</text>
+          <text id="ho-wl" class="h" x="1240" y="945" font-size="28" fill="#6b6f7a">看起来正常</text>
+        </g>
+        <g id="ho-tm" class="h">
+          <rect x="1420" y="110" width="420" height="120" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <circle cx="1446" cy="132" r="6" fill="#FC6255" /><circle cx="1466" cy="132" r="6" fill="#F0B90B" /><circle cx="1486" cy="132" r="6" fill="#83C167" />
+          <text class="mono" x="1446" y="200" font-size="30" fill="#83C167">$ cargo build ✓</text>
+        </g>
+
+        <!-- L3 盾牌 -->
+        <g id="ho-shield">
+          <path id="ho-sh" class="dr h" pathLength="1" d="M600 300 L800 370 L800 560 Q800 730 600 800 Q400 730 400 560 L400 370 Z" fill="none" stroke="#B48EF0" stroke-width="4" />
+          <text id="ho-sht" class="h" x="600" y="430" font-size="38" font-weight="700" fill="#B48EF0" text-anchor="middle">编译器</text>
+          <g id="ho-mem" class="h">
+            <rect x="510" y="480" width="180" height="120" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="600" y="530" font-size="32" fill="#e8e6df" text-anchor="middle">内存</text>
+            <text x="600" y="580" font-size="32" fill="#83C167" text-anchor="middle">✓</text>
+          </g>
+          <g id="ho-coin" class="h">
+            <circle cx="1300" cy="550" r="90" fill="none" stroke="#F0B90B" stroke-width="4" />
+            <text x="1300" y="562" font-size="36" fill="#F0B90B" text-anchor="middle">金额</text>
+          </g>
+          <text id="ho-q1" class="h" x="1150" y="430" font-size="56" font-weight="700" fill="#FC6255">?</text>
+          <text id="ho-q2" class="h" x="1420" y="440" font-size="56" font-weight="700" fill="#FC6255">?</text>
+          <text id="ho-q3" class="h" x="1430" y="720" font-size="56" font-weight="700" fill="#FC6255">?</text>
+          <text id="ho-q4" class="h" x="1140" y="730" font-size="56" font-weight="700" fill="#FC6255">?</text>
+        </g>
+
+        <!-- L4 三块徽章 -->
+        <g id="ho-badges">
+          <g id="ho-b1" class="h">
+            <rect x="380" y="420" width="400" height="120" rx="60" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text x="580" y="492" font-size="36" fill="#B48EF0" text-anchor="middle">编译期内存安全</text>
+          </g>
+          <g id="ho-b2" class="h">
+            <rect x="830" y="420" width="320" height="120" rx="60" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="990" y="492" font-size="36" fill="#58C4DD" text-anchor="middle">无 GC 性能</text>
+          </g>
+          <g id="ho-b3" class="h">
+            <rect x="1200" y="420" width="220" height="120" rx="60" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="1310" y="492" font-size="36" fill="#FF9F43" text-anchor="middle">宏</text>
+          </g>
+        </g>
+        <text id="ho-sol" class="h" x="900" y="660" font-size="32" fill="#8a8f99" text-anchor="middle">Solana：资源紧 · 直接管资产</text>
+
+        <!-- L5 路线 -->
+        <g id="ho-route">
+          <line id="ho-rl" class="dr" pathLength="1" x1="200" y1="420" x2="1720" y2="420" stroke="#6b6f7a" stroke-width="4" />
+          <g id="ho-s0" class="h"><circle id="ho-c0" cx="200" cy="420" r="20" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="200" y="500" font-size="32" fill="#e8e6df" text-anchor="middle">工具链</text></g>
+          <g id="ho-s1" class="h"><circle id="ho-c1" cx="504" cy="420" r="20" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="504" y="500" font-size="32" fill="#e8e6df" text-anchor="middle">语法</text></g>
+          <g id="ho-s2" class="h"><circle id="ho-c2" cx="808" cy="420" r="20" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="808" y="500" font-size="32" fill="#e8e6df" text-anchor="middle">所有权</text></g>
+          <g id="ho-s3" class="h"><circle id="ho-c3" cx="1112" cy="420" r="20" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1112" y="500" font-size="32" fill="#e8e6df" text-anchor="middle">宏</text></g>
+          <g id="ho-s4" class="h"><circle id="ho-c4" cx="1416" cy="420" r="20" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1416" y="500" font-size="32" fill="#e8e6df" text-anchor="middle">序列化</text></g>
+          <g id="ho-s5" class="h"><circle id="ho-c5" cx="1720" cy="420" r="20" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1720" y="500" font-size="32" fill="#e8e6df" text-anchor="middle">测试</text></g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 仓位卡与两块整数
+      IN("#ho-card", at(0, 0.05), 0.7, { y: 20 }, { y: 0 });
+      IN("#ho-n1", at(0, 0.45), 0.6, { y: 20 }, { y: 0 });
+      IN("#ho-x", at(0, 0.62), 0.4);
+      IN("#ho-n2", at(0, 0.72), 0.6, { y: 20 }, { y: 0 });
+      // L1 相乘 → 长条越过上限
+      OUT("#ho-card, #ho-x", at(1, 0), 0.4);
+      tl.to("#ho-n1", { opacity: 0, x: 200, y: 300, duration: 0.6, ease: "power2.in" }, at(1, 0.02));
+      tl.to("#ho-n2", { opacity: 0, x: -200, y: 300, duration: 0.6, ease: "power2.in" }, at(1, 0.02));
+      IN("#ho-base", at(1, 0.08), 0.4);
+      tl.fromTo("#ho-bar", { attr: { y: 900, height: 0 } }, { attr: { y: 348, height: 552 }, duration: 1.6, ease: "power2.out", immediateRender: false }, at(1, 0.12));
+      IN("#ho-prod", at(1, 0.2), 0.6);
+      IN("#ho-col", at(1, 0.48), 0.6);
+      IN("#ho-lim", at(1, 0.55), 0.5);
+      IN("#ho-limt", at(1, 0.6), 0.6, { x: 20 }, { x: 0 });
+      tl.fromTo("#ho-over", { attr: { y: 348, height: 0 } }, { attr: { y: 300, height: 48 }, duration: 0.7, ease: "power2.out", immediateRender: false }, at(1, 0.82));
+      // L2 回绕 + cargo build ✓
+      ARROW("#ho-wrap", at(2, 0.05), 1.0);
+      OUT("#ho-prod", at(2, 0.25), 0.3);
+      tl.to("#ho-over", { attr: { y: 348, height: 0 }, duration: 0.5, ease: "power2.in" }, at(2, 0.25));
+      tl.to("#ho-bar", { attr: { y: 854, height: 46 }, fill: "#FC6255", duration: 0.9, ease: "power2.inOut" }, at(2, 0.3));
+      IN("#ho-wv", at(2, 0.45), 0.6, { x: 20 }, { x: 0 });
+      IN("#ho-wl", at(2, 0.55), 0.5);
+      IN("#ho-tm", at(2, 0.72), 0.5, { y: -15 }, { y: 0 });
+      // L3 编译器盾牌只罩住内存
+      OUT("#ho-chart, #ho-tm", at(3, 0), 0.4);
+      DRAW("#ho-sh", at(3, 0.08), 0.9); IN("#ho-sh", at(3, 0.08), 0.1);
+      IN("#ho-sht", at(3, 0.2), 0.5);
+      IN("#ho-mem", at(3, 0.35), 0.5, { scale: 0.8, svgOrigin: "600 540" }, { scale: 1, svgOrigin: "600 540" });
+      IN("#ho-coin", at(3, 0.6), 0.5);
+      IN("#ho-q1", at(3, 0.72), 0.3); IN("#ho-q2", at(3, 0.77), 0.3); IN("#ho-q3", at(3, 0.82), 0.3); IN("#ho-q4", at(3, 0.87), 0.3);
+      // L4 展开成三块徽章
+      OUT("#ho-shield", at(4, 0), 0.4);
+      IN("#ho-b1", at(4, 0.04), 0.6, { x: 20 }, { x: 0 });
+      IN("#ho-b2", at(4, 0.2), 0.6, { x: -200 }, { x: 0 });
+      IN("#ho-b3", at(4, 0.34), 0.6, { x: -500 }, { x: 0 });
+      IN("#ho-sol", at(4, 0.6), 0.6, { y: 15 }, { y: 0 });
+      // L5 徽章下沉，路线点亮
+      OUT("#ho-sol", at(5, 0), 0.3);
+      tl.to("#ho-badges", { y: 420, duration: 0.8, ease: "power2.inOut" }, at(5, 0.02));
+      DRAW("#ho-rl", at(5, 0.12), 1.2);
+      for (let i = 0; i < 6; i++) {
+        IN(`#ho-s${i}`, at(5, 0.15 + i * 0.1), 0.4, { y: 10 }, { y: 0 });
+        tl.to(`#ho-c${i}`, { fill: "#58C4DD", duration: 0.3 }, at(5, 0.2 + i * 0.1));
+      }
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

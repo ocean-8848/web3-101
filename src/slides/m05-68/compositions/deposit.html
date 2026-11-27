@@ -1,0 +1,440 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 deposit，id 前缀 de- -->
+  <div id="root" data-composition-id="deposit" data-duration="94.21" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="de-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="de-arr-y" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="de-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="de-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="de-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="de-all">
+        <!-- L0: 标题 + Tron / TON 两栏总览 -->
+        <g id="de-intro">
+          <text id="de-it" class="h" x="960" y="156" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">工程落地：交易所充值监听</text>
+          <g id="de-i-tron" class="h">
+            <rect x="140" y="246" width="760" height="440" rx="20" fill="#161a22" stroke="#F0B90B" stroke-width="3.5" />
+            <text x="520" y="376" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">Tron 充值监听</text>
+            <text x="520" y="476" font-size="30" fill="#e8e6df" text-anchor="middle">合约地址 · Transfer 事件</text>
+            <text x="520" y="542" font-size="30" fill="#8a8f99" text-anchor="middle">块固化 · 归集能量陷阱</text>
+          </g>
+          <g id="de-i-ton" class="h">
+            <rect x="1020" y="246" width="760" height="440" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="1400" y="376" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">TON 充值监听</text>
+            <text x="1400" y="476" font-size="30" fill="#e8e6df" text-anchor="middle">Jetton 钱包 · Memo / 独立地址</text>
+            <text x="1400" y="542" font-size="30" fill="#8a8f99" text-anchor="middle">五步验证 · 主链最终确认</text>
+          </g>
+          <g id="de-i-note" class="h">
+            <rect x="340" y="756" width="1240" height="90" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="960" y="814" font-size="30" fill="#8a8f99" text-anchor="middle">通用状态机与归集前面讲过 · 本节只看两条链特有的规则</text>
+          </g>
+        </g>
+
+        <!-- Tron 顶部栏标（L1–L3 共用） -->
+        <g id="de-tr-tag" class="h">
+          <rect x="90" y="64" width="360" height="68" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <text x="270" y="110" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">Tron 充值监听</text>
+        </g>
+
+        <!-- L1: Tron 合约地址核验 + Transfer 事件 -->
+        <g id="de-tr1">
+          <g id="de-t1-ev" class="h">
+            <rect x="90" y="182" width="330" height="148" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="255" y="244" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">事件接口</text>
+            <text class="mono" x="255" y="298" font-size="28" fill="#e8e6df" text-anchor="middle">Transfer</text>
+          </g>
+          <path id="de-t1-a1" class="dr h" pathLength="1" d="M430 256 L532 256" fill="none" stroke="#F0B90B" stroke-width="3.5" marker-end="url(#de-arr-y)" />
+
+          <g id="de-t1-chk" class="h">
+            <rect x="546" y="176" width="460" height="160" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="776" y="242" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">合约地址 = 官方 USDT？</text>
+            <text x="776" y="298" font-size="28" fill="#58C4DD" text-anchor="middle">只认合约地址，不认符号</text>
+          </g>
+          <path id="de-t1-ano" class="dr h" pathLength="1" d="M1016 256 L1132 256" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#de-arr-r)" />
+          <text id="de-t1-no" class="h" x="1074" y="236" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">否</text>
+
+          <g id="de-t1-fake" class="h">
+            <rect x="1146" y="176" width="684" height="160" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text x="1488" y="242" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 丢弃 / 假币告警</text>
+            <text x="1488" y="298" font-size="28" fill="#e8e6df" text-anchor="middle">谁都能部署符号也叫 USDT 的假合约</text>
+          </g>
+
+          <g id="de-t1-addr" class="h">
+            <rect x="90" y="388" width="960" height="148" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="130" y="444" font-size="28" font-weight="700" fill="#F0B90B">USDT 官方合约地址</text>
+            <text x="1010" y="444" font-size="28" fill="#FF9F43" text-anchor="end">以官方公布为准</text>
+            <text class="mono" x="130" y="504" font-size="30" fill="#e8e6df">TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t</text>
+          </g>
+
+          <!-- 下方：为什么看 Transfer 事件而不是 tx.to -->
+          <g id="de-t1-why" class="h">
+            <rect x="90" y="592" width="1740" height="310" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="140" y="654" font-size="32" font-weight="700" fill="#58C4DD">以 Transfer 事件为准，不看交易外层 to</text>
+
+            <rect x="140" y="694" width="720" height="164" rx="14" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="180" y="756" font-size="30" fill="#8a8f99">交易接收方 <tspan class="mono">to</tspan></text>
+            <text x="180" y="818" font-size="30" fill="#8a8f99">= USDT 合约本身（不是收款人）</text>
+          </g>
+          <path id="de-t1-wa" class="dr h" pathLength="1" d="M876 776 L986 776" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#de-arr-g)" />
+          <g id="de-t1-wyes" class="h">
+            <rect x="1000" y="694" width="780" height="164" rx="14" fill="#0f1117" stroke="#83C167" stroke-width="3" />
+            <text x="1040" y="756" font-size="30" font-weight="700" fill="#83C167">Transfer 事件参数 ✓</text>
+            <text x="1040" y="818" font-size="30" fill="#e8e6df">真实收款人（to）与金额都在事件里</text>
+          </g>
+        </g>
+
+        <!-- L2: Tron 固化 + 幂等唯一键 + 小数换算 + 黑名单 -->
+        <g id="de-tr2">
+          <g id="de-t2-s1" class="h">
+            <rect x="90" y="200" width="360" height="206" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="270" y="268" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">1 · 匹配地址</text>
+            <text x="270" y="330" font-size="28" fill="#e8e6df" text-anchor="middle">to 在我方地址集合</text>
+          </g>
+          <path id="de-t2-a1" class="dr h" pathLength="1" d="M460 303 L520 303" fill="none" stroke="#8a8f99" stroke-width="3.5" marker-end="url(#de-arr)" />
+
+          <g id="de-t2-s2" class="h">
+            <rect id="de-t2-s2r" x="534" y="200" width="430" height="206" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="749" y="264" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">2 · 记待确认</text>
+            <text x="749" y="318" font-size="28" fill="#8a8f99" text-anchor="middle">幂等唯一键</text>
+            <text class="mono" x="749" y="370" font-size="28" fill="#e8e6df" text-anchor="middle">txid + event_index</text>
+          </g>
+          <path id="de-t2-a2" class="dr h" pathLength="1" d="M974 303 L1034 303" fill="none" stroke="#8a8f99" stroke-width="3.5" marker-end="url(#de-arr)" />
+
+          <g id="de-t2-s3" class="h">
+            <rect id="de-t2-s3r" x="1048" y="200" width="400" height="206" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="1248" y="264" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">3 · 等块固化</text>
+            <text x="1248" y="318" font-size="28" fill="#e8e6df" text-anchor="middle">且执行结果</text>
+            <text class="mono" x="1248" y="370" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">SUCCESS</text>
+          </g>
+          <path id="de-t2-a3" class="dr h" pathLength="1" d="M1458 303 L1518 303" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#de-arr-g)" />
+
+          <g id="de-t2-s4" class="h">
+            <rect x="1532" y="200" width="298" height="206" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3.5" />
+            <text x="1681" y="286" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">4 · 入账</text>
+            <text x="1681" y="346" font-size="28" fill="#83C167" text-anchor="middle">✓ 最终确认</text>
+          </g>
+
+          <!-- 小数换算 -->
+          <g id="de-t2-dec" class="h">
+            <rect x="90" y="492" width="840" height="260" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="140" y="562" font-size="32" font-weight="700" fill="#F0B90B">USDT 精度：6 位小数</text>
+            <text class="mono" x="140" y="646" font-size="32" fill="#e8e6df">value = 148000000</text>
+            <text x="140" y="712" font-size="34" font-weight="700" fill="#F0B90B">→ 148 USDT</text>
+          </g>
+
+          <!-- 黑名单双检 -->
+          <g id="de-t2-blk" class="h">
+            <rect x="990" y="492" width="840" height="260" rx="18" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1040" y="562" font-size="32" font-weight="700" fill="#FC6255">黑名单双检（防冻结风险）</text>
+            <rect x="1040" y="610" width="340" height="96" rx="12" fill="#0f1117" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1210" y="670" font-size="30" fill="#e8e6df" text-anchor="middle">入账前查一次</text>
+            <rect x="1440" y="610" width="340" height="96" rx="12" fill="#0f1117" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1610" y="670" font-size="30" fill="#e8e6df" text-anchor="middle">归集前再查一次</text>
+          </g>
+        </g>
+
+        <!-- L3: Tron 归集能量陷阱 -->
+        <g id="de-tr3">
+          <g id="de-t3-addrs" class="h">
+            <rect x="90" y="176" width="290" height="68" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="235" y="222" font-size="28" fill="#e8e6df" text-anchor="middle">充值地址 1</text>
+            <rect x="90" y="262" width="290" height="68" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="235" y="308" font-size="28" fill="#e8e6df" text-anchor="middle">充值地址 2</text>
+            <rect x="90" y="348" width="290" height="68" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="235" y="394" font-size="28" fill="#e8e6df" text-anchor="middle">充值地址 N</text>
+          </g>
+          <path id="de-t3-sw1" class="dr h" pathLength="1" d="M390 296 L526 296" fill="none" stroke="#F0B90B" stroke-width="3.5" marker-end="url(#de-arr-y)" />
+          <path id="de-t3-sw2" class="dr h" pathLength="1" d="M1308 296 L1444 296" fill="none" stroke="#F0B90B" stroke-width="3.5" marker-end="url(#de-arr-y)" />
+
+          <g id="de-t3-hot" class="h">
+            <rect x="1460" y="206" width="370" height="180" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="3.5" />
+            <text x="1645" y="286" font-size="38" font-weight="700" fill="#F0B90B" text-anchor="middle">热钱包</text>
+            <text x="1645" y="344" font-size="28" fill="#8a8f99" text-anchor="middle">资金归集目标</text>
+          </g>
+
+          <g id="de-t3-trap" class="h">
+            <rect x="540" y="200" width="756" height="192" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3.5" />
+            <text x="918" y="274" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">归集能量陷阱</text>
+            <text x="918" y="338" font-size="28" fill="#e8e6df" text-anchor="middle">充值地址要自己出能量和带宽，否则烧 TRX</text>
+          </g>
+
+          <g id="de-t3-optA" class="h">
+            <rect x="90" y="458" width="840" height="236" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="140" y="524" font-size="34" font-weight="700" fill="#FF9F43">做法 1：先垫少量 TRX</text>
+            <text x="140" y="588" font-size="30" fill="#e8e6df">每个充值地址都打一点 TRX 付归集费</text>
+            <g id="de-t3-dust" class="h">
+              <circle cx="155" cy="646" r="8" fill="#F0B90B" />
+              <circle cx="182" cy="646" r="6" fill="#F0B90B" opacity="0.7" />
+              <circle cx="204" cy="646" r="5" fill="#F0B90B" opacity="0.5" />
+              <text x="230" y="656" font-size="28" font-weight="700" fill="#FF9F43">地址多了会留下大量 TRX 灰尘</text>
+            </g>
+          </g>
+
+          <g id="de-t3-optB" class="h">
+            <rect x="990" y="458" width="840" height="236" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="1040" y="524" font-size="34" font-weight="700" fill="#83C167">做法 2：委托或租赁能量</text>
+            <text x="1040" y="588" font-size="30" fill="#e8e6df">按需给充值地址委派能量，不留灰尘</text>
+            <text id="de-t3-optB-ok" class="h" x="1040" y="656" font-size="30" font-weight="700" fill="#83C167">地址量大时往往更划算 ✓</text>
+          </g>
+
+          <g id="de-t3-inf" class="h">
+            <rect x="90" y="754" width="1740" height="128" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+            <rect x="132" y="788" width="120" height="60" rx="10" fill="#FF9F43" />
+            <text x="192" y="830" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">推断</text>
+            <text x="292" y="830" font-size="32" fill="#e8e6df">新地址首次收款多耗能量 · <tspan class="mono" fill="#FF9F43" font-weight="700">fee_limit</tspan> 要留余量</text>
+          </g>
+        </g>
+
+        <!-- TON 顶部栏标（L4–L6 共用） -->
+        <g id="de-ton-tag" class="h">
+          <rect x="90" y="64" width="360" height="68" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="270" y="110" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">TON 充值监听</text>
+        </g>
+
+        <!-- L4: 原生 TON vs Jetton 路径 -->
+        <g id="de-ton1">
+          <g id="de-n1-row" class="h">
+            <rect x="120" y="236" width="380" height="190" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="310" y="324" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">原生 TON 币</text>
+            <text x="310" y="382" font-size="28" fill="#8a8f99" text-anchor="middle">普通外部转账</text>
+
+            <rect x="1300" y="236" width="480" height="190" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1540" y="324" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">你的主钱包</text>
+            <text x="1540" y="382" font-size="28" fill="#83C167" text-anchor="middle">直接看入站消息 ✓</text>
+          </g>
+          <path id="de-n1-a1" class="dr h" pathLength="1" d="M514 331 L1284 331" fill="none" stroke="#F0B90B" stroke-width="4" marker-end="url(#de-arr-y)" />
+          <text id="de-n1-t1" class="h" x="900" y="302" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">直接进入主钱包（入站消息）</text>
+
+          <g id="de-n1-jrow" class="h">
+            <rect x="120" y="544" width="380" height="210" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text x="310" y="638" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">Jetton 代币</text>
+            <text x="310" y="698" font-size="28" fill="#8a8f99" text-anchor="middle">含 TON 上 USDT</text>
+
+            <rect x="680" y="534" width="460" height="230" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="910" y="620" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">你的 Jetton 钱包合约</text>
+            <text x="910" y="688" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">钱实际到账在这里！</text>
+          </g>
+          <path id="de-n1-a2" class="dr h" pathLength="1" d="M512 649 L666 649" fill="none" stroke="#58C4DD" stroke-width="4" marker-end="url(#de-arr-b)" />
+
+          <path id="de-n1-a3" class="dr h" pathLength="1" d="M1152 649 L1286 649" fill="none" stroke="#83C167" stroke-width="3.5" stroke-dasharray="10 6" marker-end="url(#de-arr-g)" />
+          <text id="de-n1-t3" class="h" x="1219" y="622" font-size="28" fill="#83C167" text-anchor="middle">通知</text>
+          <g id="de-n1-main2" class="h">
+            <rect x="1300" y="544" width="480" height="210" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1540" y="638" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">你的主钱包</text>
+            <text x="1540" y="698" font-size="28" fill="#8a8f99" text-anchor="middle">只收到到账通知</text>
+          </g>
+        </g>
+
+        <!-- L5: 共用地址 + memo vs 每人独立地址 -->
+        <g id="de-ton2">
+          <text id="de-n2-t" class="h" x="960" y="122" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">区分用户的两种方案</text>
+
+          <g id="de-n2-l" class="h">
+            <rect x="100" y="196" width="830" height="690" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="515" y="274" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">共用地址 + memo</text>
+            <rect x="160" y="324" width="710" height="148" rx="14" fill="#0f1117" stroke="#58C4DD" stroke-width="2" />
+            <text x="515" y="386" font-size="30" fill="#e8e6df" text-anchor="middle">所有用户 → 同一个充值地址</text>
+            <text x="515" y="442" font-size="28" fill="#58C4DD" text-anchor="middle">用附言（memo）填用户编号</text>
+            <text x="160" y="556" font-size="30" font-weight="700" fill="#83C167">✓ 省热钱包管理</text>
+          </g>
+          <g id="de-n2-lwarn" class="h">
+            <rect x="160" y="612" width="710" height="210" rx="16" fill="#0f1117" stroke="#FF9F43" stroke-width="3" />
+            <text x="206" y="684" font-size="32" font-weight="700" fill="#FF9F43">⚠ 漏填或填错 memo</text>
+            <text x="206" y="746" font-size="30" fill="#e8e6df">资金无法自动对应用户</text>
+            <text x="206" y="796" font-size="28" fill="#FF9F43">必须准备人工认领或退回流程</text>
+          </g>
+
+          <g id="de-n2-r" class="h">
+            <rect x="990" y="196" width="830" height="690" rx="20" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text x="1405" y="274" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">每人一个独立地址</text>
+            <rect x="1050" y="324" width="710" height="148" rx="14" fill="#0f1117" stroke="#B48EF0" stroke-width="2" />
+            <text x="1405" y="386" font-size="30" fill="#e8e6df" text-anchor="middle">用户 A → 地址 A　|　用户 B → 地址 B</text>
+            <text x="1405" y="442" font-size="28" fill="#B48EF0" text-anchor="middle">各自对应独立的 Jetton 钱包合约</text>
+            <text x="1050" y="556" font-size="30" font-weight="700" fill="#83C167">✓ 归属清楚，不怕漏填 memo</text>
+          </g>
+          <g id="de-n2-rwarn" class="h">
+            <rect x="1050" y="612" width="710" height="210" rx="16" fill="#0f1117" stroke="#F0B90B" stroke-width="3" />
+            <text x="1096" y="684" font-size="32" font-weight="700" fill="#F0B90B">⚠ 归集需要持续付费</text>
+            <text x="1096" y="746" font-size="30" fill="#e8e6df">每个地址归集都要付 gas</text>
+            <text x="1096" y="796" font-size="28" fill="#F0B90B">并且各合约都要承担存储费</text>
+          </g>
+        </g>
+
+        <!-- L6: 五道验证闸门 + 代码 + 制裁筛查 -->
+        <g id="de-ton3">
+          <g id="de-n3-mst" class="h">
+            <rect x="520" y="64" width="1310" height="68" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="556" y="110" font-size="28" font-weight="700" fill="#B48EF0">USDT Master（以官方为准）：</text>
+            <text class="mono" x="1796" y="110" font-size="28" fill="#e8e6df" text-anchor="end">EQCxE6mUtQJKFn...2Id_sDs</text>
+          </g>
+
+          <!-- 5 道闸门 -->
+          <g id="de-g1" class="h">
+            <rect x="70" y="210" width="310" height="230" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="225" y="274" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">1 · 白名单</text>
+            <text x="225" y="340" font-size="28" fill="#e8e6df" text-anchor="middle">只认核对过的</text>
+            <text x="225" y="392" font-size="28" fill="#B48EF0" text-anchor="middle">Jetton Master</text>
+          </g>
+          <path id="de-ga1" class="dr h" pathLength="1" d="M386 325 L410 325" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#de-arr-g)" />
+
+          <g id="de-g2" class="h">
+            <rect x="418" y="210" width="368" height="230" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="602" y="274" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">2 · 算钱包地址</text>
+            <text class="mono" x="602" y="344" font-size="28" fill="#58C4DD" text-anchor="middle">get_wallet_address</text>
+            <text x="602" y="396" font-size="28" fill="#8a8f99" text-anchor="middle">向 Master 查询</text>
+          </g>
+          <path id="de-ga2" class="dr h" pathLength="1" d="M792 325 L816 325" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#de-arr-g)" />
+
+          <g id="de-g3" class="h">
+            <rect x="824" y="210" width="314" height="230" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="981" y="274" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">3 · 验来源</text>
+            <text x="981" y="340" font-size="28" fill="#e8e6df" text-anchor="middle">通知发送者 =</text>
+            <text x="981" y="392" font-size="28" fill="#58C4DD" text-anchor="middle">自己 Jetton 钱包</text>
+          </g>
+          <path id="de-ga3" class="dr h" pathLength="1" d="M1144 325 L1168 325" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#de-arr-g)" />
+
+          <g id="de-g4" class="h">
+            <rect x="1176" y="210" width="318" height="230" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="1335" y="274" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">4 · 未中止</text>
+            <text class="mono" x="1335" y="344" font-size="28" fill="#e8e6df" text-anchor="middle">aborted == false</text>
+            <text x="1335" y="396" font-size="28" fill="#8a8f99" text-anchor="middle">检查交易成功</text>
+          </g>
+          <path id="de-ga4" class="dr h" pathLength="1" d="M1500 325 L1524 325" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#de-arr-g)" />
+
+          <g id="de-g5" class="h">
+            <rect x="1532" y="210" width="318" height="230" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3.5" />
+            <text x="1691" y="274" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">5 · 主链引用</text>
+            <text x="1691" y="340" font-size="28" fill="#e8e6df" text-anchor="middle">等主链块引用</text>
+            <text x="1691" y="392" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">✓ 确认入账</text>
+          </g>
+
+          <!-- 代码面板：sender.equals(mine) -->
+          <g id="de-code" class="h">
+            <rect x="70" y="530" width="880" height="250" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="112" y="586" font-size="28" fill="#8a8f99">来源地址比对（解析原始格式后比较）</text>
+            <rect x="108" y="614" width="804" height="134" rx="10" fill="#0f1117" stroke="#2d3340" stroke-width="2" />
+            <text class="mono" x="136" y="668" font-size="28" fill="#58C4DD">function isFromMyWallet(sender, mine) {</text>
+            <text class="mono" x="172" y="720" font-size="28" fill="#83C167">return sender.equals(mine); }</text>
+          </g>
+
+          <!-- 制裁筛查与地址归一化 -->
+          <g id="de-comp" class="h">
+            <rect x="1000" y="530" width="850" height="250" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="1046" y="600" font-size="34" font-weight="700" fill="#FF9F43">最后一道：制裁筛查</text>
+            <text x="1046" y="668" font-size="30" fill="#e8e6df">入账前筛查地址与风险评分</text>
+            <text x="1046" y="732" font-size="30" font-weight="700" fill="#83C167">地址先统一格式再比对 ✓</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0: 总览并点亮 Tron
+      IN("#de-it", at(0, 0.04), 0.55, { y: -16 }, { y: 0 });
+      IN("#de-i-tron", at(0, 0.22), 0.55, { x: -20 }, { x: 0 });
+      IN("#de-i-ton", at(0, 0.34), 0.55, { x: 20 }, { x: 0 });
+      IN("#de-i-note", at(0, 0.52), 0.5, { y: 14 }, { y: 0 });
+      tl.to("#de-i-ton", { opacity: 0.3, duration: 0.5 }, at(0, 0.76));
+
+      // L1: Tron 合约地址 + Transfer 事件
+      OUT("#de-intro", at(1, 0), 0.35);
+      IN("#de-tr-tag, #de-t1-ev", at(1, 0.04), 0.5, { y: -12 }, { y: 0 });
+      ARROW("#de-t1-a1", at(1, 0.14), 0.45);
+      IN("#de-t1-chk", at(1, 0.18), 0.5);
+      ARROW("#de-t1-ano", at(1, 0.30), 0.45);
+      IN("#de-t1-no, #de-t1-fake", at(1, 0.34), 0.55, { x: 18 }, { x: 0 });
+      IN("#de-t1-addr", at(1, 0.50), 0.55, { y: 14 }, { y: 0 });
+      IN("#de-t1-why", at(1, 0.66), 0.55, { y: 16 }, { y: 0 });
+      ARROW("#de-t1-wa", at(1, 0.80), 0.5);
+      IN("#de-t1-wyes", at(1, 0.84), 0.5, { x: 16 }, { x: 0 });
+
+      // L2: Tron 固化 + 唯一键 + 小数 + 黑名单
+      OUT("#de-tr1", at(2, 0), 0.35);
+      IN("#de-t2-s1", at(2, 0.04), 0.45);
+      ARROW("#de-t2-a1", at(2, 0.09), 0.35);
+      IN("#de-t2-s2", at(2, 0.12), 0.45);
+      ARROW("#de-t2-a2", at(2, 0.17), 0.35);
+      IN("#de-t2-s3", at(2, 0.20), 0.45);
+      ARROW("#de-t2-a3", at(2, 0.25), 0.35);
+      IN("#de-t2-s4", at(2, 0.28), 0.45);
+      tl.to("#de-t2-s2r", { strokeWidth: 5, duration: 0.35, yoyo: true, repeat: 1 }, at(2, 0.36));
+      IN("#de-t2-dec", at(2, 0.50), 0.6, { y: 16 }, { y: 0 });
+      IN("#de-t2-blk", at(2, 0.74), 0.6, { y: 16 }, { y: 0 });
+
+      // L3: Tron 归集能量陷阱（20.4s，多段推进）
+      OUT("#de-tr2", at(3, 0), 0.35);
+      IN("#de-t3-addrs, #de-t3-hot", at(3, 0.04), 0.55);
+      ARROW("#de-t3-sw1", at(3, 0.12), 0.45);
+      IN("#de-t3-trap", at(3, 0.16), 0.55, { y: -14 }, { y: 0 });
+      ARROW("#de-t3-sw2", at(3, 0.24), 0.45);
+      IN("#de-t3-optA", at(3, 0.32), 0.55, { y: 16 }, { y: 0 });
+      IN("#de-t3-dust", at(3, 0.48), 0.5);
+      IN("#de-t3-optB", at(3, 0.58), 0.55, { y: 16 }, { y: 0 });
+      IN("#de-t3-optB-ok", at(3, 0.68), 0.5);
+      IN("#de-t3-inf", at(3, 0.78), 0.6, { y: 16 }, { y: 0 });
+      tl.to("#de-t3-inf", { y: -6, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.90));
+
+      // L4: 切到 TON（原生 vs Jetton）
+      OUT("#de-tr3, #de-tr-tag", at(4, 0), 0.35);
+      IN("#de-ton-tag, #de-n1-row", at(4, 0.06), 0.55);
+      ARROW("#de-n1-a1", at(4, 0.20), 0.6);
+      IN("#de-n1-t1", at(4, 0.26), 0.45);
+      IN("#de-n1-jrow", at(4, 0.48), 0.55, { y: 14 }, { y: 0 });
+      ARROW("#de-n1-a2", at(4, 0.58), 0.45);
+      ARROW("#de-n1-a3", at(4, 0.74), 0.45);
+      IN("#de-n1-t3, #de-n1-main2", at(4, 0.78), 0.5);
+
+      // L5: 共用地址 + memo vs 每人独立地址
+      OUT("#de-ton1", at(5, 0), 0.35);
+      IN("#de-n2-t, #de-n2-l", at(5, 0.05), 0.55, { x: -18 }, { x: 0 });
+      IN("#de-n2-lwarn", at(5, 0.28), 0.55, { y: 14 }, { y: 0 });
+      IN("#de-n2-r", at(5, 0.54), 0.55, { x: 18 }, { x: 0 });
+      IN("#de-n2-rwarn", at(5, 0.76), 0.55, { y: 14 }, { y: 0 });
+
+      // L6: 五道闸门 + 代码 + 制裁筛查
+      OUT("#de-ton2", at(6, 0), 0.35);
+      IN("#de-n3-mst, #de-g1", at(6, 0.04), 0.5, { y: -12 }, { y: 0 });
+      ARROW("#de-ga1", at(6, 0.15), 0.35);
+      IN("#de-g2", at(6, 0.18), 0.5, { y: 12 }, { y: 0 });
+      ARROW("#de-ga2", at(6, 0.30), 0.35);
+      IN("#de-g3", at(6, 0.33), 0.5, { y: 12 }, { y: 0 });
+      IN("#de-code", at(6, 0.40), 0.55, { y: 16 }, { y: 0 });
+      ARROW("#de-ga3", at(6, 0.50), 0.35);
+      IN("#de-g4", at(6, 0.53), 0.5, { y: 12 }, { y: 0 });
+      ARROW("#de-ga4", at(6, 0.64), 0.35);
+      IN("#de-g5", at(6, 0.67), 0.5, { y: 12 }, { y: 0 });
+      IN("#de-comp", at(6, 0.80), 0.6, { y: 16 }, { y: 0 });
+
+      tl.to("#de-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["deposit"] = tl;
+    })();
+  </script>
+</template>

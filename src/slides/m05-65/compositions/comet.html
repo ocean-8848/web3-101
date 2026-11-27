@@ -1,0 +1,305 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 comet，id 前缀 co- -->
+  <div id="root" data-composition-id="comet" data-duration="47.2" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="co-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="co-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="co-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" />
+        </marker>
+      </defs>
+      <g id="co-all">
+        <!-- L0：三层结构预览（虚线占位，L1 开始前淡出） -->
+        <g id="co-ghost" class="h">
+          <text x="960" y="282" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">一条 Cosmos 链 = 三层</text>
+          <rect x="360" y="340" width="1200" height="178" rx="16" fill="none" stroke="#58C4DD" stroke-width="3" stroke-dasharray="14 10" stroke-opacity="0.7" />
+          <text x="960" y="443" font-size="34" font-weight="700" fill="#58C4DD" fill-opacity="0.8" text-anchor="middle">应用层</text>
+          <rect x="360" y="586" width="1200" height="126" rx="14" fill="none" stroke="#e8e6df" stroke-width="3" stroke-dasharray="14 10" stroke-opacity="0.5" />
+          <text x="960" y="661" font-size="34" font-weight="700" fill="#e8e6df" fill-opacity="0.75" text-anchor="middle">ABCI 接口</text>
+          <circle cx="300" cy="429" r="26" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="300" y="439" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">3</text>
+          <circle cx="300" cy="649" r="26" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+          <text x="300" y="659" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle">2</text>
+          <circle cx="300" cy="868" r="26" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+          <text x="300" y="878" font-size="28" font-weight="700" fill="#B48EF0" text-anchor="middle">1</text>
+        </g>
+        <!-- 底层：CometBFT (x 360-1560, y 780-955) -->
+        <g id="co-l1" class="h">
+          <rect x="360" y="780" width="1200" height="176" rx="16" fill="#1c192b" stroke="#B48EF0" stroke-width="3.5" />
+          <text x="400" y="838" font-size="38" font-weight="700" fill="#B48EF0">CometBFT</text>
+          <text x="614" y="836" font-size="28" fill="#8a8f99">原名 Tendermint</text>
+          <text x="1520" y="836" font-size="28" fill="#8a8f99" text-anchor="end">共识与网络层</text>
+        </g>
+        <g id="co-ch0" class="h">
+          <rect x="400" y="868" width="240" height="58" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="520" y="908" font-size="28" fill="#e8e6df" text-anchor="middle">P2P 广播</text>
+        </g>
+        <g id="co-ch1" class="h">
+          <rect x="668" y="868" width="200" height="58" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="768" y="908" font-size="28" fill="#e8e6df" text-anchor="middle">内存池</text>
+        </g>
+        <g id="co-ch2" class="h">
+          <rect x="896" y="868" width="290" height="58" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="1041" y="908" font-size="28" fill="#e8e6df" text-anchor="middle">提议与投票</text>
+        </g>
+        <g id="co-ch3" class="h">
+          <rect x="1214" y="868" width="306" height="58" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="1367" y="908" font-size="28" fill="#e8e6df" text-anchor="middle">即时最终性</text>
+        </g>
+
+        <!-- L1: 两阶段投票时间线 + 投票权条 -->
+        <g id="co-vote">
+          <g id="co-vs1" class="h">
+            <rect x="240" y="420" width="220" height="106" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="350" y="485" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">提议</text>
+          </g>
+          <path id="co-va1" class="dr h" pathLength="1" d="M466 473 L546 473" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#co-arr)" />
+          <g id="co-vs2" class="h">
+            <rect x="556" y="420" width="220" height="106" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text x="666" y="485" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">预投票</text>
+          </g>
+          <path id="co-va2" class="dr h" pathLength="1" d="M782 473 L862 473" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#co-arr)" />
+          <g id="co-vs3" class="h">
+            <rect x="872" y="420" width="220" height="106" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="982" y="485" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">预提交</text>
+          </g>
+          <!-- 右侧投票权柱 -->
+          <g id="co-vbarw" class="h">
+            <text x="1350" y="294" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">投票权</text>
+            <rect x="1300" y="320" width="100" height="310" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <rect id="co-vfill" x="1306" y="624" width="88" height="0" rx="8" fill="#B48EF0" />
+            <line x1="1268" y1="423" x2="1440" y2="423" stroke="#83C167" stroke-width="3" stroke-dasharray="10 7" />
+            <text class="mono" x="1454" y="434" font-size="30" font-weight="700" fill="#83C167">&gt; 2/3</text>
+          </g>
+          <g id="co-commit" class="h">
+            <rect x="1454" y="514" width="160" height="66" rx="12" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="3" />
+            <text x="1534" y="559" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">提交</text>
+          </g>
+        </g>
+
+        <!-- L2: 即时最终性 & >1/3 故障停而不分叉 -->
+        <g id="co-l2scene">
+          <!-- 左：区块落锁 -->
+          <g id="co-fin" class="h">
+            <rect x="240" y="340" width="520" height="290" rx="18" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <rect x="310" y="392" width="160" height="112" rx="12" fill="#83C167" fill-opacity="0.16" stroke="#83C167" stroke-width="3" />
+            <text x="390" y="458" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">区块</text>
+            <!-- 绿色锁 -->
+            <path d="M532 440 V420 A22 22 0 0 1 576 420 V440" fill="none" stroke="#83C167" stroke-width="4.5" stroke-linecap="round" />
+            <rect x="522" y="438" width="64" height="50" rx="8" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="3" />
+            <text id="co-norb" class="h" x="500" y="582" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">不会回滚 · 即时最终性</text>
+          </g>
+          <!-- 右：>1/3 故障 -->
+          <g id="co-halt" class="h">
+            <rect x="920" y="340" width="760" height="290" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <circle id="co-n0" cx="1010" cy="420" r="28" fill="#B48EF0" fill-opacity="0.25" stroke="#B48EF0" stroke-width="3" />
+            <circle id="co-n1" cx="1118" cy="420" r="28" fill="#B48EF0" fill-opacity="0.25" stroke="#B48EF0" stroke-width="3" />
+            <circle id="co-n2" cx="1226" cy="420" r="28" fill="#B48EF0" fill-opacity="0.25" stroke="#B48EF0" stroke-width="3" />
+            <circle id="co-n3" cx="1334" cy="420" r="28" fill="#B48EF0" fill-opacity="0.25" stroke="#B48EF0" stroke-width="3" />
+            <circle id="co-n4" cx="1442" cy="420" r="28" fill="#B48EF0" fill-opacity="0.25" stroke="#B48EF0" stroke-width="3" />
+            <circle id="co-n5" cx="1550" cy="420" r="28" fill="#B48EF0" fill-opacity="0.25" stroke="#B48EF0" stroke-width="3" />
+            <text id="co-f3lbl" class="h" x="1300" y="502" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">&gt; 1/3 验证者故障</text>
+            <g id="co-pause" class="h">
+              <circle cx="1136" cy="570" r="28" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="3" />
+              <line x1="1126" y1="556" x2="1126" y2="584" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+              <line x1="1146" y1="556" x2="1146" y2="584" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+              <text x="1186" y="582" font-size="36" font-weight="700" fill="#FC6255">停，不分叉</text>
+            </g>
+          </g>
+        </g>
+
+        <!-- L3: 交易卡片排队进 CometBFT（???） -->
+        <g id="co-txs">
+          <text id="co-txlbl" class="h" x="960" y="456" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">只排顺序 · 看不懂内容</text>
+          <g id="co-tx0" class="h">
+            <rect x="420" y="520" width="210" height="120" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="525" y="566" font-size="28" fill="#8a8f99" text-anchor="middle">Tx #1</text>
+            <text class="mono" x="525" y="616" font-size="34" font-weight="700" fill="#6b6f7a" text-anchor="middle">???</text>
+          </g>
+          <g id="co-tx1" class="h">
+            <rect x="690" y="520" width="210" height="120" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="795" y="566" font-size="28" fill="#8a8f99" text-anchor="middle">Tx #2</text>
+            <text class="mono" x="795" y="616" font-size="34" font-weight="700" fill="#6b6f7a" text-anchor="middle">???</text>
+          </g>
+          <g id="co-tx2" class="h">
+            <rect x="960" y="520" width="210" height="120" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1065" y="566" font-size="28" fill="#8a8f99" text-anchor="middle">Tx #3</text>
+            <text class="mono" x="1065" y="616" font-size="34" font-weight="700" fill="#6b6f7a" text-anchor="middle">???</text>
+          </g>
+          <g id="co-tx3" class="h">
+            <rect x="1230" y="520" width="210" height="120" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1335" y="566" font-size="28" fill="#8a8f99" text-anchor="middle">Tx #4</text>
+            <text class="mono" x="1335" y="616" font-size="34" font-weight="700" fill="#6b6f7a" text-anchor="middle">???</text>
+          </g>
+          <path id="co-txd0" class="dr h" pathLength="1" d="M525 648 L525 768" fill="none" stroke="#B48EF0" stroke-width="3" marker-end="url(#co-mp)" />
+          <path id="co-txd1" class="dr h" pathLength="1" d="M795 648 L795 768" fill="none" stroke="#B48EF0" stroke-width="3" marker-end="url(#co-mp)" />
+          <path id="co-txd2" class="dr h" pathLength="1" d="M1065 648 L1065 768" fill="none" stroke="#B48EF0" stroke-width="3" marker-end="url(#co-mp)" />
+          <path id="co-txd3" class="dr h" pathLength="1" d="M1335 648 L1335 768" fill="none" stroke="#B48EF0" stroke-width="3" marker-end="url(#co-mp)" />
+        </g>
+
+        <!-- L4: 中层 ABCI + 顶层 应用层 -->
+        <g id="co-l2" class="h">
+          <rect x="360" y="586" width="1200" height="126" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="3" />
+          <text x="400" y="662" font-size="36" font-weight="700" fill="#e8e6df">ABCI</text>
+        </g>
+        <!-- ABCI 四步与向上箭头 -->
+        <g id="co-ab0" class="h">
+          <rect x="546" y="614" width="216" height="70" rx="10" fill="#1f2533" stroke="#e8e6df" stroke-width="2" />
+          <text x="654" y="660" font-size="28" fill="#e8e6df" text-anchor="middle">检查交易</text>
+        </g>
+        <path id="co-au0" class="dr h" pathLength="1" d="M654 776 L654 720" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#co-arr)" />
+        <path id="co-au0b" class="dr h" pathLength="1" d="M654 582 L654 526" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#co-mb)" />
+
+        <g id="co-ab1" class="h">
+          <rect x="794" y="614" width="216" height="70" rx="10" fill="#1f2533" stroke="#e8e6df" stroke-width="2" />
+          <text x="902" y="660" font-size="28" fill="#e8e6df" text-anchor="middle">处理区块</text>
+        </g>
+        <path id="co-au1" class="dr h" pathLength="1" d="M902 776 L902 720" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#co-arr)" />
+        <path id="co-au1b" class="dr h" pathLength="1" d="M902 582 L902 526" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#co-mb)" />
+
+        <g id="co-ab2" class="h">
+          <rect x="1042" y="614" width="216" height="70" rx="10" fill="#1f2533" stroke="#e8e6df" stroke-width="2" />
+          <text x="1150" y="660" font-size="28" fill="#e8e6df" text-anchor="middle">执行交易</text>
+        </g>
+        <path id="co-au2" class="dr h" pathLength="1" d="M1150 776 L1150 720" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#co-arr)" />
+        <path id="co-au2b" class="dr h" pathLength="1" d="M1150 582 L1150 526" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#co-mb)" />
+
+        <g id="co-ab3" class="h">
+          <rect x="1290" y="614" width="216" height="70" rx="10" fill="#1f2533" stroke="#e8e6df" stroke-width="2" />
+          <text x="1398" y="660" font-size="28" fill="#e8e6df" text-anchor="middle">提交状态</text>
+        </g>
+        <path id="co-au3" class="dr h" pathLength="1" d="M1398 776 L1398 720" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#co-arr)" />
+        <path id="co-au3b" class="dr h" pathLength="1" d="M1398 582 L1398 526" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#co-mb)" />
+
+        <!-- 顶层：应用层 -->
+        <g id="co-l3" class="h">
+          <rect x="360" y="340" width="1200" height="178" rx="16" fill="#11222c" stroke="#58C4DD" stroke-width="3.5" />
+          <text x="400" y="398" font-size="38" font-weight="700" fill="#58C4DD">应用层</text>
+          <text x="556" y="396" font-size="28" fill="#e8e6df">看懂并执行交易</text>
+          <rect x="400" y="426" width="330" height="66" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <text x="565" y="469" font-size="28" font-weight="600" fill="#F0B90B" text-anchor="middle">Tx #1 · 转账</text>
+          <rect x="770" y="426" width="330" height="66" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <text x="935" y="469" font-size="28" font-weight="600" fill="#F0B90B" text-anchor="middle">Tx #2 · 质押</text>
+          <rect x="1140" y="426" width="330" height="66" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <text x="1305" y="469" font-size="28" font-weight="600" fill="#F0B90B" text-anchor="middle">Tx #3 · 投票</text>
+        </g>
+
+        <!-- L5: 开发者指向顶层；底两层现成 -->
+        <g id="co-dev" class="h">
+          <circle cx="1740" cy="376" r="24" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="3" />
+          <path d="M1704 434 A36 30 0 0 1 1776 434" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="3" />
+          <text x="1740" y="476" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">开发者</text>
+          <text x="1740" y="518" font-size="28" fill="#F0B90B" text-anchor="middle">只写业务</text>
+        </g>
+        <path id="co-devarr" class="dr h" pathLength="1" d="M1682 426 L1572 426" fill="none" stroke="#58C4DD" stroke-width="4" marker-end="url(#co-mb)" />
+
+        <g id="co-ready" class="h">
+          <path d="M1584 592 H1612 V950 H1584" fill="none" stroke="#83C167" stroke-width="3.5" stroke-linecap="round" />
+          <text x="1640" y="782" font-size="36" font-weight="700" fill="#83C167">现成</text>
+        </g>
+      </g>
+
+      <!-- 术语卡 1：CometBFT -->
+      <g id="co-term1" class="h">
+        <rect x="70" y="56" width="520" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">CometBFT</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">BFT 共识与网络引擎</text>
+      </g>
+      <!-- 术语卡 2：ABCI -->
+      <g id="co-term2" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">ABCI</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">共识与应用之间的标准接口</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 底层 CometBFT + chips + 术语卡 1
+      IN("#co-l1", at(0, 0.04), 0.7, { y: 30 }, { y: 0 });
+      IN("#co-term1", at(0, 0.24), 0.5);
+      IN("#co-ghost", at(0, 0.10), 0.6);
+      ["#co-ch0", "#co-ch1", "#co-ch2", "#co-ch3"].forEach((s, i) => {
+        IN(s, at(0, 0.48 + i * 0.11), 0.45, { y: 12 }, { y: 0 });
+      });
+
+      // L1: 提议 -> 预投票 -> 预提交 + 投票权条涨过 2/3
+      OUT("#co-ghost", at(1, 0) - 0.4, 0.35);
+      IN("#co-vs1", at(1, 0.04), 0.45, { y: 14 }, { y: 0 });
+      ARROW("#co-va1", at(1, 0.18), 0.4);
+      OUT("#co-term1", at(1, 0.22), 0.4);
+      IN("#co-vs2", at(1, 0.26), 0.45, { y: 14 }, { y: 0 });
+      ARROW("#co-va2", at(1, 0.40), 0.4);
+      IN("#co-vs3", at(1, 0.46), 0.45, { y: 14 }, { y: 0 });
+      IN("#co-vbarw", at(1, 0.56), 0.45);
+      tl.to("#co-vfill", { attr: { y: 382, height: 242 }, duration: 1.2, ease: "power2.out" }, at(1, 0.62));
+      tl.to("#co-vfill", { fill: "#83C167", duration: 0.35 }, at(1, 0.78));
+      IN("#co-commit", at(1, 0.80), 0.45, { scale: 0.9, svgOrigin: "1534 547" }, { scale: 1, svgOrigin: "1534 547" });
+
+      // L2: 即时最终性不会回滚 & >1/3 故障停而不分叉
+      OUT("#co-vote", at(2, 0.0), 0.35);
+      IN("#co-fin", at(2, 0.06), 0.55, { y: 16 }, { y: 0 });
+      IN("#co-norb", at(2, 0.26), 0.45);
+      IN("#co-halt", at(2, 0.48), 0.5, { y: 16 }, { y: 0 });
+      tl.to("#co-n3, #co-n4, #co-n5", { fill: "#FC6255", stroke: "#FC6255", duration: 0.4, stagger: 0.12 }, at(2, 0.62));
+      IN("#co-f3lbl", at(2, 0.70), 0.4);
+      IN("#co-pause", at(2, 0.82), 0.45, { scale: 0.9, svgOrigin: "1260 570" }, { scale: 1, svgOrigin: "1260 570" });
+
+      // L3: 一列 ??? 交易卡进入 CometBFT
+      OUT("#co-l2scene", at(3, 0.0), 0.35);
+      IN("#co-txlbl", at(3, 0.06), 0.5);
+      ["#co-tx0", "#co-tx1", "#co-tx2", "#co-tx3"].forEach((s, i) => {
+        IN(s, at(3, 0.16 + i * 0.10), 0.45, { x: -30 }, { x: 0 });
+      });
+      ["#co-txd0", "#co-txd1", "#co-txd2", "#co-txd3"].forEach((s, i) => {
+        ARROW(s, at(3, 0.60 + i * 0.07), 0.45);
+      });
+
+      // L4: 顶层应用层 + 中层 ABCI + 四步依次亮 + 术语卡 2
+      OUT("#co-txs", at(4, 0.0), 0.35);
+      IN("#co-l3", at(4, 0.06), 0.65, { y: -24 }, { y: 0 });
+      IN("#co-l2", at(4, 0.26), 0.55);
+      IN("#co-term2", at(4, 0.30), 0.5);
+      ["0", "1", "2", "3"].forEach((k, i) => {
+        const t = at(4, 0.46 + i * 0.12);
+        IN(`#co-ab${k}`, t, 0.4, { y: 10 }, { y: 0 });
+        ARROW(`#co-au${k}`, t + 0.05, 0.35);
+        ARROW(`#co-au${k}b`, t + 0.18, 0.35);
+      });
+
+      // L5: 开发者指向顶层 + 底两层现成
+      IN("#co-dev", at(5, 0.06), 0.5, { x: 20 }, { x: 0 });
+      ARROW("#co-devarr", at(5, 0.24), 0.5);
+      IN("#co-ready", at(5, 0.52), 0.5, { x: 14 }, { x: 0 });
+
+      tl.to("#co-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#co-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["comet"] = tl;
+    })();
+  </script>
+</template>

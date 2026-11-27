@@ -1,0 +1,133 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 fees，id 前缀 fe- -->
+  <div id="root" data-composition-id="fees" data-duration="64.71" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fe-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="fe-all">
+        <defs>
+          <marker id="fe-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        </defs>
+        <g id="fe-net" class="h">
+          <rect x="392" y="252" width="336" height="16" rx="8" fill="#1c2029" stroke="#8a8f99" stroke-width="2"/>
+          <rect x="792" y="252" width="336" height="16" rx="8" fill="#1c2029" stroke="#8a8f99" stroke-width="2"/>
+          <rect x="1192" y="252" width="336" height="16" rx="8" fill="#1c2029" stroke="#8a8f99" stroke-width="2"/>
+          <circle cx="360" cy="260" r="32" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <circle cx="760" cy="260" r="32" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <circle cx="1160" cy="260" r="32" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <circle cx="1560" cy="260" r="32" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text x="360" y="330" font-size="28" fill="#e8e6df" text-anchor="middle">Alice</text>
+          <text x="760" y="330" font-size="28" fill="#e8e6df" text-anchor="middle">Bob</text>
+          <text x="1160" y="330" font-size="28" fill="#e8e6df" text-anchor="middle">Carol</text>
+          <text x="1560" y="330" font-size="28" fill="#e8e6df" text-anchor="middle">Dave</text>
+        </g>
+        <text id="fe-rb" class="h mono" x="760" y="382" font-size="28" fill="#e8e6df" text-anchor="middle">1 sat + 500 ppm</text>
+        <text id="fe-rc" class="h mono" x="1160" y="382" font-size="28" fill="#e8e6df" text-anchor="middle">1 sat + 1,000 ppm</text>
+        <text id="fe-rd" class="h" x="1560" y="382" font-size="28" fill="#F0B90B" text-anchor="middle">收 <tspan class="mono">80,000</tspan></text>
+        <text id="fe-a3" class="h mono" x="1360" y="232" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">80,000</text>
+        <text id="fe-a2" class="h mono" x="960" y="232" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">80,081</text>
+        <text id="fe-a1" class="h mono" x="560" y="232" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">80,123</text>
+        <path id="fe-back" class="dr h" pathLength="1" d="M1540 150 L380 150" fill="none" stroke="#FF9F43" stroke-width="4" marker-end="url(#fe-arrO)"/>
+        <text id="fe-backl" class="h" x="960" y="128" font-size="32" fill="#FF9F43" text-anchor="middle">从终点往回算</text>
+        <text id="fe-f0" class="h" x="960" y="500" font-size="50" font-weight="700" fill="#e8e6df" text-anchor="middle">收费 = 基础费 + 转出金额 × 费率</text>
+        <text id="fe-ppm" class="h" x="960" y="566" font-size="30" fill="#8a8f99" text-anchor="middle">费率单位 <tspan class="mono">ppm</tspan> = 百万分之一</text>
+        <text id="fe-e1" class="h mono" x="960" y="660" font-size="40" fill="#e8e6df" text-anchor="middle">1 + 80,000 × 1,000 ÷ 1,000,000 = 1 + 80 = <tspan fill="#F0B90B" font-weight="700">81</tspan></text>
+        <text id="fe-e2" class="h mono" x="960" y="780" font-size="40" fill="#e8e6df" text-anchor="middle">1 + 80,081 × 500 ÷ 1,000,000 ≈ 1 + 40.04 → <tspan fill="#FF9F43" font-weight="700">⌈41.04⌉</tspan> = <tspan fill="#F0B90B" font-weight="700">42</tspan></text>
+        <g id="fe-res" class="h">
+          <rect x="500" y="850" width="920" height="110" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3"/>
+          <text x="960" y="922" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">总手续费 <tspan class="mono">123 sat</tspan> ≈ 0.15%</text>
+        </g>
+        <g id="fe-blk" class="h">
+          <rect x="500" y="440" width="920" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text x="540" y="496" font-size="30" fill="#8a8f99">链上交易 · 同期示例费率</text>
+          <text class="mono" x="960" y="586" font-size="40" fill="#58C4DD" text-anchor="middle">141 vB × 10 sat/vB = <tspan font-weight="700">1,410 sat</tspan></text>
+        </g>
+        <path id="fe-ul1" class="dr" pathLength="1" d="M1356 804 H1524" fill="none" stroke="#FF9F43" stroke-width="4"/>
+        <path id="fe-ul2" class="dr" pathLength="1" d="M1120 612 H1340" fill="none" stroke="#58C4DD" stroke-width="4"/>
+        <g id="fe-cmp" class="h">
+          <text x="400" y="560" font-size="36" fill="#e8e6df" text-anchor="end">闪电</text>
+          <text x="400" y="700" font-size="36" fill="#e8e6df" text-anchor="end">链上</text>
+        </g>
+        <rect id="fe-b1" class="h" x="430" y="520" width="0" height="56" rx="6" fill="#F0B90B"/>
+        <rect id="fe-b2" class="h" x="430" y="660" width="0" height="56" rx="6" fill="#58C4DD"/>
+        <text id="fe-v1" class="h mono" x="550" y="560" font-size="36" fill="#F0B90B">123 sat</text>
+        <text id="fe-v2" class="h mono" x="1550" y="700" font-size="36" fill="#58C4DD">1,410 sat</text>
+        <text id="fe-ord" class="h" x="960" y="840" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">便宜一个数量级以上</text>
+        <text id="fe-cost" class="h" x="960" y="920" font-size="32" fill="#FF9F43" text-anchor="middle">但开、关通道各需一笔链上交易</text>
+        <text id="fe-ex" class="h" x="1850" y="1020" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+// L0 formula
+IN("#fe-net", at(0, 0), 0.6);
+IN("#fe-f0", at(0, 0.08), 0.7, { y: 15 }, { y: 0 });
+IN("#fe-ppm", at(0, 0.6), 0.5);
+// L1 rates
+IN("#fe-rc", at(1, 0.1), 0.5, { y: -10 }, { y: 0 });
+IN("#fe-rb", at(1, 0.45), 0.5, { y: -10 }, { y: 0 });
+IN("#fe-rd", at(1, 0.78), 0.5, { y: -10 }, { y: 0 });
+IN("#fe-ex", at(1, 0.8), 0.5);
+// L2 back-calc
+ARROW("#fe-back", at(2, 0.02), 0.9);
+IN("#fe-backl", at(2, 0.08), 0.5);
+IN("#fe-a3", at(2, 0.2), 0.4);
+OUT("#fe-ppm", at(2, 0.2), 0.3);
+IN("#fe-e1", at(2, 0.3), 0.6, { x: 20 }, { x: 0 });
+IN("#fe-a2", at(2, 0.82), 0.5, { y: 10 }, { y: 0 });
+// L3
+IN("#fe-e2", at(3, 0.08), 0.6, { x: 20 }, { x: 0 });
+DRAW("#fe-ul1", at(3, 0.45), 0.6);
+// L4
+OUT("#fe-ul1", at(4, 0), 0.3);
+IN("#fe-a1", at(4, 0.1), 0.5, { y: 10 }, { y: 0 });
+OUT("#fe-f0", at(4, 0.3), 0.3);
+IN("#fe-res", at(4, 0.4), 0.6, { scale: 0.9, svgOrigin: "960 905" }, { scale: 1, svgOrigin: "960 905" });
+// L5 on-chain
+OUT("#fe-e1, #fe-e2, #fe-back, #fe-backl", at(5, 0), 0.4);
+IN("#fe-blk", at(5, 0.1), 0.6, { x: 30 }, { x: 0 });
+DRAW("#fe-ul2", at(5, 0.75), 0.6);
+// L6 bars
+OUT("#fe-ul2", at(6, 0), 0.3);
+OUT("#fe-blk, #fe-res", at(6, 0), 0.4);
+IN("#fe-cmp", at(6, 0.05), 0.4);
+IN("#fe-b1, #fe-b2", at(6, 0.06), 0.1);
+tl.to("#fe-b1", { attr: { width: 96 }, duration: 0.6, ease: "power2.out" }, at(6, 0.08));
+tl.to("#fe-b2", { attr: { width: 1100 }, duration: 1.2, ease: "power2.out" }, at(6, 0.08));
+IN("#fe-v1", at(6, 0.15), 0.4);
+IN("#fe-v2", at(6, 0.25), 0.4);
+IN("#fe-ord", at(6, 0.35), 0.6);
+IN("#fe-cost", at(6, 0.65), 0.6);
+
+      tl.to("#fe-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["fees"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,300 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tonecosys，id 前缀 ts- -->
+  <div id="root" data-composition-id="tonecosys" data-duration="55.95" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ts-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ts-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ts-arr-p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" />
+        </marker>
+      </defs>
+      <g id="ts-all">
+        <!-- L0: 开发语言演进（Tolk 推荐 / FunC 遗留 / Tact 已弃用） -->
+        <g id="ts-lang">
+          <text id="ts-lt" class="h" x="960" y="148" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">TON 智能合约语言</text>
+
+          <g id="ts-l-tolk" class="h">
+            <rect x="420" y="220" width="1080" height="176" rx="18" fill="#161a22" stroke="#83C167" stroke-width="3.5" />
+            <text x="500" y="324" font-size="52" font-weight="700" fill="#83C167">Tolk</text>
+            <rect x="740" y="276" width="210" height="64" rx="12" fill="#0f1117" stroke="#83C167" stroke-width="2.5" />
+            <text x="845" y="320" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">官方推荐</text>
+            <text x="1000" y="320" font-size="30" fill="#e8e6df">当前主力开发语言</text>
+          </g>
+
+          <g id="ts-l-func" class="h">
+            <rect x="420" y="454" width="1080" height="148" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="500" y="544" font-size="44" font-weight="700" fill="#8a8f99">FunC</text>
+            <rect x="740" y="496" width="170" height="60" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+            <text x="825" y="537" font-size="28" fill="#8a8f99" text-anchor="middle">遗留</text>
+            <text x="960" y="538" font-size="30" fill="#8a8f99">官方列为遗留语言</text>
+          </g>
+
+          <g id="ts-l-tact" class="h">
+            <rect x="420" y="656" width="1080" height="148" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="500" y="746" font-size="44" font-weight="700" fill="#8a8f99">Tact</text>
+            <rect x="740" y="698" width="170" height="60" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+            <text x="825" y="739" font-size="28" fill="#8a8f99" text-anchor="middle">已弃用</text>
+            <text x="960" y="740" font-size="30" fill="#8a8f99">官方站标注已弃用</text>
+          </g>
+        </g>
+
+        <!-- L1: 费用构成与存储费冻结 -->
+        <g id="ts-fee">
+          <text id="ts-ft" class="h" x="960" y="130" font-size="42" font-weight="700" fill="#e8e6df" text-anchor="middle">TON 费用四项与存储费</text>
+
+          <g id="ts-f0" class="h">
+            <rect x="160" y="196" width="320" height="108" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="320" y="262" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">gas 费</text>
+          </g>
+          <g id="ts-f1" class="h">
+            <rect x="500" y="196" width="320" height="108" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="660" y="262" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">转发费</text>
+          </g>
+          <g id="ts-f2" class="h">
+            <rect x="840" y="196" width="320" height="108" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="1000" y="262" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">动作费</text>
+          </g>
+          <g id="ts-f3" class="h">
+            <rect x="1180" y="196" width="580" height="108" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3.5" />
+            <text x="1470" y="262" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">存储费（随时间累计）</text>
+          </g>
+
+          <g id="ts-fnote" class="h">
+            <text x="160" y="380" font-size="30" fill="#e8e6df">按占用数据量 × 时间，从合约余额扣除</text>
+            <rect x="1320" y="336" width="440" height="66" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+            <text x="1540" y="380" font-size="28" fill="#FF9F43" text-anchor="middle">单价以官方配置为准</text>
+          </g>
+
+          <g id="ts-fcon" class="h">
+            <rect id="ts-fcon-r" x="160" y="476" width="440" height="320" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text id="ts-fcon-t" x="380" y="556" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">智能合约</text>
+            <text id="ts-fcon-s" x="380" y="636" font-size="30" fill="#e8e6df" text-anchor="middle">放着不管也要持续扣费</text>
+            <text id="ts-fcon-st" x="380" y="726" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">状态：活跃</text>
+          </g>
+
+          <g id="ts-fbal" class="h">
+            <rect x="660" y="476" width="1100" height="320" rx="18" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
+            <text x="720" y="550" font-size="32" font-weight="700" fill="#F0B90B">合约 TON 余额</text>
+            <text id="ts-fbal-v" class="mono" x="1700" y="550" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="end">100%</text>
+            <rect x="720" y="592" width="980" height="46" rx="10" fill="#0f1117" stroke="#3a3f4a" stroke-width="2" />
+            <rect id="ts-fbal-bar" x="724" y="596" width="972" height="38" rx="8" fill="#F0B90B" />
+            <text id="ts-fwarn" class="h" x="1210" y="732" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">余额耗尽 → 合约被冻结甚至删除 ✕</text>
+          </g>
+        </g>
+
+        <!-- L2 + L3: Telegram Mini Apps + TON Connect + Stars -->
+        <g id="ts-tg">
+          <g id="ts-phone" class="h">
+            <rect x="140" y="104" width="560" height="848" rx="44" fill="#161a22" stroke="#B48EF0" stroke-width="3.5" />
+            <text x="420" y="182" font-size="38" font-weight="700" fill="#B48EF0" text-anchor="middle">Telegram</text>
+            <line x1="180" y1="212" x2="660" y2="212" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+
+          <g id="ts-mini" class="h">
+            <rect x="190" y="248" width="460" height="350" rx="18" fill="#0f1117" stroke="#58C4DD" stroke-width="3" />
+            <text x="420" y="314" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">Mini App</text>
+            <text x="420" y="366" font-size="28" fill="#8a8f99" text-anchor="middle">Telegram 内的网页应用</text>
+          </g>
+
+          <!-- L3: 数字商品 → Stars -->
+          <g id="ts-shop" class="h">
+            <rect x="230" y="416" width="380" height="142" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+            <text x="420" y="476" font-size="30" font-weight="700" fill="#B48EF0" text-anchor="middle">数字商品商店</text>
+            <text x="420" y="526" font-size="28" fill="#e8e6df" text-anchor="middle">应用内数字道具 / 订阅</text>
+          </g>
+          <path id="ts-star-arr" class="dr h" pathLength="1" d="M420 604 L420 712" fill="none" stroke="#B48EF0" stroke-width="3.5" marker-end="url(#ts-arr-p)" />
+          <g id="ts-stars" class="h">
+            <rect x="190" y="726" width="460" height="172" rx="16" fill="#0f1117" stroke="#B48EF0" stroke-width="3" />
+            <text x="420" y="798" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">★ Telegram Stars</text>
+            <text x="420" y="854" font-size="28" fill="#e8e6df" text-anchor="middle">卖数字商品须用 Stars</text>
+          </g>
+
+          <!-- TON Connect 桥梁 -->
+          <path id="ts-conn" class="dr h" pathLength="1" d="M712 422 L1254 422" fill="none" stroke="#58C4DD" stroke-width="4" marker-end="url(#ts-arr-b)" />
+          <text id="ts-conn-t" class="h" x="983" y="388" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">TON Connect</text>
+          <g id="ts-enc" class="h">
+            <rect x="780" y="460" width="406" height="72" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="983" y="507" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">端到端加密会话</text>
+          </g>
+
+          <!-- 右侧钱包 -->
+          <g id="ts-wal" class="h">
+            <rect x="1270" y="236" width="500" height="390" rx="20" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="1520" y="314" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">用户钱包</text>
+            <text x="1520" y="368" font-size="28" fill="#8a8f99" text-anchor="middle">负责签名确认交易</text>
+          </g>
+          <g id="ts-priv" class="h">
+            <rect x="1316" y="416" width="408" height="162" rx="14" fill="#0f1117" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="1520" y="482" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">私钥留在钱包侧</text>
+            <text x="1520" y="538" font-size="28" fill="#83C167" text-anchor="middle">应用拿不到私钥 ✓</text>
+          </g>
+
+          <!-- L3 政策边界提醒 -->
+          <g id="ts-pol" class="h">
+            <rect x="820" y="726" width="950" height="172" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="870" y="794" font-size="32" font-weight="700" fill="#FF9F43">官方政策提醒</text>
+            <text x="870" y="854" font-size="30" fill="#e8e6df">TON Connect 只用于平台政策允许的交互</text>
+          </g>
+        </g>
+
+        <!-- L4: 四链对照表 -->
+        <g id="ts-tbl">
+          <g id="ts-tbl-base" class="h">
+            <!-- 表头背景 -->
+            <rect x="70" y="96" width="1780" height="82" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="175" y="150" font-size="34" font-weight="700" fill="#c9ccd3" text-anchor="middle">维度</text>
+            <text x="475" y="150" font-size="38" font-weight="700" fill="#b4b8c0" text-anchor="middle">EVM</text>
+            <text x="855" y="150" font-size="38" font-weight="700" fill="#F0B90B" text-anchor="middle">Tron</text>
+            <text x="1245" y="150" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">TON</text>
+            <text x="1645" y="150" font-size="38" font-weight="700" fill="#b4b8c0" text-anchor="middle">Solana</text>
+
+            <!-- 行 1: 执行方式 -->
+            <rect x="70" y="190" width="1780" height="130" rx="10" fill="#161a22" stroke="#262c38" stroke-width="2" />
+            <text x="175" y="266" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">执行方式</text>
+            <text x="475" y="240" font-size="32" fill="#c9ccd3" text-anchor="middle">同步调用</text>
+            <text x="475" y="292" font-size="32" fill="#c9ccd3" text-anchor="middle">整笔原子</text>
+            <text x="855" y="240" font-size="32" fill="#e8e6df" text-anchor="middle">同步 · 整笔原子</text>
+            <text x="855" y="292" font-size="32" fill="#b4b8c0" text-anchor="middle">另有 80 ms 时限</text>
+            <text x="1245" y="240" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">异步消息 · 交易树</text>
+            <text x="1245" y="292" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">跨合约不原子</text>
+            <text x="1645" y="240" font-size="32" fill="#c9ccd3" text-anchor="middle">并行执行</text>
+            <text x="1645" y="292" font-size="32" fill="#b4b8c0" text-anchor="middle">读写集提前声明</text>
+
+            <!-- 行 2: 费用 -->
+            <rect x="70" y="332" width="1780" height="130" rx="10" fill="#161a22" stroke="#262c38" stroke-width="2" />
+            <text x="175" y="408" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">费用</text>
+            <text x="475" y="382" font-size="32" fill="#c9ccd3" text-anchor="middle">gas × 价格</text>
+            <text x="475" y="434" font-size="32" fill="#b4b8c0" text-anchor="middle">EIP-1559</text>
+            <text x="855" y="382" font-size="32" fill="#F0B90B" text-anchor="middle">带宽 + 能量</text>
+            <text x="855" y="434" font-size="32" fill="#e8e6df" text-anchor="middle">质押额度 · 不够烧 TRX</text>
+            <text x="1245" y="382" font-size="32" fill="#e8e6df" text-anchor="middle">gas + 转发费</text>
+            <text x="1245" y="434" font-size="32" fill="#FF9F43" text-anchor="middle">+ 动作费 + 存储费</text>
+            <text x="1645" y="382" font-size="32" fill="#c9ccd3" text-anchor="middle">基础费 + 优先费</text>
+            <text x="1645" y="434" font-size="32" fill="#b4b8c0" text-anchor="middle">（前面讲过）</text>
+
+            <!-- 行 3: 代币标准 -->
+            <rect x="70" y="474" width="1780" height="130" rx="10" fill="#161a22" stroke="#262c38" stroke-width="2" />
+            <text x="175" y="550" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">代币标准</text>
+            <text x="475" y="524" font-size="32" fill="#c9ccd3" text-anchor="middle">ERC-20</text>
+            <text x="475" y="576" font-size="32" fill="#b4b8c0" text-anchor="middle">余额在合约里</text>
+            <text x="855" y="524" font-size="32" fill="#e8e6df" text-anchor="middle">TRC-20</text>
+            <text x="855" y="576" font-size="32" fill="#b4b8c0" text-anchor="middle">接口同 ERC-20</text>
+            <text x="1245" y="524" font-size="32" fill="#58C4DD" text-anchor="middle">Jetton</text>
+            <text x="1245" y="576" font-size="32" fill="#e8e6df" text-anchor="middle">每人一个钱包合约</text>
+            <text x="1645" y="524" font-size="32" fill="#c9ccd3" text-anchor="middle">SPL Token</text>
+            <text x="1645" y="576" font-size="32" fill="#b4b8c0" text-anchor="middle">每人一个代币账户</text>
+
+            <!-- 行 4: 典型用途 -->
+            <rect x="70" y="616" width="1780" height="130" rx="10" fill="#161a22" stroke="#262c38" stroke-width="2" />
+            <text x="175" y="692" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">典型用途</text>
+            <text x="475" y="666" font-size="32" fill="#c9ccd3" text-anchor="middle">DeFi、NFT</text>
+            <text x="475" y="718" font-size="32" fill="#b4b8c0" text-anchor="middle">L2 生态</text>
+            <text x="855" y="666" font-size="32" fill="#F0B90B" text-anchor="middle">USDT 支付</text>
+            <text x="855" y="718" font-size="32" fill="#e8e6df" text-anchor="middle">交易所充提</text>
+            <text x="1245" y="666" font-size="32" fill="#B48EF0" text-anchor="middle">Telegram 小程序</text>
+            <text x="1245" y="718" font-size="32" fill="#e8e6df" text-anchor="middle">游戏、支付</text>
+            <text x="1645" y="666" font-size="32" fill="#c9ccd3" text-anchor="middle">高频交易</text>
+            <text x="1645" y="718" font-size="32" fill="#b4b8c0" text-anchor="middle">消费应用</text>
+
+            <!-- 列分割线 -->
+            <line x1="285" y1="96" x2="285" y2="746" stroke="#2d3340" stroke-width="2" />
+            <line x1="665" y1="96" x2="665" y2="746" stroke="#2d3340" stroke-width="2" />
+            <line x1="1045" y1="96" x2="1045" y2="746" stroke="#2d3340" stroke-width="2" />
+            <line x1="1445" y1="96" x2="1445" y2="746" stroke="#2d3340" stroke-width="2" />
+          </g>
+
+          <!-- 列高亮框 -->
+          <rect id="ts-hl-et" class="h" x="288" y="94" width="754" height="654" rx="12" fill="none" stroke="#F0B90B" stroke-width="4" />
+          <rect id="ts-hl-ton" class="h" x="1048" y="94" width="394" height="654" rx="12" fill="none" stroke="#58C4DD" stroke-width="4" />
+          <rect id="ts-hl-sol" class="h" x="1448" y="94" width="400" height="654" rx="12" fill="none" stroke="#8a8f99" stroke-width="4" />
+
+          <!-- 底部总结大字 -->
+          <g id="ts-take" class="h">
+            <rect x="200" y="800" width="1520" height="120" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="960" y="874" font-size="42" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan fill="#F0B90B">Tron：换费用和地址</tspan>　·　<tspan fill="#58C4DD">TON：换执行模型</tspan></text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 2.0, fmt = v => Math.round(v) + "%") => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.inOut", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 开发语言
+      IN("#ts-lt", at(0, 0.03), 0.5, { y: -14 }, { y: 0 });
+      IN("#ts-l-tolk", at(0, 0.16), 0.6, { x: -24 }, { x: 0 });
+      IN("#ts-l-func", at(0, 0.46), 0.55, { x: -24 }, { x: 0 });
+      IN("#ts-l-tact", at(0, 0.72), 0.55, { x: -24 }, { x: 0 });
+
+      // L1: 费用与存储费
+      OUT("#ts-lang", at(1, 0), 0.35);
+      IN("#ts-ft", at(1, 0.04), 0.5);
+      IN("#ts-f0", at(1, 0.10), 0.4, { y: 12 }, { y: 0 });
+      IN("#ts-f1", at(1, 0.16), 0.4, { y: 12 }, { y: 0 });
+      IN("#ts-f2", at(1, 0.22), 0.4, { y: 12 }, { y: 0 });
+      IN("#ts-f3", at(1, 0.30), 0.5, { y: 12 }, { y: 0 });
+      IN("#ts-fnote", at(1, 0.44), 0.5);
+      IN("#ts-fcon, #ts-fbal", at(1, 0.58), 0.55, { y: 16 }, { y: 0 });
+      tl.to("#ts-fbal-bar", { attr: { width: 0 }, fill: "#FC6255", duration: 2.2, ease: "power1.inOut" }, at(1, 0.70));
+      COUNT("#ts-fbal-v", 100, 0, at(1, 0.70), 2.2);
+      tl.to("#ts-fcon-r", { stroke: "#FC6255", duration: 0.35 }, at(1, 0.86));
+      tl.to("#ts-fcon-t", { fill: "#8a8f99", duration: 0.35 }, at(1, 0.86));
+      tl.to("#ts-fcon-st", { fill: "#FC6255", duration: 0.3, onStart: () => { const e = document.querySelector("#ts-fcon-st"); if (e) e.textContent = "已冻结 / 删除"; } }, at(1, 0.86));
+      IN("#ts-fwarn", at(1, 0.88), 0.5);
+
+      // L2: Telegram Mini Apps + TON Connect
+      OUT("#ts-fee", at(2, 0), 0.35);
+      IN("#ts-phone", at(2, 0.05), 0.6, { x: -24 }, { x: 0 });
+      IN("#ts-mini", at(2, 0.24), 0.55, { y: 14 }, { y: 0 });
+      ARROW("#ts-conn", at(2, 0.46), 0.65);
+      IN("#ts-conn-t", at(2, 0.50), 0.45);
+      IN("#ts-wal", at(2, 0.56), 0.55, { x: 24 }, { x: 0 });
+      IN("#ts-enc", at(2, 0.72), 0.5);
+      IN("#ts-priv", at(2, 0.82), 0.5, { y: 12 }, { y: 0 });
+
+      // L3: Stars + 政策边界
+      IN("#ts-shop", at(3, 0.08), 0.5, { y: 12 }, { y: 0 });
+      ARROW("#ts-star-arr", at(3, 0.26), 0.55);
+      IN("#ts-stars", at(3, 0.34), 0.55, { y: 14 }, { y: 0 });
+      IN("#ts-pol", at(3, 0.62), 0.55, { y: 16 }, { y: 0 });
+
+      // L4: 四链对照表
+      OUT("#ts-tg", at(4, 0), 0.35);
+      IN("#ts-tbl-base", at(4, 0.05), 0.6);
+      IN("#ts-hl-et", at(4, 0.16), 0.45);
+      OUT("#ts-hl-et", at(4, 0.42), 0.3);
+      IN("#ts-hl-ton", at(4, 0.44), 0.45);
+      OUT("#ts-hl-ton", at(4, 0.62), 0.3);
+      IN("#ts-hl-sol", at(4, 0.64), 0.45);
+      OUT("#ts-hl-sol", at(4, 0.78), 0.3);
+      IN("#ts-take", at(4, 0.80), 0.6, { y: 18 }, { y: 0 });
+
+      tl.to("#ts-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tonecosys"] = tl;
+    })();
+  </script>
+</template>

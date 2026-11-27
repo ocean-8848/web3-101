@@ -1,0 +1,238 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    #root .cl { font-size: 28px; fill: #e8e6df; white-space: pre; }
+  </style>
+  <!-- 场景 lifetime，id 前缀 li- -->
+  <div id="root" data-composition-id="lifetime" data-duration="74.92" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="li-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="li-all">
+        <g id="li-panel" class="h">
+          <rect x="80" y="220" width="1020" height="540" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <rect id="li-hl" class="h" x="84" y="250" width="1012" height="41" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="li-hb" class="h" x="84" y="250" width="6" height="41" fill="#58C4DD" />
+          <g id="li-code1" class="mono">
+            <text class="cl" x="110" y="280" style="fill:#FF9F43">#[derive(Accounts)]</text>
+            <text class="cl" x="110" y="321">pub struct Increment&lt;'info&gt; {</text>
+            <text class="cl" x="110" y="362">  #[account(mut, seeds=[..], bump, has_one=authority)]</text>
+            <text class="cl" x="110" y="403">  pub counter: Account&lt;'info, Counter&gt;,</text>
+            <text class="cl" x="110" y="444">  pub authority: Signer&lt;'info&gt;,</text>
+            <text class="cl" x="110" y="485">}</text>
+            <text class="cl" x="110" y="526">pub fn increment(ctx: Context&lt;Increment&gt;) -&gt; Result&lt;()&gt; {</text>
+            <text class="cl" x="110" y="567">  let c = &amp;mut ctx.accounts.counter;</text>
+            <text class="cl" x="110" y="608">  c.count = c.count.checked_add(1)</text>
+            <text class="cl" x="110" y="649">    .ok_or(CounterError::Overflow)?;</text>
+            <text class="cl" x="110" y="690">  Ok(())</text>
+            <text class="cl" x="110" y="731">}</text>
+          </g>
+          <rect id="li-mut" class="h" x="312" y="370" width="52" height="4" fill="#F0B90B" />
+          <g id="li-code2" class="mono h">
+            <text class="cl" x="110" y="280">let vault = &amp;mut ctx.accounts.vault;</text>
+            <text class="cl" x="110" y="321">ctx.accounts.transfer_to_user()?;</text>
+            <text class="cl" x="110" y="362">vault.balance = …;</text>
+          </g>
+          <path id="li-wavy" class="dr h" pathLength="1" d="M110 334 q8 -8 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0" fill="none" stroke="#FC6255" stroke-width="3" />
+          <text id="li-e0502" class="h mono" x="700" y="321" font-size="30" fill="#FC6255">E0502</text>
+          <g id="li-code3" class="mono h">
+            <text class="cl" x="110" y="470" style="fill:#83C167">let amount = ctx.accounts.vault.balance;</text>
+            <text class="cl" x="110" y="511">ctx.accounts.transfer_to_user(amount)?;</text>
+            <text class="cl" x="110" y="552">let vault = &amp;mut ctx.accounts.vault;</text>
+            <text class="cl" x="110" y="593">vault.balance = …;</text>
+            <text x="1040" y="470" font-size="32" fill="#83C167" text-anchor="end">✓</text>
+          </g>
+        </g>
+
+        <!-- L0 有效期带 -->
+        <g id="li-l0">
+          <line id="li-ax" class="dr h" pathLength="1" x1="1160" y1="560" x2="1820" y2="560" stroke="#8a8f99" stroke-width="2" />
+          <rect id="li-band" class="h" x="1240" y="400" width="420" height="120" rx="10" fill="#58C4DD" fill-opacity="0.22" />
+          <text id="li-bandt" class="h" x="1450" y="380" font-size="28" fill="#58C4DD" text-anchor="middle">有效期</text>
+          <circle id="li-ref" class="h" cx="1270" cy="460" r="20" fill="#58C4DD" />
+          <text id="li-out" class="h" x="1760" y="620" font-size="28" fill="#FC6255" text-anchor="middle">带外失效</text>
+        </g>
+
+        <!-- L1–L4 账户数据块 -->
+        <g id="li-acc">
+          <text id="li-tx" class="h" x="1160" y="270" font-size="28" fill="#8a8f99">本次交易 · 账户数据</text>
+          <g id="li-ac0" class="h"><rect id="li-ac0r" x="1160" y="300" width="300" height="110" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1190" y="345" font-size="28" fill="#58C4DD">counter</text></g>
+          <g id="li-ac1" class="h"><rect x="1500" y="300" width="300" height="110" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1530" y="345" font-size="28" fill="#58C4DD">authority</text></g>
+          <g id="li-cnt" class="h"><text class="mono" x="1190" y="390" font-size="28" fill="#e8e6df">count: </text><text id="li-cv" class="mono" x="1324" y="390" font-size="28" fill="#F0B90B">7</text><text id="li-cv2" class="mono h" x="1324" y="390" font-size="28" fill="#F0B90B">8</text></g>
+          <g id="li-info" class="h">
+            <rect x="1160" y="440" width="640" height="60" rx="10" fill="#58C4DD" fill-opacity="0.22" />
+            <text class="mono" x="1160" y="550" font-size="28" fill="#58C4DD">'info</text>
+            <text x="1260" y="550" font-size="28" fill="#e8e6df">= 指令执行期间</text>
+          </g>
+          <text id="li-t0" class="h" x="1160" y="470" font-size="28" fill="#83C167">✓ owner = 本程序</text>
+          <text id="li-t1" class="h" x="1160" y="520" font-size="28" fill="#83C167">✓ 类型 Counter</text>
+          <text id="li-t2" class="h" x="1160" y="570" font-size="28" fill="#83C167">✓ 已反序列化</text>
+          <text id="li-t3" class="h" x="1500" y="470" font-size="28" fill="#83C167">✓ 签名</text>
+        </g>
+        <g id="li-ctx">
+          <text id="li-cx" class="h mono" x="1160" y="490" font-size="32" fill="#e8e6df">Context</text>
+          <g id="li-cx0" class="h"><rect x="1160" y="510" width="640" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="1184" y="548" font-size="28" fill="#e8e6df">program_id</text></g>
+          <g id="li-cx1" class="h"><rect x="1160" y="576" width="640" height="56" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="1184" y="614" font-size="28" fill="#58C4DD">accounts</text></g>
+          <g id="li-cx2" class="h"><rect x="1160" y="642" width="640" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="1184" y="680" font-size="28" fill="#e8e6df">remaining_accounts</text></g>
+          <g id="li-cx3" class="h"><rect x="1160" y="708" width="640" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="1184" y="746" font-size="28" fill="#e8e6df">bumps</text></g>
+          <text id="li-cxn" class="h" x="1160" y="820" font-size="28" fill="#6b6f7a">另有 4 个生命周期参数被省略</text>
+        </g>
+        <path id="li-wl" class="dr h" pathLength="1" d="M1106 557 C 1140 540, 1150 450, 1200 416" fill="none" stroke="#F0B90B" stroke-width="5" />
+        <g id="li-stamp" class="h">
+          <rect x="1220" y="480" width="420" height="80" rx="40" fill="none" stroke="#83C167" stroke-width="3" />
+          <text x="1430" y="532" font-size="30" fill="#83C167" text-anchor="middle">Ok → 写回账户 ✓</text>
+        </g>
+
+        <!-- L5 不同字段 -->
+        <g id="li-fld">
+          <g id="li-fs" class="h">
+            <rect x="1200" y="300" width="560" height="260" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1230" y="350" font-size="28" fill="#8a8f99">ctx.accounts</text>
+            <rect x="1230" y="380" width="230" height="70" rx="8" fill="none" stroke="#F0B90B" stroke-width="2.5" />
+            <text class="mono" x="1345" y="425" font-size="28" fill="#F0B90B" text-anchor="middle">vault</text>
+            <rect x="1500" y="380" width="230" height="70" rx="8" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1615" y="425" font-size="28" fill="#58C4DD" text-anchor="middle">user</text>
+          </g>
+          <path id="li-f0" class="dr h" pathLength="1" d="M1345 456 L1345 640" fill="none" stroke="#F0B90B" stroke-width="5" />
+          <path id="li-f1" class="dr h" pathLength="1" d="M1615 456 L1615 640" fill="none" stroke="#58C4DD" stroke-width="3" stroke-dasharray="1" />
+          <text id="li-ft" class="h" x="1480" y="710" font-size="32" fill="#83C167" text-anchor="middle">不同字段，不冲突 ✓</text>
+        </g>
+
+        <!-- L6 三张报错卡 -->
+        <g id="li-errs">
+          <g id="li-k0" class="h">
+            <rect x="200" y="250" width="1520" height="170" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="240" y="315" font-size="32" fill="#FC6255">E0308 mismatched types</text>
+            <text x="1680" y="315" font-size="28" fill="#8a8f99" text-anchor="end">u64 相乘赋给 u128</text>
+            <text class="mono" x="240" y="380" font-size="30" fill="#83C167">→ u128::from(a) * u128::from(b)</text>
+          </g>
+          <g id="li-k1" class="h">
+            <rect x="200" y="450" width="1520" height="170" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="240" y="515" font-size="32" fill="#FC6255">E0106 missing lifetime</text>
+            <text x="1680" y="515" font-size="28" fill="#8a8f99" text-anchor="end">忘了写 'info</text>
+            <text class="mono" x="240" y="580" font-size="30" fill="#83C167">→ Signer&lt;'info&gt;</text>
+          </g>
+          <g id="li-k2" class="h">
+            <rect x="200" y="650" width="1520" height="170" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="240" y="715" font-size="32" fill="#FC6255">E0277 trait bound</text>
+            <text x="1680" y="715" font-size="28" fill="#8a8f99" text-anchor="end">参数没 derive 序列化</text>
+            <text class="mono" x="240" y="780" font-size="30" fill="#83C167">→ #[derive(AnchorSerialize, …)]</text>
+          </g>
+        </g>
+
+        <!-- L7 运行时 -->
+        <g id="li-rt" class="h">
+          <rect x="460" y="280" width="1000" height="420" rx="18" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="500" y="340" font-size="34" fill="#B48EF0">Solana 运行时</text>
+          <rect x="1080" y="450" width="260" height="100" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="1210" y="510" font-size="30" fill="#58C4DD" text-anchor="middle">vault</text>
+          <text class="mono" x="520" y="440" font-size="28" fill="#F0B90B">&amp;mut #1</text>
+          <text class="mono" x="520" y="610" font-size="28" fill="#F0B90B">&amp;mut #2</text>
+        </g>
+        <path id="li-r0" class="dr h" pathLength="1" d="M680 430 L1074 480" fill="none" stroke="#F0B90B" stroke-width="5" />
+        <path id="li-r1" class="dr h" pathLength="1" d="M680 600 L1074 520" fill="none" stroke="#F0B90B" stroke-width="5" />
+        <text id="li-abf" class="h mono" x="960" y="800" font-size="40" fill="#FC6255" text-anchor="middle">AccountBorrowFailed</text>
+      </g>
+      <g id="li-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">生命周期 <tspan font-size="28" font-weight="400" fill="#8a8f99">Lifetime</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">编译器给引用标注的有效期</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const LINE = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const HL = (a, n, t) => tl.to("#li-hl, #li-hb", { attr: { y: 250 + a * 41, height: n * 41 }, opacity: 1, duration: 0.4, ease: "power2.inOut" }, t);
+
+      // L0 生命周期 = 有效期
+      IN("#li-term", at(0, 0.03), 0.5);
+      IN("#li-panel", at(0, 0.15), 0.6);
+      LINE("#li-ax", at(0, 0.25), 0.6);
+      IN("#li-band", at(0, 0.3), 0.5);
+      IN("#li-bandt", at(0, 0.32), 0.4);
+      IN("#li-ref", at(0, 0.4), 0.3);
+      tl.to("#li-ref", { attr: { cx: 1760 }, duration: 2.2, ease: "none" }, at(0, 0.45));
+      tl.to("#li-ref", { fill: "#FC6255", duration: 0.2 }, at(0, 0.45) + 2.2 * (390 / 490));
+      IN("#li-out", at(0, 0.45) + 2.0, 0.4);
+      OUT("#li-term", at(0, 0.97), 0.4);
+      // L1 'info
+      OUT("#li-l0", at(1, 0), 0.4);
+      HL(1, 1, at(1, 0.02));
+      IN("#li-tx", at(1, 0.15), 0.4);
+      IN("#li-ac0", at(1, 0.2), 0.5, { y: 15 }, { y: 0 });
+      IN("#li-ac1", at(1, 0.28), 0.5, { y: 15 }, { y: 0 });
+      IN("#li-info", at(1, 0.6), 0.6, { scaleX: 0.2, svgOrigin: "1160 470" }, { scaleX: 1, svgOrigin: "1160 470" });
+      // L2 Account / Signer
+      OUT("#li-info", at(2, 0), 0.3);
+      HL(3, 2, at(2, 0.02));
+      IN("#li-t0", at(2, 0.2), 0.4, { x: -10 }, { x: 0 });
+      IN("#li-t1", at(2, 0.32), 0.4, { x: -10 }, { x: 0 });
+      IN("#li-t2", at(2, 0.44), 0.4, { x: -10 }, { x: 0 });
+      IN("#li-t3", at(2, 0.75), 0.4, { x: -10 }, { x: 0 });
+      // L3 Context
+      OUT("#li-t0, #li-t1, #li-t2, #li-t3", at(3, 0), 0.3);
+      HL(6, 1, at(3, 0.02));
+      IN("#li-cx", at(3, 0.08), 0.4);
+      IN("#li-cx0", at(3, 0.18), 0.4, { y: -10 }, { y: 0 });
+      IN("#li-cx1", at(3, 0.3), 0.4, { y: -10 }, { y: 0 });
+      IN("#li-cx2", at(3, 0.42), 0.4, { y: -10 }, { y: 0 });
+      IN("#li-cx3", at(3, 0.54), 0.4, { y: -10 }, { y: 0 });
+      IN("#li-cxn", at(3, 0.66), 0.4);
+      // L4 &mut counter → +1 → 写回
+      OUT("#li-ctx", at(4, 0), 0.4);
+      HL(7, 1, at(4, 0.02));
+      LINE("#li-wl", at(4, 0.08), 0.6);
+      tl.to("#li-ac0r", { stroke: "#F0B90B", duration: 0.3 }, at(4, 0.15));
+      IN("#li-mut", at(4, 0.3), 0.3);
+      tl.to("#li-mut", { opacity: 0.2, duration: 0.2, yoyo: true, repeat: 3 }, at(4, 0.36));
+      IN("#li-cnt", at(4, 0.45), 0.3);
+      HL(8, 3, at(4, 0.55));
+      OUT("#li-cv", at(4, 0.62), 0.2);
+      IN("#li-cv2", at(4, 0.64), 0.3, { y: -12 }, { y: 0 });
+      IN("#li-stamp", at(4, 0.8), 0.4, { scale: 1.3, svgOrigin: "1430 520" }, { scale: 1, svgOrigin: "1430 520" });
+      // L5 典型冲突 E0502
+      OUT("#li-code1, #li-mut, #li-wl, #li-acc, #li-stamp", at(5, 0), 0.4);
+      tl.to("#li-hl, #li-hb", { opacity: 0, duration: 0.3 }, at(5, 0));
+      IN("#li-code2", at(5, 0.05), 0.5);
+      HL(1, 1, at(5, 0.15));
+      LINE("#li-wavy", at(5, 0.2), 0.5);
+      IN("#li-e0502", at(5, 0.25), 0.4);
+      IN("#li-code3", at(5, 0.5), 0.6, { y: 15 }, { y: 0 });
+      IN("#li-fs", at(5, 0.7), 0.5);
+      LINE("#li-f0", at(5, 0.76), 0.4);
+      LINE("#li-f1", at(5, 0.8), 0.4);
+      IN("#li-ft", at(5, 0.86), 0.4);
+      // L6 三张报错卡
+      OUT("#li-panel, #li-fld", at(6, 0), 0.4);
+      IN("#li-k0", at(6, 0.06), 0.5, { y: 20 }, { y: 0 });
+      IN("#li-k1", at(6, 0.45), 0.5, { y: 20 }, { y: 0 });
+      IN("#li-k2", at(6, 0.7), 0.5, { y: 20 }, { y: 0 });
+      // L7 运行时 AccountBorrowFailed
+      OUT("#li-errs", at(7, 0), 0.4);
+      IN("#li-rt", at(7, 0.06), 0.5);
+      LINE("#li-r0", at(7, 0.25), 0.5);
+      LINE("#li-r1", at(7, 0.45), 0.5);
+      tl.to("#li-r0, #li-r1", { stroke: "#FC6255", duration: 0.3 }, at(7, 0.62));
+      IN("#li-abf", at(7, 0.66), 0.4, { y: 10 }, { y: 0 });
+
+      tl.to("#li-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#li-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["lifetime"] = tl;
+    })();
+  </script>
+</template>

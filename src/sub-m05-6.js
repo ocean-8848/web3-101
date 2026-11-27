@@ -120,7 +120,7 @@ ${steps([
 ])}
 
 <h2>5. 手续费、内存池与确认</h2>
-<p>节点收到交易后先检查<strong>共识规则</strong>（签名有效、输入存在、金额不超支），再检查本节点的<strong>中继策略（policy）</strong>：费率是否高于最低中继费率、输出是否是粉尘、交易是否是“标准”格式。策略不是共识，不同节点可以配置不同；但大多数节点使用 Bitcoin Core 默认值。例如 Bitcoin Core 30.0 把默认最低中继费率降到 0.1 sat/vB${cite('Bitcoin Core 30.0 发布说明', 'https://bitcoincore.org/en/releases/30.0/')}；粉尘阈值在默认 dust 费率下为 P2WPKH 294 sat、非 SegWit 输出 546 sat${cite('Bitcoin Core 源码：policy.cpp GetDustThreshold', 'https://github.com/bitcoin/bitcoin/blob/master/src/policy/policy.cpp')}。</p>
+<p>节点收到交易后先检查<strong>共识规则</strong>（签名有效、输入存在、金额不超支），再检查本节点的<strong>中继策略（policy）</strong>：费率是否高于最低中继费率、输出是否是粉尘、交易是否是“标准”格式。策略不是共识，不同节点可以配置不同；但大多数节点使用 Bitcoin Core 默认值。例如 Bitcoin Core 29.1（2025-09）与 30.0 把默认最低中继费率（-minrelaytxfee）和增量中继费率（-incrementalrelayfee）降到 0.1 sat/vB（100 sat/kvB）${cite('Bitcoin Core 29.1 发布说明', 'https://bitcoincore.org/en/releases/29.1/')}${cite('Bitcoin Core 30.0 发布说明', 'https://bitcoincore.org/en/releases/30.0/')}；粉尘阈值在默认 dust 费率下为 P2WPKH 294 sat、P2PKH 546 sat（P2SH 为 540 sat）${cite('Bitcoin Core 源码：policy.cpp GetDustThreshold', 'https://github.com/bitcoin/bitcoin/blob/master/src/policy/policy.cpp')}。</p>
 ${mm('一笔比特币交易的状态', `
 stateDiagram-v2
   state "已签名未广播" as Signed
@@ -307,7 +307,7 @@ ${recall('<p>txid、wtxid、witness 字段的位置和 P2WPKH / P2WSH 输出格�
 ${steps([
   '<strong>延展性</strong>：签名不再参与 txid 计算。第三方改动签名编码，txid 不变。闪电网络这类“先签好子交易、再广播父交易”的协议因此才可靠。',
   '<strong>容量</strong>：区块上限从“1 MB”改为“权重 ≤ 4,000,000 WU”。权重 = 非见证字节 × 4 + 见证字节 × 1；vsize = 权重 ÷ 4（向上取整）' + cite('BIP141：Segregated Witness', 'https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki') + '。',
-  '<strong>签名摘要</strong>：BIP143 定义了新的签名摘要算法。签名覆盖每个输入的金额，离线设备可以确认手续费没有被篡改；同时消除了旧算法在大交易上“平方级哈希”的问题' + cite('BIP143：Transaction Signature Verification for Version 0 Witness Program', 'https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki') + '。'
+  '<strong>签名摘要</strong>：BIP143 定义了新的签名摘要算法。签名覆盖它所花那个输入的金额，签名者能确认这个输入的金额没被谎报。但每个签名只覆盖自己的输入，多输入时仍可能被骗多付手续费，所以 PSBT 要附带完整的前序交易（non_witness_utxo）；Taproot 的 BIP341 让签名覆盖全部输入的金额和 scriptPubKey，才彻底解决。BIP143 同时消除了旧算法在大交易上“平方级哈希”的问题' + cite('BIP143：Transaction Signature Verification for Version 0 Witness Program', 'https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki') + '。'
 ])}
 <p><strong>算一算（示例）</strong>：1 个 P2WPKH 输入、2 个 P2WPKH 输出。</p>
 ${steps([
@@ -340,9 +340,9 @@ flowchart TB
   Q --> SP["脚本路径：叶子脚本 + 控制块 + 满足脚本的数据"]:::warn
 `, [
   ['flow', '链上输出只有 32 字节的 Q。没人能从 Q 看出里面有没有脚本树、有几个叶子。'],
-  ['key', '密钥路径：持有 P 对应私钥（或多人聚合后）直接签一个 64 字节签名。链上看起来和普通单签完全一样。'],
+  ['key', '密钥路径：持有 P 对应私钥（或多人聚合后）直接签一个 64 字节签名（非默认 sighash 时 65 字节）。链上看起来和普通单签完全一样。'],
   ['limit', '脚本路径要公开被用到的那个叶子、内部公钥和默克尔路径（控制块长度 33 + 32 × 深度字节），其他叶子保持隐藏' + cite('BIP341：Taproot', 'https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki') + '。'],
-  ['risk', '如果内部公钥 P 没有人知道私钥却声称“只能走脚本路径”，要用 BIP341 推荐的“无人知道私钥的点”构造 P，否则某个设计者可能偷偷保留密钥路径。']
+  ['risk', '如果希望只能走脚本路径，要用 BIP341 推荐的无人知道私钥的点（NUMS）构造 P，否则某个设计者可能偷偷保留密钥路径。']
 ])}
 ${compare('密钥路径与脚本路径', [
   { name: '密钥路径（key path）', tag: '日常、合作情况', kind: 'ok', points: ['witness 只有一个 Schnorr 签名（64 或 65 字节）', '输入约 57.5 vB，比 P2WPKH 还小', '多签可以先用 MuSig2（BIP327）或 FROST 把多把公钥聚合成一把', '链上无法区分单签和多签，隐私最好'] },
@@ -371,7 +371,7 @@ ${steps2('BIP174 定义的六个角色', [
 ], [
   ['flow', '同一个程序可以担任多个角色。Bitcoin Core 的 walletprocesspsbt 同时做更新和签名。'],
   ['risk', '签名者是最后一道防线。硬件钱包必须在自己的屏幕上显示收款地址、金额和手续费，并校验找零地址确实属于本钱包（通过 PSBT 里的派生路径重新推导）。'],
-  ['key', '因为 SegWit 签名覆盖输入金额，签名者能确认手续费没被篡改。PSBT 仍会携带完整的前序交易（非见证 UTXO）以防特定攻击。']
+  ['key', 'SegWit 签名覆盖所花输入的金额，但每个签名只管自己那个输入，多输入时仍有手续费攻击，所以 PSBT 仍要携带完整的前序交易（non_witness_utxo）。Taproot 的 BIP341 签名覆盖全部输入的金额后才彻底解决。']
 ])}
 ${mm('企业 2-of-3 冷钱包：一次 PSBT 提币', `
 sequenceDiagram
@@ -565,7 +565,7 @@ ${steps([
   '每个承诺交易里，<strong>广播方自己的输出</strong>有两条花费路径：① 等 to_self_delay 个区块后，自己签名领取；② 用“撤销私钥”立即领取。',
   '撤销私钥由双方的秘密合成。每次签下新状态，你都把<strong>上一状态的撤销秘密</strong>交给对方。此后你若广播旧状态，对方手里正好有那把撤销私钥。',
   '对方在 to_self_delay 窗口内广播<strong>惩罚交易</strong>，拿走你的那份余额。也就是说，作弊者损失通道里属于自己的全部资金。',
-  '对方输出（to_remote）没有延迟。惩罚机制只惩罚“广播旧状态的人”。'
+  '对方输出（to_remote）不受 to_self_delay 限制（anchor 通道中仅有 1 个区块的 CSV；LND、CLN、Eclair、LDK 默认都用 anchor 通道）。惩罚机制只惩罚“广播旧状态的人”。'
 ])}
 <p><strong>算一算（示例）</strong>：容量 1,000,000 sat。状态 #5 是 Alice 800,000 / Bob 200,000；现在最新状态 #9 是 Alice 300,000 / Bob 700,000。</p>
 ${steps([
@@ -601,7 +601,7 @@ sequenceDiagram
 <p><strong>算一算（示例）</strong>：每个转发节点收费 = 基础费 + 金额 × 费率（百万分比，ppm）。Carol：1 sat + 1,000 ppm；Bob：1 sat + 500 ppm。Dave 要收 80,000 sat。</p>
 ${steps([
   '从终点往回算。Carol 要转给 Dave 80,000 sat，她收费 1 + 80,000 × 1,000 ÷ 1,000,000 = 1 + 80 = <strong>81 sat</strong>。所以 Bob 要转给 Carol 80,081 sat。',
-  'Bob 收费 1 + 80,081 × 500 ÷ 1,000,000 ≈ 1 + 40.04 → 向上取整 <strong>42 sat</strong>。Alice 转给 Bob 80,123 sat。',
+  'Bob 收费 1 + 80,081 × 500 ÷ 1,000,000 ≈ 1 + 40.04 = 41.04 sat，示例按整聪向上取整为 <strong>42 sat</strong>（协议实际按 msat 计费，即 41,040 msat，不取整）。Alice 转给 Bob 80,123 sat。',
   'Alice 总共付出 80,123 sat，总手续费 123 sat，约 0.15%。',
   '对比链上：同期链上一笔 141 vB 的交易在 10 sat/vB 时要 1,410 sat。小额付款走闪电网络便宜一个数量级以上；但开、关通道各要一笔链上交易。'
 ])}
@@ -790,7 +790,7 @@ ${steps([
 ])}
 
 <h2>3. BRC-20 与 Runes：比特币上的同质化代币</h2>
-<p><strong>BRC-20</strong> 由化名开发者 Domo 在 2023 年 3 月推出，作者本人称它是一个实验${cite('Decrypt：People are minting BRC-20 meme coins on Bitcoin via Ordinals（2023-03-10）', 'https://decrypt.co/123123/people-are-minting-brc-20-meme-coins-on-bitcoin-via-ordinals')}。它用铭文写入一段 JSON（<code>deploy</code>、<code>mint</code>、<code>transfer</code> 三种操作），代币余额完全由链下索引器解释。一次转账要先铭刻一个 transfer 铭文、再把它发出去，至少两笔链上交易，还会留下很多小 UTXO。</p>
+<p><strong>BRC-20</strong> 由化名开发者 Domo 在 2023 年 3 月推出，作者本人称它是一个实验${cite('Decrypt：People are minting BRC-20 meme coins on Bitcoin via Ordinals（2023-03-10）', 'https://decrypt.co/123123/people-are-minting-brc-20-meme-coins-on-bitcoin-via-ordinals')}。它用铭文写入一段 JSON（<code>deploy</code>、<code>mint</code>、<code>transfer</code> 三种操作），代币余额完全由链下索引器解释。一次转账要先铭刻一个 transfer 铭文、再把它发出去，至少两笔链上交易，还会留下很多小 UTXO。2025 年 9 月起，BRC-20 在区块 912,690 启用 BRC2.0 可编程模块（索引器里跑 EVM，可部署合约），但它仍由索引器执行，不改变“不在比特币共识里”的结论${cite('Decrypt：BRC-20 indexer upgrade brings Ethereum-like features to Bitcoin（2025-09）', 'https://decrypt.co/337463/brc-20-indexer-upgrade-ethereum-features-bitcoin')}。</p>
 <p><strong>Runes</strong> 在 2024 年 4 月 20 日第四次减半的区块 840,000 上线${cite('Cointelegraph：Bitcoin halving users spend record on block space（2024-04-20）', 'https://cointelegraph.com/news/bitcoin-halving-users-spend-record-millions-block-space-runes-rare-satoshis')}。它把指令（runestone）放进一个以 <code>OP_RETURN OP_13</code> 开头的输出；余额记在 UTXO 上，用 edict（指令）决定输入里的 Rune 怎样分配到各个输出；格式错误的 runestone（cenotaph）会烧掉输入里的 Rune${cite('Ordinals 官方文档：Runes', 'https://docs.ordinals.com/runes.html')}。</p>
 ${compare('三种“代币”放在哪里、谁来解释', [
   { name: 'BRC-20', tag: '铭文里的 JSON', kind: 'warn', points: ['数据在 witness（铭文）', '余额是账户式的，由索引器维护', '转账 = 铭刻 transfer + 发送，至少两笔交易', '不同索引器实现不一致时，余额可能不同'] },
@@ -822,11 +822,11 @@ ${tbl(['方案', '被锁 BTC 由谁控制', '谁能偷走 / 冻结', '怎样退�
   ['闪电网络（<a href="#m05-62">M06.3</a>）', '通道双方的 2-of-2 多签，加时间锁', '没人能单方面偷；你离线且无瞭望塔时，对方可能广播旧状态。对方不配合时资金被锁到时间锁到期', '合作关闭或强制关闭，随时可单方面退出'],
   ['Liquid（侧链）', '15 个功能节点（functionary）的 11-of-15 多签，密钥在 HSM 里；资金停摆 4,032 个区块（约 28 天）后，Blockstream 持有的应急密钥可以动用' + cite('Blockstream 帮助中心：How does the Liquid Federation’s multisig work?', 'https://help.blockstream.com/liquid-network/faqs/how-does-the-liquid-federations-multisig-work'), '11 个功能节点合谋可偷走或冻结；联盟长期停摆时应急密钥持有人可动用', '由联盟签名 peg-out；联盟不签就出不去'],
   ['Rootstock（侧链，EVM）', 'PowPeg：多签私钥在 PowHSM 硬件里，HSM 只在看到足够累积工作量时签名；比特币矿工合并挖矿' + cite('Rootstock 官方文档：PowPeg', 'https://dev.rootstock.io/concepts/powpeg/'), '需要同时攻破足够多的 PowHSM，或同时控制大量合并挖矿算力', 'peg-out 由桥合约发起、HSM 签名；peg-in 要等 100 个比特币区块'],
-  ['Stacks + sBTC', 'sBTC 的 BTC 存在一个 Taproot 多签地址，由社区选出的签名者集合控制，初始 15 个' + cite('Stacks 官方文档：sBTC', 'https://docs.stacks.co/concepts/sbtc'), '签名者达到门限即可动用；签名者集合可以轮换', '向签名者请求提款；签名者不签就出不去'],
+  ['Stacks + sBTC', 'sBTC 的 BTC 存在一个 Taproot 多签地址，由社区选出的签名者集合控制，约 70% 签名者同意才能动用' + cite('Stacks 官方文档：sBTC', 'https://docs.stacks.co/concepts/sbtc'), '签名者达到门限即可动用；签名者集合可以轮换', '向签名者请求提款；签名者不签就出不去'],
   ['BitVM 类桥（BitVM2）', '预签的交易图 + 运营者垫付；一次性设置阶段只需 1-of-n 诚实' + cite('Linus 等：Bridging Bitcoin to Second Layers via BitVM2（IACR ePrint 2025/1158）', 'https://eprint.iacr.org/2025/1158'), '设置阶段全部参与者都作恶时可偷；运行阶段任何人都能挑战错误的提款声明', '运营者先垫付再向桥报销；错误报销可被挑战并罚没'],
-  ['Babylon 比特币质押', '你自己：BTC 锁在自托管的质押脚本里，到期或解绑后取回；第一阶段最长约 64,000 个区块，解绑等待 1,008 个区块' + cite('Babylon Labs：Phased launch of Babylon Bitcoin Staking（2024-08）', 'https://babylonlabs.io/blog/babylon-bitcoin-staking-mainnet-launch-phase-1'), '没人能拿走你的 BTC；第一阶段没有罚没。后续接入 PoS 链后，你委托的节点作恶可能导致你的部分 BTC 被罚没', '时间锁到期或主动解绑，用自己的密钥取回']
+  ['Babylon 比特币质押', '你自己：BTC 锁在自托管的质押脚本里，到期或解绑后取回；第一阶段最长约 64,000 个区块，解绑等待 1,008 个区块' + cite('Babylon Labs：Phased launch of Babylon Bitcoin Staking（2024-08）', 'https://babylonlabs.io/blog/babylon-bitcoin-staking-mainnet-launch-phase-1'), '没人能单方面拿走你的 BTC；但 2025 年 4 月第二阶段（Babylon Genesis）上线后罚没已生效：你委托的 finality provider 双签时，委托的 BTC 按比例被罚没', '时间锁到期后用自己的密钥取回；提前解绑还需 covenant 委员会联合签名']
 ])}
-<p>其他背景：Stacks 的 Nakamoto 升级在 2024 年 10 月 29 日激活，为 sBTC 打基础${cite('CoinDesk（经 Yahoo Finance 转载）：Stacks activates Nakamoto upgrade（2024-10-29）', 'https://finance.yahoo.com/news/stacks-prominent-bitcoin-layer-2-131735968.html')}；Babylon 第一阶段主网在 2024 年 8 月 22 日上线，初始总质押上限 1,000 BTC${cite('The Block：Babylon launches phase one of its self-custodial bitcoin staking mainnet（2024-08-22）', 'https://www.theblock.co/post/312665/babylon-launches-phase-one-of-its-self-custodial-bitcoin-staking-mainnnet')}；BitVM 最早由 Robin Linus 在 2023 年提出：不改共识规则，把计算放到链下，只在争议时上链验证欺诈证明${cite('Robin Linus：BitVM: Compute Anything on Bitcoin', 'https://bitvm.org/bitvm.pdf')}。</p>
+<p>其他背景：Stacks 的 Nakamoto 升级在 2024 年 10 月 29 日激活，为 sBTC 打基础${cite('CoinDesk（经 Yahoo Finance 转载）：Stacks activates Nakamoto upgrade（2024-10-29）', 'https://finance.yahoo.com/news/stacks-prominent-bitcoin-layer-2-131735968.html')}；Babylon 第一阶段主网在 2024 年 8 月 22 日上线，初始总质押上限 1,000 BTC${cite('The Block：Babylon launches phase one of its self-custodial bitcoin staking mainnet（2024-08-22）', 'https://www.theblock.co/post/312665/babylon-launches-phase-one-of-its-self-custodial-bitcoin-staking-mainnnet')}；BitVM 最早由 Robin Linus 在 2023 年提出：不改共识规则，把计算放到链下，只在争议时上链验证欺诈证明${cite('Robin Linus：BitVM: Compute Anything on Bitcoin', 'https://bitvm.org/bitvm.pdf')}。BitVM2 类桥已有主网部署：Bitlayer 的 BitVM Bridge 于 2025 年 7 月以 beta 形式上线主网，Citrea 主网在 2026 年 1 月 27 日上线，其 Clementine 桥基于 BitVM2${cite('The Block：Citrea launches mainnet（2026-01-27）', 'https://www.theblock.co/post/387140/zk-powered-bitcoin-layer-2-citrea-launches-mainnet')}。</p>
 ${mm('按“谁控制 BTC”给比特币 L2 分类', `
 flowchart TB
   Q["被锁的 BTC 由谁控制？"]:::key
@@ -875,7 +875,7 @@ ${mistakes([
   ['铭文和 Runes 是比特币协议的一部分。', '它们是索引器的约定。比特币节点只把它们当作普通交易，不验证所谓余额或归属。'],
   ['铭文存在“链下”，不占区块空间。', '铭文内容存在 witness 里，是区块的一部分，占用权重、参与手续费竞价。'],
   ['只要叫比特币 L2，就继承比特币的安全性。', '大多数方案的 BTC 由联盟多签、签名者集合或 HSM 控制。要逐个问“谁能偷、谁能冻结、怎样退出”。'],
-  ['Babylon 质押要把 BTC 交给别人。', 'BTC 锁在自托管脚本里，用户用自己的密钥取回；风险来自未来可能的罚没条件。'],
+  ['Babylon 质押要把 BTC 交给别人。', 'BTC 锁在自托管脚本里，时间锁到期后用户用自己的密钥取回；风险来自罚没条件（2025 年 4 月第二阶段起已生效）。'],
   ['BitVM 让比特币可以执行任意智能合约，而且无需信任。', 'BitVM 只在争议时上链验证，桥的设置阶段仍需要 1-of-n 诚实假设，运营者还要垫付流动性。']
 ])}
 ${recap([

@@ -1,0 +1,282 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 jetton，id 前缀 je- -->
+  <div id="root" data-composition-id="jetton" data-duration="51.48" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="je-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="je-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="je-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="je-arr-y" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="je-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="je-all">
+        <!-- L0: ERC-20 单合约 vs Jetton Master + 每人一个钱包合约 -->
+        <g id="je-arch">
+          <g id="je-erc" class="h">
+            <rect x="110" y="250" width="620" height="580" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="420" y="320" font-size="36" font-weight="700" fill="#8a8f99" text-anchor="middle">ERC-20（单个合约）</text>
+            <rect x="160" y="368" width="520" height="410" rx="12" fill="#0f1117" stroke="#3a3f4a" stroke-width="2" />
+            <text x="420" y="424" font-size="30" fill="#8a8f99" text-anchor="middle">一张余额表</text>
+            <line x1="190" y1="454" x2="650" y2="454" stroke="#3a3f4a" stroke-width="2" />
+            <text x="220" y="520" font-size="30" fill="#e8e6df">持有人 A</text>
+            <text class="mono" x="620" y="520" font-size="30" fill="#F0B90B" text-anchor="end">500</text>
+            <text x="220" y="606" font-size="30" fill="#e8e6df">持有人 B</text>
+            <text class="mono" x="620" y="606" font-size="30" fill="#F0B90B" text-anchor="end">200</text>
+            <text x="220" y="692" font-size="30" fill="#e8e6df">持有人 C</text>
+            <text class="mono" x="620" y="692" font-size="30" fill="#F0B90B" text-anchor="end">80</text>
+          </g>
+
+          <line id="je-adiv" class="dr" pathLength="1" x1="810" y1="220" x2="810" y2="870" stroke="#3a3f4a" stroke-width="2" />
+
+          <g id="je-master" class="h">
+            <rect x="1110" y="210" width="460" height="148" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3.5" />
+            <text x="1340" y="274" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">Jetton Master</text>
+            <text x="1340" y="328" font-size="28" fill="#e8e6df" text-anchor="middle">记录总量与元数据</text>
+          </g>
+
+          <path id="je-ml1" class="dr h" pathLength="1" d="M1230 360 L1020 468" fill="none" stroke="#58C4DD" stroke-width="2.5" marker-end="url(#je-arr-b)" />
+          <path id="je-ml2" class="dr h" pathLength="1" d="M1340 360 L1340 468" fill="none" stroke="#58C4DD" stroke-width="2.5" marker-end="url(#je-arr-b)" />
+          <path id="je-ml3" class="dr h" pathLength="1" d="M1450 360 L1660 468" fill="none" stroke="#58C4DD" stroke-width="2.5" marker-end="url(#je-arr-b)" />
+
+          <g id="je-jws" class="h">
+            <rect x="880" y="480" width="280" height="148" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1020" y="542" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">Jetton 钱包</text>
+            <text x="1020" y="596" font-size="28" fill="#F0B90B" text-anchor="middle">余额 500</text>
+
+            <rect x="1200" y="480" width="280" height="148" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1340" y="542" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">Jetton 钱包</text>
+            <text x="1340" y="596" font-size="28" fill="#F0B90B" text-anchor="middle">余额 200</text>
+
+            <rect x="1520" y="480" width="280" height="148" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1660" y="542" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">Jetton 钱包</text>
+            <text x="1660" y="596" font-size="28" fill="#F0B90B" text-anchor="middle">余额 80</text>
+
+            <line x1="1020" y1="628" x2="1020" y2="710" stroke="#8a8f99" stroke-width="2" />
+            <line x1="1340" y1="628" x2="1340" y2="710" stroke="#8a8f99" stroke-width="2" />
+            <line x1="1660" y1="628" x2="1660" y2="710" stroke="#8a8f99" stroke-width="2" />
+
+            <rect x="910" y="710" width="220" height="76" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+            <text x="1020" y="760" font-size="28" fill="#e8e6df" text-anchor="middle">持有人 A</text>
+            <rect x="1230" y="710" width="220" height="76" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+            <text x="1340" y="760" font-size="28" fill="#e8e6df" text-anchor="middle">持有人 B</text>
+            <rect x="1550" y="710" width="220" height="76" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+            <text x="1660" y="760" font-size="28" fill="#e8e6df" text-anchor="middle">持有人 C</text>
+          </g>
+        </g>
+
+        <!-- L1–L4: 序列图 4 条泳道 x=260, 740, 1180, 1660 -->
+        <g id="je-seq">
+          <g id="je-lanes" class="h">
+            <rect x="100" y="84" width="320" height="96" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+            <text x="260" y="144" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">发送方钱包</text>
+
+            <rect x="550" y="84" width="380" height="96" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="740" y="144" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">发送方 Jetton 钱包</text>
+
+            <rect x="990" y="84" width="380" height="96" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1180" y="144" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">收款方 Jetton 钱包</text>
+
+            <rect x="1500" y="84" width="320" height="96" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+            <text x="1660" y="144" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">收款方钱包</text>
+          </g>
+          <line id="je-ll0" class="dr" pathLength="1" x1="260" y1="184" x2="260" y2="950" stroke="#3a3f4a" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line id="je-ll1" class="dr" pathLength="1" x1="740" y1="184" x2="740" y2="950" stroke="#3a3f4a" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line id="je-ll2" class="dr" pathLength="1" x1="1180" y1="184" x2="1180" y2="950" stroke="#3a3f4a" stroke-width="2.5" stroke-dasharray="10 8" />
+          <line id="je-ll3" class="dr" pathLength="1" x1="1660" y1="184" x2="1660" y2="950" stroke="#3a3f4a" stroke-width="2.5" stroke-dasharray="10 8" />
+
+          <!-- 消息 1: transfer -->
+          <path id="je-m1" class="dr h" pathLength="1" d="M268 278 L728 278" fill="none" stroke="#58C4DD" stroke-width="4" marker-end="url(#je-arr-b)" />
+          <text id="je-m1-t" class="h mono" x="498" y="258" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">transfer</text>
+          <text id="je-m1-op" class="h mono" x="498" y="316" font-size="28" fill="#8a8f99" text-anchor="middle">0x0f8a7ea5</text>
+
+          <!-- 发送方 Jetton 钱包扣余额 -->
+          <g id="je-sbal" class="h">
+            <rect id="je-sbal-r" x="575" y="352" width="330" height="72" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="688" y="399" font-size="30" fill="#e8e6df" text-anchor="end">余额</text>
+            <text id="je-sbal-n" class="mono" x="710" y="399" font-size="32" font-weight="700" fill="#F0B90B">500</text>
+          </g>
+
+          <!-- 消息 2: internal_transfer -->
+          <path id="je-m2" class="dr h" pathLength="1" d="M748 486 L1168 486" fill="none" stroke="#58C4DD" stroke-width="4" marker-end="url(#je-arr-b)" />
+          <text id="je-m2-t" class="h mono" x="958" y="466" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">internal_transfer</text>
+          <text id="je-m2-op" class="h mono" x="958" y="524" font-size="28" fill="#8a8f99" text-anchor="middle">0x178d4519</text>
+
+          <!-- L2+L3 正常分支（L4 演示失败时淡出） -->
+          <g id="je-okflow">
+            <g id="je-rbal" class="h">
+              <rect x="1015" y="554" width="330" height="72" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+              <text x="1128" y="601" font-size="30" fill="#e8e6df" text-anchor="end">余额</text>
+              <text id="je-rbal-n" class="mono" x="1150" y="601" font-size="32" font-weight="700" fill="#F0B90B">200</text>
+            </g>
+
+            <!-- 消息 3: transfer_notification -->
+            <path id="je-m3" class="dr h" pathLength="1" d="M1188 706 L1648 706" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#je-arr-g)" />
+            <text id="je-m3-t" class="h mono" x="1418" y="684" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">transfer_notification</text>
+            <text id="je-m3-sub" class="h" x="1418" y="746" font-size="28" fill="#8a8f99" text-anchor="middle">转发 TON &gt; 0 时</text>
+
+            <!-- 附言纸条 -->
+            <g id="je-memo" class="h">
+              <rect x="1290" y="800" width="530" height="116" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+              <text x="1555" y="848" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">附言（转发数据里）</text>
+              <text x="1555" y="894" font-size="28" fill="#e8e6df" text-anchor="middle">32 位 0 开头 + 文字</text>
+            </g>
+
+            <!-- 消息 4: excesses -->
+            <path id="je-m4" class="dr h" pathLength="1" d="M1172 860 L272 860" fill="none" stroke="#F0B90B" stroke-width="3.5" stroke-dasharray="12 8" marker-end="url(#je-arr-y)" />
+            <text id="je-m4-t" class="h" x="720" y="838" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle"><tspan class="mono">excesses</tspan> · 退回多余 TON</text>
+            <text id="je-m4-op" class="h mono" x="720" y="902" font-size="28" fill="#8a8f99" text-anchor="middle">0xd53276db</text>
+          </g>
+
+          <!-- L4: 第二步失败 → bounce 退回 → 余额加回 -->
+          <g id="je-failflow">
+            <g id="je-f2x" class="h">
+              <rect x="1010" y="556" width="340" height="78" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+              <text x="1180" y="606" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 处理失败</text>
+            </g>
+            <path id="je-fbnc" class="dr h" pathLength="1" d="M1170 698 L752 698" fill="none" stroke="#FC6255" stroke-width="4" stroke-dasharray="12 8" marker-end="url(#je-arr-r)" />
+            <text id="je-fbnc-t" class="h" x="960" y="676" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">bounce 退回</text>
+            <g id="je-frec" class="h">
+              <rect x="520" y="756" width="440" height="104" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" />
+              <text x="740" y="804" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">自己把余额加回 ✓</text>
+              <text x="740" y="844" font-size="28" fill="#e8e6df" text-anchor="middle">400 → 500</text>
+            </g>
+          </g>
+        </g>
+
+        <!-- L5: 伪造通知 vs 验证发送者 -->
+        <g id="je-spoof">
+          <text id="je-sp-title" class="h" x="960" y="128" font-size="42" font-weight="700" fill="#FC6255" text-anchor="middle">到账通知只是普通消息，必须验证发送者</text>
+
+          <g id="je-sp-recv" class="h">
+            <rect x="1420" y="220" width="380" height="580" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="1610" y="486" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">收款方钱包</text>
+            <text x="1610" y="548" font-size="30" fill="#e8e6df" text-anchor="middle">核对通知来源</text>
+          </g>
+
+          <!-- 上道：陌生合约伪造 -->
+          <g id="je-sp-fake" class="h">
+            <rect x="120" y="230" width="380" height="170" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text x="310" y="302" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">陌生合约</text>
+            <text x="310" y="356" font-size="28" fill="#8a8f99" text-anchor="middle">任何人都能部署</text>
+          </g>
+          <path id="je-sp-farr" class="dr h" pathLength="1" d="M510 315 L1404 315" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#je-arr-r)" />
+          <text id="je-sp-fmsg" class="h" x="955" y="286" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">通知：到账 1,000,000 USDT</text>
+          <g id="je-sp-fchk" class="h">
+            <rect x="595" y="352" width="720" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text x="955" y="404" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">发送者 ≠ 预期 Jetton 钱包 → 伪造 ✕</text>
+          </g>
+
+          <!-- 下道：预期 Jetton 钱包 -->
+          <g id="je-sp-real" class="h">
+            <rect x="120" y="610" width="380" height="170" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="310" y="682" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">预期的 Jetton 钱包</text>
+            <text x="310" y="736" font-size="28" fill="#8a8f99" text-anchor="middle">唯一合法来源</text>
+          </g>
+          <path id="je-sp-rarr" class="dr h" pathLength="1" d="M510 695 L1404 695" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#je-arr-g)" />
+          <text id="je-sp-rmsg" class="h" x="955" y="666" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">真实到账通知</text>
+          <g id="je-sp-rchk" class="h">
+            <rect x="595" y="732" width="720" height="80" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="955" y="784" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">发送者 = 预期 Jetton 钱包 → 通过 ✓</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- 术语卡：Jetton -->
+      <g id="je-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Jetton <tspan font-size="28" font-weight="400" fill="#8a8f99">TEP-74</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">Master 加每人一个钱包合约</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.0, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: ERC-20 vs Jetton 结构
+      IN("#je-term", at(0, 0.04), 0.5);
+      IN("#je-erc", at(0, 0.20), 0.6, { x: -20 }, { x: 0 });
+      DRAW("#je-adiv", at(0, 0.40), 0.5);
+      IN("#je-master", at(0, 0.44), 0.6, { y: -16 }, { y: 0 });
+      ARROW("#je-ml1", at(0, 0.64), 0.45);
+      ARROW("#je-ml2", at(0, 0.66), 0.45);
+      ARROW("#je-ml3", at(0, 0.68), 0.45);
+      IN("#je-jws", at(0, 0.70), 0.6, { y: 16 }, { y: 0 });
+      OUT("#je-term", at(0, 0.84), 0.4);
+
+      // L1: 序列图泳道 + transfer
+      OUT("#je-arch", at(1, 0), 0.35);
+      IN("#je-lanes", at(1, 0.06), 0.55, { y: -14 }, { y: 0 });
+      DRAW("#je-ll0, #je-ll1, #je-ll2, #je-ll3", at(1, 0.16), 0.7);
+      ARROW("#je-m1", at(1, 0.46), 0.6);
+      IN("#je-m1-t, #je-m1-op", at(1, 0.54), 0.45);
+
+      // L2: internal_transfer + 余额变化
+      IN("#je-sbal", at(2, 0.06), 0.45);
+      COUNT("#je-sbal-n", 500, 400, at(2, 0.14), 0.9);
+      ARROW("#je-m2", at(2, 0.38), 0.6);
+      IN("#je-m2-t, #je-m2-op", at(2, 0.44), 0.45);
+      IN("#je-rbal", at(2, 0.68), 0.45);
+      COUNT("#je-rbal-n", 200, 300, at(2, 0.74), 0.9);
+
+      // L3: transfer_notification + excesses + 附言
+      ARROW("#je-m3", at(3, 0.08), 0.65);
+      IN("#je-m3-t, #je-m3-sub", at(3, 0.16), 0.45);
+      ARROW("#je-m4", at(3, 0.46), 0.75);
+      IN("#je-m4-t, #je-m4-op", at(3, 0.54), 0.45);
+      IN("#je-memo", at(3, 0.74), 0.55, { y: 16 }, { y: 0 });
+
+      // L4: 失败 → bounce → 加回余额
+      OUT("#je-okflow", at(4, 0), 0.35);
+      IN("#je-f2x", at(4, 0.12), 0.45);
+      ARROW("#je-fbnc", at(4, 0.38), 0.6);
+      IN("#je-fbnc-t", at(4, 0.44), 0.45);
+      IN("#je-frec", at(4, 0.66), 0.55, { y: 14 }, { y: 0 });
+      tl.to("#je-sbal-r", { stroke: "#83C167", duration: 0.3 }, at(4, 0.70));
+      COUNT("#je-sbal-n", 400, 500, at(4, 0.70), 0.8);
+
+      // L5: 伪造通知 vs 合法验证
+      OUT("#je-seq", at(5, 0), 0.35);
+      IN("#je-sp-title, #je-sp-recv, #je-sp-fake", at(5, 0.06), 0.55, { y: 14 }, { y: 0 });
+      ARROW("#je-sp-farr", at(5, 0.22), 0.65);
+      IN("#je-sp-fmsg", at(5, 0.28), 0.45);
+      IN("#je-sp-fchk", at(5, 0.44), 0.5, { y: 12 }, { y: 0 });
+      IN("#je-sp-real", at(5, 0.64), 0.5, { x: -20 }, { x: 0 });
+      ARROW("#je-sp-rarr", at(5, 0.72), 0.65);
+      IN("#je-sp-rmsg", at(5, 0.76), 0.4);
+      IN("#je-sp-rchk", at(5, 0.84), 0.5, { y: 12 }, { y: 0 });
+
+      tl.to("#je-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#je-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["jetton"] = tl;
+    })();
+  </script>
+</template>

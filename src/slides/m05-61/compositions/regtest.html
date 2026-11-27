@@ -1,0 +1,88 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 regtest，id 前缀 re- -->
+  <div id="root" data-composition-id="regtest" data-duration="68.62" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <g id="re-term" class="h"><rect x="120" y="220" width="980" height="780" rx="14" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><path d="M134 220 H1086 Q1100 220 1100 234 V276 H120 V234 Q120 220 134 220 Z" fill="#1f2430"/><circle cx="152" cy="248" r="7" fill="#FC6255"/><circle cx="176" cy="248" r="7" fill="#F0B90B"/><circle cx="200" cy="248" r="7" fill="#83C167"/><text class="mono" x="610" y="258" font-size="28" fill="#8a8f99" text-anchor="middle">bitcoin-cli -regtest</text></g><text id="re-g0l0" class="mono h" x="150" y="340" font-size="28" fill="#e8e6df">$ bitcoind -regtest -daemon</text><text id="re-g1l0" class="mono h" x="150" y="340" font-size="28" fill="#e8e6df">$ createwallet alice</text><text id="re-g1l1" class="mono h" x="150" y="392" font-size="28" fill="#e8e6df">$ createwallet bob</text><text id="re-g1l2" class="mono h" x="150" y="444" font-size="28" fill="#e8e6df">$ getnewaddress "" bech32m</text><text id="re-g1l3" class="mono h" x="150" y="496" font-size="28" fill="#83C167">  → bcrt1p…</text><text id="re-g1l4" class="mono h" x="150" y="548" font-size="28" fill="#e8e6df">$ generatetoaddress 101 $A</text><text id="re-g2l0" class="mono h" x="150" y="340" font-size="28" fill="#e8e6df">$ createpsbt '[{"txid":…,"vout":0}]' \</text><text id="re-g2l1" class="mono h" x="150" y="392" font-size="28" fill="#e8e6df">    '[{"$B":10},{"$CHG":39.9999}]'</text><text id="re-g2l2" class="mono h" x="150" y="444" font-size="28" fill="#e8e6df">$ decodepsbt $PSBT | jq '.inputs'</text><text id="re-g3l0" class="mono h" x="150" y="340" font-size="28" fill="#e8e6df">$ walletprocesspsbt $PSBT true "ALL" true false</text><text id="re-g3l1" class="mono h" x="150" y="392" font-size="28" fill="#e8e6df">$ decodepsbt $SIGNED</text><text id="re-g4l0" class="mono h" x="150" y="340" font-size="28" fill="#e8e6df">$ analyzepsbt $SIGNED</text><text id="re-g4l1" class="mono h" x="150" y="392" font-size="28" fill="#58C4DD">  → "next": "finalizer"</text><text id="re-g4l2" class="mono h" x="150" y="444" font-size="28" fill="#e8e6df">$ finalizepsbt $SIGNED</text><text id="re-g4l3" class="mono h" x="150" y="496" font-size="28" fill="#58C4DD">  → hex</text><text id="re-g5l0" class="mono h" x="150" y="340" font-size="28" fill="#e8e6df">$ testmempoolaccept '["&lt;hex&gt;"]'</text><text id="re-g5l1" class="mono h" x="150" y="392" font-size="28" fill="#e8e6df">$ sendrawtransaction $HEX</text><text id="re-g5l2" class="mono h" x="150" y="444" font-size="28" fill="#e8e6df">$ generatetoaddress 1 $A</text><text id="re-g5l3" class="mono h" x="150" y="496" font-size="28" fill="#e8e6df">$ -rpcwallet=bob getbalance</text><text id="re-g5l4" class="mono h" x="150" y="548" font-size="28" fill="#e8e6df">  → <tspan id="re-bal" fill="#F0B90B">0.00000000</tspan></text><text id="re-g6l0" class="mono h" x="150" y="340" font-size="28" fill="#e8e6df">$ createpsbt … \</text><text id="re-g6l1" class="mono h" x="150" y="392" font-size="28" fill="#e8e6df">    '[{"$B":10},{"$CHG":39.9999}]'</text><text id="re-g6l2" class="mono h" x="150" y="444" font-size="28" fill="#e8e6df"></text><text id="re-g6l3" class="mono h" x="150" y="496" font-size="28" fill="#e8e6df">$ testmempoolaccept '["&lt;hex&gt;"]'</text><text id="re-g6l4" class="mono h" x="150" y="548" font-size="28" fill="#e8e6df">  → <tspan fill="#FC6255">max-fee-exceeded</tspan></text><text id="re-g6b" class="mono h" x="150" y="392" font-size="28" fill="#e8e6df">    '[{"$B":10},{"$CHG":<tspan fill="#FC6255">39</tspan>}]'</text><text id="re-a3" class="h" x="150" y="500" font-size="30" fill="#58C4DD">同时担任 更新者 + 签名者</text><text id="re-a4" class="h" x="600" y="444" font-size="30" fill="#FF9F43">只组装，不签名</text><g id="re-r0" class="h"><rect x="1240" y="300" width="120" height="90" rx="8" fill="rgba(88,196,221,0.12)" stroke="#58C4DD" stroke-width="2.5"/><rect x="1400" y="300" width="120" height="90" rx="8" fill="rgba(88,196,221,0.12)" stroke="#58C4DD" stroke-width="2.5"/><rect x="1560" y="300" width="120" height="90" rx="8" fill="rgba(88,196,221,0.12)" stroke="#58C4DD" stroke-width="2.5"/><path d="M1362 345 H1398 M1522 345 H1558" stroke="#58C4DD" stroke-width="3"/><text x="1460" y="450" font-size="30" fill="#e8e6df" text-anchor="middle">自己出块 · 不用真钱</text></g><g id="re-r1" class="h"><text id="re-cnt" class="mono" x="1460" y="610" font-size="80" fill="#F0B90B" text-anchor="middle" font-weight="700">0</text><text x="1460" y="670" font-size="28" fill="#8a8f99" text-anchor="middle">区块高度</text></g><text id="re-mat" class="h" x="1460" y="730" font-size="28" fill="#8a8f99" text-anchor="middle">奖励成熟期：100 块</text><g id="re-pn" class="h"><rect x="1180" y="220" width="620" height="560" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="1210" y="272" font-size="30" fill="#58C4DD">decodepsbt · inputs[0]</text></g><text id="re-f0" class="h" x="1215" y="350" font-size="28" fill="#8a8f99">还没有 UTXO 信息</text><text id="re-f1" class="mono h" x="1215" y="350" font-size="28" fill="#e8e6df">witness_utxo</text><text id="re-f2" class="mono h" x="1215" y="410" font-size="28" fill="#e8e6df">taproot_bip32_derivs</text><text id="re-f3" class="mono h" x="1215" y="470" font-size="28" fill="#83C167">taproot_key_path_sig</text><text id="re-w1" class="mono h" x="1180" y="900" font-size="28" fill="#6b6f7a">combinepsbt '["psbt1","psbt2"]'</text><text id="re-w2" class="mono h" x="1180" y="950" font-size="28" fill="#6b6f7a">walletcreatefundedpsbt …</text><g id="re-fee" class="h"><rect x="1220" y="360" width="540" height="200" rx="14" fill="#F0B90B"/><text x="1490" y="445" font-size="34" fill="#0f1117" text-anchor="middle" font-weight="700">多出 0.9999 BTC</text><text x="1490" y="508" font-size="30" fill="#0f1117" text-anchor="middle">全部变成手续费</text></g>
+      </g>
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+const SEG = (k, n, t, fr) => { for (let j = 0; j < n; j++) IN(`#re-g${k}l${j}`, at(t, fr[j]), 0.35, { x: -10 }, { x: 0 }); };
+const CLR = (k, n, t) => { const s = []; for (let j = 0; j < n; j++) s.push(`#re-g${k}l${j}`); OUT(s.join(", "), t, 0.3); };
+// L0
+IN("#re-term", at(0, 0.0), 0.6);
+SEG(0, 1, 0, [0.15]);
+IN("#re-r0", at(0, 0.5), 0.6, { y: 15 }, { y: 0 });
+// L1 wallets + 101 blocks
+CLR(0, 1, at(1, 0));
+SEG(1, 5, 1, [0.05, 0.13, 0.3, 0.4, 0.55]);
+IN("#re-r1", at(1, 0.55), 0.4);
+COUNT("#re-cnt", 0, 101, at(1, 0.58), 1.6);
+IN("#re-mat", at(1, 0.8), 0.4);
+// L2 creator
+CLR(1, 5, at(2, 0));
+OUT("#re-r0, #re-r1, #re-mat", at(2, 0), 0.3);
+SEG(2, 3, 2, [0.05, 0.12, 0.62]);
+IN("#re-pn", at(2, 0.66), 0.5);
+IN("#re-f0", at(2, 0.78), 0.4);
+// L3 updater + signer
+CLR(2, 3, at(3, 0));
+SEG(3, 2, 3, [0.05, 0.5]);
+IN("#re-a3", at(3, 0.22), 0.4);
+OUT("#re-f0", at(3, 0.5), 0.3);
+IN("#re-f1", at(3, 0.6), 0.4); IN("#re-f2", at(3, 0.7), 0.4); IN("#re-f3", at(3, 0.82), 0.4);
+tl.to("#re-f3", { opacity: 0.3, duration: 0.2, yoyo: true, repeat: 3 }, at(3, 0.88));
+// L4 analyze + finalize
+CLR(3, 2, at(4, 0)); OUT("#re-a3", at(4, 0), 0.3);
+SEG(4, 4, 4, [0.05, 0.2, 0.42, 0.52]);
+IN("#re-a4", at(4, 0.68), 0.5, { x: 10 }, { x: 0 });
+// L5 broadcast
+CLR(4, 4, at(5, 0)); OUT("#re-a4", at(5, 0), 0.3);
+SEG(5, 5, 5, [0.05, 0.2, 0.3, 0.4, 0.45]);
+COUNT("#re-bal", 0, 10, at(5, 0.47), 1.0, v => v.toFixed(8));
+IN("#re-w1", at(5, 0.75), 0.4); IN("#re-w2", at(5, 0.82), 0.4);
+// L6 change mistake -> max-fee-exceeded
+CLR(5, 5, at(6, 0)); OUT("#re-pn, #re-f1, #re-f2, #re-f3, #re-w1, #re-w2", at(6, 0), 0.3);
+SEG(6, 2, 6, [0.05, 0.1]);
+OUT("#re-g6l1", at(6, 0.26), 0.25);
+IN("#re-g6b", at(6, 0.26) + 0.3, 0.3);
+IN("#re-fee", at(6, 0.36), 0.6, { scale: 0.6, svgOrigin: "1490 460" }, { scale: 1, svgOrigin: "1490 460" });
+IN("#re-g6l3", at(6, 0.6), 0.35);
+IN("#re-g6l4", at(6, 0.72), 0.4);
+
+
+      tl.to("#re-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["regtest"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,263 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 blockstm，id 前缀 bl- -->
+  <div id="root" data-composition-id="blockstm" data-duration="70.18" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="bl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="bl-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="bl-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="bl-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="bl-all">
+        <!-- 顶部四步条 (y 220-300，避开左上术语卡 y 56-188) -->
+        <g id="bl-steps">
+          <g id="bl-st0" class="h"><rect id="bl-st0r" x="100" y="220" width="370" height="78" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text id="bl-st0t" x="285" y="271" font-size="32" font-weight="700" fill="#8a8f99" text-anchor="middle">1. 预设顺序</text></g>
+          <path id="bl-sa0" class="dr h" pathLength="1" d="M476 259 L540 259" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#bl-mgy)" />
+          <g id="bl-st1" class="h"><rect id="bl-st1r" x="550" y="220" width="370" height="78" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text id="bl-st1t" x="735" y="271" font-size="32" font-weight="700" fill="#8a8f99" text-anchor="middle">2. 乐观执行</text></g>
+          <path id="bl-sa1" class="dr h" pathLength="1" d="M926 259 L990 259" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#bl-mgy)" />
+          <g id="bl-st2" class="h"><rect id="bl-st2r" x="1000" y="220" width="370" height="78" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text id="bl-st2t" x="1185" y="271" font-size="32" font-weight="700" fill="#8a8f99" text-anchor="middle">3. 校验冲突</text></g>
+          <path id="bl-sa2" class="dr h" pathLength="1" d="M1376 259 L1440 259" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#bl-mgy)" />
+          <g id="bl-st3" class="h"><rect id="bl-st3r" x="1450" y="220" width="370" height="78" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text id="bl-st3t" x="1635" y="271" font-size="32" font-weight="700" fill="#8a8f99" text-anchor="middle">4. 重新执行</text></g>
+        </g>
+
+        <!-- 阶段 A：预设交易排好 + 4 线程乐观执行 + 读集写集 + 扫描校验作废 (L1-L2) -->
+        <g id="bl-exec">
+          <text id="bl-ordLbl" class="h" x="100" y="346" font-size="28" fill="#8a8f99">区块内交易预设顺序（结果须等于按序逐笔执行）</text>
+          <g id="bl-qRow">
+            <g id="bl-q0" class="h"><rect x="100" y="366" width="184" height="68" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="192" y="411" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">T1</text></g>
+            <g id="bl-q1" class="h"><rect x="306" y="366" width="184" height="68" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="398" y="411" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">T2</text></g>
+            <g id="bl-q2" class="h"><rect x="512" y="366" width="184" height="68" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="604" y="411" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">T3</text></g>
+            <g id="bl-q3" class="h"><rect x="718" y="366" width="184" height="68" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="810" y="411" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">T4</text></g>
+            <g id="bl-q4" class="h"><rect x="924" y="366" width="184" height="68" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1016" y="411" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">T5</text></g>
+            <g id="bl-q5" class="h"><rect x="1130" y="366" width="184" height="68" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1222" y="411" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">T6</text></g>
+            <g id="bl-q6" class="h"><rect x="1336" y="366" width="184" height="68" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1428" y="411" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">T7</text></g>
+            <g id="bl-q7" class="h"><rect x="1542" y="366" width="184" height="68" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1634" y="411" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">T8</text></g>
+          </g>
+          <g id="bl-lanes" class="h">
+            <text x="100" y="534" font-size="28" fill="#8a8f99">线程 1</text><rect x="220" y="476" width="1600" height="90" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="100" y="646" font-size="28" fill="#8a8f99">线程 2</text><rect x="220" y="588" width="1600" height="90" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="100" y="758" font-size="28" fill="#8a8f99">线程 3</text><rect x="220" y="700" width="1600" height="90" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+            <text x="100" y="870" font-size="28" fill="#8a8f99">线程 4</text><rect x="220" y="812" width="1600" height="90" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          </g>
+          <g id="bl-lT0" class="h"><rect x="248" y="492" width="104" height="58" rx="10" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="300" y="532" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">T1</text></g>
+          <g id="bl-rw0" class="h"><rect x="372" y="494" width="144" height="54" rx="8" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2" /><text x="444" y="531" font-size="28" fill="#58C4DD" text-anchor="middle">读 A</text><rect x="532" y="494" width="144" height="54" rx="8" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="2" /><text x="604" y="531" font-size="28" fill="#F0B90B" text-anchor="middle">写 B</text></g>
+          <g id="bl-lT1" class="h"><rect x="248" y="604" width="104" height="58" rx="10" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="300" y="644" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">T2</text></g>
+          <g id="bl-rw1" class="h"><rect x="372" y="606" width="144" height="54" rx="8" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2" /><text x="444" y="643" font-size="28" fill="#58C4DD" text-anchor="middle">读 C</text><rect x="532" y="606" width="144" height="54" rx="8" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="2" /><text x="604" y="643" font-size="28" fill="#F0B90B" text-anchor="middle">写 D</text></g>
+          <g id="bl-lT2" class="h"><rect x="248" y="716" width="104" height="58" rx="10" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="300" y="756" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">T3</text></g>
+          <g id="bl-rw2" class="h"><rect x="372" y="718" width="144" height="54" rx="8" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2" /><text x="444" y="755" font-size="28" fill="#58C4DD" text-anchor="middle">读 X</text><rect id="bl-t3w" x="532" y="718" width="144" height="54" rx="8" fill="#F0B90B" fill-opacity="0.22" stroke="#F0B90B" stroke-width="2.5" /><text x="604" y="755" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">写 X</text></g>
+          <g id="bl-lT3" class="h"><rect x="248" y="828" width="104" height="58" rx="10" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="300" y="868" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">T4</text></g>
+          <g id="bl-rw3" class="h"><rect x="372" y="830" width="144" height="54" rx="8" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2" /><text x="444" y="867" font-size="28" fill="#58C4DD" text-anchor="middle">读 E</text><rect x="532" y="830" width="144" height="54" rx="8" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="2" /><text x="604" y="867" font-size="28" fill="#F0B90B" text-anchor="middle">写 F</text></g>
+          <g id="bl-lT4" class="h"><rect x="920" y="492" width="104" height="58" rx="10" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="972" y="532" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">T5</text></g>
+          <g id="bl-rw4" class="h"><rect x="1044" y="494" width="144" height="54" rx="8" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2" /><text x="1116" y="531" font-size="28" fill="#58C4DD" text-anchor="middle">读 G</text><rect x="1204" y="494" width="144" height="54" rx="8" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="2" /><text x="1276" y="531" font-size="28" fill="#F0B90B" text-anchor="middle">写 H</text></g>
+          <g id="bl-lT5" class="h"><rect id="bl-t6r" x="920" y="604" width="104" height="58" rx="10" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" /><text id="bl-t6t" class="mono" x="972" y="644" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">T6</text></g>
+          <g id="bl-rw5" class="h"><rect id="bl-t6rd" x="1044" y="606" width="144" height="54" rx="8" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2.5" /><text x="1116" y="643" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">读 X</text><rect x="1204" y="606" width="144" height="54" rx="8" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="2" /><text x="1276" y="643" font-size="28" fill="#F0B90B" text-anchor="middle">写 X</text></g>
+          <g id="bl-lT6" class="h"><rect x="920" y="716" width="104" height="58" rx="10" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="972" y="756" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">T7</text></g>
+          <g id="bl-rw6" class="h"><rect x="1044" y="718" width="144" height="54" rx="8" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2" /><text x="1116" y="755" font-size="28" fill="#58C4DD" text-anchor="middle">读 I</text><rect x="1204" y="718" width="144" height="54" rx="8" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="2" /><text x="1276" y="755" font-size="28" fill="#F0B90B" text-anchor="middle">写 J</text></g>
+          <g id="bl-lT7" class="h"><rect x="920" y="828" width="104" height="58" rx="10" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="972" y="868" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">T8</text></g>
+          <g id="bl-rw7" class="h"><rect x="1044" y="830" width="144" height="54" rx="8" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2" /><text x="1116" y="867" font-size="28" fill="#58C4DD" text-anchor="middle">读 K</text><rect x="1204" y="830" width="144" height="54" rx="8" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="2" /><text x="1276" y="867" font-size="28" fill="#F0B90B" text-anchor="middle">写 L</text></g>
+          <line id="bl-scan" class="h" x1="230" y1="466" x2="230" y2="914" stroke="#58C4DD" stroke-width="5" />
+          <path id="bl-conf" class="dr h" pathLength="1" d="M604 714 Q604 689 629 689 L1091 689 Q1116 689 1116 666" stroke="#FC6255" stroke-width="4.5" fill="none" marker-end="url(#bl-mr)" />
+          <g id="bl-abort" class="h"><rect x="1420" y="602" width="180" height="62" rx="10" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="2.5" /><text x="1510" y="644" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">作废 ✕</text></g>
+          <g id="bl-reexec" class="h"><rect x="1420" y="602" width="340" height="62" rx="10" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="2.5" /><text x="1590" y="644" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">只重算 T6 ✓</text></g>
+          <text id="bl-okRow" class="h" x="1510" y="531" font-size="28" fill="#83C167">校验通过 ✓</text>
+          <text id="bl-okRow2" class="h" x="1510" y="755" font-size="28" fill="#83C167">校验通过 ✓</text>
+          <text id="bl-okRow3" class="h" x="1510" y="867" font-size="28" fill="#83C167">校验通过 ✓</text>
+        </g>
+
+        <!-- 阶段 B：算一算 8 笔 4 线程 + 加速比 + 论文基准卡 (L3-L5) -->
+        <g id="bl-calc">
+          <text id="bl-cTitle" class="h" x="100" y="112" font-size="44" font-weight="700" fill="#e8e6df">算一算：Block-STM 并行加速</text>
+          <g id="bl-exTag" class="h"><rect x="1680" y="68" width="140" height="52" rx="26" fill="none" stroke="#8a8f99" stroke-width="2" /><text x="1750" y="104" font-size="28" fill="#8a8f99" text-anchor="middle">示例</text></g>
+          <g id="bl-cond0" class="h"><rect x="100" y="148" width="230" height="56" rx="12" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2" /><text x="215" y="187" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">8 笔转账</text></g>
+          <g id="bl-cond1" class="h"><rect x="358" y="148" width="230" height="56" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="473" y="187" font-size="30" fill="#e8e6df" text-anchor="middle">4 个线程</text></g>
+          <g id="bl-cond2" class="h"><rect x="616" y="148" width="490" height="56" rx="12" fill="#FC6255" fill-opacity="0.14" stroke="#FC6255" stroke-width="2" /><text x="861" y="187" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">冲突对：T3 与 T6（账户 X）</text></g>
+          <g id="bl-tlPanel" class="h">
+            <rect x="100" y="236" width="1080" height="410" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
+            <text x="390" y="284" font-size="28" fill="#8a8f99" text-anchor="middle">时间片 1</text><text x="690" y="284" font-size="28" fill="#8a8f99" text-anchor="middle">时间片 2</text><text x="990" y="284" font-size="28" fill="#8a8f99" text-anchor="middle">时间片 3</text>
+            <line x1="240" y1="304" x2="1140" y2="304" stroke="#3a3f4a" stroke-width="2" />
+            <text x="130" y="362" font-size="28" fill="#8a8f99">线程 1</text><text x="130" y="434" font-size="28" fill="#8a8f99">线程 2</text><text x="130" y="506" font-size="28" fill="#8a8f99">线程 3</text><text x="130" y="578" font-size="28" fill="#8a8f99">线程 4</text>
+          </g>
+          <g id="bl-r1s1" class="h">
+            <rect x="270" y="324" width="240" height="52" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="390" y="361" font-size="28" fill="#58C4DD" text-anchor="middle">T1</text>
+            <rect x="270" y="396" width="240" height="52" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="390" y="433" font-size="28" fill="#58C4DD" text-anchor="middle">T2</text>
+            <rect x="270" y="468" width="240" height="52" rx="10" fill="#FF9F43" fill-opacity="0.22" stroke="#FF9F43" stroke-width="2.5" /><text class="mono" x="390" y="505" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">T3 (X)</text>
+            <rect x="270" y="540" width="240" height="52" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="390" y="577" font-size="28" fill="#58C4DD" text-anchor="middle">T4</text>
+          </g>
+          <g id="bl-r1s2" class="h">
+            <rect x="570" y="324" width="240" height="52" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="690" y="361" font-size="28" fill="#58C4DD" text-anchor="middle">T5</text>
+            <rect id="bl-cT6r" x="570" y="396" width="240" height="52" rx="10" fill="#FF9F43" fill-opacity="0.22" stroke="#FF9F43" stroke-width="2.5" /><text id="bl-cT6t" class="mono" x="690" y="433" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">T6 (X)</text>
+            <rect x="570" y="468" width="240" height="52" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="690" y="505" font-size="28" fill="#58C4DD" text-anchor="middle">T7</text>
+            <rect x="570" y="540" width="240" height="52" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="690" y="577" font-size="28" fill="#58C4DD" text-anchor="middle">T8</text>
+          </g>
+          <text id="bl-r1Lbl" class="h" x="540" y="630" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">第一轮并行：约 2 个时间片</text>
+          <g id="bl-r2s3" class="h"><rect x="870" y="396" width="240" height="52" rx="10" fill="#83C167" fill-opacity="0.22" stroke="#83C167" stroke-width="2.5" /><text x="990" y="433" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">T6 重算 ✓</text><text x="990" y="510" font-size="28" fill="#83C167" text-anchor="middle">第二轮 1 片</text></g>
+          <g id="bl-sumCard" class="h">
+            <rect x="1220" y="236" width="600" height="410" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text id="bl-sum1" class="h" x="1260" y="316" font-size="32" font-weight="700" fill="#58C4DD">并行：执行 9 次 · 约 3 片</text>
+            <text id="bl-sum2" class="h" x="1260" y="388" font-size="32" fill="#8a8f99">顺序：执行 8 次 · 8 片</text>
+            <line x1="1260" y1="430" x2="1780" y2="430" stroke="#3a3f4a" stroke-width="2" />
+            <text id="bl-sum3" class="h" x="1520" y="540" font-size="52" font-weight="700" fill="#83C167" text-anchor="middle">8 / 3 ≈ 2.7 倍</text>
+          </g>
+          <g id="bl-barPanel" class="h">
+            <rect x="100" y="688" width="1080" height="250" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" />
+            <text x="140" y="748" font-size="32" font-weight="700" fill="#FF9F43">冲突越多，加速倍数越低</text>
+            <rect x="140" y="786" width="980" height="48" rx="12" fill="#222733" />
+            <rect id="bl-spBar" x="140" y="786" width="840" height="48" rx="12" fill="#83C167" />
+            <text id="bl-spLow" x="140" y="890" font-size="28" fill="#83C167">冲突少 · 加速高</text>
+            <text id="bl-spHigh" class="h" x="1120" y="890" font-size="28" fill="#FC6255" text-anchor="end">冲突多 → 退化趋近 1 倍</text>
+          </g>
+          <g id="bl-paper" class="h">
+            <rect x="1220" y="688" width="600" height="250" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="1260" y="746" font-size="28" fill="#8a8f99">论文基准测试</text>
+            <text id="bl-p1" class="h" x="1260" y="806" font-size="34" font-weight="700" fill="#F0B90B">32 线程 · 最高约 17 万 TPS</text>
+            <text id="bl-p2" class="h" x="1260" y="864" font-size="34" font-weight="700" fill="#83C167">比顺序快约 17 倍</text>
+            <text id="bl-p3" class="h" x="1260" y="914" font-size="28" fill="#8a8f99">论文基准，以官方为准</text>
+          </g>
+        </g>
+
+        <!-- 阶段 C：自动发现 vs 交易声明 + 验证者确定性状态哈希 (L6) -->
+        <g id="bl-diff">
+          <g id="bl-dLeft" class="h"><rect x="110" y="150" width="780" height="250" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="500" y="226" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">Solana / Sui</text><text x="500" y="302" font-size="34" fill="#e8e6df" text-anchor="middle">交易提前声明读写数据</text><text x="500" y="362" font-size="28" fill="#8a8f99" text-anchor="middle">开发者 / 客户端显式列出</text></g>
+          <g id="bl-dRight" class="h"><rect x="1030" y="150" width="780" height="250" rx="18" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="1420" y="226" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">Aptos · Block-STM</text><text x="1420" y="302" font-size="34" fill="#e8e6df" text-anchor="middle">无需声明，执行器自动发现</text><text x="1420" y="362" font-size="28" fill="#83C167" text-anchor="middle">乐观并行 + 冲突重算</text></g>
+          <text id="bl-detTitle" class="h" x="960" y="512" font-size="38" font-weight="700" fill="#e8e6df" text-anchor="middle">结果确定：线程数不同，状态也相同</text>
+          <g id="bl-v0" class="h"><rect x="200" y="566" width="380" height="120" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><text x="390" y="618" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">验证者 A</text><text x="390" y="664" font-size="28" fill="#8a8f99" text-anchor="middle">4 线程执行</text></g>
+          <g id="bl-v1" class="h"><rect x="770" y="566" width="380" height="120" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><text x="960" y="618" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">验证者 B</text><text x="960" y="664" font-size="28" fill="#8a8f99" text-anchor="middle">16 线程执行</text></g>
+          <g id="bl-v2" class="h"><rect x="1340" y="566" width="380" height="120" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><text x="1530" y="618" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">验证者 C</text><text x="1530" y="664" font-size="28" fill="#8a8f99" text-anchor="middle">32 线程执行</text></g>
+          <path id="bl-va0" class="dr h" pathLength="1" d="M390 692 L830 818" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#bl-mgr)" />
+          <path id="bl-va1" class="dr h" pathLength="1" d="M960 692 L960 812" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#bl-mgr)" />
+          <path id="bl-va2" class="dr h" pathLength="1" d="M1530 692 L1090 818" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#bl-mgr)" />
+          <g id="bl-hash" class="h"><rect x="640" y="822" width="640" height="106" rx="18" fill="#83C167" fill-opacity="0.16" stroke="#83C167" stroke-width="3" /><text x="960" y="888" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">同一个状态哈希 ✓</text></g>
+        </g>
+      </g>
+
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="bl-term" class="h">
+        <rect x="70" y="56" width="630" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Block-STM <tspan font-size="28" font-weight="400" fill="#8a8f99">软件事务内存</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">乐观并行、冲突重算的执行引擎</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const stepOn = (i, col, t) => {
+        tl.to(`#bl-st${i}r`, { stroke: col, fill: col, fillOpacity: 0.16, duration: 0.35 }, t);
+        tl.to(`#bl-st${i}t`, { fill: col, duration: 0.35 }, t);
+      };
+      const stepDim = (i, t) => {
+        tl.to(`#bl-st${i}r`, { stroke: "#8a8f99", fill: "#161a22", fillOpacity: 1, duration: 0.3 }, t);
+        tl.to(`#bl-st${i}t`, { fill: "#8a8f99", duration: 0.3 }, t);
+      };
+
+      // L0: 术语卡 + 四步条依次亮出
+      IN("#bl-term", at(0, 0.04), 0.5);
+      IN("#bl-st0", at(0, 0.25), 0.45);
+      ARROW("#bl-sa0", at(0, 0.36), 0.3);
+      IN("#bl-st1", at(0, 0.44), 0.45);
+      ARROW("#bl-sa1", at(0, 0.54), 0.3);
+      IN("#bl-st2", at(0, 0.62), 0.45);
+      ARROW("#bl-sa2", at(0, 0.72), 0.3);
+      IN("#bl-st3", at(0, 0.80), 0.45);
+
+      // L1: 预设顺序 T1..T8 + 4 线程乐观执行 + 读写集
+      stepOn(0, "#F0B90B", at(1, 0.02));
+      IN("#bl-ordLbl", at(1, 0.04), 0.4);
+      for (let i = 0; i < 8; i++) IN(`#bl-q${i}`, at(1, 0.08 + i * 0.03), 0.35, { y: 12 }, { y: 0 });
+      OUT("#bl-term", at(1, 0.22), 0.4);
+      // 二，多线程乐观执行
+      stepDim(0, at(1, 0.44));
+      stepOn(1, "#58C4DD", at(1, 0.46));
+      IN("#bl-lanes", at(1, 0.48), 0.5);
+      for (let i = 0; i < 4; i++) IN(`#bl-lT${i}`, at(1, 0.55 + i * 0.025), 0.35, { x: -20 }, { x: 0 });
+      for (let i = 4; i < 8; i++) IN(`#bl-lT${i}`, at(1, 0.66 + (i - 4) * 0.025), 0.35, { x: -20 }, { x: 0 });
+      for (let i = 0; i < 4; i++) IN(`#bl-rw${i}`, at(1, 0.78 + i * 0.02), 0.35);
+      for (let i = 4; i < 8; i++) IN(`#bl-rw${i}`, at(1, 0.86 + (i - 4) * 0.02), 0.35);
+
+      // L2: 校验扫描 + T3 写 X 与 T6 读 X 冲突作废 + 重算 T6
+      stepDim(1, at(2, 0.02));
+      stepOn(2, "#FF9F43", at(2, 0.04));
+      IN("#bl-scan", at(2, 0.08), 0.15);
+      tl.fromTo("#bl-scan", { attr: { x1: 230, x2: 230 } }, { attr: { x1: 1400, x2: 1400 }, duration: 2.2, ease: "none" }, at(2, 0.10));
+      OUT("#bl-scan", at(2, 0.34), 0.25);
+      IN("#bl-okRow", at(2, 0.24), 0.3);
+      ARROW("#bl-conf", at(2, 0.32), 0.65);
+      tl.to("#bl-t6r, #bl-t6rd", { stroke: "#FC6255", fill: "#FC6255", fillOpacity: 0.22, duration: 0.3 }, at(2, 0.40));
+      tl.to("#bl-t6t", { fill: "#FC6255", duration: 0.3 }, at(2, 0.40));
+      IN("#bl-abort", at(2, 0.42), 0.35);
+      IN("#bl-okRow2, #bl-okRow3", at(2, 0.50), 0.35);
+      // 四，只重算 T6
+      stepDim(2, at(2, 0.62));
+      stepOn(3, "#83C167", at(2, 0.64));
+      OUT("#bl-abort", at(2, 0.68), 0.25);
+      IN("#bl-reexec", at(2, 0.72), 0.4);
+      tl.to("#bl-t6r", { stroke: "#83C167", fill: "#83C167", fillOpacity: 0.2, duration: 0.35 }, at(2, 0.74));
+      tl.to("#bl-t6t", { fill: "#83C167", duration: 0.35 }, at(2, 0.74));
+
+      // L3: 算一算 8 笔 4 线程，第一轮 2 时间片
+      OUT("#bl-exec, #bl-steps", at(3, 0.0), 0.35);
+      IN("#bl-cTitle, #bl-exTag", at(3, 0.06), 0.45);
+      IN("#bl-cond0", at(3, 0.16), 0.35);
+      IN("#bl-cond1", at(3, 0.26), 0.35);
+      IN("#bl-cond2", at(3, 0.38), 0.4);
+      IN("#bl-tlPanel", at(3, 0.50), 0.45);
+      IN("#bl-r1s1", at(3, 0.62), 0.45, { y: 12 }, { y: 0 });
+      IN("#bl-r1s2", at(3, 0.74), 0.45, { y: 12 }, { y: 0 });
+      IN("#bl-r1Lbl", at(3, 0.85), 0.4);
+
+      // L4: T6 作废 -> 第二轮重算 1 片 -> 计数 9 次约 3 片 vs 8 片 -> 2.7 倍 -> 冲突倍数条缩短
+      tl.to("#bl-cT6r", { stroke: "#FC6255", fill: "#FC6255", fillOpacity: 0.26, duration: 0.3 }, at(4, 0.06));
+      tl.to("#bl-cT6t", { fill: "#FC6255", duration: 0.3 }, at(4, 0.06));
+      IN("#bl-r2s3", at(4, 0.20), 0.5, { x: -16 }, { x: 0 });
+      IN("#bl-sumCard", at(4, 0.34), 0.4);
+      IN("#bl-sum1", at(4, 0.38), 0.45);
+      IN("#bl-sum2", at(4, 0.52), 0.45);
+      IN("#bl-sum3", at(4, 0.64), 0.5, { scale: 0.9, svgOrigin: "1520 520" }, { scale: 1, svgOrigin: "1520 520" });
+      IN("#bl-barPanel", at(4, 0.75), 0.4);
+      tl.to("#bl-spBar", { attr: { width: 220 }, fill: "#FC6255", duration: 1.8, ease: "power2.inOut" }, at(4, 0.80));
+      IN("#bl-spHigh", at(4, 0.88), 0.4);
+
+      // L5: 右下论文数据卡
+      IN("#bl-paper", at(5, 0.06), 0.5, { y: 18 }, { y: 0 });
+      IN("#bl-p1", at(5, 0.24), 0.5);
+      IN("#bl-p2", at(5, 0.52), 0.5);
+      IN("#bl-p3", at(5, 0.76), 0.4);
+
+      // L6: 对比声明 vs 自动发现 + 三台验证者同一状态哈希
+      OUT("#bl-calc", at(6, 0.0), 0.35);
+      IN("#bl-dLeft", at(6, 0.08), 0.5, { x: -24 }, { x: 0 });
+      IN("#bl-dRight", at(6, 0.28), 0.5, { x: 24 }, { x: 0 });
+      IN("#bl-detTitle", at(6, 0.50), 0.45);
+      IN("#bl-v0", at(6, 0.60), 0.4);
+      IN("#bl-v1", at(6, 0.66), 0.4);
+      IN("#bl-v2", at(6, 0.72), 0.4);
+      ARROW("#bl-va0", at(6, 0.76), 0.45);
+      ARROW("#bl-va1", at(6, 0.78), 0.45);
+      ARROW("#bl-va2", at(6, 0.80), 0.45);
+      IN("#bl-hash", at(6, 0.84), 0.5, { scale: 0.92, svgOrigin: "960 875" }, { scale: 1, svgOrigin: "960 875" });
+
+      tl.to("#bl-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#bl-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["blockstm"] = tl;
+    })();
+  </script>
+</template>

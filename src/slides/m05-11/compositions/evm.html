@@ -1,0 +1,180 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 evm，id 前缀 ev- -->
+  <div id="root" data-composition-id="evm" data-duration="78.94" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ev-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ev-all">
+        <g id="ev-tab">
+        <text id="ev-hE" class="h" x="560" y="290" font-size="40" font-weight="700" fill="#8a8f99">以太坊 EVM</text>
+        <text id="ev-hS" class="h" x="1200" y="290" font-size="40" font-weight="700" fill="#58C4DD">Solana</text>
+        <line id="ev-hl" class="dr" pathLength="1" x1="540" y1="320" x2="1820" y2="320" stroke="#3a3f4a" stroke-width="2" />
+        <line id="ev-vl" class="dr" pathLength="1" x1="480" y1="250" x2="480" y2="960" stroke="#3a3f4a" stroke-width="2" />
+        <text id="ev-n0" class="h" x="120" y="330" font-size="30" fill="#e8e6df">代码与数据</text>
+        <text id="ev-n1" class="h" x="120" y="400" font-size="30" fill="#e8e6df">涉及的状态</text>
+        <text id="ev-n2" class="h" x="120" y="470" font-size="30" fill="#e8e6df">并行</text>
+        <text id="ev-n3" class="h" x="120" y="540" font-size="30" fill="#e8e6df">存储成本</text>
+        <text id="ev-n4" class="h" x="120" y="610" font-size="30" fill="#e8e6df">手续费</text>
+        <text id="ev-n5" class="h" x="120" y="680" font-size="30" fill="#e8e6df">代币</text>
+        <text id="ev-n6" class="h" x="120" y="750" font-size="30" fill="#e8e6df">权限与签名</text>
+        <text id="ev-n7" class="h" x="120" y="820" font-size="30" fill="#e8e6df">升级</text>
+        <text id="ev-n8" class="h" x="120" y="890" font-size="30" fill="#e8e6df">语言与工具</text>
+        <g id="ev-r0" class="h">
+          <rect x="540" y="340" width="8" height="102" rx="4" fill="#8a8f99" />
+          <rect x="1180" y="340" width="8" height="102" rx="4" fill="#58C4DD" />
+          <text x="570" y="390" font-size="30" fill="#c9ccd3">合约把代码和存储放在一起</text>
+          <text id="ev-s0_0" x="1210" y="390" font-size="30" fill="#e8e6df">程序只有代码；数据在独立账户里，</text>
+          <text id="ev-s0_1" x="1210" y="436" font-size="30" fill="#e8e6df">由 owner 字段指向程序</text>
+        </g>
+        <g id="ev-r1" class="h">
+          <rect x="540" y="340" width="8" height="102" rx="4" fill="#8a8f99" />
+          <rect x="1180" y="340" width="8" height="102" rx="4" fill="#58C4DD" />
+          <text x="570" y="390" font-size="30" fill="#c9ccd3">合约运行时隐式读写自己的存储</text>
+          <text id="ev-s1_0" x="1210" y="390" font-size="30" fill="#e8e6df">交易必须提前列出所有会碰的账户，</text>
+          <text id="ev-s1_1" x="1210" y="436" font-size="30" fill="#e8e6df">并标注读或写</text>
+        </g>
+        <g id="ev-r2" class="h">
+          <rect x="540" y="600" width="8" height="56" rx="4" fill="#8a8f99" />
+          <rect x="1180" y="600" width="8" height="56" rx="4" fill="#58C4DD" />
+          <text x="570" y="650" font-size="30" fill="#c9ccd3">交易顺序执行</text>
+          <text id="ev-s2_0" x="1210" y="650" font-size="30" fill="#e8e6df">账户不冲突的交易并行执行</text>
+        </g>
+        <g id="ev-r3" class="h">
+          <rect x="540" y="340" width="8" height="56" rx="4" fill="#8a8f99" />
+          <rect x="1180" y="340" width="8" height="56" rx="4" fill="#58C4DD" />
+          <text x="570" y="390" font-size="30" fill="#c9ccd3">写存储付一次性 Gas</text>
+          <text id="ev-s3_0" x="1210" y="390" font-size="30" fill="#e8e6df">账户存租金豁免押金，关闭可退</text>
+        </g>
+        <g id="ev-r4" class="h">
+          <rect x="540" y="600" width="8" height="102" rx="4" fill="#8a8f99" />
+          <rect x="1180" y="600" width="8" height="102" rx="4" fill="#58C4DD" />
+          <text x="570" y="650" font-size="30" fill="#c9ccd3">Gas 价格 × Gas 用量，</text>
+          <text x="570" y="696" font-size="30" fill="#c9ccd3">随拥堵浮动</text>
+          <text id="ev-s4_0" x="1210" y="650" font-size="30" fill="#e8e6df">每个签名 5,000 lamports 基础费</text>
+          <text id="ev-s4_1" x="1210" y="696" font-size="30" fill="#e8e6df">+ 可选优先费；有计算单元上限</text>
+        </g>
+        <g id="ev-r5" class="h">
+          <rect x="540" y="340" width="8" height="148" rx="4" fill="#8a8f99" />
+          <rect x="1180" y="340" width="8" height="148" rx="4" fill="#58C4DD" />
+          <text x="570" y="390" font-size="30" fill="#c9ccd3">每种代币是一个合约，</text>
+          <text x="570" y="436" font-size="30" fill="#c9ccd3">自己记余额</text>
+          <text id="ev-s5_0" x="1210" y="390" font-size="30" fill="#e8e6df">共用一个代币程序；</text>
+          <text id="ev-s5_1" x="1210" y="436" font-size="30" fill="#e8e6df">每种代币一个 mint 账户，</text>
+          <text id="ev-s5_2" x="1210" y="482" font-size="30" fill="#e8e6df">每个持有人一个代币账户</text>
+        </g>
+        <g id="ev-r6" class="h">
+          <rect x="540" y="340" width="8" height="102" rx="4" fill="#8a8f99" />
+          <rect x="1180" y="340" width="8" height="102" rx="4" fill="#58C4DD" />
+          <text x="570" y="390" font-size="30" fill="#c9ccd3">msg.sender；</text>
+          <text x="570" y="436" font-size="30" fill="#c9ccd3">合约账户没有私钥</text>
+          <text id="ev-s6_0" x="1210" y="390" font-size="30" fill="#e8e6df">指令里每个账户标注是否签名；</text>
+          <text id="ev-s6_1" x="1210" y="436" font-size="30" fill="#e8e6df">PDA 由程序代签</text>
+        </g>
+        <g id="ev-r7" class="h">
+          <rect x="540" y="340" width="8" height="102" rx="4" fill="#8a8f99" />
+          <rect x="1180" y="340" width="8" height="102" rx="4" fill="#58C4DD" />
+          <text x="570" y="390" font-size="30" fill="#c9ccd3">需要代理模式</text>
+          <text id="ev-s7_0" x="1210" y="390" font-size="30" fill="#e8e6df">程序默认可升级，由“升级权限”控制，</text>
+          <text id="ev-s7_1" x="1210" y="436" font-size="30" fill="#e8e6df">可以放弃它让程序不可变</text>
+        </g>
+        <g id="ev-r8" class="h">
+          <rect x="540" y="600" width="8" height="56" rx="4" fill="#8a8f99" />
+          <rect x="1180" y="600" width="8" height="56" rx="4" fill="#58C4DD" />
+          <text x="570" y="650" font-size="30" fill="#c9ccd3">Solidity、Foundry</text>
+          <text id="ev-s8_0" x="1210" y="650" font-size="30" fill="#e8e6df">Rust、Anchor 框架、Solana CLI</text>
+        </g>
+        <g id="ev-lanes" class="h">
+          <line class="dr ev-ln" pathLength="1" x1="1620" y1="610" x2="1800" y2="610" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+          <line class="dr ev-ln" pathLength="1" x1="1620" y1="640" x2="1800" y2="640" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+          <line class="dr ev-ln" pathLength="1" x1="1620" y1="670" x2="1800" y2="670" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+        </g>
+        <g id="ev-seq" class="h">
+          <line class="dr ev-sq" pathLength="1" x1="900" y1="640" x2="1120" y2="640" stroke="#8a8f99" stroke-width="6" stroke-linecap="round" />
+        </g>
+        </g>
+        <g id="ev-move" class="h">
+          <rect x="760" y="440" width="400" height="140" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text x="960" y="502" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">Move 链</text>
+          <text x="960" y="552" font-size="28" fill="#8a8f99" text-anchor="middle">资源与对象模型</text>
+        </g>
+        <g id="ev-later" class="h">
+          <rect x="1600" y="940" width="200" height="60" rx="30" fill="none" stroke="#8a8f99" stroke-width="2" />
+          <text x="1700" y="980" font-size="28" fill="#8a8f99" text-anchor="middle">后面讲</text>
+        </g>
+
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const DIM = "#6b6f7a", HI = "#e8e6df", ON = "#58C4DD";
+      const name = (i, t) => { IN("#ev-n" + i, t, 0.4); tl.to("#ev-n" + i, { fill: ON, duration: 0.3 }, t); };
+      const past = (arr, t) => arr.forEach(i => tl.to("#ev-n" + i, { fill: DIM, duration: 0.3 }, t));
+      // L0 表头
+      DRAW("#ev-vl", at(0, 0), 0.6); DRAW("#ev-hl", at(0, 0.1), 0.6);
+      IN("#ev-hE", at(0, 0.2), 0.5); IN("#ev-hS", at(0, 0.5), 0.5);
+      // L1 代码与数据
+      name(0, at(1, 0.02)); IN("#ev-r0", at(1, 0.08), 0.6, { x: -20 }, { x: 0 });
+      tl.to(["#ev-s0_0"], { fill: ON, duration: 0.4 }, at(1, 0.6));
+      // L2 涉及的状态 + 并行
+      OUT("#ev-r0", at(2, 0)); past([0], at(2, 0));
+      name(1, at(2, 0.04)); IN("#ev-r1", at(2, 0.08), 0.6, { x: -20 }, { x: 0 });
+      tl.to("#ev-s1_1", { fill: ON, duration: 0.4 }, at(2, 0.42));
+      name(2, at(2, 0.6)); IN("#ev-r2", at(2, 0.62), 0.6, { x: -20 }, { x: 0 });
+      IN("#ev-seq", at(2, 0.66), 0.2); DRAW(".ev-sq", at(2, 0.66), 0.8);
+      IN("#ev-lanes", at(2, 0.78), 0.2); tl.fromTo(".ev-ln", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, stagger: 0.1 }, at(2, 0.78));
+      // L3 存储成本 + 手续费
+      OUT(["#ev-r1", "#ev-r2", "#ev-lanes", "#ev-seq"], at(3, 0)); past([1, 2], at(3, 0));
+      name(3, at(3, 0.04)); IN("#ev-r3", at(3, 0.08), 0.6, { x: -20 }, { x: 0 });
+      name(4, at(3, 0.4)); IN("#ev-r4", at(3, 0.42), 0.6, { x: -20 }, { x: 0 });
+      tl.to("#ev-s4_1", { fill: "#F0B90B", duration: 0.4 }, at(3, 0.75));
+      // L4 代币
+      OUT(["#ev-r3", "#ev-r4"], at(4, 0)); past([3, 4], at(4, 0));
+      name(5, at(4, 0.04)); IN("#ev-r5", at(4, 0.08), 0.6, { x: -20 }, { x: 0 });
+      tl.to(["#ev-s5_1", "#ev-s5_2"], { fill: "#F0B90B", duration: 0.4, stagger: 0.3 }, at(4, 0.7));
+      // L5 权限与签名
+      OUT("#ev-r5", at(5, 0)); past([5], at(5, 0));
+      name(6, at(5, 0.04)); IN("#ev-r6", at(5, 0.08), 0.6, { x: -20 }, { x: 0 });
+      tl.to("#ev-s6_1", { fill: "#83C167", duration: 0.4 }, at(5, 0.75));
+      // L6 升级 + 语言与工具
+      OUT("#ev-r6", at(6, 0)); past([6], at(6, 0));
+      name(7, at(6, 0.04)); IN("#ev-r7", at(6, 0.08), 0.6, { x: -20 }, { x: 0 });
+      tl.to("#ev-s7_1", { fill: "#FF9F43", duration: 0.4 }, at(6, 0.4));
+      name(8, at(6, 0.62)); IN("#ev-r8", at(6, 0.64), 0.6, { x: -20 }, { x: 0 });
+      past([7, 8], at(6, 0.95));
+      // L7 表格淡出，Move 链
+      OUT("#ev-tab", at(7, 0), 0.5);
+      IN("#ev-move", at(7, 0.15), 0.7, { scale: 0.9, svgOrigin: "960 510" }, { scale: 1, svgOrigin: "960 510" });
+      IN("#ev-later", at(7, 0.5));
+
+
+      tl.to("#ev-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["evm"] = tl;
+    })();
+  </script>
+</template>

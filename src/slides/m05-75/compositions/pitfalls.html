@@ -1,0 +1,157 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pitfalls，id 前缀 pi- -->
+  <div id="root" data-composition-id="pitfalls" data-duration="59.91" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="pi-all">
+        <g id="pi-gridAll">
+          <text id="pi-title" class="h" x="960" y="175" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">编译通过 <tspan fill="#FC6255">≠</tspan> 安全</text>
+          <!-- 六个格子框 + 绿标签 -->
+          <g id="pi-frames" class="h">
+            <rect id="pi-f1" x="120" y="240" width="533" height="340" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="pi-f2" x="693" y="240" width="533" height="340" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="pi-f3" x="1266" y="240" width="533" height="340" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="pi-f4" x="120" y="620" width="533" height="340" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="pi-f5" x="693" y="620" width="533" height="340" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="pi-f6" x="1266" y="620" width="533" height="340" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <g class="mono" font-size="28" fill="#83C167">
+              <text x="144" y="290">cargo build ✓</text><text x="717" y="290">cargo build ✓</text><text x="1290" y="290">cargo build ✓</text>
+              <text x="144" y="670">cargo build ✓</text><text x="717" y="670">cargo build ✓</text><text x="1290" y="670">cargo build ✓</text>
+            </g>
+          </g>
+
+          <!-- 格 1 panic -->
+          <g id="pi-g1" class="h">
+            <text x="144" y="360" class="mono" font-size="30" fill="#e8e6df">unwrap()  v[i]  x / 0</text>
+            <text x="144" y="430" class="mono" font-size="28" fill="#83C167">.ok_or(…)?  v.get(i)</text>
+            <text x="144" y="478" class="mono" font-size="28" fill="#83C167">require!(c &gt; 0)</text>
+            <text x="629" y="550" font-size="30" fill="#FC6255" text-anchor="end"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">panic</tspan> · 无错误码</text>
+          </g>
+          <!-- 格 2 舍入方向 -->
+          <g id="pi-g2" class="h">
+            <text x="717" y="360" font-size="28" fill="#e8e6df">付给用户：向下取整 <tspan fill="#58C4DD">↓</tspan></text>
+            <text x="717" y="410" font-size="28" fill="#e8e6df">收用户的：向上取整 <tspan fill="#F0B90B">↑</tspan></text>
+            <text x="717" y="482" font-size="28" fill="#8a8f99">金库</text>
+            <rect id="pi-vault" x="790" y="456" width="380" height="34" rx="6" fill="#F0B90B" fill-opacity="0.75" />
+            <text x="1202" y="550" font-size="30" fill="#FC6255" text-anchor="end">被小额操作抽干</text>
+          </g>
+          <!-- 格 3 精度 -->
+          <g id="pi-g3" class="h">
+            <text x="1290" y="360" class="mono" font-size="30" fill="#FC6255">a / c * b  → 0</text>
+            <text x="1600" y="360" font-size="28" fill="#6b6f7a"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">a &lt; c</tspan> 时</text>
+            <text x="1290" y="425" class="mono" font-size="30" fill="#83C167">a * b / c  ✓</text>
+            <text x="1290" y="490" class="mono" font-size="30" fill="#8a8f99" text-decoration="line-through">f64</text>
+            <text x="1370" y="490" font-size="28" fill="#8a8f99">金额不用浮点</text>
+            <text x="1775" y="550" font-size="30" fill="#FC6255" text-anchor="end">精度丢失</text>
+          </g>
+          <!-- 格 4 saturating -->
+          <g id="pi-g4" class="h">
+            <text x="144" y="740" class="mono" font-size="28" fill="#e8e6df">bal.saturating_sub(x)</text>
+            <text x="144" y="800" font-size="28" fill="#e8e6df">余额不足 → <tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace" fill="#FC6255">0</tspan></text>
+            <text x="144" y="860" font-size="28" fill="#83C167">后续照常执行 ✓</text>
+            <text x="629" y="930" font-size="30" fill="#FC6255" text-anchor="end">错误被藏起来</text>
+          </g>
+          <!-- 格 5 UncheckedAccount -->
+          <g id="pi-g5" class="h">
+            <text x="717" y="740" class="mono" font-size="28" fill="#FF9F43">UncheckedAccount</text>
+            <g id="pi-door"><rect x="1070" y="700" width="60" height="100" rx="4" fill="none" stroke="#FF9F43" stroke-width="2.5" /><path d="M1070 700 L1040 712 L1040 812 L1070 800" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" /></g>
+            <g id="pi-mask"><circle cx="1170" cy="750" r="22" fill="#FC6255" fill-opacity="0.3" stroke="#FC6255" stroke-width="2.5" /><text x="1170" y="760" font-size="28" fill="#FC6255" text-anchor="middle">?</text></g>
+            <text x="717" y="795" font-size="28" fill="#e8e6df">不做任何校验</text>
+            <text x="717" y="860" class="mono" font-size="28" fill="#83C167">/// CHECK: …  Account&lt;T&gt;</text>
+            <text x="1202" y="930" font-size="30" fill="#FC6255" text-anchor="end">伪造账户混入</text>
+          </g>
+          <!-- 格 6 栈帧 -->
+          <g id="pi-g6" class="h">
+            <rect x="1290" y="695" width="180" height="150" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1380" y="735" font-size="28" fill="#8a8f99" text-anchor="middle">栈 <tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">4 KB</tspan></text>
+            <rect x="1550" y="695" width="210" height="150" rx="8" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1655" y="735" font-size="28" fill="#58C4DD" text-anchor="middle">堆</text>
+            <g id="pi-big"><rect id="pi-bigr" x="1300" y="758" width="190" height="64" rx="6" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="1395" y="800" font-size="28" fill="#e8e6df" text-anchor="middle">大结构体</text></g>
+            <text x="1290" y="895" class="mono" font-size="28" fill="#6b6f7a">zero_copy</text>
+            <text x="1775" y="940" font-size="28" fill="#FC6255" text-anchor="end">栈越界</text>
+          </g>
+          <text id="pi-boxt" class="h mono" x="1560" y="895" font-size="28" fill="#83C167">Box&lt;T&gt;</text>
+        </g>
+
+        <!-- L6 边界值 -->
+        <g id="pi-bd">
+          <text id="pi-bdt" class="h" x="960" y="420" font-size="44" fill="#e8e6df" text-anchor="middle">测试一定覆盖边界值</text>
+          <g id="pi-k1" class="h"><rect x="290" y="500" width="120" height="110" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="350" y="568" class="mono" font-size="36" fill="#e8e6df" text-anchor="middle">0</text></g>
+          <g id="pi-k2" class="h"><rect x="440" y="500" width="120" height="110" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="500" y="568" class="mono" font-size="36" fill="#e8e6df" text-anchor="middle">1</text></g>
+          <g id="pi-k3" class="h"><rect x="590" y="500" width="230" height="110" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="705" y="566" class="mono" font-size="32" fill="#e8e6df" text-anchor="middle">u64::MAX</text></g>
+          <g id="pi-k4" class="h"><rect x="850" y="500" width="180" height="110" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="940" y="566" font-size="32" fill="#e8e6df" text-anchor="middle">= 余额</text></g>
+          <g id="pi-k5" class="h"><rect x="1060" y="500" width="210" height="110" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2" /><text x="1165" y="566" font-size="32" fill="#8a8f99" text-anchor="middle">余额 − 1</text></g>
+          <g id="pi-k6" class="h"><rect x="1300" y="500" width="360" height="110" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2" /><text x="1480" y="565" class="mono" font-size="28" fill="#8a8f99" text-anchor="middle">fee 0 / 10,000 bps</text></g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      // 点亮第 k 格：框变橙，其它已亮的格变暗
+      const LIT = (k, t, prev, span) => {
+        tl.set("#pi-g" + k, { opacity: 1 }, t);
+        tl.fromTo("#pi-g" + k + " > *", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: (span || 4) / document.querySelectorAll("#pi-g" + k + " > *").length }, t);
+        tl.to("#pi-f" + k, { stroke: "#FF9F43", strokeWidth: 3, duration: 0.3 }, t);
+        (prev || []).forEach(p => {
+          tl.to("#pi-g" + p, { opacity: 0.35, duration: 0.3 }, t);
+          tl.to("#pi-f" + p, { stroke: "#6b6f7a", strokeWidth: 2, duration: 0.3 }, t);
+        });
+      };
+
+      // L0 空网格 + 标题
+      IN("#pi-title", at(0, 0.05), 0.6);
+      IN("#pi-frames", at(0, 0.35), 0.6);
+
+      // L1 panic
+      LIT(1, at(1, 0.05), null, 7);
+      // L2 舍入方向
+      LIT(2, at(2, 0.03), [1], 3);
+      [0.5, 0.58, 0.66, 0.74, 0.82, 0.9].forEach((f, i) => tl.to("#pi-vault", { attr: { width: 380 - (i + 1) * 63 }, duration: 0.18, ease: "power1.in" }, at(2, f)));
+      tl.to("#pi-vault", { fill: "#FC6255", duration: 0.3 }, at(2, 0.85));
+      // L3 精度 + saturating
+      LIT(3, at(3, 0.03), [2], 4);
+      LIT(4, at(3, 0.52), [3], 4);
+      // L4 UncheckedAccount
+      LIT(5, at(4, 0.03), [4], 6);
+      tl.fromTo("#pi-mask", { x: 30 }, { x: 0, duration: 0.8, ease: "power2.inOut", immediateRender: false }, at(4, 0.3));
+      // L5 栈帧 4 KB
+      LIT(6, at(5, 0.03), [5], 4);
+      tl.fromTo("#pi-boxt", { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, at(5, 0.55));
+      tl.to("#pi-big", { x: 255, duration: 0.8, ease: "power2.inOut" }, at(5, 0.58));
+      tl.to("#pi-bigr", { stroke: "#58C4DD", duration: 0.3 }, at(5, 0.75));
+
+      // L6 边界值
+      OUT("#pi-gridAll", at(6, 0), 0.4);
+      IN("#pi-bdt", at(6, 0.08), 0.4);
+      ["#pi-k1", "#pi-k2", "#pi-k3", "#pi-k4", "#pi-k5", "#pi-k6"].forEach((s, i) => IN(s, at(6, 0.15 + i * 0.1), 0.35, { y: 14 }, { y: 0 }));
+
+      tl.to("#pi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["pitfalls"] = tl;
+    })();
+  </script>
+</template>

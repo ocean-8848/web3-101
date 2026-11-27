@@ -1,0 +1,231 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tools，id 前缀 to- -->
+  <div id="root" data-composition-id="tools" data-duration="82.61" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="to-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="to-all">
+        <!-- 主画面：宏 → 展开 → rustc → .so / IDL -->
+        <g id="to-main">
+          <g id="to-k0" class="h"><rect x="120" y="270" width="400" height="66" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="140" y="314" font-size="30" fill="#58C4DD">#[program]</text></g>
+          <g id="to-k1" class="h"><rect x="120" y="370" width="400" height="66" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="140" y="414" font-size="30" fill="#58C4DD">#[derive(Accounts)]</text></g>
+          <g id="to-k2" class="h"><rect x="120" y="470" width="400" height="66" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="140" y="514" font-size="30" fill="#58C4DD">#[account]</text></g>
+          <g id="to-k3" class="h"><rect x="120" y="570" width="400" height="66" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" /><text class="mono" x="140" y="614" font-size="30" fill="#58C4DD">#[error_code]</text></g>
+          <path id="to-a0" class="dr h" pathLength="1" d="M526 303 L594 440" fill="none" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#to-arr)" />
+          <path id="to-a1" class="dr h" pathLength="1" d="M526 403 L594 470" fill="none" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#to-arr)" />
+          <path id="to-a2" class="dr h" pathLength="1" d="M526 503 L594 500" fill="none" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#to-arr)" />
+          <path id="to-a3" class="dr h" pathLength="1" d="M526 603 L594 530" fill="none" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#to-arr)" />
+          <g id="to-mx" class="h">
+            <rect x="600" y="360" width="220" height="280" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="710" y="430" font-size="36" fill="#FF9F43" text-anchor="middle">宏展开</text>
+          </g>
+          <g id="to-pp" class="h">
+            <rect x="644" y="470" width="120" height="140" rx="6" fill="#8a8f99" fill-opacity="0.18" stroke="#8a8f99" stroke-width="1.5" />
+            <rect x="656" y="482" width="120" height="140" rx="6" fill="#8a8f99" fill-opacity="0.18" stroke="#8a8f99" stroke-width="1.5" />
+            <line x1="672" y1="510" x2="756" y2="510" stroke="#8a8f99" stroke-width="3" />
+            <line x1="672" y1="535" x2="740" y2="535" stroke="#8a8f99" stroke-width="3" />
+            <line x1="672" y1="560" x2="760" y2="560" stroke="#8a8f99" stroke-width="3" />
+            <line x1="672" y1="585" x2="730" y2="585" stroke="#8a8f99" stroke-width="3" />
+          </g>
+          <path id="to-a4" class="dr h" pathLength="1" d="M826 500 L894 500" fill="none" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#to-arr)" />
+          <g id="to-rc" class="h">
+            <rect x="900" y="360" width="260" height="280" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text class="mono" x="1030" y="422" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">rustc</text>
+            <text x="1030" y="486" font-size="28" fill="#e8e6df" text-anchor="middle">类型检查</text>
+            <text x="1030" y="536" font-size="28" fill="#e8e6df" text-anchor="middle">借用检查</text>
+            <text x="1030" y="586" font-size="28" fill="#e8e6df" text-anchor="middle">目标 SBF</text>
+          </g>
+          <path id="to-a5" class="dr h" pathLength="1" d="M1166 430 L1254 340" fill="none" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#to-arr)" />
+          <path id="to-a6" class="dr h" pathLength="1" d="M1166 570 L1254 640" fill="none" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#to-arr)" />
+          <g id="to-so" class="h">
+            <rect x="1260" y="260" width="360" height="130" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1290" y="315" font-size="34" fill="#58C4DD">程序 .so</text>
+            <text x="1290" y="362" font-size="28" fill="#e8e6df">→ 部署到链上</text>
+          </g>
+          <g id="to-idl" class="h">
+            <rect x="1260" y="580" width="360" height="130" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1290" y="635" font-size="34" fill="#58C4DD">IDL JSON</text>
+            <text x="1290" y="682" font-size="28" fill="#e8e6df">→ 客户端</text>
+          </g>
+          <text id="to-abi" class="h" x="1660" y="655" font-size="30" fill="#8a8f99">≈ 以太坊 ABI</text>
+        </g>
+
+        <!-- L2 四个工具卡 -->
+        <g id="to-cards">
+          <g id="to-c0" class="h">
+            <rect x="100" y="340" width="400" height="280" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text class="mono" x="130" y="405" font-size="38" font-weight="700" fill="#e8e6df">rustup</text>
+            <text x="130" y="470" font-size="28" fill="#8a8f99">编译器版本</text>
+          </g>
+          <g id="to-c1" class="h">
+            <rect x="540" y="340" width="400" height="280" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text class="mono" x="570" y="405" font-size="38" font-weight="700" fill="#e8e6df">cargo</text>
+            <text x="570" y="470" font-size="28" fill="#8a8f99">依赖 · 编译 · 测试</text>
+            <text x="570" y="580" font-size="28" fill="#58C4DD">≈ go 命令</text>
+          </g>
+          <g id="to-c2" class="h">
+            <rect x="980" y="340" width="400" height="280" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="1010" y="405" font-size="36" font-weight="700" fill="#e8e6df">Solana CLI</text>
+            <text x="1010" y="470" font-size="28" fill="#8a8f99">Agave · 钱包</text>
+            <text x="1010" y="520" font-size="28" fill="#8a8f99">本地节点 · 部署</text>
+            <text class="mono" x="1010" y="580" font-size="28" fill="#8a8f99">build-sbf</text>
+          </g>
+          <g id="to-c3" class="h">
+            <rect x="1420" y="340" width="400" height="280" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="1450" y="405" font-size="36" font-weight="700" fill="#e8e6df">Anchor CLI</text>
+            <text x="1450" y="470" font-size="28" fill="#8a8f99">封装 cargo</text>
+            <rect x="1450" y="540" width="90" height="50" rx="8" fill="none" stroke="#FF9F43" stroke-width="2" />
+            <text class="mono" x="1495" y="575" font-size="28" fill="#FF9F43" text-anchor="middle">avm</text>
+            <text x="1560" y="575" font-size="28" fill="#8a8f99">管版本</text>
+          </g>
+          <g id="to-cmd" class="h">
+            <text class="mono" x="1300" y="960" font-size="28" fill="#6b6f7a">rustup …</text>
+            <text class="mono" x="1300" y="1005" font-size="28" fill="#6b6f7a">avm install 0.31.1</text>
+            <text x="1620" y="1005" font-size="28" fill="#6b6f7a">（示例）</text>
+          </g>
+          <!-- 齿轮 -->
+          <g id="to-g0" class="h"><circle cx="520" cy="480" r="16" fill="#0f1117" stroke="#8a8f99" stroke-width="5" stroke-dasharray="6 4" /></g>
+          <g id="to-g1" class="h"><circle cx="960" cy="480" r="16" fill="#0f1117" stroke="#8a8f99" stroke-width="5" stroke-dasharray="6 4" /></g>
+          <g id="to-g2" class="h"><circle id="to-g2c" cx="1400" cy="480" r="16" fill="#0f1117" stroke="#8a8f99" stroke-width="5" stroke-dasharray="6 4" /></g>
+        </g>
+        <g id="to-errs">
+          <g id="to-e0" class="h"><rect x="460" y="690" width="1000" height="60" rx="10" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2" /><text class="mono" x="490" y="731" font-size="30" fill="#FC6255">build-sbf not found</text></g>
+          <g id="to-e1" class="h"><rect x="460" y="770" width="1000" height="60" rx="10" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2" /><text x="490" y="811" font-size="30" fill="#FC6255">依赖解析失败</text></g>
+          <g id="to-e2" class="h"><rect x="460" y="850" width="1000" height="60" rx="10" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2" /><text x="490" y="891" font-size="30" fill="#FC6255">IDL 无法读取</text></g>
+        </g>
+        <!-- L4 排查 -->
+        <g id="to-term" class="h">
+          <rect x="140" y="690" width="760" height="230" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text id="to-t0" class="mono h" x="170" y="755" font-size="30" fill="#e8e6df">$ anchor --version</text>
+          <text id="to-t1" class="mono h" x="170" y="815" font-size="30" fill="#e8e6df">$ solana --version</text>
+          <text id="to-t2" class="mono h" x="170" y="875" font-size="30" fill="#e8e6df">$ rustc --version</text>
+        </g>
+        <g id="to-toml" class="h">
+          <rect x="980" y="690" width="800" height="230" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <text class="mono" x="1010" y="740" font-size="28" fill="#8a8f99">Anchor.toml</text>
+          <text x="1700" y="740" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+          <rect id="to-thl" x="996" y="762" width="768" height="140" rx="6" fill="#58C4DD" fill-opacity="0" />
+          <text class="mono" x="1010" y="800" font-size="28" fill="#58C4DD">[toolchain]</text>
+          <text class="mono" x="1010" y="845" font-size="28" fill="#e8e6df">anchor_version = "x.y.z"</text>
+          <text class="mono" x="1010" y="890" font-size="28" fill="#e8e6df">solana_version = "x.y.z"</text>
+        </g>
+
+        <!-- L5 两套编译器 -->
+        <g id="to-two">
+          <g id="to-pl" class="h">
+            <rect x="160" y="320" width="680" height="300" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text class="mono" x="200" y="390" font-size="38" fill="#B48EF0">platform-tools</text>
+            <text x="200" y="450" font-size="30" fill="#e8e6df">Solana 自带</text>
+            <text x="200" y="560" font-size="32" fill="#58C4DD">→ .so</text>
+            <text x="800" y="390" font-size="30" fill="#B48EF0" text-anchor="end">版本 A</text>
+          </g>
+          <g id="to-pr" class="h">
+            <rect x="1080" y="320" width="680" height="300" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="1120" y="390" font-size="38" fill="#e8e6df">本机 rustup</text>
+            <text x="1120" y="560" font-size="32" fill="#58C4DD">→ IDL · cargo test</text>
+            <text x="1720" y="390" font-size="30" fill="#8a8f99" text-anchor="end">版本 B</text>
+          </g>
+          <path id="to-crack" class="dr h" pathLength="1" d="M960 290 L935 370 L985 440 L930 520 L980 590 L955 660" fill="none" stroke="#FF9F43" stroke-width="5" />
+          <text id="to-crt" class="h" x="960" y="760" font-size="38" fill="#FF9F43" text-anchor="middle">本机能测，build 报错</text>
+        </g>
+
+        <!-- L6 Cargo.lock 与主网 -->
+        <g id="to-lock" class="h">
+          <path d="M260 320 L460 320 L520 380 L520 620 L260 620 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <path d="M460 320 L460 380 L520 380" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <text class="mono" x="390" y="680" font-size="32" fill="#58C4DD" text-anchor="middle">Cargo.lock</text>
+        </g>
+        <g id="to-padlock" class="h">
+          <path d="M360 470 L360 440 Q390 400 420 440 L420 470" fill="none" stroke="#83C167" stroke-width="6" />
+          <rect x="340" y="470" width="100" height="80" rx="10" fill="#83C167" />
+        </g>
+        <text id="to-gosum" class="h" x="570" y="490" font-size="32" fill="#8a8f99">≈ go.sum</text>
+        <g id="to-net">
+          <g id="to-loc" class="h"><rect x="960" y="330" width="320" height="110" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1120" y="398" font-size="32" fill="#83C167" text-anchor="middle">本地节点 ✓</text></g>
+          <path id="to-na" class="dr h" pathLength="1" d="M1290 385 L1430 385" fill="none" stroke="#e8e6df" stroke-width="2.5" marker-end="url(#to-arr)" />
+          <g id="to-main2" class="h"><rect x="1440" y="330" width="320" height="110" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="1600" y="398" font-size="32" fill="#FF9F43" text-anchor="middle">主网 ?</text></g>
+          <text id="to-l0" class="h" x="1120" y="540" font-size="32" fill="#FF9F43">· 计算预算</text>
+          <text id="to-l1" class="h" x="1120" y="600" font-size="32" fill="#FF9F43">· 账户大小上限</text>
+          <text id="to-l2" class="h" x="1120" y="660" font-size="32" fill="#FF9F43">· RPC 限流</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0 宏块 → 宏展开 → rustc
+      for (let i = 0; i < 4; i++) IN(`#to-k${i}`, at(0, 0.12 + i * 0.07), 0.5, { x: -30 }, { x: 0 });
+      for (let i = 0; i < 4; i++) ARROW(`#to-a${i}`, at(0, 0.45 + i * 0.03), 0.5);
+      IN("#to-mx", at(0, 0.5), 0.6);
+      IN("#to-pp", at(0, 0.62), 0.6, { y: -20 }, { y: 0 });
+      ARROW("#to-a4", at(0, 0.75), 0.5);
+      IN("#to-rc", at(0, 0.8), 0.6);
+      // L1 两个产物
+      ARROW("#to-a5", at(1, 0.05), 0.5);
+      IN("#to-so", at(1, 0.12), 0.6, { x: -20 }, { x: 0 });
+      ARROW("#to-a6", at(1, 0.4), 0.5);
+      IN("#to-idl", at(1, 0.48), 0.6, { x: -20 }, { x: 0 });
+      IN("#to-abi", at(1, 0.75), 0.5);
+      // L2 四个工具
+      OUT("#to-main", at(2, 0), 0.5);
+      IN("#to-c0", at(2, 0.06), 0.6, { y: 30 }, { y: 0 });
+      IN("#to-c1", at(2, 0.22), 0.6, { y: 30 }, { y: 0 });
+      IN("#to-c2", at(2, 0.48), 0.6, { y: 30 }, { y: 0 });
+      IN("#to-c3", at(2, 0.72), 0.6, { y: 30 }, { y: 0 });
+      IN("#to-cmd", at(2, 0.85), 0.5);
+      // L3 版本齿轮错位 → 报错
+      OUT("#to-cmd", at(3, 0), 0.3);
+      IN("#to-g0", at(3, 0.08), 0.4); IN("#to-g1", at(3, 0.13), 0.4); IN("#to-g2", at(3, 0.18), 0.4);
+      tl.to("#to-g2c", { attr: { cy: 520 }, stroke: "#FF9F43", duration: 0.4, ease: "back.out(2)" }, at(3, 0.32));
+      tl.to("#to-g2", { opacity: 0.3, duration: 0.15, yoyo: true, repeat: 3 }, at(3, 0.4));
+      IN("#to-e0", at(3, 0.55), 0.4, { y: -40 }, { y: 0 });
+      IN("#to-e1", at(3, 0.68), 0.4, { y: -40 }, { y: 0 });
+      IN("#to-e2", at(3, 0.81), 0.4, { y: -40 }, { y: 0 });
+      // L4 打印版本 + Anchor.toml
+      OUT("#to-errs", at(4, 0), 0.4);
+      IN("#to-term", at(4, 0.04), 0.5);
+      IN("#to-t0", at(4, 0.1), 0.3); IN("#to-t1", at(4, 0.18), 0.3); IN("#to-t2", at(4, 0.26), 0.3);
+      IN("#to-toml", at(4, 0.4), 0.6, { x: 20 }, { x: 0 });
+      tl.to("#to-thl", { attr: { "fill-opacity": 0.15 }, duration: 0.4 }, at(4, 0.65));
+      tl.to("#to-g2c", { attr: { cy: 480 }, duration: 0.4, ease: "back.out(2)" }, at(4, 0.75));
+      tl.to("#to-g0 circle, #to-g1 circle, #to-g2c", { stroke: "#83C167", duration: 0.3 }, at(4, 0.82));
+      // L5 两套编译器
+      OUT("#to-cards, #to-term, #to-toml", at(5, 0), 0.4);
+      IN("#to-pl", at(5, 0.08), 0.6, { x: -30 }, { x: 0 });
+      IN("#to-pr", at(5, 0.38), 0.6, { x: 30 }, { x: 0 });
+      DRAW("#to-crack", at(5, 0.62), 0.6); IN("#to-crack", at(5, 0.62), 0.1);
+      IN("#to-crt", at(5, 0.75), 0.5);
+      // L6 Cargo.lock + 主网
+      OUT("#to-two", at(6, 0), 0.4);
+      IN("#to-lock", at(6, 0.04), 0.5);
+      IN("#to-padlock", at(6, 0.12), 0.5, { y: -40 }, { y: 0 });
+      IN("#to-gosum", at(6, 0.28), 0.5);
+      IN("#to-loc", at(6, 0.45), 0.5);
+      ARROW("#to-na", at(6, 0.52), 0.4);
+      IN("#to-main2", at(6, 0.56), 0.5);
+      IN("#to-l0", at(6, 0.66), 0.4); IN("#to-l1", at(6, 0.74), 0.4); IN("#to-l2", at(6, 0.82), 0.4);
+
+      tl.to("#to-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tools"] = tl;
+    })();
+  </script>
+</template>

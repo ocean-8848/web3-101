@@ -1,0 +1,204 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 re- -->
+  <div id="root" data-composition-id="recap" data-duration="51.22" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="re-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="re-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <!-- L0：钩子画面回归（左 Hub、右 Osmosis、中中继者、轻客户端绿 ✓） -->
+        <g id="re-l0">
+          <text id="re-h0" class="h" x="960" y="146" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">Osmosis 凭什么相信 Hub？</text>
+          <g id="re-hub" class="h">
+            <rect x="110" y="210" width="580" height="580" rx="22" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="400" y="276" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">Cosmos Hub</text>
+            <rect x="166" y="330" width="468" height="140" rx="16" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="3" />
+            <text x="400" y="394" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">托管 1 ATOM</text>
+            <text x="400" y="442" font-size="28" fill="#8a8f99" text-anchor="middle">transfer 模块账户</text>
+            <rect x="166" y="540" width="468" height="140" rx="16" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="400" y="622" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">区块头 · 状态根</text>
+          </g>
+
+          <g id="re-osmo" class="h">
+            <rect x="1230" y="210" width="580" height="580" rx="22" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="1520" y="276" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">Osmosis</text>
+            <rect x="1286" y="330" width="468" height="140" rx="16" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="3" />
+            <text x="1520" y="388" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">铸造凭证币</text>
+            <text class="mono" x="1520" y="440" font-size="30" text-anchor="middle"><tspan fill="#58C4DD">ibc/</tspan><tspan fill="#F0B90B">27394F…</tspan></text>
+          </g>
+
+          <g id="re-lc" class="h">
+            <rect x="1286" y="540" width="468" height="184" rx="16" fill="#58C4DD" fill-opacity="0.18" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="1520" y="608" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">Hub 轻客户端</text>
+            <text x="1520" y="676" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">✓ 自己验证默克尔证明</text>
+          </g>
+          <path id="re-lclnk" class="h" d="M1282 610 L646 610" stroke="#58C4DD" stroke-width="4" stroke-dasharray="10 8" fill="none" marker-end="url(#re-mb)" />
+
+          <g id="re-rel" class="h">
+            <rect x="780" y="336" width="360" height="128" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-dasharray="10 7" />
+            <text x="960" y="392" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">中继者</text>
+            <text x="960" y="438" font-size="28" fill="#8a8f99" text-anchor="middle">只负责搬运 · 不被信任</text>
+          </g>
+          <path id="re-ra1" class="dr h" pathLength="1" d="M694 400 L768 400" stroke="#FF9F43" stroke-width="3.5" fill="none" marker-end="url(#re-mo)" />
+          <path id="re-ra2" class="dr h" pathLength="1" d="M1146 400 L1220 400" stroke="#FF9F43" stroke-width="3.5" fill="none" marker-end="url(#re-mo)" />
+        </g>
+
+        <!-- L1：三条成立条件 -->
+        <g id="re-l1">
+          <text id="re-c-title" class="h" x="960" y="196" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">IBC 的三条成立条件</text>
+          <g id="re-c0" class="h">
+            <rect x="300" y="280" width="1320" height="150" rx="20" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <circle cx="390" cy="355" r="34" fill="#FF9F43" fill-opacity="0.2" stroke="#FF9F43" stroke-width="3" />
+            <text x="390" y="369" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">1</text>
+            <text x="470" y="369" font-size="38" font-weight="700" fill="#e8e6df">对方链超过 2/3 的质押诚实</text>
+          </g>
+          <g id="re-c1" class="h">
+            <rect x="300" y="480" width="1320" height="150" rx="20" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <circle cx="390" cy="555" r="34" fill="#FF9F43" fill-opacity="0.2" stroke="#FF9F43" stroke-width="3" />
+            <text x="390" y="569" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">2</text>
+            <text x="470" y="569" font-size="38" font-weight="700" fill="#e8e6df">轻客户端与证明校验代码没有漏洞</text>
+          </g>
+          <g id="re-c2" class="h">
+            <rect x="300" y="680" width="1320" height="150" rx="20" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <circle cx="390" cy="755" r="34" fill="#FF9F43" fill-opacity="0.2" stroke="#FF9F43" stroke-width="3" />
+            <text x="390" y="769" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">3</text>
+            <text x="470" y="769" font-size="38" font-weight="700" fill="#e8e6df">轻客户端在信任期内有人更新</text>
+          </g>
+        </g>
+
+        <!-- L2-L4：五条常见误区 -->
+        <g id="re-l2">
+          <text id="re-mt" class="h" x="960" y="190" font-size="46" font-weight="700" fill="#e8e6df" text-anchor="middle">常见误区</text>
+
+          <!-- 误区 1 -->
+          <g id="re-m0a" class="h">
+            <circle cx="170" cy="316" r="20" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="161" y1="307" x2="179" y2="325" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="179" y1="307" x2="161" y2="325" stroke="#FC6255" stroke-width="3.5" />
+            <text x="214" y="328" font-size="34" fill="#FC6255">中继者必须被信任</text>
+          </g>
+          <line id="re-m0s" class="dr" pathLength="1" x1="210" y1="316" x2="500" y2="316" stroke="#FC6255" stroke-width="3.5" />
+          <path id="re-m0r" class="dr h" pathLength="1" d="M840 316 L960 316" stroke="#8a8f99" stroke-width="3.5" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-m0b" class="h" x="1000" y="328" font-size="34" font-weight="700" fill="#83C167">作恶最多造成延迟</text>
+
+          <!-- 误区 2 -->
+          <g id="re-m1a" class="h">
+            <circle cx="170" cy="444" r="20" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="161" y1="435" x2="179" y2="453" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="179" y1="435" x2="161" y2="453" stroke="#FC6255" stroke-width="3.5" />
+            <text x="214" y="456" font-size="34" fill="#FC6255">IBC 不会出安全问题</text>
+          </g>
+          <line id="re-m1s" class="dr" pathLength="1" x1="210" y1="444" x2="540" y2="444" stroke="#FC6255" stroke-width="3.5" />
+          <path id="re-m1r" class="dr h" pathLength="1" d="M840 444 L960 444" stroke="#8a8f99" stroke-width="3.5" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-m1b" class="h" x="1000" y="456" font-size="34" font-weight="700" fill="#83C167">两起事件都出在证明校验层</text>
+
+          <!-- 误区 3 -->
+          <g id="re-m2a" class="h">
+            <circle cx="170" cy="572" r="20" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="161" y1="563" x2="179" y2="581" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="179" y1="563" x2="161" y2="581" stroke="#FC6255" stroke-width="3.5" />
+            <text x="214" y="584" font-size="34" fill="#FC6255">两种 <tspan class="mono">ibc/</tspan> ATOM 是同一种币</text>
+          </g>
+          <line id="re-m2s" class="dr" pathLength="1" x1="210" y1="572" x2="670" y2="572" stroke="#FC6255" stroke-width="3.5" />
+          <path id="re-m2r" class="dr h" pathLength="1" d="M840 572 L960 572" stroke="#8a8f99" stroke-width="3.5" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-m2b" class="h" x="1000" y="584" font-size="34" font-weight="700" fill="#83C167"><tspan fill="#FC6255">≠ </tspan>路径不同就是不同资产</text>
+
+          <!-- 误区 4 -->
+          <g id="re-m3a" class="h">
+            <circle cx="170" cy="700" r="20" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="161" y1="691" x2="179" y2="709" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="179" y1="691" x2="161" y2="709" stroke="#FC6255" stroke-width="3.5" />
+            <text x="214" y="712" font-size="34" fill="#FC6255">中继者停了钱就丢了</text>
+          </g>
+          <line id="re-m3s" class="dr" pathLength="1" x1="210" y1="700" x2="520" y2="700" stroke="#FC6255" stroke-width="3.5" />
+          <path id="re-m3r" class="dr h" pathLength="1" d="M840 700 L960 700" stroke="#8a8f99" stroke-width="3.5" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-m3b" class="h" x="1000" y="712" font-size="34" font-weight="700" fill="#83C167">超时会退款，资金不丢</text>
+
+          <!-- 误区 5 -->
+          <g id="re-m4a" class="h">
+            <circle cx="170" cy="828" r="20" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="161" y1="819" x2="179" y2="837" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="179" y1="819" x2="161" y2="837" stroke="#FC6255" stroke-width="3.5" />
+            <text x="214" y="840" font-size="34" fill="#FC6255">应用链 = 自动高性能 + 安全</text>
+          </g>
+          <line id="re-m4s" class="dr" pathLength="1" x1="210" y1="828" x2="660" y2="828" stroke="#FC6255" stroke-width="3.5" />
+          <path id="re-m4r" class="dr h" pathLength="1" d="M840 828 L960 828" stroke="#8a8f99" stroke-width="3.5" fill="none" marker-end="url(#re-arr)" />
+          <text id="re-m4b" class="h" x="1000" y="840" font-size="34" font-weight="700" fill="#83C167">定制能力；安全靠自己质押</text>
+        </g>
+
+        <!-- L5：下一集预告 -->
+        <text id="re-next" class="h" x="960" y="556" font-size="60" font-weight="700" fill="#e8e6df" text-anchor="middle">下一集 · Tron 与 TON</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 钩子回归
+      IN("#re-h0", at(0, 0.04), 0.5);
+      IN("#re-hub", at(0, 0.12), 0.55, { x: -20 }, { x: 0 });
+      IN("#re-osmo", at(0, 0.22), 0.55, { x: 20 }, { x: 0 });
+      IN("#re-lc", at(0, 0.42), 0.55, { y: 16 }, { y: 0 });
+      IN("#re-lclnk", at(0, 0.54), 0.5);
+      IN("#re-rel", at(0, 0.72), 0.5);
+      ARROW("#re-ra1", at(0, 0.76), 0.4);
+      ARROW("#re-ra2", at(0, 0.82), 0.4);
+
+      // L1: 三条成立条件
+      OUT("#re-l0", at(1, 0), 0.4);
+      IN("#re-c-title", at(1, 0.06), 0.45);
+      IN("#re-c0", at(1, 0.14), 0.45, { y: 16 }, { y: 0 });
+      IN("#re-c1", at(1, 0.38), 0.45, { y: 16 }, { y: 0 });
+      IN("#re-c2", at(1, 0.60), 0.45, { y: 16 }, { y: 0 });
+
+      // L2-L4: 五条常见误区
+      OUT("#re-l1", at(2, 0), 0.4);
+      IN("#re-mt", at(2, 0.04), 0.45);
+      const mis = (i, t, gap) => {
+        IN(`#re-m${i}a`, t, 0.45, { x: -18 }, { x: 0 });
+        DRAW(`#re-m${i}s`, t + gap, 0.4);
+        ARROW(`#re-m${i}r`, t + gap + 0.15, 0.45);
+        IN(`#re-m${i}b`, t + gap + 0.35, 0.45, { x: -16 }, { x: 0 });
+      };
+      mis(0, at(2, 0.12), 1.6);
+      mis(1, at(2, 0.58), 2.1);
+      mis(2, at(3, 0.06), 2.1);
+      mis(3, at(3, 0.56), 1.7);
+      mis(4, at(4, 0.08), 2.3);
+
+      // L5: 下一集，停留后淡到黑（留黑 0.5 s）
+      OUT("#re-l2", at(5, 0), 0.35);
+      IN("#re-next", at(5, 0.22), 0.5, { y: 16 }, { y: 0 });
+      tl.to("#re-next", { opacity: 0, duration: 0.55, ease: "power2.in" }, C.d - 1.05);
+      tl.to("#re-all", { opacity: 0, duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

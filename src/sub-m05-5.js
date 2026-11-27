@@ -90,7 +90,7 @@ flowchart TB
 <ul>
   <li><strong>原子性</strong>：一笔交易里的多条指令要么全部成功，要么全部回滚，和以太坊的交易类似。</li>
   <li><strong>费用</strong>：基础费每个签名 5,000 lamports；可以另付“优先费”让交易更容易被打包。计算量用<strong>计算单元（CU）</strong>计量，每条指令默认上限约 200,000 CU，整笔交易最多约 1,400,000 CU。</li>
-  <li><strong>确认</strong>：有 processed、confirmed、finalized 三个级别，对应“刚被执行”“被多数验证者投票”“不可回滚”。</li>
+  <li><strong>确认</strong>：有 processed、confirmed、finalized 三个级别，对应“刚被执行”“被超过三分之二质押权重的验证者投票”“不可回滚”。</li>
 </ul>
 <p><strong>算一算（示例）：</strong>转 1 SOL 给朋友。交易只有 1 个签名：基础费 = 1 × 5,000 = 5,000 lamports = 0.000005 SOL。若加 1,000 micro-lamports 每 CU 的优先费，并设置 CU 上限 200,000，则优先费 = 200,000 × 1,000 ÷ 1,000,000 = 200 lamports，总费用 5,200 lamports。</p>
 ${mm('为什么提前声明账户能并行', `
@@ -122,7 +122,7 @@ flowchart LR
 ])}
 ${tbl(['用途', '种子例子', '说明'], [
   ['每个用户一个数据账户', '<code>["profile", 用户公钥]</code>', '用户地址即可找到他的数据账户，不需要额外索引'],
-  ['程序托管的金库', '<code>["vault", 池 ID]</code>', '金库的“所有者”是 PDA，资金只能按程序规则转出'],
+  ['程序托管的金库', '<code>["vault", 池 ID]</code>', '金库代币账户的 authority 是 PDA（账户 owner 字段仍是代币程序），资金只能按程序规则转出'],
   ['关联代币账户（ATA）', '<code>[钱包, 代币程序, 代币 mint]</code>', '每个钱包对每种代币有一个固定地址的代币账户，见 <a href="#m05-12">M06.7</a>']
 ])}
 ${call('info', '<p>类比以太坊：PDA 有点像 CREATE2 算出的地址——“地址可预测”。区别是 PDA 没有私钥，只能由派生它的程序操作；而 CREATE2 的合约有代码，自己就是主体。</p>')}
@@ -255,9 +255,9 @@ solana airdrop 2                                          # 领 2 个测试 SOL�
 solana balance
 
 # 3. 创建 Anchor 项目
-anchor init counter && cd counter
+anchor init counter --test-template mocha && cd counter   # 1.x 默认生成 Rust 测试，加这个参数才生成本节的 TS 测试
 `)}
-${call('warn', '<p>开发钱包只用于测试网，<strong>不要往里面放真实资产</strong>，也不要把 <code>id.json</code> 提交到 Git。下面的示例基于 Anchor 0.30 及以上版本，更早的版本在账户传参上写法略有不同。</p>')}
+${call('warn', '<p>开发钱包只用于测试网，<strong>不要往里面放真实资产</strong>，也不要把 <code>id.json</code> 提交到 Git。下面的示例基于 Anchor 0.30–0.32，更早的版本在账户传参上写法略有不同。Anchor 1.0（2026 年 4 月）起有几处差异：<code>anchor init</code> 默认生成 LiteSVM 的 Rust 测试，要 TypeScript 测试得加 <code>--test-template mocha</code>；TS 包改名为 <code>@anchor-lang/core</code>；<code>anchor test</code> 默认用 Surfpool 起本地节点（加 <code>--validator legacy</code> 回到 solana-test-validator）。以官方发布说明为准。</p>')}
 
 <h2>3. 第一个程序：PDA 计数器</h2>
 <p>需求：每个用户有自己的计数器，只有本人能加一，溢出时报错。计数器账户用 PDA，种子是固定字符串加用户公钥。</p>
@@ -348,13 +348,14 @@ ${tbl(['约束 / 类型', '含义', '防什么'], [
   ['<code>init</code> + <code>payer</code> + <code>space</code>', '创建账户、谁付押金、分配多少字节', '重复初始化、空间不足'],
   ['<code>seeds</code> + <code>bump</code>', '地址必须是由这些种子派生出的 PDA', '账户替换'],
   ['<code>has_one = x</code>', '账户内字段 x 必须等于同名的传入账户', '把 A 的凭证配 B 的数据'],
-  ['<code>mut</code>', '账户可写', '——（标注可写，让运行时能判断并行）']
+  ['<code>mut</code>', '账户可写，退出时写回修改', '把只读账户当可写用（Anchor 检查失败报 ConstraintMut 2000）/ 修改丢失；同时让运行时能判断并行']
 ])}
 <p><strong>算一算（示例）：</strong>计数器账户的数据：鉴别码 8 + authority 32 + count 8 = 48 字节。押金 = (128 + 48) × 6,960 = 1,224,960 lamports ≈ 0.00122 SOL，由 <code>payer</code> 支付。</p>
 
 <h2>4. 测试、部署与调用</h2>
 ${code('TYPESCRIPT', `
 // tests/counter.ts —— 运行 anchor test 会自动启动本地验证节点、部署并执行测试
+// Anchor 0.30–0.32 的包名；1.x 改为 "@anchor-lang/core"
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { Counter } from "../target/types/counter";
@@ -461,7 +462,7 @@ spl-token create-token --decimals 6              # 创建 mint，输出 mint 地
 spl-token create-account <MINT>                  # 为自己创建这个币的代币账户（ATA）
 spl-token mint <MINT> 1000                       # 铸造 1000 枚到自己的账户
 spl-token balance <MINT>
-spl-token transfer <MINT> 10 <对方钱包地址> --fund-recipient   # 转 10 枚；对方没有 ATA 时由你付押金创建
+spl-token transfer <MINT> 10 <对方钱包地址> --fund-recipient --allow-unfunded-recipient   # 转 10 枚；对方没有 ATA 时由你付押金创建；对方是 0 SOL 的新钱包还要加后一个参数
 spl-token authorize <MINT> mint --disable        # 放弃铸币权限：总量从此固定，不可逆
 `)}
 <p><strong>算一算（示例）：</strong>小数位是 6。链上记录的是最小单位的整数：<code>1000</code> 枚 = 1000 × 10<sup>6</sup> = 1,000,000,000 最小单位。转 10 枚 = 转 10,000,000 最小单位。和以太坊的 decimals 概念完全一致。</p>
@@ -481,7 +482,7 @@ ${steps([
   '按第 2 节准备钱包并领测试 SOL。',
   '用第 6 节的命令创建 6 位小数的代币，铸造 1000 枚。',
   '用 <code>solana-keygen new --outfile friend.json</code> 生成第二个钱包，用 <code>solana-keygen pubkey friend.json</code> 取地址。',
-  '用 <code>spl-token transfer</code> 转 10 枚给它，并加 <code>--fund-recipient</code>。',
+  '用 <code>spl-token transfer</code> 转 10 枚给它，并加 <code>--fund-recipient --allow-unfunded-recipient</code>（对方是刚生成、0 SOL 的新钱包时，缺后者会报 recipient address is not funded）。',
   '在 Solana Explorer（Devnet）打开 mint 地址，核对供应量；再打开对方的 ATA，核对 10 枚余额。',
   '用 <code>spl-token authorize &lt;MINT&gt; mint --disable</code> 放弃铸币权限，再尝试铸造一次，确认失败。'
 ])}

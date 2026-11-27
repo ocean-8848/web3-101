@@ -1,0 +1,251 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tonaddr，id 前缀 ton- -->
+  <div id="root" data-composition-id="tonaddr" data-duration="44.19" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ton-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ton-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ton-arr-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="ton-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="ton-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="ton-all">
+        <!-- L0: 原始格式 + 用户友好格式 36 字节 → 48 字符 -->
+        <g id="ton-fmt">
+          <text id="ton-f-title" class="h" x="960" y="116" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">TON 地址的两种写法</text>
+
+          <g id="ton-raw" class="h">
+            <rect x="220" y="166" width="1480" height="194" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="270" y="236" font-size="34" font-weight="700" fill="#58C4DD">原始格式</text>
+            <text class="mono" x="560" y="240" font-size="40" font-weight="700" fill="#B48EF0">0</text>
+            <text class="mono" x="596" y="240" font-size="40" fill="#8a8f99">:</text>
+            <text class="mono" x="630" y="240" font-size="40" fill="#58C4DD">23303D...</text>
+          </g>
+          <g id="ton-raw-lb" class="h">
+            <text x="572" y="318" font-size="28" fill="#B48EF0" text-anchor="middle">工作链编号</text>
+            <text x="900" y="318" font-size="28" fill="#58C4DD" text-anchor="middle">账户哈希（32 字节）</text>
+          </g>
+
+          <g id="ton-uf" class="h">
+            <rect x="140" y="410" width="1640" height="520" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="190" y="476" font-size="34" font-weight="700" fill="#58C4DD">用户友好格式</text>
+            <text x="1730" y="476" font-size="30" fill="#8a8f99" text-anchor="end">共 36 字节</text>
+          </g>
+
+          <g id="ton-seg0" class="h">
+            <rect x="190" y="520" width="245" height="122" rx="12" fill="#0f1117" stroke="#FF9F43" stroke-width="3" />
+            <text x="312" y="572" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">1 字节</text>
+            <text x="312" y="618" font-size="28" fill="#e8e6df" text-anchor="middle">标志位</text>
+          </g>
+          <g id="ton-seg1" class="h">
+            <rect x="455" y="520" width="245" height="122" rx="12" fill="#0f1117" stroke="#B48EF0" stroke-width="3" />
+            <text x="577" y="572" font-size="30" font-weight="700" fill="#B48EF0" text-anchor="middle">1 字节</text>
+            <text x="577" y="618" font-size="28" fill="#e8e6df" text-anchor="middle">工作链</text>
+          </g>
+          <g id="ton-seg2" class="h">
+            <rect x="720" y="520" width="710" height="122" rx="12" fill="#0f1117" stroke="#58C4DD" stroke-width="3" />
+            <text x="1075" y="572" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">32 字节</text>
+            <text x="1075" y="618" font-size="28" fill="#e8e6df" text-anchor="middle">账户编号</text>
+          </g>
+          <g id="ton-seg3" class="h">
+            <rect x="1450" y="520" width="280" height="122" rx="12" fill="#0f1117" stroke="#83C167" stroke-width="3" />
+            <text x="1590" y="572" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">2 字节</text>
+            <text x="1590" y="618" font-size="28" fill="#e8e6df" text-anchor="middle">校验码</text>
+          </g>
+
+          <path id="ton-enc-arr" class="dr h" pathLength="1" d="M960 656 L960 760" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#ton-arr-b)" />
+          <text id="ton-enc-t" class="h" x="990" y="720" font-size="28" fill="#8a8f99">Base64 编码</text>
+
+          <g id="ton-c48" class="h">
+            <rect x="520" y="776" width="880" height="110" rx="14" fill="#0f1117" stroke="#58C4DD" stroke-width="3" />
+            <text x="960" y="844" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">48 个字符</text>
+          </g>
+        </g>
+
+        <!-- L1: 标志位决定前缀 EQ / UQ / kQ 0Q -->
+        <g id="ton-flags">
+          <g id="ton-fl-hub" class="h">
+            <rect x="120" y="450" width="280" height="170" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="260" y="522" font-size="38" font-weight="700" fill="#FF9F43" text-anchor="middle">标志位</text>
+            <text x="260" y="578" font-size="28" fill="#8a8f99" text-anchor="middle">决定开头前缀</text>
+          </g>
+
+          <path id="ton-p-eq" class="dr h" pathLength="1" d="M408 498 C475 498 475 280 546 280" fill="none" stroke="#FF9F43" stroke-width="3.5" marker-end="url(#ton-arr-o)" />
+          <g id="ton-r-eq" class="h">
+            <rect x="560" y="196" width="1220" height="170" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text class="mono" x="620" y="298" font-size="48" font-weight="700" fill="#FF9F43">EQ...</text>
+            <text x="860" y="266" font-size="34" font-weight="700" fill="#e8e6df">可退回地址（bounceable）</text>
+            <text x="860" y="324" font-size="30" fill="#FF9F43">发给带逻辑的合约</text>
+          </g>
+
+          <path id="ton-p-uq" class="dr h" pathLength="1" d="M408 535 L546 535" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#ton-arr-g)" />
+          <g id="ton-r-uq" class="h">
+            <rect x="560" y="450" width="1220" height="170" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="620" y="552" font-size="48" font-weight="700" fill="#83C167">UQ...</text>
+            <text x="860" y="520" font-size="34" font-weight="700" fill="#e8e6df">不可退回地址（non-bounceable）</text>
+            <text x="860" y="578" font-size="30" fill="#83C167">发给收款钱包</text>
+          </g>
+
+          <path id="ton-p-kq" class="dr h" pathLength="1" d="M408 572 C475 572 475 790 546 790" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#ton-arr-r)" />
+          <g id="ton-r-kq" class="h">
+            <rect x="560" y="704" width="1220" height="170" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text class="mono" x="604" y="806" font-size="40" font-weight="700" fill="#FC6255">kQ... / 0Q...</text>
+            <text x="950" y="774" font-size="34" font-weight="700" fill="#FC6255">仅用于测试网</text>
+            <text x="950" y="832" font-size="30" fill="#FC6255">✕ 主网应用必须拒绝</text>
+          </g>
+        </g>
+
+        <!-- L2: 为什么钱包用 UQ？（未部署钱包） -->
+        <g id="ton-undeploy">
+          <text id="ton-ud-title" class="h" x="960" y="132" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">为什么钱包用 UQ？</text>
+
+          <g id="ton-ud-wal" class="h">
+            <rect x="1230" y="240" width="550" height="580" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3.5" stroke-dasharray="14 10" />
+            <text x="1505" y="324" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">尚未部署的收款钱包</text>
+            <text x="1505" y="378" font-size="28" fill="#8a8f99" text-anchor="middle">链上还没有合约代码</text>
+            <rect id="ton-ud-bal-r" x="1290" y="580" width="430" height="130" rx="14" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8" />
+            <text id="ton-ud-bal-t" x="1505" y="658" font-size="32" fill="#8a8f99" text-anchor="middle">等待入账</text>
+          </g>
+
+          <!-- 上道：EQ 弹回 -->
+          <g id="ton-ud-eq-env" class="h">
+            <rect x="180" y="330" width="210" height="106" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text class="mono" x="285" y="396" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">EQ...</text>
+          </g>
+          <path id="ton-ud-eq-go" class="dr h" pathLength="1" d="M402 368 L1212 368" fill="none" stroke="#FF9F43" stroke-width="3.5" marker-end="url(#ton-arr-o)" />
+          <path id="ton-ud-eq-bk" class="dr h" pathLength="1" d="M1212 420 L414 420" fill="none" stroke="#FC6255" stroke-width="3.5" stroke-dasharray="12 8" marker-end="url(#ton-arr-r)" />
+          <text id="ton-ud-eq-t" class="h" x="808" y="344" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">撞壁弹回（bounce）✕</text>
+
+          <!-- 下道：UQ 记账 -->
+          <g id="ton-ud-uq-env" class="h">
+            <rect x="180" y="592" width="210" height="106" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="285" y="658" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">UQ...</text>
+          </g>
+          <path id="ton-ud-uq-go" class="dr h" pathLength="1" d="M402 645 L1274 645" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#ton-arr-g)" />
+          <text id="ton-ud-uq-t" class="h" x="808" y="620" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">直接进入并记进账户 ✓</text>
+        </g>
+
+        <!-- L3: 比对地址先解析成原始格式 -->
+        <g id="ton-eqcmp">
+          <text id="ton-eq-title" class="h" x="960" y="132" font-size="42" font-weight="700" fill="#e8e6df" text-anchor="middle">同一个账户：字符串不同</text>
+
+          <g id="ton-str-l" class="h">
+            <rect x="160" y="210" width="640" height="130" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text class="mono" x="480" y="272" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">EQ...</text>
+            <text x="480" y="318" font-size="28" fill="#8a8f99" text-anchor="middle">可退回写法</text>
+          </g>
+          <g id="ton-str-r" class="h">
+            <rect x="1120" y="210" width="640" height="130" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="1440" y="272" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">UQ...</text>
+            <text x="1440" y="318" font-size="28" fill="#8a8f99" text-anchor="middle">不可退回写法</text>
+          </g>
+          <g id="ton-str-neq" class="h">
+            <text class="mono" x="960" y="272" font-size="42" font-weight="700" fill="#FC6255" text-anchor="middle">==</text>
+            <text x="960" y="324" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 不相等</text>
+          </g>
+
+          <path id="ton-pr-l" class="dr h" pathLength="1" d="M480 350 L480 510" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#ton-arr-b)" />
+          <path id="ton-pr-r" class="dr h" pathLength="1" d="M1440 350 L1440 510" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#ton-arr-b)" />
+          <text id="ton-pr-t" class="h" x="960" y="446" font-size="30" fill="#58C4DD" text-anchor="middle">先解析成原始格式</text>
+
+          <g id="ton-raw-l" class="h">
+            <rect x="200" y="524" width="560" height="116" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="480" y="596" font-size="34" fill="#58C4DD" text-anchor="middle">0:23303D...</text>
+          </g>
+          <g id="ton-raw-r" class="h">
+            <rect x="1160" y="524" width="560" height="116" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1440" y="596" font-size="34" fill="#58C4DD" text-anchor="middle">0:23303D...</text>
+          </g>
+          <g id="ton-raw-eq" class="h">
+            <text class="mono" x="960" y="576" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">equals</text>
+            <text x="960" y="626" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">✓ 同一账户</text>
+          </g>
+
+          <g id="ton-eq-rule" class="h">
+            <rect x="380" y="740" width="1160" height="104" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="960" y="805" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">比对地址：先解析成原始格式，不要直接比字符串</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0: 原始格式 + 用户友好格式
+      IN("#ton-f-title", at(0, 0.02), 0.5, { y: -14 }, { y: 0 });
+      IN("#ton-raw", at(0, 0.12), 0.6, { y: 14 }, { y: 0 });
+      IN("#ton-raw-lb", at(0, 0.28), 0.5);
+      IN("#ton-uf", at(0, 0.42), 0.55, { y: 16 }, { y: 0 });
+      IN("#ton-seg0", at(0, 0.54), 0.4, { y: 12 }, { y: 0 });
+      IN("#ton-seg1", at(0, 0.60), 0.4, { y: 12 }, { y: 0 });
+      IN("#ton-seg2", at(0, 0.66), 0.4, { y: 12 }, { y: 0 });
+      IN("#ton-seg3", at(0, 0.72), 0.4, { y: 12 }, { y: 0 });
+      ARROW("#ton-enc-arr", at(0, 0.80), 0.5);
+      IN("#ton-enc-t", at(0, 0.82), 0.4);
+      IN("#ton-c48", at(0, 0.86), 0.55, { y: 12 }, { y: 0 });
+
+      // L1: 标志位分支
+      OUT("#ton-fmt", at(1, 0), 0.35);
+      IN("#ton-fl-hub", at(1, 0.05), 0.55, { x: -20 }, { x: 0 });
+      ARROW("#ton-p-eq", at(1, 0.16), 0.55);
+      IN("#ton-r-eq", at(1, 0.22), 0.55, { x: 20 }, { x: 0 });
+      ARROW("#ton-p-uq", at(1, 0.46), 0.55);
+      IN("#ton-r-uq", at(1, 0.52), 0.55, { x: 20 }, { x: 0 });
+      ARROW("#ton-p-kq", at(1, 0.72), 0.55);
+      IN("#ton-r-kq", at(1, 0.78), 0.55, { x: 20 }, { x: 0 });
+
+      // L2: 未部署钱包
+      OUT("#ton-flags", at(2, 0), 0.35);
+      IN("#ton-ud-title, #ton-ud-wal", at(2, 0.05), 0.6, { y: 14 }, { y: 0 });
+      IN("#ton-ud-eq-env", at(2, 0.24), 0.45, { x: -24 }, { x: 0 });
+      ARROW("#ton-ud-eq-go", at(2, 0.30), 0.6);
+      ARROW("#ton-ud-eq-bk", at(2, 0.42), 0.6);
+      IN("#ton-ud-eq-t", at(2, 0.46), 0.45);
+      IN("#ton-ud-uq-env", at(2, 0.62), 0.45, { x: -24 }, { x: 0 });
+      ARROW("#ton-ud-uq-go", at(2, 0.68), 0.65);
+      IN("#ton-ud-uq-t", at(2, 0.74), 0.45);
+      tl.to("#ton-ud-bal-r", { stroke: "#83C167", strokeDasharray: "none", duration: 0.35 }, at(2, 0.78));
+      tl.to("#ton-ud-bal-t", { fill: "#83C167", duration: 0.3, onStart: () => { const e = document.querySelector("#ton-ud-bal-t"); if (e) e.textContent = "已记进账户 ✓"; } }, at(2, 0.78));
+
+      // L3: 解析比对
+      OUT("#ton-undeploy", at(3, 0), 0.35);
+      IN("#ton-eq-title, #ton-str-l, #ton-str-r", at(3, 0.06), 0.55, { y: 12 }, { y: 0 });
+      IN("#ton-str-neq", at(3, 0.24), 0.45);
+      ARROW("#ton-pr-l", at(3, 0.42), 0.55);
+      ARROW("#ton-pr-r", at(3, 0.42), 0.55);
+      IN("#ton-pr-t", at(3, 0.46), 0.45);
+      IN("#ton-raw-l, #ton-raw-r", at(3, 0.56), 0.5, { y: 12 }, { y: 0 });
+      IN("#ton-raw-eq", at(3, 0.66), 0.45);
+      IN("#ton-eq-rule", at(3, 0.78), 0.55, { y: 14 }, { y: 0 });
+
+      tl.to("#ton-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tonaddr"] = tl;
+    })();
+  </script>
+</template>

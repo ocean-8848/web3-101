@@ -1,0 +1,158 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 checklist，id 前缀 ct- -->
+  <div id="root" data-composition-id="checklist" data-duration="57.74" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ct-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ct-all">
+        <g id="ct-main">
+          <g id="ct-sm">
+            <g id="ct-s0" class="h"><rect id="ct-s0r" x="200" y="310" width="260" height="100" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="330" y="372" font-size="34" fill="#e8e6df" text-anchor="middle">锁定</text></g>
+            <g id="ct-s1" class="h"><rect id="ct-s1r" x="620" y="310" width="260" height="100" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text x="750" y="372" font-size="34" fill="#e8e6df" text-anchor="middle">垫付</text></g>
+            <g id="ct-s2" class="h"><rect id="ct-s2r" x="1040" y="310" width="260" height="100" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="1170" y="372" font-size="34" fill="#e8e6df" text-anchor="middle">完成</text></g>
+            <g id="ct-s3" class="h"><rect id="ct-s3r" x="1460" y="310" width="300" height="100" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1610" y="372" font-size="34" fill="#e8e6df" text-anchor="middle">超时退款</text></g>
+            <path id="ct-e0" class="dr h" pathLength="1" d="M462 360 H606" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ct-arr)"/>
+            <path id="ct-e1" class="dr h" pathLength="1" d="M882 360 H1026" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ct-arr)"/>
+            <path id="ct-e2" class="dr h" pathLength="1" d="M330 306 Q 970 150 1600 300" stroke="#FF9F43" stroke-width="3" stroke-dasharray="1" fill="none" marker-end="url(#ct-arr)"/>
+            <text id="ct-e2t" class="h" x="970" y="200" font-size="30" fill="#FF9F43" text-anchor="middle">过期无人接单</text>
+          </g>
+          <g id="ct-k0" class="h">
+            <rect x="100" y="480" width="840" height="200" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <circle cx="148" cy="535" r="24" fill="none" stroke="#58C4DD" stroke-width="3"/><text x="148" y="545" font-size="28" fill="#58C4DD" text-anchor="middle">1</text>
+            <text x="190" y="547" font-size="34" font-weight="700" fill="#e8e6df">截止时间 + 最低到账</text>
+            <text x="190" y="625" font-size="28" fill="#8a8f99">过期后无需许可自己退款</text>
+          </g>
+          <g id="ct-rb" class="h">
+            <rect id="ct-rbr" x="740" y="585" width="160" height="64" rx="32" fill="none" stroke="#83C167" stroke-width="3"/>
+            <text x="820" y="628" font-size="30" fill="#83C167" text-anchor="middle">退款</text>
+          </g>
+          <g id="ct-k1" class="h">
+            <rect x="980" y="480" width="840" height="200" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <circle cx="1028" cy="535" r="24" fill="none" stroke="#58C4DD" stroke-width="3"/><text x="1028" y="545" font-size="28" fill="#58C4DD" text-anchor="middle">2</text>
+            <text x="1070" y="547" font-size="34" font-weight="700" fill="#e8e6df">收原生资产</text>
+          </g>
+          <text id="ct-addr" class="h mono" x="1070" y="628" font-size="28" fill="#e8e6df">0x…</text>
+          <text id="ct-ok" class="h" x="1150" y="628" font-size="28" fill="#83C167">官方原生 USDC / WETH ✓</text>
+          <text id="ct-bad" class="h" x="1790" y="628" font-size="28" fill="#FC6255" text-anchor="end">包装币 ✗</text>
+          <g id="ct-k2" class="h">
+            <rect x="100" y="720" width="840" height="200" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <circle cx="148" cy="775" r="24" fill="none" stroke="#58C4DD" stroke-width="3"/><text x="148" y="785" font-size="28" fill="#58C4DD" text-anchor="middle">3</text>
+            <text x="190" y="787" font-size="34" font-weight="700" fill="#e8e6df">大额分流</text>
+            <text x="190" y="865" font-size="28" fill="#8a8f99">超阈值 → CCTP / 官方通道</text>
+          </g>
+          <g id="ct-rt" class="h">
+            <path d="M790 820 L820 800 L850 820 L820 840 Z" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <path d="M850 820 L900 790 M850 820 L900 860" stroke="#58C4DD" stroke-width="3" fill="none"/>
+            <path d="M740 820 H790" stroke="#e8e6df" stroke-width="3" fill="none"/>
+          </g>
+          <g id="ct-k3" class="h">
+            <rect x="980" y="720" width="840" height="200" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2"/>
+            <circle cx="1028" cy="775" r="24" fill="none" stroke="#58C4DD" stroke-width="3"/><text x="1028" y="785" font-size="28" fill="#58C4DD" text-anchor="middle">4</text>
+            <text x="1070" y="787" font-size="34" font-weight="700" fill="#e8e6df">状态可见</text>
+            <text x="1070" y="865" font-size="28" fill="#8a8f99">监听锁定与交付事件</text>
+          </g>
+          <g id="ct-br0" class="h">
+            <rect x="1440" y="790" width="140" height="80" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <line x1="1440" y1="810" x2="1580" y2="810" stroke="#58C4DD" stroke-width="2"/>
+            <text x="1510" y="852" font-size="28" fill="#58C4DD" text-anchor="middle">源链</text>
+          </g>
+          <g id="ct-br1" class="h">
+            <rect x="1620" y="790" width="160" height="80" rx="8" fill="#161a22" stroke="#83C167" stroke-width="2.5"/>
+            <line x1="1620" y1="810" x2="1780" y2="810" stroke="#83C167" stroke-width="2"/>
+            <text x="1700" y="852" font-size="28" fill="#83C167" text-anchor="middle">目标链</text>
+          </g>
+        </g>
+        <g id="ct-sec">
+          <g id="ct-l0" class="h">
+            <rect x="300" y="260" width="1320" height="130" rx="16" fill="#83C167" fill-opacity="0.1" stroke="#83C167" stroke-width="3"/>
+            <text x="350" y="340" font-size="40" font-weight="700" fill="#83C167">用户</text>
+            <text x="1580" y="340" font-size="34" fill="#e8e6df" text-anchor="end">被截止时间 + 退款兜住</text>
+          </g>
+          <g id="ct-l1" class="h">
+            <rect x="300" y="450" width="1320" height="130" rx="16" fill="#FF9F43" fill-opacity="0.1" stroke="#FF9F43" stroke-width="3"/>
+            <text class="mono" x="350" y="530" font-size="40" font-weight="700" fill="#FF9F43">Solver</text>
+            <text x="1580" y="530" font-size="34" fill="#e8e6df" text-anchor="end">风险落在后台验证层</text>
+          </g>
+          <g id="ct-l2" class="h">
+            <rect id="ct-l2r" x="300" y="640" width="1320" height="130" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+            <text x="350" y="720" font-size="40" font-weight="700" fill="#e8e6df">系统</text>
+            <text x="1580" y="720" font-size="34" fill="#e8e6df" text-anchor="end">取决于最弱的那一层验证</text>
+          </g>
+        </g>
+
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const PULSE = (s, t) => tl.to(s, { opacity: 0.4, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      // L0 state machine
+      IN("#ct-s0", at(0, 0.05), 0.4); ARROW("#ct-e0", at(0, 0.2), 0.4);
+      IN("#ct-s1", at(0, 0.3), 0.4); ARROW("#ct-e1", at(0, 0.45), 0.4);
+      IN("#ct-s2", at(0, 0.55), 0.4);
+      IN("#ct-s3", at(0, 0.7), 0.4); ARROW("#ct-e2", at(0, 0.75), 0.6);
+      IN("#ct-e2t", at(0, 0.85), 0.4);
+      // L1 card 1
+      IN("#ct-k0", at(1, 0.05), 0.5, { y: 20 }, { y: 0 });
+      PULSE("#ct-e2, #ct-e2t, #ct-s3", at(1, 0.3));
+      IN("#ct-rb", at(1, 0.55), 0.4);
+      tl.to("#ct-rbr", { fill: "#83C167", fillOpacity: 0.3, duration: 0.15, yoyo: true, repeat: 1 }, at(1, 0.8));
+      tl.to("#ct-s3r", { fill: "#3a2a12", duration: 0.3 }, at(1, 0.82));
+      // L2 card 2
+      IN("#ct-k1", at(2, 0.05), 0.5, { y: 20 }, { y: 0 });
+      IN("#ct-addr", at(2, 0.4), 0.4);
+      IN("#ct-ok", at(2, 0.5), 0.4);
+      IN("#ct-bad", at(2, 0.75), 0.4);
+      // L3 card 3
+      IN("#ct-k2", at(3, 0.05), 0.5, { y: 20 }, { y: 0 });
+      IN("#ct-rt", at(3, 0.3), 0.5);
+      PULSE("#ct-rt", at(3, 0.7));
+      // L4 card 4 + status lights
+      IN("#ct-k3", at(4, 0.03), 0.5, { y: 20 }, { y: 0 });
+      tl.to("#ct-s3r", { fill: "#161a22", duration: 0.2 }, at(4, 0.08));
+      tl.to("#ct-s0r", { fill: "#1c3a46", duration: 0.3 }, at(4, 0.12));
+      tl.to("#ct-s1r", { fill: "#3a3212", duration: 0.3 }, at(4, 0.2));
+      tl.to("#ct-s2r", { fill: "#24391f", duration: 0.3 }, at(4, 0.28));
+      tl.to("#ct-s3r", { fill: "#3a2a12", duration: 0.3 }, at(4, 0.36));
+      IN("#ct-br0", at(4, 0.55), 0.4);
+      tl.to("#ct-br0 rect", { fill: "#1c3a46", duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.62));
+      IN("#ct-br1", at(4, 0.72), 0.4);
+      tl.to("#ct-br1 rect", { fill: "#24391f", duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.79));
+      // L5 security model
+      OUT("#ct-main", at(5, 0.0), 0.5);
+      IN("#ct-l0", at(5, 0.1), 0.5, { y: -20 }, { y: 0 });
+      IN("#ct-l1", at(5, 0.35), 0.5, { y: -20 }, { y: 0 });
+      IN("#ct-l2", at(5, 0.62), 0.5, { y: -20 }, { y: 0 });
+      PULSE("#ct-l2", at(5, 0.75)); PULSE("#ct-l2", at(5, 0.88));
+
+
+      tl.to("#ct-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["checklist"] = tl;
+    })();
+  </script>
+</template>

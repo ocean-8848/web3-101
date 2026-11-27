@@ -1,0 +1,259 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ton，id 前缀 to- -->
+  <div id="root" data-composition-id="ton" data-duration="39.35" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="to-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="to-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="to-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="to-all">
+        <!-- L0: 左上起源标签（L3 前淡出，避免与术语卡重叠） -->
+        <g id="to-orig" class="h">
+          <rect x="80" y="72" width="460" height="60" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2" />
+          <text x="310" y="112" font-size="28" fill="#B48EF0" text-anchor="middle">源自 Telegram 团队 → 社区</text>
+        </g>
+
+        <!-- L0: 中央 TON 主视觉 -->
+        <g id="to-hero" class="h">
+          <polygon points="960,250 1060,360 960,470 860,360" fill="#161a22" stroke="#58C4DD" stroke-width="4" />
+          <line x1="960" y1="250" x2="960" y2="470" stroke="#58C4DD" stroke-width="2.5" opacity="0.6" />
+          <line x1="860" y1="360" x2="1060" y2="360" stroke="#58C4DD" stroke-width="2.5" opacity="0.6" />
+          <text x="960" y="575" font-size="80" font-weight="700" fill="#58C4DD" text-anchor="middle">TON</text>
+          <text x="960" y="635" font-size="32" fill="#8a8f99" text-anchor="middle">The Open Network</text>
+        </g>
+        <g id="to-diff" class="h">
+          <rect x="650" y="700" width="620" height="76" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="960" y="750" font-size="32" fill="#e8e6df" text-anchor="middle">架构与 EVM 链差别很大</text>
+        </g>
+
+        <!-- L1: 主链 workchain -1（位于术语卡下方，y 215–395） -->
+        <g id="to-mc" class="h">
+          <rect x="140" y="215" width="1640" height="185" rx="18" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="180" y="268" font-size="34" font-weight="700" fill="#B48EF0">主链 <tspan class="mono" font-size="28" font-weight="400" fill="#8a8f99">workchain -1</tspan></text>
+        </g>
+        <g id="to-mc1" class="h">
+          <rect x="180" y="294" width="330" height="82" rx="12" fill="#0f1117" stroke="#B48EF0" stroke-width="2" />
+          <text x="345" y="346" font-size="30" fill="#e8e6df" text-anchor="middle">验证者集合</text>
+        </g>
+        <g id="to-mc2" class="h">
+          <rect x="540" y="294" width="260" height="82" rx="12" fill="#0f1117" stroke="#B48EF0" stroke-width="2" />
+          <text x="670" y="346" font-size="30" fill="#e8e6df" text-anchor="middle">链配置</text>
+        </g>
+        <g id="to-mc3" class="h">
+          <rect x="830" y="294" width="490" height="82" rx="12" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1075" y="346" font-size="30" fill="#58C4DD" text-anchor="middle">各分片最新块哈希</text>
+        </g>
+        <path id="to-mc-arr" class="dr h" pathLength="1" d="M1330 335 L1436 335" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#to-arr-g)" />
+        <g id="to-anchor" class="h">
+          <rect x="1450" y="294" width="290" height="82" rx="12" fill="#0f1117" stroke="#83C167" stroke-width="2.5" />
+          <text x="1595" y="346" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">确认锚点</text>
+        </g>
+
+        <!-- L2: 基础工作链 workchain 0 + 动态分片 -->
+        <g id="to-wc">
+          <g id="to-wc-box" class="h">
+            <rect x="140" y="470" width="1640" height="460" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="180" y="528" font-size="34" font-weight="700" fill="#58C4DD">基础工作链 <tspan class="mono" font-size="28" font-weight="400" fill="#8a8f99">workchain 0</tspan></text>
+            <text x="1740" y="528" font-size="28" fill="#8a8f99" text-anchor="end">绝大多数账户 · 按地址前缀分片</text>
+          </g>
+          <path id="to-up1" class="dr h" pathLength="1" d="M540 470 L960 406" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="10 8" marker-end="url(#to-arr-b)" />
+          <path id="to-up2" class="dr h" pathLength="1" d="M1350 470 L1180 406" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="10 8" marker-end="url(#to-arr-b)" />
+
+          <!-- 左侧分片：高负载分裂（0… → 00… + 01…） -->
+          <g id="to-s0" class="h">
+            <rect id="to-s0-r" x="200" y="575" width="660" height="220" rx="14" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="240" y="632" font-size="30" fill="#e8e6df">分片 <tspan class="mono" fill="#58C4DD">0...</tspan></text>
+            <rect x="240" y="670" width="580" height="28" rx="8" fill="#1d2330" />
+            <rect id="to-s0-bar" x="240" y="670" width="220" height="28" rx="8" fill="#58C4DD" />
+            <text id="to-s0-st" x="240" y="756" font-size="28" fill="#8a8f99">负载正常</text>
+          </g>
+          <g id="to-s0a" class="h">
+            <rect x="200" y="575" width="315" height="220" rx="14" fill="#0f1117" stroke="#83C167" stroke-width="2.5" />
+            <text x="357" y="638" font-size="30" fill="#e8e6df" text-anchor="middle">分片 <tspan class="mono" fill="#83C167">00...</tspan></text>
+            <rect x="235" y="676" width="245" height="24" rx="6" fill="#1d2330" />
+            <rect x="235" y="676" width="115" height="24" rx="6" fill="#83C167" />
+            <text x="357" y="756" font-size="28" fill="#83C167" text-anchor="middle">负载回落</text>
+          </g>
+          <g id="to-s0b" class="h">
+            <rect x="545" y="575" width="315" height="220" rx="14" fill="#0f1117" stroke="#83C167" stroke-width="2.5" />
+            <text x="702" y="638" font-size="30" fill="#e8e6df" text-anchor="middle">分片 <tspan class="mono" fill="#83C167">01...</tspan></text>
+            <rect x="580" y="676" width="245" height="24" rx="6" fill="#1d2330" />
+            <rect x="580" y="676" width="115" height="24" rx="6" fill="#83C167" />
+            <text x="702" y="756" font-size="28" fill="#83C167" text-anchor="middle">负载回落</text>
+          </g>
+          <text id="to-split-t" class="h" x="530" y="868" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">高负载 → 一分为二</text>
+
+          <!-- 右侧分片：低负载合并（10… + 11… → 1…） -->
+          <g id="to-s1a" class="h">
+            <rect x="1000" y="575" width="335" height="220" rx="14" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1167" y="638" font-size="30" fill="#e8e6df" text-anchor="middle">分片 <tspan class="mono" fill="#58C4DD">10...</tspan></text>
+            <rect x="1035" y="676" width="265" height="24" rx="6" fill="#1d2330" />
+            <rect x="1035" y="676" width="58" height="24" rx="6" fill="#8a8f99" />
+            <text x="1167" y="756" font-size="28" fill="#8a8f99" text-anchor="middle">低负载</text>
+          </g>
+          <g id="to-s1b" class="h">
+            <rect x="1365" y="575" width="335" height="220" rx="14" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1532" y="638" font-size="30" fill="#e8e6df" text-anchor="middle">分片 <tspan class="mono" fill="#58C4DD">11...</tspan></text>
+            <rect x="1400" y="676" width="265" height="24" rx="6" fill="#1d2330" />
+            <rect x="1400" y="676" width="58" height="24" rx="6" fill="#8a8f99" />
+            <text x="1532" y="756" font-size="28" fill="#8a8f99" text-anchor="middle">低负载</text>
+          </g>
+          <g id="to-s1m" class="h">
+            <rect x="1000" y="575" width="700" height="220" rx="14" fill="#0f1117" stroke="#58C4DD" stroke-width="3" />
+            <text x="1350" y="638" font-size="30" fill="#e8e6df" text-anchor="middle">合并分片 <tspan class="mono" fill="#58C4DD">1...</tspan></text>
+            <rect x="1060" y="676" width="580" height="26" rx="8" fill="#1d2330" />
+            <rect x="1060" y="676" width="160" height="26" rx="8" fill="#58C4DD" />
+            <text x="1350" y="756" font-size="28" fill="#58C4DD" text-anchor="middle">动态分片 · 按需伸缩</text>
+          </g>
+          <text id="to-merge-t" class="h" x="1350" y="868" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">低负载 → 合并为一个分片</text>
+        </g>
+
+        <!-- L3: 放大单个账户 = Actor -->
+        <g id="to-act">
+          <g id="to-act-ring" class="h">
+            <circle cx="960" cy="725" r="235" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="960" y="560" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">账户 = Actor</text>
+          </g>
+          <g id="to-act-bal" class="h">
+            <rect x="815" y="592" width="290" height="68" rx="12" fill="#0f1117" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="960" y="638" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">余额</text>
+          </g>
+          <g id="to-act-code" class="h">
+            <rect x="815" y="682" width="290" height="68" rx="12" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="960" y="728" font-size="30" fill="#58C4DD" text-anchor="middle">代码</text>
+          </g>
+          <g id="to-act-data" class="h">
+            <rect x="815" y="772" width="290" height="68" rx="12" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="960" y="818" font-size="30" fill="#e8e6df" text-anchor="middle">数据</text>
+          </g>
+
+          <!-- 入站消息信封 -->
+          <g id="to-env-in" class="h">
+            <rect x="250" y="685" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <path d="M254 690 L315 732 L376 690" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="315" y="812" font-size="28" fill="#58C4DD" text-anchor="middle">入站消息</text>
+          </g>
+          <path id="to-msg-in" class="dr h" pathLength="1" d="M400 725 L706 725" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#to-arr-b)" />
+
+          <!-- 出站消息信封 -->
+          <path id="to-msg-out" class="dr h" pathLength="1" d="M1214 725 L1520 725" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#to-arr-b)" />
+          <g id="to-env-out" class="h">
+            <rect x="1540" y="685" width="130" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <path d="M1544 690 L1605 732 L1666 690" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1605" y="812" font-size="28" fill="#58C4DD" text-anchor="middle">出站消息</text>
+          </g>
+        </g>
+
+        <!-- L4: 主链引用 → 不可逆 + 400ms 节拍器 -->
+        <path id="to-ref-arr" class="dr h" pathLength="1" d="M960 482 L1065 390" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#to-arr-g)" />
+        <text id="to-ref-t" class="h" x="1185" y="454" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">主链块引用</text>
+
+        <g id="to-fin" class="h">
+          <rect x="1350" y="495" width="430" height="148" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+          <text x="1565" y="558" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">✓ 不可逆</text>
+          <text x="1565" y="612" font-size="28" fill="#e8e6df" text-anchor="middle">最终确定约 1 秒</text>
+        </g>
+
+        <g id="to-beat" class="h">
+          <rect x="1060" y="72" width="720" height="96" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" />
+          <rect id="to-b0" x="1095" y="98" width="44" height="44" rx="8" fill="#B48EF0" opacity="0.28" />
+          <rect id="to-b1" x="1155" y="98" width="44" height="44" rx="8" fill="#B48EF0" opacity="0.28" />
+          <rect id="to-b2" x="1215" y="98" width="44" height="44" rx="8" fill="#B48EF0" opacity="0.28" />
+          <rect id="to-b3" x="1275" y="98" width="44" height="44" rx="8" fill="#B48EF0" opacity="0.28" />
+          <text x="1352" y="132" font-size="30" font-weight="700" fill="#B48EF0">主链 ≈ 400 ms / 块</text>
+        </g>
+      </g>
+
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="to-term" class="h">
+        <rect x="70" y="56" width="580" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Actor 模型 <tspan font-size="28" font-weight="400" fill="#8a8f99">Actor model</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">合约只靠异步消息通信</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      // L0: TON 切换 + 起源
+      IN("#to-hero", at(0, 0.04), 0.7, { y: 24 }, { y: 0 });
+      IN("#to-orig", at(0, 0.28), 0.6, { x: -24 }, { x: 0 });
+      IN("#to-diff", at(0, 0.62), 0.6, { y: 18 }, { y: 0 });
+      OUT("#to-hero, #to-diff", at(0, 0.92), 0.35);
+
+      // L1: 主链 workchain -1
+      IN("#to-mc", at(1, 0.04), 0.6, { y: -18 }, { y: 0 });
+      IN("#to-mc1", at(1, 0.26), 0.5, { y: 12 }, { y: 0 });
+      IN("#to-mc2", at(1, 0.42), 0.5, { y: 12 }, { y: 0 });
+      IN("#to-mc3", at(1, 0.58), 0.5, { y: 12 }, { y: 0 });
+      ARROW("#to-mc-arr", at(1, 0.76), 0.5);
+      IN("#to-anchor", at(1, 0.82), 0.5);
+
+      // L2: 工作链 0 + 动态分片
+      IN("#to-wc-box", at(2, 0.03), 0.6, { y: 20 }, { y: 0 });
+      ARROW("#to-up1", at(2, 0.14), 0.6);
+      ARROW("#to-up2", at(2, 0.18), 0.6);
+      IN("#to-s0, #to-s1a, #to-s1b", at(2, 0.22), 0.5, { y: 14 }, { y: 0 });
+      // 高负载变红 → 分裂
+      tl.to("#to-s0-r", { stroke: "#FC6255", duration: 0.4 }, at(2, 0.42));
+      tl.to("#to-s0-bar", { attr: { width: 550 }, fill: "#FC6255", duration: 0.7, ease: "power2.out" }, at(2, 0.42));
+      tl.to("#to-s0-st", { fill: "#FC6255", duration: 0.3, onStart: () => { const e = document.querySelector("#to-s0-st"); if (e) e.textContent = "高负载！"; } }, at(2, 0.45));
+      OUT("#to-s0", at(2, 0.55), 0.28);
+      IN("#to-s0a", at(2, 0.59), 0.5, { x: 24 }, { x: 0 });
+      IN("#to-s0b", at(2, 0.59), 0.5, { x: -24 }, { x: 0 });
+      IN("#to-split-t", at(2, 0.62), 0.5);
+      // 低负载 → 合并
+      OUT("#to-s1a, #to-s1b", at(2, 0.76), 0.3);
+      IN("#to-s1m", at(2, 0.80), 0.55);
+      IN("#to-merge-t", at(2, 0.83), 0.5);
+
+      // L3: 账户即 Actor
+      OUT("#to-wc, #to-orig", at(3, 0), 0.35);
+      IN("#to-term", at(3, 0.08), 0.5);
+      IN("#to-act-ring", at(3, 0.12), 0.6, { y: 20 }, { y: 0 });
+      IN("#to-act-bal", at(3, 0.34), 0.4, { y: 10 }, { y: 0 });
+      IN("#to-act-code", at(3, 0.46), 0.4, { y: 10 }, { y: 0 });
+      IN("#to-act-data", at(3, 0.56), 0.4, { y: 10 }, { y: 0 });
+      IN("#to-env-in", at(3, 0.68), 0.4, { x: -24 }, { x: 0 });
+      ARROW("#to-msg-in", at(3, 0.72), 0.5);
+      ARROW("#to-msg-out", at(3, 0.80), 0.5);
+      IN("#to-env-out", at(3, 0.84), 0.4, { x: -20 }, { x: 0 });
+
+      // L4: 主链块引用 → 不可逆 + 400ms 节拍
+      ARROW("#to-ref-arr", at(4, 0.06), 0.6);
+      IN("#to-ref-t", at(4, 0.14), 0.5);
+      OUT("#to-term", at(4, 0.25), 0.4);
+      IN("#to-fin", at(4, 0.34), 0.6, { y: 16 }, { y: 0 });
+      IN("#to-beat", at(4, 0.56), 0.5, { y: -16 }, { y: 0 });
+      ["#to-b0", "#to-b1", "#to-b2", "#to-b3"].forEach((id, idx) => {
+        tl.to(id, { opacity: 1, duration: 0.25 }, at(4, 0.62) + idx * 0.42);
+      });
+
+      tl.to("#to-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#to-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["ton"] = tl;
+    })();
+  </script>
+</template>

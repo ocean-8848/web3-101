@@ -183,7 +183,7 @@ addCh({ id: 'm05-70', nav: 'Solana 生产级工程', title: 'M06.8 Solana 生产
 <h1>M06.8 Solana 生产级工程：CU、优先费、ALT、Token-2022 与 Jito MEV</h1>
 ${meta([
   '精确计算并设置 Solana 交易的 Compute Unit（CU）上限与微灯优先费，避免交易在拥堵期丢单或白交高费。',
-  '用版本化交易与地址查找表（ALT）突破单笔交易 1,232 字节与账户数量上限。',
+  '用版本化交易与地址查找表（ALT）在单笔交易 1,232 字节内容纳更多账户（仍受每笔最多锁定 64 个账户的上限约束），并了解 v1 交易的变化。',
   '掌握 Token-2022 的核心扩展（转账费、转账钩子、保密转账）与接入风险。',
   '理解 Jito Bundles 原子捆绑、Yellowstone gRPC 流式索引，并在 Go / Rust / TypeScript 间做好 Web3 后端技术选型。'
 ], '前置：<a href="#m05-11">M06.6 Solana 概念</a>、<a href="#m05-12">M06.7 Solana 动手</a>、<a href="#m01-8">M01.8 索引器工程</a>')}
@@ -194,7 +194,7 @@ ${beginner(`<p><strong>计算单元（Compute Unit，CU）</strong>：Solana 上
 <h2>1. 一句话理解</h2>
 ${one('学会写 Anchor 计数器只是 Solana 的起点；真正在主网跑高并发 DeFi、钱包或交易机器人，核心拼的是五件事：精准估算 CU 与优先费、用 ALT 压缩大交易、适配 Token-2022 扩展、通过 Jito 控制上链顺序，以及用 Yellowstone gRPC 替代慢速轮询。')}
 ${call('analogy', `<p>Solana 发交易像往一趟 400 毫秒发一班的高铁上塞行李：每件行李严格限重 1,232 字节（单交易 UDP 包上限）；如果你带了 40 个地址箱子根本塞不下，就得先把地址存进车站寄存柜（ALT），车票上只写柜号。高峰期想抢到头等舱座位，得先称重报准体积（SetComputeUnitLimit），再按体积付合理的加急费（SetComputeUnitPrice）。</p>
-<p>比喻的局限：Solana 没有全局统一 Mempool，交易会直接转发给当前和即将出块的 Leader 验证者；如果区块高度（blockhash）过期约 60–90 秒还没上链，交易会静默失效，必须重签重发。</p>`)}
+<p>比喻的局限：Solana 没有全局统一 Mempool，交易会直接转发给当前和即将出块的 Leader 验证者；如果交易引用的最近区块哈希（recentBlockhash）过期（约 60–90 秒，即 150 个区块，以 lastValidBlockHeight 为界）还没上链，交易会静默失效，必须重签重发。</p>`)}
 ${art('一图看懂：Solana 生产级交易上链与数据闭环', 660, 320, [
   S.zone(15, 18, 630, 140, { t: '写链：构造高效且能稳定落地的生产交易', k: 'info' }),
   S.box(28, 52, 140, 84, { k: 'info', icon: 'gear', t: '1. 模拟估 CU', s: 'simulateTransaction\n按实耗×1.15设上限' }),
@@ -215,7 +215,7 @@ ${art('一图看懂：Solana 生产级交易上链与数据闭环', 660, 320, [
 ], '上方展示 Solana 交易经由模拟估 CU、附加优先费与 ALT、通过 SWQOS 或 Jito Bundle 发给 Leader 出块；下方展示通过 Geyser 与 Yellowstone gRPC 实时推送至业务索引库', 'm05-70')}
 
 <h2>2. CU 预算、优先费与局部费用市场</h2>
-<p>Solana 每笔交易的基础签名为 5,000 lamports（0.000005 SOL），默认每条指令分配 200,000 CU（单笔交易上限 1,400,000 CU）。拥堵时是否能进块，取决于<strong>优先费（Priority Fee）</strong>：</p>
+<p>Solana 每笔交易的基础签名为 5,000 lamports（0.000005 SOL），默认每条指令分配 200,000 CU（单笔交易上限 1,400,000 CU）。下面用 ComputeBudget 指令设 CU 上限与单价的做法适用于 legacy / v0 交易；v1 交易（2026-09-15 主网激活）改在交易头字段里设置，且 CU 上限默认为 0、必须显式填写。拥堵时是否能进块，取决于<strong>优先费（Priority Fee）</strong>：</p>
 <p><code>优先费（lamports） = ceil(ComputeUnitLimit × ComputeUnitPrice_microLamports / 1,000,000)</code></p>
 ${call('deep', `<p><strong>算一算：为什么“紧设 CU 上限”能省一半以上优先费？（示例）</strong><br/>
 假设某笔 DEX 兑换实际只需 80,000 CU，当前热门池子需要 <code>ComputeUnitPrice = 500,000 microLamports/CU</code> 才能进块。<br/>
@@ -224,10 +224,11 @@ ${call('deep', `<p><strong>算一算：为什么“紧设 CU 上限”能省一�
 <p><strong>局部费用市场（Local Fee Market）</strong>：与以太坊全网共用一个 Base Fee 不同，Solana 的单个写锁账户有独立 CU 上限。某个 Memecoin 池子爆火时，只会推高读写该池子账户的优先费，普通 USDC 转账费用几乎不受影响。</p>
 
 <h2>3. 版本化交易与地址查找表（ALT）</h2>
-<p>Solana 单笔交易最大 <strong>1,232 字节</strong>（适配单帧 IPv6 MTU，减少分片丢包）。每个账户地址占 32 字节，传统 Legacy 交易最多只能塞约 30 个账户——但一笔 Jupiter 跨多池路由兑换轻松涉及 50–80 个账户。</p>
+<p>Solana 单笔交易最大 <strong>1,232 字节</strong>（适配单帧 IPv6 MTU，减少分片丢包）。每个账户地址占 32 字节，传统 Legacy 交易最多只能塞约 30 个账户——但一笔 Jupiter 跨多池路由兑换轻松涉及 50–80 个账户。1,232 字节与 ComputeBudget 指令只适用于 legacy / v0 交易，v1 见本节末尾。</p>
 <ul>
-<li><strong>Versioned Transaction（v0）</strong>：引入 <strong>Address Lookup Table（ALT）</strong>。协议或聚合器提前把常用池子与程序地址写入链上 ALT 账户；v0 交易只需引用 ALT 地址 + 每个账户的 <strong>1 字节索引</strong>，把单笔交易支持的账户数扩展到 200+，同时体积大幅缩小。</li>
+<li><strong>Versioned Transaction（v0）</strong>：引入 <strong>Address Lookup Table（ALT）</strong>。协议或聚合器提前把常用池子与程序地址写入链上 ALT 账户；v0 交易只需引用 ALT 地址 + 每个账户的 <strong>1 字节索引</strong>，大幅压缩体积（一张 ALT 最多存 256 个地址）；但账户数仍受每笔交易最多锁定 64 个账户的上限约束（legacy / v0 / v1 都一样）。</li>
 <li><strong>工程注意</strong>：新建或扩展 ALT 后，需等至少 1 个 slot 激活才能在交易中引用；ALT 只能压缩非签名账户，交易签名者地址仍需占 32 字节。</li>
+<li><strong>v1 交易</strong>：2026 年 9 月 15 日（epoch 1035）在主网激活（SIMD-0296 / SIMD-0385），单笔上限提高到 <strong>4,096 字节</strong>；不支持 ALT，账户直接写全 32 字节地址，每笔仍最多锁定 64 个账户；CU 上限与单价改由交易头字段设置，不再用 ComputeBudget 指令。解析原始字节的索引器要能识别新格式。${cite('Solana：Transaction v1 and the ALT trade-off（2026-08-17）', 'https://solana.com/news/transaction-v1-and-the-alt-trade-off')}</li>
 </ul>
 
 <h2>4. Token-2022 扩展与集成风险</h2>
@@ -236,14 +237,16 @@ ${tbl(['扩展能力', '作用与业务场景', '钱包 / DEX / 交易所接入�
   ['<strong>Transfer Fee</strong>（转账税）', '每笔转账自动扣留一定比例手续费，原生支持税收代币与 RWA 收费', '交易所充值必须按<strong>实际到账净额</strong>入账，绝不能按发送额记账'],
   ['<strong>Transfer Hook</strong>（转账钩子）', '每次转账自动 CPI 调用自定义合约（如白名单 KYC 检查、版税强制执行）', '钩子合约可能消耗大量 CU 甚至故意 revert，导致资产无法正常归集或被蜜罐卡死'],
   ['<strong>Permanent Delegate</strong>（永久委托）', '发行方可随时无视持有人签名转移或销毁任意地址余额（适合合规稳定币/RWA）', 'DeFi 借贷与 DEX 上架前必须检查该字段，否则抵押品可能被发行方直接划走'],
-  ['<strong>Confidential Transfer</strong>（保密转账）', '用零知识证明隐藏转账金额（但仍保留地址可见，可配审计密钥）', '索引器无法直接从明文余额解析金额，需单独识别处理']
+  ['<strong>Confidential Transfer</strong>（保密转账）', '用零知识证明隐藏转账金额（但仍保留地址可见，可配审计密钥）', '索引器无法直接从明文余额解析金额，需单独识别处理；2025 年 6 月曾因 ZK ElGamal 证明程序漏洞停用，据报道约一年后在主网恢复，集成前先确认当前状态' + cite('Solana Foundation：Post-mortem June 25, 2025', 'https://solana.com/news/post-mortem-june-25-2025')],
+  ['<strong>Scaled UI Amount</strong>（显示倍数）', '链上原始余额不变，按发行方设定的倍数换算显示余额（股票拆分、分红等 RWA 场景）', '展示与入账要按倍数换算，前后端口径不一致会把余额显示错'],
+  ['<strong>Pausable</strong>（可暂停）', '发行方可暂停该代币的全部转账、铸造与销毁', '暂停期间充提与清算都会失败，接入前要能识别并提示']
 ])}
 
 <h2>5. Jito Bundles、SWQOS 与 Yellowstone gRPC 索引</h2>
 <ul>
 <li><strong>SWQOS（Stake-Weighted Quality of Service）</strong>：Solana 为防垃圾交易洪泛，按节点质押权重分配发往 Leader 的带宽配额。生产环境不要把交易发给无质押的免费公共 RPC，而应使用带 SWQOS 通道的专业 RPC 或自建质押节点。</li>
 <li><strong>Jito Bundles 与 Solana MEV</strong>：Solana 绝大多数验证者运行 Jito 客户端。通过 Jito Block Engine 发送 Bundle（最多 5 笔交易 + 1 笔给 Jito Tip 账户的小费），可保证<strong>原子执行</strong>与<strong>防三明治夹击</strong>（例如把“套利 + 付小费”绑在一起，失败不扣小费）。</li>
-<li><strong>Yellowstone gRPC（Dragon’s Mouth）</strong>：Solana 每秒数千笔交易，传统 HTTP <code>getBlock</code> 轮询极易落后。生产索引器直接对接验证者 <strong>Geyser 插件</strong>暴露的 Yellowstone gRPC 流，按程序 ID 或账户过滤订阅毫秒级更新，并区分 <code>processed</code>（乐观预展示）、<code>confirmed</code>（约 2/3 质押投票，适合多数实时展示）与 <code>finalized</code>（约 31+ 槽不可逆，适合交易所充值入账）。</li>
+<li><strong>Yellowstone gRPC（Dragon’s Mouth）</strong>：Solana 每秒数千笔交易，传统 HTTP <code>getBlock</code> 轮询极易落后。生产索引器直接对接验证者 <strong>Geyser 插件</strong>暴露的 Yellowstone gRPC 流，按程序 ID 或账户过滤订阅毫秒级更新，并区分 <code>processed</code>（乐观预展示）、<code>confirmed</code>（约 2/3 质押投票，适合多数实时展示）与 <code>finalized</code>（不可逆，适合交易所充值入账；此前约 32 槽 / 12.8 秒，Alpenglow 于 2026-10-21 在主网上线后改为证书制最终确认，目标约 150 毫秒，以官方为准）。</li>
 </ul>
 
 ${mm('Solana 生产交易上链与块高过期重发流程', `
@@ -295,7 +298,7 @@ ${quiz([
   { q: '为什么在 Solana 上把 ComputeUnitLimit 设得比实际消耗大很多（例如实际用 5 万却留默认 20 万）反而有害？', o: ['会导致交易必然执行失败', '不仅按上限多付优先费，还会让调度器高估你占用的区块配额从而降低打包优先级', 'Solana 不允许手动设置 CU 上限', '会触发账户租金扣除'], a: 1, why: '优先费按 CU 上限乘以单价计算，虚高的 CU 上限会多花钱且降低单位 CU 收益排序。' },
   { q: 'Address Lookup Table（ALT）解决的核心工程问题是什么？', o: ['替代私钥进行交易签名', '突破单笔交易 1,232 字节限制，用 1 字节下标压缩 32 字节公钥以支持更多账户', '降低合约存储租金到零', '自动把 SOL 兑换为 USDC'], a: 1, why: 'ALT 将常用账户预先存储在链上表中，v0 交易通过 1 字节索引引用，大幅减少交易体积。' },
   { q: '接入 Token-2022 代币时，以下哪个扩展意味着发行方可以不经用户签名直接转移或销毁热钱包中的代币？', o: ['TransferFee', 'MetadataPointer', 'PermanentDelegate', 'ImmutableOwner'], a: 2, why: 'PermanentDelegate 赋予指定地址对所有代币账户的永久转移与销毁权限，常见于合规 RWA 或受监管稳定币，DeFi/CEX 需谨慎评估。' },
-  { q: '交易所监听 Solana 充值入账时，最稳妥的做法是监听哪个确认级别？', o: ['processed', 'finalized', '只看广播成功回执', '只需检查本地签名通过'], a: 1, why: 'processed 甚至 confirmed 在极端网络分叉下仍有回退可能；交易所资金入账应以 finalized（已达超级多数不可逆确认）为准。' }
+  { q: '交易所监听 Solana 充值入账时，最稳妥的做法是监听哪个确认级别？', o: ['processed', 'finalized', '只看广播成功回执', '只需检查本地签名通过'], a: 1, why: 'processed 甚至 confirmed 在极端网络分叉下仍有回退可能；交易所资金入账应以 finalized（已达超级多数不可逆确认）为准。Alpenglow 2026-10-21 主网上线后，finalized 改为证书制，目标约 150 毫秒（此前约 32 槽 / 12.8 秒），但入账仍应以 finalized 为准。' }
 ])}
 ${terms([
   ['计算单元', 'Compute Unit (CU)', 'Solana 衡量单笔交易计算消耗的单位，对应以太坊的 Gas 概念。'],

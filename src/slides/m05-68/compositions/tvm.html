@@ -1,0 +1,281 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tvm，id 前缀 tv- -->
+  <div id="root" data-composition-id="tvm" data-duration="57.46" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="tv-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="tv-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="tv-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="tv-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="tv-all">
+        <!-- 顶部 EVM vs TVM 概览 -->
+        <g id="tv-evm" class="h">
+          <rect x="180" y="76" width="440" height="128" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text x="400" y="132" font-size="42" font-weight="700" fill="#8a8f99" text-anchor="middle">EVM</text>
+          <text x="400" y="180" font-size="28" fill="#8a8f99" text-anchor="middle">以太坊虚拟机</text>
+        </g>
+
+        <path id="tv-compat" class="dr h" pathLength="1" d="M640 140 L1280 140" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-start="url(#tv-mb)" marker-end="url(#tv-mb)" />
+        <text id="tv-clb" class="h" x="960" y="116" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">≈ 兼容大部分字节码（Solidity 稍调可部署）</text>
+
+        <g id="tv-tvm" class="h">
+          <rect x="1300" y="76" width="440" height="128" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="3.5" />
+          <text x="1520" y="132" font-size="42" font-weight="700" fill="#F0B90B" text-anchor="middle">TVM</text>
+          <text x="1520" y="180" font-size="28" fill="#e8e6df" text-anchor="middle">Tron 虚拟机</text>
+        </g>
+
+        <!-- 对照表框架 -->
+        <g id="tv-frame" class="h">
+          <text x="110" y="302" font-size="34" font-weight="700" fill="#e8e6df">对比方面</text>
+          <text x="500" y="302" font-size="34" font-weight="700" fill="#8a8f99">EVM</text>
+          <text x="1090" y="302" font-size="34" font-weight="700" fill="#F0B90B">TVM</text>
+          <line x1="100" y1="330" x2="1820" y2="330" stroke="#3a3f4a" stroke-width="2.5" />
+          <line x1="440" y1="260" x2="440" y2="950" stroke="#3a3f4a" stroke-width="2" />
+          <line x1="1030" y1="260" x2="1030" y2="950" stroke="#3a3f4a" stroke-width="2" />
+        </g>
+
+        <!-- 左侧 5 项目录 -->
+        <text id="tv-n1" class="h" x="110" y="424" font-size="32" font-weight="700" fill="#e8e6df">1. 手续费</text>
+        <text id="tv-n2" class="h" x="110" y="534" font-size="32" font-weight="700" fill="#e8e6df">2. 重放保护</text>
+        <text id="tv-n3" class="h" x="110" y="644" font-size="32" font-weight="700" fill="#e8e6df">3. CREATE2</text>
+        <text id="tv-n4" class="h" x="110" y="754" font-size="32" font-weight="700" fill="#e8e6df">4. TRX 转入合约</text>
+        <text id="tv-n5" class="h" x="110" y="864" font-size="32" font-weight="700" fill="#e8e6df">5. 执行上限</text>
+
+        <!-- L1 第 1 行：手续费 + fee_limit 滑块 -->
+        <g id="tv-d1" class="h">
+          <g id="tv-d1-evm" class="h">
+            <rect x="480" y="376" width="510" height="270" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="520" y="440" font-size="32" font-weight="700" fill="#8a8f99">EIP-1559 机制</text>
+            <text class="mono" x="520" y="512" font-size="34" font-weight="700" fill="#c9ccd3">base fee + tip</text>
+            <text x="520" y="588" font-size="30" fill="#8a8f99">可加小费提高打包优先级</text>
+          </g>
+
+          <g id="tv-d1-tvm" class="h">
+            <rect x="1070" y="376" width="750" height="270" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text class="mono" x="1110" y="444" font-size="32" font-weight="700" fill="#F0B90B">GASPRICE = BASEFEE</text>
+            <text class="mono" x="1110" y="504" font-size="32" fill="#e8e6df">= energyPrice</text>
+            <text id="tv-d1-notip" class="h" x="1110" y="586" font-size="32" font-weight="700" fill="#FC6255">无小费 · 不能靠加小费加速</text>
+          </g>
+
+          <!-- fee_limit 滑块 -->
+          <g id="tv-fl" class="h">
+            <rect x="1070" y="694" width="750" height="214" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="1110" y="758" font-size="32" font-weight="700" fill="#F0B90B"><tspan class="mono">fee_limit</tspan>：最多愿意烧多少</text>
+            <rect x="1110" y="810" width="660" height="22" rx="11" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+            <rect id="tv-flbar" x="1110" y="810" width="140" height="22" rx="11" fill="#F0B90B" />
+            <circle id="tv-flknob" cx="1250" cy="821" r="20" fill="#F0B90B" stroke="#e8e6df" stroke-width="3" />
+            <text x="1770" y="882" font-size="28" fill="#e8e6df" text-anchor="end">先预估能量再设上限</text>
+          </g>
+        </g>
+
+        <!-- L2 第 2 行：重放保护（nonce vs TAPOS 60s） -->
+        <g id="tv-d2" class="h">
+          <rect x="480" y="376" width="510" height="470" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="520" y="444" font-size="32" font-weight="700" fill="#8a8f99">账户 nonce 严格递增</text>
+          <rect x="520" y="510" width="110" height="90" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="575" y="568" font-size="40" font-weight="700" fill="#c9ccd3" text-anchor="middle">0</text>
+          <text class="mono" x="654" y="566" font-size="34" fill="#8a8f99" text-anchor="middle">→</text>
+          <rect x="678" y="510" width="110" height="90" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="733" y="568" font-size="40" font-weight="700" fill="#c9ccd3" text-anchor="middle">1</text>
+          <text class="mono" x="812" y="566" font-size="34" fill="#8a8f99" text-anchor="middle">→</text>
+          <rect x="836" y="510" width="110" height="90" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="891" y="568" font-size="40" font-weight="700" fill="#c9ccd3" text-anchor="middle">2</text>
+          <text x="520" y="694" font-size="30" fill="#8a8f99">中间断号会卡住后续交易</text>
+
+          <rect x="1070" y="376" width="750" height="470" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="1110" y="444" font-size="32" font-weight="700" fill="#58C4DD">无 nonce · 引用近期区块（TAPOS）</text>
+
+          <rect x="1110" y="496" width="230" height="104" rx="12" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1225" y="558" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">近期区块</text>
+
+          <path id="tv-refa" class="dr h" pathLength="1" d="M1480 548 L1352 548" fill="none" stroke="#F0B90B" stroke-width="3.5" marker-end="url(#tv-mb)" />
+
+          <g id="tv-txc">
+            <rect id="tv-txr" x="1484" y="496" width="286" height="104" rx="12" fill="#0f1117" stroke="#F0B90B" stroke-width="3" />
+            <text id="tv-txt" x="1627" y="558" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">待上链交易</text>
+          </g>
+
+          <!-- 60s 倒计时 -->
+          <text x="1110" y="684" font-size="32" fill="#e8e6df">默认有效期倒数：</text>
+          <text id="tv-sec" class="mono" x="1440" y="688" font-size="44" font-weight="700" fill="#F0B90B">60 s</text>
+          <rect x="1110" y="714" width="660" height="24" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="2" />
+          <rect id="tv-tbar" x="1110" y="714" width="660" height="24" rx="12" fill="#F0B90B" />
+          <text id="tv-exp" class="h" x="1110" y="806" font-size="32" font-weight="700" fill="#FF9F43">到 0 即过期 · 需重新签名（不会断号卡死）</text>
+        </g>
+
+        <!-- L3 第 3 行：CREATE2 前缀对比 -->
+        <g id="tv-d3" class="h">
+          <g id="tv-d3-evm" class="h">
+            <rect x="480" y="376" width="510" height="310" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="520" y="440" font-size="32" font-weight="700" fill="#8a8f99">EVM 预测地址公式</text>
+            <text class="mono" x="520" y="508" font-size="28" fill="#c9ccd3">keccak256(</text>
+            <rect x="520" y="532" width="160" height="72" rx="10" fill="#8a8f99" fill-opacity="0.22" stroke="#8a8f99" stroke-width="3" />
+            <text class="mono" x="600" y="582" font-size="42" font-weight="700" fill="#e8e6df" text-anchor="middle">0xff</text>
+            <text class="mono" x="520" y="654" font-size="28" fill="#8a8f99">+ sender + salt + hash)</text>
+          </g>
+
+          <g id="tv-d3-tvm" class="h">
+            <rect x="1070" y="376" width="750" height="310" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="1110" y="440" font-size="32" font-weight="700" fill="#F0B90B">TVM 预测地址公式</text>
+            <text class="mono" x="1110" y="508" font-size="28" fill="#e8e6df">keccak256(</text>
+            <rect x="1110" y="532" width="160" height="72" rx="10" fill="#F0B90B" fill-opacity="0.22" stroke="#F0B90B" stroke-width="3.5" />
+            <text class="mono" x="1190" y="582" font-size="42" font-weight="700" fill="#F0B90B" text-anchor="middle">0x41</text>
+            <text class="mono" x="1110" y="654" font-size="28" fill="#e8e6df">+ sender + salt + hash)</text>
+          </g>
+
+          <g id="tv-c2w" class="h">
+            <rect x="480" y="740" width="1340" height="106" rx="16" fill="#FC6255" fill-opacity="0.16" stroke="#FC6255" stroke-width="3" />
+            <text x="1150" y="806" font-size="38" font-weight="700" fill="#FC6255" text-anchor="middle">前缀不同：照搬 EVM 公式必然算错合约地址</text>
+          </g>
+        </g>
+
+        <!-- L4a 第 4 行：TRX 转入合约 -->
+        <g id="tv-d4" class="h">
+          <rect x="1420" y="400" width="380" height="440" rx="20" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="1610" y="476" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">TVM 合约</text>
+          <text x="1610" y="592" font-size="30" fill="#8a8f99" text-anchor="middle">receive / fallback</text>
+          <text id="tv-c4ok" class="h" x="1610" y="742" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">✓ 合约逻辑触发</text>
+
+          <!-- 普通 TRX 转账不触发 -->
+          <g id="tv-p1" class="h">
+            <rect x="480" y="460" width="380" height="110" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="670" y="528" font-size="32" fill="#8a8f99" text-anchor="middle">普通 TRX 转账</text>
+            <path id="tv-a41" class="dr h" pathLength="1" d="M860 515 L1390 515" fill="none" stroke="#8a8f99" stroke-width="3.5" stroke-dasharray="10 7" marker-end="url(#tv-mgy)" />
+            <text x="1125" y="492" font-size="30" font-weight="700" fill="#8a8f99" text-anchor="middle">✕ 不触发合约逻辑</text>
+          </g>
+
+          <!-- 带 callValue 的调用触发 -->
+          <g id="tv-p2" class="h">
+            <rect x="480" y="670" width="380" height="120" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="670" y="722" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">合约调用</text>
+            <text class="mono" x="670" y="766" font-size="28" fill="#e8e6df" text-anchor="middle">+ callValue</text>
+            <path id="tv-a42" class="dr h" pathLength="1" d="M860 730 L1408 730" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#tv-mgr)" />
+            <text x="1134" y="706" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">✓ 触发合约执行</text>
+          </g>
+        </g>
+
+        <!-- L4b 第 5 行：执行上限 80 ms / 3 MiB -->
+        <g id="tv-d5" class="h">
+          <g id="tv-lim1" class="h">
+            <rect x="490" y="390" width="620" height="320" rx="20" fill="#161a22" stroke="#FF9F43" stroke-width="3.5" />
+            <circle cx="800" cy="472" r="34" fill="none" stroke="#FF9F43" stroke-width="4" />
+            <line x1="800" y1="472" x2="800" y2="450" stroke="#FF9F43" stroke-width="4" />
+            <line x1="800" y1="472" x2="818" y2="482" stroke="#FF9F43" stroke-width="4" />
+            <text class="mono" x="800" y="592" font-size="60" font-weight="700" fill="#FF9F43" text-anchor="middle">80 ms</text>
+            <text x="800" y="660" font-size="32" fill="#e8e6df" text-anchor="middle">单笔交易执行时限</text>
+          </g>
+
+          <g id="tv-lim2" class="h">
+            <rect x="1180" y="390" width="620" height="320" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <rect x="1310" y="452" width="360" height="40" rx="8" fill="#0f1117" stroke="#58C4DD" stroke-width="2.5" />
+            <rect id="tv-memf" x="1310" y="452" width="0" height="40" rx="8" fill="#58C4DD" fill-opacity="0.8" />
+            <text class="mono" x="1490" y="592" font-size="60" font-weight="700" fill="#58C4DD" text-anchor="middle">3 MiB</text>
+            <text x="1490" y="660" font-size="32" fill="#e8e6df" text-anchor="middle">单笔执行内存上限</text>
+          </g>
+
+          <g id="tv-limw" class="h">
+            <rect x="490" y="766" width="1310" height="106" rx="16" fill="#FC6255" fill-opacity="0.16" stroke="#FC6255" stroke-width="3" />
+            <text x="1145" y="832" font-size="38" font-weight="700" fill="#FC6255" text-anchor="middle">计算很重的合约在 TVM 上可能莫名失败</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "linear", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const navOn = (id, t) => { IN(id, t, 0.4); tl.to(id, { fill: "#F0B90B", duration: 0.3 }, t); };
+      const navDim = (id, t) => tl.to(id, { fill: "#6b6f7a", duration: 0.3 }, t);
+
+      // L0: EVM vs TVM + 表头
+      IN("#tv-evm", at(0, 0.06), 0.5, { x: -20 }, { x: 0 });
+      IN("#tv-tvm", at(0, 0.18), 0.5, { x: 20 }, { x: 0 });
+      ARROW("#tv-compat", at(0, 0.34), 0.65);
+      IN("#tv-clb", at(0, 0.44), 0.5);
+      IN("#tv-frame", at(0, 0.72), 0.55, { y: 16 }, { y: 0 });
+
+      // L1: 手续费 + fee_limit 滑块
+      navOn("#tv-n1", at(1, 0.04));
+      IN("#tv-d1", at(1, 0.06), 0.2);
+      IN("#tv-d1-evm", at(1, 0.08), 0.5, { x: -16 }, { x: 0 });
+      IN("#tv-d1-tvm", at(1, 0.24), 0.5, { x: 16 }, { x: 0 });
+      IN("#tv-d1-notip", at(1, 0.42), 0.45, { y: 12 }, { y: 0 });
+      IN("#tv-fl", at(1, 0.56), 0.5, { y: 18 }, { y: 0 });
+      tl.to("#tv-flbar", { attr: { width: 470 }, duration: 1.8, ease: "power2.inOut" }, at(1, 0.68));
+      tl.to("#tv-flknob", { attr: { cx: 1580 }, duration: 1.8, ease: "power2.inOut" }, at(1, 0.68));
+      tl.to("#tv-fl rect:first-of-type", { attr: { "stroke-width": 4.5 }, duration: 0.35, yoyo: true, repeat: 1 }, at(1, 0.88));
+
+      // L2: 重放保护（nonce vs TAPOS 60s 倒数）
+      OUT("#tv-d1", at(2, 0.0), 0.3);
+      navDim("#tv-n1", at(2, 0.0));
+      navOn("#tv-n2", at(2, 0.05));
+      IN("#tv-d2", at(2, 0.10), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#tv-refa", at(2, 0.26), 0.5);
+      COUNT("#tv-sec", 60, 0, at(2, 0.38), 2.8, v => `${Math.round(v)} s`);
+      tl.to("#tv-tbar", { attr: { width: 0 }, duration: 2.8, ease: "linear" }, at(2, 0.38));
+      tl.to("#tv-txr", { stroke: "#6b6f7a", duration: 0.4 }, at(2, 0.72));
+      tl.to("#tv-txt", { fill: "#6b6f7a", duration: 0.4 }, at(2, 0.72));
+      IN("#tv-exp", at(2, 0.74), 0.45, { y: 12 }, { y: 0 });
+
+      // L3: CREATE2 前缀 0xff vs 0x41
+      OUT("#tv-d2", at(3, 0.0), 0.3);
+      navDim("#tv-n2", at(3, 0.0));
+      navOn("#tv-n3", at(3, 0.05));
+      IN("#tv-d3", at(3, 0.08), 0.2);
+      IN("#tv-d3-evm", at(3, 0.12), 0.5, { x: -16 }, { x: 0 });
+      IN("#tv-d3-tvm", at(3, 0.38), 0.5, { x: 16 }, { x: 0 });
+      IN("#tv-c2w", at(3, 0.68), 0.5, { y: 16 }, { y: 0 });
+
+      // L4a: TRX 转入合约
+      OUT("#tv-d3", at(4, 0.0), 0.3);
+      navDim("#tv-n3", at(4, 0.0));
+      navOn("#tv-n4", at(4, 0.04));
+      IN("#tv-d4", at(4, 0.07), 0.45);
+      IN("#tv-p1", at(4, 0.12), 0.4);
+      ARROW("#tv-a41", at(4, 0.16), 0.55);
+      IN("#tv-p2", at(4, 0.30), 0.4);
+      ARROW("#tv-a42", at(4, 0.34), 0.55);
+      IN("#tv-c4ok", at(4, 0.42), 0.35);
+
+      // L4b: 80 ms 时限与 3 MiB 内存上限
+      OUT("#tv-d4", at(4, 0.52), 0.3);
+      navDim("#tv-n4", at(4, 0.52));
+      navOn("#tv-n5", at(4, 0.56));
+      IN("#tv-d5", at(4, 0.58), 0.35);
+      IN("#tv-lim1", at(4, 0.60), 0.45, { y: 18 }, { y: 0 });
+      IN("#tv-lim2", at(4, 0.70), 0.45, { y: 18 }, { y: 0 });
+      tl.fromTo("#tv-memf", { attr: { width: 0 } }, { attr: { width: 320 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(4, 0.74));
+      IN("#tv-limw", at(4, 0.84), 0.5, { y: 14 }, { y: 0 });
+
+      tl.to("#tv-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tvm"] = tl;
+    })();
+  </script>
+</template>

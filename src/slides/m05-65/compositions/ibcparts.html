@@ -1,0 +1,281 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ibcparts，id 前缀 ib- -->
+  <div id="root" data-composition-id="ibcparts" data-duration="61.83" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ib-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ib-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ib-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+      </defs>
+      <g id="ib-all">
+        <!-- 左链 A & 右链 B 主框 -->
+        <g id="ib-chains" class="h">
+          <rect x="90" y="220" width="610" height="710" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text x="130" y="282" font-size="36" font-weight="700" fill="#e8e6df">链 A</text>
+          <text x="660" y="280" font-size="28" fill="#8a8f99" text-anchor="end">源链</text>
+          <line x1="130" y1="306" x2="660" y2="306" stroke="#2c3240" stroke-width="2" />
+
+          <rect x="1220" y="220" width="610" height="710" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text x="1260" y="282" font-size="36" font-weight="700" fill="#e8e6df">链 B</text>
+          <text x="1790" y="280" font-size="28" fill="#8a8f99" text-anchor="end">目标链</text>
+          <line x1="1260" y1="306" x2="1790" y2="306" stroke="#2c3240" stroke-width="2" />
+        </g>
+
+        <!-- L0: IBC 两层横带 -->
+        <g id="ib-layers">
+          <g id="ib-trans" class="h">
+            <rect x="730" y="564" width="460" height="196" rx="16" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="3" />
+            <text x="960" y="624" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">传输层</text>
+            <text x="960" y="678" font-size="28" fill="#e8e6df" text-anchor="middle">证明数据包在对方链提交</text>
+            <text x="960" y="726" font-size="28" fill="#8a8f99" text-anchor="middle">客户端 · 连接 · 通道</text>
+          </g>
+          <g id="ib-app" class="h">
+            <rect x="730" y="340" width="460" height="186" rx="16" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="3" />
+            <text x="960" y="402" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">应用层</text>
+            <text x="960" y="466" font-size="28" fill="#e8e6df" text-anchor="middle">代币转账 · 跨链账户</text>
+          </g>
+        </g>
+
+        <!-- L1+: 链 B 里的 链 A 轻客户端 -->
+        <g id="ib-lcA" class="h">
+          <rect x="1256" y="336" width="538" height="292" rx="16" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3" />
+          <text x="1525" y="388" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">链 A 的轻客户端</text>
+          <!-- 验证者集合 -->
+          <g id="ib-vals" class="h">
+            <text x="1286" y="454" font-size="28" fill="#B48EF0">验证者集合</text>
+            <circle cx="1474" cy="444" r="18" fill="#B48EF0" fill-opacity="0.3" stroke="#B48EF0" stroke-width="2.5" />
+            <circle cx="1526" cy="444" r="18" fill="#B48EF0" fill-opacity="0.3" stroke="#B48EF0" stroke-width="2.5" />
+            <circle cx="1578" cy="444" r="18" fill="#B48EF0" fill-opacity="0.3" stroke="#B48EF0" stroke-width="2.5" />
+            <circle cx="1630" cy="444" r="18" fill="#B48EF0" fill-opacity="0.3" stroke="#B48EF0" stroke-width="2.5" />
+            <circle cx="1682" cy="444" r="18" fill="#B48EF0" fill-opacity="0.3" stroke="#B48EF0" stroke-width="2.5" />
+          </g>
+          <!-- 区块头 + 状态根 -->
+          <g id="ib-hdr" class="h">
+            <rect x="1286" y="492" width="478" height="106" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1318" y="556" font-size="30" font-weight="700" fill="#58C4DD">区块头</text>
+            <rect x="1484" y="514" width="250" height="62" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2" />
+            <text x="1609" y="556" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle">状态根</text>
+          </g>
+        </g>
+
+        <!-- L1-L2: 链 A 状态根 + 默克尔树与证明 -->
+        <g id="ib-mk">
+          <g id="ib-aState" class="h">
+            <rect x="136" y="346" width="518" height="114" rx="14" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="3" />
+            <text x="395" y="394" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">链 A 状态根</text>
+            <text class="mono" x="395" y="438" font-size="28" fill="#e8e6df" text-anchor="middle">0x8e4a…</text>
+          </g>
+          <g id="ib-tree" class="h">
+            <!-- 树边 -->
+            <line x1="395" y1="538" x2="275" y2="640" stroke="#4a5060" stroke-width="3" />
+            <line x1="395" y1="538" x2="515" y2="640" stroke="#4a5060" stroke-width="3" />
+            <line x1="275" y1="640" x2="205" y2="752" stroke="#4a5060" stroke-width="3" />
+            <line x1="275" y1="640" x2="345" y2="752" stroke="#4a5060" stroke-width="3" />
+            <line x1="515" y1="640" x2="445" y2="752" stroke="#4a5060" stroke-width="3" />
+            <line x1="515" y1="640" x2="585" y2="752" stroke="#4a5060" stroke-width="3" />
+            <!-- 高亮路径 -->
+            <path id="ib-mpath" class="dr" pathLength="1" d="M205 752 L275 640 L395 538" fill="none" stroke="#58C4DD" stroke-width="6" stroke-linecap="round" />
+            <!-- 节点 -->
+            <circle cx="395" cy="538" r="22" fill="#58C4DD" fill-opacity="0.3" stroke="#58C4DD" stroke-width="3" />
+            <circle cx="275" cy="640" r="20" fill="#58C4DD" fill-opacity="0.25" stroke="#58C4DD" stroke-width="3" />
+            <circle cx="515" cy="640" r="20" fill="#1f2533" stroke="#58C4DD" stroke-width="2.5" />
+            <circle cx="205" cy="752" r="20" fill="#F0B90B" fill-opacity="0.3" stroke="#F0B90B" stroke-width="3" />
+            <circle cx="345" cy="752" r="18" fill="#1f2533" stroke="#58C4DD" stroke-width="2.5" />
+            <circle cx="445" cy="752" r="18" fill="#1f2533" stroke="#6b6f7a" stroke-width="2" />
+            <circle cx="585" cy="752" r="18" fill="#1f2533" stroke="#6b6f7a" stroke-width="2" />
+            <text x="395" y="844" font-size="28" fill="#58C4DD" text-anchor="middle">默克尔树（叶子 → 状态根）</text>
+          </g>
+          <!-- 中间传递的默克尔证明 -->
+          <g id="ib-proof" class="h">
+            <rect x="760" y="544" width="400" height="122" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="960" y="596" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">默克尔证明</text>
+            <text x="960" y="642" font-size="28" fill="#8a8f99" text-anchor="middle">一串路径哈希</text>
+          </g>
+          <path id="ib-parr" class="dr h" pathLength="1" d="M1168 605 L1248 564" fill="none" stroke="#58C4DD" stroke-width="4" marker-end="url(#ib-mb)" />
+          <g id="ib-mkok" class="h">
+            <rect x="1310" y="676" width="430" height="78" rx="39" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="3" />
+            <text x="1525" y="727" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">✓ 键值在状态根之下</text>
+          </g>
+        </g>
+
+        <!-- L3: 链 A 内 链 B 轻客户端 + 连接 + 通道 -->
+        <g id="ib-lcB" class="h">
+          <rect x="126" y="336" width="538" height="292" rx="16" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3" />
+          <text x="395" y="388" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">链 B 的轻客户端</text>
+          <text x="156" y="454" font-size="28" fill="#B48EF0">验证者集合</text>
+          <circle cx="344" cy="444" r="18" fill="#B48EF0" fill-opacity="0.3" stroke="#B48EF0" stroke-width="2.5" />
+          <circle cx="396" cy="444" r="18" fill="#B48EF0" fill-opacity="0.3" stroke="#B48EF0" stroke-width="2.5" />
+          <circle cx="448" cy="444" r="18" fill="#B48EF0" fill-opacity="0.3" stroke="#B48EF0" stroke-width="2.5" />
+          <circle cx="500" cy="444" r="18" fill="#B48EF0" fill-opacity="0.3" stroke="#B48EF0" stroke-width="2.5" />
+          <circle cx="552" cy="444" r="18" fill="#B48EF0" fill-opacity="0.3" stroke="#B48EF0" stroke-width="2.5" />
+          <rect x="156" y="492" width="478" height="106" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="188" y="556" font-size="30" font-weight="700" fill="#58C4DD">区块头</text>
+          <rect x="354" y="514" width="250" height="62" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2" />
+          <text x="479" y="556" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle">状态根</text>
+        </g>
+
+        <g id="ib-cc">
+          <!-- 连接 -->
+          <path id="ib-conn" class="dr" pathLength="1" d="M674 432 L1246 432" fill="none" stroke="#e8e6df" stroke-width="4" />
+          <text id="ib-connl" class="h" x="960" y="408" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">连接（握手建立）</text>
+          <!-- 通道 -->
+          <g id="ib-chan" class="h">
+            <rect x="730" y="492" width="460" height="122" rx="18" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="3" />
+            <text x="960" y="544" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">通道 <tspan class="mono">channel-0</tspan></text>
+            <text x="960" y="592" font-size="28" fill="#8a8f99" text-anchor="middle">端口 <tspan class="mono">transfer</tspan></text>
+          </g>
+        </g>
+
+        <!-- L4: 数据包卡片 + 链 A 承诺 -->
+        <g id="ib-pkt" class="h">
+          <rect x="730" y="658" width="460" height="252" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="960" y="708" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">数据包</text>
+          <rect id="ib-pf0" x="756" y="732" width="194" height="68" rx="10" fill="#1f2533" stroke="#8a8f99" stroke-width="2" />
+          <text x="853" y="777" font-size="28" fill="#e8e6df" text-anchor="middle">序号</text>
+          <rect id="ib-pf1" x="970" y="732" width="194" height="68" rx="10" fill="#1f2533" stroke="#8a8f99" stroke-width="2" />
+          <text x="1067" y="777" font-size="28" fill="#e8e6df" text-anchor="middle">源 / 目标</text>
+          <rect id="ib-pf2" x="756" y="818" width="194" height="68" rx="10" fill="#1f2533" stroke="#8a8f99" stroke-width="2" />
+          <text x="853" y="863" font-size="28" fill="#e8e6df" text-anchor="middle">超时时间</text>
+          <rect id="ib-pf3" x="970" y="818" width="194" height="68" rx="10" fill="#1f2533" stroke="#8a8f99" stroke-width="2" />
+          <text x="1067" y="863" font-size="28" fill="#e8e6df" text-anchor="middle">应用数据</text>
+        </g>
+
+        <g id="ib-comm" class="h">
+          <rect x="136" y="684" width="518" height="196" rx="16" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="3" />
+          <text x="395" y="742" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">承诺（只写哈希）</text>
+          <rect x="184" y="772" width="422" height="72" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="395" y="819" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">hash(packet)</text>
+        </g>
+
+        <!-- L5: 中继者搬运 + 篡改被拒 + 活性 vs 安全 -->
+        <g id="ib-rel" class="h">
+          <rect x="770" y="330" width="380" height="200" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3" stroke-dasharray="10 8" />
+          <!-- 机器人图标 -->
+          <line x1="960" y1="350" x2="960" y2="366" stroke="#FF9F43" stroke-width="3" />
+          <circle cx="960" cy="346" r="5" fill="#FF9F43" />
+          <rect x="922" y="366" width="76" height="46" rx="10" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="2.5" />
+          <circle cx="944" cy="389" r="5" fill="#FF9F43" />
+          <circle cx="976" cy="389" r="5" fill="#FF9F43" />
+          <text x="960" y="458" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">中继者</text>
+          <text x="960" y="504" font-size="28" fill="#58C4DD" text-anchor="middle">搬运 承诺 + 证明</text>
+        </g>
+        <path id="ib-relarr" class="dr h" pathLength="1" d="M1156 446 L1246 446" fill="none" stroke="#FF9F43" stroke-width="4" marker-end="url(#ib-mo)" />
+
+        <!-- 篡改演示 -->
+        <g id="ib-tamp" class="h">
+          <rect x="770" y="566" width="380" height="122" rx="14" fill="#FC6255" fill-opacity="0.14" stroke="#FC6255" stroke-width="3" />
+          <text x="960" y="614" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">若中继者改大金额</text>
+          <text class="mono" x="960" y="662" font-size="30" font-weight="700" text-anchor="middle">
+            <tspan fill="#8a8f99">10</tspan><tspan fill="#FC6255"> → 999</tspan>
+          </text>
+        </g>
+
+        <g id="ib-rej" class="h">
+          <rect x="1256" y="684" width="538" height="152" rx="16" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="3.5" />
+          <text x="1525" y="748" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 证明对不上</text>
+          <text x="1525" y="802" font-size="30" fill="#e8e6df" text-anchor="middle">链 B 直接拒绝</text>
+        </g>
+
+        <g id="ib-live" class="h">
+          <rect x="740" y="736" width="440" height="74" rx="14" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="3" />
+          <text x="960" y="785" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">活性：送不送到</text>
+        </g>
+        <g id="ib-safe" class="h">
+          <rect x="740" y="836" width="440" height="74" rx="14" fill="#83C167" fill-opacity="0.16" stroke="#83C167" stroke-width="3" />
+          <text x="960" y="885" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">安全：不受影响</text>
+        </g>
+      </g>
+
+      <!-- 术语卡 1：IBC -->
+      <g id="ib-term1" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">IBC</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">基于轻客户端和默克尔证明的跨链通信</text>
+      </g>
+      <!-- 术语卡 2：中继者 -->
+      <g id="ib-term2" class="h">
+        <rect x="70" y="56" width="580" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">中继者 <tspan font-size="28" font-weight="400" fill="#8a8f99">Relayer</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">搬运数据包与证明的链下程序</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 术语卡 1 + 两链 + 传输层/应用层
+      IN("#ib-term1", at(0, 0.04), 0.5);
+      IN("#ib-chains", at(0, 0.08), 0.6);
+      IN("#ib-trans", at(0, 0.25), 0.6, { y: 20 }, { y: 0 });
+      IN("#ib-app", at(0, 0.56), 0.6, { y: -20 }, { y: 0 });
+      OUT("#ib-term1", at(0, 0.78), 0.4);
+
+      // L1: 链 B 内链 A 轻客户端
+      OUT("#ib-layers", at(1, 0.0), 0.35);
+      IN("#ib-lcA", at(1, 0.08), 0.6, { scale: 0.94, svgOrigin: "1525 482" }, { scale: 1, svgOrigin: "1525 482" });
+      IN("#ib-vals", at(1, 0.36), 0.5);
+      IN("#ib-hdr", at(1, 0.62), 0.5, { y: 12 }, { y: 0 });
+      IN("#ib-aState", at(1, 0.76), 0.5);
+
+      // L2: 默克尔树 + 路径高亮 + 证明核对通过
+      IN("#ib-tree", at(2, 0.06), 0.5);
+      DRAW("#ib-mpath", at(2, 0.26), 0.9);
+      IN("#ib-proof", at(2, 0.52), 0.5, { x: -30 }, { x: 0 });
+      ARROW("#ib-parr", at(2, 0.66), 0.45);
+      IN("#ib-mkok", at(2, 0.78), 0.45, { scale: 0.9, svgOrigin: "1525 715" }, { scale: 1, svgOrigin: "1525 715" });
+
+      // L3: 互相运行轻客户端 + 连接 + 通道 channel-0
+      OUT("#ib-mk", at(3, 0.0), 0.35);
+      IN("#ib-lcB", at(3, 0.08), 0.6, { scale: 0.94, svgOrigin: "395 482" }, { scale: 1, svgOrigin: "395 482" });
+      DRAW("#ib-conn", at(3, 0.34), 0.7);
+      IN("#ib-connl", at(3, 0.42), 0.45);
+      IN("#ib-chan", at(3, 0.68), 0.6, { y: 14 }, { y: 0 });
+
+      // L4: 数据包卡片 + 链 A 承诺
+      IN("#ib-pkt", at(4, 0.06), 0.55, { y: 20 }, { y: 0 });
+      ["#ib-pf0", "#ib-pf1", "#ib-pf2", "#ib-pf3"].forEach((s, i) => {
+        tl.to(s, { stroke: "#F0B90B", duration: 0.3 }, at(4, 0.20 + i * 0.10));
+      });
+      IN("#ib-comm", at(4, 0.64), 0.55, { y: 16 }, { y: 0 });
+
+      // L5: 中继者 + 术语卡 2 + 篡改被拒 + 活性 vs 安全
+      OUT("#ib-cc, #ib-pkt, #ib-lcB", at(5, 0.0), 0.35);
+      IN("#ib-term2", at(5, 0.04), 0.5);
+      IN("#ib-rel", at(5, 0.10), 0.55, { y: -16 }, { y: 0 });
+      ARROW("#ib-relarr", at(5, 0.24), 0.5);
+      IN("#ib-live", at(5, 0.40), 0.5, { y: 12 }, { y: 0 });
+      IN("#ib-tamp", at(5, 0.60), 0.45, { scale: 0.94, svgOrigin: "960 627" }, { scale: 1, svgOrigin: "960 627" });
+      IN("#ib-rej", at(5, 0.72), 0.45, { scale: 0.94, svgOrigin: "1525 760" }, { scale: 1, svgOrigin: "1525 760" });
+      IN("#ib-safe", at(5, 0.82), 0.5, { y: 12 }, { y: 0 });
+
+      tl.to("#ib-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ib-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["ibcparts"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,315 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 address，id 前缀 ad- -->
+  <div id="root" data-composition-id="address" data-duration="64.46" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ad-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ad-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ad-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="ad-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+        <marker id="ad-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="ad-all">
+        <!-- L0 三层地址格式由内向外 -->
+        <g id="ad-s0">
+          <text id="ad-t0" class="h" x="960" y="108" font-size="46" font-weight="700" fill="#e8e6df" text-anchor="middle">Tron 地址的三层格式</text>
+          <text id="ad-sub0" class="h" x="960" y="160" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">后端最常见的 bug 来源</text>
+
+          <!-- 外层：Base58Check T... 34 字符 -->
+          <g id="ad-lay3" class="h">
+            <rect x="160" y="210" width="1600" height="710" rx="26" fill="#83C167" fill-opacity="0.05" stroke="#83C167" stroke-width="3.5" />
+            <text x="960" y="280" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">给人看：Base58Check · 34 个字符 · T 开头</text>
+            <text x="960" y="866" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle"><tspan class="mono">T...</tspan>（34 字符人类可读地址）</text>
+          </g>
+
+          <!-- 中层：链上 21 字节（41 + 20 字节） -->
+          <g id="ad-lay2" class="h">
+            <rect x="380" y="340" width="1160" height="440" rx="22" fill="#F0B90B" fill-opacity="0.06" stroke="#F0B90B" stroke-width="3.5" />
+            <text x="960" y="408" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">链上存储：21 字节（前缀 0x41 + 20 字节）</text>
+            <rect x="436" y="534" width="128" height="96" rx="14" fill="#F0B90B" fill-opacity="0.22" stroke="#F0B90B" stroke-width="3" />
+            <text class="mono" x="500" y="596" font-size="42" font-weight="700" fill="#F0B90B" text-anchor="middle">41</text>
+            <text class="mono" x="602" y="594" font-size="38" font-weight="700" fill="#F0B90B" text-anchor="middle">+</text>
+          </g>
+
+          <!-- 内层：虚拟机内 20 字节 -->
+          <g id="ad-lay1" class="h">
+            <rect x="640" y="476" width="840" height="220" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="1060" y="558" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">虚拟机内（TVM）：20 字节</text>
+            <text class="mono" x="1060" y="636" font-size="32" fill="#e8e6df" text-anchor="middle">0x ... (20 bytes)</text>
+          </g>
+        </g>
+
+        <!-- L1 转换流水线 + TronWeb -->
+        <g id="ad-s1">
+          <text id="ad-t1" class="h" x="140" y="146" font-size="44" font-weight="700" fill="#58C4DD">地址转换流水线</text>
+
+          <g id="ad-p1" class="h">
+            <rect x="120" y="230" width="330" height="126" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="285" y="305" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle"><tspan class="mono">41</tspan> + 20 字节</text>
+          </g>
+          <path id="ad-pa1" class="dr h" pathLength="1" d="M450 293 L516 293" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#ad-mb)" />
+
+          <g id="ad-p2" class="h">
+            <rect x="526" y="230" width="270" height="126" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="661" y="305" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">SHA-256</text>
+          </g>
+          <path id="ad-pa2" class="dr h" pathLength="1" d="M796 293 L862 293" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#ad-mb)" />
+
+          <g id="ad-p3" class="h">
+            <rect x="872" y="230" width="270" height="126" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1007" y="305" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">SHA-256</text>
+          </g>
+          <path id="ad-pa3" class="dr h" pathLength="1" d="M1142 293 L1208 293" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#ad-mb)" />
+
+          <g id="ad-p4" class="h">
+            <rect x="1218" y="230" width="582" height="126" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1509" y="305" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">取前 4 字节作为校验码</text>
+          </g>
+
+          <path id="ad-pa4" class="dr h" pathLength="1" d="M1509 356 L1509 426 L630 426 L630 492" fill="none" stroke="#F0B90B" stroke-width="3.5" marker-end="url(#ad-mg)" />
+
+          <g id="ad-p5" class="h">
+            <rect x="280" y="502" width="700" height="126" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="630" y="577" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">拼接：21 字节 + 4 字节校验码</text>
+          </g>
+          <path id="ad-pa5" class="dr h" pathLength="1" d="M980 565 L1106 565" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#ad-mgr)" />
+
+          <g id="ad-p6" class="h">
+            <rect x="1116" y="502" width="524" height="126" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3.5" />
+            <text x="1378" y="577" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle"><tspan class="mono">Base58 → T...</tspan></text>
+          </g>
+
+          <g id="ad-tw" class="h">
+            <rect x="340" y="730" width="1240" height="126" rx="18" fill="#83C167" fill-opacity="0.14" stroke="#83C167" stroke-width="3" />
+            <text x="960" y="806" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">✓ 开发直接用 TronWeb 转换函数 · 别自己手拼</text>
+          </g>
+        </g>
+
+        <!-- L2 三个接口吐不同格式 -> 归一化漏斗 -->
+        <g id="ad-s2">
+          <text id="ad-t2" class="h" x="960" y="136" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">不同接口格式不统一 · 后端先归一化</text>
+
+          <g id="ad-api1" class="h">
+            <rect x="140" y="236" width="400" height="140" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="190" y="294" font-size="28" fill="#8a8f99">接口 A 返回</text>
+            <text class="mono" x="190" y="348" font-size="40" font-weight="700" fill="#83C167">T...</text>
+          </g>
+          <g id="ad-api2" class="h">
+            <rect x="140" y="456" width="400" height="140" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="190" y="514" font-size="28" fill="#8a8f99">接口 B 返回</text>
+            <text class="mono" x="190" y="568" font-size="40" font-weight="700" fill="#F0B90B">41...</text>
+          </g>
+          <g id="ad-api3" class="h">
+            <rect x="140" y="676" width="400" height="140" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="190" y="734" font-size="28" fill="#8a8f99">接口 C 返回</text>
+            <text class="mono" x="190" y="788" font-size="40" font-weight="700" fill="#58C4DD">0x...</text>
+          </g>
+
+          <path id="ad-fa1" class="dr h" pathLength="1" d="M540 306 L806 472" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#ad-mgr)" />
+          <path id="ad-fa2" class="dr h" pathLength="1" d="M540 526 L802 526" fill="none" stroke="#F0B90B" stroke-width="3.5" marker-end="url(#ad-mg)" />
+          <path id="ad-fa3" class="dr h" pathLength="1" d="M540 746 L806 580" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#ad-mb)" />
+
+          <!-- 漏斗梯形 -->
+          <g id="ad-funnel" class="h">
+            <polygon points="814,356 1214,436 1214,616 814,696" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="1004" y="514" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">归一化</text>
+            <text x="1004" y="568" font-size="28" fill="#e8e6df" text-anchor="middle">统一转换</text>
+          </g>
+
+          <path id="ad-fa4" class="dr h" pathLength="1" d="M1214 526 L1360 526" fill="none" stroke="#83C167" stroke-width="4" marker-end="url(#ad-mgr)" />
+
+          <g id="ad-out" class="h">
+            <rect x="1370" y="426" width="420" height="200" rx="18" fill="#161a22" stroke="#83C167" stroke-width="3.5" />
+            <text x="1580" y="512" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">唯一标准格式</text>
+            <text x="1580" y="576" font-size="30" fill="#e8e6df" text-anchor="middle">再入库 / 做比对</text>
+          </g>
+        </g>
+
+        <!-- L3 新地址激活 + USDT 余额与转出 -->
+        <g id="ad-s3">
+          <!-- 上半：激活 1 TRX -->
+          <g id="ad-act1" class="h">
+            <circle cx="340" cy="300" r="96" fill="#161a22" stroke="#83C167" stroke-width="3.5" />
+            <text x="340" y="294" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">已激活</text>
+            <text x="340" y="336" font-size="30" fill="#e8e6df" text-anchor="middle">账户</text>
+          </g>
+
+          <g id="ad-cost" class="h">
+            <rect x="140" y="106" width="420" height="68" rx="12" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="350" y="152" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">− 1 TRX 创建费（示例）</text>
+          </g>
+
+          <path id="ad-aa" class="dr h" pathLength="1" d="M442 300 L842 300" fill="none" stroke="#F0B90B" stroke-width="4" marker-end="url(#ad-mg)" />
+          <text id="ad-aat" class="h" x="642" y="274" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">转入 TRX 激活</text>
+
+          <g id="ad-act2" class="h">
+            <circle id="ad-newc" cx="950" cy="300" r="96" fill="#161a22" stroke="#8a8f99" stroke-width="3.5" stroke-dasharray="10 7" />
+            <text id="ad-newta" x="950" y="310" font-size="32" font-weight="700" fill="#8a8f99" text-anchor="middle">未激活</text>
+            <text id="ad-newtb" class="h" x="950" y="310" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">已激活</text>
+          </g>
+
+          <g id="ad-actok" class="h">
+            <rect x="1110" y="242" width="670" height="116" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1445" y="312" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">✓ 已激活 · 链上节点可查询到该账户</text>
+          </g>
+
+          <!-- 下半：USDT 存储推断 vs 0 能量无法转出 -->
+          <g id="ad-u1" class="h">
+            <rect x="140" y="520" width="770" height="350" rx="20" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <rect x="750" y="550" width="126" height="52" rx="10" fill="#FF9F43" fill-opacity="0.2" stroke="#FF9F43" stroke-width="2" />
+            <text x="813" y="587" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">推断</text>
+            <text x="190" y="592" font-size="34" font-weight="700" fill="#F0B90B">收 USDT</text>
+            <text x="190" y="688" font-size="32" fill="#e8e6df">USDT 余额记录在合约存储里</text>
+            <text x="190" y="768" font-size="32" font-weight="700" fill="#FF9F43">可以推断：不依赖地址激活</text>
+          </g>
+
+          <g id="ad-u2" class="h">
+            <rect x="990" y="520" width="790" height="350" rx="20" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text x="1040" y="592" font-size="34" font-weight="700" fill="#FC6255">转出 USDT</text>
+            <text x="1040" y="672" font-size="30" fill="#e8e6df">地址内无 TRX 且能量 = 0 时：</text>
+            <path id="ad-blk-a" class="dr h" pathLength="1" d="M1040 756 L1420 756" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#ad-mr)" />
+            <line id="ad-wall" class="h" x1="1442" y1="714" x2="1442" y2="798" stroke="#FC6255" stroke-width="8" stroke-linecap="round" />
+            <text id="ad-blkt" class="h" x="1480" y="768" font-size="34" font-weight="700" fill="#FC6255">✕ 无法转出</text>
+          </g>
+        </g>
+
+        <!-- L4 黑名单冻结 + 12.6 亿 + 入账到归集风险窗 -->
+        <g id="ad-s4">
+          <g id="ad-addr" class="h">
+            <rect id="ad-addrr" x="160" y="150" width="700" height="310" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3.5" />
+            <text x="220" y="236" font-size="32" fill="#8a8f99">链上地址</text>
+            <text class="mono" x="220" y="310" font-size="38" font-weight="700" fill="#e8e6df">T... (USDT)</text>
+          </g>
+
+          <g id="ad-stamp" class="h">
+            <rect x="440" y="338" width="370" height="86" rx="14" fill="#B48EF0" fill-opacity="0.22" stroke="#B48EF0" stroke-width="4" />
+            <text x="625" y="394" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">发行方 · 冻结</text>
+          </g>
+
+          <g id="ad-stat" class="h">
+            <rect x="940" y="150" width="820" height="310" rx="20" fill="#161a22" stroke="#FC6255" stroke-width="3.5" />
+            <text x="1000" y="226" font-size="30" fill="#8a8f99">据统计 · 2025 年黑名单冻结</text>
+            <text x="1110" y="338" font-size="50" font-weight="700" fill="#FC6255" text-anchor="end">≈</text>
+            <text id="ad-frz-n" class="mono" x="1130" y="342" font-size="60" font-weight="700" fill="#FC6255">0.0</text>
+            <text x="1310" y="338" font-size="48" font-weight="700" fill="#FC6255">亿美元</text>
+            <text x="1000" y="416" font-size="30" fill="#e8e6df">以太坊 + Tron 合计冻结 USDT</text>
+          </g>
+
+          <!-- 入账 -> 归集风险时间轴 -->
+          <g id="ad-tl" class="h">
+            <rect x="160" y="620" width="360" height="130" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="340" y="698" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">充值入账</text>
+
+            <rect x="1400" y="620" width="360" height="130" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1580" y="698" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">资金归集</text>
+
+            <line x1="520" y1="685" x2="1400" y2="685" stroke="#2c3240" stroke-width="12" stroke-linecap="round" />
+            <line id="ad-redbar" class="dr" pathLength="1" x1="520" y1="685" x2="1400" y2="685" stroke="#FC6255" stroke-width="12" stroke-linecap="round" />
+            <text id="ad-redt" class="h" x="960" y="638" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">整段期间都可能被冻结</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 三层地址格式由内向外展开
+      IN("#ad-t0", at(0, 0.04), 0.5, { y: -14 }, { y: 0 });
+      IN("#ad-sub0", at(0, 0.14), 0.5);
+      IN("#ad-lay1", at(0, 0.28), 0.6, { y: 18 }, { y: 0 });
+      IN("#ad-lay2", at(0, 0.50), 0.65, { y: 18 }, { y: 0 });
+      IN("#ad-lay3", at(0, 0.74), 0.65, { y: 18 }, { y: 0 });
+      tl.to("#ad-lay3 rect", { attr: { "stroke-width": 5.5 }, duration: 0.4, yoyo: true, repeat: 1 }, at(0, 0.88));
+
+      // L1: 地址转换流水线
+      OUT("#ad-s0", at(1, 0.0), 0.35);
+      IN("#ad-t1", at(1, 0.04), 0.45);
+      IN("#ad-p1", at(1, 0.08), 0.45, { x: -16 }, { x: 0 });
+      ARROW("#ad-pa1", at(1, 0.16), 0.3);
+      IN("#ad-p2", at(1, 0.21), 0.45);
+      ARROW("#ad-pa2", at(1, 0.28), 0.3);
+      IN("#ad-p3", at(1, 0.33), 0.45);
+      ARROW("#ad-pa3", at(1, 0.40), 0.3);
+      IN("#ad-p4", at(1, 0.45), 0.45);
+      ARROW("#ad-pa4", at(1, 0.54), 0.5);
+      IN("#ad-p5", at(1, 0.59), 0.45);
+      ARROW("#ad-pa5", at(1, 0.66), 0.3);
+      IN("#ad-p6", at(1, 0.70), 0.45);
+      IN("#ad-tw", at(1, 0.80), 0.55, { y: 18 }, { y: 0 });
+
+      // L2: 三接口归一化
+      OUT("#ad-s1", at(2, 0.0), 0.35);
+      IN("#ad-t2", at(2, 0.05), 0.45);
+      IN("#ad-api1", at(2, 0.12), 0.45, { x: -20 }, { x: 0 });
+      IN("#ad-api2", at(2, 0.24), 0.45, { x: -20 }, { x: 0 });
+      IN("#ad-api3", at(2, 0.36), 0.45, { x: -20 }, { x: 0 });
+      ARROW("#ad-fa1", at(2, 0.48), 0.45);
+      ARROW("#ad-fa2", at(2, 0.51), 0.45);
+      ARROW("#ad-fa3", at(2, 0.54), 0.45);
+      IN("#ad-funnel", at(2, 0.58), 0.5);
+      ARROW("#ad-fa4", at(2, 0.70), 0.4);
+      IN("#ad-out", at(2, 0.76), 0.5, { x: 20 }, { x: 0 });
+
+      // L3: 新地址激活 + USDT 余额与转出限制
+      OUT("#ad-s2", at(3, 0.0), 0.35);
+      IN("#ad-act1", at(3, 0.06), 0.5);
+      IN("#ad-act2", at(3, 0.10), 0.5);
+      ARROW("#ad-aa", at(3, 0.18), 0.55);
+      IN("#ad-aat", at(3, 0.20), 0.4);
+      IN("#ad-cost", at(3, 0.28), 0.5, { y: -14 }, { y: 0 });
+      tl.to("#ad-newc", { stroke: "#58C4DD", attr: { "stroke-dasharray": "none" }, duration: 0.45 }, at(3, 0.36));
+      OUT("#ad-newta", at(3, 0.34), 0.2);
+      IN("#ad-newtb", at(3, 0.38), 0.35);
+      IN("#ad-actok", at(3, 0.40), 0.5, { x: 20 }, { x: 0 });
+      IN("#ad-u1", at(3, 0.54), 0.55, { y: 20 }, { y: 0 });
+      IN("#ad-u2", at(3, 0.74), 0.55, { y: 20 }, { y: 0 });
+      ARROW("#ad-blk-a", at(3, 0.82), 0.5);
+      IN("#ad-wall", at(3, 0.87), 0.25);
+      IN("#ad-blkt", at(3, 0.89), 0.4);
+
+      // L4: 黑名单冻结 + 12.6 亿 + 入账到归集风险窗
+      OUT("#ad-s3", at(4, 0.0), 0.35);
+      IN("#ad-addr", at(4, 0.06), 0.5);
+      IN("#ad-stamp", at(4, 0.16), 0.35, { y: -30 }, { y: 0 });
+      tl.to("#ad-addrr", { stroke: "#FC6255", duration: 0.4 }, at(4, 0.18));
+      IN("#ad-stat", at(4, 0.36), 0.55, { x: 24 }, { x: 0 });
+      COUNT("#ad-frz-n", 0, 12.6, at(4, 0.42), 1.6, v => v.toFixed(1));
+      IN("#ad-tl", at(4, 0.68), 0.5, { y: 20 }, { y: 0 });
+      DRAW("#ad-redbar", at(4, 0.78), 0.8);
+      IN("#ad-redt", at(4, 0.82), 0.45);
+
+      tl.to("#ad-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["address"] = tl;
+    })();
+  </script>
+</template>

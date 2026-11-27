@@ -1,0 +1,299 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ics20，id 前缀 ic- -->
+  <div id="root" data-composition-id="ics20" data-duration="46.01" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ic-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ic-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ic-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="ic-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+        <marker id="ic-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="ic-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="ic-all">
+        <!-- 主框架：左原生链 A、右链 B -->
+        <g id="ic-chains" class="h">
+          <rect x="90" y="240" width="600" height="720" rx="20" fill="#161a22" fill-opacity="0.65" stroke="#8a8f99" stroke-width="3" />
+          <text x="390" y="298" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">原生链 A</text>
+          <rect x="140" y="790" width="500" height="126" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="176" y="864" font-size="30" fill="#8a8f99">用户 A 账户</text>
+
+          <rect x="1230" y="240" width="600" height="720" rx="20" fill="#161a22" fill-opacity="0.65" stroke="#8a8f99" stroke-width="3" />
+          <text x="1530" y="298" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">链 B</text>
+          <rect x="1280" y="790" width="500" height="126" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="1316" y="864" font-size="30" fill="#8a8f99">用户 B 账户</text>
+        </g>
+
+        <!-- L0：传输层之上 ICS-20 应用层横带 -->
+        <g id="ic-l0-layers">
+          <g id="ic-trbar" class="h">
+            <rect x="720" y="610" width="480" height="82" rx="14" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="960" y="662" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">IBC 传输层</text>
+          </g>
+          <g id="ic-appbar" class="h">
+            <rect x="720" y="486" width="480" height="92" rx="14" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="3" />
+            <text x="960" y="544" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">应用层 · ICS-20</text>
+          </g>
+          <path id="ic-l0-link" class="dr h" pathLength="1" d="M694 532 L716 532 M1204 532 L1226 532" stroke="#F0B90B" stroke-width="3" fill="none" />
+        </g>
+
+        <!-- L1：JSON 五字段卡片 -->
+        <g id="ic-json" class="h">
+          <rect x="730" y="290" width="460" height="510" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="960" y="346" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">ICS-20 数据包（JSON）</text>
+          <line x1="756" y1="368" x2="1164" y2="368" stroke="#3a3f4a" stroke-width="2" />
+          <g id="ic-f0" class="h">
+            <text class="mono" x="772" y="432" font-size="30" fill="#58C4DD">denom</text>
+            <text x="1146" y="432" font-size="28" fill="#8a8f99" text-anchor="end">币种名</text>
+          </g>
+          <g id="ic-f1" class="h">
+            <text class="mono" x="772" y="506" font-size="30" fill="#F0B90B">amount</text>
+            <text x="1146" y="506" font-size="28" fill="#8a8f99" text-anchor="end">数量</text>
+          </g>
+          <g id="ic-f2" class="h">
+            <text class="mono" x="772" y="580" font-size="30" fill="#e8e6df">sender</text>
+            <text x="1146" y="580" font-size="28" fill="#8a8f99" text-anchor="end">发送者</text>
+          </g>
+          <g id="ic-f3" class="h">
+            <text class="mono" x="772" y="654" font-size="30" fill="#e8e6df">receiver</text>
+            <text x="1146" y="654" font-size="28" fill="#8a8f99" text-anchor="end">接收者</text>
+          </g>
+          <g id="ic-f4" class="h">
+            <rect x="752" y="692" width="416" height="66" rx="10" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="2.5" />
+            <text class="mono" x="772" y="736" font-size="30" font-weight="700" fill="#FF9F43">memo</text>
+            <text x="1146" y="736" font-size="28" fill="#FF9F43" text-anchor="end">备注字段</text>
+          </g>
+        </g>
+
+        <!-- L2：离家（源区） -->
+        <g id="ic-l2-badge" class="h">
+          <rect x="770" y="136" width="380" height="68" rx="34" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="3" />
+          <text x="960" y="182" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">离家（源区）</text>
+        </g>
+
+        <!-- 链 A transfer 模块账户保险箱（L2 与 L3 复用） -->
+        <g id="ic-vault" class="h">
+          <rect id="ic-vault-box" x="140" y="360" width="500" height="230" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="390" y="414" font-size="28" font-weight="700" fill="#e8e6df" text-anchor="middle"><tspan class="mono">transfer </tspan>模块账户</text>
+          <!-- 锁图标 -->
+          <g id="ic-lock-shackle">
+            <path d="M214 494 v-24 a24 24 0 0 1 48 0 v24" fill="none" stroke="#F0B90B" stroke-width="5" stroke-linecap="round" />
+          </g>
+          <rect x="200" y="494" width="76" height="62" rx="10" fill="#F0B90B" fill-opacity="0.22" stroke="#F0B90B" stroke-width="3.5" />
+          <circle cx="238" cy="524" r="7" fill="#F0B90B" />
+          <text id="ic-vault-st1" class="h" x="440" y="536" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">托管锁定</text>
+          <text id="ic-vault-st2" class="h" x="440" y="536" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">开锁释放</text>
+        </g>
+
+        <!-- L2 原生金币（从用户 A 飞进保险箱） -->
+        <g id="ic-coinA" class="h">
+          <rect x="452" y="818" width="128" height="68" rx="34" fill="#F0B90B" fill-opacity="0.2" stroke="#F0B90B" stroke-width="3.5" />
+          <text class="mono" x="516" y="863" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">uatom</text>
+        </g>
+        <path id="ic-upA" class="dr h" pathLength="1" d="M516 782 L516 604" stroke="#F0B90B" stroke-width="3.5" fill="none" marker-end="url(#ic-mg)" />
+        <path id="ic-goR" class="dr h" pathLength="1" d="M710 475 L1206 475" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#ic-mb)" />
+        <text id="ic-goRt" class="h" x="960" y="452" font-size="30" fill="#58C4DD" text-anchor="middle">跨链数据包</text>
+        <g id="ic-mintB" class="h">
+          <rect x="1280" y="360" width="500" height="230" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+          <text x="1530" y="414" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">铸造凭证代币</text>
+          <circle cx="1530" cy="500" r="44" fill="#F0B90B" fill-opacity="0.22" stroke="#F0B90B" stroke-width="3.5" />
+          <text class="mono" x="1530" y="510" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">ibc</text>
+        </g>
+        <g id="ic-denomB" class="h">
+          <rect x="1264" y="636" width="532" height="72" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text class="mono" x="1530" y="683" font-size="28" text-anchor="middle"><tspan fill="#58C4DD">transfer/channel-x/</tspan><tspan fill="#F0B90B">uatom</tspan></text>
+        </g>
+        <path id="ic-dnB" class="dr h" pathLength="1" d="M1530 714 L1530 780" stroke="#F0B90B" stroke-width="3.5" fill="none" marker-end="url(#ic-mg)" />
+        <!-- L3：回家（汇区） -->
+        <g id="ic-l3-badge" class="h">
+          <rect x="770" y="136" width="380" height="68" rx="34" fill="#8a8f99" fill-opacity="0.18" stroke="#8a8f99" stroke-width="3" />
+          <text x="960" y="182" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">回家（汇区）</text>
+        </g>
+        <g id="ic-burnB" class="h">
+          <rect x="1280" y="360" width="500" height="230" rx="16" fill="#FC6255" fill-opacity="0.1" stroke="#FC6255" stroke-width="3" />
+          <text x="1530" y="418" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">销毁凭证</text>
+          <path d="M1530 452 C1556 480 1564 510 1550 536 C1542 552 1518 552 1510 536 C1496 510 1504 480 1530 452 Z" fill="#FC6255" fill-opacity="0.3" stroke="#FC6255" stroke-width="3.5" />
+          <path d="M1530 486 C1542 502 1544 522 1530 534 C1516 522 1518 502 1530 486 Z" fill="#FF9F43" />
+        </g>
+        <path id="ic-goL" class="dr h" pathLength="1" d="M1210 475 L714 475" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#ic-mb)" />
+        <text id="ic-goLt" class="h" x="960" y="452" font-size="30" fill="#58C4DD" text-anchor="middle">回程数据包</text>
+        <g id="ic-stripA" class="h">
+          <rect x="124" y="636" width="532" height="72" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text class="mono" x="390" y="683" font-size="28" text-anchor="middle"><tspan fill="#58C4DD">transfer/channel-x/</tspan><tspan fill="#F0B90B">uatom</tspan></text>
+          <line id="ic-cut" class="dr" pathLength="1" x1="186" y1="672" x2="508" y2="672" stroke="#FC6255" stroke-width="4" />
+        </g>
+        <path id="ic-dnA" class="dr h" pathLength="1" d="M390 714 L390 780" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#ic-mgr)" />
+        <g id="ic-coinRel" class="h">
+          <rect x="452" y="818" width="128" height="68" rx="34" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="3.5" />
+          <text class="mono" x="516" y="863" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">uatom</text>
+        </g>
+        <!-- L4：判断菱形 -->
+        <g id="ic-l4">
+          <g id="ic-dia" class="h">
+            <polygon points="960,180 1420,380 960,580 500,380" fill="#161a22" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="960" y="364" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">币种名是否带有</text>
+            <text x="960" y="416" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">本端口 / 本通道前缀？</text>
+          </g>
+          <path id="ic-brL" class="dr h" pathLength="1" d="M494 380 L420 380 L420 680" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#ic-mg)" />
+          <text id="ic-brLt" class="h" x="448" y="356" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">否</text>
+          <g id="ic-resL" class="h">
+            <rect x="160" y="696" width="520" height="196" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="420" y="768" font-size="38" font-weight="700" fill="#F0B90B" text-anchor="middle">离家（源区）</text>
+            <text x="420" y="838" font-size="30" fill="#e8e6df" text-anchor="middle">托管原生币 · 铸造凭证</text>
+          </g>
+          <path id="ic-brR" class="dr h" pathLength="1" d="M1426 380 L1500 380 L1500 680" stroke="#8a8f99" stroke-width="4" fill="none" marker-end="url(#ic-arr)" />
+          <text id="ic-brRt" class="h" x="1472" y="356" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">是</text>
+          <g id="ic-resR" class="h">
+            <rect x="1240" y="696" width="520" height="196" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="1500" y="768" font-size="38" font-weight="700" fill="#e8e6df" text-anchor="middle">回家（汇区）</text>
+            <text x="1500" y="838" font-size="30" fill="#e8e6df" text-anchor="middle">销毁凭证 · 释放原生币</text>
+          </g>
+        </g>
+
+        <!-- L5：超时或失败退款 -->
+        <g id="ic-l5">
+          <g id="ic-clk" class="h">
+            <rect x="680" y="160" width="560" height="144" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <circle cx="766" cy="232" r="38" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="3.5" />
+            <line x1="766" y1="232" x2="766" y2="206" stroke="#FF9F43" stroke-width="4" stroke-linecap="round" />
+            <line x1="766" y1="232" x2="790" y2="244" stroke="#FF9F43" stroke-width="4" stroke-linecap="round" />
+            <text x="1010" y="246" font-size="38" font-weight="700" fill="#FF9F43" text-anchor="middle">超时或错误确认</text>
+          </g>
+          <path id="ic-tL" class="dr h" pathLength="1" d="M840 308 L540 436" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#ic-mg)" />
+          <path id="ic-tR" class="dr h" pathLength="1" d="M1080 308 L1380 436" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#ic-mg)" />
+
+          <g id="ic-refL" class="h">
+            <rect x="200" y="450" width="640" height="200" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="520" y="524" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">源区：托管的放回来</text>
+            <text x="520" y="592" font-size="28" fill="#e8e6df" text-anchor="middle">从 transfer 模块账户解冻原生币</text>
+          </g>
+          <g id="ic-refR" class="h">
+            <rect x="1080" y="450" width="640" height="200" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+            <text x="1400" y="524" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">汇区：销毁的再铸出来</text>
+            <text x="1400" y="592" font-size="28" fill="#e8e6df" text-anchor="middle">按原币种名重新铸造凭证</text>
+          </g>
+
+          <path id="ic-mL" class="dr h" pathLength="1" d="M520 656 L800 798" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#ic-mgr)" />
+          <path id="ic-mR" class="dr h" pathLength="1" d="M1400 656 L1120 798" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#ic-mgr)" />
+          <g id="ic-back" class="h">
+            <rect x="640" y="810" width="640" height="114" rx="57" fill="#83C167" fill-opacity="0.16" stroke="#83C167" stroke-width="3.5" />
+            <text x="960" y="881" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">✓ 全部退回发送者</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- 术语卡：ICS-20 -->
+      <g id="ic-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">ICS-20</text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">IBC 上的同质化代币转账标准</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 两链 + 传输层之上 ICS-20 + 术语卡
+      IN("#ic-chains", at(0, 0.03), 0.6);
+      IN("#ic-trbar", at(0, 0.14), 0.5, { y: 20 }, { y: 0 });
+      IN("#ic-appbar", at(0, 0.36), 0.6, { y: -24 }, { y: 0 });
+      ARROW("#ic-l0-link", at(0, 0.50), 0.4);
+      IN("#ic-term", at(0, 0.58), 0.5);
+
+      // L1: JSON 五字段逐行出现
+      OUT("#ic-l0-layers", at(1, 0), 0.35);
+      IN("#ic-json", at(1, 0.08), 0.5, { y: 18 }, { y: 0 });
+      IN("#ic-f0", at(1, 0.18), 0.4, { x: -16 }, { x: 0 });
+      IN("#ic-f1", at(1, 0.31), 0.4, { x: -16 }, { x: 0 });
+      IN("#ic-f2", at(1, 0.44), 0.4, { x: -16 }, { x: 0 });
+      IN("#ic-f3", at(1, 0.57), 0.4, { x: -16 }, { x: 0 });
+      IN("#ic-f4", at(1, 0.72), 0.5, { x: -16 }, { x: 0 });
+      OUT("#ic-term", at(1, 0.90), 0.35);
+
+      // L2: 离家（源区）— 托管 + 铸造加前缀
+      OUT("#ic-json", at(2, 0), 0.35);
+      IN("#ic-l2-badge", at(2, 0.06), 0.5, { y: -16 }, { y: 0 });
+      IN("#ic-vault", at(2, 0.10), 0.5);
+      IN("#ic-coinA", at(2, 0.16), 0.4);
+      ARROW("#ic-upA", at(2, 0.24), 0.5);
+      tl.to("#ic-coinA", { y: -326, duration: 0.9, ease: "power2.inOut" }, at(2, 0.26));
+      OUT("#ic-coinA", at(2, 0.38), 0.25);
+      IN("#ic-vault-st1", at(2, 0.40), 0.4);
+      ARROW("#ic-goR", at(2, 0.48), 0.7);
+      IN("#ic-goRt", at(2, 0.52), 0.4);
+      IN("#ic-mintB", at(2, 0.60), 0.5);
+      IN("#ic-denomB", at(2, 0.74), 0.5, { y: 12 }, { y: 0 });
+      ARROW("#ic-dnB", at(2, 0.85), 0.45);
+
+      // L3: 回家（汇区）— 销毁 + 去前缀释放
+      OUT(["#ic-l2-badge", "#ic-upA", "#ic-goR", "#ic-goRt", "#ic-mintB", "#ic-denomB", "#ic-dnB", "#ic-vault-st1"], at(3, 0), 0.35);
+      IN("#ic-l3-badge", at(3, 0.08), 0.45, { y: -16 }, { y: 0 });
+      IN("#ic-burnB", at(3, 0.14), 0.5);
+      ARROW("#ic-goL", at(3, 0.36), 0.7);
+      IN("#ic-goLt", at(3, 0.40), 0.4);
+      IN("#ic-stripA", at(3, 0.52), 0.45);
+      DRAW("#ic-cut", at(3, 0.62), 0.45);
+      tl.to("#ic-lock-shackle", { y: -16, duration: 0.4, ease: "power2.out" }, at(3, 0.72));
+      tl.to("#ic-vault-box", { stroke: "#83C167", duration: 0.4 }, at(3, 0.72));
+      IN("#ic-vault-st2", at(3, 0.74), 0.35);
+      ARROW("#ic-dnA", at(3, 0.80), 0.4);
+      IN("#ic-coinRel", at(3, 0.86), 0.4);
+
+      // L4: 判断菱形
+      OUT(["#ic-chains", "#ic-vault", "#ic-l3-badge", "#ic-burnB", "#ic-goL", "#ic-goLt", "#ic-stripA", "#ic-dnA", "#ic-coinRel"], at(4, 0), 0.35);
+      IN("#ic-dia", at(4, 0.08), 0.55, { y: -16 }, { y: 0 });
+      ARROW("#ic-brL", at(4, 0.30), 0.45);
+      IN("#ic-brLt", at(4, 0.32), 0.35);
+      IN("#ic-resL", at(4, 0.38), 0.45, { y: 16 }, { y: 0 });
+      ARROW("#ic-brR", at(4, 0.52), 0.45);
+      IN("#ic-brRt", at(4, 0.54), 0.35);
+      IN("#ic-resR", at(4, 0.60), 0.45, { y: 16 }, { y: 0 });
+
+      // L5: 超时或失败退款
+      OUT("#ic-l4", at(5, 0), 0.35);
+      IN("#ic-clk", at(5, 0.08), 0.5, { y: -16 }, { y: 0 });
+      ARROW("#ic-tL", at(5, 0.24), 0.45);
+      IN("#ic-refL", at(5, 0.32), 0.5, { y: 16 }, { y: 0 });
+      ARROW("#ic-tR", at(5, 0.48), 0.45);
+      IN("#ic-refR", at(5, 0.56), 0.5, { y: 16 }, { y: 0 });
+      ARROW("#ic-mL", at(5, 0.72), 0.45);
+      ARROW("#ic-mR", at(5, 0.72), 0.45);
+      IN("#ic-back", at(5, 0.80), 0.5, { y: 12 }, { y: 0 });
+
+      tl.to("#ic-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ic-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["ics20"] = tl;
+    })();
+  </script>
+</template>

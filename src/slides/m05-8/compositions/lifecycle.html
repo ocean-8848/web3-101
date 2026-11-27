@@ -1,0 +1,143 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 lifecycle，id 前缀 le- -->
+  <div id="root" data-composition-id="lifecycle" data-duration="47.66" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="le-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+<marker id="le-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+
+      </defs>
+      <g id="le-all">
+<text id="le-title" class="h" x="960" y="110" font-size="48" fill="#e8e6df" font-weight="700" text-anchor="middle">一笔跨链转账 = 状态机</text>
+<g id="le-s0" class="h"><rect id="le-sb0" x="230" y="500" width="260" height="90" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="360" y="557" font-size="32" fill="#e8e6df" font-weight="700" text-anchor="middle">已锁定</text></g>
+<g id="le-s1" class="h"><rect id="le-sb1" x="630" y="500" width="260" height="90" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="760" y="557" font-size="32" fill="#e8e6df" font-weight="700" text-anchor="middle">等待最终性</text></g>
+<g id="le-s2" class="h"><rect id="le-sb2" x="1030" y="500" width="260" height="90" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1160" y="557" font-size="32" fill="#e8e6df" font-weight="700" text-anchor="middle">验证中</text></g>
+<g id="le-s3" class="h"><rect id="le-sb3" x="1430" y="500" width="260" height="90" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1560" y="557" font-size="32" fill="#e8e6df" font-weight="700" text-anchor="middle">已铸造</text></g>
+<path id="le-a0" class="dr h" pathLength="1" d="M494 545 L624 545" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#le-arr)"/>
+<path id="le-a1" class="dr h" pathLength="1" d="M894 545 L1024 545" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#le-arr)"/>
+<path id="le-a2" class="dr h" pathLength="1" d="M1294 545 L1424 545" fill="none" stroke="#e8e6df" stroke-width="3.5" marker-end="url(#le-arr)"/>
+<text id="le-t0" class="h" x="360" y="474" font-size="28" fill="#8a8f99" text-anchor="middle">用户调用 <tspan class="mono">lock</tspan></text>
+<text id="le-t1" class="h" x="560" y="474" font-size="28" fill="#8a8f99" text-anchor="middle">事件被观察到</text>
+<text id="le-t2" class="h" x="960" y="474" font-size="28" fill="#8a8f99" text-anchor="middle">达到确认数</text>
+<text id="le-t3" class="h" x="1360" y="474" font-size="28" fill="#8a8f99" text-anchor="middle">签名或证明通过</text>
+<g id="le-f" class="h"><rect x="830" y="760" width="260" height="90" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="960" y="817" font-size="32" fill="#FC6255" font-weight="700" text-anchor="middle">失败待退款</text></g>
+<path id="le-fa0" class="dr h" pathLength="1" d="M820 594 L900 754" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#le-arrR)"/>
+<path id="le-fa1" class="dr h" pathLength="1" d="M1080 594 L1020 754" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#le-arrR)"/>
+<text id="le-fl0" class="h" x="800" y="714" font-size="28" fill="#FC6255" text-anchor="end">源链重组</text>
+<text id="le-fl1" class="h" x="1092" y="714" font-size="28" fill="#FC6255">超时 / 证明无效</text>
+<circle id="le-tok" class="h" cx="360" cy="626" r="16" fill="#F0B90B"/>
+<circle id="le-tok2" class="h" cx="1160" cy="626" r="16" fill="#FF9F43"/>
+<g id="le-ins" class="h"><text x="230" y="205" font-size="28" fill="#58C4DD">源链</text><rect x="310" y="230" width="50" height="50" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><rect x="380" y="230" width="50" height="50" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><rect x="450" y="230" width="50" height="50" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><path d="M360 255 L380 255 M430 255 L450 255" stroke="#58C4DD" stroke-width="3"/></g>
+<g id="le-up" class="h"><path d="M500 255 L520 205 M570 205 L590 205" stroke="#58C4DD" stroke-width="3" fill="none"/><rect x="520" y="180" width="50" height="50" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><rect x="590" y="180" width="50" height="50" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><circle cx="615" cy="205" r="9" fill="#F0B90B"/></g>
+<g id="le-lo" class="h"><path d="M500 255 L520 305 M570 305 L590 305 M640 305 L660 305" stroke="#58C4DD" stroke-width="3" fill="none"/><rect x="520" y="280" width="50" height="50" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><rect x="590" y="280" width="50" height="50" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><rect x="660" y="280" width="50" height="50" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="3"/></g>
+<text id="le-rg" class="h" x="670" y="215" font-size="30" fill="#FF9F43" font-weight="700">重组</text>
+<line id="le-anc" class="h" x1="1560" y1="351" x2="1560" y2="440" stroke="#F0B90B" stroke-width="3" stroke-dasharray="8 6"/>
+<g id="le-w"><g id="le-wi" class="h"><g><circle cx="1560" cy="300" r="48" fill="#1d1a10" stroke="#F0B90B" stroke-width="3.5" stroke-dasharray="7 5"/><text class="mono" x="1560" y="310.08" font-size="28" fill="#F0B90B" text-anchor="middle" font-weight="700">wETH</text></g></g></g>
+<text id="le-wl" class="h" x="1490" y="250" font-size="30" fill="#FC6255" font-weight="700" text-anchor="end">无锚定的包装资产</text>
+<g id="le-e1" class="h"><rect x="1000" y="200" width="84" height="56" rx="5" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><path d="M1000 200 L1042.0 230.8 L1084 200" fill="none" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round"/></g>
+<g id="le-e2" class="h"><rect x="1000" y="200" width="84" height="56" rx="5" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><path d="M1000 200 L1042.0 230.8 L1084 200" fill="none" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round"/></g>
+<g id="le-c1" class="h"><g><circle cx="1500" cy="300" r="48" fill="#1d1a10" stroke="#F0B90B" stroke-width="3.5" stroke-dasharray="7 5"/><text class="mono" x="1500" y="310.08" font-size="28" fill="#F0B90B" text-anchor="middle" font-weight="700">wETH</text></g></g>
+<g id="le-c2" class="h"><g><circle cx="1620" cy="300" r="48" fill="#1d1a10" stroke="#FC6255" stroke-width="3.5" stroke-dasharray="7 5"/><text class="mono" x="1620" y="310.08" font-size="28" fill="#FC6255" text-anchor="middle" font-weight="700">wETH</text></g></g>
+<g id="le-pt" class="h"><rect x="300" y="180" width="470" height="170" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="330" y="235" font-size="30" fill="#58C4DD" font-weight="700">processed[id]</text><line x1="300" y1="258" x2="770" y2="258" stroke="#3a3f4a" stroke-width="2"/><text class="mono" x="330" y="312" font-size="28" fill="#e8e6df">0x42… → <tspan fill="#83C167">true</tspan></text></g>
+<path id="le-x" class="h" d="M1185.0 215.0 L1215.0 245.0 M1215.0 215.0 L1185.0 245.0" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/>
+<g id="le-db0" class="h" fill="none" stroke="#58C4DD" stroke-width="3"><ellipse cx="360" cy="636.5" rx="19.8" ry="6.3"/><path d="M340.2 636.5 L340.2 663.5 A19.8 6.3 0 0 0 379.8 663.5 L379.8 636.5"/><path d="M340.2 650 A19.8 6.3 0 0 0 379.8 650"/></g>
+<g id="le-db1" class="h" fill="none" stroke="#58C4DD" stroke-width="3"><ellipse cx="760" cy="636.5" rx="19.8" ry="6.3"/><path d="M740.2 636.5 L740.2 663.5 A19.8 6.3 0 0 0 779.8 663.5 L779.8 636.5"/><path d="M740.2 650 A19.8 6.3 0 0 0 779.8 650"/></g>
+<g id="le-db2" class="h" fill="none" stroke="#58C4DD" stroke-width="3"><ellipse cx="1160" cy="636.5" rx="19.8" ry="6.3"/><path d="M1140.2 636.5 L1140.2 663.5 A19.8 6.3 0 0 0 1179.8 663.5 L1179.8 636.5"/><path d="M1140.2 650 A19.8 6.3 0 0 0 1179.8 650"/></g>
+<g id="le-db3" class="h" fill="none" stroke="#58C4DD" stroke-width="3"><ellipse cx="1560" cy="636.5" rx="19.8" ry="6.3"/><path d="M1540.2 636.5 L1540.2 663.5 A19.8 6.3 0 0 0 1579.8 663.5 L1579.8 636.5"/><path d="M1540.2 650 A19.8 6.3 0 0 0 1579.8 650"/></g>
+<g id="le-db4" class="h" fill="none" stroke="#58C4DD" stroke-width="3"><ellipse cx="1150" cy="791.5" rx="19.8" ry="6.3"/><path d="M1130.2 791.5 L1130.2 818.5 A19.8 6.3 0 0 0 1169.8 818.5 L1169.8 791.5"/><path d="M1130.2 805 A19.8 6.3 0 0 0 1169.8 805"/></g>
+<text id="le-per" class="h" x="960" y="960" font-size="36" fill="#58C4DD" font-weight="700" text-anchor="middle">持久化 · 任意状态可恢复</text>
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const P = "#le-";
+
+
+IN("#le-title", at(0, 0), 0.5);
+["#le-s0", "#le-s1", "#le-s2", "#le-s3"].forEach((s, k) => IN(s, at(0, 0.08 + 0.15 * k), 0.4, { x: -20 }, { x: 0 }));
+["#le-a0", "#le-a1", "#le-a2"].forEach((s, k) => ARROW(s, at(0, 0.18 + 0.15 * k), 0.3));
+IN("#le-f", at(0, 0.78), 0.4, { y: 20 }, { y: 0 });
+// L1 token walk
+IN("#le-tok", at(1, 0.03), 0.3, { scale: 0, svgOrigin: "360 626" }, { scale: 1, svgOrigin: "360 626" });
+IN("#le-t0", at(1, 0.03), 0.4);
+tl.to("#le-sb0", { stroke: "#F0B90B", duration: 0.3 }, at(1, 0.06));
+const X = [360, 760, 1160, 1560];
+[1, 2, 3].forEach(k => {
+  const t = at(1, [0.25, 0.5, 0.75][k - 1]);
+  IN(`#le-t${k}`, t, 0.4);
+  tl.to("#le-tok", { attr: { cx: X[k] }, duration: 0.8, ease: "power2.inOut" }, t + 0.1);
+  tl.to(`#le-sb${k - 1}`, { stroke: "#58C4DD", duration: 0.3 }, t + 0.1);
+  tl.to(`#le-sb${k}`, { stroke: k === 3 ? "#83C167" : "#F0B90B", duration: 0.3 }, t + 0.8);
+});
+// L2 reorg
+IN("#le-ins", at(2, 0.05), 0.5);
+IN("#le-up", at(2, 0.12), 0.4);
+IN("#le-lo", at(2, 0.22), 0.4);
+IN("#le-wi", at(2, 0.2), 0.4);
+IN("#le-anc", at(2, 0.22), 0.3);
+IN("#le-rg", at(2, 0.42), 0.3);
+tl.to("#le-up", { opacity: 0.0, duration: 0.8 }, at(2, 0.48));
+OUT("#le-anc", at(2, 0.6), 0.3);
+tl.to("#le-wi circle", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.62));
+tl.to("#le-wi text", { fill: "#FC6255", duration: 0.3 }, at(2, 0.62));
+tl.to("#le-w", { y: -40, duration: 1.2, ease: "sine.inOut" }, at(2, 0.64));
+IN("#le-wl", at(2, 0.72), 0.4);
+// L3 failure branch
+OUT("#le-ins, #le-lo, #le-rg, #le-w, #le-wl", at(3, 0.0), 0.4);
+OUT("#le-tok", at(3, 0.0), 0.3);
+tl.to("#le-sb3", { stroke: "#58C4DD", duration: 0.3 }, at(3, 0.0));
+ARROW("#le-fa0", at(3, 0.1), 0.5); IN("#le-fl0", at(3, 0.15), 0.4);
+ARROW("#le-fa1", at(3, 0.3), 0.5); IN("#le-fl1", at(3, 0.35), 0.4);
+IN("#le-tok2", at(3, 0.5), 0.3);
+tl.to("#le-sb2", { stroke: "#FF9F43", duration: 0.3 }, at(3, 0.5));
+tl.to("#le-tok2", { attr: { cy: 612 }, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(3, 0.55));
+tl.to("#le-tok2", { attr: { cx: 855, cy: 805 }, duration: 0.9, ease: "power2.inOut" }, at(3, 0.78));
+tl.to("#le-sb2", { stroke: "#58C4DD", duration: 0.3 }, at(3, 0.8));
+// L4 replay
+tl.to("#le-tok2", { opacity: 0, duration: 0.3 }, at(4, 0.0));
+IN("#le-e1", at(4, 0.02), 0.3);
+tl.to("#le-e1", { x: 518, y: 238, duration: 0.6, ease: "power2.in" }, at(4, 0.06));
+tl.to("#le-e1", { opacity: 0, duration: 0.2 }, at(4, 0.06) + 0.6);
+IN("#le-c1", at(4, 0.18), 0.3, { scale: 0.3, svgOrigin: "1500 300" }, { scale: 1, svgOrigin: "1500 300" });
+IN("#le-e2", at(4, 0.2), 0.3);
+tl.to("#le-e2", { x: 518, y: 238, duration: 0.6, ease: "power2.in" }, at(4, 0.24));
+tl.to("#le-e2", { opacity: 0, duration: 0.2 }, at(4, 0.24) + 0.6);
+IN("#le-c2", at(4, 0.36), 0.3, { scale: 0.3, svgOrigin: "1620 300" }, { scale: 1, svgOrigin: "1620 300" });
+IN("#le-pt", at(4, 0.55), 0.5, { x: -20 }, { x: 0 });
+OUT("#le-c2", at(4, 0.68), 0.3);
+tl.fromTo("#le-e2", { x: 518, y: 238, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, at(4, 0.7));
+IN("#le-x", at(4, 0.8), 0.3);
+// L5 persistence
+OUT("#le-e2, #le-x, #le-c1, #le-pt", at(5, 0.0), 0.4);
+["#le-db0", "#le-db1", "#le-db2", "#le-db3", "#le-db4"].forEach((s, k) => IN(s, at(5, 0.1 + 0.08 * k), 0.4, { y: -10 }, { y: 0 }));
+IN("#le-per", at(5, 0.55), 0.5);
+
+
+      tl.to("#le-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+
+      window.__timelines["lifecycle"] = tl;
+    })();
+  </script>
+</template>

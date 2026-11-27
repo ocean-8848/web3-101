@@ -1,0 +1,183 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    #root .cl { font-size: 28px; fill: #e8e6df; white-space: pre; }
+  </style>
+  <!-- 场景 result，id 前缀 re- -->
+  <div id="root" data-composition-id="result" data-duration="52.43" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <g id="re-panel" class="h">
+          <rect x="80" y="220" width="920" height="520" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <rect id="re-hl" class="h" x="84" y="250" width="912" height="41" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="re-hb" class="h" x="84" y="250" width="6" height="41" fill="#58C4DD" />
+          <g class="mono">
+            <text class="cl" x="110" y="280">fn find_vault&lt;'a&gt;(</text>
+            <text class="cl" x="110" y="321">    vaults: &amp;'a HashMap&lt;String, Vault&gt;,</text>
+            <text class="cl" x="110" y="362">    owner: &amp;str) -&gt; Option&lt;&amp;'a Vault&gt; {</text>
+            <text class="cl" x="110" y="403">    vaults.get(owner)</text>
+            <text class="cl" x="110" y="444">}</text>
+            <text class="cl" x="110" y="526">Instruction::Deposit { amount } =&gt; {</text>
+            <text class="cl" x="110" y="567">    self.balance = self.balance</text>
+            <text class="cl" x="110" y="608">        .checked_add(*amount)</text>
+            <text class="cl" x="110" y="649">        .ok_or(VaultError::Overflow)?;</text>
+            <text class="cl" x="110" y="690">}</text>
+          </g>
+        </g>
+
+        <!-- L0 Option -->
+        <g id="re-opt">
+          <text id="re-ot" class="h mono" x="1100" y="300" font-size="34" fill="#e8e6df">Option</text>
+          <g id="re-some" class="h">
+            <rect x="1100" y="340" width="320" height="120" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="1260" y="412" font-size="32" fill="#83C167" text-anchor="middle">Some(Vault)</text>
+          </g>
+          <g id="re-none" class="h">
+            <rect x="1480" y="340" width="320" height="120" rx="14" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" />
+            <text class="mono" x="1640" y="412" font-size="32" fill="#8a8f99" text-anchor="middle">None</text>
+          </g>
+          <g id="re-null" class="h">
+            <text class="mono" x="1100" y="590" font-size="34" fill="#6b6f7a">null</text>
+            <text x="1210" y="590" font-size="36" fill="#FC6255">✗</text>
+          </g>
+        </g>
+
+        <!-- L1 Result -->
+        <g id="re-res">
+          <text id="re-rt" class="h mono" x="1100" y="462" font-size="36" fill="#e8e6df">Result</text>
+          <path id="re-f0" class="dr h" pathLength="1" d="M1250 440 L1404 350" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#re-arr)" />
+          <path id="re-f1" class="dr h" pathLength="1" d="M1250 460 L1404 550" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#re-arr)" />
+          <g id="re-ok" class="h"><rect x="1420" y="300" width="340" height="90" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="1590" y="358" font-size="32" fill="#83C167" text-anchor="middle">Ok(值)</text></g>
+          <g id="re-err" class="h"><rect x="1420" y="510" width="340" height="90" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="1590" y="568" font-size="32" fill="#FC6255" text-anchor="middle">Err(错误)</text></g>
+          <text id="re-go" class="h" x="1100" y="720" font-size="28" fill="#8a8f99">≈ Go：v, err := f()</text>
+        </g>
+
+        <!-- L2 ? 闸门 -->
+        <g id="re-q">
+          <g id="re-s0" class="h"><rect x="1160" y="300" width="560" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="1190" y="362" font-size="30" fill="#e8e6df">main()</text></g>
+          <g id="re-s1" class="h"><rect x="1160" y="460" width="560" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="1190" y="522" font-size="30" fill="#e8e6df">apply()</text></g>
+          <g id="re-s2" class="h"><rect x="1160" y="620" width="560" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text class="mono" x="1190" y="682" font-size="30" fill="#e8e6df">checked()</text></g>
+          <g id="re-g1" class="h"><rect x="1560" y="448" width="80" height="24" rx="6" fill="#FF9F43" /><text class="mono" x="1736" y="474" font-size="32" fill="#FF9F43">?</text></g>
+          <g id="re-g2" class="h"><rect x="1560" y="608" width="80" height="24" rx="6" fill="#FF9F43" /><text class="mono" x="1736" y="634" font-size="32" fill="#FF9F43">?</text></g>
+          <circle id="re-ball" class="h" cx="1600" cy="680" r="20" fill="#FC6255" />
+          <text id="re-gocode" class="h mono" x="1100" y="840" font-size="30" fill="#8a8f99">if err != nil { return err }</text>
+          <text id="re-qq" class="h mono" x="1100" y="844" font-size="48" font-weight="700" fill="#FF9F43">?</text>
+        </g>
+
+        <!-- L3 流水线 -->
+        <g id="re-pipe">
+          <g id="re-p0" class="h"><rect x="1100" y="270" width="700" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="1130" y="332" font-size="30" fill="#58C4DD">checked_add</text><text class="mono" x="1770" y="332" font-size="30" fill="#e8e6df" text-anchor="end">→ Option</text></g>
+          <path id="re-pa0" class="dr h" pathLength="1" d="M1450 376 L1450 424" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+          <g id="re-p1" class="h"><rect x="1100" y="430" width="700" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="1130" y="492" font-size="30" fill="#58C4DD">ok_or</text><text class="mono" x="1770" y="492" font-size="30" fill="#e8e6df" text-anchor="end">→ Result</text></g>
+          <text id="re-p1e" class="h mono" x="1100" y="590" font-size="30" fill="#FC6255">None ⇒ Err(Overflow)</text>
+          <path id="re-pa1" class="dr h" pathLength="1" d="M1700 536 L1700 644" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#re-arr)" />
+          <g id="re-p2" class="h"><rect x="1100" y="650" width="700" height="100" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text class="mono" x="1130" y="712" font-size="34" fill="#FF9F43">?</text><text x="1770" y="712" font-size="30" fill="#e8e6df" text-anchor="end">Err 向上返回</text></g>
+        </g>
+
+        <!-- L4 终端 -->
+        <g id="re-term" class="h">
+          <rect x="1060" y="300" width="800" height="300" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <circle cx="1086" cy="324" r="6" fill="#FC6255" /><circle cx="1106" cy="324" r="6" fill="#F0B90B" /><circle cx="1126" cy="324" r="6" fill="#83C167" />
+          <text id="re-o0" class="h mono" x="1090" y="390" font-size="28" fill="#83C167">Deposit 5000000 → balance 5000000</text>
+          <text id="re-o1" class="h mono" x="1090" y="440" font-size="28" fill="#FC6255">Withdraw 7000000 → insufficient funds</text>
+          <text id="re-o2" class="h mono" x="1090" y="490" font-size="28" fill="#e8e6df">Pause → balance 5000000</text>
+          <text id="re-o3" class="h mono" x="1090" y="540" font-size="28" fill="#FC6255">Deposit 1 → vault is paused</text>
+        </g>
+
+        <!-- L5 unwrap -->
+        <g id="re-uw">
+          <g id="re-btn" class="h"><rect x="1100" y="290" width="280" height="80" rx="40" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="3" /><text class="mono" x="1240" y="342" font-size="32" fill="#FC6255" text-anchor="middle">unwrap()</text></g>
+          <g id="re-tx" class="h">
+            <rect id="re-txr" x="1100" y="440" width="380" height="220" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="1130" y="498" font-size="30" fill="#e8e6df">交易</text>
+            <text id="re-fail" class="h" x="1450" y="498" font-size="30" fill="#FC6255" text-anchor="end">失败</text>
+            <text x="1130" y="610" font-size="28" fill="#8a8f99">错误码</text>
+            <text class="mono" x="1450" y="610" font-size="32" fill="#FF9F43" text-anchor="end">—</text>
+          </g>
+          <g id="re-cmp" class="h">
+            <rect x="1520" y="440" width="320" height="220" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <text class="mono" x="1550" y="498" font-size="30" fill="#FC6255">Err</text>
+            <text x="1550" y="610" font-size="28" fill="#8a8f99">错误码</text>
+            <text class="mono" x="1810" y="610" font-size="32" fill="#83C167" text-anchor="end">6002</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const HL = (a, n, t) => tl.to("#re-hl, #re-hb", { attr: { y: 250 + a * 41, height: n * 41 }, opacity: 1, duration: 0.4, ease: "power2.inOut" }, t);
+
+      // L0 Option
+      IN("#re-panel", at(0, 0.02), 0.6);
+      HL(0, 5, at(0, 0.1));
+      IN("#re-null", at(0, 0.12), 0.5);
+      IN("#re-ot", at(0, 0.3), 0.4);
+      IN("#re-some", at(0, 0.5), 0.5, { y: 15 }, { y: 0 });
+      IN("#re-none", at(0, 0.78), 0.5, { y: 15 }, { y: 0 });
+      // L1 Result
+      OUT("#re-opt", at(1, 0), 0.4);
+      tl.to("#re-hl, #re-hb", { opacity: 0, duration: 0.3 }, at(1, 0));
+      IN("#re-rt", at(1, 0.08), 0.5);
+      ARROW("#re-f0", at(1, 0.2), 0.5); IN("#re-ok", at(1, 0.26), 0.5);
+      ARROW("#re-f1", at(1, 0.38), 0.5); IN("#re-err", at(1, 0.44), 0.5);
+      IN("#re-go", at(1, 0.72), 0.5);
+      // L2 ? 闸门
+      OUT("#re-res", at(2, 0), 0.4);
+      IN("#re-s0", at(2, 0.04), 0.4); IN("#re-s1", at(2, 0.08), 0.4); IN("#re-s2", at(2, 0.12), 0.4);
+      IN("#re-gocode", at(2, 0.12), 0.5);
+      IN("#re-g1", at(2, 0.2), 0.3); IN("#re-g2", at(2, 0.2), 0.3);
+      OUT("#re-gocode", at(2, 0.4), 0.3);
+      IN("#re-qq", at(2, 0.45), 0.4, { scale: 1.6, svgOrigin: "1115 830" }, { scale: 1, svgOrigin: "1115 830" });
+      IN("#re-ball", at(2, 0.55), 0.3);
+      tl.to("#re-ball", { attr: { cy: 520 }, duration: 0.5, ease: "back.out(1.6)" }, at(2, 0.62));
+      tl.to("#re-ball", { attr: { cy: 360 }, duration: 0.5, ease: "back.out(1.6)" }, at(2, 0.8));
+      // L3 流水线
+      OUT("#re-q", at(3, 0), 0.4);
+      HL(8, 2, at(3, 0.02));
+      IN("#re-p0", at(3, 0.08), 0.5);
+      ARROW("#re-pa0", at(3, 0.18), 0.4);
+      IN("#re-p1", at(3, 0.22), 0.5);
+      IN("#re-p1e", at(3, 0.32), 0.5, { x: -15 }, { x: 0 });
+      ARROW("#re-pa1", at(3, 0.42), 0.4);
+      IN("#re-p2", at(3, 0.46), 0.5);
+      tl.to("#re-p0 rect", { attr: { "fill-opacity": 1 }, fill: "#1e3540", duration: 0.3 }, at(3, 0.62));
+      tl.to("#re-p1 rect", { fill: "#1e3540", duration: 0.3 }, at(3, 0.72));
+      tl.to("#re-p2 rect", { fill: "#3a2a18", duration: 0.3 }, at(3, 0.82));
+      // L4 运行结果
+      OUT("#re-pipe", at(4, 0), 0.4);
+      tl.to("#re-hl, #re-hb", { opacity: 0, duration: 0.3 }, at(4, 0));
+      IN("#re-term", at(4, 0.04), 0.5);
+      IN("#re-o0", at(4, 0.12), 0.3); IN("#re-o1", at(4, 0.38), 0.3);
+      IN("#re-o2", at(4, 0.62), 0.3); IN("#re-o3", at(4, 0.8), 0.3);
+      // L5 unwrap
+      OUT("#re-term", at(5, 0), 0.4);
+      IN("#re-btn", at(5, 0.05), 0.4);
+      tl.to("#re-btn", { y: 6, duration: 0.12, yoyo: true, repeat: 1 }, at(5, 0.18));
+      IN("#re-tx", at(5, 0.24), 0.5);
+      tl.to("#re-txr", { stroke: "#FC6255", fill: "#2a1616", duration: 0.3 }, at(5, 0.34));
+      IN("#re-fail", at(5, 0.36), 0.3);
+      IN("#re-cmp", at(5, 0.6), 0.5, { x: 20 }, { x: 0 });
+
+      tl.to("#re-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["result"] = tl;
+    })();
+  </script>
+</template>

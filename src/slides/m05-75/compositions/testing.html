@@ -1,0 +1,214 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 testing，id 前缀 te- -->
+  <div id="root" data-composition-id="testing" data-duration="64.66" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="te-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="te-all">
+        <!-- 代码面板 -->
+        <g id="te-panel" class="h">
+          <rect x="80" y="220" width="920" height="660" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <rect id="te-hl" x="82" y="250" width="916" height="42" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="te-hlb" x="82" y="250" width="5" height="42" fill="#58C4DD" />
+        </g>
+        <g id="te-cA" class="h mono" font-size="28" fill="#e8e6df">
+          <text x="110" y="280" fill="#FF9F43">#[cfg(test)]</text>
+          <text x="110" y="326">mod tests {</text>
+          <text x="110" y="372">    use super::*;</text>
+          <text x="110" y="418" fill="#FF9F43">    #[test]</text>
+          <text x="110" y="464">    fn fee_rounds_up() {</text>
+          <text x="110" y="510">        assert_eq!(fee(1, 30), Ok(1));</text>
+          <text x="110" y="556">    }</text>
+          <text x="110" y="602">}</text>
+        </g>
+        <g id="te-cB" class="h mono" font-size="28" fill="#e8e6df">
+          <text x="110" y="280">pub fn mul_div_ceil(a: u64, b: u64, c: u64)</text>
+          <text x="110" y="326">    -&gt; Result&lt;u64, MathError&gt; {</text>
+          <text x="110" y="372">    if c == 0 {</text>
+          <text x="110" y="418">        return Err(MathError::DivideByZero);</text>
+          <text x="110" y="464">    }</text>
+          <text x="110" y="510">    let r = u128::from(a)</text>
+          <text x="110" y="556">        .checked_mul(u128::from(b))</text>
+          <text x="110" y="602">        .ok_or(MathError::Overflow)?</text>
+          <text x="110" y="648">        .div_ceil(u128::from(c));</text>
+          <text x="110" y="694">    u64::try_from(r)</text>
+          <text x="110" y="740">        .map_err(|_| MathError::Overflow)</text>
+          <text x="110" y="786">}</text>
+        </g>
+        <g id="te-cC" class="h mono" font-size="28" fill="#e8e6df">
+          <text x="110" y="280">pub fn fee(amount: u64, fee_bps: u16)</text>
+          <text x="110" y="326">    -&gt; Result&lt;u64, MathError&gt; {</text>
+          <text x="110" y="372">    mul_div_ceil(amount,</text>
+          <text x="110" y="418">        u64::from(fee_bps), 10_000)</text>
+          <text x="110" y="464">}</text>
+        </g>
+
+        <!-- L0 编译开关 -->
+        <g id="te-sw1" class="h">
+          <circle cx="1100" cy="330" r="14" fill="#6b6f7a" />
+          <text x="1130" y="340" class="mono" font-size="30" fill="#8a8f99">cargo build</text>
+          <text x="1400" y="340" font-size="28" fill="#8a8f99">跳过 tests</text>
+        </g>
+        <g id="te-sw2" class="h">
+          <circle cx="1100" cy="420" r="14" fill="#83C167" />
+          <text x="1130" y="430" class="mono" font-size="30" fill="#83C167">cargo test</text>
+          <text x="1400" y="430" font-size="28" fill="#83C167">编译并运行 tests</text>
+        </g>
+
+        <!-- L1 测试金字塔 -->
+        <g id="te-py2" class="h">
+          <path d="M1250 470 L1650 470 L1730 660 L1170 660 Z" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1450" y="550" font-size="28" fill="#58C4DD" text-anchor="middle">账户 / CPI · <tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">anchor test</tspan></text>
+          <text x="1450" y="612" class="mono" font-size="28" fill="#58C4DD" text-anchor="middle">LiteSVM / Mollusk</text>
+        </g>
+        <g id="te-py1" class="h">
+          <path d="M1150 680 L1750 680 L1830 860 L1070 860 Z" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="2.5" />
+          <text x="1450" y="760" font-size="30" fill="#83C167" text-anchor="middle">纯函数 · <tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">cargo test</tspan></text>
+          <text x="1450" y="815" font-size="28" fill="#83C167" text-anchor="middle">秒级 · 最划算</text>
+        </g>
+
+        <!-- L2 MathError -->
+        <g id="te-err" class="h">
+          <rect x="1080" y="300" width="740" height="320" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="1110" y="355" class="mono" font-size="30" fill="#e8e6df">enum MathError</text>
+          <text x="1110" y="420" font-size="28" fill="#e8e6df"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">Overflow</tspan> · 溢出</text>
+          <text x="1110" y="470" font-size="28" fill="#e8e6df"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">DivideByZero</tspan> · 除零</text>
+          <text x="1110" y="520" font-size="28" fill="#e8e6df"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">InsufficientFunds</tspan> · 余额不足</text>
+          <text x="1110" y="570" font-size="28" fill="#e8e6df"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">BadDecimals</tspan> · 小数位不合理</text>
+        </g>
+        <text id="te-u128" class="h" x="1110" y="700" font-size="28" fill="#58C4DD">中间值用 <tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">u128</tspan>，乘法不会溢出</text>
+        <text id="te-try" class="h" x="1110" y="760" font-size="28" fill="#83C167"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">try_from</tspan>：放不下就报错</text>
+
+        <!-- L3 999 × 30 bps -->
+        <g id="te-s3">
+          <text id="te-f1" class="h mono" x="1080" y="340" font-size="34" fill="#F0B90B">999 × 30 ÷ 10,000 = 2.997</text>
+          <text id="te-f2" class="h" x="1080" y="410" font-size="32" fill="#F0B90B">→ 向上取整 <tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">3</tspan></text>
+          <g id="te-bx1" class="h"><rect x="1080" y="480" width="340" height="150" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2" /><text x="1250" y="532" font-size="28" fill="#e8e6df" text-anchor="middle">对方实收</text><text x="1250" y="598" class="mono" font-size="44" fill="#F0B90B" text-anchor="middle">996</text></g>
+          <g id="te-bx2" class="h"><rect x="1480" y="480" width="340" height="150" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2" /><text x="1650" y="532" font-size="28" fill="#e8e6df" text-anchor="middle">协议手续费</text><text x="1650" y="598" class="mono" font-size="44" fill="#F0B90B" text-anchor="middle">3</text></g>
+        </g>
+
+        <!-- L4 向下取整被拆单 -->
+        <g id="te-s4">
+          <text id="te-dn" class="h" x="1080" y="340" font-size="32" fill="#FF9F43">若向下取整：<tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">2.997 → 2</tspan></text>
+          <g id="te-p1" class="h"><rect x="1080" y="400" width="220" height="90" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2" /><text x="1190" y="456" class="mono" font-size="32" fill="#F0B90B" text-anchor="middle">333</text></g>
+          <g id="te-p2" class="h"><rect x="1340" y="400" width="220" height="90" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2" /><text x="1450" y="456" class="mono" font-size="32" fill="#F0B90B" text-anchor="middle">333</text></g>
+          <g id="te-p3" class="h"><rect x="1600" y="400" width="220" height="90" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2" /><text x="1710" y="456" class="mono" font-size="32" fill="#F0B90B" text-anchor="middle">333</text></g>
+          <g class="mono" font-size="28" fill="#FC6255" text-anchor="middle">
+            <text id="te-z1" class="h" x="1190" y="540">0.999 → 0</text>
+            <text id="te-z2" class="h" x="1450" y="540">0.999 → 0</text>
+            <text id="te-z3" class="h" x="1710" y="540">0.999 → 0</text>
+          </g>
+          <text id="te-zero" class="h" x="1450" y="625" font-size="32" fill="#FC6255" text-anchor="middle">手续费：<tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">0</tspan></text>
+          <g id="te-rule" class="h"><rect x="1140" y="700" width="620" height="100" rx="14" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="2.5" /><text x="1450" y="762" font-size="34" fill="#83C167" text-anchor="middle">收用户的钱：向上取整</text></g>
+        </g>
+
+        <!-- L5 终端 -->
+        <g id="te-term" class="h">
+          <rect x="160" y="230" width="1600" height="600" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <text x="190" y="262" font-size="18" fill="#6b6f7a" data-layout-ignore="">terminal</text>
+        </g>
+        <g class="mono" font-size="28">
+          <text id="te-t1" class="h" x="200" y="320" fill="#e8e6df">$ cargo test</text>
+          <text id="te-t2" class="h" x="200" y="368" fill="#8a8f99">running 6 tests</text>
+          <text id="te-t3" class="h" x="200" y="416" fill="#8a8f99">test tests::fee_rounds_up ... ok</text>
+          <text id="te-t4" class="h" x="200" y="464" fill="#83C167">test result: ok. 6 passed</text>
+          <text id="te-t5" class="h" x="200" y="550" fill="#e8e6df">$ cargo fmt --check  <tspan fill="#83C167">✓</tspan></text>
+          <text id="te-t6" class="h" x="200" y="636" fill="#e8e6df">$ cargo clippy -- -D warnings</text>
+          <text id="te-t7" class="h" x="200" y="684" fill="#6b6f7a">    -W clippy::arithmetic_side_effects</text>
+          <text id="te-t8" class="h" x="200" y="732" fill="#6b6f7a">    -W clippy::cast_possible_truncation</text>
+        </g>
+        <text id="te-repo" class="h" x="960" y="930" font-size="28" fill="#8a8f99" text-anchor="middle">完整代码：视频简介里的仓库链接</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const rowY = i => 250 + 46 * i;
+      const HL = (i, t, n = 1, col = "#58C4DD") => tl.to("#te-hl,#te-hlb", { attr: { y: rowY(i), height: 46 * n - 4 }, fill: col, duration: 0.35, ease: "power2.inOut" }, t);
+
+      // L0 测试和代码同文件，只在 cargo test 编译
+      IN("#te-panel", at(0, 0.02), 0.5);
+      tl.fromTo("#te-cA", { opacity: 0 }, { opacity: 0.3, duration: 0.5 }, at(0, 0.05));
+      IN("#te-sw1", at(0, 0.15), 0.4);
+      IN("#te-sw2", at(0, 0.5), 0.4);
+      tl.to("#te-cA", { opacity: 1, duration: 0.4 }, at(0, 0.55));
+
+      // L1 测试金字塔
+      OUT(["#te-sw1", "#te-sw2"], at(1, 0), 0.3);
+      HL(5, at(1, 0.02));
+      IN("#te-py1", at(1, 0.1), 0.6, { y: 20 }, { y: 0 });
+      IN("#te-py2", at(1, 0.55), 0.6, { y: 20 }, { y: 0 });
+      HL(3, at(1, 0.68), 3);
+      IN("#te-py2 text", at(1, 0.6), 0.5);
+      tl.to("#te-py2 path", { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.82));
+      tl.to("#te-py1 path", { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.93));
+
+      // L2 mul_div_ceil
+      OUT(["#te-py1", "#te-py2", "#te-cA"], at(2, 0), 0.35);
+      IN("#te-cB", at(2, 0.04), 0.5);
+      HL(0, at(2, 0.04), 2);
+      IN("#te-err", at(2, 0.2), 0.5);
+      HL(2, at(2, 0.4), 3);
+      HL(5, at(2, 0.6), 4);
+      IN("#te-u128", at(2, 0.62), 0.4);
+      HL(9, at(2, 0.8), 2, "#83C167");
+      IN("#te-try", at(2, 0.82), 0.4);
+
+      // L3 fee 999 × 30 bps
+      OUT(["#te-cB", "#te-err", "#te-u128", "#te-try"], at(3, 0), 0.35);
+      IN("#te-cC", at(3, 0.04), 0.5);
+      HL(2, at(3, 0.06), 2, "#58C4DD");
+      IN("#te-f1", at(3, 0.3), 0.5);
+      IN("#te-f2", at(3, 0.7), 0.5);
+      IN("#te-bx1", at(3, 0.82), 0.4, { y: 12 }, { y: 0 });
+      IN("#te-bx2", at(3, 0.88), 0.4, { y: 12 }, { y: 0 });
+
+      // L4 向下取整 → 拆单逃费
+      OUT("#te-s3", at(4, 0), 0.35);
+      IN("#te-dn", at(4, 0.05), 0.4);
+      ["#te-p1", "#te-p2", "#te-p3"].forEach((s, i) => IN(s, at(4, 0.25 + i * 0.05), 0.4, { y: -12 }, { y: 0 }));
+      ["#te-z1", "#te-z2", "#te-z3"].forEach((s, i) => IN(s, at(4, 0.45 + i * 0.05), 0.35));
+      IN("#te-zero", at(4, 0.62), 0.4);
+      IN("#te-rule", at(4, 0.8), 0.5, { scale: 0.9, svgOrigin: "1450 750" }, { scale: 1, svgOrigin: "1450 750" });
+
+      // L5 cargo test / fmt / clippy
+      OUT(["#te-s4", "#te-panel", "#te-cC"], at(5, 0), 0.4);
+      IN("#te-term", at(5, 0.03), 0.5);
+      IN("#te-t1", at(5, 0.06), 0.3);
+      IN("#te-t2", at(5, 0.1), 0.3);
+      IN("#te-t3", at(5, 0.14), 0.3);
+      IN("#te-t4", at(5, 0.22), 0.4);
+      IN("#te-t5", at(5, 0.38), 0.4);
+      IN("#te-t6", at(5, 0.55), 0.4);
+      IN("#te-t7", at(5, 0.62), 0.4);
+      IN("#te-t8", at(5, 0.68), 0.4);
+      IN("#te-repo", at(5, 0.82), 0.5);
+
+      tl.to("#te-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["testing"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,264 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    #root .cl { font-size: 28px; fill: #e8e6df; white-space: pre; }
+  </style>
+  <!-- 场景 owner，id 前缀 ow- -->
+  <div id="root" data-composition-id="owner" data-duration="69.28" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ow-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" />
+        </marker>
+        <marker id="ow-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="ow-all">
+        <g id="ow-panel" class="h">
+          <rect x="80" y="240" width="860" height="340" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <rect id="ow-hl" class="h" x="84" y="270" width="852" height="41" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="ow-hb" class="h" x="84" y="270" width="6" height="41" fill="#58C4DD" />
+          <g class="mono">
+            <text class="cl" x="110" y="300">let a = String::from("alice");</text>
+            <text class="cl" x="110" y="341">let b = a.clone();</text>
+            <text class="cl" x="110" y="382">vaults.insert(a, v.clone()); // moved</text>
+            <text class="cl" x="110" y="423" style="fill:#6b6f7a">// println!("{}", a);  // E0382</text>
+            <text class="cl" x="110" y="464">let r1 = &amp;v;</text>
+            <text class="cl" x="110" y="505">let r2 = &amp;v;</text>
+            <text class="cl" x="110" y="546">let w = &amp;mut v;  // r1, r2 done</text>
+          </g>
+        </g>
+        <!-- Go 垃圾车 -->
+        <g id="ow-gc" class="h">
+          <rect x="160" y="700" width="200" height="110" rx="8" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <path d="M360 740 L430 740 L460 780 L460 810 L360 810" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <circle cx="210" cy="830" r="20" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+          <circle cx="410" cy="830" r="20" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+          <text x="560" y="780" font-size="30" fill="#8a8f99">Go：垃圾回收</text>
+        </g>
+        <g id="ow-gcx" class="h">
+          <line x1="140" y1="680" x2="480" y2="870" stroke="#FC6255" stroke-width="5" />
+          <line x1="480" y1="680" x2="140" y2="870" stroke="#FC6255" stroke-width="5" />
+        </g>
+        <g id="ow-ledger" class="h">
+          <rect x="1460" y="220" width="360" height="100" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <line x1="1490" y1="240" x2="1490" y2="300" stroke="#B48EF0" stroke-width="3" />
+          <text x="1660" y="282" font-size="30" fill="#B48EF0" text-anchor="middle">仓库管理员</text>
+        </g>
+
+        <!-- L1 作用域与 drop -->
+        <g id="ow-l1">
+          <g id="ow-scope" class="h">
+            <rect x="1080" y="380" width="560" height="320" rx="24" fill="none" stroke="#6b6f7a" stroke-width="3" stroke-dasharray="14 10" />
+            <text x="1104" y="425" font-size="28" fill="#6b6f7a">作用域 { }</text>
+          </g>
+          <g id="ow-tag1" class="h">
+            <line x1="1375" y1="500" x2="1375" y2="540" stroke="#B48EF0" stroke-width="3" />
+            <rect x="1330" y="452" width="90" height="50" rx="8" fill="#B48EF0" fill-opacity="0.2" stroke="#B48EF0" stroke-width="2.5" />
+            <text class="mono" x="1375" y="487" font-size="30" fill="#B48EF0" text-anchor="middle">a</text>
+          </g>
+          <g id="ow-box1" class="h">
+            <rect x="1250" y="540" width="250" height="80" rx="10" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+            <text class="mono" x="1375" y="592" font-size="30" fill="#e8e6df" text-anchor="middle">"alice"</text>
+          </g>
+          <g id="ow-frag" class="h">
+            <rect id="ow-f0" x="1250" y="540" width="80" height="40" fill="#e8e6df" fill-opacity="0.5" />
+            <rect id="ow-f1" x="1340" y="550" width="70" height="40" fill="#e8e6df" fill-opacity="0.5" />
+            <rect id="ow-f2" x="1420" y="570" width="80" height="40" fill="#e8e6df" fill-opacity="0.5" />
+          </g>
+          <text id="ow-drop" class="h" x="1360" y="770" font-size="30" fill="#B48EF0" text-anchor="middle">drop · 释放</text>
+        </g>
+
+        <!-- L2 移动 / clone / Copy -->
+        <g id="ow-l2">
+          <g id="ow-tag2" class="h">
+            <rect id="ow-tag2r" x="1230" y="340" width="90" height="50" rx="8" fill="#B48EF0" fill-opacity="0.2" stroke="#B48EF0" stroke-width="2.5" />
+            <text id="ow-tag2t" class="mono" x="1275" y="375" font-size="30" fill="#B48EF0" text-anchor="middle">a</text>
+          </g>
+          <g id="ow-box2" class="h">
+            <rect x="1150" y="420" width="250" height="80" rx="10" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+            <text class="mono" x="1275" y="472" font-size="30" fill="#e8e6df" text-anchor="middle">"alice"</text>
+          </g>
+          <g id="ow-map" class="h">
+            <rect x="1490" y="380" width="330" height="280" rx="14" fill="none" stroke="#B48EF0" stroke-width="3" />
+            <text class="mono" x="1514" y="424" font-size="28" fill="#B48EF0">vaults</text>
+          </g>
+          <path id="ow-mv" class="dr h" pathLength="1" d="M1330 365 C 1420 330, 1500 330, 1560 380" fill="none" stroke="#B48EF0" stroke-width="3" marker-end="url(#ow-arr)" />
+          <text id="ow-e0382" class="h mono" x="1150" y="300" font-size="30" fill="#FC6255">E0382</text>
+          <g id="ow-cl" class="h">
+            <rect x="1150" y="700" width="250" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1275" y="752" font-size="30" fill="#8a8f99" text-anchor="middle">"alice"</text>
+            <text x="1430" y="752" font-size="28" fill="#8a8f99">clone → 新副本</text>
+          </g>
+          <g id="ow-cp" class="h">
+            <rect x="1150" y="850" width="110" height="70" rx="8" fill="none" stroke="#e8e6df" stroke-width="2" />
+            <text class="mono" x="1205" y="896" font-size="28" fill="#e8e6df" text-anchor="middle">u64</text>
+            <rect x="1280" y="850" width="160" height="70" rx="8" fill="none" stroke="#e8e6df" stroke-width="2" />
+            <text class="mono" x="1360" y="896" font-size="28" fill="#e8e6df" text-anchor="middle">Pubkey</text>
+            <text x="1470" y="896" font-size="28" fill="#83C167">Copy：赋值即复制</text>
+          </g>
+        </g>
+
+        <!-- L3–L4 借用 -->
+        <g id="ow-l3">
+          <g id="ow-v" class="h"><rect x="1300" y="400" width="200" height="90" rx="12" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" /><text class="mono" x="1400" y="457" font-size="32" fill="#e8e6df" text-anchor="middle">v</text></g>
+          <path id="ow-b1" class="dr h" pathLength="1" d="M1360 495 L1180 660" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <path id="ow-b2" class="dr h" pathLength="1" d="M1400 495 L1400 660" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <g id="ow-e1" class="h"><ellipse cx="1160" cy="690" rx="40" ry="22" fill="none" stroke="#58C4DD" stroke-width="3.5" /><circle cx="1160" cy="690" r="10" fill="#58C4DD" /><text class="mono" x="1160" y="770" font-size="30" fill="#58C4DD" text-anchor="middle">r1</text></g>
+          <g id="ow-e2" class="h"><ellipse cx="1400" cy="690" rx="40" ry="22" fill="none" stroke="#58C4DD" stroke-width="3.5" /><circle cx="1400" cy="690" r="10" fill="#58C4DD" /><text class="mono" x="1400" y="770" font-size="30" fill="#58C4DD" text-anchor="middle">r2</text></g>
+          <path id="ow-bw" class="dr h" pathLength="1" d="M1440 495 L1660 660" fill="none" stroke="#F0B90B" stroke-width="5" />
+          <g id="ow-pw" class="h"><path d="M1650 710 L1700 660 L1716 676 L1666 726 L1644 732 Z" fill="none" stroke="#F0B90B" stroke-width="3.5" stroke-linejoin="round" /><text class="mono" x="1680" y="790" font-size="30" fill="#F0B90B" text-anchor="middle">w</text></g>
+          <text id="ow-ok" class="h" x="1760" y="700" font-size="40" fill="#83C167">✓</text>
+          <text id="ow-last" class="h" x="1280" y="840" font-size="28" fill="#6b6f7a" text-anchor="middle">r1、r2 最后一次使用</text>
+          <g id="ow-rule" class="h">
+            <rect x="1080" y="880" width="700" height="90" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="1430" y="937" font-size="32" fill="#e8e6df" text-anchor="middle">多个只读  或  一个可写</text>
+          </g>
+        </g>
+
+        <!-- L5 台账 -->
+        <g id="ow-l5">
+          <g id="ow-book" class="h">
+            <rect x="1080" y="300" width="720" height="300" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text x="1440" y="364" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">仓库管理员 · 台账</text>
+            <line x1="1110" y1="390" x2="1770" y2="390" stroke="#B48EF0" stroke-width="1.5" stroke-opacity="0.5" />
+          </g>
+          <text id="ow-bk0" class="h" x="1120" y="470" font-size="32" fill="#58C4DD">只读：借给多人</text>
+          <text id="ow-bk1" class="h" x="1120" y="550" font-size="32" fill="#F0B90B">可写：只借一人</text>
+          <g id="ow-x0" class="h"><rect x="1080" y="660" width="140" height="64" rx="32" fill="none" stroke="#FC6255" stroke-width="2.5" /><text x="1150" y="703" font-size="28" fill="#FC6255" text-anchor="middle">溢出</text></g>
+          <g id="ow-x1" class="h"><rect x="1250" y="660" width="200" height="64" rx="32" fill="none" stroke="#FC6255" stroke-width="2.5" /><text x="1350" y="703" font-size="28" fill="#FC6255" text-anchor="middle">权限漏检</text></g>
+          <g id="ow-x2" class="h"><rect x="1480" y="660" width="200" height="64" rx="32" fill="none" stroke="#FC6255" stroke-width="2.5" /><text x="1580" y="703" font-size="28" fill="#FC6255" text-anchor="middle">舍入方向</text></g>
+          <text id="ow-nm" class="h" x="1380" y="800" font-size="34" fill="#FC6255" text-anchor="middle">它不管</text>
+        </g>
+
+        <!-- L6 报错卡 -->
+        <g id="ow-l6">
+          <g id="ow-k1" class="h">
+            <rect x="1040" y="240" width="800" height="250" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="1070" y="294" font-size="32" fill="#FC6255">E0499</text>
+            <text x="1200" y="294" font-size="28" fill="#8a8f99">两个可写同时存在</text>
+            <rect x="1080" y="350" width="110" height="80" rx="10" fill="none" stroke="#e8e6df" stroke-width="2.5" />
+            <text class="mono" x="1135" y="402" font-size="30" fill="#e8e6df" text-anchor="middle">v</text>
+            <line x1="1196" y1="380" x2="1460" y2="340" stroke="#F0B90B" stroke-width="5" />
+            <line x1="1196" y1="400" x2="1460" y2="450" stroke="#F0B90B" stroke-width="5" />
+            <path d="M1600 350 L1680 430 M1680 350 L1600 430" stroke="#FC6255" stroke-width="7" fill="none" />
+          </g>
+          <g id="ow-k2" class="h">
+            <rect x="1040" y="520" width="800" height="250" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text class="mono" x="1070" y="574" font-size="32" fill="#FC6255">E0502</text>
+            <text x="1200" y="574" font-size="28" fill="#8a8f99">读着又去改</text>
+            <rect x="1080" y="630" width="110" height="80" rx="10" fill="none" stroke="#e8e6df" stroke-width="2.5" />
+            <text class="mono" x="1135" y="682" font-size="30" fill="#e8e6df" text-anchor="middle">v</text>
+            <line x1="1196" y1="660" x2="1460" y2="620" stroke="#58C4DD" stroke-width="3" stroke-dasharray="10 8" />
+            <line x1="1196" y1="680" x2="1460" y2="730" stroke="#F0B90B" stroke-width="5" />
+            <path d="M1600 630 L1680 710 M1680 630 L1600 710" stroke="#FC6255" stroke-width="7" fill="none" />
+          </g>
+          <g id="ow-fix" class="h">
+            <rect x="1080" y="830" width="110" height="80" rx="10" fill="none" stroke="#e8e6df" stroke-width="2.5" />
+            <text class="mono" x="1135" y="882" font-size="30" fill="#e8e6df" text-anchor="middle">v</text>
+            <rect x="1310" y="840" width="130" height="60" rx="8" fill="none" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1375" y="881" font-size="28" fill="#83C167" text-anchor="middle">amt</text>
+            <text x="1470" y="881" font-size="30" fill="#83C167">先复制，再修改 ✓</text>
+          </g>
+          <path id="ow-fa" class="dr h" pathLength="1" d="M1196 870 L1302 870" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#ow-arr-g)" />
+        </g>
+      </g>
+      <g id="ow-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">所有权 <tspan font-size="28" font-weight="400" fill="#8a8f99">Ownership</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">每个值只有一个主人，主人离开作用域就释放</text>
+      </g>
+      <g id="ow-term2" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">借用 <tspan font-size="28" font-weight="400" fill="#8a8f99">Borrowing</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">不拿走所有权，临时使用一个值</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const LINE = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const HL = (a, n, t) => tl.to("#ow-hl, #ow-hb", { attr: { y: 270 + a * 41, height: n * 41 }, opacity: 1, duration: 0.4, ease: "power2.inOut" }, t);
+
+      // L0 所有权
+      IN("#ow-term", at(0, 0.03), 0.5);
+      IN("#ow-gc", at(0, 0.2), 0.5);
+      IN("#ow-gcx", at(0, 0.38), 0.3);
+      IN("#ow-panel", at(0, 0.5), 0.6);
+      IN("#ow-ledger", at(0, 0.7), 0.5, { x: 20 }, { x: 0 });
+      OUT("#ow-term", at(0, 0.88), 0.4);
+      // L1 一个主人 + 离开作用域释放
+      OUT("#ow-gc, #ow-gcx", at(1, 0), 0.3);
+      IN("#ow-box1", at(1, 0.05), 0.5);
+      IN("#ow-tag1", at(1, 0.15), 0.5, { y: -20 }, { y: 0 });
+      IN("#ow-scope", at(1, 0.45), 0.5);
+      tl.to("#ow-tag1", { x: 360, duration: 0.7, ease: "power2.inOut" }, at(1, 0.58));
+      OUT("#ow-box1", at(1, 0.75), 0.05);
+      IN("#ow-frag", at(1, 0.75), 0.05);
+      tl.to("#ow-f0", { attr: { x: 1200, y: 640 }, duration: 0.7, ease: "power2.in" }, at(1, 0.76));
+      tl.to("#ow-f1", { attr: { y: 680 }, duration: 0.7, ease: "power2.in" }, at(1, 0.76));
+      tl.to("#ow-f2", { attr: { x: 1500, y: 650 }, duration: 0.7, ease: "power2.in" }, at(1, 0.76));
+      OUT("#ow-frag", at(1, 0.84), 0.3);
+      IN("#ow-drop", at(1, 0.8), 0.4);
+      // L2 移动 / E0382 / clone / Copy
+      OUT("#ow-l1", at(2, 0), 0.4);
+      HL(0, 4, at(2, 0.02));
+      IN("#ow-box2", at(2, 0.04), 0.4);
+      IN("#ow-tag2", at(2, 0.06), 0.4);
+      IN("#ow-map", at(2, 0.1), 0.4);
+      ARROW("#ow-mv", at(2, 0.15), 0.4);
+      tl.to("#ow-box2", { x: 405, y: 60, duration: 0.7, ease: "power2.inOut" }, at(2, 0.18));
+      tl.to("#ow-tag2r", { fill: "#0f1117", stroke: "#6b6f7a", attr: { "stroke-dasharray": "6 5" }, duration: 0.3 }, at(2, 0.24));
+      tl.to("#ow-tag2t", { fill: "#6b6f7a", duration: 0.3 }, at(2, 0.24));
+      OUT("#ow-mv", at(2, 0.3), 0.3);
+      IN("#ow-e0382", at(2, 0.34), 0.3, { y: 10 }, { y: 0 });
+      IN("#ow-cl", at(2, 0.55), 0.5, { y: -40 }, { y: 0 });
+      IN("#ow-cp", at(2, 0.8), 0.5);
+      // L3 借用
+      OUT("#ow-l2", at(3, 0), 0.4);
+      IN("#ow-term2", at(3, 0.02), 0.5);
+      HL(4, 3, at(3, 0.04));
+      IN("#ow-v", at(3, 0.08), 0.4);
+      LINE("#ow-b1", at(3, 0.22), 0.4); IN("#ow-e1", at(3, 0.26), 0.4);
+      LINE("#ow-b2", at(3, 0.32), 0.4); IN("#ow-e2", at(3, 0.36), 0.4);
+      IN("#ow-rule", at(3, 0.62), 0.5, { y: 15 }, { y: 0 });
+      // L4 最后一次使用后结束
+      IN("#ow-last", at(4, 0.05), 0.4);
+      OUT("#ow-b1, #ow-b2, #ow-e1, #ow-e2", at(4, 0.3), 0.5);
+      OUT("#ow-last", at(4, 0.45), 0.3);
+      LINE("#ow-bw", at(4, 0.55), 0.5); IN("#ow-pw", at(4, 0.6), 0.4);
+      IN("#ow-ok", at(4, 0.75), 0.3);
+      OUT("#ow-term2", at(4, 0.85), 0.4);
+      // L5 仓库管理员台账
+      OUT("#ow-l3, #ow-ledger", at(5, 0), 0.4);
+      tl.to("#ow-hl, #ow-hb", { opacity: 0, duration: 0.3 }, at(5, 0));
+      IN("#ow-book", at(5, 0.05), 0.6, { scale: 0.6, svgOrigin: "1640 270" }, { scale: 1, svgOrigin: "1640 270" });
+      IN("#ow-bk0", at(5, 0.18), 0.4);
+      IN("#ow-bk1", at(5, 0.3), 0.4);
+      IN("#ow-x0", at(5, 0.6), 0.4); IN("#ow-x1", at(5, 0.7), 0.4); IN("#ow-x2", at(5, 0.8), 0.4);
+      IN("#ow-nm", at(5, 0.86), 0.4);
+      // L6 E0499 / E0502 / 修法
+      OUT("#ow-l5", at(6, 0), 0.4);
+      IN("#ow-k1", at(6, 0.05), 0.5, { x: 20 }, { x: 0 });
+      IN("#ow-k2", at(6, 0.35), 0.5, { x: 20 }, { x: 0 });
+      IN("#ow-fix", at(6, 0.72), 0.5);
+      ARROW("#ow-fa", at(6, 0.74), 0.4);
+
+      tl.to("#ow-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["owner"] = tl;
+    })();
+  </script>
+</template>

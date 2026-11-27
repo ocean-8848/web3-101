@@ -1,0 +1,254 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="35.06" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ho-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ho-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+        <marker id="ho-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <g id="ho-move">
+          <g id="ho-scale">
+            <!-- 左链框：Cosmos Hub -->
+            <g id="ho-hub" class="h">
+              <rect x="120" y="260" width="640" height="560" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+              <text x="156" y="320" font-size="38" font-weight="700" fill="#e8e6df">Cosmos Hub</text>
+              <text class="ho-subtxt" x="724" y="318" font-size="28" fill="#8a8f99" text-anchor="end">源链</text>
+              <line x1="156" y1="344" x2="724" y2="344" stroke="#2c3240" stroke-width="2" />
+            </g>
+
+            <!-- 右链框：Osmosis -->
+            <g id="ho-osmo" class="h">
+              <rect x="1160" y="260" width="640" height="560" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+              <text x="1196" y="320" font-size="38" font-weight="700" fill="#e8e6df">Osmosis</text>
+              <text class="ho-subtxt" x="1764" y="318" font-size="28" fill="#8a8f99" text-anchor="end">目标链</text>
+              <line x1="1196" y1="344" x2="1764" y2="344" stroke="#2c3240" stroke-width="2" />
+            </g>
+
+            <!-- L0: Hub 里的 1 ATOM 金币 -->
+            <g id="ho-coin1" class="h">
+              <circle cx="440" cy="462" r="70" fill="#F0B90B" fill-opacity="0.16" stroke="#F0B90B" stroke-width="3.5" />
+              <text class="mono" x="440" y="458" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">1</text>
+              <text class="mono" x="440" y="494" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">ATOM</text>
+            </g>
+
+            <!-- L0->L1: 虚线弧 & 飞行失败的币 -->
+            <path id="ho-arc0" class="dr h" pathLength="1" d="M518 430 Q960 270 1380 430" fill="none" stroke="#F0B90B" stroke-width="3" marker-end="url(#ho-mg)" />
+            <g id="ho-fly" class="h">
+              <circle id="ho-flyc" cx="440" cy="462" r="52" fill="#F0B90B" fill-opacity="0.2" stroke="#F0B90B" stroke-width="3" />
+              <text id="ho-flyt" class="mono" x="440" y="472" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">ATOM</text>
+            </g>
+            <g id="ho-flyx" class="h">
+              <line x1="924" y1="330" x2="996" y2="402" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+              <line x1="996" y1="330" x2="924" y2="402" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+            </g>
+
+            <!-- L1: 左框托管锁 -->
+            <g id="ho-lock" class="h">
+              <rect x="190" y="380" width="500" height="148" rx="14" fill="#F0B90B" fill-opacity="0.1" stroke="#F0B90B" stroke-width="3" />
+              <!-- 金色锁图标 -->
+              <path d="M244 452 V432 A22 22 0 0 1 288 432 V452" fill="none" stroke="#F0B90B" stroke-width="4.5" stroke-linecap="round" />
+              <rect x="234" y="450" width="64" height="48" rx="8" fill="#F0B90B" fill-opacity="0.25" stroke="#F0B90B" stroke-width="3.5" />
+              <circle cx="266" cy="474" r="6" fill="#F0B90B" />
+              <text x="330" y="446" font-size="38" font-weight="700" fill="#F0B90B">托管</text>
+              <text class="mono ho-subtxt" x="330" y="496" font-size="30" font-weight="700" fill="#e8e6df">1 ATOM</text>
+            </g>
+
+            <!-- L1: 右框铸造凭证币 -->
+            <g id="ho-mint" class="h">
+              <rect x="1230" y="380" width="500" height="148" rx="14" fill="#F0B90B" fill-opacity="0.1" stroke="#F0B90B" stroke-width="3" />
+              <circle cx="1296" cy="454" r="36" fill="#F0B90B" fill-opacity="0.22" stroke="#F0B90B" stroke-width="3" />
+              <text class="ho-subtxt" x="1296" y="465" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">币</text>
+              <text x="1356" y="444" font-size="38" font-weight="700" fill="#F0B90B">铸造凭证币</text>
+              <text class="mono ho-subtxt" x="1356" y="496" font-size="30" font-weight="700">
+                <tspan fill="#58C4DD">ibc/</tspan><tspan fill="#F0B90B">27394F…</tspan>
+              </text>
+            </g>
+
+            <!-- L2: 中间大号橙色问号 -->
+            <g id="ho-qwrap" class="h">
+              <g id="ho-q">
+                <circle id="ho-qcirc" cx="960" cy="462" r="58" fill="#161a22" stroke="#FF9F43" stroke-width="4" />
+                <text x="960" y="488" font-size="72" font-weight="700" fill="#FF9F43" text-anchor="middle">?</text>
+              </g>
+              <text id="ho-qt" class="h" x="960" y="576" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">凭什么相信？</text>
+            </g>
+
+            <!-- L3: 5 个橙色签名者 + 气泡 -->
+            <g id="ho-sigs">
+              <g id="ho-s0" class="h">
+                <rect x="614" y="68" width="132" height="46" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+                <text x="680" y="101" font-size="28" fill="#FF9F43" text-anchor="middle">✓ 锁了</text>
+                <circle cx="680" cy="150" r="18" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+                <path d="M652 204 A28 24 0 0 1 708 204" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+              </g>
+              <g id="ho-s1" class="h">
+                <rect x="754" y="68" width="132" height="46" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+                <text x="820" y="101" font-size="28" fill="#FF9F43" text-anchor="middle">✓ 锁了</text>
+                <circle cx="820" cy="150" r="18" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+                <path d="M792 204 A28 24 0 0 1 848 204" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+              </g>
+              <g id="ho-s2" class="h">
+                <rect x="894" y="68" width="132" height="46" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+                <text x="960" y="101" font-size="28" fill="#FF9F43" text-anchor="middle">✓ 锁了</text>
+                <circle cx="960" cy="150" r="18" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+                <path d="M932 204 A28 24 0 0 1 988 204" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+              </g>
+              <g id="ho-s3" class="h">
+                <rect x="1034" y="68" width="132" height="46" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+                <text x="1100" y="101" font-size="28" fill="#FF9F43" text-anchor="middle">✓ 锁了</text>
+                <circle cx="1100" cy="150" r="18" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+                <path d="M1072 204 A28 24 0 0 1 1128 204" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+              </g>
+              <g id="ho-s4" class="h">
+                <rect x="1174" y="68" width="132" height="46" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+                <text x="1240" y="101" font-size="28" fill="#FF9F43" text-anchor="middle">✓ 锁了</text>
+                <circle cx="1240" cy="150" r="18" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+                <path d="M1212 204 A28 24 0 0 1 1268 204" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="3" />
+              </g>
+            </g>
+            <path id="ho-sigarr" class="dr h" pathLength="1" d="M1285 186 Q1390 194 1420 252" fill="none" stroke="#FF9F43" stroke-width="3.5" marker-end="url(#ho-mo)" />
+            <text id="ho-multi" class="h" x="1780" y="888" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="end">多签桥</text>
+
+            <!-- L4: Hub 区块头堆 -->
+            <g id="ho-hdrs" class="h">
+              <text x="190" y="592" font-size="38" font-weight="700" fill="#58C4DD">Hub 区块头</text>
+              <rect x="190" y="618" width="144" height="90" rx="10" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2.5" />
+              <text class="mono ho-subtxt" x="262" y="674" font-size="28" fill="#58C4DD" text-anchor="middle">#101</text>
+              <rect x="364" y="618" width="144" height="90" rx="10" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2.5" />
+              <text class="mono ho-subtxt" x="436" y="674" font-size="28" fill="#58C4DD" text-anchor="middle">#102</text>
+              <rect x="538" y="618" width="152" height="90" rx="10" fill="#58C4DD" fill-opacity="0.26" stroke="#58C4DD" stroke-width="3" />
+              <text class="mono ho-subtxt" x="614" y="674" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">#103</text>
+            </g>
+
+            <!-- L4: Osmosis 内 Hub 轻客户端 -->
+            <g id="ho-lc" class="h">
+              <rect x="1230" y="576" width="500" height="148" rx="14" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="3" />
+              <text x="1480" y="638" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">Hub 轻客户端</text>
+              <text class="ho-subtxt" x="1480" y="692" font-size="28" fill="#e8e6df" text-anchor="middle">核对区块头与证明</text>
+            </g>
+
+            <!-- L4: 轻客户端指回 Hub 区块头的蓝色虚线 -->
+            <path id="ho-verline" class="h" d="M1226 664 L702 664" fill="none" stroke="#58C4DD" stroke-width="3.5" stroke-dasharray="12 10" marker-end="url(#ho-mb)" />
+
+            <!-- L4: 绿勾 自己核对 -->
+            <g id="ho-ok" class="h">
+              <rect x="1320" y="746" width="320" height="54" rx="27" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="2.5" />
+              <text x="1480" y="786" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">✓ 自己核对</text>
+            </g>
+
+            <!-- L4: 中间虚线小机器人 中继者 -->
+            <g id="ho-relayer" class="h">
+              <rect x="852" y="388" width="216" height="142" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="9 7" />
+              <!-- 简笔小机器人图标 -->
+              <line x1="960" y1="406" x2="960" y2="420" stroke="#FF9F43" stroke-width="3" />
+              <circle cx="960" cy="402" r="5" fill="#FF9F43" />
+              <rect x="926" y="420" width="68" height="44" rx="10" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2.5" />
+              <circle cx="946" cy="442" r="5" fill="#FF9F43" />
+              <circle cx="974" cy="442" r="5" fill="#FF9F43" />
+              <text x="960" y="510" font-size="38" font-weight="700" fill="#FF9F43" text-anchor="middle">中继者</text>
+            </g>
+            <!-- 中继者搬运的小包 -->
+            <g id="ho-pkt" class="h">
+              <rect x="936" y="546" width="48" height="36" rx="6" fill="#58C4DD" fill-opacity="0.28" stroke="#58C4DD" stroke-width="2.5" />
+              <line x1="944" y1="564" x2="976" y2="564" stroke="#58C4DD" stroke-width="2.5" />
+            </g>
+          </g>
+        </g>
+
+        <!-- L5: 底部 IBC 主标题 -->
+        <text id="ho-ibc" class="h" x="960" y="748" font-size="96" font-weight="700" fill="#58C4DD" text-anchor="middle">IBC</text>
+        <text id="ho-sub" class="h" x="960" y="836" font-size="40" font-weight="600" fill="#e8e6df" text-anchor="middle">每条链自己验证对方</text>
+        <line id="ho-ul" class="dr" pathLength="1" x1="740" y1="864" x2="1180" y2="864" stroke="#58C4DD" stroke-width="4" stroke-linecap="round" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: Cosmos Hub + 1 ATOM + Osmosis
+      IN("#ho-hub", at(0, 0.02), 0.7, { y: 24 }, { y: 0 });
+      IN("#ho-coin1", at(0, 0.24), 0.6, { scale: 0.8, svgOrigin: "440 462" }, { scale: 1, svgOrigin: "440 462" });
+      IN("#ho-osmo", at(0, 0.56), 0.7, { y: 24 }, { y: 0 });
+      ARROW("#ho-arc0", at(0, 0.80), 0.7);
+
+      // L1: 币飞到中途变灰打叉；改为左锁右铸
+      IN("#ho-fly", at(1, 0.02), 0.15);
+      tl.to("#ho-fly", { x: 520, y: -96, duration: 1.1, ease: "power2.out" }, at(1, 0.05));
+      tl.to("#ho-flyc", { stroke: "#8a8f99", fill: "#8a8f99", duration: 0.35 }, at(1, 0.22));
+      tl.to("#ho-flyt", { fill: "#8a8f99", duration: 0.35 }, at(1, 0.22));
+      IN("#ho-flyx", at(1, 0.26), 0.25);
+      OUT("#ho-fly, #ho-flyx, #ho-arc0, #ho-coin1", at(1, 0.42), 0.35);
+      IN("#ho-lock", at(1, 0.50), 0.6, { y: -18 }, { y: 0 });
+      IN("#ho-mint", at(1, 0.72), 0.6, { scale: 0.9, svgOrigin: "1480 454" }, { scale: 1, svgOrigin: "1480 454" });
+
+      // L2: 橙色大问号 + 凭什么相信？
+      IN("#ho-qwrap", at(2, 0.06), 0.6, { scale: 0.85, svgOrigin: "960 462" }, { scale: 1, svgOrigin: "960 462" });
+      IN("#ho-qt", at(2, 0.38), 0.5, { y: 14 }, { y: 0 });
+      tl.to("#ho-qcirc", { attr: { "stroke-width": 7 }, duration: 0.45, yoyo: true, repeat: 1 }, at(2, 0.72));
+
+      // L3: 5 个橙色签名者 + 指向右框 + 多签桥
+      ["#ho-s0", "#ho-s1", "#ho-s2", "#ho-s3", "#ho-s4"].forEach((s, i) => {
+        IN(s, at(3, 0.05 + i * 0.08), 0.35, { y: -16 }, { y: 0 });
+      });
+      ARROW("#ho-sigarr", at(3, 0.52), 0.55);
+      IN("#ho-multi", at(3, 0.70), 0.45, { y: 14 }, { y: 0 });
+
+      // L4: 签名者淡出；轻客户端 + 区块头 + 蓝色虚线 + 自己核对 + 中继者搬小包
+      OUT("#ho-sigs, #ho-sigarr, #ho-multi, #ho-qwrap", at(4, 0.02), 0.35);
+      IN("#ho-hdrs", at(4, 0.14), 0.6, { y: 16 }, { y: 0 });
+      IN("#ho-lc", at(4, 0.26), 0.6, { y: 16 }, { y: 0 });
+      IN("#ho-verline", at(4, 0.44), 0.5);
+      IN("#ho-ok", at(4, 0.58), 0.5, { scale: 0.9, svgOrigin: "1480 773" }, { scale: 1, svgOrigin: "1480 773" });
+      IN("#ho-relayer", at(4, 0.70), 0.5);
+      IN("#ho-pkt", at(4, 0.76), 0.25);
+      tl.to("#ho-pkt", {
+        keyframes: [
+          { x: -120, duration: 0.45, ease: "sine.inOut" },
+          { x: 120, duration: 0.75, ease: "sine.inOut" },
+          { x: 0, duration: 0.5, ease: "sine.inOut" }
+        ]
+      }, at(4, 0.78));
+
+      // L5: 整体缩小上移（淡出小字，保证所有可见字 ≥ 28px）+ IBC 大标题
+      OUT(".ho-subtxt", at(5, 0.02), 0.35);
+      tl.to("#ho-move", { y: -158, duration: 0.9, ease: "power2.inOut" }, at(5, 0.05));
+      tl.to("#ho-scale", { scale: 0.76, svgOrigin: "960 540", duration: 0.9, ease: "power2.inOut" }, at(5, 0.05));
+      IN("#ho-ibc", at(5, 0.30), 0.6, { y: 24 }, { y: 0 });
+      IN("#ho-sub", at(5, 0.54), 0.6, { y: 18 }, { y: 0 });
+      DRAW("#ho-ul", at(5, 0.76), 0.7);
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

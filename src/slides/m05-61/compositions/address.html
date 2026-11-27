@@ -1,0 +1,108 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 address，id 前缀 ad- -->
+  <div id="root" data-composition-id="address" data-duration="49.31" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ad-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ad-all">
+
+<rect id="ad-c1" class="h" x="560" y="230" width="800" height="120" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+<rect id="ad-c2" class="h" x="560" y="380" width="800" height="120" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+<text id="ad-a1" class="h mono" x="600" y="308" font-size="48" fill="#e8e6df">bc1<tspan id="ad-q1">q</tspan>…</text>
+<text id="ad-a1r" class="h mono" x="600" y="308" font-size="48" fill="#e8e6df">bcrt1<tspan fill="#58C4DD">q</tspan>…</text>
+<text id="ad-l1" class="h" x="1330" y="302" text-anchor="end" font-size="30" fill="#58C4DD">bech32 · P2WPKH / P2WSH</text>
+<text id="ad-a2" class="h mono" x="600" y="458" font-size="48" fill="#e8e6df">bc1<tspan id="ad-q2">p</tspan>…</text>
+<text id="ad-a2r" class="h mono" x="600" y="458" font-size="48" fill="#e8e6df">bcrt1<tspan fill="#83C167">p</tspan>…</text>
+<text id="ad-l2" class="h" x="1330" y="452" text-anchor="end" font-size="30" fill="#83C167">bech32m · P2TR</text>
+<text id="ad-rt" class="h" x="1400" y="378" font-size="32" fill="#8a8f99">regtest</text>
+<text id="ad-q" class="h" x="960" y="340" text-anchor="middle" font-size="44" font-weight="700" fill="#FF9F43">Taproot 一定更便宜？</text>
+<g id="ad-grid" class="h" fill="none" stroke="#8a8f99" stroke-width="2">
+  <rect x="480" y="420" width="960" height="250" rx="10"/>
+  <path d="M480 490 H1440 M480 580 H1440 M720 420 V670 M1080 420 V670"/>
+</g>
+<rect id="ad-hi1" class="h" x="724" y="494" width="352" height="82" fill="#83C167" fill-opacity="0.15"/>
+<rect id="ad-hi2" class="h" x="724" y="584" width="352" height="82" fill="#FC6255" fill-opacity="0.15"/>
+<g id="ad-hd" class="h mono" font-size="32"><text x="900" y="467" text-anchor="middle" fill="#83C167">P2TR</text><text x="1260" y="467" text-anchor="middle" fill="#58C4DD">P2WPKH</text></g>
+<text id="ad-r1" class="h" x="600" y="547" text-anchor="middle" font-size="32" fill="#e8e6df">输入</text>
+<text id="ad-v11" class="h mono" x="900" y="547" text-anchor="middle" font-size="34" fill="#83C167">57.5 vB</text>
+<text id="ad-v12" class="h mono" x="1260" y="547" text-anchor="middle" font-size="34" fill="#e8e6df">68 vB</text>
+<text id="ad-r2" class="h" x="600" y="637" text-anchor="middle" font-size="32" fill="#e8e6df">输出</text>
+<text id="ad-v21" class="h mono" x="900" y="637" text-anchor="middle" font-size="34" fill="#FC6255">43 vB</text>
+<text id="ad-v22" class="h mono" x="1260" y="637" text-anchor="middle" font-size="34" fill="#e8e6df">31 vB</text>
+<text id="ad-gui" class="h" x="900" y="728" text-anchor="middle" font-size="32" fill="#FF9F43">略贵</text>
+<g id="ad-wal" class="h" fill="none" stroke="#8a8f99" stroke-width="3"><rect x="1520" y="560" width="120" height="100" rx="14"/><path d="M1520 590 H1640"/><circle cx="1610" cy="625" r="8"/></g>
+<path id="ad-in" class="dr h" pathLength="1" d="M1820 610 H1652" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#ad-arr)"/>
+<text id="ad-only" class="h" x="1580" y="715" text-anchor="middle" font-size="30" fill="#8a8f99">只收不花</text>
+
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // L0 空卡
+      IN("#ad-c1", at(0, 0.1), 0.5, { x: -30 }, { x: 0 });
+      IN("#ad-c2", at(0, 0.35), 0.5, { x: -30 }, { x: 0 });
+      // L1 bech32
+      tl.to("#ad-c1", { attr: { stroke: "#58C4DD" }, duration: 0.4 }, at(1, 0.15));
+      IN("#ad-a1", at(1, 0.2));
+      IN("#ad-l1", at(1, 0.45));
+      tl.to("#ad-q1", { fill: "#58C4DD", duration: 0.4 }, at(1, 0.72));
+      // L2 bech32m
+      tl.to("#ad-c2", { attr: { stroke: "#83C167" }, duration: 0.4 }, at(2, 0.1));
+      IN("#ad-a2", at(2, 0.18));
+      IN("#ad-l2", at(2, 0.45));
+      tl.to("#ad-q2", { fill: "#83C167", duration: 0.4 }, at(2, 0.66));
+      // L3 regtest 前缀
+      const r0 = at(3, 0.08);
+      OUT("#ad-a1, #ad-a2", r0, 0.35);
+      IN("#ad-a1r, #ad-a2r, #ad-rt", r0 + 0.45, 0.4);
+      OUT("#ad-a1r, #ad-a2r, #ad-rt", r0 + 2.4, 0.35);
+      IN("#ad-a1, #ad-a2", r0 + 2.85, 0.4);
+      // L4 问题
+      OUT("#ad-c1, #ad-c2, #ad-a1, #ad-a2, #ad-l1, #ad-l2", at(4, 0));
+      IN("#ad-q", at(4, 0) + 0.45, 0.6, { y: 20 }, { y: 0 });
+      tl.to("#ad-q", { y: -12, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.8));
+      // L5 对比表
+      IN("#ad-grid", at(5, 0.02));
+      IN("#ad-hd", at(5, 0.08));
+      IN("#ad-r1", at(5, 0.12)); IN("#ad-v11", at(5, 0.2)); IN("#ad-hi1", at(5, 0.22)); IN("#ad-v12", at(5, 0.36));
+      IN("#ad-r2", at(5, 0.55)); IN("#ad-v21", at(5, 0.62)); IN("#ad-hi2", at(5, 0.64)); IN("#ad-v22", at(5, 0.78));
+      // L6 只收不花
+      IN("#ad-wal", at(6, 0.05));
+      ARROW("#ad-in", at(6, 0.15));
+      IN("#ad-only", at(6, 0.25));
+      IN("#ad-gui", at(6, 0.5), 0.5, { y: -10 }, { y: 0 });
+
+
+      tl.to("#ad-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+
+      window.__timelines["address"] = tl;
+    })();
+  </script>
+</template>

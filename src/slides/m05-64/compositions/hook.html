@@ -1,0 +1,215 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="44.81" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ho-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ho-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="ho-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+        <marker id="ho-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" />
+        </marker>
+      </defs>
+      <g id="ho-all">
+        <!-- Stage 1: L0-L2 总账 vs 实体钞票 -->
+        <g id="ho-stage1">
+          <!-- 左半：ERC-20 总账 -->
+          <g id="ho-ledger" class="h">
+            <rect id="ho-lbox" x="140" y="280" width="740" height="470" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="184" y="346" font-size="36" font-weight="700" fill="#58C4DD">ERC-20 合约</text>
+            <text x="836" y="344" font-size="28" fill="#6b6f7a" text-anchor="end">示例</text>
+            <line x1="166" y1="376" x2="854" y2="376" stroke="#58C4DD" stroke-width="2" opacity="0.55" />
+            <text x="194" y="428" font-size="28" fill="#8a8f99">账户</text>
+            <text x="530" y="428" font-size="28" fill="#8a8f99">余额</text>
+            <line x1="166" y1="452" x2="854" y2="452" stroke="#8a8f99" stroke-width="1.5" opacity="0.4" />
+            <line x1="166" y1="598" x2="854" y2="598" stroke="#8a8f99" stroke-width="1.5" opacity="0.4" />
+          </g>
+          <g id="ho-row1" class="h">
+            <text class="mono" x="194" y="542" font-size="38" fill="#e8e6df">Alice</text>
+            <text id="ho-aval" class="mono" x="530" y="544" font-size="44" font-weight="700" fill="#F0B90B">100</text>
+          </g>
+          <g id="ho-row2" class="h">
+            <text class="mono" x="194" y="688" font-size="38" fill="#e8e6df">Bob</text>
+            <text id="ho-bval" class="mono" x="530" y="690" font-size="44" font-weight="700" fill="#F0B90B">50</text>
+          </g>
+          <text id="ho-d1" class="h mono" x="706" y="542" font-size="34" font-weight="700" fill="#8a8f99">-10</text>
+          <text id="ho-d2" class="h mono" x="706" y="688" font-size="34" font-weight="700" fill="#83C167">+10</text>
+          <text id="ho-d3" class="h mono" x="706" y="688" font-size="36" font-weight="700" fill="#FC6255">+20</text>
+          <g id="ho-err" class="h">
+            <rect x="310" y="794" width="400" height="68" rx="14" fill="#FC6255" fill-opacity="0.14" stroke="#FC6255" stroke-width="2.5" />
+            <text x="510" y="840" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">写错一个符号</text>
+          </g>
+
+          <!-- 右半：口袋 + 钞票 + 禁止复印/丢弃 -->
+          <g id="ho-pockets" class="h">
+            <!-- 左口袋 -->
+            <path d="M1060 560 L1270 560 L1270 706 Q1270 756 1165 776 Q1060 756 1060 706 Z" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <path d="M1080 580 L1250 580 L1250 698 Q1250 738 1165 754 Q1080 738 1080 698 Z" fill="none" stroke="#6b6f7a" stroke-width="1.8" stroke-dasharray="8 6" />
+            <text x="1165" y="832" font-size="28" fill="#8a8f99" text-anchor="middle">口袋 A</text>
+            <!-- 右口袋 -->
+            <path d="M1510 560 L1720 560 L1720 706 Q1720 756 1615 776 Q1510 756 1510 706 Z" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <path d="M1530 580 L1700 580 L1700 698 Q1700 738 1615 754 Q1530 738 1530 698 Z" fill="none" stroke="#6b6f7a" stroke-width="1.8" stroke-dasharray="8 6" />
+            <text x="1615" y="832" font-size="28" fill="#8a8f99" text-anchor="middle">口袋 B</text>
+          </g>
+          <path id="ho-arc" class="dr h" pathLength="1" d="M1215 538 Q1390 420 1565 538" fill="none" stroke="#F0B90B" stroke-width="3.5" marker-end="url(#ho-mg)" />
+          <g id="ho-bill" class="h">
+            <rect x="1095" y="595" width="140" height="76" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="3.5" />
+            <rect x="1105" y="605" width="120" height="56" rx="6" fill="#F0B90B" fill-opacity="0.18" stroke="#F0B90B" stroke-width="1.5" />
+            <circle cx="1165" cy="633" r="18" fill="none" stroke="#F0B90B" stroke-width="2" />
+            <text class="mono" x="1165" y="644" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">10</text>
+          </g>
+          <!-- 复印机 ✕ -->
+          <g id="ho-nocopy" class="h">
+            <rect x="1142" y="246" width="116" height="68" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <rect x="1162" y="220" width="76" height="28" rx="4" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <rect x="1164" y="294" width="72" height="32" rx="4" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <line x1="1144" y1="226" x2="1256" y2="326" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+            <line x1="1256" y1="226" x2="1144" y2="326" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+            <text x="1200" y="382" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">不能复印</text>
+          </g>
+          <!-- 垃圾桶 ✕ -->
+          <g id="ho-nodrop" class="h">
+            <line x1="1528" y1="238" x2="1632" y2="238" stroke="#8a8f99" stroke-width="3.5" stroke-linecap="round" />
+            <rect x="1560" y="220" width="40" height="18" rx="4" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+            <path d="M1540 238 L1550 326 L1610 326 L1620 238 Z" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <line x1="1566" y1="256" x2="1568" y2="310" stroke="#8a8f99" stroke-width="2.5" />
+            <line x1="1594" y1="256" x2="1592" y2="310" stroke="#8a8f99" stroke-width="2.5" />
+            <line x1="1526" y1="226" x2="1634" y2="326" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+            <line x1="1634" y1="226" x2="1526" y2="326" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+            <text x="1580" y="382" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">不能丢弃</text>
+          </g>
+        </g>
+
+        <!-- Stage 2: L3-L5 Move + Sui / Aptos + 三件事 + 比喻边界 -->
+        <g id="ho-hero">
+          <text id="ho-move" class="h" x="960" y="420" font-size="96" font-weight="700" fill="#58C4DD" text-anchor="middle">Move</text>
+          <g id="ho-sui" class="h">
+            <rect x="700" y="468" width="220" height="74" rx="37" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="810" y="517" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">Sui</text>
+          </g>
+          <g id="ho-aptos" class="h">
+            <rect x="1000" y="468" width="220" height="74" rx="37" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="1110" y="517" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">Aptos</text>
+          </g>
+        </g>
+
+        <!-- 三条横向标题 -->
+        <g id="ho-p1" class="h">
+          <rect x="530" y="456" width="860" height="92" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+          <g id="ho-ico1">
+            <rect x="564" y="480" width="70" height="44" rx="6" fill="#F0B90B" fill-opacity="0.2" stroke="#F0B90B" stroke-width="2.5" />
+            <circle cx="599" cy="502" r="10" fill="none" stroke="#F0B90B" stroke-width="2" />
+          </g>
+          <text x="668" y="515" font-size="36" font-weight="700" fill="#e8e6df">资产不能复制也不能丢</text>
+        </g>
+
+        <g id="ho-p2" class="h">
+          <rect x="530" y="592" width="860" height="92" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <rect x="568" y="616" width="26" height="20" rx="4" fill="#58C4DD" fill-opacity="0.25" stroke="#58C4DD" stroke-width="2" />
+          <rect x="602" y="616" width="26" height="20" rx="4" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="2" />
+          <rect x="568" y="644" width="26" height="20" rx="4" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="2" />
+          <rect x="602" y="644" width="26" height="20" rx="4" fill="#58C4DD" fill-opacity="0.25" stroke="#58C4DD" stroke-width="2" />
+          <text x="668" y="651" font-size="36" font-weight="700" fill="#e8e6df">状态切成对象</text>
+        </g>
+
+        <g id="ho-p3" class="h">
+          <rect x="530" y="728" width="860" height="92" rx="16" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <line x1="566" y1="756" x2="628" y2="756" stroke="#83C167" stroke-width="4" stroke-linecap="round" />
+          <line x1="566" y1="774" x2="628" y2="774" stroke="#58C4DD" stroke-width="4" stroke-linecap="round" />
+          <line x1="566" y1="792" x2="628" y2="792" stroke="#F0B90B" stroke-width="4" stroke-linecap="round" />
+          <text x="668" y="787" font-size="36" font-weight="700" fill="#e8e6df">Block-STM 并行</text>
+        </g>
+
+        <!-- L5 比喻边界：钞票图标下橙色虚线框 -->
+        <path id="ho-bln" class="dr h" pathLength="1" d="M599 552 L599 634" fill="none" stroke="#FF9F43" stroke-width="3.5" marker-end="url(#ho-mo)" />
+        <g id="ho-bound" class="h">
+          <rect id="ho-bbox" x="530" y="644" width="860" height="106" rx="16" fill="#FF9F43" fill-opacity="0.1" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+          <text x="960" y="710" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">不保证数学是对的</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: ERC-20 总账表与两行余额
+      IN("#ho-ledger", at(0, 0.0), 0.7, { y: 24 }, { y: 0 });
+      IN("#ho-row1", at(0, 0.34), 0.5, { x: -20 }, { x: 0 });
+      IN("#ho-row2", at(0, 0.62), 0.5, { x: -20 }, { x: 0 });
+
+      // L1: Alice -10, Bob +10 -> 写错符号多跳一次变成 +20
+      IN("#ho-d1", at(1, 0.05), 0.35, { y: -12 }, { y: 0 });
+      COUNT("#ho-aval", 100, 90, at(1, 0.08), 0.9);
+      IN("#ho-d2", at(1, 0.24), 0.35, { y: 12 }, { y: 0 });
+      COUNT("#ho-bval", 50, 60, at(1, 0.27), 0.9);
+      OUT("#ho-d2", at(1, 0.54), 0.2);
+      IN("#ho-d3", at(1, 0.59), 0.3, { y: 10 }, { y: 0 });
+      COUNT("#ho-bval", 60, 70, at(1, 0.61), 0.7);
+      tl.to("#ho-bval", { fill: "#FC6255", duration: 0.25 }, at(1, 0.61));
+      tl.to("#ho-lbox", { stroke: "#FC6255", duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.64));
+      IN("#ho-err", at(1, 0.78), 0.5, { y: 16 }, { y: 0 });
+
+      // L2: 右半口袋、钞票沿弧线移动、复印机与垃圾桶打叉
+      IN("#ho-pockets", at(2, 0.04), 0.6, { y: 20 }, { y: 0 });
+      IN("#ho-bill", at(2, 0.20), 0.5, { y: -24 }, { y: 0 });
+      ARROW("#ho-arc", at(2, 0.34), 1.0);
+      tl.to("#ho-bill", {
+        keyframes: [
+          { x: 225, y: -145, duration: 0.8, ease: "power1.out" },
+          { x: 450, y: 0, duration: 0.8, ease: "power1.in" }
+        ]
+      }, at(2, 0.36));
+      IN("#ho-nocopy", at(2, 0.62), 0.5, { y: -16 }, { y: 0 });
+      IN("#ho-nodrop", at(2, 0.80), 0.5, { y: -16 }, { y: 0 });
+
+      // L3: 中央浮出 Move 与 Sui / Aptos
+      OUT("#ho-stage1", at(3, 0.0), 0.4);
+      IN("#ho-move", at(3, 0.14), 0.7, { y: 24 }, { y: 0 });
+      IN("#ho-sui", at(3, 0.48), 0.5, { y: 20 }, { y: 0 });
+      IN("#ho-aptos", at(3, 0.68), 0.5, { y: 20 }, { y: 0 });
+
+      // L4: 上移标题，依次出三条横向主题
+      tl.to("#ho-hero", { y: -200, duration: 0.7, ease: "power2.inOut" }, at(4, 0.02));
+      IN("#ho-p1", at(4, 0.16), 0.6, { x: -30 }, { x: 0 });
+      IN("#ho-p2", at(4, 0.44), 0.6, { x: -30 }, { x: 0 });
+      IN("#ho-p3", at(4, 0.72), 0.6, { x: -30 }, { x: 0 });
+
+      // L5: 钞票图标下出现比喻边界橙色虚线框
+      OUT("#ho-p2, #ho-p3", at(5, 0.04), 0.4);
+      ARROW("#ho-bln", at(5, 0.22), 0.5);
+      IN("#ho-bound", at(5, 0.36), 0.6, { y: 18 }, { y: 0 });
+      tl.to("#ho-bbox", { attr: { "stroke-width": 5 }, duration: 0.45, yoyo: true, repeat: 1 }, at(5, 0.72));
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

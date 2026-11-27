@@ -1,0 +1,279 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 macros，id 前缀 ma- -->
+  <div id="root" data-composition-id="macros" data-duration="67.47" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ma-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ma-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+        <marker id="ma-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="ma-all">
+        <!-- ===== L0：trait 与 derive ===== -->
+        <g id="ma-s0">
+          <g id="ma-go" class="h">
+            <rect x="120" y="260" width="740" height="200" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+            <text x="150" y="315" font-size="30" fill="#8a8f99">Go interface</text>
+            <text x="150" y="375" class="mono" font-size="28" fill="#8a8f99">type Stringer interface</text>
+            <text x="150" y="430" font-size="28" fill="#8a8f99">隐式：方法对上就算实现</text>
+          </g>
+          <text id="ma-eq" class="h" x="930" y="378" font-size="48" fill="#6b6f7a" text-anchor="middle">≈</text>
+          <g id="ma-rs" class="h">
+            <rect x="1000" y="260" width="800" height="200" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1030" y="315" font-size="30" fill="#58C4DD">Rust trait</text>
+            <text x="1030" y="375" class="mono" font-size="28" fill="#58C4DD">impl Display for VaultError</text>
+            <text x="1030" y="430" font-size="28" fill="#e8e6df">显式：必须写 impl</text>
+          </g>
+          <text id="ma-der" class="h mono" x="960" y="575" font-size="28" fill="#FF9F43" text-anchor="middle">#[derive(Debug, Clone, Copy, PartialEq, Default)]</text>
+          <g id="ma-b1" class="h"><rect x="250" y="625" width="260" height="110" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" /><text x="380" y="670" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">Debug</text><text x="380" y="712" font-size="28" fill="#FF9F43" text-anchor="middle">打印</text></g>
+          <g id="ma-b2" class="h"><rect x="540" y="625" width="260" height="110" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" /><text x="670" y="670" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">Clone</text><text x="670" y="712" font-size="28" fill="#FF9F43" text-anchor="middle">复制</text></g>
+          <g id="ma-b3" class="h"><rect x="830" y="625" width="260" height="110" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" /><text x="960" y="670" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">Copy</text><text x="960" y="712" font-size="28" fill="#FF9F43" text-anchor="middle">按位复制</text></g>
+          <g id="ma-b4" class="h"><rect x="1120" y="625" width="260" height="110" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" /><text x="1250" y="670" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">PartialEq</text><text x="1250" y="712" font-size="28" fill="#FF9F43" text-anchor="middle">比较</text></g>
+          <g id="ma-b5" class="h"><rect x="1410" y="625" width="260" height="110" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" /><text x="1540" y="670" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">Default</text><text x="1540" y="712" font-size="28" fill="#FF9F43" text-anchor="middle">零值</text></g>
+          <text id="ma-anc" class="h mono" x="960" y="810" font-size="28" fill="#8a8f99" text-anchor="middle">AnchorSerialize · AnchorDeserialize · InitSpace</text>
+        </g>
+
+        <!-- ===== L1–L4：时序图 ===== -->
+        <g id="ma-sq">
+          <g id="ma-lanes">
+            <g id="ma-h1" class="h"><rect x="100" y="240" width="300" height="110" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" /><text x="250" y="288" font-size="30" fill="#B48EF0" text-anchor="middle">Solana 运行时</text><text x="250" y="330" font-size="28" fill="#8a8f99" text-anchor="middle">runtime</text></g>
+            <g id="ma-h2" class="h"><rect x="440" y="240" width="300" height="110" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="590" y="288" font-size="30" fill="#FF9F43" text-anchor="middle">入口与分发</text><text x="590" y="330" class="mono" font-size="28" fill="#8a8f99" text-anchor="middle">#[program]</text></g>
+            <g id="ma-h3" class="h"><rect x="780" y="240" width="300" height="110" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="930" y="288" class="mono" font-size="28" fill="#FF9F43" text-anchor="middle">try_accounts</text><text x="930" y="330" font-size="28" fill="#8a8f99" text-anchor="middle">Accounts 宏</text></g>
+            <g id="ma-h4" class="h"><rect id="ma-h4r" x="1120" y="240" width="300" height="110" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1270" y="288" font-size="30" fill="#58C4DD" text-anchor="middle">你的函数</text><text x="1270" y="330" class="mono" font-size="28" fill="#8a8f99" text-anchor="middle">increment</text></g>
+            <g id="ma-h5" class="h"><rect x="1460" y="240" width="300" height="110" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="1610" y="288" class="mono" font-size="28" fill="#FF9F43" text-anchor="middle">exit</text><text x="1610" y="330" font-size="28" fill="#8a8f99" text-anchor="middle">写回账户</text></g>
+            <g id="ma-life" class="h" stroke="#6b6f7a" stroke-width="2" stroke-dasharray="6 8">
+              <line x1="250" y1="350" x2="250" y2="910" /><line x1="590" y1="350" x2="590" y2="910" /><line x1="930" y1="350" x2="930" y2="910" /><line x1="1270" y1="350" x2="1270" y2="910" /><line x1="1610" y1="350" x2="1610" y2="910" />
+            </g>
+          </g>
+          <!-- L2 指令数据 -->
+          <g id="ma-data" class="h">
+            <rect id="ma-disc" x="278" y="392" width="160" height="50" rx="6" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="358" y="427" font-size="28" fill="#FF9F43" text-anchor="middle">鉴别码</text>
+            <rect x="438" y="392" width="124" height="50" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+            <text x="500" y="427" font-size="28" fill="#58C4DD" text-anchor="middle">参数</text>
+          </g>
+          <path id="ma-a1" class="dr h" pathLength="1" d="M252 480 L586 480" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ma-arr)" />
+          <rect id="ma-act2" class="h" x="580" y="470" width="20" height="130" rx="4" fill="#FF9F43" />
+          <text id="ma-disp" class="h mono" x="620" y="530" font-size="28" fill="#58C4DD">→ increment</text>
+          <text id="ma-deser" class="h" x="620" y="580" font-size="28" fill="#e8e6df">反序列化参数</text>
+          <!-- L3 账户检查 -->
+          <path id="ma-a2" class="dr h" pathLength="1" d="M600 620 L926 620" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ma-arr)" />
+          <g id="ma-lights">
+            <g class="h" id="ma-l1"><circle id="ma-c1" cx="640" cy="670" r="13" fill="#6b6f7a" /><text x="668" y="680" font-size="28" fill="#e8e6df">签名</text></g>
+            <g class="h" id="ma-l2"><circle id="ma-c2" cx="640" cy="715" r="13" fill="#6b6f7a" /><text x="668" y="725" class="mono" font-size="28" fill="#e8e6df">owner</text></g>
+            <g class="h" id="ma-l3"><circle id="ma-c3" cx="640" cy="760" r="13" fill="#6b6f7a" /><text x="668" y="770" font-size="28" fill="#e8e6df">鉴别码</text></g>
+            <g class="h" id="ma-l4"><circle id="ma-c4" cx="640" cy="805" r="13" fill="#6b6f7a" /><text x="668" y="815" class="mono" font-size="28" fill="#e8e6df">seeds</text></g>
+            <g class="h" id="ma-l5"><circle id="ma-c5" cx="640" cy="850" r="13" fill="#6b6f7a" /><text x="668" y="860" class="mono" font-size="28" fill="#e8e6df">has_one</text></g>
+          </g>
+          <path id="ma-rb" class="dr h" pathLength="1" d="M926 895 L254 895" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ma-arrR)" />
+          <text id="ma-rbt" class="h" x="420" y="878" font-size="28" fill="#FC6255" text-anchor="middle">回滚</text>
+          <!-- L4 -->
+          <g id="ma-gen" class="h">
+            <text x="590" y="215" font-size="28" fill="#FF9F43" text-anchor="middle">宏生成</text>
+            <text x="930" y="215" font-size="28" fill="#FF9F43" text-anchor="middle">宏生成</text>
+            <text x="1270" y="215" font-size="28" fill="#58C4DD" text-anchor="middle">你写的</text>
+            <text x="1610" y="215" font-size="28" fill="#FF9F43" text-anchor="middle">宏生成</text>
+          </g>
+          <path id="ma-a3" class="dr h" pathLength="1" d="M934 680 L1266 680" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ma-arrG)" />
+          <text id="ma-a3t" class="h" x="1100" y="662" font-size="28" fill="#83C167" text-anchor="middle">全部通过</text>
+          <rect id="ma-act4" class="h" x="1260" y="670" width="20" height="230" rx="4" fill="#58C4DD" />
+          <path id="ma-a4" class="dr h" pathLength="1" d="M1280 770 L1606 770" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ma-arrG)" />
+          <text id="ma-a4t" class="h mono" x="1440" y="752" font-size="28" fill="#83C167" text-anchor="middle">Ok → 写回</text>
+          <path id="ma-a5" class="dr h" pathLength="1" d="M1260 895 L254 895" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ma-arrR)" />
+          <text id="ma-a5t" class="h mono" x="1100" y="877" font-size="28" fill="#FC6255" text-anchor="middle">Err / panic</text>
+          <!-- 底部说明行 -->
+          <g id="ma-cap1" class="h"><text x="960" y="985" font-size="28" fill="#8a8f99" text-anchor="middle">鉴别码 = <tspan class="mono" font-family="JetBrains Mono, SF Mono, Menlo, monospace">sha256("global:increment")</tspan> 前 8 字节</text></g>
+          <text id="ma-cap2" class="h" x="960" y="985" font-size="28" fill="#FC6255" text-anchor="middle">任何一条不过 → 整笔交易回滚</text>
+          <g id="ma-cap3" class="h"><text x="960" y="985" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan fill="#83C167">Err：错误码 6002</tspan>    <tspan fill="#FC6255">panic：—</tspan></text></g>
+        </g>
+
+        <!-- ===== L5：account / error_code ===== -->
+        <g id="ma-s5">
+          <g id="ma-acc" class="h">
+            <rect x="120" y="260" width="760" height="300" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="150" y="315" class="mono" font-size="30" fill="#FF9F43">#[account]</text>
+            <text x="150" y="375" font-size="28" fill="#e8e6df">Borsh 序列化</text>
+            <text x="150" y="425" font-size="28" fill="#e8e6df">8 字节鉴别码</text>
+            <text x="150" y="472" class="mono" font-size="28" fill="#58C4DD">sha256("account:类型名")</text>
+            <text x="150" y="525" class="mono" font-size="28" fill="#e8e6df">owner <tspan font-family="NotoSC, sans-serif">检查</tspan></text>
+          </g>
+          <text id="ma-did" class="h" x="150" y="640" font-size="28" fill="#6b6f7a"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">declare_id!</tspan> → 程序地址常量</text>
+          <g id="ma-code" class="h">
+            <rect x="960" y="260" width="840" height="370" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="ma-hl" x="962" y="284" width="836" height="38" fill="#58C4DD" fill-opacity="0.15" />
+            <rect id="ma-hlb" x="962" y="284" width="5" height="38" fill="#58C4DD" />
+            <g class="mono" font-size="28" fill="#e8e6df">
+              <text x="990" y="312" fill="#FF9F43">#[error_code]</text>
+              <text x="990" y="350">pub enum VaultError {</text>
+              <text x="990" y="388">    ZeroAmount,</text>
+              <text x="990" y="426">    Overflow,</text>
+              <text x="990" y="464">    InsufficientFunds,</text>
+              <text x="990" y="502">}</text>
+              <text id="ma-req" class="h" x="990" y="554">require!(amount &gt; 0, VaultError::ZeroAmount);</text>
+              <text id="ma-msg" class="h" x="990" y="596">msg!("withdraw {}", amount);</text>
+            </g>
+            <g class="mono" font-size="28" fill="#F0B90B">
+              <text id="ma-e0" class="h" x="1640" y="388">6000</text>
+              <text id="ma-e1" class="h" x="1640" y="426">6001</text>
+              <text id="ma-e2" class="h" x="1640" y="464">6002</text>
+            </g>
+          </g>
+        </g>
+
+        <!-- ===== L6：漏写 has_one ===== -->
+        <g id="ma-s6">
+          <g id="ma-k" class="h">
+            <circle cx="180" cy="320" r="16" fill="#83C167" /><text x="215" y="330" font-size="30" fill="#e8e6df">签名</text>
+            <circle cx="180" cy="390" r="16" fill="#83C167" /><text x="215" y="400" class="mono" font-size="30" fill="#e8e6df">owner</text>
+            <circle cx="180" cy="460" r="16" fill="#83C167" /><text x="215" y="470" font-size="30" fill="#e8e6df">鉴别码</text>
+            <circle cx="180" cy="530" r="16" fill="#83C167" /><text x="215" y="540" class="mono" font-size="30" fill="#e8e6df">seeds</text>
+          </g>
+          <g id="ma-k5"><circle cx="180" cy="600" r="16" fill="#83C167" /><text x="215" y="610" class="mono" font-size="30" fill="#e8e6df">has_one</text></g>
+          <g id="ma-k5x" class="h"><circle cx="180" cy="600" r="16" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="5 5" /><rect x="206" y="578" width="140" height="44" rx="6" fill="none" stroke="#FF9F43" stroke-width="2" stroke-dasharray="6 6" /></g>
+          <text id="ma-build" class="h mono" x="160" y="730" font-size="30" fill="#83C167">cargo build ✓</text>
+          <g id="ma-bug" class="h"><rect x="440" y="696" width="110" height="48" rx="8" fill="#FC6255" fill-opacity="0.18" stroke="#FC6255" stroke-width="2" /><text x="495" y="730" font-size="28" fill="#FC6255" text-anchor="middle">漏洞</text></g>
+          <g id="ma-term2" class="h">
+            <rect x="800" y="270" width="1000" height="600" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <text x="830" y="300" font-size="18" fill="#6b6f7a" data-layout-ignore="">terminal</text>
+            <text x="830" y="360" class="mono" font-size="28" fill="#e8e6df">$ cargo expand</text>
+            <text x="1090" y="360" font-size="28" fill="#FF9F43">（简化示意）</text>
+          </g>
+          <g id="ma-exp" class="mono" font-size="28" fill="#6b6f7a">
+            <text class="h" x="830" y="420">impl&lt;'info&gt; Accounts&lt;'info&gt; for Withdraw&lt;'info&gt; {</text>
+            <text class="h" x="830" y="460">  fn try_accounts(...) -&gt; Result&lt;Self&gt; {</text>
+            <text class="h" x="830" y="500">    let authority = Signer::try_from(...)?;</text>
+            <text class="h" x="830" y="540">    let vault = Account::try_from(...)?;</text>
+            <text class="h" x="830" y="580">    // seeds + bump check ...</text>
+            <text class="h" x="830" y="700">    Ok(Withdraw { vault, authority })</text>
+            <text class="h" x="830" y="740">  }</text>
+            <text class="h" x="830" y="780">}</text>
+          </g>
+          <g id="ma-miss" class="h">
+            <rect x="860" y="602" width="520" height="58" rx="8" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="10 7" />
+            <text x="1400" y="642" font-size="28" fill="#FF9F43">缺少 has_one 检查</text>
+          </g>
+          <text id="ma-loc" class="h" x="1300" y="935" font-size="28" fill="#8a8f99" text-anchor="middle">编译报错会指向宏所在的那一行</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ma-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">trait <tspan font-size="28" font-weight="400" fill="#8a8f99">特征</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">一组方法签名，需显式 impl</text>
+      </g>
+      <g id="ma-term2c" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">宏 <tspan font-size="28" font-weight="400" fill="#8a8f99">Macro</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">编译期生成代码的代码</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 trait / derive
+      IN("#ma-term", at(0, 0.0), 0.5);
+      IN("#ma-go", at(0, 0.08));
+      IN("#ma-eq", at(0, 0.2), 0.5);
+      IN("#ma-rs", at(0, 0.3));
+      OUT("#ma-term", at(0, 0.62), 0.3);
+      IN("#ma-der", at(0, 0.55));
+      ["#ma-b1", "#ma-b2", "#ma-b3", "#ma-b4", "#ma-b5"].forEach((s, i) => IN(s, at(0, 0.62 + i * 0.06), 0.5, { y: 12 }, { y: 0 }));
+      IN("#ma-anc", at(0, 0.93), 0.5);
+
+      // L1 宏 → 时序图骨架
+      OUT("#ma-s0", at(1, 0), 0.4);
+      IN("#ma-term2c", at(1, 0.05), 0.5);
+      ["#ma-h1", "#ma-h2", "#ma-h3", "#ma-h4", "#ma-h5"].forEach((s, i) => IN(s, at(1, 0.15 + i * 0.1), 0.5, { y: -10 }, { y: 0 }));
+      IN("#ma-life", at(1, 0.7), 0.6);
+
+      // L2 入口与分发
+      IN("#ma-data", at(2, 0.02), 0.5, { x: -30 }, { x: 0 });
+      tl.to("#ma-disc", { attr: { "stroke-width": 5 }, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.25));
+      IN("#ma-cap1", at(2, 0.25), 0.5);
+      ARROW("#ma-a1", at(2, 0.35));
+      IN("#ma-act2", at(2, 0.45), 0.4);
+      IN("#ma-disp", at(2, 0.55), 0.5);
+      IN("#ma-deser", at(2, 0.8), 0.5);
+      OUT("#ma-term2c", at(2, 0.6), 0.3);
+
+      // L3 账户检查
+      OUT("#ma-cap1", at(3, 0), 0.3);
+      ARROW("#ma-a2", at(3, 0.02));
+      ["#ma-l1", "#ma-l2", "#ma-l3", "#ma-l4", "#ma-l5"].forEach((s, i) => IN(s, at(3, 0.08), 0.4));
+      ["#ma-c1", "#ma-c2", "#ma-c3", "#ma-c4"].forEach((s, i) => tl.to(s, { fill: "#83C167", duration: 0.25 }, at(3, 0.15 + i * 0.1)));
+      tl.to("#ma-c5", { fill: "#FC6255", duration: 0.25 }, at(3, 0.6));
+      ARROW("#ma-rb", at(3, 0.68), 0.7);
+      IN("#ma-rbt", at(3, 0.75), 0.4);
+      IN("#ma-cap2", at(3, 0.75), 0.4);
+
+      // L4 全部通过 → 你的函数 → exit / 回滚
+      OUT(["#ma-rb", "#ma-rbt", "#ma-cap2"], at(4, 0), 0.3);
+      tl.to("#ma-c5", { fill: "#83C167", duration: 0.25 }, at(4, 0.04));
+      IN("#ma-gen", at(4, 0.1), 0.5);
+      ARROW("#ma-a3", at(4, 0.12));
+      IN("#ma-a3t", at(4, 0.15), 0.4);
+      IN("#ma-act4", at(4, 0.22), 0.4);
+      tl.to("#ma-h4r", { attr: { "stroke-width": 5 }, fill: "#1b2a33", duration: 0.4 }, at(4, 0.22));
+      ARROW("#ma-a4", at(4, 0.4));
+      IN("#ma-a4t", at(4, 0.45), 0.4);
+      ARROW("#ma-a5", at(4, 0.7), 0.7);
+      IN("#ma-a5t", at(4, 0.72), 0.4);
+      IN("#ma-cap3", at(4, 0.82), 0.4);
+
+      // L5 account / error_code / require / msg
+      OUT("#ma-sq", at(5, 0), 0.5);
+      IN("#ma-acc", at(5, 0.05));
+      IN("#ma-code", at(5, 0.3));
+      tl.fromTo("#ma-hl,#ma-hlb", { attr: { y: 284, height: 38 } }, { attr: { y: 284, height: 228 }, duration: 0.3, immediateRender: false }, at(5, 0.32));
+      ["#ma-e0", "#ma-e1", "#ma-e2"].forEach((s, i) => IN(s, at(5, 0.4 + i * 0.05), 0.4, { x: -10 }, { x: 0 }));
+      IN("#ma-req", at(5, 0.62), 0.4);
+      tl.to("#ma-hl,#ma-hlb", { attr: { y: 528, height: 38 }, duration: 0.4 }, at(5, 0.62));
+      IN("#ma-msg", at(5, 0.85), 0.4);
+      tl.to("#ma-hl,#ma-hlb", { attr: { y: 570 }, duration: 0.4 }, at(5, 0.85));
+      IN("#ma-did", at(5, 0.92), 0.4);
+
+      // L6 漏写 has_one 仍编译通过 + cargo expand
+      OUT("#ma-s5", at(6, 0), 0.4);
+      IN("#ma-k", at(6, 0.04), 0.5);
+      IN("#ma-k5", at(6, 0.04), 0.5);
+      OUT("#ma-k5", at(6, 0.2), 0.4);
+      IN("#ma-k5x", at(6, 0.24), 0.4);
+      IN("#ma-build", at(6, 0.32), 0.4);
+      IN("#ma-bug", at(6, 0.42), 0.4, { scale: 1.3, svgOrigin: "495 720" }, { scale: 1, svgOrigin: "495 720" });
+      IN("#ma-term2", at(6, 0.55), 0.5);
+      tl.fromTo("#ma-exp text", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.12 }, at(6, 0.6));
+      IN("#ma-miss", at(6, 0.7), 0.4);
+      IN("#ma-loc", at(6, 0.76), 0.4);
+
+      tl.to("#ma-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ma-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["macros"] = tl;
+    })();
+  </script>
+</template>

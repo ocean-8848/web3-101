@@ -1,0 +1,294 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 borsh，id 前缀 bo- -->
+  <div id="root" data-composition-id="borsh" data-duration="86.32" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="bo-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="bo-all">
+        <!-- L0 结构体卡 -->
+        <g id="bo-card" class="h">
+          <rect x="660" y="230" width="600" height="250" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <g class="mono" font-size="28" fill="#e8e6df">
+            <text x="700" y="285" fill="#58C4DD">struct Deposit {</text>
+            <text x="700" y="335">    amount: u64,</text>
+            <text x="700" y="380">    memo: String,</text>
+            <text x="700" y="425">    referrer: Option&lt;u8&gt;,</text>
+            <text x="700" y="465" fill="#58C4DD">}</text>
+          </g>
+        </g>
+
+        <!-- 字节带 -->
+        <g id="bo-stripM">
+          <g id="bo-strip">
+            <rect id="bo-sbox" class="h" x="160" y="390" width="1600" height="70" rx="6" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <g id="bo-segs" class="h">
+              <rect x="160" y="390" width="853.3" height="70" fill="#F0B90B" fill-opacity="0.14" />
+              <rect x="1013.3" y="390" width="426.7" height="70" fill="#58C4DD" fill-opacity="0.14" />
+              <rect x="1440" y="390" width="213.3" height="70" fill="#58C4DD" fill-opacity="0.28" />
+              <rect x="1653.3" y="390" width="106.7" height="70" fill="#8a8f99" fill-opacity="0.2" />
+            </g>
+            <g id="bo-div" class="h" stroke="#6b6f7a" stroke-width="1.5">
+              <line x1="266.7" y1="390" x2="266.7" y2="460" /><line x1="373.3" y1="390" x2="373.3" y2="460" /><line x1="480" y1="390" x2="480" y2="460" /><line x1="586.7" y1="390" x2="586.7" y2="460" /><line x1="693.3" y1="390" x2="693.3" y2="460" /><line x1="800" y1="390" x2="800" y2="460" /><line x1="906.7" y1="390" x2="906.7" y2="460" />
+              <line x1="1013.3" y1="390" x2="1013.3" y2="460" stroke="#e8e6df" stroke-width="3" /><line x1="1120" y1="390" x2="1120" y2="460" /><line x1="1226.7" y1="390" x2="1226.7" y2="460" /><line x1="1333.3" y1="390" x2="1333.3" y2="460" />
+              <line x1="1440" y1="390" x2="1440" y2="460" stroke="#e8e6df" stroke-width="3" /><line x1="1546.7" y1="390" x2="1546.7" y2="460" />
+              <line x1="1653.3" y1="390" x2="1653.3" y2="460" stroke="#e8e6df" stroke-width="3" />
+            </g>
+            <g id="bo-hex" class="mono" font-size="30" text-anchor="middle">
+              <text class="h" x="213.3" y="436" fill="#F0B90B">40</text><text class="h" x="320" y="436" fill="#F0B90B">42</text><text class="h" x="426.7" y="436" fill="#F0B90B">0f</text><text class="h" x="533.3" y="436" fill="#F0B90B">00</text><text class="h" x="640" y="436" fill="#F0B90B">00</text><text class="h" x="746.7" y="436" fill="#F0B90B">00</text><text class="h" x="853.3" y="436" fill="#F0B90B">00</text><text class="h" x="960" y="436" fill="#F0B90B">00</text>
+              <text class="h" x="1066.7" y="436" fill="#58C4DD">02</text><text class="h" x="1173.3" y="436" fill="#58C4DD">00</text><text class="h" x="1280" y="436" fill="#58C4DD">00</text><text class="h" x="1386.7" y="436" fill="#58C4DD">00</text>
+              <text class="h" x="1493.3" y="436" fill="#e8e6df">68</text><text class="h" x="1600" y="436" fill="#e8e6df">69</text>
+              <text class="h" x="1706.7" y="436" fill="#8a8f99">00</text>
+            </g>
+          </g>
+          <g id="bo-br">
+            <g id="bo-br1" class="h"><path d="M166 482 L166 500 L1007 500 L1007 482" stroke="#F0B90B" stroke-width="2.5" fill="none" /><text x="586.7" y="550" font-size="28" fill="#F0B90B" text-anchor="middle"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">amount = 1,000,000</tspan>，低位在前</text></g>
+            <g id="bo-br2" class="h"><path d="M1019 482 L1019 500 L1434 500 L1434 482" stroke="#58C4DD" stroke-width="2.5" fill="none" /><text x="1226.7" y="550" font-size="28" fill="#58C4DD" text-anchor="middle">长度 2</text></g>
+            <g id="bo-br3" class="h"><path d="M1446 482 L1446 500 L1647 500 L1647 482" stroke="#e8e6df" stroke-width="2.5" fill="none" /><text x="1546.7" y="550" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">"hi"</text></g>
+            <g id="bo-br4" class="h"><path d="M1659 482 L1659 500 L1754 500 L1754 482" stroke="#8a8f99" stroke-width="2.5" fill="none" /><text x="1706.7" y="550" class="mono" font-size="28" fill="#8a8f99" text-anchor="middle">None</text></g>
+            <text id="bo-tot" class="h" x="960" y="660" font-size="44" fill="#e8e6df" text-anchor="middle">共 <tspan class="mono" font-family="JetBrains Mono, SF Mono, Menlo, monospace" fill="#58C4DD">15</tspan> 字节</text>
+          </g>
+        </g>
+
+        <!-- L2 类型字节表 -->
+        <g id="bo-tab">
+          <rect id="bo-thl" class="h" x="460" y="390" width="1060" height="50" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+          <g id="bo-r0" class="h"><text x="500" y="425" class="mono" font-size="30" fill="#e8e6df">bool · u8</text><text x="1000" y="425" class="mono" font-size="30" fill="#58C4DD">1</text></g>
+          <g id="bo-r1" class="h"><text x="500" y="503" class="mono" font-size="30" fill="#e8e6df">u64</text><text x="1000" y="503" class="mono" font-size="30" fill="#58C4DD">8</text></g>
+          <g id="bo-r2" class="h"><text x="500" y="581" class="mono" font-size="30" fill="#e8e6df">Pubkey</text><text x="1000" y="581" class="mono" font-size="30" fill="#58C4DD">32</text></g>
+          <g id="bo-r3" class="h"><text x="500" y="659" class="mono" font-size="30" fill="#e8e6df">String</text><text x="1000" y="659" class="mono" font-size="30" fill="#58C4DD">4 + n</text></g>
+          <text id="bo-ml" class="h mono" x="1220" y="659" font-size="28" fill="#FF9F43">#[max_len(n)]</text>
+          <g id="bo-r4" class="h"><text x="500" y="737" class="mono" font-size="30" fill="#e8e6df">Option&lt;T&gt;</text><text x="1000" y="737" class="mono" font-size="30" fill="#58C4DD">1 + T</text></g>
+          <g id="bo-r5" class="h"><text x="500" y="815" class="mono" font-size="30" fill="#6b6f7a">Vec&lt;T&gt;</text><text x="1000" y="815" class="mono" font-size="30" fill="#6b6f7a">4 + n × T</text></g>
+          <g id="bo-r6" class="h"><text x="500" y="893" class="mono" font-size="30" fill="#6b6f7a">enum</text><text x="1000" y="893" font-size="30" fill="#6b6f7a"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">1 +</tspan> 最大变体</text></g>
+        </g>
+
+        <!-- L3 Vault 代码与空间柱 -->
+        <g id="bo-s3">
+          <g id="bo-code" class="h">
+            <rect x="80" y="220" width="820" height="540" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <rect id="bo-chl" x="82" y="374" width="816" height="42" fill="#58C4DD" fill-opacity="0.15" />
+            <rect id="bo-chb" x="82" y="374" width="5" height="42" fill="#58C4DD" />
+            <g class="mono" font-size="28" fill="#e8e6df">
+              <text x="110" y="270" fill="#FF9F43">#[account]</text>
+              <text x="110" y="314" fill="#FF9F43">#[derive(InitSpace)]</text>
+              <text x="110" y="358">pub struct Vault {</text>
+              <text x="110" y="402">    pub authority: Pubkey,    <tspan fill="#6b6f7a">// 32</tspan></text>
+              <text x="110" y="446">    pub mint: Pubkey,         <tspan fill="#6b6f7a">// 32</tspan></text>
+              <text x="110" y="490">    pub total_deposited: u64, <tspan fill="#6b6f7a">// 8</tspan></text>
+              <text x="110" y="534">    pub bump: u8,             <tspan fill="#6b6f7a">// 1</tspan></text>
+              <text x="110" y="578" fill="#FF9F43">    #[max_len(32)]</text>
+              <text x="110" y="622">    pub name: String,         <tspan fill="#6b6f7a">// 4 + 32</tspan></text>
+              <text x="110" y="666">    pub paused: bool,         <tspan fill="#6b6f7a">// 1</tspan></text>
+              <text x="110" y="710">}</text>
+            </g>
+          </g>
+          <g id="bo-bar">
+            <rect id="bo-g1" x="1000" y="740" width="300" height="130" fill="#58C4DD" fill-opacity="0.45" stroke="#0f1117" stroke-width="2" />
+            <rect id="bo-g2" x="1000" y="610" width="300" height="130" fill="#58C4DD" fill-opacity="0.35" stroke="#0f1117" stroke-width="2" />
+            <rect id="bo-g3" x="1000" y="560" width="300" height="50" fill="#F0B90B" fill-opacity="0.5" stroke="#0f1117" stroke-width="2" />
+            <rect id="bo-g4" x="1000" y="524" width="300" height="36" fill="#8a8f99" fill-opacity="0.5" stroke="#0f1117" stroke-width="2" />
+            <rect id="bo-g5" x="1000" y="384" width="300" height="140" fill="#58C4DD" fill-opacity="0.25" stroke="#0f1117" stroke-width="2" />
+            <rect id="bo-g6" x="1000" y="348" width="300" height="36" fill="#8a8f99" fill-opacity="0.5" stroke="#0f1117" stroke-width="2" />
+            <rect id="bo-g0" class="h" x="1000" y="870" width="300" height="50" fill="#FF9F43" fill-opacity="0.6" stroke="#0f1117" stroke-width="2" />
+          </g>
+          <g class="mono" font-size="28" fill="#e8e6df">
+            <text id="bo-n1" class="h" x="1330" y="815">authority · 32</text>
+            <text id="bo-n2" class="h" x="1330" y="685">mint · 32</text>
+            <text id="bo-n3" class="h" x="1330" y="595">total_deposited · 8</text>
+            <text id="bo-n4" class="h" x="1330" y="552">bump · 1</text>
+            <text id="bo-n5" class="h" x="1330" y="464">name · 4 + 32</text>
+            <text id="bo-n6" class="h" x="1330" y="376">paused · 1</text>
+          </g>
+          <text id="bo-n0" class="h" x="1330" y="905" font-size="28" fill="#FF9F43">鉴别码 · <tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">8</tspan></text>
+          <text id="bo-init" class="h mono" x="1000" y="310" font-size="32" fill="#58C4DD">INIT_SPACE = 110</text>
+          <text id="bo-space" class="h mono" x="1000" y="990" font-size="34" fill="#e8e6df">space = 8 + 110 = <tspan fill="#83C167">118</tspan></text>
+          <!-- L4 押金 -->
+          <g id="bo-rent" class="h">
+            <text x="100" y="840" class="mono" font-size="30" fill="#F0B90B">(128 + 118) × 6,960</text>
+            <text x="100" y="895" class="mono" font-size="30" fill="#F0B90B">= 1,712,160 lamports ≈ 0.00171 SOL</text>
+          </g>
+          <g id="bo-rent2" class="h" font-size="28" fill="#6b6f7a">
+            <text x="100" y="955"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">name</tspan> 上限 200 → 286 字节 ≈ 0.00288 SOL</text>
+            <text x="100" y="1000">每多一个 <tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">u64</tspan>，百万账户多 8 MB</text>
+          </g>
+        </g>
+
+        <!-- L5 小测验 -->
+        <g id="bo-s5">
+          <g id="bo-q" class="h">
+            <rect x="360" y="240" width="1200" height="330" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+            <text x="960" y="315" class="mono" font-size="32" fill="#e8e6df" text-anchor="middle">Pubkey + u64 + bool + String(max 20)</text>
+          </g>
+          <g class="mono" font-size="44" fill="#83C167">
+            <text id="bo-f0" class="h" x="564" y="440" fill="#FF9F43">8</text>
+            <text id="bo-f1" class="h" x="590.4" y="440"> + 32</text>
+            <text id="bo-f2" class="h" x="722.4" y="440"> + 8</text>
+            <text id="bo-f3" class="h" x="828" y="440"> + 1</text>
+            <text id="bo-f4" class="h" x="933.6" y="440"> + (4 + 20)</text>
+            <text id="bo-f5" class="h" x="1224" y="440"> = 73</text>
+          </g>
+          <text id="bo-fl" class="h" x="577" y="510" font-size="28" fill="#FF9F43" text-anchor="middle">鉴别码</text>
+          <g id="bo-w1" class="h"><rect x="360" y="640" width="580" height="90" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2" /><text x="650" y="697" font-size="32" fill="#FC6255" text-anchor="middle"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">65</tspan>：漏了鉴别码</text></g>
+          <g id="bo-w2" class="h"><rect x="980" y="640" width="580" height="90" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2" stroke-opacity="0.6" /><text x="1270" y="697" font-size="32" fill="#FC6255" fill-opacity="0.7" text-anchor="middle"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">69</tspan>：漏了长度前缀</text></g>
+        </g>
+
+        <!-- L6 少算 → 写入失败 -->
+        <g id="bo-s6">
+          <g id="bo-alloc" class="h">
+            <text x="120" y="445" font-size="30" fill="#e8e6df">分配的 <tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">space</tspan></text>
+            <rect x="460" y="400" width="770" height="70" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="845" y="446" class="mono" font-size="30" fill="#e8e6df" text-anchor="middle">110</text>
+          </g>
+          <line id="bo-lim" class="h" x1="1230" y1="380" x2="1230" y2="640" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="8 6" />
+          <g id="bo-wr" class="h">
+            <text x="120" y="605" font-size="30" fill="#e8e6df">要写入</text>
+            <rect x="460" y="560" width="56" height="70" fill="#FF9F43" fill-opacity="0.6" />
+            <text x="488" y="606" class="mono" font-size="30" fill="#0f1117" text-anchor="middle">8</text>
+            <rect x="516" y="560" width="770" height="70" fill="#58C4DD" fill-opacity="0.35" />
+            <text x="880" y="606" class="mono" font-size="30" fill="#e8e6df" text-anchor="middle">110</text>
+          </g>
+          <rect id="bo-ovf" class="h" x="1232" y="560" width="54" height="70" fill="#FC6255" fill-opacity="0.8" />
+          <text id="bo-ovt" class="h" x="1300" y="700" font-size="28" fill="#FC6255" text-anchor="middle">超出 8 字节</text>
+          <text id="bo-fail" class="h" x="960" y="830" font-size="48" fill="#FC6255" text-anchor="middle">写入失败</text>
+        </g>
+
+        <!-- L7 改布局 → 错位 -->
+        <g id="bo-s7">
+          <g id="bo-old" class="h">
+            <text x="100" y="340" font-size="30" fill="#8a8f99">旧账户</text>
+            <g stroke="#0f1117" stroke-width="3"><rect x="400" y="300" width="300" height="60" fill="#8a8f99" fill-opacity="0.35" /><rect x="700" y="300" width="300" height="60" fill="#8a8f99" fill-opacity="0.35" /><rect x="1000" y="300" width="300" height="60" fill="#8a8f99" fill-opacity="0.35" /><rect x="1300" y="300" width="140" height="60" fill="#8a8f99" fill-opacity="0.35" /></g>
+            <g class="mono" font-size="28" fill="#e8e6df" text-anchor="middle"><text x="550" y="340">authority</text><text x="850" y="340">mint</text><text x="1150" y="340">total_deposited</text><text x="1370" y="340">bump</text></g>
+          </g>
+          <g id="bo-bad" class="h">
+            <text x="100" y="500" font-size="30" fill="#e8e6df">中间插字段</text>
+            <g stroke="#0f1117" stroke-width="3"><rect x="400" y="460" width="300" height="60" fill="#8a8f99" fill-opacity="0.35" /><rect id="bo-bx1" x="700" y="460" width="160" height="60" fill="#FF9F43" fill-opacity="0.5" /><rect class="bo-red" x="860" y="460" width="300" height="60" fill="#8a8f99" fill-opacity="0.35" /><rect class="bo-red" x="1160" y="460" width="300" height="60" fill="#8a8f99" fill-opacity="0.35" /><rect class="bo-red" x="1460" y="460" width="140" height="60" fill="#8a8f99" fill-opacity="0.35" /></g>
+            <g class="mono" font-size="28" fill="#e8e6df" text-anchor="middle"><text x="550" y="500">authority</text><text x="780" y="500">fee_bps</text><text x="1010" y="500">mint</text><text x="1310" y="500">total_deposited</text><text x="1530" y="500">bump</text></g>
+          </g>
+          <text id="bo-mis" class="h" x="1640" y="500" font-size="30" fill="#FC6255">错位</text>
+          <g id="bo-good" class="h">
+            <text x="100" y="660" font-size="30" fill="#e8e6df">末尾追加</text>
+            <g stroke="#0f1117" stroke-width="3"><rect x="400" y="620" width="300" height="60" fill="#8a8f99" fill-opacity="0.35" /><rect x="700" y="620" width="300" height="60" fill="#8a8f99" fill-opacity="0.35" /><rect x="1000" y="620" width="300" height="60" fill="#8a8f99" fill-opacity="0.35" /><rect x="1300" y="620" width="140" height="60" fill="#8a8f99" fill-opacity="0.35" /><rect x="1440" y="620" width="160" height="60" fill="#83C167" fill-opacity="0.5" /></g>
+            <g class="mono" font-size="28" fill="#e8e6df" text-anchor="middle"><text x="550" y="660">authority</text><text x="850" y="660">mint</text><text x="1150" y="660">total_deposited</text><text x="1370" y="660">bump</text><text x="1520" y="660">fee_bps</text></g>
+            <text x="1640" y="660" font-size="30" fill="#83C167">✓</text>
+          </g>
+          <text id="bo-re" class="h" x="400" y="780" font-size="28" fill="#6b6f7a"><tspan font-family="JetBrains Mono, SF Mono, Menlo, monospace">realloc</tspan> 扩容 / 数据迁移</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="bo-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Borsh <tspan font-size="28" font-weight="400" fill="#8a8f99">二进制序列化</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">按字段顺序紧密排列，小端序</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 Borsh：结构体压扁成字节带
+      IN("#bo-term", at(0, 0.02), 0.5);
+      IN("#bo-card", at(0, 0.1));
+      tl.to("#bo-card", { scaleY: 0.25, opacity: 0, svgOrigin: "960 425", duration: 0.7, ease: "power2.in" }, at(0, 0.55));
+      IN("#bo-sbox", at(0, 0.62), 0.5, { scaleX: 0.4, svgOrigin: "960 425" }, { scaleX: 1, svgOrigin: "960 425" });
+      OUT("#bo-term", at(0, 0.98), 0.4);
+
+      // L1 15 字节示例
+      IN("#bo-div", at(1, 0.02), 0.4);
+      tl.fromTo("#bo-hex text", { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.06 }, at(1, 0.05));
+      IN("#bo-segs", at(1, 0.15), 0.5);
+      IN("#bo-br1", at(1, 0.25), 0.5);
+      IN("#bo-br2", at(1, 0.5), 0.5);
+      IN("#bo-br3", at(1, 0.62), 0.5);
+      IN("#bo-br4", at(1, 0.75), 0.5);
+      IN("#bo-tot", at(1, 0.88), 0.5, { scale: 0.8, svgOrigin: "960 645" }, { scale: 1, svgOrigin: "960 645" });
+
+      // L2 字节带上移，类型表
+      OUT("#bo-br", at(2, 0), 0.35);
+      tl.to("#bo-strip", { y: -160, duration: 0.7, ease: "power2.inOut" }, at(2, 0.02));
+      ["#bo-r0", "#bo-r1", "#bo-r2", "#bo-r3", "#bo-r4", "#bo-r5", "#bo-r6"].forEach((s, i) => IN(s, at(2, 0.06 + i * 0.03), 0.4, { x: -14 }, { x: 0 }));
+      IN("#bo-thl", at(2, 0.08), 0.3);
+      tl.to("#bo-thl", { attr: { y: 468 }, duration: 0.3 }, at(2, 0.27));
+      tl.to("#bo-thl", { attr: { y: 546 }, duration: 0.3 }, at(2, 0.4));
+      tl.to("#bo-thl", { attr: { y: 624 }, duration: 0.3 }, at(2, 0.55));
+      IN("#bo-ml", at(2, 0.66), 0.4);
+      tl.to("#bo-thl", { attr: { y: 702 }, duration: 0.3 }, at(2, 0.86));
+
+      // L3 Vault 空间
+      OUT(["#bo-stripM", "#bo-tab"], at(3, 0), 0.4);
+      IN("#bo-code", at(3, 0.03));
+      const segs = [["#bo-g1", "#bo-n1", 740, 130, 0.12, 402], ["#bo-g2", "#bo-n2", 610, 130, 0.2, 446], ["#bo-g3", "#bo-n3", 560, 50, 0.3, 490], ["#bo-g4", "#bo-n4", 524, 36, 0.37, 534], ["#bo-g5", "#bo-n5", 384, 140, 0.45, 622], ["#bo-g6", "#bo-n6", 348, 36, 0.56, 666]];
+      tl.set(segs.map(g => g[0]), { attr: { height: 0, y: 870 } }, 0);
+      segs.forEach(([r, n, y, h, f, ly]) => {
+        tl.to(r, { attr: { y, height: h }, duration: 0.45, ease: "power2.out" }, at(3, f));
+        IN(n, at(3, f + 0.02), 0.35);
+        tl.to("#bo-chl,#bo-chb", { attr: { y: ly - 28 }, duration: 0.3 }, at(3, f - 0.02));
+      });
+      IN("#bo-init", at(3, 0.66), 0.5);
+      IN("#bo-g0", at(3, 0.78), 0.5, { y: 40 }, { y: 0 });
+      IN("#bo-n0", at(3, 0.8), 0.4);
+      IN("#bo-space", at(3, 0.88), 0.5);
+
+      // L4 押金
+      IN("#bo-rent", at(4, 0.05), 0.6, { y: 10 }, { y: 0 });
+      IN("#bo-rent2", at(4, 0.6), 0.5);
+
+      // L5 小测验
+      OUT("#bo-s3", at(5, 0), 0.4);
+      IN("#bo-q", at(5, 0.05), 0.5);
+      IN("#bo-f0", at(5, 0.25), 0.3);
+      IN("#bo-fl", at(5, 0.27), 0.3);
+      IN("#bo-f1", at(5, 0.33), 0.3);
+      IN("#bo-f2", at(5, 0.4), 0.3);
+      IN("#bo-f3", at(5, 0.46), 0.3);
+      IN("#bo-f4", at(5, 0.53), 0.3);
+      IN("#bo-f5", at(5, 0.62), 0.4, { scale: 1.3, svgOrigin: "1290 425" }, { scale: 1, svgOrigin: "1290 425" });
+      IN("#bo-w1", at(5, 0.72), 0.4);
+      IN("#bo-w2", at(5, 0.82), 0.4);
+
+      // L6 少算 → 写入失败
+      OUT("#bo-s5", at(6, 0), 0.4);
+      IN("#bo-alloc", at(6, 0.05), 0.5);
+      IN("#bo-lim", at(6, 0.15), 0.4);
+      IN("#bo-wr", at(6, 0.3), 0.6, { x: -60 }, { x: 0 });
+      IN("#bo-ovf", at(6, 0.55), 0.3);
+      IN("#bo-ovt", at(6, 0.58), 0.4);
+      IN("#bo-fail", at(6, 0.75), 0.4, { scale: 1.2, svgOrigin: "960 815" }, { scale: 1, svgOrigin: "960 815" });
+
+      // L7 改布局 → 错位；末尾追加
+      OUT("#bo-s6", at(7, 0), 0.4);
+      IN("#bo-old", at(7, 0.05), 0.5);
+      IN("#bo-bad", at(7, 0.22), 0.5);
+      tl.to(".bo-red", { fill: "#FC6255", fillOpacity: 0.45, duration: 0.4, stagger: 0.1 }, at(7, 0.35));
+      IN("#bo-mis", at(7, 0.45), 0.4);
+      IN("#bo-good", at(7, 0.68), 0.5);
+      IN("#bo-re", at(7, 0.85), 0.4);
+
+      tl.to("#bo-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#bo-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["borsh"] = tl;
+    })();
+  </script>
+</template>

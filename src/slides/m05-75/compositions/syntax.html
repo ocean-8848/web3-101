@@ -1,0 +1,209 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    #root .cl { font-size: 28px; fill: #e8e6df; white-space: pre; }
+  </style>
+  <!-- 场景 syntax，id 前缀 sy- -->
+  <div id="root" data-composition-id="syntax" data-duration="52.64" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <g id="sy-all">
+        <!-- 代码面板 -->
+        <g id="sy-panel" class="h">
+          <rect x="80" y="220" width="920" height="560" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <rect id="sy-hl" class="h" x="84" y="250" width="912" height="82" fill="#58C4DD" fill-opacity="0.15" />
+          <rect id="sy-hb" class="h" x="84" y="250" width="6" height="82" fill="#58C4DD" />
+          <g id="sy-code1" class="mono">
+            <text class="cl" x="110" y="280">let decimals: u8 = 6;</text>
+            <text class="cl" x="110" y="321">let mut v = Vault::new("alice");</text>
+            <text class="cl" x="110" y="362" style="fill:#FF9F43">#[derive(Debug, Clone, PartialEq)]</text>
+            <text class="cl" x="110" y="403">struct Vault { owner: String,</text>
+            <text class="cl" x="110" y="444">    balance: u64, paused: bool }</text>
+            <text class="cl" x="110" y="485">impl Vault {</text>
+            <text class="cl" x="110" y="526">  fn new(owner: &amp;str) -&gt; Self { … }</text>
+            <text class="cl" x="110" y="567">  fn apply(&amp;mut self, ix: &amp;Instruction)</text>
+            <text class="cl" x="110" y="608">    -&gt; Result&lt;u64, VaultError&gt;</text>
+            <text class="cl" x="110" y="649">}</text>
+            <text class="cl" x="110" y="690">enum Instruction { Deposit { amount: u64 },</text>
+            <text class="cl" x="110" y="731">  Withdraw { amount: u64 }, Pause }</text>
+          </g>
+          <g id="sy-code2" class="mono h">
+            <text class="cl" x="110" y="280">match ix {</text>
+            <text class="cl" x="110" y="321">  Instruction::Deposit { amount } =&gt; …,</text>
+            <text class="cl" x="110" y="362">  Instruction::Withdraw { amount } =&gt; …,</text>
+            <text id="sy-pl" class="cl" x="110" y="403">  Instruction::Pause =&gt; …,</text>
+            <text class="cl" x="110" y="444">}</text>
+          </g>
+          <g id="sy-err" class="h">
+            <rect x="110" y="620" width="860" height="70" rx="10" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="2" />
+            <text class="mono" x="134" y="666" font-size="28" fill="#FC6255">error: non-exhaustive patterns</text>
+          </g>
+        </g>
+
+        <!-- L0 金库图标 -->
+        <g id="sy-vault" class="h">
+          <rect x="1330" y="380" width="240" height="220" rx="18" fill="#161a22" stroke="#F0B90B" stroke-width="4" />
+          <circle cx="1450" cy="490" r="56" fill="none" stroke="#F0B90B" stroke-width="4" />
+          <line x1="1450" y1="440" x2="1450" y2="540" stroke="#F0B90B" stroke-width="4" />
+          <line x1="1400" y1="490" x2="1500" y2="490" stroke="#F0B90B" stroke-width="4" />
+        </g>
+
+        <!-- L1 变量盒 -->
+        <g id="sy-vars">
+          <g id="sy-vd" class="h">
+            <rect id="sy-vdr" x="1100" y="320" width="330" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1124" y="382" font-size="32" fill="#e8e6df">decimals</text>
+            <path d="M1372 360 L1372 350 Q1388 326 1404 350 L1404 360" fill="none" stroke="#8a8f99" stroke-width="4" />
+            <rect x="1364" y="360" width="48" height="38" rx="6" fill="#8a8f99" />
+          </g>
+          <g id="sy-vm" class="h">
+            <rect x="1500" y="320" width="300" height="100" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1530" y="382" font-size="32" fill="#e8e6df">v</text>
+            <text class="mono" x="1770" y="382" font-size="30" fill="#83C167" text-anchor="end">mut</text>
+          </g>
+          <text id="sy-e0384" class="h mono" x="1100" y="470" font-size="30" fill="#FC6255">E0384</text>
+        </g>
+
+        <!-- L2 整数宽度 -->
+        <g id="sy-ints">
+          <g id="sy-i0" class="h"><text class="mono" x="1080" y="331" font-size="30" fill="#8a8f99">u8</text><rect x="1180" y="302" width="35" height="36" fill="#8a8f99" /></g>
+          <g id="sy-i1" class="h"><text class="mono" x="1080" y="401" font-size="30" fill="#8a8f99">u16</text><rect x="1180" y="372" width="70" height="36" fill="#8a8f99" /></g>
+          <g id="sy-i2" class="h"><text class="mono" x="1080" y="471" font-size="30" fill="#8a8f99">u32</text><rect x="1180" y="442" width="140" height="36" fill="#8a8f99" /></g>
+          <g id="sy-i3" class="h"><text class="mono" x="1080" y="541" font-size="30" fill="#F0B90B">u64</text><rect x="1180" y="512" width="280" height="36" fill="#F0B90B" /><text x="1480" y="541" font-size="28" fill="#F0B90B">代币金额</text></g>
+          <g id="sy-i4" class="h"><text class="mono" x="1080" y="611" font-size="30" fill="#58C4DD">u128</text><rect x="1180" y="582" width="560" height="36" fill="#58C4DD" /><text x="1180" y="664" font-size="28" fill="#58C4DD">中间计算</text></g>
+          <g id="sy-i5" class="h">
+            <text class="mono" x="1080" y="741" font-size="30" fill="#6b6f7a">u256</text>
+            <rect x="1180" y="712" width="280" height="36" fill="none" stroke="#6b6f7a" stroke-width="2" stroke-dasharray="8 6" />
+            <line x1="1190" y1="744" x2="1450" y2="716" stroke="#FC6255" stroke-width="4" />
+            <text x="1480" y="741" font-size="28" fill="#FC6255">无内置</text>
+          </g>
+        </g>
+
+        <!-- L3 结构体卡 -->
+        <g id="sy-st" class="h">
+          <rect x="1100" y="260" width="700" height="230" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text class="mono" x="1130" y="318" font-size="34" fill="#e8e6df">Vault</text>
+          <rect x="1120" y="360" width="210" height="100" rx="10" fill="none" stroke="#8a8f99" stroke-width="2" />
+          <text class="mono" x="1225" y="420" font-size="28" fill="#e8e6df" text-anchor="middle">owner</text>
+          <rect x="1345" y="360" width="210" height="100" rx="10" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="2" />
+          <text class="mono" x="1450" y="420" font-size="28" fill="#F0B90B" text-anchor="middle">balance</text>
+          <rect x="1570" y="360" width="210" height="100" rx="10" fill="none" stroke="#8a8f99" stroke-width="2" />
+          <text class="mono" x="1675" y="420" font-size="28" fill="#e8e6df" text-anchor="middle">paused</text>
+        </g>
+        <g id="sy-new" class="h">
+          <text class="mono" x="1100" y="580" font-size="30" fill="#58C4DD">new</text>
+          <text x="1170" y="580" font-size="30" fill="#e8e6df">关联函数 ≈ 构造函数</text>
+        </g>
+
+        <!-- L4 三种接收者 -->
+        <g id="sy-recv">
+          <g id="sy-r0" class="h">
+            <ellipse cx="1210" cy="660" rx="56" ry="32" fill="none" stroke="#58C4DD" stroke-width="4" />
+            <circle cx="1210" cy="660" r="14" fill="#58C4DD" />
+            <text class="mono" x="1210" y="760" font-size="30" fill="#58C4DD" text-anchor="middle">&amp;self</text>
+            <text x="1210" y="810" font-size="28" fill="#e8e6df" text-anchor="middle">只读</text>
+          </g>
+          <g id="sy-r1" class="h">
+            <path d="M1430 690 L1500 620 L1520 640 L1450 710 L1424 716 Z" fill="none" stroke="#F0B90B" stroke-width="4" stroke-linejoin="round" />
+            <text class="mono" x="1470" y="760" font-size="30" fill="#F0B90B" text-anchor="middle">&amp;mut self</text>
+            <text x="1470" y="810" font-size="28" fill="#e8e6df" text-anchor="middle">可写</text>
+          </g>
+          <g id="sy-r2" class="h">
+            <rect x="1680" y="630" width="100" height="70" rx="6" fill="none" stroke="#B48EF0" stroke-width="4" />
+            <line x1="1680" y1="652" x2="1780" y2="652" stroke="#B48EF0" stroke-width="4" />
+            <text class="mono" x="1730" y="760" font-size="30" fill="#B48EF0" text-anchor="middle">self</text>
+            <text x="1730" y="810" font-size="28" fill="#e8e6df" text-anchor="middle">拿走整个值</text>
+          </g>
+        </g>
+
+        <!-- L5 枚举抽屉 -->
+        <g id="sy-enum">
+          <text id="sy-et" class="h mono" x="1120" y="290" font-size="32" fill="#e8e6df">Instruction</text>
+          <g id="sy-d0" class="h">
+            <rect x="1120" y="320" width="660" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1150" y="382" font-size="30" fill="#e8e6df">Deposit</text>
+            <circle cx="1450" cy="370" r="26" fill="#F0B90B" />
+            <text class="mono" x="1495" y="382" font-size="28" fill="#F0B90B">amount</text>
+          </g>
+          <g id="sy-d1" class="h">
+            <rect x="1120" y="440" width="660" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1150" y="502" font-size="30" fill="#e8e6df">Withdraw</text>
+            <circle cx="1450" cy="490" r="26" fill="#F0B90B" />
+            <text class="mono" x="1495" y="502" font-size="28" fill="#F0B90B">amount</text>
+          </g>
+          <g id="sy-d2" class="h">
+            <rect id="sy-d2r" x="1120" y="560" width="660" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1150" y="622" font-size="30" fill="#e8e6df">Pause</text>
+            <rect x="1426" y="584" width="300" height="52" rx="8" fill="none" stroke="#6b6f7a" stroke-width="2" stroke-dasharray="6 6" />
+          </g>
+          <text id="sy-sol" class="h" x="1120" y="730" font-size="28" fill="#8a8f99">Solidity enum = 整数</text>
+          <text id="sy-anc" class="h" x="1120" y="790" font-size="28" fill="#58C4DD">Anchor：指令参数 · 错误码</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      // 高亮第 a 行起 n 行（0 起）
+      const HL = (a, n, t) => tl.to("#sy-hl, #sy-hb", { attr: { y: 250 + a * 41, height: n * 41 }, opacity: 1, duration: 0.4, ease: "power2.inOut" }, t);
+
+      // L0
+      IN("#sy-panel", at(0, 0.05), 0.7);
+      IN("#sy-vault", at(0, 0.35), 0.6, { scale: 0.85, svgOrigin: "1450 490" }, { scale: 1, svgOrigin: "1450 490" });
+      // L1 不可变 / mut
+      OUT("#sy-vault", at(1, 0), 0.3);
+      HL(0, 2, at(1, 0));
+      IN("#sy-vd", at(1, 0.08), 0.4, { y: 15 }, { y: 0 });
+      IN("#sy-vm", at(1, 0.3), 0.4, { y: 15 }, { y: 0 });
+      tl.to("#sy-vdr", { stroke: "#FC6255", duration: 0.2 }, at(1, 0.62));
+      tl.to("#sy-vd", { x: 6, duration: 0.06, yoyo: true, repeat: 5 }, at(1, 0.62));
+      IN("#sy-e0384", at(1, 0.68), 0.3);
+      // L2 整数宽度
+      OUT("#sy-vars", at(2, 0), 0.4);
+      tl.to("#sy-hl, #sy-hb", { opacity: 0, duration: 0.3 }, at(2, 0));
+      for (let i = 0; i < 5; i++) IN(`#sy-i${i}`, at(2, 0.06 + i * 0.07), 0.4, { x: -20 }, { x: 0 });
+      IN("#sy-i5", at(2, 0.45), 0.5);
+      // L3 结构体
+      OUT("#sy-ints", at(3, 0), 0.4);
+      HL(2, 5, at(3, 0.02));
+      IN("#sy-st", at(3, 0.08), 0.7, { scale: 0.9, svgOrigin: "1450 375" }, { scale: 1, svgOrigin: "1450 375" });
+      IN("#sy-new", at(3, 0.65), 0.5);
+      // L4 接收者
+      OUT("#sy-new", at(4, 0), 0.3);
+      HL(7, 2, at(4, 0.02));
+      IN("#sy-r0", at(4, 0.18), 0.5, { y: 20 }, { y: 0 });
+      IN("#sy-r1", at(4, 0.45), 0.5, { y: 20 }, { y: 0 });
+      IN("#sy-r2", at(4, 0.72), 0.5, { y: 20 }, { y: 0 });
+      // L5 枚举
+      OUT("#sy-st, #sy-recv", at(5, 0), 0.4);
+      HL(10, 2, at(5, 0.02));
+      IN("#sy-et", at(5, 0.06), 0.4);
+      IN("#sy-d0", at(5, 0.1), 0.5, { x: 30 }, { x: 0 });
+      IN("#sy-d1", at(5, 0.16), 0.5, { x: 30 }, { x: 0 });
+      IN("#sy-d2", at(5, 0.22), 0.5, { x: 30 }, { x: 0 });
+      IN("#sy-sol", at(5, 0.32), 0.5);
+      tl.to("#sy-d0 circle, #sy-d1 circle", { attr: { r: 32 }, duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.5));
+      IN("#sy-anc", at(5, 0.75), 0.5);
+      // L6 match 漏分支
+      OUT("#sy-code1", at(6, 0), 0.3);
+      OUT("#sy-sol, #sy-anc", at(6, 0), 0.3);
+      IN("#sy-code2", at(6, 0.06), 0.4);
+      HL(3, 1, at(6, 0.1));
+      tl.to("#sy-pl", { opacity: 0, duration: 0.4 }, at(6, 0.4));
+      tl.to("#sy-d2r", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.45));
+      IN("#sy-err", at(6, 0.55), 0.4, { y: 10 }, { y: 0 });
+
+      tl.to("#sy-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["syntax"] = tl;
+    })();
+  </script>
+</template>

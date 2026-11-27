@@ -1,0 +1,302 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 re- -->
+  <div id="root" data-composition-id="recap" data-duration="57.22" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="re-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+        <marker id="re-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <!-- 阶段 A：钩子回归：两个口袋 + 钞票 + 橙色问题 (L0) -->
+        <g id="re-hook">
+          <text id="re-hTitle" class="h" x="960" y="160" font-size="44" font-weight="700" fill="#8a8f99" text-anchor="middle">回到开头</text>
+          <!-- 左口袋 -->
+          <g id="re-pkL" class="h">
+            <path d="M400 380 L700 380 L700 570 C700 635 645 675 550 675 C455 675 400 635 400 570 Z" fill="#161a22" stroke="#8a8f99" stroke-width="3.5" />
+            <text x="550" y="618" font-size="32" fill="#8a8f99" text-anchor="middle">口袋 A</text>
+          </g>
+          <!-- 右口袋 -->
+          <g id="re-pkR" class="h">
+            <path d="M1220 380 L1520 380 L1520 570 C1520 635 1465 675 1370 675 C1275 675 1220 635 1220 570 Z" fill="#161a22" stroke="#8a8f99" stroke-width="3.5" />
+            <text x="1370" y="618" font-size="32" fill="#8a8f99" text-anchor="middle">口袋 B</text>
+          </g>
+          <!-- 弧线轨 -->
+          <path id="re-arc" class="dr h" pathLength="1" d="M620 365 Q960 210 1300 365" stroke="#F0B90B" stroke-width="3.5" stroke-dasharray="1" fill="none" />
+          <!-- 钞票（外层位移） -->
+          <g id="re-billM">
+            <g id="re-bill" class="h">
+              <rect x="460" y="420" width="180" height="96" rx="12" fill="#F0B90B" fill-opacity="0.22" stroke="#F0B90B" stroke-width="3.5" />
+              <circle cx="550" cy="468" r="24" fill="none" stroke="#F0B90B" stroke-width="3" />
+              <text x="550" y="479" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">¥</text>
+            </g>
+          </g>
+          <text id="re-hQ" class="h" x="960" y="810" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">不能复印、不能乱扔？</text>
+        </g>
+
+        <!-- 阶段 B：Move 四能力缩略 + 两道闸 + 热土豆 (L1) -->
+        <g id="re-move">
+          <text id="re-mHead" class="h" x="960" y="136" font-size="44" font-weight="700" fill="#58C4DD" text-anchor="middle">Move 的答案：用能力系统守住资产</text>
+          <!-- 左：四能力 2x2 缩略 -->
+          <g id="re-ab0" class="h">
+            <rect x="110" y="250" width="290" height="170" rx="14" fill="#FC6255" fill-opacity="0.14" stroke="#FC6255" stroke-width="3" />
+            <text class="mono" x="255" y="324" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">copy</text>
+            <text x="255" y="382" font-size="28" fill="#FC6255" text-anchor="middle">✕ 不给</text>
+          </g>
+          <g id="re-ab1" class="h">
+            <rect x="430" y="250" width="290" height="170" rx="14" fill="#FC6255" fill-opacity="0.14" stroke="#FC6255" stroke-width="3" />
+            <text class="mono" x="575" y="324" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">drop</text>
+            <text x="575" y="382" font-size="28" fill="#FC6255" text-anchor="middle">✕ 不给</text>
+          </g>
+          <g id="re-ab2" class="h">
+            <rect x="110" y="454" width="290" height="170" rx="14" fill="#83C167" fill-opacity="0.14" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="255" y="528" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">key</text>
+            <text x="255" y="586" font-size="28" fill="#83C167" text-anchor="middle">✓ 链上对象</text>
+          </g>
+          <g id="re-ab3" class="h">
+            <rect x="430" y="454" width="290" height="170" rx="14" fill="#83C167" fill-opacity="0.14" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="575" y="528" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">store</text>
+            <text x="575" y="586" font-size="28" fill="#83C167" text-anchor="middle">✓ 可转让</text>
+          </g>
+
+          <!-- 中：两层检查 -->
+          <g id="re-gates" class="h">
+            <rect x="780" y="250" width="440" height="164" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1000" y="322" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">1. 编译器检查</text>
+            <text x="1000" y="376" font-size="28" fill="#8a8f99" text-anchor="middle">源码阶段拦截</text>
+
+            <rect x="780" y="460" width="440" height="164" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1000" y="532" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">2. 字节码校验器</text>
+            <text x="1000" y="586" font-size="28" fill="#8a8f99" text-anchor="middle">发布阶段再查一遍</text>
+          </g>
+
+          <!-- 右：热土豆 -->
+          <g id="re-pot" class="h">
+            <rect x="1280" y="250" width="530" height="374" rx="18" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <rect x="1350" y="294" width="390" height="110" rx="14" fill="#F0B90B" fill-opacity="0.18" stroke="#FC6255" stroke-width="3" />
+            <text x="1545" y="362" font-size="34" font-weight="700" fill="#F0B90B" text-anchor="middle">热土豆（无任何能力）</text>
+            <path id="re-potArr" class="dr h" pathLength="1" d="M1545 412 L1545 478" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#re-mgr)" />
+            <rect x="1350" y="490" width="390" height="96" rx="14" fill="#83C167" fill-opacity="0.16" stroke="#83C167" stroke-width="2.5" />
+            <text x="1545" y="550" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">同笔交易内强制还款 ✓</text>
+          </g>
+        </g>
+
+        <!-- 阶段 C：Sui 两条路径 + PTB；Aptos 资源 + Block-STM 四步 (L2) -->
+        <g id="re-chains">
+          <!-- 上半：Sui -->
+          <g id="re-suiBar" class="h">
+            <rect x="100" y="130" width="1720" height="370" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="150" y="198" font-size="38" font-weight="700" fill="#e8e6df">Sui · 状态切成对象</text>
+          </g>
+          <g id="re-sui0" class="h">
+            <rect x="150" y="240" width="500" height="210" rx="14" fill="#83C167" fill-opacity="0.14" stroke="#83C167" stroke-width="2.5" />
+            <text x="400" y="324" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">独占对象</text>
+            <text x="400" y="394" font-size="30" fill="#e8e6df" text-anchor="middle">走快速路径，不等共识</text>
+          </g>
+          <g id="re-sui1" class="h">
+            <rect x="710" y="240" width="500" height="210" rx="14" fill="#FF9F43" fill-opacity="0.14" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="960" y="324" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">共享对象</text>
+            <text x="960" y="394" font-size="30" fill="#e8e6df" text-anchor="middle">经过共识排序</text>
+          </g>
+          <g id="re-sui2" class="h">
+            <rect x="1270" y="240" width="500" height="210" rx="14" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1520" y="324" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">PTB 交易块</text>
+            <text x="1520" y="394" font-size="30" fill="#e8e6df" text-anchor="middle">多命令合成一笔原子交易</text>
+          </g>
+
+          <!-- 下半：Aptos -->
+          <g id="re-aptBar" class="h">
+            <rect x="100" y="556" width="1720" height="370" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="150" y="624" font-size="38" font-weight="700" fill="#e8e6df">Aptos · 资源在地址下 + Block-STM</text>
+          </g>
+          <g id="re-ap0" class="h">
+            <rect x="150" y="676" width="350" height="184" rx="14" fill="#F0B90B" fill-opacity="0.14" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="325" y="756" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">1. 预设顺序</text>
+            <text x="325" y="818" font-size="28" fill="#e8e6df" text-anchor="middle">保证确定性</text>
+          </g>
+          <path id="re-aa0" class="dr h" pathLength="1" d="M508 768 L560 768" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-mgy)" />
+          <g id="re-ap1" class="h">
+            <rect x="572" y="676" width="350" height="184" rx="14" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="747" y="756" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">2. 乐观并行</text>
+            <text x="747" y="818" font-size="28" fill="#e8e6df" text-anchor="middle">不加锁记读写集</text>
+          </g>
+          <path id="re-aa1" class="dr h" pathLength="1" d="M930 768 L982 768" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-mgy)" />
+          <g id="re-ap2" class="h">
+            <rect x="994" y="676" width="350" height="184" rx="14" fill="#FF9F43" fill-opacity="0.14" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="1169" y="756" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">3. 校验冲突</text>
+            <text x="1169" y="818" font-size="28" fill="#e8e6df" text-anchor="middle">读到旧值即作废</text>
+          </g>
+          <path id="re-aa2" class="dr h" pathLength="1" d="M1352 768 L1404 768" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-mgy)" />
+          <g id="re-ap3" class="h">
+            <rect x="1416" y="676" width="350" height="184" rx="14" fill="#83C167" fill-opacity="0.14" stroke="#83C167" stroke-width="2.5" />
+            <text x="1591" y="756" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">4. 冲突重算</text>
+            <text x="1591" y="818" font-size="28" fill="#e8e6df" text-anchor="middle">只重算受影响交易</text>
+          </g>
+        </g>
+
+        <!-- 阶段 D：四条常见误区逐条划掉 + 绿色更正 (L3) -->
+        <g id="re-myths">
+          <text id="re-myTitle" class="h" x="960" y="156" font-size="46" font-weight="700" fill="#e8e6df" text-anchor="middle">常见误区</text>
+
+          <!-- 误区 1 -->
+          <g id="re-m0a" class="h">
+            <circle cx="150" cy="296" r="22" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="140" y1="286" x2="160" y2="306" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="160" y1="286" x2="140" y2="306" stroke="#FC6255" stroke-width="3.5" />
+            <text x="196" y="308" font-size="34" fill="#FC6255">Move 合约不会被黑</text>
+          </g>
+          <path id="re-m0x" class="dr" pathLength="1" d="M192 296 L530 296" stroke="#FC6255" stroke-width="3.5" fill="none" />
+          <path id="re-m0r" class="dr h" pathLength="1" d="M740 296 L860 296" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-mgy)" />
+          <text id="re-m0b" class="h" x="896" y="308" font-size="34" font-weight="700" fill="#83C167">只防复制/丢失，不管算术与逻辑</text>
+
+          <!-- 误区 2 -->
+          <g id="re-m1a" class="h">
+            <circle cx="150" cy="466" r="22" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="140" y1="456" x2="160" y2="476" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="160" y1="456" x2="140" y2="476" stroke="#FC6255" stroke-width="3.5" />
+            <text x="196" y="478" font-size="34" fill="#FC6255">Sui 上 DeFi 也走快速路径</text>
+          </g>
+          <path id="re-m1x" class="dr" pathLength="1" d="M192 466 L640 466" stroke="#FC6255" stroke-width="3.5" fill="none" />
+          <path id="re-m1r" class="dr h" pathLength="1" d="M740 466 L860 466" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-mgy)" />
+          <text id="re-m1b" class="h" x="896" y="478" font-size="34" font-weight="700" fill="#83C167">池子是共享对象，须经共识排序</text>
+
+          <!-- 误区 3 -->
+          <g id="re-m2a" class="h">
+            <circle cx="150" cy="636" r="22" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="140" y1="626" x2="160" y2="646" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="160" y1="626" x2="140" y2="646" stroke="#FC6255" stroke-width="3.5" />
+            <text x="196" y="648" font-size="34" fill="#FC6255">Block-STM 要声明读写</text>
+          </g>
+          <path id="re-m2x" class="dr" pathLength="1" d="M192 636 L580 636" stroke="#FC6255" stroke-width="3.5" fill="none" />
+          <path id="re-m2r" class="dr h" pathLength="1" d="M740 636 L860 636" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-mgy)" />
+          <text id="re-m2b" class="h" x="896" y="648" font-size="34" font-weight="700" fill="#83C167">Solana / Sui 声明；Block-STM 自动发现</text>
+
+          <!-- 误区 4 -->
+          <g id="re-m3a" class="h">
+            <circle cx="150" cy="806" r="22" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="140" y1="796" x2="160" y2="816" stroke="#FC6255" stroke-width="3.5" />
+            <line x1="160" y1="796" x2="140" y2="816" stroke="#FC6255" stroke-width="3.5" />
+            <text x="196" y="818" font-size="34" fill="#FC6255">两种 Move 代码能直接搬</text>
+          </g>
+          <path id="re-m3x" class="dr" pathLength="1" d="M192 806 L600 806" stroke="#FC6255" stroke-width="3.5" fill="none" />
+          <path id="re-m3r" class="dr h" pathLength="1" d="M740 806 L860 806" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#re-mgy)" />
+          <text id="re-m3b" class="h" x="896" y="818" font-size="34" font-weight="700" fill="#83C167">不同方言，对象与资源 API 不通</text>
+        </g>
+
+        <!-- 阶段 E：语言安全 ≠ 协议安全 + 三标签 (L4) -->
+        <g id="re-take">
+          <text id="re-tMain" class="h" x="960" y="420" font-size="68" font-weight="700" fill="#e8e6df" text-anchor="middle">语言安全 <tspan fill="#FC6255">≠</tspan> 协议安全</text>
+          <text id="re-tSub" class="h" x="960" y="514" font-size="34" fill="#8a8f99" text-anchor="middle">以下三项必须单独审查</text>
+          <g id="re-tg0" class="h">
+            <rect x="330" y="592" width="360" height="106" rx="18" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="3" />
+            <text x="510" y="658" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">数学库</text>
+          </g>
+          <g id="re-tg1" class="h">
+            <rect x="780" y="592" width="360" height="106" rx="18" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="3" />
+            <text x="960" y="658" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">权限对象</text>
+          </g>
+          <g id="re-tg2" class="h">
+            <rect x="1230" y="592" width="360" height="106" rx="18" fill="#FF9F43" fill-opacity="0.16" stroke="#FF9F43" stroke-width="3" />
+            <text class="mono" x="1410" y="658" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">UpgradeCap</text>
+          </g>
+        </g>
+
+        <!-- 阶段 F：下一集预告，结尾淡到黑 (L5) -->
+        <text id="re-next" class="h" x="960" y="556" font-size="56" font-weight="700" fill="#e8e6df" text-anchor="middle">下一集 · Cosmos SDK 与 IBC</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0: 钩子回归：口袋 + 钞票移过去 + 橙色问句
+      IN("#re-hTitle", at(0, 0.04), 0.4);
+      IN("#re-pkL, #re-pkR", at(0, 0.14), 0.5);
+      IN("#re-bill", at(0, 0.24), 0.4);
+      ARROW("#re-arc", at(0, 0.34), 0.7);
+      tl.fromTo("#re-billM", { x: 0, y: 0 }, { x: 820, y: 0, duration: 1.4, ease: "power2.inOut" }, at(0, 0.34));
+      IN("#re-hQ", at(0, 0.68), 0.5, { y: 16 }, { y: 0 });
+
+      // L1: 四能力缩略 + 编译器/字节码校验器 + 热土豆
+      OUT("#re-hook", at(1, 0.0), 0.35);
+      IN("#re-mHead", at(1, 0.06), 0.45);
+      IN("#re-ab0", at(1, 0.14), 0.35);
+      IN("#re-ab1", at(1, 0.22), 0.35);
+      IN("#re-ab2", at(1, 0.30), 0.35);
+      IN("#re-ab3", at(1, 0.36), 0.35);
+      IN("#re-gates", at(1, 0.46), 0.5, { y: 16 }, { y: 0 });
+      IN("#re-pot", at(1, 0.68), 0.5, { x: 24 }, { x: 0 });
+      ARROW("#re-potArr", at(1, 0.80), 0.45);
+
+      // L2: Sui 对象两条路径 + PTB；Aptos 资源 + Block-STM 四步
+      OUT("#re-move", at(2, 0.0), 0.35);
+      IN("#re-suiBar", at(2, 0.03), 0.4);
+      IN("#re-sui0", at(2, 0.07), 0.45, { y: 14 }, { y: 0 });
+      IN("#re-sui1", at(2, 0.25), 0.45, { y: 14 }, { y: 0 });
+      IN("#re-sui2", at(2, 0.42), 0.45, { y: 14 }, { y: 0 });
+      IN("#re-aptBar", at(2, 0.56), 0.45);
+      IN("#re-ap0", at(2, 0.65), 0.35);
+      ARROW("#re-aa0", at(2, 0.70), 0.25);
+      IN("#re-ap1", at(2, 0.73), 0.35);
+      ARROW("#re-aa1", at(2, 0.78), 0.25);
+      IN("#re-ap2", at(2, 0.81), 0.35);
+      ARROW("#re-aa2", at(2, 0.86), 0.25);
+      IN("#re-ap3", at(2, 0.89), 0.35);
+
+      // L3: 四条误区逐条出现、红线划掉、出绿色更正
+      OUT("#re-chains", at(3, 0.0), 0.35);
+      IN("#re-myTitle", at(3, 0.04), 0.4);
+      const myth = (i, tA, tX, tB) => {
+        IN(`#re-m${i}a`, tA, 0.4, { x: -18 }, { x: 0 });
+        DRAW(`#re-m${i}x`, tX, 0.4);
+        ARROW(`#re-m${i}r`, tX + 0.15, 0.35);
+        IN(`#re-m${i}b`, tB, 0.45, { x: -16 }, { x: 0 });
+      };
+      myth(0, at(3, 0.08), at(3, 0.16), at(3, 0.19));
+      myth(1, at(3, 0.27), at(3, 0.36), at(3, 0.40));
+      myth(2, at(3, 0.52), at(3, 0.62), at(3, 0.66));
+      myth(3, at(3, 0.78), at(3, 0.87), at(3, 0.90));
+
+      // L4: 语言安全 ≠ 协议安全 + 三标签
+      OUT("#re-myths", at(4, 0.0), 0.35);
+      IN("#re-tMain", at(4, 0.08), 0.55, { scale: 0.92, svgOrigin: "960 400" }, { scale: 1, svgOrigin: "960 400" });
+      IN("#re-tSub", at(4, 0.34), 0.45);
+      IN("#re-tg0", at(4, 0.48), 0.45, { y: 16 }, { y: 0 });
+      IN("#re-tg1", at(4, 0.62), 0.45, { y: 16 }, { y: 0 });
+      IN("#re-tg2", at(4, 0.76), 0.45, { y: 16 }, { y: 0 });
+
+      // L5: 下一集预告居中，淡出到黑留黑 >= 0.5s
+      OUT("#re-take", at(5, 0.0), 0.35);
+      IN("#re-next", at(5, 0.14), 0.65, { y: 18 }, { y: 0 });
+      tl.to("#re-next", { opacity: 0, duration: 0.8, ease: "power2.in" }, C.d - 1.4);
+
+      tl.to("#re-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>
