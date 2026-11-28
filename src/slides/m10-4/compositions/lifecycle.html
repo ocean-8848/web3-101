@@ -1,0 +1,196 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 lifecycle，id 前缀 li- -->
+  <div id="root" data-composition-id="lifecycle" data-duration="68.35" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="li-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="li-all">
+        <text id="li-note" class="h" x="120" y="110" font-size="28" fill="#6b6f7a">ZKsync 风格，函数名以项目为准</text>
+<g id="li-ph">
+  <text id="li-ph0" class="h" x="560" y="200" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">提交</text>
+  <text id="li-ph1" class="h" x="1180" y="200" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">证明</text>
+  <text id="li-ph2" class="h" x="1630" y="200" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle">执行</text>
+</g>
+<g id="li-lanes">
+  <g id="li-ln0" class="h"><rect x="100" y="240" width="1720" height="170" rx="10" fill="#151820"/><text x="120" y="338" font-size="32" fill="#e8e6df">排序器</text></g>
+  <g id="li-ln1" class="h"><rect id="li-ln1r" x="100" y="415" width="1720" height="170" rx="10" fill="#151820"/><text id="li-ln1t" x="120" y="513" font-size="32" fill="#e8e6df">证明者集群</text></g>
+  <g id="li-ln2" class="h"><rect x="100" y="590" width="1720" height="170" rx="10" fill="#151820"/><text x="120" y="688" font-size="32" fill="#e8e6df">Rollup 合约</text></g>
+  <g id="li-ln3" class="h"><rect x="100" y="765" width="1720" height="170" rx="10" fill="#151820"/><text x="120" y="863" font-size="32" fill="#e8e6df">验证合约</text></g>
+</g>
+<!-- commit -->
+<path id="li-cm" class="dr h" pathLength="1" d="M470 290 V642" stroke="#58C4DD" stroke-width="3.5" fill="none" marker-end="url(#li-arr)"/>
+<text id="li-cmT" class="h mono" x="492" y="472" font-size="28" fill="#58C4DD">commitBatches</text>
+<text id="li-cmT2" class="h" x="492" y="514" font-size="28" fill="#e8e6df">数据承诺 + 新状态根</text>
+<g id="li-cb" class="h">
+  <rect id="li-cbr" x="430" y="650" width="260" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+  <text x="560" y="696" font-size="28" fill="#e8e6df" text-anchor="middle">已提交批次</text>
+</g>
+<path id="li-tr" class="dr h" pathLength="1" d="M820 290 V448" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#li-arr)"/>
+<text id="li-trT" class="h" x="842" y="350" font-size="28" fill="#8a8f99">批次 + 执行轨迹</text>
+<!-- prover recursion -->
+<g id="li-sk">
+  <rect id="li-s0" class="h" x="870" y="460" width="40" height="40" rx="5" fill="#58C4DD"/>
+  <rect id="li-s1" class="h" x="925" y="460" width="40" height="40" rx="5" fill="#58C4DD"/>
+  <rect id="li-s2" class="h" x="980" y="460" width="40" height="40" rx="5" fill="#58C4DD"/>
+  <rect id="li-s3" class="h" x="1035" y="460" width="40" height="40" rx="5" fill="#58C4DD"/>
+</g>
+<text id="li-skT" class="h" x="972" y="555" font-size="28" fill="#58C4DD" text-anchor="middle">分片 STARK</text>
+<rect id="li-snark" class="h" x="1163" y="466" width="28" height="28" rx="4" fill="#83C167"/>
+<text id="li-snT" class="h mono" x="1177" y="555" font-size="28" fill="#83C167" text-anchor="middle">SNARK</text>
+<!-- prove -->
+<g id="li-pv">
+  <path id="li-pa" class="dr h" pathLength="1" d="M1197 480 H1260 V642" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#li-arr)"/>
+  <g id="li-pb" class="h">
+    <rect x="1120" y="650" width="280" height="70" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5"/>
+    <text x="1260" y="696" font-size="28" fill="#83C167" text-anchor="middle" class="mono">proveBatches</text>
+  </g>
+  <path id="li-pa2" class="dr h" pathLength="1" d="M1260 724 V812" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#li-arr)"/>
+  <g id="li-vb" class="h">
+    <rect x="1120" y="820" width="260" height="80" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5"/>
+    <text x="1250" y="871" font-size="28" fill="#e8e6df" text-anchor="middle">验证合约检查</text>
+  </g>
+  <path id="li-pi" class="dr" pathLength="1" d="M560 724 V858 H1110" stroke="#58C4DD" stroke-width="3" fill="none"/>
+  <text id="li-piT" class="h" x="600" y="838" font-size="28" fill="#58C4DD">公开输入取自这里</text>
+  <!-- execute -->
+  <text id="li-ok" class="h" x="1400" y="902" font-size="30" font-weight="700" fill="#83C167">✓ 有效</text>
+  <path id="li-ea" class="dr h" pathLength="1" d="M1384 842 H1600 V728" stroke="#F0B90B" stroke-width="3.5" fill="none" marker-end="url(#li-arr)"/>
+  <g id="li-eb" class="h">
+    <rect x="1480" y="650" width="300" height="70" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+    <text x="1630" y="696" font-size="28" fill="#F0B90B" text-anchor="middle" class="mono">executeBatches</text>
+  </g>
+  <g id="li-wd" class="h">
+    <circle cx="1500" cy="600" r="14" fill="#F0B90B"/>
+    <text x="1526" y="610" font-size="28" fill="#F0B90B">提款开放</text>
+  </g>
+</g>
+<!-- failure branch -->
+<g id="li-fail">
+  <text id="li-down" class="h" x="900" y="525" font-size="32" font-weight="700" fill="#FC6255">宕机 / 证明失败</text>
+  <text id="li-stall" class="h" x="712" y="696" font-size="28" fill="#8a8f99">已提交、未证明</text>
+  <g id="li-fund" class="h">
+    <circle cx="1112" cy="686" r="16" fill="#F0B90B"/>
+    <text x="1142" y="696" font-size="28" fill="#F0B90B">资金不会被错误转走</text>
+  </g>
+</g>
+<!-- duration bars -->
+<g id="li-bars">
+  <text id="li-b0T" class="h" x="120" y="985" font-size="28" fill="#FF9F43">乐观：挑战期 7 天</text>
+  <rect id="li-b0" class="h" x="440" y="962" width="0" height="26" rx="6" fill="#FF9F43"/>
+  <text id="li-b1T" class="h" x="120" y="1030" font-size="28" fill="#83C167">ZK：证明 + 执行延迟</text>
+  <rect id="li-b1a" class="h" x="440" y="1007" width="0" height="26" rx="6" fill="#83C167"/>
+  <rect id="li-b1b" class="h" x="640" y="1007" width="0" height="26" rx="6" fill="#FF9F43"/>
+  <text id="li-b1N" class="h" x="830" y="1030" font-size="28" fill="#6b6f7a">时长以官方为准</text>
+</g>
+<!-- security council -->
+<g id="li-sc" class="h">
+  <circle cx="1530" cy="320" r="18" fill="none" stroke="#FF9F43" stroke-width="4"/>
+  <path d="M1548 320 H1600 M1584 320 V336 M1596 320 V332" stroke="#FF9F43" stroke-width="4" fill="none"/>
+  <text x="1620" y="332" font-size="30" font-weight="700" fill="#FF9F43">安全委员会</text>
+</g>
+<path id="li-scp" class="dr" pathLength="1" d="M1740 350 V642" stroke="#FF9F43" stroke-width="3.5" fill="none"/>
+<path id="li-scd" class="h" d="M1740 350 V642" stroke="#FF9F43" stroke-width="3.5" fill="none" stroke-dasharray="12 9"/>
+<text id="li-scT" class="h" x="1716" y="470" font-size="28" fill="#FF9F43" text-anchor="end">能绕过证明 = 信任假设</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 lanes + phase labels
+for (let i = 0; i < 4; i++) IN(`#li-ln${i}`, at(0, 0.03 + i * 0.06), 0.5, { x: -30 }, { x: 0 });
+IN("#li-ph0", at(0, 0.55), 0.4, {}, { opacity: 0.35 });
+IN("#li-ph1", at(0, 0.62), 0.4, {}, { opacity: 0.35 });
+IN("#li-ph2", at(0, 0.69), 0.4, {}, { opacity: 0.35 });
+IN("#li-note", at(0, 0.85), 0.5);
+// L1 commit
+tl.to("#li-ph0", { opacity: 1, duration: 0.4 }, at(1, 0.0));
+ARROW("#li-cm", at(1, 0.08), 0.7);
+IN("#li-cmT", at(1, 0.15), 0.4);
+IN("#li-cmT2", at(1, 0.3), 0.4);
+IN("#li-cb", at(1, 0.42), 0.4);
+ARROW("#li-tr", at(1, 0.6), 0.5);
+IN("#li-trT", at(1, 0.65), 0.4);
+// L2 STARK shards -> recursion -> SNARK
+for (let i = 0; i < 4; i++) IN(`#li-s${i}`, at(2, 0.03 + i * 0.05), 0.3, { y: -15 }, { y: 0 });
+IN("#li-skT", at(2, 0.15), 0.4);
+tl.to("#li-s1", { x: -27, opacity: 0.0, duration: 0.5, ease: "power2.inOut" }, at(2, 0.45));
+tl.to("#li-s0", { x: 27, duration: 0.5, ease: "power2.inOut" }, at(2, 0.45));
+tl.to("#li-s3", { x: -27, opacity: 0.0, duration: 0.5, ease: "power2.inOut" }, at(2, 0.45));
+tl.to("#li-s2", { x: 27, duration: 0.5, ease: "power2.inOut" }, at(2, 0.45));
+tl.to("#li-s0", { x: 82, duration: 0.5, ease: "power2.inOut" }, at(2, 0.62));
+tl.to("#li-s2", { x: -28, opacity: 0.0, duration: 0.5, ease: "power2.inOut" }, at(2, 0.62));
+tl.to("#li-s0", { x: 250, opacity: 0, duration: 0.5, ease: "power2.in" }, at(2, 0.8));
+OUT("#li-skT", at(2, 0.8), 0.3);
+IN("#li-snark", at(2, 0.8) + 0.4, 0.3, { scale: 1.8, svgOrigin: "1177 480" }, { scale: 1, svgOrigin: "1177 480" });
+IN("#li-snT", at(2, 0.8) + 0.5, 0.3);
+// L3 prove
+tl.to("#li-ph1", { opacity: 1, duration: 0.4 }, at(3, 0.0));
+ARROW("#li-pa", at(3, 0.03), 0.5);
+IN("#li-pb", at(3, 0.1), 0.4);
+ARROW("#li-pa2", at(3, 0.3), 0.4);
+IN("#li-vb", at(3, 0.35), 0.4);
+DRAW("#li-pi", at(3, 0.55), 0.9);
+IN("#li-piT", at(3, 0.62), 0.4);
+// L4 execute
+IN("#li-ok", at(4, 0.03), 0.3);
+tl.to("#li-ph2", { opacity: 1, duration: 0.4 }, at(4, 0.08));
+ARROW("#li-ea", at(4, 0.15), 0.5);
+IN("#li-eb", at(4, 0.35), 0.4);
+IN("#li-wd", at(4, 0.65), 0.4, { scale: 0.6, svgOrigin: "1500 600" }, { scale: 1, svgOrigin: "1500 600" });
+// L5 failure replay
+OUT("#li-pv, #li-snark, #li-snT", at(5, 0.0), 0.4);
+tl.to("#li-ln1r", { fill: "#2a1716", duration: 0.4 }, at(5, 0.05));
+tl.to("#li-ln1t", { fill: "#FC6255", duration: 0.4 }, at(5, 0.05));
+IN("#li-down", at(5, 0.1), 0.4);
+IN("#li-stall", at(5, 0.3), 0.4);
+tl.to("#li-cbr", { stroke: "#8a8f99", duration: 0.4 }, at(5, 0.3));
+IN("#li-fund", at(5, 0.7), 0.4);
+// L6 restore happy path, duration bars
+OUT("#li-fail", at(6, 0.0), 0.4);
+tl.to("#li-ln1r", { fill: "#151820", duration: 0.4 }, at(6, 0.0));
+tl.to("#li-ln1t", { fill: "#e8e6df", duration: 0.4 }, at(6, 0.0));
+tl.to("#li-cbr", { stroke: "#58C4DD", duration: 0.4 }, at(6, 0.0));
+tl.to("#li-pv, #li-snark, #li-snT", { opacity: 1, duration: 0.4 }, at(6, 0.0) + 0.4);
+IN("#li-b0T, #li-b0", at(6, 0.12), 0.3);
+tl.fromTo("#li-b0", { attr: { width: 0 } }, { attr: { width: 1360 }, duration: 1.4, ease: "power1.inOut", immediateRender: false }, at(6, 0.12));
+IN("#li-b1T, #li-b1a, #li-b1b", at(6, 0.4), 0.3);
+tl.fromTo("#li-b1a", { attr: { width: 0 } }, { attr: { width: 196 }, duration: 0.5, ease: "power2.out", immediateRender: false }, at(6, 0.42));
+tl.fromTo("#li-b1b", { attr: { width: 0 } }, { attr: { width: 160 }, duration: 0.5, ease: "power2.out", immediateRender: false }, at(6, 0.55));
+IN("#li-b1N", at(6, 0.8), 0.4);
+// L7 security council bypass
+IN("#li-sc", at(7, 0.05), 0.5, { y: -15 }, { y: 0 });
+DRAW("#li-scp", at(7, 0.3), 0.7);
+IN("#li-scd", at(7, 0.3) + 0.7, 0.2); tl.to("#li-scp", { opacity: 0, duration: 0.2 }, at(7, 0.3) + 0.7);
+IN("#li-scT", at(7, 0.48), 0.4);
+tl.to("#li-sc circle, #li-sc path", { opacity: 0.4, duration: 0.3, yoyo: true, repeat: 3 }, at(7, 0.7));
+
+      tl.to("#li-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["lifecycle"] = tl;
+    })();
+  </script>
+</template>

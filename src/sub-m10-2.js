@@ -54,7 +54,7 @@ ${steps([
   '<strong>花费</strong>：花一张票据时，钱包证明“我拥有某张已存在的票据，输入金额等于输出金额”，并公开这张票据的 nullifier。',
   '<strong>查看密钥（Viewing key）</strong>：用户可以把它交给审计方或税务顾问，让对方只读地看到自己的屏蔽交易，而不给出花钱的权限。这是“选择性披露”的早期形态。'
 ])}
-<p>Zcash 的屏蔽池有三代：Sprout、Sapling 和 Orchard。Sprout 和 Sapling 使用 Groth16 证明，需要可信设置；2022 年 5 月 31 日激活的 NU5 升级引入了 Orchard 池，它使用 Halo 2 证明系统，不再需要可信设置${cite('Electric Coin Co.：NU5 activates on mainnet, eliminating trusted setup', 'https://electriccoin.co/blog/nu5-activates-on-mainnet-eliminating-trusted-setup-and-launching-a-new-era-for-zcash')}。可信设置和 Groth16 的关系见 <a href="#m10-2">M07.2 SNARK 与 STARK</a>。</p>
+<p>Zcash 的屏蔽池有三代：Sprout、Sapling 和 Orchard。Sprout 2016 年上线时用 BCTV14（基于 PHGR13）证明，2018 年 Sapling 升级后两者都改用 Groth16（BLS12-381 曲线），均需要可信设置；2022 年 5 月 31 日激活的 NU5 升级引入了 Orchard 池，它使用 Halo 2 证明系统，不再需要可信设置${cite('Electric Coin Co.：NU5 activates on mainnet, eliminating trusted setup', 'https://electriccoin.co/blog/nu5-activates-on-mainnet-eliminating-trusted-setup-and-launching-a-new-era-for-zcash')}。可信设置和 Groth16 的关系见 <a href="#m10-2">M07.2 SNARK 与 STARK</a>。</p>
 
 <h2>4. Tornado Cash：以太坊上的混币合约</h2>
 <p>Tornado Cash 是一组以太坊智能合约。和 Zcash 不同，它不是一条链，而是在公开的 EVM 上用零知识证明实现“存进去、过一段时间、从另一个地址取出来”。下面的细节来自它公开的源代码 tornado-core${cite('GitHub：tornadocash/tornado-core', 'https://github.com/tornadocash/tornado-core')}。</p>
@@ -95,7 +95,7 @@ flowchart TB
 `, [
   ['flow', '两条线并行：左边是“合约能不能被制裁”（民事/行政），右边是“开发者有没有犯罪”（刑事）。'],
   ['key', '第五巡回法院只回答了一个窄问题：不可变的智能合约不是 IEEPA 下可以被冻结的“财产”。它没有说“隐私协议都合法”。'],
-  ['risk', '解除制裁之后，开发者的刑事案仍在继续。“合约不能被制裁”和“运营者不承担责任”是两件事。'],
+  ['risk', '解除制裁之后，开发者的刑事案仍在继续。“不可变合约不是 IEEPA 下可冻结的财产”和“运营者不承担责任”是两件事。该判决明确未处理可变合约，也只约束第五巡回区。'],
   ['limit', '图中只有美国。欧盟等其他法域有自己的规则，见下文。']
 ])}
 <p>每个节点的原始来源如下：</p>
@@ -333,7 +333,8 @@ contract FHECounter is ZamaEthereumConfig {
 }
 `)}
 <p>写 FHE 合约时，思维方式要变：<strong>不能对密文做 if 判断</strong>，因为 if 需要知道明文。比较的结果是一个加密布尔值 <code>ebool</code>，分支要用 <code>FHE.select(cond, a, b)</code> 同时算出两边再选择。例如“余额不足就转 0”是用 select 实现的，而不是 revert——revert 会泄露“余额不足”这一信息。</p>
-<p><strong>性能（截至 2026 年公开资料）：</strong>Zama 的 litepaper 写明当前基于 CPU 的吞吐量是每条链 0.2 到 20 多 TPS，计划在 2026 年底前改用 GPU，并以专用 FHE 芯片为长期方向${cite('Zama：Zama Protocol Litepaper', 'https://docs.zama.org/protocol/zama-protocol-litepaper')}。对比：普通 EVM 链的 TPS 至少高一到两个数量级。所以 FHE 适合“值得付高价的隐私”，例如密封竞价、机密代币余额、私密投票，不适合高频交易。</p>
+<p><strong>性能（截至 2026 年公开资料）：</strong>据 Zama 的 litepaper，基于 CPU 的吞吐量已从最早的 0.2 TPS 提升到每条链 20 多 TPS；计划在 2026 年底前改用 GPU，预计每条链 500–1000 TPS，并以专用 FHE 芯片为长期方向${cite('Zama：Zama Protocol Litepaper', 'https://docs.zama.org/protocol/zama-protocol-litepaper')}。对比：普通 EVM 链的 TPS 至少高一到两个数量级。所以 FHE 适合“值得付高价的隐私”，例如密封竞价、机密代币余额、私密投票，不适合高频交易。</p>
+<p><strong>上线状态：</strong>Zama 协议已于 2025 年 12 月底在以太坊主网上线，首笔交易是一笔机密 USDT（cUSDT）转账；其他 EVM 链按路线图后续接入（截至 2026 年）${cite('The Block：Zama launches token, debuts privacy metric', 'https://www.theblock.co/post/387982/zama-lists-token-debuts-privacy-metric')}。</p>
 
 <h2>5. TEE：最快、也最依赖硬件的方案</h2>
 <p>主流 TEE 有三类：Intel SGX（进程级飞地 enclave）、Intel TDX 和 AMD SEV-SNP（整台虚拟机级别的“机密虚拟机”），以及 AWS Nitro Enclaves（云厂商提供的隔离环境）。它们的共同点是：数据进入隔离区后以明文运算，内存在离开 CPU 时被加密；外部通过远程证明确认里面运行的是哪份代码。</p>
@@ -348,6 +349,7 @@ ${steps2('TEE 远程证明的信任链', [
   ['risk', '整条链的根是芯片厂商的密钥。厂商密钥或某颗芯片的证明密钥泄露，攻击者就能伪造“真 TEE”的报告。'],
   ['fail', '厂商发布安全更新后，旧固件的报告应当被拒绝。应用要跟踪 TCB（可信计算基）状态，否则仍会接受有漏洞的节点。']
 ])}
+<p>证明服务本身也会变：Intel 基于 EPID 的远程证明服务（IAS）已于 2025-04-02 停止服务，SGX 远程证明改用 DCAP（基于 ECDSA，由运营者或云厂商自建验证服务）。还在调用 IAS 的老系统需要迁移。</p>
 <p>TEE 在可验证 AI 推理中的用法见 <a href="#m06-60">M13.8 AI × Crypto 全景</a> 第 4 节。</p>
 <h3>5.1 Web3 里的 TEE</h3>
 <ul>
@@ -358,7 +360,8 @@ ${steps2('TEE 远程证明的信任链', [
 <h3>5.2 已公开的 TEE 攻击</h3>
 ${cases([
   ['SGX.Fail：提取 Secret Network 的共识种子', '2022', '<p>多所大学的研究者利用 2022 年 8 月 9 日公开的 xAPIC 和 MMIO 漏洞，在一台购买来的、仍未修补的机器上运行 Secret Network 节点，从密封存储中提取出主网和测试网的共识种子。拿到种子就能事后解密过去的私密交易。研究者对主网种子只发布了签名的证明，随后销毁密钥材料。Secret Network 于 2022 年 10 月 4 日冻结新节点注册。链的完整性和资金没有受损，但过去交易的隐私无法完全保证。</p><p>启示：TEE 的漏洞一旦公开，到所有节点完成修补之间有一个窗口；隐私是“可以被事后破解”的。</p>', [['SGX.Fail 项目页', 'https://sgx.fail/']]],
-  ['TEE.Fail：用 DDR5 内存总线插桩攻破 TDX 与 SEV-SNP', '2025', '<p>研究者在 DDR5 内存条和主板之间加了一个插桩设备，成本不到 1,000 美元。由于 Intel 和 AMD 的内存加密使用确定性的 AES-XTS 模式，相同明文得到相同密文，攻击者可以比较密文推断数据。他们从 Intel 的 Provisioning Certification Enclave 中提取了证明密钥，可以伪造 SGX 和 TDX 的远程证明报告；在 AMD SEV-SNP 虚拟机里提取了 OpenSSL 的签名私钥。项目页还分析了对 BuilderNet 的影响：一个恶意运营者可以获得配置秘密、解密机密订单流。Intel 和 AMD 都表示物理攻击不在它们的威胁模型之内。</p><p>启示：TEE 防的是“机器上的其他软件和远程管理员”，不防“能碰到机器的人”。在 Web3 里，运营节点的人往往就是潜在攻击者。</p>', [['TEE.Fail 项目页', 'https://tee.fail/'], ['The Hacker News 报道', 'https://thehackernews.com/2025/10/new-teefail-side-channel-attack.html']]]
+  ['TEE.Fail：用 DDR5 内存总线插桩攻破 TDX 与 SEV-SNP', '2025', '<p>研究者在 DDR5 内存条和主板之间加了一个插桩设备，成本不到 1,000 美元。由于 Intel 和 AMD 的内存加密使用确定性的 AES-XTS 模式，相同明文得到相同密文，攻击者可以比较密文推断数据。他们从 Intel 的 Provisioning Certification Enclave 中提取了证明密钥，可以伪造 SGX 和 TDX 的远程证明报告；在 AMD SEV-SNP 虚拟机里提取了 OpenSSL 的签名私钥；同一攻击还直接从 SGX 里提取了 Secret Network 的共识种子。受影响的是第 4 代及以后、使用 DDR5 的 Xeon 可扩展处理器，以及 Zen 4/5 架构的 EPYC。项目页还分析了对 BuilderNet 的影响：一个恶意运营者可以获得配置秘密、解密机密订单流。Intel 和 AMD 都表示物理攻击不在它们的威胁模型之内。</p><p>启示：TEE 防的是“机器上的其他软件和远程管理员”，不防“能碰到机器的人”。在 Web3 里，运营节点的人往往就是潜在攻击者。</p>', [['TEE.Fail 项目页', 'https://tee.fail/'], ['The Hacker News 报道', 'https://thehackernews.com/2025/10/new-teefail-side-channel-attack.html']]],
+  ['WireTap 与 Battering RAM：DDR4 上的内存插桩', '2025', '<p>2025 年 9–10 月公开的两项研究也用内存插桩攻破了 TEE。WireTap 在 DDR4 内存总线上插桩，整套设备不到 1,000 美元，提取 SGX 的证明密钥后伪造证明报告，在 Secret Network 测试网上以“假 SGX 节点”拿到共识种子（主密钥）。Battering RAM 用不到 50 美元的插桩设备制造内存地址别名，攻破了 SGX 和 AMD SEV-SNP 的隔离。</p><p>启示：物理攻击的门槛已经降到普通人买得起的程度，DDR4 和 DDR5 平台都受影响。</p>', [['WireTap 项目页', 'https://wiretap.fail/'], ['Battering RAM 项目页', 'https://batteringram.eu/'], ['The Hacker News：WireTap', 'https://thehackernews.com/2025/10/new-wiretap-attack-extracts-intel-sgx.html']]]
 ], 'h3')}
 
 <h2>6. 选型：一张对比表和一个决策流程</h2>
@@ -582,10 +585,10 @@ ${lab('zkmember')}
 <p><strong>算一算（示例）：树要多深、证明多大？</strong></p>
 ${steps([
   '成员上限 100 万：2<sup>20</sup> = 1,048,576 ≥ 1,000,000，所以深度取 20。每条认证路径有 20 个兄弟节点。',
-  '约束数量估算：电路的主要成本是哈希。Poseidon(2) 在 circomlib 里约 240 个约束 ' + tag('推断') + '，20 层路径约 4,800，加上身份承诺和 nullifier 两次哈希，总数约 5,500 个约束。用 SHA-256 做同样的事，每次哈希约 3 万个约束，总数会超过 60 万。',
+  '约束数量估算：电路的主要成本是哈希。Poseidon(2) 在 circomlib 里约 240 个约束 ' + tag('推断') + '，20 层路径约 4,800，加上身份承诺和 nullifier 两次哈希，总数约 5,500 个约束。用 SHA-256 做同样的事，一个 512 位压缩块约 3 万个约束；两个 256 位输入加上填充要两个块，每次哈希约 6 万个约束，仅 20 层路径就约 120 万，是 Poseidon 的两百多倍。',
   'Groth16 的可信设置需要 2 的幂个约束的 Powers of Tau 文件：5,500 &lt; 2<sup>13</sup> = 8,192，用 13 次方（或更大）的 ptau 文件即可。',
   '证明大小固定：Groth16 证明是 3 个椭圆曲线点（a、b、c），以太坊上的 calldata 是 8 个 256 位整数 = 256 字节，与组大小无关。',
-  '公开信号 4 个：root、nullifier、scope、message。合约验证一次 Groth16 的成本主要是配对运算，与公开信号数量线性相关，具体 Gas 以 forge 报告为准。'
+  '公开信号 4 个：root、nullifier、scope、message。合约验证一次 Groth16 的成本主要是固定的配对运算（4 次，不随公开信号变），另加与公开信号数量成正比的一部分（每个信号一次椭圆曲线乘加 ecMul + ecAdd），具体 Gas 以 forge 报告为准。'
 ])}
 
 <h2>6. 技术选型</h2>

@@ -46,7 +46,7 @@ const SUB_DISPLAY = {
   'm11-1': 1, 'm11-2': 2, 'm11-3': 3, 'm05-66': 4, 'm05-67': 5, 'm11-4': 6, 'm11-5': 7, 'm11-6': 8,
   /* Multi-chain & cross-chain M06 (module m14): Bitcoin 1-4, Rust + Solana 5-8, other chains 9-11, cross-chain 12-13 */
   'm05-60': 1, 'm05-61': 2, 'm05-62': 3, 'm05-63': 4, 'm05-75': 5, 'm05-11': 6, 'm05-12': 7, 'm05-70': 8, 'm05-64': 9, 'm05-65': 10, 'm05-68': 11, 'm05-8': 12, 'm05-71': 13,
-  /* ZK & privacy M06 (module m10): 1-7 */
+  /* ZK & privacy M07 (module m10): 1-7 */
   'm10-1': 1, 'm10-2': 2, 'm10-3': 3, 'm10-4': 4, 'm10-5': 5, 'm10-6': 6, 'm10-7': 7,
   /* agent M12: account abstraction moved out; AI x crypto overview added before the project */
   'm06-6': 5, 'm06-7': 6, 'm06-8': 7, 'm06-60': 8, 'm06-9': 9, 'm06-50': 10,

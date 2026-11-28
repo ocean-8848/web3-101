@@ -1,0 +1,171 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pitfalls，id 前缀 pi- -->
+  <div id="root" data-composition-id="pitfalls" data-duration="67.2" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="pi-arrw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="pi-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="pi-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="pi-arry" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="pi-arrk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+        <marker id="pi-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="pi-arro" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="pi-arrp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker>
+      </defs>
+      <g id="pi-all">
+        <g id="pi-c0">
+        <rect id="pi-cir" class="h" x="160" y="420" width="360" height="120" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+        <text id="pi-cirt" class="h" x="340" y="492" font-size="34" fill="#FC6255" text-anchor="middle" font-weight="700" >欠约束电路</text>
+        <path id="pi-ar1" class="dr h" pathLength="1" d="M540 480 L730 480" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#pi-arrr)"/>
+        <g id="pi-tree" class="h" fill="none" stroke="#FC6255" stroke-width="3"><path d="M920 380 L810 540 L1030 540 Z" fill="rgba(252,98,85,.12)"/><line x1="920" y1="540" x2="920" y2="580"/><circle cx="920" cy="430" r="8" fill="#FC6255"/><circle cx="880" cy="500" r="8" fill="#FC6255"/><circle cx="960" cy="500" r="8" fill="#FC6255"/></g>
+        <text id="pi-treet" class="h" x="920" y="630" font-size="30" fill="#FC6255" text-anchor="middle" >伪造的默克尔根</text>
+        <path id="pi-ar2" class="dr h" pathLength="1" d="M1060 480 L1250 480" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#pi-arrr)"/>
+        <rect id="pi-vault" class="h" x="1280" y="400" width="280" height="160" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+        <text id="pi-vaultt" class="h" x="1420" y="492" font-size="36" fill="#F0B90B" text-anchor="middle" font-weight="700" >金库</text>
+        <circle id="pi-coin0" class="h" cx="1600" cy="480" r="18" fill="#F0B90B"/>
+        <circle id="pi-coin1" class="h" cx="1600" cy="480" r="18" fill="#F0B90B"/>
+        <circle id="pi-coin2" class="h" cx="1600" cy="480" r="18" fill="#F0B90B"/>
+        <text id="pi-coinl" class="h" x="1720" y="640" font-size="30" fill="#F0B90B" text-anchor="middle" >反复提款</text>
+        </g>
+        <rect id="pi-card" class="h" x="200" y="240" width="1520" height="400" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+        <text id="pi-ct" class="h" x="260" y="320" font-size="44" fill="#e8e6df" font-weight="700" >2019-10 · circomlib MiMC</text>
+        <text id="pi-tc" class="h" x="1660" y="320" font-size="30" fill="#8a8f99" text-anchor="end" >Tornado Cash 电路使用</text>
+        <text id="pi-eq" class="h mono" x="560" y="490" font-size="96" fill="#FC6255" text-anchor="middle" font-weight="700" xml:space="preserve">=</text>
+        <text id="pi-eql" class="h" x="560" y="580" font-size="30" fill="#FC6255" text-anchor="middle" >普通赋值：无约束</text>
+        <path id="pi-fixar" class="dr h" pathLength="1" d="M680 460 L1110 460" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#pi-arrg)"/>
+        <text id="pi-fix" class="h mono" x="1300" y="490" font-size="96" fill="#83C167" text-anchor="middle" font-weight="700" xml:space="preserve">&lt;==</text>
+        <text id="pi-fixl" class="h" x="1300" y="580" font-size="30" fill="#83C167" text-anchor="middle" >赋值 + 约束</text>
+        <text id="pi-risk" class="h" x="960" y="730" font-size="36" fill="#FC6255" text-anchor="middle" font-weight="700" >理论上可提走存款</text>
+        <rect id="pi-f1" class="h" x="680" y="790" width="180" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+        <text id="pi-f1t" class="h" x="770" y="836" font-size="30" fill="#e8e6df" text-anchor="middle" >发现</text>
+        <path id="pi-far" class="dr h" pathLength="1" d="M880 825 L1040 825" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pi-arrw)"/>
+        <rect id="pi-f2" class="h" x="1060" y="790" width="180" height="70" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+        <text id="pi-f2t" class="h" x="1150" y="836" font-size="30" fill="#83C167" text-anchor="middle" >修复</text>
+        <text id="pi-cst" class="h" x="360" y="250" font-size="40" fill="#FF9F43" font-weight="700" >Circomspect 静态分析</text>
+        <rect id="pi-code" class="h" x="360" y="290" width="900" height="230" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+        <rect id="pi-scan" class="h" x="370" y="306" width="880" height="38" rx="6" fill="rgba(88,196,221,.15)"/>
+        <text id="pi-l0" class="h mono" x="385" y="334" font-size="28" fill="#e8e6df" xml:space="preserve">template IsZero() {</text>
+        <text id="pi-l1" class="h mono" x="385" y="375" font-size="28" fill="#e8e6df" xml:space="preserve">    signal input in;</text>
+        <text id="pi-l2" class="h mono" x="385" y="416" font-size="28" fill="#e8e6df" xml:space="preserve">    signal output out;</text>
+        <text id="pi-l3" class="h mono" x="385" y="457" font-size="28" fill="#e8e6df" xml:space="preserve">    out <tspan fill="#FC6255">&lt;--</tspan> in == 0 ? 1 : 0;</text>
+        <text id="pi-l4" class="h mono" x="385" y="498" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+        <g id="pi-warn" class="h"><path d="M1340 470 L1370 416 L1400 470 Z" fill="none" stroke="#FF9F43" stroke-width="4" stroke-linejoin="round"/><line x1="1370" y1="434" x2="1370" y2="452" stroke="#FF9F43" stroke-width="4" stroke-linecap="round"/><circle cx="1370" cy="462" r="3" fill="#FF9F43"/></g>
+        <text id="pi-warnt" class="h" x="1420" y="458" font-size="32" fill="#FF9F43" >未约束的 <tspan class="mono">&lt;--</tspan></text>
+        <text id="pi-warnl" class="h" x="1420" y="510" font-size="28" fill="#8a8f99" >部署前发现</text>
+        <rect id="pi-pc" class="h" x="200" y="260" width="1520" height="400" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+        <text id="pi-p1t" class="h" x="260" y="340" font-size="40" fill="#e8e6df" font-weight="700" >比较器输入没做位数检查</text>
+        <text id="pi-p1a" class="h mono" x="260" y="430" font-size="32" fill="#58C4DD" xml:space="preserve">LessThan(n)</text>
+        <text id="pi-p1b" class="h" x="500" y="430" font-size="32" fill="#FC6255" >输入超出 n 位 → 结果错</text>
+        <text id="pi-p1c" class="h" x="260" y="505" font-size="30" fill="#8a8f99" >Dark Forest v0.3 的真实漏洞</text>
+        <text id="pi-p1d" class="h" x="260" y="600" font-size="32" fill="#83C167" >修法：</text>
+        <text id="pi-p1e" class="h mono" x="360" y="600" font-size="32" fill="#83C167" xml:space="preserve">Num2Bits(n)</text>
+        <text id="pi-p2t" class="h" x="260" y="340" font-size="40" fill="#e8e6df" font-weight="700" >生产环境用单人 zkey</text>
+        <text id="pi-p2b" class="h" x="260" y="430" font-size="32" fill="#FC6255" >持有阶段 2 随机数的人 → 能伪造证明</text>
+        <text id="pi-p2d" class="h" x="260" y="600" font-size="32" fill="#83C167" >修法：多方阶段 2 + 公开转录</text>
+        <g id="pi-die1" class="h"><rect x="1480" y="380" width="110" height="110" rx="18" fill="none" stroke="#FF9F43" stroke-width="3"/><circle cx="1510.8" cy="410.8" r="9.9" fill="#FF9F43"/><circle cx="1559.2" cy="459.2" r="9.9" fill="#FF9F43"/><circle cx="1535.0" cy="435.0" r="9.9" fill="#FF9F43"/></g>
+        <text id="pi-die1l" class="h" x="1535" y="530" font-size="28" fill="#FF9F43" text-anchor="middle" >一个人</text>
+        <g id="pi-dm0" class="h"><rect x="1300" y="380" width="70" height="70" rx="11" fill="none" stroke="#83C167" stroke-width="3"/><circle cx="1319.6" cy="399.6" r="6.3" fill="#83C167"/><circle cx="1350.4" cy="430.4" r="6.3" fill="#83C167"/><circle cx="1335.0" cy="415.0" r="6.3" fill="#83C167"/></g>
+        <g id="pi-dm1" class="h"><rect x="1390" y="380" width="70" height="70" rx="11" fill="none" stroke="#83C167" stroke-width="3"/><circle cx="1409.6" cy="399.6" r="6.3" fill="#83C167"/><circle cx="1440.4" cy="430.4" r="6.3" fill="#83C167"/><circle cx="1425.0" cy="415.0" r="6.3" fill="#83C167"/></g>
+        <g id="pi-dm2" class="h"><rect x="1480" y="380" width="70" height="70" rx="11" fill="none" stroke="#83C167" stroke-width="3"/><circle cx="1499.6" cy="399.6" r="6.3" fill="#83C167"/><circle cx="1530.4" cy="430.4" r="6.3" fill="#83C167"/><circle cx="1515.0" cy="415.0" r="6.3" fill="#83C167"/></g>
+        <g id="pi-dm3" class="h"><rect x="1570" y="380" width="70" height="70" rx="11" fill="none" stroke="#83C167" stroke-width="3"/><circle cx="1589.6" cy="399.6" r="6.3" fill="#83C167"/><circle cx="1620.4" cy="430.4" r="6.3" fill="#83C167"/><circle cx="1605.0" cy="415.0" r="6.3" fill="#83C167"/></g>
+        <text id="pi-dml" class="h" x="1465" y="500" font-size="28" fill="#83C167" text-anchor="middle" >多人贡献</text>
+        <rect id="pi-gA" class="h" x="160" y="300" width="700" height="400" rx="20" fill="none" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="10 8"/>
+        <text id="pi-gAt" class="h" x="200" y="365" font-size="36" fill="#FC6255" font-weight="700" >电路内</text>
+        <rect id="pi-gB" class="h" x="960" y="300" width="800" height="400" rx="20" fill="none" stroke="#B48EF0" stroke-width="2.5" stroke-dasharray="10 8"/>
+        <text id="pi-gBt" class="h" x="1000" y="365" font-size="36" fill="#B48EF0" font-weight="700" >合约与设置</text>
+        <g id="pi-ca0" class="h"><rect class="" x="220" y="420" width="260" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text class="" x="350" y="466" font-size="30" fill="#e8e6df" text-anchor="middle" >欠约束</text></g>
+        <g id="pi-ca1" class="h"><rect class="" x="540" y="420" width="260" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text class="" x="670" y="466" font-size="30" fill="#e8e6df" text-anchor="middle" >位数检查</text></g>
+        <g id="pi-cb0" class="h"><rect class="" x="1020" y="420" width="320" height="70" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" /><circle id="pi-gn0" cx="1056" cy="455" r="20" fill="none" stroke="#83C167" stroke-width="2.5"/><text class="" x="1056" y="465" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700" >3</text><text class="" x="1090" y="466" font-size="30" fill="#e8e6df" >绑定调用者</text></g>
+        <g id="pi-cb1" class="h"><rect class="" x="1400" y="420" width="320" height="70" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" /><circle id="pi-gn1" cx="1436" cy="455" r="20" fill="none" stroke="#83C167" stroke-width="2.5"/><text class="" x="1436" y="465" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700" >2</text><text class="" x="1470" y="466" font-size="30" fill="#e8e6df" >nullifier</text></g>
+        <g id="pi-cb2" class="h"><rect class="" x="1020" y="530" width="320" height="70" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" /><circle id="pi-gn2" cx="1056" cy="565" r="20" fill="none" stroke="#83C167" stroke-width="2.5"/><text class="" x="1056" y="575" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700" >4</text><text class="" x="1090" y="576" font-size="30" fill="#e8e6df" >域范围</text></g>
+        <g id="pi-cb3" class="h"><rect class="" x="1400" y="530" width="320" height="70" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2.5" /><text class="" x="1560" y="576" font-size="30" fill="#e8e6df" text-anchor="middle" >多方 zkey</text></g>
+        <text id="pi-gBl" class="h" x="1000" y="660" font-size="28" fill="#8a8f99" >数字 = 合约里的检查闸门</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+      // L0 欠约束 → 伪造根 → 金库被提
+      IN("#pi-cir, #pi-cirt", at(0, 0.03), 0.5);
+      ARROW("#pi-ar1", at(0, 0.2), 0.5);
+      IN("#pi-tree", at(0, 0.28), 0.5); IN("#pi-treet", at(0, 0.32), 0.4);
+      ARROW("#pi-ar2", at(0, 0.5), 0.5);
+      IN("#pi-vault, #pi-vaultt", at(0, 0.58), 0.5);
+      [0, 1, 2].forEach(i => {
+        const t0 = at(0, 0.7) + i * 0.6;
+        tl.fromTo(`#pi-coin${i}`, { opacity: 0, attr: { cx: 1580, cy: 480 } }, { opacity: 1, attr: { cx: 1700 + i * 50, cy: 560 - i * 40 }, duration: 0.6, ease: "power2.out", immediateRender: false }, t0);
+      });
+      IN("#pi-coinl", at(0, 0.78), 0.4);
+      // L1 案例卡
+      OUT("#pi-c0", at(1, 0), 0.4);
+      IN("#pi-card", at(1, 0.05), 0.5); IN("#pi-ct", at(1, 0.1), 0.5);
+      IN("#pi-eq", at(1, 0.38), 0.5, { scale: 1.4, svgOrigin: "560 460" }, { scale: 1, svgOrigin: "560 460" });
+      IN("#pi-eql", at(1, 0.48), 0.4);
+      IN("#pi-tc", at(1, 0.8), 0.5);
+      // L2 后果 → 发现 → 修复
+      IN("#pi-risk", at(2, 0.05), 0.5);
+      IN("#pi-f1, #pi-f1t", at(2, 0.45), 0.4); ARROW("#pi-far", at(2, 0.55), 0.4); IN("#pi-f2, #pi-f2t", at(2, 0.62), 0.4);
+      ARROW("#pi-fixar", at(2, 0.72), 0.6);
+      IN("#pi-fix", at(2, 0.78), 0.5, { scale: 1.4, svgOrigin: "1300 460" }, { scale: 1, svgOrigin: "1300 460" });
+      IN("#pi-fixl", at(2, 0.84), 0.4);
+      // L3 Circomspect 扫描
+      OUT("#pi-card, #pi-ct, #pi-tc, #pi-eq, #pi-eql, #pi-fixar, #pi-fix, #pi-fixl, #pi-risk, #pi-f1, #pi-f1t, #pi-far, #pi-f2, #pi-f2t", at(3, 0), 0.4);
+      IN("#pi-cst", at(3, 0.08), 0.4); IN("#pi-code", at(3, 0.1), 0.4);
+      IN("#pi-l0, #pi-l1, #pi-l2, #pi-l3, #pi-l4", at(3, 0.14), 0.4);
+      IN("#pi-scan", at(3, 0.25), 0.2);
+      tl.to("#pi-scan", { attr: { y: 429 }, duration: 1.6, ease: "none" }, at(3, 0.28));
+      tl.to("#pi-scan", { fill: "rgba(255,159,67,.3)", duration: 0.3 }, at(3, 0.28) + 1.6);
+      IN("#pi-warn", at(3, 0.62), 0.4); IN("#pi-warnt", at(3, 0.66), 0.4); IN("#pi-warnl", at(3, 0.8), 0.4);
+      // L4 位数检查
+      OUT("#pi-cst, #pi-code, #pi-scan, #pi-l0, #pi-l1, #pi-l2, #pi-l3, #pi-l4, #pi-warn, #pi-warnt, #pi-warnl", at(4, 0), 0.4);
+      IN("#pi-pc", at(4, 0.05), 0.5); IN("#pi-p1t", at(4, 0.08), 0.5);
+      IN("#pi-p1a", at(4, 0.2), 0.4); IN("#pi-p1b", at(4, 0.3), 0.4);
+      IN("#pi-p1c", at(4, 0.5), 0.4);
+      IN("#pi-p1d, #pi-p1e", at(4, 0.8), 0.5);
+      // L5 单人 zkey
+      OUT("#pi-p1t, #pi-p1a, #pi-p1b, #pi-p1c, #pi-p1d, #pi-p1e", at(5, 0), 0.35);
+      IN("#pi-p2t", at(5, 0.06), 0.4);
+      IN("#pi-die1, #pi-die1l", at(5, 0.2), 0.4);
+      IN("#pi-p2b", at(5, 0.3), 0.4);
+      OUT("#pi-die1, #pi-die1l", at(5, 0.68), 0.3);
+      IN("#pi-dm0", at(5, 0.72), 0.3); IN("#pi-dm1", at(5, 0.75), 0.3); IN("#pi-dm2", at(5, 0.78), 0.3); IN("#pi-dm3", at(5, 0.81), 0.3);
+      IN("#pi-dml", at(5, 0.83), 0.3);
+      IN("#pi-p2d", at(5, 0.75), 0.5);
+      // L6 两组
+      OUT("#pi-pc, #pi-p2t, #pi-p2b, #pi-p2d, #pi-dm0, #pi-dm1, #pi-dm2, #pi-dm3, #pi-dml", at(6, 0), 0.4);
+      IN("#pi-gA, #pi-gAt", at(6, 0.06), 0.5); IN("#pi-ca0", at(6, 0.1), 0.4); IN("#pi-ca1", at(6, 0.14), 0.4);
+      IN("#pi-gB, #pi-gBt", at(6, 0.2), 0.5);
+      IN("#pi-cb0", at(6, 0.28), 0.4); IN("#pi-cb2", at(6, 0.42), 0.4); IN("#pi-cb1", at(6, 0.56), 0.4); IN("#pi-cb3", at(6, 0.66), 0.4);
+      IN("#pi-gBl", at(6, 0.78), 0.4);
+
+
+      tl.to("#pi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["pitfalls"] = tl;
+    })();
+  </script>
+</template>

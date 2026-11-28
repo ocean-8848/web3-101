@@ -1,0 +1,200 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz2，id 前缀 q2- -->
+  <div id="root" data-composition-id="quiz2" data-duration="60.07" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="q2-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#83C167" />
+        </marker>
+      </defs>
+      <g id="q2-all">
+        <g id="q2-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 2 题</text>
+        </g>
+        <g id="q2-tag" class="h">
+          <text class="mono" x="280" y="112" font-size="30" fill="#8a8f99">Circom</text>
+        </g>
+        <clipPath id="q2-qclip1"><rect id="q2-qcr1" x="60" y="200" width="0" height="60" /></clipPath>
+        <clipPath id="q2-qclip2"><rect id="q2-qcr2" x="60" y="262" width="0" height="60" /></clipPath>
+        <text id="q2-q1" class="h" x="70" y="245" font-size="36" fill="#e8e6df" clip-path="url(#q2-qclip1)">一个 <tspan class="mono" fill="#58C4DD">Circom</tspan> 电路，正向测试全部通过；</text>
+        <text id="q2-q2" class="h" x="70" y="302" font-size="36" fill="#e8e6df" clip-path="url(#q2-qclip2)">右边这一句只赋值，后面没有对应的约束。怎么判断？</text>
+        <g id="q2-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="q2-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <g id="q2-oA" class="h">
+          <rect id="q2-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q2-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q2-oA-dim">
+            <circle id="q2-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q2-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="q2-oA-t1" x="190" y="428" font-size="32" fill="#e8e6df">有欠约束风险：写篡改见证的负面测试，</text>
+            <text id="q2-oA-t2" x="190" y="472" font-size="32" fill="#e8e6df">或用 <tspan class="mono">Circomspect</tspan> 扫描，改成赋值加约束</text>
+          </g>
+        </g>
+        <g id="q2-oB" class="h">
+          <rect id="q2-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q2-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q2-oB-dim">
+            <circle id="q2-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q2-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="q2-oB-t" x="190" y="584" font-size="34" fill="#e8e6df">安全，因为测试已经通过</text>
+          </g>
+          <text id="q2-oB-n" class="h" x="190" y="612" font-size="28" fill="#FC6255">正向测试测不到欠约束</text>
+        </g>
+        <g id="q2-oC" class="h">
+          <rect id="q2-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q2-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q2-oC-dim">
+            <circle id="q2-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q2-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="q2-oC-t" x="190" y="719" font-size="34" fill="#e8e6df">只影响证明速度，不影响安全</text>
+          </g>
+          <text id="q2-oC-n" class="h" x="190" y="747" font-size="28" fill="#FC6255">这是安全问题，不是性能问题</text>
+        </g>
+        <g id="q2-oD" class="h">
+          <rect id="q2-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="q2-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="q2-oD-dim">
+            <circle id="q2-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="q2-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="q2-oD-t" x="190" y="854" font-size="34" fill="#e8e6df">只要 <tspan class="mono">verifyProof</tspan> 返回真，就没有问题</text>
+          </g>
+          <text id="q2-oD-n" class="h" x="190" y="882" font-size="28" fill="#FC6255">开头的陷阱：验证通过只说明符合已写下的规则</text>
+        </g>
+
+        <!-- 右侧示意区 x 1160–1850：代码卡 -->
+        <g id="q2-code" class="h">
+          <rect x="1160" y="380" width="690" height="200" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="2" />
+          <rect id="q2-hl" x="1172" y="456" width="666" height="40" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+          <text class="mono" x="1190" y="440" font-size="30" fill="#e8e6df">signal output out;</text>
+        </g>
+        <text id="q2-l2a" class="h mono" x="1190" y="486" font-size="30" fill="#e8e6df">out &lt;-- a * b;</text>
+        <text id="q2-l2b" class="h mono" x="1190" y="486" font-size="30" fill="#83C167">out &lt;== a * b;</text>
+        <rect id="q2-gap" class="h" x="1190" y="508" width="400" height="40" rx="6" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 8" />
+        <text id="q2-cm1" class="h" x="1170" y="628" font-size="28" fill="#FC6255">只赋值，不进约束系统</text>
+        <text id="q2-cm2" class="h" x="1170" y="628" font-size="28" fill="#83C167">赋值 + 约束</text>
+        <!-- L3 恶意见证 -->
+        <text id="q2-w0" class="h" x="1170" y="702" font-size="30" fill="#e8e6df"><tspan class="mono">out = a * b</tspan></text>
+        <text id="q2-w1" class="h" x="1170" y="702" font-size="30" fill="#FC6255"><tspan class="mono">out = </tspan>任意值</text>
+        <g id="q2-pass" class="h"><rect x="1560" y="666" width="290" height="52" rx="26" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="2.5" />
+          <text x="1705" y="702" font-size="30" fill="#FC6255" text-anchor="middle">证明照样通过</text></g>
+        <!-- L4 verifyProof == true -->
+        <text id="q2-vt" class="h mono" x="1170" y="832" font-size="30" fill="#83C167">verifyProof() == true</text>
+        <text id="q2-vn" class="h" x="1572" y="832" font-size="30" fill="#FC6255">≠ 可放款</text>
+        <!-- L5 约束把 out 和输入绑死 -->
+        <g id="q2-cg">
+          <g id="q2-na" class="h"><circle cx="1230" cy="730" r="32" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1230" y="741" font-size="30" fill="#e8e6df" text-anchor="middle">a</text></g>
+          <g id="q2-nb" class="h"><circle cx="1230" cy="840" r="32" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1230" y="851" font-size="30" fill="#e8e6df" text-anchor="middle">b</text></g>
+          <g id="q2-nm" class="h"><circle cx="1440" cy="785" r="34" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1440" y="796" font-size="30" fill="#e8e6df" text-anchor="middle">×</text></g>
+          <g id="q2-no" class="h"><rect x="1620" y="750" width="160" height="70" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text class="mono" x="1700" y="796" font-size="30" fill="#83C167" text-anchor="middle">out</text></g>
+          <path id="q2-e1" class="dr" pathLength="1" d="M1262 740 L1408 776" fill="none" stroke="#83C167" stroke-width="3" />
+          <path id="q2-e2" class="dr" pathLength="1" d="M1262 830 L1408 794" fill="none" stroke="#83C167" stroke-width="3" />
+          <path id="q2-e3" class="dr h" pathLength="1" d="M1476 785 L1612 785" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#q2-arr)" />
+        </g>
+        <text id="q2-sum1" class="h" x="120" y="560" font-size="44" font-weight="700" fill="#83C167">每个只赋值的信号</text>
+        <text id="q2-sum2" class="h" x="120" y="650" font-size="36" fill="#e8e6df">都要有约束把它和输入绑死</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      const SHOW = (k, t) => {
+        IN(`#q2-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#q2-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#q2-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      const PAUSE = () => {
+        IN("#q2-pause", at(2, 0.0), 0.3);
+        tl.fromTo("#q2-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+        OUT("#q2-pause", at(3, 0.0), 0.3);
+      };
+      const RIGHT = (k, t) => {
+        tl.to(`#q2-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#q2-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#q2-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#q2-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#q2-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q2-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#q2-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#q2-o${k}-t`, { attr: { y: Y0[k] + 50 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#q2-o${k}-n`, t + 0.3, 0.5);
+      };
+      IN("#q2-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#q2-tag", at(0, 0.04), 0.4);
+      IN("#q2-q1", at(0, 0.03), 0.01);
+      IN("#q2-q2", at(0, 0.3), 0.01);
+      tl.fromTo("#q2-qcr1", { attr: { width: 0 } }, { attr: { width: 1300 }, duration: 2.0, ease: "none" }, at(0, 0.05));
+      tl.fromTo("#q2-qcr2", { attr: { width: 0 } }, { attr: { width: 1300 }, duration: 3.0, ease: "none" }, at(0, 0.31));
+      // L0 代码卡；缺失的约束位置
+      IN("#q2-code", at(0, 0.38), 0.5);
+      IN("#q2-l2a", at(0, 0.5), 0.4);
+      tl.fromTo("#q2-hl", { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: false }, at(0, 0.52));
+      IN("#q2-gap", at(0, 0.72), 0.4);
+      tl.to("#q2-gap", { opacity: 0.3, duration: 0.35, yoyo: true, repeat: 3 }, at(0, 0.8));
+
+      // L1 选项
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.56)); SHOW("C", at(1, 0.69)); SHOW("D", at(1, 0.83));
+      tl.to("#q2-gap", { opacity: 0.3, duration: 0.35, yoyo: true, repeat: 3 }, at(1, 0.2));
+      tl.to("#q2-hl", { opacity: 0.4, duration: 0.35, yoyo: true, repeat: 3 }, at(1, 0.38));
+      // L2 暂停
+      PAUSE();
+      // L3 揭晓 A：out 可填任意值
+      RIGHT("A", at(3, 0.04));
+      tl.to("#q2-oB-dim, #q2-oC-dim, #q2-oD-dim", { opacity: 0.6, duration: 0.4 }, at(3, 0.06));
+      IN("#q2-cm1", at(3, 0.16), 0.4);
+      IN("#q2-w0", at(3, 0.42), 0.4);
+      OUT("#q2-w0", at(3, 0.62), 0.25);
+      IN("#q2-w1", at(3, 0.66), 0.35);
+      IN("#q2-pass", at(3, 0.82), 0.4, { scale: 0.7, svgOrigin: "1705 692" }, { scale: 1, svgOrigin: "1705 692" });
+      // L4 干扰项
+      WRONG("B", at(4, 0.02));
+      WRONG("C", at(4, 0.36));
+      WRONG("D", at(4, 0.55));
+      IN("#q2-vt", at(4, 0.62), 0.4);
+      IN("#q2-vn", at(4, 0.72), 0.4);
+      // L5 改成 <==，约束把 out 绑住
+      OUT("#q2-oA, #q2-oB, #q2-oC, #q2-oD, #q2-w1, #q2-pass, #q2-vt, #q2-vn, #q2-cm1, #q2-gap", at(5, 0.0), 0.4);
+      OUT("#q2-l2a", at(5, 0.02), 0.3);
+      IN("#q2-l2b", at(5, 0.08), 0.4);
+      tl.to("#q2-hl", { fill: "#83C167", duration: 0.4 }, at(5, 0.08));
+      IN("#q2-cm2", at(5, 0.14), 0.4);
+      IN("#q2-sum1", at(5, 0.1), 0.5, { x: -20 }, { x: 0 });
+      IN("#q2-na", at(5, 0.2), 0.3); IN("#q2-nb", at(5, 0.22), 0.3); IN("#q2-nm", at(5, 0.26), 0.3);
+      DRAW("#q2-e1", at(5, 0.3), 0.4); DRAW("#q2-e2", at(5, 0.3), 0.4);
+      IN("#q2-no", at(5, 0.38), 0.3); ARROW("#q2-e3", at(5, 0.4), 0.4);
+      IN("#q2-sum2", at(5, 0.5), 0.5);
+      tl.to("#q2-no", { scale: 1.08, svgOrigin: "1700 785", duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.75));
+
+      tl.to("#q2-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz2"] = tl;
+    })();
+  </script>
+</template>

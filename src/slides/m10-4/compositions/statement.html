@@ -1,0 +1,163 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 statement，id 前缀 st- -->
+  <div id="root" data-composition-id="statement" data-duration="70.93" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="st-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="st-all">
+        <g id="st-tab">
+  <!-- headers -->
+  <g id="st-h1" class="h">
+    <rect x="120" y="220" width="540" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+    <path d="M148 270 Q172 246 196 270 Q172 294 148 270 Z" fill="none" stroke="#58C4DD" stroke-width="3"/>
+    <circle cx="172" cy="270" r="7" fill="#58C4DD"/>
+    <text x="216" y="266" font-size="38" font-weight="700" fill="#58C4DD">公开输入</text>
+    <text x="216" y="306" font-size="28" fill="#8a8f99">所有人可见</text>
+  </g>
+  <g id="st-h2" class="h">
+    <rect x="700" y="220" width="480" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+    <rect x="730" y="262" width="34" height="28" rx="5" fill="#8a8f99"/>
+    <path d="M737 262 V252 A10 10 0 0 1 757 252 V262" fill="none" stroke="#8a8f99" stroke-width="3.5"/>
+    <text x="784" y="266" font-size="38" font-weight="700" fill="#e8e6df">见证</text>
+    <text x="784" y="306" font-size="28" fill="#8a8f99">只有证明者</text>
+  </g>
+  <g id="st-h3" class="h">
+    <rect x="1220" y="220" width="580" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+    <path d="M1250 252 H1290 M1250 272 H1290 M1250 292 H1280" stroke="#58C4DD" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="1312" y="282" font-size="38" font-weight="700" fill="#58C4DD">电路检查</text>
+  </g>
+  <!-- public inputs -->
+  <g id="st-p0" class="h"><rect x="120" y="345" width="540" height="80" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="150" y="396" font-size="30" fill="#e8e6df">旧状态根 S0</text></g>
+  <g id="st-p1" class="h"><rect x="120" y="445" width="540" height="80" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="150" y="496" font-size="30" fill="#e8e6df">新状态根 S1</text></g>
+  <g id="st-p2" class="h"><rect id="st-p2r" x="120" y="545" width="540" height="80" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="150" y="596" font-size="30" fill="#e8e6df">数据承诺（blob 版本哈希）</text></g>
+  <g id="st-p3" class="h"><rect x="120" y="645" width="540" height="80" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="150" y="696" font-size="30" fill="#e8e6df">L1→L2 消息队列哈希</text></g>
+  <g id="st-p4" class="h"><rect x="120" y="745" width="540" height="80" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="150" y="796" font-size="30" fill="#e8e6df">L2→L1 提款消息根</text></g>
+  <!-- witness -->
+  <g id="st-w0" class="h"><rect x="700" y="345" width="480" height="260" rx="10" fill="#2a2e37"/><text x="730" y="410" font-size="34" font-weight="700" fill="#e8e6df">执行轨迹</text></g>
+  <text id="st-w0t" class="h" x="730" y="565" font-size="28" fill="#8a8f99">很大，不需公开</text>
+  <g id="st-w1" class="h"><rect x="700" y="625" width="480" height="80" rx="10" fill="#2a2e37"/><text x="730" y="676" font-size="30" fill="#e8e6df">读写的账户与存储槽</text></g>
+  <g id="st-w2" class="h"><rect x="700" y="725" width="480" height="80" rx="10" fill="#2a2e37"/><text x="730" y="776" font-size="30" fill="#e8e6df">默克尔路径</text></g>
+  <!-- checks -->
+  <g id="st-c0" class="h"><rect x="1220" y="345" width="580" height="80" rx="10" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="1248" y="396" font-size="30" fill="#e8e6df">① 交易数据 ↔ 承诺一致</text></g>
+  <g id="st-c1" class="h"><rect x="1220" y="445" width="580" height="80" rx="10" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="1248" y="496" font-size="30" fill="#e8e6df">② 签名 / nonce / 余额合法</text></g>
+  <g id="st-c2" class="h"><rect x="1220" y="545" width="580" height="80" rx="10" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="1248" y="596" font-size="30" fill="#e8e6df">③ 按 EVM 规则执行</text></g>
+  <g id="st-c3" class="h"><rect x="1220" y="645" width="580" height="80" rx="10" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="1248" y="696" font-size="30" fill="#e8e6df">④ 默克尔路径 S0 → S1</text></g>
+  <path id="st-k0" class="dr" pathLength="1" d="M1742 386 L1756 400 L1780 370" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path id="st-k1" class="dr" pathLength="1" d="M1742 486 L1756 500 L1780 470" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path id="st-k2" class="dr" pathLength="1" d="M1742 586 L1756 600 L1780 570" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path id="st-k3" class="dr" pathLength="1" d="M1742 686 L1756 700 L1780 670" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/>
+</g>
+<!-- counterexample -->
+<g id="st-ce">
+  <text id="st-big" class="h" x="960" y="300" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">① 交易数据 ↔ 承诺一致</text>
+  <g id="st-seq" class="h">
+    <rect x="160" y="440" width="240" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+    <text x="280" y="506" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">排序器</text>
+  </g>
+  <path id="st-ea" class="dr h" pathLength="1" d="M406 495 H552" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#st-arr)"/>
+  <text id="st-eaT" class="h" x="660" y="420" font-size="28" fill="#8a8f99" text-anchor="middle">实际执行</text>
+  <g id="st-A" class="h">
+    <rect x="560" y="440" width="200" height="110" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+    <text x="660" y="506" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">批次 A</text>
+  </g>
+  <text id="st-ne" class="h" x="960" y="520" font-size="80" font-weight="700" fill="#FC6255" text-anchor="middle">≠</text>
+  <text id="st-pbT" class="h" x="1260" y="420" font-size="28" fill="#8a8f99" text-anchor="middle">发布到 L1</text>
+  <g id="st-B" class="h">
+    <rect x="1160" y="440" width="200" height="110" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+    <text x="1260" y="506" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">批次 B</text>
+  </g>
+  <path id="st-ua" class="dr h" pathLength="1" d="M1260 556 V640" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#st-arr)"/>
+  <g id="st-user" class="h">
+    <circle cx="1260" cy="672" r="22" fill="none" stroke="#e8e6df" stroke-width="3"/>
+    <path d="M1222 744 C1222 712 1298 712 1298 744" fill="none" stroke="#e8e6df" stroke-width="3"/>
+  </g>
+  <text id="st-rb" class="h" x="1110" y="710" font-size="28" fill="#e8e6df" text-anchor="end">用 B 重建状态</text>
+  <path id="st-x" class="dr" pathLength="1" d="M1330 668 L1376 714 M1376 668 L1330 714" stroke="#FC6255" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <text id="st-wh" class="h" x="1410" y="690" font-size="36" font-weight="700" fill="#FC6255">数据扣留</text>
+  <text id="st-wh2" class="h" x="1410" y="740" font-size="28" fill="#8a8f99">无法自证余额、强制退出</text>
+  <g id="st-dc" class="h">
+    <rect id="st-dcr" x="500" y="850" width="380" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+    <text x="690" y="907" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">数据承诺</text>
+  </g>
+  <text id="st-must" class="h" x="920" y="908" font-size="42" font-weight="700" fill="#83C167">必须是公开输入</text>
+</g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 three column headers
+IN("#st-h1", at(0, 0.1), 0.5, { y: -15 }, { y: 0 });
+IN("#st-h2", at(0, 0.6), 0.5, { y: -15 }, { y: 0 });
+IN("#st-h3", at(0, 0.85), 0.5, { y: -15 }, { y: 0 });
+// L1 public inputs
+IN("#st-p0", at(1, 0.03), 0.4, { x: -20 }, { x: 0 });
+IN("#st-p1", at(1, 0.1), 0.4, { x: -20 }, { x: 0 });
+IN("#st-p2", at(1, 0.2), 0.4, { x: -20 }, { x: 0 });
+tl.to("#st-p2r", { fill: "#1b2b33", duration: 0.4 }, at(1, 0.34));
+tl.to("#st-p3 rect, #st-p4 rect", { fill: "#1b2b33", duration: 0.4 }, at(1, 0.72));
+IN("#st-p3", at(1, 0.52), 0.4, { x: -20 }, { x: 0 });
+IN("#st-p4", at(1, 0.86), 0.4, { x: -20 }, { x: 0 });
+// L2 witness
+IN("#st-w0", at(2, 0.03), 0.5, { scale: 0.9, svgOrigin: "940 475" }, { scale: 1, svgOrigin: "940 475" });
+IN("#st-w1", at(2, 0.28), 0.4, { y: 15 }, { y: 0 });
+IN("#st-w2", at(2, 0.48), 0.4, { y: 15 }, { y: 0 });
+IN("#st-w0t", at(2, 0.8), 0.4);
+// L3 check 1
+tl.to("#st-h3 rect", { fill: "#1b2b33", duration: 0.4 }, at(3, 0.02));
+IN("#st-c0", at(3, 0.45), 0.4, { x: 20 }, { x: 0 });
+// L4 checks 2-4 + ticks
+IN("#st-c1", at(4, 0.03), 0.4, { x: 20 }, { x: 0 });
+IN("#st-c2", at(4, 0.36), 0.4, { x: 20 }, { x: 0 });
+IN("#st-c3", at(4, 0.58), 0.4, { x: 20 }, { x: 0 });
+for (let i = 0; i < 4; i++) DRAW(`#st-k${i}`, at(4, 0.8 + i * 0.04), 0.3);
+// L5 check 1 to centre; counterexample A vs B
+OUT("#st-tab", at(5, 0.0), 0.5);
+IN("#st-big", at(5, 0.06), 0.6, { scale: 0.7, svgOrigin: "960 285" }, { scale: 1, svgOrigin: "960 285" });
+IN("#st-seq", at(5, 0.45), 0.4);
+ARROW("#st-ea", at(5, 0.55), 0.4);
+IN("#st-eaT, #st-A", at(5, 0.58), 0.4);
+IN("#st-pbT, #st-B", at(5, 0.8), 0.4, { x: 20 }, { x: 0 });
+IN("#st-ne", at(5, 0.88), 0.3, { scale: 1.5, svgOrigin: "960 495" }, { scale: 1, svgOrigin: "960 495" });
+// L6 withheld data; commitment must be public
+ARROW("#st-ua", at(6, 0.02), 0.4);
+IN("#st-user", at(6, 0.06), 0.4);
+IN("#st-rb", at(6, 0.1), 0.4);
+DRAW("#st-x", at(6, 0.22), 0.4);
+IN("#st-wh", at(6, 0.28), 0.4);
+IN("#st-wh2", at(6, 0.45), 0.4);
+IN("#st-dc", at(6, 0.72), 0.5, { y: 20 }, { y: 0 });
+tl.to("#st-dcr", { stroke: "#83C167", strokeWidth: 5, duration: 0.4 }, at(6, 0.8));
+IN("#st-must", at(6, 0.84), 0.5);
+
+      tl.to("#st-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["statement"] = tl;
+    })();
+  </script>
+</template>

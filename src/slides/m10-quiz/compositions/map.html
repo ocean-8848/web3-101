@@ -1,0 +1,386 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 map，id 前缀 ma- -->
+  <div id="root" data-composition-id="map" data-duration="122.28" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ma-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ma-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <linearGradient id="ma-grad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#83C167" />
+          <stop offset="1" stop-color="#58C4DD" />
+        </linearGradient>
+      </defs>
+      <g id="ma-all">
+        <text id="ma-title" class="h" x="120" y="168" font-size="56" font-weight="700" fill="#e8e6df">知识地图</text>
+        <!-- 四列表头 -->
+        <g id="ma-heads" class="h">
+          <rect id="ma-h1-box" x="120" y="240" width="420" height="72" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="2.5" />
+          <text id="ma-h1-t" x="330" y="288" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">直觉</text>
+          <rect id="ma-h2-box" x="560" y="240" width="420" height="72" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="2.5" />
+          <text id="ma-h2-t" x="770" y="288" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">原理与动手</text>
+          <rect id="ma-h3-box" x="1000" y="240" width="420" height="72" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="2.5" />
+          <text id="ma-h3-t" x="1210" y="288" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">应用</text>
+          <rect id="ma-h4-box" x="1440" y="240" width="420" height="72" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="2.5" />
+          <text id="ma-h4-t" x="1650" y="288" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">拓宽与实战</text>
+        </g>
+        <text id="ma-req" class="h" x="520" y="287" font-size="28" font-weight="700" fill="#83C167" text-anchor="end">必修</text>
+        <!-- 各列小结（关键词） -->
+        <text id="ma-c1a" class="h" x="330" y="362" font-size="28" fill="#b8b6af" text-anchor="middle">三条性质</text>
+        <text id="ma-c1b" class="h" x="330" y="408" font-size="28" fill="#b8b6af" text-anchor="middle">陈述 + 见证</text>
+        <text id="ma-c1c" class="h" x="330" y="454" font-size="28" fill="#b8b6af" text-anchor="middle">Fiat-Shamir</text>
+        <text id="ma-c2a" class="h" x="770" y="362" font-size="28" fill="#b8b6af" text-anchor="middle">电路 → 多项式</text>
+        <text id="ma-c2b" class="h" x="770" y="408" font-size="28" fill="#b8b6af" text-anchor="middle">三种证明系统</text>
+        <text id="ma-c2c" class="h" x="770" y="454" font-size="28" fill="#b8b6af" text-anchor="middle">Circom 动手</text>
+        <text id="ma-c3a" class="h" x="1210" y="362" font-size="28" fill="#b8b6af" text-anchor="middle">ZK Rollup</text>
+        <text id="ma-c3b" class="h" x="1210" y="408" font-size="28" fill="#b8b6af" text-anchor="middle">zkEVM 类型 1–4</text>
+        <text id="ma-c3c" class="h" x="1210" y="454" font-size="28" fill="#b8b6af" text-anchor="middle">隐私协议</text>
+        <text id="ma-c3d" class="h" x="1210" y="500" font-size="28" fill="#b8b6af" text-anchor="middle">合规时间线</text>
+        <text id="ma-c4a" class="h" x="1650" y="362" font-size="28" fill="#b8b6af" text-anchor="middle">证明 vs 计算</text>
+        <text id="ma-c4b" class="h" x="1650" y="408" font-size="28" fill="#b8b6af" text-anchor="middle">Merkle 组 + nullifier</text>
+
+        <!-- L0 三条性质 + 陈述/见证 -->
+        <g id="ma-st0">
+          <g id="ma-bd1" class="h">
+            <rect x="300" y="580" width="320" height="84" rx="42" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="3" />
+            <text x="460" y="635" font-size="38" font-weight="700" fill="#83C167" text-anchor="middle">完备性</text>
+          </g>
+          <g id="ma-bd2" class="h">
+            <rect x="800" y="580" width="320" height="84" rx="42" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="3" />
+            <text x="960" y="635" font-size="38" font-weight="700" fill="#FF9F43" text-anchor="middle">可靠性</text>
+          </g>
+          <g id="ma-bd3" class="h">
+            <rect x="1300" y="580" width="320" height="84" rx="42" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="3" />
+            <text x="1460" y="635" font-size="38" font-weight="700" fill="#58C4DD" text-anchor="middle">零知识</text>
+          </g>
+          <g id="ma-stmt" class="h">
+            <rect x="480" y="740" width="440" height="140" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="700" y="802" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">陈述</text>
+            <text x="700" y="852" font-size="30" fill="#8a8f99" text-anchor="middle">公开</text>
+          </g>
+          <g id="ma-wit" class="h">
+            <rect x="1000" y="740" width="440" height="140" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="1220" y="802" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">见证</text>
+            <text x="1220" y="852" font-size="30" fill="#8a8f99" text-anchor="middle">私密</text>
+            <rect x="1366" y="784" width="40" height="32" rx="5" fill="#8a8f99" />
+            <path d="M1374 784 L1374 772 A12 12 0 0 1 1398 772 L1398 784" fill="none" stroke="#8a8f99" stroke-width="4" />
+          </g>
+        </g>
+
+        <!-- L1 承诺 → 挑战 → 回应；作弊概率；Fiat-Shamir -->
+        <g id="ma-st1">
+          <g id="ma-p1" class="h"><rect x="160" y="580" width="240" height="90" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+            <text x="280" y="638" font-size="36" fill="#e8e6df" text-anchor="middle">承诺</text></g>
+          <path id="ma-pa1" class="dr h" pathLength="1" d="M408 625 L472 625" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-p2" class="h"><rect id="ma-p2-box" x="480" y="580" width="240" height="90" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+            <text id="ma-p2-t" x="600" y="638" font-size="36" fill="#e8e6df" text-anchor="middle">挑战</text>
+            <text id="ma-p2-h" class="mono" x="600" y="637" font-size="34" fill="#58C4DD" text-anchor="middle" opacity="0">hash</text></g>
+          <path id="ma-pa2" class="dr h" pathLength="1" d="M728 625 L792 625" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-p3" class="h"><rect x="800" y="580" width="240" height="90" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+            <text x="920" y="638" font-size="36" fill="#e8e6df" text-anchor="middle">回应</text></g>
+          <path id="ma-pa3" class="dr h" pathLength="1" d="M920 676 L920 752" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ma-arrB)" />
+          <g id="ma-strip" class="h"><rect x="160" y="760" width="880" height="80" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="190" y="811" font-size="30" fill="#58C4DD">proof = 0x3a9f…c27e</text></g>
+          <text id="ma-axl" class="h" x="1200" y="546" font-size="28" fill="#8a8f99">作弊概率</text>
+          <path id="ma-ax" class="dr" pathLength="1" d="M1180 566 L1180 900 L1790 900" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="ma-b1" x="1220" y="898" width="70" height="0" fill="#FC6255" fill-opacity="0.75" />
+          <rect id="ma-b2" x="1330" y="898" width="70" height="0" fill="#FC6255" fill-opacity="0.75" />
+          <rect id="ma-b3" x="1440" y="898" width="70" height="0" fill="#FC6255" fill-opacity="0.75" />
+          <rect id="ma-b4" x="1550" y="898" width="70" height="0" fill="#FC6255" fill-opacity="0.75" />
+          <rect id="ma-b5" x="1660" y="898" width="70" height="0" fill="#FC6255" fill-opacity="0.75" />
+          <text id="ma-axr" class="h" x="1790" y="946" font-size="28" fill="#8a8f99" text-anchor="end">轮数</text>
+        </g>
+
+        <!-- L2 程序 → 电路 → 多项式；KZG / FRI；可信设置 -->
+        <g id="ma-st2">
+          <g id="ma-g1" class="h"><rect x="160" y="560" width="260" height="160" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <rect x="190" y="596" width="180" height="12" rx="6" fill="#4a4f59" /><rect x="190" y="634" width="140" height="12" rx="6" fill="#4a4f59" /><rect x="190" y="672" width="200" height="12" rx="6" fill="#4a4f59" />
+            <text x="290" y="772" font-size="30" fill="#e8e6df" text-anchor="middle">程序</text></g>
+          <path id="ma-ga1" class="dr h" pathLength="1" d="M428 640 L532 640" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-g2" class="h"><rect x="540" y="560" width="260" height="160" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <path d="M605 560 L605 720 M670 560 L670 720 M735 560 L735 720 M540 613 L800 613 M540 666 L800 666" fill="none" stroke="#58C4DD" stroke-width="1.5" stroke-opacity="0.6" />
+            <text x="670" y="772" font-size="30" fill="#e8e6df" text-anchor="middle">电路</text></g>
+          <path id="ma-ga2" class="dr h" pathLength="1" d="M808 640 L912 640" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-g3" class="h"><path d="M930 560 L930 720 L1250 720" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <path d="M940 690 C1000 560 1060 560 1100 640 C1140 720 1200 700 1240 590" fill="none" stroke="#58C4DD" stroke-width="3.5" />
+            <text x="1090" y="772" font-size="30" fill="#e8e6df" text-anchor="middle">多项式</text></g>
+          <circle id="ma-pt" class="h" cx="1100" cy="640" r="12" fill="#FF9F43" />
+          <g id="ma-kzg" class="h"><rect x="160" y="820" width="400" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="190" y="868" font-size="34" font-weight="700" fill="#58C4DD">KZG</text>
+            <text x="190" y="916" font-size="28" fill="#e8e6df">小 · 需可信设置</text>
+            <rect x="490" y="852" width="36" height="28" rx="5" fill="#FF9F43" />
+            <path d="M497 852 L497 842 A11 11 0 0 1 519 842 L519 852" fill="none" stroke="#FF9F43" stroke-width="4" /></g>
+          <g id="ma-fri" class="h"><rect x="600" y="820" width="640" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="12 8" />
+            <text class="mono" x="630" y="868" font-size="34" font-weight="700" fill="#58C4DD">FRI</text>
+            <text x="630" y="916" font-size="28" fill="#e8e6df">大 · 透明 · 被认为抗量子</text></g>
+          <g id="ma-ppl" class="h">
+            <text x="1590" y="550" font-size="28" fill="#8a8f99" text-anchor="middle">可信设置参与者</text>
+            <circle cx="1440" cy="604" r="18" fill="#4a4f59" /><circle cx="1540" cy="604" r="18" fill="#4a4f59" /><circle cx="1640" cy="604" r="18" fill="#4a4f59" /><circle cx="1740" cy="604" r="18" fill="#4a4f59" />
+            <circle cx="1440" cy="684" r="18" fill="#4a4f59" /><circle cx="1540" cy="684" r="18" fill="#4a4f59" /><circle cx="1640" cy="684" r="18" fill="#4a4f59" /><circle cx="1740" cy="684" r="18" fill="#4a4f59" />
+            <circle cx="1440" cy="764" r="18" fill="#4a4f59" /><circle cx="1540" cy="764" r="18" fill="#4a4f59" /><circle cx="1640" cy="764" r="18" fill="#4a4f59" /><circle cx="1740" cy="764" r="18" fill="#4a4f59" />
+          </g>
+          <circle id="ma-pg" class="h" cx="1540" cy="684" r="20" fill="#83C167" />
+          <text id="ma-pgl" class="h" x="1590" y="850" font-size="30" fill="#83C167" text-anchor="middle">只需 1 个诚实</text>
+        </g>
+
+        <!-- L3 Groth16 / PLONK / STARK；zkVM -->
+        <g id="ma-st3">
+          <text id="ma-szl" class="h" x="460" y="566" font-size="28" fill="#8a8f99">证明大小</text>
+          <text id="ma-n1" class="h mono" x="160" y="632" font-size="34" fill="#e8e6df">Groth16</text>
+          <rect id="ma-s1" x="460" y="596" width="0" height="48" rx="8" fill="#58C4DD" fill-opacity="0.7" />
+          <text id="ma-l1" class="h" x="584" y="632" font-size="30" fill="#e8e6df">证明最小 · 每个电路一次设置</text>
+          <text id="ma-n2" class="h mono" x="160" y="732" font-size="34" fill="#e8e6df">PLONK</text>
+          <rect id="ma-s2" x="460" y="696" width="0" height="48" rx="8" fill="#58C4DD" fill-opacity="0.7" />
+          <text id="ma-l2" class="h" x="724" y="732" font-size="30" fill="#e8e6df">通用设置</text>
+          <text id="ma-n3" class="h mono" x="160" y="832" font-size="34" fill="#e8e6df">STARK</text>
+          <rect id="ma-s3" x="460" y="796" width="0" height="48" rx="8" fill="#58C4DD" fill-opacity="0.7" />
+          <text id="ma-l3" class="h" x="1104" y="832" font-size="30" fill="#e8e6df">无需设置 · 证明大</text>
+          <g id="ma-zk" class="h"><rect x="160" y="880" width="860" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text class="mono" x="190" y="931" font-size="32" font-weight="700" fill="#FF9F43">zkVM</text>
+            <text x="310" y="931" font-size="30" fill="#e8e6df">写普通程序 · 证明比手写电路慢</text></g>
+        </g>
+
+        <!-- L4 Circom → snarkjs → 链上验证；Gas -->
+        <g id="ma-st4">
+          <g id="ma-f1" class="h"><rect x="160" y="580" width="300" height="90" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="310" y="637" font-size="34" fill="#e8e6df" text-anchor="middle">Circom</text></g>
+          <path id="ma-fa1" class="dr h" pathLength="1" d="M468 625 L552 625" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-f2" class="h"><rect x="560" y="580" width="300" height="90" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="710" y="637" font-size="34" fill="#e8e6df" text-anchor="middle">snarkjs</text></g>
+          <path id="ma-fa2" class="dr h" pathLength="1" d="M868 625 L952 625" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-f3" class="h"><rect x="960" y="580" width="300" height="90" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="1110" y="637" font-size="34" fill="#e8e6df" text-anchor="middle">链上验证</text></g>
+          <g id="ma-calc" class="h"><rect x="160" y="760" width="1100" height="170" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="200" y="830" font-size="34" fill="#e8e6df">1 个公开输入 ≈ <tspan id="ma-gas" class="mono" fill="#F0B90B" font-weight="700">210,000</tspan><tspan fill="#F0B90B"> Gas</tspan></text>
+            <text id="ma-calc2" class="h" x="200" y="896" font-size="34" fill="#e8e6df">每多 1 个 ≈ <tspan class="mono" fill="#F0B90B" font-weight="700">+7,000</tspan></text></g>
+        </g>
+
+        <!-- L5 ZK Rollup；zkEVM 光谱；隐私四部件 -->
+        <g id="ma-st5">
+          <g id="ma-r0" class="h"><rect x="160" y="560" width="140" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="230" y="612" font-size="34" fill="#58C4DD" text-anchor="middle">S0</text></g>
+          <path id="ma-ra1" class="dr h" pathLength="1" d="M306 600 L372 600" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-rb" class="h"><rect x="380" y="560" width="280" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="520" y="612" font-size="32" fill="#e8e6df" text-anchor="middle">已发布批次</text></g>
+          <path id="ma-ra2" class="dr h" pathLength="1" d="M666 600 L732 600" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-r1" class="h"><rect x="740" y="560" width="140" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="810" y="612" font-size="34" fill="#58C4DD" text-anchor="middle">S1</text></g>
+          <g id="ma-rt" class="h"><rect x="420" y="664" width="200" height="48" rx="24" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2" />
+            <text x="520" y="698" font-size="28" fill="#58C4DD" text-anchor="middle">数据承诺</text></g>
+          <g id="ma-sp" class="h">
+            <text class="mono" x="250" y="792" font-size="30" fill="#e8e6df" text-anchor="middle">1</text>
+            <text class="mono" x="430" y="792" font-size="30" fill="#e8e6df" text-anchor="middle">2</text>
+            <text class="mono" x="610" y="792" font-size="30" fill="#e8e6df" text-anchor="middle">3</text>
+            <text class="mono" x="790" y="792" font-size="30" fill="#e8e6df" text-anchor="middle">4</text>
+            <rect x="160" y="810" width="720" height="40" rx="20" fill="url(#ma-grad)" fill-opacity="0.6" />
+            <text x="160" y="900" font-size="30" fill="#83C167">兼容</text>
+            <text x="880" y="900" font-size="30" fill="#58C4DD" text-anchor="end">快</text>
+          </g>
+          <g id="ma-q1" class="h"><rect x="1100" y="560" width="340" height="70" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1270" y="606" font-size="32" fill="#e8e6df" text-anchor="middle">承诺</text></g>
+          <g id="ma-q2" class="h"><rect x="1480" y="560" width="340" height="70" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1650" y="606" font-size="32" fill="#e8e6df" text-anchor="middle">Merkle 树</text></g>
+          <g id="ma-q3" class="h"><rect x="1100" y="650" width="340" height="70" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1270" y="695" font-size="32" fill="#e8e6df" text-anchor="middle">nullifier</text></g>
+          <g id="ma-q4" class="h"><rect x="1480" y="650" width="340" height="70" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text x="1650" y="696" font-size="32" fill="#e8e6df" text-anchor="middle">证明</text></g>
+          <g id="ma-dep" class="h"><rect x="1100" y="800" width="200" height="80" rx="14" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="1200" y="852" font-size="32" fill="#F0B90B" text-anchor="middle">存款</text></g>
+          <g id="ma-wd" class="h"><rect x="1620" y="800" width="200" height="80" rx="14" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="1720" y="852" font-size="32" fill="#F0B90B" text-anchor="middle">取款</text></g>
+          <path id="ma-lk" class="dr" pathLength="1" d="M1310 840 L1610 840" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <path id="ma-cut" class="h" d="M1440 810 L1480 870 M1480 810 L1440 870" fill="none" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+        </g>
+
+        <!-- L6 合规时间线 -->
+        <g id="ma-st6">
+          <path id="ma-tl" class="dr" pathLength="1" d="M200 660 L1720 660" fill="none" stroke="#B48EF0" stroke-width="4" />
+          <g id="ma-t1" class="h"><circle cx="400" cy="660" r="14" fill="#B48EF0" />
+            <text class="mono" x="400" y="622" font-size="34" fill="#B48EF0" text-anchor="middle">2022</text>
+            <text x="400" y="718" font-size="32" fill="#e8e6df" text-anchor="middle">制裁</text></g>
+          <g id="ma-t2" class="h"><circle cx="960" cy="660" r="14" fill="#B48EF0" />
+            <text class="mono" x="960" y="622" font-size="34" fill="#B48EF0" text-anchor="middle">2024</text>
+            <text x="960" y="718" font-size="32" fill="#e8e6df" text-anchor="middle">法院判定</text></g>
+          <text id="ma-t2s" class="h" x="960" y="766" font-size="28" fill="#8a8f99" text-anchor="middle">不可变合约不是财产</text>
+          <g id="ma-t3" class="h"><circle cx="1520" cy="660" r="14" fill="#B48EF0" />
+            <text class="mono" x="1520" y="622" font-size="34" fill="#B48EF0" text-anchor="middle">2025-03-21</text>
+            <text x="1520" y="718" font-size="32" fill="#e8e6df" text-anchor="middle">解除制裁</text></g>
+          <path id="ma-gl" class="dr" pathLength="1" d="M200 880 L1720 880" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <text id="ma-glt" class="h" x="200" y="852" font-size="30" fill="#8a8f99">开发者刑事案 · 以法院文件为准</text>
+        </g>
+
+        <!-- L7 证明 vs 计算；Merkle 组 + nullifier；因果 -->
+        <g id="ma-st7">
+          <g id="ma-zkb" class="h"><rect x="160" y="570" width="400" height="130" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="360" y="628" font-size="40" font-weight="700" fill="#58C4DD" text-anchor="middle">ZK</text>
+            <text x="360" y="676" font-size="30" fill="#e8e6df" text-anchor="middle">证明</text></g>
+          <g id="ma-m1" class="h"><rect x="680" y="570" width="200" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text class="mono" x="780" y="622" font-size="34" fill="#e8e6df" text-anchor="middle">MPC</text></g>
+          <g id="ma-m2" class="h"><rect x="920" y="570" width="200" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text class="mono" x="1020" y="622" font-size="34" fill="#e8e6df" text-anchor="middle">FHE</text></g>
+          <g id="ma-m3" class="h"><rect x="1160" y="570" width="200" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text class="mono" x="1260" y="622" font-size="34" fill="#e8e6df" text-anchor="middle">TEE</text></g>
+          <text id="ma-mc" class="h" x="1020" y="696" font-size="30" fill="#e8e6df" text-anchor="middle">计算</text>
+          <g id="ma-mk" class="h">
+            <path d="M1650 586 L1560 650 M1650 586 L1740 650 M1560 650 L1515 716 M1560 650 L1605 716 M1740 650 L1695 716 M1740 650 L1785 716" fill="none" stroke="#58C4DD" stroke-width="2.5" />
+            <circle cx="1650" cy="586" r="16" fill="#58C4DD" /><circle cx="1560" cy="650" r="14" fill="#58C4DD" /><circle cx="1740" cy="650" r="14" fill="#58C4DD" />
+            <circle cx="1515" cy="716" r="13" fill="#58C4DD" /><circle cx="1605" cy="716" r="13" fill="#58C4DD" /><circle cx="1695" cy="716" r="13" fill="#58C4DD" /><circle cx="1785" cy="716" r="13" fill="#58C4DD" />
+            <text x="1650" y="780" font-size="28" fill="#8a8f99" text-anchor="middle">Merkle 组</text>
+          </g>
+          <g id="ma-nf" class="h"><rect x="1540" y="810" width="220" height="56" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text class="mono" x="1650" y="848" font-size="30" fill="#83C167" text-anchor="middle">nullifier</text></g>
+        </g>
+        <!-- 因果箭头 + 横幅 -->
+        <path id="ma-k1" class="dr h" pathLength="1" d="M350 560 Q550 660 750 560" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ma-arrB)" />
+        <path id="ma-k2" class="dr h" pathLength="1" d="M790 560 Q990 660 1190 560" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ma-arrB)" />
+        <path id="ma-v1" class="dr h" pathLength="1" d="M330 640 L740 812" fill="none" stroke="#8a8f99" stroke-width="2.5" marker-end="url(#ma-arr)" />
+        <path id="ma-v2" class="dr h" pathLength="1" d="M770 660 L880 812" fill="none" stroke="#8a8f99" stroke-width="2.5" marker-end="url(#ma-arr)" />
+        <path id="ma-v3" class="dr h" pathLength="1" d="M1210 660 L1040 812" fill="none" stroke="#8a8f99" stroke-width="2.5" marker-end="url(#ma-arr)" />
+        <path id="ma-v4" class="dr h" pathLength="1" d="M1650 460 L1180 812" fill="none" stroke="#8a8f99" stroke-width="2.5" marker-end="url(#ma-arr)" />
+        <g id="ma-ban" class="h">
+          <rect x="560" y="820" width="800" height="84" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+          <text x="960" y="876" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">只证明规则被执行</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const LIGHT = (k, t) => {
+        tl.to(`#ma-h${k}-box`, { stroke: "#58C4DD", strokeWidth: 3.5, duration: 0.4 }, t);
+        tl.to(`#ma-h${k}-t`, { fill: "#e8e6df", duration: 0.4 }, t);
+      };
+      const SETTLE = (k, t) => tl.to(`#ma-h${k}-box`, { strokeWidth: 2.5, duration: 0.4 }, t);
+      const CHIP = (s, t) => IN(s, t, 0.5, { y: 10 }, { y: 0 });
+      const GROW = (s, h, t, d = 0.5) => tl.fromTo(s, { attr: { height: 0, y: 898 } }, { attr: { height: h, y: 898 - h }, duration: d, ease: "power2.out" }, t);
+      const WIDEN = (s, w, t, d = 0.6) => tl.fromTo(s, { attr: { width: 0 } }, { attr: { width: w }, duration: d, ease: "power2.out" }, t);
+
+      // L0 四列表头；直觉：三条性质、陈述/见证
+      IN("#ma-title", at(0, 0.0), 0.5);
+      IN("#ma-heads", at(0, 0.02), 0.6, { y: 16 }, { y: 0 });
+      LIGHT(1, at(0, 0.1)); IN("#ma-req", at(0, 0.14), 0.4);
+      IN("#ma-bd1", at(0, 0.27), 0.5, { y: 20 }, { y: 0 });
+      IN("#ma-bd2", at(0, 0.41), 0.5, { y: 20 }, { y: 0 });
+      IN("#ma-bd3", at(0, 0.56), 0.5, { y: 20 }, { y: 0 });
+      IN("#ma-stmt", at(0, 0.8), 0.5, { y: 20 }, { y: 0 });
+      IN("#ma-wit", at(0, 0.9), 0.5, { y: 20 }, { y: 0 });
+
+      // L1 承诺-挑战-回应；概率减半；Fiat-Shamir
+      OUT("#ma-st0", at(1, 0.0), 0.4);
+      CHIP("#ma-c1a", at(1, 0.02)); CHIP("#ma-c1b", at(1, 0.06));
+      IN("#ma-p1", at(1, 0.06), 0.4, { x: -20 }, { x: 0 });
+      ARROW("#ma-pa1", at(1, 0.12), 0.3); IN("#ma-p2", at(1, 0.14), 0.4, { x: -20 }, { x: 0 });
+      ARROW("#ma-pa2", at(1, 0.2), 0.3); IN("#ma-p3", at(1, 0.22), 0.4, { x: -20 }, { x: 0 });
+      DRAW("#ma-ax", at(1, 0.3), 0.5); IN("#ma-axl", at(1, 0.3), 0.4); IN("#ma-axr", at(1, 0.32), 0.4);
+      GROW("#ma-b1", 300, at(1, 0.34), 0.4); GROW("#ma-b2", 150, at(1, 0.38), 0.4); GROW("#ma-b3", 75, at(1, 0.42), 0.4);
+      GROW("#ma-b4", 38, at(1, 0.46), 0.4); GROW("#ma-b5", 19, at(1, 0.5), 0.4);
+      tl.to("#ma-p2-t", { opacity: 0, duration: 0.3 }, at(1, 0.6));
+      tl.to("#ma-p2-h", { opacity: 1, duration: 0.4 }, at(1, 0.63));
+      tl.to("#ma-p2-box", { stroke: "#58C4DD", strokeWidth: 3.5, duration: 0.4 }, at(1, 0.6));
+      ARROW("#ma-pa3", at(1, 0.8), 0.4);
+      IN("#ma-strip", at(1, 0.84), 0.5, { y: 10 }, { y: 0 });
+
+      // L2 原理与动手
+      OUT("#ma-st1", at(2, 0.0), 0.4);
+      SETTLE(1, at(2, 0.0)); CHIP("#ma-c1c", at(2, 0.02)); LIGHT(2, at(2, 0.03));
+      IN("#ma-g1", at(2, 0.1), 0.5, { x: -20 }, { x: 0 });
+      ARROW("#ma-ga1", at(2, 0.16), 0.4); IN("#ma-g2", at(2, 0.19), 0.5);
+      ARROW("#ma-ga2", at(2, 0.26), 0.4); IN("#ma-g3", at(2, 0.29), 0.5);
+      IN("#ma-pt", at(2, 0.38), 0.3);
+      tl.to("#ma-pt", { attr: { r: 18 }, duration: 0.3, yoyo: true, repeat: 3 }, at(2, 0.4));
+      IN("#ma-kzg", at(2, 0.47), 0.5, { y: 20 }, { y: 0 });
+      IN("#ma-fri", at(2, 0.62), 0.5, { y: 20 }, { y: 0 });
+      IN("#ma-ppl", at(2, 0.78), 0.5);
+      IN("#ma-pg", at(2, 0.88), 0.3, { scale: 0.4, svgOrigin: "1540 684" }, { scale: 1, svgOrigin: "1540 684" });
+      IN("#ma-pgl", at(2, 0.9), 0.4);
+
+      // L3 三种证明系统 + zkVM
+      OUT("#ma-st2", at(3, 0.0), 0.4);
+      CHIP("#ma-c2a", at(3, 0.02));
+      IN("#ma-szl", at(3, 0.03), 0.4);
+      IN("#ma-n1", at(3, 0.04), 0.4); WIDEN("#ma-s1", 100, at(3, 0.06)); IN("#ma-l1", at(3, 0.12), 0.4);
+      IN("#ma-n2", at(3, 0.4), 0.4); WIDEN("#ma-s2", 240, at(3, 0.42)); IN("#ma-l2", at(3, 0.46), 0.4);
+      IN("#ma-n3", at(3, 0.53), 0.4); WIDEN("#ma-s3", 620, at(3, 0.55), 0.8); IN("#ma-l3", at(3, 0.62), 0.4);
+      IN("#ma-zk", at(3, 0.72), 0.5, { y: 20 }, { y: 0 });
+
+      // L4 Circom 动手 + Gas
+      OUT("#ma-st3", at(4, 0.0), 0.4);
+      CHIP("#ma-c2b", at(4, 0.02));
+      IN("#ma-f1", at(4, 0.1), 0.4, { x: -20 }, { x: 0 });
+      ARROW("#ma-fa1", at(4, 0.22), 0.3); IN("#ma-f2", at(4, 0.25), 0.4, { x: -20 }, { x: 0 });
+      ARROW("#ma-fa2", at(4, 0.38), 0.3); IN("#ma-f3", at(4, 0.41), 0.4, { x: -20 }, { x: 0 });
+      IN("#ma-calc", at(4, 0.56), 0.4);
+      COUNT("#ma-gas", 0, 210000, at(4, 0.58), 1.2, v => (Math.round(v / 1000) * 1000).toLocaleString("en-US"));
+      IN("#ma-calc2", at(4, 0.82), 0.4);
+
+      // L5 应用
+      OUT("#ma-st4", at(5, 0.0), 0.4);
+      SETTLE(2, at(5, 0.0)); CHIP("#ma-c2c", at(5, 0.02)); LIGHT(3, at(5, 0.03));
+      IN("#ma-r0", at(5, 0.12), 0.4);
+      ARROW("#ma-ra1", at(5, 0.18), 0.3); IN("#ma-rb", at(5, 0.2), 0.4);
+      ARROW("#ma-ra2", at(5, 0.3), 0.3); IN("#ma-r1", at(5, 0.32), 0.4);
+      IN("#ma-rt", at(5, 0.36), 0.4, { y: -10 }, { y: 0 });
+      IN("#ma-sp", at(5, 0.42), 0.6, { x: -20 }, { x: 0 });
+      IN("#ma-q1", at(5, 0.66), 0.4); IN("#ma-q2", at(5, 0.7), 0.4);
+      IN("#ma-q3", at(5, 0.74), 0.4); IN("#ma-q4", at(5, 0.78), 0.4);
+      IN("#ma-dep", at(5, 0.85), 0.4); IN("#ma-wd", at(5, 0.85), 0.4);
+      DRAW("#ma-lk", at(5, 0.87), 0.4);
+      tl.to("#ma-lk", { opacity: 0.3, duration: 0.3 }, at(5, 0.93));
+      IN("#ma-cut", at(5, 0.93), 0.3, { scale: 0.4, svgOrigin: "1460 840" }, { scale: 1, svgOrigin: "1460 840" });
+
+      // L6 合规时间线
+      OUT("#ma-st5", at(6, 0.0), 0.4);
+      CHIP("#ma-c3a", at(6, 0.02)); CHIP("#ma-c3b", at(6, 0.05)); CHIP("#ma-c3c", at(6, 0.08));
+      DRAW("#ma-tl", at(6, 0.04), 0.8);
+      IN("#ma-t1", at(6, 0.12), 0.4, { y: 10 }, { y: 0 });
+      IN("#ma-t2", at(6, 0.32), 0.4, { y: 10 }, { y: 0 });
+      IN("#ma-t2s", at(6, 0.42), 0.4);
+      IN("#ma-t3", at(6, 0.57), 0.4, { y: 10 }, { y: 0 });
+      DRAW("#ma-gl", at(6, 0.74), 0.8); IN("#ma-glt", at(6, 0.76), 0.4);
+
+      // L7 拓宽与实战 → 因果 → 横幅
+      OUT("#ma-st6", at(7, 0.0), 0.4);
+      SETTLE(3, at(7, 0.0)); CHIP("#ma-c3d", at(7, 0.02)); LIGHT(4, at(7, 0.03));
+      IN("#ma-zkb", at(7, 0.1), 0.4, { y: 20 }, { y: 0 });
+      IN("#ma-m1", at(7, 0.18), 0.4, { y: 20 }, { y: 0 });
+      IN("#ma-m2", at(7, 0.22), 0.4, { y: 20 }, { y: 0 });
+      IN("#ma-m3", at(7, 0.26), 0.4, { y: 20 }, { y: 0 });
+      IN("#ma-mc", at(7, 0.32), 0.4);
+      IN("#ma-mk", at(7, 0.42), 0.5);
+      IN("#ma-nf", at(7, 0.52), 0.4, { y: 10 }, { y: 0 });
+      OUT("#ma-st7", at(7, 0.64), 0.4);
+      SETTLE(4, at(7, 0.64)); CHIP("#ma-c4a", at(7, 0.66)); CHIP("#ma-c4b", at(7, 0.68));
+      ARROW("#ma-k1", at(7, 0.72), 0.6);
+      ARROW("#ma-k2", at(7, 0.84), 0.6);
+      ARROW("#ma-v1", at(7, 0.91), 0.5); ARROW("#ma-v2", at(7, 0.91), 0.5);
+      ARROW("#ma-v3", at(7, 0.91), 0.5); ARROW("#ma-v4", at(7, 0.91), 0.5);
+      IN("#ma-ban", at(7, 0.94), 0.5, { y: 20 }, { y: 0 });
+
+      tl.to("#ma-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["map"] = tl;
+    })();
+  </script>
+</template>

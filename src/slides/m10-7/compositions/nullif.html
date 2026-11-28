@@ -1,0 +1,185 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 nullif，id 前缀 nu- -->
+  <div id="root" data-composition-id="nullif" data-duration="72.48" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="nu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="nu-all">
+
+        <g id="nu-left">
+          <rect id="nu-box" class="dr" pathLength="1" x="360" y="340" width="424" height="460" rx="20" fill="none" stroke="#e8e6df" stroke-width="3"/>
+          <text id="nu-boxl" class="h mono" x="572" y="840" font-size="28" fill="#8a8f99" text-anchor="middle">AnonClaim(20)</text>
+          <!-- private inputs -->
+          <path id="nu-i0" class="dr" pathLength="1" d="M140 428 H388" stroke="#FF9F43" stroke-width="3" fill="none"/><text id="nu-i0l" class="h mono" x="150" y="412" font-size="28" fill="#FF9F43">secret</text>
+          <path id="nu-i1" class="dr" pathLength="1" d="M140 680 H664" stroke="#FF9F43" stroke-width="3" fill="none"/><text id="nu-i1l" class="h mono" x="150" y="664" font-size="28" fill="#FF9F43">siblings</text>
+          <path id="nu-i2" class="dr" pathLength="1" d="M140 740 H664" stroke="#FF9F43" stroke-width="3" fill="none"/><text id="nu-i2l" class="h mono" x="150" y="724" font-size="28" fill="#FF9F43">pathIndices</text>
+          <!-- public inputs -->
+          <path id="nu-p0" class="dr" pathLength="1" d="M470 230 V340" stroke="#58C4DD" stroke-width="3" fill="none"/><text id="nu-p0l" class="h mono" x="484" y="290" font-size="28" fill="#58C4DD">scope</text>
+          <path id="nu-p1" class="dr" pathLength="1" d="M680 230 V340" stroke="#58C4DD" stroke-width="3" fill="none"/><text id="nu-p1l" class="h mono" x="694" y="290" font-size="28" fill="#58C4DD">message</text>
+          <!-- outputs -->
+          <path id="nu-o0" class="dr" pathLength="1" d="M784 600 H910" stroke="#58C4DD" stroke-width="3" fill="none"/><text id="nu-o0l" class="h mono" x="796" y="586" font-size="28" fill="#58C4DD">root</text>
+          <path id="nu-o1" class="dr" pathLength="1" d="M784 490 H910" stroke="#FC6255" stroke-width="3" fill="none"/><text id="nu-o1l" class="h mono" x="796" y="476" font-size="28" fill="#FC6255">nullifier</text>
+          <!-- inside: commitment -->
+          <path id="nu-sb" class="dr h" pathLength="1" d="M380 428 V588 H392" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#nu-arr)"/>
+          <g id="nu-h1" class="h"><rect x="400" y="560" width="208" height="56" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="504" y="597" font-size="28" fill="#58C4DD" text-anchor="middle">Poseidon(1)</text></g>
+          <path id="nu-la" class="dr h" pathLength="1" d="M610 588 H656" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#nu-arr)"/>
+          <text id="nu-lfl" class="h" x="632" y="540" font-size="28" fill="#e8e6df" text-anchor="middle">叶子</text>
+          <g id="nu-tr" class="h"><rect x="664" y="540" width="110" height="220" rx="12" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5"/>
+            <path d="M719 575 L689 625 H749 Z" fill="none" stroke="#58C4DD" stroke-width="3"/><text x="719" y="665" font-size="28" fill="#58C4DD" text-anchor="middle" font-weight="700">树</text></g>
+          <text id="nu-sem" class="h" x="140" y="905" font-size="28" fill="#8a8f99">Semaphore V4：公钥哈希（这里简化）</text>
+          <!-- inside: nullifier -->
+          <path id="nu-p0i" class="dr h" pathLength="1" d="M470 340 V392" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#nu-arr)"/>
+          <g id="nu-h2" class="h"><rect id="nu-h2r" x="390" y="400" width="210" height="56" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="495" y="438" font-size="28" fill="#58C4DD" text-anchor="middle">Poseidon(2)</text></g>
+          <path id="nu-nfp" class="dr" pathLength="1" d="M600 428 H610 V490 H784" stroke="#FC6255" stroke-width="3" fill="none"/>
+          <!-- inside: message square -->
+          <path id="nu-p1i" class="dr h" pathLength="1" d="M680 340 V392" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#nu-arr)"/>
+          <g id="nu-sq" class="h"><rect id="nu-sqr" x="622" y="400" width="116" height="56" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text class="mono" x="680" y="438" font-size="28" fill="#83C167" text-anchor="middle">m·m</text></g>
+          <!-- counterexample -->
+          <g id="nu-cx">
+            <g id="nu-tg0" class="h"><rect x="130" y="870" width="220" height="46" rx="23" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="240" y="903" font-size="28" fill="#e8e6df" text-anchor="middle">空投第 1 轮</text></g><g id="nu-tg1" class="h"><rect x="380" y="870" width="220" height="46" rx="23" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="490" y="903" font-size="28" fill="#e8e6df" text-anchor="middle">空投第 2 轮</text></g><g id="nu-tg2" class="h"><rect x="630" y="870" width="220" height="46" rx="23" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="740" y="903" font-size="28" fill="#e8e6df" text-anchor="middle">提案 42</text></g>
+            <g id="nu-tk0" class="h"><rect x="130" y="944" width="220" height="56" rx="8" fill="#FC625544" stroke="#FC6255" stroke-width="3"/><line x1="166" y1="950" x2="166" y2="994" stroke="#FC6255" stroke-width="2" stroke-dasharray="5 5"/><text class="mono" x="180" y="982.0" font-size="28" fill="#e8e6df">7a3c…</text></g><g id="nu-tk1" class="h"><rect x="380" y="944" width="220" height="56" rx="8" fill="#FC625544" stroke="#FC6255" stroke-width="3"/><line x1="416" y1="950" x2="416" y2="994" stroke="#FC6255" stroke-width="2" stroke-dasharray="5 5"/><text class="mono" x="430" y="982.0" font-size="28" fill="#e8e6df">7a3c…</text></g><g id="nu-tk2" class="h"><rect x="630" y="944" width="220" height="56" rx="8" fill="#FC625544" stroke="#FC6255" stroke-width="3"/><line x1="666" y1="950" x2="666" y2="994" stroke="#FC6255" stroke-width="2" stroke-dasharray="5 5"/><text class="mono" x="680" y="982.0" font-size="28" fill="#e8e6df">7a3c…</text></g>
+            <path id="nu-lk0" class="dr" pathLength="1" d="M350 972 H380" stroke="#FC6255" stroke-width="5" fill="none"/><path id="nu-lk1" class="dr" pathLength="1" d="M600 972 H630" stroke="#FC6255" stroke-width="5" fill="none"/>
+          </g>
+          <line id="nu-scx" class="h" x1="478" y1="280" x2="574" y2="280" stroke="#FC6255" stroke-width="4"/>
+          <!-- message binding -->
+          <g id="nu-ad" class="h"><rect id="nu-adr" x="130" y="880" width="420" height="70" rx="12" fill="#F0B90B22" stroke="#F0B90B" stroke-width="3"/>
+            <text x="155" y="926" font-size="28" fill="#F0B90B" font-weight="700">收款地址</text><text id="nu-ad1" class="mono" x="285" y="926" font-size="28" fill="#e8e6df">0x7A1c…e4F2</text><text id="nu-ad2" class="h mono" x="285" y="926" font-size="28" fill="#e8e6df">0x7A1c…e4F<tspan fill="#FC6255">3</tspan></text></g>
+          <path id="nu-bind" class="dr" pathLength="1" d="M552 915 H660" stroke="#83C167" stroke-width="4" fill="none"/>
+          <g id="nu-sh" class="h"><path id="nu-shp" d="M720 870 l44 16 v30 c0 26 -20 40 -44 48 c-24 -8 -44 -22 -44 -48 v-30 z" fill="#83C16733" stroke="#83C167" stroke-width="4"/>
+            <path id="nu-shk" d="M702 916 l12 12 l24 -26" stroke="#83C167" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+          <path id="nu-shx" class="h" d="M704 900 l32 32 M736 900 l-32 32" stroke="#FC6255" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <text id="nu-shl" class="h" x="790" y="926" font-size="28" fill="#83C167" font-weight="700">证明</text>
+          <!-- public signal order -->
+          <g id="nu-ps">
+            <g id="nu-c0" class="h"><rect x="130" y="860" width="170" height="60" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="215" y="900" font-size="28" fill="#e8e6df" text-anchor="middle">root</text></g><g id="nu-c1" class="h"><rect x="310" y="860" width="170" height="60" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="395" y="900" font-size="28" fill="#e8e6df" text-anchor="middle">nullifier</text></g><g id="nu-c2" class="h"><rect x="520" y="860" width="170" height="60" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="605" y="900" font-size="28" fill="#e8e6df" text-anchor="middle">scope</text></g><g id="nu-c3" class="h"><rect x="700" y="860" width="170" height="60" rx="10" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="785" y="900" font-size="28" fill="#e8e6df" text-anchor="middle">message</text></g>
+            <line id="nu-dv" class="h" x1="505" y1="850" x2="505" y2="930" stroke="#8a8f99" stroke-width="3"/>
+            <text id="nu-out" class="h" x="305" y="962" font-size="28" fill="#8a8f99" text-anchor="middle">输出</text>
+            <text id="nu-in" class="h" x="700" y="962" font-size="28" fill="#8a8f99" text-anchor="middle">公开输入</text>
+            <text id="nu-ord" class="h" x="505" y="1006" font-size="30" fill="#FF9F43" text-anchor="middle" font-weight="700">合约里必须同序</text>
+          </g>
+        </g>
+        <g id="nu-K" class="h"><rect x="960" y="220" width="890" height="680" rx="16" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text id="nu-K0" class="mono" x="990" y="290" font-size="28" fill="#e8e6df" xml:space="preserve">component idc = Poseidon(1);</text><text id="nu-K1" class="mono" x="990" y="330" font-size="28" fill="#e8e6df" xml:space="preserve">idc.inputs[0] &lt;== secret;</text><text id="nu-K2" class="mono" x="990" y="370" font-size="28" fill="#e8e6df" xml:space="preserve">tree.leaf &lt;== idc.out;</text><text id="nu-K3" class="mono" x="990" y="410" font-size="28" fill="#e8e6df" xml:space="preserve">root &lt;== tree.root;</text><text id="nu-K4" class="mono" x="990" y="450" font-size="28" fill="#e8e6df" xml:space="preserve">component nf = Poseidon(2);</text><text id="nu-K5" class="mono" x="990" y="490" font-size="28" fill="#e8e6df" xml:space="preserve">nf.inputs[0] &lt;== scope;</text><text id="nu-K6" class="mono" x="990" y="530" font-size="28" fill="#e8e6df" xml:space="preserve">nf.inputs[1] &lt;== secret;</text><text id="nu-K7" class="mono" x="990" y="570" font-size="28" fill="#e8e6df" xml:space="preserve">nullifier &lt;== nf.out;</text><text id="nu-K8" class="mono" x="990" y="610" font-size="28" fill="#e8e6df" xml:space="preserve">signal messageSquare;</text><text id="nu-K9" class="mono" x="990" y="650" font-size="28" fill="#e8e6df" xml:space="preserve">messageSquare &lt;== message * message;</text><text id="nu-K10" class="mono" x="990" y="690" font-size="28" fill="#e8e6df" xml:space="preserve">component main { public [scope, message] }</text><text id="nu-K11" class="mono" x="990" y="730" font-size="28" fill="#e8e6df" xml:space="preserve">  = AnonClaim(20);</text></g>
+        <g id="nu-hl" class="h"><rect id="nu-hlr" x="972" y="262" width="866" height="38" rx="6" fill="#58C4DD" fill-opacity="0.15"/><rect id="nu-hls" x="972" y="262" width="6" height="38" fill="#58C4DD"/></g>
+        <g id="nu-k0" class="h"><rect x="1000" y="250" width="810" height="160" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3"/><text class="mono" x="1040" y="348" font-size="60" fill="#83C167" font-weight="700">&lt;==</text><text x="1240" y="322" font-size="36" fill="#83C167" font-weight="700">赋值 + 约束</text></g>
+        <g id="nu-k1" class="h"><rect x="1000" y="450" width="810" height="160" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3"/><text class="mono" x="1040" y="548" font-size="60" fill="#83C167" font-weight="700">===</text><text x="1240" y="522" font-size="36" fill="#83C167" font-weight="700">只约束</text></g>
+        <g id="nu-k2" class="h"><rect x="1000" y="650" width="810" height="160" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text class="mono" x="1040" y="748" font-size="60" fill="#FC6255" font-weight="700">&lt;--</text><text x="1240" y="722" font-size="36" fill="#FC6255" font-weight="700">只赋值 · 不约束</text></g>
+        <text id="nu-tc" class="h" x="1240" y="778" font-size="28" fill="#e8e6df">2019 · Tornado Cash MiMC 电路缺陷</text>
+        <g id="nu-mg" class="h"><circle cx="1030" cy="890" r="24" fill="none" stroke="#58C4DD" stroke-width="4"/><path d="M1047 907 l22 22" stroke="#58C4DD" stroke-width="6" stroke-linecap="round"/>
+          <text x="1090" y="902" font-size="32" fill="#58C4DD" font-weight="700"><tspan class="mono">circomspect</tspan> 静态检查</text></g>
+
+      </g>
+      <g id="nu-term" class="h">
+        <rect x="70" y="56" width="580" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">公开信号 <tspan font-size="28" font-weight="400" fill="#8a8f99">Public signals</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">验证者可见的输入与输出</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+
+const Y0 = 290, PITCH = 40;
+const HL = (pid, i, n, t) => {
+  tl.to([`#${pid}-hlr`, `#${pid}-hls`], { attr: { y: Y0 - 28 + PITCH * i, height: PITCH * n - 2 }, duration: 0.35, ease: "power2.inOut" }, t);
+};
+const FOCUS = (pfx, count, i, n, t) => {
+  const on = [], off = [];
+  for (let k = 0; k < count; k++) (k >= i && k < i + n ? on : off).push(`#${pfx}${k}`);
+  if (on.length) tl.to(on, { opacity: 1, duration: 0.3 }, t);
+  if (off.length) tl.to(off, { opacity: 0.4, duration: 0.3 }, t);
+};
+
+DRAW("#nu-box", at(0, 0.02), 0.8);
+IN("#nu-K", at(0, 0.05), 0.5);
+FOCUS("nu-K", 12, 0, 0, at(0, 0.05));
+DRAW("#nu-i0", at(0, 0.18), 0.5); IN("#nu-i0l", at(0, 0.2), 0.3);
+DRAW("#nu-i1", at(0, 0.27), 0.5); IN("#nu-i1l", at(0, 0.29), 0.3);
+DRAW("#nu-i2", at(0, 0.34), 0.5); IN("#nu-i2l", at(0, 0.36), 0.3);
+DRAW("#nu-p0", at(0, 0.5), 0.4); IN("#nu-p0l", at(0, 0.52), 0.3);
+DRAW("#nu-p1", at(0, 0.58), 0.4); IN("#nu-p1l", at(0, 0.6), 0.3);
+DRAW("#nu-o0", at(0, 0.76), 0.4); IN("#nu-o0l", at(0, 0.78), 0.3);
+DRAW("#nu-o1", at(0, 0.84), 0.4); IN("#nu-o1l", at(0, 0.86), 0.3);
+IN("#nu-boxl", at(0, 0.92), 0.4);
+// L1 commitment -> tree -> root
+IN("#nu-hl", at(1, 0.02), 0.3); tl.to(["#nu-hlr", "#nu-hls"], { attr: { height: PITCH * 4 - 2 }, duration: 0.01 }, at(1, 0.0));
+FOCUS("nu-K", 12, 0, 4, at(1, 0.02));
+ARROW("#nu-sb", at(1, 0.12), 0.5); IN("#nu-h1", at(1, 0.16), 0.4);
+ARROW("#nu-la", at(1, 0.3), 0.3); IN("#nu-lfl", at(1, 0.3), 0.3);
+IN("#nu-tr", at(1, 0.36), 0.4);
+tl.to("#nu-o0", { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.48));
+IN("#nu-sem", at(1, 0.68), 0.5);
+// L2 nullifier
+OUT("#nu-sem", at(2, 0.0), 0.3);
+HL("nu", 4, 4, at(2, 0.02)); FOCUS("nu-K", 12, 4, 4, at(2, 0.02));
+ARROW("#nu-p0i", at(2, 0.1), 0.3); IN("#nu-h2", at(2, 0.12), 0.4);
+DRAW("#nu-nfp", at(2, 0.26), 0.6);
+tl.to("#nu-o1", { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.34));
+IN("#nu-scx", at(2, 0.45), 0.3);
+tl.fromTo(["#nu-tg0", "#nu-tg1", "#nu-tg2"], { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.2 }, at(2, 0.5));
+tl.fromTo(["#nu-tk0", "#nu-tk1", "#nu-tk2"], { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.2, immediateRender: false }, at(2, 0.6));
+DRAW("#nu-lk0, #nu-lk1", at(2, 0.8), 0.4);
+// L3 message square
+OUT("#nu-cx, #nu-scx", at(3, 0.0), 0.4);
+HL("nu", 8, 2, at(3, 0.02)); FOCUS("nu-K", 12, 8, 2, at(3, 0.02));
+ARROW("#nu-p1i", at(3, 0.1), 0.3); IN("#nu-sq", at(3, 0.13), 0.4);
+IN("#nu-ad", at(3, 0.3), 0.5, { x: -20 }, { x: 0 });
+DRAW("#nu-bind", at(3, 0.45), 0.4); IN("#nu-sh", at(3, 0.5), 0.4); IN("#nu-shl", at(3, 0.52), 0.3);
+tl.to("#nu-sqr", { attr: { "stroke-width": 5 }, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.55));
+OUT("#nu-ad1", at(3, 0.74), 0.2); IN("#nu-ad2", at(3, 0.76), 0.3);
+tl.to("#nu-shp, #nu-bind", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.84));
+tl.to("#nu-shp", { fill: "#FC625533", duration: 0.3 }, at(3, 0.84));
+OUT("#nu-shk", at(3, 0.84), 0.2); IN("#nu-shx", at(3, 0.86), 0.3);
+tl.to("#nu-shl", { fill: "#FC6255", duration: 0.3 }, at(3, 0.84));
+// L4 public signal order
+OUT("#nu-ad, #nu-ad2, #nu-bind, #nu-sh, #nu-shx, #nu-shl", at(4, 0.0), 0.4);
+HL("nu", 10, 2, at(4, 0.02)); FOCUS("nu-K", 12, 10, 2, at(4, 0.02));
+IN("#nu-term", at(4, 0.08), 0.5);
+tl.fromTo(["#nu-c0", "#nu-c1", "#nu-c2", "#nu-c3"], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.45, immediateRender: false }, at(4, 0.3));
+IN("#nu-dv", at(4, 0.42), 0.3);
+IN("#nu-out", at(4, 0.5), 0.3); IN("#nu-in", at(4, 0.6), 0.3);
+IN("#nu-ord", at(4, 0.84), 0.4);
+OUT("#nu-term", at(4, 0.92), 0.4);
+// L5 symbol cards
+OUT("#nu-K, #nu-hl", at(5, 0.0), 0.4);
+OUT("#nu-ps", at(5, 0.0), 0.4);
+IN("#nu-k0", at(5, 0.12), 0.5, { x: 30 }, { x: 0 });
+IN("#nu-k1", at(5, 0.35), 0.5, { x: 30 }, { x: 0 });
+IN("#nu-k2", at(5, 0.6), 0.5, { x: 30 }, { x: 0 });
+tl.to("#nu-k0, #nu-k1", { opacity: 0.55, duration: 0.4 }, at(5, 0.85));
+// L6 history + tooling
+IN("#nu-tc", at(6, 0.1), 0.5);
+IN("#nu-mg", at(6, 0.62), 0.5, { scale: 0.8, svgOrigin: "1030 890" }, { scale: 1, svgOrigin: "1030 890" });
+
+      /*ENDANIM*/
+
+      tl.to("#nu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#nu-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["nullif"] = tl;
+    })();
+  </script>
+</template>

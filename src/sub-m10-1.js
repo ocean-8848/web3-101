@@ -146,7 +146,7 @@ ${tryit(`<p><strong>动手练习：</strong>用 Node.js 跑一遍 Schnorr 的交
 ${steps([
   '新建文件 <code>schnorr.js</code>，粘贴下面的代码。它只用 Node 自带的 <code>crypto</code> 模块。',
   '运行 <code>node schnorr.js</code>。预期输出两行 <code>true</code>：交互版和非交互版都验证通过。',
-  '把 <code>x</code> 改成 7 但不改公钥 <code>y</code>，再运行。预期输出 <code>false</code>：不知道正确私钥的人无法通过。',
+  '把 <code>x</code> 改成 7 但不改公钥 <code>y</code>，再运行。预期输出 <code>false</code>：不知道正确私钥的人无法通过。注意：Fiat–Shamir 版的挑战 c = 哈希 mod 11，有约 1/11 的概率恰好为 0，此时 s = r，x 不起作用，这一行也会输出 <code>true</code>；多跑几次就能看到。交互版的 c 取 1–10，不会出现这种情况。真实系统的挑战空间约 2<sup>256</sup>，碰巧的概率可以忽略。',
   '把第二次证明的 <code>r</code> 固定成和第一次一样，用第 5 节的公式还原 x。'
 ])}
 ${code('JS', `
@@ -178,7 +178,7 @@ ${exercises([
   ['一个“证明”系统让证明者先看到挑战，再选择承诺。三条性质中哪一条被破坏？举例说明作弊方法。', '<p>破坏的是可靠性。以 Schnorr 为例：作弊者先拿到 c，随便选一个 s，再算 t = g<sup>s</sup> · y<sup>-c</sup> mod p。这组 (t, c, s) 一定能通过验证，而作弊者根本不知道 x。山洞里等价于“先听到要从哪边出来，再决定走哪条路”。</p>'],
   ['为什么阿里巴巴山洞协议的录像不能说服没在现场的第三方？这和区块链有什么关系？', '<p>录像可以剪辑：一个不知道咒语的人和合谋的“验证者”提前约好喊哪边，或者只保留碰巧走对的片段。第三方无法区分。区块链需要“任何人都能检查”的证明，所以必须用 Fiat–Shamir 等方法变成非交互证明，挑战由哈希决定，谁也不能事先约定。</p>'],
   ['把“我是 DAO 的成员，我要投票，但不暴露我是谁，也不能投两次”拆成陈述和见证。', '<p>陈述：我知道一个秘密 s 和一条默克尔路径，使 hash(s) 是成员树（根 R 公开）里的一个叶子；并且我公开的 nullifier 等于 hash(s, 提案 ID)。见证：s 和默克尔路径。nullifier 让合约记录“这个人已投票”，但无法反推出是哪个叶子。完整实现见 <a href="#m10-7">M07.7</a>。</p>'],
-  ['“作弊概率 2<sup>-128</sup>”和“作弊概率 0”在工程上有区别吗？', '<p>工程上视为相同：2<sup>-128</sup> 比随机猜中一把 128 位密钥还难。但它依赖密码学假设（例如离散对数难、哈希像随机函数）。假设被打破（例如未来的量子计算机破解离散对数），概率就不再成立。所以要关注所用系统的安全假设，而不是只看数字。</p>']
+  ['“作弊概率 2<sup>-128</sup>”和“作弊概率 0”在工程上有区别吗？', '<p>工程上视为相同：2<sup>-128</sup> 相当于一次就猜中一把 128 位随机密钥。但它依赖密码学假设（例如离散对数难、哈希像随机函数）。假设被打破（例如未来的量子计算机破解离散对数），概率就不再成立。所以要关注所用系统的安全假设，而不是只看数字。</p>']
 ])}
 ${checklist([
   '能用山洞或色盲朋友的故事，分别指出完备性、可靠性、零知识性体现在哪一步。',
@@ -240,7 +240,7 @@ ${call('analogy', `<p>老师要检查一本 1,000 页的作业有没有抄错。
 <p>比喻的局限：真实系统抽查的不是“页”，而是多项式在随机点的取值；“错误扩散”来自多项式的数学性质。</p>`)}
 ${art('一图看懂：程序变成多项式等式，只抽查几个点', 660, 336, [
   S.box(10, 40, 142, 78, { k: 'info', icon: 'code', t: '程序', s: 'x³ + x + 5 = 35\n秘密 x = 3', mono: 1 }),
-  S.box(176, 40, 142, 78, { k: 'info', icon: 'gear', t: '电路', s: '3 条乘法约束\nx·x = sym_1 …' }),
+  S.box(176, 40, 142, 78, { k: 'info', icon: 'gear', t: '电路', s: '3 条约束（2 次乘法）\nx·x = sym_1 …' }),
   S.box(342, 40, 142, 78, { k: 'key', icon: 'hash', t: '多项式', s: '约束合成\n一个等式' }),
   S.box(508, 40, 142, 78, { k: 'ok', icon: 'check', t: '随机抽查', s: '只验几个点\n错处被放大' }),
   S.arrow(154, 79, 174, 79),
@@ -248,7 +248,7 @@ ${art('一图看懂：程序变成多项式等式，只抽查几个点', 660, 33
   S.arrow(486, 79, 506, 79),
   S.zone(10, 146, 640, 150, { t: '怎样承诺这个多项式？两条路' }),
   S.arrow(413, 120, 413, 144, { k: 'key' }),
-  S.box(24, 176, 300, 106, { k: 'info', icon: 'lock', t: 'SNARK：椭圆曲线（KZG）', s: '证明很小：Groth16 约 260 字节\n链上验证便宜\n常需可信设置，不抗量子' }),
+  S.box(24, 176, 300, 106, { k: 'info', icon: 'lock', t: 'SNARK：椭圆曲线（KZG）', s: '证明很小：Groth16 约 256 字节\n链上验证便宜\n常需可信设置，不抗量子' }),
   S.box(336, 176, 300, 106, { k: 'ok', icon: 'hash', t: 'STARK：哈希（FRI）', s: '证明较大：几十到几百 KB\n无需可信设置\n只依赖哈希，被认为抗量子' }),
   S.text(330, 322, '共同点：把“执行正确”变成“多项式等式”，随机点抽查。差别只在怎样承诺（示例：x = 3）', { size: 13, anchor: 'middle', mw: 620 })
 ], [
@@ -263,8 +263,8 @@ ${art('一图看懂：程序变成多项式等式，只抽查几个点', 660, 33
 ${steps([
   '原程序：<code>out = x**3 + x + 5</code>，公开 out = 35，秘密 x = 3。',
   '拍平：<code>sym_1 = x * x</code>；<code>y = sym_1 * x</code>；<code>sym_2 = y + x</code>；<code>out = sym_2 + 5</code>。',
-  '变量向量（含常数 1）：<code>[one, x, out, sym_1, y, sym_2]</code>。',
-  '见证向量（示例）：<code>[1, 3, 35, 9, 27, 30]</code>。验证：3×3 = 9，9×3 = 27，27+3 = 30，30+5 = 35。'
+  '变量向量（含常数 1）：<code>[one, x, out, sym_1, y]</code>。<code>sym_2</code> 不单独列出：下表第 3 行把 <code>sym_2 = y + x</code> 和 <code>out = sym_2 + 5</code> 合并成一条线性约束。如果向量里保留 sym_2 却没有约束用到它，它就能取任意值，这正是下文说的“漏约束”。',
+  '见证向量（示例）：<code>[1, 3, 35, 9, 27]</code>。验证：3×3 = 9，9×3 = 27，27+3+5 = 35。'
 ])}
 <p><strong>R1CS（Rank-1 Constraint System，秩一约束系统）</strong>把每一行写成 <code>(A·w) × (B·w) = (C·w)</code> 的形式，其中 w 是见证向量，A、B、C 是系数。加法可以并进线性组合里，所以<strong>只有乘法会产生新约束</strong>。</p>
 ${tbl(['约束', 'A·w', 'B·w', 'C·w', '代入 w 检查'], [
@@ -336,7 +336,7 @@ ${call('info', '<p>以太坊 KZG 仪式的规则：用 GitHub 账号或 2023-01-
 <h2>5. Groth16、PLONK、STARK 怎么选</h2>
 ${tbl(['维度', 'Groth16', 'PLONK（KZG）', 'STARK（FRI）'], [
   ['提出', '2016' + cite('Groth：On the Size of Pairing-based Non-interactive Arguments', 'https://eprint.iacr.org/2016/260'), '2019' + cite('Gabizon 等：PLONK', 'https://eprint.iacr.org/2019/953'), '2018' + cite('Ben-Sasson 等：Scalable, transparent, and post-quantum secure computational integrity', 'https://eprint.iacr.org/2018/046')],
-  ['证明大小', '3 个群元素，约 260 字节', '约 868 字节（SP1 的封装证明）', '与计算规模相关，常见几十到几百 KB'],
+  ['证明大小', '3 个群元素，256 字节（BN254 未压缩）', '约 868 字节（SP1 的封装证明）', '与计算规模相关，常见几十到几百 KB'],
   ['链上验证 Gas', '约 20–27 万' + cite('SP1 文档：Proof Types', 'https://docs.succinct.xyz/docs/sp1/generating-proofs/proof-types'), '约 30 万', '远高于 SNARK，常先包装成 SNARK 再上链 ' + tag('推断')],
   ['可信设置', '每个电路一次（阶段 1 + 阶段 2）', '通用，一次设置供所有电路', '不需要'],
   ['抗量子', '否（椭圆曲线）', '否（KZG 依赖椭圆曲线）', '被认为抗量子（只依赖哈希）' + cite('ethereum.org：Zero-knowledge proofs', 'https://ethereum.org/en/zero-knowledge-proofs/')],
@@ -452,7 +452,7 @@ ${beginner(`<p><strong>Circom</strong>：iden3 团队开发的电路描述语言
 <p><strong>zkey</strong>：Groth16 电路专用的证明密钥文件，由可信设置阶段 2 生成。</p>`)}
 
 <h2>1. 一句话理解</h2>
-${one('Circom 电路 = 一组约束。你给出私有输入，程序算出所有信号（见证）；snarkjs 用 zkey 生成一个约 260 字节的证明；链上合约用 verifyProof 检查证明和公开输入。')}
+${one('Circom 电路 = 一组约束。你给出私有输入，程序算出所有信号（见证）；snarkjs 用 zkey 生成一个 256 字节的证明（BN254 未压缩：A 64 + B 128 + C 64 字节）；链上合约用 verifyProof 检查证明和公开输入。')}
 ${call('analogy', `<p>电路像一张填空试卷，约束是阅卷规则。见证是你填好的答案。证明是一个“答案全部符合规则”的封条。验证合约只检查封条和你公开的几个格子，看不到其余答案。</p>
 <p>比喻的局限：阅卷规则如果漏写一条，“乱填”的答案也会被判对。电路漏写约束是最常见、也最危险的错误。</p>`)}
 ${art('一图看懂：只有证明和公开输入上链，私有输入不出本地', 660, 312, [
@@ -462,7 +462,7 @@ ${art('一图看懂：只有证明和公开输入上链，私有输入不出本�
   S.box(162, 62, 116, 58, { k: 'info', icon: 'key', t: '证明密钥', s: 'final.zkey' }),
   S.box(308, 62, 116, 58, { k: 'warn', icon: 'lock', t: '私有输入', s: 'x 只留本地' }),
   S.arrow(140, 91, 160, 91),
-  S.box(308, 168, 116, 70, { k: 'key', icon: 'doc', t: '证明 π', s: '约 260 字节\n+ 公开输入' }),
+  S.box(308, 168, 116, 70, { k: 'key', icon: 'doc', t: '证明 π', s: '256 字节\n+ 公开输入' }),
   S.arrow(236, 122, 310, 168),
   S.arrow(366, 122, 366, 166),
   S.arrow(426, 203, 452, 203),
@@ -470,11 +470,11 @@ ${art('一图看懂：只有证明和公开输入上链，私有输入不出本�
   S.box(454, 152, 182, 102, { k: 'ok', icon: 'shield', t: '验证合约', s: 'verifyProof(π, h)\n返回 true / false' }),
   S.text(330, 296, '上链的只有证明 π 和公开输入 h；私有输入 x 永远不出本地（示例：哈希原像电路）', { size: 13, anchor: 'middle', mw: 620 })
 ], [
-  ['flow', '电路经编译和设置得到证明密钥；证明密钥加私有输入，生成约 260 字节的证明。'],
+  ['flow', '电路经编译和设置得到证明密钥；证明密钥加私有输入，生成 256 字节的证明。'],
   ['key', '链上合约只检查证明和公开输入。私有输入 x 不出现在任何要上链的文件里。'],
   ['risk', '电路少写一条约束，乱填的答案也能通过验证。这是最常见、最危险的错误。'],
   ['limit', '验证合约只能确认“符合电路里的规则”，不能确认规则本身写对了。']
-], '左边是你的电脑：电路源码、证明密钥和只留本地的私有输入，合起来生成约二百六十字节的证明。右边是链上：任何人只能看到证明和公开输入，验证合约用 verifyProof 检查并返回对错。', 'm10-3')}
+], '左边是你的电脑：电路源码、证明密钥和只留本地的私有输入，合起来生成 256 字节的证明。右边是链上：任何人只能看到证明和公开输入，验证合约用 verifyProof 检查并返回对错。', 'm10-3')}
 
 <h2>2. 环境与文件流水线</h2>
 <p>circom 2 用 Rust 编写，从源码安装；snarkjs 通过 npm 安装${cite('iden3/circom 仓库', 'https://github.com/iden3/circom')}${cite('iden3/snarkjs README', 'https://github.com/iden3/snarkjs')}。</p>
@@ -653,7 +653,7 @@ ${compare('IsZero：错误写法与正确写法', [
 ${tbl(['坑', '后果', '怎样避免'], [
   ['用 <code>&lt;--</code> 或 <code>=</code> 而没有补约束', '输出可被任意篡改', '默认用 <code>&lt;==</code>；用静态分析工具 Circomspect 扫描' + cite('Trail of Bits：It pays to be Circomspect', 'https://blog.trailofbits.com/2022/09/15/it-pays-to-be-circomspect/')],
   ['比较器输入没做位数检查', 'LessThan 在输入超过 n 位时结果错误（Dark Forest v0.3 的真实漏洞' + cite('0xPARC zk-bug-tracker', 'https://github.com/0xPARC/zk-bug-tracker') + '）', '对输入先用 <code>Num2Bits(n)</code> 约束位数'],
-  ['公开输入超出有限域', '两个不同的 uint256 在域里是同一个数，可能重复使用', '合约里检查公开输入 &lt; 标量域模数'],
+  ['公开输入超出有限域', '两个不同的 uint256 在域里是同一个数，可能重复使用', '合约里检查公开输入 &lt; 标量域模数。snarkjs 导出的 Groth16Verifier 已在 verifyProof 里对每个公开输入做 checkField（≥ r 直接返回 false）；手写或其他工具生成的验证器、以及业务合约自己用这些值做映射键时仍要检查'],
   ['证明不绑定调用者', '内存池里的证明被他人抢先提交', '把接收地址作为公开输入（即使电路里只做平方等“空约束”）'],
   ['证明可重复使用', '同一证明领取多次', '公开 nullifier，合约记录已使用'],
   ['生产用单人 zkey', '持有阶段 2 随机数的人能伪造证明', '多方阶段 2 并公开转录']
@@ -798,13 +798,13 @@ ${compare('兼容性与证明成本的取舍', [
 
 <h2>4. 主要项目（截至 2026 年公开资料）</h2>
 ${tbl(['项目', '关键事实', '证明与执行环境'], [
-  ['ZKsync Era', '2023-03-24 主网 Alpha 向所有用户开放，当时被称为以太坊上第一个公开的 zkEVM' + cite('The Block：zkSync Era first zkEVM goes live（2023-03-24）', 'https://www.theblock.co/post/222596/zksync-era-first-zkevm-goes-live-in-major-development-for-ethereum'), 'Vitalik 2022 年归为类型 4：Solidity 编译到自有虚拟机'],
-  ['Starknet', '不是 EVM：合约用 Cairo 编写，Cairo 被定位为“编写可证明程序的语言”' + cite('The Cairo Book', 'https://www.starknet.io/cairo-book/'), 'STARK 证明，由 StarkWare 的共享证明服务 SHARP 生成并递归聚合，新一代证明器为 S-two' + cite('Starknet 文档：SHARP', 'https://docs.starknet.io/architecture/sharp/')],
-  ['Scroll', '2023-10-17 宣布主网上线，走字节码级兼容路线' + cite('The Block：Scroll confirms mainnet launch（2023-10-17）', 'https://www.theblock.co/post/257919/scroll-official-mainnet-launch'), '字节码级 zkEVM'],
+  ['ZKsync Era', '2023-03-24 主网 Alpha 向所有用户开放，当时被称为以太坊上第一个公开的 zkEVM' + cite('The Block：zkSync Era first zkEVM goes live（2023-03-24）', 'https://www.theblock.co/post/222596/zksync-era-first-zkevm-goes-live-in-major-development-for-ethereum'), 'Vitalik 2022 年归为类型 4：Solidity 编译到自有虚拟机 EraVM。2025-10 的 Atlas 升级引入 ZKsync OS（Rust 编写）和 Airbender（RISC-V）证明器，计划逐步取代 EraVM；当前类型以最新文档为准' + cite('The Block：ZKsync launches Atlas upgrade（2025-10-07）', 'https://www.theblock.co/post/373407/zksync-launches-atlas-upgrade-support-enterprise-institutional-blockchains') + cite('ZKsync 文档：ZKsync OS', 'https://docs.zksync.io/zksync-network/zksync-os')],
+  ['Starknet', '不是 EVM：合约用 Cairo 编写，Cairo 被定位为“编写可证明程序的语言”' + cite('The Cairo Book', 'https://www.starknet.io/cairo-book/'), 'STARK 证明，由 StarkWare 的共享证明服务 SHARP 生成并递归聚合，新一代证明器 S-two 于 2025-11 上线主网，取代 Stone 证明全部区块' + cite('Starknet 文档：SHARP', 'https://docs.starknet.io/architecture/sharp/')],
+  ['Scroll', '2023-10-17 宣布主网上线，走字节码级兼容路线' + cite('The Block：Scroll confirms mainnet launch（2023-10-17）', 'https://www.theblock.co/post/257919/scroll-official-mainnet-launch'), '字节码级 zkEVM；2025-04 的 Euclid 升级改用基于 OpenVM（RISC-V zkVM）的证明器，状态树由 zktrie 改为 MPT，向类型 1 靠拢'],
   ['Linea', 'Consensys 于 2023-07-11 发布主网 Alpha' + cite('The Block：Consensys launches Linea（2023-07-11）', 'https://www.theblock.co/post/238865/consensys-linea-layer-2'), '官方称完全兼容 EVM 字节码'],
-  ['Polygon zkEVM', '2025-06-11 宣布在 2026 年停止 Mainnet Beta，原因包括 EIP-4844 支持延迟、ZK 计数器限制让部分 DeFi 交易不可行' + cite('Polygon 论坛：Sunsetting Polygon zkEVM Mainnet Beta in 2026', 'https://forum.polygon.technology/t/sunsetting-polygon-zkevm-mainnet-beta-in-2026/21020') + '；排序器计划于 2026-07-01 停止，未及时桥出的钱包资产可通过领取界面取回，2027-12-31 后视为放弃' + cite('Polygon 论坛：Sunset — Claim Your Funds', 'https://forum.polygon.technology/t/polygon-zkevm-mainnet-beta-sunset-claim-your-funds/21856'), '类型 2/3 方向的 zkEVM；停运是一个“ZK Rollup 也会关停”的真实案例']
+  ['Polygon zkEVM', '2025-06-11 宣布在 2026 年停止 Mainnet Beta，原因包括 EIP-4844 支持延迟、ZK 计数器限制让部分 DeFi 交易不可行' + cite('Polygon 论坛：Sunsetting Polygon zkEVM Mainnet Beta in 2026', 'https://forum.polygon.technology/t/sunsetting-polygon-zkevm-mainnet-beta-in-2026/21020') + '；排序器已于 2026-07-03 停止。钱包（EOA）里的资产可经领取界面在以太坊取回，界面开放至 2027-12-31；锁在 DeFi、多签或第三方桥合约里的资产无法经领取界面取回，需找对应协议' + cite('Polygon：Polygon zkEVM', 'https://polygon.technology/polygon-zkevm') + cite('Polygon 论坛：Sunset — Claim Your Funds', 'https://forum.polygon.technology/t/polygon-zkevm-mainnet-beta-sunset-claim-your-funds/21856'), '类型 2/3 方向的 zkEVM；停运是一个“ZK Rollup 也会关停”的真实案例']
 ])}
-${call('warn', '<p>Polygon zkEVM 的停运公告特别提醒：锁在 DeFi 合约里的资产不能自动迁移，用户必须在截止前自己取出并桥回。选择 L2 时，除了看证明系统，还要看项目的长期运营承诺和退出通道。</p>')}
+${call('warn', '<p>Polygon zkEVM 的停运公告特别提醒：锁在 DeFi 合约里的资产不能自动迁移，用户必须在停运前自己取出并桥回；排序器停止后，这类资产也不能经领取界面取回。选择 L2 时，除了看证明系统，还要看项目的长期运营承诺和退出通道。</p>')}
 
 <h2>5. 证明成本、实时证明与证明者市场</h2>
 <p>ZK Rollup 的链上成本（数据 + 验证）在 <a href="#m05-5">M04.5</a> 讲过。ZK 特有的是<strong>链下证明成本</strong>：GPU 时间、电费、运维。它由整批交易分摊。</p>
@@ -816,7 +816,7 @@ ${steps([
   '如果批次只有 50 笔交易：(0.8 × 50/5000 + 4.5) / 50 ≈ 0.09 美元。验证成本是固定的，<strong>交易少时每笔分摊急剧上升</strong>，这就是低活跃度 ZK 链的成本压力。',
   '结论：证明成本随交易量线性增长，验证成本是固定开销。规模越大，ZK Rollup 越划算。'
 ])}
-<p><strong>实时证明（real-time proving）</strong>指在一个以太坊 slot（12 秒）内为一个 L1 区块生成证明。以太坊基金会 2025-07 给出的定义是：主网区块 P99 延迟 ≤ 10 秒，本地硬件成本 ≤ 10 万美元，功耗 ≤ 10 kW${cite('Ethereum Foundation：Shipping an L1 zkEVM #1: Realtime Proving（2025-07-10）', 'https://blog.ethereum.org/2025/07/10/realtime-proving')}。2025-12 的后续文章称，证明延迟已从 16 分钟降到 16 秒，成本下降 45 倍，zkVM 已能在目标硬件上 10 秒内证明 99% 的以太坊区块；下一阶段重点转向安全性，目标是 2026 年底达到 128 位可证明安全${cite('Ethereum Foundation：zkEVM Security Foundations（2025-12-18）', 'https://blog.ethereum.org/2025/12/18/zkevm-security-foundations')}。Succinct 在 2025-11-18 报告其 SP1 Hypercube 用 16 块 RTX 5090 在 12 秒内证明了 99.7% 的抽样 L1 区块（样本 954 个）${cite('Succinct：SP1 Hypercube Achieves Real Time Proving with 16 GPUs', 'https://blog.succinct.xyz/real-time-proving-16-gpus/')}，这是项目方自报数据。</p>
+<p><strong>实时证明（real-time proving）</strong>指在一个以太坊 slot（12 秒）内为一个 L1 区块生成证明。以太坊基金会 2025-07 给出的定义是：主网区块 P99 延迟 ≤ 10 秒，本地硬件成本 ≤ 10 万美元，功耗 ≤ 10 kW${cite('Ethereum Foundation：Shipping an L1 zkEVM #1: Realtime Proving（2025-07-10）', 'https://blog.ethereum.org/2025/07/10/realtime-proving')}。2025-12 的后续文章称，证明延迟已从 16 分钟降到 16 秒，成本下降 45 倍，zkVM 已能在目标硬件上 10 秒内证明 99% 的以太坊区块；下一阶段重点转向安全性：中间里程碑是 2026 年 5 月底达到 100 位可证明安全（以 EF 的 soundcalc 工具估算），最终目标是 2026 年底达到 128 位可证明安全${cite('Ethereum Foundation：zkEVM Security Foundations（2025-12-18）', 'https://blog.ethereum.org/2025/12/18/zkevm-security-foundations')}。Succinct 在 2025-11-18 报告其 SP1 Hypercube 用 16 块 RTX 5090 在 12 秒内证明了 99.7% 的抽样 L1 区块（样本 954 个）${cite('Succinct：SP1 Hypercube Achieves Real Time Proving with 16 GPUs', 'https://blog.succinct.xyz/real-time-proving-16-gpus/')}，这是项目方自报数据。</p>
 <p><strong>证明者市场（prover market）</strong>把“生成证明”变成可以外包、竞价的服务：应用提交证明请求，独立证明者竞争完成。Succinct Prover Network 于 2025-08-05 上线主网${cite('The Block：Succinct launches decentralized prover network on mainnet', 'https://www.theblock.co/post/365606/succinct-mainnet-prove-token')}；RISC Zero 孵化的 Boundless 于 2025-09 宣布主网上线，用“可验证工作量证明（PoVW）”激励证明者，证明者需要质押代币作为抵押${cite('Boundless：Mainnet is live（2025-09-14）', 'https://boundlessfdn.org/blog/mainnet-is-live')}。</p>
 ${layers('证明者市场的分层', [
   { name: '需求方', sub: 'Rollup、跨链桥、协处理器应用', chips: ['提交程序 ID + 输入', '出价与截止时间'] },
@@ -873,7 +873,7 @@ ${recap([
   'ZK Rollup 证明“从 S0 执行这批（已发布的）交易得到 S1”；数据承诺必须是公开输入。',
   '典型 L1 流程是提交 → 证明 → 执行；验证合约读取已提交的批次作为公开输入。',
   'zkEVM 类型 1–4：越接近 1 越兼容、证明越慢；越接近 4 越快、差异越大。',
-  '主要项目：ZKsync Era（2023-03）、Linea（2023-07）、Scroll（2023-10）、Starknet（Cairo + STARK）；Polygon zkEVM 计划于 2026-07 停运。',
+  '主要项目：ZKsync Era（2023-03）、Linea（2023-07）、Scroll（2023-10）、Starknet（Cairo + STARK）；Polygon zkEVM 已于 2026-07 停运。',
   '实时证明已在 2025 年达到以太坊基金会的延迟目标，重点转向安全性；证明者市场改善活性和成本，不改变可靠性来源。'
 ])}
 ${quiz([

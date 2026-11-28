@@ -1,0 +1,146 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 sizing，id 前缀 si- -->
+  <div id="root" data-composition-id="sizing" data-duration="78.5" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="si-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="si-all">
+
+        <g id="si-sel">
+          <g id="si-cc" class="h"><rect x="160" y="380" width="400" height="150" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="190" y="428" font-size="28" fill="#8a8f99">电路语言</text><text class="mono" x="190" y="494" font-size="48" fill="#58C4DD" font-weight="700">Circom 2</text></g>
+          <path id="si-ca" class="dr h" pathLength="1" d="M566 455 H672" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#si-arr)"/>
+          <g id="si-gc" class="h"><rect x="680" y="330" width="640" height="300" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="712" y="378" font-size="28" fill="#8a8f99">证明系统</text><text class="mono" x="712" y="446" font-size="56" fill="#e8e6df" font-weight="700">Groth16</text></g>
+          <text id="si-gp" class="h" x="712" y="524" font-size="32" fill="#83C167" font-weight="700">✓ 证明最小 · 验证最便宜</text>
+          <text id="si-gn" class="h" x="712" y="590" font-size="32" fill="#FF9F43" font-weight="700">! 每个电路一次可信设置</text>
+          <g id="si-k0" class="h"><rect x="1420" y="340" width="340" height="72" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text class="mono" x="1590" y="387" font-size="32" fill="#e8e6df" text-anchor="middle">Poseidon</text></g>
+          <g id="si-k1" class="h"><rect x="1420" y="444" width="340" height="72" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1590" y="491" font-size="32" fill="#e8e6df" text-anchor="middle">Foundry</text></g>
+          <g id="si-k2" class="h"><rect x="1420" y="548" width="340" height="72" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text class="mono" x="1590" y="595" font-size="32" fill="#e8e6df" text-anchor="middle">snarkjs</text></g>
+          <text id="si-alt" class="h" x="160" y="740" font-size="28" fill="#6b6f7a">备选：Noir · Halo2 · PLONK · fflonk · MiMC · LeanIMT</text>
+        </g>
+        <g id="si-eq">
+          <text id="si-e1" class="h" x="160" y="340" font-size="36" fill="#8a8f99">成员上限：1,000,000</text>
+          <text id="si-e2" class="h mono" x="160" y="440" font-size="48" fill="#e8e6df" font-weight="700">2<tspan dy="-19" font-size="29">20</tspan><tspan dy="19"> = 1,048,576 ≥ 1,000,000</tspan></text>
+          <text id="si-e3" class="h" x="160" y="545" font-size="56" fill="#58C4DD" font-weight="700">深度 = 20</text>
+          <text id="si-c1" class="h mono" x="160" y="670" font-size="48" fill="#e8e6df" font-weight="700">240 × 20 = <tspan id="si-cnt">0</tspan></text>
+          <text id="si-c2" class="h" x="160" y="750" font-size="32" fill="#8a8f99">+ 身份承诺 + nullifier 两次哈希</text>
+          <text id="si-c3" class="h" x="160" y="860" font-size="64" fill="#58C4DD" font-weight="700">≈ 5,500 约束</text>
+        </g>
+        <g id="si-path"><rect id="si-pc0" class="h" x="1240" y="230" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl0" class="h mono" x="1292" y="257" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc1" class="h" x="1240" y="268" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl1" class="h mono" x="1292" y="295" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc2" class="h" x="1240" y="306" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl2" class="h mono" x="1292" y="333" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc3" class="h" x="1240" y="344" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl3" class="h mono" x="1292" y="371" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc4" class="h" x="1240" y="382" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl4" class="h mono" x="1292" y="409" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc5" class="h" x="1240" y="420" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl5" class="h mono" x="1292" y="447" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc6" class="h" x="1240" y="458" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl6" class="h mono" x="1292" y="485" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc7" class="h" x="1240" y="496" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl7" class="h mono" x="1292" y="523" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc8" class="h" x="1240" y="534" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl8" class="h mono" x="1292" y="561" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc9" class="h" x="1240" y="572" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl9" class="h mono" x="1292" y="599" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc10" class="h" x="1240" y="610" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl10" class="h mono" x="1292" y="637" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc11" class="h" x="1240" y="648" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl11" class="h mono" x="1292" y="675" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc12" class="h" x="1240" y="686" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl12" class="h mono" x="1292" y="713" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc13" class="h" x="1240" y="724" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl13" class="h mono" x="1292" y="751" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc14" class="h" x="1240" y="762" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl14" class="h mono" x="1292" y="789" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc15" class="h" x="1240" y="800" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl15" class="h mono" x="1292" y="827" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc16" class="h" x="1240" y="838" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl16" class="h mono" x="1292" y="865" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc17" class="h" x="1240" y="876" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl17" class="h mono" x="1292" y="903" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc18" class="h" x="1240" y="914" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl18" class="h mono" x="1292" y="941" font-size="28" fill="#e8e6df">≈ 240</text><rect id="si-pc19" class="h" x="1240" y="952" width="36" height="32" rx="6" fill="#58C4DD33" stroke="#58C4DD" stroke-width="2"/><text id="si-pl19" class="h mono" x="1292" y="979" font-size="28" fill="#e8e6df">≈ 240</text></g>
+        <text id="si-pt" class="h" x="1420" y="258" font-size="28" fill="#58C4DD">每格一个兄弟节点</text>
+        <text id="si-inf" class="h" x="1420" y="330" font-size="28" fill="#FF9F43" font-weight="700">≈ 240 是推算值</text>
+        <g id="si-bars">
+          <text id="si-bl1" class="h" x="160" y="400" font-size="32" fill="#FC6255" font-weight="700">SHA-256：每块 ≈ 30,000 · 每次 2 块 ≈ 60,000</text>
+          <rect id="si-b1" class="h" x="160" y="425" width="900" height="56" rx="8" fill="#FC6255"/>
+          <text id="si-bl1b" class="h" x="160" y="530" font-size="32" fill="#FC6255" font-weight="700">→ 20 层 ≈ 1,200,000</text>
+          <text id="si-bl2" class="h" x="160" y="600" font-size="32" fill="#58C4DD" font-weight="700">Poseidon：总数 ≈ 5,500</text>
+          <rect id="si-b2" class="h" x="160" y="625" width="5" height="56" rx="2" fill="#58C4DD"/>
+          <text id="si-b2n" class="h" x="190" y="664" font-size="28" fill="#8a8f99">SHA-256 是它的两百多倍</text>
+        </g>
+        <g id="si-pt2">
+          <text id="si-q1" class="h mono" x="960" y="400" font-size="56" fill="#e8e6df" text-anchor="middle" font-weight="700">5,500 &lt; 2<tspan dy="-22" font-size="34">13</tspan><tspan dy="22"> = 8,192</tspan></text>
+          <text id="si-q2" class="h" x="960" y="520" font-size="48" fill="#83C167" text-anchor="middle" font-weight="700">→ pot13 或更大</text>
+          <text id="si-q3" class="h" x="960" y="590" font-size="28" fill="#8a8f99" text-anchor="middle">示例命令用 14</text>
+          <g id="si-w0" class="h"><rect id="si-w0r" x="560" y="690" width="160" height="80" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="640" y="744" font-size="40" fill="#e8e6df" text-anchor="middle">2<tspan dy="-16" font-size="28">11</tspan><tspan dy="16"></tspan></text></g><g id="si-w1" class="h"><rect id="si-w1r" x="760" y="690" width="160" height="80" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="840" y="744" font-size="40" fill="#e8e6df" text-anchor="middle">2<tspan dy="-16" font-size="28">12</tspan><tspan dy="16"></tspan></text></g><g id="si-w2" class="h"><rect id="si-w2r" x="960" y="690" width="160" height="80" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1040" y="744" font-size="40" fill="#e8e6df" text-anchor="middle">2<tspan dy="-16" font-size="28">13</tspan><tspan dy="16"></tspan></text></g><g id="si-w3" class="h"><rect id="si-w3r" x="1160" y="690" width="160" height="80" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1240" y="744" font-size="40" fill="#e8e6df" text-anchor="middle">2<tspan dy="-16" font-size="28">14</tspan><tspan dy="16"></tspan></text></g>
+        </g>
+        <g id="si-pf">
+          <g id="si-pta" class="h"><circle cx="377" cy="330" r="40" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="377" y="344" font-size="40" fill="#58C4DD" text-anchor="middle" font-weight="700">a</text></g><g id="si-ptb" class="h"><circle cx="752" cy="330" r="40" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="752" y="344" font-size="40" fill="#58C4DD" text-anchor="middle" font-weight="700">b</text></g><g id="si-ptc" class="h"><circle cx="1127" cy="330" r="40" fill="#58C4DD22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1127" y="344" font-size="40" fill="#58C4DD" text-anchor="middle" font-weight="700">c</text></g>
+          <path id="si-bra" class="dr" pathLength="1" d="M262 470 V450 H493 V470 M377 450 V372" stroke="#58C4DD" stroke-width="2.5" fill="none"/><path id="si-brb" class="dr" pathLength="1" d="M512 470 V450 H993 V470 M752 450 V372" stroke="#58C4DD" stroke-width="2.5" fill="none"/><path id="si-brc" class="dr" pathLength="1" d="M1012 470 V450 H1243 V470 M1127 450 V372" stroke="#58C4DD" stroke-width="2.5" fill="none"/>
+          <g id="si-u0" class="h"><rect x="260" y="480" width="110" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="315" y="530" font-size="28" fill="#e8e6df" text-anchor="middle">256 位</text></g><g id="si-u1" class="h"><rect x="385" y="480" width="110" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="440" y="530" font-size="28" fill="#e8e6df" text-anchor="middle">256 位</text></g><g id="si-u2" class="h"><rect x="510" y="480" width="110" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="565" y="530" font-size="28" fill="#e8e6df" text-anchor="middle">256 位</text></g><g id="si-u3" class="h"><rect x="635" y="480" width="110" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="690" y="530" font-size="28" fill="#e8e6df" text-anchor="middle">256 位</text></g><g id="si-u4" class="h"><rect x="760" y="480" width="110" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="815" y="530" font-size="28" fill="#e8e6df" text-anchor="middle">256 位</text></g><g id="si-u5" class="h"><rect x="885" y="480" width="110" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="940" y="530" font-size="28" fill="#e8e6df" text-anchor="middle">256 位</text></g><g id="si-u6" class="h"><rect x="1010" y="480" width="110" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="1065" y="530" font-size="28" fill="#e8e6df" text-anchor="middle">256 位</text></g><g id="si-u7" class="h"><rect x="1135" y="480" width="110" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2"/><text x="1190" y="530" font-size="28" fill="#e8e6df" text-anchor="middle">256 位</text></g>
+          <text id="si-sz" class="h" x="260" y="650" font-size="44" fill="#e8e6df" font-weight="700">8 × 32 字节 = 256 字节</text>
+          <text id="si-sz2" class="h" x="260" y="720" font-size="32" fill="#83C167">与组有多大无关</text>
+          <text id="si-ph" class="h" x="1420" y="300" font-size="32" fill="#58C4DD" font-weight="700">公开信号 × 4</text>
+          <g id="si-s0" class="h"><rect x="1420" y="330" width="380" height="70" rx="12" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1610" y="377" font-size="32" fill="#e8e6df" text-anchor="middle">root</text></g><g id="si-s1" class="h"><rect x="1420" y="420" width="380" height="70" rx="12" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1610" y="467" font-size="32" fill="#e8e6df" text-anchor="middle">nullifier</text></g><g id="si-s2" class="h"><rect x="1420" y="510" width="380" height="70" rx="12" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1610" y="557" font-size="32" fill="#e8e6df" text-anchor="middle">scope</text></g><g id="si-s3" class="h"><rect x="1420" y="600" width="380" height="70" rx="12" fill="#58C4DD18" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1610" y="647" font-size="32" fill="#e8e6df" text-anchor="middle">message</text></g>
+        </g>
+
+      </g>
+      <g id="si-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">认证路径 <tspan font-size="28" font-weight="400" fill="#8a8f99">Authentication path</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">从叶子到根每层的兄弟节点</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+
+IN("#si-cc", at(0, 0.05), 0.5, { y: 20 }, { y: 0 });
+ARROW("#si-ca", at(0, 0.2), 0.4);
+IN("#si-gc", at(0, 0.24), 0.5, { y: 20 }, { y: 0 });
+IN("#si-gp", at(0, 0.45), 0.4); IN("#si-gn", at(0, 0.72), 0.4);
+IN("#si-k0", at(0, 0.84), 0.3); IN("#si-k1", at(0, 0.88), 0.3); IN("#si-k2", at(0, 0.92), 0.3);
+IN("#si-alt", at(0, 0.6), 0.4);
+// L1
+OUT("#si-sel", at(1, 0.0), 0.4);
+IN("#si-e1", at(1, 0.06), 0.5);
+IN("#si-e2", at(1, 0.28), 0.5, { x: -20 }, { x: 0 });
+IN("#si-e3", at(1, 0.62), 0.5, { scale: 0.8, svgOrigin: "300 530" }, { scale: 1, svgOrigin: "300 530" });
+tl.fromTo(['#si-pc0', '#si-pc1', '#si-pc2', '#si-pc3', '#si-pc4', '#si-pc5', '#si-pc6', '#si-pc7', '#si-pc8', '#si-pc9', '#si-pc10', '#si-pc11', '#si-pc12', '#si-pc13', '#si-pc14', '#si-pc15', '#si-pc16', '#si-pc17', '#si-pc18', '#si-pc19'].reverse(), { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.06 }, at(1, 0.66));
+IN("#si-term", at(1, 0.76), 0.5);
+IN("#si-pt", at(1, 0.84), 0.4);
+// L2
+OUT("#si-term", at(2, 0.38), 0.4);
+OUT("#si-e1", at(2, 0.02), 0.3);
+tl.fromTo(['#si-pl0', '#si-pl1', '#si-pl2', '#si-pl3', '#si-pl4', '#si-pl5', '#si-pl6', '#si-pl7', '#si-pl8', '#si-pl9', '#si-pl10', '#si-pl11', '#si-pl12', '#si-pl13', '#si-pl14', '#si-pl15', '#si-pl16', '#si-pl17', '#si-pl18', '#si-pl19'].reverse(), { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.05 }, at(2, 0.1));
+IN("#si-inf", at(2, 0.25), 0.4);
+IN("#si-c1", at(2, 0.42), 0.4);
+COUNT("#si-cnt", 0, 4800, at(2, 0.44), 1.2, v => Math.round(v).toLocaleString("en-US"));
+IN("#si-c2", at(2, 0.66), 0.5);
+IN("#si-c3", at(2, 0.84), 0.5, { scale: 0.8, svgOrigin: "360 840" }, { scale: 1, svgOrigin: "360 840" });
+// L3 SHA bars
+OUT("#si-eq, #si-inf", at(3, 0.0), 0.4);
+IN("#si-bl1", at(3, 0.05), 0.4);
+IN("#si-b1", at(3, 0.3), 0.1);
+tl.fromTo("#si-b1", { attr: { width: 0 } }, { attr: { width: 450 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(3, 0.3));
+tl.to("#si-b1", { attr: { width: 900 }, duration: 1.0, ease: "power2.out" }, at(3, 0.55));
+IN("#si-bl1b", at(3, 0.58), 0.4);
+IN("#si-bl2", at(3, 0.78), 0.4); IN("#si-b2", at(3, 0.8), 0.4); IN("#si-b2n", at(3, 0.86), 0.4);
+// L4 ptau
+OUT("#si-bars, #si-path, #si-pt", at(4, 0.0), 0.4);
+tl.fromTo(["#si-w0", "#si-w1", "#si-w2", "#si-w3"], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.12, immediateRender: false }, at(4, 0.08));
+IN("#si-q1", at(4, 0.4), 0.5);
+tl.to("#si-w2r", { stroke: "#83C167", fill: "#83C16733", attr: { "stroke-width": 4 }, duration: 0.4 }, at(4, 0.6));
+tl.to("#si-w3r", { stroke: "#83C167", duration: 0.4 }, at(4, 0.66));
+IN("#si-q2", at(4, 0.7), 0.5); IN("#si-q3", at(4, 0.85), 0.4);
+// L5 proof size
+OUT("#si-pt2", at(5, 0.0), 0.4);
+tl.fromTo(["#si-pta", "#si-ptb", "#si-ptc"], { opacity: 0, scale: 0.6, svgOrigin: "752 330" }, { opacity: 1, scale: 1, svgOrigin: "752 330", duration: 0.4, stagger: 0.15, immediateRender: false }, at(5, 0.04));
+DRAW("#si-bra, #si-brb, #si-brc", at(5, 0.2), 0.5);
+tl.fromTo(['#si-u0', '#si-u1', '#si-u2', '#si-u3', '#si-u4', '#si-u5', '#si-u6', '#si-u7'], { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.07, immediateRender: false }, at(5, 0.24));
+IN("#si-sz", at(5, 0.42), 0.5);
+IN("#si-sz2", at(5, 0.56), 0.5);
+IN("#si-ph", at(5, 0.66), 0.4);
+tl.fromTo(["#si-s0", "#si-s1", "#si-s2", "#si-s3"], { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.35, stagger: 0.25, immediateRender: false }, at(5, 0.72));
+
+      /*ENDANIM*/
+
+      tl.to("#si-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#si-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["sizing"] = tl;
+    })();
+  </script>
+</template>

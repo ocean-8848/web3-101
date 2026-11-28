@@ -1,0 +1,156 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 circuit，id 前缀 ci- -->
+  <div id="root" data-composition-id="circuit" data-duration="60.62" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ci-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ci-all">
+
+        <g id="ci-A" class="h"><rect x="960" y="220" width="890" height="680" rx="16" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text id="ci-A0" class="mono" x="990" y="290" font-size="28" fill="#e8e6df" xml:space="preserve">template MerkleInclusion(DEPTH) {</text><text id="ci-A1" class="mono" x="990" y="330" font-size="28" fill="#e8e6df" xml:space="preserve">  signal input leaf;</text><text id="ci-A2" class="mono" x="990" y="370" font-size="28" fill="#e8e6df" xml:space="preserve">  signal input siblings[DEPTH];</text><text id="ci-A3" class="mono" x="990" y="410" font-size="28" fill="#e8e6df" xml:space="preserve">  signal input pathIndices[DEPTH];</text><text id="ci-A4" class="mono" x="990" y="450" font-size="28" fill="#e8e6df" xml:space="preserve">  ...</text></g>
+        <g id="ci-B" class="h"><rect x="960" y="220" width="890" height="680" rx="16" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><text id="ci-B0" class="mono" x="990" y="290" font-size="28" fill="#e8e6df" xml:space="preserve">  for (var i = 0; i &lt; DEPTH; i++) {</text><text id="ci-B1" class="mono" x="990" y="330" font-size="28" fill="#e8e6df" xml:space="preserve">    pathIndices[i] * (pathIndices[i] - 1) === 0;</text><text id="ci-B2" class="mono" x="990" y="370" font-size="28" fill="#e8e6df" xml:space="preserve">    left[i]  &lt;== cur[i]</text><text id="ci-B3" class="mono" x="990" y="410" font-size="28" fill="#e8e6df" xml:space="preserve">      + pathIndices[i] * (siblings[i] - cur[i]);</text><text id="ci-B4" class="mono" x="990" y="450" font-size="28" fill="#e8e6df" xml:space="preserve">    right[i] &lt;== siblings[i]</text><text id="ci-B5" class="mono" x="990" y="490" font-size="28" fill="#e8e6df" xml:space="preserve">      + pathIndices[i] * (cur[i] - siblings[i]);</text><text id="ci-B6" class="mono" x="990" y="530" font-size="28" fill="#e8e6df" xml:space="preserve">    h[i] = Poseidon(2);  // [left, right]</text><text id="ci-B7" class="mono" x="990" y="570" font-size="28" fill="#e8e6df" xml:space="preserve">    cur[i + 1] &lt;== h[i].out;</text><text id="ci-B8" class="mono" x="990" y="610" font-size="28" fill="#e8e6df" xml:space="preserve">  }</text><text id="ci-B9" class="mono" x="990" y="650" font-size="28" fill="#e8e6df" xml:space="preserve">  root &lt;== cur[DEPTH];</text><text id="ci-B10" class="mono" x="990" y="690" font-size="28" fill="#e8e6df" xml:space="preserve">}</text></g>
+        <g id="ci-hl" class="h"><rect id="ci-hlr" x="972" y="262" width="866" height="38" rx="6" fill="#58C4DD" fill-opacity="0.15"/><rect id="ci-hls" x="972" y="262" width="6" height="38" fill="#58C4DD"/></g>
+        <rect id="ci-gf" class="h" x="1044" y="300" width="766" height="40" rx="8" fill="none" stroke="#83C167" stroke-width="3.5"/>
+        <rect id="ci-rf" class="h" x="1044" y="300" width="766" height="40" rx="8" fill="none" stroke="#FC6255" stroke-width="3.5" stroke-dasharray="10 7"/>
+        <text id="ci-del" class="h" x="900" y="330" font-size="32" fill="#FC6255" text-anchor="end" font-weight="700">删掉 →</text>
+        <g id="ci-left">
+          <line id="ci-ldl" class="dr" pathLength="1" x1="140" y1="770" x2="140" y2="290" stroke="#58C4DD" stroke-width="2" opacity="0.5"/>
+          <circle id="ci-ld0" class="h" cx="140" cy="770" r="11" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><circle id="ci-ld1" class="h" cx="140" cy="650" r="11" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><circle id="ci-ld2" class="h" cx="140" cy="530" r="11" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><circle id="ci-ld3" class="h" cx="140" cy="410" r="11" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><circle id="ci-ld4" class="h" cx="140" cy="290" r="11" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <g id="ci-mv">
+            <g id="ci-ao"><g id="ci-a" class="h"><rect id="ci-ar" x="200" y="740" width="200" height="60" rx="12" fill="#58C4DD33" stroke="#58C4DD" stroke-width="3"/><text id="ci-at1" class="mono" x="300" y="780" font-size="28" fill="#e8e6df" text-anchor="middle">leaf</text><text id="ci-at2" class="h mono" x="300" y="780" font-size="28" fill="#e8e6df" text-anchor="middle">cur</text></g></g>
+            <g id="ci-bo"><g id="ci-b" class="h"><rect id="ci-br" x="460" y="740" width="200" height="60" rx="12" fill="#bfefff22" stroke="#bfefff" stroke-width="3"/><text class="mono" x="560" y="780" font-size="28" fill="#e8e6df" text-anchor="middle">sibling</text></g></g>
+          </g>
+          <text id="ci-sl" class="h mono" x="300" y="846" font-size="28" fill="#8a8f99" text-anchor="middle">left</text>
+          <text id="ci-sr" class="h mono" x="560" y="846" font-size="28" fill="#8a8f99" text-anchor="middle">right</text>
+          <g id="ci-bit" class="h"><circle id="ci-bitc" cx="770" cy="770" r="34" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+            <text id="ci-b0" class="mono" x="770" y="782" font-size="34" fill="#FF9F43" text-anchor="middle" font-weight="700">0</text><text id="ci-b1" class="h mono" x="770" y="782" font-size="34" fill="#FF9F43" text-anchor="middle" font-weight="700">1</text><text id="ci-b2" class="h mono" x="770" y="782" font-size="34" fill="#FC6255" text-anchor="middle" font-weight="700">2</text>
+            <text x="770" y="846" font-size="28" fill="#FF9F43" text-anchor="middle">方向</text></g>
+          <text id="ci-leg" class="h" x="200" y="925" font-size="28" fill="#8a8f99">方向 0：当前在左 · 1：当前在右</text>
+          <path id="ci-pa1" class="dr h" pathLength="1" d="M300 736 L392 654" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ci-arr)"/>
+          <path id="ci-pa2" class="dr h" pathLength="1" d="M560 736 L468 654" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ci-arr)"/>
+          <g id="ci-pos" class="h"><rect id="ci-pos-r" x="330" y="590" width="200" height="56" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="430" y="628" font-size="28" fill="#e8e6df" text-anchor="middle">Poseidon</text></g>
+          <path id="ci-pa3" class="dr h" pathLength="1" d="M430 586 V528" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ci-arr)"/>
+          <g id="ci-cur" class="h"><rect id="ci-cur-r" x="330" y="460" width="200" height="60" rx="12" fill="#58C4DD33" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="430" y="500" font-size="28" fill="#e8e6df" text-anchor="middle">cur[i+1]</text></g>
+          <g id="ci-root" class="h"><rect id="ci-root-r" x="330" y="260" width="200" height="60" rx="12" fill="#58C4DD44" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="430" y="300" font-size="28" fill="#e8e6df" text-anchor="middle">root</text></g>
+          <text id="ci-fake" class="h" x="550" y="300" font-size="32" fill="#FC6255" font-weight="700">伪造</text>
+          <text id="ci-eq1" class="h mono" x="200" y="560" font-size="44" fill="#e8e6df" font-weight="700">x · (x - 1) = 0</text>
+          <text id="ci-eq2" class="h mono" x="200" y="650" font-size="44" fill="#83C167" font-weight="700">⇒ x ∈ {0, 1}</text>
+          <g id="ci-xa" class="h"><rect id="ci-xa-r" x="200" y="740" width="200" height="60" rx="12" fill="#FC625522" stroke="#FC6255" stroke-width="3"/><text class="mono" x="300" y="780" font-size="28" fill="#e8e6df" text-anchor="middle">2·sib-cur</text></g>
+          <g id="ci-xb" class="h"><rect id="ci-xb-r" x="460" y="740" width="200" height="60" rx="12" fill="#FC625522" stroke="#FC6255" stroke-width="3"/><text class="mono" x="560" y="780" font-size="28" fill="#e8e6df" text-anchor="middle">2·cur-sib</text></g>
+        </g>
+        <text id="ci-repo" class="h" x="1405" y="960" font-size="28" fill="#8a8f99" text-anchor="middle">完整代码：视频简介里的仓库链接</text>
+
+      </g>
+      <g id="ci-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">欠约束 <tspan font-size="28" font-weight="400" fill="#8a8f99">Under-constrained</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">缺约束导致伪造证明成立</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+
+const Y0 = 290, PITCH = 40;
+const HL = (pid, i, n, t) => {
+  tl.to([`#${pid}-hlr`, `#${pid}-hls`], { attr: { y: Y0 - 28 + PITCH * i, height: PITCH * n - 2 }, duration: 0.35, ease: "power2.inOut" }, t);
+};
+const FOCUS = (pfx, count, i, n, t) => {
+  const on = [], off = [];
+  for (let k = 0; k < count; k++) (k >= i && k < i + n ? on : off).push(`#${pfx}${k}`);
+  if (on.length) tl.to(on, { opacity: 1, duration: 0.3 }, t);
+  if (off.length) tl.to(off, { opacity: 0.4, duration: 0.3 }, t);
+};
+
+IN("#ci-A", at(0, 0.02), 0.5);
+IN("#ci-hl", at(0, 0.05), 0.3);
+HL("ci", 1, 1, at(0, 0.3));
+IN("#ci-a", at(0, 0.32), 0.5, { y: 10 }, { y: 0 });
+HL("ci", 2, 1, at(0, 0.45));
+IN("#ci-b", at(0, 0.47), 0.5, { y: 10 }, { y: 0 });
+HL("ci", 3, 1, at(0, 0.64));
+IN("#ci-bit", at(0, 0.66), 0.5, { scale: 0.6, svgOrigin: "770 770" }, { scale: 1, svgOrigin: "770 770" });
+IN("#ci-leg", at(0, 0.78), 0.5);
+// L1 loop
+OUT("#ci-A", at(1, 0.0), 0.3);
+IN("#ci-B", at(1, 0.1), 0.4);
+HL("ci", 0, 1, at(1, 0.05));
+FOCUS("ci-B", 11, 0, 1, at(1, 0.1));
+DRAW("#ci-ldl", at(1, 0.2), 1.2);
+tl.fromTo(['#ci-ld0', '#ci-ld1', '#ci-ld2', '#ci-ld3', '#ci-ld4'], { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.25, immediateRender: false }, at(1, 0.2));
+// L2 selector
+HL("ci", 2, 4, at(2, 0.04)); FOCUS("ci-B", 11, 2, 4, at(2, 0.04));
+OUT("#ci-leg", at(2, 0.04), 0.3);
+IN("#ci-sl, #ci-sr", at(2, 0.25), 0.4);
+OUT("#ci-at1", at(2, 0.3), 0.2); IN("#ci-at2", at(2, 0.32), 0.3);
+tl.to("#ci-ar", { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.55));
+OUT("#ci-b0", at(2, 0.74), 0.2); IN("#ci-b1", at(2, 0.76), 0.3);
+tl.to("#ci-ao", { x: 260, duration: 0.6, ease: "power2.inOut" }, at(2, 0.8));
+tl.to("#ci-bo", { x: -260, duration: 0.6, ease: "power2.inOut" }, at(2, 0.8));
+// L3 Poseidon up
+HL("ci", 6, 2, at(3, 0.04)); FOCUS("ci-B", 11, 6, 2, at(3, 0.04));
+IN("#ci-pos", at(3, 0.08), 0.4);
+ARROW("#ci-pa1", at(3, 0.12), 0.4); ARROW("#ci-pa2", at(3, 0.12), 0.4);
+tl.to("#ci-mv", { y: -130, opacity: 0, duration: 0.6, ease: "power2.in" }, at(3, 0.28));
+ARROW("#ci-pa3", at(3, 0.38), 0.3);
+IN("#ci-cur", at(3, 0.42), 0.4, { y: 20 }, { y: 0 });
+tl.to("#ci-ld1", { fill: "#58C4DD", duration: 0.3 }, at(3, 0.45));
+HL("ci", 9, 1, at(3, 0.7)); FOCUS("ci-B", 11, 9, 1, at(3, 0.7));
+OUT("#ci-pos, #ci-pa1, #ci-pa2, #ci-pa3", at(3, 0.68), 0.3);
+tl.to("#ci-cur", { y: -200, opacity: 0, duration: 0.6, ease: "power2.inOut" }, at(3, 0.72));
+IN("#ci-root", at(3, 0.8), 0.4);
+tl.to(['#ci-ld0', '#ci-ld1', '#ci-ld2', '#ci-ld3', '#ci-ld4'], { fill: "#58C4DD", duration: 0.2, stagger: 0.1 }, at(3, 0.74));
+// L4 boolean constraint
+OUT("#ci-sl, #ci-sr, #ci-bit, #ci-ldl, #ci-ld0, #ci-ld1, #ci-ld2, #ci-ld3, #ci-ld4", at(4, 0.02), 0.4);
+HL("ci", 1, 1, at(4, 0.04)); FOCUS("ci-B", 11, 1, 1, at(4, 0.04));
+IN("#ci-gf", at(4, 0.08), 0.4, { scale: 1.08, svgOrigin: "1380 321" }, { scale: 1, svgOrigin: "1380 321" });
+IN("#ci-eq1", at(4, 0.3), 0.5, { x: -20 }, { x: 0 });
+IN("#ci-eq2", at(4, 0.7), 0.5, { x: -20 }, { x: 0 });
+// L5 under-constrained
+OUT("#ci-gf", at(5, 0.04), 0.2); IN("#ci-rf", at(5, 0.06), 0.3); IN("#ci-del", at(5, 0.08), 0.3);
+tl.to("#ci-B1", { opacity: 0.25, duration: 0.3 }, at(5, 0.1));
+OUT("#ci-eq1, #ci-eq2", at(5, 0.1), 0.3);
+OUT("#ci-b1", at(5, 0.18), 0.01); IN("#ci-b2", at(5, 0.2), 0.3);
+tl.to("#ci-bitc", { stroke: "#FC6255", duration: 0.01 }, at(5, 0.18));
+IN("#ci-bit", at(5, 0.2), 0.4);
+IN("#ci-xa, #ci-xb", at(5, 0.38), 0.5);
+tl.to("#ci-root-r", { stroke: "#FC6255", fill: "#FC625533", duration: 0.4 }, at(5, 0.6));
+IN("#ci-fake", at(5, 0.62), 0.4);
+IN("#ci-term", at(5, 0.84), 0.5);
+// L6
+IN("#ci-repo", at(6, 0.1), 0.5);
+tl.to("#ci-hl", { opacity: 0, duration: 0.4 }, at(6, 0.1));
+FOCUS("ci-B", 11, 0, 11, at(6, 0.1));
+
+      /*ENDANIM*/
+
+      tl.to("#ci-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ci-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["circuit"] = tl;
+    })();
+  </script>
+</template>

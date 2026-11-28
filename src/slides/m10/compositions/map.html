@@ -1,0 +1,259 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 map，id 前缀 ma- -->
+  <div id="root" data-composition-id="map" data-duration="57.76" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ma-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ma-all">
+        <!-- 连线 -->
+        <g fill="none" stroke="#6b6f7a" stroke-width="2.5">
+          <path id="ma-ln1" class="dr" pathLength="1" d="M710 260 H460 V410" />
+          <path id="ma-ln2" class="dr" pathLength="1" d="M1140 300 V410" />
+          <path id="ma-ln3" class="dr" pathLength="1" d="M1210 260 H1590 V410" />
+          <path id="ma-ln4" class="dr" pathLength="1" d="M460 830 V880" />
+          <path id="ma-ln5" class="dr" pathLength="1" d="M840 830 V880" />
+          <path id="ma-ln6" class="dr" pathLength="1" d="M1590 830 V880" />
+        </g>
+        <!-- 必修节点 -->
+        <g id="ma-reqbox" class="h">
+          <rect x="710" y="220" width="500" height="80" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+          <rect id="ma-glow" x="710" y="220" width="500" height="80" rx="16" fill="#83C167" opacity="0" />
+        </g>
+        <text id="ma-req0" class="h" x="960" y="273" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">必修</text>
+        <text id="ma-req1" class="h" x="960" y="273" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">零知识证明直觉</text>
+        <g id="ma-st" class="h">
+          <rect x="725" y="325" width="150" height="50" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2" />
+          <text x="800" y="360" font-size="28" fill="#58C4DD" text-anchor="middle">公开陈述</text>
+        </g>
+        <g id="ma-wt" class="h">
+          <rect x="895" y="325" width="150" height="50" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2" />
+          <text x="970" y="360" font-size="28" fill="#FF9F43" text-anchor="middle">私有见证</text>
+        </g>
+        <!-- 三组选修区 -->
+        <rect id="ma-g1" class="h" x="140" y="410" width="640" height="420" rx="18" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="10 8" />
+        <rect id="ma-g2" class="h" x="810" y="410" width="560" height="420" rx="18" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="10 8" />
+        <rect id="ma-g3" class="h" x="1400" y="410" width="380" height="420" rx="18" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="10 8" />
+        <text id="ma-g1h" class="h" x="170" y="458" font-size="30" fill="#8a8f99">原理与动手</text>
+        <text id="ma-g2h" class="h" x="840" y="458" font-size="30" fill="#8a8f99">应用</text>
+        <text id="ma-g3h" class="h" x="1430" y="458" font-size="30" fill="#8a8f99">拓宽视野</text>
+        <!-- G1：SNARK 与 STARK -->
+        <g id="ma-snark" class="h">
+          <rect x="170" y="480" width="300" height="56" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="320" y="518" font-size="28" fill="#e8e6df" text-anchor="middle">SNARK 与 STARK</text>
+        </g>
+        <g id="ma-grid">
+          <g class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">
+            <text id="ma-col0" class="h" x="300" y="590">Groth16</text>
+            <text id="ma-col1" class="h" x="430" y="590">PLONK</text>
+            <text id="ma-col2" class="h" x="555" y="590">STARK</text>
+            <text id="ma-col3" class="h" x="685" y="590">zkVM</text>
+          </g>
+          <g id="ma-cells" class="h" fill="none" stroke="#6b6f7a" stroke-width="1.5" stroke-dasharray="4 4">
+            <rect x="250" y="611" width="100" height="28" rx="5" /><rect x="380" y="611" width="100" height="28" rx="5" /><rect x="505" y="611" width="100" height="28" rx="5" /><rect x="635" y="611" width="100" height="28" rx="5" />
+            <rect x="250" y="648" width="100" height="28" rx="5" /><rect x="380" y="648" width="100" height="28" rx="5" /><rect x="505" y="648" width="100" height="28" rx="5" /><rect x="635" y="648" width="100" height="28" rx="5" />
+            <rect x="250" y="685" width="100" height="28" rx="5" /><rect x="380" y="685" width="100" height="28" rx="5" /><rect x="505" y="685" width="100" height="28" rx="5" /><rect x="635" y="685" width="100" height="28" rx="5" />
+            <rect x="250" y="722" width="100" height="28" rx="5" /><rect x="380" y="722" width="100" height="28" rx="5" /><rect x="505" y="722" width="100" height="28" rx="5" /><rect x="635" y="722" width="100" height="28" rx="5" />
+          </g>
+          <g fill="none" stroke="#8a8f99" stroke-width="2">
+            <!-- 证明大小 -->
+            <g id="ma-ic0" class="h"><rect x="188" y="612" width="26" height="26" rx="3" /><rect x="195" y="619" width="12" height="12" rx="2" fill="#8a8f99" /></g>
+            <!-- Gas -->
+            <path id="ma-ic1" class="h" d="M201 648 C210 660, 213 666, 213 670 A12 12 0 0 1 189 670 C189 666, 192 660, 201 648 Z" />
+            <!-- 可信设置（钥匙） -->
+            <g id="ma-ic2" class="h"><circle cx="194" cy="699" r="7" /><path d="M201 699 H216 M211 699 V706 M216 699 V705" /></g>
+            <!-- 抗量子（原子） -->
+            <g id="ma-ic3" class="h"><ellipse cx="201" cy="736" rx="14" ry="5" /><ellipse cx="201" cy="736" rx="5" ry="14" /><circle cx="201" cy="736" r="2.5" fill="#8a8f99" /></g>
+          </g>
+        </g>
+        <!-- G1：第一个电路 -->
+        <g id="ma-cir" class="h">
+          <rect x="170" y="560" width="200" height="56" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="270" y="598" font-size="28" fill="#e8e6df" text-anchor="middle">第一个电路</text>
+        </g>
+        <g class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">
+          <g id="ma-c1" class="h"><rect x="170" y="650" width="130" height="55" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" /><text x="235" y="687">Circom</text></g>
+          <g id="ma-c2" class="h"><rect x="348" y="650" width="148" height="55" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" /><text x="422" y="687">snarkjs</text></g>
+          <g id="ma-c3" class="h"><rect x="544" y="650" width="148" height="55" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2" /><text x="618" y="687">Foundry</text></g>
+        </g>
+        <g fill="none" stroke="#e8e6df" stroke-width="2.5">
+          <path id="ma-a1" class="dr h" pathLength="1" d="M306 677 H340" marker-end="url(#ma-arr)" />
+          <path id="ma-a2" class="dr h" pathLength="1" d="M502 677 H536" marker-end="url(#ma-arr)" />
+        </g>
+        <g id="ma-ctr" class="h" fill="none" stroke="#83C167" stroke-width="2">
+          <rect x="714" y="650" width="40" height="52" rx="4" fill="#161a22" />
+          <path d="M722 664 H746 M722 676 H746 M722 688 H738" />
+        </g>
+        <path id="ma-chk" class="dr" pathLength="1" d="M718 734 L730 746 L752 722" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        <g id="ma-wires" class="h" fill="none" stroke="#58C4DD" stroke-width="2.5">
+          <path d="M180 765 H490" />
+          <path d="M180 795 H320 M352 795 H490" />
+          <circle cx="250" cy="765" r="5" fill="#58C4DD" /><circle cx="420" cy="765" r="5" fill="#58C4DD" /><circle cx="250" cy="795" r="5" fill="#58C4DD" /><circle cx="420" cy="795" r="5" fill="#58C4DD" />
+        </g>
+        <g id="ma-gap" class="h" stroke="#FC6255" stroke-width="3" fill="none">
+          <path d="M320 783 V807 M352 783 V807" />
+          <path d="M326 795 H346" stroke-dasharray="4 4" />
+        </g>
+        <!-- G2：应用 -->
+        <g id="ma-zkevm" class="h">
+          <rect x="840" y="480" width="340" height="56" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1010" y="518" font-size="28" fill="#e8e6df" text-anchor="middle">zkEVM 与 ZK Rollup</text>
+        </g>
+        <path id="ma-rlink" class="h" d="M1186 508 H1219" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="6 5" />
+        <g id="ma-rup" class="h">
+          <rect x="1225" y="480" width="130" height="56" rx="8" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1290" y="518" font-size="28" fill="#58C4DD" text-anchor="middle">Rollup</text>
+        </g>
+        <g id="ma-prv" class="h">
+          <rect x="840" y="580" width="300" height="56" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+          <text x="990" y="618" font-size="28" fill="#e8e6df" text-anchor="middle">隐私协议与合规边界</text>
+        </g>
+        <path id="ma-tl" class="dr" pathLength="1" d="M870 662 V800" fill="none" stroke="#FF9F43" stroke-width="2.5" />
+        <g font-size="28" fill="#e8e6df">
+          <g id="ma-t1" class="h"><circle cx="870" cy="680" r="7" fill="#FF9F43" /><text x="895" y="690">Zcash</text></g>
+          <g id="ma-t2" class="h"><circle cx="870" cy="735" r="7" fill="#FF9F43" /><text x="895" y="745">Tornado Cash</text></g>
+          <g id="ma-t3" class="h"><circle cx="870" cy="790" r="7" fill="#FF9F43" /><text x="895" y="800">Privacy Pools</text></g>
+        </g>
+        <!-- G3：拓宽视野 -->
+        <g class="mono" font-size="30" text-anchor="middle">
+          <g id="ma-mpc" class="h"><rect x="1430" y="485" width="155" height="60" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="1507" y="525" fill="#e8e6df">MPC</text></g>
+          <g id="ma-fhe" class="h"><rect x="1605" y="485" width="155" height="60" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="1682" y="525" fill="#e8e6df">FHE</text></g>
+          <g id="ma-tee" class="h"><rect x="1430" y="575" width="155" height="60" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="1507" y="615" fill="#e8e6df">TEE</text></g>
+          <g id="ma-zk" class="h"><rect id="ma-zkr" x="1605" y="575" width="155" height="60" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1682" y="615" fill="#58C4DD">ZK</text></g>
+        </g>
+        <text id="ma-fit" class="h" x="1595" y="710" font-size="28" fill="#8a8f99" text-anchor="middle">各适合什么场景</text>
+        <!-- 实战与回顾 -->
+        <g id="ma-pracbox" class="h">
+          <rect id="ma-pracr" x="420" y="880" width="440" height="70" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+        </g>
+        <text id="ma-prac0" class="h" x="640" y="926" font-size="32" fill="#8a8f99" text-anchor="middle">实战</text>
+        <text id="ma-prac1" class="h" x="640" y="926" font-size="30" fill="#e8e6df" text-anchor="middle">实战 · Merkle 成员证明</text>
+        <g id="ma-rev" class="h">
+          <rect x="1500" y="880" width="180" height="70" rx="35" fill="#161a22" stroke="#8a8f99" stroke-width="2" />
+          <text x="1590" y="926" font-size="32" fill="#8a8f99" text-anchor="middle">回顾</text>
+        </g>
+        <!-- Merkle 小树 -->
+        <g fill="none" stroke="#58C4DD" stroke-width="2">
+          <path id="ma-e1" class="dr" pathLength="1" d="M1070 880 L990 935 M1070 880 L1150 935" />
+          <path id="ma-e2" class="dr" pathLength="1" d="M990 935 L950 995 M990 935 L1030 995 M1150 935 L1110 995 M1150 935 L1190 995" />
+        </g>
+        <g id="ma-mkn" class="h" fill="#161a22" stroke="#58C4DD" stroke-width="2.5">
+          <circle cx="1070" cy="880" r="10" fill="#58C4DD" />
+          <circle cx="990" cy="935" r="10" /><circle cx="1150" cy="935" r="10" />
+          <circle cx="950" cy="995" r="10" /><circle cx="1030" cy="995" r="10" /><circle cx="1190" cy="995" r="10" />
+        </g>
+        <g id="ma-anon" class="h" fill="#161a22" stroke="#83C167" stroke-width="2.5">
+          <circle cx="1110" cy="986" r="9" />
+          <path d="M1094 1012 Q1110 992 1126 1012 Z" fill="#83C167" fill-opacity="0.3" />
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ma-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">欠约束 <tspan font-size="28" font-weight="400" fill="#8a8f99">Under-constrained</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">电路少写约束，非法输入也能过</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const POP = (s, t, ox, oy, d = 0.5) => IN(s, t, d, { scale: 0.85, svgOrigin: `${ox} ${oy}` }, { scale: 1, svgOrigin: `${ox} ${oy}`, ease: "back.out(1.8)" });
+      // L0 骨架：必修 → 三组选修 → 实战，回顾在最右
+      POP("#ma-reqbox", at(0, 0), 960, 260, 0.6);
+      IN("#ma-req0", at(0, 0.05), 0.5);
+      DRAW("#ma-ln1, #ma-ln2, #ma-ln3", at(0, 0.22), 0.6);
+      IN("#ma-g1", at(0, 0.38), 0.5); IN("#ma-g2", at(0, 0.45), 0.5); IN("#ma-g3", at(0, 0.52), 0.5);
+      DRAW("#ma-ln4, #ma-ln5, #ma-ln6", at(0, 0.62), 0.4);
+      IN("#ma-pracbox, #ma-prac0", at(0, 0.7), 0.5);
+      IN("#ma-rev", at(0, 0.82), 0.5);
+      // L1 必修：零知识证明直觉；公开陈述 / 私有见证
+      OUT("#ma-req0", at(1, 0), 0.3);
+      IN("#ma-req1", at(1, 0) + 0.35, 0.5);
+      tl.to("#ma-glow", { opacity: 0.15, duration: 0.6 }, at(1, 0.05));
+      IN("#ma-st", at(1, 0.42), 0.5, { y: -12 }, { y: 0 });
+      IN("#ma-wt", at(1, 0.62), 0.5, { y: -12 }, { y: 0 });
+      tl.to("#ma-glow", { opacity: 0.3, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.85));
+      // L2 第一组：SNARK 与 STARK，四列迷你对照
+      tl.to("#ma-g1", { stroke: "#e8e6df", duration: 0.4 }, at(2, 0));
+      IN("#ma-g1h", at(2, 0.02), 0.5);
+      POP("#ma-snark", at(2, 0.2), 320, 508);
+      IN("#ma-col0", at(2, 0.36), 0.4); IN("#ma-col1", at(2, 0.42), 0.4); IN("#ma-col2", at(2, 0.48), 0.4); IN("#ma-col3", at(2, 0.53), 0.4);
+      IN("#ma-cells", at(2, 0.58), 0.5);
+      IN("#ma-ic0", at(2, 0.62), 0.4, { x: -10 }, { x: 0 });
+      IN("#ma-ic1", at(2, 0.72), 0.4, { x: -10 }, { x: 0 });
+      IN("#ma-ic2", at(2, 0.82), 0.4, { x: -10 }, { x: 0 });
+      IN("#ma-ic3", at(2, 0.9), 0.4, { x: -10 }, { x: 0 });
+      // L3 第一个电路：Circom → snarkjs → Foundry；欠约束
+      OUT("#ma-grid", at(3, 0), 0.4);
+      IN("#ma-term", at(3, 0.02), 0.5);
+      POP("#ma-cir", at(3, 0) + 0.45, 270, 588);
+      IN("#ma-c1", at(3, 0.2), 0.4, { x: -12 }, { x: 0 });
+      ARROW("#ma-a1", at(3, 0.27), 0.4);
+      IN("#ma-c2", at(3, 0.32), 0.4, { x: -12 }, { x: 0 });
+      ARROW("#ma-a2", at(3, 0.44), 0.4);
+      IN("#ma-c3", at(3, 0.5), 0.4, { x: -12 }, { x: 0 });
+      IN("#ma-ctr", at(3, 0.6), 0.4);
+      DRAW("#ma-chk", at(3, 0.66), 0.4);
+      IN("#ma-wires", at(3, 0.74), 0.4);
+      IN("#ma-gap", at(3, 0.82), 0.15);
+      tl.to("#ma-gap", { opacity: 0.2, duration: 0.18, yoyo: true, repeat: 3 }, at(3, 0.82) + 0.2);
+      OUT("#ma-term", at(3, 0.02) + 7.1, 0.4);
+      // L4 第二组：应用
+      tl.to("#ma-g1", { stroke: "#8a8f99", duration: 0.4 }, at(4, 0));
+      tl.to("#ma-g2", { stroke: "#e8e6df", duration: 0.4 }, at(4, 0));
+      IN("#ma-g2h", at(4, 0.02), 0.5);
+      POP("#ma-zkevm", at(4, 0.1), 1010, 508);
+      IN("#ma-rlink", at(4, 0.27), 0.3);
+      IN("#ma-rup", at(4, 0.3), 0.5, { x: -14 }, { x: 0 });
+      POP("#ma-prv", at(4, 0.45), 990, 608);
+      DRAW("#ma-tl", at(4, 0.58), 0.6);
+      IN("#ma-t1", at(4, 0.64), 0.4, { x: -10 }, { x: 0 });
+      IN("#ma-t2", at(4, 0.74), 0.4, { x: -10 }, { x: 0 });
+      IN("#ma-t3", at(4, 0.86), 0.4, { x: -10 }, { x: 0 });
+      // L5 第三组：MPC / FHE / TEE 与 ZK；实战 Merkle 成员证明
+      tl.to("#ma-g2", { stroke: "#8a8f99", duration: 0.4 }, at(5, 0));
+      tl.to("#ma-g3", { stroke: "#e8e6df", duration: 0.4 }, at(5, 0));
+      IN("#ma-g3h", at(5, 0.02), 0.5);
+      POP("#ma-mpc", at(5, 0.06), 1507, 515); POP("#ma-fhe", at(5, 0.1), 1682, 515); POP("#ma-tee", at(5, 0.14), 1507, 605);
+      POP("#ma-zk", at(5, 0.24), 1682, 605);
+      tl.to("#ma-zkr", { attr: { "stroke-width": 5 }, duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.3));
+      IN("#ma-fit", at(5, 0.36), 0.5);
+      tl.to("#ma-g3", { stroke: "#8a8f99", duration: 0.4 }, at(5, 0.58));
+      tl.to("#ma-pracr", { stroke: "#83C167", duration: 0.4 }, at(5, 0.6));
+      tl.to("#ma-ln4, #ma-ln5", { stroke: "#83C167", duration: 0.4 }, at(5, 0.6));
+      OUT("#ma-prac0", at(5, 0.6), 0.3);
+      IN("#ma-prac1", at(5, 0.6) + 0.35, 0.5);
+      DRAW("#ma-e1", at(5, 0.68), 0.4); DRAW("#ma-e2", at(5, 0.71), 0.5);
+      IN("#ma-mkn", at(5, 0.7), 0.5);
+      POP("#ma-anon", at(5, 0.84), 1110, 998);
+
+
+      tl.to("#ma-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ma-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["map"] = tl;
+    })();
+  </script>
+</template>

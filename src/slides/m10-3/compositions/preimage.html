@@ -1,0 +1,171 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 preimage，id 前缀 pr- -->
+  <div id="root" data-composition-id="preimage" data-duration="62.48" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pr-all">
+
+        <g id="pr-intro">
+          <text id="pr-st" class="h" x="960" y="310" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">我知道 <tspan class="pr-sx">x</tspan>，使 Poseidon(<tspan class="pr-sx">x</tspan>) = <tspan class="pr-sh">h</tspan></text>
+          <g id="pr-key" class="h">
+            <circle cx="1450" cy="292" r="16" fill="none" stroke="#FF9F43" stroke-width="4"/>
+            <path d="M1466 292 H1506 M1494 292 V306 M1506 292 V306" fill="none" stroke="#FF9F43" stroke-width="4"/>
+            <text x="1526" y="304" font-size="32" fill="#FF9F43">我知道密码</text>
+          </g>
+          <text id="pr-sub" class="h" x="960" y="404" font-size="30" fill="#8a8f99" text-anchor="middle">匿名成员证明的基础构件</text>
+          <g id="pr-bars" class="h">
+            <text x="560" y="482" font-size="30" fill="#8a8f99">电路内的约束数</text>
+            <text class="mono" x="530" y="542" font-size="30" fill="#58C4DD" text-anchor="end">Poseidon</text><rect id="pr-bar1" x="560" y="510" width="0" height="44" rx="8" fill="#58C4DD"/>
+            <text class="mono" x="530" y="622" font-size="30" fill="#8a8f99" text-anchor="end">SHA-256</text><rect id="pr-bar2" x="560" y="590" width="0" height="44" rx="8" fill="#8a8f99"/>
+            <text class="mono" x="530" y="702" font-size="30" fill="#8a8f99" text-anchor="end">Keccak</text><rect id="pr-bar3" x="560" y="670" width="0" height="44" rx="8" fill="#8a8f99"/>
+          </g>
+        </g>
+        <g id="pr-main">
+          <g id="pr-panel" class="h">
+            <rect x="100" y="220" width="860" height="430" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+            <rect id="pr-hl" class="h" x="112" y="250" width="836" height="40" rx="6" fill="rgba(88,196,221,.15)"/>
+            <rect id="pr-hl2" class="h" x="112" y="250" width="836" height="40" rx="6" fill="rgba(88,196,221,.15)"/>
+            <text class="mono" xml:space="preserve" x="130" y="280" font-size="28" fill="#e8e6df">include "circomlib/circuits/poseidon.circom";</text>
+<text class="mono" xml:space="preserve" x="130" y="322" font-size="28" fill="#e8e6df">template Preimage() {</text>
+<text class="mono" xml:space="preserve" x="130" y="364" font-size="28" fill="#e8e6df">    signal input x;</text>
+<text class="mono" xml:space="preserve" x="130" y="406" font-size="28" fill="#e8e6df">    signal input h;</text>
+<text class="mono" xml:space="preserve" x="130" y="448" font-size="28" fill="#e8e6df">    component hasher = Poseidon(1);</text>
+<text class="mono" xml:space="preserve" x="130" y="490" font-size="28" fill="#e8e6df">    hasher.inputs[0] <tspan fill="#83C167" font-weight="700">&lt;==</tspan> x;</text>
+<text class="mono" xml:space="preserve" x="130" y="532" font-size="28" fill="#e8e6df">    h <tspan fill="#58C4DD" font-weight="700">===</tspan> hasher.out;</text>
+<text class="mono" xml:space="preserve" x="130" y="574" font-size="28" fill="#e8e6df">}</text>
+<text class="mono" xml:space="preserve" x="130" y="616" font-size="28" fill="#e8e6df">component main {public [h]} = Preimage();</text>
+            <text x="520" y="364" font-size="28" font-weight="700" fill="#FF9F43">私有</text>
+            <text x="520" y="406" font-size="28" font-weight="700" fill="#83C167">公开</text>
+          </g>
+          <g id="pr-g" class="h">
+            <circle cx="1120" cy="330" r="40" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text class="mono" x="1120" y="343" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">x</text>
+            <path d="M1162 330 H1240" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pr-arr)"/>
+            <rect x="1250" y="290" width="240" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1370" y="341" font-size="30" fill="#58C4DD" text-anchor="middle">Poseidon</text>
+            <path d="M1494 330 H1586" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pr-arr)"/>
+            <circle cx="1640" cy="330" r="46" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1640" y="340" font-size="28" fill="#58C4DD" text-anchor="middle">out</text>
+          </g>
+          <g id="pr-hc" class="h"><circle cx="1640" cy="500" r="40" fill="#161a22" stroke="#83C167" stroke-width="3"/><text class="mono" x="1640" y="513" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">h</text></g>
+          <g id="pr-chain" class="h"><path d="M1622 408 H1658 M1622 424 H1658" fill="none" stroke="#58C4DD" stroke-width="5" stroke-linecap="round"/></g>
+          <g id="pr-bd" class="h"><rect x="1080" y="460" width="200" height="80" rx="40" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1180" y="516" font-size="48" font-weight="700" fill="#58C4DD" text-anchor="middle">===</text></g>
+          <text id="pr-only" class="h" x="1300" y="513" font-size="36" font-weight="700" fill="#58C4DD">只约束</text>
+          <g id="pr-cols" class="h">
+            <text x="1100" y="640" font-size="32" font-weight="700" fill="#83C167">公开</text>
+            <text x="1400" y="640" font-size="32" font-weight="700" fill="#FF9F43">见证</text>
+            <path d="M1100 660 H1300 M1400 660 H1600" fill="none" stroke="#6b6f7a" stroke-width="2"/>
+          </g>
+          <g id="pr-ph" class="h"><text class="mono" x="1120" y="730" font-size="44" font-weight="700" fill="#83C167">h</text></g>
+          <g id="pr-px" class="h"><text class="mono" x="1420" y="730" font-size="44" font-weight="700" fill="#FF9F43">x</text></g>
+          <g id="pr-cmd" class="h"><rect x="100" y="690" width="860" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+            <text class="mono" xml:space="preserve" x="130" y="740" font-size="28" fill="#e8e6df">circom preimage.circom ... <tspan id="pr-lopt">-l</tspan> node_modules</text></g>
+          <path id="pr-lk" class="dr h" pathLength="1" d="M600 774 V794" fill="none" stroke="#FF9F43" stroke-width="2.5"/>
+          <text id="pr-ll" class="h" x="600" y="832" font-size="28" fill="#FF9F43" text-anchor="middle">去哪找电路库</text>
+        </g>
+        <g id="pr-js" class="h">
+          <rect x="100" y="240" width="1000" height="300" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <rect id="pr-jh" class="h" x="112" y="355" width="976" height="40" rx="6" fill="rgba(88,196,221,.15)"/>
+          <rect id="pr-jh2" class="h" x="112" y="439" width="976" height="40" rx="6" fill="rgba(88,196,221,.15)"/>
+          <text class="mono" xml:space="preserve" x="130" y="300" font-size="28" fill="#e8e6df">const { buildPoseidon } = require('circomlibjs');</text>
+<text class="mono" xml:space="preserve" x="130" y="342" font-size="28" fill="#e8e6df">(async () =&gt; {</text>
+<text class="mono" xml:space="preserve" x="130" y="384" font-size="28" fill="#e8e6df">  const poseidon = await buildPoseidon();</text>
+<text class="mono" xml:space="preserve" x="130" y="426" font-size="28" fill="#e8e6df">  const x = 123456789n;</text>
+<text class="mono" xml:space="preserve" x="130" y="468" font-size="28" fill="#e8e6df">  const h = poseidon.F.toString(poseidon([x]));</text>
+<text class="mono" xml:space="preserve" x="130" y="510" font-size="28" fill="#e8e6df">  fs.writeFileSync('input.json', ...);</text>
+        </g>
+        <text id="pr-same" class="h" x="600" y="612" font-size="30" fill="#8a8f99" text-anchor="middle">和电路里是同一种 Poseidon</text>
+        <path id="pr-ja" class="dr h" pathLength="1" d="M1106 425 H1210" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#pr-arr)"/>
+        <g id="pr-in" class="h">
+          <text class="mono" x="1220" y="350" font-size="28" fill="#8a8f99">input.json</text>
+          <rect x="1220" y="370" width="560" height="110" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+          <text class="mono" x="1500" y="442" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">{ <tspan fill="#FF9F43">x</tspan>, <tspan fill="#83C167">h</tspan> }</text>
+        </g>
+      </g>
+      <g id="pr-term">
+        <g id="pr-t1" class="h">
+          <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Poseidon</text>
+          <text x="100" y="160" font-size="28" fill="#e8e6df">为零知识电路设计的哈希函数</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const B = (i) => 280 + 42 * i;
+      const HL = (s, i, n, t) => { tl.to(s, { attr: { y: B(i) - 30, height: 42 * n - 2 }, duration: 0.35, ease: "power2.inOut" }, t); tl.to(s, { opacity: 1, duration: 0.3 }, t); };
+      // L0
+      IN("#pr-st", at(0, 0.05), 0.7, { y: 16 }, { y: 0 });
+      tl.to(".pr-sx", { fill: "#FF9F43", duration: 0.4 }, at(0, 0.5));
+      tl.to(".pr-sh", { fill: "#83C167", duration: 0.4 }, at(0, 0.8));
+      // L1
+      IN("#pr-key", at(1, 0.05), 0.5, { x: -20 }, { x: 0 });
+      IN("#pr-sub", at(1, 0.55), 0.5);
+      // L2
+      IN("#pr-t1", at(2, 0.04), 0.5);
+      IN("#pr-bars", at(2, 0.3), 0.4);
+      tl.to("#pr-bar1", { attr: { width: 160 }, duration: 0.6, ease: "power2.out" }, at(2, 0.35));
+      tl.to("#pr-bar2", { attr: { width: 1100 }, duration: 1.0, ease: "power2.out" }, at(2, 0.55));
+      tl.to("#pr-bar3", { attr: { width: 1000 }, duration: 1.0, ease: "power2.out" }, at(2, 0.68));
+      OUT("#pr-t1", at(2, 0.95), 0.35);
+      // L3
+      OUT("#pr-intro", at(3, 0.0), 0.4);
+      IN("#pr-panel", at(3, 0.06), 0.6, { y: 16 }, { y: 0 });
+      HL("#pr-hl", 0, 1, at(3, 0.45));
+      HL("#pr-hl2", 4, 2, at(3, 0.7));
+      IN("#pr-g", at(3, 0.75), 0.5);
+      // L4
+      OUT("#pr-hl", at(4, 0.0), 0.3);
+      HL("#pr-hl2", 6, 1, at(4, 0.05));
+      IN("#pr-bd", at(4, 0.35), 0.5, { scale: 0.4, svgOrigin: "1180 500" }, { scale: 1, svgOrigin: "1180 500", ease: "back.out(2)" });
+      IN("#pr-only", at(4, 0.45), 0.4);
+      IN("#pr-hc", at(4, 0.62), 0.4);
+      IN("#pr-chain", at(4, 0.72), 0.4, { scale: 0.3, svgOrigin: "1640 416" }, { scale: 1, svgOrigin: "1640 416" });
+      // L5
+      HL("#pr-hl2", 8, 1, at(5, 0.02));
+      IN("#pr-cols", at(5, 0.12), 0.4);
+      IN("#pr-ph", at(5, 0.2), 0.8, { x: 520, y: -230 }, { x: 0, y: 0 });
+      IN("#pr-px", at(5, 0.3), 0.8, { x: -300, y: -400 }, { x: 0, y: 0 });
+      IN("#pr-cmd", at(5, 0.6), 0.5);
+      tl.to("#pr-lopt", { fill: "#FF9F43", duration: 0.3 }, at(5, 0.78));
+      DRAW("#pr-lk", at(5, 0.78), 0.3); tl.set("#pr-lk", { opacity: 1 }, at(5, 0.78));
+      IN("#pr-ll", at(5, 0.8), 0.4);
+      // L6
+      OUT("#pr-main", at(6, 0.0), 0.45);
+      IN("#pr-js", at(6, 0.08), 0.6, { y: 16 }, { y: 0 });
+      IN("#pr-same", at(6, 0.3), 0.5);
+      IN("#pr-jh", at(6, 0.42), 0.4);
+      IN("#pr-jh2", at(6, 0.58), 0.4);
+      ARROW("#pr-ja", at(6, 0.72), 0.4);
+      IN("#pr-in", at(6, 0.78), 0.5, { x: -20 }, { x: 0 });
+
+      tl.to("#pr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#pr-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["preimage"] = tl;
+    })();
+  </script>
+</template>

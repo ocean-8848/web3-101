@@ -1,0 +1,141 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 schnorr，id 前缀 sc- -->
+  <div id="root" data-composition-id="schnorr" data-duration="84.7" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sc-all">
+
+        <text id="sc-title" class="h" x="960" y="140" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">Schnorr：我知道 <tspan fill="#F0B90B">x</tspan>，使 <tspan fill="#58C4DD">y = g<tspan baseline-shift="super" font-size="28">x</tspan> mod p</tspan></text>
+        <text id="sc-tap" class="h" x="1820" y="1020" font-size="28" fill="#8a8f99" text-anchor="end">Taproot · Schnorr 签名</text>
+        <g id="sc-par" class="h"><rect x="640" y="178" width="640" height="84" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <text class="mono" x="960" y="233" font-size="38" fill="#e8e6df" text-anchor="middle">p = 23   g = 2   q = 11</text></g>
+        <text id="sc-mod" class="h mono" x="960" y="320" font-size="30" fill="#e8e6df" text-anchor="middle">2¹¹ mod 23 = 1</text>
+        <text id="sc-ex" class="h mono" x="80" y="320" font-size="28" fill="#8a8f99">17 mod 5 = 2</text>
+        <text id="sc-tag" class="h" x="1840" y="320" font-size="28" fill="#6b6f7a" text-anchor="end">示例 · 真实系统 256 位</text>
+        <g id="sc-hl" class="h"><text x="120" y="410" font-size="40" font-weight="700" fill="#F0B90B">证明者</text>
+          <line x1="120" y1="432" x2="720" y2="432" stroke="#F0B90B" stroke-width="2" opacity="0.5"/></g>
+        <g id="sc-hr" class="h"><text x="1200" y="410" font-size="40" font-weight="700" fill="#B48EF0">验证者</text>
+          <line x1="1200" y1="432" x2="1800" y2="432" stroke="#B48EF0" stroke-width="2" opacity="0.5"/></g>
+        <g id="sc-left">
+          <g id="sc-x" class="h"><circle cx="156" cy="470" r="17" fill="none" stroke="#F0B90B" stroke-width="5"/>
+            <path d="M173 470 L222 470 M206 470 L206 484 M216 470 L216 482" stroke="#F0B90B" stroke-width="5" fill="none"/>
+            <text class="mono" x="240" y="484" font-size="40" font-weight="700" fill="#F0B90B">x = 6</text></g>
+          <text id="sc-xn" class="h" x="420" y="482" font-size="28" fill="#8a8f99">永不发送</text>
+          <text id="sc-rt" class="h mono" x="130" y="612" font-size="32" fill="#e8e6df"><tspan fill="#F0B90B">r = 4</tspan> → t = 2⁴ mod 23 = 16</text>
+          <text id="sc-s1" class="h mono" x="130" y="780" font-size="32" fill="#e8e6df">s = (4 + 2×6) mod 11</text>
+          <text id="sc-s2" class="h mono" x="207" y="830" font-size="32" fill="#e8e6df">= 16 mod 11 = <tspan fill="#F0B90B" font-weight="700">5</tspan></text>
+          <path id="sc-g1" class="dr" pathLength="1" d="M140 574 Q216 536 292 574" fill="none" stroke="#F0B90B" stroke-width="2"/>
+          <path id="sc-g2" class="dr" pathLength="1" d="M141 626 L141 750" fill="none" stroke="#F0B90B" stroke-width="2"/>
+        </g>
+        <g id="sc-mask" class="h"><rect x="110" y="450" width="620" height="420" rx="16" fill="#161a22" stroke="#6b6f7a" stroke-width="2" stroke-dasharray="10 8"/>
+          <text x="420" y="674" font-size="40" fill="#6b6f7a" text-anchor="middle">看不见</text></g>
+        <path id="sc-a1" class="dr h" pathLength="1" d="M764 600 L1156 600" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#sc-arr)"/>
+        <text id="sc-l1" class="h mono" x="960" y="578" font-size="32" fill="#F0B90B" text-anchor="middle">t = 16</text>
+        <path id="sc-a2" class="dr h" pathLength="1" d="M1156 690 L764 690" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#sc-arr)"/>
+        <text id="sc-l2" class="h mono" x="960" y="668" font-size="32" fill="#FF9F43" text-anchor="middle">c = 2</text>
+        <path id="sc-a3" class="dr h" pathLength="1" d="M764 790 L1156 790" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#sc-arr)"/>
+        <text id="sc-l3" class="h mono" x="960" y="768" font-size="32" fill="#F0B90B" text-anchor="middle">s = 5</text>
+        <text id="sc-y1" class="h mono" x="1210" y="484" font-size="32" fill="#58C4DD">y = 2⁶ mod 23</text>
+        <text id="sc-pub" class="h" x="1800" y="484" font-size="28" fill="#58C4DD" text-anchor="end">公开</text>
+        <text id="sc-y2" class="h mono" x="1210" y="534" font-size="32" fill="#58C4DD">= 64 mod 23 = </text>
+        <text id="sc-yv" class="h mono" x="1479" y="534" font-size="32" font-weight="700" fill="#58C4DD">18</text>
+        <g id="sc-dice" class="h"><g id="sc-dicei"><rect x="1220" y="660" width="60" height="60" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+          <g class="sc-f5" opacity="1"><circle cx="1236" cy="676" r="5" fill="#FF9F43"/><circle cx="1264" cy="676" r="5" fill="#FF9F43"/><circle cx="1250" cy="690" r="5" fill="#FF9F43"/><circle cx="1236" cy="704" r="5" fill="#FF9F43"/><circle cx="1264" cy="704" r="5" fill="#FF9F43"/></g><g class="sc-f3" opacity="0"><circle cx="1236" cy="676" r="5" fill="#FF9F43"/><circle cx="1250" cy="690" r="5" fill="#FF9F43"/><circle cx="1264" cy="704" r="5" fill="#FF9F43"/></g><g class="sc-f2" opacity="0"><circle cx="1236" cy="676" r="5" fill="#FF9F43"/><circle cx="1264" cy="704" r="5" fill="#FF9F43"/></g></g></g>
+        <g id="sc-ver">
+          <text id="sc-v1" class="h mono" x="1210" y="806" font-size="32" fill="#e8e6df">2⁵ mod 23 = 32 mod 23 = <tspan id="sc-n1" font-weight="700">9</tspan></text>
+          <text id="sc-v2" class="h mono" x="1210" y="866" font-size="32" fill="#e8e6df">16 × 18² mod 23</text>
+          <text id="sc-v3" class="h mono" x="1210" y="916" font-size="32" fill="#e8e6df">= 16 × 2 mod 23 = <tspan id="sc-n2" font-weight="700">9</tspan></text>
+          <text id="sc-v4" class="h mono" x="1210" y="964" font-size="28" fill="#8a8f99">324 mod 23 = 2</text>
+          <g id="sc-ok" class="h"><text x="1740" y="884" font-size="80" font-weight="700" fill="#83C167" text-anchor="middle">✓</text>
+            <text x="1740" y="944" font-size="36" fill="#83C167" text-anchor="middle">接受</text></g>
+        </g>
+        <text id="sc-nox" class="h" x="1800" y="410" font-size="36" font-weight="700" fill="#FC6255" text-anchor="end">算不出 x</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // L0 title
+      IN("#sc-title", at(0, 0.05), 0.7, { y: 16 }, { y: 0 });
+      IN("#sc-hl", at(0, 0.4), 0.5, { x: -20 }, { x: 0 });
+      IN("#sc-hr", at(0, 0.5), 0.5, { x: 20 }, { x: 0 });
+      IN("#sc-tap", at(0, 0.78), 0.5);
+      // L1 parameters
+      IN("#sc-tag", at(1, 0.05), 0.5);
+      IN("#sc-ex", at(1, 0.18), 0.5);
+      IN("#sc-par", at(1, 0.4), 0.6, { scale: 0.92, svgOrigin: "960 220" }, { scale: 1, svgOrigin: "960 220" });
+      IN("#sc-mod", at(1, 0.72), 0.5, { y: -10 }, { y: 0 });
+      // L2 x and y
+      IN("#sc-x", at(2, 0.05), 0.6, { x: -20 }, { x: 0 });
+      IN("#sc-xn", at(2, 0.2), 0.4);
+      IN("#sc-y1", at(2, 0.42), 0.5);
+      IN("#sc-y2", at(2, 0.58), 0.4);
+      IN("#sc-yv", at(2, 0.66), 0.4, { scale: 1.5, svgOrigin: "1498 524" }, { scale: 1, svgOrigin: "1498 524" });
+      IN("#sc-pub", at(2, 0.82), 0.4);
+      // L3 commitment
+      IN("#sc-rt", at(3, 0.1), 0.6, { x: -16 }, { x: 0 });
+      ARROW("#sc-a1", at(3, 0.66), 0.7);
+      IN("#sc-l1", at(3, 0.72), 0.4);
+      // L4 challenge
+      IN("#sc-dice", at(4, 0.0), 0.3);
+      tl.fromTo("#sc-dicei", { rotation: 0 }, { rotation: 720, svgOrigin: "1250 690", duration: 1.2, ease: "power2.out", immediateRender: false }, at(4, 0.02));
+      tl.set(".sc-f5", { opacity: 0 }, at(4, 0.02) + 0.4); tl.set(".sc-f3", { opacity: 1 }, at(4, 0.02) + 0.4);
+      tl.set(".sc-f3", { opacity: 0 }, at(4, 0.02) + 0.8); tl.set(".sc-f2", { opacity: 1 }, at(4, 0.02) + 0.8);
+      ARROW("#sc-a2", at(4, 0.4), 0.7);
+      IN("#sc-l2", at(4, 0.48), 0.4);
+      // L5 response
+      IN("#sc-s1", at(5, 0.1), 0.5, { x: -16 }, { x: 0 });
+      IN("#sc-s2", at(5, 0.5), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#sc-a3", at(5, 0.76), 0.7);
+      IN("#sc-l3", at(5, 0.82), 0.4);
+      // L6 verify
+      IN("#sc-v1", at(6, 0.04), 0.5);
+      tl.to("#sc-n1", { fill: "#83C167", duration: 0.3 }, at(6, 0.22));
+      IN("#sc-v2", at(6, 0.32), 0.5);
+      IN("#sc-v4", at(6, 0.5), 0.5);
+      IN("#sc-v3", at(6, 0.66), 0.5);
+      tl.to("#sc-n2", { fill: "#83C167", duration: 0.3 }, at(6, 0.84));
+      IN("#sc-ok", at(6, 0.88), 0.5, { scale: 0.6, svgOrigin: "1740 860" }, { scale: 1, svgOrigin: "1740 860" });
+      // L7 only t, c, s visible; r hides x
+      OUT("#sc-ver, #sc-dice", at(7, 0.0), 0.4);
+      tl.to("#sc-l1, #sc-l2, #sc-l3", { scale: 1.15, svgOrigin: "960 680", duration: 0.3, yoyo: true, repeat: 1 }, at(7, 0.08));
+      DRAW("#sc-g1", at(7, 0.3), 0.6);
+      DRAW("#sc-g2", at(7, 0.38), 0.6);
+      OUT("#sc-left", at(7, 0.58), 0.4);
+      IN("#sc-mask", at(7, 0.62), 0.5);
+      IN("#sc-nox", at(7, 0.78), 0.5, { x: 20 }, { x: 0 });
+
+
+      tl.to("#sc-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["schnorr"] = tl;
+    })();
+  </script>
+</template>

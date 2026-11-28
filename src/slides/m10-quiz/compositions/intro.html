@@ -1,0 +1,186 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 intro，id 前缀 in- -->
+  <div id="root" data-composition-id="intro" data-duration="42.3" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="in-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="in-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+        <marker id="in-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+      </defs>
+      <g id="in-all">
+        <!-- L0–L1：合约 + 证明 + 放款 -->
+        <g id="in-s1">
+          <g id="in-proof" class="h">
+            <rect x="220" y="450" width="260" height="120" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="350" y="522" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">证明</text>
+          </g>
+          <path id="in-a1" class="dr h" pathLength="1" d="M490 510 L748 510" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#in-arr)" />
+          <g id="in-ct" class="h">
+            <rect id="in-ct-box" x="760" y="380" width="400" height="260" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="960" y="490" font-size="42" font-weight="700" fill="#e8e6df" text-anchor="middle">合约</text>
+            <text class="mono" x="960" y="565" font-size="30" fill="#58C4DD" text-anchor="middle">verifyProof()</text>
+          </g>
+          <text id="in-true" class="h mono" x="960" y="352" font-size="48" font-weight="700" fill="#83C167" text-anchor="middle">true</text>
+          <path id="in-a2" class="dr h" pathLength="1" d="M1170 510 L1468 510" fill="none" stroke="#F0B90B" stroke-width="3" marker-end="url(#in-arrG)" />
+          <text id="in-pay" class="h" x="1320" y="575" font-size="32" fill="#F0B90B" text-anchor="middle">放款</text>
+          <text id="in-qm" class="h" x="1320" y="476" font-size="110" font-weight="700" fill="#FF9F43" text-anchor="middle">?</text>
+          <g id="in-coins" class="h">
+            <ellipse cx="1620" cy="560" rx="80" ry="24" fill="#F0B90B" fill-opacity="0.25" stroke="#F0B90B" stroke-width="3" />
+            <ellipse cx="1620" cy="525" rx="80" ry="24" fill="#F0B90B" fill-opacity="0.25" stroke="#F0B90B" stroke-width="3" />
+            <ellipse cx="1620" cy="490" rx="80" ry="24" fill="#F0B90B" fill-opacity="0.25" stroke="#F0B90B" stroke-width="3" />
+            <text class="mono" x="1620" y="640" font-size="30" fill="#F0B90B" text-anchor="middle">ETH</text>
+          </g>
+          <g id="in-banner" class="h">
+            <rect x="560" y="196" width="800" height="84" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="960" y="252" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">只证明规则被执行</text>
+          </g>
+          <g id="in-r1" class="h">
+            <rect x="560" y="720" width="360" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="740" y="783" font-size="36" fill="#e8e6df" text-anchor="middle">规则写全<tspan fill="#FF9F43" font-weight="700">？</tspan></text>
+          </g>
+          <g id="in-r2" class="h">
+            <rect x="1000" y="720" width="360" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1180" y="783" font-size="36" fill="#e8e6df" text-anchor="middle">输入可信<tspan fill="#FF9F43" font-weight="700">？</tspan></text>
+          </g>
+        </g>
+
+        <!-- L2–L3：草稿 + 封条 -->
+        <g id="in-s2">
+          <g id="in-draft" class="h">
+            <rect x="792" y="268" width="400" height="500" rx="10" fill="#161a22" stroke="#4a4f59" stroke-width="2" />
+            <rect x="776" y="284" width="400" height="500" rx="10" fill="#161a22" stroke="#5a5f69" stroke-width="2" />
+            <rect x="760" y="300" width="400" height="500" rx="10" fill="#1b1f27" stroke="#8a8f99" stroke-width="2.5" />
+            <rect x="800" y="354" width="300" height="12" rx="6" fill="#4a4f59" />
+            <rect x="800" y="414" width="250" height="12" rx="6" fill="#4a4f59" />
+            <rect x="800" y="474" width="320" height="12" rx="6" fill="#4a4f59" />
+            <rect id="in-row4" x="800" y="534" width="280" height="12" rx="6" fill="#4a4f59" />
+            <rect x="800" y="594" width="230" height="12" rx="6" fill="#4a4f59" />
+            <rect x="800" y="654" width="300" height="12" rx="6" fill="#4a4f59" />
+            <rect x="800" y="714" width="200" height="12" rx="6" fill="#4a4f59" />
+          </g>
+          <rect id="in-gap" class="h" x="800" y="526" width="280" height="28" rx="6" fill="none" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 8" />
+          <rect id="in-cover" class="h" x="760" y="300" width="400" height="500" rx="10" fill="#262c37" stroke="#8a8f99" stroke-width="2.5" />
+          <g id="in-ver" class="h">
+            <circle cx="1560" cy="470" r="36" fill="none" stroke="#e8e6df" stroke-width="4" />
+            <path d="M1560 506 L1560 600 M1510 545 L1610 545 M1560 600 L1522 670 M1560 600 L1598 670" fill="none" stroke="#e8e6df" stroke-width="4" stroke-linecap="round" />
+            <text x="1560" y="728" font-size="30" fill="#e8e6df" text-anchor="middle">验证者</text>
+          </g>
+          <path id="in-sight" class="dr" pathLength="1" d="M1518 486 L1262 690" fill="none" stroke="#8a8f99" stroke-width="2.5" />
+          <path id="in-chk" class="h" d="M1622 420 L1644 444 L1684 396" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          <g id="in-sealO">
+            <g id="in-seal" class="h">
+              <circle cx="1170" cy="740" r="92" fill="#0f1117" stroke="#83C167" stroke-width="6" />
+              <circle cx="1170" cy="740" r="74" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="2" />
+              <text x="1170" y="753" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">封条</text>
+            </g>
+          </g>
+          <path id="in-fa" class="dr h" pathLength="1" d="M300 700 L748 700" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#in-arrR)" />
+          <text id="in-fal" class="h" x="520" y="668" font-size="32" fill="#FC6255" text-anchor="middle">假输入</text>
+        </g>
+
+        <!-- L4：四段轨道 -->
+        <g id="in-s3">
+          <rect id="in-tk1" class="dr" pathLength="1" x="120" y="500" width="420" height="80" rx="40" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <rect id="in-tk2" class="dr" pathLength="1" x="560" y="500" width="420" height="80" rx="40" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <rect id="in-tk3" class="dr" pathLength="1" x="1000" y="500" width="420" height="80" rx="40" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <rect id="in-tk4" class="dr" pathLength="1" x="1440" y="500" width="420" height="80" rx="40" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <g id="in-req" class="h">
+            <rect x="120" y="420" width="120" height="54" rx="12" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2.5" />
+            <text x="180" y="458" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">必修</text>
+          </g>
+          <circle id="in-dot" class="h" cx="170" cy="540" r="14" fill="#58C4DD" />
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="in-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">数学封条 <tspan font-size="28" font-weight="400" fill="#8a8f99">零知识证明</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">很小、验得快，看不到里面的草稿</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const STAMP = (t) => IN("#in-seal", t, 0.35, { scale: 1.6, svgOrigin: "1170 740" }, { scale: 1, svgOrigin: "1170 740", ease: "back.out(2)" });
+
+      // L0 合约收到证明，返回 true；放款打问号
+      IN("#in-ct", at(0, 0.02), 0.6, { y: 20 }, { y: 0 });
+      IN("#in-proof", at(0, 0.12), 0.7, { x: -260 }, { x: 0 });
+      ARROW("#in-a1", at(0, 0.24), 0.5);
+      tl.to("#in-ct-box", { stroke: "#83C167", duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.36));
+      IN("#in-true", at(0, 0.4), 0.5, { y: 16 }, { y: 0 });
+      IN("#in-coins", at(0, 0.55), 0.5, { y: -20 }, { y: 0 });
+      ARROW("#in-a2", at(0, 0.66), 0.5); IN("#in-pay", at(0, 0.68), 0.4);
+      IN("#in-qm", at(0, 0.78), 0.5, { scale: 0.4, svgOrigin: "1320 440" }, { scale: 1, svgOrigin: "1320 440", ease: "back.out(2)" });
+
+      // L1 问号 → 横幅；两个灰框
+      OUT("#in-qm", at(1, 0.05), 0.3);
+      IN("#in-banner", at(1, 0.1), 0.6, { y: 30 }, { y: 0 });
+      IN("#in-r1", at(1, 0.6), 0.5, { y: 20 }, { y: 0 });
+      IN("#in-r2", at(1, 0.76), 0.5, { y: 20 }, { y: 0 });
+      tl.to("#in-a2, #in-pay", { opacity: 0.35, duration: 0.4 }, at(1, 0.9));
+
+      // L2 一摞草稿 + 封条 + 验证者
+      OUT("#in-s1", at(2, 0.0), 0.4);
+      IN("#in-draft", at(2, 0.06), 0.6, { y: 30 }, { y: 0 });
+      IN("#in-term", at(2, 0.3), 0.5);
+      STAMP(at(2, 0.42));
+      IN("#in-ver", at(2, 0.58), 0.5, { x: 30 }, { x: 0 });
+      DRAW("#in-sight", at(2, 0.64), 0.5);
+      IN("#in-chk", at(2, 0.72), 0.3, { scale: 0.3, svgOrigin: "1650 420" }, { scale: 1, svgOrigin: "1650 420" });
+      IN("#in-cover", at(2, 0.84), 0.5);
+
+      // L3 少一条约束 / 假输入，封条照样盖
+      OUT("#in-term", at(3, 0.0), 0.3);
+      OUT("#in-cover, #in-seal, #in-chk", at(3, 0.02), 0.4);
+      tl.set("#in-sight", { strokeDashoffset: 1 }, at(3, 0.06));
+      OUT("#in-row4", at(3, 0.18), 0.3);
+      IN("#in-gap", at(3, 0.2), 0.4);
+      tl.to("#in-gap", { opacity: 0.3, duration: 0.3, yoyo: true, repeat: 3 }, at(3, 0.3));
+      ARROW("#in-fa", at(3, 0.5), 0.6); IN("#in-fal", at(3, 0.52), 0.4);
+      STAMP(at(3, 0.8));
+      DRAW("#in-sight", at(3, 0.86), 0.4);
+      IN("#in-chk", at(3, 0.9), 0.3, { scale: 0.3, svgOrigin: "1650 420" }, { scale: 1, svgOrigin: "1650 420" });
+
+      // L4 清空，四段轨道
+      OUT("#in-s2", at(4, 0.0), 0.4);
+      DRAW("#in-tk1", at(4, 0.08), 0.6);
+      IN("#in-req", at(4, 0.16), 0.4, { y: 10 }, { y: 0 });
+      DRAW("#in-tk2", at(4, 0.24), 0.6);
+      DRAW("#in-tk3", at(4, 0.36), 0.6);
+      DRAW("#in-tk4", at(4, 0.48), 0.6);
+      IN("#in-dot", at(4, 0.62), 0.3);
+      tl.to("#in-dot", { attr: { cx: 1810 }, duration: 2.0, ease: "power1.inOut" }, at(4, 0.66));
+
+      tl.to("#in-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#in-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["intro"] = tl;
+    })();
+  </script>
+</template>
