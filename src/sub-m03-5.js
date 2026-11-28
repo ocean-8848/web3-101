@@ -5,12 +5,12 @@ addCh({ id: 'm03-60', nav: '嵌入式钱包与 Passkey', title: 'M08.12 嵌入�
 <h1>M08.12 嵌入式钱包与 Passkey：WebAuthn、RIP-7212 与无助记词体验</h1>
 ${meta([
   '拆解嵌入式钱包（Embedded Wallet）消除“安装插件 + 抄 12 个助记词”门槛的两条技术路线：Shamir/MPC 分片 vs TEE 隔离执行。',
-  '理解 Passkey（WebAuthn / FIDO2）为何使用 secp256r1（P-256）曲线，以及 RIP-7212 预编译合约如何把链上验签 Gas 压低百倍。',
+  '理解 Passkey（WebAuthn / FIDO2）为何使用 secp256r1（P-256）曲线，以及 RIP-7212 / EIP-7951 预编译合约如何把链上验签 Gas 压低几十倍。',
   '对比 Privy、Turnkey、Dynamic 等主流方案的信任边界、导出私钥能力与防厂商锁定策略。',
   '为 C 端消费级 DApp 设计兼具“Web2 登录丝滑体验”与“自托管安全底线”的账号恢复与会话方案。'
 ], '前置：<a href="#m03-1">M08.1 钱包分类全景</a>、<a href="#m03-5">M08.5 MPC 与门限签名</a>、<a href="#m06-5">M08.8 账户抽象深入</a>')}
 ${beginner(`<p><strong>嵌入式钱包（Embedded Wallet）</strong>：直接内嵌在 App 或网页里的钱包。用户用邮箱、手机号、Google 账号或 FaceID 一键登录，后台在几秒内静默生成链上地址，全程不弹 MetaMask 插件也不逼用户抄助记词。</p>
-<p><strong>Passkey（通行密钥）</strong>：苹果、谷歌、微软联合推广的无密码标准（基于 WebAuthn/FIDO2），私钥生成并锁死在手机安全芯片（Secure Enclave）里，靠指纹或面容解锁签名。</p>
+<p><strong>Passkey（通行密钥）</strong>：苹果、谷歌、微软联合推广的无密码标准（基于 WebAuthn/FIDO2），私钥存放在设备的安全硬件（如 Secure Enclave）或系统密码管理器中，靠指纹或面容解锁签名。设备绑定型 Passkey 不出设备；同步型 Passkey（如 iCloud 钥匙串、Google 密码管理器）由系统密码管理器端到端加密同步到同账号的其他设备。</p>
 <p><strong>RIP-7212</strong>：以太坊 L2 广泛采纳的 Rollup 改进提案，在预编译地址 <code>0x100</code> 提供原生 P-256（secp256r1）曲线验签，让智能合约钱包能极低成本直接验证手机 Passkey 签名。</p>`)}
 
 <h2>1. 一句话理解</h2>
@@ -18,7 +18,7 @@ ${one('嵌入式钱包用“社交/邮箱登录 + 分片或 TEE 安全屋”把�
 ${call('analogy', `<p>传统助记词钱包像发给每个新顾客一把机械保险柜钥匙和一张手写密码纸，丢了纸钱就永远没了；嵌入式钱包像高端酒店的“人脸识别 + 电子房卡”：前台（服务商）手里只有半把验证凭证，手机芯片里锁着另半把，刷脸就能进门，而且真的换手机了还能走多因素认证重配房卡。</p>
 <p>比喻的局限：一旦“登录方式”绑定了邮箱、手机号或某家钱包 SDK，就必须回答两个尖锐问题——“服务商跑路或倒闭了，用户还能把资产导出来吗？”以及“用户邮箱被盗了，黑客会不会顺手转空钱包？”</p>`)}
 ${art('一图看懂：嵌入式钱包的两条主流密钥架构与 Passkey 链上验签', 660, 320, [
-  S.zone(15, 18, 305, 150, { t: '路线 A：分片 / MPC（如 Privy / Web3Auth）', k: 'info' }),
+  S.zone(15, 18, 305, 150, { t: '路线 A：分片 / MPC（如早期 Privy、Web3Auth）', k: 'info' }),
   S.box(28, 50, 128, 52, { k: 'info', icon: 'phone', t: '设备分片', s: '存浏览器 / App 本地' }),
   S.box(178, 50, 128, 52, { k: 'warn', icon: 'cloud', t: '鉴权分片', s: 'OAuth/短信验真下发' }),
   S.box(28, 112, 278, 44, { k: 'key', t: '客户端隔离 iframe 内临时重组（2/3 门限）', s: '签完立刻从内存销毁，支持导出完整私钥' }),
@@ -31,42 +31,50 @@ ${art('一图看懂：嵌入式钱包的两条主流密钥架构与 Passkey 链�
 ], [
   ['flow', '三条路线都让用户告别抄写 12 个助记词，但私钥存在哪里、谁能协助恢复完全不同。'],
   ['key', '路线 A 与 B 生成标准 secp256k1 / Ed25519 地址，天然兼容比特币、以太坊与 Solana；路线 C 依赖智能合约钱包与链上 P-256 验签。'],
-  ['risk', '若路线 A 把“设备分片”和“邮箱登录恢复分片”都放在同一台未加 PIN 的手机上，手机解锁即等同资产暴露。']
+  ['risk', '若路线 A 把“设备分片”和“邮箱登录恢复分片”都放在同一台未加 PIN 的手机上，手机解锁即等同资产暴露。'],
+  ['limit', '厂商架构会变：截至 2026 年，Privy（2025-06 被 Stripe 收购）已改为在 AWS Nitro TEE 内生成私钥、拆成 Shamir 2-of-2 分片并在 TEE 内拼合签名，属于“分片 + TEE”混合架构，不再是客户端 iframe 重组的典型；Web3Auth 已于 2025-06 被 Consensys 收购并入 MetaMask；Dynamic 已于 2025-10 被 Fireblocks 收购。以各家官方文档为准。']
 ], '对比三种无助记词架构：左上是客户端分片重组，右上是 Passkey 鉴权加 AWS Nitro TEE 飞地签名，下方是 ERC-4337 加 RIP-7212 预编译纯链上 Passkey 验签', 'm03-60')}
 
 <h2>2. 三种无助记词架构深度对比</h2>
 ${tbl(['维度', 'Shamir / MPC 分片嵌入式钱包', 'TEE 硬件飞地签名（如 Turnkey）', '纯链上 Passkey 智能合约钱包'], [
   ['<strong>底层密码学</strong>', 'Shamir 秘密共享（2/3）或门限 MPC，产出标准 EOA 私钥', '私钥生存在 AWS Nitro 等 TEE 飞地内，外部用 Passkey/API 鉴权触发签名', '手机芯片生成 P-256（secp256r1）密钥对，合约链上直接验签'],
-  ['<strong>多链兼容性</strong>', '极强（可同时派生 EVM、Solana、BTC 地址）', '极强（飞地内支持任意曲线签名）', '仅支持具备账户抽象与 P-256 验签的 EVM 链（L2 / 支持 RIP-7212 链）'],
-  ['<strong>单笔验签成本</strong>', '与普通 EOA 完全相同', '与普通 EOA 完全相同', '接入 RIP-7212 预编译后仅约 3,450 Gas（纯 Solidity 验签需 20–30 万 Gas）'],
+  ['<strong>多链兼容性</strong>', '极强（可同时派生 EVM、Solana、BTC 地址）', '极强（飞地内支持任意曲线签名）', '仅支持具备账户抽象与 P-256 验签的 EVM 链（支持 RIP-7212 的 L2，以及 Fusaka 后的以太坊主网：EIP-7951，Gas 定价不同，以官方为准）'],
+  ['<strong>单笔验签成本</strong>', '与普通 EOA 完全相同', '与普通 EOA 完全相同', '接入 0x100 预编译后仅约 3,450–6,900 Gas（RIP-7212 原定 3,450；EIP-7951 主网及多数二层现为 6,900，以官方为准），纯 Solidity 验签需 20–30 万 Gas'],
   ['<strong>防厂商锁定</strong>', '允许用户在隔离 iframe 导出明文私钥迁移至 MetaMask', '支持加密信道导出私钥到用户本地', '完全去中心化，即使前端关停仍可直接调用链上合约操作'],
   ['<strong>核心风险点</strong>', '前端域名/iframe 供应链攻击、单点社交账号被盗', 'TEE 硬件侧信道漏洞与飞地代码远程证明（Attestation）校验', '换生态丢 Passkey（如 iOS 换安卓未备份）且未配守护者时可能锁死']
 ])}
 
 <h2>3. 为什么 RIP-7212 是 Passkey 钱包的分水岭？</h2>
-${recall('<p>以太坊用 <strong>secp256k1</strong> 曲线（见 <a href="#m00-3">M00.3</a>），手机安全芯片与 WebAuthn 只原生支持 <strong>secp256r1（P-256）</strong>，所以 Passkey 只能做智能账户的签名者。纯 Solidity 验一次 P-256 签名要 20–30 万 Gas；RIP-7212 在预编译地址 <code>0x100</code> 提供 <code>P256VERIFY</code>，约 3,450 Gas，多条主流 L2 已支持（以太坊侧对应 EIP-7951）。WebAuthn 签名在 <code>validateUserOp</code> 里怎样逐项校验（challenge、authenticatorData 标志）以及设备丢失的恢复设计，见 <a href="#m06-5">M08.8 账户抽象深入</a>第 6 节。</p>')}
+${recall('<p>以太坊用 <strong>secp256k1</strong> 曲线（见 <a href="#m00-3">M00.3</a>），手机安全芯片只支持 <strong>secp256r1（P-256）</strong>，主流平台的 Passkey 也用 P-256（ES256）签名（WebAuthn 标准本身还支持 EdDSA、RS256 等算法），两者都不支持 secp256k1，所以 Passkey 只能做智能账户的签名者。纯 Solidity 验一次 P-256 签名要 20–30 万 Gas；RIP-7212 在预编译地址 <code>0x100</code> 提供 <code>P256VERIFY</code>，原定约 3,450 Gas，多条主流 L2 已支持；以太坊主网于 2025-12-03 随 Fusaka 升级上线 EIP-7951，同在 <code>0x100</code>，定价 6,900 Gas，Base（2026-05-28 Azul 升级）等二层已跟进改为 6,900，价格以各链官方文档为准。按 3,450 算便宜约 58–87 倍，按 6,900 算约 29–43 倍，都是几十倍。WebAuthn 签名在 <code>validateUserOp</code> 里怎样逐项校验（challenge、authenticatorData 标志）以及设备丢失的恢复设计，见 <a href="#m06-5">M08.8 账户抽象深入</a>第 6 节。</p>')}
 <p>本节只看它对产品选型的意义：有了低成本链上验签，“刷 FaceID 直接发交易”的纯链上 Passkey 钱包才真正可用，这正是上表第三列方案成立的前提。</p>
 
 ${mm('Passkey + RIP-7212 智能合约钱包验签流程', `
 sequenceDiagram
   participant U as 用户（FaceID）
+  participant A as App / 钱包前端
   participant S as 手机安全芯片（P-256）
   participant B as Bundler 节点
+  participant E as EntryPoint
   participant W as 智能合约钱包
-  participant P as RIP-7212 预编译 0x100
-  U->>S: 生物识别授权交易
-  S-->>B: 生成 P-256 签名并提交 UserOp
-  B->>W: EntryPoint 调用 validateUserOp
-  W->>P: staticcall 验证 P-256 签名（约 3450 Gas）
+  participant P as P-256 预编译 0x100
+  U->>A: 发起交易
+  A->>S: 请求 WebAuthn 签名（挑战 = userOpHash）
+  U->>S: 生物识别授权
+  S-->>A: 返回 P-256 签名（authenticatorData + clientDataJSON）
+  A->>B: 提交带签名的 UserOp
+  B->>E: handleOps
+  E->>W: validateUserOp
+  W->>P: staticcall 验证 P-256 签名（约 3450–6900 Gas）
   P-->>W: 返回验证通过
-  W-->>B: 执行目标合约调用
+  W-->>E: 验证通过
+  E->>W: 执行目标合约调用
 `, [
-  ['flow', '手机硬件芯片直接签出 P-256 签名，智能合约钱包调用 0x100 预编译低成本验签，全程无助记词。'],
-  ['limit', '仅在支持 RIP-7212 预编译的链上才具备 ~3,450 Gas 的超低验签成本。']
+  ['flow', '手机安全芯片签的是 WebAuthn 消息（挑战为 userOpHash），App 把带签名的 UserOp 交给 Bundler；EntryPoint 调钱包验签，钱包调用 0x100 预编译低成本验签，验证通过后由 EntryPoint 让钱包执行目标调用，全程无助记词。'],
+  ['limit', '仅在部署了 0x100 P-256 预编译的链（支持 RIP-7212 的 L2、Fusaka 后的以太坊主网）上才具备约 3,450–6,900 Gas（RIP-7212 原定 3,450；EIP-7951 主网及多数二层现为 6,900，以官方为准）的低验签成本。']
 ])}
 
 <h2>4. 嵌入式钱包接入与安全防御清单</h2>
-<p>使用嵌入式钱包 SDK（如 Privy、Dynamic、Turnkey）时，DApp 自身的前端安全直接关系到用户资产。必须守住四条底线：</p>
+<p>使用嵌入式钱包 SDK（如 Privy、Dynamic、Turnkey；截至 2026 年 Privy 归 Stripe、Dynamic 归 Fireblocks，Web3Auth 已并入 MetaMask，以官方为准）时，DApp 自身的前端安全直接关系到用户资产。必须守住四条底线：</p>
 ${tbl(['检查项', '为什么', '怎么落地'], [
   ['<strong>独立域名隔离 iframe + 严格 CSP</strong>', '防止 DApp 主站被 XSS 注入后窃取嵌入式钱包内存里的临时分片或签名权限', '确认钱包 SDK 在独立安全源（Origin）的 iframe 中渲染签名确认框，主站配置严格 CSP（见 <a href="#m07-8">M03.8 前端安全</a>）'],
   ['<strong>大额操作强制二次确认 + 策略限额</strong>', '避免社交账号 cookie 泄露导致静默签名转空钱包', '设置单笔与单日限额；超过阈值必须触发 Passkey/MFA 二次生物认证'],
@@ -87,24 +95,24 @@ ${checklist([
 ${mistakes([
   ['用了嵌入式钱包，DApp 就算完全“去中心化自托管”了', '要看密钥分片或 TEE 恢复策略是否能脱离服务商独立导出；若没有逃生舱或服务商握有多数分片，本质仍是中心化托管。'],
   ['Passkey 钱包不需要备份，永远不会丢', '如果只在单台设备本地存了 Passkey 且关闭了云同步（或换了不同手机系统），又没配置第二把 Passkey 或守护者，账号照样会永久锁死。'],
-  ['所有 EVM 链都天然支持极低 Gas 的 Passkey 验签', '只有部署了 RIP-7212（0x100 预编译）的链才具备 ~3,450 Gas 的原生 P-256 验签；在不支持的链上需要回退到纯 Solidity 验签，Gas 会暴涨近百倍。']
+  ['所有 EVM 链都天然支持极低 Gas 的 Passkey 验签', '只有部署了 0x100 P-256 预编译的链（支持 RIP-7212 的 L2，以及经 Fusaka 的 EIP-7951 支持的以太坊主网）才具备约 3,450–6,900 Gas（RIP-7212 原定 3,450；EIP-7951 主网及多数二层现为 6,900，以官方为准）的原生 P-256 验签；在不支持的链上需要回退到纯 Solidity 验签，成本高几十倍。']
 ])}
 ${recap([
   '嵌入式钱包消除插件与助记词门槛，主流分为“Shamir/MPC 分片”与“TEE 硬件飞地”两条跨链通用路线。',
-  'Passkey（WebAuthn）基于手机安全芯片与 P-256 曲线；RIP-7212 预编译把链上验签成本压低近百倍，打通纯链上智能账户体验。',
+  'Passkey（WebAuthn）基于手机安全芯片与 P-256 曲线；0x100 预编译（RIP-7212 / EIP-7951）把链上验签成本压低几十倍，打通纯链上智能账户体验。',
   '消费级钱包设计必须平衡便捷与安全：独立 iframe 隔离、交易限额二次确认、跨平台恢复机制与私钥导出逃生舱缺一不可。'
 ])}
 ${quiz([
-  { q: '为什么手机自带的 Passkey（WebAuthn）在没有 RIP-7212 预编译合约的 EVM 链上直接做链上验签非常昂贵？', o: ['手机芯片算力不够', '以太坊原生预编译只支持 secp256k1，而 Passkey 使用 secp256r1（P-256），用纯 Solidity 实现椭圆曲线运算需耗费数十万 Gas', 'Passkey 必须通过比特币网络广播', '浏览器不允许网页调用 Passkey'], a: 1, why: 'P-256 曲线参数与以太坊默认 ecrecover 不同，缺少原生预编译时只能靠 EVM 字节码软计算，Gas 成本极高；RIP-7212 将其降至约 3,450 Gas。' },
+  { q: '为什么手机自带的 Passkey（WebAuthn）在没有 0x100 P-256 预编译（RIP-7212 / EIP-7951）的 EVM 链上直接做链上验签非常昂贵？', o: ['手机芯片算力不够', '这类链的原生预编译只支持 secp256k1（ecrecover），而 Passkey 使用 secp256r1（P-256），用纯 Solidity 实现椭圆曲线运算需耗费数十万 Gas', 'Passkey 必须通过比特币网络广播', '浏览器不允许网页调用 Passkey'], a: 1, why: 'P-256 曲线参数与以太坊默认 ecrecover 不同，缺少原生预编译时只能靠 EVM 字节码软计算，Gas 成本极高；0x100 预编译将其降至约 3,450–6,900 Gas（RIP-7212 原定 3,450；EIP-7951 主网及多数二层现为 6,900，以官方为准）。' },
   { q: '对比 Shamir 分片嵌入式钱包与 AWS Nitro TEE 飞地签名钱包，后者的核心特点是什么？', o: ['私钥永远拆成 12 个英文单词给用户手抄', '私钥生成与签名都在受硬件加密隔离的飞地内完成，连云厂商和钱包运营商也无法读取明文，外部凭 Passkey/策略触发签名', '只能在以太坊主网使用，不支持 Solana', '不需要任何网络即可在链上结算'], a: 1, why: 'TEE 方案通过硬件隔离与远程证明保障私钥不离开飞地，并可内置细粒度风控策略引擎。' },
   { q: '在 DApp 中集成嵌入式钱包时，为了防止前端 XSS 攻击静默盗走用户资产，最关键的两项防护是什么？', o: ['把私钥放进 localStorage 明文保存', '钱包签名运行在独立域名的隔离 iframe 中，并对大额或异常转账强制要求 Passkey/MFA 二次确认', '关闭所有 HTTPS 证书校验', '取消单日消费限额'], a: 1, why: '独立 Origin iframe 利用浏览器同源策略隔离主站 JS，再配合策略限额与二次生物认证可有效阻断静默盗刷。' },
   { q: '纯链上 Passkey 智能合约钱包用户如果从 iPhone 换到 Android 手机且未提前配置多恢复途径，最可能遇到什么问题？', o: ['链上余额会被自动清零', '仅绑定在 Apple iCloud 钥匙串里的 Passkey 无法直接在新安卓机上使用，可能导致暂时无法签名控制账号', '以太坊地址会随机改变', 'Gas 费会变成原来的 10 倍'], a: 1, why: 'Passkey 云同步通常绑定操作系统生态（iCloud / Google 密码管理器），因此生产钱包应引导用户绑定多设备或配置社交/邮箱恢复守护者。' }
 ])}
 ${terms([
   ['嵌入式钱包', 'Embedded Wallet', '直接内嵌于应用内部、通过邮箱/社交/Passkey 无感创建与管理的非插件形态钱包。'],
-  ['通行密钥', 'Passkey (WebAuthn / FIDO2)', '基于设备安全芯片与生物识别的无密码公私钥认证标准，底层采用 P-256 曲线。'],
+  ['通行密钥', 'Passkey (WebAuthn / FIDO2)', '基于设备安全硬件或系统密码管理器与生物识别的无密码公私钥认证标准；WebAuthn 支持多种算法，主流平台的 Passkey 用 P-256（ES256）签名。'],
   ['RIP-7212', 'Rollup Improvement Proposal 7212', '在预编译地址 0x100 提供原生 secp256r1（P-256）签名验证的标准，大幅降低 Passkey 钱包验签 Gas。'],
-  ['安全飞地', 'TEE (Trusted Execution Environment)', '如 AWS Nitro Enclaves 提供的硬件级内存加密隔离区，用于保护密钥免受宿主机与运维人员窃取。'],
+  ['安全飞地', 'TEE (Trusted Execution Environment)', '可以是 CPU 内的安全区（如 SGX / SEV 一类），也可以是 AWS Nitro Enclaves 这类由专用硬件和虚拟化层隔离出的执行环境（无持久存储、无外部网络、宿主机无法访问），用于保护密钥免受宿主机与运维人员窃取。'],
   ['逃生舱 / 私钥导出', 'Key Export / Escape Hatch', '允许嵌入式钱包用户在脱离原应用或 SDK 服务商后，仍能独立接管并转移链上资产的机制。']
 ])}
 ` });

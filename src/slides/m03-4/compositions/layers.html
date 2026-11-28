@@ -1,0 +1,199 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 layers，id 前缀 la- -->
+  <div id="root" data-composition-id="layers" data-duration="65.74" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="la-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <g id="la-person"><circle cx="0" cy="0" r="12" /><path d="M -20 42 Q -20 19 0 19 Q 20 19 20 42 Z" /></g>
+      </defs>
+      <g id="la-all">
+        <!-- 三层台阶 -->
+        <g id="la-t0" class="h"><rect x="160" y="240" width="940" height="180" rx="14" fill="none" stroke="#3a3f4a" stroke-width="2" /><text x="190" y="342" font-size="32" fill="#8a8f99">日常运营</text></g>
+        <g id="la-t1" class="h"><rect x="160" y="460" width="940" height="180" rx="14" fill="none" stroke="#3a3f4a" stroke-width="2" /><text x="190" y="562" font-size="32" fill="#8a8f99">常规支出</text></g>
+        <g id="la-t2" class="h"><rect x="160" y="680" width="940" height="180" rx="14" fill="none" stroke="#3a3f4a" stroke-width="2" /><text x="190" y="782" font-size="32" fill="#8a8f99">高危操作</text></g>
+
+        <!-- 金库 -->
+        <g id="la-vault" class="h">
+          <rect x="1400" y="400" width="360" height="300" rx="20" fill="#1c1a12" stroke="#F0B90B" stroke-width="3.5" />
+          <circle cx="1580" cy="500" r="40" fill="none" stroke="#F0B90B" stroke-width="4" />
+          <line x1="1580" y1="470" x2="1580" y2="530" stroke="#F0B90B" stroke-width="4" />
+          <line x1="1550" y1="500" x2="1610" y2="500" stroke="#F0B90B" stroke-width="4" />
+          <text x="1580" y="620" font-size="40" font-weight="700" fill="#F0B90B" text-anchor="middle">金库 Safe</text>
+        </g>
+
+        <text id="la-ex" class="h" x="1580" y="672" font-size="28" fill="#8a8f99" text-anchor="middle">示例结构</text>
+
+        <!-- 日常层 -->
+        <g id="la-hot" class="h"><rect x="340" y="262" width="190" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="435" y="305" font-size="28" fill="#e8e6df" text-anchor="middle">运营热钱包</text></g>
+        <line id="la-a0" class="dr h" pathLength="1" x1="534" y1="294" x2="584" y2="294" stroke="#e8e6df" stroke-width="3" marker-end="url(#la-arr)" />
+        <g id="la-role" class="h">
+          <rect id="la-roler" x="592" y="262" width="420" height="140" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text x="618" y="304" font-size="30" font-weight="700" fill="#FF9F43">角色模块</text>
+          <text x="618" y="346" font-size="28" fill="#e8e6df">白名单 · USDC</text>
+        </g>
+        <text id="la-lim" class="h" x="618" y="386" font-size="28" fill="#e8e6df">单笔 ≤ 5 万 USDC</text>
+        <text id="la-any" class="h" x="618" y="386" font-size="28" font-weight="700" fill="#FC6255">任意 data</text>
+        <line id="la-a1" class="dr h" pathLength="1" x1="1016" y1="320" x2="1394" y2="440" stroke="#e8e6df" stroke-width="3" marker-end="url(#la-arr)" />
+        <g id="la-bad" class="h"><rect x="340" y="346" width="190" height="52" rx="10" fill="#2a1616" stroke="#FC6255" stroke-width="2.5" /><text x="435" y="382" font-size="28" fill="#FC6255" text-anchor="middle">转陌生地址</text></g>
+        <path id="la-badx" class="h" d="M 548 358 L 576 386 M 576 358 L 548 386" stroke="#FC6255" stroke-width="5" stroke-linecap="round" />
+        <!-- 后门 -->
+        <g id="la-door" class="h">
+          <rect x="592" y="262" width="420" height="140" rx="12" fill="none" stroke="#FC6255" stroke-width="4" />
+          <line x1="1012" y1="300" x2="1012" y2="370" stroke="#0f1117" stroke-width="8" />
+          <line x1="1012" y1="300" x2="1052" y2="278" stroke="#FC6255" stroke-width="4" />
+        </g>
+        <text id="la-doort" class="h" x="1030" y="214" font-size="32" font-weight="700" fill="#FC6255">后门</text>
+
+        <!-- 常规层 -->
+        <g id="la-safe" class="h">
+          <rect x="592" y="490" width="420" height="120" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="618" y="540" font-size="34" font-weight="700" fill="#58C4DD">Safe 3-of-5</text>
+        </g>
+        <text id="la-anytx" class="h" x="618" y="588" font-size="28" fill="#e8e6df">任意交易</text>
+        <line id="la-a2" class="dr h" pathLength="1" x1="1016" y1="550" x2="1394" y2="550" stroke="#e8e6df" stroke-width="3" marker-end="url(#la-arr)" />
+
+        <!-- 高危层：时间锁队列 -->
+        <g id="la-q" class="h">
+          <rect x="340" y="696" width="740" height="150" rx="12" fill="#1c1710" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" />
+          <text x="364" y="740" font-size="30" font-weight="700" fill="#FF9F43">时间锁</text>
+        </g>
+        <text id="la-cd" class="h mono" x="1056" y="740" font-size="30" fill="#FF9F43" text-anchor="end">48:00:00</text>
+        <g id="la-q0" class="h"><rect x="364" y="762" width="150" height="62" rx="8" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="439" y="803" font-size="28" fill="#e8e6df" text-anchor="middle">改所有者</text></g>
+        <g id="la-q1" class="h"><rect id="la-q1r" x="534" y="762" width="150" height="62" rx="8" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text id="la-q1t" x="609" y="803" font-size="28" fill="#e8e6df" text-anchor="middle">升级合约</text></g>
+        <g id="la-q2" class="h"><rect x="704" y="762" width="150" height="62" rx="8" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="779" y="803" font-size="28" fill="#e8e6df" text-anchor="middle">启用模块</text></g>
+        <rect class="h la-fr" x="540" y="768" width="40" height="24" rx="3" fill="#83C167" />
+        <rect class="h la-fr" x="620" y="770" width="44" height="22" rx="3" fill="#83C167" />
+        <rect class="h la-fr" x="560" y="800" width="38" height="20" rx="3" fill="#83C167" />
+        <rect class="h la-fr" x="636" y="798" width="42" height="22" rx="3" fill="#83C167" />
+        <line id="la-a3" class="dr h" pathLength="1" x1="1084" y1="760" x2="1394" y2="660" stroke="#e8e6df" stroke-width="3" marker-end="url(#la-arr)" />
+        <g id="la-fix" class="h"><rect x="534" y="762" width="150" height="62" rx="8" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="609" y="803" font-size="28" fill="#e8e6df" text-anchor="middle">紧急修复</text></g>
+        <g id="la-hg" class="h">
+          <path d="M 880 760 L 916 760 L 898 792 Z M 880 826 L 916 826 L 898 794 Z" fill="none" stroke="#FF9F43" stroke-width="3" />
+        </g>
+        <!-- 暂停角色 -->
+        <g id="la-pause" class="h">
+          <rect x="340" y="900" width="150" height="62" rx="31" fill="#162418" stroke="#83C167" stroke-width="3" />
+          <rect x="384" y="916" width="10" height="30" fill="#83C167" /><rect x="402" y="916" width="10" height="30" fill="#83C167" />
+          <text x="452" y="942" font-size="28" fill="#83C167" text-anchor="middle">暂停</text>
+        </g>
+        <text id="la-pauset" class="h" x="516" y="942" font-size="30" fill="#83C167">只能暂停 · 不能转账</text>
+
+        <!-- 监控机器人 -->
+        <g id="la-bot" class="h">
+          <rect x="1400" y="790" width="360" height="210" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect x="1424" y="816" width="72" height="56" rx="10" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <circle cx="1446" cy="844" r="7" fill="#58C4DD" /><circle cx="1474" cy="844" r="7" fill="#58C4DD" />
+          <line x1="1460" y1="816" x2="1460" y2="800" stroke="#58C4DD" stroke-width="3" />
+          <text x="1516" y="856" font-size="30" fill="#e8e6df">监控机器人</text>
+        </g>
+        <path id="la-alert" class="dr h" pathLength="1" d="M 1396 840 L 1110 872 L 609 872 L 609 830" fill="none" stroke="#FC6255" stroke-width="3" />
+        <g id="la-cancel" class="h">
+          <use href="#la-person" x="1440" y="912" fill="#8a8f99" />
+          <use href="#la-person" x="1480" y="912" fill="#8a8f99" />
+          <rect id="la-cbtn" x="1530" y="914" width="200" height="58" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" />
+          <text x="1630" y="953" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">取消</text>
+        </g>
+
+        <!-- 现成组件 -->
+        <text id="la-z0" class="h" x="160" y="1022" font-size="28" fill="#8a8f99">Zodiac Roles</text>
+        <text id="la-z1" class="h" x="400" y="1022" font-size="28" fill="#8a8f99">· Zodiac Delay</text>
+        <text id="la-z2" class="h" x="640" y="1022" font-size="28" fill="#8a8f99">· OpenZeppelin TimelockController</text>
+      </g>
+      <!-- 术语卡 -->
+      <g id="la-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">时间锁 <tspan font-size="28" font-weight="400" fill="#8a8f99">Timelock</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">排队后须等待固定时间才执行</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const PULSE = (s, t, lo = 0.45) => tl.to(s, { opacity: lo, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+
+      // L0 三层 + 金库
+      IN("#la-t0", at(0, 0.05), 0.5); IN("#la-t1", at(0, 0.2), 0.5); IN("#la-t2", at(0, 0.35), 0.5);
+      IN("#la-vault", at(0, 0.55), 0.6);
+      IN("#la-ex", at(0, 0.75), 0.5);
+
+      // L1 日常层：角色模块
+      tl.to("#la-t0 text", { fill: "#e8e6df", duration: 0.3 }, at(1, 0));
+      IN("#la-hot", at(1, 0.03), 0.5);
+      ARROW("#la-a0", at(1, 0.15), 0.4);
+      IN("#la-role", at(1, 0.22), 0.5);
+      IN("#la-lim", at(1, 0.5), 0.5);
+      ARROW("#la-a1", at(1, 0.38), 0.6);
+      IN("#la-bad", at(1, 0.66), 0.4, { x: -20 }, { x: 0 });
+      IN("#la-badx", at(1, 0.78), 0.3);
+      PULSE("#la-bad", at(1, 0.88), 0.4);
+
+      // L2 常规层：3-of-5
+      tl.to("#la-t1 text", { fill: "#e8e6df", duration: 0.3 }, at(2, 0));
+      OUT(["#la-bad", "#la-badx"], at(2, 0), 0.3);
+      IN("#la-safe", at(2, 0.05), 0.5);
+      ARROW("#la-a2", at(2, 0.3), 0.6);
+      IN("#la-anytx", at(2, 0.6), 0.4);
+
+      // L3 时间锁
+      IN("#la-term", at(3, 0), 0.5);
+      tl.to("#la-t2 text", { fill: "#e8e6df", duration: 0.3 }, at(3, 0.05));
+      IN("#la-q", at(3, 0.12), 0.5);
+      ["#la-q0", "#la-q1", "#la-q2"].forEach((s, i) => IN(s, at(3, 0.25 + i * 0.1), 0.4, { x: -40 }, { x: 0 }));
+      IN("#la-cd", at(3, 0.6), 0.4);
+      ARROW("#la-a3", at(3, 0.78), 0.6);
+      // 倒计时一直走
+      const cd = document.querySelector("#la-cd"), o = { v: 172800 };
+      const fmt = v => { v = Math.floor(v); const h = Math.floor(v / 3600), m = Math.floor(v % 3600 / 60), s = v % 60; return String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0"); };
+      tl.fromTo(o, { v: 172800 }, { v: 172800 - (C.d - 1 - at(3, 0.65)), duration: C.d - 1 - at(3, 0.65), ease: "none", immediateRender: false, onUpdate: () => { cd.textContent = fmt(o.v); } }, at(3, 0.65));
+      OUT("#la-term", at(4, 0.0), 0.4);
+
+      // L4 监控发现异常 → 另一组签名者取消
+      IN("#la-bot", at(4, 0.06), 0.5);
+      ARROW("#la-alert", at(4, 0.22), 0.6);
+      tl.to("#la-q1r", { stroke: "#FC6255", fill: "#2a1616", duration: 0.3 }, at(4, 0.3));
+      tl.to("#la-q1t", { fill: "#FC6255", duration: 0.3 }, at(4, 0.3));
+      IN("#la-cancel", at(4, 0.5), 0.5);
+      tl.to("#la-cbtn", { fill: "#1f3a22", duration: 0.15, yoyo: true, repeat: 1 }, at(4, 0.66));
+      OUT("#la-alert", at(4, 0.7), 0.3);
+      OUT("#la-q1", at(4, 0.72), 0.2);
+      tl.fromTo(".la-fr", { opacity: 1, x: 0, y: 0 }, { opacity: 0, x: (i) => [-30, 30, -24, 34][i], y: (i) => [-26, -30, 26, 24][i], duration: 0.9, ease: "power2.out", immediateRender: false }, at(4, 0.72));
+
+      // L5 紧急修复也要等；暂停角色
+      IN("#la-fix", at(5, 0.02), 0.5, { x: -40 }, { x: 0 });
+      IN("#la-hg", at(5, 0.12), 0.4);
+      tl.to("#la-hg", { opacity: 0.4, duration: 0.4, yoyo: true, repeat: 3 }, at(5, 0.22));
+      IN("#la-pause", at(5, 0.55), 0.5);
+      IN("#la-pauset", at(5, 0.65), 0.5);
+
+      // L6 角色模块配错 → 后门；现成组件
+      OUT("#la-lim", at(6, 0.02), 0.3);
+      IN("#la-any", at(6, 0.06), 0.4);
+      IN("#la-door", at(6, 0.14), 0.5);
+      IN("#la-doort", at(6, 0.22), 0.4);
+      PULSE(["#la-door", "#la-doort"], at(6, 0.4), 0.4);
+      IN("#la-z0", at(6, 0.62), 0.4); IN("#la-z1", at(6, 0.7), 0.4); IN("#la-z2", at(6, 0.78), 0.4);
+      PULSE("#la-vault", at(6, 0.92), 0.6);
+
+      tl.to("#la-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#la-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["layers"] = tl;
+    })();
+  </script>
+</template>

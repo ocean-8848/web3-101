@@ -1,0 +1,186 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 basefee，id 前缀 ba- -->
+  <div id="root" data-composition-id="basefee" data-duration="74.79" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ba-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ba-all">
+        <path id="ba-blk" class="dr" pathLength="1" d="M140 250 L840 250 L840 400 L140 400 Z" fill="none" stroke="#58C4DD" stroke-width="3"/>
+        <text id="ba-blkt" class="h" x="160" y="290" font-size="30" fill="#58C4DD">区块</text>
+        <g id="ba-trk" class="h"><rect x="170" y="310" width="640" height="40" rx="6" fill="none" stroke="#6b6f7a" stroke-width="2.5"/><text x="170" y="388" font-size="28" fill="#8a8f99">0</text><text x="810" y="388" font-size="28" fill="#8a8f99" text-anchor="end">3600 万</text></g>
+        <rect id="ba-fill" x="172" y="312" width="0" height="36" rx="4" fill="#58C4DD" fill-opacity="0.6"/>
+        <line id="ba-mid" class="h" x1="490" y1="298" x2="490" y2="362" stroke="#e8e6df" stroke-width="3" stroke-dasharray="8 6"/>
+        <text id="ba-midt" class="h" x="490" y="450" font-size="30" fill="#e8e6df" text-anchor="middle">目标值 = 上限 ÷ 2</text>
+        <path id="ba-up" class="dr h" pathLength="1" d="M890 384 L890 272" stroke="#FC6255" stroke-width="6" fill="none" marker-end="url(#ba-arr)"/>
+        <path id="ba-dn" class="dr h" pathLength="1" d="M890 266 L890 378" stroke="#83C167" stroke-width="6" fill="none" marker-end="url(#ba-arr)"/>
+        <text id="ba-pct" class="h" x="140" y="518" font-size="32" fill="#e8e6df">每块最多 <tspan fill="#FC6255">±12.5%</tspan>（1/8）</text>
+        <text id="ba-f1" class="h" x="140" y="588" font-size="32" fill="#e8e6df">下一块 = 当前 ×</text>
+        <text id="ba-f2" class="h" x="170" y="640" font-size="32" fill="#e8e6df">(1 + 1/8 × (用量 − 目标) ÷ 目标)</text>
+        <text id="ba-p1" class="h" x="140" y="718" font-size="30" fill="#e8e6df">上限 36M</text>
+        <text id="ba-p2" class="h" x="292" y="718" font-size="30" fill="#e8e6df">· 目标 18M</text>
+        <text id="ba-p3" class="h" x="478" y="718" font-size="30" fill="#e8e6df">· 当前 <tspan fill="#F0B90B">20 gwei</tspan></text>
+        <text id="ba-c1" class="mono" x="140" y="798" font-size="34" fill="#e8e6df"></text>
+        <text id="ba-c2" class="mono h" x="140" y="858" font-size="34" fill="#e8e6df">20 × 1.125 = <tspan fill="#F0B90B">22.5</tspan></text>
+        <g id="ba-l4">
+          <g id="ba-ma" class="h"><rect x="140" y="770" width="320" height="44" rx="6" fill="none" stroke="#6b6f7a" stroke-width="2.5"/><rect x="142" y="772" width="158" height="40" rx="4" fill="#58C4DD" fill-opacity="0.6"/></g>
+          <text id="ba-mat" class="h" x="140" y="866" font-size="30" fill="#8a8f99">半满 → 20</text>
+          <g id="ba-mb" class="h"><rect x="520" y="770" width="320" height="44" rx="6" fill="none" stroke="#6b6f7a" stroke-width="2.5"/></g>
+          <text id="ba-mbt" class="h" x="520" y="866" font-size="30" fill="#83C167">20 × 0.875 = 17.5</text>
+        </g>
+        <g id="ba-l5">
+          <text id="ba-l5a" class="h" x="140" y="790" font-size="32" fill="#e8e6df">四分之三满 · 27M</text>
+          <text id="ba-l5b" class="mono h" x="140" y="856" font-size="38" font-weight="700" fill="#e8e6df">1/8 × 0.5 = 6.25%</text>
+          <text id="ba-l5c" class="h" x="140" y="922" font-size="34" fill="#e8e6df">示例：30 → <tspan fill="#F0B90B" font-weight="700">31.875</tspan></text>
+        </g>
+        <text id="ba-l6" class="h" x="140" y="840" font-size="48" fill="#F0B90B">1.125<tspan dy="-22" font-size="30">6</tspan><tspan dy="22"> ≈ 2.03</tspan></text>
+        <text id="ba-ex" class="h" x="1800" y="232" font-size="32" fill="#e8e6df" text-anchor="end">示例 · 区块 gas 上限 3600 万</text>
+        <text id="ba-real" class="h" x="1800" y="282" font-size="28" fill="#8a8f99" text-anchor="end">截至 2026 年主网上限 6000 万 · 以官方为准</text>
+        <path id="ba-rul" class="dr" pathLength="1" d="M1200 298 L1800 298" stroke="#8a8f99" stroke-width="2.5" fill="none"/>
+        <path id="ba-ax" class="dr" pathLength="1" d="M1000 340 L1000 860 L1785 860" fill="none" stroke="#6b6f7a" stroke-width="3"/>
+        <text id="ba-axt" class="h" x="1000" y="326" font-size="28" fill="#8a8f99" text-anchor="middle">gwei</text>
+        <rect id="ba-b0" class="h" x="1018" y="660" width="84" height="200" fill="#8a8f99" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2.5"/>
+          <rect id="ba-b1" class="h" x="1113" y="635" width="84" height="225" fill="#8a8f99" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2.5"/>
+          <rect id="ba-b2" class="h" x="1208" y="607" width="84" height="253" fill="#8a8f99" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2.5"/>
+          <rect id="ba-b3" class="h" x="1303" y="575" width="84" height="285" fill="#8a8f99" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2.5"/>
+          <rect id="ba-b4" class="h" x="1398" y="540" width="84" height="320" fill="#8a8f99" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2.5"/>
+          <rect id="ba-b5" class="h" x="1493" y="500" width="84" height="360" fill="#8a8f99" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2.5"/>
+          <rect id="ba-b6" class="h" x="1588" y="455" width="84" height="405" fill="#8a8f99" fill-opacity="0.35" stroke="#58C4DD" stroke-width="2.5"/>
+          <rect id="ba-b7" class="h" x="1683" y="404" width="84" height="456" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 7"/>
+          <text id="ba-v0" class="h" x="1060" y="698" font-size="28" fill="#e8e6df" text-anchor="middle">20</text>
+          <text id="ba-v1" class="h" x="1155" y="673" font-size="28" fill="#e8e6df" text-anchor="middle">22.5</text>
+          <text id="ba-v2" class="h" x="1250" y="645" font-size="28" fill="#e8e6df" text-anchor="middle">25.3</text>
+          <text id="ba-v3" class="h" x="1345" y="613" font-size="28" fill="#e8e6df" text-anchor="middle">28.5</text>
+          <text id="ba-v4" class="h" x="1440" y="578" font-size="28" fill="#e8e6df" text-anchor="middle">32.0</text>
+          <text id="ba-v5" class="h" x="1535" y="538" font-size="28" fill="#e8e6df" text-anchor="middle">36.0</text>
+        <text id="ba-v6" class="h" x="1630" y="902" font-size="28" fill="#e8e6df" text-anchor="middle">≈ 40.5</text>
+        <text id="ba-v6b" class="h" x="1630" y="902" font-size="28" fill="#FF9F43" text-anchor="middle">40.5 &gt; 40 略超</text>
+        <text id="ba-v5b" class="h" x="1535" y="538" font-size="28" fill="#83C167" text-anchor="middle">36 ✓</text>
+        <text id="ba-cap" class="h" x="140" y="930" font-size="34" fill="#e8e6df">约 5–6 个满块（<tspan fill="#83C167">严格 5 个</tspan>）</text>
+        <text id="ba-l8" class="h" x="140" y="1010" font-size="40" fill="#83C167">1.125<tspan dy="-18" font-size="28">5</tspan><tspan dy="18"> ≈ 1.80 &lt; 2</tspan></text>
+        <text id="ba-v7" class="h" x="1725" y="392" font-size="28" fill="#8a8f99" text-anchor="middle">45.6 示意</text>
+        <line id="ba-mx" class="h" x1="1010" y1="440" x2="1785" y2="440" stroke="#FF9F43" stroke-width="4"/>
+        <text id="ba-mxt" class="h" x="1016" y="422" font-size="30" fill="#FF9F43">maxFee = 2 × 20 + 2 = 42</text>
+        <g id="ba-qz" class="h"><rect x="1440" y="930" width="360" height="86" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5"/><text x="1462" y="984" font-size="28" fill="#e8e6df">40 gwei · 空块 →</text></g>
+        <text id="ba-qq" class="h" x="1736" y="984" font-size="28" fill="#FF9F43">？</text>
+        <text id="ba-qa" class="h" x="1736" y="984" font-size="28" fill="#83C167">35</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const PULSE = (s, t, o = 0.45) => tl.to(s, { opacity: o, duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.out", ...v }, t);
+      const TXT = (s, t, str) => tl.call(() => { document.querySelector(s).textContent = str; }, null, t);
+      const TYPE = (s, t, str, d = 1.2) => { const o = { v: 0 }, el = document.querySelector(s); tl.fromTo(o, { v: 0 }, { v: str.length, duration: d, ease: "none", immediateRender: false, onUpdate: () => { el.textContent = str.slice(0, Math.round(o.v)); } }, t); };
+const FILL = (t, w, c = "#58C4DD", d = 0.7) => TO("#ba-fill", t, { attr: { width: w, fill: c } }, d);
+const BAR = (i, t, d = 0.5) => { const r = document.querySelector("#ba-b" + i), y = +r.getAttribute("y"), h = +r.getAttribute("height"); IN("#ba-b" + i, t, 0.2); tl.fromTo("#ba-b" + i, { attr: { y: 860, height: 0 } }, { attr: { y: y, height: h }, duration: d, ease: "power2.out", immediateRender: false }, t); if (i < 6) IN("#ba-v" + i, t + d * 0.7, 0.3); };
+// L0 区块与目标值
+DRAW("#ba-blk", at(0, 0), 0.7);
+IN("#ba-blkt", at(0, 0.1), 0.4);
+IN("#ba-trk", at(0, 0.2), 0.4);
+FILL(at(0, 0.32), 320);
+IN("#ba-mid", at(0, 0.6), 0.4);
+IN("#ba-midt", at(0, 0.7), 0.5);
+IN("#ba-ex", at(0, 0.86), 0.5);
+// L1 涨跌规则
+FILL(at(1, 0.04), 560, "#FC6255");
+ARROW("#ba-up", at(1, 0.1), 0.5);
+OUT("#ba-up", at(1, 0.36), 0.3);
+FILL(at(1, 0.38), 140, "#83C167");
+ARROW("#ba-dn", at(1, 0.42), 0.5);
+IN("#ba-pct", at(1, 0.56), 0.5);
+IN("#ba-f1", at(1, 0.72), 0.5);
+IN("#ba-f2", at(1, 0.8), 0.5);
+PULSE("#ba-pct", at(1, 0.94));
+// L2 参数
+OUT("#ba-dn", at(2, 0), 0.3);
+FILL(at(2, 0.04), 320, "#58C4DD");
+IN("#ba-p1", at(2, 0.13), 0.4);
+IN("#ba-p2", at(2, 0.21), 0.4);
+IN("#ba-p3", at(2, 0.29), 0.4);
+PULSE("#ba-ex", at(2, 0.4), 0.3);
+IN("#ba-real", at(2, 0.62), 0.5);
+DRAW("#ba-rul", at(2, 0.72), 0.8);
+TO("#ba-midt", at(2, 0.86), { fill: "#F0B90B" }, 0.4);
+PULSE("#ba-midt", at(2, 0.9));
+// L3 满块
+OUT(["#ba-real", "#ba-rul"], at(3, 0.3), 0.4);
+TO("#ba-midt", at(3, 0.3), { fill: "#e8e6df" }, 0.4);
+FILL(at(3, 0.04), 636, "#FC6255");
+ARROW("#ba-up", at(3, 0.1), 0.5);
+TYPE("#ba-c1", at(3, 0.22), "(36M − 18M) ÷ 18M = 1", 1.4);
+DRAW("#ba-ax", at(3, 0.44), 0.6);
+IN("#ba-axt", at(3, 0.48), 0.4);
+BAR(0, at(3, 0.5));
+IN("#ba-c2", at(3, 0.64), 0.5);
+BAR(1, at(3, 0.8));
+// L4 半满 / 空块 + 小题卡
+OUT(["#ba-c1", "#ba-c2", "#ba-up"], at(4, 0), 0.3);
+FILL(at(4, 0.05), 318, "#8a8f99");
+IN("#ba-ma", at(4, 0.08), 0.4);
+IN("#ba-mat", at(4, 0.18), 0.4);
+FILL(at(4, 0.45), 0, "#83C167");
+IN("#ba-mb", at(4, 0.48), 0.4);
+IN("#ba-mbt", at(4, 0.55), 0.4);
+IN("#ba-qz", at(4, 0.7), 0.4);
+IN("#ba-qq", at(4, 0.7), 0.4);
+OUT("#ba-qq", at(4, 0.7) + 1.1, 0.2);
+IN("#ba-qa", at(4, 0.7) + 1.3, 0.3);
+// L5 四分之三满
+OUT(["#ba-l4", "#ba-qz", "#ba-qa"], at(5, 0), 0.3);
+FILL(at(5, 0.05), 477, "#FF9F43");
+IN("#ba-l5a", at(5, 0.1), 0.4);
+IN("#ba-l5b", at(5, 0.42), 0.5);
+IN("#ba-l5c", at(5, 0.66), 0.4);
+PULSE("#ba-l5b", at(5, 0.88));
+// L6 连续 6 个满块
+OUT("#ba-l5", at(6, 0), 0.3);
+FILL(at(6, 0.03), 636, "#FC6255", 0.4);
+for (let k = 2; k <= 6; k++) { BAR(k, at(6, 0.06 + (k - 2) * 0.085), 0.4); PULSE("#ba-fill", at(6, 0.06 + (k - 2) * 0.085), 0.4); }
+IN("#ba-l6", at(6, 0.5), 0.5);
+IN("#ba-v6", at(6, 0.78), 0.4);
+// L7 经验公式（约 5–6 个）
+IN("#ba-mx", at(7, 0.04), 0.5, { attr: { x2: 1010 } }, { attr: { x2: 1785 } });
+IN("#ba-mxt", at(7, 0.14), 0.5);
+IN("#ba-cap", at(7, 0.7), 0.5);
+// L8 严格 5 个
+OUT("#ba-v5", at(8, 0.05), 0.2);
+IN("#ba-v5b", at(8, 0.1), 0.3);
+TO("#ba-b5", at(8, 0.08), { attr: { stroke: "#83C167" } });
+IN("#ba-l8", at(8, 0.2), 0.5);
+OUT("#ba-v6", at(8, 0.5), 0.2);
+IN("#ba-v6b", at(8, 0.56), 0.3);
+TO("#ba-b6", at(8, 0.52), { attr: { stroke: "#FF9F43" } });
+BAR(7, at(8, 0.66), 0.5);
+IN("#ba-v7", at(8, 0.74), 0.4);
+TO("#ba-b7", at(8, 0.82), { attr: { stroke: "#FC6255" } });
+
+      tl.to("#ba-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["basefee"] = tl;
+    })();
+  </script>
+</template>

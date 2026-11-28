@@ -1,0 +1,219 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 gaslimit，id 前缀 ga- -->
+  <div id="root" data-composition-id="gaslimit" data-duration="90.83" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ga-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ga-all">
+        <g id="ga-card" class="h">
+          <rect x="660" y="260" width="600" height="640" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text x="690" y="320" font-size="34" fill="#e8e6df">一笔交易</text>
+          <text x="700" y="402" font-size="30" fill="#8a8f99">收款方</text><text x="1220" y="402" font-size="30" fill="#6b6f7a" text-anchor="end">—</text>
+          <text x="700" y="482" font-size="30" fill="#8a8f99">金额</text><text x="1220" y="482" font-size="30" fill="#6b6f7a" text-anchor="end">—</text>
+          <text x="700" y="642" class="mono" font-size="30" fill="#8a8f99">maxFee</text><text x="1220" y="642" font-size="30" fill="#6b6f7a" text-anchor="end">—</text>
+          <text x="700" y="722" class="mono" font-size="30" fill="#8a8f99">tip</text><text x="1220" y="722" font-size="30" fill="#6b6f7a" text-anchor="end">—</text>
+        </g>
+        <rect id="ga-hl" class="h" x="680" y="522" width="560" height="58" rx="8" fill="#58C4DD" fill-opacity="0.15"/>
+        <text id="ga-gl" class="mono h" x="700" y="562" font-size="30" fill="#58C4DD">gas limit</text>
+        <text id="ga-v0" class="h" x="1220" y="562" font-size="30" fill="#8a8f99" text-anchor="end">?</text>
+        <text id="ga-v1" class="mono h" x="1220" y="562" font-size="30" fill="#83C167" text-anchor="end">21,000</text>
+        <text id="ga-v2" class="mono h" x="1220" y="562" font-size="30" fill="#F0B90B" text-anchor="end">60,000–65,000</text>
+        <text id="ga-v3" class="h" x="1220" y="562" font-size="30" fill="#83C167" text-anchor="end">≤ 100,000</text>
+        <rect id="ga-btn" class="h" x="820" y="800" width="280" height="70" rx="35" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="3"/>
+        <text id="ga-btnt" class="h" x="960" y="846" font-size="32" fill="#e8e6df" text-anchor="middle">发送</text>
+        <text id="ga-btnn" class="h" x="960" y="846" font-size="32" fill="#FC6255" text-anchor="middle">不发</text>
+        <g id="ga-gate" class="h"><line x1="790" y1="772" x2="790" y2="890" stroke="#FC6255" stroke-width="6"/><line x1="1130" y1="772" x2="1130" y2="890" stroke="#FC6255" stroke-width="6"/><line x1="784" y1="772" x2="1136" y2="772" stroke="#FC6255" stroke-width="8"/></g>
+        <g id="ga-L1">
+          <g id="ga-lb" class="h"><rect x="120" y="300" width="480" height="80" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="360" y="352" font-size="30" fill="#e8e6df" text-anchor="middle">ETH → 普通地址</text></g>
+          <path id="ga-la" class="dr h" pathLength="1" d="M604 340 L652 340" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ga-arr)"/>
+          <text id="ga-l21" class="mono h" x="360" y="462" font-size="40" fill="#83C167" text-anchor="middle">21,000 ✓</text>
+          <text id="ga-lno" class="h" x="360" y="514" font-size="28" fill="#8a8f99" text-anchor="middle">不用估算</text>
+        </g>
+        <g id="ga-R">
+          <g id="ga-rb" class="h"><rect x="1320" y="300" width="480" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1560" y="352" font-size="30" fill="#e8e6df" text-anchor="middle">合约交互（ERC-20）</text></g>
+          <path id="ga-ra" class="dr h" pathLength="1" d="M1316 340 L1268 340" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ga-arr)"/>
+          <g id="ga-sim" class="h"><rect id="ga-simr" x="1320" y="410" width="480" height="70" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1560" y="456" font-size="30" fill="#e8e6df" text-anchor="middle">模拟执行</text></g>
+          <g id="ga-L2">
+            <text id="ga-e1" class="h" x="1340" y="542" font-size="30" fill="#e8e6df">估算 50,000</text>
+            <text id="ga-e2" class="mono h" x="1340" y="598" font-size="30" fill="#F0B90B">× 1.2–1.3</text>
+            <text id="ga-e3" class="mono h" x="1340" y="654" font-size="30" fill="#F0B90B">= 60,000–65,000</text>
+            <text id="ga-ex" class="h" x="1790" y="654" font-size="30" fill="#a3a8b2" text-anchor="end">示例</text>
+            <rect id="ga-slot" class="h" x="1340" y="700" width="160" height="70" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+            <text id="ga-s0" class="mono h" x="1420" y="746" font-size="32" fill="#e8e6df" text-anchor="middle">0</text>
+            <text id="ga-s1" class="h" x="1420" y="746" font-size="32" fill="#FF9F43" text-anchor="middle">非 0</text>
+            <text id="ga-sl" class="h" x="1530" y="746" font-size="30" fill="#FF9F43">状态会变</text>
+          </g>
+          <g id="ga-L3">
+            <text id="ga-rev" class="mono h" x="1340" y="542" font-size="30" fill="#FC6255">execution reverted</text>
+            <g id="ga-q0" class="h"><rect x="1340" y="580" width="300" height="54" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1490" y="617" font-size="28" fill="#e8e6df" text-anchor="middle">余额不足</text></g>
+            <g id="ga-q1" class="h"><rect x="1340" y="650" width="300" height="54" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1490" y="687" font-size="28" fill="#e8e6df" text-anchor="middle">代币暂停</text></g>
+            <g id="ga-q2" class="h"><rect x="1340" y="720" width="300" height="54" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1490" y="757" font-size="28" fill="#e8e6df" text-anchor="middle">地址被冻结</text></g>
+            <text id="ga-usd" class="h" x="1340" y="824" font-size="28" fill="#8a8f99">USDT / USDC 有冻结功能</text>
+          </g>
+        </g>
+        <g id="ga-low">
+          <text id="ga-lw0" class="h" x="140" y="600" font-size="30" fill="#e8e6df">gas limit 给少了</text>
+          <rect id="ga-lwb" class="h" x="140" y="624" width="440" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+          <rect id="ga-lwf" x="143" y="627" width="0" height="38" rx="6" fill="#FC6255" fill-opacity="0.75"/>
+          <text id="ga-lw1" class="h" x="140" y="728" font-size="32" font-weight="700" fill="#FC6255">gas 用完 → 交易失败</text>
+          <text id="ga-lw2" class="h" x="140" y="784" font-size="30" fill="#FF9F43">已消耗的手续费不退</text>
+          <text id="ga-lw3" class="h" x="140" y="852" font-size="30" fill="#83C167">→ 估算值上留缓冲</text>
+        </g>
+        <g id="ga-L4">
+          <g id="ga-x1" class="h"><line x1="128" y1="322" x2="158" y2="352" stroke="#FC6255" stroke-width="5"/><line x1="158" y1="322" x2="128" y2="352" stroke="#FC6255" stroke-width="5"/></g>
+          <text id="ga-w1" class="h" x="180" y="348" font-size="30" fill="#8a8f99">换节点重估</text>
+          <g id="ga-x2" class="h"><line x1="128" y1="422" x2="158" y2="452" stroke="#FC6255" stroke-width="5"/><line x1="158" y1="422" x2="128" y2="452" stroke="#FC6255" stroke-width="5"/></g>
+          <text id="ga-w2" class="h" x="180" y="448" font-size="30" fill="#8a8f99">gas limit 1,000,000 强发</text>
+          <text id="ga-w2b" class="h" x="180" y="504" font-size="28" fill="#FC6255">→ 照扣手续费</text>
+          <g id="ga-ok" class="h"><rect x="160" y="640" width="440" height="80" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="380" y="692" font-size="30" fill="#83C167" text-anchor="middle">失败 / 人工队列</text></g>
+          <path id="ga-oa" class="dr h" pathLength="1" d="M656 680 L606 680" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ga-arr)"/>
+          <text id="ga-chk" class="h" x="380" y="772" font-size="28" fill="#8a8f99" text-anchor="middle">查余额 · 查冻结</text>
+        </g>
+        <g id="ga-L5">
+          <g id="ga-cfg" class="h"><rect x="1320" y="300" width="480" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1560" y="356" font-size="30" fill="#e8e6df" text-anchor="middle">USDT 上限 100,000</text></g>
+          <text id="ga-min" class="h" x="1340" y="470" font-size="30" fill="#e8e6df">min(估算 × 1.3, 100,000)</text>
+          <text id="ga-bad" class="h" x="1340" y="560" font-size="30" fill="#FC6255">节点返回：极大值</text>
+          <path id="ga-ba" class="dr h" pathLength="1" d="M1360 578 L1360 636" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#ga-arr)"/>
+          <text id="ga-cut" class="h" x="1340" y="690" font-size="30" fill="#83C167">截到 100,000</text>
+        </g>
+        <g id="ga-L6">
+          <text id="ga-bxt" class="mono h" x="140" y="312" font-size="28" fill="#FF9F43">gas limit × maxFee</text>
+          <rect id="ga-bx" class="h" x="140" y="330" width="460" height="70" rx="8" fill="none" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8"/>
+          <rect id="ga-bal" x="144" y="334" width="0" height="62" rx="5" fill="#F0B90B" fill-opacity="0.8"/>
+          <text id="ga-balt" class="h" x="140" y="452" font-size="30" fill="#F0B90B">余额</text>
+          <text id="ga-rej" class="h" x="140" y="506" font-size="30" fill="#FC6255">不够 → 节点拒收</text>
+          <text id="ga-bk" class="h" x="1320" y="400" font-size="30" fill="#58C4DD">区块</text>
+          <text id="ga-free" class="h" x="1730" y="400" font-size="28" fill="#8a8f99" text-anchor="middle">剩余空间</text>
+          <g id="ga-blk" class="h"><rect x="1320" y="420" width="480" height="80" rx="8" fill="none" stroke="#58C4DD" stroke-width="3"/><rect x="1323" y="423" width="337" height="74" rx="5" fill="#8a8f99" fill-opacity="0.5"/></g>
+          <g id="ga-chip" class="h"><rect id="ga-chipr" x="1440" y="600" width="240" height="70" rx="10" fill="#58C4DD" fill-opacity="0.25" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1560" y="645" font-size="28" fill="#e8e6df" text-anchor="middle">gas limit</text></g>
+          <text id="ga-nf" class="h" x="1320" y="760" font-size="30" fill="#FC6255">放不进这个块</text>
+        </g>
+      </g>
+      <g id="ga-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">gas 估算 <tspan font-size="28" font-weight="400" fill="#8a8f99">eth_estimateGas</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">模拟执行，返回所需 gas</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const PULSE = (s, t, o = 0.45) => tl.to(s, { opacity: o, duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.out", ...v }, t);
+      const TXT = (s, t, str) => tl.call(() => { document.querySelector(s).textContent = str; }, null, t);
+      const TYPE = (s, t, str, d = 1.2) => { const o = { v: 0 }, el = document.querySelector(s); tl.fromTo(o, { v: 0 }, { v: str.length, duration: d, ease: "none", immediateRender: false, onUpdate: () => { el.textContent = str.slice(0, Math.round(o.v)); } }, t); };
+// L0
+IN("#ga-term", at(0, 0), 0.4);
+IN("#ga-card", at(0, 0.05), 0.5, { y: 20 }, { y: 0 });
+IN("#ga-gl", at(0, 0.15), 0.4);
+IN("#ga-btn", at(0, 0.2), 0.4); IN("#ga-btnt", at(0, 0.2), 0.4);
+IN("#ga-hl", at(0, 0.45), 0.4);
+IN("#ga-v0", at(0, 0.6), 0.3);
+// L1 纯转账
+IN("#ga-lb", at(1, 0.02), 0.4, { x: -30 }, { x: 0 });
+ARROW("#ga-la", at(1, 0.12), 0.3);
+IN("#ga-l21", at(1, 0.3), 0.4);
+OUT("#ga-v0", at(1, 0.35), 0.2); IN("#ga-v1", at(1, 0.42), 0.3);
+IN("#ga-lno", at(1, 0.65), 0.4);
+PULSE("#ga-hl", at(1, 0.86), 0.4);
+// L2 合约交互
+OUT("#ga-term", at(2, 0.05), 0.4);
+IN("#ga-rb", at(2, 0.04), 0.4, { x: 30 }, { x: 0 });
+ARROW("#ga-ra", at(2, 0.08), 0.3);
+IN("#ga-sim", at(2, 0.14), 0.4);
+PULSE("#ga-sim", at(2, 0.22), 0.5);
+IN("#ga-e1", at(2, 0.27), 0.4);
+IN("#ga-e2", at(2, 0.34), 0.4);
+IN("#ga-e3", at(2, 0.4), 0.4); IN("#ga-ex", at(2, 0.42), 0.3);
+OUT("#ga-v1", at(2, 0.4), 0.2); IN("#ga-v2", at(2, 0.44), 0.3);
+PULSE("#ga-e3", at(2, 0.5), 0.5);
+IN("#ga-slot", at(2, 0.6), 0.4); IN("#ga-s0", at(2, 0.6), 0.4);
+OUT("#ga-s0", at(2, 0.76), 0.2); IN("#ga-s1", at(2, 0.79), 0.3);
+IN("#ga-sl", at(2, 0.82), 0.4);
+PULSE("#ga-slot", at(2, 0.93), 0.4);
+// L3 给少了：gas 用完就失败，费用不退
+OUT(["#ga-l21", "#ga-lno"], at(3, 0), 0.3);
+IN("#ga-lw0", at(3, 0.04), 0.4);
+IN("#ga-lwb", at(3, 0.06), 0.3);
+tl.fromTo("#ga-lwf", { attr: { width: 0 } }, { attr: { width: 434 }, duration: 1.6, ease: "none", immediateRender: false }, at(3, 0.1));
+TO("#ga-hl", at(3, 0.2), { attr: { fill: "#FC6255" } }, 0.3);
+IN("#ga-lw1", at(3, 0.28), 0.4, { x: -16 }, { x: 0 });
+PULSE("#ga-lw1", at(3, 0.4));
+IN("#ga-lw2", at(3, 0.5), 0.4, { x: -16 }, { x: 0 });
+PULSE("#ga-lw2", at(3, 0.66));
+TO("#ga-hl", at(3, 0.78), { attr: { fill: "#58C4DD" } }, 0.3);
+IN("#ga-lw3", at(3, 0.8), 0.4);
+PULSE("#ga-e2", at(3, 0.84), 0.5);
+// L4 回滚就不发
+OUT(["#ga-L2", "#ga-L1", "#ga-low", "#ga-lwf"], at(4, 0), 0.4);
+TO("#ga-simr", at(4, 0.04), { attr: { stroke: "#FC6255" } });
+IN("#ga-rev", at(4, 0.08), 0.4, { y: 10 }, { y: 0 });
+PULSE("#ga-rev", at(4, 0.18), 0.4);
+IN("#ga-gate", at(4, 0.3), 0.4, { y: -30 }, { y: 0 });
+OUT("#ga-btnt", at(4, 0.34), 0.2); IN("#ga-btnn", at(4, 0.37), 0.3);
+TO("#ga-btn", at(4, 0.37), { attr: { stroke: "#FC6255", fill: "#FC6255" } });
+IN("#ga-q0", at(4, 0.55), 0.3); IN("#ga-q1", at(4, 0.62), 0.3); IN("#ga-q2", at(4, 0.69), 0.3);
+IN("#ga-usd", at(4, 0.85), 0.4);
+// L5 错误做法 vs 正确做法
+IN("#ga-w1", at(5, 0.04), 0.4); IN("#ga-x1", at(5, 0.1), 0.3);
+IN("#ga-w2", at(5, 0.2), 0.4); IN("#ga-x2", at(5, 0.3), 0.3);
+IN("#ga-w2b", at(5, 0.4), 0.4);
+IN("#ga-ok", at(5, 0.6), 0.4); ARROW("#ga-oa", at(5, 0.62), 0.3);
+IN("#ga-chk", at(5, 0.8), 0.4);
+PULSE("#ga-ok", at(5, 0.92), 0.5);
+// L6 已知代币固定上限
+OUT(["#ga-R", "#ga-L4", "#ga-gate", "#ga-btnn"], at(6, 0), 0.4);
+TO("#ga-btn", at(6, 0.02), { attr: { stroke: "#58C4DD", fill: "#58C4DD" } });
+IN("#ga-btnt", at(6, 0.04), 0.3);
+IN("#ga-cfg", at(6, 0.06), 0.4, { x: 30 }, { x: 0 });
+IN("#ga-min", at(6, 0.3), 0.4);
+OUT("#ga-v2", at(6, 0.4), 0.2); IN("#ga-v3", at(6, 0.44), 0.3);
+IN("#ga-bad", at(6, 0.6), 0.4);
+ARROW("#ga-ba", at(6, 0.68), 0.3);
+IN("#ga-cut", at(6, 0.75), 0.4);
+PULSE("#ga-cut", at(6, 0.9), 0.4);
+// L7 余额覆盖 + 区块空间
+PULSE(["#ga-hl", "#ga-v3"], at(7, 0.03), 0.4);
+OUT("#ga-L5", at(7, 0.1), 0.4);
+IN("#ga-bx", at(7, 0.2), 0.4); IN("#ga-bxt", at(7, 0.22), 0.4);
+IN("#ga-balt", at(7, 0.26), 0.3);
+TO("#ga-bal", at(7, 0.27), { attr: { width: 300 } }, 1.2);
+IN("#ga-rej", at(7, 0.38), 0.4);
+PULSE("#ga-bx", at(7, 0.48), 0.4);
+IN("#ga-bk", at(7, 0.55), 0.3); IN("#ga-blk", at(7, 0.56), 0.4); IN("#ga-free", at(7, 0.62), 0.3);
+IN("#ga-chip", at(7, 0.68), 0.4);
+TO("#ga-chip", at(7, 0.74), { x: 170 }, 0.8);
+TO("#ga-chipr", at(7, 0.8), { attr: { stroke: "#FC6255" } }, 0.3);
+tl.to("#ga-chip", { x: 160, duration: 0.08, yoyo: true, repeat: 5, ease: "sine.inOut" }, at(7, 0.82));
+IN("#ga-nf", at(7, 0.86), 0.4);
+
+      tl.to("#ga-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ga-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["gaslimit"] = tl;
+    })();
+  </script>
+</template>

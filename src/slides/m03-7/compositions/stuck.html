@@ -1,0 +1,165 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 stuck，id 前缀 st- -->
+  <div id="root" data-composition-id="stuck" data-duration="72.79" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="st-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="st-all">
+        <g id="st-sm">
+        <g id="st-nA" class="h"><rect x="140" y="300" width="230" height="84" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="255" y="353" font-size="32" fill="#e8e6df" text-anchor="middle">已广播</text></g>
+        <g id="st-nB" class="h"><rect id="st-rB" x="520" y="300" width="230" height="84" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="635" y="353" font-size="32" fill="#e8e6df" text-anchor="middle">等待中</text></g>
+        <g id="st-nC" class="h"><rect id="st-rC" x="1000" y="300" width="230" height="84" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1115" y="353" font-size="32" fill="#e8e6df" text-anchor="middle">判定卡单</text></g>
+        <g id="st-nD" class="h"><rect id="st-rD" x="1000" y="520" width="230" height="84" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1115" y="573" font-size="32" fill="#e8e6df" text-anchor="middle">已加速</text></g>
+        <g id="st-nE" class="h"><rect id="st-rE" x="1550" y="300" width="230" height="84" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1665" y="353" font-size="32" fill="#e8e6df" text-anchor="middle">已上链</text></g>
+        <g id="st-nF" class="h"><rect id="st-rF" x="1550" y="520" width="230" height="84" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1665" y="573" font-size="32" fill="#e8e6df" text-anchor="middle">人工处理</text></g>
+        <path id="st-aAB" class="dr h" pathLength="1" d="M372 342 L512 342" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#st-arr)"/>
+        <path id="st-aBC" class="dr h" pathLength="1" d="M752 342 L992 342" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#st-arr)"/>
+        <path id="st-aCD" class="dr h" pathLength="1" d="M1115 386 L1115 512" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#st-arr)"/>
+        <path id="st-aDB" class="dr h" pathLength="1" d="M998 562 L640 562 L640 392" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#st-arr)"/>
+        <path id="st-aBE" class="dr h" pathLength="1" d="M635 298 L635 252 L1665 252 L1665 292" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#st-arr)"/>
+        <path id="st-aDF" class="dr h" pathLength="1" d="M1232 562 L1542 562" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#st-arr)"/>
+        <path id="st-aBF" class="dr h" pathLength="1" d="M570 386 L570 660 L1665 660 L1665 612" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#st-arr)"/>
+        <g id="st-t1" class="h"><rect x="660" y="392" width="320" height="44" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="820" y="424" font-size="28" fill="#FF9F43" text-anchor="middle">超过档位时间</text></g>
+        <text id="st-or" class="h" x="820" y="476" font-size="28" fill="#8a8f99" text-anchor="middle">或</text>
+        <g id="st-t2" class="h"><rect x="660" y="494" width="320" height="44" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="820" y="526" font-size="28" fill="#FF9F43" text-anchor="middle">maxFee &lt; 当前 base</text></g>
+        <text id="st-lCD" class="h" x="1135" y="462" font-size="30" fill="#F0B90B">+12.5%–20%</text>
+        <text id="st-lBE" class="h" x="1150" y="234" font-size="28" fill="#83C167" text-anchor="middle">上链</text>
+        <text id="st-lDF" class="h" x="1268" y="540" font-size="28" fill="#FF9F43">最大次数 / 封顶</text>
+        <text id="st-lBF" class="h" x="1000" y="702" font-size="28" fill="#FF9F43">消失且再次广播失败</text>
+        <g id="st-man" class="h"><circle cx="1665" cy="432" r="16" fill="none" stroke="#FF9F43" stroke-width="3"/><path d="M1635 494 Q1665 444 1695 494" fill="none" stroke="#FF9F43" stroke-width="3"/></g>
+        </g>
+        <g id="st-d1">
+          <g id="st-c0" class="h"><rect x="200" y="770" width="320" height="130" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="230" y="822" font-size="32" fill="#58C4DD">nonce 7</text><text x="230" y="872" font-size="30" fill="#8a8f99">原费用</text></g>
+          <path id="st-c01" class="dr h" pathLength="1" d="M528 835 L632 835" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#st-arr)"/>
+          <g id="st-c1" class="h"><rect x="640" y="770" width="320" height="130" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text class="mono" x="670" y="822" font-size="32" fill="#58C4DD">nonce 7</text><text x="670" y="872" font-size="30" fill="#F0B90B">更高费用</text></g>
+          <text id="st-tg" class="h" x="1060" y="822" font-size="28" fill="#8a8f99">前面讲过：同 nonce 替换</text>
+          <text id="st-only" class="h" x="1060" y="880" font-size="30" fill="#F0B90B">只看：费用怎么提 · 提到哪为止</text>
+        </g>
+        <text id="st-no" class="h" x="140" y="810" font-size="30" fill="#8a8f99">不满足 → 别动，避免频繁替换</text>
+        <g id="st-d3">
+          <g id="st-rule" class="h"><rect x="140" y="760" width="760" height="90" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="170" y="816" font-size="30" fill="#B48EF0">节点规则：至少 +10%，否则不接受替换</text></g>
+          <g id="st-blob" class="h"><rect x="1000" y="760" width="640" height="90" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="1030" y="816" font-size="30" fill="#FC6255">blob 交易：至少 +100%（翻倍）</text></g>
+          <text id="st-fm" class="h" x="140" y="940" font-size="34" fill="#e8e6df">新 maxFee ≥ <tspan fill="#F0B90B">1.5 × base</tspan> + <tspan fill="#F0B90B">新小费</tspan></text>
+        </g>
+        <g id="st-d4">
+          <g id="st-h1" class="h"><rect x="300" y="760" width="260" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="430" y="806" font-size="30" fill="#58C4DD" text-anchor="middle">hash1</text></g>
+          <g id="st-h2" class="h"><rect id="st-h2r" x="660" y="760" width="260" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="st-h2t" class="mono" x="790" y="806" font-size="30" fill="#58C4DD" text-anchor="middle">hash2</text></g>
+          <g id="st-h3" class="h"><rect x="1020" y="760" width="260" height="70" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1150" y="806" font-size="30" fill="#58C4DD" text-anchor="middle">hash3</text></g>
+          <g id="st-ls" class="h"><rect x="560" y="900" width="460" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="790" y="946" font-size="30" fill="#e8e6df" text-anchor="middle">监听服务：同时跟踪</text></g>
+          <path id="st-w1" class="dr h" pathLength="1" d="M760 898 L450 836" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#st-arr)"/>
+          <path id="st-w2" class="dr h" pathLength="1" d="M790 898 L790 838" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#st-arr)"/>
+          <path id="st-w3" class="dr h" pathLength="1" d="M820 898 L1130 836" stroke="#8a8f99" stroke-width="2.5" fill="none" marker-end="url(#st-arr)"/>
+          <text id="st-done" class="h" x="1320" y="808" font-size="34" font-weight="700" fill="#83C167">完成 ✓</text>
+        </g>
+        <g id="st-d5">
+          <g id="st-q7" class="h"><rect id="st-q7r" x="200" y="770" width="240" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="320" y="826" font-size="30" fill="#e8e6df" text-anchor="middle">nonce 7</text></g>
+          <g id="st-q8" class="h"><rect id="st-q8r" x="500" y="770" width="240" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="620" y="826" font-size="30" fill="#e8e6df" text-anchor="middle">nonce 8</text></g>
+          <g id="st-q9" class="h"><rect id="st-q9r" x="800" y="770" width="240" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="920" y="826" font-size="30" fill="#e8e6df" text-anchor="middle">nonce 9</text></g>
+          <text id="st-q1" class="h" x="1100" y="810" font-size="30" fill="#FF9F43">只加速最早卡住的</text>
+          <text id="st-q2" class="h" x="1100" y="870" font-size="30" fill="#83C167">后面自动跟上</text>
+        </g>
+        <text id="st-duty" class="h" x="1000" y="810" font-size="30" fill="#FF9F43">值班决定：继续等 / 继续加价</text>
+
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const PULSE = (s, t, o = 0.5) => tl.to(s, { opacity: o, duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.out", ...v }, t);
+["#st-nA","#st-nB","#st-nC","#st-nD","#st-nE","#st-nF"].forEach((s, i) => IN(s, at(0, 0.02 + i * 0.1), 0.4, { y: 12 }, { y: 0 }));
+ARROW("#st-aAB", at(0, 0.7), 0.5);
+// L1 同 nonce 替换
+IN("#st-c0", at(1, 0.03), 0.5);
+IN("#st-tg", at(1, 0.14), 0.5);
+ARROW("#st-c01", at(1, 0.3), 0.4);
+IN("#st-c1", at(1, 0.33), 0.6, { x: -120 }, { x: 0 });
+TO("#st-c0", at(1, 0.48), { opacity: 0.3 });
+IN("#st-only", at(1, 0.62), 0.5);
+PULSE("#st-c1", at(1, 0.82));
+// L2 两个判定条件
+OUT("#st-d1", at(2, 0), 0.4);
+ARROW("#st-aBC", at(2, 0.06), 0.5);
+IN("#st-t1", at(2, 0.22), 0.5, { x: -20 }, { x: 0 });
+IN("#st-or", at(2, 0.36), 0.4);
+IN("#st-t2", at(2, 0.44), 0.5, { x: -20 }, { x: 0 });
+TO("#st-rC", at(2, 0.58), { attr: { stroke: "#FC6255" } });
+IN("#st-no", at(2, 0.72), 0.5);
+PULSE("#st-nB", at(2, 0.9));
+// L3 提价规则
+OUT("#st-no", at(3, 0.0), 0.4);
+ARROW("#st-aCD", at(3, 0.033), 0.5);
+TO("#st-rD", at(3, 0.082), { attr: { stroke: "#F0B90B" } });
+IN("#st-rule", at(3, 0.131), 0.5);
+PULSE("#st-rule", at(3, 0.279));
+IN("#st-lCD", at(3, 0.377), 0.5);
+PULSE("#st-lCD", at(3, 0.476));
+IN("#st-fm", at(3, 0.558), 0.6, { y: 16 }, { y: 0 });
+ARROW("#st-aDB", at(3, 0.672), 0.7);
+PULSE("#st-fm", at(3, 0.763));
+IN("#st-blob", at(3, 0.86), 0.5, { x: 20 }, { x: 0 });
+PULSE("#st-blob", at(3, 0.95), 0.6);
+// L4 跟踪全部哈希
+OUT("#st-d3", at(4, 0), 0.4);
+IN("#st-h1", at(4, 0.06), 0.4); IN("#st-h2", at(4, 0.14), 0.4); IN("#st-h3", at(4, 0.22), 0.4);
+IN("#st-ls", at(4, 0.32), 0.4);
+ARROW("#st-w1", at(4, 0.38), 0.4); ARROW("#st-w2", at(4, 0.4), 0.4); ARROW("#st-w3", at(4, 0.42), 0.4);
+TO("#st-h2r", at(4, 0.62), { attr: { stroke: "#83C167", "stroke-width": 4 } });
+TO("#st-h2t", at(4, 0.62), { attr: { fill: "#83C167" } });
+ARROW("#st-aBE", at(4, 0.68), 0.6); IN("#st-lBE", at(4, 0.72), 0.4);
+IN("#st-done", at(4, 0.78), 0.4);
+TO("#st-rE", at(4, 0.86), { attr: { stroke: "#83C167", fill: "#1d2a1a" } });
+// L5 只加速最早的 nonce
+OUT("#st-d4", at(5, 0), 0.4);
+IN("#st-q7", at(5, 0.05), 0.4); IN("#st-q8", at(5, 0.11), 0.4); IN("#st-q9", at(5, 0.17), 0.4);
+TO("#st-q7r", at(5, 0.28), { attr: { stroke: "#FF9F43", "stroke-width": 5 } });
+IN("#st-q1", at(5, 0.32), 0.4);
+PULSE("#st-q7", at(5, 0.42));
+TO("#st-q7r", at(5, 0.6), { attr: { stroke: "#83C167", "stroke-width": 3 } });
+TO("#st-q8r", at(5, 0.7), { attr: { stroke: "#83C167" } });
+IN("#st-q2", at(5, 0.74), 0.4);
+TO("#st-q9r", at(5, 0.8), { attr: { stroke: "#83C167" } });
+// L6 上限与人工
+OUT("#st-d5", at(6, 0), 0.4);
+ARROW("#st-aDF", at(6, 0.04), 0.5);
+IN("#st-lDF", at(6, 0.1), 0.4);
+TO("#st-rF", at(6, 0.22), { attr: { stroke: "#FF9F43", fill: "#2a2015" } });
+IN("#st-man", at(6, 0.28), 0.5, { y: 10 }, { y: 0 });
+IN("#st-duty", at(6, 0.4), 0.5);
+PULSE("#st-man", at(6, 0.52));
+ARROW("#st-aBF", at(6, 0.62), 0.8);
+IN("#st-lBF", at(6, 0.7), 0.4);
+PULSE("#st-nF", at(6, 0.84));
+PULSE("#st-duty", at(6, 0.96));
+
+
+      tl.to("#st-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["stuck"] = tl;
+    })();
+  </script>
+</template>

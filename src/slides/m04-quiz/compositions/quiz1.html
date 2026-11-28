@@ -1,0 +1,217 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz1，id 前缀 qu- -->
+  <div id="root" data-composition-id="quiz1" data-duration="56.3" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="qu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="qu-all">
+        <g id="qu-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 1 题</text>
+        </g>
+        <!-- 题干两行：y 150–300，打字机揭开 -->
+        <clipPath id="qu-qclip1"><rect id="qu-qcr1" x="60" y="165" width="0" height="60" /></clipPath>
+        <clipPath id="qu-qclip2"><rect id="qu-qcr2" x="60" y="228" width="0" height="60" /></clipPath>
+        <text id="qu-q1" class="h" x="70" y="210" font-size="40" fill="#e8e6df" clip-path="url(#qu-qclip1)">Alice 在 CEX 买入 1 个 ETH，Bob 在 DEX 用钱包兑换 1 个 ETH。</text>
+        <text id="qu-q2" class="h" x="70" y="272" font-size="40" fill="#e8e6df" clip-path="url(#qu-qclip2)">两人分别在<tspan fill="#FF9F43">什么时候</tspan>，<tspan fill="#FF9F43">真正控制</tspan>链上的 ETH？</text>
+        <!-- 暂停图标 + 倒数圆环：x 1500–1850 y 150–300 -->
+        <g id="qu-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="qu-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <!-- 选项卡：x 70–1100，y0 = 380 / 515 / 650 / 785，高 115 -->
+        <g id="qu-oA" class="h">
+          <rect id="qu-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oA-dim">
+            <circle id="qu-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="qu-oA-t" x="190" y="449" font-size="32" fill="#e8e6df">两人都在成交的那一刻</text>
+          </g>
+          <text id="qu-oA-n" class="h" x="190" y="477" font-size="28" fill="#FC6255">账本 ≠ 链上</text>
+        </g>
+        <g id="qu-oB" class="h">
+          <rect id="qu-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oB-dim">
+            <circle id="qu-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text x="190" y="563" font-size="30" fill="#e8e6df">Alice 要等提币交易上链确认；</text>
+            <text x="190" y="604" font-size="30" fill="#e8e6df">Bob 在兑换交易打包成功时就拿到</text>
+          </g>
+        </g>
+        <g id="qu-oC" class="h">
+          <rect id="qu-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oC-dim">
+            <circle id="qu-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="qu-oC-t" x="190" y="719" font-size="30" fill="#e8e6df">Alice 在撮合成交时拿到；Bob 要等 DEX 运营方日终结算</text>
+          </g>
+          <text id="qu-oC-n" class="h" x="190" y="747" font-size="28" fill="#FC6255">DEX 没有日终结算</text>
+        </g>
+        <g id="qu-oD" class="h">
+          <rect id="qu-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oD-dim">
+            <circle id="qu-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="qu-oD-t" x="190" y="854" font-size="32" fill="#e8e6df">两人都要等平台审批提币</text>
+          </g>
+          <text id="qu-oD-n" class="h" x="190" y="882" font-size="28" fill="#FC6255">DEX 没有提币这一步</text>
+        </g>
+        <!-- 右侧示意区 x 1160–1850 y 330–930：两条时间线 -->
+        <g id="qu-panel">
+          <g id="qu-alice">
+            <text id="qu-al" class="h" x="1170" y="420" font-size="30" font-weight="700" fill="#B48EF0">Alice · CEX</text>
+            <rect id="qu-cell" class="h" x="1384" y="446" width="32" height="32" rx="5" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <line id="qu-aline" class="dr" pathLength="1" x1="1190" y1="510" x2="1800" y2="510" stroke="#8a8f99" stroke-width="3" />
+            <circle id="qu-a0" class="h" cx="1220" cy="510" r="14" fill="#161a22" stroke="#e8e6df" stroke-width="3" />
+            <circle id="qu-a1" class="h" cx="1400" cy="510" r="14" fill="#161a22" stroke="#e8e6df" stroke-width="3" />
+            <circle id="qu-a2" class="h" cx="1580" cy="510" r="14" fill="#161a22" stroke="#e8e6df" stroke-width="3" />
+            <circle id="qu-a3" class="h" cx="1760" cy="510" r="14" fill="#161a22" stroke="#e8e6df" stroke-width="3" />
+            <text id="qu-a0t" class="h" x="1220" y="565" font-size="28" fill="#e8e6df" text-anchor="middle">下单</text>
+            <text id="qu-a1t" class="h" x="1400" y="565" font-size="28" fill="#e8e6df" text-anchor="middle">成交</text>
+            <text id="qu-a2t" class="h" x="1580" y="565" font-size="28" fill="#e8e6df" text-anchor="middle">提币</text>
+            <text id="qu-a3t" class="h" x="1760" y="565" font-size="28" fill="#e8e6df" text-anchor="middle">链上确认</text>
+          </g>
+          <g id="qu-bob">
+            <text id="qu-bl" class="h" x="1170" y="690" font-size="30" font-weight="700" fill="#58C4DD">Bob · DEX</text>
+            <line id="qu-bline" class="dr" pathLength="1" x1="1190" y1="780" x2="1520" y2="780" stroke="#8a8f99" stroke-width="3" />
+            <circle id="qu-b0" class="h" cx="1260" cy="780" r="14" fill="#161a22" stroke="#e8e6df" stroke-width="3" />
+            <rect id="qu-blk" class="h" x="1520" y="745" width="80" height="70" rx="10" fill="#161a22" stroke="#e8e6df" stroke-width="3" />
+            <text id="qu-b0t" class="h" x="1260" y="835" font-size="28" fill="#e8e6df" text-anchor="middle">签名</text>
+            <text id="qu-b1t" class="h" x="1560" y="855" font-size="28" fill="#e8e6df" text-anchor="middle">打包</text>
+            <text id="qu-pay" class="h" x="1630" y="768" font-size="28" fill="#F0B90B">付 <tspan class="mono">USDC</tspan></text>
+            <text id="qu-get" class="h" x="1630" y="810" font-size="28" fill="#83C167">得 <tspan class="mono">ETH</tspan></text>
+          </g>
+        </g>
+        <!-- L5 一句对比 -->
+        <g id="qu-cmp1" class="h">
+          <text class="mono" x="1200" y="560" font-size="40" font-weight="700" fill="#B48EF0">CEX</text>
+          <text x="1320" y="558" font-size="40" font-weight="700" fill="#B48EF0">交给公司</text>
+        </g>
+        <g id="qu-cmp2" class="h">
+          <text class="mono" x="1200" y="700" font-size="40" font-weight="700" fill="#58C4DD">DEX</text>
+          <text x="1320" y="698" font-size="40" font-weight="700" fill="#58C4DD">交给合约和链</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // ===== 测验版式（照 EP009 quiz1）=====
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      const SHOW = (k, t) => {
+        IN(`#qu-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#qu-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#qu-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      const RIGHT = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#qu-o${k}-t`, { attr: { y: Y0[k] + 50 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#qu-o${k}-n`, t + 0.3, 0.5);
+      };
+      const PING = (s, t, o) => tl.to(s, { scale: 1.35, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+
+      // L0 题干 + 两条时间线
+      IN("#qu-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#qu-q1", at(0, 0.03), 0.01);
+      tl.fromTo("#qu-qcr1", { attr: { width: 0 } }, { attr: { width: 1420 }, duration: 4.4, ease: "none" }, at(0, 0.04));
+      IN("#qu-al", at(0, 0.06), 0.4);
+      DRAW("#qu-aline", at(0, 0.1), 0.8);
+      ["#qu-a0", "#qu-a1", "#qu-a2", "#qu-a3"].forEach((s, j) => IN(s, at(0, 0.14) + j * 0.3, 0.3));
+      ["#qu-a0t", "#qu-a1t", "#qu-a2t", "#qu-a3t"].forEach((s, j) => IN(s, at(0, 0.15) + j * 0.3, 0.3));
+      IN("#qu-bl", at(0, 0.3), 0.4);
+      DRAW("#qu-bline", at(0, 0.34), 0.6);
+      IN("#qu-b0", at(0, 0.38), 0.3); IN("#qu-b0t", at(0, 0.39), 0.3);
+      IN("#qu-blk", at(0, 0.44), 0.4, { scale: 0.7, svgOrigin: "1560 780" }, { scale: 1, svgOrigin: "1560 780" });
+      IN("#qu-b1t", at(0, 0.46), 0.3);
+      IN("#qu-q2", at(0, 0.5), 0.01);
+      tl.fromTo("#qu-qcr2", { attr: { width: 0 } }, { attr: { width: 900 }, duration: 3.0, ease: "none" }, at(0, 0.5));
+      PING("#qu-a3", at(0, 0.86), "1760 510");
+      tl.to("#qu-blk", { stroke: "#FF9F43", duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.9));
+
+      // L1 选项：念到哪张滑入哪张；念到的节点轻点一下
+      SHOW("A", at(1, 0.0)); PING("#qu-a1", at(1, 0.06), "1400 510");
+      SHOW("B", at(1, 0.14)); PING("#qu-a3", at(1, 0.26), "1760 510");
+      PING("#qu-b0", at(1, 0.34), "1260 780");
+      PING("#qu-blk", at(1, 0.42), "1560 780");
+      SHOW("C", at(1, 0.49)); PING("#qu-a1", at(1, 0.56), "1400 510");
+      PING("#qu-a1", at(1, 0.62) + 0.6, "1400 510");
+      PING("#qu-blk", at(1, 0.72), "1560 780");
+      tl.to("#qu-bob", { x: 14, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, at(1, 0.66));
+      tl.to("#qu-oC-box", { stroke: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.77));
+      SHOW("D", at(1, 0.86)); PING("#qu-a2", at(1, 0.93), "1580 510");
+
+      // L2 暂停
+      IN("#qu-pause", at(2, 0.0), 0.3);
+      tl.fromTo("#qu-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[3][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+      OUT("#qu-pause", at(3, 0.0), 0.3);
+
+      // L3 揭晓 B：Alice 成交只改账本格，提币上链确认才亮绿；Bob 同一区块付 / 得
+      RIGHT("B", at(3, 0.02));
+      tl.to("#qu-a0", { stroke: "#58C4DD", duration: 0.3 }, at(3, 0.1));
+      tl.to("#qu-a1", { stroke: "#58C4DD", duration: 0.3 }, at(3, 0.14));
+      IN("#qu-cell", at(3, 0.16), 0.3);
+      tl.to("#qu-cell", { fill: "#58C4DD", duration: 0.4 }, at(3, 0.2));
+      tl.to("#qu-a2", { stroke: "#e8e6df", strokeWidth: 4, duration: 0.3 }, at(3, 0.32));
+      tl.to("#qu-aline", { stroke: "#83C167", duration: 0.5 }, at(3, 0.42));
+      tl.to("#qu-a3", { stroke: "#83C167", fill: "#83C167", duration: 0.4 }, at(3, 0.44));
+      tl.to("#qu-a3t", { fill: "#83C167", duration: 0.4 }, at(3, 0.44));
+      PING("#qu-a3", at(3, 0.5), "1760 510");
+      tl.to("#qu-blk", { stroke: "#83C167", fill: "#1d2a1a", duration: 0.4 }, at(3, 0.68));
+      tl.to("#qu-b1t", { fill: "#83C167", duration: 0.4 }, at(3, 0.68));
+      IN("#qu-pay", at(3, 0.76), 0.4, { x: -16 }, { x: 0 });
+      IN("#qu-get", at(3, 0.8), 0.4, { x: -16 }, { x: 0 });
+      PING("#qu-blk", at(3, 0.9), "1560 780");
+
+      // L4 干扰项
+      WRONG("A", at(4, 0.02));
+      WRONG("C", at(4, 0.3));
+      WRONG("D", at(4, 0.66));
+
+      // L5 收束：信任交给公司 | 交给合约和链
+      OUT("#qu-oA, #qu-oC, #qu-oD", at(5, 0.0), 0.4);
+      OUT("#qu-panel", at(5, 0.0), 0.4);
+      IN("#qu-cmp1", at(5, 0.15), 0.5, { x: -20 }, { x: 0 });
+      IN("#qu-cmp2", at(5, 0.45), 0.5, { x: -20 }, { x: 0 });
+
+      tl.to("#qu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz1"] = tl;
+    })();
+  </script>
+</template>

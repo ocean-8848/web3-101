@@ -1,0 +1,261 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 fsm，id 前缀 fs- -->
+  <div id="root" data-composition-id="fsm" data-duration="82.36" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fs-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="fs-all">
+        <defs><marker id="fs-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="fs-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="fs-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="fs-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="fs-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="fs-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="fs-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker><marker id="fs-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker><marker id="fs-mwk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#6b6f7a"/></marker><marker id="fs-mpan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#161a22"/></marker><marker id="fs-mbg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#0f1117"/></marker><marker id="fs-mdim" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#3a3f4a"/></marker></defs>
+<g id="fs-all">
+<text id="fs-ti" class="h" x="960" y="128" font-size="52" fill="#e8e6df" text-anchor="middle" font-weight="700">提币状态机</text>
+<text id="fs-st" class="h" x="960" y="196" font-size="30" fill="#58C4DD" text-anchor="middle">每一步推进 = 一次数据库条件更新</text>
+<g id="fs-half" class="h">
+<rect x="90" y="332" width="1760" height="136" rx="24" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="12 10"/>
+<text x="120" y="314" font-size="34" fill="#58C4DD" font-weight="700">上半段</text>
+<rect x="90" y="560" width="1760" height="400" rx="24" fill="none" stroke="#5a606c" stroke-width="2.5" stroke-dasharray="12 10"/>
+<text x="960" y="778" font-size="44" fill="#8a8f99" text-anchor="middle" font-weight="700">下半段：从已签名开始</text>
+</g>
+<g id="fs-up">
+<g id="fs-n0" class="h">
+<rect id="fs-n0r" x="120.0" y="298.0" width="200" height="64" rx="32.0" fill="#8a8f99" stroke="#8a8f99" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-n0t" x="220" y="340.8" font-size="30" fill="#8a8f99" text-anchor="middle" font-weight="600">已接收</text>
+</g>
+<g id="fs-n1" class="h">
+<rect id="fs-n1r" x="500.0" y="298.0" width="200" height="64" rx="32.0" fill="#8a8f99" stroke="#8a8f99" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-n1t" x="600" y="340.8" font-size="30" fill="#8a8f99" text-anchor="middle" font-weight="600">风控中</text>
+</g>
+<g id="fs-n2" class="h">
+<rect id="fs-n2r" x="900.0" y="298.0" width="200" height="64" rx="32.0" fill="#8a8f99" stroke="#8a8f99" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-n2t" x="1000" y="340.8" font-size="30" fill="#8a8f99" text-anchor="middle" font-weight="600">已批准</text>
+</g>
+<g id="fs-n3" class="h">
+<rect id="fs-n3r" x="1280.0" y="298.0" width="200" height="64" rx="32.0" fill="#8a8f99" stroke="#8a8f99" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-n3t" x="1380" y="340.8" font-size="30" fill="#8a8f99" text-anchor="middle" font-weight="600">签名中</text>
+</g>
+<g id="fs-n4" class="h">
+<rect id="fs-n4r" x="1620.0" y="298.0" width="200" height="64" rx="32.0" fill="#8a8f99" stroke="#8a8f99" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-n4t" x="1720" y="340.8" font-size="30" fill="#8a8f99" text-anchor="middle" font-weight="600">已签名</text>
+</g>
+<path id="fs-a01" class="dr h" pathLength="1" d="M322 330 L496 330" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#fs-mgy)"/>
+<path id="fs-a12" class="dr h" pathLength="1" d="M702 330 L896 330" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#fs-mgy)"/>
+<path id="fs-a23" class="dr h" pathLength="1" d="M1102 330 L1276 330" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#fs-mgy)"/>
+<path id="fs-a34" class="dr h" pathLength="1" d="M1482 330 L1616 330" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#fs-mgy)"/>
+<text id="fs-l12" class="h" x="799" y="300" font-size="28" fill="#83C167" text-anchor="middle">自动通过</text>
+<text id="fs-l23" class="h" x="1190" y="300" font-size="28" fill="#FF9F43" text-anchor="middle" font-weight="600">分配 nonce</text>
+<text id="fs-l34" class="h" x="1550" y="300" font-size="28" fill="#8a8f99" text-anchor="middle">签名成功</text>
+<g id="fs-pa" class="h">
+<rect id="fs-par" x="700.0" y="448.0" width="200" height="64" rx="32.0" fill="#FF9F43" stroke="#FF9F43" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-pat" x="800" y="490.8" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="600">待审批</text>
+</g>
+<path id="fs-arp" class="dr h" pathLength="1" d="M640 364 L734 444" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#fs-mo)"/>
+<text id="fs-lrp" class="h" x="760" y="405" font-size="28" fill="#FF9F43">命中审批规则</text>
+<path id="fs-apa" class="dr h" pathLength="1" d="M902 466 L994 370" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#fs-mgr)"/>
+<text id="fs-lpa" class="h" x="960" y="445" font-size="28" fill="#83C167">审批完成</text>
+<g id="fs-rj" class="h">
+<rect id="fs-rjo" x="493.0" y="581.0" width="214" height="78" rx="39.0" fill="none" stroke="#FC6255" stroke-width="2.5"/>
+<rect id="fs-rjr" x="500.0" y="588.0" width="200" height="64" rx="32.0" fill="#FC6255" stroke="#FC6255" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-rjt" x="600" y="630.8" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="600">已拒绝</text>
+</g>
+<path id="fs-arx" class="dr h" pathLength="1" d="M600 364 L600 576" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#fs-mr)"/>
+<text id="fs-lrx" class="h" x="585" y="480" font-size="28" fill="#FC6255" text-anchor="end">命中拒绝规则</text>
+<path id="fs-apx" class="dr h" pathLength="1" d="M740 514 L702 574" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#fs-mr)"/>
+<text id="fs-lpx" class="h" x="740" y="572" font-size="28" fill="#FC6255">审批拒绝</text>
+<text id="fs-nn" class="h" x="600" y="700" font-size="28" fill="#83C167" text-anchor="middle">不占 nonce</text>
+<g id="fs-m1" class="h">
+<rect id="fs-m1r" x="1280.0" y="478.0" width="200" height="64" rx="32.0" fill="#FF9F43" stroke="#FF9F43" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-m1t" x="1380" y="520.8" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="600">人工处理</text>
+</g>
+<path id="fs-asm" class="dr h" pathLength="1" d="M1380 364 L1380 472" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#fs-mo)"/>
+<text id="fs-lsm" class="h" x="1365" y="430" font-size="28" fill="#FF9F43" text-anchor="end">签名多次超时</text>
+</g>
+<g id="fs-low">
+<g id="fs-s2" class="h">
+<rect id="fs-s2r" x="120.0" y="658.0" width="200" height="64" rx="32.0" fill="#FF9F43" stroke="#FF9F43" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-s2t" x="220" y="700.8" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="600">已签名</text>
+</g>
+<path id="fs-asb" class="dr h" pathLength="1" d="M322 690 L554 690" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#fs-mo)"/>
+<text id="fs-lsb" class="h" x="440" y="740" font-size="28" fill="#8a8f99" text-anchor="middle">广播</text>
+<g id="fs-bc" class="h">
+<rect id="fs-bcr" x="560.0" y="658.0" width="200" height="64" rx="32.0" fill="#58C4DD" stroke="#58C4DD" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-bct" x="660" y="700.8" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="600">已广播</text>
+</g>
+<path id="fs-lp" class="dr h" pathLength="1" d="M632 658 C606 596 712 596 690 656" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#fs-mb)"/>
+<text id="fs-llp" class="h" x="600" y="626" font-size="28" fill="#58C4DD" text-anchor="end">加速替换 · 新 tx_hash</text>
+<path id="fs-hang" class="dr h" pathLength="1" d="M660 724 L660 788" stroke="#8a8f99" stroke-width="2.5" fill="none"/>
+<text id="fs-nc" class="h mono" x="540" y="880" font-size="28" fill="#F0B90B" text-anchor="end">nonce 1873</text>
+<g id="fs-tx0" class="h">
+<rect id="fs-tx0r" x="560" y="790" width="200" height="46" rx="10" fill="#8a8f99" stroke="#8a8f99" stroke-width="3" fill-opacity="0.1"/>
+<text id="fs-tx0t" class="mono" x="660.0" y="823.08" font-size="28" fill="#e8e6df" text-anchor="middle" font-weight="600">tx_hash 1</text>
+</g>
+<g id="fs-tx1" class="h">
+<rect id="fs-tx1r" x="560" y="850" width="200" height="46" rx="10" fill="#8a8f99" stroke="#8a8f99" stroke-width="3" fill-opacity="0.1"/>
+<text id="fs-tx1t" class="mono" x="660.0" y="883.08" font-size="28" fill="#e8e6df" text-anchor="middle" font-weight="600">tx_hash 2</text>
+</g>
+<g id="fs-tx2" class="h">
+<rect id="fs-tx2r" x="560" y="910" width="200" height="46" rx="10" fill="#8a8f99" stroke="#8a8f99" stroke-width="3" fill-opacity="0.1"/>
+<text id="fs-tx2t" class="mono" x="660.0" y="943.08" font-size="28" fill="#e8e6df" text-anchor="middle" font-weight="600">tx_hash 3</text>
+</g>
+<g id="fs-cf" class="h">
+<rect id="fs-cfo" x="993.0" y="651.0" width="214" height="78" rx="39.0" fill="none" stroke="#83C167" stroke-width="2.5"/>
+<rect id="fs-cfr" x="1000.0" y="658.0" width="200" height="64" rx="32.0" fill="#83C167" stroke="#83C167" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-cft" x="1100" y="700.8" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="600">已确认</text>
+</g>
+<path id="fs-abc" class="dr h" pathLength="1" d="M762 690 L984 690" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#fs-mgr)"/>
+<text id="fs-lbc" class="h" x="874" y="660" font-size="28" fill="#83C167" text-anchor="middle">达到确认数</text>
+<g id="fs-fl" class="h">
+<rect id="fs-flr" x="1000.0" y="868.0" width="200" height="64" rx="32.0" fill="#FC6255" stroke="#FC6255" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-flt" x="1100" y="910.8" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="600">链上失败</text>
+</g>
+<path id="fs-abf" class="dr h" pathLength="1" d="M752 724 L994 862" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#fs-mr)"/>
+<text id="fs-lbf" class="h mono" x="905" y="776" font-size="28" fill="#FC6255">status 0</text>
+<text id="fs-fn" class="h" x="1100" y="980" font-size="28" fill="#FC6255" text-anchor="middle">Gas 已扣 · nonce 已用</text>
+<g id="fs-m2" class="h">
+<rect id="fs-m2r" x="1540.0" y="868.0" width="200" height="64" rx="32.0" fill="#FF9F43" stroke="#FF9F43" stroke-width="3" fill-opacity="0.15"/>
+<text id="fs-m2t" x="1640" y="910.8" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="600">人工处理</text>
+</g>
+<path id="fs-afm" class="dr h" pathLength="1" d="M1202 900 L1534 900" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#fs-mo)"/>
+<text id="fs-lfm" class="h" x="1370" y="870" font-size="28" fill="#FF9F43" text-anchor="middle">再试 = 新交易</text>
+<path id="fs-abm" class="dr h" pathLength="1" d="M740 656 L740 600 L1700 600 L1700 862" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#fs-mo)"/>
+<text id="fs-lbm" class="h" x="1250" y="588" font-size="28" fill="#FF9F43" text-anchor="middle">达到加速上限</text>
+<path id="fs-back" class="h" d="M1700 196 C1700 92 1020 92 1020 196" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#fs-mr)" stroke-dasharray="14 10"/>
+<text id="fs-bx" class="h" x="1360" y="132" font-size="56" fill="#FC6255" text-anchor="middle" font-weight="700">✕</text>
+<g id="fs-k1" class="h">
+<rect id="fs-k1r" x="1250" y="640" width="200" height="48" rx="10" fill="#F0B90B" stroke="#F0B90B" stroke-width="3" fill-opacity="0.12"/>
+<text id="fs-k1t" class="mono" x="1350.0" y="674.08" font-size="28" fill="#e8e6df" text-anchor="middle" font-weight="600">nonce 1873</text>
+</g>
+<g id="fs-k2" class="h">
+<rect id="fs-k2r" x="1250" y="710" width="200" height="48" rx="10" fill="#F0B90B" stroke="#F0B90B" stroke-width="3" fill-opacity="0.12"/>
+<text id="fs-k2t" class="mono" x="1350.0" y="744.08" font-size="28" fill="#e8e6df" text-anchor="middle" font-weight="600">nonce 1874</text>
+</g>
+<g id="fs-ch" class="h">
+<rect id="fs-chr" x="1500" y="640" width="150" height="118" rx="14" fill="#8a8f99" stroke="#8a8f99" stroke-width="3" fill-opacity="0.12"/>
+<text id="fs-cht" x="1575.0" y="709.8" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="600">链上</text>
+</g>
+<path id="fs-ak1" class="dr h" pathLength="1" d="M1452 664 L1494 664" fill="none" stroke="#F0B90B" stroke-width="3" marker-end="url(#fs-mg)"/>
+<path id="fs-ak2" class="dr h" pathLength="1" d="M1452 734 L1494 734" fill="none" stroke="#F0B90B" stroke-width="3" marker-end="url(#fs-mg)"/>
+<text id="fs-dup" class="h" x="1450" y="810" font-size="34" fill="#FC6255" text-anchor="middle" font-weight="700">重复打款</text>
+<path id="fs-gsb" class="dr h" pathLength="1" d="M322 690 L554 690" fill="none" stroke="#83C167" stroke-width="5" marker-end="url(#fs-mgr)"/>
+<path id="fs-glp" class="dr h" pathLength="1" d="M632 658 C606 596 712 596 690 656" fill="none" stroke="#83C167" stroke-width="5" marker-end="url(#fs-mgr)"/>
+<text id="fs-lcx" class="h" x="1640" y="980" font-size="28" fill="#83C167" text-anchor="middle" font-weight="600">人工取消</text>
+<g id="fs-av1" class="h">
+<circle cx="1300" cy="676" r="20" fill="none" stroke="#B48EF0" stroke-width="3"/>
+<path d="M1266 740 C1266 708 1334 708 1334 740" fill="none" stroke="#B48EF0" stroke-width="3"/>
+</g>
+<g id="fs-av2" class="h">
+<circle cx="1385" cy="676" r="20" fill="none" stroke="#B48EF0" stroke-width="3"/>
+<path d="M1351 740 C1351 708 1419 708 1419 740" fill="none" stroke="#B48EF0" stroke-width="3"/>
+</g>
+<g id="fs-log" class="h">
+<rect x="1470" y="648" width="76" height="96" rx="8" fill="#58C4DD" stroke="#58C4DD" stroke-width="3" fill-opacity="0.12"/>
+<line x1="1484" y1="672" x2="1532" y2="672" stroke="#58C4DD" stroke-width="3"/>
+<line x1="1484" y1="690" x2="1532" y2="690" stroke="#58C4DD" stroke-width="3"/>
+<line x1="1484" y1="708" x2="1532" y2="708" stroke="#58C4DD" stroke-width="3"/>
+<line x1="1484" y1="726" x2="1532" y2="726" stroke="#58C4DD" stroke-width="3"/>
+</g>
+<text id="fs-l7" class="h" x="1420" y="810" font-size="28" fill="#e8e6df" text-anchor="middle">两人审批 · 审计日志</text>
+</g>
+</g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const PULSE = (s, t, n = 2, d = 0.35, prop = { opacity: 0.4 }) => tl.to(s, { ...prop, duration: d, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+      const SW = (s, t, w = 6, n = 2) => tl.to(s, { attr: { "stroke-width": w }, duration: 0.3, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+      const TO = (s, t, props, d = 0.4) => tl.to(s, { duration: d, ...props }, t);
+      const STAMP = (s, t, o) => tl.fromTo(s, { opacity: 0, scale: 1.6, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.4, ease: "power3.out" }, t);
+const P = "#fs-";
+tl.set(P+"up", { y: 70 }, 0);
+// L0
+IN(P+"ti", at(0, 0.02), 0.6, { y: 20 }, { y: 0 });
+IN(P+"st", at(0, 0.2), 0.5);
+[0,1,2,3,4].forEach(i => IN(P+"n"+i, at(0, 0.38 + i * 0.1), 0.5, { y: 16 }, { y: 0 }));
+IN(P+"half", at(0, 0.28), 0.5);
+PULSE(P+"st", at(0, 0.9), 1, 0.3);
+OUT(P+"half", at(1, 0), 0.4);
+// L1 normal path lights left to right
+const LC = ["#8a8f99", "#58C4DD", "#83C167", "#FF9F43", "#FF9F43"];
+[0,1,2,3,4].forEach(i => {
+  const t = at(1, 0.04 + i * 0.19);
+  TO(P+"n"+i+"r", t, { stroke: LC[i], fill: LC[i], attr: { "stroke-width": 4 } });
+  TO(P+"n"+i+"t", t, { fill: "#e8e6df" });
+  if (i > 0) ARROW(P+"a"+(i-1)+i, t - 0.5, 0.45);
+});
+IN(P+"l34", at(1, 0.9), 0.4);
+// L2 risk exits
+IN(P+"l12", at(2, 0.03), 0.4); SW(P+"a12", at(2, 0.05), 6, 1);
+ARROW(P+"arp", at(2, 0.2), 0.5); IN(P+"pa", at(2, 0.25), 0.5, { y: 14 }, { y: 0 }); IN(P+"lrp", at(2, 0.3), 0.4);
+ARROW(P+"arx", at(2, 0.42), 0.6); IN(P+"rj", at(2, 0.47), 0.5, { y: 14 }, { y: 0 }); IN(P+"lrx", at(2, 0.5), 0.4);
+ARROW(P+"apa", at(2, 0.66), 0.5); IN(P+"lpa", at(2, 0.7), 0.4); SW(P+"n2r", at(2, 0.72), 7, 1);
+ARROW(P+"apx", at(2, 0.84), 0.4); IN(P+"lpx", at(2, 0.86), 0.4); SW(P+"rjo", at(2, 0.9), 6, 1);
+// L3 nonce only after approval
+IN(P+"l23", at(3, 0.02), 0.4); PULSE(P+"l23", at(3, 0.1), 3, 0.3); SW(P+"a23", at(3, 0.1), 7, 2);
+IN(P+"nn", at(3, 0.38), 0.5, { y: 10 }, { y: 0 }); SW(P+"rjr", at(3, 0.42), 6, 1);
+ARROW(P+"asm", at(3, 0.62), 0.5); IN(P+"m1", at(3, 0.68), 0.5, { y: 14 }, { y: 0 }); IN(P+"lsm", at(3, 0.72), 0.4);
+SW(P+"m1r", at(3, 0.88), 6, 1);
+// L4 lower half
+OUT(P+"ti", at(4, 0), 0.35); OUT(P+"st", at(4, 0), 0.35); OUT(P+"nn", at(4, 0), 0.3);
+tl.to(P+"up", { y: -100, duration: 0.8, ease: "power2.inOut" }, at(4, 0.03));
+SW(P+"n4r", at(4, 0.1), 7, 1);
+IN(P+"s2", at(4, 0.14), 0.9, { x: 1500, y: -460 }, { x: 0, y: 0, ease: "power2.inOut" });
+ARROW(P+"asb", at(4, 0.24), 0.5); IN(P+"lsb", at(4, 0.27), 0.4);
+IN(P+"bc", at(4, 0.3), 0.5, { x: -20 }, { x: 0 });
+ARROW(P+"lp", at(4, 0.42), 0.6); IN(P+"llp", at(4, 0.46), 0.4);
+DRAW(P+"hang", at(4, 0.55), 0.3); tl.set(P+"hang", { opacity: 1 }, at(4, 0.55));
+IN(P+"nc", at(4, 0.57), 0.4);
+[0,1,2].forEach(i => IN(P+"tx"+i, at(4, 0.6 + i * 0.07), 0.4, { y: -12 }, { y: 0 }));
+TO(P+"tx2r", at(4, 0.84), { stroke: "#83C167", fill: "#83C167" }); TO(P+"tx2t", at(4, 0.84), { fill: "#83C167" });
+ARROW(P+"abc", at(4, 0.86), 0.4); IN(P+"cf", at(4, 0.9), 0.4); IN(P+"lbc", at(4, 0.9), 0.4);
+// L5 failures
+ARROW(P+"abf", at(5, 0.03), 0.5); IN(P+"lbf", at(5, 0.08), 0.4); IN(P+"fl", at(5, 0.1), 0.5, { y: 14 }, { y: 0 });
+IN(P+"fn", at(5, 0.3), 0.5); PULSE(P+"fn", at(5, 0.38), 1, 0.3);
+ARROW(P+"afm", at(5, 0.5), 0.5); IN(P+"m2", at(5, 0.55), 0.5, { x: 20 }, { x: 0 }); IN(P+"lfm", at(5, 0.58), 0.4);
+ARROW(P+"abm", at(5, 0.74), 0.8); IN(P+"lbm", at(5, 0.8), 0.4); SW(P+"m2r", at(5, 0.92), 6, 1);
+// L6 never go back
+IN(P+"back", at(6, 0.03), 0.6); SW(P+"back", at(6, 0.1), 6, 1);
+STAMP(P+"bx", at(6, 0.2), "1360 112");
+IN(P+"k1", at(6, 0.3), 0.4, { x: -20 }, { x: 0 }); IN(P+"k2", at(6, 0.42), 0.4, { x: -20 }, { x: 0 });
+IN(P+"ch", at(6, 0.36), 0.4);
+OUT([P+"lfm", P+"lbm", P+"abm"].join(","), at(6, 0.26), 0.35);
+ARROW(P+"ak1", at(6, 0.52), 0.3); ARROW(P+"ak2", at(6, 0.56), 0.3);
+TO(P+"chr", at(6, 0.64), { stroke: "#FC6255", fill: "#FC6255" });
+IN(P+"dup", at(6, 0.72), 0.4, { y: 10 }, { y: 0 }); PULSE(P+"dup", at(6, 0.82), 2, 0.3);
+// L7 three ways out
+OUT([P+"k1", P+"k2", P+"ch", P+"ak1", P+"ak2", P+"dup"].join(","), at(7, 0), 0.35);
+tl.to([P+"lfm", P+"lbm", P+"abm"].join(","), { opacity: 1, duration: 0.4 }, at(7, 0.04));
+DRAW(P+"gsb", at(7, 0.06), 0.5); tl.set(P+"gsb", { opacity: 1 }, at(7, 0.06));
+TO(P+"lsb", at(7, 0.08), { fill: "#83C167" });
+DRAW(P+"glp", at(7, 0.18), 0.5); tl.set(P+"glp", { opacity: 1 }, at(7, 0.18));
+TO(P+"llp", at(7, 0.2), { fill: "#83C167" });
+IN(P+"lcx", at(7, 0.32), 0.4); TO(P+"m2r", at(7, 0.32), { stroke: "#83C167" });
+IN(P+"av1", at(7, 0.48), 0.4, { y: 12 }, { y: 0 }); IN(P+"av2", at(7, 0.56), 0.4, { y: 12 }, { y: 0 });
+IN(P+"log", at(7, 0.66), 0.4, { y: 12 }, { y: 0 }); IN(P+"l7", at(7, 0.74), 0.4);
+SW(P+"s2r", at(7, 0.86), 6, 2);
+      tl.to("#fs-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["fsm"] = tl;
+    })();
+  </script>
+</template>

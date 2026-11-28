@@ -1,0 +1,138 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 failover，id 前缀 fa- -->
+  <div id="root" data-composition-id="failover" data-duration="52.68" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs><marker id="fa-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="fa-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="fa-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="fa-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="fa-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="fa-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="fa-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker><marker id="fa-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker></defs>
+<g id="fa-all">
+ <g id="fa-dg">
+  <g id="fa-lg" class="h"><path d="M140 440 L140 540 A120 22 0 0 0 380 540 L380 440" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><ellipse cx="260" cy="440" rx="120" ry="22" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="260" y="512" font-size="30" fill="#58C4DD" text-anchor="middle">输入日志</text></g>
+  <path id="fa-l1" class="dr h" pathLength="1" d="M384 470 L630 356" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#fa-mb)"/>
+  <path id="fa-l2" class="dr h" pathLength="1" d="M384 520 L630 644" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#fa-mb)"/>
+  <g id="fa-ma" class="h"><rect id="fa-mar" x="640" y="300" width="300" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="fa-mat" x="790" y="361" font-size="32" fill="#e8e6df" text-anchor="middle">主节点</text></g>
+  <g id="fa-sb" class="h"><rect id="fa-sbr" x="640" y="600" width="300" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="790" y="661" font-size="32" fill="#e8e6df" text-anchor="middle">备节点</text></g>
+  <text id="fa-sbl" class="h" x="790" y="750" font-size="28" fill="#8a8f99" text-anchor="middle">不对外输出 · 状态一致</text>
+  <path id="fa-o1" class="dr h" pathLength="1" d="M944 350 L1490 470" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#fa-mb)"/>
+  <path id="fa-o2" class="dr h" pathLength="1" d="M944 650 L1490 512" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#fa-mb)"/>
+  <g id="fa-ds" class="h"><rect x="1500" y="440" width="270" height="100" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text x="1635" y="501" font-size="32" fill="#B48EF0" text-anchor="middle">下游服务</text></g>
+  <g id="fa-bolt" class="h"><polygon points="972,250 950,292 966,292 954,330 990,280 972,280 986,250" fill="#FC6255"/><text x="1004" y="296" font-size="32" font-weight="700" fill="#FC6255">故障</text></g>
+  <g id="fa-key"><g id="fa-keyi" class="h"><circle cx="604" cy="290" r="14" fill="none" stroke="#FF9F43" stroke-width="5"/><line x1="618" y1="290" x2="650" y2="290" stroke="#FF9F43" stroke-width="5"/><line x1="642" y1="290" x2="642" y2="302" stroke="#FF9F43" stroke-width="5"/><line x1="632" y1="290" x2="632" y2="300" stroke="#FF9F43" stroke-width="5"/></g></g>
+  <g id="fa-cl">
+   <rect id="fa-cb1" class="h" x="640" y="832" width="38" height="38" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/>
+   <rect id="fa-cb2" class="h" x="640" y="912" width="38" height="38" rx="6" fill="none" stroke="#8a8f99" stroke-width="3"/>
+   <path id="fa-ck1" class="dr" pathLength="1" d="M648 851 L657 862 L672 840" fill="none" stroke="#83C167" stroke-width="5"/>
+   <path id="fa-ck2" class="dr" pathLength="1" d="M648 931 L657 942 L672 920" fill="none" stroke="#83C167" stroke-width="5"/>
+   <text id="fa-c1" class="h" x="700" y="862" font-size="30" fill="#e8e6df">① 备已处理 <tspan class="mono" fill="#58C4DD">seq</tspan> ≥ 主最后输出 <tspan class="mono" fill="#58C4DD">seq</tspan></text>
+   <text id="fa-c2" class="h" x="700" y="942" font-size="30" fill="#e8e6df">② 旧主已失去<tspan fill="#FF9F43">租约</tspan></text>
+  </g>
+  <g id="fa-dc1" class="h"><rect x="1500" y="600" width="270" height="64" rx="10" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2.5"/><text x="1635" y="642" font-size="28" fill="#e8e6df" text-anchor="middle">成交 T1</text></g>
+  <g id="fa-dc2" class="h"><rect x="1500" y="680" width="270" height="64" rx="10" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2.5"/><text x="1635" y="722" font-size="28" fill="#e8e6df" text-anchor="middle">成交 T1</text></g>
+  <text id="fa-dcl" class="h" x="1635" y="800" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">双份成交</text>
+  <g id="fa-lease" class="h"><text x="760" y="902" font-size="32" fill="#FF9F43"><tspan class="mono">etcd lease</tspan> / 单写者分区</text><text x="760" y="956" font-size="30" fill="#e8e6df">同一时刻只有一个主</text></g>
+  <g id="fa-k2o"><g id="fa-k2" class="h"><circle cx="690" cy="910" r="16" fill="none" stroke="#FF9F43" stroke-width="5"/><line x1="706" y1="910" x2="742" y2="910" stroke="#FF9F43" stroke-width="5"/><line x1="734" y1="910" x2="734" y2="924" stroke="#FF9F43" stroke-width="5"/><line x1="722" y1="910" x2="722" y2="922" stroke="#FF9F43" stroke-width="5"/></g></g>
+  <g id="fa-shut" class="h"><line x1="1010" y1="340" x2="1050" y2="390" stroke="#8a8f99" stroke-width="5"/><line x1="1050" y1="340" x2="1010" y2="390" stroke="#8a8f99" stroke-width="5"/></g>
+ </g>
+ <g id="fa-tb">
+  <text id="fa-tbt" class="h" x="960" y="250" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">参考目标（示例）</text>
+  <g id="fa-w0" class="h"><rect x="300" y="310" width="1320" height="96" rx="10" fill="#161a22"/><text x="340" y="370" font-size="34" fill="#8a8f99">单交易对吞吐</text><text x="900" y="370" font-size="36" fill="#58C4DD">10 万 – 100 万 <tspan class="mono">TPS</tspan></text></g>
+  <g id="fa-w1" class="h"><text x="340" y="470" font-size="34" fill="#8a8f99">撮合延迟 <tspan class="mono">P99</tspan></text><text x="900" y="470" font-size="36" fill="#58C4DD">&lt; 100 微秒</text></g>
+  <g id="fa-w2" class="h"><rect x="300" y="510" width="1320" height="96" rx="10" fill="#161a22"/><text x="340" y="570" font-size="34" fill="#8a8f99">端到端 <tspan class="mono">P99</tspan></text><text x="900" y="570" font-size="36" fill="#58C4DD">&lt; 10 毫秒</text></g>
+  <g id="fa-w3" class="h"><text x="340" y="670" font-size="34" fill="#8a8f99">恢复时间 <tspan class="mono">RTO</tspan></text><text x="900" y="670" font-size="36" fill="#58C4DD">&lt; 10 秒</text></g>
+  <g id="fa-w4" class="h"><rect x="300" y="710" width="1320" height="96" rx="10" fill="#161a22"/><text x="340" y="770" font-size="34" fill="#8a8f99">数据丢失 <tspan class="mono">RPO</tspan></text><text x="900" y="770" font-size="36" fill="#83C167">= 0</text></g>
+  <text id="fa-w5" class="h" x="1060" y="770" font-size="30" fill="#8a8f99">← 输入先持久化</text>
+ </g>
+</g>
+<g id="fa-term" class="h">
+ <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+ <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">脑裂 <tspan font-size="28" font-weight="400" fill="#8a8f99">Split Brain</tspan></text>
+ <text x="100" y="160" font-size="28" fill="#e8e6df">多个节点同时认为自己是主</text>
+</g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 主备消费同一日志
+IN("#fa-lg", at(0, 0.0), 0.5);
+ARROW("#fa-l1", at(0, 0.1), 0.5); ARROW("#fa-l2", at(0, 0.14), 0.5);
+IN("#fa-ma", at(0, 0.2), 0.5); IN("#fa-sb", at(0, 0.26), 0.5);
+ARROW("#fa-o1", at(0, 0.4), 0.6); IN("#fa-ds", at(0, 0.46), 0.5);
+IN("#fa-keyi", at(0, 0.56), 0.4);
+IN("#fa-sbl", at(0, 0.66), 0.5);
+tl.to("#fa-sbr", { attr: { "stroke-width": 6 }, duration: 0.25, yoyo: true, repeat: 1 }, at(0, 0.86));
+// L1 主故障，接管前两项检查
+IN("#fa-bolt", at(1, 0.04), 0.4, { scale: 0.5, svgOrigin: "970 290" }, { scale: 1 });
+tl.to("#fa-mar", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.08));
+tl.to("#fa-o1", { opacity: 0.2, duration: 0.4 }, at(1, 0.18));
+IN("#fa-cb1", at(1, 0.5), 0.4); IN("#fa-cb2", at(1, 0.66), 0.4);
+// L2 seq 不落后
+IN("#fa-c1", at(2, 0.04), 0.5, { x: 20 }, { x: 0 });
+tl.to("#fa-sbr", { attr: { "stroke-width": 6 }, stroke: "#58C4DD", duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.4));
+DRAW("#fa-ck1", at(2, 0.72), 0.4); tl.to("#fa-cb1", { stroke: "#83C167", duration: 0.3 }, at(2, 0.72));
+// L3 旧主失去租约 → 备接管
+IN("#fa-c2", at(3, 0.0), 0.4, { x: 20 }, { x: 0 });
+tl.to("#fa-keyi", { x: -120, y: -120, opacity: 0, duration: 0.6, ease: "power2.in" }, at(3, 0.18));
+DRAW("#fa-ck2", at(3, 0.52), 0.35); tl.to("#fa-cb2", { stroke: "#83C167", duration: 0.3 }, at(3, 0.52));
+tl.to("#fa-sbr", { stroke: "#58C4DD", duration: 0.3 }, at(3, 0.68)); OUT("#fa-sbl", at(3, 0.66), 0.3);
+ARROW("#fa-o2", at(3, 0.72), 0.5);
+// L4 反例：脑裂 → 双份成交
+OUT(["#fa-cl", "#fa-bolt"], at(4, 0.0), 0.4);
+tl.to("#fa-mar", { stroke: "#58C4DD", duration: 0.4 }, at(4, 0.26));
+tl.to("#fa-o1", { opacity: 1, duration: 0.4 }, at(4, 0.28));
+tl.to(["#fa-mar", "#fa-sbr"], { attr: { "stroke-width": 6 }, duration: 0.25, yoyo: true, repeat: 1 }, at(4, 0.36));
+IN("#fa-dc1", at(4, 0.54), 0.4, { x: 30 }, { x: 0 }); IN("#fa-dc2", at(4, 0.62), 0.4, { x: 30 }, { x: 0 });
+IN("#fa-dcl", at(4, 0.7), 0.4);
+IN("#fa-term", at(4, 0.8), 0.5);
+// L5 分布式租约：只有一个主
+IN("#fa-k2", at(5, 0.06), 0.4, { scale: 0.5, svgOrigin: "715 910" }, { scale: 1 });
+IN("#fa-lease", at(5, 0.1), 0.5);
+tl.to("#fa-k2o", { x: 270, y: -310, duration: 0.9, ease: "power2.inOut" }, at(5, 0.5));
+tl.to("#fa-o1", { opacity: 0, duration: 0.4 }, at(5, 0.66));
+tl.to("#fa-mar", { stroke: "#8a8f99", duration: 0.4 }, at(5, 0.66));
+IN("#fa-shut", at(5, 0.7), 0.3);
+OUT(["#fa-dc2", "#fa-dcl"], at(5, 0.74), 0.4);
+tl.to("#fa-dc1 rect", { stroke: "#83C167", fill: "#83C167", duration: 0.4 }, at(5, 0.8));
+OUT("#fa-term", at(5, 0.9), 0.3);
+// L6 参考指标
+OUT("#fa-dg", at(6, 0.0), 0.4);
+IN("#fa-tbt", at(6, 0.05), 0.5);
+IN("#fa-w0", at(6, 0.28), 0.5, { x: -20 }, { x: 0 });
+IN("#fa-w1", at(6, 0.53), 0.5, { x: -20 }, { x: 0 });
+IN("#fa-w2", at(6, 0.78), 0.5, { x: -20 }, { x: 0 });
+// L7
+IN("#fa-w3", at(7, 0.05), 0.5, { x: -20 }, { x: 0 });
+IN("#fa-w4", at(7, 0.4), 0.5, { x: -20 }, { x: 0 });
+IN("#fa-w5", at(7, 0.72), 0.5, { x: 20 }, { x: 0 });
+
+
+      tl.to("#fa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#fa-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["failover"] = tl;
+    })();
+  </script>
+</template>

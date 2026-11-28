@@ -1,0 +1,146 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 transit，id 前缀 tr- -->
+  <div id="root" data-composition-id="transit" data-duration="43.58" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="tr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs><marker id="tr-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="tr-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="tr-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="tr-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="tr-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="tr-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="tr-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker></defs>
+      <g id="tr-all" transform="translate(0,110)">
+<g id="tr-c" class="h"><rect x="790" y="220" width="1070" height="435" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><rect id="tr-chl" x="796" y="242" width="1058" height="41" fill="#58C4DD" fill-opacity="0.15" opacity="0"/><rect id="tr-chb" x="796" y="242" width="6" height="41" fill="#58C4DD" opacity="0"/><text id="tr-c1" class="mono" xml:space="preserve" x="822" y="272" font-size="28" fill="#e8e6df" opacity="0.55">q := "UPDATE withdrawal SET status = $1, " +</text><text id="tr-c2" class="mono" xml:space="preserve" x="822" y="313" font-size="28" fill="#e8e6df" opacity="0.55">    "version = version + 1, updated_at = now()"</text><text id="tr-c3" class="mono" xml:space="preserve" x="822" y="354" font-size="28" fill="#e8e6df" opacity="0.55">for k, v := range set {</text><text id="tr-c4" class="mono" xml:space="preserve" x="822" y="395" font-size="28" fill="#e8e6df" opacity="0.55">    args = append(args, v)</text><text id="tr-c5" class="mono" xml:space="preserve" x="822" y="436" font-size="28" fill="#e8e6df" opacity="0.55">    q += fmt.Sprintf(", %s = $%d", k, len(args))</text><text id="tr-c6" class="mono" xml:space="preserve" x="822" y="477" font-size="28" fill="#e8e6df" opacity="0.55">}</text><text id="tr-c7" class="mono" xml:space="preserve" x="822" y="518" font-size="28" fill="#e8e6df" opacity="0.55">q += " WHERE id = $n AND status = $m"</text><text id="tr-c8" class="mono" xml:space="preserve" x="822" y="559" font-size="28" fill="#e8e6df" opacity="0.55">tag, err := r.db.Exec(ctx, q, args...)</text><text id="tr-c9" class="mono" xml:space="preserve" x="822" y="600" font-size="28" fill="#e8e6df" opacity="0.55">return tag.RowsAffected() == 1, err</text></g>
+<text id="tr-cm0" class="h" x="820" y="720" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan>只有当前状态匹配才推进</text>
+<text id="tr-cm1" class="h" x="820" y="720" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan><tspan class="mono">false</tspan>：被别的 worker 抢先</text>
+<text id="tr-cm2" class="h" x="820" y="720" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan><tspan class="mono">k</tspan> 来自代码常量，不来自用户输入</text>
+<g id="tr-wa" class="h"><circle id="tr-wah" cx="155" cy="430" r="28" fill="none" stroke="#58C4DD" stroke-width="4"/><path id="tr-wabd" d="M115 530 Q115 468 155 468 Q195 468 195 530 Z" fill="#14222a" stroke="#58C4DD" stroke-width="4"/><text class="mono" x="155" y="580" font-size="28" fill="#58C4DD" text-anchor="middle">Worker A</text></g>
+<g id="tr-wb" class="h"><circle id="tr-wbh" cx="675" cy="430" r="28" fill="none" stroke="#58C4DD" stroke-width="4"/><path id="tr-wbbd" d="M635 530 Q635 468 675 468 Q715 468 715 530 Z" fill="#14222a" stroke="#58C4DD" stroke-width="4"/><text class="mono" x="675" y="580" font-size="28" fill="#58C4DD" text-anchor="middle">Worker B</text></g>
+<path id="tr-aa" class="dr h" pathLength="1" d="M200 490 L262 490" fill="none" stroke="#58C4DD" stroke-width="4" marker-end="url(#tr-mb)"/>
+<path id="tr-ab" class="dr h" pathLength="1" d="M630 490 L568 490" fill="none" stroke="#58C4DD" stroke-width="4" marker-end="url(#tr-mb)"/>
+<g id="tr-card" class="h"><rect x="270" y="420" width="290" height="140" rx="14" fill="#2a2412" stroke="#F0B90B" stroke-width="3"/><text x="415" y="466" font-size="32" fill="#F0B90B" text-anchor="middle" font-weight="700">提币</text><rect id="tr-cap" x="305" y="490" width="220" height="50" rx="25" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/></g>
+<text id="tr-st1" class="h mono" x="415" y="525" font-size="28" fill="#58C4DD" text-anchor="middle" data-layout-allow-overlap>APPROVED</text>
+<text id="tr-st2" class="h mono" x="415" y="525" font-size="28" fill="#58C4DD" text-anchor="middle" font-weight="700" data-layout-allow-overlap>SIGNING</text>
+<text id="tr-ver" class="h mono" x="415" y="300" font-size="30" fill="#8a8f99" text-anchor="middle">version + 1</text>
+<text id="tr-cond" class="h" x="415" y="380" font-size="30" fill="#FF9F43" text-anchor="middle"><tspan class="mono">status = APPROVED ?</tspan></text>
+<g id="tr-ka" class="h"><circle cx="155" cy="340" r="26" fill="#83C167"/><path d="M143.3 340.5 l8.3 8.3 l15.6 -16.1" fill="none" stroke="#0f1117" stroke-width="4.3" stroke-linecap="round"/></g>
+<text id="tr-ra" class="h" x="80" y="650" font-size="30" fill="#83C167" font-weight="700">影响 1 行</text>
+<g id="tr-xb" class="h"><circle cx="675" cy="340" r="26" fill="#8a8f99"/><path d="M664.1 329.1 L685.9 350.9 M685.9 329.1 L664.1 350.9" stroke="#0f1117" stroke-width="4.3" stroke-linecap="round"/></g>
+<text id="tr-rb1" class="h" x="560" y="650" font-size="30" fill="#8a8f99" font-weight="700">影响 0 行</text>
+<text id="tr-rb2" class="h" x="560" y="700" font-size="30" fill="#8a8f99"><tspan class="mono">false</tspan> → 退出</text>
+<text id="tr-fl" class="h" x="80" y="290" font-size="30" fill="#8a8f99">字段名</text>
+<g id="tr-k1" class="h"><rect x="80" y="320" width="170" height="70" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="165" y="366" font-size="30" fill="#83C167" text-anchor="middle" font-weight="700">常量</text></g>
+<g id="tr-k1k" class="h"><circle cx="280" cy="355" r="20" fill="#83C167"/><path d="M271.0 355.4 l6.4 6.4 l12.0 -12.4" fill="none" stroke="#0f1117" stroke-width="3.3" stroke-linecap="round"/></g>
+<g id="tr-k2" class="h"><rect x="80" y="430" width="200" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="180" y="476" font-size="30" fill="#FC6255" text-anchor="middle" font-weight="700">用户输入</text><line x1="96" y1="466" x2="264" y2="466" stroke="#FC6255" stroke-width="3"/></g>
+<g id="tr-slot" class="h"><rect x="500" y="370" width="150" height="76" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="575" y="419" font-size="34" fill="#58C4DD" text-anchor="middle" font-weight="700">%s</text></g>
+<path id="tr-ka1" class="dr h" pathLength="1" d="M310 360 C400 360 420 395 492 400" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#tr-mgr)"/>
+<path id="tr-ka2" class="dr h" pathLength="1" d="M290 470 C360 470 390 440 440 430" fill="none" stroke="#FC6255" stroke-width="3.5" marker-end="url(#tr-mr)"/>
+<g id="tr-k2x" class="h"><circle cx="455" cy="470" r="20" fill="#FC6255"/><path d="M446.6 461.6 L463.4 478.4 M463.4 461.6 L446.6 478.4" stroke="#0f1117" stroke-width="3.3" stroke-linecap="round"/></g>
+<text id="tr-vl" class="h" x="80" y="590" font-size="30" fill="#8a8f99">值</text>
+<g id="tr-v" class="h"><rect x="80" y="620" width="170" height="70" rx="12" fill="#2a2412" stroke="#F0B90B" stroke-width="3"/><text class="mono" x="165" y="666" font-size="32" fill="#F0B90B" text-anchor="middle" font-weight="700">v</text></g>
+<path id="tr-va" class="dr h" pathLength="1" d="M256 655 L492 655" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#tr-mb)"/>
+<g id="tr-ph" class="h"><rect x="500" y="618" width="150" height="76" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="575" y="668" font-size="34" fill="#58C4DD" text-anchor="middle" font-weight="700">$n</text></g>
+<text id="tr-phl" class="h" x="575" y="745" font-size="30" fill="#58C4DD" text-anchor="middle">参数占位</text>
+<text id="tr-sqli" class="h" x="80" y="850" font-size="34" fill="#83C167" font-weight="700">防 SQL 注入</text>
+<g id="tr-coins" class="h"><circle cx="200" cy="330" r="34" fill="#F0B90B"/><circle cx="200" cy="330" r="20" fill="none" stroke="#0f1117" stroke-width="4"/><text x="260" y="342" font-size="32" fill="#F0B90B" font-weight="700">一次</text></g>
+<g id="tr-coin2" class="h"><circle cx="480" cy="330" r="34" fill="none" stroke="#F0B90B" stroke-width="3" stroke-dasharray="8 6"/><text x="540" y="342" font-size="32" fill="#8a8f99">两次</text></g>
+<line id="tr-c2s" class="h" x1="530" y1="330" x2="610" y2="330" stroke="#FC6255" stroke-width="4"/>
+<g id="tr-c2x" class="h"><circle cx="480" cy="330" r="22" fill="#FC6255"/><path d="M470.8 320.8 L489.2 339.2 M489.2 320.8 L470.8 339.2" stroke="#0f1117" stroke-width="3.7" stroke-linecap="round"/></g>
+<g id="tr-s1" class="h"><rect x="80" y="450" width="670" height="150" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><path d="M150 481 L186 497 L182 539 Q172 563 150 573 Q128 563 118 539 L114 497 Z" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="3.5"/><text x="220" y="510" font-size="32" fill="#e8e6df" font-weight="700">幂等键</text><text x="220" y="565" font-size="28" fill="#83C167"><tspan class="mono">(tenant, request_id)</tspan> 唯一</text></g>
+<g id="tr-s2" class="h"><rect x="80" y="630" width="670" height="150" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><path d="M150 661 L186 677 L182 719 Q172 743 150 753 Q128 743 118 719 L114 677 Z" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="3.5"/><text x="220" y="690" font-size="32" fill="#e8e6df" font-weight="700">条件更新</text><text x="220" y="745" font-size="28" fill="#83C167">当前状态匹配才推进</text></g>
+<text id="tr-def" class="h" x="80" y="850" font-size="36" fill="#83C167" font-weight="700">防线 1、2</text>
+      </g>
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const CODE = {};
+const HL = (name, a, b, t, col = "#58C4DD") => {
+  const P = CODE[name]; if (!P) return;
+  const y = P.y + P.top - 30 + 41 * (a - 1), h = 41 * (b - a + 1);
+  tl.to(`#${P.pf}${name}hl`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  tl.to(`#${P.pf}${name}hb`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: (i >= a && i <= b) ? 1 : 0.55, duration: 0.4 }, t);
+};
+const HLOFF = (name, t) => { const P = CODE[name]; tl.to(`#${P.pf}${name}hl, #${P.pf}${name}hb`, { opacity: 0, duration: 0.3 }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: 0.55, duration: 0.3 }, t); };
+const POP = (s, t, o) => IN(s, t, 0.45, { scale: 0.6, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(2)" });
+const PULSE = (s, t, o, k = 1.08) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, t);
+const CHG = (s, t, v, d = 0.35) => tl.to(s, { ...v, duration: d }, t);
+
+      /*ANIM*/
+CODE["c"] = {pf:"tr-", y:220, top:52, n:9};
+
+// L0 两个 Worker 抢同一笔
+IN("#tr-c", at(0, 0.05), 0.5);
+for (let i = 1; i <= 9; i++) IN(`#tr-c${i}`, at(0, 0.06) + i * 0.05, 0.3, {}, { opacity: 0.55 });
+IN("#tr-card", at(0, 0.12), 0.5, { y: 20 }, { y: 0 }); IN("#tr-st1", at(0, 0.18), 0.4);
+IN("#tr-wa", at(0, 0.3), 0.4, { x: -30 }, { x: 0 }); IN("#tr-wb", at(0, 0.36), 0.4, { x: 30 }, { x: 0 });
+ARROW("#tr-aa", at(0, 0.62), 0.4); ARROW("#tr-ab", at(0, 0.62), 0.4);
+PULSE("#tr-card", at(0, 0.78), "415 490", 1.05);
+tl.to("#tr-wa, #tr-aa", { x: 4, duration: 0.3, ease: "power2.out" }, at(0, 0.6)); tl.to("#tr-wb, #tr-ab", { x: -4, duration: 0.3, ease: "power2.out" }, at(0, 0.6));
+tl.to("#tr-wa, #tr-aa", { x: 8, duration: 0.3, ease: "power2.out" }, at(0, 0.9)); tl.to("#tr-wb, #tr-ab", { x: -8, duration: 0.3, ease: "power2.out" }, at(0, 0.9));
+// L1 条件更新
+HL("c", 1, 2, at(1, 0.04)); IN("#tr-ver", at(1, 0.12), 0.4, { y: 10 }, { y: 0 });
+PULSE("#tr-cap", at(1, 0.28), "415 515", 1.1);
+PULSE("#tr-ver", at(1, 0.4), "415 290", 1.1);
+HL("c", 7, 7, at(1, 0.52), "#FF9F43"); IN("#tr-cm0", at(1, 0.55), 0.4);
+IN("#tr-cond", at(1, 0.6), 0.4, { y: 10 }, { y: 0 });
+tl.to("#tr-cap", { stroke: "#FF9F43", duration: 0.3 }, at(1, 0.78));
+PULSE("#tr-cond", at(1, 0.88), "415 370", 1.08);
+// L2 一条成功，一条 0 行
+OUT("#tr-cm0", at(2, 0.0), 0.3); HL("c", 8, 9, at(2, 0.03));
+POP("#tr-ka", at(2, 0.12), "155 340"); IN("#tr-ra", at(2, 0.16), 0.4);
+OUT("#tr-st1", at(2, 0.24), 0.25); IN("#tr-st2", at(2, 0.28), 0.35); tl.to("#tr-cap", { stroke: "#83C167", duration: 0.3 }, at(2, 0.28));
+POP("#tr-xb", at(2, 0.46), "675 340"); IN("#tr-rb1", at(2, 0.5), 0.4);
+IN("#tr-rb2", at(2, 0.62), 0.4); IN("#tr-cm1", at(2, 0.66), 0.4);
+OUT("#tr-ab", at(2, 0.7), 0.3);
+tl.to("#tr-wbh, #tr-wbbd", { stroke: "#8a8f99", duration: 0.4 }, at(2, 0.74));
+tl.to("#tr-wb", { x: 20, duration: 0.5 }, at(2, 0.8));
+// L3 字段名常量，值占位
+OUT("#tr-wa, #tr-wb, #tr-aa, #tr-card, #tr-st2, #tr-ver, #tr-cond, #tr-ka, #tr-ra, #tr-xb, #tr-rb1, #tr-rb2, #tr-cm1", at(3, 0.0), 0.4);
+HL("c", 3, 6, at(3, 0.04)); IN("#tr-cm2", at(3, 0.08), 0.4);
+IN("#tr-fl", at(3, 0.08), 0.3); IN("#tr-slot", at(3, 0.12), 0.4);
+IN("#tr-k1", at(3, 0.2), 0.4, { x: -20 }, { x: 0 }); ARROW("#tr-ka1", at(3, 0.26), 0.5); POP("#tr-k1k", at(3, 0.32), "280 355");
+IN("#tr-k2", at(3, 0.4), 0.4, { x: -20 }, { x: 0 }); ARROW("#tr-ka2", at(3, 0.46), 0.4); POP("#tr-k2x", at(3, 0.52), "455 470");
+HL("c", 4, 5, at(3, 0.62)); IN("#tr-vl", at(3, 0.62), 0.3);
+IN("#tr-v", at(3, 0.66), 0.4); ARROW("#tr-va", at(3, 0.7), 0.4); IN("#tr-ph", at(3, 0.74), 0.4); IN("#tr-phl", at(3, 0.78), 0.4);
+IN("#tr-sqli", at(3, 0.86), 0.4, { x: -15 }, { x: 0 });
+// L4 两道防线
+OUT("#tr-fl, #tr-slot, #tr-k1, #tr-ka1, #tr-k1k, #tr-k2, #tr-ka2, #tr-k2x, #tr-vl, #tr-v, #tr-va, #tr-ph, #tr-phl, #tr-sqli, #tr-cm2", at(4, 0.0), 0.4);
+HL("c", 7, 7, at(4, 0.04), "#83C167");
+IN("#tr-coins", at(4, 0.08), 0.4); IN("#tr-coin2", at(4, 0.14), 0.4); IN("#tr-c2s", at(4, 0.18), 0.1); POP("#tr-c2x", at(4, 0.2), "480 330");
+IN("#tr-s1", at(4, 0.3), 0.5, { y: 20 }, { y: 0 });
+IN("#tr-s2", at(4, 0.48), 0.5, { y: 20 }, { y: 0 });
+IN("#tr-def", at(4, 0.68), 0.4);
+PULSE("#tr-s1", at(4, 0.8), "415 525", 1.03); PULSE("#tr-s2", at(4, 0.88), "415 705", 1.03);
+
+      /*ENDANIM*/
+
+      tl.to("#tr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      
+      window.__timelines["transit"] = tl;
+    })();
+  </script>
+</template>

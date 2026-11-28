@@ -1,0 +1,196 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 post，id 前缀 po- -->
+  <div id="root" data-composition-id="post" data-duration="62.13" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="po-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs><marker id="po-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="po-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="po-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="po-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="po-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="po-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="po-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker><marker id="po-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker></defs>
+      <g id="po-all">
+<g id="po-cd" class="h"><rect x="820" y="220" width="1020" height="568" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/><rect x="821" y="221" width="1018" height="47" rx="11" fill="#1c2130"/><line x1="820" y1="268" x2="1840" y2="268" stroke="#2a2f3a" stroke-width="2"/><text class="mono" x="844" y="254" font-size="28" fill="#58C4DD">ledger/ledger.go · Ledger.Post<tspan fill="#8a8f99" style="font-family:NotoSC">（精简）</tspan></text><rect id="po-cdhl" x="824" y="282" width="1012" height="41" fill="#58C4DD" fill-opacity="0.15" opacity="0"/><rect id="po-cdhb" x="824" y="282" width="6" height="41" fill="#58C4DD" opacity="0"/><text id="po-cd1" class="mono h" xml:space="preserve" x="846" y="311" font-size="28" fill="#e8e6df">if biz != "DEPOSIT" &amp;&amp; biz != "WITHDRAW_DONE" {</text><text id="po-cd2" class="mono h" xml:space="preserve" x="846" y="352" font-size="28" fill="#e8e6df">  checkBalanced(legs) }</text><text id="po-cd3" class="mono h" xml:space="preserve" x="846" y="393" font-size="28" fill="#e8e6df">sort.Slice(legs, byUserThenAsset)</text><text id="po-cd4" class="mono h" xml:space="preserve" x="846" y="434" font-size="28" fill="#e8e6df">pgx.BeginFunc(ctx, db, func(tx pgx.Tx) error {</text><text id="po-cd5" class="mono h" xml:space="preserve" x="846" y="475" font-size="28" fill="#e8e6df">  INSERT INTO ledger_txn ... ON CONFLICT DO NOTHING</text><text id="po-cd6" class="mono h" xml:space="preserve" x="846" y="516" font-size="28" fill="#e8e6df">  if noRows { dup = true; return nil }</text><text id="po-cd7" class="mono h" xml:space="preserve" x="846" y="557" font-size="28" fill="#e8e6df">  for _, g := range legs {</text><text id="po-cd8" class="mono h" xml:space="preserve" x="846" y="598" font-size="28" fill="#e8e6df">    UPDATE account_balance ... WHERE</text><text id="po-cd9" class="mono h" xml:space="preserve" x="846" y="639" font-size="28" fill="#e8e6df">      available+$3 &gt;= 0 AND frozen+$4 &gt;= 0</text><text id="po-cd10" class="mono h" xml:space="preserve" x="846" y="680" font-size="28" fill="#e8e6df">    if rows == 0 { return ErrInsufficient }</text><text id="po-cd11" class="mono h" xml:space="preserve" x="846" y="721" font-size="28" fill="#e8e6df">    insertEntries(tx, txnID, g) }</text><text id="po-cd12" class="mono h" xml:space="preserve" x="846" y="762" font-size="28" fill="#e8e6df">  return insertOutbox(tx, "ledger.events", legs, txnID)</text></g><text id="po-n0" class="h" x="840" y="880" font-size="32" fill="#e8e6df">充值 / 提币完成：不做平衡检查</text><text id="po-n1" class="h" x="840" y="880" font-size="32" fill="#e8e6df">固定加锁顺序 → 不会死锁</text><text id="po-n2" class="h" x="840" y="880" font-size="32" fill="#e8e6df">业务类型 + 业务编号唯一 → 幂等</text><text id="po-n3" class="h" x="840" y="880" font-size="32" fill="#e8e6df">有一条更新失败 → 整笔回滚</text><text id="po-n4" class="h" x="840" y="880" font-size="32" fill="#e8e6df">分录与 outbox 在同一事务里</text><text id="po-n5" class="h" x="840" y="880" font-size="30" fill="#8a8f99"><tspan class="mono">decimal</tspan> 可直接作 <tspan class="mono">pgx</tspan> 参数写 <tspan class="mono">NUMERIC</tspan> 列</text><g id="po-k0" class="h"><circle id="po-kc0" cx="110" cy="320" r="24" fill="#161a22" stroke="#6b6f7a" stroke-width="3"/><text id="po-kt0" class="mono" x="110" y="330" font-size="28" fill="#8a8f99" text-anchor="middle">1</text></g><line id="po-kl0" class="h" x1="110" y1="346" x2="110" y2="414" stroke="#3a3f4b" stroke-width="3"/><g id="po-k1" class="h"><circle id="po-kc1" cx="110" cy="440" r="24" fill="#161a22" stroke="#6b6f7a" stroke-width="3"/><text id="po-kt1" class="mono" x="110" y="450" font-size="28" fill="#8a8f99" text-anchor="middle">2</text></g><line id="po-kl1" class="h" x1="110" y1="466" x2="110" y2="534" stroke="#3a3f4b" stroke-width="3"/><g id="po-k2" class="h"><circle id="po-kc2" cx="110" cy="560" r="24" fill="#161a22" stroke="#6b6f7a" stroke-width="3"/><text id="po-kt2" class="mono" x="110" y="570" font-size="28" fill="#8a8f99" text-anchor="middle">3</text></g><line id="po-kl2" class="h" x1="110" y1="586" x2="110" y2="654" stroke="#3a3f4b" stroke-width="3"/><g id="po-k3" class="h"><circle id="po-kc3" cx="110" cy="680" r="24" fill="#161a22" stroke="#6b6f7a" stroke-width="3"/><text id="po-kt3" class="mono" x="110" y="690" font-size="28" fill="#8a8f99" text-anchor="middle">4</text></g><line id="po-kl3" class="h" x1="110" y1="706" x2="110" y2="774" stroke="#3a3f4b" stroke-width="3"/><g id="po-k4" class="h"><circle id="po-kc4" cx="110" cy="800" r="24" fill="#161a22" stroke="#6b6f7a" stroke-width="3"/><text id="po-kt4" class="mono" x="110" y="810" font-size="28" fill="#8a8f99" text-anchor="middle">5</text></g>
+<g id="po-g0">
+  <g id="po-dep" class="h"><rect x="180" y="280" width="440" height="64" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+    <text class="mono" x="400" y="322" font-size="28" fill="#e8e6df" text-anchor="middle">DEPOSIT / WITHDRAW_DONE</text></g>
+  <text id="po-dept" class="h" x="180" y="396" font-size="28" fill="#8a8f99">一侧是外部托管的资产</text>
+  <path id="po-depa" class="dr h" pathLength="1" d="M626 312 L742 312" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#po-mgy)"/>
+  <text id="po-skip" class="h" x="640" y="396" font-size="28" fill="#8a8f99">不检查</text>
+  <g id="po-oth" class="h"><rect x="180" y="470" width="240" height="64" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/>
+    <text x="300" y="513" font-size="30" fill="#e8e6df" text-anchor="middle">其他业务</text></g>
+  <path id="po-otha" class="dr h" pathLength="1" d="M426 502 L516 502" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#po-mgr)"/>
+  <g id="po-bal" class="h"><line x1="540" y1="490" x2="700" y2="490" stroke="#83C167" stroke-width="5" stroke-linecap="round"/>
+    <path d="M620 492 L600 530 L640 530 z" fill="#83C167"/><path d="M540 490 L526 516 L554 516 z M700 490 L686 516 L714 516 z" fill="none" stroke="#83C167" stroke-width="3"/></g>
+  <text id="po-balt" class="h" x="620" y="584" font-size="28" fill="#83C167" text-anchor="middle">平衡检查</text>
+</g>
+<g id="po-g1">
+  <g id="po-ta" class="h"><rect id="po-tar" x="200" y="290" width="160" height="64" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="280" y="332" font-size="28" fill="#e8e6df" text-anchor="middle">事务 A</text></g>
+  <g id="po-tb" class="h"><rect id="po-tbr" x="580" y="290" width="160" height="64" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="660" y="332" font-size="28" fill="#e8e6df" text-anchor="middle">事务 B</text></g>
+  <g id="po-l1" class="h"><rect x="200" y="480" width="160" height="64" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="280" y="522" font-size="28" fill="#F0B90B" text-anchor="middle">用户1</text></g>
+  <g id="po-l2" class="h"><rect x="580" y="480" width="160" height="64" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text x="660" y="522" font-size="28" fill="#F0B90B" text-anchor="middle">用户2</text></g>
+  <path id="po-h1" class="dr" pathLength="1" d="M280 358 L280 476" fill="none" stroke="#8a8f99" stroke-width="3"/>
+  <path id="po-h2" class="dr" pathLength="1" d="M660 358 L660 476" fill="none" stroke="#8a8f99" stroke-width="3"/>
+  <path id="po-w1" class="dr h" pathLength="1" d="M364 352 L572 480" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#po-mr)"/>
+  <path id="po-w2" class="dr h" pathLength="1" d="M576 352 L368 480" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#po-mr)"/>
+  <text id="po-dl" class="h" x="470" y="610" font-size="34" fill="#FC6255" text-anchor="middle" font-weight="700">互相等待 → 死锁</text>
+  <g id="po-srt" class="h"><rect x="200" y="660" width="540" height="64" rx="12" fill="rgba(131,193,103,0.12)" stroke="#83C167" stroke-width="2.5"/>
+    <text x="470" y="702" font-size="30" fill="#83C167" text-anchor="middle">都按 用户1 → 用户2 加锁</text></g>
+</g>
+<rect id="po-frame" class="h" x="160" y="270" width="600" height="570" rx="16" fill="none" stroke="#58C4DD" stroke-width="3" stroke-dasharray="14 8"/>
+<text id="po-framet" class="h" x="760" y="884" font-size="28" fill="#58C4DD" text-anchor="end">同一事务</text>
+<g id="po-txn" class="h"><rect x="190" y="290" width="540" height="170" rx="12" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/>
+  <text class="mono" x="215" y="334" font-size="30" fill="#58C4DD" font-weight="700">ledger_txn</text>
+  <text class="mono" x="215" y="384" font-size="28" fill="#8a8f99">biz_type · biz_id</text></g>
+<g id="po-uq" class="h"><rect x="560" y="356" width="140" height="40" rx="8" fill="rgba(255,159,67,0.15)" stroke="#FF9F43" stroke-width="2"/><text x="630" y="386" font-size="28" fill="#FF9F43" text-anchor="middle">唯一键</text></g>
+<text id="po-row" class="mono h" x="215" y="438" font-size="28" fill="#e8e6df">ORDER_FREEZE · orderId</text>
+<g id="po-dup" class="h"><rect x="190" y="500" width="410" height="56" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text class="mono" x="210" y="538" font-size="28" fill="#e8e6df">ORDER_FREEZE · orderId</text></g>
+<g id="po-stamp" class="h"><rect x="620" y="500" width="120" height="56" rx="8" fill="rgba(131,193,103,0.15)" stroke="#83C167" stroke-width="3"/><text x="680" y="538" font-size="30" fill="#83C167" text-anchor="middle" font-weight="700">已记过</text></g>
+<g id="po-bc" class="h"><rect id="po-bcr" x="190" y="500" width="540" height="116" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/>
+  <text class="mono" x="215" y="542" font-size="28" fill="#e8e6df">account_balance</text></g>
+<text id="po-bcc" class="mono h" x="215" y="594" font-size="28" fill="#83C167">available ≥ 0   frozen ≥ 0</text>
+<g id="po-bad" class="h"><rect x="190" y="680" width="290" height="56" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/>
+  <text x="335" y="718" font-size="28" fill="#FC6255" text-anchor="middle">让可用变负的 Leg</text></g>
+<text id="po-rb" class="h" x="520" y="720" font-size="34" fill="#FC6255" font-weight="700">回滚整笔</text>
+<g id="po-e0" class="h"><rect x="190" y="644" width="120" height="50" rx="8" fill="#14222a" stroke="#58C4DD" stroke-width="2"/><text x="250" y="680" font-size="28" fill="#58C4DD" text-anchor="middle">借</text></g>
+<g id="po-e1" class="h"><rect x="330" y="644" width="120" height="50" rx="8" fill="#14222a" stroke="#58C4DD" stroke-width="2"/><text x="390" y="680" font-size="28" fill="#58C4DD" text-anchor="middle">贷</text></g>
+<g id="po-e2" class="h"><rect x="470" y="644" width="120" height="50" rx="8" fill="#14222a" stroke="#58C4DD" stroke-width="2"/><text x="530" y="680" font-size="28" fill="#58C4DD" text-anchor="middle">贷</text></g>
+<g id="po-env" class="h"><rect x="190" y="720" width="150" height="96" rx="8" fill="#14222a" stroke="#58C4DD" stroke-width="3"/><path d="M190 722 L265 770 L340 722" fill="none" stroke="#58C4DD" stroke-width="3"/></g>
+<text id="po-envt" class="mono h" x="364" y="780" font-size="30" fill="#58C4DD">outbox</text>
+<path id="po-enva" class="dr h" pathLength="1" d="M265 820 L265 920" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#po-mb)"/>
+<text id="po-lev" class="mono h" x="300" y="952" font-size="28" fill="#58C4DD">ledger.events</text>
+<g id="po-pre" class="h"><rect x="190" y="300" width="560" height="250" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+  <text class="mono" x="215" y="348" font-size="30" fill="#8a8f99" font-weight="700">account_balance</text>
+  <line x1="190" y1="370" x2="750" y2="370" stroke="#3a3f4b" stroke-width="2"/></g>
+<g id="po-p1" class="h"><text class="mono" x="215" y="430" font-size="30" fill="#e8e6df">USDT</text><text class="mono" x="720" y="430" font-size="30" fill="#8a8f99" text-anchor="end">0</text></g>
+<g id="po-p2" class="h"><text class="mono" x="215" y="500" font-size="30" fill="#e8e6df">BTC</text><text class="mono" x="720" y="500" font-size="30" fill="#8a8f99" text-anchor="end">0</text></g>
+<text id="po-pret" class="h" x="190" y="620" font-size="32" fill="#e8e6df">开户时为每种资产预建一行</text>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+const CODE = {};
+const HL = (name, a, b, t, col = "#58C4DD") => {
+  const P = CODE[name]; const y = P.y0 + P.lh * (a - 1), h = P.lh * (b - a + 1);
+  tl.to(`#${P.pf}${name}hl`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  tl.to(`#${P.pf}${name}hb`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: (i >= a && i <= b) ? 1 : 0.5, duration: 0.4 }, t);
+};
+const HLOFF = (name, t) => { const P = CODE[name]; tl.to(`#${P.pf}${name}hl, #${P.pf}${name}hb`, { opacity: 0, duration: 0.3 }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: 0.7, duration: 0.3 }, t); };
+const SHOW = (name, t) => { const P = CODE[name]; IN(`#${P.pf}${name}`, t, 0.5);
+  for (let i = 1; i <= P.n; i++) IN(`#${P.pf}${name}${i}`, t + 0.1 + i * 0.05, 0.3, {}, { opacity: 0.7 }); };
+const POP = (s, t, o) => IN(s, t, 0.45, { scale: 0.6, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(2)" });
+const PULSE = (s, t, o, k = 1.08) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, t);
+const CHG = (s, t, v, d = 0.35) => tl.to(s, { ...v, duration: d }, t);
+const NOTE = (prev, next, t) => { if (prev) OUT(prev, t, 0.3); if (next) IN(next, t + (prev ? 0.35 : 0), 0.45, { x: -12 }, { x: 0 }); };
+CODE["cd"] = {pf:"po-", y0:282, lh:41, n:12};
+
+const KON = (i, t, c = "#58C4DD") => { CHG(`#po-kc${i}`, t, { stroke: c, fill: "#14222a" }, 0.3); CHG(`#po-kt${i}`, t, { fill: c }, 0.3); };
+const KOFF = (i, t) => { CHG(`#po-kc${i}`, t, { stroke: "#6b6f7a", fill: "#161a22" }, 0.3); CHG(`#po-kt${i}`, t, { fill: "#8a8f99" }, 0.3); };
+// L0 两个入口：外部资产走旁路
+SHOW("cd", at(0, 0.02));
+HL("cd", 1, 2, at(0, 0.2));
+for (let i = 0; i < 5; i++) { IN(`#po-k${i}`, at(0, 0.06) + i * 0.1, 0.3); if (i < 4) IN(`#po-kl${i}`, at(0, 0.1) + i * 0.1, 0.3); }
+KON(0, at(0, 0.14));
+IN("#po-dep", at(0, 0.2), 0.4, { x: -20 }, { x: 0 });
+IN("#po-dept", at(0, 0.36), 0.4);
+ARROW("#po-depa", at(0, 0.5), 0.4); IN("#po-skip", at(0, 0.54), 0.3);
+NOTE(null, "#po-n0", at(0, 0.56));
+IN("#po-oth", at(0, 0.7), 0.4, { x: -20 }, { x: 0 });
+ARROW("#po-otha", at(0, 0.76), 0.3);
+IN("#po-bal", at(0, 0.8), 0.4); IN("#po-balt", at(0, 0.84), 0.3);
+// L1 排序：固定加锁顺序
+OUT("#po-g0", at(1, 0.0), 0.35);
+HL("cd", 3, 3, at(1, 0.03)); KOFF(0, at(1, 0.03)); KON(1, at(1, 0.03));
+NOTE("#po-n0", "#po-n1", at(1, 0.04));
+IN("#po-ta, #po-tb", at(1, 0.06), 0.4); IN("#po-l1, #po-l2", at(1, 0.1), 0.4);
+tl.set("#po-h1, #po-h2", { opacity: 1 }, at(1, 0.14)); DRAW("#po-h1", at(1, 0.14), 0.4); DRAW("#po-h2", at(1, 0.14), 0.4);
+ARROW("#po-w1", at(1, 0.2), 0.5); ARROW("#po-w2", at(1, 0.24), 0.5);
+IN("#po-dl", at(1, 0.3), 0.4);
+PULSE("#po-dl", at(1, 0.38), "470 600", 1.06);
+OUT("#po-w1, #po-w2, #po-dl", at(1, 0.5), 0.35);
+IN("#po-srt", at(1, 0.56), 0.4, { y: 12 }, { y: 0 });
+CHG("#po-tar, #po-tbr", at(1, 0.64), { stroke: "#83C167" }, 0.3);
+PULSE("#po-srt", at(1, 0.86), "470 692", 1.04);
+// L2 业务流水唯一 → 幂等
+OUT("#po-g1", at(2, 0.0), 0.35);
+HL("cd", 4, 4, at(2, 0.03)); KOFF(1, at(2, 0.03)); KON(2, at(2, 0.03));
+IN("#po-frame", at(2, 0.06), 0.5); IN("#po-framet", at(2, 0.1), 0.4);
+NOTE("#po-n1", null, at(2, 0.06));
+HL("cd", 5, 5, at(2, 0.18));
+IN("#po-txn", at(2, 0.16), 0.4, { y: -12 }, { y: 0 });
+IN("#po-row", at(2, 0.26), 0.4);
+IN("#po-uq", at(2, 0.36), 0.4); PULSE("#po-uq", at(2, 0.42), "630 376", 1.1);
+HL("cd", 6, 6, at(2, 0.54));
+IN("#po-dup", at(2, 0.54), 0.3, { y: 40 }, { y: 0 });
+tl.to("#po-dup", { y: -36, duration: 0.3, ease: "power2.in" }, at(2, 0.6));
+tl.to("#po-dup", { y: 0, duration: 0.4, ease: "back.out(2)" }, at(2, 0.6) + 0.3);
+POP("#po-stamp", at(2, 0.72), "680 528");
+IN("#po-n2", at(2, 0.8), 0.45, { x: -12 }, { x: 0 });
+// L3 条件更新：不足则整笔回滚
+OUT("#po-dup, #po-stamp", at(3, 0.0), 0.3);
+NOTE("#po-n2", null, at(3, 0.0));
+HL("cd", 7, 9, at(3, 0.04)); KOFF(2, at(3, 0.04)); KON(3, at(3, 0.04));
+IN("#po-bc", at(3, 0.08), 0.4, { y: 12 }, { y: 0 });
+IN("#po-bcc", at(3, 0.24), 0.4);
+HL("cd", 10, 10, at(3, 0.42), "#FC6255");
+IN("#po-bad", at(3, 0.42), 0.3, { y: 30 }, { y: 0 });
+tl.to("#po-bad", { y: -50, duration: 0.3, ease: "power2.in" }, at(3, 0.56));
+CHG("#po-bcr", at(3, 0.6), { stroke: "#FC6255" }, 0.2); CHG("#po-bcc", at(3, 0.6), { fill: "#FC6255" }, 0.2);
+CHG("#po-frame", at(3, 0.62), { stroke: "#FC6255" }, 0.2);
+for (let i = 0; i < 4; i++) KON(i, at(3, 0.64), "#FC6255");
+OUT("#po-bad", at(3, 0.72), 0.3);
+IN("#po-rb", at(3, 0.68), 0.4);
+for (let i = 3; i >= 0; i--) KOFF(i, at(3, 0.8) + (3 - i) * 0.22);
+IN("#po-n3", at(3, 0.7), 0.45, { x: -12 }, { x: 0 });
+// L4 分录 + outbox
+OUT("#po-rb", at(4, 0.0), 0.3); NOTE("#po-n3", null, at(4, 0.0));
+CHG("#po-frame", at(4, 0.02), { stroke: "#58C4DD" }, 0.3);
+CHG("#po-bcr", at(4, 0.02), { stroke: "#83C167" }, 0.3); CHG("#po-bcc", at(4, 0.02), { fill: "#83C167" }, 0.3);
+HL("cd", 11, 11, at(4, 0.05)); KON(4, at(4, 0.05));
+for (let i = 0; i < 3; i++) IN(`#po-e${i}`, at(4, 0.1 + i * 0.08), 0.35, { y: -20 }, { y: 0 });
+HL("cd", 12, 12, at(4, 0.48));
+IN("#po-env", at(4, 0.54), 0.4, { scale: 0.8, svgOrigin: "265 768" }, { scale: 1, svgOrigin: "265 768" });
+IN("#po-envt", at(4, 0.6), 0.3);
+IN("#po-n4", at(4, 0.62), 0.45, { x: -12 }, { x: 0 });
+ARROW("#po-enva", at(4, 0.78), 0.4); IN("#po-lev", at(4, 0.84), 0.3);
+// L5 余额行预建
+OUT("#po-frame, #po-framet, #po-txn, #po-uq, #po-row, #po-bc, #po-bcc, #po-e0, #po-e1, #po-e2, #po-env, #po-envt, #po-enva, #po-lev, #po-k0, #po-k1, #po-k2, #po-k3, #po-k4, #po-kl0, #po-kl1, #po-kl2, #po-kl3", at(5, 0.0), 0.4);
+HLOFF("cd", at(5, 0.013)); NOTE("#po-n4", null, at(5, 0.013));
+IN("#po-pre", at(5, 0.053), 0.4, { y: 12 }, { y: 0 });
+IN("#po-pret", at(5, 0.198), 0.4);
+IN("#po-p1", at(5, 0.291), 0.3, { x: -12 }, { x: 0 });
+IN("#po-p2", at(5, 0.357), 0.3, { x: -12 }, { x: 0 });
+IN("#po-n5", at(5, 0.72), 0.45, { x: -12 }, { x: 0 });
+
+
+      tl.to("#po-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["post"] = tl;
+    })();
+  </script>
+</template>

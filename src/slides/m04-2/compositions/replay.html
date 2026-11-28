@@ -1,0 +1,211 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 replay，id 前缀 re- -->
+  <div id="root" data-composition-id="replay" data-duration="82.82" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="re-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="re-all">
+        <text id="re-q" class="h" x="960" y="560" font-size="72" font-weight="700" fill="#FF9F43" text-anchor="middle">时间戳怎样防重放？</text>
+        <g id="re-act" class="h">
+          <rect x="120" y="260" width="220" height="120" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text x="230" y="331" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">客户端</text>
+          <rect id="re-gwr" x="1100" y="260" width="260" height="120" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+          <text x="1230" y="331" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">API 网关</text>
+          <rect id="re-osr" x="1560" y="260" width="240" height="120" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text x="1680" y="331" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">订单服务</text>
+          <line x1="340" y1="320" x2="1100" y2="320" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8"/>
+          <line x1="1360" y1="320" x2="1560" y2="320" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8"/>
+        </g>
+        <g id="re-envm"><g id="re-env" class="h"><rect x="350" y="290" width="100" height="60" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><path d="M350 290 L400 326 L450 290" fill="none" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round"/></g></g>
+        <g id="re-atk" class="h"><rect x="578" y="434" width="9" height="30" rx="4.5" fill="#FC6255"/><rect x="590" y="434" width="9" height="30" rx="4.5" fill="#FC6255"/><rect x="602" y="434" width="9" height="30" rx="4.5" fill="#FC6255"/><rect x="614" y="434" width="9" height="30" rx="4.5" fill="#FC6255"/><rect x="576" y="458" width="48" height="40" rx="10" fill="#FC6255"/><rect x="562" y="464" width="22" height="10" rx="5" fill="#FC6255"/></g>
+        <g id="re-c1m"><g id="re-c1" class="h"><rect x="670" y="440" width="100" height="60" rx="8" fill="#161a22" stroke="#FC6255" stroke-width="3"/><path d="M670 440 L720 476 L770 440" fill="none" stroke="#FC6255" stroke-width="3" stroke-linejoin="round"/></g></g>
+        <text id="re-mod" class="mono h" x="720" y="565" font-size="28" fill="#FC6255" text-anchor="middle">price=49000</text>
+        <g id="re-x1" class="h"><circle cx="830" cy="470" r="26" fill="#0f1117" stroke="#FC6255" stroke-width="4"/><path d="M817 457 L843 483 M843 457 L817 483" stroke="#FC6255" stroke-width="4" stroke-linecap="round"/></g>
+        <text id="re-x1t" class="h" x="870" y="480" font-size="28" fill="#FC6255">签名失效</text>
+        <g id="re-o1" class="h"><rect x="1580" y="410" width="200" height="60" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+          <text x="1680" y="451" font-size="28" fill="#F0B90B" text-anchor="middle">订单 #1</text></g>
+        <g id="re-o2" class="h"><rect id="re-o2r" x="1580" y="490" width="200" height="60" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <text x="1680" y="531" font-size="28" fill="#FC6255" text-anchor="middle">订单 #2</text></g>
+        <text id="re-o2t" class="h" x="1680" y="605" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">窗口内仍可重放</text>
+        <!-- 时间轴 -->
+        <g id="re-tl" class="h">
+          <line x1="200" y1="700" x2="1720" y2="700" stroke="#8a8f99" stroke-width="3"/>
+          <line x1="300" y1="684" x2="300" y2="716" stroke="#e8e6df" stroke-width="3"/>
+          <text x="300" y="755" font-size="28" fill="#e8e6df" text-anchor="middle">签名 t0</text>
+        </g>
+        <rect id="re-win" class="h" x="300" y="672" width="700" height="18" rx="4" fill="#83C167" fill-opacity="0.75"/>
+        <text id="re-winl" class="h" x="860" y="755" font-size="28" fill="#83C167" text-anchor="middle">窗口 5 秒</text>
+        <g id="re-sig" class="h">
+          <circle cx="300" cy="590" r="40" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text class="mono" x="300" y="600" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">ts</text>
+        </g>
+        <text id="re-sigt" class="h" x="360" y="600" font-size="28" fill="#FF9F43">时间戳签进签名</text>
+        <g id="re-late" class="h"><circle cx="1300" cy="750" r="26" fill="#0f1117" stroke="#FC6255" stroke-width="4"/><path d="M1287 737 L1313 763 M1313 737 L1287 763" stroke="#FC6255" stroke-width="4" stroke-linecap="round"/><text x="1340" y="760" font-size="28" fill="#FC6255">过期</text></g>
+        <g id="re-c2m"><g id="re-c2" class="h"><rect x="670" y="440" width="100" height="60" rx="8" fill="#161a22" stroke="#FC6255" stroke-width="3"/><path d="M670 440 L720 476 L770 440" fill="none" stroke="#FC6255" stroke-width="3" stroke-linejoin="round"/></g></g>
+        <text id="re-ok2" class="h" x="580" y="805" font-size="28" fill="#83C167" text-anchor="middle">签名 ✓ 时间 ✓</text>
+        <!-- 幂等 -->
+        <g id="re-rq" class="h">
+          <text x="200" y="625" font-size="28" fill="#e8e6df">订单请求 · 自定义订单号</text>
+          <rect x="200" y="645" width="480" height="70" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text class="mono" x="440" y="691" font-size="28" fill="#58C4DD" text-anchor="middle">newClientOrderId=bot-0001</text>
+        </g>
+        <g id="re-cpm"><g id="re-cp" class="h">
+          <rect x="200" y="760" width="480" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/>
+          <text class="mono" x="440" y="806" font-size="28" fill="#FC6255" text-anchor="middle">newClientOrderId=bot-0001</text>
+        </g></g>
+        <g id="re-idx" class="h">
+          <rect x="1100" y="600" width="620" height="200" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="1410" y="650" font-size="30" fill="#58C4DD" text-anchor="middle"><tspan class="mono">(uid, clientOrderId)</tspan> 唯一</text>
+          <line x1="1120" y1="675" x2="1700" y2="675" stroke="#58C4DD" stroke-width="1.5" opacity="0.6"/>
+        </g>
+        <text id="re-row" class="h" x="1140" y="740" font-size="30" fill="#e8e6df"><tspan class="mono">8801  bot-0001</tspan>  →  订单 #1</text>
+        <text id="re-dup" class="h" x="1410" y="870" font-size="30" fill="#8a8f99" text-anchor="middle">返回已有订单 #1</text>
+        <text id="re-weak" class="h" x="960" y="985" font-size="28" fill="#6b6f7a" text-anchor="middle">业务幂等 · 后面讲账本时还会用</text>
+        <g id="re-code" class="h">
+          <rect x="160" y="230" width="1600" height="560" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <path d="M160 246 A16 16 0 0 1 176 230 L1744 230 A16 16 0 0 1 1760 246 L1760 290 L160 290 Z" fill="#222733"/>
+          <text x="960" y="270" font-size="28" fill="#e8e6df" text-anchor="middle">sign.go · Go 客户端示例（节选）</text>
+        </g>
+        <text id="re-cl0" class="mono h" x="200" y="350" font-size="28" fill="#8a8f99" xml:space="preserve">// 从环境变量读，绝不硬编码</text>
+        <text id="re-cl1" class="mono h" x="200" y="402" font-size="28" fill="#58C4DD" xml:space="preserve">key, secret := os.Getenv(&quot;API_KEY&quot;), os.Getenv(&quot;API_SECRET&quot;)</text>
+        <text id="re-cl2" class="mono h" x="200" y="454" font-size="28" fill="#58C4DD" xml:space="preserve">q.Set(&quot;symbol&quot;, &quot;BTCUSDT&quot;) …  q.Set(&quot;timeInForce&quot;, &quot;GTC&quot;) …</text>
+        <text id="re-cl3" class="mono h" x="200" y="506" font-size="28" fill="#FF9F43" xml:space="preserve">q.Set(&quot;timestamp&quot;, strconv.FormatInt(time.Now().UnixMilli(), 10))</text>
+        <text id="re-cl4" class="mono h" x="200" y="558" font-size="28" fill="#58C4DD" xml:space="preserve">payload := q.Encode()</text>
+        <text id="re-cl5" class="mono h" x="200" y="610" font-size="28" fill="#83C167" xml:space="preserve">full := payload + &quot;&amp;signature=&quot; + sign(secret, payload)</text>
+        <text id="re-cl6" class="mono h" x="200" y="662" font-size="28" fill="#58C4DD" xml:space="preserve">req, _ := http.NewRequest(&quot;POST&quot;, &quot;https://testnet.binance.vision/api/v3/order?&quot;+full, nil)</text>
+        <text id="re-cl7" class="mono h" x="200" y="714" font-size="28" fill="#B48EF0" xml:space="preserve">req.Header.Set(&quot;X-MBX-APIKEY&quot;, key)</text>
+        <g id="re-p1" class="h"><rect x="560" y="150" width="800" height="60" rx="30" fill="rgba(131,193,103,0.10)" stroke="#83C167" stroke-width="2.5"/><text x="960" y="191" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">✓ 过期的请求：时间戳挡住</text></g>
+        <g id="re-p2" class="h"><rect x="560" y="150" width="800" height="60" rx="30" fill="rgba(255,159,67,0.12)" stroke="#FF9F43" stroke-width="2.5"/><text x="960" y="191" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">窗口内的重放：还没挡住</text></g>
+        <g id="re-p3" class="h"><rect x="560" y="150" width="800" height="60" rx="30" fill="rgba(131,193,103,0.10)" stroke="#83C167" stroke-width="2.5"/><text x="960" y="191" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">✓ 不能重放：时间窗口 + 业务幂等</text></g>
+        <!-- 测试网终端 -->
+        <g id="re-term" class="h">
+          <rect x="260" y="230" width="1400" height="560" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <path d="M260 246 A16 16 0 0 1 276 230 L1644 230 A16 16 0 0 1 1660 246 L1660 290 L260 290 Z" fill="#222733"/>
+          <circle cx="300" cy="260" r="8" fill="#FC6255"/><circle cx="328" cy="260" r="8" fill="#F0B90B"/><circle cx="356" cy="260" r="8" fill="#83C167"/>
+          <text x="960" y="270" font-size="28" fill="#e8e6df" text-anchor="middle">测试网 · 不涉及真钱</text>
+        </g>
+        <text id="re-k0" class="mono h" x="300" y="370" font-size="28" fill="#e8e6df">$ export API_KEY=…  API_SECRET=…</text>
+        <text id="re-k0n" class="h" x="1000" y="370" font-size="28" fill="#6b6f7a">测试 Key · 与正式账户无关</text>
+        <text id="re-k1" class="mono h" x="300" y="430" font-size="28" fill="#e8e6df">$ go run sign.go</text>
+        <text id="re-k2" class="mono h" x="300" y="490" font-size="28" fill="#83C167">200 OK {orderId, status}</text>
+        <g id="re-e1" class="h">
+          <text x="300" y="610" font-size="28" fill="#8a8f99">时间戳改成 10 秒前</text>
+          <text x="640" y="610" font-size="28" fill="#e8e6df">→</text>
+          <text class="mono" x="700" y="610" font-size="28" font-weight="700" fill="#FC6255">-1021</text>
+          <text x="820" y="610" font-size="28" fill="#FC6255">时间戳超出窗口</text>
+        </g>
+        <g id="re-e2" class="h">
+          <text x="300" y="690" font-size="28" fill="#8a8f99">Secret 改错一个字符</text>
+          <text x="640" y="690" font-size="28" fill="#e8e6df">→</text>
+          <text class="mono" x="700" y="690" font-size="28" font-weight="700" fill="#FC6255">-1022</text>
+          <text x="820" y="690" font-size="28" fill="#FC6255">签名无效</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const RED = "#FC6255", GRN = "#83C167", ORG = "#FF9F43", BLU = "#58C4DD", PUR = "#B48EF0", GRY = "#8a8f99", GLD = "#F0B90B";
+      const POP = (s, t, o) => IN(s, t, 0.45, { scale: 0.6, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(2)" });
+      const FLASH = (s, t, prop = "strokeWidth", a = 7, b = 3) => { tl.to(s, { [prop]: a, duration: 0.2 }, t); tl.to(s, { [prop]: b, duration: 0.4 }, t + 0.2); };
+      const MOVE = (s, t, v, d = 0.8, e = "power2.inOut") => tl.to(s, { ...v, duration: d, ease: e }, t);
+
+      // L0 问题
+      IN("#re-q", at(0, 0.05), 0.6, { scale: 0.9, svgOrigin: "960 540" }, { scale: 1, svgOrigin: "960 540" });
+      // L1 半路截下、复制；改内容 → 签名失效
+      OUT("#re-q", at(1, 0), 0.4);
+      IN("#re-act", at(1, 0.04), 0.5);
+      IN("#re-env", at(1, 0.1), 0.3); MOVE("#re-envm", at(1, 0.1), { x: 320 }, 0.9);
+      IN("#re-atk", at(1, 0.2), 0.4, { y: 30 }, { y: 0 });
+      IN("#re-c1", at(1, 0.28), 0.3); tl.fromTo("#re-c1m", { y: -150 }, { y: 0, duration: 0.7, ease: "power2.out", immediateRender: false }, at(1, 0.28));
+      IN("#re-mod", at(1, 0.48), 0.4);
+      POP("#re-x1", at(1, 0.56), "830 470"); IN("#re-x1t", at(1, 0.58), 0.4);
+      MOVE("#re-envm", at(1, 0.7), { x: 830 }, 0.7); OUT("#re-env", at(1, 0.7) + 0.6, 0.3);
+      FLASH("#re-gwr", at(1, 0.78));
+      IN("#re-o1", at(1, 0.86), 0.4, { y: -10 }, { y: 0 });
+      // L2 时间戳签进签名；副本在窗口外到达 → 过期
+      OUT(["#re-mod", "#re-x1", "#re-x1t"], at(2, 0), 0.3);
+      IN("#re-tl", at(2, 0.04), 0.5);
+      IN(["#re-sig", "#re-sigt"], at(2, 0.12), 0.5);
+      tl.fromTo("#re-win", { opacity: 0, attr: { width: 0 } }, { opacity: 1, attr: { width: 700 }, duration: 0.8 }, at(2, 0.4));
+      IN("#re-winl", at(2, 0.46), 0.4);
+      MOVE("#re-c1m", at(2, 0.6), { x: 580, y: 180 }, 0.9);
+      POP("#re-late", at(2, 0.78), "1300 750");
+      IN("#re-p1", at(2, 0.88), 0.4, { y: -10 }, { y: 0 });
+      FLASH("#re-gwr", at(2, 0.8));
+      // L3 窗口内（第 2 秒）到达 → 签名、时间都合法；第二笔相同订单
+      OUT(["#re-c1", "#re-late", "#re-sigt"], at(3, 0), 0.3);
+      IN("#re-c2", at(3, 0.06), 0.3); tl.fromTo("#re-c2m", { y: -150 }, { y: 0, duration: 0.6, immediateRender: false }, at(3, 0.06));
+      MOVE("#re-c2m", at(3, 0.18), { x: -140, y: 180 }, 0.8);
+      IN("#re-ok2", at(3, 0.34), 0.4);
+      IN("#re-o2", at(3, 0.48), 0.4, { y: -10 }, { y: 0 });
+      tl.to("#re-o2r", { fill: "#3a1d1d", duration: 0.25, yoyo: true, repeat: 3 }, at(3, 0.54));
+      IN("#re-o2t", at(3, 0.7), 0.4);
+      OUT("#re-p1", at(3, 0.76), 0.3); IN("#re-p2", at(3, 0.76) + 0.35, 0.4);
+      // L4 clientOrderId 幂等
+      OUT(["#re-tl", "#re-win", "#re-winl", "#re-sig", "#re-c2", "#re-ok2", "#re-o2", "#re-o2t", "#re-atk"], at(4, 0), 0.4);
+      IN("#re-rq", at(4, 0.06), 0.5, { x: -20 }, { x: 0 });
+      IN("#re-idx", at(4, 0.24), 0.5);
+      IN("#re-row", at(4, 0.36), 0.5, { x: -30 }, { x: 0 });
+      IN("#re-cp", at(4, 0.5), 0.4);
+      MOVE("#re-cpm", at(4, 0.54), { x: 400 }, 0.8, "power2.in");
+      MOVE("#re-cpm", at(4, 0.54) + 0.8, { x: 300 }, 0.4, "power2.out");
+      FLASH("#re-idx rect", at(4, 0.6));
+      IN("#re-dup", at(4, 0.66), 0.4);
+      OUT("#re-cp", at(4, 0.76), 0.4);
+      IN("#re-weak", at(4, 0.86), 0.5);
+      OUT("#re-p2", at(4, 0.8), 0.3); IN("#re-p3", at(4, 0.8) + 0.35, 0.4);
+      // L5 Go 客户端示例（节选）
+      OUT(["#re-rq", "#re-idx", "#re-row", "#re-dup", "#re-weak", "#re-act", "#re-o1", "#re-p3"], at(5, 0), 0.4);
+      IN("#re-code", at(5, 0.05), 0.5);
+      IN(["#re-cl0", "#re-cl1"], at(5, 0.08), 0.4, { x: -16 }, { x: 0 });
+      IN(["#re-cl2", "#re-cl3"], at(5, 0.22), 0.4, { x: -16 }, { x: 0 });
+      IN(["#re-cl4", "#re-cl5"], at(5, 0.36), 0.4, { x: -16 }, { x: 0 });
+      IN("#re-cl7", at(5, 0.52), 0.4, { x: -16 }, { x: 0 });
+      IN("#re-cl6", at(5, 0.52), 0.4, { x: -16 }, { x: 0 });
+      FLASH("#re-code rect", at(5, 0.9));
+      // L6 测试网终端
+      OUT(["#re-code", "#re-cl0", "#re-cl1", "#re-cl2", "#re-cl3", "#re-cl4", "#re-cl5", "#re-cl6", "#re-cl7"], at(6, 0), 0.4);
+      IN("#re-term", at(6, 0.1), 0.5);
+      IN("#re-k0", at(6, 0.3), 0.4); IN("#re-k0n", at(6, 0.36), 0.4);
+      IN("#re-k1", at(6, 0.6), 0.4);
+      IN("#re-k2", at(6, 0.82), 0.4, { x: -16 }, { x: 0 });
+      // L7 两个错误码
+      IN("#re-e1", at(7, 0.12), 0.5, { x: -16 }, { x: 0 });
+      IN("#re-e2", at(7, 0.55), 0.5, { x: -16 }, { x: 0 });
+      FLASH("#re-term rect", at(7, 0.88));
+      tl.to("#re-e1", { scale: 1.06, svgOrigin: "300 600", duration: 0.25, yoyo: true, repeat: 1 }, at(7, 0.74));
+      tl.to("#re-e2", { scale: 1.06, svgOrigin: "300 680", duration: 0.25, yoyo: true, repeat: 1 }, at(7, 0.9));
+
+
+      tl.to("#re-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["replay"] = tl;
+    })();
+  </script>
+</template>

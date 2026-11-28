@@ -1,0 +1,118 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ecdsa，id 前缀 ec- -->
+  <div id="root" data-composition-id="ecdsa" data-duration="45.92" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ec-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs><marker id="ec-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="ec-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="ec-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="ec-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="ec-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="ec-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker></defs>
+<g id="ec-all">
+  <g id="ec-fg" class="h"><text id="ec-f" class="mono" x="607" y="480" font-size="56" font-weight="700" fill="#e8e6df" xml:space="preserve"><tspan id="ec-ts">s</tspan> = <tspan id="ec-tk" fill="#FC6255">k<tspan font-size="34" dy="-22">−1</tspan></tspan><tspan dy="22"> </tspan>× (<tspan id="ec-tz" fill="#58C4DD">z</tspan> + <tspan id="ec-tr">r</tspan> × <tspan id="ec-td" fill="#FC6255">d</tspan>)</text></g>
+  <text id="ec-hd" class="h" x="960" y="352" font-size="36" fill="#8a8f99" text-anchor="middle">ECDSA 签名公式</text>
+  <g id="ec-sec" class="h"><rect x="470" y="650" width="470" height="76" rx="14" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="3"/><text x="705" y="700" font-size="32" fill="#FC6255" text-anchor="middle">秘密：k、d，要拆成分片</text></g>
+  <g id="ec-pub" class="h"><rect x="980" y="650" width="470" height="76" rx="14" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3"/><text x="1215" y="700" font-size="32" fill="#58C4DD" text-anchor="middle">公开：消息哈希 z、r</text></g>
+  <g id="ec-u0" class="h"><line x1="600" y1="506" x2="648" y2="506" stroke="#e8e6df" stroke-width="5"/><text x="624" y="560" font-size="28" fill="#e8e6df" text-anchor="middle">签名</text></g>
+  <g id="ec-u1" class="h"><line x1="742" y1="506" x2="816" y2="506" stroke="#FC6255" stroke-width="5"/><text x="779" y="560" font-size="28" fill="#FC6255" text-anchor="middle">k 的逆元</text></g>
+  <g id="ec-u2" class="h"><line x1="949" y1="506" x2="985" y2="506" stroke="#58C4DD" stroke-width="5"/><text x="967" y="560" font-size="28" fill="#58C4DD" text-anchor="middle">消息哈希</text></g>
+  <g id="ec-u3" class="h"><line x1="1084" y1="506" x2="1120" y2="506" stroke="#e8e6df" stroke-width="5"/><text x="1102" y="560" font-size="28" fill="#e8e6df" text-anchor="middle">r</text></g>
+  <g id="ec-u4" class="h"><line x1="1218" y1="506" x2="1254" y2="506" stroke="#FC6255" stroke-width="5"/><text x="1236" y="560" font-size="28" fill="#FC6255" text-anchor="middle">私钥</text></g>
+  <g id="ec-ks" class="h"><rect x="680" y="390" width="64" height="60" rx="8" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/><rect x="760" y="390" width="64" height="60" rx="8" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/><rect x="840" y="390" width="64" height="60" rx="8" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/>
+    <text class="mono" x="712" y="430" font-size="28" fill="#58C4DD" text-anchor="middle">k1</text><text class="mono" x="792" y="430" font-size="28" fill="#58C4DD" text-anchor="middle">k2</text><text class="mono" x="872" y="430" font-size="28" fill="#58C4DD" text-anchor="middle">k3</text></g>
+  <g id="ec-ds" class="h"><rect x="1124" y="390" width="64" height="60" rx="8" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/><rect x="1204" y="390" width="64" height="60" rx="8" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/><rect x="1284" y="390" width="64" height="60" rx="8" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/>
+    <text class="mono" x="1156" y="430" font-size="28" fill="#58C4DD" text-anchor="middle">d1</text><text class="mono" x="1236" y="430" font-size="28" fill="#58C4DD" text-anchor="middle">d2</text><text class="mono" x="1316" y="430" font-size="28" fill="#58C4DD" text-anchor="middle">d3</text></g>
+  <text id="ec-lin" class="h" x="1100" y="530" font-size="30" fill="#83C167" text-anchor="middle">✓ 加法：各自相加</text>
+  <g id="ec-pw"><g id="ec-prod" class="h"><rect id="ec-prodr" x="800" y="620" width="320" height="100" rx="14" fill="#FF9F43" fill-opacity="0.12" stroke="#FF9F43" stroke-width="3.5"/><text class="mono" x="960" y="686" font-size="48" font-weight="700" fill="#FF9F43" text-anchor="middle" xml:space="preserve">k<tspan font-size="30" dy="-20">−1</tspan><tspan dy="20"> </tspan>× d</text></g></g>
+  <text id="ec-hard" class="h" x="960" y="790" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">乘积 + 逆元：不能各算各的</text>
+  <g id="ec-mta" class="h"><rect x="820" y="580" width="280" height="160" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="4"/><text class="mono" x="960" y="676" font-size="48" font-weight="700" fill="#58C4DD" text-anchor="middle">MtA</text></g>
+  <text id="ec-pai" class="h" x="960" y="548" font-size="30" fill="#58C4DD" text-anchor="middle">Paillier 同态加密</text>
+  <text id="ec-ot" class="h" x="960" y="790" font-size="30" fill="#58C4DD" text-anchor="middle">或 不经意传输 OT</text>
+  <path id="ec-ma" class="dr h" pathLength="1" d="M1110 660 L1330 660" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ec-mb)"/>
+  <g id="ec-o0" class="h"><rect x="1350" y="568" width="200" height="56" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/><text x="1450" y="606" font-size="28" fill="#58C4DD" text-anchor="middle">加法分片 1</text></g>
+  <g id="ec-o1" class="h"><rect x="1350" y="632" width="200" height="56" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/><text x="1450" y="670" font-size="28" fill="#58C4DD" text-anchor="middle">加法分片 2</text></g>
+  <g id="ec-o2" class="h"><rect x="1350" y="696" width="200" height="56" rx="10" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/><text x="1450" y="734" font-size="28" fill="#58C4DD" text-anchor="middle">加法分片 3</text></g>
+  <g id="ec-zk" class="h"><path d="M780 860 L820 846 L860 860 L860 896 Q860 930 820 946 Q780 930 780 896 Z" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="3.5"/><path d="M802 896 L816 910 L840 882" stroke="#83C167" stroke-width="4" fill="none"/><text x="884" y="908" font-size="32" fill="#83C167">零知识证明：防作弊</text></g>
+  <text id="ec-le" class="h" x="140" y="226" font-size="34" font-weight="700" fill="#e8e6df">ECDSA</text>
+  <text id="ec-ls" class="h" x="1180" y="226" font-size="34" font-weight="700" fill="#e8e6df">Schnorr <tspan font-size="28" font-weight="400" fill="#8a8f99">示意</tspan></text>
+  <text id="ec-sf" class="h mono" x="1180" y="300" font-size="56" font-weight="700" fill="#e8e6df" xml:space="preserve">s = <tspan fill="#FC6255">k</tspan> + e × <tspan fill="#FC6255">d</tspan></text>
+  <text id="ec-nl" class="h" x="140" y="390" font-size="32" fill="#FF9F43">乘积 + 逆元：非线性</text>
+  <text id="ec-sl" class="h" x="1180" y="390" font-size="32" fill="#83C167">线性：分片直接相加 ✓</text>
+  <text id="ec-dt" class="h" x="140" y="540" font-size="30" fill="#8a8f99">门限实现难度</text>
+  <g id="ec-b0" class="h"><text x="140" y="634" font-size="32" fill="#e8e6df">ECDSA</text><rect id="ec-bar0" x="420" y="600" width="0" height="44" rx="8" fill="#FF9F43"/><text id="ec-bl0" class="h" x="1520" y="634" font-size="32" fill="#FF9F43">高</text></g>
+  <g id="ec-b1" class="h"><text x="140" y="744" font-size="32" fill="#e8e6df">Schnorr</text><rect id="ec-bar1" x="420" y="710" width="0" height="44" rx="8" fill="#83C167"/><text id="ec-bl1" class="h" x="720" y="744" font-size="32" fill="#83C167">低</text></g>
+</g>
+<g id="ec-term" class="h"><rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">MtA <tspan font-size="28" font-weight="400" fill="#8a8f99">Multiplicative-to-Additive</tspan></text><text x="100" y="160" font-size="28" fill="#e8e6df">乘法分享 → 加法分享</text></g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      tl.fromTo("#ec-all", { scale: 1 }, { scale: 1.02, svgOrigin: "960 560", duration: C.d - 0.6, ease: "none" }, 0);
+// L0
+IN("#ec-hd", at(0, 0.0), 0.5);
+IN("#ec-fg", at(0, 0.05), 0.8, { y: 20 }, { y: 0 });
+tl.fromTo("#ec-tk, #ec-td", { opacity: 0.4 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 4, immediateRender: false }, at(0, 0.45));
+// L1 parts highlight
+["#ec-u0", "#ec-u1", "#ec-u2", "#ec-u3", "#ec-u4"].forEach((s, i) => IN(s, at(1, [0.02, 0.18, 0.5, 0.72, 0.86][i]), 0.35, { y: 10 }, { y: 0 }));
+IN("#ec-sec", at(1, 0.24), 0.5, { y: 16 }, { y: 0 });
+IN("#ec-pub", at(1, 0.56), 0.5, { y: 16 }, { y: 0 });
+// L2 split + linear vs product
+OUT("#ec-u0, #ec-u1, #ec-u2, #ec-u3, #ec-u4, #ec-hd, #ec-sec, #ec-pub", at(2, 0.0), 0.3);
+tl.to("#ec-fg", { y: -180, duration: 0.7, ease: "power2.inOut" }, at(2, 0.02));
+IN("#ec-ks", at(2, 0.12), 0.5, { y: -40 }, { y: 0 }); IN("#ec-ds", at(2, 0.18), 0.5, { y: -40 }, { y: 0 });
+IN("#ec-lin", at(2, 0.34), 0.5);
+IN("#ec-prod", at(2, 0.55), 0.6, { y: 20 }, { y: 0 });
+IN("#ec-hard", at(2, 0.74), 0.5);
+tl.to("#ec-prodr", { attr: { "stroke-width": 7 }, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.86));
+// L3 MtA
+IN("#ec-term", at(3, 0.02), 0.5);
+OUT("#ec-ks, #ec-ds, #ec-lin, #ec-hard", at(3, 0.0), 0.4);
+tl.to("#ec-pw", { x: -600, duration: 0.7, ease: "power2.inOut" }, at(3, 0.04));
+IN("#ec-mta", at(3, 0.12), 0.5, { scale: 0.7, svgOrigin: "960 660" }, { scale: 1, svgOrigin: "960 660" });
+tl.to("#ec-pw", { x: -20, opacity: 0, duration: 0.8, ease: "power2.in" }, at(3, 0.24));
+ARROW("#ec-ma", at(3, 0.32), 0.4);
+IN("#ec-o0", at(3, 0.36), 0.4, { x: -40 }, { x: 0 }); IN("#ec-o1", at(3, 0.39), 0.4, { x: -40 }, { x: 0 }); IN("#ec-o2", at(3, 0.42), 0.4, { x: -40 }, { x: 0 });
+IN("#ec-pai", at(3, 0.5), 0.5); IN("#ec-ot", at(3, 0.62), 0.5);
+IN("#ec-zk", at(3, 0.78), 0.5, { y: 16 }, { y: 0 });
+OUT("#ec-term", at(3, 0.95), 0.4);
+// L4 Schnorr comparison
+OUT("#ec-mta, #ec-pai, #ec-ot, #ec-ma, #ec-o0, #ec-o1, #ec-o2, #ec-zk", at(4, 0.0), 0.4);
+tl.to("#ec-fg", { x: -467, duration: 0.7, ease: "power2.inOut" }, at(4, 0.03));
+IN("#ec-le", at(4, 0.08), 0.4);
+IN("#ec-ls", at(4, 0.14), 0.4); IN("#ec-sf", at(4, 0.16), 0.6, { x: 30 }, { x: 0 });
+IN("#ec-sl", at(4, 0.3), 0.4); IN("#ec-nl", at(4, 0.36), 0.4);
+IN("#ec-dt", at(4, 0.5), 0.4);
+IN("#ec-b0, #ec-b1", at(4, 0.54), 0.3);
+tl.to("#ec-bar0", { attr: { width: 1080 }, duration: 0.9, ease: "power2.out" }, at(4, 0.58));
+tl.to("#ec-bar1", { attr: { width: 280 }, duration: 0.6, ease: "power2.out" }, at(4, 0.62));
+IN("#ec-bl0", at(4, 0.72), 0.3); IN("#ec-bl1", at(4, 0.7), 0.3);
+
+
+      tl.to("#ec-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ec-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["ecdsa"] = tl;
+    })();
+  </script>
+</template>

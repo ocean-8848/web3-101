@@ -1,0 +1,186 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 evm，id 前缀 ev- -->
+  <div id="root" data-composition-id="evm" data-duration="65.13" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ev-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs><marker id="ev-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="ev-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="ev-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="ev-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="ev-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="ev-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="ev-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker></defs>
+      <g id="ev-all" transform="translate(0,110)">
+<g id="ev-c" class="h"><rect x="790" y="220" width="1070" height="558" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><rect id="ev-chl" x="796" y="242" width="1058" height="41" fill="#58C4DD" fill-opacity="0.15" opacity="0"/><rect id="ev-chb" x="796" y="242" width="6" height="41" fill="#58C4DD" opacity="0"/><text id="ev-c1" class="mono" xml:space="preserve" x="822" y="272" font-size="28" fill="#e8e6df" opacity="0.55">if t.Asset.Contract != "" {</text><text id="ev-c2" class="mono" xml:space="preserve" x="822" y="313" font-size="28" fill="#e8e6df" opacity="0.55">    txTo = common.HexToAddress(t.Asset.Contract)</text><text id="ev-c3" class="mono" xml:space="preserve" x="822" y="354" font-size="28" fill="#e8e6df" opacity="0.55">    value = big.NewInt(0)</text><text id="ev-c4" class="mono" xml:space="preserve" x="822" y="395" font-size="28" fill="#e8e6df" opacity="0.55">    data, _ = erc20ABI.Pack("transfer", to, t.Amount)</text><text id="ev-c5" class="mono" xml:space="preserve" x="822" y="436" font-size="28" fill="#e8e6df" opacity="0.55">}</text><text id="ev-c6" class="mono" xml:space="preserve" x="822" y="477" font-size="28" fill="#e8e6df" opacity="0.55">gas := uint64(21000)</text><text id="ev-c7" class="mono" xml:space="preserve" x="822" y="518" font-size="28" fill="#e8e6df" opacity="0.55">if len(data) &gt; 0 {</text><text id="ev-c8" class="mono" xml:space="preserve" x="822" y="559" font-size="28" fill="#e8e6df" opacity="0.55">    est, err := a.rpc.EstimateGas(ctx, msg)</text><text id="ev-c9" class="mono" xml:space="preserve" x="822" y="600" font-size="28" fill="#e8e6df" opacity="0.55">    if err != nil { return nil, err }</text><text id="ev-c10" class="mono" xml:space="preserve" x="822" y="641" font-size="28" fill="#e8e6df" opacity="0.55">    gas = min(est*13/10, t.Asset.GasCap)</text><text id="ev-c11" class="mono" xml:space="preserve" x="822" y="682" font-size="28" fill="#e8e6df" opacity="0.55">}</text><text id="ev-c12" class="mono" xml:space="preserve" x="822" y="723" font-size="28" fill="#e8e6df" opacity="0.55">digest := a.signer.Hash(tx)</text></g>
+<text id="ev-cm0" class="h" x="820" y="830" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan>ERC-20：to 换成代币合约</text>
+<text id="ev-cm1" class="h" x="820" y="830" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan>会回滚：不发送</text>
+<text id="ev-cm2" class="h" x="820" y="830" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan>DynamicFeeTx（EIP-1559）</text>
+<text id="ev-cm3" class="h" x="820" y="545" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan>签名无法恢复发送方</text>
+<g id="ev-eth" class="h"><rect x="80" y="240" width="670" height="230" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3"/><text x="110" y="292" font-size="34" fill="#F0B90B" font-weight="700">原生 ETH 转账</text></g>
+<text id="ev-e1" class="h" x="110" y="350" font-size="30" fill="#e8e6df" xml:space="preserve"><tspan class="mono" fill="#8a8f99">to    = </tspan>用户</text>
+<text id="ev-e2" class="h" x="110" y="395" font-size="30" fill="#e8e6df" xml:space="preserve"><tspan class="mono" fill="#8a8f99">value = </tspan><tspan class="mono" fill="#F0B90B">1 ETH</tspan></text>
+<text id="ev-e3" class="h" x="110" y="440" font-size="30" fill="#8a8f99" xml:space="preserve"><tspan class="mono" fill="#8a8f99">data  = </tspan>空</text>
+<g id="ev-erc" class="h"><rect x="80" y="500" width="670" height="250" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="110" y="552" font-size="34" fill="#58C4DD" font-weight="700">ERC-20 转账</text></g>
+<text id="ev-r1" class="h" x="110" y="610" font-size="30" fill="#e8e6df" xml:space="preserve"><tspan class="mono" fill="#8a8f99">to    = </tspan></text>
+<text id="ev-r1v" class="h" x="254.48" y="610" font-size="30" fill="#58C4DD">代币合约</text>
+<text id="ev-r2" class="h" x="110" y="655" font-size="30" fill="#e8e6df" xml:space="preserve"><tspan class="mono" fill="#8a8f99">value = </tspan><tspan class="mono">0</tspan></text>
+<text id="ev-r3" class="h" x="110" y="700" font-size="30" fill="#e8e6df" xml:space="preserve"><tspan class="mono" fill="#8a8f99">data  = </tspan><tspan class="mono">transfer(</tspan></text>
+<text id="ev-r3b" class="h mono" x="499.02" y="700" font-size="30" fill="#e8e6df">, 100 USDC)</text>
+<g id="ev-usr" class="h"><rect x="250.48" y="578" width="78" height="44" rx="8" fill="#2a2412" stroke="#F0B90B" stroke-width="2"/><text x="289.48" y="610" font-size="30" fill="#F0B90B" text-anchor="middle">用户</text></g>
+<text id="ev-gt" class="h" x="110" y="292" font-size="36" fill="#e8e6df" font-weight="700">Gas 上限</text>
+<g id="ev-g1" class="h"><rect x="80" y="330" width="670" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="110" y="393" font-size="32" fill="#e8e6df" font-weight="700">ETH</text><text class="mono" x="300" y="395" font-size="34" fill="#F0B90B">21000</text><text x="440" y="393" font-size="30" fill="#8a8f99">固定</text></g>
+<g id="ev-g2" class="h"><rect x="80" y="470" width="670" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="110" y="533" font-size="32" fill="#e8e6df" font-weight="700">ERC-20</text></g>
+<path id="ev-ga" class="dr h" pathLength="1" d="M240 520 L292 520" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#ev-mgy)"/>
+<g id="ev-gest" class="h"><rect x="300" y="490" width="150" height="60" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="375" y="531" font-size="30" fill="#58C4DD" text-anchor="middle">估算</text></g>
+<path id="ev-gb" class="dr h" pathLength="1" d="M375 556 L375 628" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#ev-mr)"/>
+<g id="ev-gf" class="h"><rect x="160" y="636" width="430" height="80" rx="12" fill="#2b1517" stroke="#FC6255" stroke-width="3"/><text x="375" y="688" font-size="32" fill="#FC6255" text-anchor="middle" font-weight="700">估算失败 → 不发送</text></g>
+<g id="ev-gx" class="h"><circle cx="640" cy="676" r="26" fill="#FC6255"/><path d="M629.1 665.1 L650.9 686.9 M650.9 665.1 L629.1 686.9" stroke="#0f1117" stroke-width="4.3" stroke-linecap="round"/></g>
+<g id="ev-sa" class="h"><rect x="80" y="240" width="670" height="220" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="720" y="290" font-size="28" fill="#8a8f99" text-anchor="end">示例</text></g>
+<text id="ev-sa1" class="h" x="110" y="300" font-size="32" fill="#e8e6df">估算 <tspan class="mono">60,000 × 1.3 = </tspan><tspan id="ev-sav" class="mono" fill="#83C167">60,000</tspan></text>
+<text id="ev-sa2" class="h" x="110" y="352" font-size="32" fill="#e8e6df">≤ 上限 <tspan class="mono">100,000</tspan></text>
+<g id="ev-sak" class="h"><circle cx="420" cy="342" r="22" fill="#83C167"/><path d="M410.1 342.4 l7.0 7.0 l13.2 -13.6" fill="none" stroke="#0f1117" stroke-width="3.7" stroke-linecap="round"/></g>
+<rect id="ev-tr1" class="h" x="110" y="395" width="580" height="26" rx="13" fill="#2a2f3a"/>
+<rect id="ev-f1" class="h" x="110" y="395" width="278" height="26" rx="13" fill="#8a8f99"/>
+<line id="ev-cap1" class="h" x1="574" y1="384" x2="574" y2="432" stroke="#FF9F43" stroke-width="4"/>
+<g id="ev-sb" class="h"><rect x="80" y="490" width="670" height="300" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/></g>
+<text id="ev-sb1" class="h" x="110" y="550" font-size="32" fill="#e8e6df">估算 <tspan class="mono">120,000</tspan> &gt; 上限 <tspan class="mono">100,000</tspan></text>
+<rect id="ev-tr2" class="h" x="110" y="585" width="580" height="26" rx="13" fill="#2a2f3a"/>
+<rect id="ev-f2" class="h" x="110" y="585" width="557" height="26" rx="13" fill="#FC6255"/>
+<line id="ev-cap2" class="h" x1="574" y1="574" x2="574" y2="622" stroke="#FF9F43" stroke-width="4"/>
+<text id="ev-sb2" class="h" x="110" y="675" font-size="32" fill="#FC6255" font-weight="700">截断 → Gas 不足</text>
+<g id="ev-sbx" class="h"><circle cx="400" cy="664" r="22" fill="#FC6255"/><path d="M390.8 654.8 L409.2 673.2 M409.2 654.8 L390.8 673.2" stroke="#0f1117" stroke-width="3.7" stroke-linecap="round"/></g>
+<text id="ev-sb3" class="h" x="110" y="745" font-size="32" fill="#FF9F43" font-weight="700">不发，转人工</text>
+<g id="ev-fc" class="h"><rect x="80" y="240" width="340" height="130" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="250" y="296" font-size="30" fill="#e8e6df" text-anchor="middle">费用估算器缓存</text><text x="250" y="345" font-size="28" fill="#8a8f99" text-anchor="middle">Gas 策略那集</text></g>
+<rect id="ev-tx" class="h" x="80" y="470" width="670" height="170" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3"/>
+<text id="ev-txt0" class="h" x="110" y="525" font-size="32" fill="#F0B90B" font-weight="700" data-layout-allow-overlap>交易</text>
+<text id="ev-txt1" class="h" x="110" y="525" font-size="32" fill="#F0B90B" font-weight="700" data-layout-allow-overlap>EIP-1559 交易</text>
+<g id="ev-tip" class="h"><rect x="460" y="250" width="110" height="50" rx="10" fill="#2a2412" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="515" y="285" font-size="28" fill="#F0B90B" text-anchor="middle">tip</text></g>
+<g id="ev-mf" class="h"><rect x="590" y="250" width="150" height="50" rx="10" fill="#2a2412" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="665" y="285" font-size="28" fill="#F0B90B" text-anchor="middle">maxFee</text></g>
+<path id="ev-da" class="dr h" pathLength="1" d="M415 646 L415 712" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ev-mb)"/>
+<g id="ev-dg" class="h"><rect x="330" y="720" width="170" height="64" rx="10" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/><text x="415" y="763" font-size="30" fill="#58C4DD" text-anchor="middle" font-weight="700">摘要</text></g>
+<g id="ev-a" class="h"><rect x="790" y="220" width="1070" height="271" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><rect id="ev-ahl" x="796" y="242" width="1058" height="41" fill="#58C4DD" fill-opacity="0.15" opacity="0"/><rect id="ev-ahb" x="796" y="242" width="6" height="41" fill="#58C4DD" opacity="0"/><text id="ev-a1" class="mono" xml:space="preserve" x="822" y="272" font-size="28" fill="#e8e6df" opacity="0.55">tx.UnmarshalBinary(u.Payload)</text><text id="ev-a2" class="mono" xml:space="preserve" x="822" y="313" font-size="28" fill="#e8e6df" opacity="0.55">signed, _ := tx.WithSignature(a.signer, sigs[0])</text><text id="ev-a3" class="mono" xml:space="preserve" x="822" y="354" font-size="28" fill="#e8e6df" opacity="0.55">if _, err := types.Sender(a.signer, signed); err != nil {</text><text id="ev-a4" class="mono" xml:space="preserve" x="822" y="395" font-size="28" fill="#e8e6df" opacity="0.55">    return nil, "", err</text><text id="ev-a5" class="mono" xml:space="preserve" x="822" y="436" font-size="28" fill="#e8e6df" opacity="0.55">}</text></g>
+<g id="ev-env" class="h"><rect x="100" y="250" width="380" height="200" rx="10" fill="#2a2412" stroke="#F0B90B" stroke-width="3"/><path d="M100 250 L290 340 L480 250" fill="none" stroke="#F0B90B" stroke-width="3"/><text x="420" y="425" font-size="30" fill="#F0B90B" text-anchor="middle">交易</text></g>
+<g id="ev-sig" class="h"><rect x="560" y="370" width="150" height="56" rx="10" fill="#FF9F43" stroke="#FF9F43" stroke-width="2.5"/><text x="635" y="408" font-size="30" fill="#0f1117" text-anchor="middle" font-weight="700">签名</text></g>
+<path id="ev-ra" class="dr h" pathLength="1" d="M290 456 L290 526" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#ev-mgr)"/>
+<text id="ev-ral" class="h" x="310" y="500" font-size="28" fill="#83C167">恢复</text>
+<g id="ev-from" class="h"><rect x="100" y="534" width="380" height="76" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/><text x="290" y="584" font-size="30" fill="#83C167" text-anchor="middle">发送方 <tspan class="mono">from</tspan></text></g>
+<g id="ev-fk" class="h"><circle cx="530" cy="572" r="24" fill="#83C167"/><path d="M519.2 572.5 l7.7 7.7 l14.4 -14.9" fill="none" stroke="#0f1117" stroke-width="4.0" stroke-linecap="round"/></g>
+<g id="ev-bad" class="h"><rect x="100" y="680" width="640" height="90" rx="12" fill="#2b1517" stroke="#FC6255" stroke-width="3"/><text x="140" y="738" font-size="32" fill="#FC6255" font-weight="700">恢复不出 → 不发</text></g>
+<g id="ev-bx" class="h"><circle cx="680" cy="725" r="24" fill="#FC6255"/><path d="M669.9 714.9 L690.1 735.1 M690.1 714.9 L669.9 735.1" stroke="#0f1117" stroke-width="4.0" stroke-linecap="round"/></g>
+      </g>
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const CODE = {};
+const HL = (name, a, b, t, col = "#58C4DD") => {
+  const P = CODE[name]; if (!P) return;
+  const y = P.y + P.top - 30 + 41 * (a - 1), h = 41 * (b - a + 1);
+  tl.to(`#${P.pf}${name}hl`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  tl.to(`#${P.pf}${name}hb`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: (i >= a && i <= b) ? 1 : 0.55, duration: 0.4 }, t);
+};
+const HLOFF = (name, t) => { const P = CODE[name]; tl.to(`#${P.pf}${name}hl, #${P.pf}${name}hb`, { opacity: 0, duration: 0.3 }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: 0.55, duration: 0.3 }, t); };
+const POP = (s, t, o) => IN(s, t, 0.45, { scale: 0.6, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(2)" });
+const PULSE = (s, t, o, k = 1.08) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, t);
+const CHG = (s, t, v, d = 0.35) => tl.to(s, { ...v, duration: d }, t);
+
+      /*ANIM*/
+CODE["c"] = {pf:"ev-", y:220, top:52, n:12};
+CODE["a"] = {pf:"ev-", y:220, top:52, n:5};
+
+// L0 原生 ETH
+IN("#ev-c", at(0, 0.03), 0.5);
+for (let i = 1; i <= 12; i++) IN(`#ev-c${i}`, at(0, 0.05) + i * 0.05, 0.3, {}, { opacity: 0.55 });
+IN("#ev-eth", at(0, 0.18), 0.5, { y: 20 }, { y: 0 });
+IN("#ev-e1", at(0, 0.42), 0.4, { x: -10 }, { x: 0 });
+IN("#ev-e2", at(0, 0.66), 0.4, { x: -10 }, { x: 0 });
+IN("#ev-e3", at(0, 0.84), 0.4, { x: -10 }, { x: 0 });
+// L1 ERC-20
+HL("c", 1, 5, at(1, 0.02)); IN("#ev-cm0", at(1, 0.05), 0.4);
+IN("#ev-erc", at(1, 0.06), 0.5, { y: 20 }, { y: 0 });
+IN("#ev-r1", at(1, 0.12), 0.3); IN("#ev-usr", at(1, 0.12), 0.3);
+IN("#ev-r2", at(1, 0.16), 0.3); IN("#ev-r3", at(1, 0.2), 0.3); IN("#ev-r3b", at(1, 0.2), 0.3);
+tl.to("#ev-usr", { x: 17 * 18.06 - 8 * 18.06 + 4, y: 90, duration: 0.9, ease: "power2.inOut" }, at(1, 0.24));
+IN("#ev-r1v", at(1, 0.34), 0.4);
+HL("c", 2, 2, at(1, 0.28));
+HL("c", 3, 3, at(1, 0.42)); PULSE("#ev-r2", at(1, 0.44), "160 645", 1.12);
+HL("c", 4, 4, at(1, 0.6)); PULSE("#ev-usr", at(1, 0.66), "455 690", 1.12);
+tl.to("#ev-r3b", { fill: "#F0B90B", duration: 0.3 }, at(1, 0.74));
+PULSE("#ev-erc", at(1, 0.9), "415 625", 1.02);
+// L2 Gas 上限
+OUT("#ev-eth, #ev-e1, #ev-e2, #ev-e3, #ev-erc, #ev-r1, #ev-r1v, #ev-r2, #ev-r3, #ev-r3b, #ev-usr", at(2, 0.0), 0.4);
+OUT("#ev-cm0", at(2, 0.0), 0.3);
+IN("#ev-gt", at(2, 0.06), 0.4);
+HL("c", 6, 6, at(2, 0.1)); IN("#ev-g1", at(2, 0.12), 0.5, { x: -20 }, { x: 0 });
+HL("c", 7, 8, at(2, 0.36)); IN("#ev-g2", at(2, 0.36), 0.5, { x: -20 }, { x: 0 });
+ARROW("#ev-ga", at(2, 0.46), 0.3); IN("#ev-gest", at(2, 0.5), 0.4);
+HL("c", 9, 9, at(2, 0.66), "#FC6255"); IN("#ev-cm1", at(2, 0.68), 0.4);
+ARROW("#ev-gb", at(2, 0.7), 0.4); IN("#ev-gf", at(2, 0.76), 0.4, { y: -10 }, { y: 0 }); POP("#ev-gx", at(2, 0.84), "640 676");
+// L3 ×1.3 与上限
+OUT("#ev-gt, #ev-g1, #ev-g2, #ev-ga, #ev-gest, #ev-gb, #ev-gf, #ev-gx, #ev-cm1", at(3, 0.0), 0.4);
+HL("c", 10, 10, at(3, 0.03), "#83C167");
+IN("#ev-sa", at(3, 0.05), 0.4); IN("#ev-sa1", at(3, 0.08), 0.4);
+IN("#ev-tr1", at(3, 0.1), 0.3); IN("#ev-f1", at(3, 0.12), 0.3);
+COUNT("#ev-sav", 60000, 78000, at(3, 0.16), 1.2, v => Math.round(v / 1000).toLocaleString("en-US") + ",000");
+tl.to("#ev-f1", { attr: { width: 362 }, fill: "#83C167", duration: 1.2, ease: "power2.out" }, at(3, 0.16));
+IN("#ev-sa2", at(3, 0.28), 0.4); IN("#ev-cap1", at(3, 0.28), 0.3); POP("#ev-sak", at(3, 0.34), "420 342");
+IN("#ev-sb", at(3, 0.45), 0.4); IN("#ev-sb1", at(3, 0.48), 0.4);
+IN("#ev-tr2", at(3, 0.52), 0.3); IN("#ev-cap2", at(3, 0.52), 0.3);
+tl.fromTo("#ev-f2", { opacity: 1, attr: { width: 26 } }, { attr: { width: 557 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(3, 0.54));
+tl.to("#ev-f2", { attr: { width: 464 }, duration: 0.4, ease: "power2.in" }, at(3, 0.66));
+IN("#ev-sb2", at(3, 0.68), 0.4); POP("#ev-sbx", at(3, 0.72), "400 664");
+IN("#ev-sb3", at(3, 0.82), 0.4, { x: -15 }, { x: 0 });
+PULSE("#ev-sb3", at(3, 0.92), "300 735", 1.08);
+// L4 费用参数 + EIP-1559 + 摘要
+OUT("#ev-sa, #ev-sa1, #ev-sa2, #ev-sak, #ev-tr1, #ev-f1, #ev-cap1, #ev-sb, #ev-sb1, #ev-tr2, #ev-f2, #ev-cap2, #ev-sb2, #ev-sbx, #ev-sb3", at(4, 0.0), 0.4);
+IN("#ev-fc", at(4, 0.05), 0.5, { x: -20 }, { x: 0 });
+IN("#ev-tx", at(4, 0.1), 0.4); IN("#ev-txt0", at(4, 0.12), 0.4);
+IN("#ev-tip", at(4, 0.2), 0.3); IN("#ev-mf", at(4, 0.24), 0.3);
+tl.to("#ev-tip", { x: -350, y: 310, duration: 0.8, ease: "power2.inOut" }, at(4, 0.32));
+tl.to("#ev-mf", { x: -340, y: 310, duration: 0.8, ease: "power2.inOut" }, at(4, 0.38));
+HL("c", 12, 12, at(4, 0.6)); OUT("#ev-txt0", at(4, 0.6), 0.25); IN("#ev-txt1", at(4, 0.6) + 0.3, 0.4);
+IN("#ev-cm2", at(4, 0.64), 0.4);
+PULSE("#ev-tx", at(4, 0.7), "415 555", 1.03);
+ARROW("#ev-da", at(4, 0.8), 0.4); IN("#ev-dg", at(4, 0.86), 0.4, { y: -10 }, { y: 0 });
+// L5 Assemble
+OUT("#ev-c, #ev-cm2, #ev-fc, #ev-tip, #ev-mf, #ev-tx, #ev-txt1, #ev-da, #ev-dg", at(5, 0.0), 0.4);
+IN("#ev-a", at(5, 0.05), 0.5);
+for (let i = 1; i <= 5; i++) IN(`#ev-a${i}`, at(5, 0.05) + i * 0.05, 0.25, {}, { opacity: 0.55 });
+HL("a", 1, 1, at(5, 0.08)); IN("#ev-env", at(5, 0.1), 0.5, { y: 20 }, { y: 0 });
+HL("a", 2, 2, at(5, 0.22)); IN("#ev-sig", at(5, 0.24), 0.4);
+tl.to("#ev-sig", { x: -350, y: -10, duration: 0.8, ease: "power2.inOut" }, at(5, 0.3));
+HL("a", 3, 3, at(5, 0.45)); ARROW("#ev-ra", at(5, 0.47), 0.4); IN("#ev-ral", at(5, 0.5), 0.3);
+IN("#ev-from", at(5, 0.54), 0.4); POP("#ev-fk", at(5, 0.6), "530 572");
+HL("a", 4, 4, at(5, 0.72), "#FC6255"); IN("#ev-cm3", at(5, 0.74), 0.4);
+IN("#ev-bad", at(5, 0.76), 0.4, { y: 15 }, { y: 0 }); POP("#ev-bx", at(5, 0.84), "680 725");
+
+      /*ENDANIM*/
+
+      tl.to("#ev-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      
+      window.__timelines["evm"] = tl;
+    })();
+  </script>
+</template>

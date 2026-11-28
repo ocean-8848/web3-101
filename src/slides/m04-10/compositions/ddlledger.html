@@ -1,0 +1,225 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ddlledger，id 前缀 dd- -->
+  <div id="root" data-composition-id="ddlledger" data-duration="82.2" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="dd-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="dd-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="dd-all">
+<text id="dd-title" class="h" x="100" y="130" font-size="48" font-weight="700" fill="#e8e6df"><tspan class="mono">ledger</tspan> 库</text>
+<g id="dd-tc0" class="h"><rect x="390" y="330" width="420" height="80" rx="14" fill="rgba(88,196,221,0.08)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="600" y="382" font-size="32" fill="#58C4DD" text-anchor="middle">account_balance</text></g>
+<g id="dd-tc1" class="h"><rect x="390" y="450" width="420" height="80" rx="14" fill="rgba(88,196,221,0.08)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="600" y="502" font-size="32" fill="#58C4DD" text-anchor="middle">ledger_txn</text></g>
+<g id="dd-tc2" class="h"><rect x="390" y="570" width="420" height="80" rx="14" fill="rgba(88,196,221,0.08)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="600" y="622" font-size="32" fill="#58C4DD" text-anchor="middle">ledger_entry</text></g>
+<rect id="dd-pan" class="h" x="100" y="220" width="1000" height="490" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+<rect id="dd-bar" class="h" x="106" y="570" width="988" height="38" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+<rect id="dd-g1" class="h" x="106" y="410" width="988" height="38" rx="6" fill="#83C167" fill-opacity="0.15" />
+<rect id="dd-g2" class="h" x="106" y="490" width="988" height="38" rx="6" fill="#83C167" fill-opacity="0.15" />
+<rect id="dd-g3" class="h" x="106" y="490" width="988" height="38" rx="6" fill="#83C167" fill-opacity="0.15" />
+<rect id="dd-g4" class="h" x="106" y="530" width="988" height="38" rx="6" fill="#83C167" fill-opacity="0.15" />
+<g id="dd-c1" class="h">
+<text class="mono" xml:space="preserve" x="124" y="280" font-size="28" fill="#e8e6df">CREATE TABLE account_balance (</text>
+<text class="mono" xml:space="preserve" x="124" y="320" font-size="28" fill="#e8e6df">  user_id    BIGINT NOT NULL,</text>
+<text x="633" y="320" font-size="28" fill="#8a8f99">-- 1 手续费  2 舍入差异</text>
+<text class="mono" xml:space="preserve" x="124" y="360" font-size="28" fill="#e8e6df">  asset      VARCHAR(16) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="124" y="400" font-size="28" fill="#e8e6df">  available  NUMERIC(36,18) NOT NULL DEFAULT 0</text>
+<text class="mono" xml:space="preserve" x="124" y="440" font-size="28" fill="#e8e6df">             CHECK (available &gt;= 0),</text>
+<text class="mono" xml:space="preserve" x="124" y="480" font-size="28" fill="#e8e6df">  frozen     NUMERIC(36,18) NOT NULL DEFAULT 0</text>
+<text class="mono" xml:space="preserve" x="124" y="520" font-size="28" fill="#e8e6df">             CHECK (frozen &gt;= 0),</text>
+<text class="mono" xml:space="preserve" x="124" y="560" font-size="28" fill="#e8e6df">  version    BIGINT NOT NULL DEFAULT 0,</text>
+<text class="mono" xml:space="preserve" x="124" y="600" font-size="28" fill="#e8e6df">  PRIMARY KEY (user_id, asset)</text>
+<text class="mono" xml:space="preserve" x="124" y="640" font-size="28" fill="#e8e6df">);</text>
+</g>
+<g id="dd-c2" class="h">
+<text class="mono" xml:space="preserve" x="124" y="280" font-size="28" fill="#e8e6df">CREATE TABLE ledger_txn (</text>
+<text class="mono" xml:space="preserve" x="124" y="320" font-size="28" fill="#e8e6df">  id         BIGSERIAL PRIMARY KEY,</text>
+<text class="mono" xml:space="preserve" x="124" y="360" font-size="28" fill="#e8e6df">  biz_type   VARCHAR(32) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="124" y="400" font-size="28" fill="#8a8f99">             -- DEPOSIT ORDER_FREEZE TRADE ...</text>
+<text class="mono" xml:space="preserve" x="124" y="440" font-size="28" fill="#e8e6df">  biz_id     VARCHAR(80) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="124" y="480" font-size="28" fill="#e8e6df">  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),</text>
+<text class="mono" xml:space="preserve" x="124" y="520" font-size="28" fill="#e8e6df">  UNIQUE (biz_type, biz_id)</text>
+<text class="mono" xml:space="preserve" x="124" y="560" font-size="28" fill="#e8e6df">);</text>
+</g>
+<g id="dd-c3" class="h">
+<text class="mono" xml:space="preserve" x="124" y="280" font-size="28" fill="#e8e6df">CREATE TABLE ledger_entry (</text>
+<text class="mono" xml:space="preserve" x="124" y="320" font-size="28" fill="#e8e6df">  id        BIGSERIAL PRIMARY KEY,</text>
+<text class="mono" xml:space="preserve" x="124" y="360" font-size="28" fill="#e8e6df">  txn_id    BIGINT NOT NULL REFERENCES ledger_txn(id),</text>
+<text class="mono" xml:space="preserve" x="124" y="400" font-size="28" fill="#e8e6df">  user_id   BIGINT NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="124" y="440" font-size="28" fill="#e8e6df">  asset     VARCHAR(16) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="124" y="480" font-size="28" fill="#e8e6df">  bucket    SMALLINT NOT NULL,</text>
+<text x="650" y="480" font-size="28" fill="#8a8f99">-- 1 可用  2 冻结  3 外部托管</text>
+<text class="mono" xml:space="preserve" x="124" y="520" font-size="28" fill="#e8e6df">  direction SMALLINT NOT NULL,</text>
+<text x="650" y="520" font-size="28" fill="#8a8f99">-- 1 借  2 贷</text>
+<text class="mono" xml:space="preserve" x="124" y="560" font-size="28" fill="#e8e6df">  amount    NUMERIC(36,18) NOT NULL CHECK (amount &gt; 0),</text>
+<text class="mono" xml:space="preserve" x="124" y="600" font-size="28" fill="#e8e6df">  balance_after NUMERIC(36,18)</text>
+<text class="mono" xml:space="preserve" x="124" y="640" font-size="28" fill="#e8e6df">);</text>
+<text class="mono" xml:space="preserve" x="124" y="680" font-size="28" fill="#e8e6df">CREATE INDEX ON ledger_entry (user_id, asset, id);</text>
+</g>
+<g id="dd-c4" class="h">
+<text class="mono" xml:space="preserve" x="124" y="280" font-size="28" fill="#e8e6df">CREATE TABLE asset_external (</text>
+<text class="mono" xml:space="preserve" x="124" y="320" font-size="28" fill="#e8e6df">  asset     VARCHAR(16) PRIMARY KEY,</text>
+<text class="mono" xml:space="preserve" x="124" y="360" font-size="28" fill="#e8e6df">  deposited NUMERIC(36,18) NOT NULL DEFAULT 0,</text>
+<text class="mono" xml:space="preserve" x="124" y="400" font-size="28" fill="#e8e6df">  withdrawn NUMERIC(36,18) NOT NULL DEFAULT 0</text>
+<text class="mono" xml:space="preserve" x="124" y="440" font-size="28" fill="#e8e6df">);</text>
+<text class="mono" xml:space="preserve" x="124" y="480" font-size="28" fill="#e8e6df">CREATE TABLE outbox (</text>
+<text class="mono" xml:space="preserve" x="124" y="520" font-size="28" fill="#e8e6df">  id BIGSERIAL PRIMARY KEY, topic VARCHAR(64) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="124" y="560" font-size="28" fill="#e8e6df">  msg_key VARCHAR(64) NOT NULL, payload JSONB NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="124" y="600" font-size="28" fill="#e8e6df">  sent_at TIMESTAMPTZ</text>
+<text class="mono" xml:space="preserve" x="124" y="640" font-size="28" fill="#e8e6df">);</text>
+<text class="mono" xml:space="preserve" x="124" y="680" font-size="28" fill="#e8e6df">CREATE INDEX ON outbox (id) WHERE sent_at IS NULL;</text>
+</g>
+<g id="dd-n1" class="h"><rect x="1160" y="220" width="660" height="124" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="270" font-size="30" fill="#83C167" font-weight="700">防：余额扣成负数</text><text x="1188" y="314" font-size="28" fill="#e8e6df">程序写错，数据库也拒绝</text></g>
+<g id="dd-n2" class="h"><rect x="1160" y="364" width="660" height="84" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1188" y="417" font-size="30" fill="#58C4DD" font-weight="700"><tspan class="mono">version</tspan>：每次更新 +1</text></g>
+<g id="dd-g0" class="h">
+<text x="1500" y="560" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">可用余额</text>
+<line x1="1320" y1="860" x2="1680" y2="860" stroke="#83C167" stroke-width="4" />
+<text x="1300" y="870" font-size="28" fill="#83C167" text-anchor="end">0</text>
+<text class="mono" x="1700" y="870" font-size="28" fill="#83C167">≥ 0</text>
+</g>
+<rect id="dd-gb" class="h" x="1430" y="600" width="140" height="260" rx="6" fill="#F0B90B" />
+<rect id="dd-gneg" class="h" x="1430" y="860" width="140" height="60" rx="6" fill="#FC6255" fill-opacity="0.6" />
+<text id="dd-rej" class="h" x="1590" y="912" font-size="28" fill="#FC6255">数据库拒绝</text>
+<g id="dd-acc" class="h">
+<circle cx="1210" cy="290" r="30" fill="none" stroke="#8a8f99" stroke-width="3" /><text x="1262" y="300" font-size="30" fill="#e8e6df">用户</text>
+</g>
+<g id="dd-u1" class="h"><circle cx="1210" cy="380" r="30" fill="rgba(180,142,240,0.15)" stroke="#B48EF0" stroke-width="3" /><text x="1262" y="390" font-size="30" fill="#B48EF0">平台手续费 · <tspan class="mono">user 1</tspan></text></g>
+<g id="dd-u2" class="h"><circle cx="1210" cy="470" r="30" fill="rgba(180,142,240,0.15)" stroke="#B48EF0" stroke-width="3" /><text x="1262" y="480" font-size="30" fill="#B48EF0">舍入差异 · <tspan class="mono">user 2</tspan></text></g>
+<text id="dd-eq" class="h" x="1180" y="600" font-size="34" font-weight="700" fill="#83C167">用户 + 平台 = 充值 − 提币</text>
+<g id="dd-n3" class="h"><rect x="1160" y="220" width="660" height="84" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="273" font-size="30" fill="#83C167" font-weight="700">防：同一笔业务记两次</text></g>
+<g id="dd-tbox" class="h"><rect x="1160" y="360" width="660" height="250" rx="14" fill="none" stroke="#58C4DD" stroke-width="2" />
+<text class="mono" x="1184" y="400" font-size="28" fill="#58C4DD">ledger_txn</text></g>
+<g id="dd-r1" class="h"><rect x="1180" y="424" width="620" height="56" rx="14" fill="rgba(240,185,11,0.15)" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1490" y="462" font-size="28" fill="#F0B90B" text-anchor="middle">ORDER_FREEZE : 178234991230001</text></g>
+<g id="dd-r2" class="h"><rect x="1180" y="500" width="620" height="56" rx="14" fill="rgba(240,185,11,0.15)" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1490" y="538" font-size="28" fill="#F0B90B" text-anchor="middle">ORDER_FREEZE : 178234991230001</text></g>
+<text id="dd-conf" class="h" x="1490" y="660" font-size="30" fill="#FC6255" text-anchor="middle">冲突 = 已处理过</text>
+<g id="dd-k0" class="h"><rect x="100" y="750" width="146" height="46" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="173" y="783" font-size="28" fill="#58C4DD" text-anchor="middle">DEPOSIT</text></g>
+<g id="dd-k1" class="h"><rect x="260" y="750" width="230" height="46" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="375" y="783" font-size="28" fill="#58C4DD" text-anchor="middle">ORDER_FREEZE</text></g>
+<g id="dd-k2" class="h"><rect x="504" y="750" width="263" height="46" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="636" y="783" font-size="28" fill="#58C4DD" text-anchor="middle">ORDER_UNFREEZE</text></g>
+<g id="dd-k3" class="h"><rect x="781" y="750" width="112" height="46" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="837" y="783" font-size="28" fill="#58C4DD" text-anchor="middle">TRADE</text></g>
+<g id="dd-k4" class="h"><rect x="100" y="814" width="280" height="46" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="240" y="847" font-size="28" fill="#58C4DD" text-anchor="middle">WITHDRAW_FREEZE</text></g>
+<g id="dd-k5" class="h"><rect x="394" y="814" width="246" height="46" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="517" y="847" font-size="28" fill="#58C4DD" text-anchor="middle">WITHDRAW_DONE</text></g>
+<g id="dd-k6" class="h"><rect x="654" y="814" width="280" height="46" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="794" y="847" font-size="28" fill="#58C4DD" text-anchor="middle">WITHDRAW_REFUND</text></g>
+<g id="dd-n4" class="h"><rect x="1160" y="220" width="660" height="124" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1188" y="270" font-size="30" fill="#58C4DD" font-weight="700"><tspan class="mono">REFERENCES</tspan></text><text x="1188" y="314" font-size="28" fill="#e8e6df">分录不能脱离事务</text></g>
+<g id="dd-n5" class="h"><rect x="1160" y="364" width="660" height="124" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="414" font-size="30" fill="#83C167" font-weight="700"><tspan class="mono">amount &gt; 0</tspan> + 方向单独一列</text><text x="1188" y="458" font-size="28" fill="#e8e6df">防：正负号混用</text></g>
+<g id="dd-bk0" class="h"><path d="M1170 640 L1190 840 L1330 840 L1350 640" fill="rgba(240,185,11,0.08)" stroke="#F0B90B" stroke-width="3" /><text x="1260" y="900" font-size="30" fill="#F0B90B" text-anchor="middle">可用</text><text class="mono" x="1260" y="760" font-size="34" fill="#F0B90B" text-anchor="middle">1</text></g>
+<g id="dd-bk1" class="h"><path d="M1390 640 L1410 840 L1550 840 L1570 640" fill="rgba(240,185,11,0.08)" stroke="#F0B90B" stroke-width="3" /><text x="1480" y="900" font-size="30" fill="#F0B90B" text-anchor="middle">冻结</text><text class="mono" x="1480" y="760" font-size="34" fill="#F0B90B" text-anchor="middle">2</text></g>
+<g id="dd-bk2" class="h"><path d="M1610 640 L1630 840 L1770 840 L1790 640" fill="rgba(240,185,11,0.08)" stroke="#8a8f99" stroke-width="3" /><text x="1700" y="900" font-size="30" fill="#8a8f99" text-anchor="middle">外部托管</text><text class="mono" x="1700" y="760" font-size="34" fill="#8a8f99" text-anchor="middle">3</text></g>
+<g id="dd-n6" class="h"><rect x="1160" y="220" width="660" height="84" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="273" font-size="30" fill="#83C167" font-weight="700">全局不变量靠它核对</text></g>
+<g id="dd-tx" class="h"><rect x="1160" y="350" width="660" height="230" rx="14" fill="none" stroke="#58C4DD" stroke-width="3" />
+<text x="1184" y="392" font-size="28" fill="#58C4DD">同一个事务</text></g>
+<g id="dd-e1" class="h"><rect x="1184" y="412" width="612" height="60" rx="14" fill="rgba(240,185,11,0.15)" stroke="#F0B90B" stroke-width="2.5" /><text x="1490" y="453" font-size="30" fill="#F0B90B" text-anchor="middle">余额分录</text></g>
+<g id="dd-e2" class="h"><rect x="1184" y="494" width="612" height="60" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text x="1490" y="535" font-size="30" fill="#58C4DD" text-anchor="middle"><tspan class="mono">outbox</tspan> 消息</text></g>
+<path id="dd-snd" class="dr h" pathLength="1" d="M1490 582 L1490 692" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#dd-arr)" />
+<text id="dd-sndl" class="h" x="1460" y="646" font-size="28" fill="#8a8f99" text-anchor="end">后台补发</text>
+<g id="dd-kf" class="h"><rect x="1290" y="700" width="400" height="64" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1490" y="742" font-size="28" fill="#58C4DD" text-anchor="middle">Kafka ledger.events</text></g>
+<rect id="dd-pk" class="h" x="1474" y="590" width="32" height="24" rx="6" fill="#58C4DD" />
+<g id="dd-n7" class="h"><rect x="1160" y="820" width="660" height="84" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="873" font-size="30" fill="#83C167" font-weight="700">防：记了账却没发消息</text></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const PULSE = (s, t, n = 2, d = 0.45, lo = 0.4) => tl.to(s, { opacity: lo, duration: d, yoyo: true, repeat: 2 * n - 1, ease: "sine.inOut" }, t);
+      const BAR = (s, y, h, t, d = 0.45) => tl.to(s, { attr: { y: y, height: h }, duration: d, ease: "power2.inOut" }, t);
+      const POP = (s, t, cx, cy, d = 0.4) => IN(s, t, d, { scale: 0.8, svgOrigin: cx + " " + cy }, { scale: 1, svgOrigin: cx + " " + cy });
+      const comma = v => Math.round(v).toLocaleString("en-US");
+
+
+      const LY = i => 280 + i * 40 - 30;
+      // L0 三张表
+      IN("#dd-title", at(0, 0), 0.5);
+      IN("#dd-tc0", at(0, 0.3), 0.5, { x: -30 }, { x: 0 });
+      IN("#dd-tc1", at(0, 0.45), 0.5, { x: -30 }, { x: 0 });
+      IN("#dd-tc2", at(0, 0.6), 0.5, { x: -30 }, { x: 0 });
+      // L1 account_balance
+      OUT("#dd-tc1, #dd-tc2", at(1, 0), 0.3);
+      tl.to("#dd-tc0", { y: -110, opacity: 0, duration: 0.5, ease: "power2.in" }, at(1, 0));
+      IN("#dd-pan", at(1, 0.02), 0.5); IN("#dd-c1", at(1, 0.05), 0.6);
+      IN("#dd-bar", at(1, 0.1), 0.3);
+      IN("#dd-g1", at(1, 0.26), 0.4); IN("#dd-g2", at(1, 0.3), 0.4);
+      IN("#dd-n1", at(1, 0.36), 0.5, { x: 30 }, { x: 0 });
+      IN("#dd-g0", at(1, 0.48), 0.4); IN("#dd-gb", at(1, 0.48), 0.4);
+      tl.to("#dd-gb", { attr: { y: 860, height: 0 }, duration: 1.2, ease: "power2.in" }, at(1, 0.54));
+      IN("#dd-gneg", at(1, 0.54) + 1.2, 0.15);
+      tl.to("#dd-gneg", { attr: { height: 0 }, duration: 0.4, ease: "power2.out" }, at(1, 0.54) + 1.35);
+      tl.to("#dd-gb", { attr: { y: 600, height: 260 }, duration: 0.7, ease: "back.out(1.6)" }, at(1, 0.54) + 1.35); IN("#dd-rej", at(1, 0.54) + 1.3, 0.3); OUT("#dd-rej", at(1, 0.84), 0.3);
+      BAR("#dd-bar", LY(7), 38, at(1, 0.84));
+      IN("#dd-n2", at(1, 0.86), 0.5, { x: 30 }, { x: 0 });
+      // L2 user 1 / user 2
+      OUT("#dd-n1, #dd-n2, #dd-g0, #dd-gb, #dd-gneg, #dd-rej", at(2, 0), 0.4);
+      BAR("#dd-bar", LY(1), 38, at(2, 0.02));
+      IN("#dd-acc", at(2, 0.1), 0.5);
+      POP("#dd-u1", at(2, 0.2), 1210, 380);
+      POP("#dd-u2", at(2, 0.42), 1210, 470);
+      IN("#dd-eq", at(2, 0.72), 0.6, { y: 15 }, { y: 0 });
+      PULSE("#dd-eq", at(2, 0.9), 1, 0.3, 0.5);
+      // L3 ledger_txn 全局幂等
+      OUT("#dd-acc, #dd-u1, #dd-u2, #dd-eq, #dd-c1, #dd-g1, #dd-g2", at(3, 0), 0.35);
+      IN("#dd-c2", at(3, 0.04), 0.5);
+      BAR("#dd-bar", LY(2), 38, at(3, 0.08));
+      tl.fromTo("#dd-k0, #dd-k1, #dd-k2, #dd-k3, #dd-k4, #dd-k5, #dd-k6", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.6 }, at(3, 0.32));
+      BAR("#dd-bar", LY(4), 38, at(3, 0.16));
+      IN("#dd-g3", at(3, 0.2), 0.4); BAR("#dd-bar", LY(3), 38, at(3, 0.3));
+      IN("#dd-n3", at(3, 0.24), 0.5, { x: 30 }, { x: 0 });
+      IN("#dd-tbox", at(3, 0.7), 0.4);
+      IN("#dd-r1", at(3, 0.75), 0.5, { x: 60 }, { x: 0 });
+      IN("#dd-r2", at(3, 0.85), 0.4, { x: 60 }, { x: 0 });
+      tl.to("#dd-r2 rect", { stroke: "#FC6255", fill: "rgba(252,98,85,0.15)", duration: 0.2 }, at(3, 0.85) + 0.4);
+      tl.to("#dd-r2 text", { fill: "#FC6255", duration: 0.2 }, at(3, 0.85) + 0.4);
+      tl.to("#dd-r2", { x: 60, duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.85) + 0.45);
+      IN("#dd-conf", at(3, 0.94), 0.4);
+      // L4 ledger_entry
+      OUT("#dd-c2, #dd-g3, #dd-n3, #dd-tbox, #dd-r1, #dd-r2, #dd-conf, #dd-k0, #dd-k1, #dd-k2, #dd-k3, #dd-k4, #dd-k5, #dd-k6", at(4, 0), 0.35);
+      IN("#dd-c3", at(4, 0.03), 0.5);
+      BAR("#dd-bar", LY(2), 38, at(4, 0.04));
+      IN("#dd-n4", at(4, 0.08), 0.5, { x: 30 }, { x: 0 });
+      BAR("#dd-bar", LY(3), 78, at(4, 0.18));
+      BAR("#dd-bar", LY(5), 78, at(4, 0.27));
+      BAR("#dd-bar", LY(7), 38, at(4, 0.36));
+      IN("#dd-g4", at(4, 0.4), 0.4);
+      IN("#dd-n5", at(4, 0.46), 0.5, { x: 30 }, { x: 0 });
+      BAR("#dd-bar", LY(5), 38, at(4, 0.7));
+      POP("#dd-bk0", at(4, 0.74), 1260, 760); POP("#dd-bk1", at(4, 0.8), 1480, 760); POP("#dd-bk2", at(4, 0.88), 1700, 760);
+      // L5 asset_external + outbox
+      OUT("#dd-c3, #dd-g4, #dd-n4, #dd-n5, #dd-bk0, #dd-bk1, #dd-bk2", at(5, 0), 0.35);
+      IN("#dd-c4", at(5, 0.03), 0.5);
+      BAR("#dd-bar", LY(2), 78, at(5, 0.06));
+      IN("#dd-n6", at(5, 0.22), 0.5, { x: 30 }, { x: 0 });
+      BAR("#dd-bar", LY(5), 40 * 6 - 2, at(5, 0.4));
+      IN("#dd-tx", at(5, 0.46), 0.4);
+      IN("#dd-e1", at(5, 0.5), 0.4, { x: 30 }, { x: 0 });
+      IN("#dd-e2", at(5, 0.55), 0.4, { x: 30 }, { x: 0 });
+      ARROW("#dd-snd", at(5, 0.68), 0.5); IN("#dd-sndl", at(5, 0.68));
+      IN("#dd-kf", at(5, 0.72), 0.4);
+      IN("#dd-pk", at(5, 0.76), 0.1);
+      tl.to("#dd-pk", { attr: { y: 660 }, duration: 0.7, ease: "power1.in" }, at(5, 0.76)); OUT("#dd-pk", at(5, 0.76) + 0.7, 0.2);
+      IN("#dd-n7", at(5, 0.88), 0.5, { x: 30 }, { x: 0 });
+
+
+      tl.to("#dd-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["ddlledger"] = tl;
+    })();
+  </script>
+</template>

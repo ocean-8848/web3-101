@@ -1,0 +1,157 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 credit，id 前缀 cr- -->
+  <div id="root" data-composition-id="credit" data-duration="55.2" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="cr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="cr-all">
+  <defs>
+    <pattern id="cr-hatch" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#F0B90B" fill-opacity="0.25"/><path d="M0 14 L14 0" stroke="#8a8f99" stroke-width="3"/></pattern>
+    <marker id="cr-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker>
+  </defs>
+  <g id="cr-stk" class="h">
+    <rect id="cr-k0" x="160" y="140" width="56" height="50" rx="6" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/>
+    <rect id="cr-k1" x="226" y="140" width="56" height="50" rx="6" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/>
+    <rect id="cr-k2" x="292" y="140" width="56" height="50" rx="6" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/>
+    <rect id="cr-k3" class="h" x="358" y="140" width="56" height="50" rx="6" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/>
+    <rect id="cr-k4" class="h" x="424" y="140" width="56" height="50" rx="6" fill="#58C4DD" fill-opacity="0.2" stroke="#58C4DD" stroke-width="2.5"/>
+    <text id="cr-cf" class="mono" x="510" y="178" font-size="34" fill="#FF9F43">confs <tspan id="cr-cn">7</tspan> / 12</text>
+    <text id="cr-main" x="840" y="178" font-size="30" fill="#83C167" opacity="0">仍在主链 ✓</text>
+  </g>
+  <g id="cr-card" class="h">
+    <rect id="cr-cardr" x="160" y="250" width="600" height="730" rx="16" fill="#58C4DD" fill-opacity="0.06" stroke="#58C4DD" stroke-width="2.5"/>
+    <text x="195" y="310" font-size="34" font-weight="700" fill="#58C4DD">deposit 记录</text>
+    <text class="mono" x="195" y="372" font-size="30" fill="#e8e6df">chain</text>
+    <text class="mono" x="195" y="420" font-size="30" fill="#e8e6df">txHash</text>
+    <text class="mono" x="195" y="468" font-size="30" fill="#e8e6df">logIndex</text>
+    <text class="mono" x="195" y="516" font-size="30" fill="#e8e6df">amount</text>
+    <text class="mono" x="195" y="564" font-size="30" fill="#e8e6df">status</text>
+    <text id="cr-st0" class="mono" x="380" y="564" font-size="30" fill="#FF9F43">CONFIRMING</text>
+    <text id="cr-st1" class="mono" x="380" y="564" font-size="30" fill="#83C167" opacity="0">CREDITED</text>
+    <line x1="195" y1="600" x2="725" y2="600" stroke="#6b6f7a" stroke-width="1.5"/>
+  </g>
+  <text id="cr-c0" class="h" x="195" y="655" font-size="30" fill="#83C167">✓ 合约地址 ∈ 白名单</text>
+  <text id="cr-c1" class="h" x="195" y="705" font-size="30" fill="#83C167">✓ 金额</text>
+  <text id="cr-c2" class="h" x="195" y="755" font-size="30" fill="#83C167">✓ 回执 status = 1</text>
+  <g id="cr-key" class="h"><rect x="185" y="800" width="550" height="150" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+    <text x="210" y="860" font-size="28" fill="#58C4DD">biz_id = 链 + txHash + logIndex</text>
+    <text id="cr-kv" class="h" x="210" y="910" font-size="30" fill="#8a8f99">UTXO 链：<tspan class="mono">logIndex</tspan> 换成 <tspan class="mono" fill="#58C4DD">vout</tspan></text></g>
+  <g id="cr-led" class="h">
+    <rect x="1060" y="250" width="720" height="390" rx="16" fill="#58C4DD" fill-opacity="0.08" stroke="#B48EF0" stroke-width="3"/>
+    <text x="1095" y="310" font-size="34" font-weight="700" fill="#B48EF0">账本</text>
+    <text x="1100" y="380" font-size="30" fill="#e8e6df">可用</text>
+    <text x="1480" y="380" font-size="30" fill="#e8e6df">冻结</text>
+    <rect id="cr-av" x="1100" y="410" width="160" height="60" rx="8" fill="#F0B90B"/>
+    <rect x="1480" y="410" width="120" height="60" rx="8" fill="url(#cr-hatch)" stroke="#8a8f99" stroke-width="2"/>
+  </g>
+  <path id="cr-post" class="dr h" pathLength="1" d="M766 450 H1050" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#cr-mb)"/>
+  <text id="cr-postt" class="h" x="850" y="432" font-size="30" fill="#58C4DD" text-anchor="middle">Post</text>
+  <g id="cr-ghost" class="h"><rect x="770" y="480" width="110" height="70" rx="8" fill="#58C4DD" fill-opacity="0.25" stroke="#58C4DD" stroke-width="2.5"/>
+    <text class="mono" x="825" y="525" font-size="28" fill="#e8e6df" text-anchor="middle">dup</text></g>
+  <g id="cr-shd" class="h"><path d="M1000 470 L1040 485 L1040 520 Q1040 555 1000 575 Q960 555 960 520 L960 485 Z" fill="#83C167" fill-opacity="0.25" stroke="#83C167" stroke-width="3"/></g>
+  <text id="cr-shdt" class="h" x="910" y="625" font-size="28" fill="#83C167" text-anchor="middle">幂等：已处理</text>
+  <g id="cr-lock" class="h"><rect x="1400" y="426" width="34" height="28" rx="4" fill="#FF9F43"/><path d="M1406 426 V414 A11 11 0 0 1 1428 414 V426" fill="none" stroke="#FF9F43" stroke-width="4"/>
+    <text x="1100" y="560" font-size="30" fill="#FF9F43">大额：入账但限制提币</text></g>
+  <g id="cr-ins" class="h">
+    <rect x="1080" y="760" width="230" height="110" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+    <text x="1195" y="805" font-size="28" fill="#e8e6df" text-anchor="middle">1 笔交易</text>
+    <text class="mono" x="1195" y="848" font-size="28" fill="#58C4DD" text-anchor="middle">txHash</text>
+    <path d="M1312 790 L1366 720 M1312 815 L1366 800 M1312 840 L1366 880" stroke="#8a8f99" stroke-width="2.5" fill="none"/>
+    <text x="1380" y="730" font-size="28" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">logIndex 0</tspan> → 地址 A</text>
+    <text x="1380" y="810" font-size="28" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">logIndex 1</tspan> → 地址 B</text>
+    <text x="1380" y="890" font-size="28" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">logIndex 2</tspan> → 地址 C</text>
+  </g>
+  <g id="cr-insx" class="h"><path d="M1090 935 L1120 965 M1120 935 L1090 965" stroke="#FC6255" stroke-width="5"/>
+    <text x="1140" y="962" font-size="30" fill="#FC6255">只用 txHash → 三笔撞成一笔</text></g>
+  <g id="cr-n0" class="h"><rect x="1100" y="730" width="380" height="80" rx="40" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2.5"/>
+    <text x="1290" y="782" font-size="32" fill="#FF9F43" text-anchor="middle">确认中 1/12</text></g>
+  <g id="cr-n1" class="h"><rect x="1100" y="850" width="380" height="80" rx="40" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2.5"/>
+    <text x="1290" y="902" font-size="32" fill="#83C167" text-anchor="middle">充值到账</text></g>
+</g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+// L0 deposit record flies in
+IN("#cr-card", at(0, 0.05), 0.7, { x: -80 }, { x: 0 });
+IN("#cr-led", at(0, 0.45), 0.6);
+// L1 three validations
+IN("#cr-c0", at(1, 0.15), 0.4, { x: -16 }, { x: 0 });
+IN("#cr-c1", at(1, 0.55), 0.4, { x: -16 }, { x: 0 });
+IN("#cr-c2", at(1, 0.78), 0.4, { x: -16 }, { x: 0 });
+// L2 confirmations tick, still on main chain
+IN("#cr-stk", at(2, 0.02), 0.4);
+IN("#cr-k3", at(2, 0.22), 0.3, { y: -16 }, { y: 0 });
+COUNT("#cr-cn", 7, 8, at(2, 0.22), 0.2);
+IN("#cr-k4", at(2, 0.45), 0.3, { y: -16 }, { y: 0 });
+COUNT("#cr-cn", 8, 9, at(2, 0.45), 0.2);
+tl.to("#cr-main", { opacity: 1, duration: 0.3 }, at(2, 0.6));
+tl.to("#cr-main", { opacity: 0.4, duration: 0.25, yoyo: true, repeat: 3 }, at(2, 0.72));
+// L3 reach threshold -> Post with idempotency key
+COUNT("#cr-cn", 9, 12, at(3, 0.02), 1.2);
+tl.to("#cr-cf", { attr: { fill: "#83C167" }, duration: 0.3 }, at(3, 0.14));
+tl.to("#cr-main", { opacity: 0, duration: 0.3 }, at(3, 0.14));
+ARROW("#cr-post", at(3, 0.2), 0.6);
+IN("#cr-postt", at(3, 0.22), 0.4);
+tl.to("#cr-av", { attr: { width: 280 }, duration: 0.7, ease: "power2.out" }, at(3, 0.3));
+tl.to("#cr-st0", { opacity: 0, duration: 0.3 }, at(3, 0.34));
+tl.to("#cr-st1", { opacity: 1, duration: 0.3 }, at(3, 0.36));
+IN("#cr-key", at(3, 0.48), 0.5, { y: 16 }, { y: 0 });
+IN("#cr-kv", at(3, 0.76), 0.4, { x: -12 }, { x: 0 });
+tl.to("#cr-key", { y: -6, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.85));
+// L4 why not txHash alone
+IN("#cr-ins", at(4, 0.15), 0.6);
+IN("#cr-insx", at(4, 0.7), 0.4);
+// L5 idempotent replay blocked
+OUT(["#cr-ins", "#cr-insx"], at(5, 0.0), 0.4);
+IN("#cr-shd", at(5, 0.1), 0.4);
+IN("#cr-ghost", at(5, 0.2), 0.3);
+tl.to("#cr-ghost", { x: 70, duration: 0.5, ease: "power2.in" }, at(5, 0.25));
+tl.to("#cr-ghost", { x: 0, duration: 0.5, ease: "power2.out" }, at(5, 0.25) + 0.5);
+tl.to("#cr-shd path", { attr: { "fill-opacity": 0.6 }, duration: 0.2, yoyo: true, repeat: 1 }, at(5, 0.25) + 0.45);
+IN("#cr-shdt", at(5, 0.45), 0.4);
+tl.to("#cr-ghost", { opacity: 0, duration: 0.4 }, at(5, 0.8));
+// L6 large deposit: credit but restrict withdrawal
+IN("#cr-lock", at(6, 0.2), 0.5, { y: -12 }, { y: 0 });
+tl.to("#cr-lock", { opacity: 0.5, duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.68));
+// L7 push notifications
+IN("#cr-n0", at(7, 0.1), 0.4, { x: 30 }, { x: 0 });
+IN("#cr-n1", at(7, 0.5), 0.4, { x: 30 }, { x: 0 });
+// extra motion to avoid static frames
+tl.to("#cr-c0", { opacity: 0.5, duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.35));
+tl.to("#cr-av", { opacity: 0.5, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.68));
+tl.to("#cr-ins text", { opacity: 0.45, duration: 0.25, yoyo: true, repeat: 1, stagger: 0.35 }, at(4, 0.3));
+tl.to("#cr-av", { opacity: 0.5, duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.45));
+tl.to("#cr-lock", { y: -6, duration: 0.25, yoyo: true, repeat: 1 }, at(6, 0.9));
+      /*ENDANIM*/
+
+      tl.to("#cr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["credit"] = tl;
+    })();
+  </script>
+</template>

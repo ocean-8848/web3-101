@@ -1,0 +1,250 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pitfalls，id 前缀 pi- -->
+  <div id="root" data-composition-id="pitfalls" data-duration="62.96" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="pi-arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="pi-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="pi-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="pi-arrO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+      </defs>
+      <g id="pi-all">
+        <text id="pi-head" class="h" x="960" y="190" font-size="60" font-weight="700" fill="#e8e6df" text-anchor="middle">三个常见<tspan fill="#FC6255">误区</tspan></text>
+        <!-- 卡 1：冷钱包 / 硬件 / 多签 = 绝对安全 -->
+        <g id="pi-k1" class="h">
+          <rect id="pi-k1r" x="120" y="260" width="500" height="640" rx="22" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <text x="150" y="312" font-size="28" font-weight="700" fill="#FC6255">误区 1</text>
+          <g id="pi-k1t"><text x="150" y="372" font-size="36" font-weight="700" fill="#e8e6df">冷钱包 · 硬件 · 多签</text><text x="150" y="422" font-size="36" font-weight="700" fill="#e8e6df">= 绝对安全</text></g>
+          <g id="pi-k1x" class="h"><rect x="500" y="282" width="94" height="44" rx="10" fill="#2a1a1a" stroke="#FC6255" stroke-width="3" /><text x="547" y="314" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">不对</text></g>
+
+          <g id="pi-sh" class="h"><g id="pi-shi">
+            <path id="pi-shp" d="M215 468 L268 488 V532 Q268 578 215 600 Q162 578 162 532 V488 Z" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="4" stroke-linejoin="round" />
+            <text x="215" y="546" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">私钥</text>
+          </g></g>
+          <text id="pi-tl" class="h" x="440" y="505" font-size="28" fill="#FC6255" text-anchor="middle">远程偷私钥</text>
+          <path id="pi-ta" class="dr h" pathLength="1" d="M596 532 H284" stroke="#FC6255" stroke-width="4" marker-end="url(#pi-arrR)" />
+          <g id="pi-sg" class="h">
+            <text x="185" y="664" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">？</text>
+            <circle cx="185" cy="698" r="22" fill="none" stroke="#FF9F43" stroke-width="4" />
+            <path d="M148 790 Q148 732 185 732 Q222 732 222 790" fill="none" stroke="#FF9F43" stroke-width="4" />
+          </g>
+          <g id="pi-scr" class="h">
+            <rect x="262" y="650" width="336" height="110" rx="12" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text class="mono" x="430" y="716" font-size="30" fill="#e8e6df" text-anchor="middle">0x5e1f…9a7c</text>
+          </g>
+          <text id="pi-blind" class="h" x="430" y="806" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">盲签</text>
+          <g id="pi-coins" class="h">
+            <circle cx="176" cy="872" r="15" fill="#F0B90B" /><circle cx="210" cy="872" r="15" fill="#F0B90B" />
+          </g>
+          <path id="pi-ca" class="dr h" pathLength="1" d="M240 872 H596" stroke="#FC6255" stroke-width="4" marker-end="url(#pi-arrR)" />
+        </g>
+        <!-- 卡 2：发出去 = 完成 -->
+        <g id="pi-k2" class="h">
+          <rect id="pi-k2r" x="710" y="260" width="500" height="640" rx="22" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <text x="740" y="312" font-size="28" font-weight="700" fill="#FC6255">误区 2</text>
+          <g id="pi-k2t"><text x="740" y="372" font-size="36" font-weight="700" fill="#e8e6df">发出去 = 完成</text></g>
+          <g id="pi-k2x" class="h"><rect x="1090" y="282" width="94" height="44" rx="10" fill="#2a1a1a" stroke="#FC6255" stroke-width="3" /><text x="1137" y="314" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">不对</text></g>
+
+          <g id="pi-sent" class="h">
+            <rect x="840" y="440" width="240" height="66" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="935" y="485" font-size="30" fill="#8a8f99" text-anchor="middle">已发送</text>
+            <path d="M1012 472 l10 10 l22 -24" fill="none" stroke="#8a8f99" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <line id="pi-b0" class="dr" pathLength="1" x1="940" y1="510" x2="800" y2="580" stroke="#FC6255" stroke-width="4" />
+          <line id="pi-b1" class="dr" pathLength="1" x1="960" y1="510" x2="960" y2="580" stroke="#FC6255" stroke-width="4" />
+          <line id="pi-b2" class="dr" pathLength="1" x1="980" y1="510" x2="1120" y2="580" stroke="#FC6255" stroke-width="4" />
+          <text id="pi-f0" class="h" x="800" y="622" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">失败</text>
+          <text id="pi-f1" class="h" x="960" y="622" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">被丢弃</text>
+          <text id="pi-f2" class="h" x="1120" y="622" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">被重组</text>
+          <g id="pi-orig" class="h">
+            <rect id="pi-origr" x="740" y="660" width="170" height="64" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text id="pi-origt" x="825" y="703" font-size="30" fill="#e8e6df" text-anchor="middle">原交易</text>
+          </g>
+          <g id="pi-canc" class="h">
+            <rect id="pi-cancr" x="1010" y="660" width="170" height="64" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+            <text x="1095" y="703" font-size="30" fill="#e8e6df" text-anchor="middle">取消</text>
+          </g>
+          <text id="pi-vs" class="h" x="960" y="703" font-size="28" fill="#8a8f99" text-anchor="middle">vs</text>
+          <text id="pi-first" class="h" x="825" y="766" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">先上链</text>
+          <text id="pi-late" class="h" x="1095" y="766" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">晚了</text>
+          <g id="pi-rc" class="h"><g id="pi-rci">
+            <rect x="760" y="802" width="400" height="72" rx="36" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="4" />
+            <path d="M800 838 l12 12 l24 -26" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="985" y="850" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">回执 + 确认数</text>
+          </g></g>
+        </g>
+        <!-- 卡 3：内网 + 上游风控 = 有求必应 -->
+        <g id="pi-k3" class="h">
+          <rect id="pi-k3r" x="1300" y="260" width="500" height="640" rx="22" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <text x="1330" y="312" font-size="28" font-weight="700" fill="#FC6255">误区 3</text>
+          <g id="pi-k3t"><text x="1330" y="372" font-size="36" font-weight="700" fill="#e8e6df">内网 + 上游风控</text><text x="1330" y="422" font-size="36" font-weight="700" fill="#e8e6df">= 有求必应</text></g>
+          <g id="pi-k3x" class="h"><rect x="1680" y="282" width="94" height="44" rx="10" fill="#2a1a1a" stroke="#FC6255" stroke-width="3" /><text x="1727" y="314" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">不对</text></g>
+
+          <rect id="pi-wall" class="h" x="1328" y="448" width="444" height="432" rx="16" fill="none" stroke="#8a8f99" stroke-width="3" stroke-dasharray="12 8" />
+          <text id="pi-walll" class="h" x="1350" y="490" font-size="28" fill="#8a8f99">内网</text>
+          <text id="pi-up" class="h" x="1758" y="490" font-size="28" fill="#8a8f99" text-anchor="end">上游风控 ✓</text>
+          <g id="pi-svc" class="h">
+            <rect id="pi-svcr" x="1585" y="520" width="170" height="124" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1670" y="622" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">签名服务</text>
+          </g>
+          <path id="pi-svsh" class="h" d="M1670 532 L1692 540 V556 Q1692 574 1670 582 Q1648 574 1648 556 V540 Z" fill="#83C167" fill-opacity="0.3" stroke="#83C167" stroke-width="3" stroke-linejoin="round" />
+          <g id="pi-req" class="h"><g id="pi-reqi">
+            <rect id="pi-reqr" x="1350" y="550" width="160" height="66" rx="12" fill="#2a1a1a" stroke="#FC6255" stroke-width="3" />
+            <text x="1430" y="594" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">伪造请求</text>
+          </g></g>
+          <path id="pi-ra" class="dr h" pathLength="1" d="M1514 583 H1577" stroke="#FC6255" stroke-width="4" marker-end="url(#pi-arrR)" />
+          <text id="pi-rej" class="h" x="1430" y="662" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">拒绝</text>
+          <g id="pi-ch0" class="h"><rect x="1350" y="720" width="128" height="64" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="1414" y="763" font-size="30" fill="#83C167" text-anchor="middle">解码</text></g>
+          <g id="pi-ch1" class="h"><rect x="1486" y="720" width="128" height="64" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="1550" y="763" font-size="30" fill="#83C167" text-anchor="middle">审批</text></g>
+          <g id="pi-ch2" class="h"><rect x="1622" y="720" width="128" height="64" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="1686" y="763" font-size="30" fill="#83C167" text-anchor="middle">限额</text></g>
+          <text id="pi-self" class="h" x="1550" y="840" font-size="30" fill="#e8e6df" text-anchor="middle">签名服务自己查</text>
+        </g>
+        <!-- L4 回到三枚徽章 -->
+        <g id="pi-back">
+          <g id="pi-key" class="h">
+            <circle cx="905" cy="310" r="30" fill="none" stroke="#F0B90B" stroke-width="7" />
+            <path d="M935 310 H1030 M1005 310 V334 M1025 310 V328" fill="none" stroke="#F0B90B" stroke-width="7" stroke-linecap="round" />
+          </g>
+          <line id="pi-l0" class="dr" pathLength="1" x1="930" y1="350" x2="420" y2="444" stroke="#83C167" stroke-width="3" />
+          <line id="pi-l1" class="dr" pathLength="1" x1="960" y1="350" x2="960" y2="444" stroke="#FC6255" stroke-width="3" />
+          <line id="pi-l2" class="dr" pathLength="1" x1="990" y1="350" x2="1500" y2="444" stroke="#FF9F43" stroke-width="3" />
+          <g id="pi-bd0" class="h"><g id="pi-bd0i">
+            <rect x="260" y="450" width="320" height="90" rx="45" fill="#1a2418" stroke="#83C167" stroke-width="4" />
+            <path d="M318 494 l14 14 l26 -28" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="445" y="510" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">能用</text>
+          </g></g>
+          <g id="pi-bd1" class="h"><g id="pi-bd1i">
+            <rect x="800" y="450" width="320" height="90" rx="45" fill="#2a1a1a" stroke="#FC6255" stroke-width="4" />
+            <path d="M862 470 L886 479 V498 Q886 517 862 526 Q838 517 838 498 V479 Z" fill="#FC6255" fill-opacity="0.3" stroke="#FC6255" stroke-width="4" stroke-linejoin="round" />
+            <text x="985" y="510" font-size="44" font-weight="700" fill="#FC6255" text-anchor="middle">不被偷</text>
+          </g></g>
+          <g id="pi-bd2" class="h"><g id="pi-bd2i">
+            <rect x="1340" y="450" width="320" height="90" rx="45" fill="#2a2116" stroke="#FF9F43" stroke-width="4" />
+            <circle cx="1398" cy="495" r="18" fill="none" stroke="#FF9F43" stroke-width="5" /><circle cx="1398" cy="495" r="6" fill="#FF9F43" />
+            <text x="1525" y="510" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">不丢</text>
+          </g></g>
+          <line id="pi-v0" class="dr" pathLength="1" x1="420" y1="544" x2="420" y2="598" stroke="#83C167" stroke-width="3" stroke-opacity="0.6" />
+          <g id="pi-i00" class="h"><rect x="270" y="600" width="300" height="72" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="420" y="648" font-size="34" fill="#e8e6df" text-anchor="middle">nonce</text></g>
+          <g id="pi-i01" class="h"><rect x="270" y="700" width="300" height="72" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="420" y="748" font-size="34" fill="#e8e6df" text-anchor="middle">Gas</text></g>
+          <line id="pi-v1" class="dr" pathLength="1" x1="960" y1="544" x2="960" y2="598" stroke="#FC6255" stroke-width="3" stroke-opacity="0.6" />
+          <g id="pi-i10" class="h"><rect x="810" y="600" width="300" height="72" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="960" y="648" font-size="34" fill="#e8e6df" text-anchor="middle">门限</text></g>
+          <g id="pi-i11" class="h"><rect x="810" y="700" width="300" height="72" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="960" y="748" font-size="34" fill="#e8e6df" text-anchor="middle">冷热分层</text></g>
+          <g id="pi-i12" class="h"><rect x="810" y="800" width="300" height="72" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="960" y="848" font-size="34" fill="#e8e6df" text-anchor="middle">独立检查</text></g>
+          <line id="pi-v2" class="dr" pathLength="1" x1="1500" y1="544" x2="1500" y2="598" stroke="#FF9F43" stroke-width="3" stroke-opacity="0.6" />
+          <g id="pi-i20" class="h"><rect x="1350" y="600" width="300" height="72" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1500" y="648" font-size="34" fill="#e8e6df" text-anchor="middle">助记词备份</text></g>
+          <g id="pi-i21" class="h"><rect x="1350" y="700" width="300" height="72" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1500" y="748" font-size="34" fill="#e8e6df" text-anchor="middle">门限余量</text></g>
+          <g id="pi-i13" class="h"><rect x="810" y="900" width="300" height="72" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="960" y="948" font-size="34" fill="#e8e6df" text-anchor="middle">密钥刷新</text></g>
+        </g>
+        <!-- L5 下一集 -->
+        <g id="pi-next" class="h">
+          <text x="960" y="460" font-size="40" fill="#8a8f99" text-anchor="middle">下一集</text>
+          <text x="960" y="590" font-size="96" font-weight="700" fill="#B48EF0" text-anchor="middle">中心化交易所</text>
+        </g>
+        <line id="pi-nl" class="dr" pathLength="1" x1="660" y1="640" x2="1260" y2="640" stroke="#B48EF0" stroke-width="5" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const PULSE = (s, t, o, k = 1.12) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.3, yoyo: true, repeat: 1, repeatDelay: 0.9, ease: "power2.inOut" }, t);
+
+      // L0 标题 + 三张误区卡飞入
+      IN("#pi-head", at(0, 0.0), 0.5, { y: -20 }, { y: 0 });
+      IN("#pi-k1", at(0, 0.15), 0.5, { y: 60 }, { y: 0 });
+      IN("#pi-k2", at(0, 0.35), 0.5, { y: 60 }, { y: 0 });
+      IN("#pi-k3", at(0, 0.55), 0.5, { y: 60 }, { y: 0 });
+      const FOCUS = (i, t) => {
+        [1, 2, 3].forEach(j => {
+          tl.to(`#pi-k${j}`, { opacity: j === i ? 1 : 0.5, duration: 0.4 }, t);
+          tl.to(`#pi-k${j}r`, { strokeWidth: j === i ? 5 : 3, duration: 0.4 }, t);
+        });
+      };
+      // L1 卡 1：盾牌挡住远程偷私钥，挡不住盲签
+      FOCUS(1, at(1, 0.0));
+      PULSE("#pi-k1t", at(1, 0.12), "300 395", 1.05);
+      IN("#pi-k1x", at(1, 0.33), 0.3, { scale: 1.5, svgOrigin: "547 304" }, { scale: 1, svgOrigin: "547 304" });
+      IN("#pi-sh", at(1, 0.22), 0.5, { y: 16 }, { y: 0 });
+      IN("#pi-tl", at(1, 0.40), 0.4);
+      ARROW("#pi-ta", at(1, 0.40), 0.7);
+      PULSE("#pi-shi", at(1, 0.40) + 0.7, "215 534", 1.12);
+      tl.to("#pi-shp", { fillOpacity: 0.45, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.40) + 0.7);
+      IN("#pi-sg", at(1, 0.58), 0.5, { y: 16 }, { y: 0 });
+      IN("#pi-coins", at(1, 0.64), 0.4);
+      IN("#pi-scr", at(1, 0.74), 0.5);
+      IN("#pi-blind", at(1, 0.80), 0.3);
+      ARROW("#pi-ca", at(1, 0.70), 0.8);
+      tl.to("#pi-coins", { x: 300, opacity: 0, duration: 1.2, ease: "power1.in" }, at(1, 0.72));
+      // L2 卡 2：已发送 → 三个红色分叉；取消抢不过原交易；以回执和确认数为准
+      FOCUS(2, at(2, 0.0));
+      PULSE("#pi-k2t", at(2, 0.10), "870 360", 1.06);
+      IN("#pi-k2x", at(2, 0.22), 0.3, { scale: 1.5, svgOrigin: "1137 304" }, { scale: 1, svgOrigin: "1137 304" });
+      IN("#pi-sent", at(2, 0.28), 0.4, { y: 12 }, { y: 0 });
+      DRAW("#pi-b0", at(2, 0.44), 0.4); IN("#pi-f0", at(2, 0.47), 0.3);
+      DRAW("#pi-b1", at(2, 0.50), 0.4); IN("#pi-f1", at(2, 0.53), 0.3);
+      DRAW("#pi-b2", at(2, 0.56), 0.4); IN("#pi-f2", at(2, 0.59), 0.3);
+      IN("#pi-canc", at(2, 0.64), 0.4, { x: 20 }, { x: 0 }); IN("#pi-orig", at(2, 0.64), 0.4, { x: -20 }, { x: 0 }); IN("#pi-vs", at(2, 0.66), 0.3);
+      tl.to("#pi-origr", { stroke: "#58C4DD", fill: "#14232b", duration: 0.3 }, at(2, 0.74)); IN("#pi-first", at(2, 0.75), 0.3);
+      tl.to("#pi-cancr", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.78)); IN("#pi-late", at(2, 0.79), 0.3);
+      IN("#pi-rc", at(2, 0.86), 0.5, { y: 16 }, { y: 0 });
+      PULSE("#pi-rci", at(2, 0.94), "960 838", 1.05);
+      // L3 卡 3：内网里的伪造请求，签名服务自己查后拒绝
+      FOCUS(3, at(3, 0.0));
+      IN("#pi-svc", at(3, 0.06), 0.4);
+      IN("#pi-wall", at(3, 0.12), 0.5); IN("#pi-walll", at(3, 0.14), 0.4);
+      IN("#pi-up", at(3, 0.24), 0.4);
+      PULSE("#pi-k3t", at(3, 0.32), "1460 395", 1.05);
+      IN("#pi-k3x", at(3, 0.42), 0.3, { scale: 1.5, svgOrigin: "1727 304" }, { scale: 1, svgOrigin: "1727 304" });
+      IN("#pi-req", at(3, 0.48), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#pi-ra", at(3, 0.56), 0.4);
+      PULSE("#pi-reqi", at(3, 0.64), "1430 583", 1.08);
+      IN("#pi-ch0", at(3, 0.78), 0.3, { y: -12 }, { y: 0 });
+      IN("#pi-ch1", at(3, 0.84), 0.3, { y: -12 }, { y: 0 });
+      IN("#pi-ch2", at(3, 0.90), 0.3, { y: -12 }, { y: 0 });
+      IN("#pi-self", at(3, 0.80), 0.4);
+      tl.to("#pi-svcr", { stroke: "#83C167", strokeWidth: 5, duration: 0.3 }, at(3, 0.94)); IN("#pi-svsh", at(3, 0.94), 0.3);
+      OUT("#pi-ra", at(3, 0.95), 0.2);
+      tl.to("#pi-reqi", { opacity: 0.45, duration: 0.3 }, at(3, 0.96)); IN("#pi-rej", at(3, 0.96), 0.3, { y: -8 }, { y: 0 });
+      // L4 卡片退去，三枚徽章回到中央
+      OUT("#pi-head, #pi-k1, #pi-k2, #pi-k3", at(4, 0.0), 0.4);
+      IN("#pi-key", at(4, 0.04), 0.5, { scale: 0.7, svgOrigin: "960 310" }, { scale: 1, svgOrigin: "960 310" });
+      DRAW("#pi-l0", at(4, 0.10), 0.5); DRAW("#pi-l1", at(4, 0.10), 0.5); DRAW("#pi-l2", at(4, 0.10), 0.5);
+      IN("#pi-bd0", at(4, 0.13), 0.4); IN("#pi-bd1", at(4, 0.15), 0.4); IN("#pi-bd2", at(4, 0.17), 0.4);
+      const T = [[0.14, 0.19, 0.25], [0.32, 0.40, 0.48, 0.56, 0.64], [0.72, 0.82, 0.90]];
+      T.forEach((ts, c) => {
+        PULSE(`#pi-bd${c}i`, at(4, ts[0]), `${[420, 960, 1500][c]} 495`, 1.08);
+        DRAW(`#pi-v${c}`, at(4, ts[0]), 0.6);
+        ts.slice(1).forEach((t, j) => IN(`#pi-i${c}${j}`, at(4, t), 0.4, { y: -14 }, { y: 0 }));
+      });
+      // L5 下一集
+      OUT("#pi-back", at(5, 0.0), 0.35);
+      IN("#pi-next", at(5, 0.12), 0.5, { y: 20 }, { y: 0 });
+      DRAW("#pi-nl", at(5, 0.25), 0.6);
+
+      tl.to("#pi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["pitfalls"] = tl;
+    })();
+  </script>
+</template>

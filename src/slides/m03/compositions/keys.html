@@ -1,0 +1,283 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 keys，id 前缀 ke- -->
+  <div id="root" data-composition-id="keys" data-duration="50.3" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ke-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ke-arg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+        <marker id="ke-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#FC6255" />
+        </marker>
+      </defs>
+      <g id="ke-all">
+        <!-- L0 熵骰子 -->
+        <g id="ke-g0">
+          <g id="ke-dice" class="h">
+            <rect x="150" y="480" width="140" height="140" rx="20" fill="#161a22" stroke="#F0B90B" stroke-width="4" />
+            <circle cx="185" cy="515" r="10" fill="#F0B90B" /><circle cx="255" cy="515" r="10" fill="#F0B90B" />
+            <circle cx="220" cy="550" r="10" fill="#F0B90B" />
+            <circle cx="185" cy="585" r="10" fill="#F0B90B" /><circle cx="255" cy="585" r="10" fill="#F0B90B" />
+          </g>
+          <text id="ke-dl" class="h" x="220" y="672" font-size="32" fill="#F0B90B" text-anchor="middle">熵</text>
+          <path id="ke-a0" class="dr h" pathLength="1" d="M300 550 L350 550" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ke-arr)" />
+        </g>
+
+        <!-- 整棵树（L4 缩到左下） -->
+        <g id="ke-tree">
+          <!-- 助记词卡（L1 左移） -->
+          <g id="ke-cm" transform="translate(0,0)">
+            <g id="ke-card" class="h">
+              <rect id="ke-cardr" x="360" y="390" width="230" height="320" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+              <text id="ke-ab" class="mono ke-tx" x="380" y="446" font-size="28" fill="#FF9F43">abandon</text>
+              <g fill="#FF9F43" opacity="0.35">
+                <rect x="380" y="470" width="90" height="18" rx="9" /><rect x="482" y="470" width="90" height="18" rx="9" />
+                <rect x="380" y="510" width="90" height="18" rx="9" /><rect x="482" y="510" width="90" height="18" rx="9" />
+                <rect x="380" y="550" width="90" height="18" rx="9" /><rect x="482" y="550" width="90" height="18" rx="9" />
+                <rect x="380" y="590" width="90" height="18" rx="9" /><rect x="482" y="590" width="90" height="18" rx="9" />
+                <rect x="380" y="630" width="90" height="18" rx="9" /><rect x="482" y="630" width="90" height="18" rx="9" />
+                <rect x="380" y="670" width="90" height="18" rx="9" />
+              </g>
+            </g>
+          </g>
+          <path id="ke-a1" class="dr h" pathLength="1" d="M390 550 L476 550" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ke-arr)" />
+          <g id="ke-seed" class="h">
+            <circle cx="520" cy="550" r="24" fill="#58C4DD" />
+          </g>
+          <text id="ke-sl" class="h ke-tx" x="520" y="622" font-size="30" fill="#58C4DD" text-anchor="middle">种子</text>
+          <!-- 枝 -->
+          <path class="ke-br dr" id="ke-b0" pathLength="1" d="M544 550 L682 550" stroke="#58C4DD" stroke-width="4" fill="none" />
+          <circle id="ke-mn" class="ke-nd h" cx="700" cy="550" r="18" fill="#58C4DD" />
+          <path class="ke-br dr" id="ke-b1" pathLength="1" d="M716 540 C820 470 880 400 962 400" stroke="#58C4DD" stroke-width="4" fill="none" />
+          <path class="ke-br dr" id="ke-b2" pathLength="1" d="M716 560 C820 630 880 700 962 700" stroke="#58C4DD" stroke-width="4" fill="none" />
+          <circle id="ke-en" class="ke-nd h" cx="980" cy="400" r="16" fill="#58C4DD" />
+          <circle id="ke-bn" class="ke-nd h" cx="980" cy="700" r="16" fill="#58C4DD" />
+          <text id="ke-el" class="h ke-tx" x="980" y="356" font-size="30" fill="#58C4DD" text-anchor="middle">以太坊</text>
+          <text id="ke-btl" class="h ke-tx" x="980" y="760" font-size="30" fill="#58C4DD" text-anchor="middle">比特币</text>
+          <text id="ke-path" class="mono h ke-tx" x="1100" y="232" font-size="28" fill="#6b6f7a">m/44′/60′/0′/0/i</text>
+          <!-- 以太坊叶子 -->
+          <g id="ke-el0"><path class="ke-br ke-lf dr" pathLength="1" d="M996 400 C1100 400 1120 280 1230 280" stroke="#58C4DD" stroke-width="3" fill="none" /></g>
+          <path class="ke-br ke-lf dr" pathLength="1" d="M996 400 C1100 400 1120 340 1230 340" stroke="#58C4DD" stroke-width="3" fill="none" />
+          <path class="ke-br ke-lf dr" pathLength="1" d="M996 400 L1230 400" stroke="#58C4DD" stroke-width="3" fill="none" />
+          <path class="ke-br ke-lf dr" pathLength="1" d="M996 400 C1100 400 1120 460 1230 460" stroke="#58C4DD" stroke-width="3" fill="none" />
+          <path class="ke-br ke-lf dr" pathLength="1" d="M996 400 C1100 400 1120 520 1230 520" stroke="#58C4DD" stroke-width="3" fill="none" />
+          <circle class="ke-nd ke-lfn h" cx="1240" cy="280" r="10" fill="#58C4DD" />
+          <circle class="ke-nd ke-lfn h" cx="1240" cy="340" r="10" fill="#58C4DD" />
+          <circle class="ke-nd ke-lfn h" cx="1240" cy="400" r="10" fill="#58C4DD" />
+          <circle class="ke-nd ke-lfn h" cx="1240" cy="460" r="10" fill="#58C4DD" />
+          <circle class="ke-nd ke-lfn h" cx="1240" cy="520" r="10" fill="#58C4DD" />
+          <text class="mono ke-lft ke-tx h" x="1266" y="290" font-size="28" fill="#e8e6df">#0</text>
+          <text class="mono ke-lft ke-tx h" x="1266" y="350" font-size="28" fill="#e8e6df">#1</text>
+          <text class="mono ke-lft ke-tx h" x="1266" y="410" font-size="28" fill="#e8e6df">#2</text>
+          <text class="mono ke-lft ke-tx h" x="1266" y="470" font-size="28" fill="#e8e6df">#3</text>
+          <text class="mono ke-lft ke-tx h" x="1266" y="530" font-size="28" fill="#e8e6df">…</text>
+          <!-- 比特币叶子 -->
+          <path class="ke-br ke-bf dr" pathLength="1" d="M996 700 C1100 700 1120 640 1230 640" stroke="#58C4DD" stroke-width="3" fill="none" />
+          <path class="ke-br ke-bf dr" pathLength="1" d="M996 700 L1230 700" stroke="#58C4DD" stroke-width="3" fill="none" />
+          <path class="ke-br ke-bf dr" pathLength="1" d="M996 700 C1100 700 1120 760 1230 760" stroke="#58C4DD" stroke-width="3" fill="none" />
+          <circle class="ke-nd ke-bfn h" cx="1240" cy="640" r="10" fill="#58C4DD" />
+          <circle class="ke-nd ke-bfn h" cx="1240" cy="700" r="10" fill="#58C4DD" />
+          <circle class="ke-nd ke-bfn h" cx="1240" cy="760" r="10" fill="#58C4DD" />
+          <text class="mono ke-bft ke-tx h" x="1266" y="650" font-size="28" fill="#e8e6df">#0</text>
+          <text class="mono ke-bft ke-tx h" x="1266" y="710" font-size="28" fill="#e8e6df">#1</text>
+          <text class="mono ke-bft ke-tx h" x="1266" y="770" font-size="28" fill="#e8e6df">…</text>
+        </g>
+
+        <!-- L2 xpub 服务器 -->
+        <g id="ke-g2">
+          <g id="ke-srv" class="h">
+            <rect x="1460" y="300" width="320" height="200" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text x="1620" y="350" font-size="30" fill="#B48EF0" text-anchor="middle">服务器</text>
+          </g>
+          <g id="ke-xp" class="h">
+            <rect x="1530" y="380" width="180" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1620" y="431" font-size="30" fill="#58C4DD" text-anchor="middle">xpub</text>
+          </g>
+          <g id="ke-pen" class="h">
+            <path d="M1690 270 L1740 220 L1756 236 L1706 286 L1684 292 Z" fill="none" stroke="#8a8f99" stroke-width="4" stroke-linejoin="round" />
+          </g>
+          <g id="ke-px" class="h">
+            <line x1="1680" y1="216" x2="1764" y2="296" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+            <line x1="1764" y1="216" x2="1680" y2="296" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+          </g>
+          <!-- 用户小人 -->
+          <g class="ke-u h"><circle cx="1500" cy="880" r="16" fill="none" stroke="#e8e6df" stroke-width="3.5" /><path d="M1470 950 C1470 905 1530 905 1530 950" fill="none" stroke="#e8e6df" stroke-width="3.5" /></g>
+          <g class="ke-u h"><circle cx="1620" cy="880" r="16" fill="none" stroke="#e8e6df" stroke-width="3.5" /><path d="M1590 950 C1590 905 1650 905 1650 950" fill="none" stroke="#e8e6df" stroke-width="3.5" /></g>
+          <g class="ke-u h"><circle cx="1740" cy="880" r="16" fill="none" stroke="#e8e6df" stroke-width="3.5" /><path d="M1710 950 C1710 905 1770 905 1770 950" fill="none" stroke="#e8e6df" stroke-width="3.5" /></g>
+          <!-- 充值地址 chip：从叶子位置飞到用户头顶 -->
+          <g id="ke-q0" transform="translate(1380,280)"><g class="ke-q h"><rect x="-40" y="-24" width="80" height="48" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="0" y="10" font-size="28" fill="#58C4DD" text-anchor="middle">#0</text></g></g>
+          <g id="ke-q1" transform="translate(1380,340)"><g class="ke-q h"><rect x="-40" y="-24" width="80" height="48" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="0" y="10" font-size="28" fill="#58C4DD" text-anchor="middle">#1</text></g></g>
+          <g id="ke-q2" transform="translate(1380,400)"><g class="ke-q h"><rect x="-40" y="-24" width="80" height="48" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="0" y="10" font-size="28" fill="#58C4DD" text-anchor="middle">#2</text></g></g>
+          <text id="ke-dep" class="h" x="1620" y="1010" font-size="28" fill="#8a8f99" text-anchor="middle">充值地址</text>
+        </g>
+
+        <!-- L3 xpub 风险：非硬化派生下 xpub + 子私钥 → 父私钥 -->
+        <g id="ke-g3">
+          <g id="ke-par" class="h">
+            <rect x="1420" y="280" width="320" height="90" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3.5" />
+            <text x="1580" y="337" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">上一层私钥</text>
+          </g>
+          <g id="ke-x3" class="h">
+            <rect x="1360" y="560" width="180" height="80" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1450" y="611" font-size="30" fill="#58C4DD" text-anchor="middle">xpub</text>
+          </g>
+          <text id="ke-plus" class="h" x="1580" y="614" font-size="40" fill="#e8e6df" text-anchor="middle">+</text>
+          <g id="ke-ck" class="h">
+            <rect x="1620" y="560" width="180" height="80" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text x="1710" y="611" font-size="30" fill="#FF9F43" text-anchor="middle">子私钥</text>
+          </g>
+          <path id="ke-r1" class="dr h" pathLength="1" d="M1450 550 L1530 384" stroke="#FC6255" stroke-width="3.5" fill="none" marker-end="url(#ke-arr-r)" />
+          <path id="ke-r2" class="dr h" pathLength="1" d="M1710 550 L1630 384" stroke="#FC6255" stroke-width="3.5" fill="none" marker-end="url(#ke-arr-r)" />
+          <text id="ke-nh" class="h" x="1580" y="476" font-size="28" fill="#8a8f99" text-anchor="middle">非硬化</text>
+          <g id="ke-hd" class="h">
+            <rect x="1360" y="700" width="440" height="80" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="1580" y="752" font-size="32" fill="#83C167" text-anchor="middle">账户层：硬化派生</text>
+          </g>
+        </g>
+
+        <!-- L3 红手 + 单点 -->
+        <g id="ke-hm" transform="translate(0,0)">
+          <g id="ke-hand" class="h">
+            <rect x="215" y="760" width="110" height="120" rx="24" fill="#FC6255" />
+            <rect x="215" y="708" width="22" height="70" rx="11" fill="#FC6255" />
+            <rect x="244" y="696" width="22" height="80" rx="11" fill="#FC6255" />
+            <rect x="273" y="700" width="22" height="78" rx="11" fill="#FC6255" />
+            <rect x="302" y="712" width="22" height="66" rx="11" fill="#FC6255" />
+            <rect x="180" y="790" width="50" height="22" rx="11" fill="#FC6255" />
+          </g>
+        </g>
+        <circle id="ke-ring" class="h" cx="265" cy="550" r="190" fill="none" stroke="#FC6255" stroke-width="4" />
+        <g id="ke-sp" class="h">
+          <rect x="1460" y="900" width="300" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <text x="1610" y="952" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">单点</text>
+        </g>
+
+        <!-- L4 BIP 标签 -->
+        <g id="ke-bip39" class="h">
+          <rect x="320" y="322" width="150" height="56" rx="10" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+          <text class="mono" x="395" y="361" font-size="32" fill="#e8e6df" text-anchor="middle">BIP-39</text>
+        </g>
+        <g id="ke-bip32" class="h">
+          <rect x="462" y="600" width="150" height="56" rx="10" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+          <text class="mono" x="537" y="639" font-size="32" fill="#e8e6df" text-anchor="middle">BIP-32</text>
+        </g>
+        <g id="ke-bip44" class="h">
+          <rect x="884" y="526" width="150" height="56" rx="10" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+          <text class="mono" x="959" y="565" font-size="32" fill="#e8e6df" text-anchor="middle">BIP-44</text>
+        </g>
+        <path id="ke-later" class="dr h" pathLength="1" d="M1180 554 L1400 554" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ke-arg)" />
+        <text id="ke-ltx" class="h" x="1430" y="566" font-size="36" fill="#8a8f99">后面专门讲</text>
+      </g>
+      <!-- 术语卡 -->
+      <g id="ke-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">助记词 <tspan font-size="28" font-weight="400" fill="#8a8f99">Mnemonic</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">把随机数编码成 12 或 24 个单词，便于备份</text>
+      </g>
+      <g id="ke-term2" class="h">
+        <rect x="70" y="56" width="540" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">扩展公钥 <tspan font-size="28" font-weight="400" fill="#8a8f99">xpub</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">能派生地址，但不能签名</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 真随机数 → 12 词助记词
+      IN("#ke-dice", at(0, 0), 0.6, { rotation: -30, svgOrigin: "220 550" }, { rotation: 0, svgOrigin: "220 550" });
+      IN("#ke-dl", at(0, 0.05));
+      ARROW("#ke-a0", at(0, 0.12), 0.5);
+      IN("#ke-card", at(0, 0.16), 0.7, { x: -20 }, { x: 0 });
+      IN("#ke-term", at(0, 0.3), 0.5);
+      tl.to("#ke-dice", { rotation: 90, svgOrigin: "220 550", duration: 0.5, ease: "power2.inOut" }, at(0, 0.55));
+      tl.to("#ke-cardr", { attr: { "stroke-width": 6 }, duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.8));
+      // L1 助记词 → 种子 → 密钥树
+      OUT("#ke-g0", at(1, 0));
+      tl.to("#ke-cm", { x: -210, duration: 0.8, ease: "power2.inOut" }, at(1, 0.01));
+      ARROW("#ke-a1", at(1, 0.07), 0.4);
+      IN("#ke-seed", at(1, 0.1), 0.5, { scale: 0.3, svgOrigin: "520 550" }, { scale: 1, svgOrigin: "520 550" }); IN("#ke-sl", at(1, 0.12));
+      DRAW("#ke-b0", at(1, 0.2), 0.5); IN("#ke-mn", at(1, 0.24), 0.3);
+      DRAW("#ke-b1", at(1, 0.3), 0.6); DRAW("#ke-b2", at(1, 0.32), 0.6);
+      IN("#ke-en", at(1, 0.37), 0.3); IN("#ke-bn", at(1, 0.39), 0.3);
+      IN("#ke-path", at(1, 0.42));
+      tl.fromTo(".ke-lf", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.4, stagger: 0.18 }, at(1, 0.45));
+      tl.fromTo(".ke-lfn", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.18 }, at(1, 0.48));
+      tl.fromTo(".ke-lft", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.18 }, at(1, 0.5));
+      IN("#ke-el", at(1, 0.76));
+      tl.fromTo(".ke-bf", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.4, stagger: 0.15 }, at(1, 0.8));
+      tl.fromTo(".ke-bfn", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.15 }, at(1, 0.83));
+      tl.fromTo(".ke-bft", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.15 }, at(1, 0.84));
+      IN("#ke-btl", at(1, 0.86));
+      OUT("#ke-term", at(1, 0.55));
+      // L2 服务器只拿 xpub，派生充值地址，不能签名
+      IN("#ke-srv", at(2, 0.12));
+      IN("#ke-xp", at(2, 0.3), 0.6, { y: -20 }, { y: 0 });
+      IN("#ke-term2", at(2, 0.4), 0.5);
+      tl.fromTo(".ke-u", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.1 }, at(2, 0.48));
+      tl.fromTo(".ke-q", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.1 }, at(2, 0.5));
+      tl.to("#ke-q0", { y: 560, duration: 0.4, ease: "power2.inOut" }, at(2, 0.56));
+      tl.to("#ke-q1", { y: 620, duration: 0.4, ease: "power2.inOut" }, at(2, 0.56));
+      tl.to("#ke-q2", { y: 680, duration: 0.4, ease: "power2.inOut" }, at(2, 0.56));
+      tl.to("#ke-q2", { x: 1740, y: 820, duration: 0.6, ease: "power2.inOut" }, at(2, 0.62));
+      tl.to("#ke-q1", { x: 1620, y: 820, duration: 0.6, ease: "power2.inOut" }, at(2, 0.68));
+      tl.to("#ke-q0", { x: 1500, y: 820, duration: 0.6, ease: "power2.inOut" }, at(2, 0.74));
+      IN("#ke-dep", at(2, 0.8));
+      IN("#ke-pen", at(2, 0.84), 0.4);
+      IN("#ke-px", at(2, 0.88), 0.4, { scale: 1.5, svgOrigin: "1722 256" }, { scale: 1, svgOrigin: "1722 256" });
+      // L3 xpub 的前提：非硬化派生下 xpub + 子私钥 → 上一层私钥
+      OUT(["#ke-g2", "#ke-term2"], at(3, 0));
+      IN("#ke-x3", at(3, 0.12), 0.5, { y: -16 }, { y: 0 });
+      IN("#ke-nh", at(3, 0.22));
+      IN("#ke-plus", at(3, 0.3), 0.3); IN("#ke-ck", at(3, 0.33), 0.5, { y: 16 }, { y: 0 });
+      ARROW("#ke-r1", at(3, 0.45), 0.5); ARROW("#ke-r2", at(3, 0.47), 0.5);
+      IN("#ke-par", at(3, 0.52), 0.5, { scale: 0.8, svgOrigin: "1580 325" }, { scale: 1, svgOrigin: "1580 325" });
+      tl.to(["#ke-en", "#ke-mn"], { fill: "#FC6255", duration: 0.4, yoyo: true, repeat: 1 }, at(3, 0.58));
+      IN("#ke-hd", at(3, 0.8), 0.5);
+      // L4 助记词是单点
+      OUT("#ke-g3", at(4, 0));
+      IN("#ke-hand", at(4, 0.2), 0.4);
+      tl.fromTo("#ke-hm", { y: 200 }, { y: 0, duration: 0.6, ease: "power3.out", immediateRender: false }, at(4, 0.2));
+      tl.to("#ke-cardr", { stroke: "#FC6255", duration: 0.3 }, at(4, 0.32));
+      tl.to(".ke-br", { stroke: "#FC6255", duration: 0.5 }, at(4, 0.45));
+      tl.to(".ke-nd", { fill: "#FC6255", duration: 0.5 }, at(4, 0.45));
+      IN("#ke-sp", at(4, 0.55), 0.5);
+      IN("#ke-ring", at(4, 0.72), 0.5, { scale: 0.7, svgOrigin: "265 550" }, { scale: 1, svgOrigin: "265 550" });
+      // L5 树缩到中间偏左，贴 BIP 标签
+      OUT(["#ke-hand", "#ke-ring", "#ke-sp", ".ke-tx"], at(5, 0), 0.3);
+      tl.to(".ke-br", { stroke: "#58C4DD", duration: 0.4 }, at(5, 0));
+      tl.to(".ke-nd", { fill: "#58C4DD", duration: 0.4 }, at(5, 0));
+      tl.to("#ke-cardr", { stroke: "#FF9F43", duration: 0.4 }, at(5, 0));
+      tl.to("#ke-tree", { scale: 0.85, svgOrigin: "100 540", duration: 0.7, ease: "power2.inOut" }, at(5, 0.02));
+      IN("#ke-bip39", at(5, 0.2), 0.4); IN("#ke-bip32", at(5, 0.3), 0.4); IN("#ke-bip44", at(5, 0.4), 0.4);
+      ARROW("#ke-later", at(5, 0.6), 0.5); IN("#ke-ltx", at(5, 0.66));
+
+      tl.to("#ke-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to(["#ke-term", "#ke-term2"], { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["keys"] = tl;
+    })();
+  </script>
+</template>

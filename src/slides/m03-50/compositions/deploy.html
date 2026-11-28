@@ -1,0 +1,194 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 deploy，id 前缀 de- -->
+  <div id="root" data-composition-id="deploy" data-duration="55.77" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="de-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="de-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker>
+        <marker id="de-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="de-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+      </defs>
+      <g id="de-all">
+        <g id="de-gh1" class="h"><rect x="410" y="240" width="690" height="620" rx="18" fill="none" stroke="#3a3f4b" stroke-width="3" stroke-dasharray="14 10"/></g>
+        <text id="de-ght1" class="h" x="755" y="560" font-size="34" fill="#6b6f7a" text-anchor="middle">集群 <tspan class="mono">1</tspan> · 钱包核心</text>
+        <g id="de-gh2" class="h"><rect x="1370" y="240" width="450" height="480" rx="18" fill="none" stroke="#3a3f4b" stroke-width="3" stroke-dasharray="14 10"/></g>
+        <text id="de-ght2" class="h" x="1595" y="490" font-size="34" fill="#6b6f7a" text-anchor="middle">集群 <tspan class="mono">2</tspan> · 签名域</text>
+        <g id="de-topo">
+          <!-- 入口 -->
+          <g id="de-biz" class="h"><rect x="100" y="300" width="220" height="90" rx="14" fill="#B48EF0" fill-opacity="0.16" stroke="#B48EF0" stroke-width="3"/><text x="210" y="357" font-size="34" font-weight="700" fill="#B48EF0" text-anchor="middle">业务方</text></g>
+          <path id="de-a0" class="dr h" pathLength="1" d="M190 394 L190 520" stroke="#B48EF0" stroke-width="3" fill="none" marker-end="url(#de-mp)"/>
+          <text id="de-mtls" class="mono h" x="208" y="468" font-size="28" fill="#B48EF0">mTLS</text>
+          <g id="de-waf" class="h"><rect x="100" y="530" width="220" height="120" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="210" y="580" font-size="30" fill="#e8e6df" text-anchor="middle">WAF</text><text x="210" y="626" font-size="30" fill="#e8e6df" text-anchor="middle"><tspan class="mono">API</tspan> 网关</text></g>
+          <path id="de-a1" class="dr h" pathLength="1" d="M324 590 L400 590" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#de-mb)"/>
+
+          <!-- 集群 1 -->
+          <g id="de-k1" class="h"><rect x="410" y="240" width="690" height="620" rx="18" fill="#58C4DD" fill-opacity="0.04" stroke="#58C4DD" stroke-width="3"/>
+            <text x="440" y="292" font-size="30" font-weight="700" fill="#58C4DD">集群 1 · 钱包核心 · <tspan class="mono">VPC A</tspan></text></g>
+          <g id="de-ns1" class="h"><rect x="440" y="318" width="630" height="246" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2"/>
+            <text x="464" y="362" font-size="28" fill="#8a8f99">命名空间 <tspan class="mono">wallet</tspan></text></g>
+          <g id="de-pods" class="mono">
+            <g id="de-pd0" class="h"><rect x="464" y="384" width="170" height="68" rx="10" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2"/><text x="549" y="428" font-size="28" fill="#e8e6df" text-anchor="middle">api</text></g>
+            <g id="de-pd1" class="h"><rect x="652" y="384" width="190" height="68" rx="10" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2"/><text x="747" y="428" font-size="28" fill="#e8e6df" text-anchor="middle">scanner</text></g>
+            <g id="de-pd2" class="h"><rect x="860" y="384" width="190" height="68" rx="10" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2"/><text x="955" y="428" font-size="28" fill="#e8e6df" text-anchor="middle">withdraw</text></g>
+            <g id="de-pd3" class="h"><rect x="464" y="474" width="190" height="68" rx="10" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2"/><text x="559" y="518" font-size="28" fill="#e8e6df" text-anchor="middle">sweeper</text></g>
+            <g id="de-pd4" class="h"><rect x="672" y="474" width="170" height="68" rx="10" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2"/><text x="757" y="518" font-size="28" fill="#e8e6df" text-anchor="middle">recon</text></g>
+          </g>
+          <g id="de-db" class="h"><path d="M790 620 L790 790 A140 24 0 0 0 1070 790 L1070 620" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="2.5"/><ellipse cx="930" cy="620" rx="140" ry="24" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text class="mono" x="930" y="716" font-size="28" fill="#e8e6df" text-anchor="middle">PostgreSQL</text><text x="930" y="762" font-size="28" fill="#8a8f99" text-anchor="middle">主从</text></g>
+          <g id="de-nodes" class="h">
+            <line x1="535" y1="860" x2="535" y2="904" stroke="#8a8f99" stroke-width="2.5"/><line x1="765" y1="860" x2="765" y2="904" stroke="#8a8f99" stroke-width="2.5"/><line x1="995" y1="860" x2="995" y2="904" stroke="#8a8f99" stroke-width="2.5"/>
+            <rect x="430" y="904" width="210" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="535" y="955" font-size="28" fill="#e8e6df" text-anchor="middle">自建节点</text>
+            <rect x="660" y="904" width="210" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="765" y="955" font-size="28" fill="#e8e6df" text-anchor="middle">供应商 1</text>
+            <rect x="890" y="904" width="210" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="995" y="955" font-size="28" fill="#e8e6df" text-anchor="middle">供应商 2</text></g>
+
+          <!-- 集群 2 签名域 -->
+          <g id="de-k2" class="h"><rect x="1370" y="240" width="450" height="480" rx="18" fill="#FF9F43" fill-opacity="0.05" stroke="#FF9F43" stroke-width="3" stroke-dasharray="14 9"/>
+            <text x="1396" y="292" font-size="30" font-weight="700" fill="#FF9F43">集群 2 · 签名域</text>
+            <text x="1396" y="338" font-size="28" fill="#8a8f99"><tspan class="mono">VPC B</tspan> · 无公网出口</text></g>
+          <g id="de-sg" class="h"><rect x="1400" y="380" width="390" height="84" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text class="mono" x="1595" y="432" font-size="28" fill="#e8e6df" text-anchor="middle">signer-gateway</text></g>
+          <path id="de-link" class="dr" pathLength="1" d="M1100 422 L1400 422" stroke="#e8e6df" stroke-width="2" fill="none"/>
+          <text id="de-lk1" class="mono h" x="1235" y="404" font-size="28" fill="#e8e6df" text-anchor="middle">gRPC 9443</text>
+          <text id="de-lk2" class="mono h" x="1235" y="460" font-size="28" fill="#e8e6df" text-anchor="middle">mTLS</text>
+          <g id="de-tg1" class="h"><rect x="410" y="168" width="310" height="52" rx="26" fill="#B48EF0" fill-opacity="0.16" stroke="#B48EF0" stroke-width="2"/><text x="565" y="204" font-size="28" fill="#B48EF0" text-anchor="middle">云账号 A / 运维组 A</text></g>
+          <g id="de-tg2" class="h"><rect x="1370" y="168" width="310" height="52" rx="26" fill="#B48EF0" fill-opacity="0.16" stroke="#B48EF0" stroke-width="2"/><text x="1525" y="204" font-size="28" fill="#B48EF0" text-anchor="middle">云账号 B / 运维组 B</text></g>
+
+          <!-- MPC -->
+          <g id="de-ma" class="h"><rect x="1400" y="540" width="390" height="140" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+            <text x="1430" y="598" font-size="32" font-weight="700" fill="#e8e6df"><tspan class="mono">MPC</tspan> 节点 A</text>
+            <rect x="1430" y="620" width="100" height="42" rx="8" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="2"/><text class="mono" x="1480" y="651" font-size="28" fill="#83C167" text-anchor="middle">TEE</text></g>
+          <g id="de-dc" class="h"><rect x="1370" y="800" width="450" height="200" rx="16" fill="none" stroke="#8a8f99" stroke-width="2.5"/><text x="1396" y="846" font-size="28" fill="#8a8f99">自建机房</text></g>
+          <g id="de-mb2" class="h"><rect x="1400" y="864" width="390" height="120" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+            <text x="1430" y="912" font-size="30" font-weight="700" fill="#e8e6df"><tspan class="mono">MPC</tspan> 节点 B</text>
+            <text x="1430" y="958" font-size="28" fill="#FF9F43"><tspan class="mono">HSM</tspan> 封装分片</text></g>
+          <g id="de-ln">
+            <path id="de-lnA" class="dr" pathLength="1" d="M1700 684 L1700 762" stroke="#e8e6df" stroke-width="3" fill="none"/>
+            <path id="de-lnB" class="dr" pathLength="1" d="M1700 762 L1700 860" stroke="#e8e6df" stroke-width="3" fill="none"/>
+          </g>
+          <text id="de-lnt" class="h" x="1720" y="772" font-size="28" fill="#e8e6df">专线</text>
+          <g id="de-x" class="h"><path d="M1684 746 L1716 778 M1716 746 L1684 778" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/></g>
+          <text id="de-st1" class="h" x="1130" y="772" font-size="30" font-weight="700" fill="#FC6255">签名停 · <tspan class="mono">2-of-2</tspan></text>
+          <text id="de-st2" class="h" x="1130" y="772" font-size="30" font-weight="700" fill="#83C167">恢复 · <tspan class="mono">2-of-3</tspan></text>
+          <g id="de-s3" class="h"><rect x="1120" y="836" width="230" height="160" rx="12" fill="none" stroke="#83C167" stroke-width="2.5" stroke-dasharray="10 7"/>
+            <text x="1235" y="880" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">分片 <tspan class="mono">3</tspan></text>
+            <text x="1235" y="924" font-size="28" fill="#e8e6df" text-anchor="middle">审批人手机</text>
+            <text x="1235" y="966" font-size="28" fill="#e8e6df" text-anchor="middle">或备用机房</text></g>
+          <path id="de-s3a" class="dr" pathLength="1" d="M1350 920 L1396 920" stroke="#83C167" stroke-width="2.5" fill="none" stroke-dasharray="1"/>
+          <path id="de-s3b" class="dr" pathLength="1" d="M1340 836 L1396 680" stroke="#83C167" stroke-width="2.5" fill="none"/>
+        </g>
+
+        <!-- L5 运营后台 -->
+        <g id="de-admO"><g id="de-admI">
+          <g id="de-adm" class="h"><rect id="de-admr" x="440" y="594" width="320" height="240" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="2"/>
+            <text x="464" y="638" font-size="28" fill="#8a8f99">命名空间 <tspan class="mono">admin</tspan></text>
+            <text x="600" y="716" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">运营后台</text>
+            <text x="600" y="772" font-size="28" fill="#B48EF0" text-anchor="middle">仅 <tspan class="mono">VPN</tspan></text></g>
+        </g></g>
+        <g id="de-lock" class="h">
+          <rect x="1000" y="436" width="56" height="46" rx="8" fill="#83C167"/><path d="M1012 436 L1012 418 A16 16 0 0 1 1044 418 L1044 436" stroke="#83C167" stroke-width="6" fill="none"/>
+          <text x="1086" y="472" font-size="44" font-weight="700" fill="#83C167"><tspan class="mono">VPN + FIDO2</tspan> 硬件密钥</text></g>
+        <g id="de-flow">
+          <g id="de-f0" class="h"><rect x="380" y="830" width="300" height="96" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="530" y="889" font-size="30" fill="#e8e6df" text-anchor="middle">① 连上 <tspan class="mono">VPN</tspan></text></g>
+          <path id="de-fa0" class="dr h" pathLength="1" d="M690 878 L750 878" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#de-mb)"/>
+          <g id="de-f1" class="h"><rect x="764" y="830" width="400" height="96" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="964" y="889" font-size="30" fill="#e8e6df" text-anchor="middle">② <tspan class="mono">FIDO2</tspan> 硬件密钥</text></g>
+          <path id="de-fa1" class="dr h" pathLength="1" d="M1174 878 L1234 878" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#de-mb)"/>
+          <g id="de-f2" class="h"><rect x="1248" y="830" width="340" height="96" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="2.5"/><text x="1418" y="889" font-size="30" fill="#e8e6df" text-anchor="middle">③ 进入运营后台</text></g>
+        </g>
+        <g id="de-hook" class="h">
+          <path d="M1028 576 L1028 626 A18 18 0 0 1 992 626 L992 614" stroke="#FC6255" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M984 620 L992 606 L1000 620" stroke="#FC6255" stroke-width="5" fill="none"/>
+          <text x="1086" y="626" font-size="44" font-weight="700" fill="#FC6255">社工攻击的首要目标</text></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const PULSE = (s, t, origin, sc = 1.06) => tl.to(s, { scale: sc, svgOrigin: origin, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+
+      // L0 业务方 → WAF / API 网关
+      IN("#de-biz", at(0, 0.05), 0.5, { y: -16 }, { y: 0 });
+      IN(["#de-gh1", "#de-ght1"], at(0, 0.4), 0.6);
+      IN(["#de-gh2", "#de-ght2"], at(0, 0.55), 0.6);
+      OUT(["#de-gh1", "#de-ght1"], at(1, 0.0), 0.3);
+      OUT("#de-ght2", at(1, 0.0), 0.3);
+      OUT("#de-gh2", at(2, 0.0), 0.3);
+      IN("#de-waf", at(0, 0.3), 0.5, { y: 16 }, { y: 0 });
+      ARROW("#de-a0", at(0, 0.5), 0.5);
+      IN("#de-mtls", at(0, 0.7), 0.4, { x: -10 }, { x: 0 });
+      PULSE("#de-biz", at(0, 0.85), "210 345");
+
+      // L1 集群 1
+      IN("#de-k1", at(1, 0.02), 0.6);
+      ARROW("#de-a1", at(1, 0.06), 0.4);
+      IN("#de-ns1", at(1, 0.12), 0.4);
+      for (let k = 0; k < 5; k++) IN("#de-pd" + k, at(1, 0.18 + 0.07 * k), 0.35, { y: 10 }, { y: 0 });
+      IN("#de-adm", at(1, 0.6), 0.5, { y: 16 }, { y: 0 });
+      PULSE("#de-adm", at(1, 0.78), "600 714", 1.04);
+      IN("#de-db", at(1, 0.84), 0.5);
+      IN("#de-nodes", at(1, 0.9), 0.5, { y: 14 }, { y: 0 });
+
+      // L2 集群 2 签名域
+      IN("#de-k2", at(2, 0.03), 0.6, { x: 30 }, { x: 0 });
+      IN("#de-sg", at(2, 0.14), 0.5);
+      PULSE("#de-k2", at(2, 0.26), "1595 480", 1.02);
+      DRAW("#de-link", at(2, 0.4), 0.6);
+      IN("#de-lk1", at(2, 0.46), 0.4);
+      IN("#de-lk2", at(2, 0.52), 0.4);
+      tl.to("#de-link", { attr: { "stroke-width": 4 }, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.6));
+      IN("#de-tg1", at(2, 0.72), 0.4, { y: -10 }, { y: 0 });
+      IN("#de-tg2", at(2, 0.84), 0.4, { y: -10 }, { y: 0 });
+
+      // L3 MPC 节点 A / B + 专线
+      IN("#de-ma", at(3, 0.04), 0.5);
+      PULSE("#de-ma", at(3, 0.22), "1595 610", 1.04);
+      IN("#de-dc", at(3, 0.42), 0.5);
+      IN("#de-mb2", at(3, 0.5), 0.5);
+      DRAW("#de-lnA", at(3, 0.74), 0.4); DRAW("#de-lnB", at(3, 0.74), 0.4);
+      IN("#de-lnt", at(3, 0.8), 0.4);
+
+      // L4 专线断开 → 第三个分片
+      tl.to(["#de-lnA", "#de-lnB"], { attr: { stroke: "#FC6255" }, duration: 0.2, yoyo: true, repeat: 3 }, at(4, 0.03));
+      tl.to("#de-lnA", { attr: { d: "M1700 684 L1700 730" }, duration: 0.3 }, at(4, 0.12));
+      tl.to("#de-lnB", { attr: { d: "M1700 796 L1700 860" }, duration: 0.3 }, at(4, 0.12));
+      tl.to(["#de-lnA", "#de-lnB"], { attr: { stroke: "#FC6255" }, duration: 0.2 }, at(4, 0.14));
+      IN("#de-x", at(4, 0.16), 0.3);
+      IN("#de-st1", at(4, 0.2), 0.4, { x: -10 }, { x: 0 });
+      IN("#de-s3", at(4, 0.5), 0.5, { y: 14 }, { y: 0 });
+      DRAW("#de-s3a", at(4, 0.62), 0.4); DRAW("#de-s3b", at(4, 0.62), 0.4);
+      OUT("#de-st1", at(4, 0.72), 0.3);
+      IN("#de-st2", at(4, 0.77), 0.4);
+      PULSE("#de-s3", at(4, 0.88), "1235 916", 1.04);
+
+      // L5 运营后台放大
+      OUT("#de-topo", at(5, 0.0), 0.45);
+      tl.to("#de-admr", { attr: { stroke: "#B48EF0", "stroke-width": 3 }, duration: 0.3 }, at(5, 0.04));
+      tl.to("#de-admO", { x: 20, y: -174, duration: 0.7, ease: "power2.inOut" }, at(5, 0.06));
+      tl.to("#de-admI", { scale: 1.5, svgOrigin: "600 714", duration: 0.7, ease: "power2.inOut" }, at(5, 0.06));
+      IN("#de-lock", at(5, 0.22), 0.5, { x: 20 }, { x: 0 });
+      IN("#de-f0", at(5, 0.3), 0.4, { y: 12 }, { y: 0 });
+      ARROW("#de-fa0", at(5, 0.36), 0.3);
+      IN("#de-f1", at(5, 0.4), 0.4, { y: 12 }, { y: 0 });
+      ARROW("#de-fa1", at(5, 0.46), 0.3);
+      IN("#de-f2", at(5, 0.5), 0.4, { y: 12 }, { y: 0 });
+      IN("#de-hook", at(5, 0.6), 0.5, { x: 20 }, { x: 0 });
+      tl.to("#de-hook path", { y: 8, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(5, 0.68));
+
+      tl.to("#de-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["deploy"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,124 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 arch，id 前缀 ar- -->
+  <div id="root" data-composition-id="arch" data-duration="55.71" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ar-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ar-all">
+<defs><marker id="ar-arrp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="ar-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker></defs>
+<text id="ar-t1" class="h" x="100" y="250" font-size="44" font-weight="700" fill="#e8e6df">同步 + 存储</text>
+<g id="ar-cl" class="h"><rect x="64" y="380" width="140" height="90" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="134" y="436" font-size="30" fill="#8a8f99" text-anchor="middle">客户端</text></g>
+<path id="ar-a0" class="dr h" pathLength="1" d="M208 425 L396 425" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<text id="ar-rest" class="mono h" x="300" y="372" font-size="28" fill="#8a8f99" text-anchor="middle">REST +<tspan x="300" dy="32">WebSocket</tspan></text>
+<g id="ar-gw" class="h"><rect x="400" y="355" width="340" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="570.0" y="419" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">gateway</text><text x="570.0" y="465" font-size="28" fill="#e8e6df" text-anchor="middle">JWT · HMAC · 限流</text></g>
+<g id="ar-or" class="h"><rect x="880" y="230" width="260" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1010.0" y="282" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">order</text></g>
+<g id="ar-wa" class="h"><rect x="880" y="530" width="260" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1010.0" y="582" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">wallet</text></g>
+<g id="ar-ldm"><g id="ar-ldi"><g id="ar-ld" class="h"><rect x="1360" y="380" width="280" height="90" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1500.0" y="437" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">ledger</text></g></g></g>
+<path id="ar-g1" class="dr h" pathLength="1" d="M744 395 L876 282" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<path id="ar-g2" class="dr h" pathLength="1" d="M744 425 L1356 425" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<path id="ar-g3" class="dr h" pathLength="1" d="M744 455 L876 558" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<text id="ar-lq" class="h" x="960" y="405" font-size="28" fill="#b8b6af" text-anchor="middle">gRPC 查询</text>
+<path id="ar-ol" class="dr h" pathLength="1" d="M1144 290 L1356 395" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<text id="ar-lo" class="h" x="1230" y="300" font-size="28" fill="#b8b6af" text-anchor="start">gRPC 冻结</text>
+<path id="ar-wl" class="dr h" pathLength="1" d="M1144 540 L1376 474" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<text id="ar-lw" class="h" x="1146" y="474" font-size="28" fill="#b8b6af" text-anchor="start">入账 / 冻结</text>
+<g id="ar-db1" class="h"><path d="M1654 425 L1712 425" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="6 5"/><path d="M1714 392 L1714 448 A26 9 0 0 0 1766 448 L1766 392" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><ellipse cx="1740" cy="392" rx="26" ry="9" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1740" y="512" font-size="28" fill="#58C4DD" text-anchor="middle">PostgreSQL</text><text x="1740" y="546" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan class="mono">ledger</tspan> 库</text></g>
+<g id="ar-db2" class="h"><path d="M700 258 L876 258" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="6 5"/><path d="M464 234 L464 284 A26 9 0 0 0 516 284 L516 234" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><ellipse cx="490" cy="234" rx="26" ry="9" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="525" y="252" font-size="28" fill="#58C4DD">PostgreSQL</text><text x="525" y="287" font-size="28" fill="#e8e6df"><tspan class="mono">order</tspan> 库</text></g>
+<g id="ar-sep" class="h"><path d="M1144 595 L1176 595" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="6 5"/><rect x="1180" y="560" width="360" height="70" rx="12" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 7"/><text x="1360" y="606" font-size="28" fill="#8a8f99" text-anchor="middle">Sepolia 测试网 / 模拟器</text></g>
+<text id="ar-t2" class="h" x="100" y="725" font-size="44" font-weight="700" fill="#e8e6df">异步</text>
+<g id="ar-o2" class="h"><rect x="100" y="760" width="180" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" stroke-dasharray="10 7"/><text class="mono" x="190.0" y="811" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">order</text></g>
+<path id="ar-b1" class="dr h" pathLength="1" d="M284 800 L336 800" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<g id="ar-k1" class="h"><rect x="340" y="760" width="260" height="80" rx="14" fill="rgba(88,196,221,0.22)" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="470.0" y="810" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">orders.cmd</text></g>
+<path id="ar-b2" class="dr h" pathLength="1" d="M604 800 L656 800" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<g id="ar-mt" class="h"><rect x="660" y="760" width="260" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="790.0" y="812" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">matching</text></g>
+<text id="ar-mtd" class="h" x="790" y="885" font-size="28" fill="#e8e6df" text-anchor="middle">单线程内存撮合</text>
+<g id="ar-snap" class="h"><rect x="640" y="926" width="38" height="44" rx="4" fill="none" stroke="#8a8f99" stroke-width="2.5"/><line x1="640" y1="948" x2="678" y2="948" stroke="#8a8f99" stroke-width="2"/><line x1="653" y1="937" x2="665" y2="937" stroke="#8a8f99" stroke-width="2.5"/><line x1="653" y1="959" x2="665" y2="959" stroke="#8a8f99" stroke-width="2.5"/><text x="692" y="960" font-size="28" fill="#8a8f99">快照：本地卷 / S3</text></g>
+<path id="ar-b3" class="dr h" pathLength="1" d="M924 800 L976 800" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<g id="ar-k2" class="h"><rect x="980" y="760" width="260" height="80" rx="14" fill="rgba(88,196,221,0.22)" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1110.0" y="810" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">match.events</text></g>
+<path id="ar-b4" class="dr h" pathLength="1" d="M1244 790 L1336 736" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<g id="ar-se" class="h"><rect x="1340" y="690" width="260" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1470.0" y="741" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">settlement</text></g>
+<path id="ar-sl" class="dr h" pathLength="1" d="M1580 686 L1580 476" stroke="#B48EF0" stroke-width="4" fill="none" marker-end="url(#ar-arrp)"/>
+<text id="ar-lp" class="mono h" x="1596" y="620" font-size="28" fill="#B48EF0" text-anchor="start">gRPC Post</text>
+<path id="ar-b5" class="dr h" pathLength="1" d="M1244 815 L1336 914" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<g id="ar-md" class="h"><rect x="1340" y="880" width="260" height="80" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1470.0" y="931" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">market-data</text></g>
+<path id="ar-b6" class="dr h" pathLength="1" d="M1604 920 L1646 920" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<g id="ar-rd" class="h"><rect x="1650" y="860" width="210" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="1755" y="905" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">Redis</text><text class="mono" x="1755" y="948" font-size="28" fill="#e8e6df" text-anchor="middle">Pub/Sub</text></g>
+<path id="ar-loop" class="dr h" pathLength="1" d="M1755 856 L1755 655 L560 655 L560 500" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ar-arrb)"/>
+<rect id="ar-halo" class="h" x="646" y="748" width="288" height="104" rx="20" fill="none" stroke="#58C4DD" stroke-width="6" stroke-opacity="0.45"/>
+<text id="ar-only" class="h" x="790" y="730" font-size="28" fill="#58C4DD" text-anchor="middle">只写日志</text>
+<path id="ar-b7" class="dr h" pathLength="1" d="M1130 844 L1130 896" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ar-arr)"/>
+<g id="ar-nc" class="h"><rect x="1020" y="900" width="220" height="70" rx="12" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 7"/><text x="1130" y="945" font-size="28" fill="#8a8f99" text-anchor="middle">+ 新消费者</text></g>
+</g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => { const z = {}; if ("x" in from) z.x = 0; if ("y" in from) z.y = 0; if ("scale" in from) z.scale = 1; return tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...z, ...to }, t); };
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0
+      IN("#ar-t1", at(0, 0.04), 0.5);
+      IN("#ar-cl", at(0, 0.4), 0.5, { x: -20 });
+      // L1 客户端 → gateway → 三个服务
+      IN("#ar-gw", at(1, 0.04), 0.5, { y: 14 });
+      ARROW("#ar-a0", at(1, 0.12), 0.5);
+      IN("#ar-rest", at(1, 0.26), 0.4);
+      ARROW("#ar-g1", at(1, 0.56), 0.4); IN("#ar-or", at(1, 0.6), 0.4);
+      ARROW("#ar-g3", at(1, 0.72), 0.4); IN("#ar-wa", at(1, 0.76), 0.4);
+      ARROW("#ar-g2", at(1, 0.84), 0.5); IN("#ar-ld", at(1, 0.88), 0.4); IN("#ar-lq", at(1, 0.9), 0.4);
+      // L2 都汇到 ledger
+      ARROW("#ar-ol", at(2, 0.032), 0.5); IN("#ar-lo", at(2, 0.096), 0.4);
+      ARROW("#ar-wl", at(2, 0.224), 0.5); IN("#ar-lw", at(2, 0.272), 0.4);
+      IN("#ar-sep", at(2, 0.336), 0.5);
+      tl.to("#ar-ld rect", { stroke: "#B48EF0", strokeWidth: 5, fill: "rgba(180,142,240,0.15)", duration: 0.4 }, at(2, 0.448));
+      tl.to("#ar-ld text", { fill: "#B48EF0", duration: 0.4 }, at(2, 0.448));
+      tl.to("#ar-ldi", { scale: 1.05, svgOrigin: "1500 425", duration: 0.5, ease: "back.out(2)" }, at(2, 0.448));
+      tl.to(["#ar-ol", "#ar-wl", "#ar-g2"], { stroke: "#B48EF0", duration: 0.4 }, at(2, 0.496));
+      IN("#ar-db1", at(2, 0.624), 0.5);
+      IN("#ar-db2", at(2, 0.84), 0.5); tl.to("#ar-db2", { opacity: 0.5, duration: 0.35, yoyo: true, repeat: 1 }, at(2, 0.92));
+      // L3 异步一半
+      IN("#ar-t2", at(3, 0.02), 0.5);
+      IN("#ar-o2", at(3, 0.08), 0.4);
+      ARROW("#ar-b1", at(3, 0.16), 0.3); IN("#ar-k1", at(3, 0.18), 0.4);
+      ARROW("#ar-b2", at(3, 0.28), 0.3); IN("#ar-mt", at(3, 0.3), 0.4);
+      IN("#ar-mtd", at(3, 0.42), 0.4);
+      ARROW("#ar-b3", at(3, 0.56), 0.3); IN("#ar-k2", at(3, 0.58), 0.4);
+      IN("#ar-snap", at(3, 0.8), 0.5);
+      // L4 match.events 两路
+      ARROW("#ar-b4", at(4, 0.08), 0.4); IN("#ar-se", at(4, 0.13), 0.4);
+      ARROW("#ar-sl", at(4, 0.24), 0.5); IN("#ar-lp", at(4, 0.3), 0.4);
+      ARROW("#ar-b5", at(4, 0.44), 0.4); IN("#ar-md", at(4, 0.49), 0.4);
+      ARROW("#ar-b6", at(4, 0.62), 0.3); IN("#ar-rd", at(4, 0.65), 0.4);
+      ARROW("#ar-loop", at(4, 0.78), 1.0);
+      tl.to("#ar-gw rect", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.9));
+      // L5 解耦
+      IN("#ar-halo", at(5, 0.12), 0.5); IN("#ar-only", at(5, 0.16), 0.4);
+      ARROW("#ar-b7", at(5, 0.52), 0.3); IN("#ar-nc", at(5, 0.56), 0.5, { y: 12 });
+      tl.to("#ar-halo", { strokeOpacity: 0.9, duration: 0.4, yoyo: true, repeat: 1 }, at(5, 0.78));
+
+      tl.to("#ar-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["arch"] = tl;
+    })();
+  </script>
+</template>

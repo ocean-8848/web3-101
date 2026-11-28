@@ -74,7 +74,7 @@ ${tbl(['订单类型', '英文', '行为', '适合场景', '风险'], [
 ])}
 ${call('info', `<p>止损单、止盈单、OCO 在触发前不进入撮合引擎的订单簿。它们放在一个“条件单服务”里，盯着最新成交价。价格达到触发价后，条件单服务才向撮合引擎提交真实订单。所以触发价和成交价不是一回事。</p>`)}
 <h3>4.2 四种有效期（Time in Force）</h3>
-${tbl(['有效期', '全称', '规则', '例子：卖一档只有 0.3 BTC，你下买单 1 BTC'], [
+${tbl(['有效期', '全称', '规则', '例子：卖一档只有 0.3 BTC、下一档价格高于你的限价，你下限价买单 1 BTC'], [
   ['GTC', 'Good Till Cancelled', '一直有效，直到成交或你撤单', '成交 0.3，剩余 0.7 挂在订单簿'],
   ['IOC', 'Immediate Or Cancel', '能成交多少就成交多少，剩余立即撤销', '成交 0.3，剩余 0.7 撤销'],
   ['FOK', 'Fill Or Kill', '必须全部立即成交，否则整单撤销', '整单撤销，成交 0'],
@@ -94,6 +94,8 @@ flowchart TB
   G -->|"是"| C
   C -->|"GTC"| I["剩余挂入订单簿<br/>成为 Maker"]
   C -->|"IOC"| J["剩余撤销"]
+  C -->|"FOK（未进入成交）"| K["整单撤销"]
+  C -->|"Post-only（未进入成交）"| I
 `, [
   ['flow', '订单先和对手方比价格；能成交就成交，成交不完的部分按有效期处理。'],
   ['key', 'Post-only 和 FOK 在成交前就要判断。撮合引擎必须先“预演”能否成交，再决定是否执行。'],
@@ -104,14 +106,14 @@ flowchart TB
 <h2>5. Maker、Taker 与手续费阶梯</h2>
 <p>挂单方（Maker）的订单进入订单簿等待成交，<b>增加</b>了市场流动性（Liquidity）。吃单方（Taker）的订单立即和已有挂单成交，<b>消耗</b>了流动性。交易所通常让 Maker 付更低的费率，鼓励大家挂单，让订单簿更厚。</p>
 <p>同一张订单可以同时是 Taker 和 Maker：一张限价买单先吃掉 0.3 BTC（这部分是 Taker），剩余 0.7 BTC 挂进订单簿，后来被别人吃掉（这部分是 Maker）。</p>
-${tbl(['等级（示例）', '30 天交易量（USDT）', '或持有平台币', 'Maker 费率', 'Taker 费率'], [
+${tbl(['等级（示例）', '30 天交易量（USDT）', '且持有平台币', 'Maker 费率', 'Taker 费率'], [
   ['普通用户 VIP 0', '< 100 万', '—', '0.100%', '0.100%'],
   ['VIP 1', '≥ 100 万', '≥ 25 个', '0.090%', '0.100%'],
   ['VIP 2', '≥ 500 万', '≥ 100 个', '0.080%', '0.100%'],
   ['VIP 5', '≥ 1.5 亿', '≥ 1,000 个', '0.040%', '0.060%'],
   ['做市商计划', '按协议', '—', '0 或负费率（返佣）', '按协议']
 ])}
-<p>以上数值是示例。截至 2026 年公开资料，主流交易所现货基础费率多在 0.1% 左右（例如币安普通用户现货 Maker/Taker 均为 0.1%，用 BNB 抵扣打 75 折），并提供“用平台币抵扣手续费享受折扣”的选项。${cite('币安现货交易费率页', 'https://www.binance.com/en/fee/trading')}具体数值以各交易所费率页为准。</p>
+<p>以上数值是示例，门槛与费率不对应任何一家交易所的现行等级：例如币安 VIP 1 起要求 30 天交易量与 BNB 持仓同时达标，且 2026-03 起下调了 VIP 1–3 的 BNB 门槛（截至 2026-11，以官方 VIP 页为准）。截至 2026 年公开资料，主流交易所现货基础费率多在 0.1% 左右（例如币安普通用户现货 Maker/Taker 均为 0.1%，用 BNB 抵扣打 75 折），并提供“用平台币抵扣手续费享受折扣”的选项。${cite('币安现货交易费率页', 'https://www.binance.com/en/fee/trading')}具体数值以各交易所费率页为准。</p>
 <p><b>算一算（示例）</b>：Alice 是 VIP 0，用市价单买 0.5 BTC，成交均价 60,000 USDT。她开启了平台币抵扣，折扣 25%，平台币价格 600 USDT。</p>
 ${steps(['成交额 = 0.5 × 60,000 = 30,000 USDT。', '市价单是 Taker，费率 0.1%：原始手续费 = 30,000 × 0.1% = 30 USDT。', '平台币抵扣打 75 折：实际手续费 = 30 × 0.75 = 22.5 USDT 等值。', '换算成平台币：22.5 ÷ 600 = 0.0375 个平台币，从 Alice 的平台币余额里扣。', '如果不抵扣，手续费通常从“收到的币”里扣：Alice 收到 0.5 × (1 − 0.1%) = 0.4995 BTC。'])}
 
@@ -122,7 +124,7 @@ flowchart LR
   M["市价买 3 BTC"] --> A1["卖一 60,100<br/>0.8 BTC"]
   A1 -->|"吃完 0.8，还差 2.2"| A2["卖二 60,150<br/>1.2 BTC"]
   A2 -->|"吃完 1.2，还差 1.0"| A3["卖三 60,200<br/>2.0 BTC"]
-  A3 -->|"吃 1.0，剩 1.0 留在簿上"| D["成交完成<br/>均价 ≈ 60,163"]
+  A3 -->|"吃 1.0，剩 1.0 留在簿上"| D["成交完成<br/>均价 ≈ 60,153.3"]
 `, [
   ['flow', '市价单从最优价格开始，一档一档往差的方向吃，直到数量满足。'],
   ['key', '深度越厚，同样数量吃掉的档位越少，滑点越小。'],
@@ -254,7 +256,7 @@ flowchart TB
 `, [
   ['flow', '请求先由 API Key 找到所属子账户，再检查权限范围（scope）和来源 IP，最后才进入业务服务。'],
   ['key', '子账户资产相互隔离：一个策略出 bug 只亏它自己的钱。主账户可以在子账户之间划转。'],
-  ['risk', '给 API Key 开“提币”权限且不绑 IP 白名单，是最常见的被盗原因之一' + tag('推断') + '。2019 年币安被盗事件中，攻击者正是先窃取了大量用户 API Key 和 2FA 信息。' + cite('币安：Binance Security Breach Update（2019-05-07）', 'https://www.binance.com/en/support/announcement/binance-security-breach-update-360028031711')],
+  ['risk', '给 API Key 开“提币”权限且不绑 IP 白名单，是最常见的被盗原因之一' + tag('推断') + '。2019 年币安被盗事件中，攻击者正是先窃取了大量用户 API Key 和 2FA 信息。' + cite('币安：Binance Security Breach Update（2019-05-07）', 'https://www.binance.com/en/support/articles/360028031711')],
   ['limit', 'KYC 只在主账户做一次；子账户继承主账户的合规身份，不能单独对外。']
 ])}
 ${tbl(['对象', '作用', '常见字段（示例）'], [
@@ -264,7 +266,7 @@ ${tbl(['对象', '作用', '常见字段（示例）'], [
   ['权限范围 scope', '限制 Key 能做什么', 'READ、SPOT_TRADE、FUTURES_TRADE、WITHDRAW'],
   ['IP 白名单', '只接受来自指定 IP 的请求', '最多 N 个 IP（示例 30 个）']
 ])}
-${call('warn', `<p>API Secret 只在创建时显示一次。交易所不能明文存储 Secret：HMAC 方案下，服务端需要用 Secret 重算签名，所以要用 KMS（密钥管理服务）加密后存储；RSA/Ed25519 方案下，服务端只存用户的公钥，更安全。用户端也不能把 Secret 提交到 Git 仓库。</p>`)}
+${call('warn', `<p>API Secret 只在创建时显示一次。交易所不能明文存储 Secret：HMAC 方案下，服务端需要用 Secret 重算签名，所以要用 KMS（密钥管理服务）加密后存储；RSA/Ed25519 方案下，服务端只存用户的公钥，更安全。币安官方文档推荐优先使用 Ed25519 Key（截至 2026-11，以官方为准）。用户端也不能把 Secret 提交到 Git 仓库。</p>`)}
 
 <h2>3. 资产账户类型与划转</h2>
 ${tbl(['资产账户', '用途', '能做什么', '风险特征'], [
@@ -290,7 +292,7 @@ ${tbl(['等级（示例）', '要求', '每日提币限额（示例）', '可用
 
 <h2>5. API 签名：HMAC-SHA256、时间戳与 recvWindow</h2>
 <p>API 签名解决三个问题：① 证明请求来自持有 Secret 的人；② 证明请求内容没被篡改；③ 防止请求被截获后重放。以币安现货 API 为例（其他交易所思路相同，字段名不同）：</p>
-${steps(['把所有参数拼成查询字符串，必须包含 <code>timestamp</code>（毫秒时间戳），可选 <code>recvWindow</code>（有效窗口，毫秒）。', '用 API Secret 作为密钥，对查询字符串计算 HMAC-SHA256，得到十六进制签名。', '把签名作为 <code>signature</code> 参数追加到请求里；把 API Key 放在请求头 <code>X-MBX-APIKEY</code>。', '服务端用 API Key 找到 Secret，重算签名并比较；再检查 <code>timestamp</code> 是否在 <code>recvWindow</code> 内。'])}
+${steps(['把所有参数拼成查询字符串，必须包含 <code>timestamp</code>（毫秒时间戳；截至 2026-11 币安也接受微秒，<code>recvWindow</code> 可带最多 3 位小数，以官方文档为准），可选 <code>recvWindow</code>（有效窗口，毫秒）。', '用 API Secret 作为密钥，对查询字符串计算 HMAC-SHA256，得到十六进制签名。', '把签名作为 <code>signature</code> 参数追加到请求里；把 API Key 放在请求头 <code>X-MBX-APIKEY</code>。', '服务端用 API Key 找到 Secret，重算签名并比较；再检查 <code>timestamp</code> 是否在 <code>recvWindow</code> 内。'])}
 ${mm('签名请求的验证流程', `
 sequenceDiagram
   autonumber
@@ -572,11 +574,11 @@ ${tbl(['操作', 'available', 'frozen', '前置检查', '典型业务'], [
   ['入账 Credit', '+ x', '不变', '无', '充值、成交收款、返佣']
 ])}
 <p>记账的标准流程（同一个数据库事务内）：</p>
-${steps(['插入 <code>ledger_txn</code>(biz_type, biz_id)。如果违反唯一约束，说明已经记过：查出上次结果直接返回成功（幂等）。', '校验分录：每种资产借合计 = 贷合计；金额 > 0；精度合法。', '按固定顺序（例如按 account id 升序）锁定或读取涉及的余额行，避免死锁。', '逐行更新余额：<code>UPDATE … SET available = available − x, version = version + 1 WHERE id = ? AND version = ? AND available ≥ x</code>。影响行数为 0 就回滚并重试或报余额不足。', '插入每条 <code>ledger_entry</code>，写入 balance_after。', '提交事务。提交后再发“余额变动”事件（见 <a href="#m04-5">M09.6</a> 的 outbox）。'])}
+${steps(['插入 <code>ledger_txn</code>(biz_type, biz_id)。如果违反唯一约束，说明已经记过：直接返回成功（幂等；生产中还应校验请求内容与首次一致，不一致时报冲突）。', '校验分录：每种资产借合计 = 贷合计；金额 > 0；精度合法。', '按固定顺序（例如按 account id 升序）锁定或读取涉及的余额行，避免死锁。', '逐行更新余额：<code>UPDATE … SET available = available − x, version = version + 1 WHERE id = ? AND version = ? AND available ≥ x</code>。影响行数为 0 就回滚并重试或报余额不足。', '插入每条 <code>ledger_entry</code>，写入 balance_after。', '提交事务。提交后再发“余额变动”事件（见 <a href="#m04-5">M09.6</a> 的 outbox）。'])}
 ${code('GO', `
 // Post 在一个事务里记一笔业务。重复的 (bizType, bizID) 直接返回 nil（幂等）。
 func (l *Ledger) Post(ctx context.Context, bizType, bizID string, legs []Leg) error {
-	if err := checkBalanced(legs); err != nil { // 每种资产借合计 == 贷合计
+	if err := checkBalanced(legs); err != nil { // 每种资产按 Direction + Amount 配平：借合计 == 贷合计
 		return err
 	}
 	return pgx.BeginFunc(ctx, l.db, func(tx pgx.Tx) error {
@@ -585,23 +587,27 @@ func (l *Ledger) Post(ctx context.Context, bizType, bizID string, legs []Leg) er
 			\`INSERT INTO ledger_txn (biz_type, biz_id) VALUES ($1, $2)
 			 ON CONFLICT (biz_type, biz_id) DO NOTHING RETURNING id\`, bizType, bizID).Scan(&txnID)
 		if errors.Is(err, pgx.ErrNoRows) {
-			return nil // 已经记过：幂等返回
+			return nil // 已经记过：幂等返回。生产中应比对请求摘要（例如把分录 hash 存进 ledger_txn），不一致时报冲突
 		} else if err != nil {
 			return err
 		}
-		sortLegs(legs) // 按 (user, asset) 排序后加锁，防止两个事务交叉加锁死锁
+		sortLegs(legs) // 按固定顺序（例如 account id 升序）排序后加锁，防止两个事务交叉加锁死锁
 		for _, g := range legs {
-			// g.DeltaAvail / g.DeltaFrozen 为 decimal 字符串，正数增加，负数减少
+			// 一条 leg 只改一个桶：g.Bucket（1 available / 2 frozen）+ 带符号的 g.Delta（decimal 字符串，正数增加，负数减少）。
+			// g.Amount = |g.Delta|，g.Direction 记借 / 贷。冻结 x 拆成两条 leg：可用 −x、冻结 +x，各写一条流水。
+			col := "available"
+			if g.Bucket == 2 {
+				col = "frozen"
+			}
 			var after string
-			err := tx.QueryRow(ctx, \`
+			err := tx.QueryRow(ctx, fmt.Sprintf(\`
 				UPDATE account_balance
-				   SET available = available + $1::numeric,
-				       frozen    = frozen    + $2::numeric,
-				       version   = version + 1, updated_at = now()
-				 WHERE user_id = $3 AND account_type = $4 AND asset = $5
-				   AND available + $1::numeric >= 0 AND frozen + $2::numeric >= 0
-				RETURNING (CASE WHEN $6 = 1 THEN available ELSE frozen END)::text\`,
-				g.DeltaAvail, g.DeltaFrozen, g.UserID, g.AccountType, g.Asset, g.Bucket).Scan(&after)
+				   SET %[1]s = %[1]s + $1::numeric,
+				       version = version + 1, updated_at = now()
+				 WHERE user_id = $2 AND account_type = $3 AND asset = $4
+				   AND %[1]s + $1::numeric >= 0
+				RETURNING %[1]s::text\`, col),
+				g.Delta, g.UserID, g.AccountType, g.Asset).Scan(&after)
 			if errors.Is(err, pgx.ErrNoRows) {
 				return ErrInsufficient // 余额不足：整个事务回滚
 			} else if err != nil {
@@ -655,7 +661,7 @@ ${tbl(['方案', '做法', '优点', '缺点'], [
 ])}
 <h3>6.2 余额快照与审计</h3>
 <p>流水表只追加，所以“任意时刻的余额”都可以用流水重算出来。生产系统每天（或每小时）做一次余额快照（Balance Snapshot），然后检查（同一份流水还能派生出税务用的成本基础台账，见 <a href="#m11-5">M12.7 税务与会计</a>）：</p>
-${steps(['<b>流水重放检查</b>：昨日快照余额 + 今日流水净额 = 今日快照余额。不等就说明有人绕过账本改了余额表。', '<b>全局不变量</b>：每种资产，所有用户 + 平台账户余额之和 = 累计外部充值 − 累计外部提币。', '<b>借贷平衡</b>：每个 txn 内，每种资产借合计 = 贷合计。', '<b>非负检查</b>：任何 available、frozen 都不小于 0。', '<b>冻结一致性</b>：用户现货 frozen = 该用户所有未成交挂单需要的冻结额之和。'])}
+${steps(['<b>流水重放检查</b>：昨日快照余额 + 今日流水净额 = 今日快照余额。不等就说明有人绕过账本改了余额表。', '<b>全局不变量</b>：每种资产，所有用户 + 平台收入类账户（手续费等，不含托管资产户）余额之和 = 托管资产账户余额 = 累计外部充值 − 累计外部提币 − 平台支付的链上手续费等支出。', '<b>借贷平衡</b>：每个 txn 内，每种资产借合计 = 贷合计。', '<b>非负检查</b>：任何 available、frozen 都不小于 0。', '<b>冻结一致性</b>：用户现货 frozen = 该用户所有未成交挂单需要的冻结额之和。'])}
 <p><b>算一算（示例）</b>：昨日快照 Alice 的 USDT 总额 = 2,000。今日流水：充值 +10,000；成交付出 −6,000；没有其他流水。</p>
 ${steps(['重放结果 = 2,000 + 10,000 − 6,000 = 6,000 USDT。', '今日快照读到 6,000 → 一致。', '如果快照读到 6,500，差额 +500 说明有一次余额更新没有对应流水（例如运维直接改库）。系统应告警并冻结该账户的提币。'])}
 
@@ -671,7 +677,7 @@ ${tbl(['检查项', '为什么', '怎么验证'], [
 ])}
 
 ${tryit(`<p>在本地 PostgreSQL 验证幂等和非负约束：</p>
-<ol><li>用 Docker 启动数据库：<code>docker run -d --name pg -e POSTGRES_PASSWORD=dev -p 5432:5432 postgres:16</code>。</li>
+<ol><li>用 Docker 启动数据库：<code>docker run -d --name pg -e POSTGRES_PASSWORD=dev -p 5432:5432 postgres:16</code>（16 及以上都可以；截至 2026-11 最新大版本是 18）。</li>
 <li>用 <code>psql -h localhost -U postgres</code> 连接，执行上面的三张表 DDL。</li>
 <li>插入一行余额：<code>INSERT INTO account_balance(user_id,account_type,asset,available) VALUES (1001,2,'USDT',100);</code></li>
 <li>执行两次 <code>INSERT INTO ledger_txn(biz_type,biz_id) VALUES ('DEPOSIT','tx-1');</code>。预期第二次报唯一约束冲突。</li>

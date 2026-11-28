@@ -1,0 +1,206 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 sweep，id 前缀 sw- -->
+  <div id="root" data-composition-id="sweep" data-duration="85.12" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sw-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sw-all">
+        <defs><marker id="sw-aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="sw-aY" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker></defs>
+        <text id="sw-ex" class="h" x="1840" y="120" font-size="28" fill="#8a8f99" text-anchor="end">示例</text>
+        <!-- L0 天平 -->
+        <g id="sw-g0">
+          <path id="sw-piv" class="h" d="M960 480 L920 560 L1000 560 Z" fill="#3a3f4b" />
+          <g id="sw-bm" class="h">
+            <line x1="640" y1="480" x2="1280" y2="480" stroke="#8a8f99" stroke-width="5" />
+            <line x1="680" y1="480" x2="680" y2="540" stroke="#8a8f99" stroke-width="2" />
+            <line x1="1240" y1="480" x2="1240" y2="540" stroke="#8a8f99" stroke-width="2" />
+            <g id="sw-pl" class="h"><rect x="580" y="540" width="200" height="70" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="680" y="586" font-size="30" fill="#F0B90B" text-anchor="middle">充值 5 美元</text></g>
+            <g id="sw-pr" class="h"><rect x="1140" y="540" width="200" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="1240" y="586" font-size="30" fill="#FC6255" text-anchor="middle">Gas 3 美元</text></g>
+          </g>
+          <text id="sw-x0" class="h" x="960" y="420" font-size="64" font-weight="700" fill="#FC6255" text-anchor="middle">✕</text>
+          <text id="sw-f0" class="h" x="960" y="770" font-size="44" fill="#e8e6df" text-anchor="middle">资产价值 &gt; 归集成本 × <tspan fill="#FF9F43">N</tspan></text>
+          <text id="sw-f1" class="h" x="960" y="850" font-size="40" font-weight="700" fill="#FF9F43" text-anchor="middle">N = 20</text>
+        </g>
+        <!-- L1 补 Gas -->
+        <g id="sw-g1">
+          <g id="sw-d" class="h">
+            <rect x="160" y="380" width="460" height="220" rx="16" fill="#1c2128" stroke="#58C4DD" stroke-width="3" />
+            <text x="190" y="432" font-size="30" fill="#e8e6df">ERC-20 充值地址</text>
+            <rect x="400" y="500" width="180" height="40" rx="8" fill="none" stroke="#8a8f99" stroke-width="2" />
+            <text x="400" y="582" font-size="28" fill="#8a8f99">ETH</text>
+          </g>
+          <rect id="sw-gf" class="h" x="402" y="502" width="2" height="36" rx="6" fill="#F0B90B" />
+          <g id="sw-ga" class="h"><rect x="160" y="760" width="460" height="120" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="190" y="830" font-size="30" fill="#e8e6df">Gas 补充账户</text></g>
+          <path id="sw-ga1" class="dr h" pathLength="1" d="M490 758 L490 606" stroke="#F0B90B" stroke-width="3" stroke-dasharray="1" fill="none" marker-end="url(#sw-aY)" />
+          <text id="sw-gl" class="h" x="515" y="690" font-size="28" fill="#F0B90B"><tspan class="mono">gas limit</tspan> × 最高费用</text>
+          <g id="sw-hw" class="h"><rect x="1300" y="380" width="400" height="220" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1500" y="440" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">热钱包</text></g>
+          <path id="sw-ha" class="dr h" pathLength="1" d="M620 490 L1296 490" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#sw-aY)" />
+          <text id="sw-hl" class="h" x="960" y="468" font-size="28" fill="#F0B90B" text-anchor="middle">归集</text>
+          <g id="sw-um"><g id="sw-u" class="h"><rect x="200" y="495" width="130" height="50" rx="25" fill="#3a3210" stroke="#F0B90B" stroke-width="2.5" /><text x="265" y="530" font-size="28" fill="#F0B90B" text-anchor="middle">USDT</text></g></g>
+        </g>
+        <!-- L2 时间窗口 / 紧急 / 批量 -->
+        <g id="sw-g2">
+          <g id="sw-ax" class="h">
+            <line x1="160" y1="620" x2="1000" y2="620" stroke="#6b6f7a" stroke-width="2" />
+            <line x1="160" y1="300" x2="160" y2="620" stroke="#6b6f7a" stroke-width="2" />
+            <text x="180" y="320" font-size="28" fill="#8a8f99">Gas 价</text>
+            <text x="1000" y="660" font-size="28" fill="#8a8f99" text-anchor="end">24 小时</text>
+          </g>
+          <path id="sw-cv" class="dr" pathLength="1" d="M180 400 C 320 380 400 570 520 570 C 640 570 720 340 980 370" stroke="#F0B90B" stroke-width="4" fill="none" />
+          <circle id="sw-vd" class="h" cx="520" cy="570" r="12" fill="#83C167" />
+          <text id="sw-vl" class="h" x="520" y="670" font-size="28" fill="#e8e6df" text-anchor="middle">低谷：周末 / UTC 凌晨</text>
+          <text id="sw-vs" class="h" x="520" y="715" font-size="28" fill="#83C167" text-anchor="middle">慢速档归集</text>
+          <g id="sw-tk" class="h"><rect x="1250" y="280" width="300" height="340" rx="10" fill="none" stroke="#FF9F43" stroke-width="3" /><text x="1400" y="330" font-size="30" fill="#FF9F43" text-anchor="middle">热钱包</text></g>
+          <rect id="sw-wt" class="h" x="1254" y="400" width="292" height="216" fill="#F0B90B" fill-opacity="0.35" />
+          <path id="sw-ea" class="dr h" pathLength="1" d="M1790 450 L1556 450" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#sw-aR)" />
+          <text id="sw-el" class="h" x="1672" y="420" font-size="28" fill="#FC6255" text-anchor="middle">紧急归集</text>
+          <g id="sw-bt" class="h">
+            <text x="180" y="770" font-size="28" fill="#8a8f99">补 Gas</text>
+            <circle cx="200" cy="800" r="10" fill="#F0B90B" /><circle cx="200" cy="860" r="10" fill="#F0B90B" /><circle cx="200" cy="920" r="10" fill="#F0B90B" />
+            <path d="M212 800 C 380 800 400 860 518 860 M212 860 L518 860 M212 920 C 380 920 400 860 518 860" stroke="#F0B90B" stroke-width="2" fill="none" />
+            <rect x="520" y="820" width="340" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="690" y="870" font-size="28" fill="#58C4DD" text-anchor="middle">批量转账合约</text>
+          </g>
+          <text id="sw-rs" class="h" x="1000" y="870" font-size="30" fill="#e8e6df">残留 ETH 也能归集：先算划不划算</text>
+        </g>
+        <!-- L3-L5 算一算 -->
+        <g id="sw-lf" class="h">
+          <rect x="140" y="360" width="340" height="160" rx="14" fill="#1c2128" stroke="#58C4DD" stroke-width="3" />
+          <text x="170" y="410" font-size="28" fill="#8a8f99">充值地址</text>
+          <rect x="620" y="360" width="280" height="160" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+          <text x="760" y="452" font-size="30" fill="#FF9F43" text-anchor="middle">热钱包</text>
+          <text x="140" y="620" font-size="28" fill="#8a8f99">Gas 价</text>
+          <text class="mono" x="800" y="620" font-size="28" fill="#F0B90B">gwei</text>
+          <rect x="140" y="650" width="760" height="30" rx="6" fill="none" stroke="#6b6f7a" stroke-width="2" />
+        </g>
+        <text id="sw-gv" class="mono h" x="790" y="620" font-size="28" fill="#F0B90B" text-anchor="end">20</text>
+        <rect id="sw-gb" class="h" x="142" y="652" width="2" height="26" rx="4" fill="#F0B90B" />
+        <text id="sw-v1" class="h" x="170" y="480" font-size="34" font-weight="700" fill="#F0B90B">120 USDT</text>
+        <text id="sw-v2" class="h" x="170" y="480" font-size="34" font-weight="700" fill="#F0B90B">200 USDT</text>
+        <path id="sw-la" class="dr h" pathLength="1" d="M480 440 L616 440" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#sw-arr)" />
+        <text id="sw-ok" class="h" x="548" y="420" font-size="28" fill="#83C167" text-anchor="middle">归集</text>
+        <text id="sw-wait" class="h" x="548" y="420" font-size="28" fill="#FF9F43" text-anchor="middle">暂缓</text>
+        <g id="sw-st" class="h"><rect x="120" y="860" width="780" height="100" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2" /><text x="145" y="922" font-size="28" fill="#FF9F43">自测</text><text x="225" y="922" font-size="28" fill="#e8e6df">50 USDT · 成本 5 美元 → 10 &lt; 20 · 暂缓</text></g>
+        <g id="sw-pn" class="h"><rect x="980" y="220" width="820" height="780" rx="16" fill="#161a22" stroke="#3a3f4b" stroke-width="2.5" /><text x="1010" y="272" font-size="30" fill="#8a8f99">算一算</text></g>
+        <text id="sw-c1" class="h" x="1010" y="335" font-size="32" fill="#F0B90B">资产：120 USDT</text>
+        <text id="sw-c2" class="h" x="1010" y="400" font-size="32" fill="#e8e6df">Gas：21,000 + 65,000</text>
+        <text id="sw-c2b" class="h" x="1370" y="400" font-size="32" fill="#e8e6df">= 86,000 gas</text>
+        <text id="sw-c3" class="h" x="1010" y="465" font-size="32" fill="#e8e6df">20 gwei · ETH 3,000 美元</text>
+        <text id="sw-c4" class="h" x="1010" y="548" font-size="30" fill="#e8e6df">86,000 × 20 gwei × 3,000 美元 ≈ <tspan fill="#F0B90B">5.16 美元</tspan></text>
+        <text id="sw-c5" class="h" x="1010" y="616" font-size="30" fill="#e8e6df">120 ÷ 5.16 ≈ 23 &gt; 20</text>
+        <text id="sw-c5k" class="h" x="1600" y="616" font-size="30" font-weight="700" fill="#83C167">归集</text>
+        <text id="sw-c6" class="h" x="1010" y="684" font-size="30" fill="#e8e6df">60 gwei → 15.48 美元 → 7.8</text>
+        <text id="sw-c6k" class="h" x="1600" y="684" font-size="30" font-weight="700" fill="#FF9F43">暂缓</text>
+        <line id="sw-sep" class="h" x1="1010" y1="730" x2="1770" y2="730" stroke="#3a3f4b" stroke-width="2" />
+        <text id="sw-d0" class="h" x="1010" y="790" font-size="32" fill="#F0B90B">200 USDT · ETH 2,500 美元</text>
+        <g id="sw-dA" class="h"><text x="1010" y="852" font-size="30" fill="#e8e6df">30 gwei</text><text x="1010" y="905" font-size="30" fill="#e8e6df">≈ 6.45 美元</text></g>
+        <text id="sw-dAk" class="h" x="1010" y="960" font-size="30" fill="#83C167">比值 ≈ 31 · 归集</text>
+        <g id="sw-dB" class="h"><text x="1400" y="852" font-size="30" fill="#e8e6df">80 gwei</text><text x="1400" y="905" font-size="30" fill="#e8e6df">≈ 17.2 美元</text></g>
+        <text id="sw-dBk" class="h" x="1400" y="960" font-size="30" fill="#FF9F43">比值 ≈ 11.6 · 暂缓</text>
+
+      </g>
+      <g id="sw-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">归集 <tspan font-size="28" font-weight="400" fill="#8a8f99">Sweep</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">把分散在充值地址的钱集中到热钱包</text>
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+            const GW = (v, t, f = 0) => { COUNT("#sw-gv", f, v, t, 0.8); tl.to("#sw-gb", { attr: { width: v * 7.56 }, duration: 0.8, ease: "power2.out" }, t); };
+      // L0
+      IN("#sw-term", at(0, 0.03), 0.5);
+      IN("#sw-piv", at(0, 0.15), 0.5); IN("#sw-bm", at(0, 0.15), 0.5);
+      IN("#sw-pl", at(0, 0.22), 0.5);
+      IN("#sw-pr", at(0, 0.3), 0.5);
+      tl.to("#sw-bm", { rotation: 8, svgOrigin: "960 480", duration: 0.8, ease: "back.out(1.6)" }, at(0, 0.36));
+      IN("#sw-x0", at(0, 0.46), 0.4, { scale: 1.6, svgOrigin: "960 400" }, { scale: 1, svgOrigin: "960 400" });
+      IN("#sw-f0", at(0, 0.62), 0.6);
+      OUT("#sw-term", at(0, 0.7));
+      IN("#sw-f1", at(0, 0.86), 0.5); IN("#sw-ex", at(0, 0.88), 0.5);
+      // L1
+      OUT("#sw-g0", at(1, 0.0));
+      IN("#sw-d", at(1, 0.05), 0.5); IN("#sw-u", at(1, 0.1), 0.5);
+      IN("#sw-ga", at(1, 0.25), 0.5);
+      ARROW("#sw-ga1", at(1, 0.38)); IN("#sw-gl", at(1, 0.42), 0.5);
+      tl.set("#sw-gf", { opacity: 1 }, at(1, 0.5));
+      tl.to("#sw-gf", { attr: { width: 70 }, duration: 0.6 }, at(1, 0.5));
+      IN("#sw-hw", at(1, 0.66), 0.5);
+      ARROW("#sw-ha", at(1, 0.72), 0.7); IN("#sw-hl", at(1, 0.76), 0.4);
+      tl.to("#sw-um", { x: 1235, duration: 1.2, ease: "power2.inOut" }, at(1, 0.8));
+      // L2
+      OUT("#sw-g1", at(2, 0.0));
+      IN("#sw-ax", at(2, 0.04), 0.4); DRAW("#sw-cv", at(2, 0.06), 1.0);
+      IN("#sw-vd", at(2, 0.18), 0.4); IN("#sw-vl", at(2, 0.2), 0.5);
+      IN("#sw-vs", at(2, 0.32), 0.5);
+      IN("#sw-tk", at(2, 0.44), 0.4); IN("#sw-wt", at(2, 0.44), 0.4);
+      tl.to("#sw-wt", { attr: { y: 560, height: 56 }, duration: 0.8 }, at(2, 0.5));
+      ARROW("#sw-ea", at(2, 0.6)); IN("#sw-el", at(2, 0.62), 0.4);
+      tl.to("#sw-wt", { attr: { y: 420, height: 196 }, duration: 0.8 }, at(2, 0.66));
+      IN("#sw-bt", at(2, 0.7), 0.6);
+      // L3 残留
+      IN("#sw-rs", at(3, 0.05), 0.5, { x: -20 }, { x: 0 });
+      tl.to("#sw-rs", { fill: "#F0B90B", duration: 0.4 }, at(3, 0.55));
+      // L4（原 L3）
+      OUT("#sw-g2", at(4, 0.0));
+      IN("#sw-pn", at(4, 0.05), 0.5); IN("#sw-lf", at(4, 0.08), 0.5);
+      IN("#sw-c1", at(4, 0.24), 0.4); IN("#sw-v1", at(4, 0.26), 0.4);
+      IN("#sw-c2", at(4, 0.42), 0.4);
+      IN("#sw-c2b", at(4, 0.62), 0.4);
+      IN("#sw-c3", at(4, 0.76), 0.4);
+      IN("#sw-gv", at(4, 0.86), 0.3); IN("#sw-gb", at(4, 0.86), 0.3); GW(20, at(4, 0.86));
+      // L5（原 L4）
+      IN("#sw-c4", at(5, 0.02), 0.5);
+      IN("#sw-c5", at(5, 0.2), 0.5);
+      IN("#sw-c5k", at(5, 0.34), 0.4); ARROW("#sw-la", at(5, 0.34)); IN("#sw-ok", at(5, 0.36), 0.4);
+      GW(60, at(5, 0.52), 20);
+      IN("#sw-c6", at(5, 0.6), 0.5);
+      IN("#sw-c6k", at(5, 0.76), 0.4); OUT("#sw-ok", at(5, 0.74), 0.3); IN("#sw-wait", at(5, 0.77), 0.4);
+      tl.to("#sw-la", { stroke: "#FF9F43", duration: 0.3 }, at(5, 0.77));
+      // L6 自测
+      IN("#sw-st", at(6, 0.04), 0.5, { y: 20 }, { y: 0 });
+      tl.to("#sw-st", { scale: 1.04, svgOrigin: "510 910", duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.75));
+      // L7（原 L5）
+      IN("#sw-sep", at(7, 0.02), 0.4); IN("#sw-d0", at(7, 0.04), 0.5);
+      OUT("#sw-v1", at(7, 0.04), 0.3); IN("#sw-v2", at(7, 0.04) + 0.35, 0.4); OUT("#sw-wait", at(7, 0.04), 0.3);
+      tl.to("#sw-la", { stroke: "#e8e6df", duration: 0.3 }, at(7, 0.04));
+      GW(30, at(7, 0.22), 60); IN("#sw-dA", at(7, 0.24), 0.5);
+      IN("#sw-dAk", at(7, 0.4), 0.4); IN("#sw-ok", at(7, 0.4), 0.4); tl.to("#sw-la", { stroke: "#83C167", duration: 0.3 }, at(7, 0.4));
+      GW(80, at(7, 0.6), 30); IN("#sw-dB", at(7, 0.62), 0.5);
+      OUT("#sw-ok", at(7, 0.76), 0.3); IN("#sw-dBk", at(7, 0.78), 0.4); IN("#sw-wait", at(7, 0.79), 0.4);
+      tl.to("#sw-la", { stroke: "#FF9F43", duration: 0.3 }, at(7, 0.79));
+
+
+      tl.to("#sw-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#sw-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["sweep"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,146 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 algo，id 前缀 al- -->
+  <div id="root" data-composition-id="algo" data-duration="58.29" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="al-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs><marker id="al-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="al-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="al-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="al-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="al-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="al-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="al-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker></defs>
+<g id="al-all">
+<g id="al-pan" class="h"><rect x="100" y="220" width="760" height="780" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/></g>
+<rect id="al-hl" class="h" x="112" y="258" width="736" height="54" rx="8" fill="#58C4DD" fill-opacity="0.15"/>
+<text id="al-l0" class="h" x="130" y="296" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan class="mono">opp = taker </tspan><tspan>是买</tspan><tspan class="mono"> ? </tspan><tspan>卖盘</tspan><tspan class="mono"> : </tspan><tspan>买盘</tspan></text>
+<text id="al-l1" class="h" x="130" y="362" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan class="mono">while taker.qty &gt; 0 </tspan><tspan>且</tspan><tspan class="mono"> opp </tspan><tspan>非空</tspan><tspan class="mono">:</tspan></text>
+<text id="al-l2" class="h" x="190" y="428" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan class="mono">level = opp.best()</tspan></text>
+<text id="al-l3" class="h" x="190" y="494" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan class="mono">if </tspan><tspan>限价</tspan><tspan class="mono"> </tspan><tspan>且</tspan><tspan class="mono"> </tspan><tspan>不交叉</tspan><tspan class="mono">: break</tspan></text>
+<text id="al-l4" class="h" x="190" y="560" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan class="mono">for maker in level.queue:</tspan></text>
+<text id="al-l10" class="h" x="250" y="626" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan class="mono">if maker.user == taker.user: STP</tspan></text>
+<text id="al-l5" class="h" x="250" y="692" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan class="mono">q = min(taker.qty, maker.qty)</tspan></text>
+<text id="al-l6" class="h" x="250" y="758" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan>输出</tspan><tspan class="mono"> Trade(</tspan><tspan>价格</tspan><tspan class="mono"> = level.price, q)</tspan></text>
+<text id="al-l7" class="h" x="250" y="824" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan class="mono">maker </tspan><tspan>吃完</tspan><tspan class="mono"> </tspan><tspan>→</tspan><tspan class="mono"> </tspan><tspan>移出队列和索引</tspan></text>
+<text id="al-l8" class="h" x="190" y="890" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan class="mono">level </tspan><tspan>空</tspan><tspan class="mono"> </tspan><tspan>→</tspan><tspan class="mono"> </tspan><tspan>删除档位</tspan></text>
+<text id="al-l9" class="h" x="130" y="956" font-size="28" fill="#58C4DD" xml:space="preserve"><tspan>剩余</tspan><tspan class="mono">: GTC </tspan><tspan>限价</tspan><tspan class="mono"> </tspan><tspan>→</tspan><tspan class="mono"> </tspan><tspan>挂单；否则</tspan><tspan class="mono"> </tspan><tspan>→</tspan><tspan class="mono"> </tspan><tspan>撤销</tspan></text>
+<g id="al-tk" class="h"><g id="al-tki"><rect x="940" y="560" width="200" height="80" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3.5"/><text x="1040" y="611" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle"><tspan class="mono">taker</tspan> 买</text></g></g>
+<path id="al-ta" class="dr h" pathLength="1" fill="none" d="M1144 600 L1294 600" stroke="#FF9F43" stroke-width="3.5" marker-end="url(#al-mo)"/>
+<text id="al-asks" class="h" x="1300" y="276" font-size="32" font-weight="700" fill="#FC6255">卖盘</text>
+<g id="al-rC" class="h"><rect x="1300" y="300" width="500" height="80" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5" stroke-opacity="0.7"/><text x="1324" y="351" font-size="28" fill="#e8e6df">卖三</text><text class="mono" x="1420" y="351" font-size="28" fill="#FC6255">60,020</text></g>
+<g id="al-rB" class="h"><rect x="1300" y="400" width="500" height="80" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="2.5" stroke-opacity="0.7"/><text x="1324" y="451" font-size="28" fill="#e8e6df">卖二</text><text class="mono" x="1420" y="451" font-size="28" fill="#FC6255">60,010</text></g>
+<g id="al-rA" class="h"><rect id="al-rAr" x="1300" y="520" width="500" height="120" rx="10" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="1324" y="572" font-size="28" fill="#e8e6df">卖一</text><text class="mono" x="1324" y="614" font-size="28" fill="#FC6255">60,000</text></g>
+<g id="al-m0" class="h"><rect id="al-mr0" x="1500" y="545" width="84" height="70" rx="8" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="2.5"/><circle cx="1524" cy="580" r="11" fill="none" stroke="#e8e6df" stroke-width="2"/><path d="M1524 573 L1524 580 L1530 584" fill="none" stroke="#e8e6df" stroke-width="2"/><text class="mono" x="1556" y="590" font-size="28" fill="#e8e6df" text-anchor="middle">1</text></g>
+<g id="al-m1" class="h"><rect id="al-mr1" x="1595" y="545" width="84" height="70" rx="8" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="2.5"/><circle cx="1619" cy="580" r="11" fill="none" stroke="#e8e6df" stroke-width="2"/><path d="M1619 573 L1619 580 L1625 584" fill="none" stroke="#e8e6df" stroke-width="2"/><text class="mono" x="1651" y="590" font-size="28" fill="#e8e6df" text-anchor="middle">2</text></g>
+<g id="al-m2" class="h"><rect id="al-mr2" x="1690" y="545" width="84" height="70" rx="8" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="2.5"/><circle cx="1714" cy="580" r="11" fill="none" stroke="#e8e6df" stroke-width="2"/><path d="M1714 573 L1714 580 L1720 584" fill="none" stroke="#e8e6df" stroke-width="2"/><text class="mono" x="1746" y="590" font-size="28" fill="#e8e6df" text-anchor="middle">3</text></g>
+<g id="al-cx" class="h"><rect x="940" y="720" width="260" height="80" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="1070" y="771" font-size="30" fill="#FF9F43" text-anchor="middle">买 <tspan class="mono">59,990</tspan></text><rect x="1540" y="720" width="260" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1670" y="771" font-size="30" fill="#FC6255" text-anchor="middle">卖一 <tspan class="mono">60,000</tspan></text></g>
+<text id="al-stop" class="h" x="1370" y="771" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">不交叉 → 停</text>
+<g id="al-stp" class="h"><rect x="940" y="700" width="860" height="110" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/><text x="970" y="744" font-size="30" fill="#e8e6df">挂单和新单是同一个用户？</text><text x="970" y="790" font-size="30" fill="#FF9F43">→ 按自成交防护（<tspan class="mono">STP</tspan>）规则处理</text></g>
+<text id="al-min" class="h" x="940" y="780" font-size="30" fill="#e8e6df"><tspan class="mono">q = min(</tspan>剩余<tspan class="mono">, </tspan>剩余<tspan class="mono">)</tspan></text>
+<text id="al-px" class="h" x="1500" y="702" font-size="30" fill="#F0B90B">成交价 = <tspan class="mono">maker</tspan> 价</text>
+<g id="al-ix" class="h"><rect x="1300" y="740" width="300" height="230" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="1330" y="786" font-size="28" fill="#58C4DD">撤单索引</text><line x1="1300" y1="804" x2="1600" y2="804" stroke="#58C4DD" stroke-width="1.5"/></g>
+<g id="al-x0" class="h"><text class="mono" x="1340" y="846" font-size="28" fill="#e8e6df">1</text><circle cx="1540" cy="836" r="8" fill="#58C4DD"/></g>
+<g id="al-x1" class="h"><text class="mono" x="1340" y="894" font-size="28" fill="#e8e6df">2</text><circle cx="1540" cy="884" r="8" fill="#58C4DD"/></g>
+<g id="al-x2" class="h"><text class="mono" x="1340" y="942" font-size="28" fill="#e8e6df">3</text><circle cx="1540" cy="932" r="8" fill="#58C4DD"/></g>
+<path id="al-f1" class="dr h" pathLength="1" d="M1010 644 C1000 700 1060 720 1110 754" fill="none" stroke="#83C167" stroke-width="3.5" marker-end="url(#al-mgr)"/>
+<path id="al-f2" class="dr h" pathLength="1" d="M1080 644 C1200 690 1500 700 1580 754" fill="none" stroke="#8a8f99" stroke-width="3.5" marker-end="url(#al-mgy)"/>
+<g id="al-g1" class="h"><rect x="920" y="760" width="440" height="80" rx="12" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="2.5"/><text x="1140" y="811" font-size="30" fill="#83C167" text-anchor="middle"><tspan class="mono">GTC</tspan> 限价 → 挂入本方</text></g>
+<g id="al-g2" class="h"><rect x="1400" y="760" width="400" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="1600" y="811" font-size="30" fill="#e8e6df" text-anchor="middle">其他 → 输出撤销剩余</text></g>
+</g>
+      <g id="al-term" class="h">
+        <rect x="70" y="56" width="630" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">价格优先时间优先 <tspan font-size="28" font-weight="400" fill="#8a8f99">Price-Time Priority</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">先比价格，同价按到达时间排序</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+const HL = (a, b, t) => tl.to("#al-hl", { attr: { y: 258 + a * 66, height: 54 + (b - a) * 66 }, duration: 0.4, ease: "power2.inOut" }, t);
+// L0 code panel, find opposite side
+IN("#al-pan", at(0, 0.0), 0.5);
+for (let i = 0; i < 11; i++) IN(`#al-l${i}`, at(0, 0.02 + i * 0.015), 0.3);
+IN("#al-hl", at(0, 0.18), 0.3);
+IN("#al-tk", at(0, 0.3), 0.5, { x: -30 }, { x: 0 });
+ARROW("#al-ta", at(0, 0.45), 0.4);
+IN("#al-asks", at(0, 0.5), 0.4);
+IN("#al-rA", at(0, 0.52), 0.4); IN("#al-rB", at(0, 0.56), 0.4); IN("#al-rC", at(0, 0.6), 0.4);
+tl.to("#al-tki", { x: 12, duration: 0.25, yoyo: true, repeat: 3 }, at(0, 0.82));
+// L1 loop: take best level
+HL(1, 2, at(1, 0.02));
+tl.to("#al-rAr", { stroke: "#F0B90B", attr: { "stroke-width": 5 }, duration: 0.4 }, at(1, 0.45));
+tl.to("#al-rAr", { attr: { "fill-opacity": 0.6 }, fill: "#2a1f1f", duration: 0.4, yoyo: true, repeat: 1 }, at(1, 0.7));
+// L2 not crossing -> break
+HL(3, 3, at(2, 0.02));
+IN("#al-cx", at(2, 0.3), 0.5, { y: 20 }, { y: 0 });
+IN("#al-stop", at(2, 0.55), 0.4, { scale: 0.7, svgOrigin: "1370 760" }, { scale: 1, svgOrigin: "1370 760" });
+tl.to("#al-stop", { opacity: 0.4, duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.82));
+// L3 time priority within level
+OUT("#al-cx", at(3, 0.0), 0.3); OUT("#al-stop", at(3, 0.0), 0.3);
+tl.to("#al-rAr", { stroke: "#FC6255", attr: { "stroke-width": 3 }, duration: 0.3 }, at(3, 0.0));
+HL(4, 4, at(3, 0.02));
+IN("#al-term", at(3, 0.42), 0.5);
+[0, 1, 2].forEach(k => IN(`#al-m${k}`, at(3, 0.12 + k * 0.08), 0.4, { y: -20 }, { y: 0 }));
+tl.to("#al-mr0", { stroke: "#FF9F43", attr: { "stroke-width": 5 }, duration: 0.3 }, at(3, 0.5));
+tl.to("#al-ta", { attr: { d: "M1144 600 C1300 680 1480 690 1520 622" }, duration: 0.01 }, at(3, 0.5));
+tl.fromTo("#al-ta", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, immediateRender: false }, at(3, 0.5));
+tl.to("#al-mr1", { stroke: "#e8e6df", duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.75));
+tl.to("#al-mr2", { stroke: "#e8e6df", duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.82));
+// L4 self-trade prevention check before each fill
+OUT("#al-term", at(4, 0.6), 0.4);
+HL(5, 5, at(4, 0.02));
+tl.to("#al-mr0", { stroke: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.08));
+IN("#al-stp", at(4, 0.12), 0.5, { y: 15 }, { y: 0 });
+tl.to("#al-stp rect", { attr: { "stroke-width": 4.5 }, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.62));
+// L5 quantity = min, price = maker price
+OUT("#al-stp", at(5, 0.0), 0.3);
+HL(6, 7, at(5, 0.02));
+IN("#al-min", at(5, 0.08), 0.5, { y: 15 }, { y: 0 });
+IN("#al-px", at(5, 0.55), 0.5, { y: 15 }, { y: 0 });
+tl.to("#al-mr0", { attr: { "fill-opacity": 0.6 }, fill: "#F0B90B", duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.65));
+// L6 remove filled maker + index row; empty level removed
+OUT("#al-min", at(6, 0.0), 0.3); OUT("#al-px", at(6, 0.0), 0.3);
+HL(8, 9, at(6, 0.02));
+IN("#al-ix", at(6, 0.04), 0.4); [0, 1, 2].forEach(k => IN(`#al-x${k}`, at(6, 0.06), 0.3));
+OUT("#al-ta", at(6, 0.2), 0.3);
+tl.to("#al-m0", { y: -40, opacity: 0, duration: 0.5, ease: "power2.in" }, at(6, 0.25));
+tl.to("#al-x0", { opacity: 0, x: 30, duration: 0.4 }, at(6, 0.28));
+tl.to(["#al-m1", "#al-m2"], { y: -40, opacity: 0, duration: 0.5, ease: "power2.in" }, at(6, 0.5));
+tl.to(["#al-x1", "#al-x2"], { opacity: 0, x: 30, duration: 0.4 }, at(6, 0.52));
+tl.to("#al-rA", { opacity: 0, duration: 0.5 }, at(6, 0.7));
+tl.to(["#al-rB", "#al-rC"], { y: 120, duration: 0.6, ease: "power2.inOut" }, at(6, 0.8));
+// L7 remainder: rest or cancel
+OUT("#al-ix", at(7, 0.0), 0.3);
+HL(10, 10, at(7, 0.02));
+tl.to("#al-tki", { x: 12, duration: 0.2, yoyo: true, repeat: 1 }, at(7, 0.1));
+ARROW("#al-f1", at(7, 0.2), 0.5); IN("#al-g1", at(7, 0.28), 0.5);
+ARROW("#al-f2", at(7, 0.62), 0.5); IN("#al-g2", at(7, 0.7), 0.5);
+
+      /*ENDANIM*/
+
+      tl.to("#al-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#al-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["algo"] = tl;
+    })();
+  </script>
+</template>

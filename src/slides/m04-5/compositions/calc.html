@@ -1,0 +1,148 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 calc，id 前缀 ca- -->
+  <div id="root" data-composition-id="calc" data-duration="58.99" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="ca-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="ca-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="ca-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="ca-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="ca-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="ca-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="ca-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker><marker id="ca-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker></defs>
+<g id="ca-all">
+  <g id="ca-card" class="h">
+    <rect x="120" y="220" width="500" height="180" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+    <text x="150" y="272" font-size="32" font-weight="700" fill="#58C4DD">成交回报 <tspan class="mono" fill="#FF9F43">9001</tspan></text>
+    <text class="mono" x="150" y="324" font-size="28" fill="#F0B90B">0.15 BTC @ 61,234.56</text>
+    <text x="150" y="372" font-size="28" fill="#e8e6df">买 Alice · 卖 Bob</text>
+  </g>
+  <g id="ca-fee" class="h">
+    <rect x="120" y="436" width="640" height="58" rx="10" fill="#8a8f99" fill-opacity="0.18"/>
+    <text x="140" y="476" font-size="30" fill="#e8e6df">示例费率：<tspan id="ca-ft" class="mono">Taker 0.1%</tspan><tspan class="mono"> · </tspan><tspan id="ca-fm" class="mono">Maker 0.08%</tspan></text>
+  </g>
+
+  <g id="ca-book" class="h">
+    <text x="300" y="580" font-size="30" fill="#8a8f99">订单簿（卖单）</text>
+    <rect x="300" y="610" width="420" height="52" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+    <rect x="300" y="676" width="420" height="52" rx="6" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+    <rect id="ca-bob" x="300" y="742" width="420" height="52" rx="6" fill="#8a8f99" fill-opacity="0.2" stroke="#e8e6df" stroke-width="3"/>
+    <text x="320" y="778" font-size="28" fill="#e8e6df">Bob 卖单 <tspan class="mono">61,234.56</tspan></text>
+  </g>
+  <g id="ca-take" class="h">
+    <path d="M760 768 L736 768" stroke="#FF9F43" stroke-width="4" marker-end="url(#ca-mo)"/>
+    <rect x="770" y="740" width="250" height="56" rx="8" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+    <text x="895" y="779" font-size="28" fill="#FF9F43" text-anchor="middle">Alice 买单吃过来</text>
+  </g>
+
+  <text id="ca-n1" class="h" x="120" y="590" font-size="32" fill="#8a8f99">①</text>
+  <text id="ca-r1" class="h mono" x="180" y="590" font-size="34" fill="#e8e6df">0.15 × 61,234.56 = <tspan fill="#F0B90B" font-weight="700">9,185.184 USDT</tspan></text>
+  <text id="ca-n2" class="h" x="120" y="680" font-size="32" fill="#8a8f99">②</text>
+  <text id="ca-r2" class="h mono" x="180" y="680" font-size="34" fill="#e8e6df">0.15 × 0.1% = <tspan fill="#F0B90B" font-weight="700">0.00015 BTC</tspan></text>
+  <text id="ca-n3" class="h" x="120" y="770" font-size="32" fill="#8a8f99">③</text>
+  <text id="ca-r3" class="h mono" x="180" y="770" font-size="34" fill="#e8e6df">9,185.184 × 0.08% = 7.348147<tspan id="ca-d7">2</tspan></text>
+  <path id="ca-up" class="dr h" pathLength="1" d="M800 760 L880 760" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#ca-mo)"/>
+  <text id="ca-rr" class="h mono" x="900" y="770" font-size="34" font-weight="700" fill="#F0B90B">7.348148</text>
+  <text id="ca-rn" class="h" x="180" y="840" font-size="28" fill="#FF9F43">↑ 向上取整到 6 位（示例规则）</text>
+  <text id="ca-n4" class="h" x="120" y="940" font-size="32" fill="#8a8f99">④</text>
+  <text id="ca-r4" class="h mono" x="180" y="940" font-size="34" fill="#e8e6df">9,185.184 − 7.348148 = <tspan fill="#F0B90B" font-weight="700">9,177.835852</tspan></text>
+
+  <g id="ca-A" class="h">
+    <rect x="1260" y="220" width="560" height="340" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+    <text x="1290" y="275" font-size="36" font-weight="700" fill="#e8e6df">Alice</text>
+  </g>
+  <text id="ca-At" class="h" x="1290" y="326" font-size="30" fill="#FF9F43"><tspan class="mono">Taker</tspan> 主动吃单 · 买</text>
+  <g id="ca-Ac" class="h"><circle cx="1308" cy="380" r="18" fill="#F0B90B"/><text x="1340" y="391" font-size="30" fill="#e8e6df">收到 <tspan class="mono" fill="#F0B90B">0.15 BTC</tspan></text></g>
+  <g id="ca-sc" class="h">
+    <circle cx="1720" cy="372" r="9" fill="none" stroke="#FF9F43" stroke-width="3"/><circle cx="1720" cy="398" r="9" fill="none" stroke="#FF9F43" stroke-width="3"/>
+    <path d="M1728 377 L1770 392 M1728 393 L1770 378" stroke="#FF9F43" stroke-width="3"/>
+  </g>
+  <text id="ca-Af" class="h" x="1290" y="448" font-size="30" fill="#FF9F43">手续费 <tspan class="mono">−0.00015 BTC</tspan></text>
+  <text id="ca-Ar" class="h" x="1290" y="520" font-size="32" font-weight="700" fill="#F0B90B">实收 <tspan class="mono">0.14985 BTC</tspan></text>
+
+  <g id="ca-B" class="h">
+    <rect x="1260" y="600" width="560" height="340" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+    <text x="1290" y="655" font-size="36" font-weight="700" fill="#e8e6df">Bob</text>
+  </g>
+  <text id="ca-Bt" class="h" x="1290" y="706" font-size="30" fill="#8a8f99"><tspan class="mono">Maker</tspan> 挂单 · 卖</text>
+  <g id="ca-Bc" class="h"><circle cx="1308" cy="760" r="18" fill="#F0B90B"/><text x="1340" y="771" font-size="30" fill="#e8e6df">收到 <tspan class="mono" fill="#F0B90B">9,185.184 USDT</tspan></text></g>
+  <text id="ca-Bf" class="h" x="1290" y="828" font-size="30" fill="#FF9F43">手续费 <tspan class="mono">−7.348148 USDT</tspan></text>
+  <text id="ca-Br" class="h" x="1290" y="900" font-size="32" font-weight="700" fill="#F0B90B">实收 <tspan class="mono">9,177.835852 USDT</tspan></text>
+</g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const PULSE = (s, t, org, k = 1.08) => tl.to(s, { scale: k, svgOrigin: org, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, t);
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+
+      /*ANIM*/
+// L0
+IN("#ca-card", at(0, 0.0), 0.6, { x: -30 }, { x: 0 });
+IN("#ca-A", at(0, 0.22), 0.5, { x: 30 }, { x: 0 });
+IN("#ca-B", at(0, 0.3), 0.5, { x: 30 }, { x: 0 });
+IN("#ca-fee", at(0, 0.5), 0.5, { y: 10 }, { y: 0 });
+TO("#ca-ft", at(0, 0.66), { fill: "#FF9F43" }, 0.4);
+TO("#ca-fm", at(0, 0.86), { fill: "#FF9F43" }, 0.4);
+// L1 taker / maker
+IN("#ca-At", at(1, 0.03), 0.4, { x: 20 }, { x: 0 });
+IN("#ca-take", at(1, 0.12), 0.5, { x: 40 }, { x: 0 });
+IN("#ca-book", at(1, 0.4), 0.5);
+IN("#ca-Bt", at(1, 0.6), 0.4, { x: 20 }, { x: 0 });
+PULSE("#ca-bob", at(1, 0.75), "510 768", 1.04);
+tl.to("#ca-take", { x: -20, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.88));
+// L2 gross
+OUT("#ca-book, #ca-take", at(2, 0.0), 0.4);
+IN("#ca-n1", at(2, 0.08), 0.3);
+IN("#ca-r1", at(2, 0.1), 0.6, { x: -20 }, { x: 0 });
+PULSE("#ca-card", at(2, 0.4), "370 310", 1.03);
+TO("#ca-n1", at(2, 0.7), { fill: "#F0B90B" }, 0.4);
+// L3 Alice fee
+IN("#ca-Ac", at(3, 0.06), 0.5, { x: -40 }, { x: 0 });
+IN("#ca-n2", at(3, 0.36), 0.3);
+IN("#ca-r2", at(3, 0.38), 0.6, { x: -20 }, { x: 0 });
+IN("#ca-sc", at(3, 0.55), 0.3);
+tl.to("#ca-sc", { x: -20, duration: 0.25, yoyo: true, repeat: 3 }, at(3, 0.58));
+IN("#ca-Af", at(3, 0.66), 0.4, { y: -10 }, { y: 0 });
+IN("#ca-Ar", at(3, 0.84), 0.5, { y: 10 }, { y: 0 });
+OUT("#ca-sc", at(3, 0.95), 0.3);
+// L4 Bob fee raw
+IN("#ca-Bc", at(4, 0.05), 0.5, { x: -40 }, { x: 0 });
+IN("#ca-n3", at(4, 0.4), 0.3);
+IN("#ca-r3", at(4, 0.42), 0.6, { x: -20 }, { x: 0 });
+TO("#ca-n3", at(4, 0.7), { fill: "#F0B90B" }, 0.4);
+TO("#ca-n2", at(4, 0.0), { fill: "#F0B90B" }, 0.4);
+// L5 round up
+TO("#ca-d7", at(5, 0.05), { fill: "#FF9F43" }, 0.3);
+ARROW("#ca-up", at(5, 0.4), 0.4);
+IN("#ca-rr", at(5, 0.48), 0.5, { x: -10 }, { x: 0 });
+IN("#ca-rn", at(5, 0.62), 0.5);
+IN("#ca-Bf", at(5, 0.8), 0.4, { y: -10 }, { y: 0 });
+// L6 Bob net
+IN("#ca-n4", at(6, 0.08), 0.3);
+IN("#ca-r4", at(6, 0.1), 0.6, { x: -20 }, { x: 0 });
+PULSE("#ca-rr", at(6, 0.4), "980 760", 1.06);
+IN("#ca-Br", at(6, 0.7), 0.5, { y: 10 }, { y: 0 });
+PULSE("#ca-A", at(3, 0.03), "1540 390", 1.02);
+
+      /*ENDANIM*/
+
+      tl.to("#ca-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+
+      window.__timelines["calc"] = tl;
+    })();
+  </script>
+</template>

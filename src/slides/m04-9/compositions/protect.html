@@ -1,0 +1,191 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 protect，id 前缀 pr- -->
+  <div id="root" data-composition-id="protect" data-duration="51.11" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="pr-all">
+
+        <rect id="pr-slot0" class="h" x="210" y="240" width="300" height="200" rx="14" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8" /><rect id="pr-slot1" class="h" x="610" y="240" width="300" height="200" rx="14" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8" /><rect id="pr-slot2" class="h" x="1010" y="240" width="300" height="200" rx="14" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8" /><rect id="pr-slot3" class="h" x="1410" y="240" width="300" height="200" rx="14" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8" /><text id="pr-nm0" class="h" x="360" y="300" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">限流</text><text id="pr-nm1" class="h" x="760" y="300" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">熔断</text><text id="pr-nm2" class="h" x="1160" y="300" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">降级</text><text id="pr-nm3" class="h" x="1560" y="300" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">灰度</text>
+        <g id="pr-ic0" class="h">
+          <path d="M320 336 L332 416 L388 416 L400 336" fill="none" stroke="#83C167" stroke-width="3" />
+          <circle cx="348" cy="400" r="9" fill="#F0B90B" /><circle cx="372" cy="400" r="9" fill="#F0B90B" />
+        </g>
+        <g id="pr-ic1" class="h">
+          <circle cx="720" cy="390" r="8" fill="#83C167" /><circle cx="800" cy="390" r="8" fill="#83C167" />
+          <line x1="720" y1="390" x2="790" y2="350" stroke="#83C167" stroke-width="4" stroke-linecap="round" />
+        </g>
+        <g id="pr-ic2" class="h">
+          <rect x="1110" y="340" width="24" height="76" fill="#83C167" /><rect x="1148" y="366" width="24" height="50" fill="#83C167" fill-opacity="0.6" /><rect x="1186" y="392" width="24" height="24" fill="#83C167" fill-opacity="0.3" />
+        </g>
+        <g id="pr-ic3" class="h">
+          <rect x="1490" y="366" width="140" height="28" rx="6" fill="none" stroke="#83C167" stroke-width="2.5" />
+          <rect x="1490" y="366" width="50" height="28" rx="6" fill="#83C167" />
+        </g>
+        <rect id="pr-bar" class="h" x="120" y="548" width="1680" height="24" rx="12" fill="#83C167" />
+        <text id="pr-core" class="h" x="960" y="516" font-size="34" fill="#83C167" text-anchor="middle">核心链路：下单 · 撤单 · 提币</text>
+        <g id="pr-d1">
+          <path id="pr-bk" class="h" d="M220 700 L240 840 L320 840 L340 700" fill="none" stroke="#8a8f99" stroke-width="4" />
+          <text id="pr-bkt" class="h" x="280" y="884" font-size="28" fill="#8a8f99" text-anchor="middle">令牌桶</text>
+          <circle id="pr-tk0" class="h" cx="250" cy="820" r="10" fill="#F0B90B" /><circle id="pr-tk1" class="h" cx="270" cy="820" r="10" fill="#F0B90B" /><circle id="pr-tk2" class="h" cx="290" cy="820" r="10" fill="#F0B90B" /><circle id="pr-tk3" class="h" cx="310" cy="820" r="10" fill="#F0B90B" />
+          <rect id="pr-gate" class="h" x="700" y="700" width="14" height="140" rx="7" fill="#8a8f99" />
+          <rect id="pr-rq0" class="h" x="420" y="752" width="36" height="36" rx="6" fill="#e8e6df" fill-opacity="0.85" /><rect id="pr-rq1" class="h" x="420" y="752" width="36" height="36" rx="6" fill="#e8e6df" fill-opacity="0.85" /><rect id="pr-rq2" class="h" x="420" y="752" width="36" height="36" rx="6" fill="#e8e6df" fill-opacity="0.85" /><rect id="pr-rq3" class="h" x="420" y="752" width="36" height="36" rx="6" fill="#e8e6df" fill-opacity="0.85" />
+          <text id="pr-lim1" class="h" x="1180" y="750" font-size="30" fill="#e8e6df">按 <tspan class="mono">IP / UID</tspan></text>
+          <text id="pr-lim2" class="h" x="1180" y="830" font-size="30" fill="#e8e6df">按交易对总量</text>
+        </g>
+        <g id="pr-d2">
+          <path id="pr-gau" class="h" d="M190 900 A110 110 0 0 1 410 900" fill="none" stroke="#8a8f99" stroke-width="5" />
+          <line id="pr-g50" class="h" x1="300" y1="778" x2="300" y2="802" stroke="#FF9F43" stroke-width="4" />
+          <g id="pr-ndm"><line id="pr-nd" class="h" x1="300" y1="900" x2="300" y2="808" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /></g>
+          <circle id="pr-ndc" class="h" cx="300" cy="900" r="8" fill="#e8e6df" />
+          <text id="pr-gt" class="h" x="300" y="958" font-size="30" fill="#e8e6df" text-anchor="middle">失败率 &gt; 50%<tspan font-size="28" fill="#b0b4bc">（示例）</tspan></text>
+          <g id="pr-sw" class="h">
+            <circle cx="600" cy="760" r="9" fill="#e8e6df" /><circle cx="720" cy="760" r="9" fill="#e8e6df" />
+          </g>
+          <g id="pr-lvm"><line id="pr-lv" class="h" x1="600" y1="760" x2="714" y2="756" stroke="#83C167" stroke-width="6" stroke-linecap="round" /></g>
+          <line id="pr-wi0" class="h" x1="600" y1="760" x2="480" y2="760" stroke="#83C167" stroke-width="3" />
+          <path id="pr-wi1" class="h" d="M729 760 L1000 712" fill="none" stroke="#83C167" stroke-width="3" />
+          <path id="pr-wi2" class="h" d="M729 760 L1000 808" fill="none" stroke="#83C167" stroke-width="3" />
+          <g id="pr-dp" class="h">
+            <rect x="1000" y="680" width="180" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text class="mono" x="1090" y="723" font-size="30" fill="#e8e6df" text-anchor="middle">KYT</text>
+            <rect x="1000" y="776" width="180" height="64" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="1090" y="819" font-size="30" fill="#e8e6df" text-anchor="middle">短信</text>
+          </g>
+          <text id="pr-30" class="mono h" x="660" y="842" font-size="34" fill="#FF9F43" text-anchor="middle">30 s</text>
+          <g id="pr-dg" class="h">
+            <rect x="520" y="890" width="240" height="64" rx="32" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="640" y="933" font-size="30" fill="#8a8f99" text-anchor="middle">降级结果</text>
+          </g>
+        </g>
+        <g id="pr-d3">
+          <line id="pr-dl0" class="h" x1="410" y1="572" x2="410" y2="680" stroke="#8a8f99" stroke-width="2.5" />
+          <line id="pr-dl1" class="h" x1="1510" y1="572" x2="1510" y2="680" stroke="#8a8f99" stroke-width="2.5" />
+          <g id="pr-nc0" class="h"><rect x="300" y="680" width="220" height="70" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="410" y="726" font-size="30" fill="#8a8f99" text-anchor="middle">账单导出</text></g>
+          <g id="pr-nc1" class="h"><rect x="1400" y="680" width="220" height="70" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="1510" y="726" font-size="30" fill="#8a8f99" text-anchor="middle">活动页</text></g>
+        </g>
+        <g id="pr-pg0" class="h">
+          <rect id="pr-pgr0" x="240" y="700" width="280" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text id="pr-pgt0" x="380" y="747" font-size="32" fill="#8a8f99" text-anchor="middle">白名单</text>
+        </g><g id="pr-pg1" class="h">
+          <rect id="pr-pgr1" x="640" y="700" width="280" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text id="pr-pgt1" x="780" y="747" font-size="32" fill="#8a8f99" text-anchor="middle">1%</text>
+        </g><g id="pr-pg2" class="h">
+          <rect id="pr-pgr2" x="1040" y="700" width="280" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text id="pr-pgt2" x="1180" y="747" font-size="32" fill="#8a8f99" text-anchor="middle">10%</text>
+        </g><g id="pr-pg3" class="h">
+          <rect id="pr-pgr3" x="1440" y="700" width="280" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <text id="pr-pgt3" x="1580" y="747" font-size="32" fill="#8a8f99" text-anchor="middle">100%</text>
+        </g><path id="pr-pa0" class="dr h" pathLength="1" d="M524 735 L632 735" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#pr-arr)" /><path id="pr-pa1" class="dr h" pathLength="1" d="M924 735 L1032 735" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#pr-arr)" /><path id="pr-pa2" class="dr h" pathLength="1" d="M1324 735 L1432 735" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#pr-arr)" />
+        <text id="pr-cl" class="h" x="240" y="906" font-size="30" fill="#8a8f99">冷门交易对</text>
+        <text id="pr-hl" class="h" x="1040" y="906" font-size="30" fill="#F0B90B">热门交易对</text>
+        <rect id="pr-cc0" class="h" x="420" y="868" width="90" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><rect id="pr-cc1" class="h" x="530" y="868" width="90" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><rect id="pr-cc2" class="h" x="640" y="868" width="90" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><rect id="pr-cc3" class="h" x="750" y="868" width="90" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><rect id="pr-hc0" class="h" x="1220" y="868" width="90" height="56" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><rect id="pr-hc1" class="h" x="1330" y="868" width="90" height="56" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><rect id="pr-hc2" class="h" x="1440" y="868" width="90" height="56" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><rect id="pr-hc3" class="h" x="1550" y="868" width="90" height="56" rx="8" fill="#161a22" stroke="#F0B90B" stroke-width="3" />
+        <g id="pr-term" class="h">
+          <rect x="70" y="56" width="540" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">熔断 <tspan font-size="28" font-weight="400" fill="#8a8f99">Circuit Breaker</tspan></text>
+          <text x="100" y="160" font-size="28" fill="#e8e6df">依赖连续失败，就暂停调用</text>
+        </g>
+        <g id="pr-term2" class="h">
+          <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">灰度发布 <tspan font-size="28" font-weight="400" fill="#8a8f99">Canary Release</tspan></text>
+          <text x="100" y="160" font-size="28" fill="#e8e6df">新版本先给一小部分流量</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const BLUE = "#58C4DD", GOLD = "#F0B90B", RED = "#FC6255", ORG = "#FF9F43", GRN = "#83C167", PUR = "#B48EF0", GRAY = "#8a8f99", TXT = "#e8e6df";
+      // 术语卡：淡入，停留到 t1 淡出
+      const TERM = (s, t0, t1) => { IN(s, t0, 0.5); OUT(s, t1, 0.4); };
+      // 轻微呼吸，避免长时间静止（有限次重复）
+      const PULSE = (s, t, n = 3, d = 0.7, o = 0.55) => tl.to(s, { opacity: o, duration: d, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+      const TO = (s, t, v, d = 0.4) => tl.to(s, { duration: d, ease: "power2.out", ...v }, t);
+
+      // L0 核心链路 + 四个空工具位
+      IN("#pr-bar", at(0, 0.04), 0.6, { scaleX: 0, svgOrigin: "120 560" }, { scaleX: 1, svgOrigin: "120 560" });
+      IN("#pr-core", at(0, 0.15));
+      [0, 1, 2, 3].forEach(i => IN(`#pr-slot${i}`, at(0, 0.35) + i * 0.22, 0.4, { y: -16 }, { y: 0 }));
+      PULSE("#pr-bar", at(0, 0.6), 1, 0.4, 0.6);
+      // L1 限流：令牌桶
+      IN(["#pr-nm0", "#pr-ic0"], at(1, 0.02));
+      IN(["#pr-bk", "#pr-bkt"], at(1, 0.06));
+      [0, 1, 2].forEach(i => IN(`#pr-tk${i}`, at(1, 0.1) + i * 0.3, 0.4, { y: -150 }, { y: 0 }));
+      IN("#pr-gate", at(1, 0.15));
+      const pass = (i, t, tk) => { IN(`#pr-rq${i}`, t, 0.2); tl.to(`#pr-rq${i}`, { x: 560, duration: 1.0, ease: "power1.inOut" }, t); OUT(`#pr-tk${tk}`, t + 0.4, 0.2); TO("#pr-gate", t + 0.4, { fill: GRN }, 0.1); TO("#pr-gate", t + 0.7, { fill: GRAY }, 0.1); OUT(`#pr-rq${i}`, t + 0.9, 0.2); };
+      pass(0, at(1, 0.24), 2); pass(1, at(1, 0.34), 1); pass(2, at(1, 0.44), 0);
+      IN("#pr-rq3", at(1, 0.55), 0.2);
+      tl.to("#pr-rq3", { x: 230, duration: 0.5, ease: "power1.in" }, at(1, 0.55));
+      TO("#pr-gate", at(1, 0.55) + 0.45, { fill: RED }, 0.1);
+      tl.to("#pr-rq3", { x: 40, opacity: 0, duration: 0.6, ease: "power2.out" }, at(1, 0.55) + 0.5);
+      TO("#pr-gate", at(1, 0.55) + 1.1, { fill: GRAY }, 0.2);
+      IN("#pr-lim1", at(1, 0.4), 0.5, { x: 16 }, { x: 0 });
+      IN("#pr-tk3", at(1, 0.66), 0.4, { y: -150 }, { y: 0 });
+      IN("#pr-lim2", at(1, 0.7), 0.5, { x: 16 }, { x: 0 });
+      // L2 熔断
+      OUT("#pr-d1", at(2, 0.0), 0.4);
+      TERM("#pr-term", at(2, 0.03), at(2, 0.62));
+      IN(["#pr-nm1", "#pr-ic1"], at(2, 0.06));
+      IN(["#pr-sw", "#pr-lv", "#pr-wi0"], at(2, 0.1));
+      IN(["#pr-wi1", "#pr-wi2"], at(2, 0.14)); IN("#pr-dp", at(2, 0.16), 0.5, { x: 20 }, { x: 0 });
+      IN(["#pr-gau", "#pr-g50", "#pr-nd", "#pr-ndc", "#pr-gt"], at(2, 0.3));
+      tl.fromTo("#pr-ndm", { rotation: -70, svgOrigin: "300 900" }, { rotation: 45, svgOrigin: "300 900", duration: 2.0, ease: "power1.in", immediateRender: true }, at(2, 0.36));
+      tl.to("#pr-lvm", { rotation: -35, svgOrigin: "600 760", duration: 0.3, ease: "back.out(2)" }, at(2, 0.55));
+      TO("#pr-lv", at(2, 0.55), { stroke: ORG }, 0.2);
+      TO(["#pr-wi1", "#pr-wi2"], at(2, 0.57), { stroke: GRAY, opacity: 0.35 }, 0.3);
+      TO("#pr-dp", at(2, 0.6), { opacity: 0.4 }, 0.3);
+      IN("#pr-30", at(2, 0.64), 0.4, { scale: 1.4, svgOrigin: "660 830" }, { scale: 1, svgOrigin: "660 830" });
+      PULSE("#pr-30", at(2, 0.7), 2, 0.4, 0.5);
+      IN("#pr-dg", at(2, 0.84), 0.5, { y: -16 }, { y: 0 });
+      // L3 降级：关掉非核心功能
+      OUT("#pr-d2", at(3, 0.0), 0.4);
+      IN(["#pr-nm2", "#pr-ic2"], at(3, 0.05));
+      IN(["#pr-dl0", "#pr-nc0"], at(3, 0.12)); IN(["#pr-dl1", "#pr-nc1"], at(3, 0.2));
+      TO(["#pr-dl0", "#pr-nc0"], at(3, 0.42), { opacity: 0.15 }, 0.4); TO(["#pr-dl1", "#pr-nc1"], at(3, 0.48), { opacity: 0.15 }, 0.4);
+      tl.to("#pr-bar", { attr: { y: 540, height: 40, rx: 20 }, duration: 0.6, ease: "power2.out" }, at(3, 0.62));
+      PULSE("#pr-bar", at(3, 0.72), 1, 0.4, 0.6);
+      // L4 灰度发布：白名单 → 1% → 10% → 100%
+      OUT("#pr-d3", at(4, 0.0), 0.35);
+      TERM("#pr-term2", at(4, 0.03), at(5, 0.3));
+      IN(["#pr-nm3", "#pr-ic3"], at(4, 0.06));
+      [0, 1, 2, 3].forEach(i => IN(`#pr-pg${i}`, at(4, 0.1) + i * 0.1, 0.4));
+      [0, 1, 2].forEach(i => ARROW(`#pr-pa${i}`, at(4, 0.14) + i * 0.1, 0.4));
+      [0.3, 0.55, 0.72, 0.88].forEach((f, i) => { TO(`#pr-pgr${i}`, at(4, f), { stroke: GRN, fill: "#1f2a1c" }, 0.3); TO(`#pr-pgt${i}`, at(4, f), { fill: GRN }, 0.3); });
+      // L5 撮合按交易对灰度：先冷门，再热门
+      IN("#pr-cl", at(5, 0.03)); [0, 1, 2, 3].forEach(i => IN(`#pr-cc${i}`, at(5, 0.05) + i * 0.08, 0.3));
+      IN("#pr-hl", at(5, 0.12)); [0, 1, 2, 3].forEach(i => IN(`#pr-hc${i}`, at(5, 0.14) + i * 0.08, 0.3));
+      [0, 1, 2, 3].forEach(i => TO(`#pr-cc${i}`, at(5, 0.3) + i * 0.15, { stroke: GRN }, 0.3));
+      [0, 1, 2, 3].forEach(i => TO(`#pr-hc${i}`, at(5, 0.68) + i * 0.15, { stroke: GRN }, 0.3));
+
+
+      tl.to("#pr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["protect"] = tl;
+    })();
+  </script>
+</template>

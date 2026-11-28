@@ -54,7 +54,7 @@ ${tbl(['类别', '验收标准（示例值）', '验证方法'], [
 <h2>3. 需求拆解与用户故事</h2>
 ${steps([
   '作为<strong>业务方后端</strong>，我调用 CreateAddress 为用户获取 ETH 充值地址，同一用户重复调用返回同一地址。',
-  '作为<strong>业务方后端</strong>，我订阅 deposit.confirmed 事件，收到后给用户加余额；若收到 deposit.reverted，扣回未达确认的记录。',
+  '作为<strong>业务方后端</strong>，我订阅 deposit.confirmed 事件，收到后给用户加余额；若收到 deposit.reverted，撤掉那笔还在等确认的待入账记录（这些记录从未加过余额，无需扣回）。',
   '作为<strong>业务方后端</strong>，我用 requestId 调用 CreateWithdrawal；网络超时后重试同一 requestId，不会重复打款。',
   '作为<strong>风控专员</strong>，我在后台看到命中规则的提币，查看 KYT 评分、用户历史后批准或拒绝。',
   '作为<strong>财务</strong>，我每天查看三方对账报告和 Gas 成本报表；热钱包低于水位时发起补充申请。',
@@ -235,7 +235,7 @@ CREATE TABLE asset (
   confirmations INT  NOT NULL,                 -- 入账所需确认数
   min_deposit   NUMERIC(78,0) NOT NULL DEFAULT 0,
   enabled       BOOLEAN NOT NULL DEFAULT TRUE,
-  UNIQUE (chain, contract)
+  UNIQUE NULLS NOT DISTINCT (chain, contract)  -- PG15+；原生币 contract 为空，默认多个 NULL 互不相同，约束会失效
 );
 
 CREATE TABLE xpub_config (
@@ -273,7 +273,7 @@ CREATE TABLE deposit (
   status       TEXT NOT NULL,                  -- seen / confirmed / credited / reverted
   kyt_score    INT,
   created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
-  UNIQUE (chain, tx_hash, log_index)           -- 防止重复入账
+  UNIQUE (chain, tx_hash, log_index, to_address) -- 防止重复入账；原生币 log_index 都是 -1，一笔合约交易经内部调用给多个充值地址转 ETH 时靠 to_address 区分（同一地址多次内部转账需改用 trace 序号）
 );
 
 CREATE TABLE hot_address (
@@ -338,11 +338,13 @@ CREATE TABLE approval (
 
 CREATE TABLE sweep_task (
   id          BIGSERIAL PRIMARY KEY,
+  chain       TEXT NOT NULL,
   address     TEXT NOT NULL,
-  asset_id    INT  NOT NULL,
+  asset_id    INT  NOT NULL REFERENCES asset(id),
   amount      NUMERIC(78,0) NOT NULL,
   status      TEXT NOT NULL,                   -- planned / gas_sent / sweeping / done / skipped
-  gas_tx_id   BIGINT, sweep_tx_id BIGINT,
+  gas_tx_id   BIGINT REFERENCES chain_tx(id),
+  sweep_tx_id BIGINT REFERENCES chain_tx(id),
   created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
@@ -372,7 +374,7 @@ CREATE TABLE audit_log (
 );
 REVOKE UPDATE, DELETE ON audit_log FROM wallet_app;
 `)}
-${call('info', `<p>表设计的三个关键约束：<code>deposit (chain, tx_hash, log_index)</code> 唯一防重复入账；<code>withdrawal (tenant_id, request_id)</code> 唯一实现幂等；<code>chain_tx</code> 记录同一 nonce 的所有尝试，任何一个上链都能匹配回原提币。</p>`)}
+${call('info', `<p>表设计的三个关键约束：<code>deposit (chain, tx_hash, log_index, to_address)</code> 唯一防重复入账；<code>withdrawal (tenant_id, request_id)</code> 唯一实现幂等；<code>chain_tx</code> 记录同一 nonce 的所有尝试（<code>tx_hash</code> 唯一，nonce 不设唯一），任何一个上链都能匹配回原提币。</p>`)}
 
 <h2>7. 接口设计</h2>
 ${code('PROTOBUF', `
@@ -440,11 +442,11 @@ ${tbl(['Kafka 主题', '生产者', '消息关键字段', '消费者'], [
 ${recap([
   '验收标准用数字写清：吞吐、延迟、可用性、零重复打款、零资金差异。',
   '架构核心：业务只接触 wallet-api；签名域独立集群、独立策略、独立审计。',
-  '数据库三个关键唯一约束：充值 (chain, tx_hash, log_index)、提币 (tenant, request_id)、nonce 记录。',
+  '数据库三个关键唯一约束：充值 (chain, tx_hash, log_index, to_address)、提币 (tenant, request_id)、链上交易 tx_hash（同一 nonce 的每次尝试各记一行）。',
   '链适配器接口让 BTC、Tron 扩展不影响状态机与签名域。'
 ])}
 ${quiz([
-  { q: '为什么 deposit 表要对 (chain, tx_hash, log_index) 建唯一约束？', o: ['提高查询速度', '一笔交易可能含多个代币转账事件，同时防止扫描重放导致重复入账', '区块链要求', '节省存储'], a: 1, why: 'log_index 区分同一交易中的多个 Transfer 事件；唯一约束让扫描器重跑同一区块时不会重复入账。' },
+  { q: '为什么 deposit 表要对 (chain, tx_hash, log_index) 建唯一约束？', o: ['提高查询速度', '一笔交易可能含多个代币转账事件，同时防止扫描重放导致重复入账', '区块链要求', '节省存储'], a: 1, why: 'log_index 区分同一交易中的多个 Transfer 事件（原生币 log_index 为 -1，再靠 to_address 区分内部调用转给不同地址的情况）；唯一约束让扫描器重跑同一区块时不会重复入账。' },
   { q: '新增 Tron 支持时，按本项目设计需要修改哪些部分？', o: ['提币状态机和签名网关全部重写', '主要实现 Tron 链适配器并补充签名域对 Tron 交易的解码校验', '只修改数据库', '不需要任何修改'], a: 1, why: '链差异封装在适配器中；签名域需要能解码并校验 Tron 交易格式，状态机保持不变。' }
 ])}
 ${exercises([["提币状态机规定 SIGNED 之后不允许回到 APPROVED 重新分配 nonce。如果允许，会出现什么问题？", "<p>SIGNED 意味着已有一笔用某个 nonce 签好的 raw 交易，它随时可能被广播并上链。回到 APPROVED 重新分配 nonce，就会再签一笔内容相同、nonce 不同的交易，两笔都可能上链，造成重复打款。正确做法只有重播、加速，或在 MANUAL 中由两人审批后取消。</p>"], ["数据模型里有三个关键唯一约束。分别写出它们，并说出各自防止什么问题。", "<p><code>deposit (chain, tx_hash, log_index)</code>：一笔交易可含多个 Transfer 事件，扫描器重跑同一区块时不会重复入账。<code>withdrawal (tenant_id, request_id)</code>：业务方超时重试同一 request_id 时，只产生一笔提币。<code>chain_tx</code> 记录同一 nonce 的所有尝试，<code>tx_hash</code> 唯一，任何一笔上链都能匹配回原提币。</p>"], ["设计一个新链（例如 Tron）的接入方案：哪些部分要新写，哪些部分不应改动？", "<p>新写 Tron 链适配器：地址派生与校验、扫描区块、构造交易（ref_block 与 expiration）、组装签名、广播、回执和余额查询。签名域要补充对 Tron 交易的解码和校验。提币状态机、wallet-api 接口、审批流不应改动。这是“链差异封装在适配器中”的设计目标。</p>"]])}
@@ -555,7 +557,10 @@ func (a *Adapter) BuildTransfer(ctx context.Context, t chain.Transfer) (*chain.U
         if err != nil {
             return nil, fmt.Errorf("估算失败，交易会回滚: %w", err) // 不发送
         }
-        gas = min(est*13/10, t.Asset.GasCap) // 缓冲 30%，并受代币配置上限约束
+        if est > t.Asset.GasCap { // 估算值本身已超上限：硬截断会因 Gas 不足在链上失败、白付手续费，不发，转人工
+            return nil, fmt.Errorf("估算 gas %d 超过代币配置上限 %d", est, t.Asset.GasCap)
+        }
+        gas = min(est*13/10, t.Asset.GasCap) // 缓冲 30%，加缓冲后再受代币配置上限约束
     }
     tx := types.NewTx(&types.DynamicFeeTx{
         ChainID: a.chainID, Nonce: *t.Nonce,
@@ -675,7 +680,8 @@ func (w *Worker) signAndSend(ctx context.Context, wd *Withdrawal) error {
         }
         wd.FromAddress, wd.Nonce, wd.Status = from, &nonce, "SIGNING"
     }
-    // 2. SIGNING：构造 → 请求签名（超时可重试，nonce 与内容不变）
+    // 2. SIGNING：构造 → 请求签名（超时可重试：nonce、收款地址和金额不变；费用每次从缓存重取，可能变化，
+    //    只能持平或更高，变低会被签名域“同 nonce 只允许费用更高的替换”拒签）
     utx, err := w.adapter.BuildTransfer(ctx, wd.ToTransfer())
     if err != nil {
         return w.toManual(ctx, wd, err)
@@ -727,7 +733,8 @@ func (g *Gateway) Sign(ctx context.Context, req *signerpb.SignReq) (*signerpb.Si
         if err := g.verifyApprovals(wd, req.Approvals); err != nil { // 校验审批人 Ed25519 签名与级别
             return nil, status.Error(codes.PermissionDenied, err.Error())
         }
-        if err := g.limits.Consume(ctx, token, amount); err != nil { // 签名域独立的小时 / 日限额
+        // 签名域独立的小时 / 日限额；按 WithdrawalId 幂等扣减，签名超时重试、MPC 失败后重来都不会重复扣
+        if err := g.limits.ConsumeOnce(ctx, req.WithdrawalId, token, amount); err != nil {
             return nil, status.Error(codes.ResourceExhausted, err.Error())
         }
     case "sweep", "rebalance_out":
@@ -890,7 +897,7 @@ ${tbl(['面试常问', '回答要点'], [
 ])}
 <p>作品集建议：公开仓库包含架构图、DDL、核心代码、故障注入测试录屏和 Sepolia 上的真实交易哈希；README 写清“威胁模型”和“我做了哪些取舍”。</p>
 
-${tryit(`<p>最小可运行练习（1 天）：① 启动 <code>anvil</code>（Foundry 自带本地链），它会打印 10 个测试账户。② 用 M08.2 的代码从 Anvil 默认助记词（<code>test test test test test test test test test test test junk</code>）派生 m/44′/60′/0′/0/0，确认地址等于 Anvil 打印的第一个账户 <code>0xf39F…2266</code>。③ 用本文 DDL 建表，写一个只含 RECEIVED → APPROVED → SIGNED → BROADCAST → CONFIRMED 的简化 worker，用本地私钥签名，完成一笔提币并在 <code>chain_tx</code> 中看到 raw_tx 与 tx_hash。④ 执行 <code>cast rpc evm_snapshot</code>、发一笔充值、<code>cast rpc evm_revert</code>，验证你的扫描器能发现重组。</p>`)}
+${tryit(`<p>最小可运行练习（1 天）：① 启动 <code>anvil</code>（Foundry 自带本地链），它会打印 10 个测试账户。② 用 M08.2 的代码从 Anvil 默认助记词（<code>test test test test test test test test test test test junk</code>）派生 m/44′/60′/0′/0/0，确认地址等于 Anvil 打印的第一个账户 <code>0xf39F…2266</code>。③ 用本文 DDL 建表，写一个只含 RECEIVED → APPROVED → SIGNED → BROADCAST → CONFIRMED 的简化 worker，用本地私钥签名，完成一笔提币并在 <code>chain_tx</code> 中看到 raw_tx 与 tx_hash。④ 执行 <code>cast rpc evm_snapshot</code>、发一笔充值、<code>cast rpc evm_revert</code>，再 <code>cast rpc anvil_mine 3</code> 多挖几块，让新链比旧链长（回滚后链头低于扫描游标，<code>step()</code> 会直接返回，不多挖就比不出父哈希不符），验证你的扫描器能发现重组。</p>`)}
 
 ${mistakes([
   ['先把多链都接上，再补安全', '先把一条链做到生产级（幂等、签名域、对账、故障注入），再按适配器接口扩展。安全设计无法事后补齐。'],
@@ -901,7 +908,7 @@ ${mistakes([
 ${recap([
   '验收标准用数字写清：吞吐、延迟、可用性、零重复打款、零资金差异。',
   '架构核心：业务只接触 wallet-api；签名域独立集群、独立策略、独立审计。',
-  '数据库三个关键唯一约束：充值 (chain, tx_hash, log_index)、提币 (tenant, request_id)、nonce 记录。',
+  '数据库三个关键唯一约束：充值 (chain, tx_hash, log_index, to_address)、提币 (tenant, request_id)、链上交易 tx_hash（同一 nonce 的每次尝试各记一行）。',
   '链适配器接口让 BTC、Tron 扩展不影响状态机与签名域。',
   '测试必须包含故障注入：RPC 失败、签名超时、崩溃重启、重组、空洞、Gas 暴涨。',
   '6 周节奏：骨架 → 充值 → 提币 → 签名风控 → 运维闭环 → 上线准备。'

@@ -1,0 +1,626 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 map，id 前缀 ma- -->
+  <div id="root" data-composition-id="map" data-duration="166.35" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ma-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ma-arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" />
+        </marker>
+        <marker id="ma-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" />
+        </marker>
+        <marker id="ma-arrS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="ma-all">
+        <text id="ma-title" class="h" x="90" y="170" font-size="56" font-weight="700" fill="#e8e6df">知识地图</text>
+        <text id="ma-cexl" class="h" x="90" y="186" font-size="44" font-weight="700" fill="#B48EF0">迷你 CEX</text>
+        <path id="ma-fr" class="dr" pathLength="1" d="M86 214 H1834 Q1854 214 1854 234 V462 Q1854 482 1834 482 H86 Q66 482 66 462 V234 Q66 214 86 214 Z" fill="none" stroke="#B48EF0" stroke-width="3" />
+        <!-- 五段表头 x = 90 + i*365，宽 280 -->
+        <g id="ma-heads" class="h">
+          <path d="M370 276 H455 M735 276 H820 M1100 276 H1185 M1465 276 H1550" stroke="#3a3f4a" stroke-width="3" />
+          <rect id="ma-h1-box" x="90" y="240" width="280" height="72" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="2.5" />
+          <text id="ma-h1-t" x="230" y="288" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">对照</text>
+          <rect id="ma-h2-box" x="455" y="240" width="280" height="72" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="2.5" />
+          <text id="ma-h2-t" x="595" y="288" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">业务与资金</text>
+          <rect id="ma-h3-box" x="820" y="240" width="280" height="72" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="2.5" />
+          <text id="ma-h3-t" x="960" y="288" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">交易核心</text>
+          <rect id="ma-h4-box" x="1185" y="240" width="280" height="72" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="2.5" />
+          <text id="ma-h4-t" x="1325" y="288" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">钱包进出</text>
+          <rect id="ma-h5-box" x="1550" y="240" width="280" height="72" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="2.5" />
+          <text id="ma-h5-t" x="1690" y="288" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">行情与风控</text>
+        </g>
+        <!-- 各段关键词 -->
+        <text id="ma-c1a" class="h" x="230" y="364" font-size="28" fill="#b8b6af" text-anchor="middle">七个问题</text>
+        <text id="ma-c1b" class="h" x="230" y="410" font-size="28" fill="#b8b6af" text-anchor="middle">公司 vs 合约</text>
+        <text id="ma-c2a" class="h" x="595" y="364" font-size="28" fill="#b8b6af" text-anchor="middle">手续费 + 滑点</text>
+        <text id="ma-c2b" class="h" x="595" y="410" font-size="28" fill="#b8b6af" text-anchor="middle">双分录 · 幂等</text>
+        <text id="ma-c3a" class="h" x="960" y="364" font-size="28" fill="#b8b6af" text-anchor="middle">价格-时间优先</text>
+        <text id="ma-c3b" class="h" x="960" y="410" font-size="28" fill="#b8b6af" text-anchor="middle">定序 + 快照</text>
+        <text id="ma-c3c" class="h" x="960" y="456" font-size="28" fill="#b8b6af" text-anchor="middle">撮合不碰钱</text>
+        <text id="ma-c4a" class="h" x="1325" y="364" font-size="28" fill="#b8b6af" text-anchor="middle">确认数 + 合约地址</text>
+        <text id="ma-c4b" class="h" x="1325" y="410" font-size="28" fill="#b8b6af" text-anchor="middle">先冻结后扣减</text>
+        <text id="ma-c5a" class="h" x="1690" y="364" font-size="28" fill="#b8b6af" text-anchor="middle">平盘 K 线</text>
+        <text id="ma-c5b" class="h" x="1690" y="410" font-size="28" fill="#b8b6af" text-anchor="middle">储备金证明</text>
+        <text id="ma-c5c" class="h" x="1690" y="456" font-size="28" fill="#b8b6af" text-anchor="middle">单主写 + 租约</text>
+
+        <!-- S0 对照：七个问题 → CEX 交给公司 / DEX 交给合约和链 -->
+        <g id="ma-st0">
+          <g id="ma-q0" class="h"><rect x="140" y="530" width="200" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="240" y="570" font-size="28" fill="#e8e6df" text-anchor="middle">托管</text></g>
+          <g id="ma-q1" class="h"><rect x="380" y="530" width="200" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="480" y="570" font-size="28" fill="#e8e6df" text-anchor="middle">撮合</text></g>
+          <g id="ma-q2" class="h"><rect x="620" y="530" width="200" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="720" y="570" font-size="28" fill="#e8e6df" text-anchor="middle">结算</text></g>
+          <g id="ma-q3" class="h"><rect x="860" y="530" width="200" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="960" y="570" font-size="28" fill="#e8e6df" text-anchor="middle">价格保护</text></g>
+          <g id="ma-q4" class="h"><rect x="1100" y="530" width="200" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1200" y="570" font-size="28" fill="#e8e6df" text-anchor="middle">信任</text></g>
+          <g id="ma-q5" class="h"><rect x="1340" y="530" width="200" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1440" y="570" font-size="28" fill="#e8e6df" text-anchor="middle">成本与速度</text></g>
+          <g id="ma-q6" class="h"><rect x="1580" y="530" width="200" height="60" rx="30" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1680" y="570" font-size="28" fill="#e8e6df" text-anchor="middle">合规</text></g>
+          <path id="ma-lc" class="dr" pathLength="1" d="M240 594 L540 676 M480 594 L555 676 M720 594 L570 676 M960 594 L585 676 M1200 594 L600 676 M1440 594 L615 676 M1680 594 L630 676" fill="none" stroke="#B48EF0" stroke-width="2" />
+          <path id="ma-ld" class="dr" pathLength="1" d="M240 594 L1320 676 M480 594 L1335 676 M720 594 L1350 676 M960 594 L1365 676 M1200 594 L1380 676 M1440 594 L1395 676 M1680 594 L1410 676" fill="none" stroke="#58C4DD" stroke-width="2" />
+          <g id="ma-cex" class="h">
+            <rect x="240" y="680" width="660" height="120" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text class="mono" x="280" y="756" font-size="40" font-weight="700" fill="#B48EF0">CEX</text>
+            <text x="400" y="753" font-size="34" fill="#B48EF0">交给公司</text>
+          </g>
+          <text id="ma-fast" class="h" x="860" y="753" font-size="32" fill="#83C167" text-anchor="end">快</text>
+          <text id="ma-crisk" class="h" x="280" y="856" font-size="30" font-weight="700" fill="#FF9F43">托管风险</text>
+          <g id="ma-dex" class="h">
+            <rect x="1020" y="680" width="660" height="120" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1060" y="756" font-size="40" font-weight="700" fill="#58C4DD">DEX</text>
+            <text x="1180" y="753" font-size="34" fill="#58C4DD">交给合约 + 链</text>
+          </g>
+          <text id="ma-self" class="h" x="1640" y="753" font-size="30" fill="#83C167" text-anchor="end">自托管</text>
+          <g id="ma-r0" class="h"><rect x="1060" y="828" width="120" height="54" rx="10" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="2.5" /><text x="1120" y="865" font-size="28" fill="#FC6255" text-anchor="middle">钓鱼</text></g>
+          <g id="ma-r1" class="h"><rect x="1200" y="828" width="120" height="54" rx="10" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="2.5" /><text x="1260" y="865" font-size="28" fill="#FC6255" text-anchor="middle">滑点</text></g>
+          <g id="ma-r2" class="h"><rect x="1340" y="828" width="120" height="54" rx="10" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="2.5" /><text class="mono" x="1400" y="865" font-size="28" fill="#FC6255" text-anchor="middle">MEV</text></g>
+        </g>
+
+        <!-- S1 业务与资金：成本 = 手续费 + 滑点；市价买 3 吃三档 -->
+        <g id="ma-st1">
+          <text id="ma-eq" class="h" x="1150" y="590" font-size="36" fill="#e8e6df">真实成本 = <tspan id="ma-eqf" fill="#e8e6df">手续费</tspan> + <tspan id="ma-eqs" fill="#e8e6df">滑点</tspan></text>
+          <g id="ma-ob3" class="h">
+            <text x="260" y="566" font-size="28" fill="#8a8f99">卖三</text>
+            <text class="mono" x="340" y="566" font-size="30" fill="#e8e6df">60200</text>
+            <text class="mono" x="480" y="566" font-size="30" fill="#8a8f99">× 2</text>
+            <rect x="620" y="538" width="200" height="36" rx="6" fill="#58C4DD" fill-opacity="0.3" />
+          </g>
+          <g id="ma-ob2" class="h">
+            <text x="260" y="636" font-size="28" fill="#8a8f99">卖二</text>
+            <text class="mono" x="340" y="636" font-size="30" fill="#e8e6df">60150</text>
+            <text class="mono" x="480" y="636" font-size="30" fill="#8a8f99">× 1.2</text>
+            <rect x="620" y="608" width="120" height="36" rx="6" fill="#58C4DD" fill-opacity="0.3" />
+          </g>
+          <g id="ma-ob1" class="h">
+            <text id="ma-ob1l" x="260" y="706" font-size="28" fill="#8a8f99">卖一</text>
+            <text id="ma-ob1p" class="mono" x="340" y="706" font-size="30" fill="#e8e6df">60100</text>
+            <text class="mono" x="480" y="706" font-size="30" fill="#8a8f99">× 0.8</text>
+            <rect x="620" y="678" width="80" height="36" rx="6" fill="#58C4DD" fill-opacity="0.3" />
+          </g>
+          <rect id="ma-e1" x="620" y="678" width="0" height="36" rx="6" fill="#F0B90B" />
+          <rect id="ma-e2" x="620" y="608" width="0" height="36" rx="6" fill="#F0B90B" />
+          <rect id="ma-e3" x="620" y="538" width="0" height="36" rx="6" fill="#F0B90B" />
+          <g id="ma-buy" class="h">
+            <rect x="1150" y="660" width="300" height="70" rx="14" fill="#F0B90B" fill-opacity="0.12" stroke="#F0B90B" stroke-width="3" />
+            <text x="1300" y="706" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">市价买 3 BTC</text>
+          </g>
+          <path id="ma-ba" class="dr h" pathLength="1" d="M1140 695 L850 695" fill="none" stroke="#F0B90B" stroke-width="3" marker-end="url(#ma-arrG)" />
+          <rect id="ma-strip" class="h" x="260" y="800" width="1000" height="80" rx="12" fill="#F0B90B" fill-opacity="0.1" stroke="#F0B90B" stroke-width="2.5" />
+          <text id="ma-avgt" class="h" x="290" y="852" font-size="32" fill="#e8e6df">均价 ≈ <tspan id="ma-avg" fill="#F0B90B">60,100.0</tspan></text>
+          <text id="ma-mx1" class="h" x="1310" y="830" font-size="28" fill="#FF9F43">市价单 ≠ 一定最划算</text>
+          <text id="ma-mx2" class="h" x="1310" y="880" font-size="28" fill="#FF9F43">止损单 ≠ 按触发价成交</text>
+          <text id="ma-slip" class="h" x="620" y="852" font-size="32" fill="#e8e6df">· 滑点 ≈ <tspan fill="#F0B90B">0.089%</tspan><tspan fill="#8a8f99">（示例）</tspan></text>
+        </g>
+
+        <!-- S2 API Key / 签名 / 去重 | 账本 双分录 可用冻结 唯一约束 -->
+        <g id="ma-st2">
+          <g id="ma-key" class="h">
+            <circle cx="190" cy="590" r="24" fill="none" stroke="#e8e6df" stroke-width="4" />
+            <path d="M214 590 H300 M272 590 V606 M292 590 V610" fill="none" stroke="#e8e6df" stroke-width="4" />
+          </g>
+          <g id="ma-pm" class="h"><rect x="330" y="562" width="180" height="56" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="420" y="600" font-size="28" fill="#e8e6df" text-anchor="middle">最小权限</text></g>
+          <g id="ma-pip" class="h"><rect x="530" y="562" width="90" height="56" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="575" y="600" font-size="28" fill="#e8e6df" text-anchor="middle">IP</text></g>
+          <g id="ma-env" class="h">
+            <rect x="160" y="680" width="180" height="100" rx="8" fill="#161a22" stroke="#e8e6df" stroke-width="3" />
+            <path d="M160 682 L250 735 L340 682" fill="none" stroke="#e8e6df" stroke-width="3" />
+          </g>
+          <text id="ma-sig" class="h" x="370" y="722" font-size="28" fill="#e8e6df">签名 + 时间戳</text>
+          <text id="ma-win" class="h" x="370" y="768" font-size="28" fill="#FF9F43">有效窗口</text>
+          <g id="ma-dup" class="h">
+            <rect x="160" y="830" width="180" height="100" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 6" />
+            <path d="M160 832 L250 885 L340 832" fill="none" stroke="#8a8f99" stroke-width="3" />
+          </g>
+          <path id="ma-x" class="dr" pathLength="1" d="M200 845 L300 915 M300 845 L200 915" fill="none" stroke="#FC6255" stroke-width="5" />
+          <text id="ma-coid" class="h mono" x="370" y="892" font-size="28" fill="#e8e6df">clientOrderId</text>
+          <text id="ma-dd" class="h" x="610" y="892" font-size="28" fill="#83C167">去重</text>
+          <text id="ma-2fa" class="h" x="645" y="600" font-size="28" fill="#FF9F43">别只靠短信验证</text>
+          <line id="ma-div2" class="h" x1="900" y1="540" x2="900" y2="930" stroke="#2a2f3a" stroke-width="2" />
+          <g id="ma-led" class="h">
+            <rect x="960" y="540" width="520" height="230" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="990" y="592" font-size="32" font-weight="700" fill="#58C4DD">账本</text>
+            <text x="1450" y="590" font-size="28" fill="#8a8f99" text-anchor="end">唯一余额来源</text>
+          </g>
+          <g id="ma-cols" class="h">
+            <line x1="1220" y1="620" x2="1220" y2="750" stroke="#3a3f4a" stroke-width="2" />
+            <text x="1090" y="652" font-size="28" fill="#e8e6df" text-anchor="middle">可用</text>
+            <text x="1350" y="652" font-size="28" fill="#e8e6df" text-anchor="middle">冻结</text>
+          </g>
+          <rect id="ma-av" x="990" y="690" width="0" height="36" rx="6" fill="#F0B90B" />
+          <rect id="ma-fz" x="1130" y="690" width="60" height="36" rx="6" fill="#F0B90B" opacity="0" />
+          <g id="ma-scale" class="h">
+            <path d="M1690 600 V740 M1630 740 H1750" stroke="#8a8f99" stroke-width="4" fill="none" />
+            <g id="ma-beam">
+              <path d="M1570 600 H1810 M1580 600 V640 M1800 600 V640" stroke="#e8e6df" stroke-width="4" fill="none" />
+              <path d="M1550 640 Q1580 670 1610 640 Z M1770 640 Q1800 670 1830 640 Z" fill="#58C4DD" fill-opacity="0.4" stroke="#58C4DD" stroke-width="3" />
+              <text x="1580" y="705" font-size="28" fill="#58C4DD" text-anchor="middle">借</text>
+              <text x="1800" y="705" font-size="28" fill="#58C4DD" text-anchor="middle">贷</text>
+            </g>
+          </g>
+          <text id="ma-txn" class="h" x="1690" y="800" font-size="28" fill="#58C4DD" text-anchor="middle">同一事务提交</text>
+          <g id="ma-stamp" class="h">
+            <rect x="1040" y="815" width="360" height="90" rx="45" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="4" />
+            <text x="1220" y="872" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">业务单号 唯一</text>
+          </g>
+        </g>
+
+        <!-- S3 交易核心：价格-时间优先 / 定序日志 + 快照回放 | 撮合不碰钱 → 结算 → 分录 -->
+        <g id="ma-st3">
+          <g id="ma-rA" class="h">
+            <text class="mono" x="170" y="582" font-size="30" fill="#8a8f99">60150</text>
+            <rect x="330" y="552" width="230" height="36" rx="6" fill="#2a3a44" />
+          </g>
+          <g id="ma-rB" class="h">
+            <rect id="ma-rBf" x="155" y="610" width="450" height="60" rx="10" fill="none" stroke="#FF9F43" stroke-width="2.5" opacity="0" />
+            <text class="mono" x="170" y="651" font-size="30" fill="#e8e6df">60100</text>
+          </g>
+          <g id="ma-bob" class="h"><rect id="ma-bobr" x="330" y="618" width="110" height="44" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="385" y="650" font-size="28" fill="#e8e6df" text-anchor="middle">Bob</text></g>
+          <g id="ma-car" class="h"><rect x="460" y="618" width="130" height="44" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="525" y="650" font-size="28" fill="#e8e6df" text-anchor="middle">Carol</text></g>
+          <text id="ma-pp" class="h" x="630" y="651" font-size="28" fill="#FF9F43">价格优先</text>
+          <text id="ma-mk" class="h" x="630" y="651" font-size="28" fill="#F0B90B">按 Maker 价成交</text>
+          <text id="ma-mk2" class="h" x="620" y="651" font-size="28" fill="#F0B90B">Maker/Taker 是角色</text>
+          <path id="ma-ta" class="dr h" pathLength="1" d="M590 706 L345 706" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#ma-arrS)" />
+          <text id="ma-tp" class="h" x="630" y="716" font-size="28" fill="#FF9F43">时间优先</text>
+          <g id="ma-log" class="h">
+            <text x="160" y="842" font-size="28" fill="#58C4DD">日志</text>
+            <rect x="300" y="805" width="72" height="50" rx="6" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2" />
+            <rect x="380" y="805" width="72" height="50" rx="6" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2" />
+            <rect x="460" y="805" width="72" height="50" rx="6" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2" />
+            <rect x="540" y="805" width="72" height="50" rx="6" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2" />
+            <rect x="620" y="805" width="72" height="50" rx="6" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2" />
+            <rect x="700" y="805" width="72" height="50" rx="6" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2" />
+            <g class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">
+              <text x="336" y="840">1</text><text x="416" y="840">2</text><text x="496" y="840">3</text><text x="576" y="840">4</text><text x="656" y="840">5</text><text x="736" y="840">6</text>
+            </g>
+          </g>
+          <path id="ma-head" class="h" d="M324 782 L348 782 L336 798 Z" fill="#F0B90B" />
+          <text id="ma-det" class="h" x="800" y="840" font-size="28" fill="#83C167">确定性</text>
+          <g id="ma-snap" class="h"><rect x="300" y="885" width="160" height="60" rx="8" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="3" /><text x="380" y="925" font-size="28" fill="#58C4DD" text-anchor="middle">快照</text></g>
+          <path id="ma-rp" class="dr h" pathLength="1" d="M470 915 L770 915" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ma-arrB)" />
+          <text id="ma-rec" class="h" x="800" y="925" font-size="28" fill="#83C167">可恢复</text>
+          <line id="ma-div3" class="h" x1="940" y1="540" x2="940" y2="940" stroke="#2a2f3a" stroke-width="2" />
+          <g id="ma-eng" class="h"><rect x="980" y="560" width="200" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1080" y="617" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">撮合</text></g>
+          <g id="ma-coin" class="h">
+            <circle cx="1240" cy="700" r="24" fill="none" stroke="#F0B90B" stroke-width="3" />
+            <circle cx="1240" cy="700" r="12" fill="#F0B90B" fill-opacity="0.5" />
+            <line x1="1218" y1="722" x2="1262" y2="678" stroke="#FC6255" stroke-width="4" />
+          </g>
+          <path id="ma-ea" class="dr h" pathLength="1" d="M1188 605 L1290 605" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-set" class="h"><rect x="1300" y="560" width="200" height="90" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="1400" y="617" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">结算</text></g>
+          <path id="ma-sa" class="dr h" pathLength="1" d="M1508 605 L1550 605" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-ent" class="h">
+            <rect x="1560" y="552" width="280" height="46" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1580" y="586" font-size="28" fill="#58C4DD">借</text>
+            <rect x="1630" y="565" width="180" height="20" rx="5" fill="#F0B90B" fill-opacity="0.7" />
+            <rect x="1560" y="612" width="280" height="46" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="1580" y="646" font-size="28" fill="#58C4DD">贷</text>
+            <rect x="1630" y="625" width="180" height="20" rx="5" fill="#F0B90B" fill-opacity="0.7" />
+          </g>
+          <rect id="ma-cstrip" class="h" x="960" y="780" width="890" height="80" rx="12" fill="#F0B90B" fill-opacity="0.08" stroke="#F0B90B" stroke-width="2.5" />
+          <text id="ma-n1" class="h mono" x="980" y="832" font-size="28" fill="#e8e6df">100.0000005</text>
+          <text id="ma-n2" class="h mono" x="1180" y="832" font-size="28" fill="#F0B90B">− 0.100001</text>
+          <text id="ma-n3" class="h mono" x="1362" y="832" font-size="28" fill="#e8e6df">= 99.8999995</text>
+          <text id="ma-n4" class="h mono" x="1578" y="832" font-size="28" fill="#83C167">→ 99.899999</text>
+          <text id="ma-l1" class="h" x="980" y="906" font-size="28" fill="#e8e6df">成交额</text>
+          <text id="ma-up" class="h" x="1180" y="906" font-size="28" fill="#F0B90B">向上取整</text>
+          <text id="ma-sub" class="h" x="1362" y="906" font-size="28" fill="#e8e6df">实收用减法</text>
+          <text id="ma-dn" class="h" x="1578" y="906" font-size="28" fill="#83C167">向下取整</text>
+          <text id="ma-fee" class="h" x="1180" y="958" font-size="28" fill="#8a8f99">费率千分之一</text>
+          <text id="ma-rnd" class="h" x="1362" y="958" font-size="28" fill="#8a8f99">差额 0.0000005 → 舍入账户</text>
+        </g>
+
+        <!-- S4 钱包进出：充值流水线 / 提币流水线（反向） / 冷热分层 -->
+        <g id="ma-st4">
+          <text id="ma-dl" class="h" x="200" y="540" font-size="28" font-weight="700" fill="#F0B90B">充值</text>
+          <g id="ma-d0" class="h"><rect x="200" y="560" width="250" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="325" y="617" font-size="32" fill="#e8e6df" text-anchor="middle">区块</text></g>
+          <path id="ma-da0" class="dr h" pathLength="1" d="M458 605 L522 605" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-d1" class="h"><rect x="530" y="560" width="250" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="655" y="600" font-size="30" fill="#e8e6df" text-anchor="middle">确认数</text></g>
+          <rect id="ma-t0" class="h" x="575" y="616" width="20" height="14" rx="3" fill="#3a3f4a" />
+          <rect id="ma-t1" class="h" x="603" y="616" width="20" height="14" rx="3" fill="#3a3f4a" />
+          <rect id="ma-t2" class="h" x="631" y="616" width="20" height="14" rx="3" fill="#3a3f4a" />
+          <rect id="ma-t3" class="h" x="659" y="616" width="20" height="14" rx="3" fill="#3a3f4a" />
+          <rect id="ma-t4" class="h" x="687" y="616" width="20" height="14" rx="3" fill="#3a3f4a" />
+          <rect id="ma-t5" class="h" x="715" y="616" width="20" height="14" rx="3" fill="#3a3f4a" />
+          <path id="ma-da1" class="dr h" pathLength="1" d="M788 605 L852 605" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-d2" class="h"><rect id="ma-d2r" x="860" y="560" width="250" height="90" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="965" y="617" font-size="32" fill="#e8e6df" text-anchor="middle">合约地址</text></g>
+          <path id="ma-ck" class="dr" pathLength="1" d="M1062 606 L1074 620 L1096 590" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" />
+          <path id="ma-da2" class="dr h" pathLength="1" d="M1118 605 L1182 605" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-d3" class="h"><rect x="1190" y="560" width="250" height="90" rx="12" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="3" /><text x="1315" y="617" font-size="32" fill="#58C4DD" text-anchor="middle">幂等入账</text></g>
+          <text id="ma-wl" class="h" x="200" y="808" font-size="28" font-weight="700" fill="#F0B90B">提币</text>
+          <g id="ma-w6" class="h"><rect id="ma-w6r" x="1400" y="825" width="160" height="70" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="1480" y="871" font-size="30" fill="#e8e6df" text-anchor="middle">冻结</text></g>
+          <g id="ma-w5" class="h"><rect x="1200" y="825" width="160" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="1280" y="871" font-size="30" fill="#e8e6df" text-anchor="middle">风控</text></g>
+          <g id="ma-w4" class="h"><rect x="1000" y="825" width="160" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="1080" y="871" font-size="30" fill="#e8e6df" text-anchor="middle">审批</text></g>
+          <g id="ma-w3" class="h"><rect x="800" y="825" width="160" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="880" y="871" font-size="30" fill="#e8e6df" text-anchor="middle">签名</text></g>
+          <g id="ma-w2" class="h"><rect x="600" y="825" width="160" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="680" y="871" font-size="30" fill="#e8e6df" text-anchor="middle">广播</text></g>
+          <g id="ma-w1" class="h"><rect x="400" y="825" width="160" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="480" y="871" font-size="30" fill="#e8e6df" text-anchor="middle">确认</text></g>
+          <g id="ma-w0" class="h"><rect x="200" y="825" width="160" height="70" rx="12" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="3" /><text x="280" y="871" font-size="30" fill="#58C4DD" text-anchor="middle">扣减</text></g>
+          <path id="ma-wa5" class="dr h" pathLength="1" d="M1394 860 L1366 860" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arrS)" />
+          <path id="ma-wa4" class="dr h" pathLength="1" d="M1194 860 L1166 860" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arrS)" />
+          <path id="ma-wa3" class="dr h" pathLength="1" d="M994 860 L966 860" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arrS)" />
+          <path id="ma-wa2" class="dr h" pathLength="1" d="M794 860 L766 860" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arrS)" />
+          <path id="ma-wa1" class="dr h" pathLength="1" d="M594 860 L566 860" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arrS)" />
+          <path id="ma-wa0" class="dr h" pathLength="1" d="M394 860 L366 860" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arrS)" />
+          <g id="ma-tier" class="h">
+            <rect x="1600" y="560" width="240" height="48" rx="8" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2.5" /><text x="1720" y="595" font-size="28" fill="#FF9F43" text-anchor="middle">热</text>
+            <rect x="1600" y="616" width="240" height="48" rx="8" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="2.5" /><text x="1720" y="651" font-size="28" fill="#F0B90B" text-anchor="middle">温</text>
+            <rect x="1600" y="672" width="240" height="48" rx="8" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2.5" /><text x="1720" y="707" font-size="28" fill="#58C4DD" text-anchor="middle">冷</text>
+          </g>
+          <text id="ma-intx" class="h" x="1280" y="950" font-size="28" fill="#FF9F43" text-anchor="middle">内部转账也要过风控</text>
+          <text id="ma-prev" class="h" x="1720" y="768" font-size="28" fill="#8a8f99" text-anchor="middle">前面讲过</text>
+        </g>
+
+        <!-- S5 行情与风控：平盘 K 线 / 快照 + 增量 / 三方对账 / 储备金证明两半 -->
+        <g id="ma-st5">
+          <g id="ma-k0" class="h"><line x1="220" y1="560" x2="220" y2="680" stroke="#83C167" stroke-width="3" /><rect x="205" y="590" width="30" height="60" fill="#83C167" /></g>
+          <g id="ma-k1" class="h"><line x1="315" y1="575" x2="315" y2="700" stroke="#FC6255" stroke-width="3" /><rect x="300" y="600" width="30" height="70" fill="#FC6255" /></g>
+          <g id="ma-k2" class="h"><line x1="410" y1="555" x2="410" y2="650" stroke="#83C167" stroke-width="3" /><rect x="395" y="570" width="30" height="60" fill="#83C167" /></g>
+          <line id="ma-kf" class="dr" pathLength="1" x1="486" y1="612" x2="524" y2="612" stroke="#58C4DD" stroke-width="5" />
+          <text id="ma-kfl" class="h" x="505" y="700" font-size="28" fill="#58C4DD" text-anchor="middle">平盘</text>
+          <g id="ma-k4" class="h"><line x1="600" y1="560" x2="600" y2="690" stroke="#83C167" stroke-width="3" /><rect x="585" y="580" width="30" height="80" fill="#83C167" /></g>
+          <g id="ma-k5" class="h"><line x1="695" y1="540" x2="695" y2="640" stroke="#83C167" stroke-width="3" /><rect x="680" y="555" width="30" height="65" fill="#83C167" /></g>
+          <g id="ma-k6" class="h"><line x1="790" y1="570" x2="790" y2="680" stroke="#FC6255" stroke-width="3" /><rect x="775" y="595" width="30" height="60" fill="#FC6255" /></g>
+          <g id="ma-snp" class="h"><rect id="ma-snpr" x="180" y="780" width="140" height="66" rx="8" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="3" /><text x="250" y="824" font-size="28" fill="#58C4DD" text-anchor="middle">快照</text></g>
+          <rect id="ma-i0" class="h" x="350" y="784" width="74" height="58" rx="6" fill="#58C4DD" fill-opacity="0.3" />
+          <rect id="ma-i1" class="h" x="440" y="784" width="74" height="58" rx="6" fill="#58C4DD" fill-opacity="0.3" />
+          <rect id="ma-i2" class="h" x="530" y="784" width="74" height="58" rx="6" fill="#58C4DD" fill-opacity="0.3" />
+          <rect id="ma-gap" class="h" x="620" y="784" width="74" height="58" rx="6" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="3" stroke-dasharray="8 6" />
+          <rect id="ma-i4" class="h" x="710" y="784" width="74" height="58" rx="6" fill="#58C4DD" fill-opacity="0.3" />
+          <text id="ma-rs" class="h" x="657" y="900" font-size="28" font-weight="700" fill="#FC6255" text-anchor="middle">重同步</text>
+          <line id="ma-div5" class="h" x1="940" y1="540" x2="940" y2="930" stroke="#2a2f3a" stroke-width="2" />
+          <path id="ma-tri1" class="dr" pathLength="1" d="M1370 600 L1225 690" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <path id="ma-tri2" class="dr" pathLength="1" d="M1262 720 L1578 720" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <path id="ma-loop" class="dr" pathLength="1" d="M1737 706 C1812 670 1812 770 1737 734" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <text id="ma-loopl" class="h" x="1840" y="668" font-size="28" fill="#58C4DD" text-anchor="end">内部不变量</text>
+          <g id="ma-n0" class="h"><rect x="1345" y="542" width="150" height="56" rx="28" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1420" y="580" font-size="28" fill="#e8e6df" text-anchor="middle">链上</text></g>
+          <g id="ma-nw" class="h"><rect x="1105" y="692" width="150" height="56" rx="28" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" /><text x="1180" y="730" font-size="28" fill="#e8e6df" text-anchor="middle">钱包</text></g>
+          <g id="ma-nl" class="h"><rect x="1585" y="692" width="150" height="56" rx="28" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1660" y="730" font-size="28" fill="#e8e6df" text-anchor="middle">账本</text></g>
+          <g id="ma-por" class="h"><rect x="1000" y="800" width="840" height="100" rx="14" fill="#161a22" stroke="#e8e6df" stroke-width="3" /><text x="1420" y="862" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">储备金证明</text></g>
+          <g id="ma-pa" class="h"><rect x="1000" y="800" width="400" height="100" rx="14" fill="#F0B90B" fill-opacity="0.1" stroke="#F0B90B" stroke-width="3" /><text x="1200" y="860" font-size="30" font-weight="700" fill="#F0B90B" text-anchor="middle">资产：地址签名</text></g>
+          <g id="ma-pl" class="h"><rect x="1440" y="800" width="400" height="100" rx="14" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="3" /><text x="1640" y="860" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">负债：默克尔和树</text></g>
+        </g>
+
+        <!-- S6 高可用：单主写 + 租约 / 三场事故 -->
+        <g id="ma-st6">
+          <g id="ma-lease" class="h">
+            <circle cx="380" cy="512" r="13" fill="none" stroke="#F0B90B" stroke-width="3.5" />
+            <path d="M393 512 H440 M426 512 V524 M438 512 V526" fill="none" stroke="#F0B90B" stroke-width="3.5" />
+            <text x="456" y="522" font-size="28" fill="#F0B90B">租约</text>
+          </g>
+          <g id="ma-m1" class="h"><rect id="ma-m1r" x="260" y="545" width="300" height="130" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text id="ma-m1t" x="410" y="602" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">主</text>
+            <text x="410" y="650" font-size="28" fill="#8a8f99" text-anchor="middle">撮合 · 账本</text></g>
+          <g id="ma-m2" class="h"><rect id="ma-m2r" x="900" y="545" width="300" height="130" rx="14" fill="#161a22" stroke="#4a4f59" stroke-width="3" />
+            <text x="1050" y="650" font-size="28" fill="#8a8f99" text-anchor="middle">撮合 · 账本</text></g>
+          <text id="ma-m2a" class="h" x="1050" y="602" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">备</text>
+          <text id="ma-m2b" class="h" x="1050" y="602" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">新主</text>
+          <text id="ma-m1o" class="h" x="410" y="602" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">旧主</text>
+          <text id="ma-m1l" class="h" x="410" y="712" font-size="28" fill="#FC6255" text-anchor="middle">失去租约</text>
+          <text id="ma-maj" class="h" x="730" y="662" font-size="28" fill="#F0B90B" text-anchor="middle">多数派决定谁是主</text>
+          <path id="ma-la" class="dr h" pathLength="1" d="M568 612 L892 612" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ma-arrB)" />
+          <text id="ma-lal" class="h" x="730" y="590" font-size="28" fill="#58C4DD" text-anchor="middle">日志</text>
+          <g id="ma-x1" class="h">
+            <rect x="160" y="740" width="540" height="160" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text class="mono" x="190" y="802" font-size="34" font-weight="700" fill="#e8e6df">Mt.Gox</text>
+          </g>
+          <text id="ma-x1t" class="h" x="190" y="860" font-size="30" fill="#FC6255">密钥被盗 + 无对账</text>
+          <g id="ma-x2" class="h">
+            <rect x="720" y="740" width="540" height="160" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text x="750" y="802" font-size="34" font-weight="700" fill="#e8e6df">币安 2019</text>
+          </g>
+          <text id="ma-x2t" class="h" x="750" y="860" font-size="30" fill="#FC6255">凭证泄漏 + 风控不足</text>
+          <g id="ma-x3" class="h">
+            <rect x="1280" y="740" width="540" height="160" rx="14" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+            <text class="mono" x="1310" y="802" font-size="34" font-weight="700" fill="#e8e6df">FTX</text>
+          </g>
+          <text id="ma-x3t" class="h" x="1310" y="860" font-size="30" fill="#FC6255">治理失败 + 挪用</text>
+          <text id="ma-src" class="h" x="960" y="962" font-size="28" fill="#8a8f99" text-anchor="middle">以法院文件 / 官方公告为准</text>
+        </g>
+
+        <!-- S7 迷你 CEX：账本 → 撮合 → 钱包 → 对账与灾备 -->
+        <g id="ma-st7">
+          <g id="ma-b0" class="h"><rect id="ma-b0r" x="160" y="600" width="280" height="120" rx="14" fill="#58C4DD" stroke="#58C4DD" stroke-width="3" /><text x="300" y="674" font-size="36" font-weight="700" fill="#0f1117" text-anchor="middle">账本</text></g>
+          <text id="ma-b0l" class="h" x="300" y="778" font-size="28" fill="#58C4DD" text-anchor="middle">只有它写余额</text>
+          <path id="ma-ba1" class="dr h" pathLength="1" d="M448 660 L610 660" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-b1" class="h"><rect x="620" y="600" width="280" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="760" y="674" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">撮合</text></g>
+          <text id="ma-b1l" class="h" x="760" y="778" font-size="28" fill="#8a8f99" text-anchor="middle">只管配单</text>
+          <path id="ma-ba2" class="dr h" pathLength="1" d="M908 660 L1070 660" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-b2" class="h"><rect x="1080" y="600" width="280" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1220" y="674" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">钱包</text></g>
+          <text id="ma-b2l" class="h" x="1220" y="778" font-size="28" fill="#8a8f99" text-anchor="middle">进出</text>
+          <path id="ma-ba3" class="dr h" pathLength="1" d="M1368 660 L1530 660" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#ma-arr)" />
+          <g id="ma-b3" class="h"><rect x="1540" y="600" width="300" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1690" y="674" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">对账与灾备</text></g>
+          <text id="ma-b3l" class="h" x="1690" y="778" font-size="28" fill="#8a8f99" text-anchor="middle">兜底</text>
+          <text id="ma-g1" class="h" x="760" y="832" font-size="28" fill="#83C167" text-anchor="middle">要确定</text>
+          <text id="ma-g0" class="h" x="300" y="832" font-size="28" fill="#83C167" text-anchor="middle">强一致</text>
+          <text id="ma-g2" class="h" x="1220" y="832" font-size="28" fill="#83C167" text-anchor="middle">等确认数</text>
+          <text id="ma-g3" class="h" x="960" y="930" font-size="30" fill="#83C167" text-anchor="middle">行情：最终一致，可丢中间帧</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const LIGHT = (k, t) => {
+        tl.to(`#ma-h${k}-box`, { stroke: "#58C4DD", strokeWidth: 3.5, duration: 0.4 }, t);
+        tl.to(`#ma-h${k}-t`, { fill: "#e8e6df", duration: 0.4 }, t);
+      };
+      const SETTLE = (k, t) => {
+        tl.to(`#ma-h${k}-box`, { stroke: "#3d5560", strokeWidth: 2.5, duration: 0.4 }, t);
+        tl.to(`#ma-h${k}-t`, { fill: "#b8b6af", duration: 0.4 }, t);
+      };
+      const CHIP = (s, t) => IN(s, t, 0.5, { y: 10 }, { y: 0 });
+      const POP = (s, t, o, d = 0.5) => IN(s, t, d, { scale: 0.7, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(1.8)" });
+      const PULSE = (s, t, o, k = 1.08) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+
+      // ===== L0 对照 =====
+      IN("#ma-title", at(0, 0.0), 0.5);
+      IN("#ma-heads", at(0, 0.02), 0.7, { y: 16 }, { y: 0 });
+      LIGHT(1, at(0, 0.05));
+      CHIP("#ma-c1a", at(0, 0.1));
+      ["#ma-q0", "#ma-q1", "#ma-q2", "#ma-q3", "#ma-q4", "#ma-q5", "#ma-q6"].forEach((s, j) =>
+        IN(s, at(0, [0.17, 0.21, 0.25, 0.29, 0.33, 0.37, 0.42][j]), 0.4, { y: 16 }, { y: 0 }));
+      IN("#ma-cex", at(0, 0.45), 0.5, { y: 20 }, { y: 0 });
+      DRAW("#ma-lc", at(0, 0.46), 0.8);
+      IN("#ma-fast", at(0, 0.56), 0.4);
+      IN("#ma-crisk", at(0, 0.6), 0.5, { y: -10 }, { y: 0 });
+      tl.to("#ma-lc", { opacity: 0.2, duration: 0.4 }, at(0, 0.66));
+      IN("#ma-dex", at(0, 0.67), 0.5, { y: 20 }, { y: 0 });
+      DRAW("#ma-ld", at(0, 0.68), 0.8);
+      CHIP("#ma-c1b", at(0, 0.72));
+      IN("#ma-self", at(0, 0.78), 0.4);
+      IN("#ma-r0", at(0, 0.87), 0.4, { y: -10 }, { y: 0 });
+      IN("#ma-r1", at(0, 0.91), 0.4, { y: -10 }, { y: 0 });
+      IN("#ma-r2", at(0, 0.95), 0.4, { y: -10 }, { y: 0 });
+
+      // ===== L1 业务与资金：手续费 + 滑点；市价买 3 吃三档；市价单 / 止损单误区 =====
+      OUT("#ma-st0", at(1, 0.0), 0.4);
+      SETTLE(1, at(1, 0.0)); LIGHT(2, at(1, 0.02));
+      CHIP("#ma-c2a", at(1, 0.05));
+      IN("#ma-eq", at(1, 0.08), 0.5, { x: -20 }, { x: 0 });
+      tl.to("#ma-eqf", { fill: "#F0B90B", duration: 0.3 }, at(1, 0.15));
+      tl.to("#ma-eqs", { fill: "#F0B90B", duration: 0.3 }, at(1, 0.2));
+      IN("#ma-ob3", at(1, 0.23), 0.4, { x: -16 }, { x: 0 });
+      IN("#ma-ob2", at(1, 0.25), 0.4, { x: -16 }, { x: 0 });
+      IN("#ma-ob1", at(1, 0.27), 0.4, { x: -16 }, { x: 0 });
+      IN("#ma-buy", at(1, 0.3), 0.5, { x: 20 }, { x: 0 });
+      ARROW("#ma-ba", at(1, 0.33), 0.5);
+      tl.to("#ma-e1", { attr: { width: 80 }, duration: 0.4, ease: "power2.out" }, at(1, 0.36));
+      tl.to("#ma-e2", { attr: { width: 120 }, duration: 0.45, ease: "power2.out" }, at(1, 0.36) + 0.4);
+      tl.to("#ma-e3", { attr: { width: 100 }, duration: 0.45, ease: "power2.out" }, at(1, 0.36) + 0.85);
+      IN("#ma-strip", at(1, 0.42), 0.4);
+      IN("#ma-avgt", at(1, 0.42), 0.4);
+      COUNT("#ma-avg", 60100, 60153.3, at(1, 0.42), 1.4, v => v.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 }));
+      tl.to("#ma-ob1l, #ma-ob1p", { fill: "#F0B90B", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.55));
+      IN("#ma-slip", at(1, 0.6), 0.5, { x: -16 }, { x: 0 });
+      IN("#ma-mx1", at(1, 0.71), 0.4, { x: -16 }, { x: 0 });
+      tl.to("#ma-buy rect", { stroke: "#FF9F43", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.74));
+      IN("#ma-mx2", at(1, 0.84), 0.4, { x: -16 }, { x: 0 });
+
+      // ===== L2 API Key / 短信 / 签名 / 去重 | 账本 =====
+      OUT("#ma-st1", at(2, 0.0), 0.4);
+      IN("#ma-key", at(2, 0.03), 0.5, { x: -20 }, { x: 0 });
+      IN("#ma-pm", at(2, 0.07), 0.4, { x: -16 }, { x: 0 });
+      IN("#ma-pip", at(2, 0.14), 0.4, { x: -16 }, { x: 0 });
+      IN("#ma-2fa", at(2, 0.18), 0.4, { x: -16 }, { x: 0 });
+      IN("#ma-env", at(2, 0.25), 0.5, { y: 16 }, { y: 0 });
+      IN("#ma-sig", at(2, 0.27), 0.4);
+      IN("#ma-win", at(2, 0.33), 0.4);
+      IN("#ma-dup", at(2, 0.37), 0.5, { x: -40 }, { x: 0 });
+      IN("#ma-coid", at(2, 0.43), 0.4);
+      DRAW("#ma-x", at(2, 0.46), 0.4);
+      tl.to("#ma-dup", { opacity: 0.35, duration: 0.4 }, at(2, 0.48));
+      IN("#ma-dd", at(2, 0.49), 0.4);
+      IN("#ma-div2", at(2, 0.51), 0.4);
+      IN("#ma-led", at(2, 0.52), 0.5, { x: 20 }, { x: 0 });
+      CHIP("#ma-c2b", at(2, 0.58));
+      IN("#ma-scale", at(2, 0.61), 0.5);
+      tl.fromTo("#ma-beam", { rotation: -6, svgOrigin: "1690 600" }, { rotation: 0, svgOrigin: "1690 600", duration: 1.0, ease: "elastic.out(1, 0.4)", immediateRender: false }, at(2, 0.64));
+      IN("#ma-txn", at(2, 0.7), 0.4, { y: 10 }, { y: 0 });
+      IN("#ma-cols", at(2, 0.8), 0.4);
+      tl.to("#ma-av", { attr: { width: 200 }, duration: 0.5, ease: "power2.out" }, at(2, 0.81));
+      tl.to("#ma-fz", { opacity: 1, duration: 0.01 }, at(2, 0.84));
+      tl.to("#ma-av", { attr: { width: 140 }, duration: 0.01 }, at(2, 0.84));
+      tl.to("#ma-fz", { attr: { x: 1320 }, duration: 0.6, ease: "power2.inOut" }, at(2, 0.84));
+      IN("#ma-stamp", at(2, 0.89), 0.4, { scale: 1.6, svgOrigin: "1220 860" }, { scale: 1, svgOrigin: "1220 860", ease: "power3.out" });
+      PULSE("#ma-stamp", at(2, 0.96), "1220 860");
+
+      // ===== L3 交易核心 =====
+      OUT("#ma-st2", at(3, 0.0), 0.4);
+      SETTLE(2, at(3, 0.0)); LIGHT(3, at(3, 0.01));
+      IN("#ma-rA", at(3, 0.02), 0.4, { y: 10 }, { y: 0 });
+      IN("#ma-rB", at(3, 0.03), 0.4, { y: 10 }, { y: 0 });
+      IN("#ma-bob", at(3, 0.035), 0.4, { x: 20 }, { x: 0 });
+      IN("#ma-car", at(3, 0.04), 0.4, { x: 20 }, { x: 0 });
+      CHIP("#ma-c3a", at(3, 0.045));
+      tl.to("#ma-rBf", { opacity: 1, duration: 0.3 }, at(3, 0.05));
+      IN("#ma-pp", at(3, 0.05), 0.4);
+      ARROW("#ma-ta", at(3, 0.085), 0.5); IN("#ma-tp", at(3, 0.09), 0.4);
+      tl.to("#ma-bobr", { stroke: "#F0B90B", strokeWidth: 4, duration: 0.3 }, at(3, 0.11));
+      OUT("#ma-pp", at(3, 0.11), 0.3);
+      IN("#ma-mk", at(3, 0.125), 0.4);
+      OUT("#ma-mk", at(3, 0.22), 0.3);
+      IN("#ma-mk2", at(3, 0.22) + 0.35, 0.4);
+      tl.to("#ma-bobr", { stroke: "#58C4DD", strokeWidth: 2.5, duration: 0.3 }, at(3, 0.3));
+      IN("#ma-log", at(3, 0.345), 0.5, { y: 16 }, { y: 0 });
+      IN("#ma-head", at(3, 0.35), 0.3);
+      tl.to("#ma-head", { x: 400, duration: 2.0, ease: "steps(5)" }, at(3, 0.355));
+      CHIP("#ma-c3b", at(3, 0.37));
+      IN("#ma-det", at(3, 0.4), 0.4);
+      IN("#ma-snap", at(3, 0.42), 0.4, { y: 10 }, { y: 0 });
+      ARROW("#ma-rp", at(3, 0.43), 0.8);
+      IN("#ma-rec", at(3, 0.46), 0.4);
+      IN("#ma-div3", at(3, 0.475), 0.4);
+      IN("#ma-eng", at(3, 0.48), 0.4, { x: 16 }, { x: 0 });
+      POP("#ma-coin", at(3, 0.49), "1240 700");
+      CHIP("#ma-c3c", at(3, 0.49));
+      ARROW("#ma-ea", at(3, 0.51), 0.4);
+      IN("#ma-set", at(3, 0.515), 0.4, { x: 16 }, { x: 0 });
+      ARROW("#ma-sa", at(3, 0.53), 0.3);
+      IN("#ma-ent", at(3, 0.535), 0.4, { x: 16 }, { x: 0 });
+      IN("#ma-cstrip", at(3, 0.545), 0.4);
+      IN("#ma-up", at(3, 0.55), 0.4, { y: 10 }, { y: 0 });
+      IN("#ma-sub", at(3, 0.59), 0.4, { y: 10 }, { y: 0 });
+      IN("#ma-n1", at(3, 0.63), 0.4);
+      IN("#ma-l1", at(3, 0.64), 0.4);
+      IN("#ma-fee", at(3, 0.72), 0.4);
+      IN("#ma-n2", at(3, 0.76), 0.4, { x: 16 }, { x: 0 });
+      tl.to("#ma-up", { fill: "#e8e6df", duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.78));
+      IN("#ma-n3", at(3, 0.84), 0.4, { x: 16 }, { x: 0 });
+      IN("#ma-n4", at(3, 0.92), 0.4, { x: 16 }, { x: 0 });
+      IN("#ma-dn", at(3, 0.93), 0.4);
+      tl.to("#ma-n3", { fill: "#8a8f99", duration: 0.3 }, at(3, 0.94));
+      IN("#ma-rnd", at(3, 0.955), 0.4);
+
+      // ===== L4 钱包进出 =====
+      OUT("#ma-st3", at(4, 0.0), 0.4);
+      SETTLE(3, at(4, 0.0)); LIGHT(4, at(4, 0.02));
+      IN("#ma-dl", at(4, 0.1), 0.4);
+      IN("#ma-d0", at(4, 0.12), 0.4, { x: -16 }, { x: 0 });
+      ARROW("#ma-da0", at(4, 0.15), 0.3);
+      IN("#ma-d1", at(4, 0.16), 0.4, { x: -16 }, { x: 0 });
+      ["#ma-t0", "#ma-t1", "#ma-t2", "#ma-t3", "#ma-t4", "#ma-t5"].forEach((s, j) => {
+        IN(s, at(4, 0.17), 0.2);
+        tl.to(s, { fill: "#83C167", duration: 0.15 }, at(4, 0.19) + j * 0.25);
+      });
+      CHIP("#ma-c4a", at(4, 0.2));
+      ARROW("#ma-da1", at(4, 0.24), 0.3);
+      IN("#ma-d2", at(4, 0.25), 0.4, { x: -16 }, { x: 0 });
+      DRAW("#ma-ck", at(4, 0.29), 0.4);
+      tl.to("#ma-d2r", { stroke: "#83C167", duration: 0.3 }, at(4, 0.29));
+      ARROW("#ma-da2", at(4, 0.32), 0.3);
+      IN("#ma-d3", at(4, 0.33), 0.4, { x: -16 }, { x: 0 });
+      IN("#ma-wl", at(4, 0.4), 0.4);
+      ["#ma-w6", "#ma-w5", "#ma-w4", "#ma-w3", "#ma-w2", "#ma-w1", "#ma-w0"].forEach((s, j) =>
+        IN(s, at(4, [0.41, 0.48, 0.52, 0.55, 0.58, 0.63, 0.67][j]), 0.35, { x: 16 }, { x: 0 }));
+      ["#ma-wa5", "#ma-wa4", "#ma-wa3", "#ma-wa2", "#ma-wa1", "#ma-wa0"].forEach((s, j) =>
+        ARROW(s, at(4, [0.47, 0.51, 0.54, 0.57, 0.62, 0.66][j]), 0.2));
+      CHIP("#ma-c4b", at(4, 0.69));
+      IN("#ma-intx", at(4, 0.75), 0.4, { y: 10 }, { y: 0 });
+      tl.to("#ma-w5 rect", { stroke: "#FF9F43", strokeWidth: 4, duration: 0.3 }, at(4, 0.79));
+      IN("#ma-tier", at(4, 0.88), 0.5, { y: 16 }, { y: 0 });
+      IN("#ma-prev", at(4, 0.94), 0.4);
+
+      // ===== L5 行情与风控 =====
+      OUT("#ma-st4", at(5, 0.0), 0.4);
+      SETTLE(4, at(5, 0.0)); LIGHT(5, at(5, 0.02));
+      ["#ma-k0", "#ma-k1", "#ma-k2"].forEach((s, j) => IN(s, at(5, 0.08) + j * 0.25, 0.3, { y: 10 }, { y: 0 }));
+      DRAW("#ma-kf", at(5, 0.15), 0.4);
+      ["#ma-k4", "#ma-k5", "#ma-k6"].forEach((s, j) => IN(s, at(5, 0.18) + j * 0.25, 0.3, { y: 10 }, { y: 0 }));
+      CHIP("#ma-c5a", at(5, 0.17));
+      IN("#ma-kfl", at(5, 0.19), 0.4);
+      IN("#ma-snp", at(5, 0.24), 0.4, { x: -16 }, { x: 0 });
+      ["#ma-i0", "#ma-i1", "#ma-i2"].forEach((s, j) => IN(s, at(5, 0.27) + j * 0.2, 0.25, { x: -10 }, { x: 0 }));
+      IN("#ma-i4", at(5, 0.27) + 0.8, 0.25, { x: -10 }, { x: 0 });
+      IN("#ma-gap", at(5, 0.33), 0.2);
+      tl.to("#ma-gap", { fillOpacity: 0.45, duration: 0.2, yoyo: true, repeat: 3 }, at(5, 0.34));
+      IN("#ma-rs", at(5, 0.37), 0.4);
+      tl.to("#ma-snpr", { stroke: "#FC6255", duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.39));
+      IN("#ma-div5", at(5, 0.45), 0.4);
+      IN("#ma-n0", at(5, 0.47), 0.4, { y: -10 }, { y: 0 });
+      IN("#ma-nw", at(5, 0.5), 0.4, { y: -10 }, { y: 0 });
+      DRAW("#ma-tri1", at(5, 0.52), 0.5);
+      IN("#ma-nl", at(5, 0.56), 0.4, { y: -10 }, { y: 0 });
+      DRAW("#ma-tri2", at(5, 0.575), 0.5);
+      DRAW("#ma-loop", at(5, 0.63), 0.6);
+      IN("#ma-loopl", at(5, 0.65), 0.4);
+      tl.to("#ma-tri1, #ma-tri2", { stroke: "#83C167", duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.7));
+      IN("#ma-por", at(5, 0.76), 0.4, { y: 16 }, { y: 0 });
+      CHIP("#ma-c5b", at(5, 0.77));
+      OUT("#ma-por", at(5, 0.81), 0.3);
+      IN("#ma-pa", at(5, 0.84), 0.5, { x: 30 }, { x: 0 });
+      IN("#ma-pl", at(5, 0.91), 0.5, { x: -30 }, { x: 0 });
+
+      // ===== L6 高可用 + 三场事故 =====
+      OUT("#ma-st5", at(6, 0.0), 0.4);
+      CHIP("#ma-c5c", at(6, 0.03));
+      IN("#ma-m1", at(6, 0.05), 0.4, { y: 10 }, { y: 0 });
+      IN("#ma-m2", at(6, 0.08), 0.4, { y: 10 }, { y: 0 });
+      IN("#ma-m2a", at(6, 0.08), 0.4, { y: 10 }, { y: 0 });
+      IN("#ma-lease", at(6, 0.11), 0.4, { y: -10 }, { y: 0 });
+      ARROW("#ma-la", at(6, 0.16), 0.6); IN("#ma-lal", at(6, 0.17), 0.4);
+      IN("#ma-maj", at(6, 0.23), 0.4, { y: 10 }, { y: 0 });
+      tl.to("#ma-m1r", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.26));
+      tl.to("#ma-m1", { opacity: 0.45, duration: 0.3 }, at(6, 0.27));
+      OUT("#ma-m1t", at(6, 0.26), 0.25);
+      IN("#ma-m1o", at(6, 0.26) + 0.3, 0.3);
+      IN("#ma-m1l", at(6, 0.26) + 0.4, 0.3);
+      tl.to("#ma-lease", { x: 640, duration: 0.8, ease: "power2.inOut" }, at(6, 0.27));
+      OUT("#ma-m2a", at(6, 0.29), 0.25);
+      IN("#ma-m2b", at(6, 0.29) + 0.3, 0.3);
+      tl.to("#ma-m2r", { stroke: "#83C167", duration: 0.3 }, at(6, 0.3));
+      IN("#ma-x1", at(6, 0.35), 0.4, { y: 20 }, { y: 0 });
+      IN("#ma-x1t", at(6, 0.39), 0.4);
+      IN("#ma-x2", at(6, 0.58), 0.4, { y: 20 }, { y: 0 });
+      IN("#ma-x2t", at(6, 0.62), 0.4);
+      IN("#ma-x3", at(6, 0.81), 0.4, { y: 20 }, { y: 0 });
+      IN("#ma-x3t", at(6, 0.83), 0.4);
+      IN("#ma-src", at(6, 0.84), 0.5);
+
+      // ===== L7 迷你 CEX 串起来；各层一致性要求 =====
+      OUT("#ma-st6", at(7, 0.0), 0.4);
+      OUT("#ma-title", at(7, 0.0), 0.3);
+      SETTLE(5, at(7, 0.0));
+      DRAW("#ma-fr", at(7, 0.03), 1.0);
+      IN("#ma-cexl", at(7, 0.06), 0.5);
+      [1, 2, 3, 4, 5].forEach((k, j) => LIGHT(k, at(7, 0.1) + j * 0.12));
+      POP("#ma-b0", at(7, 0.2), "300 660");
+      IN("#ma-b0l", at(7, 0.23), 0.4);
+      ARROW("#ma-ba1", at(7, 0.27), 0.4);
+      IN("#ma-b1", at(7, 0.28), 0.4, { x: -16 }, { x: 0 });
+      IN("#ma-b1l", at(7, 0.32), 0.4);
+      ARROW("#ma-ba2", at(7, 0.38), 0.4);
+      IN("#ma-b2", at(7, 0.39), 0.4, { x: -16 }, { x: 0 });
+      IN("#ma-b2l", at(7, 0.42), 0.4);
+      ARROW("#ma-ba3", at(7, 0.46), 0.4);
+      IN("#ma-b3", at(7, 0.47), 0.4, { x: -16 }, { x: 0 });
+      IN("#ma-b3l", at(7, 0.51), 0.4);
+      PULSE("#ma-b0", at(7, 0.55), "300 660", 1.06);
+      IN("#ma-g1", at(7, 0.69), 0.4, { y: -8 }, { y: 0 });
+      IN("#ma-g0", at(7, 0.76), 0.4, { y: -8 }, { y: 0 });
+      IN("#ma-g2", at(7, 0.83), 0.4, { y: -8 }, { y: 0 });
+      IN("#ma-g3", at(7, 0.91), 0.4, { y: 10 }, { y: 0 });
+
+      tl.to("#ma-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["map"] = tl;
+    })();
+  </script>
+</template>

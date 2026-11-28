@@ -1,0 +1,197 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 apply，id 前缀 ap- -->
+  <div id="root" data-composition-id="apply" data-duration="63.36" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ap-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs><marker id="ap-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="ap-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="ap-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="ap-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="ap-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="ap-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="ap-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker><marker id="ap-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker></defs>
+      <g id="ap-all">
+<g id="ap-cd" class="h"><rect x="820" y="220" width="1020" height="652" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/><rect x="821" y="221" width="1018" height="47" rx="11" fill="#1c2130"/><line x1="820" y1="268" x2="1840" y2="268" stroke="#2a2f3a" stroke-width="2"/><text class="mono" x="844" y="254" font-size="28" fill="#58C4DD">apply(c Command) · switch c.Kind<tspan fill="#8a8f99" style="font-family:NotoSC">（精简）</tspan></text><rect id="ap-cdhl" x="824" y="282" width="1012" height="36" fill="#58C4DD" fill-opacity="0.15" opacity="0"/><rect id="ap-cdhb" x="824" y="282" width="6" height="36" fill="#58C4DD" opacity="0"/><text id="ap-cd1" class="mono h" xml:space="preserve" x="846" y="308" font-size="28" fill="#e8e6df">case "CANCEL":</text><text id="ap-cd2" class="mono h" xml:space="preserve" x="846" y="344" font-size="28" fill="#e8e6df">  left := e.book.Cancel(c.OrderID)</text><text id="ap-cd3" class="mono h" xml:space="preserve" x="846" y="380" font-size="28" fill="#e8e6df">  return encode(OrderCanceled{..., Remaining: left,</text><text id="ap-cd4" class="mono h" xml:space="preserve" x="846" y="416" font-size="28" fill="#e8e6df">    Seq: e.book.NextSeq()})</text><text id="ap-cd5" class="mono h" xml:space="preserve" x="846" y="452" font-size="28" fill="#e8e6df">case "NEW":</text><text id="ap-cd6" class="mono h" xml:space="preserve" x="846" y="488" font-size="28" fill="#e8e6df">  if c.TIF == "POST_ONLY" &amp;&amp; e.book.WouldCross(o) {</text><text id="ap-cd7" class="mono h" xml:space="preserve" x="846" y="524" font-size="28" fill="#e8e6df">    return reject("post-only would cross") }</text><text id="ap-cd8" class="mono h" xml:space="preserve" x="846" y="560" font-size="28" fill="#e8e6df">  if c.TIF == "FOK" &amp;&amp; !e.book.CanFill(o) {</text><text id="ap-cd9" class="mono h" xml:space="preserve" x="846" y="596" font-size="28" fill="#e8e6df">    return reject("fok cannot fill") }</text><text id="ap-cd10" class="mono h" xml:space="preserve" x="846" y="632" font-size="28" fill="#e8e6df">  trades := e.book.Submit(o)</text><text id="ap-cd11" class="mono h" xml:space="preserve" x="846" y="668" font-size="28" fill="#e8e6df">  msgs := encodeTrades(trades, c.TS)</text><text id="ap-cd12" class="mono h" xml:space="preserve" x="846" y="704" font-size="28" fill="#e8e6df">  if o.Qty &gt; 0 &amp;&amp; (o.Market || c.TIF == "IOC") {</text><text id="ap-cd13" class="mono h" xml:space="preserve" x="846" y="740" font-size="28" fill="#e8e6df">    e.book.Cancel(o.ID)</text><text id="ap-cd14" class="mono h" xml:space="preserve" x="846" y="776" font-size="28" fill="#e8e6df">    msgs = append(msgs, encode(OrderCanceled{</text><text id="ap-cd15" class="mono h" xml:space="preserve" x="846" y="812" font-size="28" fill="#e8e6df">      ..., Remaining: o.Qty, Seq: e.book.NextSeq()})...) }</text><text id="ap-cd16" class="mono h" xml:space="preserve" x="846" y="848" font-size="28" fill="#e8e6df">  return msgs</text></g><text id="ap-n2" class="h" x="840" y="930" font-size="32" fill="#e8e6df">撤单：事件带上剩余数量</text><text id="ap-n3" class="h" x="840" y="930" font-size="32" fill="#e8e6df">两道只读检查，不改订单簿</text><text id="ap-n4" class="h" x="840" y="930" font-size="32" fill="#e8e6df">价格优先、时间优先；剩余不挂单</text><text id="ap-n5" class="h" x="840" y="930" font-size="32" fill="#e8e6df">seq 必须随快照一起恢复</text><text id="ap-n4b" class="h" x="840" y="980" font-size="28" fill="#8a8f99">更干净的做法：给 <tspan class="mono">Submit</tspan> 加参数</text>
+<g id="ap-g0">
+  <g id="ap-in1" class="h"><rect x="90" y="290" width="290" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="235" y="336" font-size="30" fill="#e8e6df" text-anchor="middle">订单簿状态</text></g>
+  <g id="ap-in2" class="h"><rect x="470" y="290" width="290" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="615" y="336" font-size="30" fill="#e8e6df" text-anchor="middle">命令</text></g>
+  <path id="ap-a1" class="dr h" pathLength="1" d="M235 364 L340 474" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ap-mb)"/>
+  <path id="ap-a2" class="dr h" pathLength="1" d="M615 364 L520 474" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ap-mb)"/>
+  <g id="ap-fn" class="h"><rect x="260" y="480" width="340" height="110" rx="16" fill="#14222a" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="430" y="549" font-size="40" fill="#58C4DD" text-anchor="middle" font-weight="700">apply</text></g>
+  <text id="ap-pure" class="h" x="618" y="548" font-size="30" fill="#58C4DD">像纯函数</text>
+  <path id="ap-a3" class="dr h" pathLength="1" d="M430 594 L430 690" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#ap-mb)"/>
+  <g id="ap-out" class="h"><rect x="300" y="700" width="260" height="70" rx="12" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/><text x="430" y="746" font-size="30" fill="#58C4DD" text-anchor="middle">事件</text></g>
+</g>
+<g id="ap-g1">
+  <g id="ap-cmd" class="h"><rect x="90" y="270" width="670" height="250" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+    <text class="mono" x="120" y="322" font-size="30" fill="#58C4DD" font-weight="700">Command</text>
+    <text class="mono" x="120" y="384" font-size="28" fill="#e8e6df">Kind · OrderID · Side</text>
+    <text class="mono" x="120" y="436" font-size="28" fill="#e8e6df">Price(tick) · Qty(lot)</text>
+    <text class="mono" x="120" y="488" font-size="28" fill="#e8e6df">TIF ·</text></g>
+  <text id="ap-ts" class="mono h" x="224" y="488" font-size="28" fill="#e8e6df">TS</text>
+  <rect id="ap-tsb" class="h" x="214" y="460" width="54" height="40" rx="8" fill="none" stroke="#FF9F43" stroke-width="3"/>
+  <text id="ap-tsn" class="h" x="290" y="488" font-size="28" fill="#FF9F43">订单服务写好</text>
+  <g id="ap-clk" class="h"><circle cx="150" cy="606" r="38" fill="none" stroke="#8a8f99" stroke-width="3"/>
+    <path d="M150 606 L150 582 M150 606 L168 616" stroke="#8a8f99" stroke-width="3" fill="none"/></g>
+  <line id="ap-clx" class="dr" pathLength="1" x1="116" y1="640" x2="184" y2="572" stroke="#FC6255" stroke-width="5"/>
+  <text id="ap-clt" class="h" x="212" y="616" font-size="30" fill="#e8e6df">不读系统时钟</text>
+  <text id="ap-r1t" class="h" x="90" y="726" font-size="28" fill="#8a8f99">第 1 遍</text>
+  <text id="ap-r2t" class="h" x="90" y="796" font-size="28" fill="#8a8f99">第 2 遍</text>
+  <g id="ap-r1" class="h"><rect x="210" y="702" width="90" height="32" rx="6" fill="#58C4DD" fill-opacity="0.6"/><rect x="310" y="702" width="130" height="32" rx="6" fill="#58C4DD" fill-opacity="0.6"/><rect x="450" y="702" width="70" height="32" rx="6" fill="#58C4DD" fill-opacity="0.6"/><rect x="530" y="702" width="110" height="32" rx="6" fill="#58C4DD" fill-opacity="0.6"/></g>
+  <g id="ap-r2" class="h"><rect x="210" y="772" width="90" height="32" rx="6" fill="#58C4DD" fill-opacity="0.6"/><rect x="310" y="772" width="130" height="32" rx="6" fill="#58C4DD" fill-opacity="0.6"/><rect x="450" y="772" width="70" height="32" rx="6" fill="#58C4DD" fill-opacity="0.6"/><rect x="530" y="772" width="110" height="32" rx="6" fill="#58C4DD" fill-opacity="0.6"/></g>
+  <text id="ap-eq" class="h" x="700" y="770" font-size="56" fill="#83C167" text-anchor="middle" font-weight="700">=</text>
+  <text id="ap-eqt" class="h" x="210" y="870" font-size="30" fill="#83C167">同样的输入 → 同样的输出</text>
+</g>
+<g id="ap-ob"><text id="ap-obt" class="h" x="90" y="262" font-size="28" fill="#8a8f99">订单簿</text><g id="ap-sr0" class="h"><rect x="100" y="290" width="80" height="34" rx="6" fill="#F0B90B" fill-opacity="0.75"/><rect id="ap-sb0" x="200" y="290" width="320" height="34" rx="6" fill="#FC6255" fill-opacity="0.55"/></g><g id="ap-sr1" class="h"><rect x="100" y="336" width="80" height="34" rx="6" fill="#F0B90B" fill-opacity="0.75"/><rect id="ap-sb1" x="200" y="336" width="260" height="34" rx="6" fill="#FC6255" fill-opacity="0.55"/></g><g id="ap-sr2" class="h"><rect x="100" y="382" width="80" height="34" rx="6" fill="#F0B90B" fill-opacity="0.75"/><rect id="ap-sb2" x="200" y="382" width="180" height="34" rx="6" fill="#FC6255" fill-opacity="0.55"/></g><g id="ap-sr3" class="h"><rect x="100" y="428" width="80" height="34" rx="6" fill="#F0B90B" fill-opacity="0.75"/><rect id="ap-sb3" x="200" y="428" width="140" height="34" rx="6" fill="#FC6255" fill-opacity="0.55"/></g><g id="ap-br0" class="h"><rect x="100" y="506" width="80" height="34" rx="6" fill="#F0B90B" fill-opacity="0.75"/><rect x="200" y="506" width="160" height="34" rx="6" fill="#83C167" fill-opacity="0.55"/></g><g id="ap-br1" class="h"><rect x="100" y="552" width="80" height="34" rx="6" fill="#F0B90B" fill-opacity="0.75"/><rect x="200" y="552" width="220" height="34" rx="6" fill="#83C167" fill-opacity="0.55"/></g><g id="ap-br2" class="h"><rect x="100" y="598" width="80" height="34" rx="6" fill="#F0B90B" fill-opacity="0.75"/><rect x="200" y="598" width="280" height="34" rx="6" fill="#83C167" fill-opacity="0.55"/></g><g id="ap-br3" class="h"><rect x="100" y="644" width="80" height="34" rx="6" fill="#F0B90B" fill-opacity="0.75"/><rect x="200" y="644" width="340" height="34" rx="6" fill="#83C167" fill-opacity="0.55"/></g><line id="ap-mid" class="h" x1="100" y1="485" x2="640" y2="485" stroke="#6b6f7a" stroke-width="2" stroke-dasharray="8 6"/><text id="ap-sl" class="h" x="700" y="408" font-size="30" fill="#FC6255" text-anchor="middle">卖</text><text id="ap-bl" class="h" x="700" y="620" font-size="30" fill="#83C167" text-anchor="middle">买</text></g>
+<g id="ap-evc" class="h"><rect x="90" y="740" width="460" height="70" rx="12" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/>
+  <text x="115" y="786" font-size="28" fill="#58C4DD"><tspan class="mono">OrderCanceled</tspan> · 剩余 3</text></g>
+<g id="ap-po" class="h"><rect x="90" y="740" width="250" height="64" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+  <text x="215" y="782" font-size="28" fill="#FF9F43" text-anchor="middle"><tspan class="mono">Post-only</tspan> 买</text></g>
+<path id="ap-poa" class="dr h" pathLength="1" d="M300 736 C380 650 420 520 400 466" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#ap-mo)"/>
+<text id="ap-por" class="h" x="370" y="784" font-size="32" fill="#FC6255" font-weight="700">拒绝 · 碰到最优价</text>
+<g id="ap-fok" class="h"><rect x="90" y="740" width="200" height="64" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+  <text x="190" y="782" font-size="28" fill="#FF9F43" text-anchor="middle"><tspan class="mono">FOK</tspan> 买</text></g>
+<rect id="ap-dbg" class="h" x="320" y="748" width="300" height="48" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<rect id="ap-dfill" class="h" x="324" y="752" width="0" height="40" rx="6" fill="#FF9F43" fill-opacity="0.7"/>
+<text id="ap-dl" class="h" x="320" y="850" font-size="28" fill="#8a8f99">沿对手方逐档累加</text>
+<text id="ap-fr" class="h" x="640" y="784" font-size="32" fill="#FC6255" font-weight="700">拒绝</text>
+<g id="ap-tk" class="h"><rect x="90" y="740" width="240" height="64" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/>
+  <text x="210" y="782" font-size="28" fill="#83C167" text-anchor="middle">买单 <tspan class="mono">IOC</tspan></text></g>
+<path id="ap-tka" class="dr h" pathLength="1" d="M210 736 C200 640 560 600 560 474" fill="none" stroke="#83C167" stroke-width="3" marker-end="url(#ap-mgr)"/>
+<g id="ap-spk" class="h"><circle cx="556" cy="452" r="10" fill="#F0B90B"/><circle cx="586" cy="420" r="7" fill="#F0B90B"/><circle cx="560" cy="398" r="9" fill="#F0B90B"/><circle cx="600" cy="452" r="6" fill="#F0B90B"/></g>
+<g id="ap-rem" class="h"><rect x="200" y="426" width="140" height="40" rx="8" fill="#83C167" fill-opacity="0.3" stroke="#83C167" stroke-width="2.5"/>
+  <text x="270" y="456" font-size="28" fill="#e8e6df" text-anchor="middle">剩余</text></g>
+<text id="ap-reml" class="h" x="90" y="880" font-size="30" fill="#e8e6df"><tspan class="mono">IOC</tspan> / 市价：剩余撤掉</text>
+<g id="ap-g5">
+  <g id="ap-e1" class="h"><rect x="90" y="280" width="400" height="70" rx="12" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="115" y="326" font-size="30" fill="#58C4DD">Trade</text></g>
+  <g id="ap-e2" class="h"><rect x="90" y="380" width="400" height="70" rx="12" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="115" y="426" font-size="30" fill="#58C4DD">Trade</text></g>
+  <g id="ap-e3" class="h"><rect x="90" y="480" width="400" height="70" rx="12" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="115" y="526" font-size="30" fill="#58C4DD">OrderCanceled</text></g>
+  <text id="ap-s1" class="mono h" x="520" y="326" font-size="30" fill="#58C4DD">seq 41</text>
+  <text id="ap-s2" class="mono h" x="520" y="426" font-size="30" fill="#58C4DD">seq 42</text>
+  <text id="ap-s3" class="mono h" x="520" y="526" font-size="30" fill="#58C4DD">seq 43</text>
+  <text id="ap-snt" class="h" x="90" y="650" font-size="28" fill="#8a8f99">快照</text>
+  <g id="ap-sn0" class="h"><rect x="90" y="680" width="210" height="80" rx="12" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/><text x="195" y="731" font-size="30" fill="#58C4DD" text-anchor="middle">订单簿</text></g>
+  <g id="ap-sn1" class="h"><rect x="320" y="680" width="210" height="80" rx="12" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="425" y="730" font-size="28" fill="#58C4DD" text-anchor="middle">inOffset</text></g>
+  <g id="ap-sn2" class="h"><rect id="ap-sn2r" x="550" y="680" width="210" height="80" rx="12" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="655" y="730" font-size="28" fill="#58C4DD" text-anchor="middle">seq</text></g>
+</g>
+
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+const CODE = {};
+const HL = (name, a, b, t, col = "#58C4DD") => {
+  const P = CODE[name]; const y = P.y0 + P.lh * (a - 1), h = P.lh * (b - a + 1);
+  tl.to(`#${P.pf}${name}hl`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  tl.to(`#${P.pf}${name}hb`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: (i >= a && i <= b) ? 1 : 0.5, duration: 0.4 }, t);
+};
+const HLOFF = (name, t) => { const P = CODE[name]; tl.to(`#${P.pf}${name}hl, #${P.pf}${name}hb`, { opacity: 0, duration: 0.3 }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: 0.7, duration: 0.3 }, t); };
+const SHOW = (name, t) => { const P = CODE[name]; IN(`#${P.pf}${name}`, t, 0.5);
+  for (let i = 1; i <= P.n; i++) IN(`#${P.pf}${name}${i}`, t + 0.1 + i * 0.05, 0.3, {}, { opacity: 0.7 }); };
+const POP = (s, t, o) => IN(s, t, 0.45, { scale: 0.6, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(2)" });
+const PULSE = (s, t, o, k = 1.08) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, t);
+const CHG = (s, t, v, d = 0.35) => tl.to(s, { ...v, duration: d }, t);
+const NOTE = (prev, next, t) => { if (prev) OUT(prev, t, 0.3); if (next) IN(next, t + (prev ? 0.35 : 0), 0.45, { x: -12 }, { x: 0 }); };
+CODE["cd"] = {pf:"ap-", y0:282, lh:36, n:16};
+
+// L0 apply 像纯函数
+SHOW("cd", at(0, 0.02));
+IN("#ap-fn", at(0, 0.08), 0.5, { scale: 0.85, svgOrigin: "430 535" }, { scale: 1, svgOrigin: "430 535" });
+IN("#ap-in1", at(0, 0.34), 0.4, { y: -15 }, { y: 0 }); ARROW("#ap-a1", at(0, 0.4), 0.4);
+IN("#ap-in2", at(0, 0.5), 0.4, { y: -15 }, { y: 0 }); ARROW("#ap-a2", at(0, 0.55), 0.4);
+ARROW("#ap-a3", at(0, 0.68), 0.4); IN("#ap-out", at(0, 0.73), 0.4, { y: -10 }, { y: 0 });
+IN("#ap-pure", at(0, 0.84), 0.4, { x: -10 }, { x: 0 });
+// L1 Command 字段；TS 外置；不读系统时钟
+OUT("#ap-g0", at(1, 0.0), 0.35);
+IN("#ap-cmd", at(1, 0.05), 0.5, { x: -30 }, { x: 0 }); IN("#ap-ts", at(1, 0.05), 0.5, { x: -30 }, { x: 0 });
+IN("#ap-tsb", at(1, 0.18), 0.3); CHG("#ap-ts", at(1, 0.18), { fill: "#FF9F43" }, 0.3);
+IN("#ap-tsn", at(1, 0.24), 0.4);
+IN("#ap-clk", at(1, 0.4), 0.4); tl.set("#ap-clx", { opacity: 1 }, at(1, 0.48)); DRAW("#ap-clx", at(1, 0.48), 0.4);
+IN("#ap-clt", at(1, 0.5), 0.4);
+IN("#ap-r1t", at(1, 0.64), 0.3); IN("#ap-r1", at(1, 0.64), 0.4, { x: -20 }, { x: 0 });
+IN("#ap-r2t", at(1, 0.74), 0.3); IN("#ap-r2", at(1, 0.74), 0.4, { x: -20 }, { x: 0 });
+POP("#ap-eq", at(1, 0.76), "700 752"); IN("#ap-eqt", at(1, 0.79), 0.4);
+// L2 撤单
+OUT("#ap-g1", at(2, 0.0), 0.35);
+HL("cd", 1, 4, at(2, 0.04));
+IN("#ap-obt", at(2, 0.05), 0.3);
+for (let i = 0; i < 4; i++) { IN(`#ap-sr${i}`, at(2, 0.06) + i * 0.08, 0.3); IN(`#ap-br${i}`, at(2, 0.06) + i * 0.08, 0.3); }
+IN("#ap-mid, #ap-sl, #ap-bl", at(2, 0.12), 0.3);
+tl.to("#ap-br1", { x: 40, duration: 0.4, ease: "power2.out" }, at(2, 0.36));
+tl.to("#ap-br1", { y: 190, opacity: 0, duration: 0.6, ease: "power2.in" }, at(2, 0.36) + 0.4);
+IN("#ap-evc", at(2, 0.6), 0.4, { y: -15 }, { y: 0 });
+NOTE(null, "#ap-n2", at(2, 0.62));
+// L3 Post-only / FOK 两道检查
+OUT("#ap-evc", at(3, 0.0), 0.3);
+NOTE("#ap-n2", "#ap-n3", at(3, 0.02));
+HL("cd", 6, 7, at(3, 0.04));
+IN("#ap-po", at(3, 0.1), 0.4, { x: -40 }, { x: 0 });
+ARROW("#ap-poa", at(3, 0.22), 0.5);
+PULSE("#ap-sr3", at(3, 0.3), "300 446", 1.06);
+POP("#ap-por", at(3, 0.38), "480 770");
+OUT("#ap-po, #ap-poa, #ap-por", at(3, 0.48), 0.35);
+HL("cd", 8, 9, at(3, 0.52));
+IN("#ap-fok", at(3, 0.55), 0.4, { x: -40 }, { x: 0 });
+IN("#ap-dbg, #ap-dl", at(3, 0.62), 0.3);
+tl.set("#ap-dfill", { opacity: 1 }, at(3, 0.68));
+tl.fromTo("#ap-dfill", { attr: { width: 0 } }, { attr: { width: 170 }, duration: 1.4, ease: "power1.out", immediateRender: false }, at(3, 0.68));
+PULSE("#ap-sr2", at(3, 0.7), "300 400", 1.05); PULSE("#ap-sr3", at(3, 0.76), "300 446", 1.05);
+POP("#ap-fr", at(3, 0.9), "672 770");
+// L4 撮合 + IOC 剩余撤掉
+OUT("#ap-fok, #ap-dbg, #ap-dfill, #ap-dl, #ap-fr", at(4, 0.0), 0.3);
+NOTE("#ap-n3", "#ap-n4", at(4, 0.019));
+HL("cd", 10, 11, at(4, 0.026), "#83C167");
+IN("#ap-tk", at(4, 0.051), 0.4, { x: -40 }, { x: 0 });
+ARROW("#ap-tka", at(4, 0.09), 0.5);
+IN("#ap-spk", at(4, 0.154), 0.2); PULSE("#ap-spk", at(4, 0.173), "575 430", 1.3);
+tl.to("#ap-sb3", { attr: { width: 0 }, duration: 0.4 }, at(4, 0.192));
+tl.to("#ap-sb2", { attr: { width: 0 }, duration: 0.4 }, at(4, 0.244));
+OUT("#ap-spk", at(4, 0.295), 0.3);
+HL("cd", 12, 16, at(4, 0.346), "#83C167");
+IN("#ap-rem", at(4, 0.359), 0.4, { y: 20 }, { y: 0 });
+tl.to("#ap-rem", { x: -220, opacity: 0, duration: 0.7, ease: "power2.in" }, at(4, 0.462));
+IN("#ap-reml", at(4, 0.449), 0.4);
+IN("#ap-n4b", at(4, 0.7), 0.4);
+// L5 递增 seq，随快照恢复
+OUT("#ap-ob, #ap-tk, #ap-tka, #ap-reml, #ap-n4b", at(5, 0.0), 0.35);
+NOTE("#ap-n4", "#ap-n5", at(5, 0.03));
+HLOFF("cd", at(5, 0.03));
+for (let k = 1; k <= 3; k++) { IN(`#ap-e${k}`, at(5, 0.04 + k * 0.08), 0.4, { x: -20 }, { x: 0 }); POP(`#ap-s${k}`, at(5, 0.08 + k * 0.08), `575 ${215 + k * 100}`); }
+IN("#ap-snt", at(5, 0.5), 0.3);
+IN("#ap-sn0, #ap-sn1, #ap-sn2", at(5, 0.52), 0.4, { y: -15 }, { y: 0 });
+CHG("#ap-sn2r", at(5, 0.7), { stroke: "#FF9F43" }, 0.2);
+PULSE("#ap-sn2", at(5, 0.7), "655 720", 1.1);
+CHG("#ap-s1, #ap-s2, #ap-s3", at(5, 0.78), { fill: "#FF9F43" }, 0.3);
+PULSE("#ap-sn2", at(5, 0.9), "655 720", 1.08);
+
+
+CHG("#ap-n4b", at(4, 0.88), { fill: "#e8e6df" }, 0.4);
+      tl.to("#ap-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["apply"] = tl;
+    })();
+  </script>
+</template>

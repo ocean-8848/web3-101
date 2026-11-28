@@ -1,0 +1,239 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 sync，id 前缀 sy- -->
+  <div id="root" data-composition-id="sync" data-duration="77.74" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sy-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sy-all">
+        <defs>
+          <marker id="sy-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+          <marker id="sy-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        </defs>
+        <!-- 泳道 -->
+        <g id="sy-lanes">
+          <text id="sy-ln0" class="h" x="300" y="250" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">客户端</text>
+          <text id="sy-ln1" class="h" x="960" y="250" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">WebSocket 推送</text>
+          <text id="sy-ln2" class="h" x="1620" y="250" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">REST 快照</text>
+          <path id="sy-lv0" class="dr" pathLength="1" d="M300 275 V520" stroke="#4a4f5a" stroke-width="3" fill="none" />
+          <path id="sy-lv1" class="dr" pathLength="1" d="M960 275 V520" stroke="#4a4f5a" stroke-width="3" fill="none" />
+          <path id="sy-lv2" class="dr" pathLength="1" d="M1620 275 V520" stroke="#4a4f5a" stroke-width="3" fill="none" />
+        </g>
+        <g id="sy-flow">
+          <!-- ① 订阅 -->
+          <path id="sy-a1" class="dr h" pathLength="1" d="M300 330 H948" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#sy-arr)" />
+          <text id="sy-a1t" class="h" x="630" y="306" font-size="28" fill="#e8e6df" text-anchor="middle">① 订阅 <tspan class="mono" fill="#58C4DD">depth.BTCUSDT</tspan></text>
+          <!-- ② 取快照 -->
+          <path id="sy-a2" class="dr h" pathLength="1" d="M300 410 H1608" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#sy-arr)" />
+          <text id="sy-a2t" class="h" x="1290" y="388" font-size="28" fill="#e8e6df" text-anchor="middle">② 取快照</text>
+          <path id="sy-a2b" class="dr h" pathLength="1" d="M1620 492 H312" stroke="#58C4DD" stroke-width="3" fill="none" stroke-dasharray="1" marker-end="url(#sy-arrb)" />
+          <text id="sy-a2bt" class="mono h" x="1290" y="468" font-size="28" fill="#58C4DD" text-anchor="middle">lastSeq = 1000500</text>
+          <!-- 缓存槽 -->
+          <g id="sy-buf" class="h">
+            <text x="330" y="556" font-size="28" fill="#8a8f99" text-anchor="middle">缓存（暂不应用）</text>
+            <rect x="100" y="578" width="460" height="104" rx="12" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6" />
+          </g>
+          <g id="sy-k0m"><g id="sy-k0" class="h">
+            <rect id="sy-k0r" x="115" y="600" width="136" height="60" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text id="sy-k0t" class="mono" x="183" y="640" font-size="28" fill="#8a8f99" text-anchor="middle">496–498</text>
+          </g></g>
+          <g id="sy-k1m"><g id="sy-k1" class="h">
+            <rect id="sy-k1r" x="262" y="600" width="136" height="60" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text id="sy-k1t" class="mono" x="330" y="640" font-size="28" fill="#8a8f99" text-anchor="middle">499–500</text>
+          </g></g>
+          <g id="sy-k2m"><g id="sy-k2" class="h">
+            <rect id="sy-k2r" x="409" y="600" width="136" height="60" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text id="sy-k2t" class="mono" x="477" y="640" font-size="28" fill="#8a8f99" text-anchor="middle">501–503</text>
+          </g></g>
+          <!-- 垃圾桶 -->
+          <g id="sy-trash" class="h">
+            <path d="M150 730 H206 L200 788 H156 Z" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <path d="M144 722 H212 M166 722 V714 H190 V722" fill="none" stroke="#8a8f99" stroke-width="3" />
+            <text x="226" y="770" font-size="28" fill="#8a8f99">丢弃</text>
+          </g>
+          <text id="sy-cov" class="h" x="477" y="724" font-size="28" fill="#83C167" text-anchor="middle">覆盖 <tspan class="mono">1000501</tspan></text>
+          <!-- 本地订单簿 -->
+          <g id="sy-book" class="h">
+            <rect id="sy-bookr" x="700" y="570" width="520" height="120" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="960" y="618" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">本地订单簿</text>
+          </g>
+          <text id="sy-bn0" class="mono h" x="960" y="664" font-size="28" fill="#58C4DD" text-anchor="middle">seq 1000500</text>
+          <text id="sy-bn1" class="mono h" x="960" y="664" font-size="28" fill="#83C167" text-anchor="middle">seq 1000503</text>
+          <!-- 序号带 -->
+          <g id="sy-band">
+            <g id="sy-b0" class="h"><rect x="300" y="830" width="110" height="70" rx="8" fill="rgba(131,193,103,0.18)" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="355" y="876" font-size="28" fill="#83C167" text-anchor="middle">501</text></g>
+            <g id="sy-b1" class="h"><rect x="420" y="830" width="110" height="70" rx="8" fill="rgba(131,193,103,0.18)" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="475" y="876" font-size="28" fill="#83C167" text-anchor="middle">502</text></g>
+            <g id="sy-b2" class="h"><rect x="540" y="830" width="110" height="70" rx="8" fill="rgba(131,193,103,0.18)" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="595" y="876" font-size="28" fill="#83C167" text-anchor="middle">503</text></g>
+            <g id="sy-b3" class="h"><rect id="sy-b3r" x="660" y="830" width="110" height="70" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="7 5" /><text id="sy-b3t" class="mono" x="715" y="876" font-size="28" fill="#8a8f99" text-anchor="middle">504</text></g>
+            <g id="sy-b4" class="h"><rect id="sy-b4r" x="780" y="830" width="110" height="70" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="7 5" /><text id="sy-b4t" class="mono" x="835" y="876" font-size="28" fill="#8a8f99" text-anchor="middle">505</text></g>
+            <g id="sy-b5" class="h"><rect id="sy-b5r" x="900" y="830" width="110" height="70" rx="8" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="7 5" /><text id="sy-b5t" class="mono" x="955" y="876" font-size="28" fill="#8a8f99" text-anchor="middle">506</text></g>
+            <g id="sy-b6" class="h"><rect x="1020" y="830" width="110" height="70" rx="8" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1075" y="876" font-size="28" fill="#58C4DD" text-anchor="middle">507</text></g>
+            <g id="sy-b7" class="h"><rect x="1140" y="830" width="110" height="70" rx="8" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1195" y="876" font-size="28" fill="#58C4DD" text-anchor="middle">508</text></g>
+            <g id="sy-b8" class="h"><rect x="1260" y="830" width="110" height="70" rx="8" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1315" y="876" font-size="28" fill="#58C4DD" text-anchor="middle">509</text></g>
+          </g>
+          <g id="sy-k3m"><g id="sy-k3" class="h">
+            <rect x="1117" y="740" width="136" height="60" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1185" y="780" font-size="28" fill="#58C4DD" text-anchor="middle">507–509</text>
+          </g></g>
+          <text id="sy-gap" class="h" x="835" y="960" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">缺口：缺 3 个编号</text>
+          <g id="sy-fill">
+            <text id="sy-fz" class="h" x="835" y="800" font-size="30" fill="#FC6255" text-anchor="middle">补 0？</text>
+            <path id="sy-fzx" class="dr" pathLength="1" d="M782 790 L888 790" stroke="#FC6255" stroke-width="4" fill="none" />
+          </g>
+          <path id="sy-re" class="dr h" pathLength="1" d="M1022 865 C1620 865 1620 760 1620 535" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#sy-arrg)" />
+          <text id="sy-ret" class="h" x="1650" y="740" font-size="30" fill="#83C167">重新取快照</text>
+          <text id="sy-rst" class="h" x="1560" y="975" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">从头再同步</text>
+        </g>
+        <!-- L7 反例对比 -->
+        <g id="sy-cmp">
+          <text id="sy-ch" class="h" x="300" y="640" font-size="36" font-weight="700" fill="#FF9F43">如果反过来：先取快照，再订阅</text>
+          <path id="sy-cl" class="dr" pathLength="1" d="M300 780 H1640" stroke="#8a8f99" stroke-width="3" fill="none" />
+          <g id="sy-cp0" class="h"><circle cx="600" cy="780" r="12" fill="#58C4DD" /><text x="600" y="836" font-size="30" fill="#58C4DD" text-anchor="middle">取快照</text></g>
+          <g id="sy-cp1" class="h"><circle cx="1200" cy="780" r="12" fill="#8a8f99" /><text x="1200" y="836" font-size="30" fill="#e8e6df" text-anchor="middle">订阅</text></g>
+          <path id="sy-cs" class="dr" pathLength="1" d="M612 780 H1188" stroke="#FC6255" stroke-width="10" fill="none" />
+          <text id="sy-cst" class="h" x="900" y="752" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">这段变化永久丢失</text>
+          <g id="sy-tk">
+            <path id="sy-tk0" class="h" d="M690 690 V722" stroke="#FC6255" stroke-width="4" />
+            <path id="sy-tk1" class="h" d="M740 690 V722" stroke="#FC6255" stroke-width="4" />
+            <path id="sy-tk2" class="h" d="M1060 690 V722" stroke="#FC6255" stroke-width="4" />
+            <path id="sy-tk3" class="h" d="M1110 690 V722" stroke="#FC6255" stroke-width="4" />
+          </g>
+          <text id="sy-cw" class="h" x="1300" y="900" font-size="32" fill="#FC6255">本地订单簿从此是错的</text>
+        </g>
+        <!-- L8 字段名对照 -->
+        <g id="sy-map" transform="translate(-240,-420) scale(1.25)">
+          <text id="sy-mh" class="h" x="960" y="620" font-size="32" fill="#8a8f99" text-anchor="middle">币安的字段名（示例）</text>
+          <g id="sy-m0" class="h">
+            <text class="mono" x="900" y="710" font-size="32" fill="#58C4DD" text-anchor="end">firstSeq</text>
+            <path d="M924 699 H996" stroke="#8a8f99" stroke-width="3" fill="none" marker-start="url(#sy-arr)" marker-end="url(#sy-arr)" />
+            <text class="mono" x="1020" y="710" font-size="32" fill="#e8e6df">U</text>
+          </g>
+          <g id="sy-m1" class="h">
+            <text class="mono" x="900" y="790" font-size="32" fill="#58C4DD" text-anchor="end">lastSeq</text>
+            <path d="M924 779 H996" stroke="#8a8f99" stroke-width="3" fill="none" marker-start="url(#sy-arr)" marker-end="url(#sy-arr)" />
+            <text class="mono" x="1020" y="790" font-size="32" fill="#e8e6df">u</text>
+          </g>
+          <g id="sy-m2" class="h">
+            <text x="900" y="870" font-size="32" fill="#58C4DD" text-anchor="end">快照编号</text>
+            <path d="M924 859 H996" stroke="#8a8f99" stroke-width="3" fill="none" marker-start="url(#sy-arr)" marker-end="url(#sy-arr)" />
+            <text class="mono" x="1020" y="870" font-size="32" fill="#e8e6df">lastUpdateId</text>
+          </g>
+          <text id="sy-mf" class="h" x="960" y="960" font-size="32" fill="#83C167" text-anchor="middle">同步规则一样 · 以各家文档为准</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const RED = "#FC6255", GRN = "#83C167", ORG = "#FF9F43", BLU = "#58C4DD", GLD = "#F0B90B", GRY = "#8a8f99", TXT = "#e8e6df", PUR = "#B48EF0";
+      // 周期性脉冲（有限次数，结束回到原值）
+      const PULSE = (s, t0, t1, p = 1.2, o = 0.4) => { const k = Math.max(1, Math.floor((t1 - t0) / p)); tl.to(s, { opacity: o, duration: p / 2, yoyo: true, repeat: 2 * k - 1, ease: "sine.inOut" }, t0); };
+      const FLOW = (s, t0, t1, dx, dy, p = 1.0) => { const k = Math.max(1, Math.floor((t1 - t0) / p)); tl.fromTo(s, { x: 0, y: 0 }, { x: dx, y: dy, duration: p, repeat: k - 1, ease: "none", immediateRender: false }, t0); };
+      const SWAP = (a, b, t, d = 0.35) => { OUT(a, t, d); IN(b, t + d, d + 0.1); };
+
+      const fly = (k, dx, dy, t, d = 0.8) => { IN(`#sy-k${k}`, t, 0.3); tl.fromTo(`#sy-k${k}m`, { x: dx, y: dy }, { x: 0, y: 0, duration: d, ease: "power2.out", immediateRender: false }, t); };
+      // L0 三条泳道
+      IN("#sy-ln0", at(0, 0.05)); DRAW("#sy-lv0", at(0, 0.12), 0.8);
+      IN("#sy-ln1", at(0, 0.3)); DRAW("#sy-lv1", at(0, 0.37), 0.8);
+      IN("#sy-ln2", at(0, 0.55)); DRAW("#sy-lv2", at(0, 0.62), 0.8);
+      PULSE("#sy-ln0", at(0, 0.85), at(1, 0), 1.2, 0.5);
+      // L1 ① 先订阅；增量卡落进缓存
+      ARROW("#sy-a1", at(1, 0.02), 0.7); IN("#sy-a1t", at(1, 0.1), 0.5);
+      IN("#sy-buf", at(1, 0.3), 0.5);
+      fly(0, 777, -270, at(1, 0.4)); fly(1, 630, -270, at(1, 0.58)); fly(2, 483, -270, at(1, 0.76));
+      // L2 ② 再取快照
+      ARROW("#sy-a2", at(2, 0.04), 0.9); IN("#sy-a2t", at(2, 0.12), 0.5);
+      ARROW("#sy-a2b", at(2, 0.4), 0.9); IN("#sy-a2bt", at(2, 0.5), 0.5);
+      PULSE("#sy-a2bt", at(2, 0.62), at(2, 0.98), 1.0, 0.45);
+      IN("#sy-book", at(2, 0.78), 0.6); IN("#sy-bn0", at(2, 0.85), 0.5);
+      // L3 ③ 编号 ≤ 1000500 的丢掉
+      tl.to(["#sy-k0r", "#sy-k1r"], { stroke: "#4a4f5a", duration: 0.3 }, at(3, 0.1));
+      tl.to(["#sy-k0t", "#sy-k1t"], { fill: "#6b6f7a", duration: 0.3 }, at(3, 0.1));
+      PULSE("#sy-a2bt", at(3, 0.08), at(3, 0.3), 0.6, 0.4);
+      IN("#sy-trash", at(3, 0.3), 0.5);
+      tl.to("#sy-k0m", { x: -8, y: 120, duration: 0.7, ease: "power2.in" }, at(3, 0.45)); OUT("#sy-k0", at(3, 0.45) + 0.45, 0.3);
+      tl.to("#sy-k1m", { x: -155, y: 120, duration: 0.8, ease: "power2.in" }, at(3, 0.66)); OUT("#sy-k1", at(3, 0.66) + 0.55, 0.3);
+      tl.to("#sy-trash", { opacity: 0.55, duration: 0.3 }, at(3, 0.92));
+      // L4 ④ 包含 1000501 的那条开始应用
+      tl.to("#sy-k2r", { stroke: GRN, duration: 0.3 }, at(4, 0.08)); tl.to("#sy-k2t", { fill: GRN, duration: 0.3 }, at(4, 0.08));
+      IN("#sy-cov", at(4, 0.2), 0.5);
+      PULSE("#sy-k2", at(4, 0.3), at(4, 0.55), 0.8, 0.5);
+      OUT("#sy-cov", at(4, 0.6), 0.3);
+      tl.to("#sy-k2m", { x: 483, y: -20, duration: 0.8, ease: "power2.inOut" }, at(4, 0.62)); OUT("#sy-k2", at(4, 0.62) + 0.6, 0.3);
+      SWAP("#sy-bn0", "#sy-bn1", at(4, 0.72));
+      tl.to("#sy-bookr", { stroke: GRN, duration: 0.3 }, at(4, 0.74));
+      // L5 序号带：501–503 连续，504 起缺口
+      IN("#sy-b0", at(5, 0.02), 0.4); IN("#sy-b1", at(5, 0.07), 0.4); IN("#sy-b2", at(5, 0.12), 0.4);
+      IN("#sy-b3", at(5, 0.25), 0.5); PULSE("#sy-b3", at(5, 0.3), at(5, 0.48), 0.7, 0.4);
+      IN("#sy-b4", at(5, 0.36), 0.4); IN("#sy-b5", at(5, 0.4), 0.4);
+      fly(3, 360, -560, at(5, 0.48), 0.9);
+      IN("#sy-b6", at(5, 0.6), 0.3); IN("#sy-b7", at(5, 0.63), 0.3); IN("#sy-b8", at(5, 0.66), 0.3);
+      tl.to(["#sy-b3r", "#sy-b4r", "#sy-b5r"], { stroke: RED, fill: "rgba(252,98,85,0.18)", duration: 0.3 }, at(5, 0.72));
+      tl.to(["#sy-b3t", "#sy-b4t", "#sy-b5t"], { fill: RED, duration: 0.3 }, at(5, 0.72));
+      IN("#sy-gap", at(5, 0.78), 0.5);
+      PULSE(["#sy-b3", "#sy-b4", "#sy-b5"], at(5, 0.8), at(6, 0.02), 0.8, 0.35);
+      // L6 不能补 0，重新取快照，从头再同步
+      IN("#sy-fz", at(6, 0.05), 0.4);
+      DRAW("#sy-fzx", at(6, 0.24), 0.4);
+      OUT(["#sy-b6", "#sy-b7", "#sy-b8", "#sy-k3"], at(6, 0.3), 0.4);
+      ARROW("#sy-re", at(6, 0.4), 0.9); IN("#sy-ret", at(6, 0.45), 0.5);
+      IN("#sy-rst", at(6, 0.55), 0.5);
+      const rw = at(6, 0.66);
+      OUT(["#sy-buf", "#sy-trash", "#sy-book", "#sy-bn1", "#sy-a2t", "#sy-a2bt", "#sy-a1t"], rw, 0.5);
+      tl.to("#sy-a2b", { strokeDashoffset: 1, duration: 0.45, ease: "power2.in" }, rw); OUT("#sy-a2b", rw + 0.35, 0.1);
+      tl.to("#sy-a2", { strokeDashoffset: 1, duration: 0.45, ease: "power2.in" }, rw + 0.4); OUT("#sy-a2", rw + 0.75, 0.1);
+      tl.to("#sy-a1", { strokeDashoffset: 1, duration: 0.45, ease: "power2.in" }, rw + 0.8);
+      OUT("#sy-a1", rw + 1.15, 0.1); tl.to("#sy-a1", { stroke: GRN, opacity: 1, attr: { "marker-end": "url(#sy-arrg)" }, duration: 0.01 }, rw + 1.33);
+      tl.fromTo("#sy-a1", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut", immediateRender: false }, rw + 1.35);
+      tl.to("#sy-a1t", { opacity: 1, fill: GRN, duration: 0.4 }, rw + 1.5);
+      // L7 反例：先快照后订阅
+      OUT(["#sy-re", "#sy-ret", "#sy-rst", "#sy-a1", "#sy-a1t", "#sy-band", "#sy-gap", "#sy-fill"], at(7, 0), 0.4);
+      tl.to(["#sy-a2", "#sy-a2b"], { opacity: 0, duration: 0.3 }, at(7, 0));
+      IN("#sy-ch", at(7, 0.05), 0.5);
+      DRAW("#sy-cl", at(7, 0.12), 0.8);
+      IN("#sy-cp0", at(7, 0.2), 0.4); IN("#sy-cp1", at(7, 0.32), 0.4);
+      DRAW("#sy-cs", at(7, 0.42), 0.8);
+      IN("#sy-tk0", at(7, 0.5), 0.3, { y: -30 }, { y: 0 }); IN("#sy-tk1", at(7, 0.54), 0.3, { y: -30 }, { y: 0 });
+      IN("#sy-tk2", at(7, 0.58), 0.3, { y: -30 }, { y: 0 }); IN("#sy-tk3", at(7, 0.62), 0.3, { y: -30 }, { y: 0 });
+      IN("#sy-cst", at(7, 0.62), 0.5);
+      IN("#sy-cw", at(7, 0.8), 0.5);
+      PULSE("#sy-cs", at(7, 0.85), at(8, 0), 0.8, 0.45);
+      // L8 字段名对照
+      OUT("#sy-cmp", at(8, 0), 0.4); OUT("#sy-lanes", at(8, 0), 0.4);
+      IN("#sy-mh", at(8, 0.06), 0.5);
+      IN("#sy-m0", at(8, 0.22), 0.5, { x: -20 }, { x: 0 });
+      IN("#sy-m1", at(8, 0.36), 0.5, { x: -20 }, { x: 0 });
+      IN("#sy-m2", at(8, 0.5), 0.5, { x: -20 }, { x: 0 });
+      IN("#sy-mf", at(8, 0.72), 0.5);
+      PULSE("#sy-mf", at(8, 0.82), C.d - 0.6, 1.0, 0.55);
+
+
+      tl.to("#sy-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["sync"] = tl;
+    })();
+  </script>
+</template>

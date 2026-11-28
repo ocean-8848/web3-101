@@ -1,0 +1,226 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 security，id 前缀 sy- -->
+  <div id="root" data-composition-id="security" data-duration="81.77" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sy-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="sy-all">
+        <g id="sy-srv" class="h"><rect x="870" y="410" width="180" height="220" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3.5"/><rect x="888" y="428" width="144" height="96" rx="6" fill="#0f1117" stroke="#8a8f99" stroke-width="2"/><path d="M900 494 L924 480 L948 487 L972 465 L996 472 L1020 454" fill="none" stroke="#58C4DD" stroke-width="3"/><rect x="888" y="544" width="144" height="22" rx="5" fill="none" stroke="#8a8f99" stroke-width="2"/><circle cx="1016" cy="555" r="4" fill="#83C167"/><rect x="888" y="580" width="144" height="22" rx="5" fill="none" stroke="#8a8f99" stroke-width="2"/><circle cx="1016" cy="591" r="4" fill="#83C167"/>
+          <text x="960" y="700" font-size="30" fill="#8a8f99" text-anchor="middle">程序：靠签名</text></g>
+        <g id="sy-who" class="h">
+          <text x="400" y="320" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">人的操作</text>
+          <circle cx="280" cy="420" r="26" fill="none" stroke="#8a8f99" stroke-width="4"/><path d="M230 520 C230 460 330 460 330 520 Z" fill="none" stroke="#8a8f99" stroke-width="4"/>
+          <rect x="400" y="410" width="66" height="116" rx="12" fill="none" stroke="#8a8f99" stroke-width="3.5"/>
+          <circle cx="433" cy="510" r="5" fill="#8a8f99"/>
+          <rect x="500" y="420" width="140" height="106" rx="10" fill="none" stroke="#8a8f99" stroke-width="3.5"/>
+          <line x1="500" y1="446" x2="640" y2="446" stroke="#8a8f99" stroke-width="3"/>
+        </g>
+        <!-- L1 2FA -->
+        <g id="sy-pwm"><g id="sy-pw" class="h"><rect x="800" y="360" width="320" height="70" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+          <text x="830" y="406" font-size="30" fill="#e8e6df">密码</text><text class="mono" x="930" y="406" font-size="30" fill="#8a8f99">••••••</text></g></g>
+        <g id="sy-2ndm"><g id="sy-2nd" class="h"><rect x="800" y="470" width="320" height="70" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+          <text x="960" y="516" font-size="30" fill="#FF9F43" text-anchor="middle">第二样东西</text></g></g>
+        <g id="sy-key2" class="h">
+          <circle cx="1380" cy="450" r="34" fill="none" stroke="#8a8f99" stroke-width="6"/>
+          <line x1="1414" y1="450" x2="1580" y2="450" stroke="#8a8f99" stroke-width="6" stroke-linecap="round"/>
+          <line x1="1510" y1="450" x2="1510" y2="486" stroke="#8a8f99" stroke-width="8" stroke-linecap="round"/>
+          <line x1="1556" y1="450" x2="1556" y2="486" stroke="#FF9F43" stroke-width="8" stroke-linecap="round"/>
+          <text x="1470" y="560" font-size="30" fill="#e8e6df" text-anchor="middle">密码 + 第二样东西</text>
+        </g>
+        <!-- L2 TOTP -->
+        <g id="sy-ph" class="h">
+          <rect x="1100" y="270" width="300" height="520" rx="34" fill="#161a22" stroke="#8a8f99" stroke-width="3.5"/>
+          <circle cx="1250" cy="500" r="110" fill="none" stroke="#2a2f3a" stroke-width="8"/>
+          <text x="1250" y="680" font-size="30" fill="#8a8f99" text-anchor="middle">30 秒</text>
+        </g>
+        <path id="sy-ring" class="dr h" pathLength="1" d="M1250 390 A110 110 0 1 1 1249.9 390" fill="none" stroke="#FF9F43" stroke-width="8" stroke-linecap="round"/>
+        <text id="sy-n0" class="mono h" x="1250" y="514" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">482 913</text>
+        <text id="sy-n1" class="mono h" x="1250" y="514" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">731 056</text>
+        <text id="sy-rfc" class="h" x="1250" y="850" font-size="28" fill="#6b6f7a" text-anchor="middle">RFC 6238</text>
+        <g id="sy-in" class="h">
+          <rect x="760" y="390" width="220" height="64" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+          <text x="870" y="432" font-size="28" fill="#FF9F43" text-anchor="middle">共享密钥</text>
+          <rect x="760" y="550" width="220" height="64" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="870" y="592" font-size="28" fill="#58C4DD" text-anchor="middle">当前时间</text>
+          <path d="M984 422 L1092 470 M984 582 L1092 530" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#sy-arr)"/>
+        </g>
+        <!-- L3 强度 -->
+        <text id="sy-r0" class="h" x="760" y="371" font-size="30" font-weight="700" fill="#FC6255">短信</text>
+        <rect id="sy-b0" class="h" x="1000" y="345" width="200" height="34" rx="6" fill="#FC6255"/>
+        <g id="sy-sim" class="h"><path d="M1236 336 L1268 336 L1282 350 L1282 390 L1236 390 Z" fill="none" stroke="#8a8f99" stroke-width="3"/>
+          <rect x="1246" y="356" width="26" height="22" rx="3" fill="#F0B90B" fill-opacity="0.7"/></g>
+        <g id="sy-hdm"><g id="sy-hd" class="h"><rect x="1308" y="336" width="9" height="30" rx="4.5" fill="#FC6255"/><rect x="1320" y="336" width="9" height="30" rx="4.5" fill="#FC6255"/><rect x="1332" y="336" width="9" height="30" rx="4.5" fill="#FC6255"/><rect x="1344" y="336" width="9" height="30" rx="4.5" fill="#FC6255"/><rect x="1306" y="360" width="48" height="40" rx="10" fill="#FC6255"/><rect x="1292" y="366" width="22" height="10" rx="5" fill="#FC6255"/></g></g>
+        <text id="sy-simt" class="h" x="1400" y="373" font-size="28" fill="#FC6255">SIM 卡劫持</text>
+        <text id="sy-r1" class="h" x="760" y="541" font-size="30" font-weight="700" fill="#83C167">验证器 App</text>
+        <rect id="sy-b1" class="h" x="1000" y="515" width="520" height="34" rx="6" fill="#83C167"/>
+        <text id="sy-r2" class="h" x="760" y="711" font-size="30" font-weight="700" fill="#83C167">硬件密钥</text>
+        <rect id="sy-b2" class="h" x="1000" y="685" width="540" height="34" rx="6" fill="#83C167"/>
+        <g id="sy-usb" class="h"><rect x="1580" y="680" width="70" height="44" rx="8" fill="none" stroke="#83C167" stroke-width="3"/>
+          <rect x="1650" y="690" width="26" height="24" rx="3" fill="none" stroke="#83C167" stroke-width="3"/></g>
+        <text id="sy-fido" class="h" x="1000" y="780" font-size="28" fill="#83C167">FIDO2 / WebAuthn · 防钓鱼</text>
+        <text id="sy-hv" class="h" x="760" y="890" font-size="30" fill="#e8e6df">高价值账户：验证器 / 硬件密钥</text>
+        <!-- L4-L7 网格 -->
+        <g id="sy-c1" class="h"><rect x="200" y="260" width="740" height="350" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="230" y="310" font-size="32" font-weight="700" fill="#e8e6df">提币白名单</text></g>
+        <g id="sy-w0" class="h"><text x="250" y="390" font-size="30" fill="#e8e6df">地址 A</text><circle cx="420" cy="380" r="16" fill="#0f1117" stroke="#83C167" stroke-width="4"/><path d="M413 380 L418 386 L427 374" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <g id="sy-w1" class="h"><text x="250" y="455" font-size="30" fill="#e8e6df">地址 B</text><circle cx="420" cy="445" r="16" fill="#0f1117" stroke="#83C167" stroke-width="4"/><path d="M413 445 L418 451 L427 439" fill="none" stroke="#83C167" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <g id="sy-w2" class="h"><text x="250" y="530" font-size="30" fill="#FF9F43">新地址 C</text><path d="M441 510 L441 502 A9 9 0 0 1 459 502 L459 510" fill="none" stroke="#FF9F43" stroke-width="3.0"/><rect x="435" y="510" width="30" height="24" rx="4" fill="#FF9F43"/>
+          <text x="490" y="530" font-size="28" fill="#FF9F43">24 小时（示例）</text>
+          <rect x="250" y="556" width="640" height="12" rx="6" fill="none" stroke="#FF9F43" stroke-width="1.5"/></g>
+        <rect id="sy-wbar" class="h" x="250" y="556" width="0" height="12" rx="6" fill="#FF9F43"/>
+        <g id="sy-c2" class="h"><rect x="980" y="260" width="740" height="350" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="1010" y="310" font-size="32" font-weight="700" fill="#e8e6df">设备管理</text></g>
+        <g id="sy-d0" class="h"><circle cx="1090" cy="430" r="40" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><path d="M1065 441 A25 25 0 1 1 1115 441" fill="none" stroke="#8a8f99" stroke-width="3" stroke-linecap="round"/><path d="M1076 446 A14 14 0 1 1 1104 436" fill="none" stroke="#8a8f99" stroke-width="3" stroke-linecap="round"/><path d="M1090 452 L1090 427" fill="none" stroke="#8a8f99" stroke-width="3" stroke-linecap="round"/><text x="1090" y="520" font-size="28" fill="#e8e6df" text-anchor="middle">设备指纹</text></g>
+        <g id="sy-d1" class="h"><rect x="1245" y="395" width="110" height="70" rx="8" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><path d="M1245 395 L1300 437 L1355 395" fill="none" stroke="#58C4DD" stroke-width="3" stroke-linejoin="round"/><text x="1300" y="520" font-size="28" fill="#e8e6df" text-anchor="middle">新设备登录？</text></g>
+        <g id="sy-d2" class="h"><rect id="sy-kick" x="1480" y="400" width="160" height="60" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/>
+          <text x="1560" y="441" font-size="30" fill="#FC6255" text-anchor="middle">踢下线</text></g>
+        <text id="sy-d3" class="h" x="1560" y="520" font-size="28" fill="#8a8f99" text-anchor="middle">已下线</text>
+        <g id="sy-c3" class="h"><rect x="200" y="650" width="740" height="350" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="230" y="700" font-size="32" font-weight="700" fill="#e8e6df">冷静期</text></g>
+        <g id="sy-t0" class="h"><line x1="240" y1="860" x2="900" y2="860" stroke="#8a8f99" stroke-width="3"/>
+          <circle cx="300" cy="860" r="9" fill="#FF9F43"/><text x="300" y="905" font-size="28" fill="#e8e6df" text-anchor="middle">改 2FA</text></g>
+        <g id="sy-t1" class="h"><circle cx="430" cy="752" r="13" fill="none" stroke="#FC6255" stroke-width="4"/><path d="M405 802 C405 772 455 772 455 802 Z" fill="none" stroke="#FC6255" stroke-width="4"/></g>
+        <path id="sy-ta" class="dr h" pathLength="1" d="M470 800 L578 800" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#sy-arr)"/>
+        <text id="sy-tal" class="h" x="524" y="782" font-size="28" fill="#FC6255" text-anchor="middle">提币</text>
+        <g id="sy-fence" class="h">
+          <rect x="590" y="740" width="8" height="140" fill="#FF9F43"/><rect x="611" y="740" width="8" height="140" fill="#FF9F43"/><rect x="632" y="740" width="8" height="140" fill="#FF9F43"/>
+          <rect x="584" y="770" width="62" height="7" fill="#FF9F43"/><rect x="584" y="830" width="62" height="7" fill="#FF9F43"/>
+          <text x="615" y="955" font-size="28" fill="#FF9F43" text-anchor="middle">24–48 小时（示例）</text>
+        </g>
+        <g id="sy-t2" class="h"><circle cx="860" cy="752" r="13" fill="none" stroke="#8a8f99" stroke-width="4"/><path d="M835 802 C835 772 885 772 885 802 Z" fill="none" stroke="#8a8f99" stroke-width="4"/></g>
+        <g id="sy-t3" class="h"><rect id="sy-frz" x="790" y="875" width="140" height="46" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+          <text x="860" y="908" font-size="28" fill="#e8e6df" text-anchor="middle">冻结账户</text></g>
+        <g id="sy-c4" class="h"><rect x="980" y="650" width="740" height="350" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="1010" y="700" font-size="32" font-weight="700" fill="#e8e6df">防钓鱼码</text></g>
+        <text id="sy-c4b" class="h" x="1370" y="700" font-size="32" font-weight="700" fill="#e8e6df">风控冻结</text>
+        <g id="sy-m0" class="h">
+          <rect x="1010" y="730" width="320" height="170" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+          <rect x="1012" y="732" width="316" height="60" rx="8" fill="#222733"/>
+          <line x1="1040" y1="830" x2="1290" y2="830" stroke="#8a8f99" stroke-width="3"/><line x1="1040" y1="860" x2="1250" y2="860" stroke="#8a8f99" stroke-width="3"/>
+        </g>
+        <text id="sy-m1" class="h" x="1170" y="773" font-size="28" fill="#83C167" text-anchor="middle">用户自设文字</text>
+        <g id="sy-r0g" class="h">
+          <rect x="1370" y="730" width="330" height="170" rx="10" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="8 6"/>
+          <circle cx="1420" cy="860" r="9" fill="#e8e6df"/><circle cx="1650" cy="770" r="9" fill="#FC6255"/>
+        </g>
+        <path id="sy-arc" class="dr h" pathLength="1" d="M1420 860 Q1535 740 1650 770" fill="none" stroke="#FC6255" stroke-width="3"/>
+        <text id="sy-rt" class="h" x="1535" y="945" font-size="28" fill="#FC6255" text-anchor="middle">异地登录 + 全额提币</text>
+        <g id="sy-rl" class="h"><path d="M1522 850 L1522 838 A14 14 0 0 1 1548 838 L1548 850" fill="none" stroke="#B48EF0" stroke-width="4.5"/><rect x="1512" y="850" width="45" height="36" rx="6" fill="#B48EF0"/></g>
+        <text id="sy-rv" class="h" x="1535" y="988" font-size="28" fill="#B48EF0" text-anchor="middle">人工审核</text>
+
+      </g>
+      <g id="sy-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">2FA <tspan font-size="28" font-weight="400" fill="#8a8f99">双因素认证</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">密码之外再要一样东西</text>
+      </g>
+      <g id="sy-term2" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">TOTP <tspan font-size="28" font-weight="400" fill="#8a8f99">基于时间的一次性密码</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">共享密钥 + 当前时间生成 6 位码</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const RED = "#FC6255", GRN = "#83C167", ORG = "#FF9F43", BLU = "#58C4DD", PUR = "#B48EF0", GRY = "#8a8f99", GLD = "#F0B90B";
+      const POP = (s, t, o) => IN(s, t, 0.45, { scale: 0.6, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(2)" });
+      const FLASH = (s, t, prop = "strokeWidth", a = 7, b = 3) => { tl.to(s, { [prop]: a, duration: 0.2 }, t); tl.to(s, { [prop]: b, duration: 0.4 }, t + 0.2); };
+      const MOVE = (s, t, v, d = 0.8, e = "power2.inOut") => tl.to(s, { ...v, duration: d, ease: e }, t);
+
+      // L0 程序淡出，人登场
+      IN("#sy-srv", at(0, 0.02), 0.5);
+      OUT("#sy-srv", at(0, 0.42), 0.5);
+      IN("#sy-who", at(0, 0.5), 0.6, { x: -30 }, { x: 0 });
+      // L1 2FA
+      IN("#sy-term", at(1, 0.02), 0.5);
+      IN("#sy-pw", at(1, 0.12), 0.5, { x: 20 }, { x: 0 });
+      IN("#sy-2nd", at(1, 0.4), 0.5, { x: 20 }, { x: 0 });
+      MOVE("#sy-pwm", at(1, 0.66), { x: 320, y: 50 }, 0.6); MOVE("#sy-2ndm", at(1, 0.66), { x: 320, y: -60 }, 0.6);
+      OUT(["#sy-pw", "#sy-2nd"], at(1, 0.66) + 0.4, 0.3);
+      POP("#sy-key2", at(1, 0.8), "1470 470");
+      // L2 TOTP
+      OUT("#sy-term", at(2, 0), 0.3); OUT("#sy-key2", at(2, 0), 0.3);
+      IN("#sy-term2", at(2, 0.08), 0.5);
+      IN("#sy-ph", at(2, 0.1), 0.5, { y: 30 }, { y: 0 });
+      IN("#sy-in", at(2, 0.24), 0.5);
+      IN("#sy-n0", at(2, 0.3), 0.4);
+      tl.fromTo("#sy-ring", { opacity: 1, strokeDashoffset: 0 }, { opacity: 1, strokeDashoffset: 1, duration: 5.2, ease: "none", immediateRender: false }, at(2, 0.3));
+      OUT("#sy-n0", at(2, 0.3) + 5.2, 0.2); IN("#sy-n1", at(2, 0.3) + 5.3, 0.3);
+      tl.fromTo("#sy-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 0.4, duration: 3, ease: "none", immediateRender: false }, at(2, 0.3) + 5.3);
+      IN("#sy-rfc", at(2, 0.84), 0.5);
+      // L3 三档强度
+      OUT(["#sy-ph", "#sy-ring", "#sy-n1", "#sy-rfc", "#sy-in", "#sy-term2"], at(3, 0), 0.4);
+      IN("#sy-r0", at(3, 0.04), 0.4);
+      tl.fromTo("#sy-b0", { opacity: 1, attr: { width: 0 } }, { attr: { width: 200 }, duration: 0.6 }, at(3, 0.06));
+      IN("#sy-sim", at(3, 0.16), 0.4); IN("#sy-hd", at(3, 0.22), 0.4);
+      MOVE(["#sy-hdm"], at(3, 0.28), { x: 0 }, 0.1);
+      tl.to("#sy-sim", { x: 60, opacity: 0, duration: 0.6 }, at(3, 0.32)); MOVE("#sy-hdm", at(3, 0.32), { x: 30 }, 0.6);
+      IN("#sy-simt", at(3, 0.34), 0.4);
+      IN("#sy-r1", at(3, 0.45), 0.4);
+      tl.fromTo("#sy-b1", { opacity: 1, attr: { width: 0 } }, { attr: { width: 520 }, duration: 0.7 }, at(3, 0.47));
+      IN("#sy-r2", at(3, 0.56), 0.4);
+      tl.fromTo("#sy-b2", { opacity: 1, attr: { width: 0 } }, { attr: { width: 540 }, duration: 0.7 }, at(3, 0.58));
+      IN("#sy-usb", at(3, 0.62), 0.4); IN("#sy-fido", at(3, 0.68), 0.4);
+      IN("#sy-hv", at(3, 0.84), 0.5);
+      // L4 网格 · 提币白名单
+      OUT(["#sy-who", "#sy-r0", "#sy-b0", "#sy-hd", "#sy-simt", "#sy-r1", "#sy-b1", "#sy-r2", "#sy-b2", "#sy-usb", "#sy-fido", "#sy-hv"], at(4, 0), 0.4);
+      IN("#sy-c1", at(4, 0.06), 0.5);
+      IN("#sy-w0", at(4, 0.2), 0.4); IN("#sy-w1", at(4, 0.3), 0.4);
+      IN("#sy-w2", at(4, 0.5), 0.4, { x: -16 }, { x: 0 });
+      tl.fromTo("#sy-wbar", { opacity: 1, attr: { width: 0 } }, { attr: { width: 640 }, duration: 3.2, ease: "none" }, at(4, 0.6));
+      // L5 设备管理
+      IN("#sy-c2", at(5, 0.02), 0.5);
+      POP("#sy-d0", at(5, 0.14), "1090 450");
+      IN("#sy-d1", at(5, 0.4), 0.5, { y: -16 }, { y: 0 });
+      IN("#sy-d2", at(5, 0.66), 0.4);
+      tl.to("#sy-kick", { fill: "#3a1d1d", duration: 0.2, yoyo: true, repeat: 1 }, at(5, 0.8));
+      IN("#sy-d3", at(5, 0.84), 0.4);
+      // L6 冷静期
+      IN("#sy-c3", at(6, 0.02), 0.5);
+      IN("#sy-t0", at(6, 0.12), 0.5);
+      IN("#sy-fence", at(6, 0.24), 0.5, { y: -20 }, { y: 0 });
+      IN("#sy-t1", at(6, 0.4), 0.4);
+      ARROW("#sy-ta", at(6, 0.46), 0.4); IN("#sy-tal", at(6, 0.46), 0.3);
+      FLASH("#sy-fence rect", at(6, 0.52), "opacity", 0.4, 1);
+      IN("#sy-t2", at(6, 0.72), 0.4);
+      IN("#sy-t3", at(6, 0.8), 0.4);
+      tl.to("#sy-frz", { stroke: ORG, duration: 0.3 }, at(6, 0.9));
+      // L7 防钓鱼码 + 风控冻结
+      IN("#sy-c4", at(7, 0.02), 0.5);
+      IN("#sy-m0", at(7, 0.08), 0.5);
+      IN("#sy-m1", at(7, 0.2), 0.5);
+      IN("#sy-c4b", at(7, 0.4), 0.4); IN("#sy-r0g", at(7, 0.44), 0.4);
+      DRAW("#sy-arc", at(7, 0.52), 0.8); tl.set("#sy-arc", { opacity: 1 }, at(7, 0.52));
+      IN("#sy-rt", at(7, 0.6), 0.4);
+      POP("#sy-rl", at(7, 0.76), "1535 860"); IN("#sy-rv", at(7, 0.8), 0.4);
+
+
+      tl.to("#sy-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#sy-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      tl.to("#sy-term2", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["security"] = tl;
+    })();
+  </script>
+</template>

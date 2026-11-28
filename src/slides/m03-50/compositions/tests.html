@@ -1,0 +1,278 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tests，id 前缀 te- -->
+  <div id="root" data-composition-id="tests" data-duration="102.74" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="te-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="te-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="te-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+      </defs>
+      <g id="te-all">
+        <!-- 七层金字塔 -->
+        <g id="te-pyr"></g>
+
+        <!-- L0 提纲 -->
+        <g id="te-ol" class="h">
+          <text x="1000" y="300" font-size="44" font-weight="700" fill="#e8e6df">测试分<tspan fill="#FF9F43">七层</tspan></text>
+          <text x="1000" y="400" font-size="34" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">1</tspan>  单元　　<tspan class="mono" fill="#58C4DD">2</tspan>  集成</text>
+          <text x="1000" y="480" font-size="34" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">3</tspan>  模糊　　<tspan class="mono" fill="#58C4DD">4</tspan>  属性</text>
+          <text x="1000" y="560" font-size="34" fill="#e8e6df"><tspan class="mono" fill="#58C4DD">5</tspan>  压测　　<tspan class="mono" fill="#58C4DD">6</tspan>  端到端</text>
+          <text x="1000" y="640" font-size="34" fill="#FF9F43"><tspan class="mono">7</tspan>  故障注入</text>
+        </g>
+
+        <!-- L1 单元 / 集成 -->
+        <g id="te-r1">
+          <text id="te-u1" class="h" x="1000" y="340" font-size="42" font-weight="700" fill="#e8e6df">覆盖率 <tspan fill="#83C167">≥ 80%</tspan></text>
+          <text id="te-u2" class="h" x="1000" y="420" font-size="34" fill="#e8e6df">策略引擎：<tspan fill="#83C167">100%</tspan> 分支</text>
+          <g id="te-tree" class="h">
+            <path d="M1600 300 L1520 380 M1600 300 L1680 380 M1520 380 L1480 450 M1520 380 L1560 450 M1680 380 L1640 450 M1680 380 L1720 450" stroke="#58C4DD" stroke-width="3" fill="none"/>
+            <circle cx="1600" cy="300" r="14" fill="#58C4DD"/>
+            <circle cx="1520" cy="380" r="12" fill="#58C4DD"/><circle cx="1680" cy="380" r="12" fill="#58C4DD"/>
+            <circle id="te-lf0" cx="1480" cy="450" r="14" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+            <circle id="te-lf1" cx="1560" cy="450" r="14" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+            <circle id="te-lf2" cx="1640" cy="450" r="14" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+            <circle id="te-lf3" cx="1720" cy="450" r="14" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+          </g>
+          <text id="te-tc" class="mono h" x="1000" y="276" font-size="28" fill="#8a8f99">testcontainers</text>
+          <g id="te-cy" class="h">
+            <g><path d="M1010 312 L1010 400 A80 18 0 0 0 1170 400 L1170 312" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5"/><ellipse cx="1090" cy="312" rx="80" ry="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+              <text class="mono" x="1090" y="466" font-size="28" fill="#e8e6df" text-anchor="middle">PostgreSQL</text></g>
+            <g><path d="M1220 312 L1220 400 A80 18 0 0 0 1380 400 L1380 312" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5"/><ellipse cx="1300" cy="312" rx="80" ry="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+              <text class="mono" x="1300" y="466" font-size="28" fill="#e8e6df" text-anchor="middle">Redis</text></g>
+            <g><path d="M1430 312 L1430 400 A80 18 0 0 0 1590 400 L1590 312" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5"/><ellipse cx="1510" cy="312" rx="80" ry="18" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+              <text class="mono" x="1510" y="466" font-size="28" fill="#e8e6df" text-anchor="middle">Kafka</text></g>
+          </g>
+          <g id="te-anv" class="h"><rect x="1630" y="300" width="190" height="124" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text class="mono" x="1725" y="372" font-size="30" fill="#83C167" text-anchor="middle">Anvil</text><text x="1725" y="466" font-size="28" fill="#e8e6df" text-anchor="middle">本地链</text></g>
+          <g id="te-dots"></g>
+          <text id="te-dl" class="h" x="1000" y="830" font-size="30" fill="#F0B90B"><tspan class="mono">100</tspan> 个同一 <tspan class="mono">requestId</tspan></text>
+          <path id="te-da" class="dr h" pathLength="1" d="M1250 660 L1410 660" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#te-mg)"/>
+          <g id="te-tb" class="h"><rect x="1420" y="570" width="400" height="180" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="1620" y="622" font-size="28" fill="#8a8f99" text-anchor="middle">提币记录</text></g>
+          <text id="te-one" class="h" x="1620" y="704" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">只有 1 笔</text>
+        </g>
+
+        <!-- L2 模糊 / 属性 / 压测 / 端到端 -->
+        <g id="te-r2">
+          <g id="te-bytes" class="h mono"><text x="1000" y="330" font-size="28" fill="#8a8f99">3f a9 00 ff 7c</text><text x="1000" y="376" font-size="28" fill="#8a8f99">e4 12 9b 00 c1</text></g>
+          <path id="te-ba" class="dr h" pathLength="1" d="M1270 340 L1396 340" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#te-mb)"/>
+          <g id="te-dec" class="h"><rect x="1410" y="290" width="410" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1615" y="352" font-size="30" fill="#58C4DD" text-anchor="middle">decodeTransfer</text></g>
+          <text id="te-rej" class="h" x="1615" y="450" font-size="32" font-weight="700" text-anchor="middle"><tspan fill="#FC6255">全部拒绝</tspan><tspan fill="#8a8f99"> · </tspan><tspan fill="#83C167">无 <tspan class="mono">panic</tspan></tspan></text>
+          <text id="te-inv" class="h" x="1000" y="570" font-size="36" fill="#e8e6df">余额 = 入账 − 出账 − 手续费</text>
+          <g id="te-nc0" class="h"><rect x="1000" y="616" width="90" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1045" y="668" font-size="34" fill="#e8e6df" text-anchor="middle">1</text></g>
+          <g id="te-nc1" class="h"><rect x="1110" y="616" width="90" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1155" y="668" font-size="34" fill="#e8e6df" text-anchor="middle">2</text></g>
+          <g id="te-nc2" class="h"><rect x="1220" y="616" width="90" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1265" y="668" font-size="34" fill="#e8e6df" text-anchor="middle">3</text></g>
+          <g id="te-nc3" class="h"><rect x="1330" y="616" width="90" height="80" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="1375" y="668" font-size="34" fill="#e8e6df" text-anchor="middle">4</text></g>
+          <text id="te-ncl" class="h" x="1460" y="668" font-size="30" fill="#83C167"><tspan class="mono">nonce</tspan> 连续不重叠</text>
+          <text id="te-st" class="h" x="1000" y="790" font-size="30" fill="#e8e6df">压测：<tspan class="mono">20</tspan> 笔/秒 × <tspan class="mono">30</tspan> 分钟 · 回放 <tspan class="mono">1</tspan> 万块</text>
+          <text id="te-stp" class="h" x="1040" y="842" font-size="30" fill="#83C167">→ <tspan class="mono">P99</tspan> 达标 · 无积压</text>
+          <text id="te-e2" class="h" x="1000" y="916" font-size="30" fill="#e8e6df">端到端：<tspan class="mono">Sepolia</tspan> 测试网</text>
+          <text id="te-e2p" class="h" x="1040" y="968" font-size="30" fill="#83C167">→ 对账差异为 <tspan class="mono">0</tspan></text>
+        </g>
+
+        <!-- L3 故障注入标准 -->
+        <g id="te-r3">
+          <text id="te-sh" class="h" x="1000" y="380" font-size="32" fill="#8a8f99">通过标准</text>
+          <g id="te-c0" class="h"><circle cx="1026" cy="470" r="24" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="3"/><path d="M1014 470 L1023 480 L1040 460" stroke="#83C167" stroke-width="4" fill="none"/><text x="1074" y="484" font-size="40" font-weight="700" fill="#e8e6df">不多打款</text></g>
+          <g id="te-c1" class="h"><circle cx="1026" cy="580" r="24" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="3"/><path d="M1014 580 L1023 590 L1040 570" stroke="#83C167" stroke-width="4" fill="none"/><text x="1074" y="594" font-size="40" font-weight="700" fill="#e8e6df">没有资金差异</text></g>
+          <g id="te-c2" class="h"><circle cx="1026" cy="690" r="24" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="3"/><path d="M1014 690 L1023 700 L1040 680" stroke="#83C167" stroke-width="4" fill="none"/><text x="1074" y="704" font-size="40" font-weight="700" fill="#e8e6df">告警按时触发</text></g>
+        </g>
+
+        <!-- L4/L5 故障卡 -->
+        <g id="te-f1" class="h"><rect x="1000" y="270" width="820" height="250" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/>
+          <text x="1030" y="324" font-size="34" font-weight="700" fill="#FC6255"><tspan class="mono">RPC</tspan> 超时 <tspan class="mono" font-size="28" font-weight="400" fill="#8a8f99">Toxiproxy</tspan></text>
+          <circle id="te-f1d" cx="1770" cy="314" r="14" fill="#FC6255"/></g>
+        <text id="te-f1a" class="h" x="1030" y="384" font-size="30" fill="#83C167">→ 网关切到备用供应商</text>
+        <text id="te-f1b" class="h" x="1030" y="436" font-size="30" fill="#83C167">→ 扫描器暂停，不跳块</text>
+        <text id="te-f1c" class="h" x="1030" y="488" font-size="30" fill="#83C167">→ 提币广播自动重试</text>
+        <g id="te-f2" class="h"><rect x="1000" y="560" width="820" height="230" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/>
+          <text x="1030" y="614" font-size="34" font-weight="700" fill="#FC6255">篡改 <tspan class="mono">baseFee</tspan></text></g>
+        <text id="te-f2a" class="h" x="1030" y="682" font-size="30" fill="#83C167">→ 估算器交叉比对，发现异常</text>
+        <text id="te-f2b" class="h" x="1030" y="742" font-size="30" fill="#83C167">→ 沿用上次的值 + 告警</text>
+
+        <g id="te-f3" class="h"><rect x="1000" y="270" width="820" height="230" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/>
+          <text x="1030" y="324" font-size="34" font-weight="700" fill="#FC6255">签名节点 B 断网 <tspan class="mono">60 s</tspan></text></g>
+        <text id="te-f3a" class="h" x="1030" y="392" font-size="30" fill="#FF9F43">→ 提币停在 <tspan class="mono">SIGNING</tspan></text>
+        <text id="te-f3b" class="h" x="1030" y="452" font-size="30" fill="#83C167">→ 恢复后用同一 <tspan class="mono">nonce</tspan> 签成功</text>
+        <g id="te-f4" class="h"><rect x="1000" y="550" width="820" height="230" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/>
+          <text x="1030" y="604" font-size="34" font-weight="700" fill="#FC6255"><tspan class="mono">SaveSigned</tspan> 后强杀进程</text></g>
+        <text id="te-f4a" class="h" x="1030" y="672" font-size="30" fill="#83C167">→ 重启后重播同一 <tspan class="mono">raw</tspan></text>
+        <text id="te-f4b" class="h" x="1030" y="732" font-size="30" fill="#83C167">→ 不产生新签名</text>
+
+        <!-- L6 重组 + 三个小场景 -->
+        <g id="te-rg" class="h"><rect x="1000" y="260" width="820" height="320" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5"/>
+          <text x="1030" y="312" font-size="32" font-weight="700" fill="#FF9F43">重组 · <tspan class="mono">Anvil</tspan></text></g>
+        <g id="te-flag" class="h"><line x1="1040" y1="350" x2="1040" y2="440" stroke="#e8e6df" stroke-width="3"/><path d="M1040 352 L1080 366 L1040 380 z" fill="#e8e6df"/><text x="1030" y="476" font-size="28" fill="#8a8f99">快照</text></g>
+        <g id="te-ob"></g>
+        <g id="te-nb"></g>
+        <text id="te-lb1" class="h" x="1600" y="408" font-size="30" fill="#F0B90B">挖 <tspan class="mono">3</tspan> 块</text>
+        <text id="te-lb2" class="h" x="1600" y="408" font-size="30" font-weight="700" fill="#FC6255">回滚</text>
+        <text id="te-lb3" class="h" x="1600" y="408" font-size="30" fill="#8a8f99">挖 <tspan class="mono">4</tspan> 块</text>
+        <text id="te-rv" class="h" x="1030" y="540" font-size="30" fill="#83C167">扫描器回退 · 发 <tspan class="mono">deposit.reverted</tspan></text>
+        <g id="te-why" class="h"><rect x="1000" y="620" width="820" height="340" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+          <text x="1030" y="676" font-size="32" font-weight="700" fill="#58C4DD">为什么这算重组？</text></g>
+        <text id="te-w0" class="h" x="1030" y="748" font-size="30" fill="#e8e6df">同一高度：旧块哈希 <tspan fill="#FC6255">≠</tspan> 新块哈希</text>
+        <text id="te-w1" class="h" x="1030" y="820" font-size="30" fill="#e8e6df">新链更长：<tspan class="mono">4</tspan> 块 <tspan class="mono">&gt;</tspan> <tspan class="mono">3</tspan> 块</text>
+        <text id="te-w2" class="h" x="1030" y="892" font-size="30" fill="#e8e6df">取到下一块 → <tspan class="mono">parentHash</tspan> 对不上 → <tspan fill="#83C167">回退</tspan></text>
+        <g id="te-s0" class="h"><rect x="1000" y="630" width="820" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="1030" y="692" font-size="30" fill="#e8e6df"><tspan class="mono">nonce</tspan> 空洞 <tspan fill="#83C167">→ <tspan class="mono">60 s</tspan> 内填洞</tspan></text></g>
+        <g id="te-s1" class="h"><rect x="1000" y="760" width="820" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="1030" y="822" font-size="30" fill="#e8e6df"><tspan class="mono">Gas</tspan> 暴涨 <tspan fill="#FF9F43">→ 加速到封顶，转人工</tspan></text></g>
+        <g id="te-s2" class="h"><rect x="1000" y="890" width="820" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="1030" y="952" font-size="30" fill="#e8e6df">主库被杀（<tspan class="mono">Chaos Mesh</tspan>）<tspan fill="#83C167">→ 恢复，无重复推进</tspan></text></g>
+      </g>
+      <g id="te-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="96" y="110" font-size="38" font-weight="700" fill="#e8e6df">故障注入 <tspan font-size="28" font-weight="400" fill="#8a8f99">Fault Injection</tspan></text>
+        <text x="96" y="160" font-size="28" fill="#e8e6df">主动制造故障，验证容错能力</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, attrs, parent, txt) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (txt) e.textContent = txt; parent.appendChild(e); return e; };
+      const PULSE = (s, t, origin, sc = 1.06) => tl.to(s, { scale: sc, svgOrigin: origin, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+
+      // 金字塔：自下而上 7 层
+      const names = ["单元", "集成", "模糊", "属性", "压测", "端到端", "故障注入"];
+      const pyr = document.getElementById("te-pyr");
+      const hw = y => 110 + (y - 284) * (280 / 706);
+      names.forEach((n, i) => {
+        const yb = 990 - 102 * i, yt = yb - 94, col = i === 6 ? "#FF9F43" : "#58C4DD";
+        const g = mk("g", { id: "te-p" + i, class: "h" }, pyr);
+        mk("polygon", { id: "te-pp" + i, points: `${510 - hw(yb)},${yb} ${510 + hw(yb)},${yb} ${510 + hw(yt)},${yt} ${510 - hw(yt)},${yt}`, fill: col, "fill-opacity": 0.12, stroke: col, "stroke-width": 2.5 }, g);
+        mk("text", { x: 510, y: yb - 35, "font-size": 32, "font-weight": 700, fill: i === 6 ? "#FF9F43" : "#e8e6df", "text-anchor": "middle" }, g, n);
+      });
+      const HLP = (k, t) => { for (let j = 0; j < 7; j++) tl.to("#te-pp" + j, { attr: { "fill-opacity": j === k ? 0.42 : 0.12 }, duration: 0.4 }, t); };
+      // 100 个请求点
+      const dots = document.getElementById("te-dots");
+      for (let r = 0; r < 10; r++) for (let c = 0; c < 10; c++) mk("circle", { class: "te-dot h", cx: 1010 + 22 * c, cy: 560 + 22 * r, r: 7, fill: "#F0B90B" }, dots);
+      // 重组区块
+      const ob = document.getElementById("te-ob"), nb = document.getElementById("te-nb");
+      for (let k = 0; k < 3; k++) { const g = mk("g", { id: "te-o" + k, class: "h" }, ob); mk("rect", { id: "te-or" + k, x: 1120 + 110 * k, y: 350, width: 90, height: 90, rx: 10, fill: "#58C4DD", "fill-opacity": 0.12, stroke: "#58C4DD", "stroke-width": 2.5 }, g); mk("circle", { cx: 1165 + 110 * k, cy: 395, r: 14, fill: "#F0B90B" }, g); }
+      for (let k = 0; k < 4; k++) mk("rect", { id: "te-n" + k, class: "h", x: 1120 + 110 * k, y: 350, width: 90, height: 90, rx: 10, fill: "#8a8f99", "fill-opacity": 0.12, stroke: "#8a8f99", "stroke-width": 2.5 }, nb);
+
+      // L0 七层
+      for (let i = 0; i < 7; i++) IN("#te-p" + i, at(0, 0.08 + 0.11 * i), 0.4, { y: 20 }, { y: 0 });
+      IN("#te-ol", at(0, 0.3), 0.5, { x: 20 }, { x: 0 });
+      OUT("#te-ol", at(1, 0.0), 0.3);
+
+      // L1 单元 + 集成
+      HLP(0, at(1, 0.02));
+      IN("#te-u1", at(1, 0.04), 0.5, { x: 20 }, { x: 0 });
+      IN("#te-u2", at(1, 0.12), 0.5, { x: 20 }, { x: 0 });
+      IN("#te-tree", at(1, 0.16), 0.5);
+      for (let k = 0; k < 4; k++) tl.to("#te-lf" + k, { attr: { fill: "#83C167" }, duration: 0.3 }, at(1, 0.2 + 0.04 * k));
+      OUT(["#te-u1", "#te-u2", "#te-tree"], at(1, 0.38), 0.35);
+      HLP(1, at(1, 0.4));
+      IN("#te-tc", at(1, 0.42), 0.4);
+      IN("#te-cy", at(1, 0.44), 0.5, { y: 16 }, { y: 0 });
+      IN("#te-anv", at(1, 0.52), 0.5, { y: 16 }, { y: 0 });
+      tl.fromTo(".te-dot", { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.006 }, at(1, 0.6));
+      IN("#te-dl", at(1, 0.62), 0.4);
+      ARROW("#te-da", at(1, 0.68), 0.4);
+      IN("#te-tb", at(1, 0.68), 0.4);
+      tl.to(".te-dot", { x: 260, opacity: 0, duration: 0.5, stagger: 0.008, ease: "power1.in" }, at(1, 0.72));
+      IN("#te-one", at(1, 0.86), 0.4, { y: 10 }, { y: 0 });
+      PULSE("#te-one", at(1, 0.92), "1620 690", 1.1);
+
+      // L2 模糊 / 属性 / 压测 / 端到端
+      OUT("#te-r1", at(2, 0.0), 0.35);
+      HLP(2, at(2, 0.03));
+      IN("#te-bytes", at(2, 0.03), 0.4);
+      tl.to("#te-bytes", { x: 24, duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, at(2, 0.06));
+      ARROW("#te-ba", at(2, 0.09), 0.4);
+      IN("#te-dec", at(2, 0.1), 0.4);
+      IN("#te-rej", at(2, 0.16), 0.4, { y: 10 }, { y: 0 });
+      HLP(3, at(2, 0.22));
+      IN("#te-inv", at(2, 0.25), 0.5, { x: 20 }, { x: 0 });
+      for (let k = 0; k < 4; k++) IN("#te-nc" + k, at(2, 0.33 + 0.03 * k), 0.3, { y: 12 }, { y: 0 });
+      IN("#te-ncl", at(2, 0.46), 0.4);
+      HLP(4, at(2, 0.58));
+      IN("#te-st", at(2, 0.6), 0.5, { x: 20 }, { x: 0 });
+      HLP(5, at(2, 0.68));
+      IN("#te-e2", at(2, 0.7), 0.5, { x: 20 }, { x: 0 });
+      HLP(4, at(2, 0.79));
+      IN("#te-stp", at(2, 0.8), 0.4, { x: 16 }, { x: 0 });
+      HLP(5, at(2, 0.91));
+      IN("#te-e2p", at(2, 0.92), 0.4, { x: 16 }, { x: 0 });
+
+      // L3 故障注入
+      OUT("#te-r2", at(3, 0.0), 0.35);
+      HLP(6, at(3, 0.02));
+      PULSE("#te-p6", at(3, 0.04), "510 330", 1.12);
+      IN("#te-term", at(3, 0.08), 0.5);
+      IN("#te-sh", at(3, 0.42), 0.4);
+      ["#te-c0", "#te-c1", "#te-c2"].forEach((s, i) => IN(s, at(3, 0.5 + 0.14 * i), 0.4, { x: 20 }, { x: 0 }));
+      PULSE("#te-p6", at(3, 0.92), "510 330", 1.08);
+      OUT("#te-term", at(3, 0.86), 0.4);
+
+      // L4 RPC 超时 / 篡改 baseFee
+      OUT("#te-r3", at(4, 0.0), 0.35);
+      IN("#te-f1", at(4, 0.04), 0.4, { x: 20 }, { x: 0 });
+      IN("#te-f1a", at(4, 0.16), 0.4);
+      tl.to("#te-f1d", { attr: { fill: "#83C167" }, duration: 0.3 }, at(4, 0.2));
+      IN("#te-f1b", at(4, 0.27), 0.4);
+      IN("#te-f1c", at(4, 0.37), 0.4);
+      IN("#te-f2", at(4, 0.5), 0.4, { x: 20 }, { x: 0 });
+      IN("#te-f2a", at(4, 0.66), 0.4);
+      IN("#te-f2b", at(4, 0.84), 0.4);
+      PULSE("#te-f2", at(4, 0.9), "1410 665", 1.02);
+
+      // L5 签名断网 / 存库后被杀
+      OUT(["#te-f1", "#te-f1a", "#te-f1b", "#te-f1c", "#te-f2", "#te-f2a", "#te-f2b"], at(5, 0.0), 0.35);
+      IN("#te-f3", at(5, 0.05), 0.4, { x: 20 }, { x: 0 });
+      IN("#te-f3a", at(5, 0.16), 0.4);
+      IN("#te-f3b", at(5, 0.3), 0.4);
+      IN("#te-f4", at(5, 0.48), 0.4, { x: 20 }, { x: 0 });
+      IN("#te-f4a", at(5, 0.64), 0.4);
+      IN("#te-f4b", at(5, 0.8), 0.4);
+      PULSE("#te-f4", at(5, 0.9), "1410 665", 1.02);
+
+      // L6 重组 + 其余三个
+      OUT(["#te-f3", "#te-f3a", "#te-f3b", "#te-f4", "#te-f4a", "#te-f4b"], at(6, 0.0), 0.35);
+      IN("#te-rg", at(6, 0.05), 0.4);
+      IN("#te-flag", at(6, 0.18), 0.4);
+      for (let k = 0; k < 3; k++) IN("#te-o" + k, at(6, 0.26 + 0.04 * k), 0.3, { y: 12 }, { y: 0 });
+      IN("#te-lb1", at(6, 0.27), 0.3);
+      OUT("#te-lb1", at(6, 0.42), 0.25);
+      tl.to(["#te-or0", "#te-or1", "#te-or2"], { attr: { stroke: "#FC6255", fill: "#FC6255" }, duration: 0.3 }, at(6, 0.44));
+      IN("#te-lb2", at(6, 0.46), 0.3);
+      OUT(["#te-o0", "#te-o1", "#te-o2"], at(6, 0.5), 0.4);
+      OUT("#te-lb2", at(6, 0.56), 0.25);
+      for (let k = 0; k < 4; k++) IN("#te-n" + k, at(6, 0.6 + 0.04 * k), 0.3, { y: 12 }, { y: 0 });
+      IN("#te-lb3", at(6, 0.61), 0.3);
+      IN("#te-rv", at(6, 0.86), 0.4, { x: 16 }, { x: 0 });
+
+      // L7 为什么算重组
+      IN("#te-why", at(7, 0.02), 0.4);
+      IN("#te-w0", at(7, 0.14), 0.4, { x: 16 }, { x: 0 });
+      tl.to(["#te-n0", "#te-n1", "#te-n2"], { attr: { stroke: "#FF9F43" }, duration: 0.3, yoyo: true, repeat: 1 }, at(7, 0.3));
+      IN("#te-w1", at(7, 0.46), 0.4, { x: 16 }, { x: 0 });
+      tl.to("#te-n3", { attr: { stroke: "#83C167", "fill-opacity": 0.35 }, duration: 0.3 }, at(7, 0.48));
+      IN("#te-w2", at(7, 0.6), 0.4, { x: 16 }, { x: 0 });
+      PULSE("#te-rv", at(7, 0.9), "1300 530", 1.05);
+      tl.to("#te-w0, #te-w1", { opacity: 0.6, duration: 0.4 }, at(7, 0.8));
+
+      // L8 其余三个场景
+      OUT(["#te-why", "#te-w0", "#te-w1", "#te-w2"], at(8, 0.0), 0.35);
+      ["#te-s0", "#te-s1", "#te-s2"].forEach((s, i) => IN(s, at(8, 0.06 + 0.3 * i), 0.4, { x: 20 }, { x: 0 }));
+      PULSE("#te-p6", at(8, 0.94), "510 330", 1.08);
+
+      tl.to("#te-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#te-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["tests"] = tl;
+    })();
+  </script>
+</template>

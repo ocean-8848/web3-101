@@ -1,0 +1,118 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 locks，id 前缀 lo- -->
+  <div id="root" data-composition-id="locks" data-duration="63.68" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="lo-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs><defs><marker id="lo-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="lo-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="lo-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="lo-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="lo-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="lo-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="lo-mn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker><marker id="lo-mt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker></defs>
+      <g id="lo-all">
+        <g id="lo-b0" class="h" ><rect x="120" y="245" width="1100" height="170" rx="16" fill="#FF9F43" fill-opacity="0.1" stroke="#FF9F43" stroke-width="3" /><text x="160" y="344" font-size="40" fill="#FF9F43" font-weight="700" >Redis 锁 · 减少争用</text></g><g id="lo-b1" class="h" ><rect x="120" y="455" width="1100" height="170" rx="16" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="3" /><text x="160" y="554" font-size="40" fill="#58C4DD" font-weight="700" >数据库行锁</text></g><g id="lo-b2" class="h" ><rect x="120" y="665" width="1100" height="170" rx="16" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="3" /><text x="160" y="764" font-size="40" fill="#58C4DD" font-weight="700" >主键 (chain, address, nonce)</text></g><path id="lo-crack" class="dr" pathLength="1" d="M1000 250 L982 300 L1016 334 L988 380 L1008 410" fill="none" stroke="#FC6255" stroke-width="4" /><text id="lo-t0" class="h" x="1190" y="344" font-size="36" fill="#FF9F43" text-anchor="end" font-weight="700" >性能</text><text id="lo-t1" class="h" x="1190" y="554" font-size="36" fill="#83C167" text-anchor="end" font-weight="700" >正确性</text><text id="lo-t2" class="h" x="1190" y="764" font-size="36" fill="#83C167" text-anchor="end" font-weight="700" >正确性</text><g id="lo-i1" class="h" ><circle cx="1360" cy="320" r="40" fill="none" stroke="#FF9F43" stroke-width="3"/><text class="mono" x="1360" y="330" font-size="28" fill="#FF9F43" text-anchor="middle" >0 s</text><text x="1420" y="330" font-size="28" fill="#FF9F43" >锁过期</text><rect id="lo-pa" x="1310" y="400" width="230" height="80" rx="12" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="2.5" /><text x="1425" y="450" font-size="28" fill="#e8e6df" text-anchor="middle" >进程 A 执行中</text><rect x="1310" y="560" width="180" height="80" rx="12" fill="#FF9F43" fill-opacity="0.1" stroke="#FF9F43" stroke-width="2.5" /><text x="1400" y="610" font-size="28" fill="#FF9F43" text-anchor="middle" >Redis 主</text><rect x="1630" y="560" width="180" height="80" rx="12" fill="#FF9F43" fill-opacity="0.1" stroke="#FF9F43" stroke-width="2.5" /><text x="1720" y="610" font-size="28" fill="#FF9F43" text-anchor="middle" >Redis 从</text></g><path id="lo-sw" class="dr h" pathLength="1" d="M1494 612 L1624 612" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#lo-mo)"/><text id="lo-swl" class="h" x="1560" y="590" font-size="28" fill="#FF9F43" text-anchor="middle" >切换</text><g id="lo-lk" class="h" ><path id="Nonesh" d="M1387 688 v-10 a13 13 0 0 1 26 0 v10" fill="none" stroke="#FF9F43" stroke-width="4"/><rect x="1379" y="688" width="42" height="32" rx="5" fill="#FF9F43"/></g><g id="lo-pbg" class="h" ><rect id="lo-pb" x="1580" y="400" width="230" height="80" rx="12" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="2.5" /><text x="1695" y="450" font-size="28" fill="#e8e6df" text-anchor="middle" >进程 B 拿到锁</text></g><text id="lo-two" class="h" x="1560" y="790" font-size="34" fill="#FC6255" text-anchor="middle" font-weight="700" >两个持锁者</text><g id="lo-i2" class="h" ><rect x="1400" y="470" width="320" height="80" rx="12" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1560" y="520" font-size="28" fill="#58C4DD" text-anchor="middle" >hot_address</text></g><g id="lo-ta" class="h" ><rect x="1310" y="640" width="200" height="70" rx="12" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="2.5" /><text x="1410" y="685" font-size="28" fill="#e8e6df" text-anchor="middle" >事务 A</text></g><g id="lo-tb" class="h" ><rect x="1610" y="640" width="200" height="70" rx="12" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="2.5" /><text x="1710" y="685" font-size="28" fill="#e8e6df" text-anchor="middle" >事务 B</text></g><path id="lo-aa" class="dr h" pathLength="1" d="M1420 634 L1480 558" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#lo-mb)"/><path id="lo-ab" class="dr h" pathLength="1" d="M1700 634 L1640 558" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#lo-mb)"/><g id="lo-hg" class="h" ><path d="M1650 725 h30 l-15 20 l15 20 h-30 l15 -20 Z" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="1692" y="756" font-size="28" fill="#8a8f99" >排队</text></g><text id="lo-n43" class="h mono" x="1410" y="800" font-size="36" fill="#83C167" text-anchor="middle" >43</text><text id="lo-n44" class="h mono" x="1710" y="800" font-size="36" fill="#83C167" text-anchor="middle" >44</text><g id="lo-i3" class="h" ><rect x="1320" y="470" width="480" height="140" rx="12" fill="#58C4DD" fill-opacity="0.08" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1340" y="512" font-size="28" fill="#58C4DD" >nonce_slot</text><text class="mono" x="1340" y="576" font-size="32" fill="#e8e6df" >43</text></g><g id="lo-dup" class="h" ><rect id="lo-dupr" x="1560" y="680" width="140" height="70" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1630" y="727" font-size="32" fill="#e8e6df" text-anchor="middle" >43</text></g><text id="lo-rb" class="h" x="1730" y="727" font-size="32" fill="#FC6255" font-weight="700" >回滚</text><g id="lo-ok" class="h"><path d="M1326 555 L1342.8 571.8 L1374 535.8" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g><text id="lo-okt" class="h" x="1400" y="567" font-size="32" fill="#83C167" >仍然正确</text><g id="lo-dots" class="h" ><circle cx="1330" cy="715" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1364" cy="723" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1398" cy="715" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1432" cy="723" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1466" cy="715" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1500" cy="723" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1330" cy="755" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1364" cy="763" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1398" cy="755" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1432" cy="763" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1466" cy="755" r="11" fill="#FF9F43" fill-opacity="0.8"/><circle cx="1500" cy="763" r="11" fill="#FF9F43" fill-opacity="0.8"/></g><text id="lo-dt" class="h" x="1560" y="752" font-size="30" fill="#FF9F43" >争用更多</text><g id="lo-r00" class="h" ><rect x="130" y="380" width="240" height="80" rx="40" fill="#FC6255" fill-opacity="0.08" stroke="#FC6255" stroke-width="2.5" /><text x="250" y="431" font-size="30" fill="#e8e6df" text-anchor="middle" >先广播</text></g><path id="lo-ra00" class="dr h" pathLength="1" d="M374 420 L464 420" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#lo-mn)"/><g id="lo-r01" class="h" ><rect x="470" y="380" width="240" height="80" rx="40" fill="#FF9F43" fill-opacity="0.08" stroke="#FF9F43" stroke-width="2.5" /><text x="604" y="431" font-size="30" fill="#e8e6df" text-anchor="middle" >崩溃</text></g><g id="lo-bt0" class="h"><path d="M510 388 L492 422 L508 422 L498 452 L526 412 L510 412 L520 388 Z" fill="#FF9F43"/></g><path id="lo-ra01" class="dr h" pathLength="1" d="M714 420 L804 420" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#lo-mn)"/><g id="lo-r02" class="h" ><rect x="810" y="380" width="240" height="80" rx="40" fill="#FC6255" fill-opacity="0.08" stroke="#FC6255" stroke-width="2.5" /><text x="930" y="431" font-size="30" fill="#e8e6df" text-anchor="middle" >未落库</text></g><path id="lo-ra02" class="dr h" pathLength="1" d="M1054 420 L1144 420" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#lo-mn)"/><g id="lo-r03" class="h" ><rect x="1150" y="380" width="240" height="80" rx="40" fill="#FC6255" fill-opacity="0.08" stroke="#FC6255" stroke-width="2.5" /><text x="1270" y="431" font-size="30" fill="#e8e6df" text-anchor="middle" >重签一笔</text></g><path id="lo-ra03" class="dr h" pathLength="1" d="M1394 420 L1484 420" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#lo-mn)"/><g id="lo-r04" class="h" ><rect x="1490" y="380" width="240" height="80" rx="40" fill="#FC6255" fill-opacity="0.3" stroke="#FC6255" stroke-width="2.5" /><text x="1610" y="431" font-size="30" fill="#FC6255" text-anchor="middle" font-weight="700" >两笔打款</text></g><g id="lo-r10" class="h" ><rect x="130" y="660" width="240" height="80" rx="40" fill="#83C167" fill-opacity="0.08" stroke="#83C167" stroke-width="2.5" /><text x="250" y="711" font-size="30" fill="#e8e6df" text-anchor="middle" >先存 raw</text></g><path id="lo-ra10" class="dr h" pathLength="1" d="M374 700 L464 700" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#lo-mn)"/><g id="lo-r11" class="h" ><rect x="470" y="660" width="240" height="80" rx="40" fill="#FF9F43" fill-opacity="0.08" stroke="#FF9F43" stroke-width="2.5" /><text x="604" y="711" font-size="30" fill="#e8e6df" text-anchor="middle" >崩溃</text></g><g id="lo-bt1" class="h"><path d="M510 668 L492 702 L508 702 L498 732 L526 692 L510 692 L520 668 Z" fill="#FF9F43"/></g><path id="lo-ra11" class="dr h" pathLength="1" d="M714 700 L804 700" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#lo-mn)"/><g id="lo-r12" class="h" ><rect x="810" y="660" width="240" height="80" rx="40" fill="#83C167" fill-opacity="0.08" stroke="#83C167" stroke-width="2.5" /><text x="930" y="711" font-size="30" fill="#e8e6df" text-anchor="middle" >重启</text></g><path id="lo-ra12" class="dr h" pathLength="1" d="M1054 700 L1144 700" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#lo-mn)"/><g id="lo-r13" class="h" ><rect x="1150" y="660" width="240" height="80" rx="40" fill="#83C167" fill-opacity="0.08" stroke="#83C167" stroke-width="2.5" /><text x="1270" y="711" font-size="30" fill="#e8e6df" text-anchor="middle" >重播同一笔</text></g><path id="lo-ra13" class="dr h" pathLength="1" d="M1394 700 L1484 700" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#lo-mn)"/><g id="lo-r14" class="h" ><rect x="1490" y="660" width="240" height="80" rx="40" fill="#83C167" fill-opacity="0.3" stroke="#83C167" stroke-width="2.5" /><text x="1610" y="711" font-size="30" fill="#83C167" text-anchor="middle" font-weight="700" >一笔</text></g><g id="lo-row" class="h" ><rect x="160" y="430" width="560" height="100" rx="12" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="190" y="491" font-size="30" fill="#58C4DD" >nonce_slot · 43</text></g><path id="lo-cn" class="dr" pathLength="1" d="M722 480 L996 480" fill="none" stroke="#58C4DD" stroke-width="3" /><g id="lo-att" class="h" ><rect x="1000" y="380" width="700" height="240" rx="12" fill="#58C4DD" fill-opacity="0.08" stroke="#58C4DD" stroke-width="2.5" /><text x="1030" y="432" font-size="32" fill="#58C4DD" font-weight="700" >发送尝试</text></g><text id="lo-a1" class="h" x="1030" y="502" font-size="30" fill="#e8e6df" >#1 原交易哈希</text><text id="lo-a2" class="h" x="1030" y="572" font-size="30" fill="#e8e6df" >#2 替换交易哈希</text><g id="lo-e1" class="h"><path d="M1732 492 Q1760 468 1788 492 Q1760 516 1732 492 Z" fill="none" stroke="#58C4DD" stroke-width="3"/><circle cx="1760" cy="492" r="8" fill="#58C4DD"/></g><g id="lo-e2" class="h"><path d="M1732 562 Q1760 538 1788 562 Q1760 586 1732 562 Z" fill="none" stroke="#58C4DD" stroke-width="3"/><circle cx="1760" cy="562" r="8" fill="#58C4DD"/></g><path id="lo-w1" class="dr" pathLength="1" d="M1790 492 L1836 492 L1836 820 L1606 820" fill="none" stroke="#58C4DD" stroke-width="3" /><path id="lo-w2" class="dr" pathLength="1" d="M1760 588 L1760 790 L1606 790" fill="none" stroke="#58C4DD" stroke-width="3" /><g id="lo-mon" class="h" ><rect x="1300" y="760" width="300" height="80" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" /><text x="1450" y="811" font-size="30" fill="#58C4DD" text-anchor="middle" >监听器</text></g>
+      </g>
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+const PULSE = (s, t, o, k = 1.06) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+const KEEP = (s, o, t0, t1, every = 2.4) => { for (let t = t0 + 1.2; t < t1 - 0.4; t += every) PULSE(s, t, o, 1.035); };
+const SET = (s, t, v, d = 0.4) => tl.to(s, { ...v, duration: d, ease: "power2.out" }, t);
+const ATTR = (s, t, v, d = 0.4) => tl.to(s, { attr: v, duration: d, ease: "power2.out" }, t);
+const XF = (a, b, t, d = 0.25) => { tl.to(a, { opacity: 0, duration: d }, t); tl.fromTo(b, { opacity: 0 }, { opacity: 1, duration: d, immediateRender: false }, t + d + 0.02); };
+const CELLC = (pre, k, t, color, fo = 0.15, dash = "none") => ATTR(`#${pre}cr${k}`, t, { stroke: color, fill: color, "fill-opacity": fo, "stroke-dasharray": dash });
+const ST = (pre, k, a, b, t) => XF(`#${pre}cs${k}_${a}`, `#${pre}cs${k}_${b}`, t);
+
+// L0（L0–L1 第一道防线放在中间一行）
+tl.set("#lo-b0, #lo-crack", { y: 210 }, 0);
+IN("#lo-b0", at(0, 0.05), 0.6, { x: -30 }, { x: 0 });
+DRAW("#lo-crack", at(0, 0.6), 0.6);
+PULSE("#lo-b0", at(0, 0.8), "670 540", 1.02);
+// L1
+IN("#lo-i1", at(1, 0.04), 0.5);
+PULSE("#lo-pa", at(1, 0.2), "1425 440", 1.05);
+ARROW("#lo-sw", at(1, 0.42)); IN("#lo-swl", at(1, 0.45), 0.3);
+IN("#lo-lk", at(1, 0.3), 0.3);
+tl.to("#lo-lk", { opacity: 0, y: 30, duration: 0.6 }, at(1, 0.55));
+IN("#lo-pbg", at(1, 0.68), 0.4, { x: 20 }, { x: 0 });
+ATTR("#lo-pa, #lo-pb", at(1, 0.82), { stroke: "#FC6255", fill: "#FC6255" });
+IN("#lo-two", at(1, 0.85), 0.4);
+// L2
+OUT("#lo-i1, #lo-sw, #lo-swl, #lo-pbg, #lo-two", at(2, 0), 0.4);
+tl.to("#lo-b0, #lo-crack", { y: 0, duration: 0.45, ease: "power2.inOut" }, at(2, 0.0));
+IN("#lo-b1", at(2, 0.1), 0.6, { x: -30 }, { x: 0 });
+IN("#lo-i2", at(2, 0.15), 0.4);
+IN("#lo-ta, #lo-tb", at(2, 0.25), 0.4, { y: 20 }, { y: 0 });
+ARROW("#lo-aa", at(2, 0.38)); ARROW("#lo-ab", at(2, 0.4));
+IN("#lo-hg", at(2, 0.5), 0.3);
+tl.to("#lo-hg path", { rotation: 180, svgOrigin: "1665 745", duration: 0.6 }, at(2, 0.55));
+IN("#lo-n43", at(2, 0.62), 0.4, { y: -10 }, { y: 0 });
+OUT("#lo-hg", at(2, 0.78), 0.3);
+IN("#lo-n44", at(2, 0.84), 0.4, { y: -10 }, { y: 0 });
+// L3
+OUT("#lo-i2, #lo-ta, #lo-tb, #lo-aa, #lo-ab, #lo-n43, #lo-n44", at(3, 0), 0.4);
+IN("#lo-b2", at(3, 0.05), 0.6, { x: -30 }, { x: 0 });
+IN("#lo-i3", at(3, 0.4), 0.4);
+IN("#lo-dup", at(3, 0.6), 0.3, { x: 40 }, { x: 0 });
+tl.to("#lo-dup", { keyframes: [{ y: -56, duration: 0.35, ease: "power2.in" }, { y: 0, duration: 0.45, ease: "bounce.out" }] }, at(3, 0.68));
+ATTR("#lo-dupr", at(3, 0.75), { stroke: "#FC6255", fill: "#FC6255" });
+IN("#lo-rb", at(3, 0.8), 0.3);
+// L4
+OUT("#lo-i3, #lo-dup, #lo-rb", at(4, 0), 0.4);
+IN("#lo-t0", at(4, 0.06), 0.4); IN("#lo-t1, #lo-t2", at(4, 0.18), 0.4);
+tl.to("#lo-b0, #lo-crack, #lo-t0", { opacity: 0, duration: 0.5 }, at(4, 0.42));
+IN("#lo-ok", at(4, 0.5), 0.3); IN("#lo-okt", at(4, 0.52), 0.4);
+IN("#lo-dots", at(4, 0.68), 0.4);
+tl.to("#lo-dots circle", { y: -8, duration: 0.3, yoyo: true, repeat: 5, stagger: 0.05, ease: "sine.inOut" }, at(4, 0.7));
+IN("#lo-dt", at(4, 0.74), 0.4);
+// L5
+OUT("#lo-b1, #lo-b2, #lo-t1, #lo-t2, #lo-ok, #lo-okt, #lo-dots, #lo-dt", at(5, 0), 0.4);
+for (let ri = 0; ri < 2; ri++) for (let k = 0; k < 5; k++) {
+  const t = at(5, 0.06 + ri * 0.47 + k * 0.08);
+  IN(`#lo-r${ri}${k}`, t, 0.35, { x: -12 }, { x: 0 });
+  if (k === 1) IN(`#lo-bt${ri}`, t + 0.1, 0.2, { scale: 1.6, svgOrigin: "509 " + (ri ? 700 : 420) }, { scale: 1, svgOrigin: "509 " + (ri ? 700 : 420) });
+  if (k < 4) ARROW(`#lo-ra${ri}${k}`, t + 0.3, 0.3);
+}
+PULSE("#lo-r04", at(5, 0.44), "1610 420", 1.08);
+PULSE("#lo-r14", at(5, 0.92), "1610 700", 1.08);
+// L6
+OUT("#lo-r00,#lo-r01,#lo-r02,#lo-r03,#lo-r04,#lo-r10,#lo-r11,#lo-r12,#lo-r13,#lo-r14,#lo-ra00,#lo-ra01,#lo-ra02,#lo-ra03,#lo-ra10,#lo-ra11,#lo-ra12,#lo-ra13,#lo-bt0,#lo-bt1", at(6, 0), 0.4);
+IN("#lo-row", at(6, 0.06), 0.4);
+DRAW("#lo-cn", at(6, 0.14), 0.4);
+IN("#lo-att", at(6, 0.2), 0.4);
+IN("#lo-a1", at(6, 0.3), 0.3, { x: -10 }, { x: 0 });
+IN("#lo-a2", at(6, 0.42), 0.3, { x: -10 }, { x: 0 });
+IN("#lo-e1", at(6, 0.6), 0.3); IN("#lo-e2", at(6, 0.64), 0.3);
+DRAW("#lo-w1", at(6, 0.7), 0.6); DRAW("#lo-w2", at(6, 0.72), 0.5);
+IN("#lo-mon", at(6, 0.8), 0.4);
+PULSE("#lo-mon", at(6, 0.92), "1450 800", 1.06);
+
+
+
+      tl.to("#lo-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["locks"] = tl;
+    })();
+  </script>
+</template>

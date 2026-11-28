@@ -1,0 +1,165 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 math，id 前缀 ma- -->
+  <div id="root" data-composition-id="math" data-duration="69.73" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ma-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <g id="ma-person"><circle cx="0" cy="0" r="18" /><path d="M -30 62 Q -30 28 0 28 Q 30 28 30 62 Z" /></g>
+      </defs>
+      <g id="ma-all">
+        <g id="ma-main">
+          <text id="ma-note" class="h" x="1800" y="120" font-size="28" fill="#8a8f99" text-anchor="end">示例 · 每人年被攻破 5% · 相互独立</text>
+          <text id="ma-tl" class="h" x="510" y="268" font-size="46" font-weight="700" fill="#e8e6df" text-anchor="middle">2-of-3</text>
+          <text id="ma-tr" class="h" x="1410" y="268" font-size="46" font-weight="700" fill="#e8e6df" text-anchor="middle">3-of-5</text>
+          <!-- 人形 -->
+          <use id="ma-l0" class="h ma-pl" href="#ma-person" x="380" y="360" fill="#8a8f99" />
+          <use id="ma-l1" class="h ma-pl" href="#ma-person" x="510" y="360" fill="#8a8f99" />
+          <use id="ma-l2" class="h ma-pl" href="#ma-person" x="640" y="360" fill="#8a8f99" />
+          <use id="ma-r0" class="h ma-pr" href="#ma-person" x="1170" y="360" fill="#8a8f99" />
+          <use id="ma-r1" class="h ma-pr" href="#ma-person" x="1290" y="360" fill="#8a8f99" />
+          <use id="ma-r2" class="h ma-pr" href="#ma-person" x="1410" y="360" fill="#8a8f99" />
+          <use id="ma-r3" class="h ma-pr" href="#ma-person" x="1530" y="360" fill="#8a8f99" />
+          <use id="ma-r4" class="h ma-pr" href="#ma-person" x="1650" y="360" fill="#8a8f99" />
+          <text class="h ma-pct" x="344" y="412" font-size="28" fill="#FC6255" text-anchor="end">5%</text>
+          <text class="h ma-pct" x="474" y="412" font-size="28" fill="#FC6255" text-anchor="end">5%</text>
+          <text class="h ma-pct" x="604" y="412" font-size="28" fill="#FC6255" text-anchor="end">5%</text>
+          <text class="h ma-pct" x="1134" y="412" font-size="28" fill="#FC6255" text-anchor="end">5%</text>
+          <text class="h ma-pct" x="1254" y="412" font-size="28" fill="#FC6255" text-anchor="end">5%</text>
+          <text class="h ma-pct" x="1374" y="412" font-size="28" fill="#FC6255" text-anchor="end">5%</text>
+          <text class="h ma-pct" x="1494" y="412" font-size="28" fill="#FC6255" text-anchor="end">5%</text>
+          <text class="h ma-pct" x="1614" y="412" font-size="28" fill="#FC6255" text-anchor="end">5%</text>
+
+          <!-- 左栏式子 -->
+          <text id="ma-lf0" class="h" x="140" y="530" font-size="30" fill="#e8e6df">恰好 2 个：<tspan class="mono">3 × 0.05² × 0.95 = 0.007125</tspan></text>
+          <text id="ma-lf1" class="h" x="140" y="600" font-size="30" fill="#e8e6df">3 个全破：<tspan class="mono">0.05³ = 0.000125</tspan></text>
+          <text id="ma-lf2" class="h" x="140" y="690" font-size="42" font-weight="700" fill="#FC6255">合计 ≈ 0.73%</text>
+          <!-- 右栏式子 -->
+          <text id="ma-rf0" class="h" x="1040" y="530" font-size="30" fill="#e8e6df">恰好 3 个：<tspan class="mono">10 × 0.05³ × 0.95² ≈ 0.00113</tspan></text>
+          <text id="ma-rf1" class="h" x="1040" y="600" font-size="30" fill="#e8e6df">4 个、5 个：<tspan class="mono">≈ 0.00003</tspan></text>
+          <text id="ma-rf2" class="h" x="1040" y="690" font-size="42" font-weight="700" fill="#FF8F86">合计 ≈ 0.12%</text>
+
+          <!-- 概率条 -->
+          <g id="ma-bars" class="h">
+            <text x="140" y="858" font-size="30" fill="#e8e6df">2-of-3</text>
+            <text x="140" y="938" font-size="30" fill="#e8e6df">3-of-5</text>
+          </g>
+          <rect id="ma-trk0" class="h" x="280" y="828" width="900" height="40" rx="6" fill="#1d212b" />
+          <rect id="ma-trk1" class="h" x="280" y="908" width="900" height="40" rx="6" fill="#1d212b" />
+          <rect id="ma-b0" class="h" x="280" y="828" width="0" height="40" rx="6" fill="#FC6255" />
+          <rect id="ma-b1" class="h" x="280" y="908" width="0" height="40" rx="6" fill="#FF8F86" />
+          <text id="ma-sixth" class="h" x="1230" y="912" font-size="48" font-weight="700" fill="#83C167">≈ 1/6</text>
+
+          <!-- 同一个被篡改的前端 -->
+          <g id="ma-fe" class="h">
+            <rect x="900" y="150" width="120" height="76" rx="8" fill="#2a1616" stroke="#FC6255" stroke-width="3" />
+            <line x1="900" y1="170" x2="1020" y2="170" stroke="#FC6255" stroke-width="2" />
+            <text x="960" y="132" font-size="28" fill="#FC6255" text-anchor="middle">被篡改的前端</text>
+          </g>
+          <line class="dr h ma-cl" pathLength="1" x1="940" y1="228" x2="380" y2="340" stroke="#FC6255" stroke-width="2.5" />
+          <line class="dr h ma-cl" pathLength="1" x1="950" y1="228" x2="510" y2="340" stroke="#FC6255" stroke-width="2.5" />
+          <line class="dr h ma-cl" pathLength="1" x1="955" y1="228" x2="640" y2="340" stroke="#FC6255" stroke-width="2.5" />
+          <line class="dr h ma-cl" pathLength="1" x1="965" y1="228" x2="1170" y2="340" stroke="#FC6255" stroke-width="2.5" />
+          <line class="dr h ma-cl" pathLength="1" x1="970" y1="228" x2="1290" y2="340" stroke="#FC6255" stroke-width="2.5" />
+          <line class="dr h ma-cl" pathLength="1" x1="975" y1="228" x2="1410" y2="340" stroke="#FC6255" stroke-width="2.5" />
+          <line class="dr h ma-cl" pathLength="1" x1="980" y1="228" x2="1530" y2="340" stroke="#FC6255" stroke-width="2.5" />
+          <line class="dr h ma-cl" pathLength="1" x1="985" y1="228" x2="1650" y2="340" stroke="#FC6255" stroke-width="2.5" />
+          <g id="ma-shield" class="h">
+            <path d="M 1560 790 L 1660 826 L 1660 910 Q 1660 980 1560 1020 Q 1460 980 1460 910 L 1460 826 Z" fill="#161a22" stroke="#58C4DD" stroke-width="4" />
+          </g>
+          <path id="ma-crack" class="dr h" pathLength="1" d="M 1560 792 L 1540 850 L 1580 890 L 1548 950 L 1566 1016" fill="none" stroke="#FC6255" stroke-width="5" />
+          <text id="ma-noind" class="h" x="1420" y="890" font-size="34" font-weight="700" fill="#FC6255" text-anchor="end">不再独立</text>
+        </g>
+
+        <!-- 练习 4-of-7 -->
+        <g id="ma-ex" class="h">
+          <rect x="560" y="260" width="800" height="560" rx="22" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <text x="960" y="360" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">练习 · 4-of-7</text>
+        </g>
+        <text id="ma-ex0" class="h" x="960" y="500" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">可丢 7 − 4 = 3</text>
+        <text id="ma-ex1" class="h" x="960" y="620" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">可盗 4 − 1 = 3</text>
+        <text id="ma-ex2" class="h" x="960" y="740" font-size="30" fill="#8a8f99" text-anchor="middle">前提：彼此独立</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const PULSE = (s, t, lo = 0.45) => tl.to(s, { opacity: lo, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      const RED = "#FC6255";
+
+      // L0 两组人 + 5%
+      IN("#ma-note", at(0, 0.02), 0.5);
+      IN("#ma-tl", at(0, 0.1), 0.5); IN("#ma-tr", at(0, 0.18), 0.5);
+      tl.fromTo(".ma-pl", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.12 }, at(0, 0.22));
+      tl.fromTo(".ma-pr", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.1 }, at(0, 0.36));
+      tl.fromTo(".ma-pct", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.1 }, at(0, 0.56));
+      PULSE("#ma-note", at(0, 0.9), 0.5);
+
+      // L1 2-of-3
+      tl.to(["#ma-l0", "#ma-l1"], { fill: RED, duration: 0.3, stagger: 0.15 }, at(1, 0.04));
+      IN("#ma-lf0", at(1, 0.18), 0.6);
+      tl.to("#ma-lf0 tspan", { fill: "#F0B90B", duration: 0.4 }, at(1, 0.3));
+      tl.to("#ma-l2", { fill: "#83C167", duration: 0.3 }, at(1, 0.44));
+      PULSE("#ma-lf0", at(1, 0.5), 0.55);
+      tl.to("#ma-l2", { fill: RED, duration: 0.3 }, at(1, 0.6));
+      IN("#ma-lf1", at(1, 0.62), 0.6);
+      IN("#ma-lf2", at(1, 0.84), 0.5);
+      tl.to(".ma-pl", { fill: "#8a8f99", duration: 0.4 }, at(1, 0.95));
+
+      // L2 3-of-5
+      tl.to(["#ma-r0", "#ma-r1", "#ma-r2"], { fill: RED, duration: 0.3, stagger: 0.12 }, at(2, 0.04));
+      IN("#ma-rf0", at(2, 0.2), 0.6);
+      IN(["#ma-bars", "#ma-trk0", "#ma-trk1"], at(2, 0.3), 0.5);
+      PULSE("#ma-rf0", at(2, 0.4), 0.55);
+      tl.to(["#ma-r3", "#ma-r4"], { fill: "#83C167", duration: 0.3, stagger: 0.1 }, at(2, 0.46));
+      tl.to(["#ma-r3", "#ma-r4"], { fill: RED, duration: 0.3, stagger: 0.12 }, at(2, 0.64));
+      IN("#ma-rf1", at(2, 0.66), 0.6);
+      IN("#ma-rf2", at(2, 0.86), 0.5);
+      tl.to(".ma-pr", { fill: "#8a8f99", duration: 0.4 }, at(2, 0.96));
+
+      // L3 概率条 ≈ 1/6
+      IN(["#ma-b0", "#ma-b1"], at(3, 0), 0.3);
+      tl.to("#ma-b0", { attr: { width: 600 }, duration: 0.8, ease: "power2.out" }, at(3, 0.03));
+      tl.to("#ma-b1", { attr: { width: 100 }, duration: 0.8, ease: "power2.out" }, at(3, 0.2));
+      IN("#ma-sixth", at(3, 0.55), 0.5);
+
+      // L4 不再独立：共用被篡改前端
+      OUT("#ma-sixth", at(4, 0), 0.3);
+      IN("#ma-fe", at(4, 0.06), 0.5);
+      tl.fromTo(".ma-cl", { opacity: 0 }, { opacity: 1, duration: 0.01 }, at(4, 0.2));
+      tl.fromTo(".ma-cl", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, stagger: 0.06 }, at(4, 0.2));
+      tl.to([".ma-pl", ".ma-pr"], { fill: RED, duration: 0.4 }, at(4, 0.45));
+      tl.to(".ma-pct", { opacity: 0.3, duration: 0.3 }, at(4, 0.45));
+      tl.to("#ma-b0", { attr: { width: 900 }, duration: 1.0, ease: "power2.out" }, at(4, 0.58));
+      tl.to("#ma-b1", { attr: { width: 880 }, duration: 1.0, ease: "power2.out" }, at(4, 0.58));
+      IN("#ma-shield", at(4, 0.68), 0.4);
+      IN("#ma-crack", at(4, 0.8), 0.01); DRAW("#ma-crack", at(4, 0.8), 0.5);
+      IN("#ma-noind", at(4, 0.84), 0.4);
+
+      // L5 练习 4-of-7
+      OUT("#ma-main", at(5, 0), 0.5);
+      IN("#ma-ex", at(5, 0.04), 0.5);
+      IN("#ma-ex0", at(5, 0.25), 0.5);
+      IN("#ma-ex1", at(5, 0.55), 0.5);
+      IN("#ma-ex2", at(5, 0.8), 0.5);
+
+      tl.to("#ma-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["math"] = tl;
+    })();
+  </script>
+</template>

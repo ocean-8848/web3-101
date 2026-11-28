@@ -1,0 +1,259 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 rounding，id 前缀 ro- -->
+  <div id="root" data-composition-id="rounding" data-duration="124.3" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ro-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ro-all">
+        <defs><marker id="ro-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="ro-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="ro-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="ro-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="ro-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="ro-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="ro-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker><marker id="ro-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker></defs>
+<g id="ro-R1" class="h"><rect id="ro-R1r" x="120" y="230" width="740" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><circle id="ro-R1c" cx="178" cy="285" r="27" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="178" y="295" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">1</text><text id="ro-R1t" x="230" y="296" font-size="30" fill="#e8e6df">任意精度十进制数 · <tspan class="mono">decimal</tspan></text></g>
+<g id="ro-rs"><g id="ro-R2" class="h"><rect id="ro-R2r" x="120" y="360" width="740" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><circle id="ro-R2c" cx="178" cy="415" r="27" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="178" y="425" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">2</text><text id="ro-R2t" x="230" y="426" font-size="30" fill="#e8e6df">手续费向上取整到币种精度</text></g>
+<g id="ro-R3" class="h"><rect id="ro-R3r" x="120" y="490" width="740" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><circle id="ro-R3c" cx="178" cy="545" r="27" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="178" y="555" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">3</text><text id="ro-R3t" x="230" y="556" font-size="30" fill="#e8e6df">先舍入手续费，再用减法得实收</text></g>
+<g id="ro-R4" class="h"><rect id="ro-R4r" x="120" y="620" width="740" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><circle id="ro-R4c" cx="178" cy="675" r="27" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="178" y="685" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">4</text><text id="ro-R4t" x="230" y="686" font-size="30" fill="#e8e6df">舍入差异账户</text></g>
+<g id="ro-R5" class="h"><rect id="ro-R5r" x="120" y="750" width="740" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><circle id="ro-R5c" cx="178" cy="805" r="27" fill="none" stroke="#58C4DD" stroke-width="2.5"/><text x="178" y="815" font-size="28" font-weight="700" fill="#58C4DD" text-anchor="middle">5</text><text id="ro-R5t" x="230" y="816" font-size="30" fill="#e8e6df">最小手续费：二选一</text></g>
+<g id="ro-R4b" class="h"><path d="M770 655 L780 705 L830 705 L840 655 Z" fill="none" stroke="#FF9F43" stroke-width="3"/><line x1="764" y1="655" x2="846" y2="655" stroke="#FF9F43" stroke-width="3"/></g></g>
+<g id="ro-code" class="h"><rect x="940" y="710" width="880" height="304" rx="14" fill="#161a22" stroke="#3a3f4a" stroke-width="2"/>
+<rect id="ro-hl" x="952" y="800.2" width="856" height="40" rx="6" fill="#58C4DD" fill-opacity="0.15" opacity="0"/>
+<text id="ro-k1" x="970" y="748.0" font-size="28" fill="#e8e6df" class="mono" xml:space="preserve">func calcFee(gross, rate decimal.Decimal,</text>
+<text id="ro-k2" x="970" y="788.6" font-size="28" fill="#e8e6df" class="mono" xml:space="preserve">    prec int32) (fee, net decimal.Decimal) {</text>
+<text id="ro-k3" x="970" y="829.2" font-size="28" fill="#e8e6df" class="mono" xml:space="preserve">    fee = gross.Mul(rate).RoundUp(prec)</text>
+<text id="ro-k4" x="970" y="869.8" font-size="28" fill="#e8e6df" class="mono" xml:space="preserve">    net = gross.Sub(fee)</text>
+<text id="ro-k5" x="970" y="910.4" font-size="28" fill="#e8e6df" class="mono" xml:space="preserve">    return</text>
+<text id="ro-k6" x="970" y="951.0" font-size="28" fill="#e8e6df" class="mono" xml:space="preserve">}</text>
+<text id="ro-k7" x="970" y="991.6" font-size="28" fill="#6b6f7a" class="mono" xml:space="preserve">// 9185.184 × 0.0008 → fee 7.348148</text>
+</g>
+<text id="ro-n3" class="h" x="1660" y="829.2" font-size="28" fill="#FF9F43">向上取整</text>
+<text id="ro-n4" class="h" x="1600" y="869.8" font-size="28" fill="#83C167">减法，天然平衡</text><g id="ro-d0">
+  <text id="ro-d0a" class="h mono" x="980" y="300" font-size="28" fill="#58C4DD">decimal</text>
+  <text id="ro-d0b" class="h mono" x="980" y="360" font-size="34" fill="#83C167">0.1 + 0.2 = 0.3</text>
+  <text id="ro-d0c" class="h" x="1320" y="362" font-size="40" font-weight="700" fill="#83C167">✓</text>
+  <text id="ro-d0d" class="h mono" x="980" y="450" font-size="28" fill="#8a8f99">float64</text>
+  <text id="ro-d0e" class="h mono" x="980" y="510" font-size="34" fill="#FC6255">0.1 + 0.2 = 0.30000000000000004</text>
+  <text id="ro-d0f" class="h" x="1660" y="512" font-size="40" font-weight="700" fill="#FC6255">✕</text>
+  <text id="ro-d0g" class="h" x="980" y="610" font-size="28" fill="#FF9F43">除法要指定保留位数，如 <tspan class="mono">DivRound(x, 18)</tspan></text>
+</g>
+<g id="ro-d1">
+  <line id="ro-nl" class="dr" pathLength="1" x1="1000" y1="470" x2="1760" y2="470" stroke="#8a8f99" stroke-width="3"/>
+  <g id="ro-tk" class="h"><line x1="1100" y1="455" x2="1100" y2="485" stroke="#8a8f99" stroke-width="3"/><line x1="1660" y1="455" x2="1660" y2="485" stroke="#8a8f99" stroke-width="3"/>
+    <text x="1100" y="525" font-size="28" fill="#8a8f99" text-anchor="middle" class="mono">7.348147</text></g>
+  <text id="ro-tk2" class="h mono" x="1660" y="525" font-size="28" fill="#8a8f99" text-anchor="middle">7.348148</text>
+  <circle id="ro-pt" class="h" cx="1212" cy="470" r="10" fill="#F0B90B"/>
+  <text id="ro-ptl" class="h mono" x="1200" y="422" font-size="30" fill="#F0B90B" text-anchor="end">7.3481472</text>
+  <path id="ro-arc" class="dr h" pathLength="1" d="M1222 456 Q1440 300 1650 456" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#ro-mo)"/>
+  <text id="ro-arcl" class="h" x="1436" y="358" font-size="28" fill="#FF9F43" text-anchor="middle">向上取整</text>
+  <text id="ro-err" class="h" x="1380" y="620" font-size="30" fill="#FF9F43" text-anchor="middle">误差 &lt; 1 个最小单位</text>
+</g>
+<g id="ro-d2">
+  <text id="ro-e1" class="h mono" x="1380" y="400" font-size="34" fill="#F0B90B" text-anchor="middle">9177.835852 + 7.348148</text>
+  <text id="ro-e2" class="h mono" x="1380" y="480" font-size="34" fill="#83C167" text-anchor="middle">= 9185.184 ✓</text>
+</g>
+<g id="ro-d3">
+  <text id="ro-mt" class="h" x="980" y="285" font-size="32" font-weight="700" fill="#FC6255">✕ 分别四舍五入</text>
+  <text id="ro-mtx" class="h" x="1800" y="285" font-size="28" fill="#8a8f99" text-anchor="end">示例 · 精度 6 位</text>
+  <text id="ro-q0" class="h mono" x="980" y="345" font-size="28" fill="#F0B90B">gross 1,234.5675 × 0.1%</text>
+  <text id="ro-q1" class="h mono" x="980" y="395" font-size="28" fill="#e8e6df">fee 1.2345675 <tspan fill="#FF9F43">→ 1.234568</tspan></text>
+  <text id="ro-q2" class="h mono" x="980" y="445" font-size="28" fill="#e8e6df">net 1,233.3329325 <tspan fill="#FF9F43">→ 1,233.332933</tspan></text>
+  <path id="ro-ful" class="h" d="M1380 500 L1340 580 L1420 580 Z" fill="#3a3f4a" stroke="#8a8f99" stroke-width="2.5"/>
+  <g id="ro-beam" class="h">
+    <line x1="1080" y1="500" x2="1680" y2="500" stroke="#e8e6df" stroke-width="4"/>
+    <line x1="1080" y1="500" x2="1080" y2="540" stroke="#8a8f99" stroke-width="2"/><line x1="1680" y1="500" x2="1680" y2="540" stroke="#8a8f99" stroke-width="2"/>
+    <rect x="950" y="540" width="260" height="60" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+    <text x="1080" y="580" font-size="28" fill="#e8e6df" text-anchor="middle">手续费 + 实收</text>
+    <rect x="1550" y="540" width="260" height="60" rx="10" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+    <text x="1680" y="580" font-size="28" fill="#e8e6df" text-anchor="middle">成交额</text>
+  </g>
+  <text id="ro-up" class="h" x="1600" y="422" font-size="30" font-weight="700" fill="#FF9F43">各进 1 位 ↑↑</text>
+  <text id="ro-bad" class="h" x="1380" y="684" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">账不平：合计 <tspan class="mono">1,234.567501</tspan>，多 <tspan class="mono">0.000001</tspan></text>
+</g>
+<g id="ro-d4">
+  <text id="ro-ok" class="h" x="980" y="285" font-size="32" font-weight="700" fill="#83C167">✓ 手续费向上取整，再相减</text>
+  <text id="ro-f1" class="h mono" x="980" y="380" font-size="32" fill="#F0B90B">1,234.5675</text>
+  <text id="ro-f2" class="h mono" x="1192" y="380" font-size="32" fill="#e8e6df">× 0.1%</text>
+  <text id="ro-f3" class="h mono" x="1326" y="380" font-size="32" fill="#e8e6df">= 1.2345675</text>
+  <text id="ro-f4" class="h mono" x="1557" y="380" font-size="32" fill="#FF9F43">→ 1.234568</text>
+  <text id="ro-f5" class="h mono" x="980" y="470" font-size="32" fill="#e8e6df">1,234.5675 − 1.234568</text>
+  <text id="ro-f6" class="h mono" x="1403" y="470" font-size="32" fill="#F0B90B">= 1,233.332932</text>
+  <text id="ro-f7" class="h" x="1380" y="580" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">相加 = <tspan class="mono">1,234.5675</tspan> ✓</text>
+</g>
+<g id="ro-d5">
+  <text id="ro-g0" class="h" x="980" y="285" font-size="32" font-weight="700" fill="#FF9F43">成交额比币种精度多一位</text>
+  <text id="ro-g0b" class="h" x="1800" y="285" font-size="28" fill="#8a8f99" text-anchor="end">精度 6 位（示例）</text>
+  <text id="ro-g1" class="h mono" x="980" y="370" font-size="32" fill="#F0B90B">gross 100.000000<tspan fill="#FF9F43">5</tspan></text>
+  <text id="ro-g1b" class="h" x="1330" y="370" font-size="28" fill="#FF9F43">多一位</text>
+  <text id="ro-g1c" class="h" x="1460" y="370" font-size="28" fill="#8a8f99">费率 <tspan class="mono">0.1%</tspan></text>
+  <text id="ro-g2" class="h mono" x="980" y="450" font-size="32" fill="#e8e6df">fee 0.1000000005</text>
+  <text id="ro-g2b" class="h mono" x="1300" y="450" font-size="32" fill="#F0B90B">→ 0.100001</text>
+  <text id="ro-g2c" class="h" x="1520" y="450" font-size="28" fill="#FF9F43">向上取整</text>
+  <text id="ro-g3" class="h mono" x="980" y="530" font-size="32" fill="#e8e6df">net 99.899999<tspan id="ro-g3d" fill="#e8e6df">5</tspan></text>
+  <text id="ro-g3b" class="h mono" x="1268" y="530" font-size="32" fill="#F0B90B">→ 99.899999</text>
+  <text id="ro-g3c" class="h" x="1520" y="530" font-size="28" fill="#FF9F43">向下取整</text>
+  <circle id="ro-drop" class="h" cx="1240" cy="520" r="8" fill="#FF9F43"/>
+</g>
+<g id="ro-bk" class="h">
+  <path d="M1000 600 L1012 670 L1068 670 L1080 600 Z" fill="#2a2016" stroke="#FF9F43" stroke-width="3"/>
+  <line x1="992" y1="600" x2="1088" y2="600" stroke="#FF9F43" stroke-width="3"/>
+  <text x="1110" y="650" font-size="30" fill="#FF9F43">舍入账户 <tspan class="mono">+0.0000005</tspan></text>
+</g>
+<circle id="ro-dr1" class="h" cx="1040" cy="330" r="8" fill="#FF9F43"/>
+<circle id="ro-dr2" class="h" cx="1040" cy="330" r="8" fill="#FF9F43"/>
+<circle id="ro-dr3" class="h" cx="1040" cy="330" r="8" fill="#FF9F43"/>
+<text id="ro-rec" class="h" x="1500" y="650" font-size="30" font-weight="700" fill="#83C167">对账 ✓</text>
+<g id="ro-d6">
+  <text id="ro-m0" class="h" x="1380" y="300" font-size="30" fill="#e8e6df" text-anchor="middle">手续费 &lt; 1 个最小单位</text>
+  <path id="ro-mb1" class="dr h" pathLength="1" d="M1340 320 L1170 400" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#ro-mgy)"/>
+  <path id="ro-mb2" class="dr h" pathLength="1" d="M1420 320 L1590 400" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#ro-mgy)"/>
+  <g id="ro-ma" class="h"><rect x="980" y="410" width="360" height="80" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1160" y="461" font-size="30" fill="#83C167" text-anchor="middle">按 1 个单位收</text></g>
+  <g id="ro-mbx" class="h"><rect x="1420" y="410" width="360" height="80" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1600" y="461" font-size="30" fill="#83C167" text-anchor="middle">免收</text></g>
+  <text id="ro-mor" class="h" x="1380" y="461" font-size="28" fill="#8a8f99" text-anchor="middle">或</text>
+  <text id="ro-mx" class="h" x="1380" y="590" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">✕ 0 手续费刷单</text>
+</g>
+<g id="ro-d7">
+  <text id="ro-v0" class="h" x="980" y="300" font-size="32" fill="#e8e6df">随机 <tspan id="ro-vn" class="mono" fill="#F0B90B">0</tspan> 组</text>
+  <text id="ro-v1" class="h mono" x="1800" y="300" font-size="30" fill="#8a8f99" text-anchor="end">fee + net == gross</text>
+  <g id="ro-vd" class="h"><rect x="980" y="380" width="380" height="220" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="1170" y="440" font-size="30" fill="#58C4DD" text-anchor="middle" class="mono">decimal</text><text x="1170" y="540" font-size="40" font-weight="700" fill="#83C167" text-anchor="middle">失败 <tspan class="mono">0</tspan></text></g>
+  <g id="ro-vf" class="h"><rect x="1420" y="380" width="380" height="220" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="2.5"/><text x="1610" y="440" font-size="30" fill="#8a8f99" text-anchor="middle" class="mono">float64</text><text x="1580" y="540" font-size="40" font-weight="700" fill="#FC6255" text-anchor="end">失败</text></g>
+  <text id="ro-fn" class="h mono" x="1600" y="540" font-size="40" font-weight="700" fill="#FC6255">0</text>
+  <text id="ro-fq" class="h mono" x="1600" y="540" font-size="40" font-weight="700" fill="#FC6255">?</text>
+</g>
+<g id="ro-d8">
+  <text id="ro-gg" class="h mono" x="980" y="300" font-size="28" fill="#e8e6df"><tspan fill="#8a8f99">$ </tspan>go get github.com/shopspring/decimal</text>
+  <text id="ro-i0" class="h mono" x="980" y="400" font-size="30" fill="#58C4DD">calcFee(9185.184, 0.0008, 6)</text>
+  <text id="ro-i1" class="h mono" x="980" y="490" font-size="32" fill="#FF9F43">fee 7.348148</text>
+  <text id="ro-i2" class="h mono" x="980" y="560" font-size="32" fill="#F0B90B">net 9177.835852</text>
+  <text id="ro-i3" class="h" x="1420" y="525" font-size="30" font-weight="700" fill="#83C167">预期 ✓</text>
+</g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+            const RULE = (n, t) => IN(`#ro-R${n}`, t, 0.5, { x: -30 }, { x: 0 });
+      const DIM = (n, t) => { tl.to(`#ro-R${n}r, #ro-R${n}c`, { stroke: "#3a3f4a", duration: 0.4 }, t); tl.to(`#ro-R${n}t`, { fill: "#6b6f7a", duration: 0.4 }, t); };
+      const HL = (i, t) => tl.to("#ro-hl", { attr: { y: 748 + (i - 1) * 40.6 - 29 }, opacity: 1, duration: 0.35, ease: "power2.inOut" }, t);
+      // L0 任意精度十进制
+      RULE(1, at(0, 0.12));
+      IN("#ro-d0a", at(0, 0.4), 0.4); IN("#ro-d0b", at(0, 0.44), 0.5); IN("#ro-d0c", at(0, 0.52), 0.3, { scale: 1.5, svgOrigin: "1340 350" }, { scale: 1, svgOrigin: "1340 350" });
+      IN("#ro-d0g", at(0, 0.6), 0.5, { y: 10 }, { y: 0 });
+      IN("#ro-d0d", at(0, 0.8), 0.4); IN("#ro-d0e", at(0, 0.83), 0.5); IN("#ro-d0f", at(0, 0.92), 0.3, { scale: 1.5, svgOrigin: "1680 500" }, { scale: 1, svgOrigin: "1680 500" });
+      // L1 手续费向上取整
+      OUT("#ro-d0", at(1, 0), 0.4); DIM(1, at(1, 0)); RULE(2, at(1, 0.05));
+      DRAW("#ro-nl", at(1, 0.14), 0.6); IN("#ro-tk", at(1, 0.2), 0.4); IN("#ro-tk2", at(1, 0.2), 0.4);
+      IN("#ro-pt", at(1, 0.28), 0.3); IN("#ro-ptl", at(1, 0.3), 0.4);
+      ARROW("#ro-arc", at(1, 0.4), 0.6); IN("#ro-arcl", at(1, 0.45), 0.4);
+      tl.to("#ro-tk2", { fill: "#F0B90B", duration: 0.3 }, at(1, 0.5));
+      IN("#ro-err", at(1, 0.62), 0.5, { y: 12 }, { y: 0 });
+      tl.to("#ro-pt", { attr: { r: 14 }, duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.85));
+      // L2 先舍入再相减：代码
+      OUT("#ro-d1", at(2, 0), 0.4); DIM(2, at(2, 0)); RULE(3, at(2, 0.05));
+      IN("#ro-code", at(2, 0.1), 0.5, { y: 20 }, { y: 0 });
+      HL(3, at(2, 0.17)); IN("#ro-n3", at(2, 0.22), 0.4);
+      HL(4, at(2, 0.4)); IN("#ro-n4", at(2, 0.45), 0.4);
+      HL(7, at(2, 0.58));
+      IN("#ro-e1", at(2, 0.7), 0.5, { y: 12 }, { y: 0 });
+      IN("#ro-e2", at(2, 0.8), 0.5, { y: 12 }, { y: 0 });
+      // L3 误区：分别四舍五入（示例 1,234.5675）
+      OUT("#ro-d2", at(3, 0), 0.4); tl.to("#ro-hl", { opacity: 0, duration: 0.3 }, at(3, 0));
+      IN("#ro-mt", at(3, 0.02), 0.4);
+      IN("#ro-ful", at(3, 0.06), 0.4); IN("#ro-beam", at(3, 0.08), 0.5);
+      IN("#ro-mtx", at(3, 0.14), 0.4);
+      IN("#ro-q0", at(3, 0.18), 0.4, { x: -15 }, { x: 0 });
+      IN("#ro-q1", at(3, 0.36), 0.4, { x: -15 }, { x: 0 });
+      IN("#ro-q2", at(3, 0.52), 0.4, { x: -15 }, { x: 0 });
+      IN("#ro-up", at(3, 0.68), 0.4, { y: 15 }, { y: 0 });
+      tl.to("#ro-up", { y: -8, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.73));
+      tl.to("#ro-beam", { rotation: -4, svgOrigin: "1380 500", duration: 0.8, ease: "back.out(2)" }, at(3, 0.78));
+      IN("#ro-bad", at(3, 0.82), 0.5, { y: 12 }, { y: 0 });
+      tl.to("#ro-bad", { scale: 1.06, svgOrigin: "1380 674", duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.93));
+      // L4 正确做法（同一个数）
+      OUT("#ro-d3", at(4, 0), 0.4);
+      tl.to("#ro-R3r, #ro-R3c", { stroke: "#83C167", duration: 0.4 }, at(4, 0.02));
+      IN("#ro-ok", at(4, 0.04), 0.4);
+      IN("#ro-f1", at(4, 0.1), 0.4); IN("#ro-f2", at(4, 0.14), 0.4);
+      IN("#ro-f3", at(4, 0.19), 0.4); HL(3, at(4, 0.2));
+      IN("#ro-f4", at(4, 0.27), 0.4, { x: -15 }, { x: 0 });
+      tl.to("#ro-f4", { scale: 1.08, svgOrigin: "1650 370", duration: 0.25, yoyo: true, repeat: 1 }, at(4, 0.33));
+      IN("#ro-f5", at(4, 0.42), 0.4); HL(4, at(4, 0.44));
+      IN("#ro-f6", at(4, 0.66), 0.4);
+      IN("#ro-f7", at(4, 0.82), 0.5, { y: 12 }, { y: 0 });
+      // L5 成交额多一位
+      OUT("#ro-d4", at(5, 0), 0.4); tl.to("#ro-hl", { opacity: 0, duration: 0.3 }, at(5, 0));
+      tl.to("#ro-R3r, #ro-R3c", { stroke: "#58C4DD", duration: 0.4 }, at(5, 0));
+      IN("#ro-g0", at(5, 0.03), 0.4); IN("#ro-g0b", at(5, 0.12), 0.4);
+      IN("#ro-g1", at(5, 0.22), 0.4); IN("#ro-g1b", at(5, 0.28), 0.4); IN("#ro-g1c", at(5, 0.35), 0.4);
+      IN("#ro-g2", at(5, 0.42), 0.4); HL(3, at(5, 0.45));
+      IN("#ro-g2b", at(5, 0.55), 0.4, { x: -15 }, { x: 0 }); IN("#ro-g2c", at(5, 0.57), 0.4);
+      IN("#ro-g3", at(5, 0.65), 0.4); HL(4, at(5, 0.67));
+      tl.to("#ro-g3d", { fill: "#FF9F43", duration: 0.3 }, at(5, 0.76));
+      tl.to("#ro-g3", { y: -6, duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.78));
+      IN("#ro-g3b", at(5, 0.85), 0.4, { x: -15 }, { x: 0 }); IN("#ro-g3c", at(5, 0.86), 0.4);
+      IN("#ro-drop", at(5, 0.87), 0.15);
+      tl.to("#ro-drop", { x: -200, y: 95, duration: 0.6, ease: "power2.in" }, at(5, 0.88));
+      tl.to("#ro-drop", { opacity: 0, duration: 0.15 }, at(5, 0.88) + 0.6);
+      IN("#ro-bk", at(5, 0.91), 0.4, { scale: 1.1, svgOrigin: "1040 635" }, { scale: 1, svgOrigin: "1040 635" });
+      // L6 舍入差异账户 + 最小手续费
+      OUT("#ro-d5", at(6, 0), 0.4); tl.to("#ro-hl", { opacity: 0, duration: 0.3 }, at(6, 0));
+      OUT("#ro-R1", at(6, 0), 0.4); tl.to("#ro-rs", { y: -130, duration: 0.5, ease: "power2.inOut" }, at(6, 0.02)); DIM(3, at(6, 0)); RULE(4, at(6, 0.04)); IN("#ro-R4b", at(6, 0.06), 0.4);
+      [1, 2, 3].forEach((k, i) => {
+        const t = at(6, 0.1) + i * 0.7;
+        tl.fromTo(`#ro-dr${k}`, { opacity: 1, x: (i - 1) * 260 + 200, y: 0 }, { x: 0, y: 285, duration: 0.6, ease: "power2.in", immediateRender: false }, t);
+        tl.set(`#ro-dr${k}`, { opacity: 0 }, t + 0.6);
+        tl.to("#ro-bk", { scale: 1.05, svgOrigin: "1040 635", duration: 0.12, yoyo: true, repeat: 1 }, t + 0.6);
+      });
+      IN("#ro-rec", at(6, 0.35), 0.4, { x: -15 }, { x: 0 });
+      OUT("#ro-bk, #ro-rec", at(6, 0.48), 0.4); DIM(4, at(6, 0.5)); RULE(5, at(6, 0.52));
+      IN("#ro-m0", at(6, 0.55), 0.4);
+      ARROW("#ro-mb1", at(6, 0.62), 0.4); ARROW("#ro-mb2", at(6, 0.62), 0.4);
+      IN("#ro-ma", at(6, 0.7), 0.4, { y: 12 }, { y: 0 }); IN("#ro-mor", at(6, 0.78), 0.3);
+      IN("#ro-mbx", at(6, 0.81), 0.4, { y: 12 }, { y: 0 });
+      IN("#ro-mx", at(6, 0.88), 0.4, { scale: 1.2, svgOrigin: "1380 580" }, { scale: 1, svgOrigin: "1380 580" });
+      // L7 动手验证：go get + 一组输入
+      OUT("#ro-d6", at(7, 0), 0.4); DIM(5, at(7, 0));
+      IN("#ro-gg", at(7, 0.12), 0.4, { x: -15 }, { x: 0 });
+      HL(1, at(7, 0.36)); HL(2, at(7, 0.42));
+      IN("#ro-i0", at(7, 0.5), 0.4, { y: 10 }, { y: 0 });
+      IN("#ro-i1", at(7, 0.76), 0.4, { x: -15 }, { x: 0 }); HL(3, at(7, 0.76));
+      IN("#ro-i2", at(7, 0.86), 0.4, { x: -15 }, { x: 0 }); HL(4, at(7, 0.86));
+      IN("#ro-i3", at(7, 0.94), 0.3, { scale: 1.3, svgOrigin: "1470 515" }, { scale: 1, svgOrigin: "1470 515" });
+      // L8 随机一万组
+      OUT("#ro-d8", at(8, 0), 0.4);
+      IN("#ro-v0", at(8, 0.06), 0.4);
+      COUNT("#ro-vn", 0, 10000, at(8, 0.1), 2.2, v => Math.round(v).toLocaleString("en-US"));
+      IN("#ro-v1", at(8, 0.3), 0.4);
+      HL(3, at(8, 0.34)); HL(4, at(8, 0.42));
+      IN("#ro-vd", at(8, 0.5), 0.5, { y: 15 }, { y: 0 });
+      IN("#ro-vf", at(8, 0.72), 0.5, { y: 15 }, { y: 0 }); IN("#ro-fn", at(8, 0.72), 0.3);
+      COUNT("#ro-fn", 0, 60, at(8, 0.74), 1.0, v => String((Math.round(v) * 7919) % 1000));
+      OUT("#ro-fn", at(8, 0.74) + 1.0, 0.15);
+      IN("#ro-fq", at(8, 0.74) + 1.15, 0.3, { scale: 1.4, svgOrigin: "1612 526" }, { scale: 1, svgOrigin: "1612 526" });
+
+
+      tl.to("#ro-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["rounding"] = tl;
+    })();
+  </script>
+</template>

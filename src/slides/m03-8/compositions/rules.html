@@ -1,0 +1,236 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 rules，id 前缀 ru- -->
+  <div id="root" data-composition-id="rules" data-duration="68.73" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ru-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ru-all">
+        <text id="ru-ex" class="h" x="1840" y="120" font-size="28" fill="#8a8f99" text-anchor="end">数值为示例</text>
+        <g id="ru-tbl">
+          <g id="ru-hd" class="h">
+            <text x="140" y="260" font-size="28" fill="#8a8f99">规则</text>
+            <text x="330" y="260" font-size="28" fill="#8a8f99">示例值</text>
+            <text x="880" y="260" font-size="28" fill="#8a8f99">动作</text>
+            <line x1="120" y1="290" x2="1100" y2="290" stroke="#3a3f4b" stroke-width="2" />
+          </g>
+          <g id="ru-r1" class="h">
+            <text x="140" y="350" font-size="30" font-weight="700" fill="#e8e6df">黑名单</text>
+            <text x="330" y="350" font-size="28" fill="#e8e6df">制裁 / KYT 高风险名单</text>
+            <line x1="120" y1="390" x2="1100" y2="390" stroke="#2a2f3a" stroke-width="2" />
+          </g>
+          <text id="ru-r1a" class="h" x="880" y="350" font-size="28" fill="#FC6255">拒绝并上报</text>
+          <g id="ru-r2" class="h">
+            <text x="140" y="450" font-size="30" font-weight="700" fill="#e8e6df">白名单</text>
+            <text x="330" y="450" font-size="28" fill="#e8e6df">新地址冷却 24 小时</text>
+            <text x="880" y="450" font-size="28" fill="#FF9F43">冷却后生效</text>
+            <line x1="120" y1="490" x2="1100" y2="490" stroke="#2a2f3a" stroke-width="2" />
+          </g>
+          <g id="ru-r3" class="h">
+            <text x="140" y="550" font-size="30" font-weight="700" fill="#e8e6df">单笔限额</text>
+            <text x="330" y="550" font-size="28" fill="#e8e6df">单笔 &gt; 5 万美元</text>
+            <text x="880" y="550" font-size="28" fill="#FF9F43">一级审批</text>
+            <line x1="120" y1="590" x2="1100" y2="590" stroke="#2a2f3a" stroke-width="2" />
+          </g>
+          <g id="ru-r4" class="h">
+            <text x="140" y="667" font-size="30" font-weight="700" fill="#e8e6df">累计限额</text>
+            <text x="330" y="645" font-size="28" fill="#e8e6df">用户日累计 &gt; 20 万美元</text>
+            <text x="330" y="690" font-size="28" fill="#e8e6df">全平台每小时 &gt; 热钱包 30%</text>
+            <text x="880" y="667" font-size="28" fill="#FC6255">二级审批 / 熔断</text>
+            <line x1="120" y1="720" x2="1100" y2="720" stroke="#2a2f3a" stroke-width="2" />
+          </g>
+          <g id="ru-r5" class="h">
+            <text x="140" y="780" font-size="30" font-weight="700" fill="#e8e6df">行为异常</text>
+            <text x="330" y="780" font-size="28" fill="#e8e6df">新设备 / 改安全设置后提币</text>
+            <text x="880" y="780" font-size="28" fill="#FF9F43">延迟 + 人工</text>
+            <line x1="120" y1="820" x2="1100" y2="820" stroke="#2a2f3a" stroke-width="2" />
+          </g>
+          <g id="ru-r6" class="h">
+            <text x="140" y="880" font-size="30" font-weight="700" fill="#e8e6df">地址相似</text>
+            <text x="330" y="880" font-size="28" fill="#e8e6df">前后 4 位相同、中间不同</text>
+            <text x="880" y="880" font-size="28" fill="#FF9F43">人工确认</text>
+            <line x1="120" y1="920" x2="1100" y2="920" stroke="#2a2f3a" stroke-width="2" />
+          </g>
+        </g>
+        <!-- L1 KYT 追溯 -->
+        <g id="ru-k" >
+          <g id="ru-ktx" class="h"><rect x="1220" y="410" width="200" height="70" rx="12" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="1320" y="455" font-size="28" fill="#F0B90B" text-anchor="middle">提币交易</text></g>
+          <g id="ru-k1" class="h"><path d="M1420 430 L1622 334" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="8 6" fill="none" /><circle cx="1640" cy="330" r="14" fill="#FC6255" /><text x="1670" y="340" font-size="28" fill="#FC6255">混币器</text></g>
+          <g id="ru-k2" class="h"><path d="M1420 445 L1622 450" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="8 6" fill="none" /><circle cx="1640" cy="450" r="14" fill="#FC6255" /><text x="1670" y="460" font-size="28" fill="#FC6255">制裁</text></g>
+          <g id="ru-k3" class="h"><path d="M1420 460 L1622 566" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="8 6" fill="none" /><circle cx="1640" cy="570" r="14" fill="#FC6255" /><text x="1670" y="580" font-size="28" fill="#FC6255">黑客</text></g>
+        </g>
+        <!-- L2 白名单冷却 -->
+        <g id="ru-w">
+          <g id="ru-wc" class="h">
+            <rect id="ru-wcr" x="1220" y="320" width="300" height="80" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3" />
+            <text class="mono" x="1250" y="372" font-size="28" fill="#e8e6df">0x7a…c3</text>
+            <text x="1400" y="372" font-size="28" fill="#8a8f99">新地址</text>
+            <path id="ru-hg" d="M1555 335 L1595 335 L1575 360 L1595 385 L1555 385 L1575 360 Z" fill="none" stroke="#FF9F43" stroke-width="3" />
+            <text id="ru-hgt" x="1610" y="372" font-size="28" fill="#FF9F43">24 小时</text>
+          </g>
+          <g id="ru-p0" class="h"><rect x="1220" y="525" width="120" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text x="1280" y="570" font-size="28" fill="#FC6255" text-anchor="middle">盗号</text></g>
+          <path id="ru-pa1" class="dr h" pathLength="1" d="M1340 560 L1416 560" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ru-arr)" />
+          <g id="ru-p1" class="h"><rect x="1420" y="525" width="120" height="70" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="2.5" /><text x="1480" y="570" font-size="28" fill="#FC6255" text-anchor="middle">加白</text></g>
+          <path id="ru-pa2" class="dr h" pathLength="1" d="M1540 560 L1676 560" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#ru-arr)" />
+          <g id="ru-p2" class="h"><rect x="1680" y="525" width="120" height="70" rx="12" fill="#161a22" stroke="#6b6f7a" stroke-width="2.5" /><text x="1740" y="570" font-size="28" fill="#6b6f7a" text-anchor="middle">提币</text></g>
+          <g id="ru-cut" class="h"><rect x="1604" y="520" width="12" height="80" rx="4" fill="#FF9F43" /><text x="1610" y="503" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">✕</text></g>
+        </g>
+        <!-- L3 限额 -->
+        <g id="ru-m">
+          <g id="ru-m0" class="h">
+            <rect x="1220" y="390" width="540" height="30" rx="6" fill="none" stroke="#6b6f7a" stroke-width="2" />
+            <line x1="1600" y1="375" x2="1600" y2="435" stroke="#FF9F43" stroke-width="4" />
+            <text x="1600" y="355" font-size="28" fill="#FF9F43" text-anchor="middle">5 万</text>
+          </g>
+          <rect id="ru-mbar" class="h" x="1222" y="392" width="2" height="26" rx="4" fill="#F0B90B" />
+          <text id="ru-m1" class="h" x="1600" y="482" font-size="28" fill="#FF9F43" text-anchor="middle">一级审批</text>
+          <g id="ru-brk" class="h">
+            <rect id="ru-brkr" x="1420" y="600" width="200" height="150" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+            <circle cx="1470" cy="675" r="10" fill="#FC6255" />
+            <circle cx="1570" cy="675" r="10" fill="#FC6255" />
+            <line id="ru-sw" x1="1470" y1="675" x2="1570" y2="675" stroke="#e8e6df" stroke-width="6" stroke-linecap="round" />
+          </g>
+          <text id="ru-m2" class="h" x="1520" y="800" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">熔断</text>
+          <text id="ru-m3" class="h" x="1220" y="688" font-size="28" fill="#FF9F43">二级审批</text>
+        </g>
+        <!-- L4 行为 + 地址投毒 -->
+        <g id="ru-b">
+          <g id="ru-b0" class="h">
+            <rect x="1230" y="300" width="56" height="96" rx="10" fill="none" stroke="#e8e6df" stroke-width="3" />
+            <circle cx="1258" cy="380" r="5" fill="#e8e6df" />
+            <text x="1310" y="360" font-size="28" fill="#e8e6df">新设备</text>
+          </g>
+          <g id="ru-b1" class="h">
+            <circle cx="1560" cy="350" r="26" fill="none" stroke="#FF9F43" stroke-width="3" />
+            <path d="M1560 334 L1560 350 L1572 358" fill="none" stroke="#FF9F43" stroke-width="3" />
+            <text x="1602" y="360" font-size="28" fill="#FF9F43">延迟 + 人工</text>
+          </g>
+          <g id="ru-ad" class="h">
+            <text x="1220" y="530" font-size="28" fill="#8a8f99">历史</text>
+            <text class="mono" x="1300" y="530" font-size="28" fill="#8a8f99">0x<tspan id="ru-h1">8f3a</tspan>·c91e5b·<tspan id="ru-h2">d7c4</tspan></text>
+          </g>
+          <g id="ru-ad2" class="h">
+            <text x="1220" y="600" font-size="28" fill="#8a8f99">收款</text>
+            <text class="mono" x="1300" y="600" font-size="28" fill="#8a8f99">0x<tspan id="ru-h3">8f3a</tspan>·04ad27·<tspan id="ru-h4">d7c4</tspan></text>
+          </g>
+          <text id="ru-b2" class="h" x="1220" y="690" font-size="30" fill="#FF9F43">地址投毒 → 人工确认</text>
+        </g>
+        <!-- L5 签名服务 -->
+        <g id="ru-s" class="h">
+          <rect id="ru-sr" x="1200" y="260" width="600" height="540" rx="18" fill="#161a22" stroke="#B48EF0" stroke-width="6" />
+          <text x="1240" y="322" font-size="34" font-weight="700" fill="#B48EF0">签名服务</text>
+          <path d="M1738 296 v-10 a12 12 0 0 1 24 0 v10" fill="none" stroke="#B48EF0" stroke-width="3" />
+          <rect x="1732" y="296" width="36" height="28" rx="4" fill="#B48EF0" />
+        </g>
+        <g id="ru-e" class="h">
+          <rect x="1240" y="360" width="520" height="370" rx="12" fill="none" stroke="#B48EF0" stroke-width="2" stroke-dasharray="10 6" />
+          <text x="1270" y="408" font-size="28" fill="#8a8f99">独立策略引擎</text>
+        </g>
+        <g id="ru-L1" class="h"><circle id="ru-c1" cx="1290" cy="470" r="14" fill="#3a3f4b" /><text x="1320" y="480" font-size="28" fill="#e8e6df">审批人签名</text></g>
+        <g id="ru-L2" class="h"><circle id="ru-c2" cx="1290" cy="540" r="14" fill="#3a3f4b" /><text x="1320" y="550" font-size="28" fill="#e8e6df">金额上限</text></g>
+        <g id="ru-L3" class="h"><circle id="ru-c3" cx="1290" cy="610" r="14" fill="#3a3f4b" /><text x="1320" y="620" font-size="28" fill="#e8e6df">白名单</text></g>
+        <g id="ru-L4" class="h"><circle id="ru-c4" cx="1290" cy="680" r="14" fill="#3a3f4b" /><text x="1320" y="690" font-size="28" fill="#e8e6df">频率</text></g>
+        <g id="ru-ws" class="h">
+          <rect x="1220" y="870" width="240" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <path d="M1300 870 L1315 895 L1300 915 L1320 950" fill="none" stroke="#FC6255" stroke-width="3" />
+          <text x="1390" y="920" font-size="28" fill="#FC6255" text-anchor="middle">提币服务</text>
+        </g>
+        <g id="ru-tkm"><g id="ru-tk" class="h"><rect x="1540" y="880" width="180" height="64" rx="10" fill="#2a1416" stroke="#FC6255" stroke-width="3" stroke-dasharray="8 5" /><text x="1630" y="923" font-size="28" fill="#FC6255" text-anchor="middle">已批准</text></g></g>
+        <text id="ru-last" class="h" x="1200" y="236" font-size="30" font-weight="700" fill="#83C167">最后一道防线</text>
+
+      </g>
+      <g id="ru-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">KYT <tspan font-size="28" font-weight="400" fill="#8a8f99">Know Your Transaction</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">查一笔交易的资金来源与去向</text>
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+            // L0
+      IN("#ru-hd", at(0, 0.1), 0.6); IN("#ru-ex", at(0, 0.5), 0.5);
+      // L1
+      IN("#ru-r1", at(1, 0.02), 0.5); IN("#ru-r1a", at(1, 0.14), 0.5);
+      IN("#ru-ktx", at(1, 0.28), 0.5);
+      IN("#ru-term", at(1, 0.42), 0.5);
+      IN("#ru-k1", at(1, 0.58), 0.5); IN("#ru-k2", at(1, 0.7), 0.5); IN("#ru-k3", at(1, 0.82), 0.5);
+      OUT("#ru-term", at(1, 0.97));
+      // L2
+      OUT("#ru-k", at(2, 0.0));
+      IN("#ru-r2", at(2, 0.06), 0.5);
+      IN("#ru-wc", at(2, 0.2), 0.5);
+      tl.to("#ru-hg", { rotation: 180, svgOrigin: "1575 360", duration: 0.8 }, at(2, 0.3));
+      IN("#ru-p0", at(2, 0.42), 0.4); ARROW("#ru-pa1", at(2, 0.47)); IN("#ru-p1", at(2, 0.52), 0.4);
+      ARROW("#ru-pa2", at(2, 0.62)); IN("#ru-p2", at(2, 0.66), 0.4);
+      IN("#ru-cut", at(2, 0.7), 0.4);
+      tl.to("#ru-hg", { rotation: 360, svgOrigin: "1575 360", duration: 0.8 }, at(2, 0.8));
+      tl.to(["#ru-wcr", "#ru-hg"], { stroke: "#83C167", duration: 0.4 }, at(2, 0.88));
+      tl.to("#ru-hgt", { fill: "#83C167", duration: 0.4 }, at(2, 0.88));
+      // L3
+      OUT("#ru-w", at(3, 0.0));
+      IN("#ru-r3", at(3, 0.03), 0.5);
+      IN("#ru-m0", at(3, 0.08), 0.5); tl.set("#ru-mbar", { opacity: 1 }, at(3, 0.1));
+      tl.to("#ru-mbar", { attr: { width: 470 }, duration: 1.0, ease: "power2.out" }, at(3, 0.1));
+      IN("#ru-m1", at(3, 0.2), 0.4);
+      IN("#ru-r4", at(3, 0.32), 0.5);
+      IN("#ru-m3", at(3, 0.5), 0.4);
+      IN("#ru-brk", at(3, 0.62), 0.5);
+      tl.to("#ru-sw", { rotation: -35, svgOrigin: "1470 675", duration: 0.4, ease: "back.out(2)" }, at(3, 0.78));
+      IN("#ru-m2", at(3, 0.8), 0.4);
+      tl.to("#ru-brkr", { fill: "#2a1416", duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.9));
+      // L4
+      OUT("#ru-m", at(4, 0.0));
+      IN("#ru-r5", at(4, 0.03), 0.5);
+      IN("#ru-b0", at(4, 0.12), 0.5);
+      IN("#ru-b1", at(4, 0.26), 0.5);
+      IN("#ru-r6", at(4, 0.48), 0.5);
+      IN("#ru-ad", at(4, 0.58), 0.5); IN("#ru-ad2", at(4, 0.68), 0.5);
+      tl.to(["#ru-h1", "#ru-h2", "#ru-h3", "#ru-h4"], { attr: { fill: "#83C167" }, duration: 0.4 }, at(4, 0.78));
+      IN("#ru-b2", at(4, 0.9), 0.5);
+      // L5
+      OUT("#ru-b", at(5, 0.0));
+      tl.to("#ru-tbl", { opacity: 0.3, duration: 0.6 }, at(5, 0.02));
+      IN("#ru-s", at(5, 0.05), 0.6);
+      IN("#ru-e", at(5, 0.12), 0.5);
+      ["#ru-L1", "#ru-L2", "#ru-L3", "#ru-L4"].forEach((s, i) => IN(s, at(5, 0.18 + i * 0.06), 0.4));
+      ["#ru-c1", "#ru-c2", "#ru-c3", "#ru-c4"].forEach((s, i) => tl.to(s, { fill: "#83C167", duration: 0.2, yoyo: true, repeat: 1 }, at(5, 0.2 + i * 0.06)));
+      IN("#ru-ws", at(5, 0.46), 0.5);
+      IN("#ru-tk", at(5, 0.52), 0.4);
+      tl.to("#ru-tkm", { y: -62, duration: 0.6, ease: "power2.in" }, at(5, 0.58));
+      tl.to("#ru-c1", { fill: "#FC6255", duration: 0.2 }, at(5, 0.58) + 0.6);
+      tl.to("#ru-tkm", { y: 0, duration: 0.6, ease: "back.out(2)" }, at(5, 0.58) + 0.8);
+      tl.to("#ru-sr", { stroke: "#83C167", duration: 0.5 }, at(5, 0.84));
+      IN("#ru-last", at(5, 0.86), 0.5);
+
+
+      tl.to("#ru-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ru-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["rules"] = tl;
+    })();
+  </script>
+</template>

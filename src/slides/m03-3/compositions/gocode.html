@@ -1,0 +1,172 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 gocode，id 前缀 go- -->
+  <div id="root" data-composition-id="gocode" data-duration="50.15" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="go-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="go-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="go-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="go-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="go-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="go-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="go-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker><marker id="go-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker></defs>
+<g id="go-all">
+  <g id="go-steps">
+    <g id="go-s1" class="h"><rect id="go-s1r" x="120" y="240" width="540" height="96" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="160" y="300" font-size="34" fill="#e8e6df">① 查参数</text></g>
+    <g id="go-s2" class="h"><rect id="go-s2r" x="120" y="366" width="540" height="96" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="160" y="426" font-size="34" fill="#e8e6df">② 组装</text></g>
+    <g id="go-s3" class="h"><rect id="go-s3r" x="120" y="492" width="540" height="96" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="160" y="552" font-size="34" fill="#e8e6df">③ 签名</text></g>
+    <g id="go-s4" class="h"><rect id="go-s4r" x="120" y="618" width="540" height="96" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="160" y="678" font-size="34" fill="#e8e6df">④ 广播</text></g>
+  </g>
+  <g id="go-A">
+    <rect id="go-pa" class="h" x="740" y="212" width="1120" height="410" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+    <rect id="go-hl" x="750" y="233" width="1100" height="205" rx="6" fill="#58C4DD" opacity="0"/>
+    <g class="mono" font-size="28" fill="#e8e6df">
+      <text id="go-a1" class="h" x="770" y="262">tx := types.NewTx(&amp;types.DynamicFeeTx{</text>
+      <text id="go-a2" class="h" x="820" y="303">ChainID: chainID, Nonce: nonce,</text>
+      <text id="go-a3" class="h" x="820" y="344">GasTipCap: tip, GasFeeCap: feeCap,</text>
+      <text id="go-a4" class="h" x="820" y="385">Gas: gas, To: &amp;to, Value: amountWei,</text>
+      <text id="go-a5" class="h" x="770" y="426">})</text>
+      <text id="go-a6" class="h" x="770" y="467">signer := types.LatestSignerForChainID(chainID)</text>
+      <text id="go-a7" class="h" x="770" y="508">signed, err := types.SignTx(tx, signer, key)</text>
+      <text id="go-a8" class="h" x="770" y="549">if err != nil { return err }</text>
+      <text id="go-a9" class="h" x="770" y="590">err = client.SendTransaction(ctx, signed)</text>
+    </g>
+    <text id="go-c1" class="h" x="1600" y="262" font-size="28" fill="#58C4DD">类型 2</text>
+    <text id="go-c6" class="h" x="1600" y="467" font-size="28" fill="#FF9F43">含 EIP-1559</text>
+    <text id="go-c7" class="h" x="1600" y="508" font-size="28" fill="#FF9F43">本地私钥签名</text>
+    <text id="go-c9" class="h" x="1600" y="590" font-size="28" fill="#F0B90B">节点接受</text>
+    <g id="go-bub" class="h">
+      <path d="M1320 640 L1340 662 L1360 662 Z" fill="#FF9F43"/>
+      <rect x="1160" y="662" width="400" height="84" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+      <text x="1360" y="717" font-size="36" fill="#FF9F43" text-anchor="middle"><tspan class="mono">nil</tspan> ≠ 上链</text>
+    </g>
+  </g>
+  <g id="go-dm">
+    <g id="go-biz" class="h">
+      <rect x="160" y="330" width="540" height="260" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+      <text x="430" y="392" font-size="34" fill="#58C4DD" text-anchor="middle" font-weight="700">业务进程</text>
+    </g>
+    <g id="go-slot" class="h">
+      <rect x="300" y="440" width="260" height="100" rx="12" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="10 8"/>
+      <text x="430" y="502" font-size="30" fill="#8a8f99" text-anchor="middle">私钥：无</text>
+    </g>
+    <g id="go-svc" class="h">
+      <rect x="1220" y="330" width="540" height="260" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3"/>
+      <text x="1490" y="392" font-size="34" fill="#B48EF0" text-anchor="middle" font-weight="700">签名服务</text>
+      <g id="go-k1" class="h"><rect x="1255" y="450" width="140" height="64" rx="10" fill="#B48EF0" fill-opacity="0.18" stroke="#B48EF0" stroke-width="2"/><text class="mono" x="1325" y="492" font-size="28" fill="#e8e6df" text-anchor="middle">HSM</text></g>
+      <g id="go-k2" class="h"><rect x="1420" y="450" width="140" height="64" rx="10" fill="#B48EF0" fill-opacity="0.18" stroke="#B48EF0" stroke-width="2"/><text class="mono" x="1490" y="492" font-size="28" fill="#e8e6df" text-anchor="middle">KMS</text></g>
+      <g id="go-k3" class="h"><rect x="1585" y="450" width="140" height="64" rx="10" fill="#B48EF0" fill-opacity="0.18" stroke="#B48EF0" stroke-width="2"/><text class="mono" x="1655" y="492" font-size="28" fill="#e8e6df" text-anchor="middle">MPC</text></g>
+    </g>
+    <g id="go-ar">
+      <path id="go-ar1" class="dr h" pathLength="1" d="M720 420 L1196 420" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#go-mb)"/>
+      <text id="go-l1" class="h" x="958" y="396" font-size="30" fill="#58C4DD" text-anchor="middle">32 B 摘要</text>
+      <path id="go-ar2" class="dr h" pathLength="1" d="M1200 520 L724 520" stroke="#FF9F43" stroke-width="3" fill="none" marker-end="url(#go-mo)"/>
+      <text id="go-l2" class="h" x="958" y="570" font-size="30" fill="#FF9F43" text-anchor="middle">65 B 签名</text>
+    </g>
+  </g>
+  <g id="go-B">
+    <rect id="go-pb" class="h" x="120" y="205" width="1010" height="240" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+    <rect id="go-hb" x="130" y="221" width="990" height="40" rx="6" fill="#58C4DD" opacity="0"/>
+    <g class="mono" font-size="28" fill="#e8e6df">
+      <text id="go-b1" class="h" x="145" y="250">digest := signer.Hash(tx)</text>
+      <text id="go-b2" class="h" x="145" y="291">sig, err := remoteSigner.Sign(ctx, keyID, digest.Bytes())</text>
+      <text id="go-b3" class="h" x="145" y="332" fill="#6b6f7a">// sig = r(32) || s(32) || v(1), v = 0/1</text>
+      <text id="go-b4" class="h" x="145" y="373">signed, err := tx.WithSignature(signer, sig)</text>
+      <text id="go-b5" class="h" x="145" y="414">raw, _ := signed.MarshalBinary()</text>
+    </g>
+    <text id="go-n1" class="h" x="1170" y="250" font-size="28" fill="#58C4DD">0x02 ‖ RLP 的 Keccak-256</text>
+    <text id="go-n2" class="h" x="1170" y="291" font-size="28" fill="#B48EF0">交给远程签名服务</text>
+    <text id="go-n4" class="h" x="1170" y="373" font-size="28" fill="#FF9F43">把签名装回交易</text>
+    <text id="go-n5" class="h" x="1170" y="414" font-size="28" fill="#F0B90B">编码成 raw 字节</text>
+    <g id="go-raw" class="h"><rect x="800" y="735" width="200" height="80" rx="12" fill="#F0B90B"/><text class="mono" x="900" y="786" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">raw</text></g>
+    <path id="go-r0" class="dr h" pathLength="1" d="M700 775 L792 775" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#go-mg)"/>
+    <path id="go-r1" class="dr h" pathLength="1" d="M1004 755 L1262 690" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#go-mg)"/>
+    <path id="go-r2" class="dr h" pathLength="1" d="M1004 795 L1262 870" stroke="#F0B90B" stroke-width="3" fill="none" marker-end="url(#go-mg)"/>
+    <g id="go-db" class="h">
+      <ellipse cx="1330" cy="650" rx="56" ry="16" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+      <path d="M1274 650 L1274 720 A56 16 0 0 0 1386 720 L1386 650" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+      <ellipse cx="1330" cy="650" rx="56" ry="16" fill="none" stroke="#58C4DD" stroke-width="3"/>
+      <text x="1410" y="698" font-size="32" fill="#e8e6df">存档</text>
+    </g>
+    <g id="go-bc" class="h">
+      <rect x="1274" y="836" width="300" height="80" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+      <text x="1424" y="888" font-size="32" fill="#e8e6df" text-anchor="middle">另一台广播机</text>
+    </g>
+  </g>
+</g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      /*ANIM*/
+// L0 四步缩略 + 代码 A 打出
+tl.fromTo(["#go-s1", "#go-s2", "#go-s3", "#go-s4"], { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.15 }, at(0, 0.0));
+IN("#go-pa", at(0, 0.15), 0.4);
+tl.fromTo(["#go-a1", "#go-a2", "#go-a3", "#go-a4", "#go-a5", "#go-a6", "#go-a7", "#go-a8", "#go-a9"], { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.25, stagger: 0.24 }, at(0, 0.25));
+// L1 组装：前五行高亮蓝，②亮
+tl.fromTo("#go-hl", { opacity: 0 }, { opacity: 0.15, duration: 0.4, immediateRender: false }, at(1, 0.05));
+tl.to("#go-s2r", { stroke: "#58C4DD", fill: "#1b2a33", duration: 0.4 }, at(1, 0.15));
+IN("#go-c1", at(1, 0.45), 0.5);
+tl.to("#go-s2", { scale: 1.04, svgOrigin: "390 414", duration: 0.25, yoyo: true, repeat: 1 }, at(1, 0.7));
+// L2 签名器 + SignTx 高亮橙，③亮
+tl.to("#go-hl", { attr: { y: 438, height: 82 }, fill: "#FF9F43", duration: 0.5, ease: "power2.inOut" }, at(2, 0.03));
+tl.to("#go-s2r", { stroke: "#8a8f99", fill: "#161a22", duration: 0.4 }, at(2, 0.05));
+tl.to("#go-s3r", { stroke: "#FF9F43", fill: "#2a2116", duration: 0.4 }, at(2, 0.12));
+IN("#go-c6", at(2, 0.35), 0.5);
+IN("#go-c7", at(2, 0.72), 0.5);
+tl.to("#go-s3", { scale: 1.04, svgOrigin: "390 540", duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.8));
+// L3 SendTransaction 高亮金，④亮，气泡
+tl.to("#go-hl", { attr: { y: 561, height: 41 }, fill: "#F0B90B", duration: 0.5, ease: "power2.inOut" }, at(3, 0.03));
+tl.to("#go-s3r", { stroke: "#8a8f99", fill: "#161a22", duration: 0.4 }, at(3, 0.05));
+tl.to("#go-s4r", { stroke: "#F0B90B", fill: "#2a2410", duration: 0.4 }, at(3, 0.12));
+IN("#go-c9", at(3, 0.3), 0.5);
+IN("#go-bub", at(3, 0.55), 0.5);
+tl.to("#go-bub", { scale: 1.06, svgOrigin: "1360 704", duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.82));
+// L4 外部签名：业务进程 / 签名服务
+OUT(["#go-A", "#go-steps"], at(4, 0.0), 0.5);
+IN("#go-biz", at(4, 0.08), 0.6, { x: -20 }, { x: 0 });
+IN("#go-slot", at(4, 0.2), 0.5);
+tl.to("#go-slot", { opacity: 0.4, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.3));
+IN("#go-svc", at(4, 0.42), 0.6, { x: 20 }, { x: 0 });
+tl.fromTo(["#go-k1", "#go-k2", "#go-k3"], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.2 }, at(4, 0.5));
+ARROW("#go-ar1", at(4, 0.7)); IN("#go-l1", at(4, 0.74), 0.4);
+ARROW("#go-ar2", at(4, 0.86)); IN("#go-l2", at(4, 0.9), 0.4);
+// L5 代码 B：Hash → Sign → WithSignature → MarshalBinary
+tl.to("#go-dm", { y: 320, duration: 0.8, ease: "power2.inOut" }, at(5, 0.0));
+IN("#go-pb", at(5, 0.05), 0.4);
+tl.fromTo(["#go-b1", "#go-b2", "#go-b3", "#go-b4", "#go-b5"], { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.25, stagger: 0.2 }, at(5, 0.07));
+tl.fromTo("#go-hb", { opacity: 0 }, { opacity: 0.15, duration: 0.3, immediateRender: false }, at(5, 0.17));
+IN("#go-n1", at(5, 0.18), 0.4);
+tl.to("#go-hb", { attr: { y: 262 }, duration: 0.4 }, at(5, 0.32));
+IN("#go-n2", at(5, 0.34), 0.4);
+tl.to("#go-ar1", { opacity: 0.35, duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.36));
+tl.to("#go-hb", { attr: { y: 344 }, duration: 0.4 }, at(5, 0.46));
+IN("#go-n4", at(5, 0.48), 0.4);
+tl.to("#go-ar2", { opacity: 0.35, duration: 0.25, yoyo: true, repeat: 1 }, at(5, 0.5));
+tl.to("#go-hb", { attr: { y: 385 }, fill: "#F0B90B", duration: 0.4 }, at(5, 0.58));
+IN("#go-n5", at(5, 0.6), 0.4);
+OUT(["#go-svc", "#go-ar"], at(5, 0.64), 0.4);
+ARROW("#go-r0", at(5, 0.7), 0.4);
+IN("#go-raw", at(5, 0.72), 0.5, { x: -20 }, { x: 0 });
+ARROW("#go-r1", at(5, 0.8)); IN("#go-db", at(5, 0.83), 0.5);
+ARROW("#go-r2", at(5, 0.88)); IN("#go-bc", at(5, 0.91), 0.5);
+
+      /*ENDANIM*/
+      tl.to("#go-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["gocode"] = tl;
+    })();
+  </script>
+</template>

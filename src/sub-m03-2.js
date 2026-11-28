@@ -37,7 +37,7 @@ ${art('一图看懂：Safe 是链上合约账户，凑够 m 个所有者签名�
 ], '三个所有者里两人签名后，Safe 代理合约检查门限并动用金库资产，代码逻辑放在共用的单例合约里', 'm03-4')}
 
 <h2>2. Safe 合约架构</h2>
-<p>Safe（原名 Gnosis Safe）是以太坊生态使用最广的多签合约，据 Safe 基金会 2026 年第一季度报告，Safe 智能账户持有的资产约 352 亿美元，账户数约 6,100 万。${cite('Safe 基金会：2026 年第一季度报告', 'https://safefoundation.org/blog/safe-q1-2026-quarterly-report')}它的结构如下（Safe 与 ERC-4337、EIP-7702 的关系见 <a href="#m06-5">M08.8 账户抽象深入</a>）：</p>
+<p>Safe（原名 Gnosis Safe）是以太坊生态使用最广的多签合约，据 Safe 基金会 2026 年第三季度报告，Safe 智能账户承载的资产约 576 亿美元，账户数约 6,570 万；这一期首次把 DeFi 里的仓位（约 124 亿美元）也算进去，与前几期口径不同，具体以官方为准。${cite('Safe 基金会：2026 年第三季度报告', 'https://safefoundation.org/reports/q3-2026')}它的结构如下（Safe 与 ERC-4337、EIP-7702 的关系见 <a href="#m06-5">M08.8 账户抽象深入</a>）：</p>
 ${mm('Safe 代理 + 单例架构', `
 flowchart TB
   F["SafeProxyFactory<br/>CREATE2 部署代理"] -->|"createProxyWithNonce"| P1["Safe 代理 A<br/>存储：owners threshold nonce"]
@@ -166,7 +166,7 @@ flowchart TB
 <ul>
 <li><strong>签名者独立</strong>：每个签名者使用独立的硬件钱包，硬件钱包只用于签名，不用于日常浏览。</li>
 <li><strong>地理分布</strong>：签名者分布在不同城市或国家，避免一次物理事件（火灾、绑架、司法扣押）同时影响 m 个人。</li>
-<li><strong>角色分布</strong>：不要让 m 个签名者都向同一个人汇报。例如 3-of-5：CEO、CFO、CTO、外部顾问、托管机构各 1 把。</li>
+<li><strong>角色分布</strong>：不要让 m 个签名者都向同一个人汇报。例如 3-of-5：CEO、CFO、独立董事、外部顾问、托管机构各 1 把。公司内部的汇报线（CEO、CFO）最多只有两把，凑不够 3 个签名。</li>
 <li><strong>备份</strong>：每把钥匙的助记词离线备份，与硬件钱包分开存放；门限设计要满足“丢 n − m 把仍能动用”。</li>
 </ul>
 <p>用下面的实验感受门限选择：切换到“链上多签（Safe）”，比较 2-of-3 和 3-of-5 能容忍的丢失数和被盗数。</p>
@@ -200,7 +200,7 @@ flowchart LR
 <h3>5.3 算一算：门限与风险（示例）</h3>
 ${steps([
   '3-of-5 多签：可容忍丢失 = 5 − 3 = 2 把，可容忍被盗 = 3 − 1 = 2 把。',
-  '假设每个签名者一年内设备被攻破的概率独立为 5%。攻击者需要同时攻破 3 个：概率 ≈ C(5,3) × 0.05³ × 0.95² = 10 × 0.000125 × 0.9025 ≈ 0.11%。',
+  '假设每个签名者一年内设备被攻破的概率独立为 5%。攻击者需要至少攻破 3 个：恰好 3 个 ≈ C(5,3) × 0.05³ × 0.95² = 10 × 0.000125 × 0.9025 ≈ 0.00113；加上恰好 4 个（5 × 0.05⁴ × 0.95 ≈ 0.00003）和 5 个全破（0.05⁵ ≈ 0.0000003），合计 ≈ 0.00116 ≈ 0.12%。',
   '对比 2-of-3：需要攻破 2 个，概率 ≈ C(3,2) × 0.05² × 0.95 + 0.05³ = 0.007125 + 0.000125 ≈ 0.73%。',
   '结论：3-of-5 被盗概率约为 2-of-3 的 1/6。但这个计算假设“独立”。如果所有签名者都用同一个被篡改的前端（Bybit 情形），概率不再独立，门限的保护大幅下降。'
 ])}
@@ -264,7 +264,7 @@ ${beginner(`<p><strong>MPC（Multi-Party Computation，多方安全计算）</st
 ${one('MPC 钱包把私钥拆成多个分片放在不同地方。签名时各方按协议交换消息，共同算出一个标准签名。私钥在生成、使用、备份的任何时刻都不完整出现。')}
 ${call('analogy', `<p>像一张藏宝图被撕成 3 片，交给 3 个人，规定任意 2 片拼起来才能找到宝藏。MPC 更进一步：2 个人不需要真的把碎片拼在一起，他们各自在自己的碎片上做计算，交换计算结果，就能直接挖出宝藏，谁也没见过完整的地图。</p>
 <p>类比的局限：藏宝图碎片可以复印；MPC 分片可以“刷新”，刷新后旧碎片全部作废，而宝藏地址（公钥和链上地址）不变。</p>`)}
-<figure class="mmd fig-html fk-artfig" data-art="m03-5"><div class="mmd-title"><span>一图看懂：多签与 MPC 的区别</span></div><div class="fig-body"><svg class="fk-art" viewBox="0 0 760 250" role="img" aria-label="多签与 MPC 门限签名对比"><rect x="10" y="10" width="365" height="230" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/><text x="192" y="34" font-size="14" text-anchor="middle" fill="var(--ink)" font-weight="700">多签（如 Safe 2/3）</text><rect x="40" y="50" width="80" height="50" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><g fill="none" stroke="var(--risk)" stroke-width="3"><circle cx="56" cy="68" r="9"/><path d="M65 68 h26 v8 M77 68 v6"/></g><text x="80" y="94" font-size="10.5" text-anchor="middle" fill="var(--ink)">完整私钥 1</text><rect x="140" y="50" width="80" height="50" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><g fill="none" stroke="var(--risk)" stroke-width="3"><circle cx="156" cy="68" r="9"/><path d="M165 68 h26 v8 M177 68 v6"/></g><text x="180" y="94" font-size="10.5" text-anchor="middle" fill="var(--ink)">完整私钥 2</text><rect x="240" y="50" width="80" height="50" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><g fill="none" stroke="var(--risk)" stroke-width="3"><circle cx="256" cy="68" r="9"/><path d="M265 68 h26 v8 M277 68 v6"/></g><text x="280" y="94" font-size="10.5" text-anchor="middle" fill="var(--ink)">完整私钥 3</text><line x1="80" y1="102" x2="160" y2="150" stroke="var(--ink-2)" stroke-width="2"/><path d="M160.0 150.0 L152.0 149.3 L155.6 143.3 z" fill="var(--ink-2)"/><line x1="180" y1="102" x2="180" y2="150" stroke="var(--ink-2)" stroke-width="2"/><path d="M180.0 150.0 L176.5 142.8 L183.5 142.8 z" fill="var(--ink-2)"/><text x="250" y="132" font-size="11" text-anchor="middle" fill="var(--ink-2)">各自签名</text><rect x="100" y="152" width="180" height="46" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"/><text x="190" y="172" font-size="12.5" text-anchor="middle" fill="var(--ink)" font-weight="700">链上合约验证</text><text x="190" y="189" font-size="11" text-anchor="middle" fill="var(--ink)">数够 2 个签名才执行</text><text x="192" y="226" font-size="12" text-anchor="middle" fill="var(--ink-2)">链上能看到多个签名和规则</text><rect x="385" y="10" width="365" height="230" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/><text x="567" y="34" font-size="14" text-anchor="middle" fill="var(--ink)" font-weight="700">MPC 门限签名（2/3）</text><rect x="415" y="50" width="80" height="50" rx="8" fill="var(--info-soft)" stroke="var(--info)" stroke-width="1.5"/><text x="455" y="72" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">分片 1</text><text x="455" y="90" font-size="10.5" text-anchor="middle" fill="var(--ink-2)">不是私钥</text><rect x="515" y="50" width="80" height="50" rx="8" fill="var(--info-soft)" stroke="var(--info)" stroke-width="1.5"/><text x="555" y="72" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">分片 2</text><text x="555" y="90" font-size="10.5" text-anchor="middle" fill="var(--ink-2)">不是私钥</text><rect x="615" y="50" width="80" height="50" rx="8" fill="var(--info-soft)" stroke="var(--info)" stroke-width="1.5"/><text x="655" y="72" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">分片 3</text><text x="655" y="90" font-size="10.5" text-anchor="middle" fill="var(--ink-2)">不是私钥</text><line x1="455" y1="102" x2="540" y2="150" stroke="var(--ink-2)" stroke-width="2"/><path d="M540.0 150.0 L532.0 149.5 L535.4 143.4 z" fill="var(--ink-2)"/><line x1="555" y1="102" x2="555" y2="150" stroke="var(--ink-2)" stroke-width="2"/><path d="M555.0 150.0 L551.5 142.8 L558.5 142.8 z" fill="var(--ink-2)"/><text x="626" y="132" font-size="11" text-anchor="middle" fill="var(--ink-2)">多方协同计算</text><rect x="475" y="152" width="180" height="46" rx="8" fill="var(--ok-soft)" stroke="var(--ok)" stroke-width="1.5"/><text x="565" y="172" font-size="12.5" text-anchor="middle" fill="var(--ink)" font-weight="700">一个普通签名</text><text x="565" y="189" font-size="11" text-anchor="middle" fill="var(--ink)">链上看起来像普通账户</text><text x="567" y="226" font-size="12" text-anchor="middle" fill="var(--ink-2)">完整私钥从来没有在任何地方出现过</text></svg></div><figcaption><div class="cap">读图要点</div><ul class="notes"><li><span class="chip flow">数据流</span><span>多签：多把完整私钥各签一次，由链上合约数签名。MPC：多个分片一起计算，直接产出一个普通签名。</span></li><li><span class="chip key">关键</span><span>多签的规则在链上、透明但只适用于支持合约的链；MPC 在链下完成，适用于任何链，但规则不在链上公开。</span></li><li><span class="chip risk">风险</span><span>MPC 的安全依赖实现质量：分片刷新、通信协议出错都会削弱安全性。</span></li></ul></figcaption></figure>
+<figure class="mmd fig-html fk-artfig" data-art="m03-5"><div class="mmd-title"><span>一图看懂：多签与 MPC 的区别</span></div><div class="fig-body"><svg class="fk-art" viewBox="0 0 760 250" role="img" aria-label="多签与 MPC 门限签名对比"><rect x="10" y="10" width="365" height="230" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/><text x="192" y="34" font-size="14" text-anchor="middle" fill="var(--ink)" font-weight="700">多签（如 Safe 2/3）</text><rect x="40" y="50" width="80" height="50" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><g fill="none" stroke="var(--risk)" stroke-width="3"><circle cx="56" cy="68" r="9"/><path d="M65 68 h26 v8 M77 68 v6"/></g><text x="80" y="94" font-size="10.5" text-anchor="middle" fill="var(--ink)">完整私钥 1</text><rect x="140" y="50" width="80" height="50" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><g fill="none" stroke="var(--risk)" stroke-width="3"><circle cx="156" cy="68" r="9"/><path d="M165 68 h26 v8 M177 68 v6"/></g><text x="180" y="94" font-size="10.5" text-anchor="middle" fill="var(--ink)">完整私钥 2</text><rect x="240" y="50" width="80" height="50" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><g fill="none" stroke="var(--risk)" stroke-width="3"><circle cx="256" cy="68" r="9"/><path d="M265 68 h26 v8 M277 68 v6"/></g><text x="280" y="94" font-size="10.5" text-anchor="middle" fill="var(--ink)">完整私钥 3</text><line x1="80" y1="102" x2="160" y2="150" stroke="var(--ink-2)" stroke-width="2"/><path d="M160.0 150.0 L152.0 149.3 L155.6 143.3 z" fill="var(--ink-2)"/><line x1="180" y1="102" x2="180" y2="150" stroke="var(--ink-2)" stroke-width="2"/><path d="M180.0 150.0 L176.5 142.8 L183.5 142.8 z" fill="var(--ink-2)"/><text x="250" y="132" font-size="11" text-anchor="middle" fill="var(--ink-2)">各自签名</text><rect x="100" y="152" width="180" height="46" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"/><text x="190" y="172" font-size="12.5" text-anchor="middle" fill="var(--ink)" font-weight="700">链上合约验证</text><text x="190" y="189" font-size="11" text-anchor="middle" fill="var(--ink)">数够 2 个签名才执行</text><text x="192" y="226" font-size="12" text-anchor="middle" fill="var(--ink-2)">链上能看到多个签名和规则</text><rect x="385" y="10" width="365" height="230" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/><text x="567" y="34" font-size="14" text-anchor="middle" fill="var(--ink)" font-weight="700">MPC 门限签名（2/3）</text><rect x="415" y="50" width="80" height="50" rx="8" fill="var(--info-soft)" stroke="var(--info)" stroke-width="1.5"/><text x="455" y="72" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">分片 1</text><text x="455" y="90" font-size="10.5" text-anchor="middle" fill="var(--ink-2)">不是私钥</text><rect x="515" y="50" width="80" height="50" rx="8" fill="var(--info-soft)" stroke="var(--info)" stroke-width="1.5"/><text x="555" y="72" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">分片 2</text><text x="555" y="90" font-size="10.5" text-anchor="middle" fill="var(--ink-2)">不是私钥</text><rect x="615" y="50" width="80" height="50" rx="8" fill="var(--info-soft)" stroke="var(--info)" stroke-width="1.5"/><text x="655" y="72" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">分片 3</text><text x="655" y="90" font-size="10.5" text-anchor="middle" fill="var(--ink-2)">不是私钥</text><line x1="455" y1="102" x2="540" y2="150" stroke="var(--ink-2)" stroke-width="2"/><path d="M540.0 150.0 L532.0 149.5 L535.4 143.4 z" fill="var(--ink-2)"/><line x1="555" y1="102" x2="555" y2="150" stroke="var(--ink-2)" stroke-width="2"/><path d="M555.0 150.0 L551.5 142.8 L558.5 142.8 z" fill="var(--ink-2)"/><text x="626" y="132" font-size="11" text-anchor="middle" fill="var(--ink-2)">多方协同计算</text><rect x="475" y="152" width="180" height="46" rx="8" fill="var(--ok-soft)" stroke="var(--ok)" stroke-width="1.5"/><text x="565" y="172" font-size="12.5" text-anchor="middle" fill="var(--ink)" font-weight="700">一个普通签名</text><text x="565" y="189" font-size="11" text-anchor="middle" fill="var(--ink)">链上看起来像普通账户</text><text x="567" y="226" font-size="12" text-anchor="middle" fill="var(--ink-2)">完整私钥从来没有在任何地方出现过</text></svg></div><figcaption><div class="cap">读图要点</div><ul class="notes"><li><span class="chip flow">数据流</span><span>多签：多把完整私钥各签一次，由链上合约数签名。MPC：多个分片一起计算，直接产出一个普通签名。</span></li><li><span class="chip key">关键</span><span>多签的规则在链上、透明；Safe 这类合约多签只能用在 EVM 链上，每条链都要单独部署（比特币等链另有原生多签脚本）；MPC 在链下完成，适用于任何链，但规则不在链上公开。</span></li><li><span class="chip risk">风险</span><span>MPC 的安全依赖实现质量：分片刷新、通信协议出错都会削弱安全性。</span></li></ul></figcaption></figure>
 
 <h2>2. 秘密分享：分片是怎么来的</h2>
 <h3>2.1 Shamir 秘密分享（算一算，示例）</h3>
@@ -295,7 +295,7 @@ sequenceDiagram
   P2->>P1: 同样发送 f2 的点值和承诺
   P3->>P1: 同样发送 f3 的点值和承诺
   P1->>P1: 校验收到的点值与承诺一致
-  P1->>P1: 自己的分片 = 收到的点值求和
+  P1->>P1: 自己的分片 = 收到的点值 + 自己多项式在点1的值 之和
   P1-->>P3: 广播公钥分量 a1 乘 G
   P3->>P3: 全体公钥 = 各公钥分量之和
 `, [
@@ -327,11 +327,11 @@ ${tbl(['协议', '年份', '签名类型', '特点'], [
   ['GG18 / GG20', '2018 / 2020', 'ECDSA t-of-n', 'Gennaro 与 Goldfeder 提出；GG20 支持预签名和识别作恶方；开源实现广泛（如 tss-lib）'],
   ['CGGMP21（CMP）', '2020–2021', 'ECDSA t-of-n', '支持预签名后 1 轮在线签名、可识别中止、主动安全（密钥刷新）；Fireblocks 的 MPC-CMP 基于此'],
   ['DKLs（DKLs19 / DKLs23）', '2019 / 2023', 'ECDSA', '基于不经意传输（OT），不用 Paillier，计算快'],
-  ['FROST', '2020', 'Schnorr / EdDSA', '两轮门限 Schnorr；适用于 Ed25519（Solana）和比特币 Taproot']
+  ['FROST', '2020（2024-06 发布为 IRTF RFC 9591）', 'Schnorr / EdDSA', '两轮门限 Schnorr；适用于 Ed25519（Solana）和比特币 Taproot']
 ])}
 
 <h2>4. 密钥刷新、重分片与部署架构</h2>
-<p><strong>密钥刷新（Key Refresh / Proactive Refresh）</strong>：各方共同生成一组“和为 0”的随机数，加到各自分片上。总私钥不变、公钥和地址不变，但每个分片都变成新值。攻击者周一偷走分片 1，周三偷走分片 2，只要中间做过刷新，两个分片属于不同“纪元”，拼不出私钥。</p>
+<p><strong>密钥刷新（Key Refresh / Proactive Refresh）</strong>：在加法分享（n-of-n）里，各方共同生成一组“和为 0”的随机数，加到各自分片上；在 Shamir 门限分享（t-of-n）里，各方共同生成一条截距为 0 的随机多项式，把它在各自点上的值加到分片上。两种做法下总私钥都不变、公钥和地址不变，但每个分片都变成新值。攻击者周一偷走分片 1，周三偷走分片 2，只要中间做过刷新，两个分片属于不同“纪元”，拼不出私钥。</p>
 <p><strong>重分片（Resharing）</strong>：改变 t 或 n，例如从 2-of-3 变成 3-of-5，或撤销离职员工手里的分片。地址保持不变，不需要转移资金。</p>
 ${mm('MPC 节点部署架构（示例：2-of-3）', `
 flowchart LR
@@ -358,12 +358,12 @@ flowchart LR
 ${tbl(['对比项', 'MPC 门限签名', '链上多签（Safe）', 'HSM'], [
   ['单点故障', '无（t ≥ 2）', '无（m ≥ 2）', '设备本身是单点，靠集群和备份'],
   ['链上表现', '普通单签地址', '合约地址，签名者公开', '普通单签地址'],
-  ['多链支持', '支持所有使用 ECDSA / EdDSA 的链', '仅支持合约链，每链部署', '取决于设备支持的曲线'],
+  ['多链支持', '支持所有使用 ECDSA / EdDSA 的链', '仅支持 EVM 合约链，每链部署', '取决于设备支持的曲线'],
   ['Gas 成本', '与单签相同', '更高（合约验证签名）', '与单签相同'],
   ['更换参与者', '重分片，地址不变', '链上交易换 owner', '重新生成密钥需转移资金'],
   ['审计透明度', '链下日志，外部看不到', '链上完全可查', '设备日志'],
   ['实现复杂度', '高，协议与实现都可能有漏洞', '低，合约成熟', '中，依赖厂商'],
-  ['合规认证', '较新，部分机构接受', '开源审计', 'FIPS 140-2/140-3 等认证成熟']
+  ['合规认证', '较新，部分机构接受', '开源审计', 'FIPS 140-3 等认证成熟（FIPS 140-2 证书已于 2026 年 9 月转入 NIST 历史名单，以官方为准）']
 ])}
 <p>MPC 与 TEE 在钱包之外的用途（隐私计算、区块构建），以及全同态加密（FHE），见 <a href="#m10-6">M07.6 MPC、FHE 与 TEE</a>。</p>
 
@@ -403,12 +403,12 @@ ${recap([
 ])}
 ${quiz([
   { q: '2-of-3 Shamir 分享，分片 (1, 50) 和 (2, 70)。秘密是多少？', o: ['20', '30', '50', '70'], a: 1, why: '斜率 = (70 − 50) ÷ (2 − 1) = 20，截距 = 50 − 20 × 1 = 30。' },
-  { q: '密钥刷新完成后，下列哪项保持不变？', o: ['每个参与方的分片值', '公钥和链上地址', '预签名数据', '参与方之间的会话密钥'], a: 1, why: '刷新给每个分片加上和为 0 的随机数，总私钥不变，所以公钥和地址不变，分片全部更新。' },
+  { q: '密钥刷新完成后，下列哪项保持不变？', o: ['每个参与方的分片值', '公钥和链上地址', '预签名数据', '参与方之间的会话密钥'], a: 1, why: '刷新给每个分片加上一份“总和为 0”的随机量（加法分享里是和为 0 的随机数，门限分享里是截距为 0 的随机多项式在各点的值），总私钥不变，所以公钥和地址不变，分片全部更新。' },
   { q: '为什么门限 ECDSA 比门限 Schnorr 更复杂？', o: ['ECDSA 签名更长', 'ECDSA 公式含 k 的逆元与私钥的乘积，不能直接对分片做线性运算', 'ECDSA 不支持多方', 'Schnorr 不需要随机数'], a: 1, why: 'Schnorr 签名对私钥是线性的，分片可以直接相加；ECDSA 中 k⁻¹ × d 是非线性的，需要 MtA 子协议。' },
-  { q: '一家交易所要支持比特币、以太坊、Tron、Solana 的热钱包自动提币，并希望员工离职时不换地址。最合适的方案是？', o: ['每条链各部署一个 Safe', 'MPC 门限签名', '纸钱包', '单台服务器存放明文私钥'], a: 1, why: 'MPC 支持所有 ECDSA/EdDSA 链，并可通过重分片撤销离职员工的分片而不更换地址。Safe 只适用于 EVM 链。' },
+  { q: '一家交易所要支持比特币、以太坊、Tron、Solana 的热钱包自动提币，并希望员工离职时不换地址。最合适的方案是？', o: ['每条链各部署一个 Safe', 'MPC 门限签名', '纸钱包', '单台服务器存放明文私钥'], a: 1, why: 'MPC 支持所有 ECDSA/EdDSA 链，并可通过重分片撤销离职员工的分片而不更换地址。Safe 只能用在 EVM 合约链上，每条链要单独部署。' },
   { q: 'BitForge 漏洞的根本原因属于哪一类？', o: ['助记词泄露', '实现缺少必要的零知识证明', '区块链分叉', 'Gas 费过高'], a: 1, why: '受影响实现没有验证 Paillier 密钥的正确性证明，恶意参与方可借此提取其他方的分片。' }
 ])}
-${exercises([["（示例）2-of-3 Shamir 分享，你拿到分片 (1, 500) 和 (4, 1100)。秘密是多少？请验证。", "<p>斜率 = (1100 − 500) ÷ (4 − 1) = 200。截距 = 500 − 200 × 1 = <strong>300</strong>，秘密 s = 300。验证：f(1) = 300 + 200 = 500，f(4) = 300 + 800 = 1100，两点都在直线上。真实系统在大素数有限域里计算。</p>"], ["攻击者周一偷走 MPC 分片 1，周三偷走分片 2，门限是 2-of-3。周二团队做过一次密钥刷新。攻击者能签名吗？为什么？", "<p>不能。刷新时各方共同生成一组和为 0 的随机数，加到各自分片上。总私钥、公钥和地址不变，但所有分片都换成新值。周一的分片属于旧纪元，周三的分片属于新纪元，两者拼不出私钥。所以要定期刷新，并在人员变动时立即重分片。</p>"], ["一家公司用 2-of-3 MPC：节点 A 在云端 TEE，节点 B 在自建机房 HSM，节点 C 在审批人手机。设计自动提币和大额提币分别用哪两个节点，并指出最容易被忽视的风险。", "<p>自动小额提币用 <strong>A + B</strong>，无需人工。大额或人工审批走 <strong>A + C</strong> 或 <strong>B + C</strong>，门限组合本身就是审批规则。最容易被忽视的风险：三个节点运行同一份代码、由同一个运维账号管理，攻破这个账号就等于攻破全部节点。另外，离线备份分片也是分片，管理不严等于多了一个可被盗的节点。</p>"]])}
+${exercises([["（示例）2-of-3 Shamir 分享，你拿到分片 (1, 500) 和 (4, 1100)。秘密是多少？请验证。", "<p>斜率 = (1100 − 500) ÷ (4 − 1) = 200。截距 = 500 − 200 × 1 = <strong>300</strong>，秘密 s = 300。验证：f(1) = 300 + 200 = 500，f(4) = 300 + 800 = 1100，两点都在直线上。真实系统在大素数有限域里计算。</p>"], ["攻击者周一偷走 MPC 分片 1，周三偷走分片 2，门限是 2-of-3。周二团队做过一次密钥刷新。攻击者能签名吗？为什么？", "<p>不能。刷新时，各方把一条截距为 0 的随机多项式在各自点上的值加到分片上（加法分享里就是一组和为 0 的随机数）。总私钥、公钥和地址不变，但所有分片都换成新值。周一的分片属于旧纪元，周三的分片属于新纪元，两者拼不出私钥。所以要定期刷新，并在人员变动时立即重分片。</p>"], ["一家公司用 2-of-3 MPC：节点 A 在云端 TEE，节点 B 在自建机房 HSM，节点 C 在审批人手机。设计自动提币和大额提币分别用哪两个节点，并指出最容易被忽视的风险。", "<p>自动小额提币用 <strong>A + B</strong>，无需人工。大额或人工审批走 <strong>A + C</strong> 或 <strong>B + C</strong>，门限组合本身就是审批规则。最容易被忽视的风险：三个节点运行同一份代码、由同一个运维账号管理，攻破这个账号就等于攻破全部节点。另外，离线备份分片也是分片，管理不严等于多了一个可被盗的节点。</p>"]])}
 ${checklist(["能用两个 Shamir 分片手算出秘密，并说明为什么一个分片不泄露任何信息。", "能区分“Shamir 拆私钥备份”和真正的 MPC 钱包，说出前者的单点风险。", "能解释门限 ECDSA 难在 k⁻¹ × d，以及 MtA 子协议和零知识证明的作用。", "能说出 GG18/GG20、CMP、DKLs、FROST 各自适用的签名类型。", "能从单点故障、链上表现、更换参与者、审计透明度四方面对比 MPC、Safe 和 HSM。"])}
 ${terms([
   ['秘密分享', 'Secret Sharing', '把秘密拆成多个分片，满足门限才能恢复的方案'],
@@ -572,13 +572,28 @@ CREATE TABLE nonce_slot (
   kind         TEXT    NOT NULL,       -- pay / cancel / fill
   status       TEXT    NOT NULL,       -- allocated / signed / broadcast / confirmed / replaced
   raw_tx       BYTEA,
-  tx_hash      TEXT,
+  tx_hash      TEXT,                   -- 最近一次签名的哈希；每次尝试的哈希见 nonce_attempt
   max_fee_gwei NUMERIC,
   attempts     INT     NOT NULL DEFAULT 0,
   updated_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
   PRIMARY KEY (chain, address, nonce)
 );
 CREATE INDEX nonce_slot_pending ON nonce_slot (status, updated_at) WHERE status <> 'confirmed';
+
+-- 发送尝试：同一 nonce 每签一次（原交易、加速、取消）记一行，新旧哈希都留下，才能同时监听
+CREATE TABLE nonce_attempt (
+  chain        TEXT    NOT NULL,
+  address      TEXT    NOT NULL,
+  nonce        BIGINT  NOT NULL,
+  attempt      INT     NOT NULL,       -- 第几次签名，从 1 开始
+  tx_hash      TEXT    NOT NULL UNIQUE,
+  raw_tx       BYTEA   NOT NULL,
+  max_fee_gwei NUMERIC,
+  tip_gwei     NUMERIC,
+  created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+  PRIMARY KEY (chain, address, nonce, attempt),
+  FOREIGN KEY (chain, address, nonce) REFERENCES nonce_slot (chain, address, nonce)
+);
 `)}
 ${code('GO', `
 // NonceAllocator：Redis 锁降低争用，PostgreSQL 行锁 + 主键保证正确性
@@ -591,12 +606,17 @@ var unlockScript = redis.NewScript(\`
 if redis.call("GET", KEYS[1]) == ARGV[1] then return redis.call("DEL", KEYS[1]) end
 return 0\`)
 
+var ErrLockBusy = errors.New("nonce 锁繁忙") // 哨兵错误：调用方用 errors.Is 区分锁繁忙和 Redis 故障
+
 func (a *NonceAllocator) Allocate(ctx context.Context, chain, addr string, withdrawID int64) (uint64, error) {
     key := "lock:nonce:" + chain + ":" + addr
     token := uuid.NewString()
     ok, err := a.rdb.SetNX(ctx, key, token, 5*time.Second).Result()
-    if err != nil || !ok {
-        return 0, fmt.Errorf("nonce 锁繁忙: %w", err)
+    if err != nil {
+        return 0, fmt.Errorf("redis: %w", err) // Redis 故障
+    }
+    if !ok {
+        return 0, ErrLockBusy // 锁被别人占用，稍后重试
     }
     defer unlockScript.Run(context.Background(), a.rdb, []string{key}, token)
 
@@ -666,7 +686,7 @@ ${quiz([
   { q: '提币服务在“签名完成、广播之前”崩溃。正确的设计应该怎样恢复？', o: ['重新分配一个新 nonce 再签一笔', '用数据库中已保存的 raw transaction 重新广播', '放弃这笔提币', '等待用户投诉'], a: 1, why: '先落库 raw_tx 再广播，重启后重播同一笔交易是幂等的，不会重复打款。' },
   { q: '为什么建议企业热钱包使用多个地址并行发交易？', o: ['多个地址 Gas 更便宜', '一个地址卡单只影响该地址的交易，并且总吞吐提高', '节点要求必须这样做', '可以跳过 nonce 规则'], a: 1, why: '每个地址有独立的 nonce 序列，互不阻塞。代价是余额分散，需要调拨。' }
 ])}
-${exercises([["（示例）nonce 88 的交易 maxFee = 20 gwei、小费 1.5 gwei，已卡住。当前基础费 25 gwei。按文中规则，加速应使用什么费用？取消交易最多花多少 ETH？", "<p>替换最低要求：maxFee ≥ 20 × 1.1 = 22 gwei，小费 ≥ 1.5 × 1.1 = 1.65 gwei。22 仍低于基础费 25，替换后还会卡。所以取 maxFee = max(22, 2 × 25 + 2) = <strong>52 gwei</strong>，小费 = max(1.65, 2) = <strong>2 gwei</strong>。取消交易 gas = 21,000，最多花费 21,000 × 52 gwei = <strong>0.001092 ETH</strong>。</p>"], ["（示例）某热钱包链上 latest = 200，pending = 200，而数据库已分配到 nonce 205，nonce 200 到 204 的记录都没有 raw_tx 且状态为 allocated 超过 10 分钟。这是什么情况？怎么处理？", "<p>这是 nonce 空洞：200 到 204 已分配，但没有任何交易进入内存池，后续 nonce 全部会排队。处理方法：对每个空洞 nonce 构造一笔 0 ETH 转给自己的填洞交易并签名广播；原业务请求回到待发送队列，重新分配新 nonce。有 raw_tx 但链上查不到的记录，则直接重播保存的 raw。</p>"], ["为什么 nonce 分配器同时用 Redis 锁和 PostgreSQL 行锁加主键？只用其中一个会怎样？", "<p>Redis 锁只用来减少争用，它可能因过期或主从切换失效，出现两个持锁者。数据库行锁让并发事务在 UPDATE 上排队，主键 (chain, address, nonce) 是最后一道防线。只用 Redis 会在锁失效时重复分配 nonce。只用数据库也正确，但高并发时争用更多。</p>"]])}
+${exercises([["（示例）nonce 88 的交易 maxFee = 20 gwei、小费 1.5 gwei，已卡住。当前基础费 25 gwei。按文中规则，加速应使用什么费用？取消交易最多花多少 ETH？", "<p>替换最低要求：maxFee ≥ 20 × 1.1 = 22 gwei，小费 ≥ 1.5 × 1.1 = 1.65 gwei。22 仍低于基础费 25，替换后还会卡。所以取 maxFee = max(22, 2 × 25 + 2) = <strong>52 gwei</strong>，小费 = max(1.65, 2) = <strong>2 gwei</strong>。取消交易 gas = 21,000，最多花费 21,000 × 52 gwei = <strong>0.001092 ETH</strong>。</p>"], ["（示例）某热钱包链上 latest = 200，pending = 200，而数据库已分配到 nonce 205（205 刚分出去、正在正常签名），nonce 200 到 204 的记录都没有 raw_tx 且状态为 allocated 超过 10 分钟。这是什么情况？怎么处理？", "<p>这是 nonce 空洞：200 到 204 已分配，但没有任何交易进入内存池，后续 nonce 全部会排队。处理方法：对每个空洞 nonce 构造一笔 0 ETH 转给自己的填洞交易并签名广播；原业务请求回到待发送队列，重新分配新 nonce。有 raw_tx 但链上查不到的记录，则直接重播保存的 raw。</p>"], ["为什么 nonce 分配器同时用 Redis 锁和 PostgreSQL 行锁加主键？只用其中一个会怎样？", "<p>Redis 锁只用来减少争用，它可能因过期或主从切换失效，出现两个持锁者。数据库行锁让并发事务在 UPDATE 上排队，主键 (chain, address, nonce) 是最后一道防线。只用 Redis 会在锁失效时重复分配 nonce。只用数据库也正确，但高并发时争用更多。</p>"]])}
 ${checklist(["能说清 latest 与 pending 的区别，并从两者的差判断有多少笔交易在排队。", "能列出卡单的 4 种原因：费用过低、空洞、交易被丢弃、并发冲突。", "能按“两项各提高 10% 且高于当前基础费”的规则，算出加速和取消交易的费用。", "能写出 nonce 分配的顺序：加锁、行锁递增、插入记录、释放锁、签名、先落库 raw 再广播。", "能复述服务重启时的对账步骤，并说明为什么全部对齐后才接新请求。"])}
 ${terms([
   ['Nonce', 'Account Nonce', '账户已发送交易的计数，决定交易执行顺序'],

@@ -1,0 +1,245 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ddlorder，id 前缀 dr- -->
+  <div id="root" data-composition-id="ddlorder" data-duration="70.63" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="dr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="dr-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="dr-all">
+<text id="dr-t0" class="h" x="100" y="130" font-size="48" font-weight="700" fill="#e8e6df">订单库</text>
+<text id="dr-t1" class="h" x="100" y="130" font-size="48" font-weight="700" fill="#e8e6df">钱包库</text>
+<text id="dr-t2" class="h" x="100" y="130" font-size="48" font-weight="700" fill="#e8e6df">网关库</text>
+<text id="dr-t3" class="h" x="100" y="130" font-size="48" font-weight="700" fill="#e8e6df">幂等消费表</text>
+<rect id="dr-pan" class="h" x="70" y="220" width="1060" height="530" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+<rect id="dr-bar" class="h" x="76" y="650" width="1048" height="38" rx="6" fill="#58C4DD" fill-opacity="0.15" />
+<rect id="dr-gu" class="h" x="76" y="650" width="1048" height="38" rx="6" fill="#83C167" fill-opacity="0.15" />
+<rect id="dr-gs" class="h" x="76" y="330" width="1048" height="38" rx="6" fill="#83C167" fill-opacity="0.15" />
+<rect id="dr-gd" class="h" x="76" y="570" width="1048" height="38" rx="6" fill="#83C167" fill-opacity="0.15" />
+<rect id="dr-gc" class="h" x="76" y="410" width="1048" height="38" rx="6" fill="#83C167" fill-opacity="0.15" />
+<g id="dr-c5" class="h">
+<text class="mono" xml:space="preserve" x="94" y="280" font-size="28" fill="#e8e6df">CREATE TABLE orders (</text>
+<text class="mono" xml:space="preserve" x="94" y="320" font-size="28" fill="#e8e6df">  id               BIGINT PRIMARY KEY,</text>
+<text x="754" y="320" font-size="28" fill="#8a8f99">-- 雪花 ID</text>
+<text class="mono" xml:space="preserve" x="94" y="360" font-size="28" fill="#e8e6df">  user_id          BIGINT NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="400" font-size="28" fill="#e8e6df">  client_order_id  VARCHAR(64) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="440" font-size="28" fill="#e8e6df">  price            NUMERIC(36,18),</text>
+<text class="mono" xml:space="preserve" x="94" y="480" font-size="28" fill="#e8e6df">  quantity         NUMERIC(36,18) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="520" font-size="28" fill="#e8e6df">  frozen_amount    NUMERIC(36,18) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="560" font-size="28" fill="#e8e6df">  remaining_frozen NUMERIC(36,18) NOT NULL,</text>
+<text x="838" y="560" font-size="28" fill="#8a8f99">-- 终态必须为 0</text>
+<text class="mono" xml:space="preserve" x="94" y="600" font-size="28" fill="#e8e6df">  status           SMALLINT NOT NULL,</text>
+<text x="738" y="600" font-size="28" fill="#8a8f99">-- 0 待冻结 … 5 拒绝</text>
+<text class="mono" xml:space="preserve" x="94" y="640" font-size="28" fill="#e8e6df">  last_seq         BIGINT NOT NULL DEFAULT 0,</text>
+<text class="mono" xml:space="preserve" x="94" y="680" font-size="28" fill="#e8e6df">  UNIQUE (user_id, client_order_id)</text>
+<text class="mono" xml:space="preserve" x="94" y="720" font-size="28" fill="#e8e6df">);</text>
+</g>
+<g id="dr-c6" class="h">
+<text class="mono" xml:space="preserve" x="94" y="280" font-size="28" fill="#e8e6df">CREATE TABLE trades (</text>
+<text class="mono" xml:space="preserve" x="94" y="320" font-size="28" fill="#e8e6df">  trade_id       BIGINT PRIMARY KEY,</text>
+<text x="721" y="320" font-size="28" fill="#8a8f99">-- 撮合引擎分配</text>
+<text class="mono" xml:space="preserve" x="94" y="360" font-size="28" fill="#e8e6df">  seq            BIGINT NOT NULL UNIQUE,</text>
+<text class="mono" xml:space="preserve" x="94" y="400" font-size="28" fill="#e8e6df">  price          NUMERIC(36,18) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="440" font-size="28" fill="#e8e6df">  qty            NUMERIC(36,18) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="480" font-size="28" fill="#e8e6df">  taker_order_id BIGINT NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="520" font-size="28" fill="#e8e6df">  maker_order_id BIGINT NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="560" font-size="28" fill="#e8e6df">  taker_fee      NUMERIC(36,18) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="600" font-size="28" fill="#e8e6df">  maker_fee      NUMERIC(36,18) NOT NULL</text>
+<text class="mono" xml:space="preserve" x="94" y="640" font-size="28" fill="#e8e6df">);</text>
+</g>
+<g id="dr-c7" class="h">
+<text class="mono" xml:space="preserve" x="94" y="280" font-size="28" fill="#e8e6df">CREATE TABLE deposits (</text>
+<text class="mono" xml:space="preserve" x="94" y="320" font-size="28" fill="#e8e6df">  chain      VARCHAR(16) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="360" font-size="28" fill="#e8e6df">  tx_hash    VARCHAR(80) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="400" font-size="28" fill="#e8e6df">  log_index  INT NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="440" font-size="28" fill="#e8e6df">  amount     NUMERIC(36,18) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="480" font-size="28" fill="#e8e6df">  block_hash VARCHAR(80) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="520" font-size="28" fill="#e8e6df">  status     SMALLINT NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="560" font-size="28" fill="#8a8f99">             -- SEEN CONFIRMING CREDITED ORPHANED</text>
+<text class="mono" xml:space="preserve" x="94" y="600" font-size="28" fill="#e8e6df">  UNIQUE (chain, tx_hash, log_index)</text>
+<text class="mono" xml:space="preserve" x="94" y="640" font-size="28" fill="#e8e6df">);</text>
+<text class="mono" xml:space="preserve" x="94" y="680" font-size="28" fill="#8a8f99">-- deposit_address:</text>
+<text class="mono" xml:space="preserve" x="94" y="720" font-size="28" fill="#8a8f99">--   address UNIQUE, PRIMARY KEY (user_id, chain)</text>
+</g>
+<g id="dr-c8" class="h">
+<text class="mono" xml:space="preserve" x="94" y="280" font-size="28" fill="#e8e6df">CREATE TABLE consumed_events (</text>
+<text class="mono" xml:space="preserve" x="94" y="320" font-size="28" fill="#e8e6df">  consumer   VARCHAR(32) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="360" font-size="28" fill="#e8e6df">  event_id   VARCHAR(80) NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="400" font-size="28" fill="#e8e6df">  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),</text>
+<text class="mono" xml:space="preserve" x="94" y="440" font-size="28" fill="#e8e6df">  PRIMARY KEY (consumer, event_id)</text>
+<text class="mono" xml:space="preserve" x="94" y="480" font-size="28" fill="#e8e6df">);</text>
+</g>
+<g id="dr-c9" class="h">
+<text class="mono" xml:space="preserve" x="94" y="280" font-size="28" fill="#8a8f99">-- users</text>
+<text class="mono" xml:space="preserve" x="94" y="320" font-size="28" fill="#e8e6df">  totp_secret  BYTEA,</text>
+<text x="469" y="320" font-size="28" fill="#8a8f99">-- KMS 密文</text>
+<text class="mono" xml:space="preserve" x="94" y="360" font-size="28" fill="#8a8f99">-- api_keys</text>
+<text class="mono" xml:space="preserve" x="94" y="400" font-size="28" fill="#e8e6df">  secret_enc   BYTEA NOT NULL,</text>
+<text x="620" y="400" font-size="28" fill="#8a8f99">-- HMAC Secret 密文</text>
+<text class="mono" xml:space="preserve" x="94" y="440" font-size="28" fill="#e8e6df">  scopes       TEXT[] NOT NULL,</text>
+<text class="mono" xml:space="preserve" x="94" y="480" font-size="28" fill="#e8e6df">  ip_whitelist INET[],</text>
+<text class="mono" xml:space="preserve" x="94" y="520" font-size="28" fill="#e8e6df">  revoked      BOOLEAN NOT NULL DEFAULT false,</text>
+<text class="mono" xml:space="preserve" x="94" y="600" font-size="28" fill="#8a8f99">-- users</text>
+<text class="mono" xml:space="preserve" x="94" y="640" font-size="28" fill="#e8e6df">  status       SMALLINT NOT NULL,</text>
+<text x="680" y="640" font-size="28" fill="#8a8f99">-- 1 正常  2 冻结</text>
+</g>
+<rect id="dr-k0" class="h" x="76" y="610" width="1048" height="38" rx="6" fill="#B48EF0" fill-opacity="0.15" />
+<rect id="dr-k3" class="h" x="76" y="490" width="1048" height="38" rx="6" fill="#B48EF0" fill-opacity="0.15" />
+<g id="dr-more" class="h"><text x="94" y="800" font-size="28" fill="#8a8f99">另有列：<tspan class="mono">side · type · tif</tspan></text><text class="mono" x="94" y="844" font-size="28" fill="#8a8f99">quote_qty · executed_qty · cum_quote</text></g>
+<g id="dr-n1" class="h"><rect x="1160" y="220" width="660" height="84" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="273" font-size="30" fill="#83C167" font-weight="700">防：重发变成两笔单</text></g>
+<g id="dr-bot" class="h"><rect x="1170" y="500" width="170" height="90" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="1255" y="557" font-size="30" fill="#e8e6df" text-anchor="middle">机器人</text></g>
+<g id="dr-obox" class="h"><rect x="1560" y="440" width="250" height="210" rx="14" fill="none" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1685" y="480" font-size="28" fill="#58C4DD" text-anchor="middle">orders</text></g>
+<g id="dr-o1" class="h"><rect x="1360" y="518" width="170" height="52" rx="14" fill="rgba(240,185,11,0.15)" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1445" y="554" font-size="28" fill="#F0B90B" text-anchor="middle">bot-0001</text></g>
+<g id="dr-o2" class="h"><rect x="1360" y="518" width="170" height="52" rx="14" fill="rgba(240,185,11,0.15)" stroke="#F0B90B" stroke-width="2.5" /><text class="mono" x="1445" y="554" font-size="28" fill="#F0B90B" text-anchor="middle">bot-0001</text></g>
+<text id="dr-retry" class="h" x="1255" y="650" font-size="28" fill="#FF9F43" text-anchor="middle">超时重发</text>
+<text id="dr-dup" class="h" x="1490" y="720" font-size="30" fill="#FC6255" text-anchor="middle">唯一约束冲突：只落一笔</text>
+<g id="dr-n2" class="h"><rect x="1160" y="220" width="660" height="124" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="270" font-size="30" fill="#83C167" font-weight="700">对账检查项</text><text x="1188" y="314" font-size="28" fill="#e8e6df">终态 <tspan class="mono">remaining_frozen = 0</tspan></text></g>
+<g id="dr-n3" class="h"><rect x="1160" y="364" width="660" height="84" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="417" font-size="30" fill="#83C167" font-weight="700">防：乱序事件回写旧状态</text></g>
+<g id="dr-e0" class="h"><rect x="1180" y="500" width="190" height="52" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1275" y="536" font-size="28" fill="#58C4DD" text-anchor="middle">seq 501</text></g>
+<g id="dr-e1" class="h"><rect x="1390" y="500" width="190" height="52" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1485" y="536" font-size="28" fill="#58C4DD" text-anchor="middle">seq 503</text></g>
+<g id="dr-e2" class="h"><rect x="1600" y="500" width="190" height="52" rx="14" fill="rgba(88,196,221,0.15)" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1695" y="536" font-size="28" fill="#58C4DD" text-anchor="middle">seq 502</text></g>
+<g id="dr-ls" class="h"><rect x="1300" y="660" width="400" height="76" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text class="mono" x="1330" y="709" font-size="30" fill="#F0B90B">last_seq =</text></g>
+<text id="dr-lsv" class="mono h" x="1670" y="709" font-size="30" fill="#F0B90B" text-anchor="end" font-weight="700">0</text>
+<text id="dr-drop" class="h" x="1500" y="810" font-size="30" fill="#FC6255" text-anchor="middle"><tspan class="mono">502 &lt; 503</tspan>：丢弃</text>
+<g id="dr-n4" class="h"><rect x="1160" y="220" width="660" height="84" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="273" font-size="30" fill="#83C167" font-weight="700">防：同一笔成交落两行</text></g>
+<g id="dr-t1r" class="h"><rect x="1200" y="520" width="300" height="56" rx="14" fill="rgba(240,185,11,0.15)" stroke="#F0B90B" stroke-width="2.5" /><text x="1350" y="559" font-size="30" fill="#F0B90B" text-anchor="middle">同一笔成交</text></g>
+<g id="dr-t2r" class="h"><rect x="1200" y="612" width="300" height="56" rx="14" fill="rgba(240,185,11,0.15)" stroke="#F0B90B" stroke-width="2.5" /><text x="1350" y="651" font-size="30" fill="#F0B90B" text-anchor="middle">同一笔成交</text></g>
+<g id="dr-trbox" class="h"><rect x="1180" y="440" width="640" height="160" rx="14" fill="none" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1520" y="490" font-size="28" fill="#58C4DD">trades</text></g>
+<g id="dr-n5" class="h"><rect x="1160" y="220" width="660" height="84" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="273" font-size="30" fill="#83C167" font-weight="700">防：同一笔转账入账两次</text></g>
+<g id="dr-n6" class="h"><rect x="1160" y="364" width="660" height="84" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="417" font-size="30" fill="#83C167" font-weight="700">一个地址只属于一个用户</text></g>
+<text id="dr-same" class="h" x="1160" y="530" font-size="28" fill="#e8e6df">和账本幂等键是同一套</text>
+<g id="dr-dk" class="h"><rect x="1160" y="552" width="420" height="52" rx="14" fill="rgba(131,193,103,0.15)" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="1370" y="588" font-size="28" fill="#83C167" text-anchor="middle">chain:txHash:logIndex</text></g>
+<g id="dr-wd" class="h"><text class="mono" x="1160" y="800" font-size="28" fill="#8a8f99">withdrawals.status</text><text class="mono" x="1160" y="850" font-size="28" fill="#8a8f99">REQUESTED FROZEN REVIEW APPROVED</text><text class="mono" x="1160" y="894" font-size="28" fill="#8a8f99">BROADCAST DONE FAILED REFUNDED</text></g>
+<text id="dr-wd2" class="mono h" x="1160" y="944" font-size="28" fill="#c9c7c0">risk_score · approved_by · nonce</text>
+<text id="dr-tx" class="h" x="1160" y="362" font-size="28" fill="#58C4DD">同一事务：先插这一行，再改业务</text>
+<g id="dr-n7" class="h"><rect x="1160" y="220" width="660" height="84" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="273" font-size="30" fill="#83C167" font-weight="700">防：重复投递被处理两次</text></g>
+<g id="dr-cbox" class="h"><rect x="1160" y="400" width="660" height="290" rx="14" fill="none" stroke="#58C4DD" stroke-width="2.5" /><text class="mono" x="1184" y="442" font-size="28" fill="#58C4DD">consumed_events</text></g>
+<g id="dr-cr0" class="h"><rect x="1184" y="470" width="612" height="56" rx="10" fill="rgba(131,193,103,0.10)" stroke="#83C167" stroke-width="2" /><text class="mono" x="1206" y="508" font-size="28" fill="#e8e6df">(order, event_id)</text><text x="1770" y="509" font-size="30" fill="#83C167" text-anchor="end">✓</text></g>
+<g id="dr-cr1" class="h"><rect x="1184" y="540" width="612" height="56" rx="10" fill="rgba(131,193,103,0.10)" stroke="#83C167" stroke-width="2" /><text class="mono" x="1206" y="578" font-size="28" fill="#e8e6df">(settlement, event_id)</text><text x="1770" y="579" font-size="30" fill="#83C167" text-anchor="end">✓</text></g>
+<g id="dr-cr2" class="h"><rect x="1184" y="610" width="612" height="56" rx="10" fill="rgba(131,193,103,0.10)" stroke="#83C167" stroke-width="2" /><text class="mono" x="1206" y="648" font-size="28" fill="#e8e6df">(market-data, event_id)</text><text x="1770" y="649" font-size="30" fill="#83C167" text-anchor="end">✓</text></g>
+<g id="dr-crx" class="h"><rect x="1184" y="730" width="612" height="56" rx="10" fill="rgba(252,98,85,0.12)" stroke="#FC6255" stroke-width="2" /><text class="mono" x="1206" y="768" font-size="28" fill="#FC6255">(settlement, event_id)</text></g>
+<text id="dr-crxt" class="h" x="1490" y="850" font-size="30" fill="#FC6255" text-anchor="middle">插不进去 = 处理过了</text>
+<rect id="dr-k1" class="h" x="76" y="290" width="1048" height="38" rx="6" fill="#B48EF0" fill-opacity="0.15" />
+<rect id="dr-k2" class="h" x="76" y="370" width="1048" height="38" rx="6" fill="#B48EF0" fill-opacity="0.15" />
+<g id="dr-kms" class="h"><rect x="1300" y="400" width="380" height="150" rx="16" fill="rgba(180,142,240,0.12)" stroke="#B48EF0" stroke-width="3" /><text class="mono" x="1490" y="470" font-size="40" fill="#B48EF0" text-anchor="middle" font-weight="700">KMS</text><text x="1490" y="520" font-size="28" fill="#e8e6df" text-anchor="middle">只存加密后的密文</text></g>
+<g id="dr-n8" class="h"><rect x="1160" y="220" width="660" height="84" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" /><text x="1188" y="273" font-size="30" fill="#83C167" font-weight="700">防：数据库泄露直接拿到密钥</text></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const PULSE = (s, t, n = 2, d = 0.45, lo = 0.4) => tl.to(s, { opacity: lo, duration: d, yoyo: true, repeat: 2 * n - 1, ease: "sine.inOut" }, t);
+      const BAR = (s, y, h, t, d = 0.45) => tl.to(s, { attr: { y: y, height: h }, duration: d, ease: "power2.inOut" }, t);
+      const POP = (s, t, cx, cy, d = 0.4) => IN(s, t, d, { scale: 0.8, svgOrigin: cx + " " + cy }, { scale: 1, svgOrigin: cx + " " + cy });
+      const comma = v => Math.round(v).toLocaleString("en-US");
+
+
+      const LY = i => 280 + i * 40 - 30;
+      // L0 orders
+      IN("#dr-t0", at(0, 0), 0.5);
+      IN("#dr-pan", at(0, 0.08), 0.5); IN("#dr-c5", at(0, 0.15), 0.6);
+      IN("#dr-more", at(0, 0.6), 0.5);
+      // L1 UNIQUE (user_id, client_order_id)
+      IN("#dr-gu", at(1, 0.02), 0.4);
+      IN("#dr-bot", at(1, 0.1), 0.4); IN("#dr-obox", at(1, 0.12), 0.4);
+      IN("#dr-o1", at(1, 0.2), 0.2); tl.to("#dr-o1", { x: 255, duration: 0.6, ease: "power2.inOut" }, at(1, 0.2));
+      IN("#dr-retry", at(1, 0.38), 0.4);
+      IN("#dr-o2", at(1, 0.46), 0.2); tl.to("#dr-o2", { x: 170, duration: 0.45, ease: "power2.in" }, at(1, 0.46));
+      tl.to("#dr-o2 rect", { stroke: "#FC6255", fill: "rgba(252,98,85,0.15)", duration: 0.15 }, at(1, 0.46) + 0.45);
+      tl.to("#dr-o2 text", { fill: "#FC6255", duration: 0.15 }, at(1, 0.46) + 0.45);
+      tl.to("#dr-o2", { x: 0, duration: 0.4, ease: "power2.out" }, at(1, 0.46) + 0.5);
+      IN("#dr-dup", at(1, 0.62), 0.4);
+      IN("#dr-n1", at(1, 0.72), 0.5, { x: 30 }, { x: 0 });
+      // L2 冻结额 / 剩余冻结 / last_seq
+      OUT("#dr-n1, #dr-bot, #dr-obox, #dr-o1, #dr-o2, #dr-retry, #dr-dup, #dr-gu", at(2, 0), 0.35);
+      IN("#dr-bar", at(2, 0.02), 0.2); BAR("#dr-bar", LY(6), 38, at(2, 0.02), 0.01);
+      BAR("#dr-bar", LY(6), 78, at(2, 0.12));
+      IN("#dr-n2", at(2, 0.2), 0.5, { x: 30 }, { x: 0 });
+      PULSE("#dr-c5 text:nth-of-type(10)", at(2, 0.32), 2, 0.3, 0.4);
+      BAR("#dr-bar", LY(9), 38, at(2, 0.48));
+      IN("#dr-e0", at(2, 0.5), 0.3); IN("#dr-e1", at(2, 0.52), 0.3); IN("#dr-e2", at(2, 0.54), 0.3);
+      IN("#dr-ls", at(2, 0.55), 0.4); IN("#dr-lsv", at(2, 0.55), 0.4);
+      tl.to("#dr-e0", { x: 220, y: 160, opacity: 0, duration: 0.6, ease: "power2.in" }, at(2, 0.6)); COUNT("#dr-lsv", 0, 501, at(2, 0.6) + 0.5, 0.3);
+      tl.to("#dr-e1", { x: 10, y: 160, opacity: 0, duration: 0.6, ease: "power2.in" }, at(2, 0.68)); COUNT("#dr-lsv", 501, 503, at(2, 0.68) + 0.5, 0.3);
+      tl.to("#dr-e2", { x: -200, y: 120, duration: 0.5, ease: "power2.in" }, at(2, 0.77));
+      tl.to("#dr-e2 rect", { stroke: "#FC6255", fill: "rgba(252,98,85,0.15)", duration: 0.15 }, at(2, 0.77) + 0.5);
+      tl.to("#dr-e2 text", { fill: "#FC6255", duration: 0.15 }, at(2, 0.77) + 0.5);
+      tl.to("#dr-e2", { y: 0, opacity: 0, duration: 0.6, ease: "power2.out" }, at(2, 0.77) + 0.6);
+      IN("#dr-drop", at(2, 0.78), 0.4);
+      IN("#dr-n3", at(2, 0.8), 0.5, { x: 30 }, { x: 0 });
+      // L3 trades
+      OUT("#dr-n2, #dr-n3, #dr-ls, #dr-lsv, #dr-drop, #dr-c5, #dr-more", at(3, 0), 0.35);
+      IN("#dr-c6", at(3, 0.04), 0.5);
+      BAR("#dr-bar", LY(1), 38, at(3, 0.08));
+      IN("#dr-gs", at(3, 0.4), 0.4);
+      IN("#dr-trbox", at(3, 0.5), 0.4);
+      IN("#dr-t1r", at(3, 0.56), 0.4, { x: 40 }, { x: 0 });
+      IN("#dr-t2r", at(3, 0.6), 0.3, { x: 40 }, { x: 0 });
+      tl.to("#dr-t2r rect", { stroke: "#FC6255", fill: "rgba(252,98,85,0.15)", duration: 0.15 }, at(3, 0.74));
+      tl.to("#dr-t2r text", { fill: "#FC6255", duration: 0.15 }, at(3, 0.74));
+      tl.to("#dr-t2r", { x: 300, opacity: 0, duration: 0.6, ease: "power2.out" }, at(3, 0.9));
+      IN("#dr-n4", at(3, 0.78), 0.5, { x: 30 }, { x: 0 });
+      // L4 deposits
+      OUT("#dr-n4, #dr-trbox, #dr-t1r, #dr-c6, #dr-gs", at(4, 0), 0.35);
+      OUT("#dr-t0", at(4, 0), 0.3); IN("#dr-t1", at(4, 0.03), 0.4);
+      IN("#dr-c7", at(4, 0.04), 0.5);
+      BAR("#dr-bar", LY(1), 40 * 3 - 2, at(4, 0.08));
+      IN("#dr-gd", at(4, 0.2), 0.4);
+      IN("#dr-same", at(4, 0.32), 0.4); POP("#dr-dk", at(4, 0.36), 1370, 578);
+      IN("#dr-n5", at(4, 0.46), 0.5, { x: 30 }, { x: 0 });
+      BAR("#dr-bar", LY(10), 78, at(4, 0.5));
+      IN("#dr-n6", at(4, 0.56), 0.5, { x: 30 }, { x: 0 });
+      IN("#dr-wd", at(4, 0.72), 0.5); IN("#dr-wd2", at(4, 0.84), 0.5, { y: 10 }, { y: 0 });
+      // L5 consumed_events
+      OUT("#dr-n5, #dr-n6, #dr-same, #dr-dk, #dr-wd, #dr-wd2, #dr-c7, #dr-gd", at(5, 0), 0.35);
+      OUT("#dr-t1", at(5, 0), 0.3); IN("#dr-t3", at(5, 0.04), 0.4);
+      IN("#dr-c8", at(5, 0.04), 0.5);
+      BAR("#dr-bar", LY(1), 78, at(5, 0.08));
+      IN("#dr-gc", at(5, 0.14), 0.4);
+      IN("#dr-cbox", at(5, 0.2), 0.4);
+      IN("#dr-cr0", at(5, 0.26), 0.4, { x: -40 }, { x: 0 });
+      IN("#dr-cr1", at(5, 0.31), 0.4, { x: -40 }, { x: 0 });
+      IN("#dr-cr2", at(5, 0.36), 0.4, { x: -40 }, { x: 0 });
+      IN("#dr-tx", at(5, 0.45), 0.5, { x: 20 }, { x: 0 }); PULSE("#dr-tx", at(5, 0.6), 1, 0.3, 0.5);
+      IN("#dr-crx", at(5, 0.72), 0.3, { y: 40 }, { y: 0 });
+      tl.to("#dr-crx", { y: 30, duration: 0.2, yoyo: true, repeat: 1 }, at(5, 0.72) + 0.35);
+      IN("#dr-crxt", at(5, 0.78), 0.4);
+      IN("#dr-n7", at(5, 0.68), 0.5, { x: 30 }, { x: 0 });
+      // L6 网关库密钥
+      OUT("#dr-n7, #dr-tx, #dr-cbox, #dr-cr0, #dr-cr1, #dr-cr2, #dr-crx, #dr-crxt, #dr-c8, #dr-gc, #dr-bar", at(6, 0), 0.35);
+      OUT("#dr-t3", at(6, 0), 0.3); IN("#dr-t2", at(6, 0.04), 0.4);
+      IN("#dr-c9", at(6, 0.05), 0.5);
+      IN("#dr-k0", at(6, 0.14), 0.4); IN("#dr-k3", at(6, 0.32), 0.4);
+      IN("#dr-k1", at(6, 0.52), 0.4); IN("#dr-k2", at(6, 0.62), 0.4);
+      POP("#dr-kms", at(6, 0.7), 1490, 475);
+      IN("#dr-n8", at(6, 0.84), 0.5, { x: 30 }, { x: 0 });
+
+
+      tl.to("#dr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["ddlorder"] = tl;
+    })();
+  </script>
+</template>

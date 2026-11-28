@@ -40,11 +40,11 @@ ${art('一图看懂：迷你 CEX 的 7 个服务，同步只到“冻结”，�
 <h2>2. 项目目标与验收标准</h2>
 ${tbl(['类别', '验收标准（示例）'], [
   ['功能：账户', '邮箱注册登录（JWT）；创建/删除 API Key，权限 READ / TRADE / WITHDRAW，可绑定 IP 白名单'],
-  ['功能：充值', '模式 A：管理后台模拟充值；模式 B：监听 Sepolia 测试网 ERC-20 转账，12 确认后入账'],
+  ['功能：充值', '模式 A：管理后台模拟充值；模式 B：监听 Sepolia（或当时推荐的应用测试网）的 ERC-20 转账，12 确认后入账。截至 2026-11 Sepolia 仍在运行，社区已在讨论替换与下线，以以太坊基金会公告为准'],
   ['功能：交易', '交易对 BTC/USDT；限价单（GTC / IOC / FOK / Post-only）与市价单；撤单'],
   ['功能：结算', '成交后双方余额实时更新；Maker 0.08%、Taker 0.1% 手续费'],
   ['功能：行情', 'WebSocket 推送 1m/5m/1h K 线、20 档深度（快照 + 增量 + seq）、逐笔成交、Ticker'],
-  ['功能：提币', '申请 → 冻结 → 风控 → 人工审批 → 模拟签名广播 → 确认扣减；拒绝则解冻'],
+  ['功能：提币', '申请 → 冻结 → 风控 → 人工审批 → 模拟签名广播 → 确认扣减；审批（REVIEW）拒绝 → REFUNDED 解冻退回；广播失败 → FAILED → REFUNDED 解冻退回'],
   ['性能', '撮合单交易对 ≥ 5 万命令/秒；下单 API P99 < 20 ms（不含网络）；结算延迟 P99 < 200 ms'],
   ['可靠性', '撮合进程被 kill 后 10 秒内恢复，订单簿与 kill 前一致；结算重复投递不重复记账'],
   ['正确性', '任意时刻每种资产：用户 + 平台 = 充值 − 提币；每个 ledger_txn 借贷平衡；回放输出与原输出字节一致'],
@@ -73,7 +73,7 @@ flowchart TB
   ORD -->|"gRPC 冻结"| LED
   ORD -->|"orders.cmd"| K[["Kafka"]]
   WAL -->|"gRPC 入账 / 冻结"| LED
-  WAL --> CHAIN[("Sepolia 测试网<br/>或模拟器")]
+  WAL --> CHAIN[("Sepolia 等测试网<br/>或模拟器")]
   LED --> PG[("PostgreSQL<br/>ledger 库")]
   ORD --> PG2[("PostgreSQL<br/>order 库")]
 `, [
@@ -142,14 +142,14 @@ stateDiagram-v2
   New --> Partial: 成交事件 结算扣减部分冻结
   New --> Filled: 成交事件 扣减并解冻价格改善差额
   Partial --> Filled: 成交事件 扣减并解冻剩余差额
-  New --> Canceled: 撤单事件 解冻全部剩余
-  Partial --> Canceled: 撤单事件 解冻剩余
+  New --> Canceled: 撤单事件或 IOC 市价剩余撤销 解冻全部剩余
+  Partial --> Canceled: 撤单事件或 IOC 市价剩余撤销 解冻剩余
   New --> Rejected: 撮合拒绝 Post-only 或 FOK 解冻
   Filled --> [*]
   Canceled --> [*]
   Rejected --> [*]
 `, [
-  ['key', '每个终态都对应一次“剩余冻结归零”的账本动作。对账检查：终态订单的 remaining_frozen 必须为 0。'],
+  ['key', '每个终态都对应一次“剩余冻结归零”的账本动作。IOC、市价单未成交的部分在撮合时直接撤销，同样解冻。对账检查：终态订单的 remaining_frozen 必须为 0。'],
   ['flow', '状态由 match.events 驱动，order 服务消费事件更新订单表，settlement 消费同一事件记账。'],
   ['fail', 'order 服务和 settlement 服务消费进度不同，用户可能先看到“已成交”再看到余额变化。前端以账本推送为准。'],
   ['limit', '本项目不实现条件单（止损、止盈、OCO），作为扩展方向。']
@@ -300,6 +300,7 @@ CREATE TABLE withdrawals (
   amount      NUMERIC(36,18) NOT NULL,
   fee         NUMERIC(36,18) NOT NULL,
   status      SMALLINT NOT NULL,                     -- 1 REQUESTED 2 FROZEN 3 REVIEW 4 APPROVED 5 BROADCAST 6 DONE 7 FAILED 8 REFUNDED
+                                                     -- REVIEW 拒绝 → 8；BROADCAST 失败 → 7 → 8（解冻退回）
   risk_score  INT,
   approved_by BIGINT,
   tx_hash     VARCHAR(80),
@@ -428,7 +429,7 @@ type Command struct {
 
 type Engine struct {
 	book     *Book
-	inOffset int64 // 已处理到的输入 offset，写进快照
+	inOffset int64 // 已处理到的输入 offset，写进快照；冷启动（无快照）时初始化为 -1，否则 offset 0 的第一条命令会被跳过
 	out      *kafka.Writer
 	snapEvery int64
 }
@@ -747,7 +748,7 @@ ${art('一图看懂：数据存在哪里，谁读谁写', 660, 376, [
   ['flow', '服务之间不共享内存：命令和事件走 Kafka，余额和订单落 PostgreSQL，行情最新值放 Redis。'],
   ['key', '撮合内存状态不是真相来源：它由定期快照加 Kafka 日志重放得到。'],
   ['risk', '真实密钥和钱包私钥不放镜像和 Git，放 KMS 或 Vault（见本篇第 10 节 K8s 迁移要点）。'],
-  ['limit', '本地用 docker-compose，链端是 Sepolia 测试网或模拟器；生产会换成托管服务。']
+  ['limit', '本地用 docker-compose，链端是 Sepolia 测试网或模拟器；生产会换成托管服务。以太坊基金会曾公布 Sepolia 的预计支持期并计划推出替代网，使用前请确认当前推荐的测试网（截至 2026-11 Sepolia 仍在运行，以官方公告为准）。']
 ], '各服务进程与 PostgreSQL、快照文件、Kafka、Redis 和链的读写关系', 'm04-50')}
 ${code('YAML', `
 # docker-compose.yml（本地开发，示例；密码仅用于本地）
@@ -761,14 +762,18 @@ services:
     image: redis:7
     ports: ["6379:6379"]
   kafka:
-    image: bitnami/kafka:3.7
+    image: apache/kafka:3.7.0                                # 官方镜像；bitnami/kafka 带版本号的镜像自 2025 年起不再免费提供
     environment:
-      KAFKA_CFG_NODE_ID: "1"
-      KAFKA_CFG_PROCESS_ROLES: "broker,controller"           # KRaft 模式，无需 ZooKeeper
-      KAFKA_CFG_LISTENERS: "PLAINTEXT://:9092,CONTROLLER://:9093"
-      KAFKA_CFG_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"
-      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: "1@kafka:9093"
-      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      KAFKA_NODE_ID: "1"
+      KAFKA_PROCESS_ROLES: "broker,controller"               # KRaft 模式，无需 ZooKeeper
+      KAFKA_LISTENERS: "PLAINTEXT://:9092,CONTROLLER://:9093"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"   # 只供容器内服务访问；宿主机客户端需另加 EXTERNAL://localhost:29092 监听器
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:9093"
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: "1"
     ports: ["9092:9092"]
   ledger:     { build: ./services/ledger,     depends_on: [postgres], environment: { PG_DSN: "postgres://postgres:dev@postgres/minicex" } }
   order:      { build: ./services/order,      depends_on: [postgres, kafka, ledger] }
@@ -848,7 +853,7 @@ ${tbl(['扩展方向', '涉及知识'], [
   ['条件单：止损、止盈、OCO', '触发服务、价格源、与撮合的交互（<a href="#m04-1">M09.2</a>）'],
   ['多交易对与撮合分片', '按 symbol 分区、每分片一个撮合实例、交易对迁移'],
   ['账本分片', '按 user_id 分片、跨分片结算与中间清算账户（<a href="#m04-9">M09.10</a>）'],
-  ['储备金证明', '每日生成默克尔和树与用户验证页面（<a href="#m04-8">M09.9</a>、<a href="#lab-por">PoR 实验</a>）'],
+  ['储备金证明', '每日生成默克尔求和树（Merkle Sum Tree）与用户验证页面（<a href="#m04-8">M09.9</a>、<a href="#lab-por">PoR 实验</a>）'],
   ['MPC 签名与多链钱包', '<a href="#m03">M08 钱包</a>'],
   ['永续合约', '保证金、资金费率、强平（<a href="#m08">M11</a>）']
 ])}

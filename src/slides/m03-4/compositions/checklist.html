@@ -1,0 +1,225 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 checklist，id 前缀 ch- -->
+  <div id="root" data-composition-id="checklist" data-duration="70.17" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ch-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ch-all">
+        <g id="ch-frame" class="h">
+          <rect x="100" y="200" width="1110" height="660" rx="20" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+          <text x="130" y="170" font-size="40" font-weight="700" fill="#e8e6df">生产环境清单</text>
+        </g>
+        <!-- 六行复选框 -->
+        <rect class="h ch-box" x="130" y="258" width="44" height="44" rx="8" fill="none" stroke="#6b6f7a" stroke-width="3" />
+        <rect class="h ch-box" x="130" y="358" width="44" height="44" rx="8" fill="none" stroke="#6b6f7a" stroke-width="3" />
+        <rect class="h ch-box" x="130" y="458" width="44" height="44" rx="8" fill="none" stroke="#6b6f7a" stroke-width="3" />
+        <rect class="h ch-box" x="130" y="558" width="44" height="44" rx="8" fill="none" stroke="#6b6f7a" stroke-width="3" />
+        <rect class="h ch-box" x="130" y="658" width="44" height="44" rx="8" fill="none" stroke="#6b6f7a" stroke-width="3" />
+        <rect class="h ch-box" x="130" y="758" width="44" height="44" rx="8" fill="none" stroke="#6b6f7a" stroke-width="3" />
+        <path id="ch-k0" class="dr h" pathLength="1" d="M 140 280 L 150 292 L 166 266" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+        <path id="ch-k1" class="dr h" pathLength="1" d="M 140 380 L 150 392 L 166 366" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+        <path id="ch-k2" class="dr h" pathLength="1" d="M 140 480 L 150 492 L 166 466" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+        <path id="ch-k3" class="dr h" pathLength="1" d="M 140 580 L 150 592 L 166 566" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+        <path id="ch-k4" class="dr h" pathLength="1" d="M 140 680 L 150 692 L 166 666" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+        <path id="ch-k5" class="dr h" pathLength="1" d="M 140 780 L 150 792 L 166 766" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+        <!-- 检查项 -->
+        <text id="ch-i0" class="h" x="200" y="292" font-size="32" fill="#e8e6df">独立硬件钱包 + EIP-712 解析</text>
+        <text id="ch-i1" class="h" x="200" y="392" font-size="32" fill="#e8e6df">独立设备计算 safeTxHash</text>
+        <text id="ch-i2" class="h" x="200" y="492" font-size="32" fill="#e8e6df">默认拒绝 operation = 1</text>
+        <text id="ch-i3" class="h" x="200" y="592" font-size="32" fill="#e8e6df">交易模拟</text>
+        <text id="ch-i4" class="h" x="200" y="692" font-size="32" fill="#e8e6df">时间锁 + 告警订阅</text>
+        <text id="ch-i5" class="h" x="200" y="792" font-size="32" fill="#e8e6df">每日比对链上配置与基线</text>
+        <!-- 为什么 -->
+        <g id="ch-why">
+          <text id="ch-w0" class="h" x="760" y="292" font-size="28" fill="#8a8f99">→ 防盲签</text>
+          <text id="ch-w1" class="h" x="760" y="392" font-size="28" fill="#8a8f99">→ 防前端被篡改</text>
+          <text id="ch-w2" class="h" x="760" y="492" font-size="28" fill="#8a8f99">→ 守卫拦截或高亮</text>
+          <text id="ch-w3" class="h" x="760" y="592" font-size="28" fill="#8a8f99">→ 看余额与存储变化</text>
+          <text id="ch-w4" class="h" x="760" y="692" font-size="28" fill="#8a8f99">→ 高危操作有反应时间</text>
+          <text id="ch-w5" class="h" x="760" y="792" font-size="28" fill="#8a8f99">→ 发现未授权变更</text>
+        </g>
+
+        <!-- 右图 1：硬件钱包显示字段 -->
+        <g id="ch-d0" class="h">
+          <rect x="1340" y="300" width="420" height="340" rx="22" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <rect x="1370" y="330" width="360" height="230" rx="10" fill="#0f1117" stroke="#83C167" stroke-width="2.5" />
+          <circle cx="1500" cy="600" r="12" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <circle cx="1600" cy="600" r="12" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <text x="1550" y="710" font-size="30" fill="#83C167" text-anchor="middle">屏幕显示字段</text>
+        </g>
+        <text class="h ch-fd mono" x="1395" y="390" font-size="28" fill="#83C167">to</text>
+        <text class="h ch-fd mono" x="1395" y="450" font-size="28" fill="#83C167">value</text>
+        <text class="h ch-fd mono" x="1395" y="510" font-size="28" fill="#83C167">operation 0</text>
+
+        <!-- 右图 2：两个哈希一致 + 比对记录 -->
+        <g id="ch-d1" class="h">
+          <text x="1300" y="320" font-size="28" fill="#8a8f99">独立设备</text>
+          <text class="mono" x="1300" y="370" font-size="30" fill="#58C4DD">0x5b1e…c2d0</text>
+          <text x="1300" y="450" font-size="28" fill="#8a8f99">硬件钱包</text>
+          <text class="mono" x="1300" y="500" font-size="30" fill="#58C4DD">0x5b1e…c2d0</text>
+        </g>
+        <text id="ch-eq" class="h" x="1620" y="450" font-size="64" font-weight="700" fill="#83C167">=</text>
+        <g id="ch-rec" class="h">
+          <rect x="1300" y="560" width="440" height="200" rx="12" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+          <text x="1330" y="614" font-size="30" font-weight="700" fill="#83C167">比对记录</text>
+          <line x1="1330" y1="650" x2="1700" y2="650" stroke="#3a3f4a" stroke-width="3" />
+          <line x1="1330" y1="690" x2="1660" y2="690" stroke="#3a3f4a" stroke-width="3" />
+          <line x1="1330" y1="730" x2="1620" y2="730" stroke="#3a3f4a" stroke-width="3" />
+        </g>
+
+        <!-- 右图 3：守卫闸门 -->
+        <g id="ch-d2" class="h">
+          <rect x="1560" y="320" width="30" height="400" rx="6" fill="#58C4DD" />
+          <rect x="1620" y="320" width="30" height="400" rx="6" fill="#58C4DD" />
+          <text x="1605" y="790" font-size="30" fill="#58C4DD" text-anchor="middle">守卫</text>
+        </g>
+        <g id="ch-one" class="h">
+          <rect x="1300" y="480" width="110" height="80" rx="12" fill="#2a1616" stroke="#FC6255" stroke-width="3" />
+          <text class="mono" x="1355" y="534" font-size="40" font-weight="700" fill="#FC6255" text-anchor="middle">1</text>
+        </g>
+        <text id="ch-stop" class="h" x="1300" y="640" font-size="32" font-weight="700" fill="#FC6255">拦下</text>
+
+        <!-- 右图 4：模拟变化表 + 审批单 -->
+        <g id="ch-d3" class="h">
+          <rect x="1300" y="280" width="480" height="280" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1330" y="334" font-size="30" font-weight="700" fill="#58C4DD">模拟结果 <tspan font-weight="400" fill="#c9ccd3">· 如 Tenderly</tspan></text>
+          <line x1="1300" y1="356" x2="1780" y2="356" stroke="#3a3f4a" stroke-width="2" />
+        </g>
+        <text class="h ch-sim" x="1330" y="410" font-size="28" fill="#e8e6df">余额变化</text>
+        <text class="h ch-sim" x="1330" y="470" font-size="28" fill="#e8e6df">存储变化</text>
+        <rect class="h ch-sim" x="1520" y="388" width="220" height="28" rx="6" fill="#58C4DD" fill-opacity="0.35" />
+        <rect class="h ch-sim" x="1520" y="448" width="160" height="28" rx="6" fill="#58C4DD" fill-opacity="0.35" />
+        <g id="ch-appr" class="h">
+          <rect x="1300" y="620" width="480" height="180" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <text x="1330" y="676" font-size="30" font-weight="700" fill="#e8e6df">审批单</text>
+          <text x="1330" y="740" font-size="28" fill="#58C4DD">附：模拟结果</text>
+        </g>
+        <line id="ch-clip" class="dr h" pathLength="1" x1="1540" y1="564" x2="1540" y2="614" stroke="#58C4DD" stroke-width="4" />
+
+        <!-- 右图 5：机器人 + 配置比对 -->
+        <g id="ch-d4" class="h">
+          <rect x="1300" y="260" width="96" height="72" rx="12" fill="none" stroke="#58C4DD" stroke-width="3" />
+          <circle cx="1328" cy="296" r="8" fill="#58C4DD" /><circle cx="1368" cy="296" r="8" fill="#58C4DD" />
+          <text x="1420" y="308" font-size="30" fill="#e8e6df">告警机器人</text>
+        </g>
+        <g id="ch-cmp" class="h">
+          <text x="1300" y="420" font-size="28" fill="#8a8f99">链上</text>
+          <text x="1560" y="420" font-size="28" fill="#8a8f99">基线</text>
+          <rect x="1300" y="440" width="220" height="60" rx="8" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="1320" y="481" font-size="28" fill="#e8e6df">所有者</text>
+          <rect x="1560" y="440" width="220" height="60" rx="8" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="1580" y="481" font-size="28" fill="#e8e6df">所有者</text>
+          <rect x="1300" y="520" width="220" height="60" rx="8" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="1320" y="561" font-size="28" fill="#e8e6df">门限</text>
+          <rect x="1560" y="520" width="220" height="60" rx="8" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="1580" y="561" font-size="28" fill="#e8e6df">门限</text>
+          <rect id="ch-badc" x="1300" y="600" width="220" height="60" rx="8" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text id="ch-badt" x="1320" y="641" font-size="28" fill="#e8e6df">模块</text>
+          <rect x="1560" y="600" width="220" height="60" rx="8" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="1580" y="641" font-size="28" fill="#e8e6df">模块</text>
+          <rect x="1300" y="680" width="220" height="60" rx="8" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="1320" y="721" font-size="28" fill="#e8e6df">守卫</text>
+          <rect x="1560" y="680" width="220" height="60" rx="8" fill="#161a22" stroke="#3a3f4a" stroke-width="2" /><text x="1580" y="721" font-size="28" fill="#e8e6df">守卫</text>
+        </g>
+        <text id="ch-unauth" class="h" x="1300" y="810" font-size="30" font-weight="700" fill="#FC6255">未授权变更</text>
+
+        <!-- 动手卡 -->
+        <g id="ch-hand" class="h">
+          <rect x="1240" y="200" width="600" height="660" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1275" y="264" font-size="36" font-weight="700" fill="#58C4DD">动手 · Sepolia · 2-of-2</text>
+        </g>
+        <text class="h ch-st" x="1275" y="350" font-size="30" fill="#e8e6df">1  建 Safe</text>
+        <text class="h ch-st" x="1275" y="430" font-size="30" fill="#e8e6df">2  转一笔小额测试币</text>
+        <text class="h ch-st" x="1275" y="510" font-size="30" fill="#e8e6df">3  签名时找到：</text>
+        <text class="h ch-st mono" x="1310" y="552" font-size="28" fill="#FF9F43">operation · nonce ·<tspan x="1310" dy="38">safeTxHash</tspan></text>
+        <text class="h ch-st" x="1275" y="650" font-size="30" fill="#e8e6df">4  第二人执行</text>
+        <text class="h ch-st" x="1275" y="720" font-size="30" fill="#e8e6df">5  比对 <tspan class="mono">ExecutionSuccess</tspan> 哈希</text>
+        <text class="h ch-st" x="1275" y="810" font-size="30" fill="#e8e6df">6  进阶：离线工具再算一遍</text>
+        <path id="ch-fin" class="dr h" pathLength="1" d="M 1680 790 L 1700 812 L 1740 768" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const PULSE = (s, t, lo = 0.45) => tl.to(s, { opacity: lo, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      const CHECK = (i, t) => { tl.set("#ch-k" + i, { opacity: 1 }, t); DRAW("#ch-k" + i, t, 0.4); };
+      const ROW = (i, t) => { IN("#ch-i" + i, t, 0.5, { x: -20 }, { x: 0 }); if (i > 0) tl.to("#ch-i" + (i - 1), { fill: "#8a8f99", duration: 0.3 }, t); };
+
+      // L0 清单框 + 空复选框
+      IN("#ch-frame", at(0, 0), 0.5);
+      tl.fromTo(".ch-box", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.12 }, at(0, 0.2));
+
+      // L1 行一
+      ROW(0, at(1, 0.02));
+      IN("#ch-w0", at(1, 0.25), 0.5);
+      IN("#ch-d0", at(1, 0.35), 0.5);
+      tl.fromTo(".ch-fd", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.3 }, at(1, 0.5));
+      CHECK(0, at(1, 0.72));
+      PULSE(".ch-fd", at(1, 0.88), 0.5);
+
+      // L2 行二
+      OUT(["#ch-d0", ".ch-fd"], at(2, 0), 0.35);
+      ROW(1, at(2, 0.02));
+      IN("#ch-w1", at(2, 0.25), 0.5);
+      IN("#ch-d1", at(2, 0.3), 0.5);
+      IN("#ch-eq", at(2, 0.5), 0.4);
+      CHECK(1, at(2, 0.6));
+      IN("#ch-rec", at(2, 0.75), 0.5);
+
+      // L3 行三
+      OUT(["#ch-d1", "#ch-eq", "#ch-rec"], at(3, 0), 0.35);
+      ROW(2, at(3, 0.02));
+      IN("#ch-w2", at(3, 0.2), 0.5);
+      IN("#ch-d2", at(3, 0.25), 0.4);
+      IN("#ch-one", at(3, 0.3), 0.3);
+      tl.fromTo("#ch-one", { x: 0 }, { x: 120, duration: 0.6, ease: "power2.in" }, at(3, 0.4));
+      tl.to("#ch-one", { x: 40, duration: 0.4, ease: "power2.out" }, at(3, 0.4) + 0.6);
+      IN("#ch-stop", at(3, 0.62), 0.4);
+      CHECK(2, at(3, 0.8));
+
+      // L4 行四
+      OUT(["#ch-d2", "#ch-one", "#ch-stop"], at(4, 0), 0.35);
+      ROW(3, at(4, 0.02));
+      IN("#ch-w3", at(4, 0.15), 0.5);
+      IN("#ch-d3", at(4, 0.2), 0.4);
+      tl.fromTo(".ch-sim", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.1 }, at(4, 0.32));
+      CHECK(3, at(4, 0.6));
+      IN("#ch-appr", at(4, 0.7), 0.4); IN("#ch-clip", at(4, 0.78), 0.01); DRAW("#ch-clip", at(4, 0.78), 0.3);
+
+      // L5 行五、行六
+      OUT(["#ch-d3", ".ch-sim", "#ch-appr", "#ch-clip"], at(5, 0), 0.35);
+      ROW(4, at(5, 0.02));
+      IN("#ch-w4", at(5, 0.1), 0.5);
+      IN("#ch-d4", at(5, 0.16), 0.5);
+      CHECK(4, at(5, 0.3));
+      ROW(5, at(5, 0.45));
+      IN("#ch-w5", at(5, 0.52), 0.5);
+      IN("#ch-cmp", at(5, 0.6), 0.5);
+      tl.to("#ch-badc", { stroke: "#FC6255", fill: "#2a1616", duration: 0.3 }, at(5, 0.76));
+      tl.to("#ch-badt", { fill: "#FC6255", duration: 0.3 }, at(5, 0.76));
+      IN("#ch-unauth", at(5, 0.8), 0.4);
+      CHECK(5, at(5, 0.9));
+
+      // L6 动手练习
+      OUT(["#ch-d4", "#ch-cmp", "#ch-unauth", "#ch-why"], at(6, 0), 0.4);
+      tl.to("#ch-i5", { fill: "#8a8f99", duration: 0.3 }, at(6, 0));
+      IN("#ch-hand", at(6, 0.04), 0.5);
+      const st = gsap.utils.toArray(".ch-st"), ts = [0.09, 0.19, 0.29, 0.31, 0.44, 0.56, 0.8];
+      st.forEach((el, i) => IN(el, at(6, ts[i]), 0.5, { x: -16 }, { x: 0 }));
+      tl.set("#ch-fin", { opacity: 1 }, at(6, 0.93)); DRAW("#ch-fin", at(6, 0.93), 0.4);
+
+      tl.to("#ch-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["checklist"] = tl;
+    })();
+  </script>
+</template>

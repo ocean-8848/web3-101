@@ -1,0 +1,226 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 scanner，id 前缀 sc- -->
+  <div id="root" data-composition-id="scanner" data-duration="75.93" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="sc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs><marker id="sc-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="sc-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="sc-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="sc-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="sc-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="sc-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="sc-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker></defs>
+      <g id="sc-all" transform="translate(0,60)">
+<g id="sc-c" class="h"><rect x="790" y="220" width="1070" height="558" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><rect id="sc-chl" x="796" y="242" width="1058" height="41" fill="#58C4DD" fill-opacity="0.15" opacity="0"/><rect id="sc-chb" x="796" y="242" width="6" height="41" fill="#58C4DD" opacity="0"/><text id="sc-c1" class="mono" xml:space="preserve" x="822" y="272" font-size="28" fill="#e8e6df" opacity="0.55">cur := s.cursor.Load(ctx, s.chain)</text><text id="sc-c2" class="mono" xml:space="preserve" x="822" y="313" font-size="28" fill="#e8e6df" opacity="0.55">h := cur.Height + 1</text><text id="sc-c3" class="mono" xml:space="preserve" x="822" y="354" font-size="28" fill="#e8e6df" opacity="0.55">blk, err := s.rpc.BlockByNumber(ctx, h)</text><text id="sc-c4" class="mono" xml:space="preserve" x="822" y="395" font-size="28" fill="#e8e6df" opacity="0.55">if blk.ParentHash() != cur.Hash {</text><text id="sc-c5" class="mono" xml:space="preserve" x="822" y="436" font-size="28" fill="#e8e6df" opacity="0.55">    return s.rollback(ctx, cur.Height)</text><text id="sc-c6" class="mono" xml:space="preserve" x="822" y="477" font-size="28" fill="#e8e6df" opacity="0.55">}</text><text id="sc-c7" class="mono" xml:space="preserve" x="822" y="518" font-size="28" fill="#e8e6df" opacity="0.55">for _, tx := range blk.Transactions() { ... }</text><text id="sc-c8" class="mono" xml:space="preserve" x="822" y="559" font-size="28" fill="#e8e6df" opacity="0.55">logs, _ := s.rpc.FilterLogs(ctx, ethereum.FilterQuery{</text><text id="sc-c9" class="mono" xml:space="preserve" x="822" y="600" font-size="28" fill="#e8e6df" opacity="0.55">    BlockHash: ptr(blk.Hash()),</text><text id="sc-c10" class="mono" xml:space="preserve" x="822" y="641" font-size="28" fill="#e8e6df" opacity="0.55">    Addresses: s.tokenContracts,</text><text id="sc-c11" class="mono" xml:space="preserve" x="822" y="682" font-size="28" fill="#e8e6df" opacity="0.55">    Topics: [][]common.Hash{{transferTopic}}})</text><text id="sc-c12" class="mono" xml:space="preserve" x="822" y="723" font-size="28" fill="#e8e6df" opacity="0.55">return s.store.SaveBlock(ctx, s.chain, h, blk.Hash(), found)</text></g>
+<text id="sc-cm0" class="h" x="820" y="830" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan>高度 + 区块哈希</text>
+<text id="sc-cm1" class="h" x="820" y="830" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan>父哈希对不上：重组</text>
+<text id="sc-cm2" class="h" x="820" y="830" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan>原生 ETH</text>
+<g id="sc-b0" class="h"><rect id="sc-b0r" x="80" y="300" width="140" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="150" y="361" font-size="30" fill="#e8e6df" text-anchor="middle">#100</text></g>
+<g id="sc-b1" class="h"><rect id="sc-b1r" x="250" y="300" width="140" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="320" y="361" font-size="30" fill="#e8e6df" text-anchor="middle">#101</text></g>
+<path id="sc-l1" class="dr" pathLength="1" d="M220 350 L250 350" fill="none" stroke="#8a8f99" stroke-width="3"/>
+<g id="sc-b2" class="h"><rect id="sc-b2r" x="420" y="300" width="140" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="490" y="361" font-size="30" fill="#e8e6df" text-anchor="middle">#102</text></g>
+<path id="sc-l2" class="dr" pathLength="1" d="M390 350 L420 350" fill="none" stroke="#8a8f99" stroke-width="3"/>
+<g id="sc-b3" class="h"><rect id="sc-b3r" x="590" y="300" width="140" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="660" y="361" font-size="30" fill="#e8e6df" text-anchor="middle">#103</text></g>
+<path id="sc-l3" class="dr" pathLength="1" d="M560 350 L590 350" fill="none" stroke="#8a8f99" stroke-width="3"/>
+<g id="sc-cur" class="h"><path d="M320 418 L340 452 L300 452 Z" fill="#58C4DD"/></g>
+<text id="sc-curl" class="h" x="110" y="505" font-size="30" fill="#58C4DD">高度 <tspan class="mono">101</tspan> · 哈希 <tspan class="mono">a3f…</tspan></text>
+<g id="sc-cmp" class="h"><rect x="80" y="560" width="670" height="170" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/><text x="110" y="620" font-size="30" fill="#e8e6df">游标哈希</text><text class="mono" x="340" y="622" font-size="30" fill="#58C4DD">a3f…</text><text x="110" y="690" font-size="30" fill="#e8e6df">#102 父哈希</text></g>
+<text id="sc-pv" class="h mono" x="340" y="692" font-size="30" fill="#58C4DD" data-layout-allow-overlap>a3f…</text>
+<text id="sc-pne" class="h" x="340" y="692" font-size="36" fill="#FC6255" font-weight="700" data-layout-allow-overlap>≠</text>
+<g id="sc-ok" class="h"><circle cx="560" cy="655" r="26" fill="#83C167"/><path d="M548.3 655.5 l8.3 8.3 l15.6 -16.1" fill="none" stroke="#0f1117" stroke-width="4.3" stroke-linecap="round"/></g>
+<g id="sc-no" class="h"><circle cx="560" cy="655" r="26" fill="#FC6255"/><path d="M549.1 644.1 L570.9 665.9 M570.9 644.1 L549.1 665.9" stroke="#0f1117" stroke-width="4.3" stroke-linecap="round"/></g>
+<text id="sc-reorg" class="h" x="110" y="800" font-size="36" fill="#FC6255" font-weight="700">重组 → 回退</text>
+<path id="sc-xl" class="dr" pathLength="1" d="M490 402 L490 466" fill="none" stroke="#8a8f99" stroke-width="2.5"/>
+<g id="sc-txl" class="h"><rect x="80" y="470" width="520" height="240" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2"/></g>
+<text id="sc-tx0" class="h" x="110" y="530" font-size="30" fill="#8a8f99" xml:space="preserve"><tspan class="mono" fill="#8a8f99">tx  to = </tspan>外部地址</text>
+<text id="sc-tx1" class="h" x="110" y="596" font-size="30" fill="#e8e6df" xml:space="preserve"><tspan class="mono" fill="#8a8f99">tx  to = </tspan>监听地址</text>
+<text id="sc-tx2" class="h" x="110" y="662" font-size="30" fill="#8a8f99" xml:space="preserve"><tspan class="mono" fill="#8a8f99">tx  to = </tspan>外部地址</text>
+<rect id="sc-txh" class="h" x="92" y="554" width="496" height="56" rx="8" fill="#F0B90B" stroke="#F0B90B" stroke-width="0" fill-opacity="0.15"/>
+<g id="sc-dep" class="h"><rect x="620" y="556" width="120" height="52" rx="10" fill="#F0B90B" stroke="#F0B90B" stroke-width="2.5"/><text x="680" y="593" font-size="30" fill="#0f1117" text-anchor="middle" font-weight="700">充值</text></g>
+<g id="sc-trc" class="h"><rect x="80" y="760" width="670" height="80" rx="12" fill="none" stroke="#8a8f99" stroke-width="2" stroke-dasharray="10 7"/><text x="110" y="811" font-size="30" fill="#8a8f99">合约内部转账 → <tspan class="mono">trace</tspan> 另行处理</text></g>
+<g id="sc-wl" class="h"><rect x="80" y="500" width="230" height="80" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3"/><text class="mono" x="195" y="552" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="700">USDC</text><text x="195" y="620" font-size="28" fill="#83C167" text-anchor="middle">白名单</text></g>
+<g id="sc-fk" class="h"><rect x="80" y="680" width="230" height="80" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="195" y="732" font-size="30" fill="#e8e6df" text-anchor="middle" font-weight="700">假 USDC</text><text x="195" y="800" font-size="28" fill="#FC6255" text-anchor="middle">非白名单</text></g>
+<g id="sc-col" class="h"><rect x="560" y="580" width="190" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="655" y="641" font-size="30" fill="#58C4DD" text-anchor="middle" font-weight="700">扫描器</text></g>
+<g id="sc-ev1" class="h"><rect x="330" y="515" width="150" height="50" rx="10" fill="#18241a" stroke="#83C167" stroke-width="2.5"/><text class="mono" x="405" y="550" font-size="28" fill="#83C167" text-anchor="middle">Transfer</text></g>
+<g id="sc-ev2" class="h"><rect x="330" y="695" width="150" height="50" rx="10" fill="#2b1517" stroke="#FC6255" stroke-width="2.5"/><text class="mono" x="405" y="730" font-size="28" fill="#FC6255" text-anchor="middle">Transfer</text></g>
+<path id="sc-bar" class="dr" pathLength="1" d="M520 690 L520 770" fill="none" stroke="#FC6255" stroke-width="5"/>
+<g id="sc-fx" class="h"><circle cx="560" cy="730" r="22" fill="#FC6255"/><path d="M550.8 720.8 L569.2 739.2 M569.2 720.8 L550.8 739.2" stroke="#0f1117" stroke-width="3.7" stroke-linecap="round"/></g>
+<rect id="sc-frm" class="h" x="66" y="236" width="408" height="330" rx="18" fill="none" stroke="#83C167" stroke-width="3" stroke-dasharray="12 8"/>
+<text id="sc-frml" class="h" x="492" y="290" font-size="30" fill="#83C167" font-weight="700">同一事务</text>
+<g id="sc-db" class="h"><path d="M120 290 L120 520 A150 30 0 0 0 420 520 L420 290" fill="#14222a" stroke="#58C4DD" stroke-width="3"/><ellipse cx="270" cy="290" rx="150" ry="30" fill="#1a2a33" stroke="#58C4DD" stroke-width="3"/><text x="270" y="410" font-size="30" fill="#e8e6df" text-anchor="middle">充值记录</text><text x="270" y="470" font-size="30" fill="#58C4DD" text-anchor="middle">游标</text></g>
+<g id="sc-uk" class="h"><rect x="80" y="592" width="692" height="100" rx="10" fill="#161a22" stroke="#83C167" stroke-width="2.5"/><text x="100" y="630" font-size="28" fill="#83C167">唯一键</text><text class="mono" x="100" y="674" font-size="28" fill="#83C167" xml:space="preserve">(chain, tx_hash, log_index,</text><text id="sc-ukt" class="mono" x="570.4" y="674" font-size="28" fill="#83C167">to_address)</text></g>
+<g id="sc-d1" class="h"><rect x="560" y="380" width="120" height="50" rx="10" fill="#F0B90B" stroke="#F0B90B" stroke-width="2.5"/><text x="620" y="415" font-size="28" fill="#0f1117" text-anchor="middle" font-weight="700">充值</text></g>
+<g id="sc-d2" class="h"><rect x="560" y="380" width="120" height="50" rx="10" fill="#F0B90B" stroke="#F0B90B" stroke-width="2.5"/><text x="620" y="415" font-size="28" fill="#0f1117" text-anchor="middle" font-weight="700">充值</text></g>
+<g id="sc-d1k" class="h"><circle cx="520" cy="340" r="20" fill="#83C167"/><path d="M511.0 340.4 l6.4 6.4 l12.0 -12.4" fill="none" stroke="#0f1117" stroke-width="3.3" stroke-linecap="round"/></g>
+<g id="sc-d2x" class="h"><circle cx="716" cy="405" r="20" fill="#FC6255"/><path d="M707.6 396.6 L724.4 413.4 M724.4 396.6 L707.6 413.4" stroke="#0f1117" stroke-width="3.3" stroke-linecap="round"/></g>
+<g id="sc-ob" class="h"><rect x="80" y="700" width="250" height="150" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="205" y="742" font-size="28" fill="#58C4DD" text-anchor="middle" font-weight="700">outbox</text><line x1="80" y1="760" x2="330" y2="760" stroke="#58C4DD" stroke-width="2"/><rect x="100" y="778" width="210" height="14" rx="7" fill="#8a8f99"/><rect x="100" y="812" width="170" height="14" rx="7" fill="#8a8f99"/></g>
+<path id="sc-oa" class="dr h" pathLength="1" d="M336 790 L498 790" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#sc-mgy)"/>
+<text id="sc-oal" class="h" x="404" y="770" font-size="28" fill="#8a8f99" text-anchor="middle">异步</text>
+<g id="sc-kf" class="h"><rect x="506" y="750" width="200" height="80" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="606" y="801" font-size="30" fill="#e8e6df" text-anchor="middle">Kafka</text></g>
+<g id="sc-r" class="h"><rect x="790" y="220" width="1070" height="312" rx="12" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/><rect id="sc-rhl" x="796" y="242" width="1058" height="41" fill="#58C4DD" fill-opacity="0.15" opacity="0"/><rect id="sc-rhb" x="796" y="242" width="6" height="41" fill="#58C4DD" opacity="0"/><text id="sc-r1" class="mono" xml:space="preserve" x="822" y="272" font-size="28" fill="#e8e6df" opacity="0.55">n, credited, err := s.store.RevertHeight(...)</text><text id="sc-r2" class="mono" xml:space="preserve" x="822" y="313" font-size="28" fill="#e8e6df" opacity="0.55">if credited &gt; 0 {</text><text id="sc-r3" class="mono" xml:space="preserve" x="822" y="354" font-size="28" fill="#e8e6df" opacity="0.55">    s.alert.Critical(...)</text><text id="sc-r4" class="mono" xml:space="preserve" x="822" y="395" font-size="28" fill="#e8e6df" opacity="0.55">}</text><text id="sc-r5" class="mono" xml:space="preserve" x="822" y="436" font-size="28" fill="#e8e6df" opacity="0.55">s.metrics.Reorgs.Inc()</text><text id="sc-r6" class="mono" xml:space="preserve" x="822" y="477" font-size="28" fill="#e8e6df" opacity="0.55">return nil</text></g>
+<text id="sc-evt" class="h" x="820" y="650" font-size="30" fill="#F0B90B">→ 发出 <tspan class="mono">deposit.reverted</tspan> 事件，通知业务方</text>
+<text id="sc-cm3" class="h" x="820" y="580" font-size="30" fill="#8a8f99"><tspan class="mono">// </tspan>下一轮从 <tspan class="mono">height-1</tspan> 重新校验</text>
+<rect id="sc-rf" class="h" x="812" y="283" width="310" height="41" rx="6" fill="none" stroke="#FC6255" stroke-width="3"/>
+<g id="sc-q0" class="h"><rect id="sc-q0r" x="80" y="300" width="140" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="150" y="361" font-size="30" fill="#e8e6df" text-anchor="middle">#100</text></g>
+<g id="sc-q1" class="h"><rect id="sc-q1r" x="250" y="300" width="140" height="100" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text class="mono" x="320" y="361" font-size="30" fill="#e8e6df" text-anchor="middle">#101</text></g>
+<path id="sc-ql1" class="dr" pathLength="1" d="M220 350 L250 350" fill="none" stroke="#8a8f99" stroke-width="3"/>
+<g id="sc-q2" class="h"><rect id="sc-q2r" x="420" y="300" width="140" height="100" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text class="mono" x="490" y="361" font-size="30" fill="#e8e6df" text-anchor="middle">#102</text></g>
+<path id="sc-ql2" class="dr" pathLength="1" d="M390 350 L420 350" fill="none" stroke="#8a8f99" stroke-width="3"/>
+<g id="sc-q3" class="h"><rect id="sc-q3r" x="590" y="300" width="140" height="100" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text class="mono" x="660" y="361" font-size="30" fill="#e8e6df" text-anchor="middle">#103</text></g>
+<path id="sc-ql3" class="dr" pathLength="1" d="M560 350 L590 350" fill="none" stroke="#8a8f99" stroke-width="3"/>
+<g id="sc-qc" class="h"><path d="M660 418 L680 452 L640 452 Z" fill="#58C4DD"/></g>
+<g id="sc-qx3" class="h"><circle cx="660" cy="490" r="20" fill="#FC6255"/><path d="M651.6 481.6 L668.4 498.4 M668.4 481.6 L651.6 498.4" stroke="#0f1117" stroke-width="3.3" stroke-linecap="round"/></g>
+<g id="sc-qx2" class="h"><circle cx="490" cy="490" r="20" fill="#FC6255"/><path d="M481.6 481.6 L498.4 498.4 M498.4 481.6 L481.6 498.4" stroke="#0f1117" stroke-width="3.3" stroke-linecap="round"/></g>
+<g id="sc-qx1" class="h"><circle cx="320" cy="490" r="20" fill="#FC6255"/><path d="M311.6 481.6 L328.4 498.4 M328.4 481.6 L311.6 498.4" stroke="#0f1117" stroke-width="3.3" stroke-linecap="round"/></g>
+<g id="sc-qk" class="h"><circle cx="150" cy="490" r="20" fill="#83C167"/><path d="M141.0 490.4 l6.4 6.4 l12.0 -12.4" fill="none" stroke="#0f1117" stroke-width="3.3" stroke-linecap="round"/></g>
+<text id="sc-anc" class="h" x="200" y="500" font-size="30" fill="#83C167" font-weight="700">共同祖先</text>
+<g id="sc-rv0" class="h"><rect id="sc-rv0r" x="80" y="570" width="250" height="56" rx="10" fill="#2a2412" stroke="#F0B90B" stroke-width="2.5"/><text id="sc-rv0t" x="205" y="609" font-size="28" fill="#F0B90B" text-anchor="middle">充值 #102</text></g>
+<text id="sc-rvt0" class="h mono" x="360" y="609" font-size="28" fill="#8a8f99">reverted</text>
+<g id="sc-rv1" class="h"><rect id="sc-rv1r" x="80" y="650" width="250" height="56" rx="10" fill="#2a2412" stroke="#F0B90B" stroke-width="2.5"/><text id="sc-rv1t" x="205" y="689" font-size="28" fill="#F0B90B" text-anchor="middle">充值 #101</text></g>
+<text id="sc-rvt1" class="h mono" x="360" y="689" font-size="28" fill="#8a8f99">reverted</text>
+<g id="sc-cr" class="h"><rect id="sc-crr" x="80" y="750" width="330" height="60" rx="10" fill="#2a2412" stroke="#F0B90B" stroke-width="3"/><text id="sc-crt" x="245" y="791" font-size="30" fill="#F0B90B" text-anchor="middle" font-weight="700">已入账的充值</text></g>
+<g id="sc-p0" class="h"><rect x="80" y="850" width="400" height="90" rx="14" fill="#2b1517" stroke="#FC6255" stroke-width="3"/><text x="280" y="908" font-size="34" fill="#FC6255" text-anchor="middle" font-weight="700">P0 · 人工介入</text></g>
+<text id="sc-cfg" class="h" x="500" y="908" font-size="28" fill="#8a8f99">确认数配置不足</text>
+      </g>
+      <g id="sc-term" class="h">
+        <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">Outbox 模式 <tspan font-size="28" font-weight="400" fill="#8a8f99">Transactional Outbox</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">事件与数据同一事务写入，再异步发送</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const CODE = {};
+const HL = (name, a, b, t, col = "#58C4DD") => {
+  const P = CODE[name]; if (!P) return;
+  const y = P.y + P.top - 30 + 41 * (a - 1), h = 41 * (b - a + 1);
+  tl.to(`#${P.pf}${name}hl`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  tl.to(`#${P.pf}${name}hb`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: (i >= a && i <= b) ? 1 : 0.55, duration: 0.4 }, t);
+};
+const HLOFF = (name, t) => { const P = CODE[name]; tl.to(`#${P.pf}${name}hl, #${P.pf}${name}hb`, { opacity: 0, duration: 0.3 }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: 0.55, duration: 0.3 }, t); };
+const POP = (s, t, o) => IN(s, t, 0.45, { scale: 0.6, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(2)" });
+const PULSE = (s, t, o, k = 1.08) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, t);
+const CHG = (s, t, v, d = 0.35) => tl.to(s, { ...v, duration: d }, t);
+
+      /*ANIM*/
+CODE["c"] = {pf:"sc-", y:220, top:52, n:12};
+CODE["r"] = {pf:"sc-", y:220, top:52, n:6};
+
+// L0 游标
+IN("#sc-c", at(0, 0.03), 0.5);
+for (let i = 1; i <= 12; i++) IN(`#sc-c${i}`, at(0, 0.04) + i * 0.04, 0.3, {}, { opacity: 0.55 });
+for (let k = 0; k < 4; k++) { IN(`#sc-b${k}`, at(0, 0.08) + k * 0.1, 0.4, { y: 15 }, { y: 0 }); if (k) DRAW(`#sc-l${k}`, at(0, 0.08) + k * 0.1, 0.3); }
+HL("c", 1, 2, at(0, 0.45)); IN("#sc-cm0", at(0, 0.5), 0.4);
+IN("#sc-cur", at(0, 0.4), 0.3, { x: -170 }, { x: -170 });
+tl.to("#sc-cur", { x: 0, duration: 0.8, ease: "power2.inOut" }, at(0, 0.55));
+IN("#sc-curl", at(0, 0.7), 0.4);
+PULSE("#sc-b1", at(0, 0.88), "320 350", 1.06);
+// L1 父哈希比对 + 重组
+OUT("#sc-cm0", at(1, 0.0), 0.3); IN("#sc-cm1", at(1, 0.06), 0.4);
+HL("c", 3, 3, at(1, 0.02)); tl.to("#sc-b2r", { stroke: "#58C4DD", duration: 0.3 }, at(1, 0.06));
+IN("#sc-cmp", at(1, 0.12), 0.4); IN("#sc-pv", at(1, 0.14), 0.4);
+HL("c", 4, 4, at(1, 0.26)); POP("#sc-ok", at(1, 0.32), "560 655");
+OUT("#sc-ok, #sc-pv", at(1, 0.52), 0.3);
+tl.to("#sc-b2r", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.56)); tl.to("#sc-b2", { y: -14, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.56));
+IN("#sc-pne", at(1, 0.58), 0.3); POP("#sc-no", at(1, 0.6), "560 655");
+HL("c", 5, 6, at(1, 0.66), "#FC6255"); IN("#sc-reorg", at(1, 0.7), 0.4, { x: -15 }, { x: 0 });
+// L2 原生 ETH 交易
+OUT("#sc-cmp, #sc-pne, #sc-no, #sc-reorg, #sc-curl, #sc-cm1", at(2, 0.0), 0.4);
+tl.to("#sc-b2r", { stroke: "#58C4DD", duration: 0.3 }, at(2, 0.04));
+tl.to("#sc-cur", { x: 170, duration: 0.6, ease: "power2.inOut" }, at(2, 0.04));
+HL("c", 7, 7, at(2, 0.08)); IN("#sc-cm2", at(2, 0.1), 0.4);
+DRAW("#sc-xl", at(2, 0.1), 0.3); IN("#sc-txl", at(2, 0.12), 0.4, { scale: 0.9, svgOrigin: "340 470" }, { scale: 1, svgOrigin: "340 470" });
+for (let k = 0; k < 3; k++) IN(`#sc-tx${k}`, at(2, 0.18) + k * 0.06, 0.3);
+IN("#sc-txh", at(2, 0.4), 0.4); tl.to("#sc-tx1", { fill: "#F0B90B", duration: 0.3 }, at(2, 0.4));
+POP("#sc-dep", at(2, 0.46), "680 582");
+IN("#sc-trc", at(2, 0.72), 0.5, { y: 15 }, { y: 0 });
+PULSE("#sc-trc", at(2, 0.9), "415 800", 1.03);
+// L3 ERC-20 Transfer 事件
+OUT("#sc-xl, #sc-txl, #sc-tx0, #sc-tx1, #sc-tx2, #sc-txh, #sc-dep, #sc-trc, #sc-cm2", at(3, 0.0), 0.4);
+HL("c", 8, 11, at(3, 0.04));
+IN("#sc-col", at(3, 0.06), 0.4);
+IN("#sc-wl", at(3, 0.12), 0.4); IN("#sc-ev1", at(3, 0.24), 0.3);
+tl.to("#sc-ev1", { x: 70, y: 75, duration: 0.8, ease: "power2.inOut" }, at(3, 0.3));
+OUT("#sc-ev1", at(3, 0.3) + 0.75, 0.2); PULSE("#sc-col", at(3, 0.3) + 0.8, "655 630", 1.08);
+IN("#sc-fk", at(3, 0.55), 0.4); IN("#sc-ev2", at(3, 0.62), 0.3);
+DRAW("#sc-bar", at(3, 0.62), 0.3);
+tl.to("#sc-ev2", { x: 30, duration: 0.35, ease: "power2.in" }, at(3, 0.7)); tl.to("#sc-ev2", { x: 0, duration: 0.4, ease: "back.out(3)" }, at(3, 0.7) + 0.35);
+POP("#sc-fx", at(3, 0.74), "560 730"); tl.to("#sc-ev2", { opacity: 0.35, duration: 0.3 }, at(3, 0.85));
+// L4 同一事务 + 唯一键 + Outbox
+OUT("#sc-b0, #sc-b1, #sc-b2, #sc-b3, #sc-l1, #sc-l2, #sc-l3, #sc-cur, #sc-col, #sc-wl, #sc-fk, #sc-ev2, #sc-bar, #sc-fx", at(4, 0.0), 0.4);
+HL("c", 12, 12, at(4, 0.03), "#83C167");
+IN("#sc-db", at(4, 0.05), 0.5, { y: 20 }, { y: 0 });
+IN("#sc-frm", at(4, 0.1), 0.4); IN("#sc-frml", at(4, 0.13), 0.4);
+tl.set("#sc-ukt", { opacity: 0 }, at(4, 0)); IN("#sc-uk", at(4, 0.22), 0.4, { y: 10 }, { y: 0 });
+IN("#sc-ukt", at(4, 0.36), 0.4, { x: 12 }, { x: 0 });
+IN("#sc-d1", at(4, 0.46), 0.3); tl.to("#sc-d1", { x: -290, y: -90, duration: 0.6, ease: "power2.in" }, at(4, 0.48)); OUT("#sc-d1", at(4, 0.48) + 0.5, 0.15);
+POP("#sc-d1k", at(4, 0.48) + 0.6, "520 340");
+IN("#sc-d2", at(4, 0.53), 0.3); tl.to("#sc-d2", { x: -110, duration: 0.4, ease: "power2.in" }, at(4, 0.55));
+tl.to("#sc-d2", { x: 0, duration: 0.5, ease: "back.out(2)" }, at(4, 0.55) + 0.4); POP("#sc-d2x", at(4, 0.55) + 0.5, "716 405");
+tl.to("#sc-uk", { scale: 1.04, svgOrigin: "426 642", duration: 0.25, yoyo: true, repeat: 1 }, at(4, 0.57));
+OUT("#sc-d2, #sc-d2x, #sc-d1k, #sc-uk", at(4, 0.64), 0.3);
+IN("#sc-ob", at(4, 0.66), 0.4, { y: 15 }, { y: 0 });
+IN("#sc-term", at(4, 0.66), 0.5);
+tl.to("#sc-frm", { attr: { height: 640 }, duration: 0.6, ease: "power2.inOut" }, at(4, 0.78));
+ARROW("#sc-oa", at(4, 0.88), 0.5); IN("#sc-oal", at(4, 0.89), 0.3); IN("#sc-kf", at(4, 0.91), 0.4, { x: 20 }, { x: 0 });
+PULSE("#sc-kf", at(4, 0.96), "606 790", 1.06);
+// L5 回退
+OUT("#sc-term", at(5, 0.1), 0.4);
+OUT("#sc-c, #sc-db, #sc-frm, #sc-frml, #sc-ob, #sc-oa, #sc-oal, #sc-kf", at(5, 0.0), 0.4);
+IN("#sc-r", at(5, 0.04), 0.5);
+for (let i = 1; i <= 6; i++) IN(`#sc-r${i}`, at(5, 0.04) + i * 0.05, 0.3, {}, { opacity: 0.55 });
+for (let k = 0; k < 4; k++) { IN(`#sc-q${k}`, at(5, 0.06) + k * 0.04, 0.4); if (k) DRAW(`#sc-ql${k}`, at(5, 0.06) + k * 0.04, 0.3); }
+tl.set("#sc-qc", { x: -170 }, at(5, 0.0));
+IN("#sc-qc", at(5, 0.08), 0.3);
+IN("#sc-rv0", at(5, 0.06), 0.4); IN("#sc-rv1", at(5, 0.08), 0.4);
+POP("#sc-qx3", at(5, 0.1), "660 490");
+HL("r", 1, 1, at(5, 0.13));
+tl.to("#sc-qc", { x: -340, duration: 0.6, ease: "power2.inOut" }, at(5, 0.15)); POP("#sc-qx2", at(5, 0.2), "490 490");
+tl.to("#sc-rv0r", { stroke: "#8a8f99", duration: 0.3 }, at(5, 0.27)); tl.to("#sc-rv0t", { fill: "#8a8f99", duration: 0.3 }, at(5, 0.27)); IN("#sc-rvt0", at(5, 0.29), 0.3);
+IN("#sc-evt", at(5, 0.4), 0.4, { x: -12 }, { x: 0 });
+HL("r", 5, 6, at(5, 0.5)); IN("#sc-cm3", at(5, 0.53), 0.4);
+POP("#sc-qx1", at(5, 0.62), "320 490");
+tl.to("#sc-rv1r", { stroke: "#8a8f99", duration: 0.3 }, at(5, 0.64)); tl.to("#sc-rv1t", { fill: "#8a8f99", duration: 0.3 }, at(5, 0.64)); IN("#sc-rvt1", at(5, 0.66), 0.3);
+tl.to("#sc-qc", { x: -510, duration: 0.6, ease: "power2.inOut" }, at(5, 0.7));
+OUT("#sc-qx1, #sc-qx2, #sc-qx3", at(5, 0.78), 0.3);
+POP("#sc-qk", at(5, 0.84), "150 490");
+IN("#sc-anc", at(5, 0.86), 0.4); tl.to("#sc-q0r", { stroke: "#83C167", duration: 0.3 }, at(5, 0.86));
+// L6 已入账被回滚
+HL("r", 2, 4, at(6, 0.02), "#FC6255"); IN("#sc-rf", at(6, 0.04), 0.3);
+IN("#sc-cr", at(6, 0.1), 0.4, { x: -15 }, { x: 0 });
+tl.to("#sc-crr", { stroke: "#FC6255", fill: "#2b1517", duration: 0.3 }, at(6, 0.3)); tl.to("#sc-crt", { fill: "#FC6255", duration: 0.3 }, at(6, 0.3));
+tl.to("#sc-cr", { x: -10, duration: 0.08, yoyo: true, repeat: 5 }, at(6, 0.3));
+IN("#sc-p0", at(6, 0.45), 0.4, { scale: 1.2, svgOrigin: "280 895" }, { scale: 1, svgOrigin: "280 895" });
+IN("#sc-cfg", at(6, 0.62), 0.4);
+tl.to("#sc-p0", { opacity: 0.5, duration: 0.3, yoyo: true, repeat: 3 }, at(6, 0.72));
+
+      /*ENDANIM*/
+
+      tl.to("#sc-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#sc-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["scanner"] = tl;
+    })();
+  </script>
+</template>

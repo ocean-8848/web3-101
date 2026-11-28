@@ -1,0 +1,158 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 ops，id 前缀 op- -->
+  <div id="root" data-composition-id="ops" data-duration="53.84" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="op-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="op-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="op-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="op-all">
+        <g id="op-top">
+          <g id="op-env">
+          <!-- L0 三套环境 -->
+          <g id="op-e0" class="h"><rect x="120" y="200" width="500" height="300" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+            <text class="mono" x="160" y="268" font-size="44" font-weight="700" fill="#58C4DD">dev</text>
+            <text class="mono" x="160" y="330" font-size="32" fill="#e8e6df">Anvil</text></g>
+          <g id="op-e1" class="h"><rect x="710" y="200" width="500" height="300" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+            <text class="mono" x="750" y="268" font-size="44" font-weight="700" fill="#FF9F43">staging</text>
+            <text class="mono" x="750" y="330" font-size="32" fill="#e8e6df">Sepolia</text>
+            <text x="750" y="380" font-size="30" fill="#e8e6df"><tspan class="mono">+ MPC</tspan> 测试分片</text></g>
+          <g id="op-e2" class="h"><rect x="1300" y="200" width="500" height="300" rx="18" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+            <text class="mono" x="1340" y="268" font-size="44" font-weight="700" fill="#83C167">prod</text>
+            <text x="1340" y="330" font-size="32" fill="#e8e6df">主网</text></g>
+          <path id="op-ea0" class="dr h" pathLength="1" d="M626 350 L702 350" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#op-mgy)"/>
+          <path id="op-ea1" class="dr h" pathLength="1" d="M1216 350 L1292 350" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#op-mgy)"/>
+          <g id="op-k0" class="h"><circle cx="180" cy="445" r="18" fill="none" stroke="#58C4DD" stroke-width="5"/><path d="M198 445 L250 445 M236 445 L236 462 M248 445 L248 458" stroke="#58C4DD" stroke-width="5"/><text x="276" y="456" font-size="30" fill="#58C4DD">密钥 <tspan class="mono">1</tspan></text></g>
+          <g id="op-k1" class="h"><circle cx="770" cy="445" r="18" fill="none" stroke="#FF9F43" stroke-width="5"/><path d="M788 445 L840 445 M826 445 L826 462 M838 445 L838 458" stroke="#FF9F43" stroke-width="5"/><text x="866" y="456" font-size="30" fill="#FF9F43">密钥 <tspan class="mono">2</tspan></text></g>
+          <g id="op-k2" class="h"><circle cx="1360" cy="445" r="18" fill="none" stroke="#83C167" stroke-width="5"/><path d="M1378 445 L1430 445 M1416 445 L1416 462 M1428 445 L1428 458" stroke="#83C167" stroke-width="5"/><text x="1456" y="456" font-size="30" fill="#83C167">密钥 <tspan class="mono">3</tspan></text></g>
+          <text id="op-ind" class="h" x="1800" y="548" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="end">三套密钥完全独立</text>
+
+          </g>
+          <!-- L1 流水线 -->
+          <g id="op-p0" class="h"><rect x="120" y="600" width="250" height="86" rx="14" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="2.5"/><text x="245" y="655" font-size="32" fill="#e8e6df" text-anchor="middle">测试</text></g>
+          <text id="op-p0s" class="h" x="120" y="730" font-size="28" fill="#8a8f99">单元 / 集成 / 模糊 · <tspan class="mono">PR</tspan> 限时 <tspan class="mono">2</tspan> 分钟</text>
+          <path id="op-pa0" class="dr h" pathLength="1" d="M376 643 L456 643" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#op-mb)"/>
+          <g id="op-p1" class="h"><rect x="466" y="600" width="270" height="86" rx="14" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="2.5"/><text x="601" y="655" font-size="32" fill="#e8e6df" text-anchor="middle">构建镜像</text></g>
+          <path id="op-pa1" class="dr h" pathLength="1" d="M742 643 L822 643" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#op-mb)"/>
+          <g id="op-p2" class="h"><rect x="832" y="600" width="300" height="86" rx="14" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="2.5"/><text x="982" y="655" font-size="32" fill="#e8e6df" text-anchor="middle"><tspan class="mono">cosign</tspan> 签名</text></g>
+          <path id="op-pa2" class="dr h" pathLength="1" d="M1138 643 L1530 643" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#op-mb)"/>
+          <g id="op-p3" class="h"><rect x="1540" y="600" width="260" height="86" rx="14" fill="#58C4DD" fill-opacity="0.14" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="1670" y="655" font-size="32" fill="#e8e6df" text-anchor="middle">Argo CD</text></g>
+          <g id="op-gate" class="h"><rect x="1322" y="586" width="24" height="114" rx="6" fill="#FF9F43"/></g>
+          <text id="op-gt1" class="h" x="1334" y="742" font-size="28" fill="#FF9F43" text-anchor="middle">签名域镜像</text>
+          <text id="op-gt2" class="h" x="1334" y="782" font-size="28" font-weight="700" fill="#FF9F43" text-anchor="middle">安全负责人审批</text>
+          <!-- 三枚小图标 -->
+          <g id="op-i0" class="h"><circle cx="156" cy="880" r="34" fill="#B48EF0" fill-opacity="0.16" stroke="#B48EF0" stroke-width="2.5"/><text class="mono" x="156" y="892" font-size="30" fill="#B48EF0" text-anchor="middle">2</text>
+            <text x="210" y="868" font-size="32" fill="#e8e6df">限额 / 白名单</text><text x="210" y="912" font-size="30" fill="#B48EF0">两人 <tspan class="mono">Review</tspan></text></g>
+          <g id="op-i1" class="h"><circle cx="736" cy="880" r="34" fill="#83C167" fill-opacity="0.16" stroke="#83C167" stroke-width="2.5"/><path d="M720 880 A16 16 0 1 1 736 896" stroke="#83C167" stroke-width="3.5" fill="none"/><path d="M730 890 L736 897 L730 903" stroke="#83C167" stroke-width="3" fill="none"/>
+            <text x="790" y="868" font-size="32" fill="#e8e6df"><tspan class="mono">Vault</tspan> 动态凭证</text><text x="790" y="912" font-size="30" fill="#83C167">自动轮换</text></g>
+          <text id="op-i1s" class="h" x="790" y="962" font-size="30" fill="#FF9F43"><tspan class="mono">MPC</tspan> 分片、<tspan class="mono">HSM</tspan> 凭证不进 <tspan class="mono">K8s Secret</tspan></text>
+          <g id="op-i2" class="h"><circle cx="1336" cy="880" r="34" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2.5"/><rect id="op-drain" x="1320" y="866" width="32" height="28" rx="4" fill="#58C4DD"/>
+            <text x="1390" y="868" font-size="32" fill="#e8e6df">提币服务先排空</text><text x="1390" y="912" font-size="30" fill="#58C4DD">签名做完再升级</text></g>
+        </g>
+
+        <!-- L2 监控面板 -->
+        <g id="op-mon" class="h"><rect x="120" y="200" width="1680" height="660" rx="18" fill="#161a22" stroke="#3a3f4b" stroke-width="2"/>
+          <text x="160" y="262" font-size="32" font-weight="700" fill="#e8e6df">告警（示例名）</text></g>
+        <g id="op-m0" class="h"><rect id="op-mr0" x="140" y="296" width="1640" height="90" rx="10" fill="#58C4DD" fill-opacity="0"/><circle cx="180" cy="341" r="12" fill="#F0B90B"/>
+          <text class="mono" x="210" y="352" font-size="30" fill="#e8e6df">wallet_hot_balance_usd <tspan fill="#F0B90B">&lt; 50% | &gt; 150%</tspan></text></g>
+        <g id="op-m1" class="h"><rect id="op-mr1" x="140" y="396" width="1640" height="90" rx="10" fill="#58C4DD" fill-opacity="0"/><circle cx="180" cy="441" r="12" fill="#F0B90B"/>
+          <text class="mono" x="210" y="452" font-size="30" fill="#e8e6df">wallet_scanner_lag_blocks <tspan fill="#F0B90B">&gt; 20</tspan></text></g>
+        <g id="op-m2" class="h"><rect id="op-mr2" x="140" y="496" width="1640" height="90" rx="10" fill="#58C4DD" fill-opacity="0"/><circle cx="180" cy="541" r="12" fill="#F0B90B"/>
+          <text x="210" y="552" font-size="30" fill="#e8e6df"><tspan class="mono">wallet_nonce_gap </tspan><tspan class="mono" fill="#F0B90B">&gt; 0</tspan><tspan fill="#F0B90B"> 持续 <tspan class="mono">2</tspan> 分钟</tspan></text></g>
+        <g id="op-m3" class="h"><rect id="op-mr3" x="140" y="596" width="1640" height="90" rx="10" fill="#58C4DD" fill-opacity="0"/><circle cx="180" cy="641" r="12" fill="#F0B90B"/>
+          <text x="210" y="652" font-size="30" fill="#e8e6df"><tspan class="mono">wallet_withdrawal_oldest_age_seconds{BROADCAST} </tspan><tspan fill="#F0B90B"><tspan class="mono">&gt; 15</tspan> 分钟</tspan></text></g>
+        <path id="op-sp0" class="dr" pathLength="1" d="M1500 360 L1540 350 L1580 356 L1620 344 L1660 330 L1700 318 L1740 312" stroke="#F0B90B" stroke-width="3" fill="none"/>
+        <path id="op-sp1" class="dr" pathLength="1" d="M1500 460 L1540 456 L1580 448 L1620 440 L1660 428 L1700 418 L1740 410" stroke="#F0B90B" stroke-width="3" fill="none"/>
+        <path id="op-sp2" class="dr" pathLength="1" d="M1500 560 L1540 560 L1580 530 L1620 530 L1660 530 L1700 530 L1740 530" stroke="#F0B90B" stroke-width="3" fill="none"/>
+        <path id="op-sp3" class="dr" pathLength="1" d="M1500 666 L1540 660 L1580 650 L1620 640 L1660 630 L1700 620 L1740 612" stroke="#F0B90B" stroke-width="3" fill="none"/>
+        <text id="op-p2s" class="h" x="160" y="780" font-size="28" fill="#6b6f7a">另有：签名耗时 <tspan class="mono">P99 &gt; 10 s</tspan> · 卡单 <tspan class="mono">1</tspan> 小时 <tspan class="mono">&gt; 20</tspan> · 待审批 <tspan class="mono">&gt; 50</tspan></text>
+
+        <!-- L3 三条 P0 -->
+        <g id="op-q0" class="h"><rect x="160" y="230" width="1600" height="170" rx="16" fill="#FC6255" fill-opacity="0.1" stroke="#FC6255" stroke-width="3"/>
+          <rect x="196" y="275" width="110" height="80" rx="12" fill="#FC6255"/><text class="mono" x="251" y="329" font-size="40" font-weight="700" fill="#0f1117" text-anchor="middle">P0</text>
+          <text x="350" y="330" font-size="40" font-weight="700" fill="#e8e6df">已入账的充值被重组回滚</text></g>
+        <g id="op-q1" class="h"><rect x="160" y="450" width="1600" height="170" rx="16" fill="#FC6255" fill-opacity="0.1" stroke="#FC6255" stroke-width="3"/>
+          <rect x="196" y="495" width="110" height="80" rx="12" fill="#FC6255"/><text class="mono" x="251" y="549" font-size="40" font-weight="700" fill="#0f1117" text-anchor="middle">P0</text>
+          <text x="350" y="550" font-size="40" font-weight="700" fill="#e8e6df">对账差异 <tspan class="mono">&gt; 0.01%</tspan> <tspan fill="#FC6255">→ 自动熔断提币</tspan></text></g>
+        <g id="op-q2" class="h"><rect x="160" y="670" width="1600" height="170" rx="16" fill="#FC6255" fill-opacity="0.1" stroke="#FC6255" stroke-width="3"/>
+          <rect x="196" y="715" width="110" height="80" rx="12" fill="#FC6255"/><text class="mono" x="251" y="769" font-size="40" font-weight="700" fill="#0f1117" text-anchor="middle">P0</text>
+          <text x="350" y="770" font-size="40" font-weight="700" fill="#e8e6df">签名域拒绝“与已批准提币不一致”</text>
+          <text id="op-q2w" class="h" x="990" y="770" font-size="40" font-weight="700" fill="#FC6255">→ 可能入侵</text></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const PULSE = (s, t, origin, sc = 1.06) => tl.to(s, { scale: sc, svgOrigin: origin, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+
+      // L0 三套环境 + 三把钥匙
+      tl.set("#op-env", { y: 200 }, 0);
+      IN("#op-e0", at(0, 0.05), 0.5, { y: 20 }, { y: 0 });
+      ARROW("#op-ea0", at(0, 0.2), 0.4);
+      IN("#op-e1", at(0, 0.24), 0.5, { y: 20 }, { y: 0 });
+      ARROW("#op-ea1", at(0, 0.5), 0.4);
+      IN("#op-e2", at(0, 0.54), 0.5, { y: 20 }, { y: 0 });
+      ["#op-k0", "#op-k1", "#op-k2"].forEach((s, i) => IN(s, at(0, 0.72 + 0.05 * i), 0.4, { x: -14 }, { x: 0 }));
+      IN("#op-ind", at(0, 0.8), 0.4);
+      OUT("#op-ind", at(1, 0.0), 0.3);
+      tl.to("#op-env", { y: 0, duration: 0.6, ease: "power2.inOut" }, at(1, 0.0));
+      IN("#op-p0", at(1, 0.05), 0.4); IN("#op-p0s", at(1, 0.06), 0.4);
+      ARROW("#op-pa0", at(1, 0.07), 0.3); IN("#op-p1", at(1, 0.08), 0.4);
+      ARROW("#op-pa1", at(1, 0.1), 0.3); IN("#op-p2", at(1, 0.11), 0.4);
+      PULSE("#op-p2", at(1, 0.14), "982 643");
+      ARROW("#op-pa2", at(1, 0.16), 0.5); IN("#op-p3", at(1, 0.19), 0.4);
+      IN("#op-gate", at(1, 0.22), 0.4, { y: -30 }, { y: 0 });
+      IN("#op-gt1", at(1, 0.24), 0.4); IN("#op-gt2", at(1, 0.27), 0.4);
+      PULSE("#op-gate", at(1, 0.32), "1334 643", 1.12);
+      IN("#op-i0", at(1, 0.38), 0.4, { y: 14 }, { y: 0 });
+      PULSE("#op-i0", at(1, 0.44), "156 880", 1.1);
+      IN("#op-i1", at(1, 0.52), 0.4, { y: 14 }, { y: 0 });
+      tl.to("#op-i1 path", { rotation: 360, svgOrigin: "736 880", duration: 1.2, ease: "none" }, at(1, 0.54));
+      IN("#op-i1s", at(1, 0.66), 0.4, { y: 10 }, { y: 0 });
+      IN("#op-i2", at(1, 0.8), 0.4, { y: 14 }, { y: 0 });
+      tl.to("#op-drain", { attr: { height: 0, y: 894 }, duration: 1.0, ease: "power1.inOut" }, at(1, 0.84));
+
+      OUT("#op-top", at(2, 0.0), 0.4);
+      IN("#op-mon", at(2, 0.04), 0.5);
+      for (let k = 0; k < 4; k++) {
+        const t = at(2, 0.1 + 0.2 * k);
+        IN("#op-m" + k, t, 0.4, { x: -16 }, { x: 0 });
+        tl.to("#op-mr" + k, { attr: { "fill-opacity": 0.15 }, duration: 0.4 }, t + 0.2);
+        DRAW("#op-sp" + k, t + 0.2, 0.8);
+        if (k > 0) tl.to("#op-mr" + (k - 1), { attr: { "fill-opacity": 0 }, duration: 0.4 }, t + 0.2);
+      }
+      IN("#op-p2s", at(2, 0.52), 0.4);
+
+      // L3 三条 P0
+      OUT(["#op-mon", "#op-m0", "#op-m1", "#op-m2", "#op-m3", "#op-sp0", "#op-sp1", "#op-sp2", "#op-sp3", "#op-p2s"], at(3, 0.0), 0.4);
+      IN("#op-q0", at(3, 0.08), 0.5, { x: -30 }, { x: 0 });
+      PULSE("#op-q0", at(3, 0.2), "960 315", 1.02);
+      IN("#op-q1", at(3, 0.32), 0.5, { x: -30 }, { x: 0 });
+      PULSE("#op-q1", at(3, 0.48), "960 535", 1.02);
+      IN("#op-q2", at(3, 0.6), 0.5, { x: -30 }, { x: 0 });
+      IN("#op-q2w", at(3, 0.84), 0.4, { x: -12 }, { x: 0 });
+      tl.to("#op-q2 > rect", { attr: { "fill-opacity": 0.26 }, duration: 0.4 }, at(3, 0.7));
+      PULSE("#op-q2", at(3, 0.76), "960 755", 1.03);
+      PULSE("#op-q2", at(3, 0.92), "960 755", 1.03);
+
+      tl.to("#op-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["ops"] = tl;
+    })();
+  </script>
+</template>

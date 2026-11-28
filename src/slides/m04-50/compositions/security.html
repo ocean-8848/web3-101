@@ -1,0 +1,91 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 security，id 前缀 se- -->
+  <div id="root" data-composition-id="security" data-duration="64.9" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="se-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="se-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="se-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="se-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="se-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="se-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="se-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="se-my" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker><marker id="se-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker>
+      </defs>
+      <g id="se-all">
+        <g id="se-wall"><g id="se-w0" class="h"><g id="se-i0"><g id="se-f0"><rect x="120" y="230" width="263" height="240" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="251" y="350" font-size="72" fill="#FF9F43" text-anchor="middle" font-weight="700">S</text><text x="251" y="414" font-size="30" fill="#e8e6df" text-anchor="middle">仿冒</text></g><g id="se-b0" class="h"><rect x="120" y="230" width="263" height="240" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="251" y="274" font-size="28" fill="#8a8f99" text-anchor="middle">S · 仿冒</text><text x="251" y="322" font-size="28" fill="#83C167" text-anchor="middle">最小权限</text><text x="251" y="362" font-size="28" fill="#83C167" text-anchor="middle">IP 白名单</text><text x="251" y="402" font-size="28" fill="#83C167" text-anchor="middle">HMAC +</text><text x="251" y="442" font-size="28" fill="#83C167" text-anchor="middle">recvWindow</text></g></g></g><text id="se-v0" class="h" x="251" y="512" font-size="28" fill="#8a8f99" text-anchor="middle">错 IP → 401</text><g id="se-w1" class="h"><g id="se-i1"><g id="se-f1"><rect x="403" y="230" width="263" height="240" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="534" y="350" font-size="72" fill="#FF9F43" text-anchor="middle" font-weight="700">T</text><text x="534" y="414" font-size="30" fill="#e8e6df" text-anchor="middle">篡改</text></g><g id="se-b1" class="h"><rect x="403" y="230" width="263" height="240" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="534" y="274" font-size="28" fill="#8a8f99" text-anchor="middle">T · 篡改</text><text x="534" y="322" font-size="28" fill="#83C167" text-anchor="middle">签名覆盖</text><text x="534" y="362" font-size="28" fill="#83C167" text-anchor="middle">全部参数</text><text x="534" y="402" font-size="28" fill="#83C167" text-anchor="middle">全站 TLS</text></g></g></g><text id="se-v1" class="h" x="534" y="512" font-size="28" fill="#8a8f99" text-anchor="middle">改参数 → 签名失败</text><g id="se-w2" class="h"><g id="se-i2"><g id="se-f2"><rect x="686" y="230" width="263" height="240" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="817" y="350" font-size="72" fill="#FF9F43" text-anchor="middle" font-weight="700">R</text><text x="817" y="414" font-size="30" fill="#e8e6df" text-anchor="middle">抵赖</text></g><g id="se-b2" class="h"><rect x="686" y="230" width="263" height="240" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="817" y="274" font-size="28" fill="#8a8f99" text-anchor="middle">R · 抵赖</text><text x="817" y="322" font-size="28" fill="#83C167" text-anchor="middle">日志含</text><text x="817" y="362" font-size="28" fill="#83C167" text-anchor="middle">签名与 IP</text><text x="817" y="402" font-size="28" fill="#83C167" text-anchor="middle">订单可追溯</text></g></g></g><text id="se-v2" class="h" x="817" y="512" font-size="28" fill="#8a8f99" text-anchor="middle">审计抽查</text><g id="se-w3" class="h"><g id="se-i3"><g id="se-f3"><rect x="969" y="230" width="263" height="240" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1100" y="350" font-size="72" fill="#FF9F43" text-anchor="middle" font-weight="700">I</text><text x="1100" y="414" font-size="30" fill="#e8e6df" text-anchor="middle">信息泄露</text></g><g id="se-b3" class="h"><rect x="969" y="230" width="263" height="240" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="1100" y="274" font-size="28" fill="#8a8f99" text-anchor="middle">I · 信息泄露</text><text x="1100" y="322" font-size="28" fill="#83C167" text-anchor="middle">日志脱敏</text><text x="1100" y="362" font-size="28" fill="#83C167" text-anchor="middle">Secret</text><text x="1100" y="402" font-size="28" fill="#83C167" text-anchor="middle">只存密文</text></g></g></g><text id="se-v3" class="h" x="1100" y="512" font-size="28" fill="#8a8f99" text-anchor="middle">日志无敏感字段</text><g id="se-w4" class="h"><g id="se-i4"><g id="se-f4"><rect x="1252" y="230" width="263" height="240" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1383" y="350" font-size="72" fill="#FF9F43" text-anchor="middle" font-weight="700">D</text><text x="1383" y="414" font-size="30" fill="#e8e6df" text-anchor="middle">拒绝服务</text></g><g id="se-b4" class="h"><rect x="1252" y="230" width="263" height="240" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="1383" y="274" font-size="28" fill="#8a8f99" text-anchor="middle">D · 拒绝服务</text><text x="1383" y="322" font-size="28" fill="#83C167" text-anchor="middle">令牌桶限流</text><text x="1383" y="362" font-size="28" fill="#83C167" text-anchor="middle">每 IP 连接上限</text><text x="1383" y="402" font-size="28" fill="#83C167" text-anchor="middle">订单数上限</text></g></g></g><text id="se-v4" class="h" x="1383" y="512" font-size="28" fill="#8a8f99" text-anchor="middle">超限 → 429</text><g id="se-w5" class="h"><g id="se-i5"><g id="se-f5"><rect x="1535" y="230" width="263" height="240" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text x="1666" y="350" font-size="72" fill="#FF9F43" text-anchor="middle" font-weight="700">E</text><text x="1666" y="414" font-size="30" fill="#e8e6df" text-anchor="middle">权限提升</text></g><g id="se-b5" class="h"><rect x="1535" y="230" width="263" height="240" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="1666" y="274" font-size="28" fill="#8a8f99" text-anchor="middle">E · 权限提升</text><text x="1666" y="322" font-size="28" fill="#83C167" text-anchor="middle">独立域名</text><text x="1666" y="362" font-size="28" fill="#83C167" text-anchor="middle">只走内网</text><text x="1666" y="402" font-size="28" fill="#83C167" text-anchor="middle">双人审批</text><text x="1666" y="442" font-size="28" fill="#83C167" text-anchor="middle">RBAC</text></g></g></g><text id="se-v5" class="h" x="1666" y="512" font-size="28" fill="#8a8f99" text-anchor="middle">越权测试</text><g id="se-w6" class="h"><g id="se-i6"><g id="se-f6"><rect x="120" y="540" width="405" height="180" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="322" y="644" font-size="36" fill="#F0B90B" text-anchor="middle" font-weight="700">超卖</text></g><g id="se-b6" class="h"><rect x="120" y="540" width="405" height="180" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="322" y="588" font-size="28" fill="#8a8f99" text-anchor="middle">超卖</text><text x="322" y="640" font-size="28" fill="#83C167" text-anchor="middle">条件更新 + CHECK</text></g></g></g><text id="se-v6" class="h" x="322" y="762" font-size="28" fill="#8a8f99" text-anchor="middle">并发 100 单</text><g id="se-w7" class="h"><g id="se-i7"><g id="se-f7"><rect x="545" y="540" width="405" height="180" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="747" y="644" font-size="36" fill="#F0B90B" text-anchor="middle" font-weight="700">重复入账</text></g><g id="se-b7" class="h"><rect x="545" y="540" width="405" height="180" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="747" y="588" font-size="28" fill="#8a8f99" text-anchor="middle">重复入账</text><text x="747" y="640" font-size="28" fill="#83C167" text-anchor="middle">唯一键 · biz 唯一</text></g></g></g><text id="se-v7" class="h" x="747" y="762" font-size="28" fill="#8a8f99" text-anchor="middle">重放测试</text><g id="se-w8" class="h"><g id="se-i8"><g id="se-f8"><rect x="970" y="540" width="405" height="180" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="1172" y="644" font-size="36" fill="#F0B90B" text-anchor="middle" font-weight="700">假充值</text></g><g id="se-b8" class="h"><rect x="970" y="540" width="405" height="180" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="1172" y="588" font-size="28" fill="#8a8f99" text-anchor="middle">假充值</text><text x="1172" y="640" font-size="28" fill="#83C167" text-anchor="middle">合约白名单</text><text x="1172" y="684" font-size="28" fill="#83C167" text-anchor="middle">忽略 Removed</text></g></g></g><text id="se-v8" class="h" x="1172" y="762" font-size="28" fill="#8a8f99" text-anchor="middle">测试网假币</text><g id="se-w9" class="h"><g id="se-i9"><g id="se-f9"><rect x="1395" y="540" width="405" height="180" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="1597" y="644" font-size="36" fill="#F0B90B" text-anchor="middle" font-weight="700">提币重放</text></g><g id="se-b9" class="h"><rect x="1395" y="540" width="405" height="180" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="1597" y="588" font-size="28" fill="#8a8f99" text-anchor="middle">提币重放</text><text x="1597" y="640" font-size="28" fill="#83C167" text-anchor="middle">状态机 + 同 nonce</text></g></g></g><text id="se-v9" class="h" x="1597" y="762" font-size="28" fill="#8a8f99" text-anchor="middle">故障注入</text><g id="se-w10" class="h"><g id="se-i10"><g id="se-f10"><rect x="120" y="790" width="1680" height="100" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="960" y="853" font-size="36" fill="#FC6255" text-anchor="middle" font-weight="700">内部作恶：运维直接改余额表</text></g><g id="se-b10" class="h"><rect x="120" y="790" width="1680" height="100" rx="14" fill="#18201a" stroke="#83C167" stroke-width="3" /><text x="960" y="852" font-size="32" fill="#83C167" text-anchor="middle">最小权限账号 · DBA 审计 · 不变量告警</text></g></g></g><text id="se-v10" class="h" x="960" y="932" font-size="28" fill="#8a8f99" text-anchor="middle">每日快照对账</text></g>
+      </g>
+      <g id="se-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">威胁模型 <tspan font-size="28" font-weight="400" fill="#8a8f99">Threat Model</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">列出攻击者、攻击面与对应防护</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+      const BLU="#58C4DD", GLD="#F0B90B", RED="#FC6255", ORG="#FF9F43", GRN="#83C167", PUR="#B48EF0", GRY="#8a8f99", TXT="#e8e6df", DIM="#6b6f7a", PNL="#161a22";
+      const PULSE = (s, t, o, sc = 1.06) => tl.to(s, { scale: sc, svgOrigin: o, duration: 0.75, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      const COL = (s, c, t, d = 0.4) => tl.to(s, { stroke: c, duration: d }, t);
+      const FILL = (s, c, t, d = 0.4) => tl.to(s, { fill: c, duration: d }, t);
+      const POP = (s, t, o, d = 0.45) => tl.fromTo(s, { opacity: 0, scale: 0.6, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: d, ease: "back.out(2)" }, t);
+      const FLIP = (inner, front, back, t, o) => {
+        tl.to(front, { opacity: 0, duration: 0.25, ease: "power2.in" }, t);
+        tl.fromTo(back, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out", immediateRender: false }, t + 0.25);
+      };
+IN("#se-term", at(0, 0.02), 0.5);
+IN("#se-w0", at(0, 0.100), 0.4, {y:16}, {y:0});
+IN("#se-w1", at(0, 0.200), 0.4, {y:16}, {y:0});
+IN("#se-w2", at(0, 0.300), 0.4, {y:16}, {y:0});
+IN("#se-w3", at(0, 0.400), 0.4, {y:16}, {y:0});
+IN("#se-w4", at(0, 0.500), 0.4, {y:16}, {y:0});
+IN("#se-w5", at(0, 0.600), 0.4, {y:16}, {y:0});
+tl.fromTo(["#se-f0 text","#se-f1 text","#se-f2 text","#se-f3 text","#se-f4 text","#se-f5 text"], {opacity:0.2}, {opacity:1, duration:0.3, stagger:0.1, immediateRender:false}, at(0, 0.5));
+OUT("#se-term", at(1, 0), 0.4);
+FLIP("#se-i0", "#se-f0", "#se-b0", at(1, 0.08), "251 350");
+FLIP("#se-i1", "#se-f1", "#se-b1", at(1, 0.38), "534 350");
+FLIP("#se-i2", "#se-f2", "#se-b2", at(1, 0.68), "817 350");
+PULSE("#se-w0", at(1, 0.3), "251 350", 1.03); PULSE("#se-w1", at(1, 0.6), "534 350", 1.03); PULSE("#se-w2", at(1, 0.9), "817 350", 1.03);
+FLIP("#se-i3", "#se-f3", "#se-b3", at(2, 0.04), "1100 350");
+FLIP("#se-i4", "#se-f4", "#se-b4", at(2, 0.34), "1383 350");
+FLIP("#se-i5", "#se-f5", "#se-b5", at(2, 0.64), "1666 350");
+PULSE("#se-w3", at(2, 0.25), "1100 350", 1.03); PULSE("#se-w4", at(2, 0.55), "1383 350", 1.03); PULSE("#se-w5", at(2, 0.85), "1666 350", 1.03);
+IN("#se-w6", at(3, 0.020), 0.4, {y:16}, {y:0});
+IN("#se-w7", at(3, 0.060), 0.4, {y:16}, {y:0});
+IN("#se-w8", at(3, 0.100), 0.4, {y:16}, {y:0});
+IN("#se-w9", at(3, 0.140), 0.4, {y:16}, {y:0});
+FLIP("#se-i6", "#se-f6", "#se-b6", at(3, 0.18), "322 630");
+FLIP("#se-i7", "#se-f7", "#se-b7", at(3, 0.38), "747 630");
+FLIP("#se-i8", "#se-f8", "#se-b8", at(3, 0.58), "1172 630");
+FLIP("#se-i9", "#se-f9", "#se-b9", at(3, 0.78), "1597 630");
+IN("#se-w10", at(4, 0.04), 0.5, {y:16}, {y:0}); PULSE("#se-w10", at(4, 0.2), "960 840", 1.02);
+FLIP("#se-i10", "#se-f10", "#se-b10", at(4, 0.42), "960 840");
+PULSE("#se-w10", at(4, 0.8), "960 840", 1.02);
+tl.fromTo(["#se-v0","#se-v1","#se-v2","#se-v3","#se-v4","#se-v5","#se-v6","#se-v7","#se-v8","#se-v9","#se-v10"], {opacity:0, y:-10}, {opacity:1, y:0, duration:0.3, stagger:0.12}, at(5, 0.04));
+tl.to("#se-v1", {scale:1.12, svgOrigin:"534 502", fill:GRN, duration:0.5}, at(5, 0.4));
+tl.to(["#se-v0","#se-v2","#se-v3","#se-v4","#se-v5","#se-v6","#se-v7","#se-v8","#se-v9","#se-v10"], {fill:TXT, duration:0.4, stagger:0.06}, at(5, 0.66));
+
+      tl.to("#se-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#se-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["security"] = tl;
+    })();
+  </script>
+</template>

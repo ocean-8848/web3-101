@@ -1,0 +1,261 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 flow，id 前缀 fl- -->
+  <div id="root" data-composition-id="flow" data-duration="88.92" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="fl-aW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="fl-aB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="fl-aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="fl-aGr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="fl-aGy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="fl-all">
+        <!-- 顶部提币卡 + 状态胶囊 -->
+        <g id="fl-card" class="h">
+          <rect x="700" y="100" width="400" height="100" rx="16" fill="rgba(240,185,11,0.1)" stroke="#F0B90B" stroke-width="3" />
+          <text class="mono" x="900" y="166" font-size="44" font-weight="700" fill="#F0B90B" text-anchor="middle">USDT 5000</text>
+        </g>
+        <g id="fl-cap" class="h">
+          <rect id="fl-capr" x="1130" y="125" width="180" height="52" rx="26" fill="#8a8f99" />
+          <text id="fl-cs0" x="1220" y="162" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">已接收</text>
+          <text id="fl-cs1" class="h" x="1220" y="162" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">已签名</text>
+          <text id="fl-cs2" class="h" x="1220" y="162" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">已广播</text>
+          <text id="fl-cs3" class="h" x="1220" y="162" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">已确认</text>
+          <text id="fl-cs4" class="h" x="1220" y="162" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">签名中</text>
+          <text id="fl-cs5" class="h" x="1220" y="162" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">风控中</text>
+          <text id="fl-cs6" class="h" x="1220" y="162" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">已批准</text>
+        </g>
+        <g id="fl-heads"></g>
+        <g id="fl-lines"></g>
+        <g id="fl-pg1"></g>
+        <g id="fl-pg2"></g>
+        <g id="fl-ticketm"><g id="fl-ticket" class="h">
+          <rect x="0" y="0" width="56" height="36" rx="5" fill="#FF9F43" />
+          <line x1="10" y1="12" x2="46" y2="12" stroke="#0f1117" stroke-width="3" />
+          <line x1="10" y1="24" x2="36" y2="24" stroke="#0f1117" stroke-width="3" />
+        </g></g>
+        <text id="fl-chk" class="h" x="1200" y="452" font-size="30" font-weight="700" fill="#83C167">✓ ✓ ✓</text>
+        <!-- L6 两个故障点 -->
+        <g id="fl-fail">
+          <g id="fl-fa" class="h">
+            <rect x="140" y="380" width="780" height="560" rx="20" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+            <text x="180" y="450" font-size="42" font-weight="700" fill="#FF9F43">签名超时</text>
+          </g>
+          <g id="fl-fa1" class="h">
+            <rect x="180" y="490" width="170" height="54" rx="27" fill="#FF9F43" />
+            <text x="265" y="528" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">签名中</text>
+            <rect x="374" y="496" width="12" height="42" rx="3" fill="#8a8f99" />
+            <rect x="396" y="496" width="12" height="42" rx="3" fill="#8a8f99" />
+          </g>
+          <path id="fl-fa2" class="dr h" pathLength="1" d="M400 710 A70 70 0 1 1 366 650" stroke="#83C167" stroke-width="6" fill="none" marker-end="url(#fl-aGr)" />
+          <text id="fl-fa3" class="h" x="450" y="694" font-size="32" fill="#83C167">同一 <tspan class="mono">nonce</tspan></text>
+          <text id="fl-fa4" class="h" x="450" y="742" font-size="32" fill="#83C167">同一交易内容</text>
+          <g id="fl-fa5" class="h">
+            <rect x="180" y="830" width="210" height="66" rx="12" fill="none" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="8 6" />
+            <text x="285" y="874" font-size="30" fill="#FC6255" text-anchor="middle">新 <tspan class="mono">nonce</tspan></text>
+          </g>
+          <g id="fl-fa6" class="h">
+            <line x1="414" y1="840" x2="456" y2="882" stroke="#FC6255" stroke-width="6" />
+            <line x1="456" y1="840" x2="414" y2="882" stroke="#FC6255" stroke-width="6" />
+          </g>
+          <g id="fl-fb" class="h">
+            <rect x="1000" y="380" width="780" height="560" rx="20" fill="#161a22" stroke="#FC6255" stroke-width="2.5" />
+            <text x="1040" y="450" font-size="42" font-weight="700" fill="#FC6255">广播失败</text>
+          </g>
+          <g id="fl-fb1" class="h">
+            <path d="M1050 520 V590 A60 16 0 0 0 1170 590 V520" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <ellipse cx="1110" cy="520" rx="60" ry="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text x="1200" y="572" font-size="32" fill="#e8e6df"><tspan class="mono">raw</tspan> 已落库</text>
+          </g>
+          <path id="fl-fb2" class="dr h" pathLength="1" d="M1110 614 L1110 724" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#fl-aB)" />
+          <g id="fl-fb3" class="h">
+            <rect x="1040" y="732" width="300" height="66" rx="33" fill="rgba(88,196,221,0.1)" stroke="#58C4DD" stroke-width="3" />
+            <text x="1190" y="776" font-size="32" fill="#58C4DD" text-anchor="middle">再广播同一笔</text>
+          </g>
+          <text id="fl-fb4" class="h" x="1380" y="777" font-size="38" font-weight="700" fill="#83C167">幂等安全 ✓</text>
+        </g>
+        <!-- L7 审批凭证绑定摘要 -->
+        <g id="fl-vm"><g id="fl-v" class="h">
+          <rect x="300" y="330" width="700" height="540" rx="20" fill="rgba(255,159,67,0.08)" stroke="#FF9F43" stroke-width="4" />
+          <text x="350" y="412" font-size="46" font-weight="700" fill="#FF9F43">审批凭证</text>
+          <line x1="350" y1="440" x2="950" y2="440" stroke="#FF9F43" stroke-width="2" stroke-dasharray="8 8" />
+          <text id="fl-v0" class="h" x="350" y="500" font-size="36" fill="#e8e6df">· 金额</text>
+          <text id="fl-v1" class="h" x="350" y="580" font-size="36" fill="#e8e6df">· 地址</text>
+          <text id="fl-v2" class="h" x="350" y="660" font-size="36" fill="#e8e6df">· 链</text>
+          <text id="fl-v3" class="h" x="350" y="740" font-size="36" fill="#e8e6df">· 业务 ID</text>
+          <text id="fl-v4" class="h" x="560" y="740" font-size="30" fill="#8a8f99">与 <tspan class="mono">nonce</tspan> 无关</text>
+        </g></g>
+        <g id="fl-other" class="h">
+          <rect x="1360" y="440" width="400" height="300" rx="18" fill="rgba(240,185,11,0.08)" stroke="#F0B90B" stroke-width="3" />
+          <text x="1560" y="604" font-size="38" font-weight="700" fill="#F0B90B" text-anchor="middle">另一笔交易</text>
+        </g>
+        <g id="fl-vx" class="h">
+          <line x1="1258" y1="578" x2="1302" y2="622" stroke="#FC6255" stroke-width="7" />
+          <line x1="1302" y1="578" x2="1258" y2="622" stroke="#FC6255" stroke-width="7" />
+        </g>
+        <text id="fl-vbad" class="h" x="1560" y="820" font-size="38" font-weight="700" fill="#FC6255" text-anchor="middle">摘要不符</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, p, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; (typeof p === "string" ? document.querySelector(p) : p).appendChild(e); return e; };
+      const BLUE = "#58C4DD", ORG = "#FF9F43", GRN = "#83C167", GRY = "#8a8f99", PUR = "#B48EF0", WH = "#e8e6df";
+      const MK = { [BLUE]: "fl-aB", [ORG]: "fl-aO", [GRN]: "fl-aGr", [GRY]: "fl-aGy", [WH]: "fl-aW" };
+      // 八条生命线
+      const X = [150, 384, 619, 853, 1087, 1322, 1556, 1790];
+      const HEADS = [["业务后端", PUR, 0], ["wallet-api", BLUE, 1], ["withdraw-svc", BLUE, 1], ["risk-svc", BLUE, 1], ["nonce 分配器", BLUE, 0], ["signer-gateway", ORG, 1], ["MPC 节点", ORG, 0], ["RPC 网关", GRY, 0]];
+      HEADS.forEach(([n, c, mono], i) => {
+        mk("text", { id: `fl-h${i}`, class: mono ? "mono h" : "h", x: X[i], y: 272, "font-size": 28, "font-weight": 700, fill: c, "text-anchor": "middle" }, "#fl-heads", n);
+        mk("line", { id: `fl-l${i}`, class: "dr h", pathLength: 1, x1: X[i], y1: 292, x2: X[i], y2: 1000, stroke: "#3a3f4a", "stroke-width": 2.5 }, "#fl-lines");
+      });
+      const est = (s, fs) => { let w = 0; for (const ch of s) w += ch.charCodeAt(0) > 0x2e80 ? fs : fs * 0.6; return w; };
+      // 消息：[页, 行, 起点, 终点, 文字, 颜色, 虚线回传]
+      const MSG = [
+        [1, 0, 0, 1, "CreateWithdrawal requestId", WH, 0],
+        [1, 1, 1, 1, "幂等检查 · 插入 RECEIVED", BLUE, 0],
+        [1, 2, 1, 0, "withdrawalId", GRY, 1],
+        [1, 3, 2, 3, "白名单 · 限额 · KYT", WH, 0],
+        [1, 4, 3, 2, "需要 1 级人工审批", ORG, 1],
+        [1, 5, 3, 3, "批准 → 审批凭证", ORG, 0],
+        [1, 6, 2, 4, "热钱包地址 2", WH, 0],
+        [1, 7, 4, 2, "nonce 1873", GRY, 1],
+        [1, 8, 2, 2, "构造交易 · 估算 gas · standard 档", BLUE, 0],
+        [2, 0, 2, 5, "交易 + 审批凭证", ORG, 0],
+        [2, 1, 5, 5, "解码 · 校验凭证 · 白名单 · 限额", ORG, 0],
+        [2, 2, 5, 6, "协同签名 digest", ORG, 0],
+        [2, 3, 6, 5, "r s v", GRY, 1],
+        [2, 4, 5, 2, "raw transaction", GRY, 1],
+        [2, 5, 2, 2, "落库 raw + tx_hash → SIGNED", BLUE, 0],
+        [2, 6, 2, 7, "eth_sendRawTransaction", WH, 0],
+        [2, 7, 7, 2, "status 1 · 确认数达到", GRY, 1],
+        [2, 8, 2, 0, "withdrawal.confirmed", GRN, 0],
+      ];
+      MSG.forEach(([pg, r, a, b, txt, col, ret], i) => {
+        const y = 370 + r * 70, g = mk("g", { id: `fl-m${i}` }, `#fl-pg${pg}`);
+        const fs = 28, w = est(txt, fs) + 18;
+        let d, lx, anchor = "middle";
+        if (a === b) {
+          const x = X[a];
+          d = `M${x + 4} ${y - 18} H${x + 54} V${y + 16} H${x + 12}`;
+          lx = x + 68; anchor = "start";
+        } else {
+          const dir = b > a ? 1 : -1;
+          d = `M${X[a] + dir * 6} ${y} L${X[b] - dir * 10} ${y}`;
+          lx = (X[a] + X[b]) / 2;
+          if (lx - w / 2 < 70) { lx = 70; anchor = "start"; }
+        }
+        const ly = a === b ? y + 10 : y - 14;
+        const bx = anchor === "start" ? lx - 9 : lx - w / 2;
+        const lab = mk("g", { id: `fl-t${i}`, class: "h" }, g);
+        mk("rect", { x: bx, y: ly - 30, width: w, height: 40, rx: 8, fill: "#0f1117" }, lab);
+        mk("text", { id: `fl-tt${i}`, x: lx, y: ly, "font-size": fs, fill: col, "text-anchor": anchor }, lab, txt);
+        const p = mk("path", { id: `fl-p${i}`, class: "dr h", pathLength: 1, d, stroke: col === WH ? "#c8c6bf" : col, "stroke-width": 3, fill: "none", "marker-end": `url(#${MK[col]})` }, g);
+        if (ret) p.setAttribute("stroke-opacity", "0.85");
+      });
+      [[14, 1390, 650], [16, 560, 790]].forEach(([n, x, y]) => {
+        const g = mk("g", { id: `fl-st${n}`, class: "h" }, "#fl-pg2");
+        mk("circle", { cx: x, cy: y, r: 26, fill: "rgba(252,98,85,0.18)", stroke: "#FC6255", "stroke-width": 3 }, g);
+        mk("text", { class: "mono", x, y: y + 10, "font-size": 28, "font-weight": 700, fill: "#FC6255", "text-anchor": "middle" }, g, String(n));
+      });
+      const msg = (i, t) => { ARROW(`#fl-p${i}`, t, 0.45); IN(`#fl-t${i}`, t + 0.2, 0.35); };
+      let capCur = 0;
+      const cap = (k, col, t) => { OUT(`#fl-cs${capCur}`, t, 0.2); tl.to(`#fl-cs${k}`, { opacity: 1, duration: 0.25 }, t + 0.2); tl.to("#fl-capr", { fill: col, duration: 0.3 }, t + 0.1); capCur = k; };
+      const pulseH = (i, t) => tl.to(`#fl-h${i}`, { scale: 1.15, svgOrigin: `${X[i]} 262`, duration: 0.25, yoyo: true, repeat: 1 }, t);
+      // L0 生命线 + 提币卡
+      HEADS.forEach((h, i) => { IN(`#fl-h${i}`, at(0, 0.03) + i * 0.07, 0.4); ARROW(`#fl-l${i}`, at(0, 0.06) + i * 0.07, 0.6); });
+      IN("#fl-card", at(0, 0.66), 0.5, { y: -16 }, { y: 0 });
+      // L1 接单：幂等检查，插入 RECEIVED，马上返回
+      msg(0, at(1, 0.04));
+      msg(1, at(1, 0.3));
+      IN("#fl-cap", at(1, 0.5), 0.4, { scale: 1.3, svgOrigin: "1220 151" }, { scale: 1, svgOrigin: "1220 151" });
+      msg(2, at(1, 0.66));
+      pulseH(1, at(1, 0.9));
+      // L2 异步推进：风控 → 人工审批 → 审批凭证
+      pulseH(2, at(2, 0.04));
+      cap(5, BLUE, at(2, 0.02));
+      msg(3, at(2, 0.2));
+      msg(4, at(2, 0.46));
+      msg(5, at(2, 0.72));
+      cap(6, GRN, at(2, 0.8));
+      IN("#fl-ticket", at(2, 0.86), 0.3);
+      tl.set("#fl-ticketm", { x: 1180, y: 692 }, 0);
+      // L3 分配 nonce，构造交易
+      cap(4, ORG, at(3, 0.03));
+      msg(6, at(3, 0.05));
+      msg(7, at(3, 0.25));
+      msg(8, at(3, 0.45));
+      tl.to("#fl-tt7", { fill: "#F0B90B", duration: 0.3 }, at(3, 0.66));
+      tl.to("#fl-tt8", { fill: WH, duration: 0.3 }, at(3, 0.86));
+      // L4 去签名网关：自己解码校验，MPC 协同签名
+      OUT("#fl-pg1", at(4, 0), 0.4);
+      tl.to("#fl-ticketm", { x: 960, y: 380, duration: 0.5, ease: "power2.inOut" }, at(4, 0.02));
+      msg(9, at(4, 0.06));
+      tl.to("#fl-ticketm", { x: 1240, duration: 0.6, ease: "power2.inOut" }, at(4, 0.14));
+      OUT("#fl-ticket", at(4, 0.22), 0.3);
+      msg(10, at(4, 0.27));
+      IN("#fl-chk", at(4, 0.38), 0.4);
+      msg(11, at(4, 0.52));
+      msg(12, at(4, 0.68));
+      msg(13, at(4, 0.84));
+      // L5 先落库 → SIGNED，再广播，确认后通知
+      msg(14, at(5, 0.03));
+      cap(1, ORG, at(5, 0.14));
+      msg(15, at(5, 0.32));
+      cap(2, BLUE, at(5, 0.44));
+      msg(16, at(5, 0.6));
+      cap(3, GRN, at(5, 0.72));
+      msg(17, at(5, 0.82));
+      // L6 故障点对应调用链编号
+      tl.to([9, 10, 11, 12, 14, 16, 17].map(i => `#fl-t${i}`).join(","), { opacity: 0.45, duration: 0.4 }, at(6, 0.04));
+      IN("#fl-st14", at(6, 0.36), 0.4, { scale: 1.5, svgOrigin: "1390 650" }, { scale: 1, svgOrigin: "1390 650" });
+      tl.to("#fl-tt13", { fill: "#FC6255", duration: 0.3 }, at(6, 0.4));
+      IN("#fl-st16", at(6, 0.76), 0.4, { scale: 1.5, svgOrigin: "560 790" }, { scale: 1, svgOrigin: "560 790" });
+      tl.to("#fl-tt15", { fill: "#FC6255", duration: 0.3 }, at(6, 0.8));
+      // L6 两个故障点
+      OUT(["#fl-pg2", "#fl-lines", "#fl-chk"], at(7, 0), 0.4);
+      tl.to("#fl-heads", { opacity: 0.3, duration: 0.4 }, at(7, 0));
+      cap(4, ORG, at(7, 0.02));
+      IN("#fl-fa", at(7, 0.05), 0.5);
+      IN("#fl-fa1", at(7, 0.13), 0.4);
+      ARROW("#fl-fa2", at(7, 0.22), 0.7);
+      IN("#fl-fa3", at(7, 0.27), 0.4);
+      IN("#fl-fa4", at(7, 0.32), 0.4);
+      IN("#fl-fa5", at(7, 0.4), 0.4);
+      IN("#fl-fa6", at(7, 0.46), 0.3, { scale: 1.5, svgOrigin: "435 861" }, { scale: 1, svgOrigin: "435 861" });
+      IN("#fl-fb", at(7, 0.56), 0.5);
+      IN("#fl-fb1", at(7, 0.64), 0.4);
+      ARROW("#fl-fb2", at(7, 0.74), 0.4);
+      IN("#fl-fb3", at(7, 0.78), 0.4);
+      IN("#fl-fb4", at(7, 0.88), 0.4, { scale: 1.2, svgOrigin: "1480 764" }, { scale: 1, svgOrigin: "1480 764" });
+      // L7 审批凭证绑定提币摘要
+      OUT("#fl-fail", at(8, 0), 0.4);
+      IN("#fl-v", at(8, 0.04), 0.5, { scale: 0.85, svgOrigin: "650 600" }, { scale: 1, svgOrigin: "650 600" });
+      IN("#fl-v0", at(8, 0.14), 0.3); IN("#fl-v1", at(8, 0.22), 0.3); IN("#fl-v2", at(8, 0.3), 0.3); IN("#fl-v3", at(8, 0.38), 0.3);
+      IN("#fl-v4", at(8, 0.46), 0.4);
+      IN("#fl-other", at(8, 0.56), 0.4);
+      tl.to("#fl-vm", { x: 200, duration: 0.7, ease: "power2.inOut" }, at(8, 0.63));
+      IN("#fl-vx", at(8, 0.75), 0.3, { scale: 1.6, svgOrigin: "1280 600" }, { scale: 1, svgOrigin: "1280 600" });
+      IN("#fl-vbad", at(8, 0.8), 0.4);
+      tl.to("#fl-vm", { x: 0, duration: 0.6, ease: "power2.inOut" }, at(8, 0.9));
+      tl.to("#fl-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["flow"] = tl;
+    })();
+  </script>
+</template>

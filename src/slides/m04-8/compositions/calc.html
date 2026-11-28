@@ -1,0 +1,155 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 calc，id 前缀 ca- -->
+  <div id="root" data-composition-id="calc" data-duration="60.26" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ca-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ca-all">
+
+        <text id="ca-title" class="h" x="960" y="140" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">某时刻 · USDT 对账（示例）</text>
+        <!-- 天平底座 -->
+        <g id="ca-base" class="h">
+          <path d="M960 700 L990 750 L930 750 Z" fill="#8a8f99" />
+          <rect x="948" y="750" width="24" height="110" fill="#8a8f99" />
+          <rect x="840" y="860" width="240" height="16" rx="6" fill="#8a8f99" />
+        </g>
+        <g id="ca-beam"><line id="ca-beamL" class="dr" pathLength="1" x1="480" y1="700" x2="1440" y2="700" stroke="#8a8f99" stroke-width="8" stroke-linecap="round" /></g>
+        <text id="ca-labL" class="h" x="480" y="800" font-size="32" fill="#e8e6df" text-anchor="middle">链上资产</text>
+        <text id="ca-labR" class="h" x="1440" y="800" font-size="32" fill="#e8e6df" text-anchor="middle">账本对应资产</text>
+        <g id="ca-Lm">
+          <g id="ca-trL" class="h"><line x1="480" y1="662" x2="480" y2="700" stroke="#8a8f99" stroke-width="6" /><rect x="200" y="650" width="560" height="12" rx="5" fill="#8a8f99" /></g>
+          <g id="ca-b1" class="h"><rect x="230" y="485" width="500" height="160" rx="10" fill="rgba(240,185,11,0.16)" stroke="#F0B90B" stroke-width="3" /><text x="480.0" y="579" font-size="38" fill="#F0B90B" text-anchor="middle">链上 10,250,000</text></g>
+          <g id="ca-b2" class="h"><rect x="230" y="392" width="500" height="76" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="480.0" y="442" font-size="32" fill="#58C4DD" text-anchor="middle">钱包推算 10,250,000</text></g>
+          <g id="ca-ok1" class="h"><circle cx="400" cy="348" r="20" fill="none" stroke="#83C167" stroke-width="3.5" /><path d="M390.9 348.9 L397.3 355.3 L410.0 340.7" stroke="#83C167" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+          <text id="ca-ok1t" class="h" x="434" y="359" font-size="32" fill="#83C167">① 一致</text>
+        </g>
+        <g id="ca-Rm">
+          <g id="ca-trR" class="h"><line x1="1440" y1="662" x2="1440" y2="700" stroke="#8a8f99" stroke-width="6" /><rect x="1160" y="650" width="560" height="12" rx="5" fill="#8a8f99" /></g>
+          <g id="ca-r1" class="h"><rect x="1190" y="565" width="500" height="80" rx="10" fill="rgba(240,185,11,0.16)" stroke="#F0B90B" stroke-width="3" /><text x="1440.0" y="617" font-size="32" fill="#F0B90B" text-anchor="middle">用户负债 9,800,000</text></g>
+          <g id="ca-r2" class="h"><rect x="1190" y="475" width="500" height="80" rx="10" fill="rgba(240,185,11,0.16)" stroke="#F0B90B" stroke-width="3" /><text x="1440.0" y="527" font-size="32" fill="#F0B90B" text-anchor="middle">平台手续费 380,000</text></g>
+          <g id="ca-r3" class="h"><rect x="1190" y="385" width="500" height="80" rx="10" fill="rgba(255,159,67,0.08)" stroke="#FF9F43" stroke-width="3" stroke-dasharray="12 8" /><text x="1440.0" y="437" font-size="32" fill="#FF9F43" text-anchor="middle">在途充值 50,000</text></g>
+          <g id="ca-rs" class="h"><rect x="1190" y="491" width="500" height="154" rx="10" fill="rgba(240,185,11,0.16)" stroke="#F0B90B" stroke-width="3" /><text x="1440.0" y="582" font-size="38" fill="#F0B90B" text-anchor="middle">合计 10,230,000</text></g>
+        </g>
+        <!-- 竖式 -->
+        <g class="mono">
+          <text id="ca-s1" class="h" x="1110" y="300" font-size="36" fill="#F0B90B" text-anchor="end">10,250,000</text>
+          <text id="ca-s2" class="h" x="1110" y="352" font-size="36" fill="#F0B90B" text-anchor="end">− 10,230,000</text>
+          <text id="ca-s3" class="h" x="1110" y="436" font-size="46" font-weight="700" fill="#F0B90B" text-anchor="end">20,000</text>
+        </g>
+        <line id="ca-sl" class="dr" pathLength="1" x1="830" y1="376" x2="1115" y2="376" stroke="#F0B90B" stroke-width="3" />
+        <!-- 解释卡 -->
+        <g id="ca-card" class="h"><rect id="ca-cardr" x="790" y="462" width="340" height="180" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /></g>
+        <text id="ca-c1" class="h" x="960" y="512" font-size="30" fill="#58C4DD" text-anchor="middle">公司自有资金注入</text>
+        <text id="ca-c2" class="h" x="960" y="560" font-size="30" fill="#e8e6df" text-anchor="middle">→ 权益分录</text>
+        <g id="ca-ok2" class="h"><circle cx="960" cy="606" r="18" fill="none" stroke="#83C167" stroke-width="3.5" /><path d="M951.8 606.8 L957.5 612.5 L969.0 599.5" stroke="#83C167" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></g>
+        <text id="ca-d1" class="h" x="960" y="512" font-size="30" fill="#FC6255" text-anchor="middle">解释不清</text>
+        <text id="ca-d2" class="h" x="960" y="560" font-size="30" fill="#e8e6df" text-anchor="middle">未知差异 → 工单</text>
+        <g id="ca-x2" class="h"><circle cx="960" cy="606" r="18" fill="none" stroke="#FC6255" stroke-width="3.5" /><line x1="953.5" y1="599.5" x2="966.5" y2="612.5" stroke="#FC6255" stroke-width="4" stroke-linecap="round" /><line x1="966.5" y1="599.5" x2="953.5" y2="612.5" stroke="#FC6255" stroke-width="4" stroke-linecap="round" /></g>
+        <!-- 再练一组 -->
+        <text id="ca-pt" class="h" x="960" y="140" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">再练一组（示例）</text>
+        <text id="ca-p1l" class="h" x="600" y="330" font-size="34" fill="#e8e6df">链上 = 钱包推算</text>
+        <text id="ca-p1n" class="h mono" x="1320" y="330" font-size="36" fill="#F0B90B" text-anchor="end">5,120,000</text>
+        <text id="ca-p1k" class="h" x="1350" y="330" font-size="34" font-weight="700" fill="#83C167">✓</text>
+        <text id="ca-p2l" class="h" x="600" y="440" font-size="34" fill="#e8e6df">用户负债</text>
+        <text id="ca-p2n" class="h mono" x="1320" y="440" font-size="36" fill="#F0B90B" text-anchor="end">4,900,000</text>
+        <text id="ca-p3l" class="h" x="600" y="510" font-size="34" fill="#e8e6df">+ 手续费账户</text>
+        <text id="ca-p3n" class="h mono" x="1320" y="510" font-size="36" fill="#F0B90B" text-anchor="end">150,000</text>
+        <text id="ca-p4l" class="h" x="600" y="580" font-size="34" fill="#FF9F43">+ 在途充值</text>
+        <text id="ca-p4n" class="h mono" x="1320" y="580" font-size="36" fill="#FF9F43" text-anchor="end">40,000</text>
+        <line id="ca-pl" class="dr" pathLength="1" x1="600" y1="612" x2="1325" y2="612" stroke="#F0B90B" stroke-width="3" />
+        <text id="ca-p5l" class="h" x="600" y="672" font-size="34" fill="#e8e6df">账本对应资产</text>
+        <text id="ca-p5n" class="h mono" x="1320" y="672" font-size="36" fill="#F0B90B" text-anchor="end">5,090,000</text>
+        <text id="ca-p6l" class="h" x="600" y="790" font-size="38" font-weight="700" fill="#e8e6df">差额</text>
+        <text id="ca-p6n" class="h mono" x="1320" y="790" font-size="46" font-weight="700" fill="#F0B90B" text-anchor="end">30,000</text>
+        <text id="ca-p7" class="h" x="960" y="900" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">解释不清 → 工单 · 超阈值 → 先停提币</text>
+
+      </g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // L0 标题与天平
+      IN("#ca-title", at(0, 0.03));
+      IN("#ca-base", at(0, 0.2));
+      DRAW("#ca-beamL", at(0, 0.35), 0.8);
+      IN(["#ca-trL", "#ca-trR"], at(0, 0.55));
+      IN("#ca-labL", at(0, 0.72)); IN("#ca-labR", at(0, 0.8));
+      // L1 链上 = 钱包推算
+      IN("#ca-b1", at(1, 0.04), 0.6, { y: -120 }, { y: 0, ease: "bounce.out" });
+      IN("#ca-b2", at(1, 0.38), 0.6, { y: -60 }, { y: 0 });
+      IN("#ca-ok1", at(1, 0.66), 0.4, { scale: 1.6, svgOrigin: "400 348" }, { scale: 1, svgOrigin: "400 348" });
+      IN("#ca-ok1t", at(1, 0.7));
+      // L2 账本三块依次落下
+      IN("#ca-r1", at(2, 0.04), 0.6, { y: -120 }, { y: 0, ease: "bounce.out" });
+      IN("#ca-r2", at(2, 0.34), 0.6, { y: -120 }, { y: 0, ease: "bounce.out" });
+      IN("#ca-r3", at(2, 0.66), 0.6, { y: -120 }, { y: 0, ease: "bounce.out" });
+      tl.to("#ca-r3", { opacity: 0.45, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.9));
+      // L3 合并
+      tl.to(["#ca-r2", "#ca-r3"], { y: 90, duration: 0.5, ease: "power2.in" }, at(3, 0.05));
+      OUT(["#ca-r1", "#ca-r2", "#ca-r3"], at(3, 0.18), 0.35);
+      IN("#ca-rs", at(3, 0.3), 0.5, { scale: 0.9, svgOrigin: "1440 568" }, { scale: 1, svgOrigin: "1440 568" });
+      tl.to("#ca-rs", { opacity: 0.5, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.75));
+      // L4 天平左倾 + 竖式
+      tl.to("#ca-beam", { rotation: -3, svgOrigin: "960 700", duration: 0.9, ease: "power2.inOut" }, at(4, 0.03));
+      tl.to("#ca-Lm", { y: 25, duration: 0.9, ease: "power2.inOut" }, at(4, 0.03));
+      tl.to("#ca-Rm", { y: -25, duration: 0.9, ease: "power2.inOut" }, at(4, 0.03));
+      IN("#ca-s1", at(4, 0.12)); IN("#ca-s2", at(4, 0.3));
+      DRAW("#ca-sl", at(4, 0.48), 0.4);
+      IN("#ca-s3", at(4, 0.62), 0.5, { scale: 1.4, svgOrigin: "1040 420" }, { scale: 1, svgOrigin: "1040 420" });
+      // L5 解释：权益分录
+      IN("#ca-card", at(5, 0.04));
+      IN("#ca-c1", at(5, 0.12)); IN("#ca-c2", at(5, 0.38));
+      IN("#ca-ok2", at(5, 0.6), 0.4, { scale: 1.6, svgOrigin: "960 606" }, { scale: 1, svgOrigin: "960 606" });
+      tl.to("#ca-s3", { opacity: 0.45, duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.85));
+      // L6 另一种结局：未知差异 → 工单
+      OUT(["#ca-c1", "#ca-c2", "#ca-ok2"], at(6, 0.03), 0.35);
+      tl.to("#ca-cardr", { stroke: "#FC6255", duration: 0.4 }, at(6, 0.05));
+      IN("#ca-d1", at(6, 0.18)); IN("#ca-d2", at(6, 0.36));
+      IN("#ca-x2", at(6, 0.55), 0.4, { scale: 1.6, svgOrigin: "960 606" }, { scale: 1, svgOrigin: "960 606" });
+
+      // L7 再练一组：数字
+      OUT(["#ca-title", "#ca-base", "#ca-beam", "#ca-labL", "#ca-labR", "#ca-Lm", "#ca-Rm", "#ca-s1", "#ca-s2", "#ca-s3", "#ca-sl", "#ca-card", "#ca-d1", "#ca-d2", "#ca-x2"], at(7, 0.0), 0.4);
+      IN("#ca-pt", at(7, 0.08), 0.5);
+      IN(["#ca-p1l", "#ca-p1n"], at(7, 0.18), 0.4); IN("#ca-p1k", at(7, 0.32), 0.3, { scale: 1.5, svgOrigin: "1366 318" }, { scale: 1, svgOrigin: "1366 318" });
+      IN(["#ca-p2l", "#ca-p2n"], at(7, 0.48), 0.4);
+      IN(["#ca-p3l", "#ca-p3n"], at(7, 0.66), 0.4);
+      IN(["#ca-p4l", "#ca-p4n"], at(7, 0.84), 0.4);
+      // L8 算出差额 + 处理
+      DRAW("#ca-pl", at(8, 0.02), 0.4);
+      IN(["#ca-p5l", "#ca-p5n"], at(8, 0.08), 0.4);
+      IN(["#ca-p6l", "#ca-p6n"], at(8, 0.26), 0.5, { scale: 1.2, svgOrigin: "960 775" }, { scale: 1, svgOrigin: "960 775" });
+      tl.to("#ca-p6n", { opacity: 0.45, duration: 0.3, yoyo: true, repeat: 1 }, at(8, 0.42));
+      IN("#ca-p7", at(8, 0.6), 0.5);
+
+
+      tl.to("#ca-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["calc"] = tl;
+    })();
+  </script>
+</template>

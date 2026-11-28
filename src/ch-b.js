@@ -32,7 +32,7 @@ flowchart LR
 ${tbl(['方案', '私钥在哪里', '单点故障', '链上可见', '适合'], [
   ['单私钥热钱包', '一台服务器', '有：服务器被入侵 = 资金被盗', '普通地址', '小额、自动化提币'],
   ['硬件/冷钱包', '离线设备', '有：设备丢失或员工作恶', '普通地址', '长期储备'],
-  ['多签（Safe）', 'n 把独立私钥，链上合约要求 m 个签名', '无（m ≥ 2）', '是：合约地址，签名者公开', 'DAO 金库、协议管理员'],
+  ['多签（Safe）', 'n 把独立私钥，链上合约要求 m 个签名（比特币等链另有原生多签脚本）', '无（m ≥ 2）', '是：合约地址，签名者公开', 'DAO 金库、协议管理员'],
   ['MPC 门限签名', '私钥从未完整存在；n 个分片分布在不同方', '无（t ≥ 2）', '否：链上看是普通单签地址', '交易所、托管机构、多链业务']
 ])}
 ${mm('多签 vs MPC：签名发生在哪里', `
@@ -55,12 +55,12 @@ flowchart TB
   ['flow', '多签把“谁同意了”写在链上；MPC 在链下完成协作，链上只看到一个普通签名。'],
   ['key', 'MPC 优点：支持所有链（不需要合约）、Gas 低、可以不换地址就轮换分片。多签优点：规则透明、实现成熟、可审计。'],
   ['risk', 'MPC 的安全依赖协议实现。2023 年 8 月，Fireblocks 研究人员公开了 BitForge：多个 GG18/GG20、Lindell17 MPC 实现中的漏洞，攻击者可借签名过程提取完整私钥。' + cite('Fireblocks：BitForge 漏洞披露', 'https://www.fireblocks.com/blog/bitforge-fireblocks-researchers-uncover-vulnerabilities-in-over-15-major-wallet-providers/')],
-  ['limit', '多签只能用在支持合约的链上，而且每条链要单独部署。']
+  ['limit', 'Safe 这类合约多签只能用在支持合约的链上，而且每条链要单独部署（比特币等链另有原生多签脚本）。']
 ])}
 <p>门限的选择是一个权衡：m 越小，越容易被盗；m 越大，越容易因为丢失分片而冻结资金。用下面的实验找到平衡点。</p>
 ${lab('threshold')}
 
-<p>多签和 MPC 之外还有第五种思路：把账户本身做成智能合约，把签名规则、限额和恢复方式写进合约里。这叫<strong>账户抽象</strong>（Account Abstraction）。Passkey 钱包和 EIP-7702 也属于这一类。详见 <a href="#m06-5">M08.8 账户抽象深入</a>。</p>
+<p>多签和 MPC 之外还有第五种思路：把账户本身做成智能合约，把签名规则、限额和恢复方式写进合约里。这叫<strong>账户抽象</strong>（Account Abstraction）。EIP-7702 也属于这一类。Passkey 钱包可以基于账户抽象（合约在链上验 Passkey 签名），也可以基于 MPC 或 TEE 托管密钥，见 <a href="#m03-60">M08.12 嵌入式钱包与 Passkey</a>。详见 <a href="#m06-5">M08.8 账户抽象深入</a>。</p>
 
 <h2>4. 企业签名服务架构</h2>
 ${mm('提币请求从业务系统到链上的完整路径', `
@@ -99,9 +99,12 @@ func (m *NonceManager) Next(ctx context.Context, addr string) (uint64, error) {
     if err != nil { return 0, err }
     defer unlock()
 
-    local := m.db.MaxNonce(ctx, addr)                 // 本地已分配的最大 nonce
-    chain, _ := m.rpc.PendingNonceAt(ctx, addr)     // 链上 pending nonce
-    n := max(local+1, chain)                         // 取较大值，防止重启后回退
+    local, found, err := m.db.MaxNonce(ctx, addr)     // 本地已分配的最大 nonce；found=false 表示从没分配过
+    if err != nil { return 0, err }
+    chain, err := m.rpc.PendingNonceAt(ctx, addr)     // 链上 pending nonce
+    if err != nil { return 0, err }                   // RPC 出错不能吞掉
+    n := chain                                        // 新地址：从链上 pending 开始（通常是 0），不能跳过 0
+    if found { n = max(local+1, chain) }              // 有记录：取较大值，防止重启后回退
     return n, m.db.Reserve(ctx, addr, n)             // 先持久化，再返回
 }
 `)}
@@ -114,7 +117,7 @@ func (m *NonceManager) Next(ctx context.Context, addr string) (uint64, error) {
 </ul>
 <p>规则：如果上一个区块使用的 Gas 超过目标（区块上限的 50%），基础费上涨，最多 12.5%；低于目标则下降。钱包设置 <code>maxFeePerGas</code> 作为上限，多付的部分退回。</p>
 ${lab('eip1559')}
-${call('info', '<p>企业钱包的常见策略：<code>maxFee = 2 × 当前基础费 + 小费</code>。这能容忍连续 6 个满块（1.125⁶ ≈ 2.03）。用实验验证这个数字。</p>')}
+${call('info', '<p>企业钱包的常见策略：<code>maxFee = 2 × 当前基础费 + 小费</code>。1.125⁶ ≈ 2.03，差不多正好翻倍，所以大约能扛住连续 5–6 个满块：严格说 2 倍只完全覆盖 5 个满块（1.125⁵ ≈ 1.80）；第 6 个满块后基础费是原来的约 2.027 倍，比 2 倍多出原基础费的约 2.7%，这部分要占用小费。用实验验证这个数字。</p>')}
 
 <h2>6. 冷热分层与资金调度</h2>
 ${mm('冷热钱包分层', `
@@ -144,7 +147,7 @@ ${terms([
   ['助记词', 'Mnemonic, BIP-39', '把随机熵编码成 12/24 个单词，便于备份'],
   ['HD 钱包', 'Hierarchical Deterministic Wallet, BIP-32', '从一个种子按路径派生无限多密钥'],
   ['扩展公钥', 'xpub', '能派生子公钥和地址但不能签名的公钥'],
-  ['多签', 'Multisig', '链上合约要求 n 个签名者中 m 个签名'],
+  ['多签', 'Multisig', '要求 n 个签名者中 m 个签名的账户（合约或原生脚本）'],
   ['MPC', 'Multi-Party Computation', '多方协同计算签名，私钥从不完整出现'],
   ['门限签名', 'TSS, Threshold Signature Scheme', 't-of-n 分片即可生成签名的 MPC 方案'],
   ['硬件安全模块', 'HSM, Hardware Security Module', '在防篡改硬件内生成和使用密钥'],
@@ -218,7 +221,7 @@ flowchart LR
   ['key', '每个方框组内，减少的金额 = 增加的金额之和。这是账本的不变量，对账程序每天检查它。'],
   ['flow', '下单先冻结，成交再从冻结中扣。撤单时冻结退回可用。'],
   ['fail', '如果订单簿里的挂单量和账本冻结额对不上，说明有 bug。可能出现“超卖”。'],
-  ['risk', '账本余额总和必须 ≤ 链上实际资产。如果交易所挪用资产，账本仍然平，但链上不足。这就是 2022 年 FTX 的情况。' + cite('美国司法部：Bankman-Fried 被判 25 年', 'https://www.justice.gov/opa/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes')]
+  ['risk', '链上实际资产必须 ≥ 账本里欠用户的余额总和。如果交易所挪用资产，账本仍然平，但链上不足。这就是 2022 年 FTX 的情况。' + cite('美国司法部：Bankman-Fried 被判 25 年', 'https://www.justice.gov/opa/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes')]
 ])}
 
 <h2>4. 撮合引擎：价格优先，时间优先</h2>
@@ -260,7 +263,7 @@ ${tbl(['风险', '发生位置', '用户看到什么', '防护'], [
   ['账本 bug 多记余额', '资金层', '余额异常增加', '双分录不变量；实时对账'],
   ['撮合引擎宕机', '交易核心', '无法下单撤单', '主备 + 日志重放'],
   ['成交后余额延迟', '撮合 ↔ 账本', '成交了但余额几秒不变', '异步最终一致；前端提示'],
-  ['挪用用户资产', '公司治理', '无法提币', '储备金证明（默克尔树）；监管']
+  ['挪用用户资产', '公司治理', '无法提币', '储备金证明（默克尔树证明负债 + 地址签名证明资产）；监管']
 ])}
 
 ${terms([
@@ -270,7 +273,7 @@ ${terms([
   ['吃单方', 'Taker', '立即与已有挂单成交的一方'],
   ['双分录', 'Double-entry', '每笔变动一借一贷、金额相等的记账法'],
   ['冻结', 'Freeze / Lock', '把可用余额暂时锁住，用于挂单或提币'],
-  ['储备金证明', 'PoR, Proof of Reserves', '证明交易所资产不少于用户余额']
+  ['储备金证明', 'PoR, Proof of Reserves', '证明交易所资产不少于用户余额（只覆盖某一时点、无法证明表外负债）']
 ])}
 ${qs(['在<a href="#lab-orderbook">撮合实验</a>中，提交一个市价买单 3 BTC。它吃掉了几档卖单？平均成交价比卖一价高多少？', '为什么撮合引擎不直接写账本，而要经过结算服务？', '如果账本所有用户 USDT 之和是 100 万，链上地址只有 80 万，会发生什么？'])}
 ` });

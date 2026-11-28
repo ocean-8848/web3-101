@@ -1,0 +1,166 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; white-space: pre; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 wallet，id 前缀 wa- -->
+  <div id="root" data-composition-id="wallet" data-duration="60.08" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="wa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="wa-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" />
+        </marker>
+      </defs>
+      <g id="wa-all">
+<text id="wa-title" class="h" x="100" y="120" font-size="48" font-weight="700" fill="#e8e6df">充值 / 提币状态机</text>
+<text id="wa-note" class="h" x="100" y="176" font-size="28" fill="#8a8f99">钱包细节：前面钱包部分讲过</text>
+<g id="wa-dep">
+<path id="wa-tr1" class="dr" pathLength="1" d="M200 330 L1560 330 Q1740 330 1740 510" stroke="#3a3f4a" stroke-width="3" fill="none" stroke-dasharray="1" />
+<text id="wa-h1" class="h" x="100" y="342" font-size="36" fill="#e8e6df" text-anchor="start" font-weight="700">充值</text>
+<text id="wa-c1" class="h" x="300" y="280" font-size="28" fill="#e8e6df" text-anchor="middle">看到</text>
+<g id="wa-seen" class="h"><rect id="wa-seen-box" x="220" y="295" width="160" height="70" rx="12" fill="rgba(88,196,221,0.12)" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="300" y="340" font-size="28" fill="#58C4DD" text-anchor="middle">SEEN</text></g>
+<path id="wa-a1" class="dr h" pathLength="1" d="M382 330 L476 330" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<text id="wa-c2" class="h" x="630" y="280" font-size="28" fill="#e8e6df" text-anchor="middle">确认中</text>
+<g id="wa-conf" class="h"><rect id="wa-conf-box" x="480" y="295" width="300" height="70" rx="12" fill="rgba(240,185,11,0.12)" stroke="#F0B90B" stroke-width="3" /><text class="mono" x="630" y="340" font-size="28" fill="#F0B90B" text-anchor="middle"></text><text class="mono" x="500" y="340" font-size="28" fill="#F0B90B">CONFIRMING</text><text id="wa-cnt" class="mono" x="760" y="340" font-size="30" fill="#F0B90B" text-anchor="end" font-weight="700">0</text></g>
+<path id="wa-a2" class="dr h" pathLength="1" d="M782 330 L876 330" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<text id="wa-c3" class="h" x="970" y="280" font-size="28" fill="#83C167" text-anchor="middle">已入账</text>
+<g id="wa-cred" class="h"><rect id="wa-cred-box" x="880" y="295" width="180" height="70" rx="12" fill="rgba(131,193,103,0.12)" stroke="#83C167" stroke-width="3" /><text class="mono" x="970" y="340" font-size="28" fill="#83C167" text-anchor="middle">CREDITED</text></g>
+<path id="wa-a3" class="dr h" pathLength="1" d="M630 367 L630 446" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<g id="wa-orph" class="h"><rect id="wa-orph-box" x="540" y="450" width="180" height="70" rx="12" fill="rgba(252,98,85,0.12)" stroke="#FC6255" stroke-width="3" /><text class="mono" x="630" y="495" font-size="28" fill="#FC6255" text-anchor="middle">ORPHANED</text></g>
+<text id="wa-c4" class="h" x="528" y="495" font-size="28" fill="#FC6255" text-anchor="end">孤块</text>
+<g id="wa-blk" class="h"><rect x="820" y="420" width="400" height="120" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="1020" y="466" font-size="28" fill="#e8e6df" text-anchor="middle">block_num · block_hash</text></g>
+<text id="wa-reorg" class="h" x="1020" y="515" font-size="28" fill="#FC6255" text-anchor="middle">链重组：<tspan class="mono">hash</tspan> 对不上</text>
+<path id="wa-a4" class="dr h" pathLength="1" d="M818 485 L724 485" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<path id="wa-a5" class="dr h" pathLength="1" d="M1062 330 L1560 330 Q1740 330 1740 506" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<g id="wa-dk" class="h"><rect x="1090" y="252" width="545" height="48" rx="14" fill="rgba(131,193,103,0.15)" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="1362" y="286" font-size="28" fill="#83C167" text-anchor="middle">DEPOSIT + chain:txHash:logIndex</text></g>
+<circle id="wa-p1" class="h" cx="1070" cy="330" r="12" fill="#F0B90B" />
+<circle id="wa-p2" class="h" cx="1070" cy="330" r="12" fill="#F0B90B" />
+<text id="wa-bounce" class="h" x="1250" y="392" font-size="28" fill="#FC6255" text-anchor="middle">重复：弹回</text>
+</g>
+<path id="wa-tr2" class="dr" pathLength="1" d="M200 760 L1600 760 Q1740 760 1740 672" stroke="#3a3f4a" stroke-width="3" fill="none" />
+<g id="wa-led" class="h"><circle cx="1740" cy="590" r="76" fill="rgba(180,142,240,0.15)" stroke="#B48EF0" stroke-width="3.5" /><text class="mono" x="1740" y="600" font-size="30" fill="#B48EF0" text-anchor="middle">ledger</text></g>
+<text id="wa-h2" class="h" x="100" y="772" font-size="36" fill="#e8e6df" text-anchor="start" font-weight="700">提币</text>
+<text id="wa-req-c" class="h" x="290.0" y="705" font-size="28" fill="#e8e6df" text-anchor="middle">申请</text>
+<g id="wa-req" class="h"><rect id="wa-req-box" x="200" y="725" width="180" height="70" rx="12" fill="rgba(88,196,221,0.12)" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="290" y="770" font-size="28" fill="#58C4DD" text-anchor="middle">REQUESTED</text></g>
+<text id="wa-fro-c" class="h" x="548.0" y="705" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan fill="#F0B90B">①</tspan> 冻结</text>
+<g id="wa-fro" class="h"><rect id="wa-fro-box" x="483" y="725" width="130" height="70" rx="12" fill="rgba(240,185,11,0.12)" stroke="#F0B90B" stroke-width="3" /><text class="mono" x="548" y="770" font-size="28" fill="#F0B90B" text-anchor="middle">FROZEN</text></g>
+<path id="wa-w1" class="dr h" pathLength="1" d="M382 760 L479 760" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<text id="wa-rev-c" class="h" x="781.0" y="705" font-size="28" fill="#e8e6df" text-anchor="middle">风控评分</text>
+<g id="wa-rev" class="h"><rect id="wa-rev-box" x="716" y="725" width="130" height="70" rx="12" fill="rgba(255,159,67,0.12)" stroke="#FF9F43" stroke-width="3" /><text class="mono" x="781" y="770" font-size="28" fill="#FF9F43" text-anchor="middle">REVIEW</text></g>
+<path id="wa-w2" class="dr h" pathLength="1" d="M615 760 L712 760" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<text id="wa-app-c" class="h" x="1031.5" y="705" font-size="28" fill="#e8e6df" text-anchor="middle">人工审批</text>
+<g id="wa-app" class="h"><rect id="wa-app-box" x="949" y="725" width="165" height="70" rx="12" fill="rgba(180,142,240,0.12)" stroke="#B48EF0" stroke-width="3" /><text class="mono" x="1032" y="770" font-size="28" fill="#B48EF0" text-anchor="middle">APPROVED</text></g>
+<path id="wa-w3" class="dr h" pathLength="1" d="M848 760 L945 760" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<text id="wa-bro-c" class="h" x="1307.0" y="705" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan fill="#F0B90B">②</tspan> 模拟签名广播</text>
+<g id="wa-bro" class="h"><rect id="wa-bro-box" x="1217" y="725" width="180" height="70" rx="12" fill="rgba(88,196,221,0.12)" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="1307" y="770" font-size="28" fill="#58C4DD" text-anchor="middle">BROADCAST</text></g>
+<path id="wa-w4" class="dr h" pathLength="1" d="M1116 760 L1213 760" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<text id="wa-done-c" class="h" x="1550.0" y="705" font-size="28" fill="#e8e6df" text-anchor="middle">确认完成</text>
+<g id="wa-done" class="h"><rect id="wa-done-box" x="1500" y="725" width="100" height="70" rx="12" fill="rgba(131,193,103,0.12)" stroke="#83C167" stroke-width="3" /><text class="mono" x="1550" y="770" font-size="28" fill="#83C167" text-anchor="middle">DONE</text></g>
+<path id="wa-w5" class="dr h" pathLength="1" d="M1399 760 L1496 760" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<text id="wa-order" class="h" x="200" y="640" font-size="32" fill="#F0B90B" text-anchor="start" font-weight="700">先冻结 → 后签名</text>
+<path id="wa-r1" class="dr h" pathLength="1" d="M781 797 L858 896" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<text id="wa-rej" class="h" x="800" y="856" font-size="28" fill="#FC6255" text-anchor="end">风控 / 审批拒绝</text>
+<g id="wa-ref" class="h"><rect id="wa-ref-box" x="816" y="900" width="180" height="70" rx="12" fill="rgba(240,185,11,0.12)" stroke="#F0B90B" stroke-width="3" /><text class="mono" x="906" y="945" font-size="28" fill="#F0B90B" text-anchor="middle">REFUNDED</text></g>
+<text id="wa-refc" class="h" x="802" y="946" font-size="28" fill="#83C167" text-anchor="end">解冻回可用</text>
+<path id="wa-f1" class="h" d="M1307 797 L1307 894" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<text id="wa-inf" class="h" x="1293" y="860" font-size="28" fill="#FC6255" text-anchor="end">广播失败</text>
+<g id="wa-fail" class="h"><rect id="wa-fail-box" x="1237" y="900" width="140" height="70" rx="12" fill="rgba(252,98,85,0.12)" stroke="#FC6255" stroke-width="3" /><text class="mono" x="1307" y="945" font-size="28" fill="#FC6255" text-anchor="middle">FAILED</text></g>
+<path id="wa-f2" class="h" d="M1235 935 L1002 935" stroke="#FC6255" stroke-width="3" fill="none" marker-end="url(#wa-arr)" />
+<g id="wa-k1" class="h"><rect x="640" y="270" width="680" height="54" rx="14" fill="rgba(131,193,103,0.15)" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="980" y="307" font-size="28" fill="#83C167" text-anchor="middle">FROZEN → WITHDRAW_FREEZE<tspan font-family="NotoSC"> + 提币单号</tspan></text></g>
+<path id="wa-k1a" class="dr h" pathLength="1" d="M1322 297 C1500 297 1640 330 1690 532" stroke="#B48EF0" stroke-width="2.5" fill="none" marker-end="url(#wa-arr)" />
+<g id="wa-k2" class="h"><rect x="640" y="360" width="680" height="54" rx="14" fill="rgba(131,193,103,0.15)" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="980" y="397" font-size="28" fill="#83C167" text-anchor="middle">DONE → WITHDRAW_DONE<tspan font-family="NotoSC"> + 提币单号</tspan></text></g>
+<path id="wa-k2a" class="dr h" pathLength="1" d="M1322 387 C1500 387 1640 420 1690 532" stroke="#B48EF0" stroke-width="2.5" fill="none" marker-end="url(#wa-arr)" />
+<g id="wa-k3" class="h"><rect x="640" y="450" width="680" height="54" rx="14" fill="rgba(131,193,103,0.15)" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="980" y="487" font-size="28" fill="#83C167" text-anchor="middle">REFUNDED → WITHDRAW_REFUND<tspan font-family="NotoSC"> + 提币单号</tspan></text></g>
+<path id="wa-k3a" class="dr h" pathLength="1" d="M1322 477 C1500 477 1640 510 1690 532" stroke="#B48EF0" stroke-width="2.5" fill="none" marker-end="url(#wa-arr)" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const PULSE = (s, t, n = 2, d = 0.45, lo = 0.4) => tl.to(s, { opacity: lo, duration: d, yoyo: true, repeat: 2 * n - 1, ease: "sine.inOut" }, t);
+      const BAR = (s, y, h, t, d = 0.45) => tl.to(s, { attr: { y: y, height: h }, duration: d, ease: "power2.inOut" }, t);
+      const POP = (s, t, cx, cy, d = 0.4) => IN(s, t, d, { scale: 0.8, svgOrigin: cx + " " + cy }, { scale: 1, svgOrigin: cx + " " + cy });
+      const comma = v => Math.round(v).toLocaleString("en-US");
+
+
+      // L0 两条空轨道 + ledger
+      IN("#wa-title", at(0, 0), 0.5);
+      IN("#wa-h1", at(0, 0.06)); DRAW("#wa-tr1", at(0, 0.08), 1.2);
+      IN("#wa-h2", at(0, 0.16)); DRAW("#wa-tr2", at(0, 0.18), 1.2);
+      POP("#wa-led", at(0, 0.32), 1740, 590);
+      tl.to("#wa-tr1, #wa-tr2", { stroke: "#B48EF0", duration: 0.5, yoyo: true, repeat: 1 }, at(0, 0.45));
+      IN("#wa-note", at(0, 0.6), 0.6);
+      PULSE("#wa-led", at(0, 0.82), 1, 0.4, 0.5);
+      // L1 充值四个状态 + 链重组
+      IN("#wa-c1", at(1, 0.06)); IN("#wa-seen", at(1, 0.06), 0.5, { y: 14 }, { y: 0 });
+      ARROW("#wa-a1", at(1, 0.12), 0.4); IN("#wa-c2", at(1, 0.15)); IN("#wa-conf", at(1, 0.15), 0.5, { y: 14 }, { y: 0 });
+      ARROW("#wa-a2", at(1, 0.22), 0.4); IN("#wa-c3", at(1, 0.24)); IN("#wa-cred", at(1, 0.24), 0.5, { y: 14 }, { y: 0 });
+      ARROW("#wa-a3", at(1, 0.3), 0.4); IN("#wa-c4", at(1, 0.33)); IN("#wa-orph", at(1, 0.33), 0.5, { y: 14 }, { y: 0 });
+      IN("#wa-blk", at(1, 0.48), 0.6, { y: 20 }, { y: 0 });
+      IN("#wa-reorg", at(1, 0.7), 0.5);
+      tl.to("#wa-blk rect", { stroke: "#FC6255", duration: 0.3 }, at(1, 0.7));
+      ARROW("#wa-a4", at(1, 0.82), 0.4);
+      PULSE("#wa-orph", at(1, 0.88), 1, 0.3, 0.4);
+      // 孤块不入账：已入账一格退暗，进入 L2 再亮回
+      tl.to("#wa-cred, #wa-c3", { opacity: 0.35, duration: 2.2, ease: "none" }, at(1, 0.75));
+      tl.to("#wa-cred, #wa-c3", { opacity: 1, duration: 0.4 }, at(2, 0.0));
+      // L2 确认数到 12 → ledger 入账（幂等）
+      COUNT("#wa-cnt", 0, 12, at(2, 0.02), 2.4);
+      tl.to("#wa-cred-box", { strokeWidth: 6, duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.34));
+      ARROW("#wa-a5", at(2, 0.4), 0.8);
+      IN("#wa-p1", at(2, 0.42), 0.1); tl.to("#wa-p1", { attr: { cx: 1560 }, duration: 0.8, ease: "power1.in" }, at(2, 0.42)); OUT("#wa-p1", at(2, 0.42) + 0.8, 0.2);
+      IN("#wa-dk", at(2, 0.58), 0.5, { y: 14 }, { y: 0 });
+      IN("#wa-p2", at(2, 0.76), 0.1);
+      tl.to("#wa-p2", { attr: { cx: 1330 }, duration: 0.5, ease: "power1.in" }, at(2, 0.76));
+      tl.to("#wa-p2", { attr: { cx: 1120 }, fill: "#FC6255", duration: 0.5, ease: "power2.out" }, at(2, 0.76) + 0.5);
+      IN("#wa-bounce", at(2, 0.84), 0.4); OUT("#wa-p2", at(2, 0.98), 0.3);
+      // L3 提币六步
+      const W = ["#wa-req", "#wa-fro", "#wa-rev", "#wa-app", "#wa-bro", "#wa-done"];
+      const WT = [0.06, 0.16, 0.27, 0.38, 0.5, 0.62];
+      W.forEach((s, i) => { if (i) ARROW("#wa-w" + i, at(3, WT[i]) - 0.3, 0.3); IN(s + "-c", at(3, WT[i]), 0.4); IN(s, at(3, WT[i]), 0.5, { y: 14 }, { y: 0 }); });
+      IN("#wa-order", at(3, 0.8), 0.5, { x: -20 }, { x: 0 });
+      tl.to("#wa-fro-box", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.84));
+      tl.to("#wa-bro-box", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.92));
+      // L4 拒绝 → 退回；广播失败 → 退回
+      ARROW("#wa-r1", at(4, 0.04), 0.5); IN("#wa-rej", at(4, 0.1));
+      IN("#wa-ref", at(4, 0.2), 0.5, { y: 14 }, { y: 0 });
+      IN("#wa-refc", at(4, 0.36), 0.5, { x: 20 }, { x: 0 });
+      IN("#wa-f1", at(4, 0.6), 0.4, { y: -20 }, { y: 0 }); IN("#wa-inf", at(4, 0.62));
+      IN("#wa-fail", at(4, 0.72), 0.5, { y: 14 }, { y: 0 });
+      IN("#wa-f2", at(4, 0.86), 0.4, { x: 20 }, { x: 0 });
+      // L5 账本只认三种业务，提币单号幂等
+      OUT("#wa-dep", at(5, 0), 0.5);
+      const K = [["#wa-k1", "#wa-fro-box"], ["#wa-k2", "#wa-done-box"], ["#wa-k3", "#wa-ref-box"]];
+      K.forEach(([k, b], i) => {
+        const t = at(5, 0.1 + i * 0.2);
+        IN(k, t, 0.5, { x: -30 }, { x: 0 }); ARROW(k + "a", t + 0.3, 0.6);
+        tl.to(b, { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, t);
+      });
+      PULSE("#wa-led", at(5, 0.78), 1, 0.4, 0.5);
+      // 补动：消除静止段
+      tl.fromTo("#wa-note", { opacity: 1 }, { opacity: 0.6, duration: 1.65, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, at(0, 0.731));
+
+
+      tl.to("#wa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["wallet"] = tl;
+    })();
+  </script>
+</template>

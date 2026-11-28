@@ -118,15 +118,15 @@ ${tbl(['对比项', 'EOA', 'Safe 多签', 'ERC-4337 智能账户'], [
   ['多链', '同一私钥在所有 EVM 链地址相同', '每条链单独部署', '每条链单独部署'],
   ['非 EVM 链', '各链有对应的单签账户', '不支持', '不支持']
 ])}
-<p><strong>ERC-4337（账户抽象）</strong>：2023 年 3 月上线以太坊主网的标准，不修改共识层。用户签的不是交易，而是一个 <code>UserOperation</code>；打包者（Bundler）把多个 UserOperation 打包，提交给全链统一的 <code>EntryPoint</code> 合约，由它调用每个智能账户的验证函数。详细内容见 <a href="#m06-5">M08.8 账户抽象深入</a>。</p>
+<p><strong>ERC-4337（账户抽象）</strong>：2023 年 3 月上线以太坊主网的标准，不修改共识层。用户签的不是交易，而是一个 <code>UserOperation</code>；打包者（Bundler）把多个 UserOperation 打包，提交给链上公共的 <code>EntryPoint</code> 合约，由它调用每个智能账户的验证函数。EntryPoint 按版本部署（截至 2026 年 v0.6–v0.9 多个版本并存，同一版本在各链地址相同），每个智能账户只认自己绑定的那一版，以官方为准。详细内容见 <a href="#m06-5">M08.8 账户抽象深入</a>。</p>
 ${call('deep', `<p><strong>EIP-7702</strong>：2025 年 5 月以太坊 Pectra 升级引入。${cite('Ethereum Foundation：Pectra 主网公告', 'https://blog.ethereum.org/2025/04/23/pectra-mainnet')}它允许 EOA 通过签名把自己的代码“委托”给一个合约实现，使 EOA 获得智能账户的能力（批量调用、代付 Gas）；委托会一直有效，直到被替换或清除。企业钱包要注意：签署一个恶意的 7702 授权，等于把账户控制权交出去。</p>`)}
 
 <h2>4. 企业场景：谁用什么</h2>
 <p>企业钱包不是选“一种”钱包，而是按资金用途组合多种钱包。下表是行业常见做法（示例，不同机构差异较大）。</p>
 ${tbl(['企业类型', '核心需求', '常见组合', '关键控制'], [
   ['中心化交易所', '每天上万笔充提，7×24 自动化', '充值地址：xpub 派生的 EOA；热钱包：MPC 或 HSM；冷钱包：离线多签或 HSM', '热钱包余额上限、提币风控、冷热调拨审批'],
-  ['托管机构', '替客户保管大额资产，满足审计和监管', 'HSM（FIPS 140-2/140-3 认证）或 MPC，多地分布；客户独立子账户', '多人审批、职责分离、SOC 2 审计'],
-  ['支付公司', '收款多、出款稳定，成本敏感', 'xpub 派生收款地址 + 定时归集；出款热钱包 MPC；常用稳定币', '归集 Gas 成本、出款白名单、KYT 检查'],
+  ['托管机构', '替客户保管大额资产，满足审计和监管', 'HSM（FIPS 140-3 认证；FIPS 140-2 证书已于 2026 年 9 月转入 NIST 历史名单，新采购按 140-3，以官方为准）或 MPC，多地分布；客户独立子账户', '多人审批、职责分离、SOC 2 审计'],
+  ['支付公司', '收款多、出款稳定，成本敏感', 'xpub 派生收款地址 + 定时归集；出款热钱包 MPC；常用稳定币', '归集 Gas 成本、出款白名单、KYT 检查（Know Your Transaction：对链上交易做风险筛查，看资金从哪来、往哪去）'],
   ['项目方金库 / DAO', '金额大、频率低、要求透明', 'Safe 多签（签名者使用硬件钱包），配合时间锁和角色模块', '签名者分散、交易模拟、链上公示'],
   ['个人 / 小团队', '简单、自主', '硬件钱包 + 金属助记词备份；日常小额用软件钱包', '助记词离线备份，分开存放']
 ])}
@@ -204,7 +204,7 @@ ${beginner(`<p><strong>熵（Entropy）</strong>：一串真随机的二进制�
 <h2>1. 一句话理解</h2>
 ${one('HD 钱包用一个随机种子，按“路径”算出一棵密钥树。备份 12 个单词，就备份了整棵树里所有地址的私钥。')}
 ${call('analogy', `<p>把种子想成一把“万能母钥匙”，把路径想成门牌号：<code>m/44′/60′/0′/0/7</code> 就是“以太坊小区 0 号楼 0 单元 7 号房”。锁匠（派生算法）只要拿到母钥匙和门牌号，就能配出这间房的钥匙，配多少次结果都一样。</p>
-<p>类比的局限：现实中丢了一把房门钥匙，母钥匙仍安全；在 HD 钱包的“普通派生”里，一把子钥匙加上公开的楼栋图纸（xpub），可以反推出母钥匙。第 4 节会讲为什么。</p>`)}
+<p>类比的局限：现实中丢了一把房门钥匙，母钥匙仍安全；在 HD 钱包的“普通派生”里，一把子钥匙加上公开的楼栋图纸（xpub），可以反推出整栋楼（账户层）的钥匙，但推不到母钥匙。第 3.1 节会讲为什么。</p>`)}
 <figure class="mmd fig-html fk-artfig" data-art="m03-2"><div class="mmd-title"><span>一图看懂：一棵 HD 钱包派生树</span></div><div class="fig-body"><svg class="fk-art" viewBox="0 0 760 240" role="img" aria-label="从种子到以太坊地址的 BIP-44 派生路径"><rect x="30" y="95" width="84" height="54" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><text x="72" y="119" font-size="14" text-anchor="middle" fill="var(--ink)" font-weight="700">种子 seed</text><text x="72" y="138" font-size="11" text-anchor="middle" fill="var(--ink-2)"></text><rect x="150" y="95" width="84" height="54" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><text x="192" y="119" font-size="14" text-anchor="middle" fill="var(--ink)" font-weight="700" font-family="ui-monospace,Menlo,monospace">m</text><text x="192" y="138" font-size="11" text-anchor="middle" fill="var(--ink-2)">主私钥</text><line x1="114" y1="122" x2="148" y2="122" stroke="var(--risk)" stroke-width="2"/><path d="M148.0 122.0 L140.8 125.5 L140.8 118.5 z" fill="var(--risk)"/><rect x="250" y="95" width="84" height="54" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><text x="292" y="119" font-size="14" text-anchor="middle" fill="var(--ink)" font-weight="700" font-family="ui-monospace,Menlo,monospace">44'</text><text x="292" y="138" font-size="11" text-anchor="middle" fill="var(--ink-2)">用途</text><line x1="234" y1="122" x2="248" y2="122" stroke="var(--risk)" stroke-width="2"/><path d="M248.0 122.0 L240.8 125.5 L240.8 118.5 z" fill="var(--risk)"/><rect x="350" y="95" width="84" height="54" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><text x="392" y="119" font-size="14" text-anchor="middle" fill="var(--ink)" font-weight="700" font-family="ui-monospace,Menlo,monospace">60'</text><text x="392" y="138" font-size="11" text-anchor="middle" fill="var(--ink-2)">以太坊</text><line x1="334" y1="122" x2="348" y2="122" stroke="var(--risk)" stroke-width="2"/><path d="M348.0 122.0 L340.8 125.5 L340.8 118.5 z" fill="var(--risk)"/><rect x="450" y="95" width="84" height="54" rx="8" fill="var(--risk-soft)" stroke="var(--risk)" stroke-width="1.5"/><text x="492" y="119" font-size="14" text-anchor="middle" fill="var(--ink)" font-weight="700" font-family="ui-monospace,Menlo,monospace">0'</text><text x="492" y="138" font-size="11" text-anchor="middle" fill="var(--ink-2)">账户</text><line x1="434" y1="122" x2="448" y2="122" stroke="var(--risk)" stroke-width="2"/><path d="M448.0 122.0 L440.8 125.5 L440.8 118.5 z" fill="var(--risk)"/><rect x="560" y="20" width="190" height="210" rx="12" fill="var(--info-soft)" stroke="var(--info)" stroke-width="1.5" stroke-dasharray="6 4"/><text x="655" y="42" font-size="12" text-anchor="middle" fill="var(--info)" font-weight="700">xpub 能派生的范围</text><rect x="574" y="95" width="70" height="54" rx="8" fill="var(--paper)" stroke="var(--info)" stroke-width="1.5"/><text x="609" y="119" font-size="14" text-anchor="middle" fill="var(--ink)" font-weight="700" font-family="ui-monospace,Menlo,monospace">0</text><text x="609" y="138" font-size="11" text-anchor="middle" fill="var(--ink-2)">收款链</text><line x1="534" y1="122" x2="572" y2="122" stroke="var(--info)" stroke-width="2"/><path d="M572.0 122.0 L564.8 125.5 L564.8 118.5 z" fill="var(--info)"/><rect x="668" y="42" width="72" height="36" rx="8" fill="var(--ok-soft)" stroke="var(--ok)" stroke-width="1.5"/><text x="704" y="65" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">地址 0</text><line x1="644" y1="122" x2="666" y2="60" stroke="var(--ok)" stroke-width="1.5"/><path d="M666.0 60.0 L666.9 68.0 L660.3 65.6 z" fill="var(--ok)"/><rect x="668" y="104" width="72" height="36" rx="8" fill="var(--ok-soft)" stroke="var(--ok)" stroke-width="1.5"/><text x="704" y="127" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">地址 1</text><line x1="644" y1="122" x2="666" y2="122" stroke="var(--ok)" stroke-width="1.5"/><path d="M666.0 122.0 L658.8 125.5 L658.8 118.5 z" fill="var(--ok)"/><rect x="668" y="166" width="72" height="36" rx="8" fill="var(--ok-soft)" stroke="var(--ok)" stroke-width="1.5"/><text x="704" y="189" font-size="12" text-anchor="middle" fill="var(--ink)" font-weight="700">地址 2</text><line x1="644" y1="122" x2="666" y2="184" stroke="var(--ok)" stroke-width="1.5"/><path d="M666.0 184.0 L660.3 178.4 L666.9 176.0 z" fill="var(--ok)"/><text x="270" y="186" font-size="12" text-anchor="middle" fill="var(--risk)">带 ' 的是硬化派生：必须有私钥才能往下算</text><text x="270" y="206" font-size="12" text-anchor="middle" fill="var(--ink-2)">m/44'/60'/0'/0/0 就是这条路径上的第一个地址</text></svg></div><figcaption><div class="cap">读图要点</div><ul class="notes"><li><span class="chip flow">数据流</span><span>从种子开始，每一层用上一层的密钥和序号算出下一层，最后得到无数个地址。</span></li><li><span class="chip key">关键</span><span>红色是硬化派生，需要私钥；蓝框内是普通派生，只要账户层的 xpub 就能算出所有收款地址。</span></li><li><span class="chip risk">风险</span><span>xpub 加上任意一个子私钥泄露，就能反推出账户层私钥。所以子私钥永远不离开签名服务。</span></li></ul></figcaption></figure>
 
 <h2>2. BIP-39：从熵到助记词，再到种子</h2>
@@ -439,7 +439,7 @@ ${recap([
 ])}
 ${quiz([
   { q: '256 位熵对应多少个助记词单词？', o: ['12', '18', '24', '32'], a: 2, why: '校验位 = 256/32 = 8 位，总共 264 位，264 ÷ 11 = 24 个单词。' },
-  { q: '攻击者拿到了账户层 xpub（m/44′/60′/0′ 的扩展公钥）和地址 m/44′/60′/0′/0/5 的私钥。他能做什么？', o: ['什么都做不了', '只能动用第 5 个地址', '可以推出 m/44′/60′/0′/0 的私钥，进而控制整个外部链的所有地址', '可以推出主私钥 m'], a: 2, why: 'change 层和 index 层是普通派生，可以逐层反推到 m/44′/60′/0′/0 甚至 account 层私钥。但 account 层以上是硬化派生，推不到主私钥 m。' },
+  { q: '攻击者拿到了账户层 xpub（m/44′/60′/0′ 的扩展公钥）和地址 m/44′/60′/0′/0/5 的私钥。他能做什么？', o: ['什么都做不了', '只能动用第 5 个地址', '可以逐层推出账户层 m/44′/60′/0′ 的私钥，控制这个账户下所有地址（但推不到主私钥 m）', '可以推出主私钥 m'], a: 2, why: 'change 层和 index 层是普通派生，可以逐层反推到 m/44′/60′/0′/0 甚至 account 层私钥。但 account 层以上是硬化派生，推不到主私钥 m。' },
   { q: '为什么 BIP-44 路径的前三层使用硬化派生？', o: ['硬化派生速度更快', '把可能泄露的风险隔离在账户层以下，单个账户失守不影响其他币种和账户', '硬化派生生成的地址更短', '比特币协议强制要求'], a: 1, why: '硬化派生切断了“公钥 + 子私钥 → 父私钥”的推导链。即使某个账户整体失守，也推不到其他 account 或 coin_type。' },
   { q: '用户把同一组助记词导入另一个钱包，余额显示为 0。最可能的原因是？', o: ['币被盗了', '两个钱包使用了不同的派生路径', '助记词过期了', '链上数据丢失'], a: 1, why: '不同钱包的默认路径可能不同（例如变 index 还是变 account）。切换路径或手动指定路径，通常就能找回地址。' },
   { q: '比特币原生隔离见证地址（bc1q 开头）对应哪个标准的路径？', o: ['BIP-44', 'BIP-49', 'BIP-86', 'BIP-84'], a: 3, why: 'BIP-84 定义 m/84′/0′/0′ 用于 P2WPKH 原生隔离见证。BIP-49 是 3 开头的嵌套隔离见证，BIP-86 是 bc1p 开头的 Taproot。' }
@@ -465,7 +465,7 @@ addCh({ id: 'm03-3', nav: '交易签名与广播', title: 'M08.3 交易签名与
 <h1>M08.3 交易签名与广播：从参数到 raw transaction</h1>
 ${meta(['说出一笔 EIP-1559 交易每个字段从哪里来（nonce、gas、费用、chainId）。', '解释签名哈希、secp256k1 签名、v/r/s、EIP-155 防重放，并用 go-ethereum 完成签名与广播。', '设计“冷机器签名、热机器广播”的离线签名流程，了解比特币、Solana、Tron 的差异。'], '<a href="#m03-2">M08.2 助记词与 HD 钱包</a>、<a href="#m01-4">M01.4 交易全解</a>')}
 ${beginner(`<p><strong>交易（Transaction）</strong>：一条“由某地址发起、要求链改变状态”的指令，例如转账或调用合约。</p>
-<p><strong>Gas</strong>：以太坊衡量计算量的单位。一笔普通 ETH 转账固定消耗 21,000 gas。</p>
+<p><strong>Gas</strong>：以太坊衡量计算量的单位。给已存在账户的普通 ETH 转账目前是 21,000 gas；Glamsterdam 升级（2026-10-06 已在 Sepolia 激活，主网截至 2026-11 待定，以官方为准）后转给新地址要另付状态 gas，会超过 21,000。不要写死，以 <code>eth_estimateGas</code> 为准。</p>
 <p><strong>gwei</strong>：ETH 的小单位，1 gwei = 10⁻⁹ ETH。Gas 价格通常用 gwei 表示。</p>
 <p><strong>RLP</strong>：以太坊的二进制编码格式（Recursive Length Prefix），把列表和字节串压成一串字节。</p>
 <p><strong>广播（Broadcast）</strong>：把签好的交易发给节点，节点再转发给全网，等待被打包。</p>
@@ -500,7 +500,7 @@ ${tbl(['字段', '含义', '怎么得到', 'JSON-RPC / go-ethereum'], [
   ['nonce', '该地址发出的第几笔交易，从 0 开始', '企业系统由 Nonce 管理器分配（见 M08.6）；个人钱包查 pending 计数', '<code>eth_getTransactionCount(addr, "pending")</code> / <code>PendingNonceAt</code>'],
   ['maxPriorityFeePerGas', '给出块者的小费上限', '取近期区块小费分位数，或节点建议值', '<code>eth_maxPriorityFeePerGas</code> / <code>SuggestGasTipCap</code>'],
   ['maxFeePerGas', '愿意支付的每 gas 总价上限', '常用：2 × 下一块基础费 + 小费', '<code>eth_getBlockByNumber("latest")</code> 的 baseFeePerGas'],
-  ['gas（gasLimit）', '最多消耗多少 gas', 'ETH 转账固定 21,000；合约调用用估算值 × 缓冲系数', '<code>eth_estimateGas</code> / <code>EstimateGas</code>'],
+  ['gas（gasLimit）', '最多消耗多少 gas', '给已存在账户的 ETH 转账为 21,000（Glamsterdam 后转给新地址更高，不要写死）；统一用估算值，合约调用再 × 缓冲系数', '<code>eth_estimateGas</code> / <code>EstimateGas</code>'],
   ['to', '收款地址或合约地址', '业务请求；必须校验格式和校验和（EIP-55）', '—'],
   ['value', '转账的 ETH 数量，单位 wei', '业务请求，十进制金额 × 10¹⁸', '—'],
   ['data', '合约调用数据', 'ERC-20 转账 = 函数选择器 <code>0xa9059cbb</code> + 参数 ABI 编码', '<code>abi.Pack("transfer", to, amount)</code>'],
@@ -582,7 +582,7 @@ func SendETH(ctx context.Context, rpcURL string, key *ecdsa.PrivateKey,
     }
     feeCap := new(big.Int).Add(new(big.Int).Mul(head.BaseFee, big.NewInt(2)), tip)
 
-    // 4. gas：估算后加 20% 缓冲（纯 ETH 转账结果就是 21000）
+    // 4. gas：估算后加 20% 缓冲（给已存在账户的纯 ETH 转账是 21000；Glamsterdam 后转给新地址更高，以估算值为准）
     gas, err := client.EstimateGas(ctx, ethereum.CallMsg{
         From: from, To: &to, Value: amountWei,
     })

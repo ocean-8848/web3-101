@@ -98,7 +98,7 @@ func (k *Kline) OnTrade(ts int64, px, qty decimal.Decimal, interval int64) (clos
 	return
 }
 `)}
-${call('info', `<p>两个细节：① 某个周期一笔成交都没有时，按惯例生成一根 Open=High=Low=Close=上一根收盘价、Volume=0 的 K 线，否则图表会断开。② 周期封口不能只靠“下一笔成交到来”，还要有定时器在周期结束时主动封口，否则冷门交易对的 K 线会一直不收盘。定时器的时间应来自成交事件时间，重算时保持一致。</p>`)}
+${call('info', `<p>两个细节：① 某个周期一笔成交都没有时，按惯例生成一根 Open=High=Low=Close=上一根收盘价、Volume=0 的 K 线，否则图表会断开。② 周期封口不能只靠“下一笔成交到来”，还要有定时器在周期结束时主动封口，否则冷门交易对的 K 线会一直不收盘。封口时间应来自撮合引擎写入事件流的时钟（如定时心跳 / 水位线事件），不用推送机器的本地时钟，重算时才能保持一致。</p>`)}
 <p>24 小时 Ticker 是一个滚动窗口：用最近 1,440 根 1 分钟 K 线（或更细粒度的桶）计算最高、最低、成交量；涨跌幅 = (最新价 − 24 小时前价格) ÷ 24 小时前价格。每秒推送一次即可（示例），不必每笔成交都推。</p>
 
 <h2>4. 深度：快照、增量与重同步</h2>
@@ -162,7 +162,7 @@ flowchart TB
   ['fail', '如果用无界缓冲，慢客户端会让网关内存持续增长直到 OOM，影响整台机器上的所有连接。'],
   ['risk', '未鉴权的公共行情连接可被用来做连接耗尽攻击。要限制单 IP 连接数、订阅数和消息速率。']
 ])}
-${steps(['<b>连接管理</b>：用 epoll 类事件驱动库（Go 可用 gorilla/websocket 或 nhooyr.io/websocket 配合合理的协程模型）；调整系统参数（文件句柄上限、TCP 缓冲）。', '<b>订阅管理</b>：客户端发 <code>{"op":"sub","args":["kline.1m.BTCUSDT"]}</code>；网关维护 topic → 连接集合，并限制每连接订阅数（示例 200 个）。', '<b>扇出</b>：同一条消息只序列化一次；必要时启用压缩（permessage-deflate），注意它消耗 CPU。', '<b>背压</b>：发送缓冲满时，深度类消息只保留最新一帧；成交类消息可以合并；持续积压则断开。', '<b>心跳</b>：服务端每 20 秒（示例）发 ping，超时未收到 pong 就关闭，释放资源。', '<b>扩容</b>：网关无状态，按连接数水平扩容；客户端断线后带退避重连。'])}
+${steps(['<b>连接管理</b>：用 epoll 类事件驱动库（Go 可用 gorilla/websocket 或 github.com/coder/websocket（原 nhooyr.io/websocket，2024 年改名迁移）配合合理的协程模型）；调整系统参数（文件句柄上限、TCP 缓冲）。', '<b>订阅管理</b>：客户端发 <code>{"op":"sub","args":["kline.1m.BTCUSDT"]}</code>；网关维护 topic → 连接集合，并限制每连接订阅数（示例 200 个）。', '<b>扇出</b>：同一条消息只序列化一次；必要时启用压缩（permessage-deflate），注意它消耗 CPU。', '<b>背压</b>：发送缓冲满时，深度类消息只保留最新一帧；成交类消息可以合并；持续积压则断开。', '<b>心跳</b>：服务端每 20 秒（示例）发 ping，超时未收到 pong 就关闭，释放资源。', '<b>扩容</b>：网关无状态，按连接数水平扩容；客户端断线后带退避重连。'])}
 <p><b>算一算（示例）</b>：100 万连接，平均每连接订阅 5 个 topic，每个 topic 每秒 10 条消息，平均 300 字节。</p>
 ${steps(['每秒发送消息数 = 1,000,000 × 5 × 10 = 5,000 万条。', '每秒出口流量 = 5,000 万 × 300 B = 15 GB/s ≈ 120 Gbps。', '单台网关出口 10 Gbps（示例），至少需要 12 台；按 50% 余量规划约 24 台。', '降低成本的手段：合并推送间隔（100 ms → 250 ms）、压缩、只推前 N 档。'])}
 
@@ -210,7 +210,7 @@ ${tryit(`<p>用公开 WebSocket 观察真实的深度增量：</p>
 <ol><li>安装命令行工具：<code>npm i -g wscat</code>。</li>
 <li>运行 <code>wscat -c wss://stream.binance.com:9443/ws/btcusdt@depth@100ms</code>。</li>
 <li>预期结果：每 100 ms 收到一条 JSON，含 <code>U</code>（本条第一个更新 ID）、<code>u</code>（最后一个更新 ID）、<code>b</code>（买方变化）、<code>a</code>（卖方变化）。</li>
-<li>记录连续 5 条消息，检查每条的 U 是否等于上一条的 u + 1。数量为 "0.00000000" 的档位表示删除。</li>
+<li>记录连续 5 条消息，检查每条的 U 是否等于上一条的 u + 1（U、u 分别对应前文的 firstSeq、lastSeq）。数量为 "0.00000000" 的档位表示删除。</li>
 <li>再连接 <code>wss://stream.binance.com:9443/ws/btcusdt@kline_1m</code>，观察字段 <code>x</code>：K 线进行中为 false，封口时为 true。</li></ol>`)}
 
 ${mistakes([
@@ -322,7 +322,7 @@ ${mm('三类对账：链上、钱包、账本', `
 flowchart LR
   CHAIN[("链上余额<br/>节点查询各地址")] <-->|"① 链上 vs 钱包"| WAL[("钱包服务记录<br/>充值 · 提币 · 归集")]
   WAL <-->|"② 钱包 vs 账本"| LED[("账本<br/>充值入账 · 提币扣减")]
-  LED -->|"③ 账本内部不变量"| INV["借贷平衡<br/>快照 + 流水 = 新快照<br/>用户 + 平台 = 充值 − 提币"]
+  LED -->|"③ 账本内部不变量"| INV["借贷平衡<br/>快照 + 流水 = 新快照<br/>用户 + 平台 = 充值 − 提币 − 已记账的链上费用"]
   CHAIN --> CMP["对账引擎"]
   WAL --> CMP
   LED --> CMP
@@ -345,7 +345,7 @@ ${steps(['<b>发现</b>：对账任务输出差异明细（资产、金额、涉
 ${steps(['① 链上 = 钱包 = 10,250,000，一致。', '② 账本应对应的链上资产 = 9,800,000 + 380,000 + 50,000 = 10,230,000。', '差额 = 10,250,000 − 10,230,000 = 20,000。需要解释：例如有 20,000 是公司自有资金注入（应有对应的权益分录）。', '如果解释不了，就是“未知差异”，进入工单流程。'])}
 
 <h2>4. 储备金证明：默克尔和树</h2>
-<p>储备金证明分两半：<b>资产</b>（交易所证明自己控制哪些链上地址，例如用这些地址签一条消息）和<b>负债</b>（证明所有用户余额的总和是多少，并让每个用户能验证自己被算进去了）。负债部分常用<b>默克尔和树（Merkle Sum Tree）</b>：</p>
+<p>储备金证明分两半：<b>资产</b>（交易所证明自己控制哪些链上地址，例如用这些地址签一条消息）和<b>负债</b>（证明所有用户余额的总和是多少，并让每个用户能验证自己被算进去了）。两半合起来也只说明某一时刻资产 ≥ 公布的负债，证明不了表外负债。负债部分常用<b>默克尔和树（Merkle Sum Tree）</b>：</p>
 ${steps(['每个用户一个叶子：<code>leaf = (hash(用户ID ‖ 随机盐 ‖ 余额), 余额)</code>。盐防止别人穷举余额。', '每个父节点：<code>hash = H(左hash ‖ 左sum ‖ 右hash ‖ 右sum)</code>，<code>sum = 左sum + 右sum</code>。', '根节点的 sum 就是“公布的负债总额”，根哈希公开发布。', '每个用户拿到自己的证明路径：从叶子到根的每一层兄弟节点（哈希 + 和）。', '用户自己从叶子算到根：哈希一致，说明自己被包含；同时检查路径上每个和都非负。'])}
 ${mm('默克尔和树：每个节点同时承诺哈希和余额总和', `
 flowchart BT
@@ -360,7 +360,7 @@ flowchart BT
   ['flow', '叶子的余额逐层相加到根。U3 验证时只需要 U4 的节点和 N1 的节点。'],
   ['key', '父节点哈希同时包含子节点的和。交易所不能在不改变根哈希的情况下篡改任何一个和。'],
   ['fail', '如果允许负数余额，交易所可以插入一个 −5,000 的假用户压低总额。所以验证时要检查路径上所有和都非负，生产方案用零知识证明保证所有叶子非负。'],
-  ['limit', '用户只能验证“我在里面”。交易所漏掉某个用户，只有那个用户本人能发现。']
+  ['limit', '用户只能验证“我在里面”。仅靠默克尔和树时，交易所漏掉某个用户，只有被漏掉的用户本人能发现；第三方审计抽查可以部分弥补。']
 ])}
 <p>先在实验里选择 U3，对照验证日志理解“只靠兄弟节点就能算到根”；再拉动储备滑块；最后点“偷偷删除一个大户”，分别以 U6 和其他用户身份验证。</p>
 ${lab('por')}
@@ -397,11 +397,11 @@ ${mistakes([
   ['风控规则越多越严越好。', '误杀会伤害正常用户。规则要有灰度、命中率和误杀率监控，并可快速回滚。'],
   ['链上余额和账本对不上就是被盗了。', '最常见的是时点差（在途）和未记录的 Gas、粉尘。先按截面和分类排除已知原因。']
 ])}
-${recap(['风控分三段：交易前（余额、价格保护、频率）、交易中（STP、刷量、操纵）、提币（地址画像、行为异常、AML/KYT）。', '规则引擎：事件 → 特征 → 版本化规则 → 四种决策，决策日志可追溯。', '三类对账：链上 vs 钱包、钱包 vs 账本、账本内部不变量；差异按“发现、分类、止损、调查、处理、复盘”处理。', '默克尔和树：每个节点 = 哈希 + 子树和；用户用兄弟节点自证被包含且路径非负。', 'PoR 的根本局限是负债完整性：被漏掉的用户只有自己能发现。zk-PoR 解决隐私和负数问题，不解决遗漏问题。'])}
+${recap(['风控分三段：交易前（余额、价格保护、频率）、交易中（STP、刷量、操纵）、提币（地址画像、行为异常、AML/KYT）。', '规则引擎：事件 → 特征 → 版本化规则 → 四种决策，决策日志可追溯。', '三类对账：链上 vs 钱包、钱包 vs 账本、账本内部不变量；差异按“发现、分类、止损、调查、处理、复盘”处理。', '默克尔和树：每个节点 = 哈希 + 子树和；用户用兄弟节点自证被包含且路径非负。', 'PoR 的根本局限是负债完整性：仅凭公开证明，被漏掉的用户只有自己能发现（第三方审计抽查可部分弥补）。zk-PoR 解决隐私和负数问题，不解决遗漏问题。'])}
 ${quiz([
   { q: '默克尔和树中，父节点的哈希为什么要包含子节点的和？', o: ['为了让哈希更长', '防止交易所在不改变根哈希的情况下篡改余额总和', '为了加快计算', '为了隐藏用户 ID'], a: 1, why: '如果哈希不包含和，交易所可以随意修改中间节点的和而根哈希不变。哈希长度、速度、隐私与此无关。' },
   { q: '对账发现 50 万 USDT 未知差异，第一步应该？', o: ['写一笔调账分录把差额调平', '等日终再看', '通知所有用户', '暂停该资产提币，开差异工单调查'], a: 3, why: '止损优先，再调查。直接调平会掩盖问题；等待会扩大损失；通知用户不是第一步。' },
-  { q: '交易所在 PoR 树中偷偷删除了一个大户。谁能发现？', o: ['只有被删除的用户本人（他验证时找不到自己的叶子）', '所有用户', '任何验证证明的用户', '链上节点'], a: 0, why: '其他用户的路径都是正确的，验证都会通过。链上节点不知道负债数据。这就是负债完整性局限。' },
+  { q: '交易所在 PoR 树中偷偷删除了一个大户。仅凭公开的 PoR 证明，谁能发现？', o: ['只有被删除的用户本人（他验证时找不到自己的叶子）', '所有用户', '任何验证证明的用户', '链上节点'], a: 0, why: '其他用户的路径都是正确的，验证都会通过。链上节点不知道负债数据。这就是负债完整性局限。' },
   { q: 'KYT 外部服务超时，提币风控的合理降级是？', o: ['全部放行', '全部拒绝并冻结所有账户', '小额按规则放行，大额转人工审核', '跳过所有风控规则'], a: 2, why: '降级要在可用性和安全之间平衡。全部放行有风险；全部冻结伤害用户；跳过规则等于无风控。' }
 ])}
 ${exercises([["计算题（示例）：某时刻 USDT 对账。链上合计 5,120,000，钱包记录推算 5,120,000；账本用户负债 4,900,000，平台手续费账户 150,000，在途充值 40,000。结论是什么？", "<p>链上与钱包一致，都是 5,120,000。</p><p>账本应对应的链上资产 = 4,900,000 + 150,000 + 40,000 = 5,090,000。差额 = 5,120,000 − 5,090,000 = 30,000。</p><p>这 30,000 必须能解释，例如公司自有资金注入且有对应的权益分录。解释不了就是未知差异，按流程开工单；超过阈值时先暂停该资产提币。</p>"], ["计算题（示例）：默克尔和树有 4 个叶子：U1 500、U2 300、U3 1,000、U4 200。U1、U2 合成 N1，U3、U4 合成 N2。U4 验证时需要哪些兄弟节点？如果交易所插入一个余额为 −700 的假用户，会有什么效果？", "<p>N1 的和 = 800，N2 的和 = 1,200，根的和 = 2,000。U4 需要兄弟 U3（和 1,000）和 N1（和 800）：200 + 1,000 + 800 = 2,000，与根一致。</p><p>插入 −700 的假用户，公布的负债总额会降到 1,300，储备率看起来更健康。</p><p>所以验证时要检查路径上每个和都非负。生产方案用零知识证明保证所有叶子非负。</p>"], ["设计题：为“账号刚改过 2FA，又用新提币地址大额提币”设计一条规则引擎规则，并说明上线方式。", "<p>规则示例：事件 <code>withdraw.request</code>；条件同时满足 <code>account.security_changed_48h = true</code>、目标地址首次使用、<code>withdraw.amount_usdt ≥ 5000</code>（示例）；决策 FREEZE 或 REVIEW。</p><p>规则要带 id、version 和 priority，决策日志记录命中规则和当时的特征快照。</p><p>上线时先“只记录不执行”运行一段时间（示例 24 小时），观察命中率和误杀率，再切换为执行。</p>"]])}
@@ -504,8 +504,9 @@ ${tbl(['组件', '灾备方式', 'RPO（示例）', 'RTO（示例）', '切换�
 ${steps(['一年分钟数 = 365 × 24 × 60 = 525,600。', '允许停机 = 525,600 × (1 − 99.95%) = 262.8 分钟 ≈ 4.4 小时/年。', '如果每次撮合主备切换耗时 10 秒、每月发生 1 次计划内切换：一年 120 秒 = 2 分钟，只占预算的 0.8%。', '如果一次账本数据库手工恢复要 2 小时，两次就用掉接近全部预算。所以账本必须做到自动故障转移。'])}
 
 <h2>4. 事故复盘：三张因果图</h2>
+<p>以下只整理公开报道与官方文件中的事实；涉及法律认定的内容，以法院文件和官方公告为准。</p>
 <h3>4.1 Mt.Gox（2014）</h3>
-<p>Mt.Gox 是一家位于东京的交易所，2013 年前后是全球最大的比特币交易所。2014 年 2 月它暂停提币，2 月 28 日申请破产，宣布丢失约 85 万枚比特币（其中约 75 万属于用户），按当时价格约 4.7 亿美元。${cite('TechCrunch：Mt.Gox 申请破产，称丢失 85 万 BTC', 'https://techcrunch.com/2014/02/28/mt-gox-files-for-bankruptcy/')}之后它找回约 20 万枚。${cite('Computerworld：Mt.Gox 找回约 20 万 BTC', 'https://www.computerworld.com/article/1390713/mt-gox-finds-116m-worth-of-bitcoins.html')}公司当时把原因归于比特币的“交易延展性”（Transaction Malleability）问题；后续独立调查显示，大部分比特币是从 2011 年末起被持续从热钱包盗走的，公司多年没有发现，到 2013 年实际上已几乎没有比特币。${cite('WizSec：The missing MtGox bitcoins', 'https://blog.wizsec.jp/2015/04/the-missing-mtgox-bitcoins.html')}</p>
+<p>Mt.Gox 是一家位于东京的交易所，2013 年前后是全球最大的比特币交易所。2014 年 2 月它暂停提币，2 月 28 日申请破产，宣布丢失约 85 万枚比特币（其中约 75 万属于用户），按当时价格约 4.7 亿美元。${cite('TechCrunch：Mt.Gox 申请破产，称丢失 85 万 BTC', 'https://techcrunch.com/2014/02/28/mt-gox-files-for-bankruptcy/')}之后它找回约 20 万枚。${cite('Computerworld：Mt.Gox 找回约 20 万 BTC', 'https://www.computerworld.com/article/1390713/mt-gox-finds-116m-worth-of-bitcoins.html')}公司当时把原因归于比特币的“交易延展性”（Transaction Malleability）问题；后续独立调查显示，大部分比特币是从 2011 年末起被持续从热钱包盗走的，公司多年没有发现，到 2013 年实际上已几乎没有比特币。${cite('WizSec：The missing MtGox bitcoins', 'https://blog.wizsec.jp/2015/04/the-missing-mtgox-bitcoins.html')}后续进展：2018 年程序由破产转为民事再生；多数已完成手续的债权人于 2024–2025 年获得偿付，受托人 2026-10-16 公告把剩余偿付期限延至 2027-10-31（截至 2026-11，以受托人公告为准）。${cite('Mt.Gox 受托人公告', 'https://www.mtgox.com/')}</p>
 ${mm('Mt.Gox 因果链', `
 flowchart TB
   A["热钱包私钥被盗<br/>约 2011 年起"] --> B["币被持续小额转走"]
@@ -543,7 +544,7 @@ flowchart TB
   ['risk', 'API Key 开提币权限且不绑 IP，会让凭证泄露直接变成资金损失。见 <a href="#m04-2">M09.3</a>。']
 ])}
 <h3>4.3 FTX（2022）</h3>
-<p>FTX 曾是全球前列的交易所。2022 年 11 月 2 日，CoinDesk 披露其关联交易公司 Alameda Research 的资产负债表大量由 FTX 发行的平台币 FTT 构成。${cite('CoinDesk：Alameda 资产负债表（2022-11-02）', 'https://www.coindesk.com/business/2022/11/02/divisions-in-sam-bankman-frieds-crypto-empire-blur-on-his-trading-titan-alamedas-balance-sheet')}11 月 6 日币安宣布抛售所持 FTT，${cite('The Block：币安宣布抛售 FTT', 'https://www.theblock.co/post/183570/binance-to-sell-ftx-token-holdings-alameda-ceo-says-leaked-balance-sheet-is-incomplete')}引发挤兑：据报道 72 小时内净提币约 60 亿美元，11 月 8 日 FTX 实际暂停提币。${cite('The Block：FTX 实际暂停提币，72 小时净提约 60 亿美元', 'https://www.theblock.co/post/184315/ftx-effectively-paused-withdrawals-ceo-sam-bankman-fried-tells-employees')}11 月 11 日申请破产。后续调查和审判显示，客户资金被挪给 Alameda 使用，Alameda 享有近乎无限的“信用额度”并被豁免自动风控与清算，${cite('SEC 对 Bankman-Fried 的起诉', 'https://www.sec.gov/newsroom/press-releases/2022-219')}检方称被挪用的客户资金超过 80 亿美元。创始人 Sam Bankman-Fried 于 2023 年 11 月 2 日被陪审团认定七项罪名成立，${cite('Fortune：Bankman-Fried 七项罪名成立', 'https://fortune.com/crypto/2023/11/02/sam-bankman-fried-verdict-trial-ftx-fraud-jury-sdny/')}2024 年 3 月 28 日被判 25 年监禁。${cite('美国司法部：Bankman-Fried 被判 25 年', 'https://www.justice.gov/opa/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes')}申请破产当天（11 日晚至 12 日）还发生了约 4.77 亿美元的未授权转出。${cite('Elliptic：FTX 4.77 亿美元未授权转出', 'https://www.elliptic.co/blog/the-477-million-ftx-hack-following-the-blockchain-trail')}</p>
+<p>FTX 曾是全球前列的交易所。2022 年 11 月 2 日，CoinDesk 披露其关联交易公司 Alameda Research 的资产负债表大量由 FTX 发行的平台币 FTT 构成。${cite('CoinDesk：Alameda 资产负债表（2022-11-02）', 'https://www.coindesk.com/business/2022/11/02/divisions-in-sam-bankman-frieds-crypto-empire-blur-on-his-trading-titan-alamedas-balance-sheet')}11 月 6 日币安宣布抛售所持 FTT，${cite('The Block：币安宣布抛售 FTT', 'https://www.theblock.co/post/183570/binance-to-sell-ftx-token-holdings-alameda-ceo-says-leaked-balance-sheet-is-incomplete')}引发挤兑：据报道 72 小时内净提币约 60 亿美元，11 月 8 日 FTX 实际暂停提币。${cite('The Block：FTX 实际暂停提币，72 小时净提约 60 亿美元', 'https://www.theblock.co/post/184315/ftx-effectively-paused-withdrawals-ceo-sam-bankman-fried-tells-employees')}11 月 11 日申请破产。后续调查和审判显示，客户资金被挪给 Alameda 使用，Alameda 享有近乎无限的“信用额度”并被豁免自动风控与清算，${cite('SEC 对 Bankman-Fried 的起诉', 'https://www.sec.gov/newsroom/press-releases/2022-219')}检方称被挪用的客户资金超过 80 亿美元。创始人 Sam Bankman-Fried 于 2023 年 11 月 2 日被陪审团认定七项罪名成立，${cite('Fortune：Bankman-Fried 七项罪名成立', 'https://fortune.com/crypto/2023/11/02/sam-bankman-fried-verdict-trial-ftx-fraud-jury-sdny/')}2024 年 3 月 28 日被判 25 年监禁。${cite('美国司法部：Bankman-Fried 被判 25 年', 'https://www.justice.gov/opa/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes')}2026 年 6 月 12 日，美国第二巡回上诉法院维持定罪和刑期；同年 9 月他向美国最高法院申请复审（No. 26-349，截至 2026-11 未决），以法院文件为准。${cite('美国最高法院案卷 No. 26-349', 'https://www.supremecourt.gov/docket/docketfiles/html/public/26-349.html')}申请破产当天（11 日晚至 12 日）还发生了约 4.77 亿美元的未授权转出。${cite('Elliptic：FTX 4.77 亿美元未授权转出', 'https://www.elliptic.co/blog/the-477-million-ftx-hack-following-the-blockchain-trail')}</p>
 ${mm('FTX 因果链', `
 flowchart TB
   A["关联公司 Alameda<br/>可在 FTX 负余额借款"] --> B["客户资金被挪用<br/>投资 · 借贷 · 支出"]

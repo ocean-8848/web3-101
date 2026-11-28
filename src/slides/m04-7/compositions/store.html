@@ -1,0 +1,194 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 store，id 前缀 st- -->
+  <div id="root" data-composition-id="store" data-duration="69.78" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="st-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="st-all">
+        <g id="st-p1">
+          <g id="st-cyl" class="h">
+            <path d="M140 320 V500 A120 30 0 0 0 380 500 V320" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <ellipse cx="260" cy="320" rx="120" ry="30" fill="#1d2430" stroke="#58C4DD" stroke-width="3" />
+            <path d="M140 380 A120 30 0 0 0 380 380 M140 440 A120 30 0 0 0 380 440" fill="none" stroke="#58C4DD" stroke-width="2" opacity="0.5" />
+            <text x="260" y="580" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">ClickHouse</text>
+          </g>
+          <rect id="st-scan" class="h" x="146" y="350" width="228" height="30" fill="rgba(88,196,221,0.35)" />
+          <g id="st-sch" class="h"><rect x="460" y="270" width="1320" height="300" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g>
+          <text id="st-s0" class="mono h" x="490" y="340" font-size="28" fill="#e8e6df">trades(symbol, trade_id, ts, price, qty, taker_side)</text>
+          <text id="st-s1" class="mono h" x="490" y="420" font-size="28" fill="#58C4DD">PARTITION BY toYYYYMM(ts)</text>
+          <text id="st-s1n" class="h" x="1140" y="420" font-size="28" fill="#8a8f99">按月分区</text>
+          <text id="st-s2" class="mono h" x="490" y="500" font-size="28" fill="#58C4DD">ORDER BY (symbol, ts, trade_id)</text>
+          <text id="st-s2n" class="h" x="1140" y="500" font-size="28" fill="#8a8f99">按交易对和时间排序</text>
+          <g id="st-q" class="h"><rect x="140" y="620" width="880" height="290" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2" /></g>
+          <rect id="st-hl" class="h" x="150" y="648" width="860" height="44" rx="6" fill="rgba(88,196,221,0.18)" />
+          <text id="st-q0" class="mono h" x="165" y="680" font-size="28" fill="#e8e6df">toStartOfMinute(ts) AS t</text>
+          <text id="st-q1" class="mono h" x="165" y="745" font-size="28" fill="#e8e6df">argMin(price, (ts, trade_id)) AS open</text>
+          <text id="st-q2" class="mono h" x="165" y="810" font-size="28" fill="#e8e6df">argMax(price, (ts, trade_id)) AS close</text>
+          <text id="st-q3" class="mono h" x="165" y="875" font-size="28" fill="#e8e6df">max(price), min(price), sum(qty)</text>
+          <rect id="st-g0" class="h" x="1106" y="640" width="208" height="320" rx="10" fill="none" stroke="#3a3f4a" stroke-width="2" /><rect id="st-g1" class="h" x="1326" y="640" width="208" height="320" rx="10" fill="none" stroke="#3a3f4a" stroke-width="2" /><rect id="st-g2" class="h" x="1546" y="640" width="208" height="320" rx="10" fill="none" stroke="#3a3f4a" stroke-width="2" /><text id="st-gl0" class="mono h" x="1210" y="1000" font-size="28" fill="#8a8f99" text-anchor="middle">10:00</text><text id="st-gl1" class="mono h" x="1430" y="1000" font-size="28" fill="#8a8f99" text-anchor="middle">10:01</text><text id="st-gl2" class="mono h" x="1650" y="1000" font-size="28" fill="#8a8f99" text-anchor="middle">10:02</text><circle id="st-d00" class="h" cx="1150" cy="880" r="9" fill="#F0B90B" /><circle id="st-d01" class="h" cx="1190" cy="820" r="9" fill="#F0B90B" /><circle id="st-d02" class="h" cx="1230" cy="900" r="9" fill="#F0B90B" /><circle id="st-d03" class="h" cx="1270" cy="850" r="9" fill="#F0B90B" /><circle id="st-d10" class="h" cx="1370" cy="840" r="9" fill="#F0B90B" /><circle id="st-d11" class="h" cx="1410" cy="760" r="9" fill="#F0B90B" /><circle id="st-d12" class="h" cx="1450" cy="800" r="9" fill="#F0B90B" /><circle id="st-d13" class="h" cx="1490" cy="720" r="9" fill="#F0B90B" /><circle id="st-d20" class="h" cx="1590" cy="760" r="9" fill="#F0B90B" /><circle id="st-d21" class="h" cx="1630" cy="820" r="9" fill="#F0B90B" /><circle id="st-d22" class="h" cx="1670" cy="700" r="9" fill="#F0B90B" /><circle id="st-d23" class="h" cx="1710" cy="740" r="9" fill="#F0B90B" /><g id="st-k0" class="h"><line x1="1210" y1="820" x2="1210" y2="900" stroke="#83C167" stroke-width="4" /><rect x="1180" y="850" width="60" height="30" fill="#83C167" /></g><g id="st-k1" class="h"><line x1="1430" y1="720" x2="1430" y2="840" stroke="#83C167" stroke-width="4" /><rect x="1400" y="720" width="60" height="120" fill="#83C167" /></g><g id="st-k2" class="h"><line x1="1650" y1="700" x2="1650" y2="820" stroke="#83C167" stroke-width="4" /><rect x="1620" y="740" width="60" height="20" fill="#83C167" /></g>
+          <g id="st-mv" class="h">
+            <rect x="160" y="680" width="560" height="150" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" />
+            <text x="440" y="745" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">物化视图</text>
+            <text x="440" y="795" font-size="28" fill="#e8e6df" text-anchor="middle">提前聚合好的 K 线</text>
+          </g>
+          <path id="st-mva" class="dr h" pathLength="1" d="M730 755 H1085" stroke="#83C167" stroke-width="3" fill="none" marker-end="url(#st-arr)" />
+          <text id="st-mvt" class="h" x="908" y="730" font-size="28" fill="#83C167" text-anchor="middle">查询直接读</text>
+        </g>
+        <g id="st-p2">
+          <text id="st-th" class="h" x="140" y="300" font-size="40" font-weight="700" fill="#FF9F43">对外限流（示例）</text>
+          <g id="st-r0" class="h">
+            <text x="140" y="400" font-size="32" fill="#e8e6df">按 IP 权重</text>
+            <text x="480" y="400" font-size="32" fill="#FF9F43">每分钟 6,000 权重</text>
+          </g>
+          <g id="st-rq0" class="h"><rect x="1150" y="365" width="200" height="60" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="1250" y="405" font-size="28" fill="#e8e6df" text-anchor="middle">limit=100</text></g>
+          <g id="st-rq1" class="h"><rect x="1400" y="330" width="300" height="130" rx="10" fill="rgba(255,159,67,0.12)" stroke="#FF9F43" stroke-width="2.5" /><text class="mono" x="1550" y="385" font-size="28" fill="#e8e6df" text-anchor="middle">limit=5000</text><text x="1550" y="435" font-size="28" fill="#FF9F43" text-anchor="middle">权重更高</text></g>
+          <path id="st-sep0" class="dr" pathLength="1" d="M140 490 H1780" stroke="#3a3f4a" stroke-width="2" fill="none" />
+          <g id="st-r1" class="h">
+            <text x="140" y="555" font-size="32" fill="#e8e6df">按用户下单</text>
+            <text x="480" y="555" font-size="32" fill="#FF9F43">每 10 秒 100 单</text>
+          </g>
+          <path id="st-sep1" class="dr" pathLength="1" d="M140 610 H1780" stroke="#3a3f4a" stroke-width="2" fill="none" />
+          <g id="st-r2" class="h">
+            <text x="140" y="675" font-size="32" fill="#e8e6df">WebSocket 上行</text>
+            <text x="480" y="675" font-size="32" fill="#FF9F43">每连接每秒 ≤ 5 条</text>
+          </g>
+          <!-- 令牌桶 -->
+          <g id="st-bk">
+            <path id="st-bkp" class="dr" pathLength="1" d="M780 770 V970 H940 V770" stroke="#e8e6df" stroke-width="4" fill="none" />
+            <circle id="st-tk0" class="h" cx="860" cy="935" r="15" fill="#58C4DD" /><circle id="st-tk1" class="h" cx="860" cy="901" r="15" fill="#58C4DD" /><circle id="st-tk2" class="h" cx="860" cy="867" r="15" fill="#58C4DD" /><circle id="st-tk3" class="h" cx="860" cy="833" r="15" fill="#58C4DD" />
+            <circle id="st-drop" class="h" cx="860" cy="740" r="15" fill="#58C4DD" />
+            <text id="st-bkt1" class="h" x="990" y="800" font-size="28" fill="#58C4DD">按固定速率补令牌</text>
+            <g id="st-rm0"><g id="st-rb0" class="h"><rect x="360" y="900" width="110" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="415" y="938" font-size="28" fill="#e8e6df" text-anchor="middle">请求</text></g></g>
+            <g id="st-rm1"><g id="st-rb1" class="h"><rect x="360" y="900" width="110" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="415" y="938" font-size="28" fill="#e8e6df" text-anchor="middle">请求</text></g></g>
+            <g id="st-rm2"><g id="st-rb2" class="h"><rect id="st-rb2r" x="360" y="900" width="110" height="56" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="415" y="938" font-size="28" fill="#e8e6df" text-anchor="middle">请求</text></g></g>
+            <text id="st-bkt2" class="h" x="990" y="940" font-size="30" font-weight="700" fill="#FF9F43">桶空了 → 拒绝</text>
+          </g>
+          <g id="st-impl">
+            <text id="st-ih" class="h" x="1330" y="760" font-size="28" fill="#8a8f99">两种实现</text>
+            <g id="st-i0" class="h"><rect x="1330" y="785" width="440" height="64" rx="32" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1550" y="828" font-size="30" fill="#e8e6df" text-anchor="middle"><tspan class="mono">Redis + Lua</tspan> 脚本</text></g>
+            <g id="st-i1" class="h"><rect x="1330" y="885" width="440" height="64" rx="32" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1550" y="928" font-size="30" fill="#e8e6df" text-anchor="middle">每台机器的本地令牌桶</text></g>
+          </g>
+          <!-- 响应码 -->
+          <g id="st-rc">
+            <g id="st-c0" class="h"><rect x="160" y="800" width="240" height="110" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text class="mono" x="280" y="872" font-size="52" font-weight="700" fill="#FF9F43" text-anchor="middle">429</text></g>
+            <path id="st-ca" class="dr h" pathLength="1" d="M410 855 H640" stroke="#e8e6df" stroke-width="3" fill="none" marker-end="url(#st-arr)" />
+            <text id="st-cat" class="h" x="525" y="830" font-size="28" fill="#e8e6df" text-anchor="middle">持续超限</text>
+            <g id="st-c1" class="h"><rect x="660" y="800" width="420" height="110" rx="16" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="870" y="872" font-size="44" font-weight="700" fill="#FC6255" text-anchor="middle"><tspan class="mono">418</tspan> + 封禁</text></g>
+            <g id="st-c2" class="h"><rect x="1180" y="800" width="600" height="110" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1210" y="845" font-size="28" fill="#8a8f99">响应头</text><text x="1210" y="890" font-size="32" fill="#58C4DD">已用权重：客户端自己控节奏</text></g>
+          </g>
+        </g>
+
+      </g>
+      <g id="st-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">令牌桶 <tspan font-size="28" font-weight="400" fill="#8a8f99">Token Bucket</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">固定速率补令牌，请求消耗令牌</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const RED = "#FC6255", GRN = "#83C167", ORG = "#FF9F43", BLU = "#58C4DD", GLD = "#F0B90B", GRY = "#8a8f99", TXT = "#e8e6df", PUR = "#B48EF0";
+      // 周期性脉冲（有限次数，结束回到原值）
+      const PULSE = (s, t0, t1, p = 1.2, o = 0.4) => { const k = Math.max(1, Math.floor((t1 - t0) / p)); tl.to(s, { opacity: o, duration: p / 2, yoyo: true, repeat: 2 * k - 1, ease: "sine.inOut" }, t0); };
+      const FLOW = (s, t0, t1, dx, dy, p = 1.0) => { const k = Math.max(1, Math.floor((t1 - t0) / p)); tl.fromTo(s, { x: 0, y: 0 }, { x: dx, y: dy, duration: p, repeat: k - 1, ease: "none", immediateRender: false }, t0); };
+      const SWAP = (a, b, t, d = 0.35) => { OUT(a, t, d); IN(b, t + d, d + 0.1); };
+
+      // L0 ClickHouse 与表结构
+      IN("#st-cyl", at(0, 0.03), 0.6, { y: 20 }, { y: 0 });
+      IN("#st-sch", at(0, 0.12), 0.5);
+      IN("#st-s0", at(0, 0.2), 0.5);
+      IN("#st-s1", at(0, 0.42), 0.4); IN("#st-s1n", at(0, 0.46), 0.4);
+      IN("#st-s2", at(0, 0.6), 0.4); IN("#st-s2n", at(0, 0.64), 0.4);
+      IN("#st-scan", at(0, 0.78), 0.2);
+      tl.fromTo("#st-scan", { y: 0 }, { y: 110, duration: 1.0, ease: "power1.inOut", immediateRender: false }, at(0, 0.78));
+      OUT("#st-scan", at(0, 0.78) + 1.0, 0.3);
+      // L1 一条查询算出 1 分钟 K 线
+      IN("#st-q", at(1, 0.02), 0.4);
+      IN("#st-q0", at(1, 0.06), 0.4); IN("#st-hl", at(1, 0.06), 0.3);
+      for (let j = 0; j < 3; j++) { IN(`#st-g${j}`, at(1, 0.1 + j * 0.02), 0.4); IN(`#st-gl${j}`, at(1, 0.1 + j * 0.02), 0.4); }
+      for (let j = 0; j < 3; j++) for (let i = 0; i < 4; i++) IN(`#st-d${j}${i}`, at(1, 0.15 + (j * 4 + i) * 0.016), 0.35, { y: -60 }, { y: 0 });
+      IN("#st-q1", at(1, 0.36), 0.4); tl.to("#st-hl", { y: 65, duration: 0.3 }, at(1, 0.36));
+      tl.to(["#st-d00", "#st-d10", "#st-d20"], { attr: { r: 15 }, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.4));
+      IN("#st-q2", at(1, 0.5), 0.4); tl.to("#st-hl", { y: 130, duration: 0.3 }, at(1, 0.5));
+      tl.to(["#st-d03", "#st-d13", "#st-d23"], { attr: { r: 15 }, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.54));
+      IN("#st-q3", at(1, 0.64), 0.4); tl.to("#st-hl", { y: 195, duration: 0.3 }, at(1, 0.64));
+      for (let j = 0; j < 3; j++) { for (let i = 0; i < 4; i++) OUT(`#st-d${j}${i}`, at(1, 0.76 + j * 0.04), 0.3); IN(`#st-k${j}`, at(1, 0.76 + j * 0.04), 0.4, { scaleY: 0.2, svgOrigin: `${1210 + j * 220} 800` }, { scaleY: 1, svgOrigin: `${1210 + j * 220} 800` }); }
+      // L2 物化视图：预先存好，查询直接读
+      OUT(["#st-q", "#st-hl", "#st-q0", "#st-q1", "#st-q2", "#st-q3"], at(2, 0), 0.35);
+      IN("#st-mv", at(2, 0.1), 0.5);
+      ARROW("#st-mva", at(2, 0.35), 0.5); IN("#st-mvt", at(2, 0.4), 0.4);
+      PULSE(["#st-k0", "#st-k1", "#st-k2"], at(2, 0.6), at(3, 0), 0.7, 0.5);
+      // L3 对外限流：IP 权重
+      OUT("#st-p1", at(3, 0), 0.4);
+      IN("#st-th", at(3, 0.06), 0.4);
+      IN("#st-r0", at(3, 0.15), 0.5);
+      IN("#st-rq0", at(3, 0.45), 0.4, { y: 16 }, { y: 0 });
+      IN("#st-rq1", at(3, 0.62), 0.5, { scale: 0.6, svgOrigin: "1550 395" }, { scale: 1, svgOrigin: "1550 395" });
+      DRAW("#st-sep0", at(3, 0.82), 0.6);
+      // L4 用户下单、WebSocket 上行
+      IN("#st-r1", at(4, 0.05), 0.5);
+      DRAW("#st-sep1", at(4, 0.3), 0.5);
+      IN("#st-r2", at(4, 0.38), 0.4);
+      // L5 令牌桶
+      IN("#st-term", at(5, 0.02), 0.5);
+      DRAW("#st-bkp", at(5, 0.08), 0.6);
+      IN("#st-tk0", at(5, 0.12), 0.3);
+      IN("#st-drop", at(5, 0.18), 0.2);
+      tl.fromTo("#st-drop", { y: 0 }, { y: 160, duration: 0.5, ease: "power2.in", immediateRender: false }, at(5, 0.18));
+      OUT("#st-drop", at(5, 0.18) + 0.45, 0.1);
+      IN("#st-tk1", at(5, 0.18) + 0.5, 0.2);
+      IN("#st-bkt1", at(5, 0.22), 0.4);
+      const take = (i, tk, t) => { IN(`#st-rb${i}`, t, 0.3); tl.to(`#st-rm${i}`, { x: 300, duration: 0.5, ease: "power2.in" }, t + 0.1); OUT(`#st-rb${i}`, t + 0.55, 0.2); OUT(tk, t + 0.55, 0.2); };
+      take(0, "#st-tk1", at(5, 0.44)); take(1, "#st-tk0", at(5, 0.58));
+      IN("#st-rb2", at(5, 0.72), 0.3);
+      tl.to("#st-rm2", { x: 300, duration: 0.45, ease: "power2.in" }, at(5, 0.74));
+      tl.to("#st-rb2r", { stroke: ORG, duration: 0.15 }, at(5, 0.74) + 0.45);
+      tl.to("#st-rm2", { x: 120, duration: 0.4, ease: "power2.out" }, at(5, 0.74) + 0.5);
+      IN("#st-bkt2", at(5, 0.84), 0.4);
+      // L6 令牌桶的两种实现
+      IN("#st-ih", at(6, 0.04), 0.4);
+      IN("#st-i0", at(6, 0.12), 0.4, { x: 20 }, { x: 0 });
+      IN("#st-i1", at(6, 0.6), 0.4, { x: 20 }, { x: 0 });
+      tl.to("#st-bkp", { stroke: BLU, duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.3));
+      // L7 响应码
+      OUT("#st-term", at(7, 0.1), 0.4);
+      OUT(["#st-bk", "#st-impl"], at(7, 0), 0.4);
+      IN("#st-c0", at(7, 0.06), 0.4, { scale: 1.3, svgOrigin: "280 855" }, { scale: 1, svgOrigin: "280 855" });
+      PULSE("#st-c0", at(7, 0.14), at(7, 0.3), 0.6, 0.5);
+      ARROW("#st-ca", at(7, 0.3), 0.5); IN("#st-cat", at(7, 0.32), 0.4);
+      IN("#st-c1", at(7, 0.4), 0.4, { scale: 1.3, svgOrigin: "870 855" }, { scale: 1, svgOrigin: "870 855" });
+      PULSE("#st-c1", at(7, 0.5), at(7, 0.68), 0.6, 0.5);
+      IN("#st-c2", at(7, 0.7), 0.5, { x: 30 }, { x: 0 });
+
+
+      tl.to("#st-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#st-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["store"] = tl;
+    })();
+  </script>
+</template>

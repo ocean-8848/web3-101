@@ -1,0 +1,155 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 layout，id 前缀 la- -->
+  <div id="root" data-composition-id="layout" data-duration="50.6" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="la-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs><marker id="la-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="la-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="la-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="la-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="la-mgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="la-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="la-mgy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker><marker id="la-mw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker></defs>
+      <g id="la-all">
+
+<g id="la-eng" class="h"><rect id="la-engr" x="160" y="240" width="480" height="140" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+  <text id="la-engt" class="mono" x="190" y="296" font-size="32" fill="#58C4DD">matching · Engine</text></g>
+<text id="la-engs" class="h" x="190" y="350" font-size="28" fill="#8a8f99">读 <tspan class="mono">orders.cmd</tspan> · 单线程 · 快照</text>
+<path id="la-a1" class="dr h" pathLength="1" d="M644 310 L730 310" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#la-mb)"/>
+<g id="la-ev" class="h"><rect id="la-evr" x="740" y="280" width="360" height="60" rx="30" fill="#14222a" stroke="#58C4DD" stroke-width="3"/>
+  <text class="mono" x="920" y="320" font-size="30" fill="#58C4DD" text-anchor="middle">match.events</text></g>
+<g id="la-ev2" class="h"><rect x="740" y="372" width="360" height="60" rx="30" fill="#14222a" stroke="#58C4DD" stroke-width="2" stroke-dasharray="10 7"/>
+  <text class="mono" x="920" y="412" font-size="30" fill="#58C4DD" text-anchor="middle">match.events</text></g>
+<text id="la-dup" class="h" x="920" y="486" font-size="28" fill="#FF9F43" text-anchor="middle">×2 重复消费</text>
+<path id="la-a2" class="dr h" pathLength="1" d="M1104 310 L1210 310" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#la-mb)"/>
+<path id="la-a3" class="dr h" pathLength="1" d="M1104 324 C1160 330 1160 520 1210 520" fill="none" stroke="#58C4DD" stroke-width="3.5" marker-end="url(#la-mb)"/>
+<g id="la-ord" class="h"><rect id="la-ordr" x="1220" y="240" width="420" height="140" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+  <text id="la-ordt" class="mono" x="1250" y="296" font-size="32" fill="#e8e6df">order · OrderSvc</text></g>
+<text id="la-ords" class="h" x="1250" y="350" font-size="28" fill="#8a8f99">幂等消费</text>
+<g id="la-set" class="h"><rect id="la-setr" x="1220" y="450" width="420" height="140" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+  <text id="la-sett" class="mono" x="1250" y="506" font-size="32" fill="#e8e6df">settlement</text></g>
+<text id="la-sets" class="h" x="1250" y="560" font-size="28" fill="#8a8f99">成交 → <tspan class="mono">SettleLegs</tspan></text>
+<g id="la-st1" class="h"><rect x="1540" y="318" width="90" height="48" rx="8" fill="rgba(131,193,103,0.15)" stroke="#83C167" stroke-width="2.5"/>
+  <text x="1585" y="352" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">幂等</text></g>
+<g id="la-st2" class="h"><rect x="1540" y="528" width="90" height="48" rx="8" fill="rgba(131,193,103,0.15)" stroke="#83C167" stroke-width="2.5"/>
+  <text x="1585" y="562" font-size="28" fill="#83C167" text-anchor="middle" font-weight="700">幂等</text></g>
+<path id="la-a4" class="dr h" pathLength="1" d="M1430 594 L1430 670" fill="none" stroke="#B48EF0" stroke-width="3.5" marker-end="url(#la-mp)"/>
+<rect id="la-glow" class="h" x="1106" y="666" width="548" height="298" rx="22" fill="none" stroke="#B48EF0" stroke-width="10" stroke-opacity="0.35"/>
+<g id="la-led" class="h"><rect x="1120" y="680" width="520" height="270" rx="14" fill="#1d1830" stroke="#B48EF0" stroke-width="4"/>
+  <text class="mono" x="1150" y="736" font-size="32" fill="#B48EF0" font-weight="700">ledger · Ledger.Post</text>
+  <ellipse cx="1592" cy="704" rx="22" ry="7" fill="none" stroke="#B48EF0" stroke-width="2.5"/>
+  <path d="M1570 704 L1570 738 A22 7 0 0 0 1614 738 L1614 704" fill="none" stroke="#B48EF0" stroke-width="2.5"/>
+  <path d="M1570 721 A22 7 0 0 0 1614 721" fill="none" stroke="#B48EF0" stroke-width="2.5"/></g>
+<text id="la-r1" class="mono h" x="1150" y="800" font-size="28" fill="#e8e6df">FreezeLegs / SettleLegs</text>
+<text id="la-r2" class="mono h" x="1150" y="856" font-size="28" fill="#83C167">→ checkBalanced</text>
+<text id="la-r3" class="h" x="1150" y="912" font-size="28" fill="#e8e6df"><tspan class="mono">→ </tspan>同一事务：流水 + 余额</text>
+<g id="la-wal" class="h"><rect id="la-walr" x="160" y="700" width="480" height="140" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/>
+  <text id="la-walt" class="mono" x="190" y="756" font-size="32" fill="#e8e6df">wallet · Wallet</text></g>
+<text id="la-wals" class="h" x="190" y="810" font-size="28" fill="#8a8f99">扫块 · 确认后入账</text>
+<path id="la-a5" class="dr h" pathLength="1" d="M644 770 L1110 770" fill="none" stroke="#F0B90B" stroke-width="3.5" marker-end="url(#la-mg)"/>
+<text id="la-a5t" class="h" x="878" y="746" font-size="28" fill="#F0B90B" text-anchor="middle">入账 <tspan class="mono">Post</tspan></text>
+<text id="la-only" class="h" x="1076" y="936" font-size="32" fill="#B48EF0" text-anchor="end" font-weight="700">唯一改余额</text>
+<path id="la-fz" class="h" d="M1644 300 L1720 300 L1720 815 L1652 815" fill="none" stroke="#B48EF0" stroke-width="3" stroke-dasharray="12 8" marker-end="url(#la-mp)"/>
+<text id="la-fzt" class="h" x="1734" y="572" font-size="28" fill="#B48EF0">下单冻结</text>
+<text id="la-note" class="h" x="960" y="1012" font-size="28" fill="#8a8f99" text-anchor="middle">结构为示意，文件布局以你的实现为准</text>
+
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="la-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">微服务 <tspan font-size="28" font-weight="400" fill="#8a8f99">Microservice</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">独立部署、通过网络通信的小服务</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+const CODE = {};
+const HL = (name, a, b, t, col = "#58C4DD") => {
+  const P = CODE[name]; const y = P.y0 + P.lh * (a - 1), h = P.lh * (b - a + 1);
+  tl.to(`#${P.pf}${name}hl`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  tl.to(`#${P.pf}${name}hb`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: (i >= a && i <= b) ? 1 : 0.5, duration: 0.4 }, t);
+};
+const HLOFF = (name, t) => { const P = CODE[name]; tl.to(`#${P.pf}${name}hl, #${P.pf}${name}hb`, { opacity: 0, duration: 0.3 }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: 0.7, duration: 0.3 }, t); };
+const SHOW = (name, t) => { const P = CODE[name]; IN(`#${P.pf}${name}`, t, 0.5);
+  for (let i = 1; i <= P.n; i++) IN(`#${P.pf}${name}${i}`, t + 0.1 + i * 0.05, 0.3, {}, { opacity: 0.7 }); };
+const POP = (s, t, o) => IN(s, t, 0.45, { scale: 0.6, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(2)" });
+const PULSE = (s, t, o, k = 1.08) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, t);
+const CHG = (s, t, v, d = 0.35) => tl.to(s, { ...v, duration: d }, t);
+const NOTE = (prev, next, t) => { if (prev) OUT(prev, t, 0.3); if (next) IN(next, t + (prev ? 0.35 : 0), 0.45, { x: -12 }, { x: 0 }); };
+
+// L0 撮合引擎 → match.events；术语卡
+IN("#la-term", at(0, 0.02), 0.5);
+IN("#la-eng", at(0, 0.18), 0.6, { y: -15 }, { y: 0 });
+IN("#la-engs", at(0, 0.42), 0.5);
+PULSE("#la-eng", at(0, 0.6), "400 310", 1.04);
+ARROW("#la-a1", at(0, 0.76), 0.5);
+IN("#la-ev", at(0, 0.82), 0.5, { x: -20 }, { x: 0 });
+// L1 两个消费者
+OUT("#la-term", at(1, 0.02), 0.4);
+ARROW("#la-a2", at(1, 0.12), 0.5);
+IN("#la-ord", at(1, 0.18), 0.5, { x: -20 }, { x: 0 });
+IN("#la-ords", at(1, 0.36), 0.4);
+ARROW("#la-a3", at(1, 0.52), 0.6);
+IN("#la-set", at(1, 0.6), 0.5, { x: -20 }, { x: 0 });
+IN("#la-sets", at(1, 0.8), 0.4);
+// L2 账本 Ledger.Post
+IN("#la-led", at(2, 0.04), 0.6, { y: 20 }, { y: 0 });
+ARROW("#la-a4", at(2, 0.1), 0.5);
+PULSE("#la-led", at(2, 0.3), "1380 815", 1.03);
+IN("#la-r1", at(2, 0.34), 0.4, { x: -10 }, { x: 0 });
+IN("#la-r2", at(2, 0.56), 0.4, { x: -10 }, { x: 0 });
+IN("#la-r3", at(2, 0.78), 0.4, { x: -10 }, { x: 0 });
+// L3 钱包 → 入账 Post
+IN("#la-wal", at(3, 0.04), 0.5, { y: 20 }, { y: 0 });
+IN("#la-wals", at(3, 0.3), 0.4);
+ARROW("#la-a5", at(3, 0.62), 0.6);
+IN("#la-a5t", at(3, 0.72), 0.4);
+// L4 只有 ledger 改余额；下单冻结；两个幂等
+CHG("#la-engr, #la-ordr, #la-setr, #la-walr", at(4, 0.03), { stroke: "#4a4f5a" }, 0.5);
+CHG("#la-evr", at(4, 0.03), { stroke: "#4a4f5a" }, 0.5);
+CHG("#la-engt, #la-ordt, #la-sett, #la-walt", at(4, 0.03), { fill: "#8a8f99" }, 0.5);
+IN("#la-glow", at(4, 0.08), 0.6);
+IN("#la-only", at(4, 0.14), 0.5, { x: 12 }, { x: 0 });
+PULSE("#la-glow", at(4, 0.24), "1380 815", 1.03);
+IN("#la-fz", at(4, 0.36), 0.6);
+IN("#la-fzt", at(4, 0.42), 0.4);
+IN("#la-ev2", at(4, 0.58), 0.5, { y: -30 }, { y: 0, opacity: 0.8 });
+IN("#la-dup", at(4, 0.64), 0.4);
+IN("#la-st1", at(4, 0.8), 0.4, { y: -12 }, { y: 0 });
+IN("#la-st2", at(4, 0.86), 0.4, { y: -12 }, { y: 0 });
+CHG("#la-dup", at(4, 0.95), { fill: "#83C167" }, 0.4);
+// L5 示意说明
+IN("#la-note", at(5, 0.08), 0.5);
+PULSE("#la-glow", at(5, 0.5), "1380 815", 1.03);
+
+
+tl.to("#la-note", {scale:1.05, transformOrigin:"50% 50%", duration:1.0, ease:"sine.inOut"}, at(5, 0.55));
+      tl.to("#la-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#la-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["layout"] = tl;
+    })();
+  </script>
+</template>

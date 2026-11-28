@@ -438,17 +438,29 @@ contract MiniAccount {
         external returns (uint256 validationData)
     {
         require(msg.sender == entryPoint, "only EntryPoint");
-        address signer = ECDSA.recover(MessageHashUtils.toEthSignedMessageHash(opHash), op.signature);
-        if (signer == owner) {
+        // tryRecover：签名格式错误时不 revert，而是按“验证失败”返回
+        (address signer, ECDSA.RecoverError err, ) =
+            ECDSA.tryRecover(MessageHashUtils.toEthSignedMessageHash(opHash), op.signature);
+        if (err != ECDSA.RecoverError.NoError) {
+            validationData = 1;                              // 1 = 验证失败
+        } else if (signer == owner) {
             validationData = 0;                              // 0 = 签名有效、无时间限制
         } else {
             Session memory s = sessions[signer];
-            // 解析 callData：execute(address to, uint256 value, bytes data)
-            (address to, uint256 value, ) = abi.decode(op.callData[4:], (address, uint256, bytes));
-            if (s.validUntil == 0 || to != s.target || value > s.maxValue) return 1;   // 1 = 验证失败
-            // 打包有效期：validUntil 放在第 160–207 位，EntryPoint 会检查是否过期
-            validationData = uint256(s.validUntil) << 160;
+            // 会话密钥只能调用 execute：先校验函数选择器，再解析 execute(address to, uint256 value, bytes data)
+            if (op.callData.length < 4 || bytes4(op.callData[:4]) != this.execute.selector) {
+                validationData = 1;
+            } else {
+                (address to, uint256 value, ) = abi.decode(op.callData[4:], (address, uint256, bytes));
+                if (s.validUntil == 0 || to != s.target || value > s.maxValue) {
+                    validationData = 1;                      // 不直接 return：下面的预付款仍要付
+                } else {
+                    // 打包有效期：validUntil 放在第 160–207 位，EntryPoint 会检查是否过期
+                    validationData = uint256(s.validUntil) << 160;
+                }
+            }
         }
+        // 无论验证成败都先付预付款，否则 EntryPoint 报的是“没付预付款”而不是“签名失败”
         if (missingFunds > 0) {                              // 向 EntryPoint 预存 Gas 费
             (bool ok, ) = payable(msg.sender).call{value: missingFunds}("");
             ok;
@@ -472,7 +484,7 @@ ${steps([
   'Gas 上限：verificationGasLimit = 150,000；callGasLimit = 200,000；preVerificationGas = 50,000；不用 Paymaster。',
   '最大 Gas 总量 = 150,000 + 200,000 + 50,000 = 400,000。',
   'maxFeePerGas = 0.05 gwei（L2 示例）。最大预付 = 400,000 × 0.05 gwei = 20,000 gwei = 0.00002 ETH。',
-  'ETH 价格 3,100 美元（示例）时，最大预付约 0.062 美元。实际只按用掉的 Gas 收费，多余部分留在账户在 EntryPoint 的存款里。',
+  'ETH 价格 3,100 美元（示例）时，最大预付约 0.062 美元。实际大体按用掉的 Gas 收费，多余部分留在账户在 EntryPoint 的存款里；但 EntryPoint v0.7 起，执行阶段（callGasLimit、postOp）没用完的 Gas 要按 10% 收罚金，v0.8 起没用完的不到 40,000 Gas 不罚，所以 Gas 上限别虚报太多（以官方为准）。',
   '在以太坊主网，如果 maxFeePerGas = 20 gwei，同样的上限需要 0.008 ETH（约 24.8 美元）。这就是 Agent 钱包大多部署在 L2 上的原因之一。'
 ])}
 
@@ -543,14 +555,14 @@ ${tbl(['安全注意事项', '说明'], [
   ['tx.origin 假设失效', '7702 之后 <code>msg.sender == tx.origin</code> 不再能证明调用者是“没有代码的 EOA”，依赖它做防护的合约需要修改']
 ])}
 <h2>6. Passkey 钱包：用手机生物识别签名</h2>
-<p><strong>Passkey</strong> 是基于 WebAuthn 标准的无密码凭证：手机或电脑的安全硬件（Secure Enclave、TPM、Android Keystore）生成一对 <strong>secp256r1（也叫 P-256）</strong>密钥，私钥不出设备，每次签名都要用户用 Face ID 或指纹授权。${cite('W3C：Web Authentication Level 3', 'https://www.w3.org/TR/webauthn-3/')}以太坊 EOA 用的是 secp256k1，曲线不同，所以 passkey 不能直接当 EOA 私钥，只能做智能账户的“签名者”。ERC-4337 把 UserOperation 的 signature 字段交给账户自己解释，正是为此留的口子。${cite('ERC-4337 规范', 'https://eips.ethereum.org/EIPS/eip-4337')}本节讲合约侧怎样验签；嵌入式钱包（分片、TEE）与 Passkey 钱包的产品选型对比，见 <a href="#m03-60">M08.12 嵌入式钱包与 Passkey</a>（后面会讲）。</p>
+<p><strong>Passkey</strong> 是基于 WebAuthn 标准的无密码凭证：手机或电脑的安全硬件（Secure Enclave、TPM、Android Keystore）生成一对 <strong>secp256r1（也叫 P-256）</strong>密钥，私钥留在设备安全硬件或系统密码管理器里（同步型 Passkey 会经端到端加密在同一账号的设备间同步），每次签名都要用户用 Face ID 或指纹授权。${cite('W3C：Web Authentication Level 3', 'https://www.w3.org/TR/webauthn-3/')}以太坊 EOA 用的是 secp256k1，曲线不同，所以 passkey 不能直接当 EOA 私钥，只能做智能账户的“签名者”。ERC-4337 把 UserOperation 的 signature 字段交给账户自己解释，正是为此留的口子。${cite('ERC-4337 规范', 'https://eips.ethereum.org/EIPS/eip-4337')}本节讲合约侧怎样验签；嵌入式钱包（分片、TEE）与 Passkey 钱包的产品选型对比，见 <a href="#m03-60">M08.12 嵌入式钱包与 Passkey</a>（后面会讲）。</p>
 ${steps([
   '钱包把 <code>userOpHash</code> 作为 WebAuthn 的 challenge，请求设备签名。',
   '设备返回三样东西：authenticatorData（含域名哈希 rpIdHash 和“用户在场 / 已验证”标志）、clientDataJSON（含 challenge、origin、type）、签名 (r, s)。设备签的是 authenticatorData ‖ SHA-256(clientDataJSON)，<strong>不是</strong> userOpHash 本身。',
   '账户合约在 <code>validateUserOp</code> 里：检查 clientDataJSON 里的 challenge 等于 userOpHash 的 base64url 编码；检查 authenticatorData 的标志（至少要求用户在场，建议要求用户已验证）；算出 sha256(authenticatorData ‖ sha256(clientDataJSON))；用账户里存的公钥 (x, y) 验证 P-256 签名。',
   '验证通过返回 validationData = 0，之后和普通 UserOperation 一样执行。'
 ])}
-<p>第 3 步的 P-256 验证有两条路。一是纯 Solidity 实现：任何链都能用，但 Gas 高，各实现差异大，要在目标链上实测。二是调用预编译：RIP-7212 在地址 <code>0x100</code> 提供 <code>P256VERIFY</code>，输入 160 字节（消息哈希、r、s、公钥 x、y），成功返回 1，提案按基准定价 3,450 Gas，一些 L2 先行支持。${cite('RIP-7212：secp256r1 预编译', 'https://github.com/ethereum/RIPs/blob/master/RIPS/rip-7212.md')}以太坊侧对应的 EIP-7951 沿用同一地址和接口，修复了 RIP-7212 的两处缺陷（缺少无穷远点检查、r 的比较应模 n），Gas 定为 6,900。${cite('EIP-7951：secp256r1 预编译', 'https://eips.ethereum.org/EIPS/eip-7951')}常见做法是账户先调预编译，链上没有时回退到 Solidity 验证合约。上线前要确认目标链支持哪一个，地址和 Gas 以该链文档为准。</p>
+<p>第 3 步的 P-256 验证有两条路。一是纯 Solidity 实现：任何链都能用，但 Gas 高，各实现差异大，要在目标链上实测。二是调用预编译：RIP-7212 在地址 <code>0x100</code> 提供 <code>P256VERIFY</code>，输入 160 字节（消息哈希、r、s、公钥 x、y），成功返回 1，提案按基准定价 3,450 Gas，很多 L2 早已支持。${cite('RIP-7212：secp256r1 预编译', 'https://github.com/ethereum/RIPs/blob/master/RIPS/rip-7212.md')}以太坊侧对应的 EIP-7951 沿用同一地址和接口，修复了 RIP-7212 的两处缺陷（缺少无穷远点检查、r 的比较应模 n），Gas 定为 6,900，规范已 Final，并已于 2025-12-03 随 Fusaka 升级上线以太坊主网。${cite('EIP-7951：secp256r1 预编译', 'https://eips.ethereum.org/EIPS/eip-7951')}常见做法是账户先调预编译，链上没有时回退到 Solidity 验证合约。上线前要确认目标链支持哪一个，地址和 Gas 以该链文档为准。</p>
 <p>公钥 (x, y) 存在账户合约里，所以<strong>更换 passkey = 一笔链上的 owner 变更</strong>。丢失设备时怎么办，取决于你事先怎么设计恢复：</p>
 ${tbl(['做法', '设备丢失时', '代价或风险'], [
   ['passkey 云同步（iCloud 钥匙串、Google 密码管理器等）', '在新设备登录同一个云账号，取回 passkey', '安全上限取决于云账号；账号被盗或被封，等于钥匙一起出事'],
@@ -606,7 +618,7 @@ ${quiz([
   { q: '关于 EIP-7702，下列说法正确的是：', o: ['委托设置后原私钥失效', '7702 是一个不需要硬分叉的合约标准', '委托只在当前这笔交易内生效', '委托后 EOA 地址不变，代码指向委托合约，原私钥仍然有效'], a: 3, why: 'EOA 的代码被设为 0xef0100 + 合约地址，地址和资产不变，原私钥仍可签名。A 错；B 错，它随 Pectra 硬分叉上线；C 错，委托持续存在。' },
   { q: 'ERC-7579 模块中，用来实现“链上每日限额检查”最合适的是：', o: ['钩子（Hook）', '回调处理（Fallback）', 'Paymaster', 'Bundler'], a: 0, why: '钩子在执行前后运行检查，适合限额。Fallback 扩展接口；Paymaster 和 Bundler 不是账户模块。' }
 ])}
-${exercises([["计算题（示例）：一笔 UserOperation 的 verificationGasLimit = 100,000，callGasLimit = 300,000，preVerificationGas = 60,000，不用 Paymaster。在 L2 上 maxFeePerGas = 0.1 gwei，ETH = 3,000 美元。最大预付是多少？在主网 15 gwei 时又是多少？", "<p>最大 Gas 总量 = 100,000 + 300,000 + 60,000 = 460,000。</p><p>L2：460,000 × 0.1 gwei = 46,000 gwei = 0.000046 ETH ≈ <strong>0.138 美元</strong>。</p><p>主网：460,000 × 15 gwei = 6,900,000 gwei = 0.0069 ETH ≈ <strong>20.7 美元</strong>。实际只按用掉的 Gas 收费，多余部分留在账户在 EntryPoint 的存款里。</p>"], ["思考题：一个 Agent 想同时提交两笔互不相关的 UserOperation（例如一笔兑换、一笔转账）。nonce 应该怎样设置才能并行？", "<p>UserOperation 的 nonce 高 192 位是 key，低 64 位是序号。同一 key 内必须顺序执行，不同 key 可以并行。</p><p>所以给两笔操作使用不同的 key，各自从自己的序号开始。这样一笔卡住时，不会挡住另一笔。</p>"], ["设计题：为 Agent 设计一套 ERC-7579 会话权限。说出要用哪类模块、限制哪些参数，以及谁能安装模块。", "<p>用会话密钥验证器（Validator）限定 Agent 的密钥，再用钩子（Hook）在执行前检查链上每日额度。</p><p>会话权限要“最小 + 有期限”：限定目标合约、函数选择器、金额、调用次数和过期时间。模块安装和升级只允许所有者执行，最好加延迟，模块要来自经过审计的实现。</p>"]])}
+${exercises([["计算题（示例）：一笔 UserOperation 的 verificationGasLimit = 100,000，callGasLimit = 300,000，preVerificationGas = 60,000，不用 Paymaster。在 L2 上 maxFeePerGas = 0.1 gwei，ETH = 3,000 美元。最大预付是多少？在主网 15 gwei 时又是多少？", "<p>最大 Gas 总量 = 100,000 + 300,000 + 60,000 = 460,000。</p><p>L2：460,000 × 0.1 gwei = 46,000 gwei = 0.000046 ETH ≈ <strong>0.138 美元</strong>。</p><p>主网：460,000 × 15 gwei = 6,900,000 gwei = 0.0069 ETH ≈ <strong>20.7 美元</strong>。实际大体按用掉的 Gas 收费，多余部分留在账户在 EntryPoint 的存款里；但 EntryPoint v0.7 起，执行阶段（callGasLimit、postOp）没用完的 Gas 要按 10% 收罚金，v0.8 起没用完的不到 40,000 Gas 不罚，所以 Gas 上限别虚报太多（以官方为准）。</p>"], ["思考题：一个 Agent 想同时提交两笔互不相关的 UserOperation（例如一笔兑换、一笔转账）。nonce 应该怎样设置才能并行？", "<p>UserOperation 的 nonce 高 192 位是 key，低 64 位是序号。同一 key 内必须顺序执行，不同 key 可以并行。</p><p>所以给两笔操作使用不同的 key，各自从自己的序号开始。这样一笔卡住时，不会挡住另一笔。</p>"], ["设计题：为 Agent 设计一套 ERC-7579 会话权限。说出要用哪类模块、限制哪些参数，以及谁能安装模块。", "<p>用会话密钥验证器（Validator）限定 Agent 的密钥，再用钩子（Hook）在执行前检查链上每日额度。</p><p>会话权限要“最小 + 有期限”：限定目标合约、函数选择器、金额、调用次数和过期时间。模块安装和升级只允许所有者执行，最好加延迟，模块要来自经过审计的实现。</p>"]])}
 ${checklist(["能说出 UserOperation、Bundler、EntryPoint、智能账户、Paymaster、Aggregator 各自的职责。", "能画出一笔 UserOperation 从 Gas 估算到 handleOps 再到 postOp 的调用链，并解释验证与执行为什么分离。", "能用三项 Gas 上限和 maxFeePerGas 算出 UserOperation 的最大预付。", "能说出 ERC-7579 的四类模块，并为 Agent 选出会话密钥验证器和限额钩子。", "能解释 EIP-7702 委托会持续到被替换或清除，以及原私钥仍然有效带来的风险。"])}
 ${terms([
   ['外部拥有账户', 'EOA', '由单一私钥控制、没有代码的账户'],

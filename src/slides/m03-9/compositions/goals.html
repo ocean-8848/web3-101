@@ -1,0 +1,288 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 goals，id 前缀 go- -->
+  <div id="root" data-composition-id="goals" data-duration="109.0" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="go-aB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="go-aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="go-aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+      </defs>
+      <g id="go-all">
+        <text id="go-title" class="h" x="960" y="232" font-size="52" font-weight="700" fill="#e8e6df" text-anchor="middle">验收标准</text>
+        <text id="go-note" class="h" x="1800" y="230" font-size="28" fill="#8a8f99" text-anchor="end">数值均为示例</text>
+        <g id="go-grid">
+          <g id="go-cells"></g>
+          <!-- 地址 -->
+          <text id="go-a1" class="h" x="144" y="378" font-size="28" fill="#B48EF0">业务方 · 用户 · 链</text>
+          <path id="go-a2" class="dr h" pathLength="1" d="M280 396 L280 436" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#go-aB)" />
+          <text id="go-a3" class="h" x="280" y="484" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">唯一地址</text>
+          <text id="go-a4" class="h" x="280" y="566" font-size="28" fill="#8a8f99" text-anchor="middle">只持有 <tspan class="mono">xpub</tspan></text>
+          <!-- 充值 -->
+          <g id="go-segs"></g>
+          <text id="go-d1" class="h" x="484" y="444" font-size="30" fill="#e8e6df">12 个确认</text>
+          <text id="go-d2" class="h" x="484" y="512" font-size="30" font-weight="700" fill="#FF9F43">重组</text>
+          <path id="go-d3" class="dr h" pathLength="1" d="M752 404 Q770 500 664 500" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#go-aO)" />
+          <text id="go-d4" class="h" x="484" y="574" font-size="28" fill="#FF9F43">未确认 → 回滚</text>
+          <!-- 归集 -->
+          <text id="go-s1" class="h" x="824" y="380" font-size="30" fill="#F0B90B">余额价值 ≥</text>
+          <text id="go-s2" class="h" x="824" y="426" font-size="30" fill="#F0B90B">20 × 归集成本</text>
+          <g id="go-canm"><g id="go-can" class="h">
+            <rect x="830" y="482" width="72" height="80" rx="10" fill="rgba(240,185,11,0.12)" stroke="#F0B90B" stroke-width="3" />
+            <rect x="848" y="470" width="24" height="14" rx="3" fill="#F0B90B" />
+            <text class="mono" x="866" y="532" font-size="28" fill="#F0B90B" text-anchor="middle">Gas</text>
+          </g></g>
+          <path id="go-s3" class="dr h" pathLength="1" d="M910 522 L964 522" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#go-aG)" />
+          <text id="go-s4" class="h mono" x="976" y="516" font-size="28" fill="#e8e6df">ERC-20</text>
+          <text id="go-s5" class="h" x="976" y="556" font-size="28" fill="#e8e6df">地址</text>
+          <!-- 提币 -->
+          <text id="go-w1" class="h" x="1164" y="380" font-size="28" fill="#FF9F43">风控 · 多级审批</text>
+          <text id="go-w2" class="h" x="1164" y="428" font-size="28" fill="#e8e6df">签名 · <tspan class="mono">nonce</tspan> 管理</text>
+          <text id="go-w3" class="h" x="1164" y="476" font-size="28" fill="#e8e6df">自动加速</text>
+          <g id="go-w4" class="h">
+            <rect x="1164" y="516" width="272" height="52" rx="26" fill="rgba(88,196,221,0.1)" stroke="#58C4DD" stroke-width="2.5" />
+            <text class="mono" x="1184" y="552" font-size="28" fill="#58C4DD">requestId</text>
+            <text x="1350" y="552" font-size="28" fill="#83C167">幂等</text>
+          </g>
+          <!-- 对账 -->
+          <g id="go-r1" class="h">
+            <text x="1620" y="378" font-size="28" fill="#8a8f99" text-anchor="end">链上</text>
+            <text x="1620" y="426" font-size="28" fill="#8a8f99" text-anchor="end">钱包库</text>
+            <text x="1620" y="474" font-size="28" fill="#8a8f99" text-anchor="end">业务账本</text>
+            <rect x="1634" y="354" width="140" height="28" rx="6" fill="#58C4DD" />
+            <rect x="1634" y="402" width="140" height="28" rx="6" fill="#58C4DD" />
+            <rect id="go-rb3" x="1634" y="450" width="140" height="28" rx="6" fill="#58C4DD" />
+          </g>
+          <g id="go-bellm"><g id="go-r2" class="h">
+            <path d="M1514 556 V540 C1514 520 1526 510 1536 508 C1546 510 1558 520 1558 540 V556 Z" fill="none" stroke="#FC6255" stroke-width="3.5" />
+            <circle cx="1536" cy="562" r="5" fill="#FC6255" />
+            <text x="1570" y="560" font-size="28" fill="#FC6255">10 分钟内告警</text>
+          </g></g>
+          <!-- 吞吐 -->
+          <text id="go-t1" class="h" x="144" y="782" font-size="46" font-weight="700" fill="#F0B90B">20 笔/秒</text>
+          <g id="go-lanes" class="h">
+            <text class="mono" x="144" y="840" font-size="28" fill="#F0B90B">1</text>
+            <text class="mono" x="144" y="884" font-size="28" fill="#F0B90B">2</text>
+            <text class="mono" x="144" y="928" font-size="28" fill="#F0B90B">3</text>
+            <line x1="180" y1="830" x2="416" y2="830" stroke="#5a606c" stroke-width="3" />
+            <line x1="180" y1="874" x2="416" y2="874" stroke="#5a606c" stroke-width="3" />
+            <line x1="180" y1="918" x2="416" y2="918" stroke="#5a606c" stroke-width="3" />
+          </g>
+          <g id="go-dots"></g>
+          <text id="go-t2" class="h" x="144" y="976" font-size="28" fill="#8a8f99">多个热钱包地址</text>
+          <!-- 延迟 -->
+          <text id="go-l1" class="h" x="484" y="772" font-size="30" fill="#e8e6df">批准 → 广播</text>
+          <text id="go-l2" class="h mono" x="484" y="846" font-size="44" font-weight="700" fill="#58C4DD">P99 &lt; 5 s</text>
+          <text id="go-l3" class="h" x="484" y="914" font-size="30" fill="#e8e6df">确认 → 入账通知</text>
+          <text id="go-l4" class="h mono" x="484" y="972" font-size="40" font-weight="700" fill="#58C4DD">P99 &lt; 30 s</text>
+          <!-- 可用性 -->
+          <text id="go-v1" class="h mono" x="824" y="790" font-size="44" font-weight="700" fill="#83C167">API 99.9%</text>
+          <text id="go-v2" class="h" x="824" y="860" font-size="32" fill="#e8e6df">签名服务 <tspan class="mono" font-weight="700" fill="#83C167">99.5%</tspan></text>
+          <text id="go-v4" class="h" x="824" y="922" font-size="30" fill="#FF9F43">单节点故障</text>
+          <text id="go-v5" class="h" x="824" y="966" font-size="30" fill="#83C167">不影响提币</text>
+        </g>
+        <!-- L3 算一算 -->
+        <g id="go-calc">
+          <g id="go-cc" class="h">
+            <rect x="360" y="290" width="1200" height="680" rx="20" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" />
+            <text x="400" y="352" font-size="34" font-weight="700" fill="#F0B90B">算一算（示例）</text>
+          </g>
+          <text id="go-f" class="h" x="960" y="432" font-size="46" fill="#e8e6df" text-anchor="middle">归集成本 0.5 美元 × 20 = <tspan fill="#F0B90B" font-weight="700">10 美元</tspan></text>
+          <g id="go-thr" class="h">
+            <line x1="1050" y1="520" x2="1050" y2="900" stroke="#8a8f99" stroke-width="3" stroke-dasharray="10 8" />
+            <text x="1050" y="508" font-size="28" fill="#8a8f99" text-anchor="middle">10 美元</text>
+          </g>
+          <text id="go-bl0" class="h" x="570" y="590" font-size="32" fill="#e8e6df" text-anchor="end">12 美元</text>
+          <text id="go-bl1" class="h" x="570" y="710" font-size="32" fill="#e8e6df" text-anchor="end">10 美元</text>
+          <text id="go-bl2" class="h" x="570" y="830" font-size="32" fill="#e8e6df" text-anchor="end">3 美元</text>
+          <rect id="go-b0" class="h" x="600" y="550" width="0" height="56" rx="8" fill="#F0B90B" />
+          <rect id="go-b1" class="h" x="600" y="670" width="0" height="56" rx="8" fill="#F0B90B" />
+          <rect id="go-b2" class="h" x="600" y="790" width="0" height="56" rx="8" fill="#F0B90B" />
+          <text id="go-br0" class="h" x="1180" y="590" font-size="34" font-weight="700" fill="#83C167">归集</text>
+          <text id="go-br1" class="h" x="1180" y="710" font-size="34" font-weight="700" fill="#83C167">归集</text>
+          <text id="go-br2" class="h" x="1180" y="830" font-size="34" font-weight="700" fill="#8a8f99">先放着</text>
+        </g>
+        <!-- L6 正确性三个 0 + 安全 -->
+        <g id="go-fin">
+          <text id="go-z0t" class="h" x="960" y="330" font-size="46" font-weight="700" fill="#e8e6df" text-anchor="middle">正确性</text>
+          <text id="go-z0" class="h" x="480" y="560" font-size="170" font-weight="700" fill="#83C167" text-anchor="middle">0</text>
+          <text id="go-z1" class="h" x="960" y="560" font-size="170" font-weight="700" fill="#83C167" text-anchor="middle">0</text>
+          <text id="go-z2" class="h" x="1440" y="560" font-size="170" font-weight="700" fill="#83C167" text-anchor="middle">0</text>
+          <text id="go-zl0" class="h" x="480" y="640" font-size="36" fill="#e8e6df" text-anchor="middle">重复打款</text>
+          <text id="go-zl1" class="h" x="960" y="640" font-size="36" fill="#e8e6df" text-anchor="middle">资金差异</text>
+          <text id="go-zl2" class="h" x="1440" y="640" font-size="36" fill="#e8e6df" text-anchor="middle"><tspan class="mono">nonce</tspan> 冲突</text>
+          <g id="go-sec" class="h">
+            <rect x="460" y="730" width="1000" height="210" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+            <text x="500" y="790" font-size="34" font-weight="700" fill="#e8e6df">安全</text>
+          </g>
+          <g id="go-key" class="h">
+            <rect x="500" y="812" width="150" height="104" rx="12" fill="rgba(255,159,67,0.1)" stroke="#FF9F43" stroke-width="3.5" />
+            <circle cx="546" cy="864" r="18" fill="none" stroke="#FF9F43" stroke-width="5" />
+            <path d="M564 864 H614 M598 864 V880 M610 864 V876" fill="none" stroke="#FF9F43" stroke-width="5" />
+            <text x="690" y="876" font-size="34" fill="#FF9F43">私钥不出签名域</text>
+          </g>
+          <text id="go-aud" class="h" x="1420" y="876" font-size="34" font-weight="700" fill="#83C167" text-anchor="end">全部可审计</text>
+        </g>
+        <!-- L8 验证方法 -->
+        <g id="go-ver">
+          <text id="go-vh" class="h" x="960" y="340" font-size="44" font-weight="700" fill="#e8e6df" text-anchor="middle">每条标准，怎么验证</text>
+          <g id="go-vrows"></g>
+          <g id="go-fx"></g>
+        </g>
+      </g>
+      <!-- 术语卡 -->
+      <g id="go-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">重组 <tspan font-size="28" font-weight="400" fill="#8a8f99">Reorg</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">短暂分叉后，最新几个区块被替换</text>
+      </g>
+      <g id="go-term2" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">故障注入 <tspan font-size="28" font-weight="400" fill="#8a8f99">Fault Injection</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">测试里故意制造故障，看能否正确处理</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, p, txt) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; (typeof p === "string" ? document.querySelector(p) : p).appendChild(e); return e; };
+      const BLUE = "#58C4DD", GRN = "#83C167", ORG = "#FF9F43", RED = "#FC6255", GOLD = "#F0B90B";
+      // 2×5 宫格
+      const NAMES = ["地址", "充值", "归集", "提币", "对账", "吞吐", "延迟", "可用性", "正确性", "安全"];
+      NAMES.forEach((n, i) => {
+        const c = i % 5, r = Math.floor(i / 5), x = 120 + c * 340, y = r ? 655 : 290, h = 345;
+        const g = mk("g", { id: `go-c${i}`, class: "h" }, "#go-cells");
+        mk("rect", { id: `go-cr${i}`, x, y, width: 320, height: h, rx: 16, fill: "#161a22", stroke: "#3a3f4a", "stroke-width": 2.5 }, g);
+        mk("text", { x: x + 24, y: y + 52, "font-size": 34, "font-weight": 700, fill: "#e8e6df" }, g, n);
+      });
+      for (let k = 0; k < 12; k++) mk("rect", { id: `go-sg${k}`, x: 484 + k * 23, y: 362, width: 19, height: 36, rx: 3, fill: "#161a22", stroke: "#8a8f99", "stroke-width": 2, class: "h" }, "#go-segs");
+      for (let k = 0; k < 6; k++) mk("circle", { id: `go-dt${k}`, cx: 186, cy: 830 + (k % 3) * 44, r: 9, fill: GOLD, class: "h" }, "#go-dots");
+      const hi = (i, t, d = 3) => { tl.to(`#go-cr${i}`, { stroke: BLUE, duration: 0.3 }, t); tl.to(`#go-cr${i}`, { stroke: "#3a3f4a", duration: 0.4 }, t + d); };
+      // L0 标题 + 宫格
+      IN("#go-title", at(0, 0.03), 0.5);
+      IN("#go-note", at(0, 0.16), 0.4);
+      NAMES.forEach((n, i) => IN(`#go-c${i}`, at(0, 0.28) + i * 0.3, 0.4, { y: 12 }, { y: 0 }));
+      // L1 地址 / 充值 / 重组
+      hi(0, at(1, 0.02), 4.2);
+      IN("#go-a1", at(1, 0.05), 0.4);
+      ARROW("#go-a2", at(1, 0.13), 0.4);
+      IN("#go-a3", at(1, 0.2), 0.4, { scale: 1.2, svgOrigin: "280 472" }, { scale: 1, svgOrigin: "280 472" });
+      IN("#go-a4", at(1, 0.3), 0.4);
+      hi(1, at(1, 0.4), 6.5);
+      for (let k = 0; k < 12; k++) { IN(`#go-sg${k}`, at(1, 0.4) + k * 0.02, 0.2); tl.to(`#go-sg${k}`, { fill: BLUE, duration: 0.15 }, at(1, 0.44) + k * 0.13); }
+      IN("#go-d1", at(1, 0.46), 0.4);
+      for (let k = 0; k < 12; k++) tl.to(`#go-sg${k}`, { fill: GRN, stroke: GRN, duration: 0.2 }, at(1, 0.6));
+      IN("#go-term", at(1, 0.7), 0.5);
+      tl.to(["#go-sg10", "#go-sg11"], { fill: ORG, stroke: ORG, duration: 0.3 }, at(1, 0.75));
+      IN("#go-d2", at(1, 0.76), 0.4);
+      ARROW("#go-d3", at(1, 0.84), 0.5);
+      IN("#go-d4", at(1, 0.88), 0.4);
+      // L2 归集 + 自动补 Gas
+      hi(2, at(2, 0.02), 6.5);
+      IN("#go-s1", at(2, 0.05), 0.4);
+      IN("#go-s2", at(2, 0.16), 0.4);
+      IN("#go-can", at(2, 0.42), 0.4);
+      ARROW("#go-s3", at(2, 0.56), 0.4);
+      IN("#go-s4", at(2, 0.64), 0.4); IN("#go-s5", at(2, 0.68), 0.4);
+      OUT("#go-term", at(2, 0.4), 0.4);
+      tl.to("#go-canm", { y: -8, duration: 0.25, yoyo: true, repeat: 3 }, at(2, 0.82));
+      // L3 算一算：宫格完全淡出，中央卡片
+      OUT("#go-grid", at(3, 0), 0.4);
+      IN("#go-cc", at(3, 0.06), 0.5);
+      IN("#go-f", at(3, 0.14), 0.5);
+      IN("#go-thr", at(3, 0.3), 0.4);
+      IN("#go-bl0", at(3, 0.36), 0.3); IN("#go-b0", at(3, 0.36), 0.1); tl.to("#go-b0", { attr: { width: 540 }, duration: 0.6, ease: "power2.out" }, at(3, 0.36));
+      IN("#go-br0", at(3, 0.44), 0.3);
+      IN("#go-bl1", at(3, 0.52), 0.3); IN("#go-b1", at(3, 0.52), 0.1); tl.to("#go-b1", { attr: { width: 450 }, duration: 0.6, ease: "power2.out" }, at(3, 0.52));
+      IN("#go-br1", at(3, 0.6), 0.3);
+      IN("#go-bl2", at(3, 0.7), 0.3); IN("#go-b2", at(3, 0.7), 0.1); tl.to("#go-b2", { attr: { width: 135 }, duration: 0.5, ease: "power2.out" }, at(3, 0.7));
+      tl.to("#go-b2", { fill: "#8a8f99", duration: 0.3 }, at(3, 0.8));
+      IN("#go-br2", at(3, 0.82), 0.3);
+      // L4 回到宫格：提币 / 对账
+      OUT("#go-calc", at(4, 0), 0.35);
+      tl.to("#go-grid", { opacity: 1, duration: 0.4 }, at(4, 0.03));
+      hi(3, at(4, 0.06), 5.5);
+      IN("#go-w1", at(4, 0.08), 0.4);
+      IN("#go-w2", at(4, 0.16), 0.4);
+      IN("#go-w3", at(4, 0.24), 0.4);
+      IN("#go-w4", at(4, 0.34), 0.4, { scale: 1.15, svgOrigin: "1300 542" }, { scale: 1, svgOrigin: "1300 542" });
+      hi(4, at(4, 0.48), 6.5);
+      IN("#go-r1", at(4, 0.5), 0.5);
+      tl.to("#go-rb3", { attr: { width: 70 }, fill: RED, duration: 0.6, ease: "power2.inOut" }, at(4, 0.66));
+      IN("#go-r2", at(4, 0.78), 0.4);
+      tl.to("#go-bellm", { x: 4, duration: 0.08, yoyo: true, repeat: 7 }, at(4, 0.86));
+      // L5 吞吐 / 延迟 / 可用性
+      hi(5, at(5, 0.02), 4);
+      IN("#go-t1", at(5, 0.03), 0.4);
+      IN("#go-lanes", at(5, 0.1), 0.4);
+      for (let k = 0; k < 6; k++) {
+        const t0 = at(5, 0.14) + (k % 3) * 0.25 + Math.floor(k / 3) * 1.6;
+        tl.fromTo(`#go-dt${k}`, { attr: { cx: 186 }, opacity: 1 }, { attr: { cx: 410 }, duration: 1.4, ease: "none", immediateRender: false }, t0);
+        tl.to(`#go-dt${k}`, { opacity: 0, duration: 0.15 }, t0 + 1.4);
+      }
+      IN("#go-t2", at(5, 0.22), 0.4);
+      hi(6, at(5, 0.38), 3.5);
+      IN("#go-l1", at(5, 0.4), 0.4);
+      IN("#go-l2", at(5, 0.48), 0.4);
+      hi(7, at(5, 0.72), 3);
+      IN("#go-v1", at(5, 0.74), 0.4);
+      // L6 延迟第二条 / 可用性补充
+      hi(6, at(6, 0.02), 4.5);
+      IN("#go-l3", at(6, 0.06), 0.4);
+      IN("#go-l4", at(6, 0.2), 0.4, { scale: 1.15, svgOrigin: "590 958" }, { scale: 1, svgOrigin: "590 958" });
+      hi(7, at(6, 0.46), 5.5);
+      IN("#go-v2", at(6, 0.5), 0.4);
+      IN("#go-v4", at(6, 0.72), 0.4);
+      IN("#go-v5", at(6, 0.86), 0.4);
+      // L7 正确性三个 0；安全
+      OUT("#go-grid", at(7, 0), 0.4);
+      IN("#go-z0t", at(7, 0.05), 0.4);
+      [0, 1, 2].forEach(i => {
+        IN(`#go-z${i}`, at(7, 0.12 + i * 0.12), 0.5, { scale: 1.5, svgOrigin: `${480 + i * 480} 500` }, { scale: 1, svgOrigin: `${480 + i * 480} 500` });
+        IN(`#go-zl${i}`, at(7, 0.16 + i * 0.12), 0.4);
+      });
+      IN("#go-sec", at(7, 0.56), 0.4);
+      IN("#go-key", at(7, 0.64), 0.4);
+      IN("#go-aud", at(7, 0.78), 0.4);
+      [0, 1, 2].forEach(i => tl.to(`#go-z${i}`, { scale: 1.08, svgOrigin: `${480 + i * 480} 500`, duration: 0.3, yoyo: true, repeat: 1 }, at(7, 0.9) + i * 0.1));
+            // L8 验证方法 + 故障注入
+      OUT("#go-fin", at(8, 0), 0.4);
+      IN("#go-vh", at(8, 0.03), 0.4);
+      const VR = [["充值", "Sepolia 测试网 · 端到端", GOLD, 0.11], ["重组", "本地 Anvil 链 · 模拟", ORG, 0.27], ["吞吐", "压测", GOLD, 0.38], ["可用性", "混沌测试 · 随机杀 Pod", GRN, 0.44], ["正确性", "对账报告 + 故障注入", GRN, 0.56]];
+      VR.forEach(([a, b, col, f], i) => {
+        const y = 450 + i * 92, g = mk("g", { id: `go-vr${i}`, class: "h" }, "#go-vrows");
+        mk("text", { x: 640, y, "font-size": 36, "font-weight": 700, fill: col, "text-anchor": "end" }, g, a);
+        mk("path", { d: `M668 ${y - 12} L748 ${y - 12}`, stroke: "#5a606c", "stroke-width": 3, fill: "none", "marker-end": "url(#go-aB)" }, g);
+        mk("text", { id: `go-vm${i}`, x: 772, y, "font-size": 36, fill: "#e8e6df" }, g, b);
+        IN(`#go-vr${i}`, at(8, f), 0.4, { x: -16 }, { x: 0 });
+      });
+      tl.to("#go-vm4", { fill: ORG, duration: 0.4 }, at(8, 0.66));
+      IN("#go-term2", at(8, 0.72), 0.5);
+      ["断网", "超时", "错数据"].forEach((w, i) => {
+        const x = 640 + i * 230, g = mk("g", { id: `go-fx${i}`, class: "h" }, "#go-fx");
+        mk("rect", { x, y: 908, width: 200, height: 64, rx: 32, fill: "rgba(252,98,85,0.12)", stroke: RED, "stroke-width": 2.5 }, g);
+        mk("text", { x: x + 100, y: 950, "font-size": 32, fill: RED, "text-anchor": "middle" }, g, w);
+        IN(`#go-fx${i}`, at(8, 0.81 + i * 0.04), 0.35, { y: 10 }, { y: 0 });
+      });
+      tl.to("#go-vr4", { x: 8, duration: 0.15, yoyo: true, repeat: 3 }, at(8, 0.94));
+tl.to("#go-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to(["#go-term", "#go-term2"], { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["goals"] = tl;
+    })();
+  </script>
+</template>
