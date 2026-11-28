@@ -1,0 +1,290 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 paths，id 前缀 pa- -->
+  <div id="root" data-composition-id="paths" data-duration="71.62" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pa-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      <marker id="pa-ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker>
+<marker id="pa-ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker>
+<marker id="pa-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker>
+<marker id="pa-ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker>
+<marker id="pa-agr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker>
+<marker id="pa-ap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker>
+<marker id="pa-an" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker>
+      </defs>
+      <g id="pa-all">
+        <g id="pa-pa" class="h">
+<rect x="760" y="240" width="1100" height="616" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<line x1="760" y1="298" x2="1860" y2="298" stroke="#2a2f3a" stroke-width="2"/>
+<circle cx="786" cy="269" r="7" fill="#3a3f4a"/><circle cx="808" cy="269" r="7" fill="#3a3f4a"/>
+<text x="832" y="279" font-size="28" fill="#58C4DD">graph.FindPaths · dfs 循环体</text>
+<rect id="pa-pa-hb" class="h" x="762" y="312.0" width="1096" height="43.5" fill="rgba(88,196,221,0.15)"/>
+<rect id="pa-pa-hk" class="h" x="762" y="312.0" width="6" height="43.5" fill="#58C4DD"/>
+<text id="pa-pa-l0" class="mono" x="788" y="342.0" font-size="30" fill="#e8e6df"><tspan>if len(res) &gt;= limit { return }</tspan></text>
+<text id="pa-pa-l1" class="mono" x="788" y="385.5" font-size="30" fill="#e8e6df"><tspan>p := s.Pools[e.Pool]</tspan></text>
+<text id="pa-pa-l2" class="mono" x="788" y="429.0" font-size="30" fill="#e8e6df"><tspan>if p == nil || !p.Usable() || visited[e.To] { continue }</tspan></text>
+<text id="pa-pa-l3" class="mono" x="788" y="472.5" font-size="30" fill="#e8e6df"><tspan>hop := Hop{Pool: p.Addr, TokenIn: tok, TokenOut: e.To}</tspan></text>
+<text id="pa-pa-l4" class="mono" x="788" y="516.0" font-size="30" fill="#e8e6df"><tspan>cur = append(cur, hop)</tspan></text>
+<text id="pa-pa-l5" class="mono" x="788" y="559.5" font-size="30" fill="#e8e6df"><tspan>switch {</tspan></text>
+<text id="pa-pa-l6" class="mono" x="788" y="603.0" font-size="30" fill="#e8e6df"><tspan>case e.To == out:</tspan></text>
+<text id="pa-pa-l7" class="mono" x="788" y="646.5" font-size="30" fill="#e8e6df"><tspan>    res = append(res, append(Path(nil), cur...))</tspan><tspan fill="#8a8f99"> // copy</tspan></text>
+<text id="pa-pa-l8" class="mono" x="788" y="690.0" font-size="30" fill="#e8e6df"><tspan>case len(cur) &lt; maxHops &amp;&amp; s.Hubs[e.To]:</tspan></text>
+<text id="pa-pa-l9" class="mono" x="788" y="733.5" font-size="30" fill="#e8e6df"><tspan>    visited[e.To] = true; dfs(e.To); visited[e.To] = false</tspan></text>
+<text id="pa-pa-l10" class="mono" x="788" y="777.0" font-size="30" fill="#e8e6df"><tspan>}</tspan></text>
+<text id="pa-pa-l11" class="mono" x="788" y="820.5" font-size="30" fill="#e8e6df"><tspan>cur = cur[:len(cur)-1]</tspan></text>
+</g>
+<g id="pa-pb" class="h">
+<rect x="760" y="240" width="1100" height="573" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<line x1="760" y1="298" x2="1860" y2="298" stroke="#2a2f3a" stroke-width="2"/>
+<circle cx="786" cy="269" r="7" fill="#3a3f4a"/><circle cx="808" cy="269" r="7" fill="#3a3f4a"/>
+<text class="mono" x="832" y="279" font-size="28" fill="#58C4DD">quote.PathQuoter.Quote</text>
+<rect id="pa-pb-hb" class="h" x="762" y="312.0" width="1096" height="43.5" fill="rgba(88,196,221,0.15)"/>
+<rect id="pa-pb-hk" class="h" x="762" y="312.0" width="6" height="43.5" fill="#58C4DD"/>
+<text id="pa-pb-l0" class="mono" x="788" y="342.0" font-size="30" fill="#e8e6df"><tspan>switch h.Kind {</tspan><tspan fill="#8a8f99">   // for each hop h in path p</tspan></text>
+<text id="pa-pb-l1" class="mono" x="788" y="385.5" font-size="30" fill="#e8e6df"><tspan>case graph.KindV2:</tspan></text>
+<text id="pa-pb-l2" class="mono" x="788" y="429.0" font-size="30" fill="#e8e6df"><tspan>  fee := int64(pool.FeePpm / 100)</tspan></text>
+<text id="pa-pb-l3" class="mono" x="788" y="472.5" font-size="30" fill="#e8e6df"><tspan>  amt = amm.GetAmountOut(amt, rIn, rOut, fee)</tspan></text>
+<text id="pa-pb-l4" class="mono" x="788" y="516.0" font-size="30" fill="#e8e6df"><tspan>case graph.KindV3:</tspan></text>
+<text id="pa-pb-l5" class="mono" x="788" y="559.5" font-size="30" fill="#e8e6df"><tspan>  blk := big.NewInt(s.Block)</tspan><tspan fill="#8a8f99">   // snapshot block</tspan></text>
+<text id="pa-pb-l6" class="mono" x="788" y="603.0" font-size="30" fill="#e8e6df"><tspan>  raw, _ := q.ec.CallContract(ctx, msg, blk)</tspan></text>
+<text id="pa-pb-l7" class="mono" x="788" y="646.5" font-size="30" fill="#e8e6df"><tspan>  out, _ := quoterABI.Unpack("quoteExactInputSingle", raw)</tspan></text>
+<text id="pa-pb-l8" class="mono" x="788" y="690.0" font-size="30" fill="#e8e6df"><tspan>  amt = out[0].(*big.Int)</tspan></text>
+<text id="pa-pb-l9" class="mono" x="788" y="733.5" font-size="30" fill="#e8e6df"><tspan>  gas += out[3].(*big.Int).Uint64()</tspan></text>
+<text id="pa-pb-l10" class="mono" x="788" y="777.0" font-size="30" fill="#e8e6df"><tspan>}</tspan></text>
+</g>
+<g id="pa-ex">
+<line class="pa-xe h" x1="476" y1="427" x2="453" y2="393" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="140" y1="540" x2="476" y2="427" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="483" y1="312" x2="476" y2="427" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="483" y1="312" x2="670" y2="540" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="421" y1="534" x2="430" y2="613" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="455" y1="465" x2="421" y2="534" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="140" y1="540" x2="455" y2="465" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="320" y1="467" x2="287" y2="259" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="320" y1="467" x2="670" y2="540" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="542" y1="350" x2="430" y2="613" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="336" y1="623" x2="455" y2="465" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="140" y1="540" x2="336" y2="623" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="528" y1="823" x2="339" y2="813" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="528" y1="823" x2="670" y2="540" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="532" y1="519" x2="483" y2="312" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="430" y1="613" x2="421" y2="534" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="140" y1="540" x2="430" y2="613" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="317" y1="658" x2="542" y2="350" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="317" y1="658" x2="670" y2="540" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="499" y1="818" x2="457" y2="568" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="348" y1="508" x2="287" y2="259" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="140" y1="540" x2="348" y2="508" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="496" y1="679" x2="348" y2="508" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="496" y1="679" x2="670" y2="540" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="287" y1="259" x2="430" y2="613" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="525" y1="274" x2="421" y2="534" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="140" y1="540" x2="525" y2="274" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="453" y1="393" x2="499" y2="818" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="453" y1="393" x2="670" y2="540" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="437" y1="549" x2="532" y2="519" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="375" y1="356" x2="430" y2="613" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="140" y1="540" x2="375" y2="356" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="472" y1="666" x2="455" y2="465" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="472" y1="666" x2="670" y2="540" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="339" y1="813" x2="493" y2="774" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="545" y1="476" x2="339" y2="813" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="140" y1="540" x2="545" y2="476" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="495" y1="323" x2="499" y2="818" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="495" y1="323" x2="670" y2="540" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="457" y1="568" x2="287" y2="259" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="493" y1="774" x2="476" y2="427" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="140" y1="540" x2="493" y2="774" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="375" y1="733" x2="493" y2="774" stroke="#3a3f4a" stroke-width="2"/>
+<line class="pa-xe h" x1="375" y1="733" x2="670" y2="540" stroke="#3a3f4a" stroke-width="2"/>
+<circle class="pa-xn h" cx="476" cy="427" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="483" cy="312" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="421" cy="534" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="455" cy="465" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="320" cy="467" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="542" cy="350" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="336" cy="623" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="528" cy="823" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="532" cy="519" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="430" cy="613" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="317" cy="658" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="499" cy="818" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="348" cy="508" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="496" cy="679" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="287" cy="259" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="525" cy="274" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="453" cy="393" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="437" cy="549" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="375" cy="356" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="472" cy="666" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="339" cy="813" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="545" cy="476" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="495" cy="323" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="457" cy="568" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="493" cy="774" r="10" fill="#4a4f5a"/>
+<circle class="pa-xn h" cx="375" cy="733" r="10" fill="#4a4f5a"/>
+</g>
+<line id="pa-cut" class="dr h" pathLength="1" x1="250" y1="870" x2="620" y2="220" stroke="#FC6255" stroke-width="5"/>
+<g id="pa-G">
+<line id="pa-e-USDC-WETH" class="h" x1="140" y1="540" x2="405" y2="330" stroke="#4a4f5a" stroke-width="4"/>
+<line id="pa-e-USDC-USDT" class="h" x1="140" y1="540" x2="405" y2="540" stroke="#4a4f5a" stroke-width="4"/>
+<line id="pa-e-USDC-WBTC" class="h" x1="140" y1="540" x2="405" y2="750" stroke="#4a4f5a" stroke-width="4"/>
+<line id="pa-e-WETH-DAI" class="h" x1="405" y1="330" x2="670" y2="540" stroke="#4a4f5a" stroke-width="4"/>
+<line id="pa-e-USDT-DAI" class="h" x1="405" y1="540" x2="670" y2="540" stroke="#4a4f5a" stroke-width="4"/>
+<line id="pa-e-WBTC-DAI" class="h" x1="405" y1="750" x2="670" y2="540" stroke="#4a4f5a" stroke-width="4"/>
+<line id="pa-ex1" class="h" x1="405" y1="330" x2="590" y2="300" stroke="#4a4f5a" stroke-width="4"/>
+<circle id="pa-nx" class="h" cx="600" cy="298" r="22" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3"/>
+<text id="pa-stop" class="h" x="640" y="308" font-size="30" fill="#8a8f99" >停</text>
+<g id="pa-nUSDC" class="h"><circle cx="140" cy="540" r="46" fill="#161a22" stroke="#FF9F43" stroke-width="5"/><text class="mono" x="140" y="550" font-size="28" fill="#e8e6df" text-anchor="middle" >USDC</text></g>
+<g id="pa-nDAI" class="h"><circle cx="670" cy="540" r="46" fill="#161a22" stroke="#FF9F43" stroke-width="5"/><text class="mono" x="670" y="550" font-size="28" fill="#e8e6df" text-anchor="middle" >DAI</text></g>
+<g id="pa-nWETH" class="h"><circle cx="405" cy="330" r="46" fill="#161a22" stroke="#FF9F43" stroke-width="5"/><text class="mono" x="405" y="340" font-size="28" fill="#e8e6df" text-anchor="middle" >WETH</text></g>
+<g id="pa-nUSDT" class="h"><circle cx="405" cy="540" r="46" fill="#161a22" stroke="#FF9F43" stroke-width="5"/><text class="mono" x="405" y="550" font-size="28" fill="#e8e6df" text-anchor="middle" >USDT</text></g>
+<g id="pa-nWBTC" class="h"><circle cx="405" cy="750" r="46" fill="#161a22" stroke="#FF9F43" stroke-width="5"/><text class="mono" x="405" y="760" font-size="28" fill="#e8e6df" text-anchor="middle" >WBTC</text></g>
+</g>
+<g id="pa-r0" class="h"><circle cx="160" cy="900" r="18" fill="none" stroke="#FF9F43" stroke-width="5"/><text x="160" y="970" font-size="28" fill="#e8e6df" text-anchor="middle" >只经枢纽币</text></g>
+<g id="pa-r1" class="h"><path d="M310 912 A20 20 0 1 1 350 912" fill="none" stroke="#8a8f99" stroke-width="4"/><line x1="314" y1="884" x2="346" y2="916" stroke="#FC6255" stroke-width="4"/><text x="330" y="970" font-size="28" fill="#e8e6df" text-anchor="middle" >不成环</text></g>
+<g id="pa-r2" class="h"><circle cx="500" cy="900" r="18" fill="none" stroke="#8a8f99" stroke-width="4" stroke-dasharray="5 4"/><text x="500" y="970" font-size="28" fill="#e8e6df" text-anchor="middle" >跳过空池</text></g>
+<g id="pa-r3" class="h"><rect x="636" y="884" width="48" height="32" rx="6" fill="none" stroke="#58C4DD" stroke-width="4"/><text x="660" y="970" font-size="28" fill="#e8e6df" text-anchor="middle" >≤ 50 条</text></g>
+<text id="pa-res" class="h" x="90" y="240" font-size="30" fill="#F0B90B">结果：<tspan class="mono" font-size="28">USDC → WETH → DAI</tspan></text>
+<g id="pa-C">
+<line id="pa-ce0" class="h" x1="190" y1="346" x2="190" y2="434" stroke="#8a8f99" stroke-width="4"/>
+<line id="pa-ce1" class="h" x1="190" y1="526" x2="190" y2="614" stroke="#8a8f99" stroke-width="4"/>
+<line id="pa-ce2" class="h" x1="190" y1="706" x2="190" y2="794" stroke="#8a8f99" stroke-width="4"/>
+<g id="pa-c0" class="h"><circle cx="190" cy="300" r="44" fill="#161a22" stroke="#FF9F43" stroke-width="4"/><text class="mono" x="190" y="310" font-size="28" fill="#e8e6df" text-anchor="middle" >USDC</text></g>
+<g id="pa-c1" class="h"><circle cx="190" cy="480" r="44" fill="#161a22" stroke="#FF9F43" stroke-width="4"/><text class="mono" x="190" y="490" font-size="28" fill="#e8e6df" text-anchor="middle" >WETH</text></g>
+<g id="pa-c2" class="h"><circle cx="190" cy="660" r="44" fill="#161a22" stroke="#FF9F43" stroke-width="4"/><text class="mono" x="190" y="670" font-size="28" fill="#e8e6df" text-anchor="middle" >USDT</text></g>
+<g id="pa-c3" class="h"><circle cx="190" cy="840" r="44" fill="#161a22" stroke="#FF9F43" stroke-width="4"/><text class="mono" x="190" y="850" font-size="28" fill="#e8e6df" text-anchor="middle" >DAI</text></g>
+</g>
+<text id="pa-ceg" class="h" x="90" y="240" font-size="28" fill="#6b6f7a" >示例路径</text>
+<text id="pa-h1" class="h" x="255" y="400" font-size="30" fill="#58C4DD" font-weight="700" >V2 · 本地算</text>
+<text id="pa-h2" class="h mono" x="255" y="590" font-size="30" fill="#B48EF0" font-weight="700" >V3</text>
+<text id="pa-h3" class="h" x="255" y="780" font-size="30" fill="#58C4DD" font-weight="700" >V2 · 本地算</text>
+<g id="pa-q" class="h"><rect x="480" y="540" width="240" height="90" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3"/><text class="mono" x="600" y="597" font-size="30" fill="#B48EF0" text-anchor="middle" font-weight="700" >QuoterV2</text></g>
+<path id="pa-qo" class="dr h" pathLength="1" d="M310 572 L470 572" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#pa-ab)"/>
+<text id="pa-qol" class="h mono" x="318" y="552" font-size="28" fill="#58C4DD" >eth_call</text>
+<path id="pa-qi" class="dr h" pathLength="1" d="M478 612 L318 612" stroke="#F0B90B" stroke-width="4" fill="none" marker-end="url(#pa-ag)"/>
+<text id="pa-qil" class="h mono" x="310" y="665" font-size="28" fill="#F0B90B" >amountOut + gasEstimate</text>
+<g id="pa-st" class="h"><rect x="480" y="280" width="240" height="84" rx="12" fill="#1b2430" stroke="#58C4DD" stroke-width="3" stroke-dasharray="8 5"/><text class="mono" x="600" y="335" font-size="36" fill="#58C4DD" text-anchor="middle" font-weight="700" >@ #N</text></g>
+<path id="pa-sl1" class="dr h" pathLength="1" d="M600 538 L600 372" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#pa-ab)"/>
+<text id="pa-stl" class="h" x="616" y="470" font-size="28" fill="#58C4DD" >同一区块</text>
+<text id="pa-n1" class="h" x="790" y="862" font-size="32" fill="#e8e6df" >abigen：生成类型安全的绑定</text>
+<text id="pa-n2" class="h" x="790" y="920" font-size="32" fill="#e8e6df">纯 V3 多跳：<tspan class="mono" fill="#B48EF0">quoteExactInput</tspan> 一次报完</text>
+<text id="pa-n3" class="h" x="790" y="978" font-size="32" fill="#8a8f99" >混合 V2 和 V3：只能逐跳</text>
+<text id="pa-addr" class="h" x="790" y="880" font-size="32" fill="#e8e6df"><tspan class="mono" fill="#B48EF0">QuoterV2</tspan> 地址各链不同 · 以 Uniswap 官方部署文档为准</text>
+<g id="pa-term2" class="h">
+        <rect x="70" y="56" width="700" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">QuoterV2 <tspan font-size="28" font-weight="400" fill="#8a8f99"></tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">通过模拟兑换返回报价的合约，用 <tspan class="mono">eth_call</tspan> 调用</text>
+      </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="pa-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text id="pa-tw" x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">枢纽币 <tspan font-size="28" font-weight="400" fill="#8a8f99">Hub Token</tspan></text>
+        <text id="pa-td" x="100" y="160" font-size="28" fill="#e8e6df">流动性最深、允许作中间跳的代币</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+const PANELS = {"pa-pa":{top:312.0,step:43.50},"pa-pb":{top:312.0,step:43.50}};
+
+const HL = (pid, i, n, t, d = 0.4) => {
+  const g = PANELS[pid];
+  ["-hb", "-hk"].forEach(s => tl.to(`#${pid}${s}`, { attr: { y: g.top + i * g.step, height: n * g.step }, opacity: 1, duration: d, ease: "power2.inOut" }, t));
+};
+
+// L0 explosion then cut
+IN("#pa-nUSDC", at(0, 0.02), 0.4); IN("#pa-nDAI", at(0, 0.06), 0.4);
+tl.fromTo(".pa-xe", { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.04 }, at(0, 0.12));
+tl.fromTo(".pa-xn", { opacity: 0, scale: 0.2, svgOrigin: "405 540" }, { opacity: 1, scale: 1, svgOrigin: "405 540", duration: 0.3, stagger: 0.06 }, at(0, 0.12));
+IN("#pa-pa", at(0, 0.3), 0.6, { x: 30 }, { x: 0 });
+DRAW("#pa-cut", at(0, 0.82), 0.35); tl.set("#pa-cut", { opacity: 1 }, at(0, 0.82));
+tl.to("#pa-ex", { opacity: 0, duration: 0.5 }, at(0, 0.92));
+OUT("#pa-cut", at(0, 0.97), 0.3);
+// L1 hubs + rules
+IN("#pa-term", at(1, 0.0), 0.5);
+IN("#pa-nWETH", at(1, 0.06), 0.4, { y: 14 }, { y: 0 });
+IN("#pa-nUSDT", at(1, 0.1), 0.4, { y: 14 }, { y: 0 });
+IN("#pa-nWBTC", at(1, 0.14), 0.4, { y: 14 }, { y: 0 });
+IN("#pa-e-USDC-WETH, #pa-e-USDC-USDT, #pa-e-USDC-WBTC, #pa-e-WETH-DAI, #pa-e-USDT-DAI, #pa-e-WBTC-DAI", at(1, 0.2), 0.5);
+HL("pa-pa", 0, 3, at(1, 0.25));
+for (let i = 0; i < 4; i++) IN(`#pa-r${i}`, at(1, 0.3 + i * 0.16), 0.4, { y: 15 }, { y: 0 });
+OUT("#pa-term", at(1, 0.97), 0.4);
+// L2 dfs
+HL("pa-pa", 3, 2, at(2, 0.02));
+tl.to("#pa-e-USDC-WETH", { stroke: "#F0B90B", duration: 0.3 }, at(2, 0.12));
+HL("pa-pa", 3, 2, at(2, 0.14));
+IN("#pa-ex1, #pa-nx", at(2, 0.28), 0.3);
+tl.to("#pa-ex1", { stroke: "#8a8f99", duration: 0.2 }, at(2, 0.32));
+IN("#pa-stop", at(2, 0.36), 0.3);
+HL("pa-pa", 8, 2, at(2, 0.36));
+tl.to("#pa-e-WETH-DAI", { stroke: "#F0B90B", duration: 0.3 }, at(2, 0.55));
+HL("pa-pa", 6, 2, at(2, 0.55));
+IN("#pa-res", at(2, 0.66), 0.5, { x: 40, y: 40 }, { x: 0, y: 0 });
+HL("pa-pa", 11, 1, at(2, 0.84));
+tl.to("#pa-e-WETH-DAI", { stroke: "#4a4f5a", duration: 0.3 }, at(2, 0.86));
+// L3 per-hop quote
+OUT("#pa-G, #pa-r0, #pa-r1, #pa-r2, #pa-r3, #pa-res, #pa-pa", at(3, 0.0), 0.4);
+IN("#pa-pb", at(3, 0.0) + 0.45, 0.4);
+for (let i = 0; i < 4; i++) IN(`#pa-c${i}`, at(3, 0.08 + i * 0.06), 0.3);
+for (let i = 0; i < 3; i++) IN(`#pa-ce${i}`, at(3, 0.1 + i * 0.06), 0.3);
+IN("#pa-ceg", at(3, 0.15), 0.3);
+HL("pa-pb", 1, 3, at(3, 0.35));
+IN("#pa-h1", at(3, 0.4), 0.4); IN("#pa-h3", at(3, 0.5), 0.4);
+tl.to("#pa-ce0, #pa-ce2", { stroke: "#58C4DD", duration: 0.3 }, at(3, 0.55));
+// L4 QuoterV2
+IN("#pa-term2", at(4, 0.00), 0.4);
+IN("#pa-h2", at(4, 0.03), 0.4);
+tl.to("#pa-ce1", { stroke: "#B48EF0", duration: 0.3 }, at(4, 0.03));
+HL("pa-pb", 4, 3, at(4, 0.07));
+IN("#pa-q", at(4, 0.10), 0.4, { x: 20 }, { x: 0 });
+ARROW("#pa-qo", at(4, 0.21), 0.5); IN("#pa-qol", at(4, 0.22), 0.3);
+HL("pa-pb", 7, 3, at(4, 0.38));
+ARROW("#pa-qi", at(4, 0.41), 0.5); IN("#pa-qil", at(4, 0.45), 0.4);
+OUT("#pa-term2", at(4, 0.67), 0.4);
+IN("#pa-addr", at(4, 0.74), 0.5, { y: 15 }, { y: 0 });
+OUT("#pa-addr", at(5, 0.85), 0.4);
+// L5 same block
+HL("pa-pb", 5, 1, at(5, 0.05));
+IN("#pa-st", at(5, 0.1), 0.5, { scale: 1.3, svgOrigin: "600 322" }, { scale: 1, svgOrigin: "600 322" });
+ARROW("#pa-sl1", at(5, 0.35), 0.4);
+IN("#pa-stl", at(5, 0.45), 0.4);
+tl.to("#pa-st rect", { fill: "#24414c", duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.7));
+// L6 notes
+IN("#pa-n1", at(6, 0.05), 0.4);
+IN("#pa-n2", at(6, 0.35), 0.4);
+IN("#pa-n3", at(6, 0.7), 0.4);
+
+      /*ENDANIM*/
+
+      tl.to("#pa-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#pa-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["paths"] = tl;
+    })();
+  </script>
+</template>

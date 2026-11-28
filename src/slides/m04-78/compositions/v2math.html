@@ -1,0 +1,139 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 v2math，id 前缀 v2- -->
+  <div id="root" data-composition-id="v2math" data-duration="43.58" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="v2-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      <marker id="v2-ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker>
+<marker id="v2-ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker>
+<marker id="v2-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker>
+<marker id="v2-ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker>
+<marker id="v2-agr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker>
+<marker id="v2-ap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker>
+<marker id="v2-an" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker>
+      </defs>
+      <g id="v2-all">
+        <g id="v2-p" class="h">
+<rect x="770" y="240" width="1090" height="616" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<line x1="770" y1="298" x2="1860" y2="298" stroke="#2a2f3a" stroke-width="2"/>
+<circle cx="796" cy="269" r="7" fill="#3a3f4a"/><circle cx="818" cy="269" r="7" fill="#3a3f4a"/>
+<text class="mono" x="842" y="279" font-size="28" fill="#58C4DD">amm.GetAmountOut</text>
+<rect id="v2-p-hb" class="h" x="772" y="312.0" width="1086" height="43.5" fill="rgba(88,196,221,0.15)"/>
+<rect id="v2-p-hk" class="h" x="772" y="312.0" width="6" height="43.5" fill="#58C4DD"/>
+<text id="v2-p-l0" class="mono" x="798" y="342.0" font-size="30" fill="#e8e6df"><tspan>func GetAmountOut(in, rIn, rOut *big.Int,</tspan></text>
+<text id="v2-p-l1" class="mono" x="798" y="385.5" font-size="30" fill="#e8e6df"><tspan>        feeBps int64) *big.Int {</tspan></text>
+<text id="v2-p-l2" class="mono" x="798" y="429.0" font-size="30" fill="#e8e6df"><tspan>    if in.Sign() &lt;= 0 || rIn.Sign() &lt;= 0 ||</tspan></text>
+<text id="v2-p-l3" class="mono" x="798" y="472.5" font-size="30" fill="#e8e6df"><tspan>            rOut.Sign() &lt;= 0 {</tspan></text>
+<text id="v2-p-l4" class="mono" x="798" y="516.0" font-size="30" fill="#e8e6df"><tspan>        return new(big.Int) }</tspan></text>
+<text id="v2-p-l5" class="mono" x="798" y="559.5" font-size="30" fill="#e8e6df"><tspan>    inWithFee := new(big.Int).Mul(in,</tspan></text>
+<text id="v2-p-l6" class="mono" x="798" y="603.0" font-size="30" fill="#e8e6df"><tspan>        big.NewInt(10000-feeBps))</tspan></text>
+<text id="v2-p-l7" class="mono" x="798" y="646.5" font-size="30" fill="#e8e6df"><tspan>    num := new(big.Int).Mul(inWithFee, rOut)</tspan></text>
+<text id="v2-p-l8" class="mono" x="798" y="690.0" font-size="30" fill="#e8e6df"><tspan>    den := new(big.Int).Mul(rIn, tenK)</tspan></text>
+<text id="v2-p-l9" class="mono" x="798" y="733.5" font-size="30" fill="#e8e6df"><tspan>    den.Add(den, inWithFee)</tspan></text>
+<text id="v2-p-l10" class="mono" x="798" y="777.0" font-size="30" fill="#e8e6df"><tspan>    return num.Quo(num, den)</tspan><tspan fill="#8a8f99">   // floor</tspan></text>
+<text id="v2-p-l11" class="mono" x="798" y="820.5" font-size="30" fill="#e8e6df"><tspan>}</tspan></text>
+</g>
+<g id="v2-L">
+<g id="v2-cv" class="h"><line x1="120" y1="520" x2="720" y2="520" stroke="#3a3f4a" stroke-width="3"/><line x1="120" y1="520" x2="120" y2="250" stroke="#3a3f4a" stroke-width="3"/><polyline points="120,330 130,347 139,362 148,374 158,384 168,393 177,401 186,408 196,414 206,420 215,425 224,430 234,434 244,437 253,441 262,444 272,447 282,450 291,452 300,454 310,457 320,459 329,461 338,462 348,464 358,466 367,467 376,469 386,470 396,471 405,472 414,474 424,475 434,476 443,477 452,478 462,479 472,480 481,480 491,481 500,482 510,483 519,483 528,484 538,485 548,485 557,486 566,487 576,487 586,488 595,488 604,489 614,489 624,490 633,490 642,491 652,491 662,492 671,492 680,492 690,493" fill="none" stroke="#8a8f99" stroke-width="4"/><text class="mono" x="400" y="330" font-size="36" fill="#8a8f99" >x · y = k</text><text x="400" y="380" font-size="30" fill="#6b6f7a" >前面讲过</text></g>
+<text id="v2-bi" class="h mono" x="120" y="340" font-size="40" fill="#83C167" font-weight="700" >big.Int</text>
+<path id="v2-bic" class="h" d="M320 326.0 L335.2 340.8 L360 307.2" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<text id="v2-fl" class="h mono" x="120" y="430" font-size="40" fill="#FC6255" font-weight="700" >float64</text>
+<path id="v2-flc" class="h" d="M330 396 L366 432 M366 396 L330 432" fill="none" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/>
+<text id="v2-r1l" class="h" x="90" y="570" font-size="30" fill="#8a8f99" >合约</text>
+<text id="v2-r1" class="h mono" x="200" y="572" font-size="40" fill="#e8e6df" >997 / 1000</text>
+<text id="v2-eq" class="h" x="300" y="638" font-size="52" fill="#83C167" text-anchor="middle" font-weight="700" >=</text>
+<text id="v2-r2l" class="h" x="90" y="700" font-size="30" fill="#8a8f99" >这里</text>
+<text id="v2-r2" class="h mono" x="200" y="702" font-size="40" fill="#58C4DD" >9970 / 10000</text>
+<text id="v2-x10" class="h" x="520" y="638" font-size="30" fill="#83C167" >分子分母 × 10</text>
+<g id="v2-nl" class="h"><line x1="120" y1="880" x2="720" y2="880" stroke="#8a8f99" stroke-width="3"/><line x1="170" y1="866" x2="170" y2="894" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="170" y="935" font-size="28" fill="#8a8f99" text-anchor="middle" >995</text><line x1="420" y1="866" x2="420" y2="894" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="420" y="935" font-size="28" fill="#8a8f99" text-anchor="middle" >996</text><line x1="670" y1="866" x2="670" y2="894" stroke="#8a8f99" stroke-width="3"/><text class="mono" x="670" y="935" font-size="28" fill="#8a8f99" text-anchor="middle" >997</text></g>
+<text id="v2-nv" class="h mono" x="470" y="800" font-size="30" fill="#F0B90B" text-anchor="middle" >996.006…</text>
+<path id="v2-na" class="dr h" pathLength="1" d="M422 812 L422 860" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#v2-agr)"/>
+</g>
+<text id="v2-in" class="h" x="960" y="300" font-size="34" fill="#8a8f99" text-anchor="middle" >输入 1000 · 储备 1,000,000 / 1,000,000 · 手续费 0.3%</text>
+<text id="v2-num" class="h" x="760" y="455" font-size="48" fill="#F0B90B" text-anchor="middle" >1000 × 9970 × 1,000,000</text>
+<line id="v2-bar" class="dr h" pathLength="1" x1="330" y1="485" x2="1190" y2="485" stroke="#e8e6df" stroke-width="4"/>
+<text id="v2-den" class="h" x="760" y="555" font-size="48" fill="#e8e6df" text-anchor="middle" >1,000,000 × 10000 + 1000 × 9970</text>
+<text id="v2-res" class="h" x="1230" y="505" font-size="60" fill="#F0B90B" font-weight="700" >= 996.006…</text>
+<path id="v2-dn" class="dr h" pathLength="1" d="M1390 560 L1390 670" stroke="#83C167" stroke-width="5" fill="none" marker-end="url(#v2-agr)"/>
+<text id="v2-996" class="h" x="1390" y="770" font-size="88" fill="#83C167" text-anchor="middle" font-weight="700" >996</text>
+<text id="v2-996l" class="h" x="1390" y="830" font-size="30" fill="#83C167" text-anchor="middle" >向下取整 = 链上结果</text>
+<text id="v2-997" class="h" x="640" y="770" font-size="88" fill="#8a8f99" text-anchor="middle" font-weight="700" >997</text>
+<path id="v2-997x" class="h" d="M730 712 L786 768 M786 712 L730 768" fill="none" stroke="#FC6255" stroke-width="8" stroke-linecap="round"/>
+<text id="v2-997l" class="h" x="640" y="900" font-size="34" fill="#FC6255" text-anchor="middle" >只扣手续费，漏了价格冲击</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+const PANELS = {"v2-p":{top:312.0,step:43.50}};
+
+const HL = (pid, i, n, t, d = 0.4) => {
+  const g = PANELS[pid];
+  ["-hb", "-hk"].forEach(s => tl.to(`#${pid}${s}`, { attr: { y: g.top + i * g.step, height: n * g.step }, opacity: 1, duration: d, ease: "power2.inOut" }, t));
+};
+
+IN("#v2-cv", at(0, 0.03), 0.6);
+IN("#v2-p", at(0, 0.3), 0.6, { x: 30 }, { x: 0 });
+HL("v2-p", 0, 2, at(0, 0.6));
+// L1
+OUT("#v2-cv", at(1, 0.0), 0.4);
+HL("v2-p", 5, 5, at(1, 0.05));
+IN("#v2-bi", at(1, 0.15), 0.4); IN("#v2-bic", at(1, 0.25), 0.3);
+IN("#v2-fl", at(1, 0.4), 0.4); IN("#v2-flc", at(1, 0.6), 0.3);
+// L2
+HL("v2-p", 5, 2, at(2, 0.05));
+IN("#v2-r1l, #v2-r1", at(2, 0.1), 0.4, { x: -20 }, { x: 0 });
+IN("#v2-r2l, #v2-r2", at(2, 0.35), 0.4, { x: -20 }, { x: 0 });
+IN("#v2-x10", at(2, 0.5), 0.4);
+IN("#v2-eq", at(2, 0.7), 0.4, { scale: 0.5, svgOrigin: "300 625" }, { scale: 1, svgOrigin: "300 625" });
+// L3
+HL("v2-p", 10, 1, at(3, 0.04));
+IN("#v2-nl", at(3, 0.12), 0.4);
+IN("#v2-nv", at(3, 0.3), 0.4);
+ARROW("#v2-na", at(3, 0.5), 0.4);
+// L4 calc
+OUT("#v2-p, #v2-L", at(4, 0.0), 0.5);
+IN("#v2-in", at(4, 0.06), 0.5);
+IN("#v2-num", at(4, 0.18), 0.5, { y: -15 }, { y: 0 });
+DRAW("#v2-bar", at(4, 0.26), 0.5); tl.set("#v2-bar", { opacity: 1 }, at(4, 0.26));
+IN("#v2-den", at(4, 0.32), 0.5, { y: 15 }, { y: 0 });
+IN("#v2-res", at(4, 0.6), 0.5, { x: -20 }, { x: 0 });
+ARROW("#v2-dn", at(4, 0.8), 0.4);
+IN("#v2-996", at(4, 0.84), 0.4, { scale: 0.7, svgOrigin: "1390 740" }, { scale: 1, svgOrigin: "1390 740" });
+IN("#v2-996l", at(4, 0.9), 0.4);
+// L5 not 997
+IN("#v2-997", at(5, 0.05), 0.4);
+IN("#v2-997x", at(5, 0.3), 0.3);
+IN("#v2-997l", at(5, 0.45), 0.4);
+
+      /*ENDANIM*/
+
+      tl.to("#v2-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["v2math"] = tl;
+    })();
+  </script>
+</template>

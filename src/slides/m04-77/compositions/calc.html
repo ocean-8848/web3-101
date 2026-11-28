@@ -1,0 +1,138 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 calc，id 前缀 ca- -->
+  <div id="root" data-composition-id="calc" data-duration="65.44" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ca-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="ca-arr-y" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="ca-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="ca-arr-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="ca-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="ca-arr-p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker>
+        <marker id="ca-arr-gr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+        <marker id="ca-arr-w" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+      </defs>
+      <g id="ca-all">
+        <text id="ca-ttl" class="h" x="100" y="120" font-size="48" fill="#e8e6df" font-weight="700">算一算：两跳精确输出（示例）</text>
+        <text id="ca-note" class="h" x="1820" y="120" font-size="32" fill="#8a8f99" text-anchor="end">USDC 6 位小数 · WETH / DAI 18 位</text>
+        <g id="ca-pa" class="h"><rect x="160" y="200" width="720" height="180" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="196" y="256" font-size="36" font-weight="700" fill="#e8e6df">池 A<tspan dx="20" font-size="32" font-weight="400" fill="#8a8f99">USDC / WETH</tspan></text><text x="196" y="336" class="mono" font-size="42" fill="#F0B90B">2,000,000 / 1,000</text><text id="ca-pa-fee" x="850" y="256" font-size="32" fill="#8a8f99" text-anchor="end">费率 0.3%</text></g>
+        <g id="ca-pb" class="h"><rect x="1040" y="200" width="720" height="180" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1076" y="256" font-size="36" font-weight="700" fill="#e8e6df">池 B<tspan dx="20" font-size="32" font-weight="400" fill="#8a8f99">WETH / DAI</tspan></text><text x="1076" y="336" class="mono" font-size="42" fill="#F0B90B">500 / 1,000,000</text><text id="ca-pb-fee" x="1730" y="256" font-size="32" fill="#8a8f99" text-anchor="end">费率 0.3%</text></g>
+        <path id="ca-pab" class="dr h" pathLength="1" d="M890 290 H1032" fill="none" stroke="#F0B90B" stroke-width="4" marker-end="url(#ca-arr-y)" />
+        <text id="ca-pabt" class="h mono" x="961" y="274" font-size="28" fill="#F0B90B" text-anchor="middle">WETH</text>
+        <line id="ca-sep" class="h" x1="100" y1="430" x2="1820" y2="430" stroke="#2a2f3a" stroke-width="2" />
+        <g id="ca-b0" class="h"><rect x="100" y="466" width="128" height="46" rx="10" fill="#8a8f99" fill-opacity="0.16" stroke="#8a8f99" stroke-width="2" /><text x="164" y="500" font-size="32" fill="#8a8f99" text-anchor="middle" font-weight="700">输入</text></g>
+        <text id="ca-r0" class="h" x="250" y="500" font-size="32" fill="#e8e6df"><tspan class="mono" font-size="30" fill="#e8e6df">in = 10,000,000,000</tspan><tspan dx="16" fill="#8a8f99">（10,000 USDC）</tspan></text>
+        <g id="ca-b1" class="h"><rect x="100" y="536" width="128" height="46" rx="10" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2" /><text x="164" y="570" font-size="32" fill="#58C4DD" text-anchor="middle" font-weight="700">第 1 跳</text></g>
+        <text id="ca-r1" class="h" x="250" y="570" font-size="32" fill="#e8e6df"><tspan class="mono" font-size="30" fill="#e8e6df">in×997 = 9,970,000,000,000</tspan></text>
+        <text id="ca-r2" class="h" x="250" y="622" font-size="32" fill="#e8e6df"><tspan fill="#8a8f99">分母</tspan><tspan class="mono" font-size="30" fill="#e8e6df"> = 2,009,970,000,000,000</tspan></text>
+        <text id="ca-r3" class="h" x="250" y="674" font-size="32" fill="#e8e6df"><tspan class="mono" font-size="30" fill="#e8e6df">out1 = </tspan><tspan class="mono" font-size="30" fill="#F0B90B">4,960,273,038,901,078,125</tspan><tspan class="mono" font-size="28" fill="#8a8f99"> wei</tspan></text>
+        <text id="ca-r3b" class="h" x="918" y="674" font-size="32" fill="#F0B90B">≈ 4.960273 WETH</text>
+        <text id="ca-gh" class="h" x="1232" y="674" font-size="32" fill="#6b6f7a">理想 5</text>
+        <g id="ca-b2" class="h"><rect x="100" y="716" width="128" height="46" rx="10" fill="#58C4DD" fill-opacity="0.16" stroke="#58C4DD" stroke-width="2" /><text x="164" y="750" font-size="32" fill="#58C4DD" text-anchor="middle" font-weight="700">第 2 跳</text></g>
+        <text id="ca-r4" class="h" x="250" y="750" font-size="32" fill="#e8e6df"><tspan fill="#8a8f99">分母</tspan><tspan class="mono" font-size="30" fill="#e8e6df"> = 504,945,392,219,784,374,890,625</tspan></text>
+        <text id="ca-r5" class="h" x="250" y="802" font-size="32" fill="#e8e6df"><tspan class="mono" font-size="30" fill="#e8e6df">out2 = </tspan><tspan class="mono" font-size="30" fill="#F0B90B">9,793,914,938,096,564,347,345</tspan><tspan class="mono" font-size="28" fill="#8a8f99"> wei</tspan></text>
+        <text id="ca-r5b" class="h" x="850" y="850" font-size="32" fill="#F0B90B">≈ 9,793.9149 DAI</text>
+        <g id="ca-b3" class="h"><rect x="100" y="892" width="128" height="46" rx="10" fill="#83C167" fill-opacity="0.16" stroke="#83C167" stroke-width="2" /><text x="164" y="926" font-size="32" fill="#83C167" text-anchor="middle" font-weight="700">minOut</text></g>
+        <text id="ca-r6" class="h" x="250" y="926" font-size="32" fill="#e8e6df"><tspan class="mono" font-size="30" fill="#e8e6df">out2 × 9,950 ÷ 10,000</tspan><tspan dx="16" fill="#FF9F43" font-size="32">滑点 0.5% = 50 bps</tspan></text>
+        <text id="ca-r7" class="h" x="250" y="980" font-size="32" fill="#e8e6df"><tspan class="mono" font-size="30" fill="#e8e6df">= </tspan><tspan class="mono" font-size="30" fill="#83C167">9,744,945,363,406,081,525,608</tspan><tspan dx="14" fill="#83C167">≈ 9,744.9454 DAI</tspan></text>
+        <rect id="ca-f0" class="h" x="370" y="640" width="461" height="48" rx="8" fill="none" stroke="#83C167" stroke-width="2.5" />
+        <rect id="ca-f1" class="h" x="370" y="768" width="533" height="48" rx="8" fill="none" stroke="#83C167" stroke-width="2.5" />
+        <rect id="ca-f2" class="h" x="280" y="946" width="533" height="48" rx="8" fill="none" stroke="#83C167" stroke-width="2.5" />
+        <g id="ca-fm" class="h"><rect x="1340" y="470" width="480" height="250" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" /><text x="1370" y="512" font-size="32" fill="#8a8f99">V2 公式</text><text x="1580" y="512" font-size="32" fill="#8a8f99" text-anchor="start">out =</text><g id="ca-fn"><rect id="ca-fn-hl" x="1418" y="546" width="324" height="46" rx="8" fill="#F0B90B" fill-opacity="0.18" opacity="0" /><text x="1580" y="580" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">in × 997 × R_out</text></g><line x1="1384" y1="610" x2="1776" y2="610" stroke="#e8e6df" stroke-width="2.5" /><rect id="ca-fd-hl" x="1384" y="626" width="392" height="46" rx="8" fill="#F0B90B" fill-opacity="0.18" opacity="0" /><text x="1580" y="660" class="mono" font-size="28" fill="#e8e6df" text-anchor="middle">R_in × 1000 + in × 997</text><path id="ca-fl" d="M1374 540 V686 H1392 M1786 540 V686 H1768" fill="none" stroke="#e8e6df" stroke-width="3.5" /></g>
+        <text id="ca-flt" class="h" x="1580" y="760" font-size="32" fill="#F0B90B" text-anchor="middle">向下取整</text>
+        <g id="ca-bars" class="h"><text x="1340" y="500" font-size="32" fill="#8a8f99">理想 10,000 DAI</text><rect x="1340" y="516" width="480" height="40" rx="6" fill="#8a8f99" fill-opacity="0.55" /><text x="1340" y="610" font-size="32" fill="#F0B90B">实际 9,793.91 DAI</text><rect x="1340" y="626" width="470" height="40" rx="6" fill="#F0B90B" /><text x="1340" y="710" font-size="32" fill="#8a8f99">条形从 0 起 · 红色缺口是损失</text></g>
+        <rect id="ca-gap" class="h" x="1808" y="620" width="14" height="52" rx="6" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="2.5" stroke-dasharray="8 6" />
+        <text id="ca-gapt" class="h" x="1820" y="770" font-size="40" fill="#FC6255" text-anchor="end" font-weight="700">缺口 ≈ 2.06%</text>
+        <text id="ca-why" class="h" x="1820" y="816" font-size="32" fill="#FC6255" text-anchor="end">2 次手续费 + 2 次价格冲击</text>
+        <g id="ca-sh" class="h"><path d="M1500 836 L1560 856 V900 C1560 940 1530 962 1500 976 C1470 962 1440 940 1440 900 V856 Z" fill="#83C167" fill-opacity="0.18" stroke="#83C167" stroke-width="3" /><path d="M1474 904 L1494 924 L1528 886" fill="none" stroke="#83C167" stroke-width="5" /><text x="1590" y="904" font-size="32" font-weight="700" fill="#83C167">minOut 兜底</text><text x="1590" y="948" font-size="32" fill="#8a8f99">低于它就 revert</text></g>
+        <g id="ca-tc" class="h"><rect id="ca-tc-r" x="1300" y="470" width="520" height="400" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="1330" y="522" font-size="32" font-weight="700" fill="#83C167"><tspan class="mono">expect ==</tspan><tspan dx="8" font-size="32">逐位相等</tspan></text><text x="1330" y="600" class="mono" font-size="28" fill="#F0B90B">4960273038901078125</text><text id="ca-v5" x="1330" y="660" class="mono" font-size="28" fill="#F0B90B">9793914938096564347345</text><text x="1330" y="720" class="mono" font-size="28" fill="#83C167">9744945363406081525608</text><g id="ca-ok"><text x="1330" y="820" font-size="40" font-weight="700" fill="#83C167" class="mono">PASS</text></g></g>
+        <g id="ca-fail" class="h"><text x="1330" y="820" font-size="40" font-weight="700" fill="#FC6255" class="mono">FAIL</text><text x="1460" y="818" font-size="32" fill="#FC6255">少 1 wei</text></g>
+        <text id="ca-v4" class="h mono" x="1330" y="660" font-size="28" fill="#F0B90B">979391493809656434734<tspan fill="#FC6255" font-weight="700">4</tspan></text>
+        <rect id="ca-v4b" class="h" x="1680" y="628" width="23" height="42" rx="5" fill="none" stroke="#FC6255" stroke-width="2.5" />
+        <text id="ca-route" class="h" x="100" y="172" font-size="32" fill="#8a8f99">路线：USDC → WETH → DAI</text>
+        <text id="ca-next" class="h" x="1820" y="930" font-size="32" fill="#8a8f99" text-anchor="end">下一集：单元测试</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+      const PULSE = (s, t) => tl.to(s, { opacity: 0.35, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      const HL = (s, t, y, d = 0.4) => tl.to(s, { attr: { y: y }, duration: d, ease: "power2.inOut" }, t);
+      const HLON = (s, t, y) => { tl.set(s, { attr: { y: y } }, t); tl.to(s, { opacity: 1, duration: 0.3 }, t); };
+
+      // L0
+      IN("#ca-ttl", at(0, 0.0), 0.6, { y: 12 }, { y: 0 });
+      IN("#ca-route", at(0, 0.1), 0.5);
+      PULSE("#ca-pa", at(0, 0.42)); PULSE("#ca-pb", at(0, 0.76));
+      IN("#ca-pa", at(0, 0.28), 0.7, { y: -40 }, { y: 0 });
+      ARROW("#ca-pab", at(0, 0.5), 0.6); IN("#ca-pabt", at(0, 0.52), 0.4);
+      IN("#ca-pb", at(0, 0.6), 0.7, { y: -40 }, { y: 0 });
+      tl.to("#ca-pa-fee, #ca-pb-fee", { fill: "#F0B90B", duration: 0.4 }, at(0, 0.88));
+      // L1
+      IN("#ca-note", at(1, 0.02), 0.5);
+      IN("#ca-sep", at(1, 0.06), 0.4); IN("#ca-b0", at(1, 0.1), 0.4);
+      IN("#ca-r0", at(1, 0.14), 0.6, { x: -12 }, { x: 0 });
+      IN("#ca-fm", at(1, 0.34), 0.6, { y: 12 }, { y: 0 });
+      tl.to("#ca-fn-hl", { opacity: 1, duration: 0.3 }, at(1, 0.46)); tl.to("#ca-fn-hl", { opacity: 0, duration: 0.3 }, at(1, 0.62));
+      tl.to("#ca-fd-hl", { opacity: 1, duration: 0.3 }, at(1, 0.64)); tl.to("#ca-fd-hl", { opacity: 0, duration: 0.3 }, at(1, 0.84));
+      tl.to("#ca-fl", { stroke: "#F0B90B", duration: 0.3 }, at(1, 0.86)); IN("#ca-flt", at(1, 0.86), 0.4);
+      // L2
+      IN("#ca-b1", at(2, 0.0), 0.4);
+      IN("#ca-r1", at(2, 0.02), 0.5, { x: -12 }, { x: 0 });
+      IN("#ca-r2", at(2, 0.16), 0.5, { x: -12 }, { x: 0 });
+      IN("#ca-r3", at(2, 0.32), 0.5, { x: -12 }, { x: 0 });
+      IN("#ca-r3b", at(2, 0.5), 0.5);
+      IN("#ca-gh", at(2, 0.72), 0.6);
+      // L3
+      OUT("#ca-fm, #ca-flt", at(3, 0.0), 0.4);
+      IN("#ca-b2", at(3, 0.04), 0.4);
+      IN("#ca-r4", at(3, 0.06), 0.5, { x: -12 }, { x: 0 });
+      IN("#ca-r5", at(3, 0.2), 0.5, { x: -12 }, { x: 0 });
+      IN("#ca-r5b", at(3, 0.32), 0.5);
+      OUT("#ca-gh", at(3, 0.36), 0.3);
+      IN("#ca-bars", at(3, 0.42), 0.6);
+      IN("#ca-gap", at(3, 0.56), 0.5); IN("#ca-gapt", at(3, 0.6), 0.5);
+      IN("#ca-why", at(3, 0.76), 0.5);
+      // L4
+      IN("#ca-b3", at(4, 0.04), 0.4);
+      IN("#ca-r6", at(4, 0.08), 0.5, { x: -12 }, { x: 0 });
+      IN("#ca-r7", at(4, 0.42), 0.6, { x: -12 }, { x: 0 });
+      IN("#ca-sh", at(4, 0.62), 0.6, { y: 12 }, { y: 0 });
+      // L5
+      IN("#ca-f0", at(5, 0.0), 0.4); IN("#ca-f1", at(5, 0.04), 0.4); IN("#ca-f2", at(5, 0.08), 0.4);
+      OUT("#ca-bars, #ca-gap, #ca-gapt, #ca-why, #ca-sh", at(5, 0.02), 0.4);
+      IN("#ca-tc", at(5, 0.12), 0.6, { y: 12 }, { y: 0 });
+      OUT("#ca-v5", at(5, 0.46), 0.2); IN("#ca-v4", at(5, 0.5), 0.3); IN("#ca-v4b", at(5, 0.54), 0.3);
+      tl.to("#ca-tc-r", { stroke: "#FC6255", duration: 0.3 }, at(5, 0.52));
+      OUT("#ca-ok", at(5, 0.5), 0.2); IN("#ca-fail", at(5, 0.56), 0.4, { x: -10 }, { x: 0 });
+      IN("#ca-next", at(5, 0.78), 0.5);
+
+
+      tl.to("#ca-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["calc"] = tl;
+    })();
+  </script>
+</template>

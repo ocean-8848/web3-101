@@ -1,0 +1,246 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 pitfalls，id 前缀 pi- -->
+  <div id="root" data-composition-id="pitfalls" data-duration="58.27" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pi-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="pi-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="pi-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="pi-arro" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="pi-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="pi-arry" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="pi-arrn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="pi-all">
+        <text id="pi-hd" class="h" x="70" y="196" font-size="52" font-weight="700" fill="#e8e6df">三个常见误区</text>
+        <g id="pi-c0" class="h">
+          <rect id="pi-cb0" x="70" y="250" width="560" height="650" rx="20" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <circle cx="120" cy="310" r="26" fill="#0f1117" stroke="#FC6255" stroke-width="3" />
+          <text x="120" y="321" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">1</text>
+            <text x="165" y="322" font-size="36" font-weight="700" fill="#e8e6df">报价 = 成交价</text>
+        </g>
+        <g id="pi-c1" class="h">
+          <rect id="pi-cb1" x="680" y="250" width="560" height="650" rx="20" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <circle cx="730" cy="310" r="26" fill="#0f1117" stroke="#FC6255" stroke-width="3" />
+          <text x="730" y="321" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">2</text>
+            <text x="775" y="322" font-size="36" font-weight="700" fill="#e8e6df">意图交易免费、</text>
+            <text x="775" y="370" font-size="36" font-weight="700" fill="#e8e6df">无 MEV、必成交</text>
+        </g>
+        <g id="pi-c2" class="h">
+          <rect id="pi-cb2" x="1290" y="250" width="560" height="650" rx="20" fill="#161a22" stroke="#FC6255" stroke-width="3" />
+          <circle cx="1340" cy="310" r="26" fill="#0f1117" stroke="#FC6255" stroke-width="3" />
+          <text x="1340" y="321" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">3</text>
+            <text x="1385" y="322" font-size="36" font-weight="700" fill="#e8e6df">名字对就是真币，</text>
+            <text x="1385" y="370" font-size="36" font-weight="700" fill="#e8e6df">签名无风险</text>
+        </g>
+        <g id="pi-k1">
+          <text id="pi-k1a" class="h" x="110" y="452" font-size="32" fill="#8a8f99">报价</text>
+          <text id="pi-k1b" class="h" x="110" y="530" font-size="56" font-weight="700" fill="#F0B90B">≈ 1 ETH</text>
+          <g id="pi-k1c" class="h">
+            <rect x="340" y="488" width="264" height="56" rx="28" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="472" y="527" font-size="32" fill="#58C4DD" text-anchor="middle">某个区块的状态</text>
+          </g>
+          <text id="pi-k1d" class="h" x="110" y="612" font-size="34" fill="#FC6255">≠ 成交价</text>
+          <g id="pi-k1e" class="h">
+            <line x1="118" y1="652" x2="118" y2="740" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+            <line x1="182" y1="652" x2="182" y2="740" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+            <line x1="112" y1="684" x2="188" y2="684" stroke="#83C167" stroke-width="6" stroke-linecap="round" />
+            <text x="215" y="712" font-size="34" fill="#83C167">只保证 <tspan font-weight="700">最少收到</tspan></text>
+          </g>
+          <g id="pi-k1f" class="h">
+            <rect x="110" y="792" width="190" height="54" rx="27" fill="#83C167" fill-opacity="0.15" stroke="#83C167" stroke-width="2.5" />
+            <text x="205" y="830" font-size="32" fill="#83C167" text-anchor="middle">签名前模拟</text>
+          </g>
+          <g id="pi-k1g" class="h">
+            <rect x="330" y="792" width="230" height="54" rx="27" fill="#58C4DD" fill-opacity="0.15" stroke="#58C4DD" stroke-width="2.5" />
+            <text x="445" y="830" font-size="32" fill="#58C4DD" text-anchor="middle">过期重新报价</text>
+          </g>
+        </g>
+        <g id="pi-k2">
+          <text id="pi-m0" class="h" x="720" y="470" font-size="34" fill="#8a8f99">免 Gas</text>
+          <line id="pi-s0" class="dr" pathLength="1" x1="714" y1="458" x2="832" y2="458" stroke="#FC6255" stroke-width="4" />
+          <g id="pi-i0" class="h">
+            <rect x="1150" y="432" width="44" height="54" rx="6" fill="none" stroke="#F0B90B" stroke-width="3.5" />
+            <path d="M1160 432 L1160 420 L1180 420" fill="none" stroke="#F0B90B" stroke-width="3.5" />
+            <line x1="1160" y1="452" x2="1184" y2="452" stroke="#F0B90B" stroke-width="3" />
+          </g>
+          <text id="pi-t0" class="h" x="720" y="524" font-size="32" fill="#e8e6df">首次 Permit2 授权要付 <tspan fill="#F0B90B">Gas</tspan></text>
+          <text id="pi-m1" class="h" x="720" y="610" font-size="34" fill="#8a8f99">无 MEV</text>
+          <line id="pi-s1" class="dr" pathLength="1" x1="714" y1="598" x2="836" y2="598" stroke="#FC6255" stroke-width="4" />
+          <g id="pi-i1" class="h">
+            <g id="pi-i1r">
+              <line x1="1132" y1="580" x2="1212" y2="580" stroke="#B48EF0" stroke-width="3.5" stroke-linecap="round" />
+              <path d="M1132 580 L1120 604 L1144 604 Z" fill="none" stroke="#B48EF0" stroke-width="3" />
+              <path d="M1212 580 L1200 604 L1224 604 Z" fill="none" stroke="#B48EF0" stroke-width="3" />
+            </g>
+            <line x1="1172" y1="570" x2="1172" y2="628" stroke="#B48EF0" stroke-width="3.5" />
+            <line x1="1154" y1="628" x2="1190" y2="628" stroke="#B48EF0" stroke-width="3.5" />
+          </g>
+          <text id="pi-t1" class="h" x="720" y="664" font-size="32" fill="#e8e6df">价格看<tspan fill="#B48EF0">执行者竞争</tspan></text>
+          <text id="pi-m2" class="h" x="720" y="750" font-size="34" fill="#8a8f99">必成交</text>
+          <line id="pi-s2" class="dr" pathLength="1" x1="714" y1="738" x2="828" y2="738" stroke="#FC6255" stroke-width="4" />
+          <g id="pi-i2" class="h">
+            <rect id="pi-i2b" x="1110" y="708" width="104" height="56" rx="8" fill="#161a22" stroke="#e8e6df" stroke-width="2.5" />
+            <text id="pi-i2t" x="1162" y="746" font-size="32" fill="#e8e6df" text-anchor="middle">订单</text>
+          </g>
+          <text id="pi-i2x" class="h" x="1162" y="746" font-size="32" fill="#8a8f99" text-anchor="middle">过期</text>
+          <text id="pi-t2" class="h" x="720" y="804" font-size="32" fill="#e8e6df">没人接单，订单就过期</text>
+        </g>
+        <g id="pi-k3">
+          <g id="pi-tk0o"><g id="pi-tk0" class="h">
+            <circle cx="1430" cy="470" r="48" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1430" y="480" font-size="32" fill="#e8e6df" text-anchor="middle">USDC</text>
+          </g></g>
+          <g id="pi-tk1o"><g id="pi-tk1" class="h">
+            <circle cx="1710" cy="470" r="48" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+            <text class="mono" x="1710" y="480" font-size="32" fill="#e8e6df" text-anchor="middle">USDC</text>
+          </g></g>
+          <text id="pi-ad0" class="mono h" x="1430" y="570" font-size="32" fill="#83C167" text-anchor="middle">0xA0b8…eB48</text>
+          <text id="pi-ad1" class="h" x="1710" y="570" font-size="32" fill="#FC6255" text-anchor="middle">另一个地址</text>
+          <path id="pi-ck0" class="dr" pathLength="1" d="M1410 600 l14 14 l26 -30" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          <path id="pi-x0" class="dr" pathLength="1" d="M1692 594 L1728 630 M1728 594 L1692 630" fill="none" stroke="#FC6255" stroke-width="7" stroke-linecap="round" />
+          <g id="pi-pen" class="h">
+            <path d="M1330 790 L1380 716 L1396 728 L1346 802 Z" fill="none" stroke="#83C167" stroke-width="3" stroke-linejoin="round" />
+            <path d="M1330 790 L1326 810 L1346 802" fill="#83C167" stroke="#83C167" stroke-width="2" />
+          </g>
+          <path id="pi-pk" class="dr h" pathLength="1" d="M1410 760 L1462 760" fill="none" stroke="#e8e6df" stroke-width="4" marker-end="url(#pi-arr)" />
+          <g id="pi-key" class="h">
+            <circle cx="1494" cy="760" r="20" fill="none" stroke="#F0B90B" stroke-width="4" />
+            <line x1="1514" y1="760" x2="1560" y2="760" stroke="#F0B90B" stroke-width="4" />
+            <line x1="1546" y1="760" x2="1546" y2="776" stroke="#F0B90B" stroke-width="4" />
+            <line x1="1558" y1="760" x2="1558" y2="772" stroke="#F0B90B" stroke-width="4" />
+          </g>
+          <text id="pi-kl" class="h" x="1330" y="862" font-size="32" fill="#F0B90B">签名即授权</text>
+          <g id="pi-sh" class="h">
+            <path d="M1700 704 L1748 722 L1748 760 C1748 792 1726 810 1700 822 C1674 810 1652 792 1652 760 L1652 722 Z" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3.5" />
+            <text class="mono" x="1700" y="862" font-size="32" fill="#58C4DD" text-anchor="middle">Permit2</text>
+          </g>
+          <path id="pi-ph" class="dr h" pathLength="1" d="M1610 740 L1810 776" fill="none" stroke="#FC6255" stroke-width="4" marker-end="url(#pi-arrr)" />
+        </g>
+        <g id="pi-end">
+          <g id="pi-wal" class="h">
+            <rect x="160" y="380" width="300" height="320" rx="24" fill="#161a22" stroke="#83C167" stroke-width="3.5" />
+            <rect x="420" y="500" width="40" height="70" rx="8" fill="none" stroke="#83C167" stroke-width="3" />
+            <text x="310" y="752" font-size="34" fill="#83C167" text-anchor="middle">你的钱包</text>
+          </g>
+          <rect id="pi-strip" class="h" x="560" y="460" width="800" height="160" rx="16" fill="#58C4DD" fill-opacity="0.08" stroke="#58C4DD" stroke-width="3.5" />
+          <text id="pi-same" class="h" x="960" y="430" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">同一笔交易</text>
+          <g id="pi-usdc" class="h">
+            <rect x="230" y="476" width="150" height="58" rx="29" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="3" />
+            <text class="mono" x="305" y="516" font-size="32" fill="#F0B90B" text-anchor="middle">USDC</text>
+          </g>
+          <g id="pi-eth" class="h">
+            <rect x="1170" y="546" width="150" height="58" rx="29" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="3" />
+            <text class="mono" x="1245" y="586" font-size="32" fill="#F0B90B" text-anchor="middle">ETH</text>
+          </g>
+          <path id="pi-g0" class="dr" pathLength="1" d="M1440 452 l14 14 l26 -30" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          <text id="pi-gt0" class="h" x="1500" y="468" font-size="38" fill="#e8e6df">最少收到</text>
+          <path id="pi-g1" class="dr" pathLength="1" d="M1440 547 l14 14 l26 -30" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          <text id="pi-gt1" class="h" x="1500" y="563" font-size="38" fill="#e8e6df">截止时间</text>
+          <path id="pi-g2" class="dr" pathLength="1" d="M1440 642 l14 14 l26 -30" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          <text id="pi-gt2" class="h" x="1500" y="658" font-size="38" fill="#e8e6df">签名前模拟</text>
+        </g>
+        <g id="pi-nx">
+          <text id="pi-nx0" class="h" x="960" y="470" font-size="36" fill="#8a8f99" text-anchor="middle">下一集</text>
+          <text id="pi-nx1" class="h" x="960" y="590" font-size="84" font-weight="700" fill="#e8e6df" text-anchor="middle">预测市场与衍生品</text>
+          <line id="pi-nxl" class="dr" pathLength="1" x1="620" y1="640" x2="1300" y2="640" stroke="#FF9F43" stroke-width="4" />
+        </g>
+      </g>
+      <rect id="pi-black" x="0" y="0" width="1920" height="1080" fill="#000" opacity="0" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const PULSE = (s, origin, t, k = 1.08) => tl.to(s, { scale: k, svgOrigin: origin, duration: 0.25, yoyo: true, repeat: 1, ease: "power2.inOut" }, t);
+
+      const FOCUS = (k, t) => [0, 1, 2].forEach(j => {
+        tl.to(`#pi-c${j}`, { opacity: j === k ? 1 : 0.35, duration: 0.4 }, t);
+        tl.to(`#pi-cb${j}`, { strokeWidth: j === k ? 5 : 3, duration: 0.4 }, t);
+        tl.to(`#pi-k${j + 1}`, { opacity: j === k ? 1 : 0.35, duration: 0.4 }, t);
+      });
+      // L0 三张红边误区卡依次飞入
+      IN("#pi-hd", at(0, 0.0), 0.4, { x: -20 }, { x: 0 });
+      [0, 1, 2].forEach(j => IN(`#pi-c${j}`, at(0, 0.15) + j * 0.3, 0.5, { y: 60 }, { y: 0 }));
+      // L1 卡 1：报价 = 成交价
+      FOCUS(0, at(1, 0.0));
+      IN("#pi-k1a", at(1, 0.08), 0.4);
+      IN("#pi-k1b", at(1, 0.1), 0.5, { scale: 0.8, svgOrigin: "220 512" }, { scale: 1, svgOrigin: "220 512" });
+      IN("#pi-k1d", at(1, 0.18), 0.4, { x: -15 }, { x: 0 });
+      IN("#pi-k1c", at(1, 0.24), 0.5, { x: 20 }, { x: 0 });
+      IN("#pi-k1e", at(1, 0.46), 0.5, { y: 15 }, { y: 0 });
+      IN("#pi-k1f", at(1, 0.66), 0.4, { scale: 0.7, svgOrigin: "205 819" }, { scale: 1, svgOrigin: "205 819" });
+      IN("#pi-k1g", at(1, 0.86), 0.4, { scale: 0.7, svgOrigin: "445 819" }, { scale: 1, svgOrigin: "445 819" });
+      // L2 卡 2：三处划掉
+      FOCUS(1, at(2, 0.0));
+      IN("#pi-m0", at(2, 0.06), 0.4); IN("#pi-m1", at(2, 0.12), 0.4); IN("#pi-m2", at(2, 0.18), 0.4);
+      DRAW("#pi-s0", at(2, 0.26), 0.3); DRAW("#pi-s1", at(2, 0.28), 0.3); DRAW("#pi-s2", at(2, 0.3), 0.3);
+      IN("#pi-i0", at(2, 0.34), 0.4, { y: -12 }, { y: 0 });
+      IN("#pi-t0", at(2, 0.37), 0.5, { x: -15 }, { x: 0 });
+      IN("#pi-i1", at(2, 0.56), 0.4);
+      IN("#pi-t1", at(2, 0.58), 0.5, { x: -15 }, { x: 0 });
+      tl.to("#pi-i1r", { rotation: 10, svgOrigin: "1172 580", duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, at(2, 0.62));
+      IN("#pi-i2", at(2, 0.78), 0.4);
+      IN("#pi-t2", at(2, 0.8), 0.5, { x: -15 }, { x: 0 });
+      tl.to("#pi-i2b", { stroke: "#8a8f99", duration: 0.3 }, at(2, 0.9));
+      OUT("#pi-i2t", at(2, 0.9), 0.2);
+      IN("#pi-i2x", at(2, 0.9) + 0.25, 0.3);
+      // L3 卡 3：同名代币翻面看地址；签名即授权；Permit2 盾牌仍被钓鱼箭头穿过
+      FOCUS(2, at(3, 0.0));
+      IN("#pi-tk0", at(3, 0.06), 0.4); IN("#pi-tk1", at(3, 0.1), 0.4);
+      tl.to("#pi-tk0o", { opacity: 0.15, duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.36));
+      tl.to("#pi-tk1o", { opacity: 0.15, duration: 0.25, yoyo: true, repeat: 1 }, at(3, 0.38));
+      IN("#pi-ad0", at(3, 0.4), 0.4); IN("#pi-ad1", at(3, 0.42), 0.4);
+      DRAW("#pi-ck0", at(3, 0.48), 0.4); DRAW("#pi-x0", at(3, 0.5), 0.4);
+      tl.to("#pi-tk1 circle", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.5));
+      IN("#pi-pen", at(3, 0.56), 0.4, { y: -15 }, { y: 0 });
+      ARROW("#pi-pk", at(3, 0.6), 0.4);
+      IN("#pi-key", at(3, 0.63), 0.4);
+      IN("#pi-kl", at(3, 0.65), 0.4);
+      IN("#pi-sh", at(3, 0.74), 0.4);
+      ARROW("#pi-ph", at(3, 0.84), 0.6);
+      tl.to("#pi-sh path", { stroke: "#FC6255", duration: 0.3 }, at(3, 0.9));
+      // L4 回到开头：钱包与交易长条；三枚绿勾
+      OUT("#pi-hd, #pi-c0, #pi-c1, #pi-c2, #pi-k1, #pi-k2, #pi-k3", at(4, 0.0), 0.4);
+      IN("#pi-wal", at(4, 0.06), 0.5, { x: -20 }, { x: 0 });
+      IN("#pi-usdc", at(4, 0.12), 0.4);
+      IN("#pi-strip", at(4, 0.26), 0.5);
+      IN("#pi-same", at(4, 0.3), 0.5, { y: 10 }, { y: 0 });
+      IN("#pi-eth", at(4, 0.3), 0.4);
+      tl.to("#pi-usdc", { x: 890, duration: 1.4, ease: "power2.inOut" }, at(4, 0.34));
+      tl.to("#pi-eth", { x: -890, y: 40, duration: 1.4, ease: "power2.inOut" }, at(4, 0.34));
+      DRAW("#pi-g0", at(4, 0.62), 0.4); IN("#pi-gt0", at(4, 0.62), 0.4, { x: -10 }, { x: 0 });
+      DRAW("#pi-g1", at(4, 0.78), 0.4); IN("#pi-gt1", at(4, 0.78), 0.4, { x: -10 }, { x: 0 });
+      DRAW("#pi-g2", at(4, 0.88), 0.4); IN("#pi-gt2", at(4, 0.88), 0.4, { x: -10 }, { x: 0 });
+      // L5 下一集
+      OUT("#pi-wal, #pi-usdc, #pi-eth, #pi-strip, #pi-same, #pi-g0, #pi-g1, #pi-g2, #pi-gt0, #pi-gt1, #pi-gt2", at(5, 0.0), 0.35);
+      IN("#pi-nx0", at(5, 0.12), 0.4);
+      IN("#pi-nx1", at(5, 0.16), 0.6, { y: 20 }, { y: 0 });
+      DRAW("#pi-nxl", at(5, 0.36), 0.7);
+      // 结尾淡到黑
+      tl.to("#pi-black", { opacity: 1, duration: 0.6, ease: "power2.in" }, C.d - 0.7);
+
+      tl.to("#pi-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["pitfalls"] = tl;
+    })();
+  </script>
+</template>

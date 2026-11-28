@@ -1,0 +1,134 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 lvrcalc，id 前缀 lc- -->
+  <div id="root" data-composition-id="lvrcalc" data-duration="63.01" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="lc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="lc-arr-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="lc-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="lc-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="lc-arr-p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker>
+        <marker id="lc-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="lc-arr-gr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="lc-arr-gy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="lc-all">
+
+        <g id="lc-as" class="h">
+          <rect x="300" y="226" width="1320" height="110" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <text x="330" y="292" font-size="28" fill="#8a8f99">模型假设</text>
+        </g>
+        <text id="lc-a1" class="h" x="660" y="294" font-size="32" fill="#e8e6df" text-anchor="middle">全区间恒定乘积</text>
+        <text id="lc-a2" class="h" x="1010" y="294" font-size="32" fill="#e8e6df" text-anchor="middle">· 连续套利</text>
+        <text id="lc-a3" class="h" x="1360" y="294" font-size="32" fill="#e8e6df" text-anchor="middle">· 不计手续费</text>
+        <g id="lc-l0">
+          <text id="lc-q" class="h" x="960" y="500" font-size="56" font-weight="700" fill="#FF9F43" text-anchor="middle">LVR 有多大？</text>
+          <path id="lc-hy" class="dr h" pathLength="1" d="M 760 600 Q 800 870 1200 900" stroke="#58C4DD" stroke-width="5" fill="none"/>
+          <line id="lc-hx" class="h" x1="740" y1="940" x2="1240" y2="940" stroke="#8a8f99" stroke-width="2"/>
+          <line id="lc-hyx" class="h" x1="740" y1="580" x2="740" y2="940" stroke="#8a8f99" stroke-width="2"/>
+          <circle id="lc-hd" class="h" cx="0" cy="0" r="14" fill="#FF9F43"/>
+        </g>
+        <text id="lc-e1" class="h" x="590" y="460" font-size="60" font-weight="700" fill="#58C4DD"><tspan class="mono">LVR</tspan>/年 ≈</text>
+        <text id="lc-e2" class="mono h" x="880" y="460" font-size="60" font-weight="700" fill="#58C4DD">σ²/8</text>
+        <text id="lc-e3" class="h" x="1050" y="460" font-size="60" font-weight="700" fill="#58C4DD">× 池子价值</text>
+        <text id="lc-sn" class="h" x="912" y="530" font-size="30" fill="#8a8f99" text-anchor="middle">σ：年化波动率</text>
+        <g id="lc-rows">
+          <text id="lc-r1a" class="h" x="1060" y="620" font-size="40" fill="#F0B90B" text-anchor="end">池子 <tspan class="mono">10,000,000 USDC</tspan></text>
+          <text id="lc-r1b" class="mono h" x="1110" y="620" font-size="40" fill="#F0B90B">σ = 80%</text>
+          <text id="lc-r2a" class="mono h" x="420" y="710" font-size="40" fill="#e8e6df">0.8² = 0.64</text>
+          <text id="lc-r2b" class="mono h" x="760" y="710" font-size="40" fill="#e8e6df">0.64 ÷ 8 = 0.08</text>
+          <text id="lc-r2c" class="h" x="1170" y="710" font-size="40" fill="#FC6255"><tspan class="mono">= 8% /</tspan> 年</text>
+          <text id="lc-r3a" class="h" x="300" y="800" font-size="40" fill="#FC6255"><tspan class="mono">10,000,000 × 8% = 800,000 USDC /</tspan> 年</text>
+          <text id="lc-r3b" class="h" x="640" y="880" font-size="40" fill="#FC6255"><tspan class="mono">÷ 365 ≈ 2,192 USDC /</tspan> 天</text>
+          <text id="lc-r4" class="h" x="960" y="975" font-size="40" fill="#F0B90B" text-anchor="middle"><tspan class="mono">2,192 ÷ 0.3% ≈ 73</tspan> 万 <tspan class="mono">USDC /</tspan> 天</text>
+          <line id="lc-r4l" class="dr h" pathLength="1" x1="520" y1="1000" x2="1400" y2="1000" stroke="#F0B90B" stroke-width="3"/>
+        </g>
+        <g id="lc-chart">
+          <line id="lc-ax" class="h" x1="300" y1="980" x2="1400" y2="980" stroke="#8a8f99" stroke-width="2"/>
+          <rect id="lc-v0" class="h" x="320" y="800" width="60" height="180" rx="4" fill="#FC6255"/><rect id="lc-v1" class="h" x="430" y="720" width="60" height="260" rx="4" fill="#83C167"/><rect id="lc-v2" class="h" x="540" y="860" width="60" height="120" rx="4" fill="#FC6255"/><rect id="lc-v3" class="h" x="650" y="680" width="60" height="300" rx="4" fill="#83C167"/><rect id="lc-v4" class="h" x="760" y="770" width="60" height="210" rx="4" fill="#83C167"/><rect id="lc-v5" class="h" x="870" y="640" width="60" height="340" rx="4" fill="#83C167"/><rect id="lc-v6" class="h" x="980" y="830" width="60" height="150" rx="4" fill="#FC6255"/><rect id="lc-v7" class="h" x="1090" y="700" width="60" height="280" rx="4" fill="#83C167"/><rect id="lc-v8" class="h" x="1200" y="750" width="60" height="230" rx="4" fill="#83C167"/><rect id="lc-v9" class="h" x="1310" y="790" width="60" height="190" rx="4" fill="#FC6255"/>
+          <g id="lc-th" class="h">
+            <line x1="300" y1="780" x2="1400" y2="780" stroke="#F0B90B" stroke-width="3" stroke-dasharray="12 8"/>
+            <text x="1410" y="790" font-size="30" fill="#F0B90B">门槛 73 万/天</text>
+          </g>
+          <text id="lc-lg" class="h" x="1440" y="920" font-size="32" fill="#FC6255">红柱：平均来看更差</text>
+          <text id="lc-bandl" class="h" x="1660" y="520" font-size="30" fill="#83C167" text-anchor="middle">价格区间</text>
+          <rect id="lc-band" class="h" x="1520" y="540" width="280" height="30" rx="6" fill="#83C167"/>
+          <text id="lc-bt" class="h" x="1660" y="622" font-size="32" fill="#FF9F43" text-anchor="middle">集中流动性同比放大</text>
+        </g>
+        <g id="lc-ex" class="h">
+          <rect x="560" y="580" width="800" height="400" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="2"/>
+          <text x="600" y="640" font-size="32" font-weight="700" fill="#FF9F43">再练一题</text>
+          <text id="lc-x1" class="h" x="600" y="730" font-size="40" fill="#F0B90B">池子 <tspan class="mono">500</tspan> 万 <tspan class="mono">· σ = 40%</tspan></text>
+          <text id="lc-x2" class="mono h" x="600" y="820" font-size="40" fill="#e8e6df">0.4² = 0.16, 0.16 ÷ 8 = 2%</text>
+          <text id="lc-x3" class="h" x="600" y="910" font-size="40" fill="#83C167"><tspan class="mono">≈ 10</tspan> 万 <tspan class="mono">/</tspan> 年</text>
+          <text id="lc-x4" class="h" x="1000" y="910" font-size="56" fill="#83C167">✓</text>
+        </g>
+      </g>
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const TO = (s, t, vars) => tl.to(s, { duration: 0.6, ease: "power2.inOut", ...vars }, t);
+
+      IN("#lc-as", at(0, 0.08), 0.5);
+      IN("#lc-a1", at(0, 0.4), 0.4, { y: 15 }, { y: 0 });
+      IN("#lc-a2", at(0, 0.62), 0.4, { y: 15 }, { y: 0 });
+      IN("#lc-a3", at(0, 0.82), 0.4, { y: 15 }, { y: 0 });
+      IN("#lc-q", at(0, 0.02), 0.5, { y: 20 }, { y: 0 });
+      IN(["#lc-hx", "#lc-hyx"], at(0, 0.3), 0.4); IN("#lc-hy", at(0, 0.3), 0.05); DRAW("#lc-hy", at(0, 0.3), 1.2);
+      IN("#lc-hd", at(0, 0.55), 0.3);
+      { const o = { u: 0 }, el = document.querySelector("#lc-hd");
+        const pos = u => { const a = 1 - u; el.setAttribute("cx", a*a*760 + 2*a*u*800 + u*u*1200); el.setAttribute("cy", a*a*600 + 2*a*u*870 + u*u*900); };
+        pos(0);
+        tl.fromTo(o, { u: 0 }, { u: 1, duration: at(1, 0) - at(0, 0.55), ease: "sine.inOut", immediateRender: false, onUpdate: () => pos(o.u) }, at(0, 0.55)); }
+      OUT("#lc-l0", at(1, 0) - 0.2, 0.3);
+      IN("#lc-e1", at(1, 0.03), 0.5); IN("#lc-e2", at(1, 0.25), 0.5); IN("#lc-e3", at(1, 0.48), 0.5);
+      IN("#lc-sn", at(1, 0.72), 0.5);
+      tl.to("#lc-e2", { fill: "#FF9F43", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.75));
+      IN("#lc-r1a", at(2, 0.25), 0.5); IN("#lc-r1b", at(2, 0.62), 0.5);
+      IN("#lc-r2a", at(3, 0.05), 0.5); IN("#lc-r2b", at(3, 0.4), 0.5); IN("#lc-r2c", at(3, 0.72), 0.5);
+      IN("#lc-r3a", at(4, 0.05), 0.5); IN("#lc-r3b", at(4, 0.55), 0.5);
+      IN("#lc-r4", at(5, 0.1), 0.5);
+      tl.to(["#lc-r1a", "#lc-r1b", "#lc-r2a", "#lc-r2b", "#lc-r2c", "#lc-r3a", "#lc-r3b"], { opacity: 0.35, duration: 0.5 }, at(5, 0.4));
+      IN("#lc-r4l", at(5, 0.55), 0.05); DRAW("#lc-r4l", at(5, 0.55), 0.8);
+      tl.to("#lc-r4", { scale: 1.08, svgOrigin: "960 960", duration: 0.4, yoyo: true, repeat: 1 }, at(5, 0.78));
+      OUT(["#lc-rows", "#lc-sn"], at(6, 0) - 0.2, 0.4);
+      IN("#lc-ax", at(6, 0.02), 0.3);
+      for (let i = 0; i < 10; i++) IN("#lc-v" + i, at(6, 0.04) + i * 0.06, 0.4, { attr: { y: 980, height: 0 } }, { attr: { y: 980 - [180, 260, 120, 300, 210, 340, 150, 280, 230, 190][i], height: [180, 260, 120, 300, 210, 340, 150, 280, 230, 190][i] } });
+      IN("#lc-th", at(6, 0.15), 0.5);
+      IN("#lc-lg", at(6, 0.3), 0.5);
+      IN("#lc-band, #lc-bandl", at(6, 0.55), 0.4);
+      TO("#lc-band", at(6, 0.62), { attr: { x: 1610, width: 100 }, duration: 0.8 });
+      TO("#lc-th", at(6, 0.65), { y: -70, duration: 0.8 });
+      tl.to(["#lc-v1", "#lc-v4", "#lc-v8"], { fill: "#FC6255", duration: 0.3, stagger: 0.1 }, at(6, 0.72));
+      IN("#lc-bt", at(6, 0.7), 0.5);
+      OUT(["#lc-chart"], at(7, 0) - 0.2, 0.4);
+      IN("#lc-ex", at(7, 0.03), 0.5);
+      IN("#lc-x1", at(7, 0.12), 0.4); IN("#lc-x2", at(7, 0.45), 0.4); IN("#lc-x3", at(7, 0.72), 0.4);
+      IN("#lc-x4", at(7, 0.85), 0.4, { scale: 0.3, svgOrigin: "1020 890" }, { scale: 1, ease: "back.out(2)" });
+
+      tl.to("#lc-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["lvrcalc"] = tl;
+    })();
+  </script>
+</template>

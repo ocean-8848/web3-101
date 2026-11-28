@@ -1,0 +1,168 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 risk，id 前缀 ri- -->
+  <div id="root" data-composition-id="risk" data-duration="65.68" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ri-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <marker id="ri-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="ri-arro" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="ri-arrr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="ri-arrgr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+      </defs>
+      <g id="ri-all">
+        <text id="ri-title" class="h" x="760" y="170" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="start">DEX 一侧：风险与防护</text>
+        <g id="ri-s0" class="h"><rect x="110" y="290" width="180" height="180" rx="6" fill="#B48EF0" fill-opacity="0.12" stroke="#B48EF0" stroke-width="2.5" /><path d="M100 290 L200 240 L300 290 Z" fill="#B48EF0" fill-opacity="0.25" stroke="#B48EF0" stroke-width="2.5" /><rect x="135" y="315" width="28" height="28" rx="3" fill="#B48EF0" fill-opacity="0.4" /><rect x="135" y="360" width="28" height="28" rx="3" fill="#B48EF0" fill-opacity="0.4" /><rect x="135" y="405" width="28" height="28" rx="3" fill="#B48EF0" fill-opacity="0.4" /><rect x="180" y="315" width="28" height="28" rx="3" fill="#B48EF0" fill-opacity="0.4" /><rect x="180" y="360" width="28" height="28" rx="3" fill="#B48EF0" fill-opacity="0.4" /><rect x="180" y="405" width="28" height="28" rx="3" fill="#B48EF0" fill-opacity="0.4" /><rect x="225" y="315" width="28" height="28" rx="3" fill="#B48EF0" fill-opacity="0.4" /><rect x="225" y="360" width="28" height="28" rx="3" fill="#B48EF0" fill-opacity="0.4" /><rect x="225" y="405" width="28" height="28" rx="3" fill="#B48EF0" fill-opacity="0.4" /><rect x="470" y="300" width="180" height="150" rx="14" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" /><text x="560" y="388" font-size="32" font-weight="600" fill="#58C4DD" text-anchor="middle">合约</text><path d="M305 375 L455 375" stroke="#e8e6df" stroke-width="3" marker-end="url(#ri-arr)" marker-start="url(#ri-arr)" /><text x="380" y="570" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">同一组问题</text><rect x="300" y="610" width="160" height="52" rx="26" fill="none" stroke="#8a8f99" stroke-width="2" /><text x="380" y="646" font-size="32" font-weight="400" fill="#8a8f99" text-anchor="middle">前面讲过</text></g>
+        <g id="ri-rows">
+        <rect id="ri-f0" class="h" x="760" y="220" width="1040" height="112" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+        <g id="ri-t0" class="h"><circle cx="790" cy="260" r="9" fill="#FF9F43" /><text x="816" y="271" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="start">授权：只在兑换那一刻动用</text></g>
+        <text id="ri-d0" class="h" x="816" y="314" font-size="32" font-weight="400" fill="#83C167" text-anchor="start">授权额度尽量小</text>
+        <rect id="ri-f1" class="h" x="760" y="348" width="1040" height="112" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+        <g id="ri-t1" class="h"><circle cx="790" cy="388" r="9" fill="#58C4DD" /><text x="816" y="399" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="start">结算：原子完成</text></g>
+        <text id="ri-d1" class="h" x="816" y="442" font-size="32" font-weight="400" fill="#83C167" text-anchor="start">全成或全回滚 · 签名前先 eth_call 模拟</text>
+        <rect id="ri-f2" class="h" x="760" y="476" width="1040" height="112" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+        <g id="ri-t2" class="h"><circle cx="790" cy="516" r="9" fill="#FC6255" /><text x="816" y="527" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="start">假币 · 蜜罐：买得进，卖不出</text></g>
+        <text id="ri-d2" class="h" x="816" y="570" font-size="32" font-weight="400" fill="#83C167" text-anchor="start">只认合约地址 · 代币列表 · 模拟卖出</text>
+        <rect id="ri-f3" class="h" x="760" y="604" width="1040" height="112" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+        <g id="ri-t3" class="h"><circle cx="790" cy="644" r="9" fill="#FC6255" /><text x="816" y="655" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="start">路由合约被攻破：授权代币被转走</text></g>
+        <text id="ri-d3" class="h" x="816" y="698" font-size="32" font-weight="400" fill="#83C167" text-anchor="start">不无限授权 · Permit2 设额度和期限</text>
+        <rect id="ri-f4" class="h" x="760" y="732" width="1040" height="112" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+        <g id="ri-t4" class="h"><circle cx="790" cy="772" r="9" fill="#FC6255" /><text x="816" y="783" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="start">AMM 现价当预言机：坏账</text></g>
+        <text id="ri-d4" class="h" x="816" y="826" font-size="32" font-weight="400" fill="#83C167" text-anchor="start">深池 TWAP / 外部预言机</text>
+        <rect id="ri-f5" class="h" x="760" y="860" width="1040" height="112" rx="12" fill="#161a22" stroke="#3a3f4a" stroke-width="2" />
+        <g id="ri-t5" class="h"><circle cx="790" cy="900" r="9" fill="#F0B90B" /><text x="816" y="911" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="start">LP：手续费为正，净值不如持有</text></g>
+        <text id="ri-d5" class="h" x="816" y="954" font-size="32" font-weight="400" fill="#83C167" text-anchor="start">评估：手续费 − LVR − 再平衡成本</text>
+        </g>
+        <g id="ri-sA" class="h"><rect x="100" y="290" width="180" height="140" rx="14" fill="#8a8f99" fill-opacity="0.12" stroke="#8a8f99" stroke-width="2.5" /><text x="190" y="372" font-size="32" font-weight="600" fill="#e8e6df" text-anchor="middle">钱包</text><rect x="500" y="290" width="180" height="140" rx="14" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" /><text x="590" y="372" font-size="32" font-weight="600" fill="#58C4DD" text-anchor="middle">合约</text><text x="390" y="342" font-size="32" font-weight="600" fill="#FF9F43" text-anchor="middle">授权</text><text x="100" y="524" font-size="32" font-weight="400" fill="#e8e6df" text-anchor="start">额度</text><rect x="180" y="500" width="500" height="28" rx="14" fill="none" stroke="#8a8f99" stroke-width="2" /></g>
+        <path id="ri-ap" class="h" d="M290 370 L488 370" stroke="#FF9F43" stroke-width="5" marker-end="url(#ri-arro)" />
+        <rect id="ri-bar" class="h" x="182" y="502" width="480" height="24" rx="12" fill="#FF9F43" />
+        <g id="ri-sB" class="h"><rect x="100" y="660" width="420" height="84" rx="42" fill="#161a22" stroke="#8a8f99" stroke-width="2" /><text x="205" y="712" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">全成</text><text x="415" y="712" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">全回滚</text><circle cx="600" cy="690" r="44" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="4" /><path d="M632 722 L668 758" stroke="#58C4DD" stroke-width="7" stroke-linecap="round" /><text x="500" y="830" font-size="32" font-weight="600" fill="#58C4DD" text-anchor="middle">eth_call 模拟</text></g>
+        <rect id="ri-knob" class="h" x="108" y="668" width="194" height="68" rx="34" fill="#83C167" fill-opacity="0.22" stroke="#83C167" stroke-width="2" />
+        <g id="ri-s2" class="h"><text x="380" y="280" font-size="32" font-weight="600" fill="#e8e6df" text-anchor="middle">两枚同名代币</text><circle cx="220" cy="400" r="70" fill="#F0B90B" fill-opacity="0.15" stroke="#F0B90B" stroke-width="3" /><text x="220" y="410" font-size="32" font-weight="600" fill="#e8e6df" text-anchor="middle">代币</text><circle cx="510" cy="400" r="70" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="3" /><text x="510" y="410" font-size="32" font-weight="600" fill="#e8e6df" text-anchor="middle">代币</text><text x="510" y="515" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">假币 · 蜜罐</text></g>
+        <path id="ri-hook" class="h" d="M640 300 L640 400 Q640 440 610 440 Q584 440 584 414 L598 424" stroke="#FC6255" stroke-width="5" fill="none" stroke-linecap="round" />
+        <g id="ri-buy" class="h"><text x="100" y="670" font-size="32" font-weight="700" fill="#83C167" text-anchor="start">买得进</text><path d="M210 660 L410 660" stroke="#83C167" stroke-width="4" marker-end="url(#ri-arrgr)" /><circle cx="460" cy="660" r="30" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="3" /></g>
+        <g id="ri-sell" class="h"><text x="100" y="790" font-size="32" font-weight="700" fill="#FC6255" text-anchor="start">卖不出</text><path d="M410 780 L230 780" stroke="#FC6255" stroke-width="4" stroke-dasharray="10 8" /><circle cx="460" cy="780" r="30" fill="#FC6255" fill-opacity="0.2" stroke="#FC6255" stroke-width="3" /><path d="M300 755 L340 805 M340 755 L300 805" stroke="#FC6255" stroke-width="6" stroke-linecap="round" /></g>
+        <g id="ri-s3" class="h"><rect x="160" y="290" width="440" height="190" rx="16" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3" /><text x="330" y="398" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">路由合约</text><text x="100" y="680" font-size="32" font-weight="400" fill="#e8e6df" text-anchor="start">授权给路由的代币</text></g>
+        <path id="ri-crack" class="dr h" pathLength="1" d="M560 290 L520 340 L560 372 L512 420 L548 480" stroke="#FC6255" stroke-width="5" fill="none" stroke-linejoin="round" />
+        <circle id="ri-cn0" class="h" cx="140" cy="590" r="28" fill="#F0B90B" fill-opacity="0.3" stroke="#F0B90B" stroke-width="3" />
+        <circle id="ri-cn1" class="h" cx="220" cy="590" r="28" fill="#F0B90B" fill-opacity="0.3" stroke="#F0B90B" stroke-width="3" />
+        <circle id="ri-cn2" class="h" cx="300" cy="590" r="28" fill="#F0B90B" fill-opacity="0.3" stroke="#F0B90B" stroke-width="3" />
+        <path id="ri-drain" class="dr h" pathLength="1" d="M420 590 L660 590" stroke="#FC6255" stroke-width="5" fill="none" marker-end="url(#ri-arrr)" />
+        <text id="ri-drl" class="h" x="540" y="650" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">被转走</text>
+        <g id="ri-s4a" class="h"><rect x="90" y="290" width="140" height="80" rx="12" fill="#FC6255" fill-opacity="0.12" stroke="#FC6255" stroke-width="2.5" /><text x="160" y="341" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">闪电贷</text><rect x="280" y="290" width="180" height="80" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" /><text x="370" y="341" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">AMM 现价</text><rect x="510" y="290" width="180" height="80" rx="12" fill="#FC6255" fill-opacity="0.25" stroke="#FC6255" stroke-width="2.5" /><text x="600" y="341" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">借贷坏账</text></g>
+        <path id="ri-oa1" class="dr h" pathLength="1" d="M236 330 L272 330" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ri-arrr)" />
+        <path id="ri-oa2" class="dr h" pathLength="1" d="M466 330 L502 330" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#ri-arrr)" />
+        <path id="ri-drop" class="dr h" pathLength="1" d="M370 385 L370 470" stroke="#FC6255" stroke-width="5" fill="none" marker-end="url(#ri-arrr)" />
+        <text id="ri-dropl" class="h" x="392" y="450" font-size="32" font-weight="600" fill="#FC6255" text-anchor="start">价格被砸</text>
+        <g id="ri-s4b" class="h"><path d="M110 620 L110 930 L690 930" stroke="#8a8f99" stroke-width="2.5" fill="none" /><rect class="ri-fee" x="140" y="902" width="26" height="28" fill="#F0B90B" fill-opacity="0.8" /><rect class="ri-fee" x="178" y="886" width="26" height="44" fill="#F0B90B" fill-opacity="0.8" /><rect class="ri-fee" x="216" y="894" width="26" height="36" fill="#F0B90B" fill-opacity="0.8" /><rect class="ri-fee" x="254" y="878" width="26" height="52" fill="#F0B90B" fill-opacity="0.8" /><rect class="ri-fee" x="292" y="890" width="26" height="40" fill="#F0B90B" fill-opacity="0.8" /><rect class="ri-fee" x="330" y="882" width="26" height="48" fill="#F0B90B" fill-opacity="0.8" /><text x="380" y="920" font-size="32" font-weight="600" fill="#F0B90B" text-anchor="start">手续费 &gt; 0</text></g>
+        <path id="ri-hold" class="dr h" pathLength="1" d="M110 800 L690 700" stroke="#8a8f99" stroke-width="4" fill="none" />
+        <text id="ri-holdl" class="h" x="600" y="678" font-size="32" font-weight="600" fill="#8a8f99" text-anchor="start">持有</text>
+        <path id="ri-net" class="dr h" pathLength="1" d="M110 800 C300 790 450 800 690 786" stroke="#FC6255" stroke-width="4.5" fill="none" />
+        <text id="ri-netl" class="h" x="560" y="836" font-size="32" font-weight="700" fill="#FC6255" text-anchor="start">LP 净值</text>
+        <g transform="translate(0,30)">
+        <g id="ri-btn" class="h"><rect x="760" y="340" width="400" height="104" rx="52" fill="#8a8f99" fill-opacity="0.15" stroke="#8a8f99" stroke-width="3" /><text x="960" y="406" font-size="40" font-weight="700" fill="#8a8f99" text-anchor="middle">客服冻结</text></g>
+        <path id="ri-strike" class="dr h" pathLength="1" d="M730 462 L1190 322" stroke="#FC6255" stroke-width="7" fill="none" stroke-linecap="round" />
+        <g id="ri-tag0" class="h"><rect x="690" y="530" width="200" height="66" rx="10" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2.5" /><text x="790.0" y="574" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">签错授权</text></g>
+        <g id="ri-tag1" class="h"><rect x="930" y="530" width="140" height="66" rx="10" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2.5" /><text x="1000.0" y="574" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">假币</text></g>
+        <g id="ri-tag2" class="h"><rect x="1110" y="530" width="140" height="66" rx="10" fill="#FC6255" fill-opacity="0.15" stroke="#FC6255" stroke-width="2.5" /><text x="1180.0" y="574" font-size="32" font-weight="700" fill="#FC6255" text-anchor="middle">被夹</text></g>
+        </g>
+        <g id="ri-wall" class="h"><rect x="440" y="700" width="1040" height="170" rx="18" fill="#83C167" fill-opacity="0.12" stroke="#83C167" stroke-width="3" /><path d="M520 738 L570 754 L570 792 Q570 824 520 838 Q470 824 470 792 L470 754 Z" fill="#83C167" fill-opacity="0.3" stroke="#83C167" stroke-width="3" /><text x="990" y="800" font-size="42" font-weight="700" fill="#e8e6df" text-anchor="middle">前端 + 聚合器 = 最后一道防线</text></g>
+        <g id="ri-k0" class="h"><rect id="ri-k0r" x="540" y="910" width="360" height="80" rx="40" fill="#14200f" stroke="#83C167" stroke-width="2.5" /><text x="720" y="962" font-size="34" font-weight="700" fill="#83C167" text-anchor="middle">默认参数要安全</text></g>
+        <g id="ri-k1" class="h"><rect id="ri-k1r" x="980" y="910" width="400" height="80" rx="40" fill="#2a1d0e" stroke="#FF9F43" stroke-width="2.5" /><text x="1180" y="962" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">危险操作明确提示</text></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      IN("#ri-title", at(0, 0));
+      IN("#ri-s0", at(0, 0.08), 0.8);
+      [0, 1, 2, 3, 4, 5].forEach(i => IN(`#ri-f${i}`, at(0, 0.45 + i * 0.02), 0.6));
+      // L1 授权 + 原子结算
+      OUT("#ri-s0", at(1, 0));
+      IN("#ri-t0", at(1, 0.04));
+      IN("#ri-sA", at(1, 0.06));
+      ARROW("#ri-ap", at(1, 0.12), 0.5);
+      tl.to("#ri-ap", { opacity: 0.25, duration: 0.5, ease: "power2.inOut", yoyo: true, repeat: 1 }, at(1, 0.2));
+      IN("#ri-bar", at(1, 0.22), 0.3);
+      tl.to("#ri-bar", { attr: { width: 70 }, duration: 0.8, ease: "power3.inOut" }, at(1, 0.3));
+      IN("#ri-d0", at(1, 0.33));
+      IN("#ri-t1", at(1, 0.5));
+      IN("#ri-sB", at(1, 0.52));
+      IN("#ri-knob", at(1, 0.55), 0.3);
+      tl.to("#ri-knob", { attr: { x: 318 }, duration: 0.5, ease: "power2.inOut", yoyo: true, repeat: 1 }, at(1, 0.6));
+      IN("#ri-d1", at(1, 0.75));
+      // L2 假币蜜罐
+      OUT("#ri-sA, #ri-ap, #ri-bar, #ri-sB, #ri-knob", at(2, 0));
+      IN("#ri-t2", at(2, 0.04));
+      IN("#ri-s2", at(2, 0.08));
+      DRAW("#ri-hook", at(2, 0.2), 0.6); IN("#ri-hook", at(2, 0.2), 0.1);
+      IN("#ri-buy", at(2, 0.3), 0.5, { x: -20 }, { x: 0 });
+      IN("#ri-sell", at(2, 0.42), 0.5, { x: 20 }, { x: 0 });
+      IN("#ri-d2", at(2, 0.62));
+      tl.to("#ri-f2", { attr: { stroke: "#83C167" }, duration: 0.4, yoyo: true, repeat: 1, repeatDelay: 1.0 }, at(2, 0.8));
+      // L3 路由被攻破
+      OUT("#ri-s2, #ri-hook, #ri-buy, #ri-sell", at(3, 0));
+      IN("#ri-t3", at(3, 0.04));
+      IN("#ri-s3", at(3, 0.08));
+      [0, 1, 2].forEach(k => IN(`#ri-cn${k}`, at(3, 0.1 + k * 0.03), 0.4));
+      DRAW("#ri-crack", at(3, 0.2), 0.5); IN("#ri-crack", at(3, 0.2), 0.05);
+      ARROW("#ri-drain", at(3, 0.32), 0.5);
+      IN("#ri-drl", at(3, 0.36), 0.4);
+      [0, 1, 2].forEach(k => tl.to(`#ri-cn${k}`, { attr: { cx: 700 }, opacity: 0, duration: 0.9, ease: "power2.in" }, at(3, 0.4 + k * 0.06)));
+      IN("#ri-d3", at(3, 0.6));
+      // L4 预言机：闪电贷 → AMM 现价 → 坏账；防法
+      OUT("#ri-s3, #ri-crack, #ri-drain, #ri-drl", at(4, 0));
+      IN("#ri-t4", at(4, 0.03));
+      IN("#ri-s4a", at(4, 0.05));
+      ARROW("#ri-oa1", at(4, 0.12), 0.4);
+      ARROW("#ri-drop", at(4, 0.22), 0.4); IN("#ri-dropl", at(4, 0.24), 0.4);
+      ARROW("#ri-oa2", at(4, 0.34), 0.4);
+      IN("#ri-d4", at(4, 0.5));
+      tl.to("#ri-f4", { attr: { stroke: "#83C167" }, duration: 0.4, yoyo: true, repeat: 1, repeatDelay: 1.6 }, at(4, 0.55));
+      tl.to("#ri-d4", { attr: { fill: "#b8f09a" }, duration: 0.3, yoyo: true, repeat: 1, repeatDelay: 0.8 }, at(4, 0.82));
+      // L5 LP：手续费为正，净值不如持有
+      IN("#ri-t5", at(5, 0.02));
+      IN("#ri-s4b", at(5, 0.04));
+      IN(".ri-fee", at(5, 0.06), 0.4, {}, { stagger: 0.05 });
+      DRAW("#ri-hold", at(5, 0.16), 0.6); IN("#ri-hold", at(5, 0.16), 0.05); IN("#ri-holdl", at(5, 0.2), 0.4);
+      DRAW("#ri-net", at(5, 0.26), 0.6); IN("#ri-net", at(5, 0.26), 0.05); IN("#ri-netl", at(5, 0.3), 0.4);
+      IN("#ri-d5", at(5, 0.36), 0.5);
+      // L6 没有客服冻结
+      OUT("#ri-rows, #ri-s4a, #ri-oa1, #ri-oa2, #ri-drop, #ri-dropl, #ri-s4b, #ri-hold, #ri-holdl, #ri-net, #ri-netl", at(6, 0.02), 0.5);
+      IN("#ri-btn", at(6, 0.08));
+      DRAW("#ri-strike", at(6, 0.16), 0.5); IN("#ri-strike", at(6, 0.16), 0.05);
+      [0, 1, 2].forEach(k => IN(`#ri-tag${k}`, at(6, 0.28 + k * 0.08), 0.5, { y: 16 }, { y: 0 }));
+      IN("#ri-wall", at(6, 0.65), 0.7, { y: 30 }, { y: 0 });
+      // L7 默认参数安全 · 危险操作提示
+      IN("#ri-k0", at(7, 0.04), 0.5, { y: 16 }, { y: 0 });
+      tl.to("#ri-k0r", { attr: { "stroke-width": 5 }, duration: 0.4, yoyo: true, repeat: 1, repeatDelay: 0.8 }, at(7, 0.25));
+      IN("#ri-k1", at(7, 0.5), 0.5, { y: 16 }, { y: 0 });
+      tl.to("#ri-k1r", { attr: { "stroke-width": 5 }, duration: 0.4, yoyo: true, repeat: 1, repeatDelay: 0.8 }, at(7, 0.68));
+
+      tl.to("#ri-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["risk"] = tl;
+    })();
+  </script>
+</template>

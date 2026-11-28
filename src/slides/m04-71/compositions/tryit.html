@@ -1,0 +1,159 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 tryit，id 前缀 tr- -->
+  <div id="root" data-composition-id="tryit" data-duration="42.23" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="tr-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="tr-all">
+
+        <g id="tr-pans">
+        <g id="tr-pL" class="h">
+          <rect x="160" y="220" width="760" height="720" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <line x1="160" y1="270" x2="920" y2="270" stroke="#2a2f3a" stroke-width="2" />
+          <circle cx="190" cy="245" r="8" fill="#FC6255" opacity="0.7" /><circle cx="216" cy="245" r="8" fill="#F0B90B" opacity="0.7" /><circle cx="242" cy="245" r="8" fill="#83C167" opacity="0.7" />
+          <rect x="270" y="233" width="380" height="24" rx="12" fill="#2a2f3a" />
+          <text x="200" y="335" font-size="36" font-weight="700" fill="#e8e6df">普通兑换</text>
+        </g>
+        <g id="tr-pR" class="h">
+          <rect x="1000" y="220" width="760" height="720" rx="16" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <line x1="1000" y1="270" x2="1760" y2="270" stroke="#2a2f3a" stroke-width="2" />
+          <circle cx="1030" cy="245" r="8" fill="#FC6255" opacity="0.7" /><circle cx="1056" cy="245" r="8" fill="#F0B90B" opacity="0.7" /><circle cx="1082" cy="245" r="8" fill="#83C167" opacity="0.7" />
+          <rect x="1110" y="233" width="380" height="24" rx="12" fill="#2a2f3a" />
+          <text x="1040" y="335" font-size="36" font-weight="700" fill="#e8e6df">意图订单</text>
+        </g>
+        <!-- 左：From + Logs -->
+        <rect id="tr-fhL" class="h" x="184" y="372" width="712" height="64" rx="10" fill="#e8e6df" fill-opacity="0.08" stroke="#e8e6df" stroke-width="2" />
+        <text id="tr-fL" class="h mono" x="200" y="415" font-size="30" fill="#8a8f99">From</text>
+        <g id="tr-uL" class="h"><circle cx="360" cy="390" r="12" fill="none" stroke="#e8e6df" stroke-width="3.5" /><path d="M340 424 Q340 406 360 406 Q380 406 380 424" fill="none" stroke="#e8e6df" stroke-width="3.5" /></g>
+        <text id="tr-uLt" class="h" x="396" y="415" font-size="32" fill="#e8e6df">用户</text>
+        <text id="tr-lg" class="h mono" x="200" y="500" font-size="30" fill="#8a8f99">Logs</text>
+        <rect id="tr-l1" class="h" x="200" y="525" width="680" height="44" rx="8" fill="#2a2f3a" />
+        <rect id="tr-l2" class="h" x="200" y="582" width="680" height="44" rx="8" fill="#2a2f3a" />
+        <rect id="tr-l3" class="h" x="200" y="639" width="680" height="56" rx="8" fill="#2a2f3a" />
+        <text id="tr-sw" class="h mono" x="224" y="678" font-size="32" font-weight="700" fill="#e8e6df">Swap</text>
+        <g id="tr-addr" class="h">
+          <rect x="200" y="740" width="460" height="70" rx="10" fill="none" stroke="#58C4DD" stroke-width="2.5" stroke-dasharray="10 6" />
+          <text x="226" y="787" font-size="30" fill="#58C4DD">池子地址 0x…</text>
+        </g>
+        <path id="tr-la" class="dr h" pathLength="1" d="M450 698 L450 732" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#tr-arr)" />
+        <!-- 右：订单 → 结算交易 -->
+        <g id="tr-ord" class="h">
+          <rect x="1040" y="372" width="230" height="64" rx="10" fill="none" stroke="#e8e6df" stroke-width="2.5" />
+          <text x="1155" y="415" font-size="30" fill="#e8e6df" text-anchor="middle">订单</text>
+        </g>
+        <path id="tr-oa" class="dr h" pathLength="1" d="M1280 404 L1420 404" stroke="#58C4DD" stroke-width="3.5" fill="none" marker-end="url(#tr-arr)" />
+        <g id="tr-stx" class="h">
+          <rect x="1432" y="372" width="288" height="64" rx="10" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="2.5" />
+          <text x="1576" y="415" font-size="30" fill="#58C4DD" text-anchor="middle">链上结算交易</text>
+        </g>
+        <rect id="tr-fhR" class="h" x="1024" y="462" width="712" height="64" rx="10" fill="#B48EF0" fill-opacity="0.1" stroke="#B48EF0" stroke-width="2" />
+        <text id="tr-fR" class="h mono" x="1040" y="505" font-size="30" fill="#8a8f99">From</text>
+        <g id="tr-sR" class="h"><circle cx="1200" cy="480" r="12" fill="none" stroke="#B48EF0" stroke-width="3.5" /><path d="M1180 514 Q1180 496 1200 496 Q1220 496 1220 514" fill="none" stroke="#B48EF0" stroke-width="3.5" /></g>
+        <text id="tr-sRt" class="h" x="1236" y="505" font-size="32" fill="#B48EF0">填单者 / 求解器</text>
+        <g id="tr-uR" class="h"><circle cx="1620" cy="480" r="12" fill="none" stroke="#8a8f99" stroke-width="3.5" /><path d="M1600 514 Q1600 496 1620 496 Q1640 496 1640 514" fill="none" stroke="#8a8f99" stroke-width="3.5" /></g>
+        <g id="tr-gasm"><g id="tr-gas" class="h">
+          <circle cx="1690" cy="494" r="32" fill="#F0B90B" />
+          <text class="mono" x="1690" y="503" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">Gas</text>
+        </g></g>
+        <text id="tr-tt" class="h" x="1040" y="590" font-size="30" fill="#8a8f99">代币转账</text>
+        <rect id="tr-t1" class="h" x="1040" y="615" width="680" height="44" rx="8" fill="#2a2f3a" />
+        <rect id="tr-t2" class="h" x="1040" y="672" width="680" height="44" rx="8" fill="#2a2f3a" />
+        <rect id="tr-t3" class="h" x="1040" y="729" width="680" height="64" rx="8" fill="#2a2f3a" />
+        <text id="tr-rc" class="h" x="1064" y="772" font-size="32" font-weight="700" fill="#83C167">用户收到 ≥ 最低数量 ✓</text>
+        <g id="tr-min" class="h">
+          <rect x="1040" y="830" width="420" height="70" rx="10" fill="none" stroke="#83C167" stroke-width="2.5" stroke-dasharray="10 6" />
+          <text x="1066" y="877" font-size="30" fill="#83C167">订单里的最低数量</text>
+        </g>
+        </g>
+        <!-- L5 总结 -->
+        <g id="tr-sum">
+          <text id="tr-h1" class="h" x="1000" y="330" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">普通兑换</text>
+          <text id="tr-h2" class="h" x="1500" y="330" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">意图订单</text>
+          <line id="tr-g0" class="h" x1="160" y1="370" x2="1760" y2="370" stroke="#8a8f99" stroke-width="2" />
+          <text id="tr-r1" class="h" x="200" y="465" font-size="36" fill="#8a8f99">谁发交易</text>
+          <text id="tr-a1" class="h" x="1000" y="465" font-size="36" fill="#e8e6df" text-anchor="middle">用户</text>
+          <text id="tr-b1" class="h" x="1500" y="465" font-size="36" fill="#B48EF0" text-anchor="middle">填单者 / 求解器</text>
+          <line id="tr-g1" class="h" x1="160" y1="530" x2="1760" y2="530" stroke="#2a2f3a" stroke-width="2" />
+          <text id="tr-r2" class="h" x="200" y="625" font-size="36" fill="#8a8f99">谁付 Gas</text>
+          <text id="tr-a2" class="h" x="1000" y="625" font-size="36" fill="#e8e6df" text-anchor="middle">用户</text>
+          <text id="tr-b2" class="h" x="1500" y="625" font-size="36" fill="#B48EF0" text-anchor="middle">填单者 / 求解器</text>
+          <line id="tr-g2" class="h" x1="160" y1="690" x2="1760" y2="690" stroke="#2a2f3a" stroke-width="2" />
+          <text id="tr-r3" class="h" x="200" y="785" font-size="36" fill="#8a8f99">价格由谁决定</text>
+          <text id="tr-a3" class="h" x="1000" y="785" font-size="36" fill="#F0B90B" text-anchor="middle">池子公式</text>
+          <text id="tr-b3" class="h" x="1500" y="785" font-size="36" fill="#F0B90B" text-anchor="middle">求解器竞价</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      // L0 两个面板
+      IN("#tr-pL", at(0, 0.05), 0.6, { y: 20 }, { y: 0 });
+      IN("#tr-pR", at(0, 0.3), 0.6, { y: 20 }, { y: 0 });
+      // L1 Logs 里的 Swap 事件 → 池子地址
+      IN("#tr-lg", at(1, 0.02), 0.4);
+      IN("#tr-l1", at(1, 0.06), 0.3); IN("#tr-l2", at(1, 0.1), 0.3); IN("#tr-l3", at(1, 0.14), 0.3);
+      IN("#tr-sw", at(1, 0.45), 0.4);
+      tl.to("#tr-l3", { fill: "#58C4DD", fillOpacity: 0.3, duration: 0.4 }, at(1, 0.5));
+      tl.to("#tr-sw", { fill: "#58C4DD", duration: 0.4 }, at(1, 0.5));
+      ARROW("#tr-la", at(1, 0.75), 0.4);
+      IN("#tr-addr", at(1, 0.8), 0.5);
+      // L2 订单 → 结算交易
+      IN("#tr-ord", at(2, 0.25), 0.5);
+      ARROW("#tr-oa", at(2, 0.55), 0.5);
+      IN("#tr-stx", at(2, 0.65), 0.5, { x: -15 }, { x: 0 });
+      // L3 发送者对比
+      IN("#tr-fhL", at(3, 0.05), 0.4); IN("#tr-fL", at(3, 0.05), 0.4);
+      IN("#tr-fhR", at(3, 0.05), 0.4); IN("#tr-fR", at(3, 0.05), 0.4);
+      IN("#tr-uL", at(3, 0.3), 0.4); IN("#tr-uLt", at(3, 0.3), 0.4);
+      tl.fromTo("#tr-fhL", { strokeWidth: 2 }, { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(3, 0.32));
+      IN("#tr-sR", at(3, 0.55), 0.4); IN("#tr-sRt", at(3, 0.55), 0.4);
+      tl.fromTo("#tr-fhR", { strokeWidth: 2 }, { strokeWidth: 5, duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(3, 0.57));
+      IN("#tr-uR", at(3, 0.72), 0.4); IN("#tr-gas", at(3, 0.72), 0.4);
+      tl.to("#tr-gasm", { x: -150, duration: 1.0, ease: "power2.inOut" }, at(3, 0.82));
+      tl.to("#tr-gas", { opacity: 0, duration: 0.3 }, at(3, 0.82) + 0.9);
+      // L4 代币转账里找用户收到的那条
+      IN("#tr-tt", at(4, 0.05), 0.4);
+      IN("#tr-t1", at(4, 0.1), 0.3); IN("#tr-t2", at(4, 0.14), 0.3); IN("#tr-t3", at(4, 0.18), 0.3);
+      tl.to("#tr-t3", { fill: "#83C167", fillOpacity: 0.22, duration: 0.4 }, at(4, 0.4));
+      IN("#tr-rc", at(4, 0.42), 0.5);
+      IN("#tr-min", at(4, 0.7), 0.5, { y: 15 }, { y: 0 });
+      // L5 三件事
+      OUT("#tr-pans", at(5, 0.0), 0.4);
+      IN("#tr-h1", at(5, 0.08), 0.5); IN("#tr-h2", at(5, 0.08), 0.5); IN("#tr-g0", at(5, 0.08), 0.5);
+      IN("#tr-r1", at(5, 0.2), 0.4); IN("#tr-a1", at(5, 0.24), 0.4); IN("#tr-b1", at(5, 0.28), 0.4); IN("#tr-g1", at(5, 0.28), 0.4);
+      IN("#tr-r2", at(5, 0.42), 0.4); IN("#tr-a2", at(5, 0.46), 0.4); IN("#tr-b2", at(5, 0.5), 0.4); IN("#tr-g2", at(5, 0.5), 0.4);
+      IN("#tr-r3", at(5, 0.66), 0.4); IN("#tr-a3", at(5, 0.7), 0.4); IN("#tr-b3", at(5, 0.74), 0.4);
+
+
+      tl.to("#tr-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["tryit"] = tl;
+    })();
+  </script>
+</template>

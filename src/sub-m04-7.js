@@ -156,7 +156,7 @@ stateDiagram-v2
   Simulating --> Rejected: 模拟 revert 或偏差过大
   Ready --> [*]
 `, [
-  ['key', '报价只在“同区块同参数”时复用。区块号是缓存键的一部分，新区块到来时整个缓存作废。'],
+  ['key', '报价只在“同区块同参数”时复用。缓存绑定当前快照（区块号加区块哈希，重组后不会混用），新快照到来时整个缓存作废。'],
   ['flow', 'Expired 不是终态：/swap-tx 发现报价超过 2 个区块（示例）时，用同样参数重新路由，并在响应里返回新的报价，前端要把新数字展示给用户。'],
   ['fail', '模拟偏差过大通常说明快照落后或池子在当前区块被大单改变。返回 QUOTE_DRIFT，前端重新报价。'],
   ['limit', '状态机只描述服务端。交易广播后的确认、替换、失败追踪由前端负责（M03.10 第 3 节）。']
@@ -188,6 +188,7 @@ ${tbl(['组件', '选型', '备选', '理由'], [
   ['测试', 'go test + Foundry anvil 主网分叉', 'Hardhat', 'anvil 启动快，支持 snapshot/revert 和固定分叉区块'],
   ['监控', 'Prometheus + Grafana + OpenTelemetry', 'Datadog', '指标、链路追踪开源可自建']
 ])}
+<p>表中版本号只是举例，写的是最低要求，以各项目官方发布为准：截至 2026-11-28，Go 最新为 1.27（2026-08 发布），PostgreSQL 最新大版本为 19（2026-11-19 发布），16 仍在官方支持期内（到 2028-11），pgx 仍是 v5。</p>
 ${compare('V2 与 V3 的报价方式对比', [
   { name: 'V2：本地算', tag: '快', kind: 'ok', points: ['输入：快照里的 reserve0、reserve1', '公式：in×997×R_out ÷ (R_in×1000 + in×997)', '延迟：微秒级，可做上千次拆单试算', '风险：快照落后时结果偏差'] },
   { name: 'V3：链上 QuoterV2', tag: '准', kind: 'info', points: ['输入：tokenIn、tokenOut、fee、amountIn', '执行：节点在指定区块模拟真实 swap', '延迟：一次 RPC 往返（毫秒级）', '风险：调用次数多，要批量和缓存'] },
@@ -339,7 +340,7 @@ type Route struct {
 
 <h2>7. 接口设计</h2>
 ${tbl(['接口', '方法与路径', '参数', '返回'], [
-  ['报价', 'GET /v1/quote', 'chainId, tokenIn, tokenOut, amountIn（链上整数字符串）, slippageBps（默认 50）, maxHops（≤ 3）, maxSplits（≤ 3）', '{ quoteId, blockNumber, amountOut, minOut, gasEstimate, gasCostInTokenOut, netOut, priceImpactBps, routes[], expiresAtBlock }'],
+  ['报价', 'GET /v1/quote', 'chainId, tokenIn, tokenOut, amountIn（链上整数字符串）, slippageBps（默认 50）, maxHops（≤ 3）, maxSplits（≤ 3）', '{ quoteId, blockNumber, amountOut, minOut, gasEstimate, gasCostInTokenOut, netOut, priceImpactBps（相对理想输出的总损失，含手续费）, routes[], expiresAtBlock }'],
   ['构造交易', 'POST /v1/swap-tx', '{ quoteId, from, recipient, slippageBps, deadlineSec }', '{ to, data, value, gas, minOut, simulatedOut, blockNumber, requoted }'],
   ['支持的代币', 'GET /v1/tokens', 'chainId', 'verified 代币列表（前端可与自己的列表比对）'],
   ['健康检查', 'GET /healthz', '无', '{ headBlock, snapshotBlock, lagBlocks, rpcOk }'],
@@ -367,7 +368,7 @@ ${code('JSON', `
   ]
 }
 `)}
-<p>上面数字来自第 4 节的算一算（示例）。gasCostInTokenOut 假设 171,000 Gas、20 gwei、1 WETH = 2,000 DAI：171,000 × 20 × 10^9 = 0.00342 ETH，折合 6.84 DAI。priceImpactBps 用“不计手续费和冲击的理想输出 10,000 DAI”估算：1 − 9,793.91 ÷ 10,000 ≈ 2.06%。</p>
+<p>上面数字来自第 4 节的算一算（示例）。gasCostInTokenOut 假设 171,000 Gas、20 gwei、1 WETH = 2,000 DAI：171,000 × 20 × 10^9 = 0.00342 ETH，折合 6.84 DAI。priceImpactBps 用“不计手续费和冲击的理想输出 10,000 DAI”估算：1 − 9,793.91 ÷ 10,000 ≈ 2.06%。注意：本设计里这个字段是<strong>相对理想值的总损失</strong>，包含两跳各 0.3% 的手续费，不是纯价格影响。扣掉手续费后纯价格冲击约 1.46%（2.06% − 0.6% 粗算；按乘法精算 1 − 9,793.91 ÷ (10,000 × 0.997²) ≈ 1.47%）。前端如果要单独展示“价格影响”，要另算或另加字段。</p>
 ${code('JSON', `
 // POST /v1/swap-tx  请求
 { "quoteId": "5f0c2d1e-…", "from": "0xUser…", "recipient": "0xUser…", "slippageBps": 50, "deadlineSec": 1200 }
@@ -935,6 +936,7 @@ contract MiniRouter {
     error Expired();
     error TooLittleReceived(uint256 got, uint256 minOut);
     error BadCallback();
+    error PartialFill(uint256 used, uint256 amt);
 
     function swap(address tokenIn, address tokenOut, Route[] calldata routes, uint256 minOut, address recipient, uint256 deadline)
         external returns (uint256 amountOut)
@@ -977,6 +979,8 @@ contract MiniRouter {
         activePool = h.pool;
         (int256 a0, int256 a1) = p.swap(to, zf, int256(amt), zf ? MIN_SQRT_RATIO + 1 : MAX_SQRT_RATIO - 1, abi.encode(tok));
         activePool = address(0);
+        uint256 used = uint256(zf ? a0 : a1);                   // 池子实际收走的输入
+        if (used != amt) revert PartialFill(used, amt);          // 到价格上限前流动性耗尽会部分成交：整笔回滚，不留残余
         out = uint256(-(zf ? a1 : a0));
     }
 
@@ -987,7 +991,7 @@ contract MiniRouter {
     }
 }
 `)}
-${call('warn', `<p>MiniRouter 是教学用的最小实现：它假设代币是标准 ERC-20（不收转账税、不变基），所以服务端用 tokens 表的 transfer_flag 把非标准代币排除在外。V2 池的地址由调用者传入，合约本身不校验池子真伪；保护用户的是最后一行“实际到账 ≥ minOut”，以及前端只对白名单 to 签名。上线前必须经过审计。</p>`)}
+${call('warn', `<p>MiniRouter 是教学用的最小实现：它假设代币是标准 ERC-20（不收转账税、不变基），所以服务端用 tokens 表的 transfer_flag 把非标准代币排除在外。V2、V3 池的地址都由调用者传入，合约本身不校验池子真伪；保护用户的是最后一行“实际到账 ≥ minOut”，以及前端只对白名单 to 签名。“不持有余额”靠两点保证：每条路线的输入在同一笔交易里全部转给池子；V3 池在价格上限前流动性耗尽只会部分成交，所以 <code>_v3</code> 校验池子实际收走的数量等于 <code>amt</code>，否则 <code>PartialFill</code> 整笔回滚（也可以改成把剩余退给 msg.sender）。回调只认 activePool，但调用者自己传入的假“池子”成为 activePool 后，仍能通过回调动用合约里的代币，因此合约在交易之间不能有余额：误转进来的代币可能被任何人取走，不要往路由合约里直接转币。上线前必须经过审计。</p>`)}
 ${code('GO', `
 package txbuild
 
@@ -1073,13 +1077,14 @@ import (
 	"golang.org/x/sync/singleflight"
 )
 
-const maxLag = 36 * time.Second // 3 个区块（示例，12 秒出块）
+const maxLag = 36 * time.Second         // 3 个区块（示例，12 秒出块）
+const computeTimeout = 2 * time.Second // 一次合并计算的独立超时（示例）
 
 type Engine struct {
 	snap  atomic.Pointer[graph.Snapshot] // 索引器调用 snap.Store(next) 发布新快照
 	sf    singleflight.Group
 	mu    sync.Mutex
-	block uint64
+	owner *graph.Snapshot // 缓存属于哪一份快照：指针相同 = 同一区块、同一哈希
 	cache map[string]*Plan
 }
 
@@ -1091,32 +1096,37 @@ func (e *Engine) Quote(ctx context.Context, r Req) (*Plan, uint64, error) {
 	key := fmt.Sprintf("%s:%s:%s:%d:%d", r.TokenIn.Hex(), r.TokenOut.Hex(), r.AmountIn.String(), r.MaxHops, r.MaxSplits)
 
 	e.mu.Lock()
-	if e.block != s.Block { // 新区块：整个缓存作废
-		e.block, e.cache = s.Block, map[string]*Plan{}
+	// 快照更新：整个缓存作废。只有当前快照能替换缓存，拿着旧快照的慢请求不会把缓存重置回旧区块
+	if e.owner != s && s == e.snap.Load() {
+		e.owner, e.cache = s, map[string]*Plan{}
 	}
-	if p, ok := e.cache[key]; ok {
+	if p, ok := e.cache[key]; ok && e.owner == s {
 		e.mu.Unlock()
 		cacheHits.Inc()
 		return p, s.Block, nil
 	}
 	e.mu.Unlock()
 
-	// 同一区块、同一参数的并发请求只算一次
-	v, err, _ := e.sf.Do(fmt.Sprintf("%d:%s", s.Block, key), func() (any, error) {
-		return e.compute(ctx, s, r) // FindPaths → 单路线报价 → pickDisjoint → OutTable → GreedySplit → choose
+	// 同一快照（按区块哈希区分，重组后同号不同哈希不会混用）、同一参数的并发请求只算一次
+	v, err, _ := e.sf.Do(s.Hash.Hex()+":"+key, func() (any, error) {
+		// 不用首个请求的 ctx：它一取消或超时，合并进来的其他请求会一起失败
+		cctx, cancel := context.WithTimeout(context.WithoutCancel(ctx), computeTimeout)
+		defer cancel()
+		return e.compute(cctx, s, r) // FindPaths → 单路线报价 → pickDisjoint → OutTable → GreedySplit → choose
 	})
 	if err != nil {
 		return nil, 0, err
 	}
 	p := v.(*Plan)
 	e.mu.Lock()
-	if e.block == s.Block {
+	if e.owner == s { // 算完时快照已更新，结果只返回给本次请求，不写进新快照的缓存
 		e.cache[key] = p
 	}
 	e.mu.Unlock()
 	return p, s.Block, nil
 }
 `)}
+<p>两处细节：缓存与快照指针绑定，而不是只比区块号。如果写成“区块号不同就重置”，持旧快照的慢请求会把缓存重置回旧区块、清掉新区块的结果，造成抖动；重组后同号不同哈希的快照也会混用。请求合并的闭包用 <code>context.WithoutCancel</code> 加独立超时，避免第一个请求取消时连累合并进来的请求；如果还要让每个调用方能各自提前放弃，可以改用 <code>sf.DoChan</code> 并在外面 select 自己的 ctx。</p>
 ${call('info', `<p>为什么前端连续输入时缓存命中率不高？因为金额每次都不同。前端已经做了 300 ms 防抖（M03.10）；服务端不对金额“取整分桶”，否则返回的数字会和用户输入对不上。真正受益的是同一金额的重复请求，例如 WebSocket 价格流和多个用户同时报同一个热门对。</p>`)}
 
 <h2>9. 测试策略</h2>
@@ -1243,7 +1253,7 @@ ${tbl(['威胁', '入口', '防护', '验证'], [
   ['私钥泄露', '服务器被入侵', '本服务不持有任何签名私钥；部署测试网合约的密钥只在 CI 的测试环境中', '代码与配置扫描：仓库中无私钥'],
   ['滥用与拒绝服务', '大量随机金额请求击穿缓存、放大 V3 eth_call', '按 IP 和 API Key 令牌桶限流；单次报价 V3 调用上限；maxHops ≤ 3、maxSplits ≤ 3', 'k6 压测超限请求返回 429'],
   ['RPC 返回错误数据', '单一节点故障或被篡改', '走 M04.8 网关的多节点；关键路径（/swap-tx）以整笔模拟为准；可选多节点交叉比对', '故障注入：某节点返回错误储备时偏差告警触发'],
-  ['V3 回调被冒充', '任意合约调用 uniswapV3SwapCallback', 'MiniRouter 只接受 activePool 的回调；合约不留余额', 'forge 测试：外部调用回调 revert BadCallback']
+  ['V3 回调被冒充', '任意合约调用 uniswapV3SwapCallback', 'MiniRouter 只接受 activePool 的回调；V3 部分成交即回滚，合约在交易之间不留余额', 'forge 测试：外部调用回调 revert BadCallback']
 ])}
 ${call('warn', `<p>不要把“构造交易”升级成“代用户发交易”。一旦服务持有签名私钥，它就从“算错了用户少拿一点”变成“被攻破了用户资产全部丢失”。需要代付 Gas 或批量执行时，改用账户抽象或意图模式（见 <a href="#m04-74">M10.4</a>），签名仍然由用户完成。</p>`)}
 

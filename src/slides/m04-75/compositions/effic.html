@@ -1,0 +1,156 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 effic，id 前缀 ef- -->
+  <div id="root" data-composition-id="effic" data-duration="50.85" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ef-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ef-all">
+        <g id="ef-q" class="h">
+          <rect x="560" y="215" width="800" height="80" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+          <text x="960" y="268" font-size="40" font-weight="700" fill="#e8e6df" text-anchor="middle">区间收窄，能省多少本金？</text>
+        </g>
+        <g id="ef-AB">
+          <rect id="ef-colA" class="h" x="160" y="440" width="100" height="520" rx="4" fill="#F0B90B"/>
+          <text id="ef-colAl" class="h" x="210" y="1008" font-size="32" fill="#e8e6df" text-anchor="middle">全区间</text>
+          <rect id="ef-colB" class="h" x="1680" y="908" width="100" height="52" rx="4" fill="#F0B90B"/>
+          <text id="ef-colBl" class="h" x="1730" y="1008" font-size="32" fill="#e8e6df" text-anchor="middle">集中区间</text>
+          <path id="ef-same" class="dr" pathLength="1" d="M210 432 L210 410 L1730 410 L1730 900" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="1" fill="none"/>
+          <text id="ef-samel" class="h" x="960" y="392" font-size="32" fill="#e8e6df" text-anchor="middle">同样的 L</text>
+          <text id="ef-a1" class="h mono" x="320" y="520" font-size="40" fill="#58C4DD">x = L/√p</text>
+          <text id="ef-a2" class="h mono" x="320" y="590" font-size="40" fill="#58C4DD">y = L√p</text>
+          <g id="ef-a3" class="h">
+            <text class="mono" x="320" y="660" font-size="40" fill="#58C4DD">V = 2L√p</text>
+            <text x="530" y="658" font-size="30" fill="#8a8f99">价值</text>
+          </g>
+          <text id="ef-b1" class="h mono" x="1000" y="520" font-size="40" fill="#58C4DD">p·x = L(√p <tspan id="ef-b1r">- p/√pb</tspan>)</text>
+          <text id="ef-b2" class="h mono" x="1000" y="590" font-size="40" fill="#58C4DD">y = L(√p <tspan id="ef-b2r">- √pa</tspan>)</text>
+        </g>
+        <g id="ef-fr">
+          <rect id="ef-frb" class="h" x="510" y="718" width="900" height="84" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <g id="ef-frt" class="h">
+            <text x="540" y="774" font-size="40" font-weight="700" fill="#e8e6df">资本效率 =</text>
+            <text class="mono" x="780" y="774" font-size="40" fill="#58C4DD">2√p ÷ (2√p - p/√pb - √pa)</text>
+          </g>
+        </g>
+        <g id="ef-s1" class="h">
+          <rect x="590" y="420" width="760" height="92" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3.5"/>
+          <text x="620" y="482" font-size="44" font-weight="700" fill="#e8e6df">资本效率 =</text>
+          <text class="mono" x="880" y="482" font-size="44" fill="#83C167">1 ÷ (1 - √(pa/p))</text>
+        </g>
+        <text id="ef-s2" class="h mono" x="960" y="576" font-size="32" fill="#58C4DD" text-anchor="middle">= 1 ÷ (1 - (pa/pb)^(1/4))</text>
+        <g id="ef-axg">
+          <line id="ef-ax" class="dr" pathLength="1" x1="360" y1="780" x2="1560" y2="780" stroke="#58C4DD" stroke-width="3"/>
+          <rect id="ef-bd" class="h" x="514" y="740" width="892" height="40" fill="#83C167" fill-opacity="0.35" stroke="#83C167" stroke-width="2.5"/>
+          <circle id="ef-pd" class="h" cx="960" cy="780" r="9" fill="#e8e6df"/>
+          <text id="ef-pal" class="h mono" x="514" y="826" font-size="32" fill="#83C167" text-anchor="middle">pa</text>
+          <text id="ef-pbl" class="h mono" x="1406" y="826" font-size="32" fill="#83C167" text-anchor="middle">pb</text>
+          <text id="ef-pl" class="h" x="960" y="722" font-size="30" fill="#e8e6df" text-anchor="middle">p = √(pa·pb)</text>
+        </g>
+        <g id="ef-ro" class="h">
+          <text class="mono" x="360" y="935" font-size="38" fill="#58C4DD">√(pa/p) =</text>
+          <text id="ef-v" class="mono" x="595" y="935" font-size="38" fill="#e8e6df">0.80</text>
+          <text x="760" y="933" font-size="32" fill="#8a8f99">分母</text>
+          <rect id="ef-den" x="840" y="906" width="100" height="32" fill="#58C4DD"/>
+          <text x="1300" y="933" font-size="32" fill="#8a8f99">效率</text>
+          <text id="ef-e" class="mono" x="1500" y="946" font-size="64" font-weight="700" fill="#F0B90B" text-anchor="end">5</text>
+          <text x="1512" y="940" font-size="36" fill="#F0B90B">倍</text>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ef-term" class="h">
+        <rect x="70" y="56" width="630" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">资本效率 <tspan font-size="28" font-weight="400" fill="#8a8f99">Capital Efficiency</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">同样深度下全区间与集中仓位所需资金之比</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 问题
+      IN("#ef-q", at(0, 0.05), 0.6, { scale: 0.9, svgOrigin: "960 255" }, { scale: 1, svgOrigin: "960 255" });
+      tl.to("#ef-q rect", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.6));
+      // L1 资本效率：两根柱子
+      OUT("#ef-q", at(1, 0) - 0.1, 0.4);
+      IN("#ef-term", at(1, 0.05), 0.5);
+      IN("#ef-colA", at(1, 0.18), 0.1);
+      tl.fromTo("#ef-colA", { attr: { y: 960, height: 0 } }, { attr: { y: 440, height: 520 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(1, 0.18));
+      IN("#ef-colAl", at(1, 0.24), 0.4);
+      IN("#ef-colB", at(1, 0.4), 0.1);
+      tl.fromTo("#ef-colB", { attr: { y: 960, height: 0 } }, { attr: { y: 908, height: 52 }, duration: 0.6, ease: "power2.out", immediateRender: false }, at(1, 0.4));
+      IN("#ef-colBl", at(1, 0.45), 0.4);
+      DRAW("#ef-same", at(1, 0.58), 1.2);
+      IN("#ef-samel", at(1, 0.64), 0.4);
+      tl.to("#ef-colA, #ef-colB", { fill: "#ffd04a", duration: 0.35, yoyo: true, repeat: 1 }, at(1, 0.86));
+      // L2 全区间公式
+      OUT("#ef-term", at(2, 0.02), 0.4);
+      IN("#ef-a1", at(2, 0.08), 0.5, { x: -20 }, { x: 0 });
+      IN("#ef-a2", at(2, 0.36), 0.5, { x: -20 }, { x: 0 });
+      IN("#ef-a3", at(2, 0.66), 0.5, { x: -20 }, { x: 0 });
+      tl.to("#ef-colA", { fill: "#ffd04a", duration: 0.35, yoyo: true, repeat: 1 }, at(2, 0.84));
+      // L3 有限区间公式
+      IN("#ef-b1", at(3, 0.08), 0.5, { x: 20 }, { x: 0 });
+      tl.to("#ef-b1r", { fill: "#FC6255", duration: 0.3 }, at(3, 0.28));
+      IN("#ef-b2", at(3, 0.55), 0.5, { x: 20 }, { x: 0 });
+      tl.to("#ef-b2r", { fill: "#FC6255", duration: 0.3 }, at(3, 0.72));
+      tl.to("#ef-colB", { fill: "#ffd04a", duration: 0.35, yoyo: true, repeat: 1 }, at(3, 0.88));
+      // L4 一般公式
+      IN("#ef-frb", at(4, 0.04), 0.5, { scale: 0.9, svgOrigin: "960 760" }, { scale: 1, svgOrigin: "960 760" });
+      IN("#ef-frt", at(4, 0.14), 0.6);
+      tl.to("#ef-frb", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.7));
+      // L5 几何中心化简
+      tl.to("#ef-AB", { opacity: 0, duration: 0.5 }, at(5, 0));
+      tl.to("#ef-fr", { y: -460, duration: 0.8, ease: "power2.inOut" }, at(5, 0.04));
+      DRAW("#ef-ax", at(5, 0.14), 0.8);
+      IN("#ef-bd", at(5, 0.2), 0.5);
+      IN("#ef-pd", at(5, 0.22), 0.3);
+      IN("#ef-pal, #ef-pbl", at(5, 0.26), 0.4);
+      IN("#ef-pl", at(5, 0.33), 0.5, { y: 12 }, { y: 0 });
+      IN("#ef-s1", at(5, 0.56), 0.6, { y: 20 }, { y: 0 });
+      IN("#ef-s2", at(5, 0.8), 0.5);
+      // L6 区间越窄，效率越高
+      IN("#ef-ro", at(6, 0.02), 0.5);
+      const st = { r: 0.8 };
+      const upd = () => {
+        const r = st.r, d = 2000 * Math.log(r), xa = 960 + d, xb = 960 - d;
+        document.querySelector("#ef-bd").setAttribute("x", xa);
+        document.querySelector("#ef-bd").setAttribute("width", xb - xa);
+        document.querySelector("#ef-pal").setAttribute("x", xa);
+        document.querySelector("#ef-pbl").setAttribute("x", xb);
+        document.querySelector("#ef-v").textContent = r.toFixed(2);
+        document.querySelector("#ef-den").setAttribute("width", Math.max(2, (1 - r) * 500));
+        document.querySelector("#ef-e").textContent = Math.round(1 / (1 - r));
+      };
+      tl.fromTo(st, { r: 0.8 }, { r: 0.9, duration: 1.6, ease: "power2.inOut", immediateRender: false, onUpdate: upd }, at(6, 0.12));
+      tl.fromTo(st, { r: 0.9 }, { r: 0.98, duration: 2.2, ease: "power2.inOut", immediateRender: false, onUpdate: upd }, at(6, 0.48));
+      tl.fromTo("#ef-e", { scale: 1 }, { scale: 1.25, svgOrigin: "1450 925", duration: 0.3, yoyo: true, repeat: 1, immediateRender: false }, at(6, 0.86));
+
+      tl.to("#ef-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ef-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["effic"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,184 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 twap，id 前缀 tw- -->
+  <div id="root" data-composition-id="twap" data-duration="85.02" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="tw-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="tw-all">
+        <g id="tw-chart">
+          <rect id="tw-band" class="h" x="360" y="280" width="1340" height="320" fill="#83C167" fill-opacity="0.10" stroke="#83C167" stroke-width="2" stroke-dasharray="10 8" />
+          <text id="tw-bandl" class="h" x="384" y="326" font-size="32" fill="#83C167">30 分钟窗口 · 1,800 秒</text>
+          <path id="tw-ax" class="dr" pathLength="1" d="M300 270 V600 H1760" fill="none" stroke="#8a8f99" stroke-width="3" />
+          <text id="tw-l3000" class="h" x="284" y="536" font-size="32" fill="#F0B90B" text-anchor="end">3,000</text>
+          <path id="tw-line" class="dr" pathLength="1" d="M300 525 H1760" fill="none" stroke="#FC6255" stroke-width="3" />
+          <rect id="tw-spike" class="h" x="1000" y="300" width="20" height="225" fill="#FC6255" fill-opacity="0.85" />
+          <text id="tw-l12k" class="h" x="1036" y="318" font-size="32" fill="#FC6255">12,000</text>
+          <path id="tw-avg" class="dr" pathLength="1" d="M360 519 H1700" fill="none" stroke="#83C167" stroke-width="6" />
+          <text id="tw-avgl" class="h" x="1690" y="498" font-size="32" fill="#83C167" text-anchor="end">TWAP</text>
+          <text id="tw-spl" class="h" x="1010" y="652" font-size="32" fill="#FC6255" text-anchor="middle">撑满 1 个区块 ≈ 12 秒</text>
+          <text id="tw-spl2" class="h" x="1010" y="652" font-size="32" fill="#FF9F43" text-anchor="middle">同一笔交易内还原：宽度 ≈ 0</text>
+          <g class="mono" font-size="40">
+            <text id="tw-f1a" class="h" x="200" y="745" fill="#F0B90B">3,000 +</text>
+            <text id="tw-f1b" class="h" x="392" y="745" fill="#e8e6df">(12,000 - 3,000)</text>
+            <text id="tw-f1c" class="h" x="800" y="745" fill="#e8e6df">× 12 ÷ 1,800</text>
+            <text id="tw-f1d" class="h" x="1112" y="745" fill="#F0B90B">= 3,060</text>
+            <text id="tw-f2a" class="h" x="200" y="835" fill="#F0B90B">3,000 × 4</text>
+            <text id="tw-f2s" class="h" x="420" y="812" font-size="32" fill="#e8e6df">12/1800</text>
+            <text id="tw-f2b" class="h" x="572" y="835" fill="#F0B90B">≈ 3,028</text>
+          </g>
+          <text id="tw-f1e" class="h" x="1320" y="745" font-size="40" fill="#83C167">+2% · 上界</text>
+          <text id="tw-f2c" class="h" x="780" y="833" font-size="34" fill="#83C167">V3 · 按 tick 几何平均</text>
+          <text id="tw-f3" class="h" x="200" y="925" font-size="34" fill="#FF9F43">同一笔交易内就还原 → 可以推断：平均价几乎看不到</text>
+        </g>
+        <g id="tw-tab">
+          <g id="tw-rl" class="h" font-size="32" fill="#8a8f99" text-anchor="middle">
+            <text x="280" y="456">操纵成本</text>
+            <text x="280" y="671">缺点</text>
+            <text x="280" y="886">适合</text>
+          </g>
+          <g id="tw-hd0" class="h"><rect x="420" y="240" width="440" height="90" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3" /><text x="640" y="298" font-size="36" font-weight="700" fill="#FC6255" text-anchor="middle">池子现价</text></g>
+          <g id="tw-hd1" class="h"><rect x="870" y="240" width="440" height="90" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" /><text x="1090" y="298" font-size="36" font-weight="700" fill="#83C167" text-anchor="middle">DEX TWAP</text></g>
+          <g id="tw-hd2" class="h"><rect x="1320" y="240" width="440" height="90" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><text x="1540" y="298" font-size="36" font-weight="700" fill="#B48EF0" text-anchor="middle">外部预言机</text></g>
+          <g id="tw-hx" class="h" stroke="#FC6255" stroke-width="5" stroke-linecap="round"><path d="M456 268 L492 304 M492 268 L456 304" /></g>
+          <g id="tw-cells" font-size="32" fill="#e8e6df" text-anchor="middle">
+            <g id="tw-c00" class="h"><rect x="420" y="345" width="440" height="200" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text x="640" y="436">一笔交易 + 闪电贷</text><text x="640" y="484" fill="#FC6255">几乎零成本</text></g>
+            <g id="tw-c01" class="h"><rect x="420" y="560" width="440" height="200" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text x="640" y="651">同一交易内</text><text x="640" y="699" fill="#FC6255">可被任意拉动</text></g>
+            <g id="tw-c02" class="h"><rect x="420" y="775" width="440" height="200" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text x="640" y="866">只能展示</text><text x="640" y="914">不能估值或清算</text></g>
+            <g id="tw-c10" class="h"><rect x="870" y="345" width="440" height="200" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text x="1090" y="436">多个区块维持偏离</text><text x="1090" y="484">期间被套利吃掉</text></g>
+            <g id="tw-c11" class="h"><rect x="870" y="560" width="440" height="200" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text x="1090" y="651">有滞后</text><text x="1090" y="699" fill="#FF9F43">小池子仍可操纵</text></g>
+            <g id="tw-c12" class="h"><rect x="870" y="775" width="440" height="200" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text x="1090" y="866">深流动性主流对</text><text x="1090" y="914">对时效不敏感</text></g>
+            <g id="tw-c20" class="h"><rect x="1320" y="345" width="440" height="200" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text x="1540" y="436">要同时影响</text><text x="1540" y="484">多个数据源</text></g>
+            <g id="tw-c21" class="h"><rect x="1320" y="560" width="440" height="200" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text x="1540" y="651">更新延迟</text><text x="1540" y="699">心跳间隔</text></g>
+            <g id="tw-c22" class="h"><rect x="1320" y="775" width="440" height="200" rx="10" fill="#161a22" stroke="#8a8f99" stroke-width="1.5" /><text x="1540" y="866">借贷、衍生品</text><text x="1540" y="914">价格安全敏感</text></g>
+          </g>
+          <g id="tw-rules" font-size="32" text-anchor="middle">
+            <g id="tw-rlab" class="h" font-size="36" fill="#83C167"><text x="280" y="630">集成方</text><text x="280" y="680">规则</text></g>
+            <rect id="tw-r0" class="h" x="420" y="380" width="440" height="560" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <rect id="tw-r1" class="h" x="870" y="380" width="440" height="560" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <rect id="tw-r2" class="h" x="1320" y="380" width="440" height="560" rx="14" fill="#161a22" stroke="#83C167" stroke-width="2.5" />
+            <text id="tw-r00" class="h" x="640" y="600" fill="#e8e6df">估值、清算</text>
+            <text id="tw-r01" class="h" x="640" y="700" fill="#FC6255" font-size="40" font-weight="700">不用现价</text>
+            <text id="tw-r10" class="h" x="1090" y="540" fill="#e8e6df">选深流动性池</text>
+            <text id="tw-r11" class="h" x="1090" y="650" fill="#e8e6df">窗口足够长</text>
+            <text id="tw-r12" class="h" x="1090" y="760" fill="#83C167">检查流动性下限</text>
+            <text id="tw-r20" class="h" x="1540" y="540" fill="#e8e6df">检查更新时间</text>
+            <text id="tw-r21" class="h" x="1540" y="650" fill="#e8e6df">检查价格偏离</text>
+            <text id="tw-r22" class="h" x="1540" y="760" fill="#FF9F43">异常时暂停</text>
+          </g>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="tw-term" class="h">
+        <rect x="70" y="56" width="600" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">时间加权平均价 <tspan font-size="28" font-weight="400" fill="#8a8f99">TWAP</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">一段时间内价格的平均值</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const PULSE = (s, t, o = 0.4) => tl.to(s, { opacity: o, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+// L0 时间轴 + 尖刺
+IN("#tw-term", at(0, 0.05), 0.5);
+DRAW("#tw-ax", at(0, 0.08), 0.9);
+IN("#tw-band", at(0, 0.25), 0.7);
+DRAW("#tw-line", at(0, 0.38), 1.0);
+IN("#tw-l3000", at(0, 0.45), 0.5);
+IN("#tw-spike", at(0, 0.62), 0.4, { attr: { y: 525, height: 0 } }, { attr: { y: 300, height: 225 } });
+IN("#tw-l12k", at(0, 0.75), 0.5);
+// L1 窗口 + 算术平均
+OUT("#tw-term", at(1, 0.16), 0.4);
+IN("#tw-bandl", at(1, 0.03), 0.5);
+PULSE("#tw-band", at(1, 0.1), 0.5);
+IN("#tw-spl", at(1, 0.2), 0.5);
+PULSE("#tw-spike", at(1, 0.26), 0.4);
+IN("#tw-f1a", at(1, 0.38), 0.5, { y: 15 }, { y: 0 });
+IN("#tw-f1b", at(1, 0.5), 0.5, { y: 15 }, { y: 0 });
+IN("#tw-f1c", at(1, 0.6), 0.5, { y: 15 }, { y: 0 });
+IN("#tw-f1d", at(1, 0.72), 0.5, { y: 15 }, { y: 0 });
+DRAW("#tw-avg", at(1, 0.8), 1.0);
+IN("#tw-avgl", at(1, 0.84), 0.5);
+IN("#tw-f1e", at(1, 0.9), 0.5, { x: -20 }, { x: 0 });
+// L2 几何平均 + 同一交易内还原
+IN("#tw-f2a", at(2, 0.03), 0.5, { y: 15 }, { y: 0 });
+IN("#tw-f2s", at(2, 0.12), 0.5);
+IN("#tw-f2b", at(2, 0.22), 0.5);
+IN("#tw-f2c", at(2, 0.33), 0.5, { x: -20 }, { x: 0 });
+PULSE("#tw-avg", at(2, 0.42), 0.4);
+OUT("#tw-spl", at(2, 0.55), 0.3);
+TO("#tw-spike", at(2, 0.58), { attr: { x: 1008, width: 4 } }, 0.8);
+IN("#tw-spl2", at(2, 0.64), 0.5);
+IN("#tw-f3", at(2, 0.76), 0.6, { x: 20 }, { x: 0 });
+PULSE("#tw-avg", at(2, 0.9), 0.4);
+// L3 三种价格来源表
+OUT("#tw-chart", at(3, 0), 0.5);
+IN("#tw-rl", at(3, 0.08), 0.5);
+IN("#tw-hd0", at(3, 0.1), 0.5, { y: 20 }, { y: 0 });
+IN("#tw-hd1", at(3, 0.16), 0.5, { y: 20 }, { y: 0 });
+IN("#tw-hd2", at(3, 0.22), 0.5, { y: 20 }, { y: 0 });
+IN("#tw-c00", at(3, 0.38), 0.5, { x: -20 }, { x: 0 });
+IN("#tw-c01", at(3, 0.58), 0.5, { x: -20 }, { x: 0 });
+IN("#tw-c02", at(3, 0.8), 0.5, { x: -20 }, { x: 0 });
+// L4 TWAP 列
+PULSE("#tw-hd1", at(4, 0.04), 0.4);
+IN("#tw-c10", at(4, 0.18), 0.5, { x: -20 }, { x: 0 });
+IN("#tw-c11", at(4, 0.45), 0.5, { x: -20 }, { x: 0 });
+PULSE("#tw-c11", at(4, 0.6), 0.5);
+IN("#tw-c12", at(4, 0.75), 0.5, { x: -20 }, { x: 0 });
+TO("#tw-c12 rect", at(4, 0.9), { stroke: "#83C167", strokeWidth: 3 }, 0.4);
+// L5 外部预言机列
+PULSE("#tw-hd2", at(5, 0.04), 0.4);
+IN("#tw-c20", at(5, 0.18), 0.5, { x: -20 }, { x: 0 });
+IN("#tw-c21", at(5, 0.4), 0.5, { x: -20 }, { x: 0 });
+IN("#tw-c22", at(5, 0.62), 0.5, { x: -20 }, { x: 0 });
+TO("#tw-c22 rect", at(5, 0.8), { stroke: "#83C167", strokeWidth: 3 }, 0.4);
+TO("#tw-c21 rect", at(5, 0.5), { stroke: "#FF9F43", strokeWidth: 3 }, 0.4);
+// L6 集成方规则
+OUT("#tw-cells", at(6, 0), 0.4);
+OUT("#tw-rl", at(6, 0), 0.4);
+IN("#tw-rlab", at(6, 0.03), 0.4);
+IN("#tw-r0", at(6, 0.05), 0.4);
+IN("#tw-r00", at(6, 0.09), 0.4);
+IN("#tw-r01", at(6, 0.15), 0.4);
+IN("#tw-hx", at(6, 0.19), 0.3);
+IN("#tw-r1", at(6, 0.24), 0.4);
+IN("#tw-r10", at(6, 0.3), 0.4);
+IN("#tw-r11", at(6, 0.42), 0.4);
+IN("#tw-r12", at(6, 0.54), 0.4);
+IN("#tw-r2", at(6, 0.66), 0.4);
+IN("#tw-r20", at(6, 0.74), 0.4);
+IN("#tw-r21", at(6, 0.84), 0.4);
+IN("#tw-r22", at(6, 0.93), 0.4);
+
+      tl.to("#tw-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#tw-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["twap"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,128 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 monitor，id 前缀 mo- -->
+  <div id="root" data-composition-id="monitor" data-duration="38.65" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="mo-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="mo-all">
+        <g id="mo-panel" class="h"><rect x="160" y="220" width="1600" height="790" rx="20" fill="#12151c" stroke="#8a8f99" stroke-width="2" />
+          <text x="200" y="290" font-size="40" font-weight="700" fill="#e8e6df">监控仪表盘</text></g>
+        <g id="mo-badge" class="h"><rect x="1460" y="246" width="270" height="56" rx="28" fill="#FF9F43" fill-opacity="0.15" stroke="#FF9F43" stroke-width="2" /><text x="1595" y="285" font-size="30" fill="#FF9F43" text-anchor="middle">阈值均为示例</text></g>
+        <g id="mo-c0" class="h"><rect id="mo-cr0" x="190" y="320" width="493" height="315" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <text x="218" y="374" font-size="32" fill="#e8e6df">单池 TVL</text>
+          <circle id="mo-led0" cx="645" cy="364" r="14" fill="#3a3f4a" /></g>
+        <g id="mo-c1" class="h"><rect id="mo-cr1" x="713" y="320" width="493" height="315" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <text x="741" y="374" font-size="32" fill="#e8e6df">池子价格</text>
+          <circle id="mo-led1" cx="1168" cy="364" r="14" fill="#3a3f4a" /></g>
+        <g id="mo-c2" class="h"><rect id="mo-cr2" x="1236" y="320" width="493" height="315" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <text x="1264" y="374" font-size="32" fill="#e8e6df">路由大额外流</text>
+          <circle id="mo-led2" cx="1691" cy="364" r="14" fill="#3a3f4a" /></g>
+        <g id="mo-c3" class="h"><rect id="mo-cr3" x="190" y="665" width="493" height="315" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <text x="218" y="719" font-size="32" fill="#e8e6df">管理员操作</text>
+          <circle id="mo-led3" cx="645" cy="709" r="14" fill="#3a3f4a" /></g>
+        <g id="mo-c4" class="h"><rect id="mo-cr4" x="713" y="665" width="493" height="315" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <text x="741" y="719" font-size="32" fill="#e8e6df">前端完整性</text>
+          <circle id="mo-led4" cx="1168" cy="709" r="14" fill="#3a3f4a" /></g>
+        <g id="mo-c5" class="h"><rect id="mo-cr5" x="1236" y="665" width="493" height="315" rx="14" fill="#161a22" stroke="#6b6f7a" stroke-width="2" />
+          <text x="1264" y="719" font-size="32" fill="#e8e6df">tick 流动性</text>
+          <circle id="mo-led5" cx="1691" cy="709" r="14" fill="#3a3f4a" /></g>
+        <path id="mo-g0a" class="dr" pathLength="1" d="M230 440 L300 432 L370 442 L440 434 L490 438" fill="none" stroke="#58C4DD" stroke-width="4" />
+        <path id="mo-g0b" class="dr" pathLength="1" d="M490 438 L540 490 L590 532 L650 538" fill="none" stroke="#FC6255" stroke-width="5" />
+        <text id="mo-t0" class="h" x="218" y="610" font-size="30" fill="#FC6255">10 分钟内 -20%</text>
+        <path id="mo-g1a" class="dr" pathLength="1" d="M753 520 H1173" fill="none" stroke="#58C4DD" stroke-width="4" />
+        <path id="mo-g1b" class="dr" pathLength="1" d="M953 520 L965 416 L977 520" fill="none" stroke="#FC6255" stroke-width="5" stroke-linejoin="round" />
+        <text id="mo-t1" class="h" x="741" y="610" font-size="30" fill="#FC6255">偏离 &gt; 5% · 同笔恢复</text>
+        <text id="mo-s1" class="h" x="1138" y="375" font-size="30" fill="#FC6255" text-anchor="end">疑似操纵</text>
+        <g id="mo-g2a" class="h"><rect x="1276" y="534" width="30" height="26" rx="3" fill="#58C4DD" fill-opacity="0.7" /><rect x="1328" y="526" width="30" height="34" rx="3" fill="#58C4DD" fill-opacity="0.7" /><rect x="1380" y="538" width="30" height="22" rx="3" fill="#58C4DD" fill-opacity="0.7" /><rect x="1432" y="530" width="30" height="30" rx="3" fill="#58C4DD" fill-opacity="0.7" /><rect x="1484" y="532" width="30" height="28" rx="3" fill="#58C4DD" fill-opacity="0.7" /><rect x="1536" y="524" width="30" height="36" rx="3" fill="#58C4DD" fill-opacity="0.7" /><rect x="1640" y="536" width="30" height="24" rx="3" fill="#58C4DD" fill-opacity="0.7" /><path d="M1266 530 H1696" stroke="#8a8f99" stroke-width="2" stroke-dasharray="8 6" /></g>
+        <rect id="mo-g2b" class="h" x="1588" y="410" width="30" height="150" rx="3" fill="#FC6255" />
+        <text id="mo-t2" class="h" x="1264" y="610" font-size="30" fill="#FC6255">单笔 &gt; 日均 10 倍</text>
+        <g id="mo-g3a" class="h" font-size="30" fill="#e8e6df"><text x="230" y="785">升级合约</text><text x="230" y="835">修改参数</text><text x="230" y="885">改白名单</text></g>
+        <g id="mo-bell" class="h"><g id="mo-belli"><path d="M560 865 Q560 785 590 780 Q620 785 620 865 H630 V875 H550 V865 Z" fill="#FF9F43" fill-opacity="0.25" stroke="#FF9F43" stroke-width="4" stroke-linejoin="round" /><circle cx="590" cy="887" r="9" fill="#FF9F43" /></g></g>
+        <text id="mo-t3" class="h" x="218" y="955" font-size="30" fill="#FF9F43">任何变更 · 立即通知</text>
+        <g id="mo-g4a" class="h"><text x="753" y="805" font-size="30" fill="#8a8f99">线上</text><text x="753" y="870" font-size="30" fill="#8a8f99">发布</text>
+          <text class="mono" x="843" y="805" font-size="30" fill="#e8e6df">a3f9e1...</text><text class="mono" x="843" y="870" font-size="30" fill="#e8e6df">a3f9e1...</text>
+          <text class="mono" x="1005" y="870" font-size="30" fill="#e8e6df">c21</text></g>
+        <text id="mo-h4" class="h mono" x="1005" y="805" font-size="30" fill="#e8e6df">7e0</text>
+        <text id="mo-t4" class="h" x="741" y="955" font-size="30" fill="#FC6255">线上 ≠ 发布</text>
+        <g id="mo-g5a" class="h"><rect x="1296" y="855" width="24" height="50" rx="3" fill="#58C4DD" fill-opacity="0.8" /><rect x="1378" y="815" width="24" height="90" rx="3" fill="#58C4DD" fill-opacity="0.8" /><rect x="1460" y="775" width="24" height="130" rx="3" fill="#58C4DD" fill-opacity="0.8" /><rect x="1542" y="815" width="24" height="90" rx="3" fill="#58C4DD" fill-opacity="0.8" /><rect x="1624" y="855" width="24" height="50" rx="3" fill="#58C4DD" fill-opacity="0.8" /><rect x="1324" y="855" width="24" height="50" rx="3" fill="#8a8f99" /><rect x="1406" y="815" width="24" height="90" rx="3" fill="#8a8f99" /><rect id="mo-bad" x="1488" y="845" width="24" height="60" rx="3" fill="#8a8f99" /><rect x="1570" y="815" width="24" height="90" rx="3" fill="#8a8f99" /><rect x="1652" y="855" width="24" height="50" rx="3" fill="#8a8f99" /></g>
+        <text id="mo-t5" class="h" x="1264" y="955" font-size="30" fill="#FC6255">链下重算 ≠ 合约状态</text>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+
+      const PULSE = (s, t, o = 0.4) => tl.to(s, { opacity: o, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      const TO = (s, t, v, d = 0.5) => tl.to(s, { duration: d, ease: "power2.inOut", ...v }, t);
+// L0 仪表盘 + 六个空格
+IN("#mo-panel", at(0, 0.02), 0.6);
+for (let k = 0; k < 6; k++) IN(`#mo-c${k}`, at(0, 0.15 + k * 0.08), 0.4, { y: 15 }, { y: 0 });
+IN("#mo-badge", at(0, 0.72), 0.5, { x: 20 }, { x: 0 });
+const RED = (k, t, c = "#FC6255") => { TO(`#mo-led${k}`, t, { fill: c }, 0.2); TO(`#mo-cr${k}`, t, { stroke: c }, 0.3); PULSE(`#mo-led${k}`, t + 0.3, 0.3); };
+// L1 TVL + 价格
+TO("#mo-cr0", at(1, 0.02), { stroke: "#58C4DD" }, 0.3);
+DRAW("#mo-g0a", at(1, 0.05), 0.8);
+DRAW("#mo-g0b", at(1, 0.15), 0.8);
+IN("#mo-t0", at(1, 0.24), 0.4);
+RED(0, at(1, 0.3));
+TO("#mo-cr1", at(1, 0.44), { stroke: "#58C4DD" }, 0.3);
+DRAW("#mo-g1a", at(1, 0.48), 0.8);
+DRAW("#mo-g1b", at(1, 0.6), 0.5);
+IN("#mo-t1", at(1, 0.7), 0.4);
+RED(1, at(1, 0.8));
+IN("#mo-s1", at(1, 0.84), 0.4);
+// L2 路由外流 + 管理员操作
+TO("#mo-cr2", at(2, 0.02), { stroke: "#58C4DD" }, 0.3);
+IN("#mo-g2a", at(2, 0.06), 0.5, { y: 15 }, { y: 0 });
+IN("#mo-g2b", at(2, 0.2), 0.6, { attr: { y: 560, height: 0 } }, { attr: { y: 410, height: 150 } });
+IN("#mo-t2", at(2, 0.28), 0.4);
+RED(2, at(2, 0.36));
+TO("#mo-cr3", at(2, 0.5), { stroke: "#58C4DD" }, 0.3);
+IN("#mo-g3a", at(2, 0.54), 0.5);
+IN("#mo-bell", at(2, 0.68), 0.4);
+tl.to("#mo-belli", { rotation: 12, svgOrigin: "590 780", duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, at(2, 0.72));
+IN("#mo-t3", at(2, 0.74), 0.4);
+RED(3, at(2, 0.8), "#FF9F43");
+// L3 前端完整性 + tick 不变量
+TO("#mo-cr4", at(3, 0.02), { stroke: "#58C4DD" }, 0.3);
+IN("#mo-g4a", at(3, 0.06), 0.5);
+IN("#mo-h4", at(3, 0.2), 0.4);
+TO("#mo-h4", at(3, 0.3), { fill: "#FC6255" }, 0.3);
+IN("#mo-t4", at(3, 0.34), 0.4);
+RED(4, at(3, 0.4));
+TO("#mo-cr5", at(3, 0.54), { stroke: "#58C4DD" }, 0.3);
+IN("#mo-g5a", at(3, 0.58), 0.5, { y: 15 }, { y: 0 });
+TO("#mo-bad", at(3, 0.7), { fill: "#FC6255" }, 0.3);
+IN("#mo-t5", at(3, 0.74), 0.4);
+RED(5, at(3, 0.8));
+
+      tl.to("#mo-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["monitor"] = tl;
+    })();
+  </script>
+</template>

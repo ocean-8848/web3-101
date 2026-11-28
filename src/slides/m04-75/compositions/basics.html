@@ -1,0 +1,286 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 basics，id 前缀 ba- -->
+  <div id="root" data-composition-id="basics" data-duration="90.81" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ba-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ba-all">
+        <g id="ba-sA">
+          <rect id="ba-pool" class="h" x="760" y="300" width="400" height="320" rx="20" fill="#161a22" stroke="#58C4DD" stroke-width="3"/>
+          <text id="ba-pooll" class="h" x="960" y="352" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">池子</text>
+          <g id="ba-lp" class="h">
+            <circle cx="380" cy="400" r="30" fill="#8a8f99"/>
+            <path d="M332 520 Q332 450 380 450 Q428 450 428 520 Z" fill="#8a8f99"/>
+            <text x="380" y="572" font-size="32" fill="#e8e6df" text-anchor="middle">LP</text>
+          </g>
+          <g id="ba-tk" class="h">
+            <rect x="450" y="340" width="120" height="76" rx="8" fill="#F0B90B"/>
+            <text x="510" y="390" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">X</text>
+          </g>
+          <g id="ba-us" class="h">
+            <rect x="450" y="440" width="120" height="76" rx="8" fill="#4a3b0e" stroke="#F0B90B" stroke-width="3"/>
+            <text x="510" y="489" font-size="28" font-weight="700" fill="#F0B90B" text-anchor="middle">USDC</text>
+          </g>
+          <path id="ba-sw1" class="dr h" pathLength="1" d="M1335 455 L1182 455" stroke="#e8e6df" stroke-width="4" fill="none" marker-end="url(#ba-arr)"/>
+          <path id="ba-sw2" class="dr h" pathLength="1" d="M1182 520 L1335 520" stroke="#e8e6df" stroke-width="4" fill="none" marker-end="url(#ba-arr)"/>
+          <text id="ba-swl" class="h" x="1258" y="424" font-size="30" fill="#e8e6df" text-anchor="middle">兑换</text>
+          <g id="ba-coins"></g>
+          <g id="ba-caps">
+            <g id="ba-c0" class="h"><rect x="1420" y="296" width="280" height="56" rx="28" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="1560" y="334" font-size="30" fill="#8a8f99" text-anchor="middle">恒定乘积</text></g>
+            <g id="ba-c1" class="h"><rect x="1420" y="376" width="280" height="56" rx="28" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="1560" y="414" font-size="30" fill="#8a8f99" text-anchor="middle">tick</text></g>
+            <g id="ba-c2" class="h"><rect x="1420" y="456" width="280" height="56" rx="28" fill="none" stroke="#8a8f99" stroke-width="2"/><text x="1560" y="494" font-size="30" fill="#8a8f99" text-anchor="middle">无常损失</text></g>
+            <text id="ba-c3" class="h" x="1560" y="572" font-size="30" fill="#6b6f7a" text-anchor="middle">前面讲过</text>
+          </g>
+        </g>
+        <g id="ba-pic">
+          <line id="ba-axis" class="dr" pathLength="1" x1="200" y1="820" x2="1720" y2="820" stroke="#58C4DD" stroke-width="3"/>
+          <rect id="ba-band" class="h" x="519" y="780" width="646" height="40" fill="#83C167" fill-opacity="0.35" stroke="#83C167" stroke-width="2.5"/>
+          <text id="ba-pa" class="h" x="519" y="872" font-size="30" fill="#83C167" text-anchor="middle">下沿 pa · 81</text>
+          <text id="ba-pb" class="h" x="1165" y="872" font-size="30" fill="#83C167" text-anchor="middle">上沿 pb · 123.46</text>
+          <g id="ba-nowg" class="h">
+            <line x1="808" y1="745" x2="808" y2="838" stroke="#e8e6df" stroke-width="3"/>
+          </g>
+          <text id="ba-nowl" class="h" x="808" y="732" font-size="28" fill="#e8e6df" text-anchor="middle">现价 100</text>
+          <text id="ba-f1" class="h mono" x="960" y="330" font-size="44" fill="#58C4DD" text-anchor="middle">x = L(1/√p - 1/√pb)</text>
+          <text id="ba-fx" class="h" x="960" y="250" font-size="30" fill="#F0B90B" text-anchor="middle">代币数量 x</text>
+          <text id="ba-fy" class="h" x="960" y="460" font-size="30" fill="#F0B90B" text-anchor="middle">USDC 数量 y</text>
+          <text id="ba-s1" class="h mono" x="1590" y="292" font-size="30" fill="#F0B90B" text-anchor="middle">= 1,000×(0.1-0.09) = 10</text>
+          <text id="ba-s2" class="h mono" x="1590" y="382" font-size="30" fill="#F0B90B" text-anchor="middle">= 1,000×(10-9) = 1,000</text>
+          <text id="ba-f2" class="h mono" x="960" y="410" font-size="44" fill="#58C4DD" text-anchor="middle">y = L(√p - √pa)</text>
+          <g id="ba-mid" class="h">
+            <rect id="ba-midr" x="735" y="430" width="450" height="260" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3"/>
+            <text x="960" y="478" font-size="32" font-weight="700" fill="#83C167" text-anchor="middle">81 到 123.46</text>
+            <rect id="ba-mtk" x="775" y="502" width="0" height="60" fill="#F0B90B"/>
+            <rect id="ba-mus" x="960" y="502" width="0" height="60" fill="#4a3b0e" stroke="#F0B90B" stroke-width="3"/>
+            <text id="ba-mtl" class="h" x="867" y="606" font-size="30" fill="#F0B90B" text-anchor="middle">10 个代币</text>
+            <text id="ba-mul" class="h" x="1052" y="606" font-size="30" fill="#F0B90B" text-anchor="middle">1,000 USDC</text>
+            <text id="ba-mL" class="h" x="960" y="660" font-size="28" fill="#8a8f99" text-anchor="middle">L = 1,000（示例）</text>
+          </g>
+          <g id="ba-left" class="h">
+            <rect id="ba-leftr" x="200" y="430" width="450" height="260" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+            <text x="425" y="478" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">价格 ≤ 81</text>
+            <rect x="240" y="502" width="370" height="60" fill="#F0B90B"/>
+            <text x="425" y="606" font-size="30" fill="#F0B90B" text-anchor="middle">全是代币 X 21.11 个</text>
+            <text x="425" y="660" font-size="28" fill="#8a8f99" text-anchor="middle">不赚手续费</text>
+          </g>
+          <g id="ba-right" class="h">
+            <rect id="ba-rightr" x="1270" y="430" width="450" height="260" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/>
+            <text x="1495" y="478" font-size="32" font-weight="700" fill="#FF9F43" text-anchor="middle">价格 ≥ 123.46</text>
+            <rect x="1310" y="502" width="370" height="60" fill="#4a3b0e" stroke="#F0B90B" stroke-width="3"/>
+            <text x="1495" y="606" font-size="30" fill="#F0B90B" text-anchor="middle">全是 USDC 2,111.1</text>
+            <text x="1495" y="660" font-size="28" fill="#8a8f99" text-anchor="middle">不赚手续费</text>
+          </g>
+          <path id="ba-d1" class="dr h" pathLength="1" d="M662 560 L723 560" stroke="#e8e6df" stroke-width="4" fill="none" marker-start="url(#ba-arr)" marker-end="url(#ba-arr)"/>
+          <path id="ba-d2" class="dr h" pathLength="1" d="M1197 560 L1258 560" stroke="#e8e6df" stroke-width="4" fill="none" marker-start="url(#ba-arr)" marker-end="url(#ba-arr)"/>
+        </g>
+        <g id="ba-sC">
+        <g transform="translate(0 50) translate(960 540) scale(1.12) translate(-960 -540)">
+          <g id="ba-dial" class="h">
+            <text x="620" y="292" font-size="30" fill="#8a8f99" text-anchor="end">汇率</text>
+            <line x1="660" y1="280" x2="1260" y2="280" stroke="#8a8f99" stroke-width="3"/>
+            <rect x="900" y="266" width="240" height="14" fill="#83C167" fill-opacity="0.6"/>
+            <line x1="660" y1="272" x2="660" y2="290" stroke="#8a8f99" stroke-width="3"/>
+            <line x1="960" y1="272" x2="960" y2="290" stroke="#8a8f99" stroke-width="3"/>
+            <line x1="1260" y1="272" x2="1260" y2="290" stroke="#8a8f99" stroke-width="3"/>
+            <text x="660" y="330" font-size="28" fill="#8a8f99" text-anchor="middle">6.5</text>
+            <text x="960" y="330" font-size="28" fill="#8a8f99" text-anchor="middle">7.0</text>
+            <text x="1260" y="330" font-size="28" fill="#8a8f99" text-anchor="middle">7.5</text>
+            <path id="ba-ndl" d="M944 236 L976 236 L960 262 Z" fill="#e8e6df"/>
+          </g>
+          <g id="ba-st1" class="h">
+            <rect x="300" y="400" width="420" height="62" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text x="510" y="443" font-size="32" fill="#e8e6df" text-anchor="middle">任何汇率都换</text>
+            <line x1="310" y1="462" x2="310" y2="712" stroke="#8a8f99" stroke-width="5"/>
+            <line x1="710" y1="462" x2="710" y2="712" stroke="#8a8f99" stroke-width="5"/>
+            <rect id="ba-ct1" x="300" y="700" width="420" height="12" fill="#F0B90B"/>
+            <circle cx="510" cy="800" r="18" fill="#8a8f99"/>
+            <path d="M482 860 Q482 822 510 822 Q538 822 538 860 Z" fill="#8a8f99"/>
+          </g>
+          <g id="ba-st2" class="h">
+            <rect x="1200" y="400" width="420" height="62" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+            <text x="1410" y="443" font-size="32" fill="#e8e6df" text-anchor="middle">6.9 - 7.3</text>
+            <line x1="1210" y1="462" x2="1210" y2="712" stroke="#8a8f99" stroke-width="5"/>
+            <line x1="1610" y1="462" x2="1610" y2="712" stroke="#8a8f99" stroke-width="5"/>
+            <rect id="ba-ct2" x="1200" y="620" width="420" height="92" fill="#F0B90B"/>
+          </g>
+          <g id="ba-queue"></g>
+          <g id="ba-shut" class="h">
+            <rect id="ba-shutr" x="1214" y="462" width="392" height="0" fill="#3a3e48" stroke="#8a8f99" stroke-width="2"/>
+          </g>
+          <g id="ba-tag" class="h">
+            <rect x="1340" y="296" width="240" height="76" rx="8" fill="#161a22" stroke="#e8e6df" stroke-width="2" stroke-dasharray="6 5"/>
+            <text x="1460" y="348" font-size="36" fill="#e8e6df" text-anchor="middle">自己定价</text>
+          </g>
+          <path id="ba-x1" class="dr" pathLength="1" d="M1330 288 L1590 380" stroke="#FC6255" stroke-width="4" stroke-opacity="0.75" stroke-linecap="round" fill="none"/>
+          <path id="ba-x2" class="dr" pathLength="1" d="M1590 288 L1330 380" stroke="#FC6255" stroke-width="4" stroke-opacity="0.75" stroke-linecap="round" fill="none"/>
+          <g id="ba-gear" class="h">
+            <g id="ba-gearr">
+              <circle cx="420" cy="560" r="50" fill="none" stroke="#58C4DD" stroke-width="18" stroke-dasharray="13 13"/>
+              <circle cx="420" cy="560" r="36" fill="none" stroke="#58C4DD" stroke-width="5"/>
+              <circle cx="420" cy="560" r="10" fill="#58C4DD"/>
+            </g>
+            <text x="420" y="664" font-size="30" fill="#58C4DD" text-anchor="middle">公式</text>
+          </g>
+          <g id="ba-arb" class="h">
+            <circle cx="640" cy="512" r="26" fill="#FF9F43"/>
+            <path d="M598 612 Q598 550 640 550 Q682 550 682 612 Z" fill="#FF9F43"/>
+            <text x="640" y="664" font-size="30" fill="#FF9F43" text-anchor="middle">套利者</text>
+          </g>
+          <path id="ba-ar7" class="dr h" pathLength="1" d="M720 585 L1150 585" stroke="#e8e6df" stroke-width="4" fill="none" marker-end="url(#ba-arr)"/>
+          <text id="ba-ar7l" class="h" x="930" y="558" font-size="30" fill="#e8e6df" text-anchor="middle">价格由它们决定</text>
+          <text id="ba-lvr" class="h" x="930" y="650" font-size="36" font-weight="700" fill="#FF9F43" text-anchor="middle">→ LVR</text>
+        </g>
+        </g>
+      </g>
+      <!-- 术语卡（统一样式）：左上角；一次只放一个词 -->
+      <g id="ba-term" class="h">
+        <rect x="70" y="56" width="620" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">流动性提供者 <tspan font-size="28" font-weight="400" fill="#8a8f99">LP</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">存入两种代币供人兑换，按份额赚手续费</text>
+      </g>
+      <g id="ba-term2" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">价格区间 <tspan font-size="28" font-weight="400" fill="#8a8f99">Price Range</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">只在 pa 到 pb 之间提供流动性</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, a, p) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); document.querySelector(p).appendChild(e); return e; };
+      // L0 LP 与池子
+      IN("#ba-term", at(0, 0.06), 0.5);
+      IN("#ba-pool, #ba-pooll", at(0, 0.1), 0.6, { scale: 0.9, svgOrigin: "960 460" }, { scale: 1, svgOrigin: "960 460" });
+      IN("#ba-lp", at(0, 0.18), 0.5, { y: 20 }, { y: 0 });
+      IN("#ba-tk, #ba-us", at(0, 0.25), 0.4);
+      tl.to("#ba-tk", { x: 370, y: 130, duration: 0.9, ease: "power2.inOut" }, at(0, 0.38));
+      tl.to("#ba-us", { x: 530, y: 30, duration: 0.9, ease: "power2.inOut" }, at(0, 0.46));
+      ARROW("#ba-sw1", at(0, 0.6), 0.5);
+      IN("#ba-swl", at(0, 0.62), 0.4);
+      ARROW("#ba-sw2", at(0, 0.67), 0.5);
+      [0, 1, 2].forEach(i => {
+        const c = mk("circle", { cx: 900, cy: 600, r: 13, fill: "#F0B90B", stroke: "#0f1117", "stroke-width": 3, opacity: 0 }, "#ba-coins");
+        const t = at(0, 0.78) + i * 0.35;
+        tl.fromTo(c, { opacity: 0, attr: { cx: 900, cy: 600 } }, { opacity: 1, duration: 0.15, immediateRender: false }, t);
+        tl.to(c, { attr: { cx: 430, cy: 470 }, duration: 0.8, ease: "power1.inOut" }, t);
+        tl.to(c, { opacity: 0, duration: 0.2 }, t + 0.8);
+      });
+      // L1 前面讲过的三件事
+      OUT("#ba-term", at(1, 0.02), 0.4);
+      IN("#ba-c0", at(1, 0.06), 0.4, { x: 30 }, { x: 0 });
+      IN("#ba-c1", at(1, 0.2), 0.4, { x: 30 }, { x: 0 });
+      IN("#ba-c2", at(1, 0.33), 0.4, { x: 30 }, { x: 0 });
+      IN("#ba-c3", at(1, 0.5), 0.4);
+      tl.to("#ba-caps", { opacity: 0.22, duration: 0.6 }, at(1, 0.75));
+      tl.to("#ba-pool", { stroke: "#83C167", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.85));
+      // L2 价格区间
+      tl.to("#ba-sA", { opacity: 0, duration: 0.5 }, at(2, 0));
+      IN("#ba-term2", at(2, 0.05), 0.5);
+      DRAW("#ba-axis", at(2, 0.1), 0.9);
+      IN("#ba-band", at(2, 0.36), 0.3);
+      tl.fromTo("#ba-band", { attr: { x: 842, width: 0 } }, { attr: { x: 519, width: 646 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(2, 0.36));
+      IN("#ba-pa", at(2, 0.6), 0.4, { y: 15 }, { y: 0 });
+      IN("#ba-pb", at(2, 0.72), 0.4, { y: 15 }, { y: 0 });
+      IN("#ba-nowg, #ba-nowl", at(2, 0.86), 0.4);
+      // L3 公式
+      IN("#ba-f1", at(3, 0.12), 0.6, { y: 20 }, { y: 0 });
+      IN("#ba-f2", at(3, 0.42), 0.6, { y: 20 }, { y: 0 });
+      OUT("#ba-term2", at(3, 0.3), 0.4);
+      tl.to("#ba-band", { fillOpacity: 0.6, duration: 0.35, yoyo: true, repeat: 1 }, at(3, 0.72));
+      // L4 两个公式逐个讲
+      tl.to("#ba-f1", { fill: "#F0B90B", scale: 1.06, svgOrigin: "960 315", duration: 0.4 }, at(4, 0.05));
+      tl.to("#ba-f1", { fill: "#58C4DD", scale: 1, svgOrigin: "960 315", duration: 0.4 }, at(4, 0.5));
+      tl.to("#ba-f2", { fill: "#F0B90B", scale: 1.06, svgOrigin: "960 395", duration: 0.4 }, at(4, 0.55));
+      tl.to("#ba-f2", { fill: "#58C4DD", scale: 1, svgOrigin: "960 395", duration: 0.4 }, at(4, 0.95));
+      IN("#ba-fx", at(4, 0.1), 0.4); IN("#ba-fy", at(4, 0.58), 0.4);
+      // L5 区间内示例：代入现价 100
+      OUT("#ba-fx, #ba-fy", at(5, 0), 0.3);
+      tl.to("#ba-f1", { attr: { x: 1590, y: 250, "font-size": 30 }, duration: 0.8, ease: "power2.inOut" }, at(5, 0.02));
+      tl.to("#ba-f2", { attr: { x: 1590, y: 340, "font-size": 30 }, duration: 0.8, ease: "power2.inOut" }, at(5, 0.02));
+      IN("#ba-mid", at(5, 0.12), 0.5);
+      tl.to("#ba-mL", { opacity: 1, duration: 0.4 }, at(5, 0.35));
+      IN("#ba-s1", at(5, 0.3), 0.4, { y: -10 }, { y: 0 });
+      IN("#ba-s2", at(5, 0.62), 0.4, { y: -10 }, { y: 0 });
+      tl.to("#ba-mtk", { attr: { width: 185 }, duration: 0.7, ease: "power2.out" }, at(5, 0.6));
+      tl.to("#ba-mtl", { opacity: 1, duration: 0.4 }, at(5, 0.65));
+      tl.fromTo("#ba-mus", { attr: { x: 960, width: 0 } }, { attr: { x: 960, width: 185 }, duration: 0.7, ease: "power2.out", immediateRender: false }, at(5, 0.74));
+      tl.to("#ba-mul", { opacity: 1, duration: 0.4 }, at(5, 0.78));
+      // L6 三种状态
+      OUT("#ba-s1, #ba-s2", at(6, 0.0), 0.3);
+      OUT("#ba-nowl", at(6, 0.02), 0.3);
+      IN("#ba-left", at(6, 0.05), 0.5, { x: 30 }, { x: 0 });
+      ARROW("#ba-d1", at(6, 0.08), 0.4);
+      tl.to("#ba-nowg", { x: -456, duration: 1.0, ease: "power2.inOut" }, at(6, 0.08));
+      tl.to("#ba-leftr", { strokeWidth: 7, duration: 0.3 }, at(6, 0.17));
+      tl.to("#ba-mid", { opacity: 0.45, duration: 0.3 }, at(6, 0.17));
+      IN("#ba-right", at(6, 0.3), 0.5, { x: -30 }, { x: 0 });
+      ARROW("#ba-d2", at(6, 0.33), 0.4);
+      tl.to("#ba-leftr", { strokeWidth: 3, duration: 0.3 }, at(6, 0.33));
+      tl.to("#ba-nowg", { x: 492, duration: 1.3, ease: "power2.inOut" }, at(6, 0.33));
+      tl.to("#ba-rightr", { strokeWidth: 7, duration: 0.3 }, at(6, 0.45));
+      tl.to("#ba-rightr", { strokeWidth: 3, duration: 0.3 }, at(6, 0.6));
+      tl.to("#ba-nowg", { x: 0, duration: 1.0, ease: "power2.inOut" }, at(6, 0.6));
+      tl.to("#ba-mid", { opacity: 1, duration: 0.3 }, at(6, 0.68));
+      tl.to("#ba-midr", { strokeWidth: 7, duration: 0.3 }, at(6, 0.7));
+      tl.to("#ba-band", { fillOpacity: 0.65, duration: 0.4, yoyo: true, repeat: 1 }, at(6, 0.82));
+      // L6 换汇摊位
+      tl.to("#ba-pic", { opacity: 0, duration: 0.5 }, at(7, 0));
+      IN("#ba-dial", at(7, 0.05), 0.5);
+      IN("#ba-st1", at(7, 0.12), 0.5, { y: 20 }, { y: 0 });
+      IN("#ba-st2", at(7, 0.25), 0.5, { y: 20 }, { y: 0 });
+      tl.fromTo("#ba-ct2", { attr: { y: 700, height: 12 } }, { attr: { y: 620, height: 92 }, duration: 0.8, ease: "power2.out", immediateRender: false }, at(7, 0.36));
+      [1250, 1340, 1430, 1520, 1600].forEach((x, i) => {
+        const g = mk("g", { opacity: 0 }, "#ba-queue");
+        g.appendChild(mk("circle", { cx: x, cy: 800, r: 18, fill: "#8a8f99" }, "#ba-queue"));
+        g.appendChild(mk("path", { d: `M${x - 28} 860 Q${x - 28} 822 ${x} 822 Q${x + 28} 822 ${x + 28} 860 Z`, fill: "#8a8f99" }, "#ba-queue"));
+        tl.fromTo(g, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.4, immediateRender: false }, at(7, 0.42) + i * 0.22);
+      });
+      tl.to("#ba-ndl", { x: 60, duration: 0.6, ease: "sine.inOut" }, at(7, 0.56));
+      tl.to("#ba-ndl", { x: 300, duration: 1.2, ease: "power2.in" }, at(7, 0.66));
+      IN("#ba-shut", at(7, 0.79), 0.1);
+      tl.to("#ba-shutr", { attr: { height: 250 }, duration: 0.8, ease: "power2.in" }, at(7, 0.79));
+      tl.to("#ba-queue", { opacity: 0, duration: 0.5 }, at(7, 0.9));
+      // L7 比喻的局限
+      IN("#ba-tag", at(8, 0.06), 0.5, { y: -20 }, { y: 0 });
+      DRAW("#ba-x1", at(8, 0.24), 0.35);
+      DRAW("#ba-x2", at(8, 0.28), 0.35);
+      tl.to("#ba-st1, #ba-dial", { opacity: 0, duration: 0.5 }, at(8, 0.3));
+      IN("#ba-gear", at(8, 0.38), 0.5, { scale: 0.6, svgOrigin: "420 560" }, { scale: 1, svgOrigin: "420 560" });
+      tl.fromTo("#ba-gearr", { rotation: 0 }, { rotation: 300, svgOrigin: "420 560", duration: at(8, 1) - at(8, 0.38), ease: "none", immediateRender: false }, at(8, 0.38));
+      IN("#ba-arb", at(8, 0.48), 0.5, { y: 20 }, { y: 0 });
+      ARROW("#ba-ar7", at(8, 0.56), 0.6);
+      IN("#ba-ar7l", at(8, 0.6), 0.4);
+      IN("#ba-lvr", at(8, 0.8), 0.5, { x: -20 }, { x: 0 });
+      OUT("#ba-tag, #ba-x1, #ba-x2", at(8, 0.92), 0.4);
+
+      tl.to("#ba-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ba-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["basics"] = tl;
+    })();
+  </script>
+</template>

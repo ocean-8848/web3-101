@@ -1,0 +1,124 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 hook，id 前缀 ho- -->
+  <div id="root" data-composition-id="hook" data-duration="34.15" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ho-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs>
+        <marker id="ho-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="ho-all">
+        <g id="ho-phone" class="h">
+          <rect x="760" y="260" width="400" height="560" rx="40" fill="#161a22" stroke="#8a8f99" stroke-width="3" />
+          <rect x="790" y="300" width="340" height="150" rx="18" fill="#1d222c" />
+          <text x="815" y="345" font-size="28" fill="#8a8f99">支付</text>
+          <text id="ho-amt" class="mono" x="815" y="418" font-size="44" font-weight="700" fill="#F0B90B">10,000 USDC</text>
+          <rect x="790" y="480" width="340" height="150" rx="18" fill="#1d222c" />
+          <text x="815" y="525" font-size="28" fill="#8a8f99">收到</text>
+          <text class="mono" x="815" y="598" font-size="44" font-weight="700" fill="#e8e6df"><tspan id="ho-q" fill="#FF9F43">?</tspan> DAI</text>
+          <rect id="ho-btn" x="800" y="680" width="320" height="100" rx="22" fill="#58C4DD" />
+          <text x="960" y="745" font-size="40" font-weight="700" fill="#0f1117" text-anchor="middle">兑换</text>
+        </g>
+        <g id="ho-finger" class="h">
+          <circle id="ho-ring" cx="1040" cy="740" r="26" fill="none" stroke="#e8e6df" stroke-width="3" />
+          <circle cx="1040" cy="740" r="16" fill="#e8e6df" />
+        </g>
+        <path id="ho-line" class="dr h" pathLength="1" d="M1120 730 H1220 V540 H1296" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#ho-arrg)" />
+        <g id="ho-boxg" class="h">
+          <rect id="ho-box" x="1300" y="360" width="460" height="360" rx="20" fill="#08090c" stroke="#3a3f4a" stroke-width="3" />
+          <text id="ho-boxt" x="1530" y="556" font-size="48" font-weight="700" fill="#6b6f7a" text-anchor="middle">后端</text>
+        </g>
+        <g id="ho-b1" class="h"><rect x="1290" y="250" width="250" height="70" rx="35" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="1415" y="296" font-size="30" fill="#FF9F43" text-anchor="middle">走哪几个池子？</text></g>
+        <g id="ho-b2" class="h"><rect x="1560" y="250" width="280" height="70" rx="35" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="1700" y="296" font-size="30" fill="#FF9F43" text-anchor="middle">每个池子换多少？</text></g>
+        <g id="ho-b3" class="h"><rect x="1410" y="770" width="240" height="70" rx="35" fill="#161a22" stroke="#FF9F43" stroke-width="2.5" /><text x="1530" y="816" font-size="30" fill="#FF9F43" text-anchor="middle">能拿到多少？</text></g>
+        <g id="ho-blk0" class="h"><rect x="150" y="330" width="100" height="100" rx="12" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><text class="mono" x="200" y="392" font-size="36" fill="#B48EF0" text-anchor="middle">N</text></g>
+        <g id="ho-blk1" class="h"><line x1="250" y1="380" x2="290" y2="380" stroke="#8a8f99" stroke-width="3" /><rect x="290" y="330" width="100" height="100" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="3" /><text class="mono" x="340" y="392" font-size="36" fill="#FF9F43" text-anchor="middle">+1</text></g>
+        <text id="ho-q1" class="h" x="420" y="398" font-size="48" font-weight="700" fill="#FF9F43">还准吗？</text>
+        <g id="ho-pen" class="h" fill="none" stroke="#FF9F43" stroke-width="4" stroke-linejoin="round">
+          <path d="M170 700 L250 620 L280 650 L200 730 Z" /><path d="M170 700 L155 745 L200 730" /><line x1="235" y1="635" x2="265" y2="665" />
+        </g>
+        <text id="ho-q2" class="h" x="320" y="700" font-size="48" font-weight="700" fill="#FF9F43">谁签名？</text>
+        <g id="ho-title" class="h">
+          <text x="960" y="450" font-size="80" font-weight="700" fill="#e8e6df" text-anchor="middle">DEX 聚合器</text>
+          <text x="960" y="560" font-size="56" fill="#e8e6df" text-anchor="middle">报价与路由后端<tspan fill="#58C4DD">（Go）</tspan></text>
+        </g>
+        <g id="ho-tags" font-size="34" text-anchor="middle">
+          <g id="ho-t0" class="h"><rect id="ho-r0" x="546" y="700" width="128" height="70" rx="35" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" /><text id="ho-x0" x="610" y="747" fill="#6b6f7a">需求</text></g>
+          <g id="ho-t1" class="h"><rect id="ho-r1" x="704" y="700" width="128" height="70" rx="35" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" /><text id="ho-x1" x="768" y="747" fill="#6b6f7a">架构</text></g>
+          <g id="ho-t2" class="h"><rect id="ho-r2" x="862" y="700" width="162" height="70" rx="35" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" /><text id="ho-x2" x="943" y="747" fill="#6b6f7a">状态机</text></g>
+          <g id="ho-t3" class="h"><rect id="ho-r3" x="1054" y="700" width="162" height="70" rx="35" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" /><text id="ho-x3" x="1135" y="747" fill="#6b6f7a">表结构</text></g>
+          <g id="ho-t4" class="h"><rect id="ho-r4" x="1246" y="700" width="128" height="70" rx="35" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5" /><text id="ho-x4" x="1310" y="747" fill="#6b6f7a">接口</text></g>
+        </g>
+        <text id="ho-next" class="h" x="1820" y="990" font-size="32" fill="#8a8f99" text-anchor="end">代码：下一集</text>
+      </g>
+      <g id="ho-term"></g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 一个按钮
+      IN("#ho-phone", at(0, 0), 0.7, { scale: 0.94, svgOrigin: "960 540" }, { scale: 1, svgOrigin: "960 540" });
+      tl.fromTo("#ho-q", { opacity: 1 }, { opacity: 0.25, duration: 0.4, yoyo: true, repeat: 3, immediateRender: false }, at(0, 0.3));
+      IN("#ho-finger", at(0, 0.55), 0.5, { x: 120, y: 160 }, { x: 0, y: 0 });
+      const tc = at(0, 0.8);
+      tl.fromTo("#ho-ring", { attr: { r: 26 }, opacity: 1 }, { attr: { r: 70 }, opacity: 0, duration: 0.6, ease: "power2.out", immediateRender: false }, tc);
+      tl.to("#ho-btn", { fill: "#bfeefa", duration: 0.12, yoyo: true, repeat: 1 }, tc);
+      OUT("#ho-finger", at(1, 0), 0.3);
+      // L1 后端黑盒 + 三个问题
+      ARROW("#ho-line", at(1, 0.02), 0.6);
+      IN("#ho-boxg", at(1, 0.1), 0.6, { scale: 0.92, svgOrigin: "1530 540" }, { scale: 1, svgOrigin: "1530 540" });
+      tl.to("#ho-box", { stroke: "#8a8f99", duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.3));
+      IN("#ho-b1", at(1, 0.42), 0.4, { y: 16 }, { y: 0 });
+      IN("#ho-b2", at(1, 0.62), 0.4, { y: 16 }, { y: 0 });
+      IN("#ho-b3", at(1, 0.82), 0.4, { y: -16 }, { y: 0 });
+      // L2 两个更麻烦的问题
+      IN("#ho-blk0", at(2, 0.15), 0.5);
+      IN("#ho-blk1", at(2, 0.32), 0.5, { x: -40 }, { x: 0 });
+      IN("#ho-q1", at(2, 0.45), 0.5, { scale: 0.8, svgOrigin: "500 380" }, { scale: 1, svgOrigin: "500 380" });
+      IN("#ho-pen", at(2, 0.68), 0.5, { y: -20 }, { y: 0 });
+      IN("#ho-q2", at(2, 0.76), 0.5, { scale: 0.8, svgOrigin: "400 680" }, { scale: 1, svgOrigin: "400 680" });
+      // L3 黑盒变成本集主题
+      OUT("#ho-b1, #ho-b2, #ho-b3, #ho-blk0, #ho-blk1, #ho-q1, #ho-q2, #ho-pen, #ho-phone, #ho-line, #ho-boxt", at(3, 0), 0.4);
+      tl.to("#ho-box", { attr: { x: 360, y: 300, width: 1200, height: 340 }, fill: "#161a22", stroke: "#58C4DD", duration: 0.9, ease: "power3.inOut" }, at(3, 0.08));
+      IN("#ho-title", at(3, 0.3), 0.7, { y: 20 }, { y: 0 });
+      // L4 五个标签依次点亮
+      [0, 1, 2, 3, 4].forEach((k) => {
+        const t = at(4, 0.04 + k * 0.09);
+        IN(`#ho-t${k}`, t, 0.35, { y: 14 }, { y: 0 });
+        tl.to(`#ho-r${k}`, { stroke: "#58C4DD", duration: 0.3 }, t + 0.3);
+        tl.to(`#ho-x${k}`, { fill: "#e8e6df", duration: 0.3 }, t + 0.3);
+      });
+      IN("#ho-next", at(4, 0.72), 0.5, { x: 20 }, { x: 0 });
+      tl.to("#ho-box", { stroke: "#83C167", duration: 0.5, yoyo: true, repeat: 1 }, at(4, 0.88));
+
+      tl.to("#ho-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ho-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

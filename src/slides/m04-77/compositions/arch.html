@@ -1,0 +1,203 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 arch，id 前缀 ar- -->
+  <div id="root" data-composition-id="arch" data-duration="80.8" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ar-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs>
+        <marker id="ar-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="ar-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+        <marker id="ar-arrp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker>
+        <marker id="ar-arrk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+      </defs>
+      <g id="ar-all">
+        <!-- 左列：前端 -->
+        <g id="ar-swap" class="h"><rect x="100" y="300" width="320" height="90" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="260" y="356" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">SwapCard</text></g>
+        <path id="ar-a0" class="dr h" pathLength="1" d="M260 392 V464" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ar-arrg)" />
+        <g id="ar-proxy" class="h"><rect x="100" y="470" width="320" height="130" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text class="mono" x="260" y="522" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">Next.js</text><text x="260" y="572" font-size="28" fill="#e8e6df" text-anchor="middle">/api/quote 代理</text></g>
+        <g id="ar-key" class="h"><g fill="none" stroke="#F0B90B" stroke-width="4"><circle cx="128" cy="642" r="14" /><path d="M142 642 H182 M170 642 V654 M180 642 V652" /></g><text x="196" y="652" font-size="28" fill="#F0B90B">附加 API Key</text></g>
+        <!-- 服务大框 -->
+        <g id="ar-svc" class="h"><rect id="ar-svcr" x="480" y="220" width="980" height="680" rx="24" fill="#58C4DD" fill-opacity="0.04" stroke="#58C4DD" stroke-width="3" /><text x="510" y="268" font-size="34" font-weight="700" fill="#58C4DD">聚合器后端 · Go</text></g>
+        <g id="ar-direct" class="h"><path d="M422 345 H474" stroke="#6b6f7a" stroke-width="3" stroke-dasharray="8 6" fill="none" /><path d="M436 330 L460 360 M460 330 L436 360" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /></g>
+        <text id="ar-scope" class="h" x="790" y="268" font-size="30" fill="#8a8f99">一条链 · V2 + V3</text>
+        <path id="ar-a1" class="dr h" pathLength="1" d="M420 520 H460 V330 H554" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ar-arrg)" />
+        <g id="ar-http" class="h"><rect id="ar-httpr" x="560" y="290" width="320" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="720" y="336" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">HTTP 层</text><text id="ar-https" x="720" y="381" font-size="28" fill="#8a8f99" text-anchor="middle">鉴权 · 限流 · 参数校验</text></g>
+        <text id="ar-stale" class="h mono" x="720" y="382" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">STALE_STATE</text>
+        <path id="ar-a2" class="dr h" pathLength="1" d="M720 402 V444" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ar-arrb)" />
+        <g id="ar-cache" class="h"><rect x="560" y="450" width="320" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="720" y="492" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">每区块缓存</text><text class="mono" x="720" y="533" font-size="28" fill="#8a8f99" text-anchor="middle">singleflight</text></g>
+        <circle id="ar-d0" class="h" cx="680" cy="424" r="9" fill="#F0B90B" /><circle id="ar-d1" class="h" cx="720" cy="424" r="9" fill="#F0B90B" /><circle id="ar-d2" class="h" cx="760" cy="424" r="9" fill="#F0B90B" />
+        <path id="ar-a3" class="dr h" pathLength="1" d="M720 552 V594" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ar-arrb)" />
+        <circle id="ar-d3" class="h" cx="740" cy="560" r="9" fill="#F0B90B" />
+        <g id="ar-eng" class="h"><rect id="ar-engr" x="560" y="600" width="320" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="720" y="642" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">报价引擎</text><text x="720" y="684" font-size="28" fill="#8a8f99" text-anchor="middle">路径搜索 · 拆单 · Gas</text></g>
+        <path id="ar-a4" class="dr h" pathLength="1" d="M720 702 V764" stroke="#B48EF0" stroke-width="2.5" fill="none" marker-end="url(#ar-arrp)" />
+        <text id="ar-ro" class="h" x="738" y="745" font-size="28" fill="#B48EF0">只读</text>
+        <g id="ar-snap" class="h"><rect id="ar-snapr" x="560" y="770" width="320" height="110" rx="14" fill="#221a33" stroke="#B48EF0" stroke-width="3.5" /><text x="720" y="814" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">池子图快照</text><text id="ar-snaps" x="720" y="860" font-size="28" fill="#e8e6df" text-anchor="middle">原子指针 · 最近 64 块</text></g>
+        <g id="ar-ghost" class="h"><rect x="560" y="770" width="320" height="110" rx="14" fill="#221a33" stroke="#B48EF0" stroke-width="3.5" /></g>
+        <g id="ar-idx" class="h"><rect x="1040" y="770" width="390" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1235" y="814" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">池子索引器</text><text x="1235" y="860" font-size="28" fill="#8a8f99" text-anchor="middle">按区块跟日志 · 重组回滚</text></g>
+        <path id="ar-w" class="dr h" pathLength="1" d="M1036 826 H890" stroke="#B48EF0" stroke-width="7" fill="none" marker-end="url(#ar-arrp)" />
+        <text id="ar-wl" class="h" x="962" y="800" font-size="28" font-weight="700" fill="#B48EF0" text-anchor="middle">唯一写入者</text>
+        <g id="ar-lock" class="h"><path d="M935 642 V628 Q935 608 955 608 Q975 608 975 628 V642" fill="none" stroke="#8a8f99" stroke-width="4" /><rect x="925" y="642" width="60" height="44" rx="8" fill="#161a22" stroke="#8a8f99" stroke-width="4" /><line x1="915" y1="696" x2="995" y2="600" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /><text x="955" y="735" font-size="28" fill="#83C167" text-anchor="middle">读不加锁</text></g>
+        <!-- 交易构造 + RPC 网关 + PostgreSQL -->
+        <path id="ar-a5" class="dr h" pathLength="1" d="M882 345 H1034" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ar-arrb)" />
+        <g id="ar-bld" class="h"><rect id="ar-bldr" x="1040" y="290" width="390" height="110" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1235" y="336" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">交易构造</text><text id="ar-blds" x="1235" y="381" font-size="28" fill="#8a8f99" text-anchor="middle">编码 calldata · 模拟</text></g>
+        <text id="ar-resim" class="h" x="1235" y="381" font-size="30" font-weight="700" fill="#83C167" text-anchor="middle">整笔再模拟</text>
+        <g id="ar-chainb" class="h" fill="#161a22" stroke="#8a8f99" stroke-width="3"><rect x="1580" y="290" width="50" height="50" rx="8" /><rect x="1645" y="290" width="50" height="50" rx="8" /><rect x="1710" y="290" width="50" height="50" rx="8" /><path d="M1630 315 H1645 M1695 315 H1710 M1670 342 V416" fill="none" /></g>
+        <g id="ar-gw" class="h"><rect id="ar-gwr" x="1520" y="420" width="300" height="300" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1670" y="478" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">RPC 网关</text></g>
+        <g id="ar-gt" class="h" font-size="28" fill="#8a8f99" text-anchor="middle"><text x="1670" y="560">多节点切换</text><text x="1670" y="612">按区块号路由</text><text x="1670" y="664">限流</text></g>
+        <text id="ar-gone" class="h" x="1670" y="768" font-size="28" fill="#8a8f99" text-anchor="middle">本服务只配一个地址</text>
+        <g id="ar-gl">
+          <path id="ar-l1" class="dr h" pathLength="1" d="M1432 380 L1514 446" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ar-arrb)" />
+          <path id="ar-l2" class="h" d="M882 650 H1512" stroke="#58C4DD" stroke-width="3" fill="none" stroke-dasharray="12 8" marker-end="url(#ar-arrb)" />
+          <path id="ar-l3" class="dr h" pathLength="1" d="M1432 800 L1514 700" stroke="#58C4DD" stroke-width="3" fill="none" marker-end="url(#ar-arrb)" />
+        </g>
+        <text id="ar-l1t" class="h mono" x="1040" y="434" font-size="28" fill="#58C4DD">eth_call · estimateGas</text>
+        <text id="ar-l2t" class="h mono" x="1050" y="633" font-size="28" fill="#58C4DD">QuoterV2 eth_call</text>
+        <text id="ar-l3t" class="h mono" x="1040" y="752" font-size="28" fill="#58C4DD">getLogs · header</text>
+        <rect id="ar-bad" class="h" x="1480" y="638" width="28" height="24" rx="4" fill="#FC6255" />
+        <path id="ar-cut" class="h" d="M1462 540 L1494 572 M1494 540 L1462 572" stroke="#FC6255" stroke-width="6" stroke-linecap="round" />
+        <g id="ar-db" class="h"><path d="M640 935 V995 A330 16 0 0 0 1300 995 V935" fill="#0e2a33" stroke="#58C4DD" stroke-width="3" /><ellipse cx="970" cy="935" rx="330" ry="16" fill="#123642" stroke="#58C4DD" stroke-width="3" /><text x="970" y="988" font-size="28" fill="#e8e6df" text-anchor="middle"><tspan font-weight="700" fill="#58C4DD">PostgreSQL</tspan>：tokens · pools · pool_state</text></g>
+        <path id="ar-db1" class="dr h" pathLength="1" d="M558 372 H520 V975 H636" stroke="#58C4DD" stroke-width="2.5" fill="none" marker-end="url(#ar-arrb)" />
+        <path id="ar-db2" class="dr h" pathLength="1" d="M1235 882 V916" stroke="#58C4DD" stroke-width="2.5" fill="none" marker-end="url(#ar-arrb)" />
+        <!-- 钱包与两道防线 -->
+        <path id="ar-sig" class="dr h" pathLength="1" d="M100 345 H76 V935 H96" stroke="#83C167" stroke-width="3.5" fill="none" marker-end="url(#ar-arrk)" />
+        <g id="ar-wal" class="h"><rect x="100" y="890" width="320" height="90" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><text x="260" y="946" font-size="30" font-weight="700" fill="#e8e6df" text-anchor="middle">钱包 · <tspan fill="#83C167">签名并广播</tspan></text></g>
+        <g id="ar-badc" class="h"><rect x="150" y="690" width="170" height="56" rx="12" fill="#2a1515" stroke="#FC6255" stroke-width="3" /><text x="235" y="729" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">坏方案</text></g>
+        <g id="ar-g1" class="h"><line x1="110" y1="790" x2="240" y2="790" stroke="#83C167" stroke-width="8" stroke-linecap="round" /><text x="256" y="800" font-size="28" fill="#83C167"><tspan class="mono">to</tspan> 白名单</text></g>
+        <g id="ar-g2" class="h"><line x1="110" y1="840" x2="240" y2="840" stroke="#83C167" stroke-width="8" stroke-linecap="round" /><text class="mono" x="256" y="850" font-size="28" fill="#83C167">minOut</text></g>
+        <!-- 扩展方向 -->
+        <g id="ar-ext" class="h"><rect x="1330" y="930" width="490" height="76" rx="14" fill="none" stroke="#6b6f7a" stroke-width="2.5" stroke-dasharray="10 7" /><text x="1575" y="979" font-size="30" fill="#8a8f99" text-anchor="middle">扩展：跨链 · Curve · Balancer</text></g>
+      </g>
+      <g id="ar-term"></g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 前端经代理附加 API Key
+      IN("#ar-swap", at(0, 0.04), 0.5, { x: -16 }, { x: 0 });
+      ARROW("#ar-a0", at(0, 0.2), 0.4);
+      IN("#ar-proxy", at(0, 0.28), 0.5, { y: 14 }, { y: 0 });
+      IN("#ar-svc", at(0, 0.1), 0.6, { scale: 0.97, svgOrigin: "970 560" }, { scale: 1, svgOrigin: "970 560" });
+      IN("#ar-direct", at(0, 0.18), 0.4);
+      IN("#ar-key", at(0, 0.62), 0.5, { x: 30 }, { x: 0 });
+      // L1 HTTP 层 → 每区块缓存（singleflight）→ 报价引擎
+      OUT("#ar-direct", at(1, 0.02), 0.3);
+      ARROW("#ar-a1", at(1, 0.08), 0.6);
+      IN("#ar-http", at(1, 0.14), 0.5, { y: 12 }, { y: 0 });
+      ARROW("#ar-a2", at(1, 0.38), 0.3);
+      IN("#ar-cache", at(1, 0.4), 0.5, { y: 12 }, { y: 0 });
+      IN("#ar-d0, #ar-d1, #ar-d2", at(1, 0.5), 0.3);
+      tl.to("#ar-d0", { attr: { cx: 720 }, duration: 0.6, ease: "power2.in" }, at(1, 0.56));
+      tl.to("#ar-d2", { attr: { cx: 720 }, duration: 0.6, ease: "power2.in" }, at(1, 0.56));
+      tl.to("#ar-d1", { attr: { r: 13 }, duration: 0.3, yoyo: true, repeat: 1 }, at(1, 0.56) + 0.6);
+      OUT("#ar-d0, #ar-d2", at(1, 0.56) + 0.6, 0.15);
+      ARROW("#ar-a3", at(1, 0.78), 0.3);
+      IN("#ar-eng", at(1, 0.8), 0.5, { y: 12 }, { y: 0 });
+      OUT("#ar-d1", at(1, 0.8), 0.2);
+      IN("#ar-d3", at(1, 0.8), 0.2);
+      tl.fromTo("#ar-d3", { attr: { cy: 560 } }, { attr: { cy: 588 }, duration: 0.6, ease: "power1.inOut", immediateRender: false }, at(1, 0.82));
+      OUT("#ar-d3", at(1, 0.82) + 0.6, 0.2);
+      // L2 报价引擎只读快照
+      tl.to("#ar-engr", { strokeWidth: 6, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.06));
+      IN("#ar-snap", at(2, 0.4), 0.5, { y: 14 }, { y: 0 });
+      ARROW("#ar-a4", at(2, 0.48), 0.4); IN("#ar-ro", at(2, 0.52), 0.4);
+      tl.to("#ar-snaps", { fill: "#B48EF0", duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.78));
+      // L3 索引器：唯一写入者，原子替换指针
+      IN("#ar-idx", at(3, 0.04), 0.5, { y: 14 }, { y: 0 });
+      ARROW("#ar-w", at(3, 0.3), 0.5); IN("#ar-wl", at(3, 0.34), 0.4);
+      const tg = at(3, 0.55);
+      IN("#ar-ghost", tg, 0.2);
+      tl.fromTo("#ar-ghost", { x: 480 }, { x: 0, duration: 0.8, ease: "power2.inOut", immediateRender: false }, tg);
+      tl.to("#ar-snap", { opacity: 0, duration: 0.5 }, tg + 0.2);
+      tl.set("#ar-snap", { opacity: 1 }, tg + 0.85); tl.set("#ar-ghost", { opacity: 0 }, tg + 0.86);
+      tl.to("#ar-snapr", { stroke: "#e8e6df", duration: 0.12, yoyo: true, repeat: 1 }, tg + 0.86);
+      IN("#ar-lock", at(3, 0.8), 0.4);
+      // L4 交易构造、RPC 网关、PostgreSQL
+      OUT("#ar-lock", at(4, 0), 0.3);
+      ARROW("#ar-a5", at(4, 0.04), 0.4);
+      IN("#ar-bld", at(4, 0.08), 0.5, { x: 16 }, { x: 0 });
+      IN("#ar-gw", at(4, 0.34), 0.5, { x: 20 }, { x: 0 });
+      IN("#ar-chainb", at(4, 0.36), 0.4);
+      ARROW("#ar-l3", at(4, 0.42), 0.4); IN("#ar-l3t", at(4, 0.44), 0.3);
+      IN("#ar-l2", at(4, 0.47), 0.4, { x: -40 }, { x: 0 }); IN("#ar-l2t", at(4, 0.49), 0.3);
+      ARROW("#ar-l1", at(4, 0.52), 0.4); IN("#ar-l1t", at(4, 0.54), 0.3);
+      IN("#ar-gt", at(4, 0.6), 0.5);
+      IN("#ar-gone", at(4, 0.68), 0.4);
+      IN("#ar-db", at(4, 0.78), 0.5, { y: 14 }, { y: 0 });
+      DRAW("#ar-db1", at(4, 0.82), 0.6); tl.set("#ar-db1", { opacity: 1 }, at(4, 0.82));
+      DRAW("#ar-db2", at(4, 0.86), 0.3); tl.set("#ar-db2", { opacity: 1 }, at(4, 0.86));
+      // L5 钱包签名 + 两道防线
+      tl.set("#ar-sig", { opacity: 1 }, at(5, 0.04)); DRAW("#ar-sig", at(5, 0.04), 0.7);
+      IN("#ar-wal", at(5, 0.1), 0.5, { y: 14 }, { y: 0 });
+      tl.to("#ar-svcr", { stroke: "#FC6255", strokeWidth: 6, duration: 0.2, yoyo: true, repeat: 3 }, at(5, 0.38));
+      IN("#ar-badc", at(5, 0.46), 0.4, { x: 200 }, { x: 0 });
+      IN("#ar-g1", at(5, 0.6), 0.4, { x: -16 }, { x: 0 });
+      IN("#ar-g2", at(5, 0.74), 0.4, { x: -16 }, { x: 0 });
+      tl.to("#ar-badc", { y: 30, duration: 0.4, ease: "power2.in" }, at(5, 0.82));
+      tl.to("#ar-badc", { y: 0, duration: 0.3, ease: "power2.out" }, at(5, 0.82) + 0.4);
+      tl.to("#ar-g1 line", { strokeWidth: 12, duration: 0.15, yoyo: true, repeat: 1 }, at(5, 0.82) + 0.4);
+      // L6 两个风险：网关断开 → STALE_STATE；QuoterV2 错数据 → 整笔再模拟
+      OUT("#ar-badc, #ar-g1, #ar-g2", at(6, 0), 0.4);
+      IN("#ar-cut", at(6, 0.1), 0.3, { scale: 0.5, svgOrigin: "1478 556" }, { scale: 1, svgOrigin: "1478 556" });
+      tl.to("#ar-gl", { opacity: 0.35, duration: 0.4 }, at(6, 0.12));
+      tl.to("#ar-gwr", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.12));
+      tl.to("#ar-snapr", { stroke: "#FF9F43", fill: "#2a1f14", duration: 0.4 }, at(6, 0.24));
+      OUT("#ar-https", at(6, 0.34), 0.3);
+      IN("#ar-stale", at(6, 0.38), 0.4);
+      tl.to("#ar-httpr", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.38));
+      // 恢复连接，再演示第二个风险
+      OUT("#ar-cut", at(6, 0.55), 0.3);
+      tl.to("#ar-gl", { opacity: 1, duration: 0.3 }, at(6, 0.55));
+      tl.to("#ar-gwr", { stroke: "#58C4DD", duration: 0.3 }, at(6, 0.55));
+      tl.to("#ar-snapr", { stroke: "#B48EF0", fill: "#221a33", duration: 0.3 }, at(6, 0.55));
+      OUT("#ar-stale", at(6, 0.55), 0.3);
+      tl.to("#ar-https", { opacity: 1, duration: 0.3 }, at(6, 0.55) + 0.35);
+      tl.to("#ar-httpr", { stroke: "#58C4DD", duration: 0.3 }, at(6, 0.55));
+      IN("#ar-bad", at(6, 0.62), 0.2);
+      tl.to("#ar-bad", { attr: { x: 900 }, duration: 1.4, ease: "power1.inOut" }, at(6, 0.62));
+      tl.to("#ar-l2t", { fill: "#FC6255", duration: 0.3 }, at(6, 0.64));
+      tl.to("#ar-engr", { stroke: "#FC6255", duration: 0.3 }, at(6, 0.62) + 1.4);
+      OUT("#ar-bad", at(6, 0.62) + 1.4, 0.2);
+      OUT("#ar-blds", at(6, 0.8), 0.3);
+      IN("#ar-resim", at(6, 0.83), 0.4);
+      tl.to("#ar-bldr", { stroke: "#83C167", strokeWidth: 5, duration: 0.4 }, at(6, 0.83));
+      // L7 范围与扩展
+      tl.to("#ar-engr", { stroke: "#58C4DD", duration: 0.3 }, at(7, 0));
+      tl.to("#ar-l2t", { fill: "#58C4DD", duration: 0.3 }, at(7, 0));
+      IN("#ar-scope", at(7, 0.08), 0.5, { x: -16 }, { x: 0 });
+      IN("#ar-ext", at(7, 0.45), 0.5, { y: 14 }, { y: 0 });
+
+      // 慢速镜头漂移，填补静止段（check dead_stretch）
+      tl.to("#ar-all", { scale: 1.012, svgOrigin: "960 540", duration: 1.83, ease: "sine.inOut", yoyo: true, repeat: 1 }, 6.0);
+      tl.to("#ar-all", { scale: 1.012, svgOrigin: "960 540", duration: 1.83, ease: "sine.inOut", yoyo: true, repeat: 1 }, 20.17);
+      tl.to("#ar-all", { scale: 1.012, svgOrigin: "960 540", duration: 1.83, ease: "sine.inOut", yoyo: true, repeat: 1 }, 26.3);
+      tl.to("#ar-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ar-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["arch"] = tl;
+    })();
+  </script>
+</template>

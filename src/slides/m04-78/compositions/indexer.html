@@ -1,0 +1,247 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 indexer，id 前缀 in- -->
+  <div id="root" data-composition-id="indexer" data-duration="75.45" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="in-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      <marker id="in-ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker>
+<marker id="in-ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker>
+<marker id="in-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker>
+<marker id="in-ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker>
+<marker id="in-agr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker>
+<marker id="in-ap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker>
+<marker id="in-an" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker>
+      </defs>
+      <g id="in-all">
+        <g id="in-p1" class="h">
+<rect x="800" y="240" width="1060" height="616" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<line x1="800" y1="298" x2="1860" y2="298" stroke="#2a2f3a" stroke-width="2"/>
+<circle cx="826" cy="269" r="7" fill="#3a3f4a"/><circle cx="848" cy="269" r="7" fill="#3a3f4a"/>
+<text class="mono" x="872" y="279" font-size="28" fill="#58C4DD">indexer.Step</text>
+<rect id="in-p1-hb" class="h" x="802" y="312.0" width="1056" height="43.5" fill="rgba(88,196,221,0.15)"/>
+<rect id="in-p1-hk" class="h" x="802" y="312.0" width="6" height="43.5" fill="#58C4DD"/>
+<text id="in-p1-l0" class="mono" x="828" y="342.0" font-size="30" fill="#e8e6df"><tspan>h, _ := ix.ec.HeaderByNumber(ctx, n)</tspan></text>
+<text id="in-p1-l1" class="mono" x="828" y="385.5" font-size="30" fill="#e8e6df"><tspan>if h.ParentHash != ix.head.Hash {</tspan><tspan fill="#8a8f99">   // reorg</tspan></text>
+<text id="in-p1-l2" class="mono" x="828" y="429.0" font-size="30" fill="#e8e6df"><tspan>    anc, _ := ix.findAncestor(ctx)</tspan></text>
+<text id="in-p1-l3" class="mono" x="828" y="472.5" font-size="30" fill="#e8e6df"><tspan>    ix.store.DeleteAfter(ctx, anc.Block)</tspan></text>
+<text id="in-p1-l4" class="mono" x="828" y="516.0" font-size="30" fill="#e8e6df"><tspan>    ix.head = anc; ix.publish(anc)</tspan></text>
+<text id="in-p1-l5" class="mono" x="828" y="559.5" font-size="30" fill="#e8e6df"><tspan>    return true, nil</tspan></text>
+<text id="in-p1-l6" class="mono" x="828" y="603.0" font-size="30" fill="#e8e6df"><tspan>}</tspan></text>
+<text id="in-p1-l7" class="mono" x="828" y="646.5" font-size="30" fill="#e8e6df"><tspan>logs, _ := ix.ec.FilterLogs(ctx, ethereum.FilterQuery{</tspan></text>
+<text id="in-p1-l8" class="mono" x="828" y="690.0" font-size="30" fill="#e8e6df"><tspan>    BlockHash: &amp;bh,</tspan><tspan fill="#8a8f99">             // by hash</tspan></text>
+<text id="in-p1-l9" class="mono" x="828" y="733.5" font-size="30" fill="#e8e6df"><tspan>    Topics: {{topicSync, topicV3Swap,</tspan></text>
+<text id="in-p1-l10" class="mono" x="828" y="777.0" font-size="30" fill="#e8e6df"><tspan>        topicV3Mint, topicV3Burn}},</tspan></text>
+<text id="in-p1-l11" class="mono" x="828" y="820.5" font-size="30" fill="#e8e6df"><tspan>})</tspan></text>
+</g>
+<g id="in-p2" class="h">
+<rect x="800" y="240" width="1060" height="616" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<line x1="800" y1="298" x2="1860" y2="298" stroke="#2a2f3a" stroke-width="2"/>
+<circle cx="826" cy="269" r="7" fill="#3a3f4a"/><circle cx="848" cy="269" r="7" fill="#3a3f4a"/>
+<text x="872" y="279" font-size="28" fill="#58C4DD">日志循环</text>
+<rect id="in-p2-hb" class="h" x="802" y="312.0" width="1056" height="43.5" fill="rgba(88,196,221,0.15)"/>
+<rect id="in-p2-hk" class="h" x="802" y="312.0" width="6" height="43.5" fill="#58C4DD"/>
+<text id="in-p2-l0" class="mono" x="828" y="342.0" font-size="30" fill="#e8e6df"><tspan>next := ix.head.CloneShallow(n, bh)</tspan></text>
+<text id="in-p2-l1" class="mono" x="828" y="385.5" font-size="30" fill="#e8e6df"><tspan>for _, lg := range logs {</tspan></text>
+<text id="in-p2-l2" class="mono" x="828" y="429.0" font-size="30" fill="#e8e6df"><tspan>    old := next.Pools[lg.Address]</tspan></text>
+<text id="in-p2-l3" class="mono" x="828" y="472.5" font-size="30" fill="#e8e6df"><tspan>    if old == nil { continue }</tspan><tspan fill="#8a8f99">   // not tracked</tspan></text>
+<text id="in-p2-l4" class="mono" x="828" y="516.0" font-size="30" fill="#e8e6df"><tspan>    switch lg.Topics[0] {</tspan></text>
+<text id="in-p2-l5" class="mono" x="828" y="559.5" font-size="30" fill="#e8e6df"><tspan>    case topicSync, topicV3Swap:</tspan></text>
+<text id="in-p2-l6" class="mono" x="828" y="603.0" font-size="30" fill="#e8e6df"><tspan>        p := *old; next.Pools[lg.Address] = &amp;p</tspan><tspan fill="#8a8f99">  // copy</tspan></text>
+<text id="in-p2-l7" class="mono" x="828" y="646.5" font-size="30" fill="#e8e6df"><tspan>    default: dirtyV3 = append(dirtyV3, lg.Address)</tspan></text>
+<text id="in-p2-l8" class="mono" x="828" y="690.0" font-size="30" fill="#e8e6df"><tspan>    }</tspan></text>
+<text id="in-p2-l9" class="mono" x="828" y="733.5" font-size="30" fill="#e8e6df"><tspan>}</tspan></text>
+<text id="in-p2-l10" class="mono" x="828" y="777.0" font-size="30" fill="#e8e6df"><tspan>ix.store.SaveBlock(ctx, n, bh, parent, changed)</tspan></text>
+<text id="in-p2-l11" class="mono" x="828" y="820.5" font-size="30" fill="#e8e6df"><tspan>ix.snaps[n] = next; ix.publish(next)</tspan></text>
+</g>
+<g id="in-A">
+<line id="in-k0" class="h" x1="230" y1="305" x2="256" y2="305" stroke="#58C4DD" stroke-width="3"/>
+<line id="in-k2" class="h" x1="562" y1="305" x2="588" y2="305" stroke="#58C4DD" stroke-width="3"/>
+<g id="in-b99" class="h"><rect id="in-b99r" x="90" y="260" width="140" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="in-b99t" class="mono" x="160" y="316" font-size="30" fill="#58C4DD" text-anchor="middle" >#99</text></g>
+<g id="in-b102" class="h"><rect id="in-b102r" x="588" y="260" width="140" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="in-b102t" class="mono" x="658" y="316" font-size="30" fill="#58C4DD" text-anchor="middle" >#102</text></g>
+<g id="in-fork"><line id="in-k1" class="h" x1="396" y1="305" x2="422" y2="305" stroke="#58C4DD" stroke-width="3"/><g id="in-b100" class="h"><rect id="in-b100r" x="256" y="260" width="140" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="in-b100t" class="mono" x="326" y="316" font-size="30" fill="#58C4DD" text-anchor="middle" >#100</text></g><g id="in-b101" class="h"><rect id="in-b101r" x="422" y="260" width="140" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="in-b101t" class="mono" x="492" y="316" font-size="30" fill="#58C4DD" text-anchor="middle" >#101</text></g></g>
+<path id="in-x101" class="h" d="M540 418 L570 448 M570 418 L540 448" fill="none" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/>
+<path id="in-x100" class="h" d="M374 418 L404 448 M404 418 L374 448" fill="none" stroke="#FC6255" stroke-width="6" stroke-linecap="round"/>
+<g id="in-headm"><g id="in-head" class="h"><text class="mono" x="492" y="222" font-size="28" fill="#58C4DD" text-anchor="middle" >head</text><path d="M480 232 L504 232 L492 250 Z" fill="#58C4DD"/></g></g>
+<text id="in-lh" class="h mono" x="492" y="398" font-size="28" fill="#58C4DD" text-anchor="middle" >Hash</text>
+<text id="in-lph" class="h mono" x="658" y="398" font-size="28" fill="#FF9F43" text-anchor="middle" >ParentHash</text>
+<path id="in-xne" class="h" d="M535 376 L561 402 M561 376 L535 402" fill="none" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/>
+<g id="in-flag" class="h"><line x1="222" y1="258" x2="222" y2="196" stroke="#83C167" stroke-width="4"/><path d="M222 196 L268 208 L222 222 Z" fill="#83C167"/></g>
+<text id="in-anc" class="h" x="90" y="398" font-size="30" fill="#83C167" font-weight="700" >共同祖先</text>
+<g id="in-db" class="h"><path d="M90 585 L90 835 A215 24 0 0 0 520 835 L520 585" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><ellipse cx="305" cy="585" rx="215" ry="24" fill="#1b2430" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="305" y="650" font-size="28" fill="#58C4DD" text-anchor="middle" font-weight="700" >PostgreSQL</text><text class="mono" x="305" y="710" font-size="28" fill="#e8e6df" text-anchor="middle" >block 99</text><text class="mono" x="305" y="755" font-size="28" fill="#e8e6df" text-anchor="middle" >block 100</text><text class="mono" x="305" y="800" font-size="28" fill="#e8e6df" text-anchor="middle" >block 101</text></g>
+<line id="in-s100" class="dr h" pathLength="1" x1="210" y1="745" x2="400" y2="745" stroke="#FC6255" stroke-width="4"/>
+<line id="in-s101" class="dr h" pathLength="1" x1="210" y1="790" x2="400" y2="790" stroke="#FC6255" stroke-width="4"/>
+<text id="in-del" class="h mono" x="560" y="760" font-size="28" fill="#FC6255" >DeleteAfter</text>
+</g>
+<g id="in-ring" class="h"><line x1="300.0" y1="602.0" x2="300.0" y2="580.0" stroke="#58C4DD" stroke-width="5"/><line x1="311.6" y1="602.6" x2="313.7" y2="580.7" stroke="#58C4DD" stroke-width="5"/><line x1="323.0" y1="604.3" x2="327.3" y2="582.7" stroke="#58C4DD" stroke-width="5"/><line x1="334.3" y1="607.1" x2="340.6" y2="586.0" stroke="#58C4DD" stroke-width="5"/><line x1="345.2" y1="611.0" x2="353.6" y2="590.7" stroke="#58C4DD" stroke-width="5"/><line x1="355.6" y1="615.9" x2="366.0" y2="596.5" stroke="#58C4DD" stroke-width="5"/><line x1="365.6" y1="621.9" x2="377.8" y2="603.6" stroke="#58C4DD" stroke-width="5"/><line x1="374.9" y1="628.8" x2="388.8" y2="611.8" stroke="#58C4DD" stroke-width="5"/><line x1="383.4" y1="636.6" x2="399.0" y2="621.0" stroke="#58C4DD" stroke-width="5"/><line x1="391.2" y1="645.1" x2="408.2" y2="631.2" stroke="#58C4DD" stroke-width="5"/><line x1="398.1" y1="654.4" x2="416.4" y2="642.2" stroke="#58C4DD" stroke-width="5"/><line x1="404.1" y1="664.4" x2="423.5" y2="654.0" stroke="#58C4DD" stroke-width="5"/><line x1="409.0" y1="674.8" x2="429.3" y2="666.4" stroke="#58C4DD" stroke-width="5"/><line x1="412.9" y1="685.7" x2="434.0" y2="679.4" stroke="#58C4DD" stroke-width="5"/><line x1="415.7" y1="697.0" x2="437.3" y2="692.7" stroke="#58C4DD" stroke-width="5"/><line x1="417.4" y1="708.4" x2="439.3" y2="706.3" stroke="#58C4DD" stroke-width="5"/><line x1="418.0" y1="720.0" x2="440.0" y2="720.0" stroke="#58C4DD" stroke-width="5"/><line x1="417.4" y1="731.6" x2="439.3" y2="733.7" stroke="#58C4DD" stroke-width="5"/><line x1="415.7" y1="743.0" x2="437.3" y2="747.3" stroke="#58C4DD" stroke-width="5"/><line x1="412.9" y1="754.3" x2="434.0" y2="760.6" stroke="#58C4DD" stroke-width="5"/><line x1="409.0" y1="765.2" x2="429.3" y2="773.6" stroke="#58C4DD" stroke-width="5"/><line x1="404.1" y1="775.6" x2="423.5" y2="786.0" stroke="#58C4DD" stroke-width="5"/><line x1="398.1" y1="785.6" x2="416.4" y2="797.8" stroke="#58C4DD" stroke-width="5"/><line x1="391.2" y1="794.9" x2="408.2" y2="808.8" stroke="#58C4DD" stroke-width="5"/><line x1="383.4" y1="803.4" x2="399.0" y2="819.0" stroke="#58C4DD" stroke-width="5"/><line x1="374.9" y1="811.2" x2="388.8" y2="828.2" stroke="#58C4DD" stroke-width="5"/><line x1="365.6" y1="818.1" x2="377.8" y2="836.4" stroke="#58C4DD" stroke-width="5"/><line x1="355.6" y1="824.1" x2="366.0" y2="843.5" stroke="#58C4DD" stroke-width="5"/><line x1="345.2" y1="829.0" x2="353.6" y2="849.3" stroke="#58C4DD" stroke-width="5"/><line x1="334.3" y1="832.9" x2="340.6" y2="854.0" stroke="#58C4DD" stroke-width="5"/><line x1="323.0" y1="835.7" x2="327.3" y2="857.3" stroke="#58C4DD" stroke-width="5"/><line x1="311.6" y1="837.4" x2="313.7" y2="859.3" stroke="#58C4DD" stroke-width="5"/><line x1="300.0" y1="838.0" x2="300.0" y2="860.0" stroke="#58C4DD" stroke-width="5"/><line x1="288.4" y1="837.4" x2="286.3" y2="859.3" stroke="#58C4DD" stroke-width="5"/><line x1="277.0" y1="835.7" x2="272.7" y2="857.3" stroke="#58C4DD" stroke-width="5"/><line x1="265.7" y1="832.9" x2="259.4" y2="854.0" stroke="#58C4DD" stroke-width="5"/><line x1="254.8" y1="829.0" x2="246.4" y2="849.3" stroke="#58C4DD" stroke-width="5"/><line x1="244.4" y1="824.1" x2="234.0" y2="843.5" stroke="#58C4DD" stroke-width="5"/><line x1="234.4" y1="818.1" x2="222.2" y2="836.4" stroke="#58C4DD" stroke-width="5"/><line x1="225.1" y1="811.2" x2="211.2" y2="828.2" stroke="#58C4DD" stroke-width="5"/><line x1="216.6" y1="803.4" x2="201.0" y2="819.0" stroke="#58C4DD" stroke-width="5"/><line x1="208.8" y1="794.9" x2="191.8" y2="808.8" stroke="#58C4DD" stroke-width="5"/><line x1="201.9" y1="785.6" x2="183.6" y2="797.8" stroke="#58C4DD" stroke-width="5"/><line x1="195.9" y1="775.6" x2="176.5" y2="786.0" stroke="#58C4DD" stroke-width="5"/><line x1="191.0" y1="765.2" x2="170.7" y2="773.6" stroke="#58C4DD" stroke-width="5"/><line x1="187.1" y1="754.3" x2="166.0" y2="760.6" stroke="#58C4DD" stroke-width="5"/><line x1="184.3" y1="743.0" x2="162.7" y2="747.3" stroke="#58C4DD" stroke-width="5"/><line x1="182.6" y1="731.6" x2="160.7" y2="733.7" stroke="#58C4DD" stroke-width="5"/><line x1="182.0" y1="720.0" x2="160.0" y2="720.0" stroke="#58C4DD" stroke-width="5"/><line x1="182.6" y1="708.4" x2="160.7" y2="706.3" stroke="#58C4DD" stroke-width="5"/><line x1="184.3" y1="697.0" x2="162.7" y2="692.7" stroke="#58C4DD" stroke-width="5"/><line x1="187.1" y1="685.7" x2="166.0" y2="679.4" stroke="#58C4DD" stroke-width="5"/><line x1="191.0" y1="674.8" x2="170.7" y2="666.4" stroke="#58C4DD" stroke-width="5"/><line x1="195.9" y1="664.4" x2="176.5" y2="654.0" stroke="#58C4DD" stroke-width="5"/><line x1="201.9" y1="654.4" x2="183.6" y2="642.2" stroke="#58C4DD" stroke-width="5"/><line x1="208.8" y1="645.1" x2="191.8" y2="631.2" stroke="#58C4DD" stroke-width="5"/><line x1="216.6" y1="636.6" x2="201.0" y2="621.0" stroke="#58C4DD" stroke-width="5"/><line x1="225.1" y1="628.8" x2="211.2" y2="611.8" stroke="#58C4DD" stroke-width="5"/><line x1="234.4" y1="621.9" x2="222.2" y2="603.6" stroke="#58C4DD" stroke-width="5"/><line x1="244.4" y1="615.9" x2="234.0" y2="596.5" stroke="#58C4DD" stroke-width="5"/><line x1="254.8" y1="611.0" x2="246.4" y2="590.7" stroke="#58C4DD" stroke-width="5"/><line x1="265.7" y1="607.1" x2="259.4" y2="586.0" stroke="#58C4DD" stroke-width="5"/><line x1="277.0" y1="604.3" x2="272.7" y2="582.7" stroke="#58C4DD" stroke-width="5"/><line x1="288.4" y1="602.6" x2="286.3" y2="580.7" stroke="#58C4DD" stroke-width="5"/><text x="300" y="730" font-size="60" fill="#58C4DD" text-anchor="middle" font-weight="700" >64</text><text x="300" y="775" font-size="28" fill="#e8e6df" text-anchor="middle" >个快照</text></g>
+<g id="in-sw" class="h"><line x1="300" y1="574" x2="300" y2="606" stroke="#F0B90B" stroke-width="9" stroke-linecap="round"/></g>
+<text id="in-rl" class="h" x="470" y="705" font-size="30" fill="#e8e6df" >最大重组深度</text>
+<text id="in-rl2" class="h" x="470" y="750" font-size="28" fill="#8a8f99" >（示例值）</text>
+<path id="in-deep" class="dr h" pathLength="1" d="M410 820 C470 880 520 900 600 900" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#in-ar)"/>
+<text id="in-err" class="h" x="90" y="960" font-size="30" fill="#FC6255"><tspan class="mono" font-weight="700">ErrDeepReorg</tspan> → 数据库全量重建</text>
+<text id="in-same" class="h" x="520" y="540" font-size="30" fill="#8a8f99" >同一高度</text>
+<g id="in-cr" class="h"><rect id="in-crr" x="520" y="570" width="140" height="90" rx="12" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text id="in-crt" class="mono" x="590" y="626" font-size="30" fill="#FC6255" text-anchor="middle" >#101</text></g>
+<g id="in-cb" class="h"><rect id="in-cbr" x="520" y="710" width="140" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="in-cbt" class="mono" x="590" y="766" font-size="30" fill="#58C4DD" text-anchor="middle" >#101</text></g>
+<text id="in-num" class="h" x="90" y="625" font-size="32" fill="#e8e6df" font-weight="700" >按号取</text>
+<path id="in-xn" class="h" d="M200 598 L232 630 M232 598 L200 630" fill="none" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/>
+<path id="in-an1" class="dr h" pathLength="1" d="M250 615 L508 615" stroke="#8a8f99" stroke-width="4" fill="none" marker-end="url(#in-an)"/>
+<path id="in-an2" class="dr h" pathLength="1" d="M250 625 L508 745" stroke="#8a8f99" stroke-width="4" fill="none" marker-end="url(#in-an)"/>
+<text id="in-hsh" class="h" x="90" y="885" font-size="32" fill="#e8e6df" font-weight="700" >按哈希取</text>
+<path id="in-ch" class="h" d="M230 871.8 L243.68 885.12 L266 854.88" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="in-ah" class="dr h" pathLength="1" d="M285 872 L508 775" stroke="#83C167" stroke-width="4" fill="none" marker-end="url(#in-agr)"/>
+<g id="in-e0" class="h"><rect x="90" y="270" width="650" height="120" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="120" y="328" font-size="34" fill="#F0B90B" font-weight="700" >Sync</text><text class="mono" x="120" y="370" font-size="28" fill="#8a8f99" >V2</text><text x="440" y="342" font-size="30" fill="#e8e6df" >新储备</text></g>
+<g id="in-e1" class="h"><rect x="90" y="420" width="650" height="120" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/><text class="mono" x="120" y="478" font-size="34" fill="#F0B90B" font-weight="700" >Swap</text><text class="mono" x="120" y="520" font-size="28" fill="#8a8f99" >V3</text><text x="440" y="492" font-size="30" fill="#e8e6df" >价格 + 流动性</text></g>
+<g id="in-e2" class="h"><rect x="90" y="570" width="650" height="120" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="120" y="628" font-size="34" fill="#8a8f99" font-weight="700" >Mint / Burn</text><text class="mono" x="120" y="670" font-size="28" fill="#8a8f99" >V3</text><text x="440" y="642" font-size="30" fill="#e8e6df" >标记 → 批量读</text></g>
+<g id="in-old" class="h"><rect x="90" y="260" width="290" height="210" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/><text x="115" y="305" font-size="30" fill="#8a8f99" >快照 #101</text><circle cx="235" cy="395" r="45" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3"/><text x="235" y="406" font-size="32" fill="#e8e6df" text-anchor="middle" >A</text></g>
+<g id="in-new" class="h"><rect x="450" y="260" width="290" height="210" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text x="475" y="305" font-size="30" fill="#58C4DD" >快照 #102</text><circle id="in-nc" cx="595" cy="395" r="45" fill="#2a2f3a" stroke="#8a8f99" stroke-width="3"/><text x="595" y="406" font-size="32" fill="#e8e6df" text-anchor="middle" >A</text></g>
+<path id="in-cp" class="dr h" pathLength="1" d="M285 395 L540 395" stroke="#F0B90B" stroke-width="4" fill="none" stroke-dasharray="1" marker-end="url(#in-ag)"/>
+<text id="in-cpl" class="h" x="415" y="525" font-size="30" fill="#F0B90B" text-anchor="middle" font-weight="700" >复制后修改</text>
+<g id="in-fake" class="h"><circle cx="170" cy="690" r="52" fill="#2a1a1c" stroke="#FC6255" stroke-width="3"/><text x="170" y="702" font-size="30" fill="#FC6255" text-anchor="middle" >假池</text></g>
+<path id="in-fa" class="dr h" pathLength="1" d="M228 690 L448 690" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#in-ar)"/>
+<text id="in-fs" class="h mono" x="300" y="668" font-size="28" fill="#FC6255" >Sync</text>
+<rect id="in-gate" class="h" x="462" y="610" width="12" height="160" rx="4" fill="#8a8f99"/>
+<path id="in-fx" class="h" d="M500 610 L534 644 M534 610 L500 644" fill="none" stroke="#FC6255" stroke-width="7" stroke-linecap="round"/>
+<text id="in-fl" class="h" x="500" y="715" font-size="30" fill="#FC6255" >未收录 → 忽略</text>
+<text id="in-wl" class="h" x="90" y="850" font-size="30" fill="#8a8f99" >新池子：只收白名单工厂创建的</text>
+<g id="in-tx" class="h"><rect x="90" y="250" width="650" height="230" rx="16" fill="none" stroke="#58C4DD" stroke-width="3" stroke-dasharray="12 8"/><text x="115" y="298" font-size="30" fill="#58C4DD" font-weight="700" >同一个数据库事务</text></g>
+<g id="in-t1" class="h"><rect x="120" y="340" width="280" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="260" y="402" font-size="30" fill="#e8e6df" text-anchor="middle" >blocks</text></g>
+<g id="in-t2" class="h"><rect x="430" y="340" width="280" height="100" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/><text class="mono" x="570" y="402" font-size="30" fill="#e8e6df" text-anchor="middle" >pool_state</text></g>
+<path id="in-tok" class="h" d="M676 290.0 L691.2 304.8 L716 271.2" fill="none" stroke="#83C167" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="in-p101" class="h"><rect id="in-p101r" x="120" y="610" width="140" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="in-p101t" class="mono" x="190" y="666" font-size="30" fill="#58C4DD" text-anchor="middle" >#101</text></g>
+<g id="in-p102" class="h"><rect id="in-p102r" x="330" y="610" width="140" height="90" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text id="in-p102t" class="mono" x="400" y="666" font-size="30" fill="#58C4DD" text-anchor="middle" >#102</text></g>
+<g id="in-pubm"><g id="in-pub" class="h"><text class="mono" x="190" y="578" font-size="28" fill="#58C4DD" text-anchor="middle" >head</text><path d="M178 586 L202 586 L190 602 Z" fill="#58C4DD"/></g></g>
+<text id="in-publ" class="h mono" x="500" y="668" font-size="30" fill="#83C167" font-weight="700" >publish</text>
+<text id="in-fail" class="h" x="90" y="840" font-size="30" fill="#FC6255" >写入失败</text>
+<path id="in-loop" class="dr h" pathLength="1" d="M300 815 A26 26 0 1 0 274 841" stroke="#FC6255" stroke-width="4" fill="none" marker-end="url(#in-ar)"/>
+<text id="in-redo" class="h" x="345" y="840" font-size="30" fill="#e8e6df" >同一区块重来</text>
+<g id="in-idem" class="h"><rect x="560" y="800" width="110" height="56" rx="12" fill="none" stroke="#83C167" stroke-width="3"/><text x="615" y="838" font-size="32" fill="#83C167" text-anchor="middle" font-weight="700" >幂等</text></g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      /*ANIM*/
+const PANELS = {"in-p1":{top:312.0,step:43.50},"in-p2":{top:312.0,step:43.50}};
+
+const HL = (pid, i, n, t, d = 0.4) => {
+  const g = PANELS[pid];
+  ["-hb", "-hk"].forEach(s => tl.to(`#${pid}${s}`, { attr: { y: g.top + i * g.step, height: n * g.step }, opacity: 1, duration: d, ease: "power2.inOut" }, t));
+};
+
+// L0
+IN("#in-b99", at(0, 0.05), 0.4, { y: 10 }, { y: 0 }); IN("#in-k0", at(0, 0.1), 0.3);
+IN("#in-b100", at(0, 0.15), 0.4, { y: 10 }, { y: 0 }); IN("#in-k1", at(0, 0.2), 0.3);
+IN("#in-b101", at(0, 0.25), 0.4, { y: 10 }, { y: 0 });
+IN("#in-head", at(0, 0.4), 0.4, { y: -10 }, { y: 0 });
+IN("#in-p1", at(0, 0.45), 0.6, { x: 30 }, { x: 0 });
+HL("in-p1", 0, 1, at(0, 0.75));
+// L1
+IN("#in-b102", at(1, 0.05), 0.5, { x: 40 }, { x: 0 }); IN("#in-k2", at(1, 0.12), 0.3);
+HL("in-p1", 1, 1, at(1, 0.2));
+IN("#in-lh", at(1, 0.3), 0.4); IN("#in-lph", at(1, 0.38), 0.4);
+IN("#in-xne", at(1, 0.6), 0.3);
+tl.to("#in-k2", { stroke: "#FC6255", attr: { x2: 572 }, duration: 0.4 }, at(1, 0.62));
+// L2 find ancestor
+OUT("#in-lh, #in-lph, #in-xne", at(2, 0.0), 0.3);
+HL("in-p1", 2, 4, at(2, 0.04));
+tl.to("#in-b101r", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.08)); IN("#in-x101", at(2, 0.1), 0.3);
+tl.to("#in-b100r", { stroke: "#FC6255", duration: 0.3 }, at(2, 0.2)); IN("#in-x100", at(2, 0.22), 0.3);
+tl.to("#in-b101t, #in-b100t", { fill: "#FC6255", duration: 0.3 }, at(2, 0.2));
+tl.to("#in-b99r", { stroke: "#83C167", duration: 0.3 }, at(2, 0.32));
+IN("#in-flag", at(2, 0.34), 0.4, { y: 20 }, { y: 0 }); IN("#in-anc", at(2, 0.38), 0.4);
+OUT("#in-x101, #in-x100", at(2, 0.42), 0.3);
+tl.to("#in-fork", { y: 150, opacity: 0.55, duration: 0.6, ease: "power2.inOut" }, at(2, 0.44));
+tl.to("#in-k0, #in-k2", { opacity: 0, duration: 0.3 }, at(2, 0.44));
+IN("#in-db", at(2, 0.52), 0.5, { y: 20 }, { y: 0 });
+DRAW("#in-s100", at(2, 0.66), 0.4); DRAW("#in-s101", at(2, 0.7), 0.4);
+tl.set("#in-s100, #in-s101", { opacity: 1 }, at(2, 0.66));
+IN("#in-del", at(2, 0.68), 0.4);
+tl.to("#in-headm", { x: -332, duration: 0.25, ease: "power4.in" }, at(2, 0.84));
+// L3 64 ring
+OUT("#in-fork, #in-db, #in-s100, #in-s101, #in-del", at(3, 0.0), 0.4);
+HL("in-p1", 2, 1, at(3, 0.02));
+IN("#in-ring", at(3, 0.08), 0.6, { y: 20 }, { y: 0 });
+IN("#in-sw", at(3, 0.18), 0.3);
+tl.fromTo("#in-sw", { rotation: 0 }, { rotation: 360, svgOrigin: "300 720", duration: 3.2, ease: "none", immediateRender: false }, at(3, 0.2));
+IN("#in-rl", at(3, 0.3), 0.4); IN("#in-rl2", at(3, 0.4), 0.4);
+OUT("#in-sw", at(3, 0.6), 0.3);
+DRAW("#in-deep", at(3, 0.62), 0.5); tl.set("#in-deep", { opacity: 1 }, at(3, 0.62));
+IN("#in-err", at(3, 0.72), 0.5);
+// L4 by hash
+OUT("#in-ring, #in-rl, #in-rl2, #in-deep, #in-err", at(4, 0.0), 0.4);
+HL("in-p1", 7, 2, at(4, 0.06));
+IN("#in-same", at(4, 0.08), 0.4);
+IN("#in-cr", at(4, 0.1), 0.4, { x: 20 }, { x: 0 }); IN("#in-cb", at(4, 0.16), 0.4, { x: 20 }, { x: 0 });
+IN("#in-num", at(4, 0.28), 0.4);
+ARROW("#in-an1", at(4, 0.32), 0.5); ARROW("#in-an2", at(4, 0.34), 0.5);
+IN("#in-xn", at(4, 0.45), 0.3);
+IN("#in-hsh", at(4, 0.58), 0.4);
+ARROW("#in-ah", at(4, 0.62), 0.5);
+IN("#in-ch", at(4, 0.72), 0.3);
+tl.to("#in-cbr", { fill: "#1b2430", duration: 0.3, yoyo: true, repeat: 1 }, at(4, 0.8));
+// L5 panel 2 + events
+OUT("#in-A, #in-same, #in-cr, #in-cb, #in-num, #in-xn, #in-an1, #in-an2, #in-hsh, #in-ch, #in-ah, #in-flag, #in-anc, #in-headm", L[4][1] - 0.05, 0.35);
+OUT("#in-p1", L[4][1] - 0.05, 0.35);
+IN("#in-p2", at(5, 0.0), 0.45);
+HL("in-p2", 4, 2, at(5, 0.14));
+IN("#in-e0", at(5, 0.12), 0.4, { x: -20 }, { x: 0 });
+IN("#in-e1", at(5, 0.38), 0.4, { x: -20 }, { x: 0 });
+HL("in-p2", 7, 1, at(5, 0.6));
+IN("#in-e2", at(5, 0.6), 0.4, { x: -20 }, { x: 0 });
+tl.to("#in-e2 rect", { stroke: "#e8e6df", duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.85));
+// L6 copy-on-write + ignore
+OUT("#in-e0, #in-e1, #in-e2", at(6, 0.0), 0.4);
+HL("in-p2", 6, 1, at(6, 0.04));
+IN("#in-old", at(6, 0.05), 0.4); IN("#in-new", at(6, 0.12), 0.4);
+DRAW("#in-cp", at(6, 0.2), 0.5); tl.set("#in-cp", { opacity: 1 }, at(6, 0.2));
+tl.to("#in-nc", { stroke: "#F0B90B", fill: "#3a3218", duration: 0.4 }, at(6, 0.27));
+IN("#in-cpl", at(6, 0.3), 0.4);
+HL("in-p2", 3, 1, at(6, 0.48));
+IN("#in-fake", at(6, 0.5), 0.4); IN("#in-gate", at(6, 0.5), 0.4);
+ARROW("#in-fa", at(6, 0.55), 0.5); IN("#in-fs", at(6, 0.56), 0.3);
+IN("#in-fx", at(6, 0.62), 0.3); IN("#in-fl", at(6, 0.64), 0.4);
+IN("#in-wl", at(6, 0.8), 0.4);
+// L7 transaction + publish
+OUT("#in-old, #in-new, #in-cp, #in-cpl, #in-fake, #in-fa, #in-fs, #in-gate, #in-fx, #in-fl, #in-wl", at(7, 0.0), 0.4);
+HL("in-p2", 10, 1, at(7, 0.04));
+IN("#in-tx", at(7, 0.06), 0.4);
+IN("#in-t1", at(7, 0.12), 0.4, { y: 15 }, { y: 0 }); IN("#in-t2", at(7, 0.18), 0.4, { y: 15 }, { y: 0 });
+IN("#in-tok", at(7, 0.3), 0.3);
+HL("in-p2", 11, 1, at(7, 0.38));
+IN("#in-p101", at(7, 0.36), 0.3); IN("#in-p102", at(7, 0.38), 0.3); IN("#in-pub", at(7, 0.4), 0.3);
+tl.to("#in-pubm", { x: 210, duration: 0.25, ease: "power4.in" }, at(7, 0.48));
+IN("#in-publ", at(7, 0.5), 0.3);
+IN("#in-fail", at(7, 0.62), 0.4);
+DRAW("#in-loop", at(7, 0.66), 0.5); tl.set("#in-loop", { opacity: 1 }, at(7, 0.66));
+IN("#in-redo", at(7, 0.7), 0.4);
+IN("#in-idem", at(7, 0.84), 0.4, { scale: 0.7, svgOrigin: "615 828" }, { scale: 1, svgOrigin: "615 828" });
+
+      /*ENDANIM*/
+
+      tl.to("#in-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["indexer"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,210 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 rules，id 前缀 ru- -->
+  <div id="root" data-composition-id="rules" data-duration="81.82" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ru-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="ru-all">
+        <text id="ru-title" class="h" x="1100" y="150" font-size="48" font-weight="700" fill="#e8e6df" text-anchor="middle">审查 Hook：四条硬规则</text>
+        <g id="ru-s0" class="h"><rect id="ru-sr0" x="100" y="240" width="540" height="130" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><circle id="ru-sc0" cx="160" cy="305" r="30" fill="#2a2e38"/><text x="160" y="317" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">1</text><text id="ru-st0" x="215" y="316" font-size="30" fill="#6b6f7a">只许 PoolManager 调用</text></g>
+        <g id="ru-s1" class="h"><rect id="ru-sr1" x="100" y="420" width="540" height="130" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><circle id="ru-sc1" cx="160" cy="485" r="30" fill="#2a2e38"/><text x="160" y="497" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">2</text><text id="ru-st1" x="215" y="496" font-size="30" fill="#6b6f7a">不信任 hookData</text></g>
+        <g id="ru-s2" class="h"><rect id="ru-sr2" x="100" y="600" width="540" height="130" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><circle id="ru-sc2" cx="160" cy="665" r="30" fill="#2a2e38"/><text x="160" y="677" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">3</text><text id="ru-st2" x="215" y="676" font-size="30" fill="#6b6f7a">只服务登记过的池子</text></g>
+        <g id="ru-s3" class="h"><rect id="ru-sr3" x="100" y="780" width="540" height="130" rx="16" fill="#161a22" stroke="#3a3f4a" stroke-width="2.5"/><circle id="ru-sc3" cx="160" cy="845" r="30" fill="#2a2e38"/><text x="160" y="857" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">4</text><text id="ru-st3" x="215" y="856" font-size="30" fill="#6b6f7a">评估可升级与管理员</text></g>
+        <g id="ru-q1">
+        <g id="ru-pm" class="h"><rect x="760" y="300" width="340" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="930" y="362" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">PoolManager</text></g>
+        <g id="ru-atk" class="h"><rect x="760" y="640" width="340" height="100" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="930" y="702" font-size="34" font-weight="700" fill="#FC6255" text-anchor="middle">攻击者</text></g>
+        <g id="ru-hk" class="h"><rect x="1420" y="440" width="360" height="160" rx="16" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1600" y="500" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">Hook</text><text class="mono" x="1600" y="560" font-size="30" fill="#e8e6df" text-anchor="middle">beforeSwap</text></g>
+        <path id="ru-a0" class="dr h" pathLength="1" d="M1104 360 L1412 476" stroke="#58C4DD" stroke-width="3.5" fill="none" marker-end="url(#ru-arr)"/>
+        <path id="ru-a1" class="dr h" pathLength="1" d="M1104 690 L1412 572" stroke="#FC6255" stroke-width="3.5" fill="none" marker-end="url(#ru-arr)"/>
+        <text id="ru-fake" class="h" x="1150" y="790" font-size="30" fill="#FC6255">伪造参数</text>
+        <text id="ru-ext" class="h" x="1600" y="652" font-size="28" fill="#8a8f99" text-anchor="middle">对外公开，谁都能调</text>
+        </g>
+        <g id="ru-q2">
+        <g id="ru-code1" class="h"><rect x="700" y="240" width="1120" height="330" rx="14" fill="#161a22" stroke="#4a4f5a" stroke-width="2"/>
+        <rect id="ru-hb1" x="712" y="0" width="1096" height="40" rx="6" fill="#58C4DD" fill-opacity="0.15" opacity="0"/>
+        <text class="mono" x="730" y="292.0" font-size="28" fill="#e8e6df" xml:space="preserve">address public immutable poolManager;</text>
+        <text class="mono" x="730" y="332.6" font-size="28" fill="#e8e6df" xml:space="preserve">error NotPoolManager();</text>
+        <text class="mono" x="730" y="373.2" font-size="28" fill="#e8e6df" xml:space="preserve"></text>
+        <text class="mono" x="730" y="413.8" font-size="28" fill="#e8e6df" xml:space="preserve">modifier <tspan fill="#83C167">onlyPoolManager</tspan>() {</text>
+        <text class="mono" x="730" y="454.4" font-size="28" fill="#e8e6df" xml:space="preserve">    if (msg.sender != poolManager) revert NotPoolManager();</text>
+        <text class="mono" x="730" y="495.0" font-size="28" fill="#e8e6df" xml:space="preserve">    _;</text>
+        <text class="mono" x="730" y="535.6" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+        </g>
+        <text id="ru-c1n" class="h" x="730" y="620" font-size="30" fill="#83C167">检查：调用者必须是 PoolManager</text>
+        <g id="ru-atk2" class="h"><rect x="730" y="700" width="230" height="90" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3"/><text x="845" y="757" font-size="30" font-weight="700" fill="#FC6255" text-anchor="middle">攻击者</text></g>
+        <path id="ru-a2" class="dr h" pathLength="1" d="M970 745 H 1230" stroke="#FC6255" stroke-width="3.5" fill="none" marker-end="url(#ru-arr)"/>
+        <path id="ru-sh" class="h" d="M1270 700 L1310 714 V748 C1310 772 1292 786 1270 796 C1248 786 1230 772 1230 748 V714 Z" fill="#1f2d1a" stroke="#83C167" stroke-width="4"/>
+        <text id="ru-rev" class="h mono" x="1340" y="756" font-size="28" fill="#FC6255">revert NotPoolManager</text>
+        <text id="ru-each" class="h" x="730" y="870" font-size="30" fill="#e8e6df">每个回调都挂上这个修饰器</text>
+        <text id="ru-base" class="h" x="730" y="950" font-size="28" fill="#8a8f99">真实项目继承官方 BaseHook，检查已内置</text>
+        </g>
+        <g id="ru-q3">
+        <g id="ru-f0" class="h"><rect x="740" y="470" width="240" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="860" y="532" font-size="34" fill="#e8e6df" text-anchor="middle">调用方</text></g>
+        <g id="ru-f1" class="h"><rect x="1120" y="470" width="320" height="100" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><text x="1280" y="532" font-size="34" font-weight="700" fill="#58C4DD" text-anchor="middle">PoolManager</text></g>
+        <g id="ru-f2" class="h"><rect x="1580" y="470" width="240" height="100" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1700" y="532" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">Hook</text></g>
+        <line id="ru-fl0" class="dr" pathLength="1" x1="984" y1="520" x2="1116" y2="520" stroke="#6b6f7a" stroke-width="3"/>
+        <line id="ru-fl1" class="dr" pathLength="1" x1="1444" y1="520" x2="1576" y2="520" stroke="#6b6f7a" stroke-width="3"/>
+        <g id="ru-pkt" class="h"><rect x="775" y="370" width="170" height="54" rx="12" fill="#2a1f12" stroke="#FF9F43" stroke-width="2.5"/><text class="mono" x="860" y="406" font-size="28" fill="#FF9F43" text-anchor="middle">hookData</text></g>
+        <text id="ru-pass" class="h" x="1280" y="630" font-size="28" fill="#8a8f99" text-anchor="middle">原样转交 · 不校验</text>
+        <text id="ru-hint" class="h" x="1700" y="630" font-size="30" fill="#FF9F43" text-anchor="middle">只当提示</text>
+        <text id="ru-sig" class="h" x="1280" y="790" font-size="32" fill="#83C167" text-anchor="middle">涉及权限或金额：签名校验，或读链上状态</text>
+        </g>
+        <g id="ru-q4">
+        <g id="ru-code2" class="h"><rect x="700" y="230" width="980" height="515" rx="14" fill="#161a22" stroke="#4a4f5a" stroke-width="2"/>
+        <rect id="ru-hb2" x="712" y="0" width="956" height="40" rx="6" fill="#58C4DD" fill-opacity="0.15" opacity="0"/>
+        <text class="mono" x="730" y="280.0" font-size="28" fill="#e8e6df" xml:space="preserve">mapping(bytes32 =&gt; bool) public allowedPool;</text>
+        <text class="mono" x="730" y="320.6" font-size="28" fill="#e8e6df" xml:space="preserve">function afterInitialize(bytes32 poolId)</text>
+        <text class="mono" x="730" y="361.2" font-size="28" fill="#e8e6df" xml:space="preserve">    external onlyPoolManager returns (bytes4) {</text>
+        <text class="mono" x="730" y="401.8" font-size="28" fill="#e8e6df" xml:space="preserve">    allowedPool[poolId] = true;</text>
+        <text class="mono" x="730" y="442.4" font-size="28" fill="#e8e6df" xml:space="preserve">    return this.afterInitialize.selector;</text>
+        <text class="mono" x="730" y="483.0" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+        <text class="mono" x="730" y="523.6" font-size="28" fill="#e8e6df" xml:space="preserve">function beforeSwap(address <tspan id="ru-sender">sender</tspan>, bytes32 poolId,</text>
+        <text class="mono" x="730" y="564.2" font-size="28" fill="#e8e6df" xml:space="preserve">    bytes calldata hookData)</text>
+        <text class="mono" x="730" y="604.8" font-size="28" fill="#e8e6df" xml:space="preserve">    external onlyPoolManager returns (bytes4) {</text>
+        <text class="mono" x="730" y="645.4" font-size="28" fill="#e8e6df" xml:space="preserve">    if (!allowedPool[poolId]) revert PoolNotAllowed();</text>
+        <text class="mono" x="730" y="686.0" font-size="28" fill="#e8e6df" xml:space="preserve">    return this.beforeSwap.selector;</text>
+        <text class="mono" x="730" y="726.6" font-size="28" fill="#e8e6df" xml:space="preserve">}</text>
+        </g>
+        <text id="ru-n1" class="h" x="1700" y="402" font-size="28" fill="#83C167">登记池子</text>
+        <text id="ru-n2" class="h" x="1700" y="645" font-size="28" fill="#83C167">先查登记表</text>
+        <text id="ru-skel" class="h" x="730" y="795" font-size="28" fill="#8a8f99">教学骨架，参数已简化</text>
+        <g id="ru-fk" class="h"><rect x="720" y="840" width="260" height="90" rx="14" fill="#161a22" stroke="#FC6255" stroke-width="3" stroke-dasharray="10 6"/><text x="850" y="897" font-size="30" fill="#FC6255" text-anchor="middle">假代币池</text></g>
+        <path id="ru-fa" class="dr h" pathLength="1" d="M990 885 H 1266" stroke="#e8e6df" stroke-width="3.5" fill="none" marker-end="url(#ru-arr)"/>
+        <g id="ru-fh" class="h"><rect x="1280" y="840" width="200" height="90" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1380" y="897" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">Hook</text></g>
+        <text id="ru-rej" class="h mono" x="1505" y="897" font-size="28" fill="#FC6255">PoolNotAllowed</text>
+        <line id="ru-sl" class="dr" pathLength="1" x1="1222" y1="760" x2="1222" y2="850" stroke="#B48EF0" stroke-width="3"/>
+        <text id="ru-sn" class="h" x="730" y="900" font-size="32" fill="#B48EF0">sender = 调用 PoolManager 的合约（通常是路由），不是最终用户</text>
+        </g>
+        <g id="ru-q5">
+        <g id="ru-pl" class="h"><rect x="720" y="380" width="220" height="100" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><text x="830" y="442" font-size="34" fill="#e8e6df" text-anchor="middle">池子</text></g>
+        <line id="ru-bd" class="dr" pathLength="1" x1="944" y1="430" x2="1036" y2="430" stroke="#e8e6df" stroke-width="5"/>
+        <text id="ru-bdl" class="h" x="990" y="530" font-size="28" fill="#8a8f99" text-anchor="middle">永久绑定</text>
+        <g id="ru-ha" class="h"><rect x="1040" y="380" width="300" height="100" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1190" y="424" font-size="30" font-weight="700" fill="#FF9F43" text-anchor="middle">Hook 地址</text><text x="1190" y="464" font-size="28" fill="#8a8f99" text-anchor="middle">固定</text></g>
+        <path id="ru-pa" class="dr h" pathLength="1" d="M1344 430 H 1490" stroke="#FF9F43" stroke-width="3" fill="none" stroke-dasharray="1" marker-end="url(#ru-arr)"/>
+        <g id="ru-v1" class="h"><rect x="1500" y="380" width="320" height="100" rx="14" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><text x="1660" y="442" font-size="30" fill="#e8e6df" text-anchor="middle">实现合约 v1</text></g>
+        <g id="ru-v2" class="h"><rect x="1500" y="380" width="320" height="100" rx="14" fill="#2a1416" stroke="#FC6255" stroke-width="3"/><text x="1660" y="442" font-size="30" fill="#FC6255" text-anchor="middle">实现合约 v2</text></g>
+        <text id="ru-repl" class="h" x="1660" y="360" font-size="28" fill="#FF9F43" text-anchor="middle">代理升级：可被替换</text>
+        <g id="ru-key" class="h"><circle cx="1500" cy="640" r="24" fill="none" stroke="#FF9F43" stroke-width="5"/><path d="M1524 640 H1580 M1566 640 V656 M1552 640 V652" stroke="#FF9F43" stroke-width="5" fill="none" stroke-linecap="round"/><text x="1600" y="652" font-size="30" fill="#FF9F43">管理员</text></g>
+        <line id="ru-kl" class="dr" pathLength="1" x1="1540" y1="612" x2="1620" y2="486" stroke="#FF9F43" stroke-width="2.5" stroke-dasharray="1"/>
+        <g id="ru-qq0" class="h"><circle cx="760" cy="769" r="22" fill="#FF9F43"/><text x="760" y="780" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">?</text><text x="800" y="780" font-size="32" fill="#e8e6df">可升级吗？</text></g>
+        <g id="ru-qq1" class="h"><circle cx="760" cy="849" r="22" fill="#FF9F43"/><text x="760" y="860" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">?</text><text x="800" y="860" font-size="32" fill="#e8e6df">谁有管理员权限？</text></g>
+        <g id="ru-qq2" class="h"><circle cx="760" cy="929" r="22" fill="#FF9F43"/><text x="760" y="940" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">?</text><text x="800" y="940" font-size="32" fill="#e8e6df">有没有时间锁？</text></g>
+        </g>
+      </g>
+      <!-- 术语卡 -->
+      <g id="ru-term" class="h">
+        <rect x="70" y="56" width="560" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+        <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">hookData <tspan font-size="28" font-weight="400" fill="#8a8f99">Hook data</tspan></text>
+        <text x="100" y="160" font-size="28" fill="#e8e6df">调用方随操作附带的任意字节</text>
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      const PULSE = (s, t, o, k = 1.08) => tl.fromTo(s, { scale: 1, svgOrigin: o }, { scale: k, svgOrigin: o, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const COLS = ["#58C4DD", "#FF9F43", "#83C167", "#FF9F43"];
+      const LIT = (i, t) => {
+        for (let j = 0; j < i; j++) { tl.to(`#ru-sr${j}`, { stroke: "#3a3f4a", duration: 0.3 }, t); tl.to(`#ru-st${j}`, { fill: "#8a8f99", duration: 0.3 }, t); }
+        tl.to(`#ru-sr${i}`, { stroke: COLS[i], duration: 0.3 }, t);
+        tl.to(`#ru-sc${i}`, { fill: COLS[i], duration: 0.3 }, t);
+        tl.to(`#ru-st${i}`, { fill: "#e8e6df", duration: 0.3 }, t);
+        PULSE(`#ru-s${i}`, t, `370 ${305 + 180 * i}`, 1.04);
+      };
+      const HB = (sel, y, t, first) => first
+        ? tl.fromTo(sel, { attr: { y }, opacity: 0 }, { attr: { y }, opacity: 1, duration: 0.3, immediateRender: false }, t)
+        : tl.to(sel, { attr: { y }, duration: 0.4, ease: "power2.inOut" }, t);
+      // L0
+      IN("#ru-title", at(0, 0.0), 0.5);
+      for (let i = 0; i < 4; i++) IN(`#ru-s${i}`, at(0, 0.3) + 0.2 * i, 0.4);
+      // L1
+      LIT(0, at(1, 0.02));
+      IN("#ru-hk", at(1, 0.12), 0.5);
+      IN("#ru-pm", at(1, 0.2), 0.4); ARROW("#ru-a0", at(1, 0.26), 0.5);
+      IN("#ru-ext", at(1, 0.4), 0.4);
+      IN("#ru-atk", at(1, 0.55), 0.4); ARROW("#ru-a1", at(1, 0.62), 0.5);
+      IN("#ru-fake", at(1, 0.82), 0.4);
+      // L2
+      OUT("#ru-q1", at(2, 0), 0.4);
+      IN("#ru-code1", at(2, 0.04), 0.5);
+      HB("#ru-hb1", 292 + 40.6 * 3 - 29, at(2, 0.22), true);
+      HB("#ru-hb1", 292 + 40.6 * 4 - 29, at(2, 0.3), false);
+      IN("#ru-c1n", at(2, 0.3), 0.4);
+      IN("#ru-atk2", at(2, 0.4), 0.4); ARROW("#ru-a2", at(2, 0.44), 0.5);
+      IN("#ru-sh", at(2, 0.5), 0.3, { scale: 0.5, svgOrigin: "1270 748" }, { scale: 1, svgOrigin: "1270 748" });
+      tl.to("#ru-a2", { stroke: "#6b6f7a", duration: 0.3 }, at(2, 0.53));
+      IN("#ru-rev", at(2, 0.55), 0.3);
+      IN("#ru-each", at(2, 0.64), 0.4);
+      HB("#ru-hb1", 292 + 40.6 * 3 - 29, at(2, 0.66), false);
+      IN("#ru-base", at(2, 0.8), 0.4);
+      // L3
+      OUT("#ru-q2, #ru-title", at(3, 0), 0.4);
+      LIT(1, at(3, 0.02));
+      IN("#ru-term", at(3, 0.08), 0.5);
+      IN("#ru-f0", at(3, 0.12), 0.4); DRAW("#ru-fl0", at(3, 0.16), 0.3);
+      IN("#ru-f1", at(3, 0.18), 0.4); DRAW("#ru-fl1", at(3, 0.22), 0.3); IN("#ru-f2", at(3, 0.24), 0.4);
+      IN("#ru-pkt", at(3, 0.3), 0.3);
+      tl.to("#ru-pkt", { x: 420, duration: 1.0, ease: "power1.inOut" }, at(3, 0.36));
+      IN("#ru-pass", at(3, 0.4), 0.4);
+      tl.to("#ru-pkt", { x: 840, duration: 1.0, ease: "power1.inOut" }, at(3, 0.5));
+      IN("#ru-hint", at(3, 0.6), 0.4);
+      OUT("#ru-term", at(3, 0.62), 0.4);
+      IN("#ru-title", at(3, 0.62) + 0.45, 0.5);
+      IN("#ru-sig", at(3, 0.8), 0.5);
+      // L4
+      OUT("#ru-q3", at(4, 0), 0.4);
+      LIT(2, at(4, 0.02));
+      IN("#ru-code2", at(4, 0.06), 0.5);
+      IN("#ru-skel", at(4, 0.12), 0.4);
+      IN("#ru-fk", at(4, 0.28), 0.4); ARROW("#ru-fa", at(4, 0.34), 0.5); IN("#ru-fh", at(4, 0.36), 0.4);
+      HB("#ru-hb2", 280 + 40.6 * 3 - 29, at(4, 0.58), true); IN("#ru-n1", at(4, 0.6), 0.4);
+      HB("#ru-hb2", 280 + 40.6 * 9 - 29, at(4, 0.76), false); IN("#ru-n2", at(4, 0.78), 0.4);
+      tl.to("#ru-fa", { stroke: "#FC6255", duration: 0.3 }, at(4, 0.88));
+      IN("#ru-rej", at(4, 0.9), 0.4, { x: -10 }, { x: 0 });
+      // L5
+      OUT("#ru-fk, #ru-fa, #ru-fh, #ru-rej, #ru-skel", at(5, 0), 0.35);
+      HB("#ru-hb2", 280 + 40.6 * 6 - 29, at(5, 0.06), false);
+      tl.to("#ru-sender", { fill: "#B48EF0", duration: 0.3 }, at(5, 0.12));
+      DRAW("#ru-sl", at(5, 0.18), 0.4);
+      IN("#ru-sn", at(5, 0.3), 0.5);
+      PULSE("#ru-sn", at(5, 0.75), "1250 870", 1.03);
+      tl.to("#ru-sn", { opacity: 0.5, duration: 1.0, yoyo: true, repeat: 1, ease: "sine.inOut" }, at(5, 0.44));
+      // L6
+      OUT("#ru-q4", at(6, 0), 0.4);
+      LIT(3, at(6, 0.02));
+      IN("#ru-pl", at(6, 0.08), 0.4); DRAW("#ru-bd", at(6, 0.12), 0.3); IN("#ru-ha", at(6, 0.14), 0.4); IN("#ru-bdl", at(6, 0.16), 0.4);
+      ARROW("#ru-pa", at(6, 0.24), 0.4); IN("#ru-v1", at(6, 0.27), 0.4);
+      OUT("#ru-v1", at(6, 0.36), 0.3); IN("#ru-v2", at(6, 0.38), 0.4, { y: -24 }, { y: 0 }); IN("#ru-repl", at(6, 0.4), 0.4);
+      IN("#ru-key", at(6, 0.5), 0.4); DRAW("#ru-kl", at(6, 0.53), 0.4);
+      [0.7, 0.8, 0.9].forEach((f, i) => IN(`#ru-qq${i}`, at(6, f), 0.4, { x: -16 }, { x: 0 }));
+
+
+      tl.to("#ru-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ru-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["rules"] = tl;
+    })();
+  </script>
+</template>

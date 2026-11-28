@@ -299,13 +299,13 @@ flowchart TB
     H2 --> H3["订单簿作为链状态<br/>每个区块内撮合"]
     H3 --> H4["成交和余额变化<br/>随区块最终确认"]:::ok
   end
-  subgraph D["dYdX v4 型：订单簿在验证者内存"]
+  subgraph D["dYdX v4 型：短期订单在验证者内存"]
     D1["用户签名下单"] --> D2["Cosmos 应用链验证者"]
-    D2 --> D3["每个验证者在内存里<br/>维护订单簿 链下撮合"]
+    D2 --> D3["每个验证者在内存里<br/>维护短期订单 链下撮合"]
     D3 --> D4["出块者把成交写进区块<br/>链上结算"]:::ok
   end
 `, [
-  ['flow', 'Hyperliquid 运行自己的 L1，订单簿本身就是链的状态，下单、撤单、成交都由共识确认。' + cite('Hyperliquid 文档：HyperCore 概览', 'https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/overview') + 'dYdX v4 是 Cosmos 应用链，订单簿保存在验证者内存里、不写入链上状态，只有成交结果进入区块结算。' + cite('dYdX 文档：架构概览', 'https://docs.dydx.xyz/concepts/architecture/overview')],
+  ['flow', 'Hyperliquid 运行自己的 L1，订单簿本身就是链的状态，下单、撤单、成交都由共识确认。' + cite('Hyperliquid 文档：HyperCore 概览', 'https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/overview') + 'dYdX v4 是 Cosmos 应用链，短期订单保存在每个验证者的内存里、不写入链上状态，只有成交结果进入区块结算；长期单、条件单这类“有状态订单”则记录在链上（截至 2026-11，以官方文档为准）。' + cite('dYdX 文档：架构概览', 'https://docs.dydx.xyz/concepts/architecture/overview') + cite('dYdX 文档：订单类型', 'https://docs.dydx.xyz/concepts/trading/orders')],
   ['key', '两者都把“撮合频率”从通用公链的出块节奏里解放出来，得到接近 CEX 的体验。'],
   ['risk', '验证者或出块者能看到订单流，理论上可以调整订单顺序。专用链的验证者集合通常比以太坊小，去中心化程度更低。'],
   ['limit', '这类设计主要用于永续合约。保证金、强平和对手方的细节见 <a href="#m08-10">M11.10 Perp DEX 架构对比</a>。']
@@ -348,8 +348,8 @@ sequenceDiagram
 <h3>4.2 意图拍卖：让求解器替你成交</h3>
 <p>意图交易更进一步：用户连“和谁成交”都不指定，只签名说明想要的结果和底线。一群求解器（或叫填单者）竞争完成它，自己找流动性、自己付 gas。两个代表：</p>
 <ul>
-  <li><strong>UniswapX</strong>：用户签名一个链下订单，价格按<strong>荷兰式拍卖</strong>从最高值随时间降到最低值，填单者竞争，谁先觉得有利可图谁就成交并支付 gas。不同链上的拍卖方式不同。来源：<a href="https://docs.uniswap.org/contracts/uniswapx/overview" target="_blank" rel="noopener noreferrer">UniswapX 官方文档</a>。</li>
-  <li><strong>CoW Protocol</strong>：把一段时间内的订单收集成一个<strong>批次</strong>，求解器提交结算方案，得分最高的方案胜出；同一批次里每个代币只有一个统一清算价。来源：<a href="https://docs.cow.fi/overview/batch-auctions" target="_blank" rel="noopener noreferrer">CoW Protocol 批量拍卖文档</a>。</li>
+  <li><strong>UniswapX</strong>：用户签名一个链下订单，价格按<strong>荷兰式拍卖</strong>从最高值随时间降到最低值，填单者竞争，谁先觉得有利可图谁就成交并支付 gas。按截至 2026-11 的官方文档，各支持链都用“RFQ 报价 + 独占期 + 荷兰式拍卖”（Dutch V2/V3），区别只在计时：以太坊按时间衰减，Arbitrum、Base 等链按区块衰减；Base、Unichain 早先的优先费拍卖已不再推荐。这只是举例，以官方文档为准。来源：<a href="https://docs.uniswap.org/contracts/uniswapx/overview" target="_blank" rel="noopener noreferrer">UniswapX 官方文档</a>、<a href="https://developers.uniswap.org/docs/liquidity/uniswapx/filling/overview" target="_blank" rel="noopener noreferrer">UniswapX 填单者概览</a>。</li>
+  <li><strong>CoW Protocol</strong>：把一段时间内的订单收集成一个<strong>批次</strong>，求解器提交结算方案，得分最高的方案胜出。经典设计里同一批次每个代币只有一个统一清算价；现行的公平组合拍卖改为同一批次中<strong>同一代币对、同一方向</strong>的订单按同一价格成交，一批也可能由多个求解器分别结算（截至 2026-11，以官方文档为准）。来源：<a href="https://docs.cow.fi/overview/batch-auctions" target="_blank" rel="noopener noreferrer">CoW Protocol 批量拍卖文档</a>、<a href="https://docs.cow.fi/cow-protocol/concepts/introduction/fair-combinatorial-auction" target="_blank" rel="noopener noreferrer">公平组合拍卖</a>。</li>
 </ul>
 <p>拍卖机制、求解器如何赚钱、如何防作恶，见 <a href="#m04-74">M10.4 意图交易与 Solver</a>。</p>
 <ul>
@@ -410,7 +410,7 @@ ${steps([
 <p>预期结果：你能说清“谁发了交易、谁付了 gas、价格由谁决定”这三点在两种设计里的不同。</p>`)}
 
 ${mistakes([
-  ['链上订单簿 DEX 都把每个挂单写进以太坊主网。', '主网 gas 太贵，频繁挂撤单承受不了。主流做法是自建专用链：Hyperliquid 的订单簿是自己 L1 的状态，dYdX v4 的订单簿保存在验证者内存里，只把成交写进区块。'],
+  ['链上订单簿 DEX 都把每个挂单写进以太坊主网。', '主网 gas 太贵，频繁挂撤单承受不了。主流做法是自建专用链：Hyperliquid 的订单簿是自己 L1 的状态；dYdX v4 的短期订单保存在验证者内存里，只把成交写进区块，长期单和条件单记录在链上（以官方文档为准）。'],
   ['RFQ 报价是链下的，所以要信任做市商会把钱给你。', '结算发生在链上合约里：合约验证签名后在同一笔交易里互换代币。做市商可以不报价，但报价被提交后不能赖账。'],
   ['意图交易不经过 AMM。', '求解器会从任何来源找流动性，包括 AMM 池子、做市商库存和同一批次里方向相反的订单。'],
   ['AMM 永远比 RFQ 差。', '小单时 AMM 价格影响很小，做市商为覆盖固定成本可能报得更宽，AMM 反而更好。'],
@@ -419,12 +419,12 @@ ${mistakes([
 ${recap([
   '四种设计的结算都在链上，差别在价格由谁决定：公式、挂单、做市商或竞价。',
   'AMM 随时可用、支持长尾代币，但大单价格影响大、MEV 暴露高。',
-  '订单簿 DEX 通常自建专用链，以跟上做市频率；Hyperliquid 把订单簿放在链状态里，dYdX v4 放在验证者内存里。',
+  '订单簿 DEX 通常自建专用链，以跟上做市频率；Hyperliquid 把订单簿放在链状态里，dYdX v4 把短期订单放在验证者内存里（长期单和条件单仍记录在链上）。',
   'RFQ 用做市商签名的确定报价，没有价格影响和三明治空间，但报价有效期很短。',
   '意图拍卖让求解器竞争完成用户签名的目标，细节见 M10.4。'
 ])}
 ${quiz([
-  { q: '在 RFQ 模式里，价格是由什么决定的？', o: ['池子里两种代币的比例', '做市商在链下签名的报价', '验证者内存里的订单簿', '一个批次里的统一清算价'], a: 1, why: 'RFQ 的价格写在做市商的签名报价里，链上合约只验证签名、有效期并原子互换。A 是 AMM，C 是 dYdX v4，D 是 CoW 批量拍卖。' },
+  { q: '在 RFQ 模式里，价格是由什么决定的？', o: ['池子里两种代币的比例', '做市商在链下签名的报价', '验证者内存里的订单簿', '一个批次里的统一清算价'], a: 1, why: 'RFQ 的价格写在做市商的签名报价里，链上合约只验证签名、有效期并原子互换。A 是 AMM，C 是 dYdX v4 的短期订单，D 是 CoW 批量拍卖。' },
   { q: '为什么链上订单簿 DEX 通常运行在专用链上？', o: ['以太坊不支持订单簿数据结构', '做市商频繁挂撤单，通用公链的 gas 和出块速度承受不了', '专用链不需要共识', '为了避免使用智能合约'], a: 1, why: '做市需要每秒多次改报价。专用链可以把撮合频率和成本做到接近 CEX。' },
   { q: '池子 1,000 ETH / 3,000,000 USDC、手续费 0.3%，卖出 50 ETH 大约得到多少 USDC？', o: ['150,000', '149,550', '142,857', '142,449'], a: 3, why: '3,000,000 × 49.85 ÷ 1,049.85 ≈ 142,448.92。150,000 是按中间价算；142,857 是不扣手续费的结果；149,550 只扣了手续费、忽略了价格影响。' },
   { q: '哪种设计最适合一个刚发行、没有做市商关注的代币？', o: ['AMM 资金池', 'RFQ', '专用链订单簿', '意图拍卖'], a: 0, why: '任何人都能为新代币建 AMM 池子。做市商通常只报主流币；订单簿需要上市流程；意图拍卖的求解器也需要能找到流动性。' },
@@ -449,7 +449,7 @@ ${terms([
   ['意图', 'Intent', '用户签名表达的目标结果和底线，不指定执行路径。'],
   ['求解器', 'Solver / Filler', '竞争完成用户意图、自己找流动性并支付 gas 的第三方。'],
   ['荷兰式拍卖', 'Dutch auction', '价格从高到低随时间下降，第一个接受的人成交。'],
-  ['批量拍卖', 'Batch auction', '把一段时间内的订单合在一起结算，同一批次每个代币一个统一清算价。']
+  ['批量拍卖', 'Batch auction', '把一段时间内的订单合在一起结算。CoW Protocol 现行规则是同一批次中同一代币对、同一方向的订单统一价（以官方文档为准）。']
 ])}
 ` });
 

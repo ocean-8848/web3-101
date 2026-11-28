@@ -1,0 +1,196 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 quiz1，id 前缀 qu- -->
+  <div id="root" data-composition-id="quiz1" data-duration="68.15" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="qu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+        <clipPath id="qu-qclip1"><rect id="qu-qcr1" x="60" y="180" width="0" height="56" /></clipPath>
+        <clipPath id="qu-qclip2"><rect id="qu-qcr2" x="60" y="246" width="0" height="64" /></clipPath>
+      </defs>
+      <g id="qu-all">
+        <g id="qu-badge" class="h">
+          <rect x="70" y="70" width="190" height="60" rx="14" fill="#FF9F43" />
+          <text x="165" y="112" font-size="32" font-weight="700" fill="#0f1117" text-anchor="middle">第 1 题</text>
+        </g>
+
+        <text id="qu-q1" class="h" x="70" y="222" font-size="40" fill="#e8e6df" clip-path="url(#qu-qclip1)">池子 <tspan fill="#FF9F43">1,000 ETH / 3,000,000 USDC</tspan>，手续费 <tspan fill="#FF9F43">0.3%</tspan>。</text>
+        <text id="qu-q2" class="h" x="70" y="290" font-size="40" fill="#e8e6df" clip-path="url(#qu-qclip2)">做市商对 50 ETH 报价 <tspan fill="#FF9F43">2,982 USDC/ETH</tspan>。卖 50 ETH，<tspan fill="#FF9F43">哪种说法正确</tspan>？</text>
+        <g id="qu-pause" class="h">
+          <rect x="1570" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <rect x="1602" y="195" width="18" height="60" rx="4" fill="#FF9F43" />
+          <circle cx="1740" cy="225" r="55" fill="none" stroke="#2a2f3a" stroke-width="9" />
+          <path id="qu-ring" class="dr" pathLength="1" d="M1740 170 A55 55 0 1 1 1739.99 170" fill="none" stroke="#FF9F43" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset:0" />
+        </g>
+        <g id="qu-oA" class="h">
+          <rect id="qu-oA-box" x="70" y="380" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oA-tint" x="70" y="380" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oA-dim">
+            <circle id="qu-oA-c" cx="130" cy="437.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oA-l" x="130" y="449" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">A</text>
+            <text id="qu-oA-t" x="190" y="449" font-size="32" fill="#e8e6df">AMM 到手更多，因为 AMM 没有做市商的价差</text>
+          </g>
+          <text id="qu-oA-n" class="h" x="190" y="477" font-size="32" fill="#FC6255">忽略价格影响，大单时它才是大头</text>
+        </g>
+        <g id="qu-oB" class="h">
+          <rect id="qu-oB-box" x="70" y="515" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oB-tint" x="70" y="515" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oB-dim">
+            <circle id="qu-oB-c" cx="130" cy="572.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oB-l" x="130" y="584" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">B</text>
+            <text id="qu-oB-t" x="190" y="584" font-size="32" fill="#e8e6df">两者差不多，因为都在链上结算</text>
+          </g>
+          <text id="qu-oB-n" class="h" x="190" y="612" font-size="32" fill="#FC6255">结算同、定价不同</text>
+        </g>
+        <g id="qu-oC" class="h">
+          <rect id="qu-oC-box" x="70" y="650" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oC-tint" x="70" y="650" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oC-dim">
+            <circle id="qu-oC-c" cx="130" cy="707.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oC-l" x="130" y="719" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">C</text>
+            <text id="qu-oC-t" x="190" y="700" font-size="32" fill="#e8e6df">RFQ 到手明显更多：AMM 的价格影响约为 50 ÷ 1,050，</text>
+            <text id="qu-oC-t2" x="190" y="744" font-size="32" fill="#e8e6df">大单时远大于做市商的价差</text>
+          </g>
+        </g>
+        <g id="qu-oD" class="h">
+          <rect id="qu-oD-box" x="70" y="785" width="1030" height="115" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" />
+          <rect id="qu-oD-tint" x="70" y="785" width="1030" height="115" rx="18" fill="#83C167" opacity="0" />
+          <g id="qu-oD-dim">
+            <circle id="qu-oD-c" cx="130" cy="842.5" r="32" fill="#0f1117" stroke="#8a8f99" stroke-width="3" />
+            <text id="qu-oD-l" x="130" y="854" font-size="32" font-weight="700" fill="#e8e6df" text-anchor="middle">D</text>
+            <text id="qu-oD-t" x="190" y="854" font-size="32" fill="#e8e6df">无法比较，因为 RFQ 不在链上结算</text>
+          </g>
+          <text id="qu-oD-n" class="h" x="190" y="882" font-size="32" fill="#FC6255">RFQ 也在链上验签名、原子互换</text>
+        </g>
+        <!-- 右侧示意区 x 1160–1850 -->
+        <g id="qu-pool" class="h">
+          <rect id="qu-poolr" x="1170" y="360" width="320" height="200" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" />
+          <text x="1330" y="406" font-size="32" font-weight="700" fill="#58C4DD" text-anchor="middle">AMM 池子</text>
+          <text x="1330" y="468" font-size="32" fill="#F0B90B" text-anchor="middle">1,000 ETH</text>
+          <text x="1330" y="520" font-size="32" fill="#F0B90B" text-anchor="middle">3,000,000 USDC</text>
+        </g>
+        <g id="qu-rfq" class="h">
+          <rect id="qu-rfqr" x="1530" y="360" width="320" height="200" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" />
+          <text x="1690" y="406" font-size="32" font-weight="700" fill="#B48EF0" text-anchor="middle">做市商报价</text>
+          <text x="1690" y="470" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">2,982 / ETH</text>
+          <path id="qu-sig" class="dr" pathLength="1" d="M1620 522 q14 -26 28 0 t28 0 t28 0 t28 -8" stroke="#B48EF0" stroke-width="4" fill="none" />
+        </g>
+        <text id="qu-f1" class="h" x="1170" y="622" font-size="32" fill="#e8e6df"><tspan fill="#58C4DD" font-weight="700">AMM</tspan>  3,000,000 × 49.85 ÷ 1,049.85</text>
+        <rect id="qu-b1" class="h" x="1170" y="642" width="0" height="50" rx="8" fill="#58C4DD" />
+        <text id="qu-v1" class="h" x="1186" y="678" font-size="32" font-weight="700" fill="#0f1117">≈ 142,449</text>
+        <text id="qu-f2" class="h" x="1170" y="752" font-size="32" fill="#e8e6df"><tspan fill="#B48EF0" font-weight="700">RFQ</tspan>  50 × 2,982</text>
+        <rect id="qu-b2" class="h" x="1170" y="772" width="0" height="50" rx="8" fill="#B48EF0" />
+        <text id="qu-v2" class="h" x="1186" y="808" font-size="32" font-weight="700" fill="#0f1117">= 149,100</text>
+        <rect id="qu-gap" class="h" x="1686" y="772" width="24" height="50" fill="#83C167" />
+        <text id="qu-diff" class="h" x="1724" y="808" font-size="32" font-weight="700" fill="#83C167">+6,651</text>
+        <text id="qu-small" class="h" x="1170" y="890" font-size="32" font-weight="700" fill="#FF9F43">换成小单：AMM 略高</text>
+        <!-- L5 聚合器放大镜（A/B 让出后） -->
+        <g id="qu-mag" class="h">
+          <circle cx="720" cy="450" r="34" fill="#161a22" stroke="#e8e6df" stroke-width="5" />
+          <path d="M744 474 L766 496" stroke="#e8e6df" stroke-width="8" stroke-linecap="round" />
+          <text x="720" y="566" font-size="32" fill="#e8e6df" text-anchor="middle">聚合器</text>
+        </g>
+        <path id="qu-ml1" class="dr" pathLength="1" d="M758 452 L1164 452" stroke="#58C4DD" stroke-width="3" fill="none" />
+        <path id="qu-ml2" class="dr" pathLength="1" d="M744 422 Q1150 250 1640 356" stroke="#B48EF0" stroke-width="3" fill="none" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const POP = (s, t, o, d = 0.5) => IN(s, t, d, { scale: 0.7, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(1.8)" });
+      const PULSE = (s, t, o, k = 1.08) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      const Y0 = { A: 380, B: 515, C: 650, D: 785 };
+      // 题号徽章 + 两行题干打字机
+      IN("#qu-badge", at(0, 0.0), 0.5, { x: -20 }, { x: 0 });
+      IN("#qu-q1", at(0, 0.03), 0.01);
+      tl.fromTo("#qu-qcr1", { attr: { width: 0 } }, { attr: { width: 1500 }, duration: 3.0, ease: "none" }, at(0, 0.04));
+      IN("#qu-q2", at(0, 0.42), 0.01);
+      tl.fromTo("#qu-qcr2", { attr: { width: 0 } }, { attr: { width: 1500 }, duration: 3.4, ease: "none" }, at(0, 0.42) + 0.01);
+      const SHOW = (k, t) => {
+        IN(`#qu-o${k}`, t, 0.5, { x: -40 }, { x: 0 });
+        tl.to(`#qu-o${k}-box`, { stroke: "#e8e6df", duration: 0.25 }, t);
+        tl.to(`#qu-o${k}-box`, { stroke: "#8a8f99", duration: 0.4 }, t + 2.4);
+      };
+      const PAUSE = () => {
+        IN("#qu-pause", at(2, 0.0), 0.3);
+        tl.fromTo("#qu-ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: L[4][0] - L[2][0], ease: "none", immediateRender: false }, at(2, 0.0));
+        tl.to("#qu-ring", { stroke: "#83C167", duration: 0.3 }, at(3, 0.05));
+        tl.to("#qu-pause rect", { fill: "#83C167", duration: 0.3 }, at(3, 0.05));
+        OUT("#qu-pause", at(4, 0.0), 0.3);
+      };
+      const RIGHT = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#83C167", strokeWidth: 4, duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#83C167", fill: "#83C167", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-l`, { fill: "#0f1117", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-tint`, { opacity: 0.15, duration: 0.4 }, t);
+      };
+      const WRONG = (k, t) => {
+        tl.to(`#qu-o${k}-box`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-c`, { stroke: "#FC6255", duration: 0.3 }, t);
+        tl.to(`#qu-o${k}-dim`, { opacity: 0.6, duration: 0.4 }, t);
+        tl.to(`#qu-o${k}-t`, { attr: { y: Y0[k] + 50 }, duration: 0.4, ease: "power2.out" }, t);
+        IN(`#qu-o${k}-n`, t + 0.3, 0.5);
+      };
+
+      // L0 题干 + 示意区：池子、做市商报价
+      IN("#qu-pool", at(0, 0.12), 0.6, { y: 20 }, { y: 0 });
+      PULSE("#qu-poolr", at(0, 0.3), "1330 460", 1.04);
+      IN("#qu-rfq", at(0, 0.5), 0.6, { y: 20 }, { y: 0 });
+      DRAW("#qu-sig", at(0, 0.58), 0.8);
+      PULSE("#qu-rfqr", at(0, 0.72), "1690 460", 1.04);
+      tl.to("#qu-poolr", { fill: "#16262e", duration: 0.8 }, at(0, 0.84));
+      tl.to("#qu-rfqr", { fill: "#221c30", duration: 0.8 }, at(0, 0.92));
+      // L1 选项
+      SHOW("A", at(1, 0.0)); SHOW("B", at(1, 0.24)); SHOW("C", at(1, 0.44)); SHOW("D", at(1, 0.8));
+      // L2 暂停
+      PAUSE();
+      // L3 揭晓 C + 算一算
+      RIGHT("C", at(4, 0.02));
+      IN("#qu-f1", at(4, 0.12), 0.5, { x: -16 }, { x: 0 });
+      IN("#qu-b1", at(4, 0.3), 0.01);
+      tl.fromTo("#qu-b1", { attr: { width: 0 } }, { attr: { width: 516 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(4, 0.3));
+      IN("#qu-v1", at(4, 0.42), 0.4);
+      IN("#qu-f2", at(4, 0.58), 0.5, { x: -16 }, { x: 0 });
+      IN("#qu-b2", at(4, 0.66), 0.01);
+      tl.fromTo("#qu-b2", { attr: { width: 0 } }, { attr: { width: 540 }, duration: 1.0, ease: "power2.out", immediateRender: false }, at(4, 0.66));
+      IN("#qu-v2", at(4, 0.74), 0.4);
+      IN("#qu-gap", at(4, 0.86), 0.3, { x: -24 }, { x: 0 });
+      IN("#qu-diff", at(4, 0.9), 0.4);
+      PULSE("#qu-diff", at(4, 0.97), "1780 796", 1.12);
+      // L4 干扰项
+      WRONG("A", at(5, 0.02));
+      WRONG("B", at(5, 0.32));
+      WRONG("D", at(5, 0.62));
+      tl.to("#qu-rfqr", { fill: "#2a2140", duration: 0.6 }, at(5, 0.86));
+      tl.to("#qu-b1", { opacity: 0.55, duration: 0.3, yoyo: true, repeat: 1 }, at(5, 0.12));
+      // L5 小单翻转；聚合器两边都问
+      OUT("#qu-oA, #qu-oB, #qu-oD", at(6, 0.0), 0.4);
+      OUT("#qu-v1, #qu-v2, #qu-gap, #qu-diff, #qu-f1, #qu-f2", at(6, 0.0), 0.3);
+      tl.to("#qu-b1", { attr: { width: 540 }, duration: 0.8, ease: "power2.inOut" }, at(6, 0.08));
+      tl.to("#qu-b2", { attr: { width: 500 }, duration: 0.8, ease: "power2.inOut" }, at(6, 0.08));
+      IN("#qu-small", at(6, 0.1), 0.4);
+      IN("#qu-mag", at(6, 0.35), 0.4);
+      DRAW("#qu-ml1", at(6, 0.42), 0.6);
+      DRAW("#qu-ml2", at(6, 0.48), 0.7);
+
+      tl.to("#qu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["quiz1"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,205 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 simulate，id 前缀 si- -->
+  <div id="root" data-composition-id="simulate" data-duration="46.88" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="si-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df"/></marker><marker id="si-mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD"/></marker><marker id="si-mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167"/></marker><marker id="si-mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43"/></marker><marker id="si-mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255"/></marker><marker id="si-my" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B"/></marker><marker id="si-mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0"/></marker><marker id="si-mk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"/></marker>
+      </defs>
+      <g id="si-all">
+<g id="si-cd" class="h">
+<rect x="820" y="220" width="1040" height="610" rx="12" fill="#161a22" stroke="#2a2f3a" stroke-width="2"/>
+<rect x="821" y="221" width="1038" height="47" rx="11" fill="#1c2130"/>
+<line x1="820" y1="268" x2="1860" y2="268" stroke="#2a2f3a" stroke-width="2"/>
+<text class="mono" x="844" y="254" font-size="26" fill="#58C4DD" data-layout-ignore="true">txbuild.Simulate</text>
+<rect id="si-cdhl" x="828" y="284" width="1024" height="44" rx="4" fill="#58C4DD" fill-opacity="0.13" opacity="0"/>
+<rect id="si-cdhb" x="828" y="284" width="6" height="44" fill="#58C4DD" opacity="0"/>
+</g>
+<text id="si-cd1" class="mono h" x="848" y="315" font-size="30" fill="#e8e6df" xml:space="preserve">msg := ethereum.CallMsg{From: from,</text>
+<text id="si-cd2" class="mono h" x="848" y="359" font-size="30" fill="#e8e6df" xml:space="preserve">    To: &amp;b.router, Data: data}</text>
+<text id="si-cd3" class="mono h" x="848" y="403" font-size="30" fill="#e8e6df" xml:space="preserve">raw, err := b.ec.CallContract(ctx, msg, nil) <tspan fill="#8a8f99">// latest</tspan></text>
+<text id="si-cd4" class="mono h" x="848" y="447" font-size="30" fill="#e8e6df" xml:space="preserve">if errors.As(err, &amp;de) {</text>
+<text id="si-cd5" class="mono h" x="848" y="491" font-size="30" fill="#e8e6df" xml:space="preserve">    return ..., &amp;SimError{Reason: decodeRevert(..)}</text>
+<text id="si-cd6" class="mono h" x="848" y="535" font-size="30" fill="#e8e6df" xml:space="preserve">}</text>
+<text id="si-cd7" class="mono h" x="848" y="579" font-size="30" fill="#e8e6df" xml:space="preserve">got := vals[0].(*big.Int)</text>
+<text id="si-cd8" class="mono h" x="848" y="623" font-size="30" fill="#e8e6df" xml:space="preserve">diff := new(big.Int).Sub(got, quoted)</text>
+<text id="si-cd9" class="mono h" x="848" y="667" font-size="30" fill="#e8e6df" xml:space="preserve">diff.Abs(diff).Mul(diff, big.NewInt(10000)).</text>
+<text id="si-cd10" class="mono h" x="848" y="711" font-size="30" fill="#e8e6df" xml:space="preserve">    Quo(diff, quoted)</text>
+<text id="si-cd11" class="mono h" x="848" y="755" font-size="30" fill="#e8e6df" xml:space="preserve">gas, _ := b.ec.EstimateGas(ctx, msg)</text>
+<text id="si-cd12" class="mono h" x="848" y="799" font-size="30" fill="#e8e6df" xml:space="preserve">return got, diff.Int64(), gas * 12 / 10, nil <tspan fill="#8a8f99">// +20%</tspan></text>
+<text id="si-n1" class="h" x="840" y="904" font-size="32" fill="#e8e6df">以用户身份 · 用最新区块</text>
+<text id="si-n2" class="h" x="840" y="904" font-size="32" fill="#FC6255">回滚：解码自定义错误</text>
+<text id="si-n3" class="h" x="840" y="904" font-size="32" fill="#F0B90B">偏差按基点（bps）计 · Gas 加两成余量（示例）</text>
+<g id="si-stage" class="h"><rect x="110" y="226" width="620" height="22" rx="4" fill="#2a2f3a"/><path d="M110 248 L110 450 Q150 340 205 248 z" fill="#232838"/><path d="M730 248 L730 450 Q690 340 635 248 z" fill="#232838"/><path d="M90 450 L750 450 L730 480 L110 480 z" fill="#1c2130" stroke="#8a8f99" stroke-width="2"/></g>
+<g id="si-card" class="h"><rect x="250" y="312" width="340" height="112" rx="12" fill="#14222a" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="420" y="360" font-size="36" fill="#58C4DD" text-anchor="middle">eth_call</text><text x="420" y="404" font-size="30" fill="#8a8f99" text-anchor="middle">不上链</text></g>
+<g id="si-from" class="h"><rect x="305" y="258" width="230" height="46" rx="23" fill="#211a2e" stroke="#B48EF0" stroke-width="2"/><text x="420" y="291" font-size="30" fill="#B48EF0" text-anchor="middle">from = 用户</text></g>
+<g id="si-bn" class="h"><rect x="110" y="560" width="170" height="70" rx="10" fill="#1c2130" stroke="#8a8f99" stroke-width="2.5"/><text class="mono" x="195" y="606" font-size="32" fill="#8a8f99" text-anchor="middle">#N</text></g>
+<g id="si-bl" class="h"><rect x="540" y="560" width="190" height="70" rx="10" fill="#14222a" stroke="#58C4DD" stroke-width="3"/><text class="mono" x="635" y="606" font-size="32" fill="#58C4DD" text-anchor="middle">latest</text></g>
+<path id="si-ba" class="dr h" pathLength="1" d="M290 595 L526 595" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#si-mk)"/>
+<text id="si-bnt" class="h" x="195" y="670" font-size="30" fill="#8a8f99" text-anchor="middle">报价用</text>
+<text id="si-blt" class="h" x="635" y="670" font-size="30" fill="#58C4DD" text-anchor="middle">模拟用</text>
+<text id="si-later" class="h" x="110" y="726" font-size="30" fill="#e8e6df">交易在之后的区块执行</text>
+<path id="si-down" class="dr h" pathLength="1" d="M560 426 Q630 480 634 548" fill="none" stroke="#58C4DD" stroke-width="3" marker-end="url(#si-mb)"/>
+<g id="si-rev" class="h"><rect x="100" y="800" width="190" height="72" rx="10" fill="#2a1616" stroke="#FC6255" stroke-width="3"/><text class="mono" x="195" y="847" font-size="32" fill="#FC6255" text-anchor="middle">revert</text></g>
+<path id="si-reva" class="dr h" pathLength="1" d="M298 836 L352 836" fill="none" stroke="#FC6255" stroke-width="3" marker-end="url(#si-mr)"/>
+<g id="si-dec" class="h"><rect x="362" y="800" width="380" height="72" rx="10" fill="#2a1f12" stroke="#FF9F43" stroke-width="3"/><text class="mono" x="552" y="847" font-size="30" fill="#FF9F43" text-anchor="middle">TooLittleReceived</text></g>
+<text id="si-gl1" class="h" x="100" y="792" font-size="30" fill="#e8e6df">模拟 got</text>
+<text id="si-gl2" class="h" x="100" y="848" font-size="30" fill="#e8e6df">报价 quoted</text>
+<rect id="si-gb1" class="h" x="300" y="768" width="400" height="32" rx="6" fill="#F0B90B" stroke="#F0B90B" stroke-width="0" fill-opacity="0.85"/>
+<rect id="si-gb2" class="h" x="300" y="824" width="388" height="32" rx="6" fill="#F0B90B" stroke="#F0B90B" stroke-width="0" fill-opacity="0.55"/>
+<rect id="si-gd" class="h" x="688" y="764" width="14" height="40" rx="3" fill="#FF9F43" stroke="#FF9F43" stroke-width="0"/>
+<text id="si-form" class="h" x="100" y="914" font-size="30" fill="#FF9F43">偏差 = |got - quoted| × 10000 ÷ quoted</text>
+<text id="si-gas" class="mono h" x="100" y="984" font-size="30" fill="#58C4DD">Gas</text>
+<rect id="si-gasb" class="h" x="300" y="958" width="260" height="34" rx="6" fill="#14222a" stroke="#58C4DD" stroke-width="2.5"/>
+<rect id="si-gasx" class="h" x="560" y="958" width="52" height="34" rx="6" fill="#58C4DD" stroke="#58C4DD" stroke-width="0" fill-opacity="0.6"/>
+<text id="si-gast" class="h" x="632" y="985" font-size="30" fill="#F0B90B">× 1.2</text>
+<text id="si-ph" class="mono h" x="960" y="330" font-size="38" fill="#58C4DD" text-anchor="middle">POST /v1/swap-tx</text>
+<path id="si-pl" class="dr h" pathLength="1" d="M170 470 L1748 470" fill="none" stroke="#2a2f3a" stroke-width="4"/>
+<g id="si-st0" class="h"><circle id="si-sc0" cx="170" cy="470" r="46" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><path d="M170 450 L170 478 M159 467 L170 479 L181 467 M152 489 L188 489" stroke="#e8e6df" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text id="si-sl00" class="h" x="170" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">取回报价</text>
+<g id="si-st1" class="h"><circle id="si-sc1" cx="433" cy="470" r="46" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><path d="M449 474 A17 17 0 1 1 443 458 M445 446 L444 459 L431 458" stroke="#e8e6df" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text id="si-sl10" class="h" x="433" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">超 2 块</text>
+<text id="si-sl11" class="h" x="433" y="606" font-size="30" fill="#e8e6df" text-anchor="middle">重路由</text>
+<g id="si-st2" class="h"><circle id="si-sc2" cx="696" cy="470" r="46" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><path d="M696 448 L714 456 L714 472 Q714 486 696 493 Q678 486 678 472 L678 456 z M688 470 L694 477 L705 463" stroke="#e8e6df" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text id="si-sl20" class="h" x="696" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">代币</text>
+<text id="si-sl21" class="h" x="696" y="606" font-size="30" fill="#e8e6df" text-anchor="middle">白名单</text>
+<g id="si-st3" class="h"><circle id="si-sc3" cx="959" cy="470" r="46" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><path d="M939 456 L979 456 L979 486 L939 486 z M965 467 L979 467 L979 477 L965 477 z" stroke="#e8e6df" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text id="si-sl30" class="mono h" x="959" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">allowance</text>
+<text id="si-sl31" class="h" x="959" y="606" font-size="30" fill="#e8e6df" text-anchor="middle">余额</text>
+<g id="si-st4" class="h"><circle id="si-sc4" cx="1222" cy="470" r="46" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><path d="M1222 451 A19 19 0 1 1 1221.9 451 M1222 461 L1222 471 L1231 476" stroke="#e8e6df" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text id="si-sl40" class="mono h" x="1222" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">minOut</text>
+<text id="si-sl41" class="mono h" x="1222" y="606" font-size="30" fill="#e8e6df" text-anchor="middle">deadline</text>
+<g id="si-st5" class="h"><circle id="si-sc5" cx="1485" cy="470" r="46" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><path d="M1477 452 Q1469 452 1469 462 L1469 466 Q1469 470 1463 470 Q1469 470 1469 474 L1469 478 Q1469 488 1477 488 M1493 452 Q1501 452 1501 462 L1501 466 Q1501 470 1507 470 Q1501 470 1501 474 L1501 478 Q1501 488 1493 488" stroke="#e8e6df" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text id="si-sl50" class="h" x="1485" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">编码</text>
+<g id="si-st6" class="h"><circle id="si-sc6" cx="1748" cy="470" r="46" fill="#161a22" stroke="#8a8f99" stroke-width="3"/><path d="M1739 454 L1764 470 L1739 486 z" stroke="#e8e6df" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text id="si-sl60" class="h" x="1748" y="566" font-size="30" fill="#e8e6df" text-anchor="middle">模拟</text>
+<circle id="si-tok" class="h" cx="170" cy="470" r="11" fill="#F0B90B"/>
+<path id="si-bra" class="dr h" pathLength="1" d="M959 622 L959 678" fill="none" stroke="#FF9F43" stroke-width="3" marker-end="url(#si-mo)"/>
+<g id="si-p1" class="h"><rect x="779" y="690" width="360" height="58" rx="10" fill="#2a1f12" stroke="#FF9F43" stroke-width="2.5"/><text class="mono" x="959" y="730" font-size="30" fill="#FF9F43" text-anchor="middle">NEEDS_APPROVAL</text></g>
+<g id="si-p2" class="h"><rect x="739" y="764" width="440" height="58" rx="10" fill="#2a1f12" stroke="#FF9F43" stroke-width="2.5"/><text class="mono" x="959" y="804" font-size="30" fill="#FF9F43" text-anchor="middle">INSUFFICIENT_BALANCE</text></g>
+<g id="si-gau" class="h"><path d="M1460.0 930.0 A130 130 0 0 1 1498.1 838.1" fill="none" stroke="#83C167" stroke-width="16"/><path d="M1498.1 838.1 A130 130 0 0 1 1720.0 930.0" fill="none" stroke="#FF9F43" stroke-width="16"/><circle cx="1590" cy="930" r="10" fill="#e8e6df"/></g>
+<line id="si-ndl" class="h" x1="1590" y1="930" x2="1482" y2="930" stroke="#e8e6df" stroke-width="5" stroke-linecap="round"/>
+<text id="si-gaut" class="h" x="1440" y="812" font-size="30" fill="#e8e6df" text-anchor="end">10 bps（示例）</text>
+<path id="si-g7" class="dr h" pathLength="1" d="M1748 590 Q1748 700 1650 776" fill="none" stroke="#8a8f99" stroke-width="3" marker-end="url(#si-mk)"/>
+<g id="si-qd" class="h"><rect x="1110" y="878" width="270" height="62" rx="10" fill="#2a1f12" stroke="#FF9F43" stroke-width="3"/><text class="mono" x="1245" y="920" font-size="30" fill="#FF9F43" text-anchor="middle">QUOTE_DRIFT</text></g>
+<g id="si-fe" class="h"><rect x="130" y="862" width="300" height="96" rx="12" fill="#211a2e" stroke="#B48EF0" stroke-width="3"/><text x="280" y="922" font-size="34" fill="#B48EF0" text-anchor="middle">前端</text></g>
+<path id="si-back" class="dr h" pathLength="1" d="M1100 910 L442 910" fill="none" stroke="#FF9F43" stroke-width="3.5" marker-end="url(#si-mo)"/>
+<text id="si-backt" class="h" x="770" y="884" font-size="30" fill="#FF9F43" text-anchor="middle">重新报价 · 用户确认</text>
+      </g>
+      
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+const CODE = {};
+const HL = (name, a, b, t, col = "#58C4DD") => {
+  const P = CODE[name]; const y = P.y0 + P.lh * (a - 1), h = P.lh * (b - a + 1);
+  tl.to(`#${P.pf}${name}hl`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  tl.to(`#${P.pf}${name}hb`, { attr: { y, height: h }, fill: col, opacity: 1, duration: 0.45, ease: "power2.inOut" }, t);
+  for (let i = 1; i <= P.n; i++) tl.to(`#${P.pf}${name}${i}`, { opacity: (i >= a && i <= b) ? 1 : 0.5, duration: 0.4 }, t);
+};
+const SHOW = (name, t) => { const P = CODE[name]; IN(`#${P.pf}${name}`, t, 0.5);
+  for (let i = 1; i <= P.n; i++) IN(`#${P.pf}${name}${i}`, t + 0.1 + i * 0.05, 0.3, {}, { opacity: 0.8 }); };
+const HIDE = (name, t) => { const P = CODE[name]; const ids = [`#${P.pf}${name}`]; for (let i = 1; i <= P.n; i++) ids.push(`#${P.pf}${name}${i}`); OUT(ids.join(","), t, 0.4); };
+const POP = (s, t, o) => IN(s, t, 0.45, { scale: 0.6, svgOrigin: o }, { scale: 1, svgOrigin: o, ease: "back.out(2)" });
+const PULSE = (s, t, o, k = 1.08) => tl.to(s, { scale: k, svgOrigin: o, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, t);
+const CHG = (s, t, v, d = 0.35) => tl.to(s, { ...v, duration: d }, t);
+const SLIDE = (s, t, dx = -16, dy = 0, d = 0.5) => IN(s, t, d, { x: dx, y: dy }, { x: 0, y: 0 });
+
+CODE["cd"] = {pf:"si-", y0:284, lh:44, n:12};
+
+// L0 彩排舞台
+SHOW("cd", at(0, 0.05));
+IN("#si-stage", at(0, 0.0), 0.6);
+IN("#si-card", at(0, 0.3), 0.6, { y: 20 }, { y: 0 });
+PULSE("#si-card", at(0, 0.85), "420 368", 1.05);
+// L1 from=用户，latest
+HL("cd", 1, 3, at(1, 0.02));
+POP("#si-from", at(1, 0.06), "420 281");
+IN("#si-bn", at(1, 0.3), 0.5); IN("#si-bnt", at(1, 0.34), 0.4);
+ARROW("#si-ba", at(1, 0.42), 0.5);
+IN("#si-bl", at(1, 0.5), 0.5); IN("#si-blt", at(1, 0.54), 0.4);
+ARROW("#si-down", at(1, 0.6), 0.5);
+IN("#si-n1", at(1, 0.62), 0.5);
+IN("#si-later", at(1, 0.72), 0.5);
+PULSE("#si-bl", at(1, 0.9), "635 595", 1.08);
+// L2 revert
+HL("cd", 4, 6, at(2, 0.02), "#FC6255");
+OUT("#si-n1", at(2, 0.02), 0.3); IN("#si-n2", at(2, 0.12), 0.4);
+CHG("#si-card rect", at(2, 0.1), { stroke: "#FC6255" });
+IN("#si-rev", at(2, 0.15), 0.4, { x: -16 }, { x: 0 });
+ARROW("#si-reva", at(2, 0.35), 0.4);
+IN("#si-dec", at(2, 0.48), 0.45, { y: 12 }, { y: 0 });
+PULSE("#si-dec", at(2, 0.85), "552 836", 1.06);
+// L3 没回滚：偏差 + Gas
+OUT("#si-rev, #si-reva, #si-dec, #si-n2", at(3, 0.0), 0.35);
+CHG("#si-card rect", at(3, 0.05), { stroke: "#83C167" });
+HL("cd", 7, 10, at(3, 0.05), "#F0B90B");
+IN("#si-n3", at(3, 0.1), 0.4);
+IN("#si-gl1", at(3, 0.08), 0.4); IN("#si-gb1", at(3, 0.08), 0.6, { attr: { width: 0 } }, { attr: { width: 400 } });
+IN("#si-gl2", at(3, 0.16), 0.4); IN("#si-gb2", at(3, 0.16), 0.6, { attr: { width: 0 } }, { attr: { width: 388 } });
+POP("#si-gd", at(3, 0.3), "695 784");
+IN("#si-form", at(3, 0.38), 0.5, { y: 10 }, { y: 0 });
+HL("cd", 11, 12, at(3, 0.6));
+IN("#si-gas", at(3, 0.62), 0.4); IN("#si-gasb", at(3, 0.62), 0.5);
+IN("#si-gasx", at(3, 0.76), 0.5, { attr: { width: 0 } }, { attr: { width: 52 } });
+IN("#si-gast", at(3, 0.8), 0.4);
+// L4 流水线
+OUT("#si-stage, #si-card, #si-from, #si-bn, #si-bl, #si-ba, #si-bnt, #si-blt, #si-later, #si-down, #si-gl1, #si-gl2, #si-gb1, #si-gb2, #si-gd, #si-form, #si-gas, #si-gasb, #si-gasx, #si-gast, #si-n3", at(4, 0.0), 0.4);
+HIDE("cd", at(4, 0.0));
+IN("#si-ph", at(4, 0.04), 0.5, { y: -10 }, { y: 0 });
+tl.fromTo("#si-pl", { opacity: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut" }, at(4, 0.04));
+for (let i = 0; i < 7; i++) { IN(`#si-st${i}`, at(4, 0.05) + i * 0.08, 0.4); }
+const STX = [170, 433, 696, 959, 1222, 1485, 1748];
+const FR = [0.13, 0.24, 0.37, 0.48, 0.74, 0.86, 0.95];
+IN("#si-tok", at(4, 0.12), 0.3);
+FR.forEach((f, i) => {
+  if (i > 0) tl.to("#si-tok", { attr: { cx: STX[i] }, duration: 0.5, ease: "power2.inOut" }, at(4, f) - 0.5);
+  CHG(`#si-sc${i}`, at(4, f), { stroke: i === 6 ? "#83C167" : "#58C4DD", fill: "#14222a" }, 0.3);
+  PULSE(`#si-st${i}`, at(4, f), `${STX[i]} 470`, 1.12);
+  IN(`#si-sl${i}0`, at(4, f), 0.4); if (i >= 1 && i <= 4) IN(`#si-sl${i}1`, at(4, f) + 0.08, 0.4);
+});
+ARROW("#si-bra", at(4, 0.56), 0.35);
+IN("#si-p1", at(4, 0.58), 0.4, { y: -10 }, { y: 0 });
+IN("#si-p2", at(4, 0.64), 0.4, { y: -10 }, { y: 0 });
+OUT("#si-tok", at(4, 0.99), 0.3);
+// L5 仪表 -> QUOTE_DRIFT -> 前端
+OUT("#si-bra, #si-p1, #si-p2", at(5, 0.0), 0.35);
+ARROW("#si-g7", at(5, 0.02), 0.5);
+IN("#si-gau", at(5, 0.02), 0.4); IN("#si-ndl", at(5, 0.02), 0.4);
+tl.fromTo("#si-ndl", { rotation: 10, svgOrigin: "1590 930" }, { rotation: 10, svgOrigin: "1590 930", duration: 0.01, immediateRender: false }, at(5, 0.02));
+IN("#si-gaut", at(5, 0.06), 0.4);
+tl.to("#si-ndl", { rotation: 140, svgOrigin: "1590 930", duration: 1.0, ease: "back.out(1.6)" }, at(5, 0.1));
+CHG("#si-ndl", at(5, 0.22), { stroke: "#FF9F43" });
+POP("#si-qd", at(5, 0.3), "1245 909");
+IN("#si-fe", at(5, 0.55), 0.4);
+ARROW("#si-back", at(5, 0.6), 0.6);
+IN("#si-backt", at(5, 0.7), 0.4);
+PULSE("#si-fe", at(5, 0.88), "280 910", 1.06);
+
+      tl.to("#si-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      
+      window.__timelines["simulate"] = tl;
+    })();
+  </script>
+</template>

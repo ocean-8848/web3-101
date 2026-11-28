@@ -1,0 +1,183 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 jitcalc，id 前缀 jc- -->
+  <div id="root" data-composition-id="jitcalc" data-duration="80.0" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="jc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" /></marker>
+        <marker id="jc-arr-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF9F43" /></marker>
+        <marker id="jc-arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#F0B90B" /></marker>
+        <marker id="jc-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="jc-arr-p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B48EF0" /></marker>
+        <marker id="jc-arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FC6255" /></marker>
+        <marker id="jc-arr-gr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#83C167" /></marker>
+        <marker id="jc-arr-gy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="jc-all">
+
+        <g id="jc-top">
+          <text id="jc-f1" class="mono h" x="460" y="250" font-size="56" fill="#e8e6df">1,000,000</text>
+          <text id="jc-f2" class="mono h" x="780" y="250" font-size="56" fill="#e8e6df">× 0.3%</text>
+          <text id="jc-f3" class="mono h" x="1010" y="250" font-size="56" fill="#F0B90B">= 3,000 USDC</text>
+          <g id="jc-tag" class="h"><rect x="1460" y="196" width="200" height="56" rx="10" fill="#161a22" stroke="#FF9F43" stroke-width="2"/>
+            <text x="1560" y="234" font-size="28" fill="#FF9F43" text-anchor="middle">费率为示例</text></g>
+        </g>
+        <g id="jc-l0">
+          <rect id="jc-zb" class="h" x="560" y="600" width="700" height="60" rx="8" fill="#83C167" fill-opacity="0.3" stroke="#83C167" stroke-width="3"/>
+          <text id="jc-zbt" class="h" x="910" y="730" font-size="32" fill="#83C167" text-anchor="middle">同一段价格区间</text>
+          <path id="jc-za" class="dr h" pathLength="1" d="M 300 630 L 1520 630" stroke="#F0B90B" stroke-width="10" fill="none" marker-end="url(#jc-arr-g)"/>
+          <text id="jc-zat" class="h" x="400" y="590" font-size="30" fill="#F0B90B" text-anchor="middle">兑换</text>
+          <circle id="jc-zc0" class="h" cx="760" cy="560" r="16" fill="#F0B90B"/><circle id="jc-zc1" class="h" cx="910" cy="560" r="16" fill="#F0B90B"/><circle id="jc-zc2" class="h" cx="1060" cy="560" r="16" fill="#F0B90B"/>
+        </g>
+        <g id="jc-card" class="h">
+          <rect x="1240" y="286" width="620" height="244" rx="12" fill="#161a22" stroke="#FF9F43" stroke-width="2"/>
+          <text id="jc-k1" class="h" x="1270" y="345" font-size="36" font-weight="700" fill="#FF9F43">以官方为准</text>
+          <text id="jc-k2" class="h" x="1270" y="420" font-size="34" fill="#e8e6df">V3：固定费率档</text>
+          <text id="jc-k3" class="h" x="1270" y="495" font-size="34" fill="#e8e6df">V4：自定费率 + Hook 动态调整</text>
+        </g>
+        <g id="jc-cols">
+          <text id="jc-lh" class="h" x="600" y="430" font-size="36" fill="#8a8f99" text-anchor="middle">无 JIT</text>
+          <g id="jc-lb" class="h"><rect x="380" y="800" width="440" height="100" rx="6" fill="#83C167"/>
+            <text x="600" y="862" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">被动 LP · 100 万</text></g>
+          <circle id="jc-n0" class="h" cx="465" cy="520" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><circle id="jc-n1" class="h" cx="495" cy="520" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><circle id="jc-n2" class="h" cx="525" cy="520" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><circle id="jc-n3" class="h" cx="555" cy="520" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><circle id="jc-n4" class="h" cx="585" cy="520" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><circle id="jc-n5" class="h" cx="615" cy="520" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><circle id="jc-n6" class="h" cx="645" cy="520" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><circle id="jc-n7" class="h" cx="675" cy="520" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><circle id="jc-n8" class="h" cx="705" cy="520" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/><circle id="jc-n9" class="h" cx="735" cy="520" r="12" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/>
+          <text id="jc-l3k" class="mono h" x="600" y="700" font-size="48" fill="#F0B90B" text-anchor="middle">3,000</text>
+          <text id="jc-rh" class="h" x="1320" y="430" font-size="36" fill="#8a8f99" text-anchor="middle">有 JIT</text>
+          <rect id="jc-ro" class="h" x="1050" y="500" width="200" height="360" rx="4" fill="#FF9F43"/>
+          <text id="jc-rot" class="h" x="1150" y="690" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">JIT 900 万</text>
+          <text id="jc-rot2" class="h" x="1150" y="790" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">JIT 八成</text>
+          <g id="jc-rg" class="h"><rect x="1050" y="860" width="200" height="48" rx="4" fill="#83C167"/>
+            <text x="1150" y="895" font-size="28" font-weight="700" fill="#0f1117" text-anchor="middle">被动 100 万</text></g>
+          <circle id="jc-po" class="h" cx="1450" cy="590" r="50" fill="none" stroke="#FF9F43" stroke-width="100" pathLength="1" style="stroke-dasharray:0.9 1;stroke-dashoffset:0.9"/>
+          <circle id="jc-pg" class="h" cx="1450" cy="590" r="50" fill="none" stroke="#83C167" stroke-width="100" pathLength="1" style="stroke-dasharray:0.1 1;stroke-dashoffset:-0.9"/>
+          <text id="jc-r1" class="mono h" x="1280" y="780" font-size="32" fill="#FF9F43">3,000 × 90% = 2,700</text>
+          <text id="jc-r2" class="mono h" x="1280" y="840" font-size="32" fill="#83C167">3,000 × 10% = 300</text>
+          <text id="jc-r3" class="mono h" x="1280" y="780" font-size="32" fill="#FF9F43">3,000 × 80% = 2,400</text>
+          <text id="jc-r4" class="mono h" x="1280" y="840" font-size="32" fill="#83C167">3,000 × 20% = 600</text>
+          <text id="jc-d1" class="mono h" x="960" y="650" font-size="36" fill="#FC6255" text-anchor="middle">-2,700</text>
+          <text id="jc-d2" class="mono h" x="960" y="650" font-size="36" fill="#FC6255" text-anchor="middle">-2,400</text>
+        </g>
+        <g id="jc-srg">
+          <g id="jc-sr" class="h"><circle cx="560" cy="520" r="24" fill="none" stroke="#FF9F43" stroke-width="4"/><path d="M 522 606 Q 522 556 560 556 Q 598 556 598 606 Z" fill="none" stroke="#FF9F43" stroke-width="4"/></g>
+          <text id="jc-srt" class="h" x="560" y="660" font-size="30" fill="#FF9F43" text-anchor="middle">JIT 搜索者</text>
+        </g>
+        <g id="jc-bill" class="h">
+          <rect x="720" y="380" width="780" height="480" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2"/>
+          <text id="jc-b0" class="mono" x="770" y="455" font-size="44" fill="#F0B90B">2,700</text>
+          <text id="jc-b1" class="h" x="770" y="540" font-size="36" fill="#FC6255">- Gas × 2</text>
+          <text id="jc-b2" class="h" x="770" y="620" font-size="36" fill="#FC6255">- 构建者费用</text>
+          <text id="jc-b3" class="h" x="770" y="700" font-size="36" fill="#FC6255">- 持仓变化损失</text>
+          <line id="jc-bl" class="h" x1="770" y1="738" x2="1450" y2="738" stroke="#8a8f99" stroke-width="2"/>
+          <text id="jc-b4" class="h" x="770" y="808" font-size="36" font-weight="700" fill="#FF9F43">= 净利润，未必为正</text>
+        </g>
+        <g id="jc-who">
+          <g id="jc-tr" class="h"><circle cx="360" cy="520" r="24" fill="none" stroke="#8a8f99" stroke-width="4"/><path d="M 322 606 Q 322 556 360 556 Q 398 556 398 606 Z" fill="none" stroke="#8a8f99" stroke-width="4"/></g>
+          <text id="jc-trt" class="h" x="360" y="660" font-size="30" fill="#8a8f99" text-anchor="middle">大额交易者</text>
+          <text id="jc-trk" class="h" x="360" y="740" font-size="34" fill="#83C167" text-anchor="middle">✓ 滑点更小</text>
+          <g id="jc-lp" class="h"><circle cx="1560" cy="520" r="24" fill="none" stroke="#83C167" stroke-width="4"/><path d="M 1522 606 Q 1522 556 1560 556 Q 1598 556 1598 606 Z" fill="none" stroke="#83C167" stroke-width="4"/></g>
+          <text id="jc-lpt" class="h" x="1560" y="660" font-size="30" fill="#83C167" text-anchor="middle">被动 LP</text>
+          <text id="jc-lp1" class="h" x="1560" y="740" font-size="32" fill="#FC6255" text-anchor="middle">长期扛 IL 和 LVR</text>
+          <text id="jc-lp2" class="h" x="1560" y="800" font-size="32" fill="#FC6255" text-anchor="middle">大单只分一小块</text>
+          <path id="jc-ra" class="dr h" pathLength="1" d="M 1500 580 L 1018 580" stroke="#FF9F43" stroke-width="4" fill="none" marker-end="url(#jc-arr-o)"/>
+          <text id="jc-rat" class="h" x="1258" y="552" font-size="30" fill="#FF9F43" text-anchor="middle">手续费重新分配</text>
+        </g>
+        <g id="jc-fix">
+          <text id="jc-q" class="h" x="960" y="300" font-size="44" font-weight="700" fill="#FF9F43" text-anchor="middle">协议层能做什么？</text>
+          <g id="jc-c1" class="h"><rect x="240" y="390" width="680" height="280" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="580" y="455" font-size="32" fill="#e8e6df" text-anchor="middle">Hook：存在若干区块才分手续费</text></g>
+          <rect id="jc-k1b" class="h" x="380" y="520" width="80" height="80" rx="8" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          <rect id="jc-k2b" class="h" x="500" y="520" width="80" height="80" rx="8" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          <rect id="jc-k3b" class="h" x="620" y="520" width="80" height="80" rx="8" fill="none" stroke="#58C4DD" stroke-width="3"/>
+          <circle id="jc-kc" class="h" cx="780" cy="560" r="22" fill="#F0B90B" stroke="#0f1117" stroke-width="2"/>
+          <g id="jc-c2" class="h"><rect x="1000" y="390" width="680" height="280" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+            <text x="1340" y="455" font-size="32" fill="#e8e6df" text-anchor="middle">加减流动性设最短锁定</text>
+            <rect x="1290" y="550" width="100" height="80" rx="8" fill="#58C4DD"/></g>
+          <path id="jc-shk" class="h" d="M 1310 550 L 1310 520 A 30 30 0 0 1 1370 520 L 1370 550" fill="none" stroke="#58C4DD" stroke-width="8"/>
+          <text id="jc-w" class="h" x="960" y="790" font-size="36" fill="#FF9F43" text-anchor="middle">代价：灵活性差、大单时深度浅</text>
+          <text id="jc-w2" class="h" x="960" y="870" font-size="32" fill="#8a8f99" text-anchor="middle">要用数据评估</text>
+        </g>
+      </g>
+      
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+      const TO = (s, t, vars) => tl.to(s, { duration: 0.6, ease: "power2.inOut", ...vars }, t);
+
+      IN("#jc-f1", at(0, 0.12), 0.5, { y: 20 }, { y: 0 });
+      IN("#jc-f2", at(0, 0.42), 0.5, { y: 20 }, { y: 0 });
+      IN("#jc-tag", at(0, 0.5), 0.5);
+      IN("#jc-f3", at(0, 0.82), 0.6, { y: 20 }, { y: 0 });
+      tl.to("#jc-f3", { fill: "#ffffff", duration: 0.25, yoyo: true, repeat: 1 }, at(0, 0.92));
+      ARROW("#jc-za", at(0, 0.18), 1.0); IN("#jc-zat", at(0, 0.18), 0.4);
+      IN("#jc-zb", at(0, 0.55), 0.5); IN("#jc-zbt", at(0, 0.6), 0.5);
+      for (let i = 0; i < 3; i++) IN("#jc-zc" + i, at(0, 0.84) + i * 0.1, 0.4, { attr: { cy: 610 } }, { attr: { cy: 560 } });
+      tl.to(["#jc-zc0", "#jc-zc1", "#jc-zc2"], { attr: { cy: 520 }, duration: 3, ease: "sine.inOut" }, at(1, 0.1));
+      IN("#jc-card", at(1, 0.02), 0.5);
+      IN("#jc-k1", at(1, 0.06), 0.4); IN("#jc-k2", at(1, 0.14), 0.4); IN("#jc-k3", at(1, 0.22), 0.4);
+      OUT("#jc-card", at(2, 0.9), 0.4);
+      OUT("#jc-l0", at(2, 0) - 0.2, 0.3);
+      IN("#jc-lh", at(2, 0.02), 0.4); IN("#jc-lb", at(2, 0.1), 0.5);
+      for (let i = 0; i < 10; i++) { IN("#jc-n" + i, at(2, 0.3) + i * 0.05, 0.2); TO("#jc-n" + i, at(2, 0.35) + i * 0.05, { y: 266, duration: 0.6, ease: "bounce.out" }); }
+      IN("#jc-l3k", at(2, 0.8), 0.5);
+      IN("#jc-rh", at(3, 0.02), 0.4); IN("#jc-rg", at(3, 0.05), 0.4);
+      IN("#jc-ro", at(3, 0.15), 0.6, { attr: { y: 860, height: 0 } }, { attr: { y: 500, height: 360 } });
+      IN("#jc-rot", at(3, 0.3), 0.4);
+      IN("#jc-po", at(3, 0.42), 0.01); tl.to("#jc-po", { strokeDashoffset: 0, duration: 0.8 }, at(3, 0.42));
+      IN("#jc-pg", at(3, 0.5), 0.4);
+      IN("#jc-r1", at(3, 0.6), 0.5); IN("#jc-r2", at(3, 0.78), 0.5);
+      IN("#jc-d1", at(3, 0.88), 0.5, { scale: 1.4, svgOrigin: "960 640" }, { scale: 1 });
+      OUT(["#jc-r1", "#jc-r2", "#jc-d1", "#jc-rot"], at(4, 0.02), 0.3);
+      TO("#jc-ro", at(4, 0.1), { attr: { y: 700, height: 160 }, duration: 0.8 });
+      TO("#jc-po", at(4, 0.1), { strokeDasharray: "0.8 1", duration: 0.8 });
+      TO("#jc-pg", at(4, 0.1), { strokeDasharray: "0.2 1", strokeDashoffset: -0.8, duration: 0.8 });
+      IN("#jc-rot2", at(4, 0.3), 0.4);
+      IN("#jc-r3", at(4, 0.4), 0.5); IN("#jc-r4", at(4, 0.6), 0.5);
+      IN("#jc-d2", at(4, 0.78), 0.5);
+      OUT("#jc-cols", at(5, 0) - 0.1, 0.4);
+      IN("#jc-sr", at(5, 0.03), 0.5); IN("#jc-srt", at(5, 0.03), 0.5);
+      IN("#jc-bill", at(5, 0.12), 0.5);
+      IN("#jc-b1", at(5, 0.35), 0.4, { x: -20 }, { x: 0 });
+      IN("#jc-b2", at(5, 0.5), 0.4, { x: -20 }, { x: 0 });
+      IN("#jc-b3", at(5, 0.68), 0.4, { x: -20 }, { x: 0 });
+      IN("#jc-bl", at(5, 0.85), 0.3); IN("#jc-b4", at(5, 0.88), 0.5);
+      OUT("#jc-bill", at(6, 0) - 0.1, 0.4);
+      TO("#jc-srg", at(6, 0.02), { x: 400, duration: 0.8 });
+      IN("#jc-tr", at(6, 0.05), 0.5); IN("#jc-trt", at(6, 0.05), 0.5);
+      IN("#jc-trk", at(6, 0.2), 0.5);
+      IN("#jc-lp", at(6, 0.4), 0.5); IN("#jc-lpt", at(6, 0.4), 0.5);
+      IN("#jc-lp1", at(6, 0.55), 0.4); IN("#jc-lp2", at(6, 0.7), 0.4);
+      ARROW("#jc-ra", at(6, 0.8), 0.6); IN("#jc-rat", at(6, 0.82), 0.4);
+      OUT(["#jc-who", "#jc-srg", "#jc-top"], at(7, 0) - 0.1, 0.4);
+      IN("#jc-q", at(7, 0.03), 0.5);
+      IN("#jc-c1", at(7, 0.12), 0.5);
+      IN("#jc-k1b", at(7, 0.2), 0.3); IN("#jc-k2b", at(7, 0.27), 0.3); IN("#jc-k3b", at(7, 0.34), 0.3);
+      IN("#jc-kc", at(7, 0.42), 0.4, { y: -30 }, { y: 0 });
+      IN("#jc-c2", at(7, 0.5), 0.5);
+      tl.fromTo("#jc-shk", { opacity: 0, y: -24 }, { opacity: 1, y: -24, duration: 0.3 }, at(7, 0.52));
+      TO("#jc-shk", at(7, 0.6), { y: 0, duration: 0.4, ease: "back.out(2)" });
+      IN("#jc-w", at(7, 0.72), 0.5);
+      IN("#jc-w2", at(7, 0.9), 0.5);
+
+      tl.to("#jc-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      window.__timelines["jitcalc"] = tl;
+    })();
+  </script>
+</template>

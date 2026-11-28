@@ -1,0 +1,97 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 recap，id 前缀 rp- -->
+  <div id="root" data-composition-id="recap" data-duration="48.99" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="rp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="rp-all">
+  <g id="rp-s1">
+    <text id="rp-num" class="h mono" x="960" y="580" font-size="110" font-weight="700" fill="#F0B90B" text-anchor="middle">280,458 USDC</text>
+    <text id="rp-l1" class="h" x="660" y="292" font-size="32" fill="#F0B90B" text-anchor="end">预计输出</text>
+    <g id="rp-st" class="h"><rect x="1250" y="258" width="150" height="50" rx="8" fill="none" stroke="#58C4DD" stroke-width="3"/>
+      <text x="1325" y="294" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">区块 N</text></g>
+    <path id="rp-d1" class="dr h" pathLength="1" d="M900 340 L780 425" stroke="#8a8f99" stroke-width="3" marker-end="url(#rp-arr)"/>
+    <text id="rp-r2" class="h" x="760" y="500" font-size="50" font-weight="700" fill="#83C167" text-anchor="middle"><tspan fill="#FC6255">− gas</tspan> = 净输出</text>
+    <text id="rp-n2" class="h" x="760" y="568" font-size="32" fill="#8a8f99" text-anchor="middle">用来比较路由</text>
+    <path id="rp-d2" class="dr h" pathLength="1" d="M1020 340 L1250 425" stroke="#8a8f99" stroke-width="3" marker-end="url(#rp-arr)"/>
+    <text id="rp-r3" class="h" x="1330" y="500" font-size="50" font-weight="700" fill="#83C167" text-anchor="middle"><tspan fill="#FF9F43">× (1 − 滑点)</tspan> = 最少收到</text>
+    <text id="rp-n3" class="h" x="1330" y="568" font-size="32" fill="#FF9F43" text-anchor="middle">作用在预计输出上，不扣 gas</text>
+    <path id="rp-sh" class="h" d="M1330 622 L1370 634 L1370 660 C1370 680 1352 692 1330 700 C1308 692 1290 680 1290 660 L1290 634 z" fill="none" stroke="#83C167" stroke-width="4"/>
+    <g id="rp-ic" class="h"><g id="rp-ca" class="" ><path d="M180.0 470 L180.0 600 A60.0 19.2 0 0 0 300.0 600 L300.0 470" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><ellipse cx="240" cy="470" rx="60.0" ry="19.2" fill="#1c2a38" stroke="#58C4DD" stroke-width="3"/></g><g id="rp-cb" class="" ><path d="M352.0 510 L352.0 600 A48.0 15.36 0 0 0 448.0 600 L448.0 510" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><ellipse cx="400" cy="510" rx="48.0" ry="15.36" fill="#1c2a38" stroke="#58C4DD" stroke-width="3"/></g>
+      <text x="240" y="560" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">A</text>
+      <text x="400" y="580" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">B</text>
+      <path d="M240 446 L228 424 L252 424 z" fill="#83C167"/><path d="M400 446 L388 424 L412 424 z" fill="#83C167"/>
+      <line x1="262" y1="434" x2="378" y2="434" stroke="#83C167" stroke-width="2.5" stroke-dasharray="6 5"/>
+      <text x="320" y="700" font-size="28" fill="#8a8f99" text-anchor="middle">边际价格相等</text></g>
+  </g>
+  <g id="rp-s2"><g id="rp-g0" class="h"><rect x="300" y="360" width="600" height="140" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><circle cx="360" cy="430" r="14" fill="#58C4DD"/><text x="400" y="442" font-size="36" font-weight="700" fill="#e8e6df">状态新鲜、带区块号</text></g><g id="rp-g1" class="h"><rect x="1020" y="360" width="600" height="140" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><circle cx="1080" cy="430" r="14" fill="#58C4DD"/><text x="1120" y="442" font-size="36" font-weight="700" fill="#e8e6df">重组能回滚</text></g><g id="rp-g2" class="h"><rect x="300" y="560" width="600" height="140" rx="18" fill="#161a22" stroke="#83C167" stroke-width="3"/><circle cx="360" cy="630" r="14" fill="#83C167"/><text x="400" y="642" font-size="36" font-weight="700" fill="#e8e6df">签名前做过模拟</text></g><g id="rp-g3" class="h"><rect x="1020" y="560" width="600" height="140" rx="18" fill="#161a22" stroke="#FF9F43" stroke-width="3"/><circle cx="1080" cy="630" r="14" fill="#FF9F43"/><text x="1120" y="642" font-size="36" font-weight="700" fill="#e8e6df">截止时间 + 最少收到</text></g></g>
+  <g id="rp-s3"><text id="rp-mt" class="h" x="214" y="210" font-size="40" font-weight="700" fill="#e8e6df">五个误区</text><g id="rp-m0" class="h"><path id="rp-mx0" d="M214 300 L242 328 M242 300 L214 328" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><text id="rp-mw0" x="280" y="330" font-size="36" fill="#FC6255">报价 = 成交价</text></g><path id="rp-ma0" class="dr h" pathLength="1" d="M770 318 L895 318" stroke="#e8e6df" stroke-width="3" marker-end="url(#rp-arr)"/><text id="rp-mr0" class="h" x="940" y="330" font-size="36" font-weight="700" fill="#83C167">只保证最少收到</text><g id="rp-m1" class="h"><path id="rp-mx1" d="M214 430 L242 458 M242 430 L214 458" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><text id="rp-mw1" x="280" y="460" font-size="36" fill="#FC6255">拆得越细越好</text></g><path id="rp-ma1" class="dr h" pathLength="1" d="M770 448 L895 448" stroke="#e8e6df" stroke-width="3" marker-end="url(#rp-arr)"/><text id="rp-mr1" class="h" x="940" y="460" font-size="36" font-weight="700" fill="#83C167">先看 gas 再拆</text><g id="rp-m2" class="h"><path id="rp-mx2" d="M214 560 L242 588 M242 560 L214 588" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><text id="rp-mw2" x="280" y="590" font-size="36" fill="#FC6255">跳数少，输出多</text></g><path id="rp-ma2" class="dr h" pathLength="1" d="M770 578 L895 578" stroke="#e8e6df" stroke-width="3" marker-end="url(#rp-arr)"/><text id="rp-mr2" class="h" x="940" y="590" font-size="36" font-weight="700" fill="#83C167">深池多跳可能更好</text><g id="rp-m3" class="h"><path id="rp-mx3" d="M214 690 L242 718 M242 690 L214 718" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><text id="rp-mw3" x="280" y="720" font-size="36" fill="#FC6255">浮点数够用</text></g><path id="rp-ma3" class="dr h" pathLength="1" d="M770 708 L895 708" stroke="#e8e6df" stroke-width="3" marker-end="url(#rp-arr)"/><text id="rp-mr3" class="h" x="940" y="720" font-size="36" font-weight="700" fill="#83C167">大整数 + 照抄合约舍入</text><g id="rp-m4" class="h"><path id="rp-mx4" d="M214 820 L242 848 M242 820 L214 848" stroke="#FC6255" stroke-width="5" stroke-linecap="round"/><text id="rp-mw4" x="280" y="850" font-size="36" fill="#FC6255">订阅了事件，状态永远对</text></g><path id="rp-ma4" class="dr h" pathLength="1" d="M770 838 L895 838" stroke="#e8e6df" stroke-width="3" marker-end="url(#rp-arr)"/><text id="rp-mr4" class="h" x="940" y="850" font-size="36" font-weight="700" fill="#83C167">哈希核对 + 回滚 + 抽查</text></g>
+  <g id="rp-s4" class="h">
+    <text x="960" y="450" font-size="36" fill="#8a8f99" text-anchor="middle">下一集</text>
+    <text x="960" y="560" font-size="80" font-weight="700" fill="#e8e6df" text-anchor="middle">Uniswap V4</text>
+    <text x="960" y="650" font-size="42" fill="#58C4DD" text-anchor="middle">单例合约、Hooks 与闪电记账</text>
+  </g>
+</g>
+<rect id="rp-black" x="0" y="0" width="1920" height="1080" fill="#000" opacity="0"/>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      IN("#rp-num", at(0, 0.05), 0.7, { scale: 0.85, svgOrigin: "960 540" }, { scale: 1, svgOrigin: "960 540" });
+tl.to("#rp-num", { fill: "#ffd54a", duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.6));
+// L1 unfold
+tl.to("#rp-num", { attr: { y: 310, "font-size": 72 }, duration: 0.8, ease: "power2.inOut" }, at(1, 0.0));
+IN("#rp-l1", at(1, 0.08), 0.4);
+IN("#rp-st", at(1, 0.12), 0.4, { scale: 1.5, svgOrigin: "1325 283" }, { scale: 1, svgOrigin: "1325 283" });
+IN("#rp-ic", at(1, 0.22), 0.6, { x: -20 }, { x: 0 });
+ARROW("#rp-d1", at(1, 0.46), 0.4);
+IN("#rp-r2", at(1, 0.48), 0.5, { y: -10 }, { y: 0 });
+IN("#rp-n2", at(1, 0.63), 0.4);
+ARROW("#rp-d2", at(1, 0.72), 0.4);
+IN("#rp-r3", at(1, 0.74), 0.5, { y: -10 }, { y: 0 });
+IN("#rp-n3", at(1, 0.84), 0.4);
+IN("#rp-sh", at(1, 0.92), 0.4, { scale: 0.5, svgOrigin: "1330 660" }, { scale: 1, svgOrigin: "1330 660" });
+// L2 conditions
+OUT("#rp-s1", at(2, 0), 0.4);
+IN("#rp-g0", at(2, 0.06), 0.4, { y: 14 }, { y: 0 });
+IN("#rp-g1", at(2, 0.28), 0.4, { y: 14 }, { y: 0 });
+IN("#rp-g2", at(2, 0.5), 0.4, { y: 14 }, { y: 0 });
+IN("#rp-g3", at(2, 0.72), 0.4, { y: 14 }, { y: 0 });
+// L3/L4 myths
+OUT("#rp-s2", at(3, 0), 0.4);
+IN("#rp-mt", at(3, 0.04), 0.4);
+const MY = (i, t, d) => { IN(`#rp-m${i}`, t, 0.4); tl.to(`#rp-mw${i}`, { fill: "#6b6f7a", duration: 0.3 }, t + d * 0.45); ARROW(`#rp-ma${i}`, t + d * 0.45, 0.4); IN(`#rp-mr${i}`, t + d * 0.5, 0.4, { x: -10 }, { x: 0 }); };
+MY(0, at(3, 0.08), 3.0); MY(1, at(3, 0.42), 2.4); MY(2, at(3, 0.66), 2.6);
+MY(3, at(4, 0.02), 3.0); MY(4, at(4, 0.5), 2.6);
+// L5 next + fade to black
+OUT("#rp-s3", at(5, 0), 0.4);
+IN("#rp-s4", at(5, 0.06), 0.6, { y: 14 }, { y: 0 });
+tl.to("#rp-black", { opacity: 1, duration: 1.0, ease: "power2.in" }, C.d - 1.6);
+      window.__timelines["recap"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,152 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 bugs，id 前缀 bu- -->
+  <div id="root" data-composition-id="bugs" data-duration="79.37" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="bu-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <g id="bu-all">
+  <g id="bu-tbl"><g id="bu-hd" class="h"><text x="185" y="272" font-size="30" font-weight="700" fill="#8a8f99">bug</text><text id="bu-h2" x="545" y="272" font-size="30" font-weight="700" fill="#8a8f99">现象</text><text id="bu-h3" x="1125" y="272" font-size="30" font-weight="700" fill="#8a8f99">修复</text></g><line id="bu-ln0" class="h" x1="160" y1="290" x2="1760" y2="290" stroke="#3a3f4a" stroke-width="2"/><g id="bu-r0" class="h"><text id="bu-a0" x="185" y="348" font-size="30" font-weight="700" fill="#FC6255">状态过期</text><text class="bu-c2" x="545" y="348" font-size="30" fill="#e8e6df">报价很好，上链总因输出不足回滚</text><text class="bu-c3" x="1125" y="348" font-size="30" fill="#83C167">带区块号、定期抽查、太旧的不参与</text></g><line id="bu-ln1" class="h" x1="160" y1="386" x2="1760" y2="386" stroke="#3a3f4a" stroke-width="2"/><g id="bu-r1" class="h"><text id="bu-a1" x="185" y="444" font-size="30" font-weight="700" fill="#FC6255">转账收费代币</text><text class="bu-c2" x="545" y="444" font-size="30" fill="#e8e6df">池子实收比转入少，公式算多了</text><text class="bu-c3" x="1125" y="444" font-size="30" fill="#83C167">模拟时检测实收，换专用兑换函数</text></g><line id="bu-ln2" class="h" x1="160" y1="482" x2="1760" y2="482" stroke="#3a3f4a" stroke-width="2"/><g id="bu-r2" class="h"><text id="bu-a2" x="185" y="540" font-size="30" font-weight="700" fill="#FC6255">小数位搞错</text><text class="bu-c2" x="545" y="540" font-size="30" fill="#e8e6df">USDC 当 18 位，金额差 10<tspan dy="-14" font-size="28">12</tspan><tspan dy="14"> 倍</tspan></text><text class="bu-c3" x="1125" y="540" font-size="30" fill="#83C167">从合约读出小数位并缓存</text></g><line id="bu-ln3" class="h" x1="160" y1="578" x2="1760" y2="578" stroke="#3a3f4a" stroke-width="2"/><g id="bu-r3" class="h"><text id="bu-a3" x="185" y="636" font-size="30" font-weight="700" fill="#FC6255">舍入方向错</text><text class="bu-c2" x="545" y="636" font-size="30" fill="#e8e6df">多 1 个最小单位，最少收到卡死</text><text class="bu-c3" x="1125" y="636" font-size="30" fill="#83C167">输出向下取整，输入向上取整</text></g><line id="bu-ln4" class="h" x1="160" y1="674" x2="1760" y2="674" stroke="#3a3f4a" stroke-width="2"/><g id="bu-r4" class="h"><text id="bu-a4" x="185" y="732" font-size="30" font-weight="700" fill="#FC6255">重组未处理</text><text class="bu-c2" x="545" y="732" font-size="30" fill="#e8e6df">基于已消失的交易报价</text><text class="bu-c3" x="1125" y="732" font-size="30" fill="#83C167">记录哈希，对不上就回滚重放</text></g><line id="bu-ln5" class="h" x1="160" y1="770" x2="1760" y2="770" stroke="#3a3f4a" stroke-width="2"/><g id="bu-r5" class="h"><text id="bu-a5" x="185" y="828" font-size="30" font-weight="700" fill="#FC6255">忽略 gas</text><text class="bu-c2" x="545" y="828" font-size="30" fill="#e8e6df">拆 5 份毛输出最高，净输出最低</text><text class="bu-c3" x="1125" y="828" font-size="30" fill="#83C167">一律按净输出排序</text></g></g>
+  <g id="bu-x1" class="h">
+    <rect x="560" y="920" width="110" height="56" rx="8" fill="#F0B90B"/><text class="mono" x="615" y="958" font-size="30" font-weight="700" fill="#0f1117" text-anchor="middle">100</text>
+    <path id="bu-x1a" class="dr h" pathLength="1" d="M690 948 L860 948" stroke="#e8e6df" stroke-width="3" marker-end="url(#bu-arr)"/>
+    <text x="775" y="925" font-size="28" fill="#8a8f99" text-anchor="middle">转入</text>
+    <g id="bu-x1p" class="" ><path d="M890.0 925 L890.0 985 A60.0 19.2 0 0 0 1010.0 985 L1010.0 925" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><ellipse cx="950" cy="925" rx="60.0" ry="19.2" fill="#1c2a38" stroke="#58C4DD" stroke-width="3"/></g>
+    <text id="bu-x1n" x="1060" y="970" font-size="34" font-weight="700" fill="#FC6255">实收 <tspan class="mono">98</tspan></text>
+    <text x="1300" y="965" font-size="28" fill="#6b6f7a">示例</text></g>
+  <text id="bu-x2" class="h" x="960" y="965" font-size="36" fill="#e8e6df" text-anchor="middle">6 位 vs 18 位 → 差 10<tspan dy="-16" font-size="28">12</tspan><tspan dy="16"> 倍</tspan></text>
+  <g id="bu-x3" class="h"><text x="560" y="965" font-size="32" fill="#e8e6df">链下浮点 <tspan class="mono" fill="#FC6255">x + 1</tspan>，链上 <tspan class="mono" fill="#58C4DD">floor(x)</tspan></text>
+    <rect x="1150" y="928" width="40" height="32" rx="5" fill="#FF9F43"/><path d="M1158 928 L1158 916 A12 12 0 0 1 1182 916 L1182 928" fill="none" stroke="#FF9F43" stroke-width="5"/>
+    <text x="1210" y="962" font-size="32" font-weight="700" fill="#FF9F43">最少收到卡死</text></g>
+  <g id="bu-x4" class="h">
+    <text x="560" y="935" font-size="28" fill="#8a8f99">拆 5 份</text>
+    <rect x="680" y="910" width="600" height="30" rx="5" fill="#F0B90B"/><text x="1300" y="935" font-size="28" fill="#F0B90B">毛输出最高</text>
+    <rect x="680" y="956" width="380" height="30" rx="5" fill="#83C167"/><rect id="bu-x4g" x="1060" y="956" width="220" height="30" rx="5" fill="#FC6255"/>
+    <text x="1300" y="981" font-size="28" fill="#FC6255">净输出最低</text></g>
+  <g id="bu-cl">
+    <text id="bu-ct" class="h" x="720" y="270" font-size="36" font-weight="700" fill="#FF9F43">报价总比链上高 0.5%：按顺序查</text>
+    <g id="bu-k0" class="h"><rect x="720" y="366" width="44" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="800" y="400" font-size="34" fill="#e8e6df">状态落后几个区块</text></g><path id="bu-kc0" class="dr" pathLength="1" d="M728 388 L739 400 L758 374" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><g id="bu-k1" class="h"><rect x="720" y="486" width="44" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="800" y="520" font-size="34" fill="#e8e6df">代币收不收转账费、是不是 rebase</text></g><path id="bu-kc1" class="dr" pathLength="1" d="M728 508 L739 520 L758 494" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><g id="bu-k2" class="h"><rect x="720" y="606" width="44" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="800" y="640" font-size="34" fill="#e8e6df">计算方式、舍入、小数位</text></g><path id="bu-kc2" class="dr" pathLength="1" d="M728 628 L739 640 L758 614" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><g id="bu-k3" class="h"><rect x="720" y="726" width="44" height="44" rx="8" fill="none" stroke="#8a8f99" stroke-width="3"/><text x="800" y="760" font-size="34" fill="#e8e6df">报价是否过期、有没有模拟</text></g><path id="bu-kc3" class="dr" pathLength="1" d="M728 748 L739 760 L758 734" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g id="bu-ex" transform="translate(0 70)">
+    <g id="bu-e1" class="h"><g id="bu-e1c" class="" ><path d="M175.0 430 L175.0 550 A75.0 24.0 0 0 0 325.0 550 L325.0 430" fill="#161a22" stroke="#58C4DD" stroke-width="3"/><ellipse cx="250" cy="430" rx="75.0" ry="24.0" fill="#1c2a38" stroke="#58C4DD" stroke-width="3"/></g><text x="250" y="520" font-size="30" font-weight="700" fill="#58C4DD" text-anchor="middle">V2</text>
+      <text class="mono" x="250" y="620" font-size="28" fill="#e8e6df" text-anchor="middle">USDC / WETH</text></g>
+    <path id="bu-ea1" class="dr h" pathLength="1" d="M350 495 L545 495" stroke="#e8e6df" stroke-width="3" marker-end="url(#bu-arr)"/>
+    <text id="bu-ea1t" class="h mono" x="448" y="470" font-size="28" fill="#58C4DD" text-anchor="middle">eth_call</text>
+    <g id="bu-e2" class="h"><rect x="560" y="430" width="340" height="130" rx="12" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+      <text class="mono" x="730" y="487" font-size="30" fill="#e8e6df" text-anchor="middle">getReserves()</text>
+      <text class="mono" x="730" y="535" font-size="28" fill="#8a8f99" text-anchor="middle">0x0902f1ac</text></g>
+    <path id="bu-ea2" class="dr h" pathLength="1" d="M910 495 L988 495" stroke="#e8e6df" stroke-width="3" marker-end="url(#bu-arr)"/>
+    <g id="bu-e3" class="h"><text x="1205" y="420" font-size="28" fill="#8a8f99" text-anchor="middle">各 32 字节</text>
+      <rect x="1000" y="445" width="200" height="100" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+      <rect x="1210" y="445" width="200" height="100" rx="10" fill="#161a22" stroke="#58C4DD" stroke-width="2.5"/>
+      <text class="mono" x="1100" y="505" font-size="28" fill="#58C4DD" text-anchor="middle">reserve0</text>
+      <text class="mono" x="1310" y="505" font-size="28" fill="#58C4DD" text-anchor="middle">reserve1</text></g>
+    <path id="bu-ea3" class="dr h" pathLength="1" d="M1420 495 L1498 495" stroke="#e8e6df" stroke-width="3" marker-end="url(#bu-arr)"/>
+    <g id="bu-e4" class="h"><rect x="1510" y="445" width="290" height="100" rx="12" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+      <text x="1655" y="507" font-size="30" fill="#e8e6df" text-anchor="middle">按小数位换算</text></g>
+    <g id="bu-e5" class="h"><rect x="360" y="680" width="560" height="110" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5"/>
+      <text x="640" y="746" font-size="32" fill="#F0B90B" text-anchor="middle">手算：卖 1 WETH 的输出</text></g>
+    <text id="bu-vs" class="h" x="1010" y="746" font-size="34" font-weight="700" fill="#8a8f99" text-anchor="middle">对比</text>
+    <g id="bu-e6" class="h"><rect x="1100" y="680" width="460" height="110" rx="14" fill="#161a22" stroke="#8a8f99" stroke-width="2.5"/>
+      <text x="1330" y="746" font-size="32" fill="#e8e6df" text-anchor="middle">网页报价</text></g>
+    <text id="bu-e7" class="h" x="960" y="900" font-size="34" font-weight="700" fill="#FF9F43" text-anchor="middle">相差大？查代币顺序、小数位、是否走了别的池子</text>
+  </g>
+  <g id="bu-term" class="h">
+    <rect x="70" y="56" width="640" height="132" rx="14" fill="#161a22" stroke="#58C4DD" stroke-width="2.5" />
+    <text x="100" y="110" font-size="38" font-weight="700" fill="#e8e6df">转账收费代币 <tspan font-size="28" font-weight="400" fill="#8a8f99">Fee-on-transfer</tspan></text>
+    <text x="100" y="160" font-size="28" fill="#e8e6df">每次转账扣一部分，接收方实收更少</text>
+  </g>
+</g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      IN("#bu-hd", at(0, 0.02), 0.4);
+for (let i = 0; i < 6; i++) { IN(`#bu-ln${i}`, at(0, 0.04) + i * 0.08, 0.3); tl.fromTo(`#bu-r${i}`, { opacity: 0 }, { opacity: 0.4, duration: 0.3 }, at(0, 0.06) + i * 0.08); }
+const LITR = (i, t) => tl.to(`#bu-r${i}`, { opacity: 1, duration: 0.4 }, t);
+const DIMR = (i, t) => tl.to(`#bu-r${i}`, { opacity: 0.45, duration: 0.4 }, t);
+LITR(0, at(0, 0.12));
+tl.set("#bu-r0 .bu-c2, #bu-r0 .bu-c3", { opacity: 0 }, at(0, 0.1));
+tl.to("#bu-r0 .bu-c2", { opacity: 1, duration: 0.4 }, at(0, 0.32));
+tl.to("#bu-r0 .bu-c3", { opacity: 1, duration: 0.4 }, at(0, 0.62));
+tl.to("#bu-a0", { fill: "#ff8a80", duration: 0.3, yoyo: true, repeat: 1 }, at(0, 0.85));
+// L1
+DIMR(0, at(1, 0)); LITR(1, at(1, 0.03));
+IN("#bu-term", at(1, 0.06), 0.5);
+IN("#bu-x1", at(1, 0.12), 0.4);
+ARROW("#bu-x1a", at(1, 0.18), 0.6);
+tl.fromTo("#bu-x1n", { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: false }, at(1, 0.32));
+tl.set("#bu-x1n", { opacity: 0 }, at(1, 0.12));
+tl.to("#bu-x1n", { fill: "#ff8a80", duration: 0.3, yoyo: true, repeat: 3 }, at(1, 0.62));
+OUT("#bu-term", at(1, 0.96), 0.3);
+// L2
+OUT("#bu-x1", at(2, 0), 0.3);
+DIMR(1, at(2, 0)); LITR(2, at(2, 0.03));
+IN("#bu-x2", at(2, 0.3), 0.5, { y: 10 }, { y: 0 });
+tl.to("#bu-x2", { fill: "#ffd54a", duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.62));
+tl.to("#bu-r2", { opacity: 0.7, duration: 0.3, yoyo: true, repeat: 1 }, at(2, 0.85));
+// L3
+OUT("#bu-x2", at(3, 0), 0.3);
+DIMR(2, at(3, 0)); LITR(3, at(3, 0.03));
+IN("#bu-x3", at(3, 0.15), 0.5);
+tl.to("#bu-x3 tspan", { fill: "#ffd54a", duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.38));
+tl.to("#bu-x3 rect, #bu-x3 path", { y: 6, duration: 0.2, yoyo: true, repeat: 3 }, at(3, 0.6));
+tl.to("#bu-r3", { opacity: 0.7, duration: 0.3, yoyo: true, repeat: 1 }, at(3, 0.85));
+// L4
+OUT("#bu-x3", at(4, 0), 0.3);
+DIMR(3, at(4, 0)); LITR(4, at(4, 0.03)); LITR(5, at(4, 0.4));
+IN("#bu-x4", at(4, 0.45), 0.5);
+tl.fromTo("#bu-x4g", { attr: { width: 0 } }, { attr: { width: 220 }, duration: 0.8, immediateRender: false }, at(4, 0.6));
+// L5 checklist
+OUT("#bu-x4", at(5, 0), 0.3);
+OUT("#bu-h2, #bu-h3, .bu-c2, .bu-c3", at(5, 0), 0.4);
+for (let i = 0; i < 6; i++) tl.to(`#bu-ln${i}`, { attr: { x2: 560 }, duration: 0.6, ease: "power2.inOut" }, at(5, 0.03));
+tl.to("#bu-r0, #bu-r1, #bu-r2, #bu-r3, #bu-r4, #bu-r5", { opacity: 0.8, duration: 0.4 }, at(5, 0.05));
+IN("#bu-ct", at(5, 0.1), 0.5);
+for (let i = 0; i < 4; i++) { const t = at(5, 0.2 + i * 0.2); IN(`#bu-k${i}`, t, 0.4, { x: 14 }, { x: 0 }); tl.set(`#bu-kc${i}`, { opacity: 1 }, t + 0.4); DRAW(`#bu-kc${i}`, t + 0.4, 0.4); }
+// L6 hands-on
+OUT("#bu-tbl, #bu-cl", at(6, 0) - 0.38, 0.35);
+IN("#bu-e1", at(6, 0) - 0.02, 0.45);
+ARROW("#bu-ea1", at(6, 0.12), 0.5); IN("#bu-ea1t", at(6, 0.12), 0.4);
+IN("#bu-e2", at(6, 0.16), 0.5);
+ARROW("#bu-ea2", at(6, 0.24), 0.4);
+IN("#bu-e3", at(6, 0.26), 0.5);
+ARROW("#bu-ea3", at(6, 0.34), 0.4);
+IN("#bu-e4", at(6, 0.36), 0.5);
+IN("#bu-e5", at(6, 0.44), 0.5, { y: 14 }, { y: 0 });
+IN("#bu-vs", at(6, 0.5), 0.4);
+IN("#bu-e6", at(6, 0.54), 0.5, { y: 14 }, { y: 0 });
+tl.to("#bu-e5 rect, #bu-e6 rect", { stroke: "#FF9F43", duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.6));
+IN("#bu-e7", at(6, 0.7), 0.5, { y: 12 }, { y: 0 });
+tl.to("#bu-e1c path, #bu-e1c ellipse, #bu-e3 rect", { stroke: "#FF9F43", duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.84));
+tl.to("#bu-e7", { fill: "#ffd54a", duration: 0.3, yoyo: true, repeat: 1 }, at(6, 0.93));
+
+      tl.to("#bu-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#bu-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["bugs"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,155 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0f1117; overflow: hidden; }
+    #root svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #root text { font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    #root .mono, #root .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    #root .h { opacity: 0; }
+    #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  </style>
+  <!-- 场景 overview，id 前缀 ov- -->
+  <div id="root" data-composition-id="overview" data-duration="62.93" data-width="1920" data-height="1080">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ov-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#e8e6df" />
+        </marker>
+      </defs>
+      <defs>
+        <marker id="ov-arrb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#58C4DD" /></marker>
+        <marker id="ov-arrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99" /></marker>
+      </defs>
+      <g id="ov-all">
+        <g id="ov-dia">
+          <g id="ov-zone" class="h">
+            <rect x="100" y="220" width="1720" height="500" rx="22" fill="#58C4DD" fill-opacity="0.06" stroke="#58C4DD" stroke-width="3" />
+            <text x="130" y="272" font-size="34" font-weight="700" fill="#58C4DD">聚合器后端（Go）：只读、只构造交易</text>
+          </g>
+          <!-- L0 池子图 -->
+          <g id="ov-g0">
+            <g id="ov-grid" class="h">
+              <g stroke="#3a6f80" stroke-width="3">
+                <line x1="260" y1="440" x2="420" y2="360" /><line x1="260" y1="440" x2="420" y2="540" /><line x1="420" y1="360" x2="600" y2="440" /><line x1="420" y1="540" x2="600" y2="440" /><line x1="420" y1="540" x2="600" y2="620" /><line x1="600" y1="440" x2="760" y2="520" /><line x1="600" y1="620" x2="760" y2="520" /><line x1="420" y1="360" x2="600" y2="620" />
+              </g>
+              <g fill="#161a22" stroke="#58C4DD" stroke-width="3"><circle cx="260" cy="440" r="18" /><circle cx="420" cy="360" r="18" /><circle cx="420" cy="540" r="18" /><circle cx="600" cy="440" r="18" /><circle cx="600" cy="620" r="18" /><circle cx="760" cy="520" r="18" /></g>
+            </g>
+            <path id="ov-best" class="dr" pathLength="1" d="M260 440 L420 360 L600 440 L760 520" fill="none" stroke="#F0B90B" stroke-width="7" stroke-linejoin="round" />
+            <rect id="ov-sweep" class="h" x="210" y="320" width="60" height="330" rx="10" fill="#58C4DD" fill-opacity="0.18" />
+            <g id="ov-upd" class="h"><rect x="820" y="330" width="230" height="54" rx="27" fill="#2a2140" stroke="#B48EF0" stroke-width="2.5" /><text x="935" y="367" font-size="30" fill="#B48EF0" text-anchor="middle">每个区块更新</text></g>
+            <path id="ov-a0" class="dr h" pathLength="1" d="M790 520 H900" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ov-arrg)" />
+            <g id="ov-gas" class="h"><rect x="910" y="488" width="150" height="64" rx="14" fill="#161a22" stroke="#F0B90B" stroke-width="2.5" /><text x="985" y="531" font-size="32" font-weight="700" fill="#F0B90B" text-anchor="middle">扣 Gas</text></g>
+            <path id="ov-a1" class="dr h" pathLength="1" d="M1070 520 H1170" stroke="#8a8f99" stroke-width="3" fill="none" marker-end="url(#ov-arrg)" />
+            <g id="ov-best2" class="h"><rect x="1180" y="484" width="300" height="72" rx="14" fill="#161a22" stroke="#83C167" stroke-width="3" /><path d="M1204 520 L1220 538 L1250 502" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><text x="1270" y="532" font-size="34" font-weight="700" fill="#83C167">净输出最大</text></g>
+          </g>
+          <!-- L1 返回 calldata → 钱包 -->
+          <path id="ov-down" class="dr h" pathLength="1" d="M960 724 V804" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#ov-arrb)" />
+          <text id="ov-downl" class="h" x="985" y="776" font-size="30" fill="#58C4DD">返回 calldata</text>
+          <g id="ov-stamp" class="h"><rect x="700" y="738" width="226" height="58" rx="12" fill="#161a22" stroke="#83C167" stroke-width="3" /><path d="M720 767 L734 782 L758 752" fill="none" stroke="#83C167" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><text x="772" y="778" font-size="30" font-weight="700" fill="#83C167">模拟通过</text></g>
+          <g id="ov-wal" class="h"><rect x="680" y="814" width="560" height="118" rx="20" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><path d="M716 872 L732 890 L762 852" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><text x="990" y="886" font-size="34" font-weight="700" fill="#e8e6df" text-anchor="middle">用户钱包 · 签名并广播</text></g>
+          <g id="ov-key" class="h"><g fill="none" stroke="#8a8f99" stroke-width="4"><circle cx="1312" cy="870" r="18" /><path d="M1330 870 H1376 M1360 870 V884 M1372 870 V882" /></g><line x1="1296" y1="900" x2="1384" y2="842" stroke="#FC6255" stroke-width="5" stroke-linecap="round" /><text x="1400" y="882" font-size="30" fill="#8a8f99">不碰私钥</text></g>
+          <!-- L2 上排：两跳 -->
+          <g id="ov-b1" class="h"><rect x="150" y="300" width="320" height="130" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="310" y="362" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">10,000 USDC</text><text x="310" y="408" font-size="28" fill="#8a8f99" text-anchor="middle">输入</text></g>
+          <path id="ov-e1" class="dr h" pathLength="1" d="M478 365 H690" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#ov-arrb)" />
+          <text id="ov-e1l" class="h" x="585" y="344" font-size="30" fill="#e8e6df" text-anchor="middle">池 A 0.3%</text>
+          <g id="ov-b2" class="h"><rect id="ov-b2r" x="700" y="300" width="340" height="130" rx="16" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="870" y="362" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">4.9603 WETH</text><text x="870" y="408" font-size="28" fill="#8a8f99" text-anchor="middle">第 1 跳输出</text></g>
+          <path id="ov-e2" class="dr h" pathLength="1" d="M1048 365 H1250" stroke="#58C4DD" stroke-width="4" fill="none" marker-end="url(#ov-arrb)" />
+          <text id="ov-e2l" class="h" x="1150" y="344" font-size="30" fill="#e8e6df" text-anchor="middle">池 B 0.3%</text>
+          <g id="ov-b3" class="h"><rect x="1260" y="300" width="440" height="130" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text class="mono" x="1480" y="362" font-size="36" font-weight="700" fill="#F0B90B" text-anchor="middle">9,793.91 DAI</text><text x="1480" y="408" font-size="28" fill="#8a8f99" text-anchor="middle">方案输出</text></g>
+          <g id="ov-fee1" class="h"><circle cx="532" cy="406" r="13" fill="#F0B90B" /><text x="554" y="416" font-size="28" fill="#F0B90B">手续费</text></g>
+          <g id="ov-fee2" class="h"><circle cx="1097" cy="406" r="13" fill="#F0B90B" /><text x="1119" y="416" font-size="28" fill="#F0B90B">手续费</text></g>
+          <circle id="ov-dot" class="h" cx="478" cy="365" r="12" fill="#F0B90B" />
+          <!-- L3 下排：三样东西 -->
+          <g id="ov-c1" class="h"><rect id="ov-c1r" x="150" y="480" width="490" height="170" rx="16" fill="#161a22" stroke="#B48EF0" stroke-width="3" /><text x="190" y="555" font-size="36" font-weight="700" fill="#B48EF0">绑定区块 N</text><text x="190" y="610" font-size="30" fill="#8a8f99">状态快照的照片</text></g>
+          <g id="ov-c2" class="h"><rect x="690" y="480" width="490" height="170" rx="16" fill="#161a22" stroke="#F0B90B" stroke-width="3" /><text x="730" y="555" font-size="36" font-weight="700" fill="#F0B90B">扣 Gas 的净输出</text><text x="730" y="610" font-size="30" fill="#8a8f99">单路与拆单比较</text></g>
+          <g id="ov-c3" class="h"><rect x="1230" y="480" width="490" height="170" rx="16" fill="#161a22" stroke="#83C167" stroke-width="3" /><path d="M1275 520 L1305 532 V560 Q1305 585 1275 598 Q1245 585 1245 560 V532 Z" fill="#83C167" fill-opacity="0.2" stroke="#83C167" stroke-width="3" /><text class="mono" x="1325" y="555" font-size="34" font-weight="700" fill="#83C167">minOut 9,744.95</text><text x="1325" y="610" font-size="30" fill="#8a8f99">滑点 0.5% 的底线</text></g>
+          <!-- L4 minOut 写进交易 -->
+          <g id="ov-chip" class="h"><rect x="1212" y="744" width="146" height="46" rx="23" fill="#13261a" stroke="#83C167" stroke-width="2.5" /><text class="mono" x="1285" y="777" font-size="28" font-weight="700" fill="#83C167" text-anchor="middle">minOut</text></g>
+          <text id="ov-note" class="h" x="1800" y="1000" font-size="28" fill="#8a8f99" text-anchor="end">这里只画了一条路径；拆单时会有多条</text>
+        </g>
+        <!-- L5 回顾与本项目定位 -->
+        <g id="ov-s5">
+          <g id="ov-r1" class="h"><rect x="120" y="290" width="640" height="150" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" /><text x="160" y="358" font-size="36" font-weight="700" fill="#e8e6df">兑换公式 · 路由原理</text><text x="160" y="410" font-size="30" fill="#8a8f99">前面讲过</text></g>
+          <g id="ov-r2" class="h"><rect x="120" y="490" width="640" height="150" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="2.5" stroke-dasharray="12 8" /><text x="160" y="558" font-size="36" font-weight="700" fill="#e8e6df">意图交易 + Solver</text><text x="160" y="610" font-size="30" fill="#8a8f99">前面讲过 · 另一种模式</text></g>
+          <g id="ov-m1" class="h"><rect x="1060" y="290" width="560" height="130" rx="18" fill="#161a22" stroke="#58C4DD" stroke-width="3" /><text x="1340" y="368" font-size="36" font-weight="700" fill="#58C4DD" text-anchor="middle">后端：报价 + 构造交易</text></g>
+          <path id="ov-m2a" class="dr h" pathLength="1" d="M1340 426 V514" stroke="#8a8f99" stroke-width="4" fill="none" marker-end="url(#ov-arrg)" />
+          <g id="ov-m2" class="h"><rect x="1060" y="520" width="560" height="130" rx="18" fill="#161a22" stroke="#8a8f99" stroke-width="3" /><path d="M1110 584 L1128 604 L1160 564" fill="none" stroke="#83C167" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><text x="1370" y="598" font-size="36" font-weight="700" fill="#e8e6df" text-anchor="middle">用户钱包：签名并发送</text></g>
+          <text id="ov-mode" class="h" x="960" y="820" font-size="44" font-weight="700" fill="#83C167" text-anchor="middle">本项目：后端报价 → 用户自己发交易</text>
+        </g>
+      </g>
+      <g id="ov-term"></g>
+
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const C = /*CUES*/{}/*END*/;
+      const L = C.L, at = (i, f = 0) => L[i][0] + f * (L[i][1] - L[i][0]);
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, t, d = 0.7, from = {}, to = {}) => tl.fromTo(s, { opacity: 0, ...from }, { opacity: 1, duration: d, ease: "power3.out", ...to }, t);
+      const OUT = (s, t, d = 0.4) => tl.to(s, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const DRAW = (s, t, d = 0.8) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      // 带 marker-end 的箭头：class="dr h"，用 ARROW 同时画线并显形
+      const ARROW = (s, t, d = 0.6) => { tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t); DRAW(s, t, d); };
+      const COUNT = (sel, from, to, t, d = 1.2, fmt = v => Math.round(v)) => {
+        const o = { v: from }, el = document.querySelector(sel);
+        tl.fromTo(o, { v: from }, { v: to, duration: d, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = fmt(o.v); } }, t);
+      };
+
+      // L0 一句话：池子图 → 搜路径 → 扣 Gas → 净输出最大
+      IN("#ov-zone", at(0, 0), 0.7, { scale: 0.97, svgOrigin: "960 470" }, { scale: 1, svgOrigin: "960 470" });
+      IN("#ov-grid", at(0, 0.1), 0.6);
+      IN("#ov-upd", at(0, 0.16), 0.5, { x: -20 }, { x: 0 });
+      tl.to("#ov-upd rect", { strokeWidth: 5, duration: 0.25, yoyo: true, repeat: 1 }, at(0, 0.24));
+      IN("#ov-sweep", at(0, 0.34), 0.2);
+      tl.fromTo("#ov-sweep", { attr: { x: 210 } }, { attr: { x: 750 }, duration: 1.4, ease: "power1.inOut", immediateRender: false }, at(0, 0.34));
+      OUT("#ov-sweep", at(0, 0.34) + 1.4, 0.3);
+      tl.set("#ov-best", { opacity: 1 }, at(0, 0.48)); DRAW("#ov-best", at(0, 0.48), 0.8);
+      ARROW("#ov-a0", at(0, 0.6), 0.4); IN("#ov-gas", at(0, 0.64), 0.4, { y: 10 }, { y: 0 });
+      ARROW("#ov-a1", at(0, 0.76), 0.4); IN("#ov-best2", at(0, 0.8), 0.5, { scale: 0.85, svgOrigin: "1330 520" }, { scale: 1, svgOrigin: "1330 520" });
+      // L1 构造 calldata、模拟、交给钱包
+      ARROW("#ov-down", at(1, 0.05), 0.5); IN("#ov-downl", at(1, 0.1), 0.4);
+      IN("#ov-stamp", at(1, 0.3), 0.4, { scale: 1.4, svgOrigin: "813 767" }, { scale: 1, svgOrigin: "813 767" });
+      IN("#ov-wal", at(1, 0.5), 0.5, { y: 20 }, { y: 0 });
+      IN("#ov-key", at(1, 0.8), 0.5);
+      // L2 上排两跳（先收起 L0 的池子图）
+      OUT("#ov-g0", at(2, 0), 0.4);
+      IN("#ov-b1", at(2, 0.08), 0.5, { x: -20 }, { x: 0 });
+      ARROW("#ov-e1", at(2, 0.18), 0.5); IN("#ov-e1l", at(2, 0.2), 0.4);
+      IN("#ov-b2", at(2, 0.28), 0.5, { x: -20 }, { x: 0 });
+      ARROW("#ov-e2", at(2, 0.44), 0.5); IN("#ov-e2l", at(2, 0.46), 0.4);
+      IN("#ov-b3", at(2, 0.54), 0.5, { x: -20 }, { x: 0 });
+      IN("#ov-dot", at(2, 0.66), 0.15);
+      tl.fromTo("#ov-dot", { attr: { cx: 478 } }, { attr: { cx: 690 }, duration: 0.8, ease: "power1.inOut", immediateRender: false }, at(2, 0.66));
+      tl.to("#ov-b2r", { stroke: "#F0B90B", strokeWidth: 5, duration: 0.25, yoyo: true, repeat: 1 }, at(2, 0.66) + 0.8);
+      tl.set("#ov-dot", { attr: { cx: 1048 } }, at(2, 0.66) + 1.25);
+      tl.fromTo("#ov-dot", { attr: { cx: 1048 } }, { attr: { cx: 1250 }, duration: 0.8, ease: "power1.inOut", immediateRender: false }, at(2, 0.66) + 1.3);
+      OUT("#ov-dot", at(2, 0.66) + 2.1, 0.2);
+      IN("#ov-fee1", at(2, 0.84), 0.4, { y: -12 }, { y: 0 });
+      IN("#ov-fee2", at(2, 0.9), 0.4, { y: -12 }, { y: 0 });
+      // L3 下排三样东西
+      IN("#ov-c1", at(3, 0.12), 0.5, { y: 20 }, { y: 0 });
+      IN("#ov-c2", at(3, 0.42), 0.5, { y: 20 }, { y: 0 });
+      IN("#ov-c3", at(3, 0.66), 0.5, { y: 20 }, { y: 0 });
+      tl.to("#ov-c3 rect", { fill: "#13261a", duration: 0.5 }, at(3, 0.9));
+      // L4 绑定区块 · 先模拟 · minOut 写进交易
+      tl.to("#ov-c1r", { fill: "#2a2140", duration: 0.4 }, at(4, 0.03));
+      tl.to("#ov-stamp rect", { fill: "#13261a", duration: 0.4 }, at(4, 0.18));
+      IN("#ov-chip", at(4, 0.36), 0.2);
+      tl.fromTo("#ov-chip", { x: 520, y: -260 }, { x: 0, y: 0, duration: 1.0, ease: "power2.inOut", immediateRender: false }, at(4, 0.36));
+      tl.to("#ov-chip rect", { strokeWidth: 5, duration: 0.25, yoyo: true, repeat: 1 }, at(4, 0.36) + 1.0);
+      IN("#ov-note", at(4, 0.72), 0.5);
+      // L5 前面讲过的部分 + 本项目定位
+      OUT("#ov-dia", at(5, 0), 0.5);
+      IN("#ov-r1", at(5, 0.08), 0.5, { x: -20 }, { x: 0 });
+      IN("#ov-r2", at(5, 0.26), 0.5, { x: -20 }, { x: 0 });
+      IN("#ov-m1", at(5, 0.5), 0.5, { y: 14 }, { y: 0 });
+      ARROW("#ov-m2a", at(5, 0.6), 0.4);
+      IN("#ov-m2", at(5, 0.66), 0.5, { y: 14 }, { y: 0 });
+      IN("#ov-mode", at(5, 0.76), 0.6, { y: 14 }, { y: 0 });
+
+      tl.to("#ov-all", { opacity: 0, filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, C.d - 0.5);
+      tl.to("#ov-term", { opacity: 0, duration: 0.3 }, C.d - 0.5);
+      window.__timelines["overview"] = tl;
+    })();
+  </script>
+</template>

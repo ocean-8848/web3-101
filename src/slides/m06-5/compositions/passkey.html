@@ -8,7 +8,7 @@
     #root .dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
   </style>
   <!-- 场景 passkey，id 前缀 py- -->
-  <div id="root" data-composition-id="passkey" data-duration="72.52" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="passkey" data-duration="72.44" data-width="1920" data-height="1080">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="py-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -37,6 +37,7 @@
 <g id="py-sig" class="h" ><rect x="1380" y="480" width="420" height="100" rx="12" fill="#58C4DD" fill-opacity="0.12" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="1590" y="542" font-size="32" fill="#58C4DD" text-anchor="middle" >signature</text></g>
 <g id="py-h" class="h" ><rect x="1420" y="300" width="380" height="100" rx="12" fill="#58C4DD" fill-opacity="0.1" stroke="#58C4DD" stroke-width="3" /><text class="mono" x="1610" y="362" font-size="32" fill="#58C4DD" text-anchor="middle" >userOpHash</text></g>
 <path id="py-f1" class="dr h" pathLength="1" d="M1415 350 L1192 350" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#py-arr)"/>
+<g id="py-f1l" class="h" ><text class="mono" x="1303" y="326" font-size="28" fill="#58C4DD" text-anchor="middle" >base64url</text></g>
 <g id="py-c" class="h" ><rect x="860" y="300" width="320" height="100" rx="12" fill="#161a22" fill-opacity="1" stroke="#58C4DD" stroke-width="3" /><text x="1020" y="362" font-size="32" fill="#e8e6df" text-anchor="middle" font-weight="700" >挑战值</text></g>
 <path id="py-f2" class="dr h" pathLength="1" d="M855 350 L470 350" fill="none" stroke="#e8e6df" stroke-width="3" marker-end="url(#py-arr)"/>
 <g id="py-f2l" class="h" ><text x="660" y="326" font-size="28" fill="#e8e6df" text-anchor="middle" >请设备签名</text></g>
@@ -106,14 +107,14 @@ IN("#py-sig", at(1, 0.8), 0.4, { x: 20 }, { x: 0 }); IN("#py-sg", at(1, 0.88), 0
 // L2
 OUT("#py-ar1,#py-ar2,#py-eoa,#py-ex,#py-sa,#py-ok,#py-sig,#py-sg,#py-pk,#py-wa", at(2, 0), 0.4);
 IN("#py-h", at(2, 0.06), 0.4);
-ARROW("#py-f1", at(2, 0.16), 0.4); IN("#py-c", at(2, 0.2), 0.4);
+ARROW("#py-f1", at(2, 0.16), 0.4); IN("#py-f1l", at(2, 0.18), 0.4); IN("#py-c", at(2, 0.2), 0.4);
 ARROW("#py-f2", at(2, 0.32), 0.5); IN("#py-f2l", at(2, 0.36), 0.4);
 POP("#py-fp", at(2, 0.45), "240 420", 1.15);
 ARROW("#py-f3", at(2, 0.56), 0.4); IN("#py-o", at(2, 0.6), 0.5);
 IN("#py-ol", at(2, 0.72), 0.4);
 IN("#py-not", at(2, 0.82), 0.4);
 // L3
-OUT("#py-h,#py-f1,#py-c,#py-f2,#py-f2l,#py-f3,#py-o,#py-ol,#py-not", at(3, 0), 0.4);
+OUT("#py-h,#py-f1,#py-f1l,#py-c,#py-f2,#py-f2l,#py-f3,#py-o,#py-ol,#py-not", at(3, 0), 0.4);
 IN("#py-k", at(3, 0.05), 0.5);
 [0, 1, 2].forEach(i => { IN(`#py-r${i}`, at(3, 0.1 + i * 0.03), 0.4); IN(`#py-v${i}`, at(3, [0.22, 0.5, 0.8][i]), 0.3, { scale: 1.6, svgOrigin: `712 ${458 + i * 140}` }, { scale: 1, svgOrigin: `712 ${458 + i * 140}` }); });
 // L4
